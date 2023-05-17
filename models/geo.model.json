@@ -1,0 +1,59 @@
+{
+ "#": "Tight Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946)",
+ "%": {
+    "position": { "@": [ 0.0 ], "ge": 2, "le": 3 },
+    "coord_array": { "@": [ "$position" ], "ge": 2 },
+    "linear_ring": { "@": [ "$position" ], "ge": 4 },
+    "Point": {
+      "type": "Point",
+      "coordinates": "$position",
+      "?bbox": [ 0.0 ]
+    },
+    "MultiPoint": {
+      "type": "MultiPoint",
+      "coordinates": [ "$position" ],
+      "?bbox": [ 0.0 ]
+    },
+    "LineString": {
+      "type": "LineString",
+      "coordinates": "$coord_array",
+      "?bbox": [ 0.0 ]
+    },
+    "MultiLineString": {
+      "type": "MultiLineString",
+      "coordinates": [ "$coord_array" ],
+      "?bbox": [ 0.0 ]
+    },
+    "Polygon": {
+      "type": "Polygon",
+      "coordinates": [ "$linear_ring" ],
+      "?bbox": [ 0.0 ]
+    },
+    "MultiPolygon": {
+      "type": "MultiPolygon",
+      "coordinates": [ [ "$linear_ring" ] ],
+      "?bbox": [ 0.0 ]
+    },
+    "geometry": {
+      "^": [ "$Point", "$MultiPoint", "$LineString", "$MultiLineString", "$Polygon", "$MultiPolygon" ]
+    },
+    "GeometryCollection": {
+      "type": "GeometryCollection",
+      "geometries": [ "$geometry" ],
+      "?bbox": [ 0.0 ]
+    },
+    "Feature": {
+      "type": "Feature",
+      "geometry": { "|": [ null, "$geometry", "$GeometryCollection" ] },
+      "properties": { "|": [ null, { "": "$ANY" } ] },
+      "?id": { "|": [ "", 0.0 ] },
+      "?bbox": [ 0.0 ]
+    },
+    "FeatureCollection": {
+      "type": "FeatureCollection",
+      "features": [ "$Feature" ],
+      "?bbox": [ 0.0 ]
+    }
+  },
+  "^": [ "$geometry", "$GeometryCollection", "$Feature", "$FeatureCollection" ]
+}

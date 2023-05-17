@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["json_model"]
+
+[project]
+name = "json_model"
+authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
+description = "JSON Model Tools"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "CC0-1.0" }
+classifiers = [ "Topic :: Software Development" ]
+version = "0.9"
+
+[project.scripts]
+c-check-model = "json_model:c_check_model"
+model2schema = "json_model:model2schema_script"
+schema2model = "json_model:schema2model_script"

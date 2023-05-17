@@ -1,0 +1,38 @@
+{
+  "#": "Self-Validating JSON Model",
+  "$": "Model",
+  "%": {
+    "val": { "|":  [ null, true, 0, 0.0, "" ] },
+    "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
+    "none": { "|": [ ] },
+    "meta": { "|": [ "", { "": "$any" } ] },
+    "Ref": "^\\$.+$",
+    "Array": [ "$Model" ],
+    "Constraint": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_@": "$Model",
+      "^(le|ge|lt|gt)$": { "|": [ 0, 0.0, "" ] },
+      "^(eq|ne)$": "$val",
+      "?distinct": true
+    },
+    "Disjunction": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_|": ["$Model"]
+    },
+    "Conjunction": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_&": ["$Model"]
+    },
+    "Exclusive": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_^": ["$Model"]
+    },
+    "Addition": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_+": ["$Model"]
+    },
+    "Object": {
+      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "": "$Model",
+      "^[|@&^+]$": "$none"
+    }
+  },
+  "|": [
+    "$Ref", "$val", "$Constraint", "$Array", "$Object",
+    "$Disjunction", "$Conjunction", "$Exclusive", "$Addition"
+  ]
+}

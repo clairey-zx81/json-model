@@ -1,0 +1,110 @@
+{
+  "#": {
+    "$$": "https://json-model.org/json-schema-next.model.json",
+    "#": "Fuzzy JSON Model for JSON Schema Next",
+    "options": ["loose-int"]
+  },
+  "$": "Schema",
+  "%": {
+    "core": {
+      "?$id": "$URI-REFERENCE",
+      "?$schema": "$URI",
+      "?$ref": "$URI-REFERENCE",
+      "?$anchor": "$URI-REFERENCE",
+      "?$dynamicRef": "$URI-REFERENCE",
+      "?$dynamicAnchor": "$URI-REFERENCE",
+      "?$vocabulary": { "$URI": true },
+      "?$comment": "",
+      "?$defs": { "": "$Schema" }
+    }, 
+    "meta": {
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": ["$ANY"]
+    },
+    "content": {
+      "?contentEncoding": "",
+      "?contentMediaType": "",
+      "?contentSchema": "$Schema"
+    },
+    "unevaluated": {
+      "?unevaluatedItems": "$Schema",
+      "?unevaluatedProperties": "$Schema"
+    },
+    "format": { "?format": "" },
+    "simpleTypes": { 
+      "|": ["array", "boolean", "integer", "null", "number", "object", "string"]
+    },
+    "simpleTypesArray": {
+      "@": ["$simpleTypes"], "ge": 1, "distinct": true
+    },
+    "stringArray": { "@": [""], "distinct": true },
+    "nonNegativeInteger": {"@": 0, "ge": 0 },
+    "validation": {
+      "?type": {"|": ["$simpleTypes", "$simpleTypesArray"]},
+      "?const": "$ANY",
+      "?enum": ["$ANY"],
+      "?multipleOf": {"@": 0.0, "gt": 0},
+      "?maximum": 0.0,
+      "?exclusiveMaximum": 0.0,
+      "?minimum": 0.0,
+      "?exclusiveMinimum": 0.0,
+      "?maxLength": "$nonNegativeInteger",
+      "?minLength": "$nonNegativeInteger",
+      "?pattern": "",
+      "?maxItems": "$nonNegativeInteger",
+      "?minItems": "$nonNegativeInteger",
+      "?uniqueItems": true,
+      "?maxContains": "$nonNegativeInteger",
+      "?minContains": "$nonNegativeInteger",
+      "?maxProperties": "$nonNegativeInteger",
+      "?minProperties": "$nonNegativeInteger",
+      "?required": "$stringArray",
+      "?dependentRequired": { "": "$stringArray" }
+    },
+    "schemaArray": { "@": ["$Schema"], "ge": 1 },
+    "applicator": {
+      "?prefixItems": "$schemaArray",
+      "?items": "$Schema",
+      "?contains": "$Schema",
+      "?additionalProperties": "$Schema",
+      "?properties": { "": "$Schema" },
+      "?patternProperties": { "": "$Schema" },
+      "?dependentSchemas": { "": "$Schema" },
+      "?propertyDependencies": { "": {"": "$Schema" }},
+      "?propertyNames": "$Schema",
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?not": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray"
+    },
+    "deprecated": {
+      "?definitions": { "": "$Schema" },
+      "?dependencies": { "": {"|": [ "$Schema", "$stringArray" ] }}
+    },
+    "fuzzy": {
+      "": "$ANY"
+    },
+    "ObjectSchema": {
+      "+": [ 
+        "$core",
+        "$applicator",
+        "$unevaluated",
+        "$validation",
+        "$meta",
+        "$format",
+        "$content",
+        "$deprecated",
+        "$fuzzy"
+      ]
+    }
+  },
+  "|": [ true, "$ObjectSchema" ]
+}

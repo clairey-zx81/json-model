@@ -1,0 +1,96 @@
+{
+  "$": "Schema",
+  "#": "Tight JSON Model for JSON Schema 2020-12",
+  "%": {
+    "posInt": { "@": 0, "ge": 0 },
+    "core": {
+      "?$id": "$URI-REFERENCE",
+      "?$schema": "$URI",
+      "?$ref": "$URI-REFERENCE",
+      "?$anchor": "$URI-REFERENCE",
+      "?$dynamicRef": "$URI-REFERENCE",
+      "?$dynamicAnchor": "$URI-REFERENCE",
+      "?$vocabulary": { "$URI": true },
+      "?$comment": "",
+      "?$defs": { "": "$Schema" }
+    }, 
+    "meta": {
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": ["$ANY"]
+    },
+    "Null": { "type": "_null" },
+    "Boolean": { "type": "_boolean" },
+    "Number": {
+      "type": { "|": [ "_integer", "_number" ] },
+      "?multipleOf": {"@": 0.0, "gt": 0},
+      "?maximum": 0.0,
+      "?exclusiveMaximum": 0.0,
+      "?minimum": 0.0,
+      "?exclusiveMinimum": 0.0
+    },
+    "String": {
+      "type": "_string",
+      "?contentEncoding": "",
+      "?contentMediaType": "",
+      "?contentSchema": "$Schema",
+      "?format": "",
+      "?maxLength": "$posInt",
+      "?minLength": "$posInt",
+      "?pattern": "$REGEX"
+    },
+    "stringArray": { "@": [""], "ge": 1 },
+    "schemaArray": { "@": ["$Schema"], "ge": 1 },
+    "Array": {
+      "type": "_array",
+      "?maxItems": "$posInt",
+      "?minItems": "$posInt",
+      "?uniqueItems": true,
+      "?contains": "$Schema",
+      "?maxContains": "$posInt",
+      "?minContains": "$posInt",
+      "?prefixItems": "$schemaArray",
+      "?items": "$Schema",
+      "?unevaluatedItems": "$Schema"
+    },
+    "Object": {
+      "type": "_object",
+      "?properties": { "": "$Schema" },
+      "?required": "$stringArray",
+      "?additionalProperties": "$Schema",
+      "?maxProperties": "$posInt",
+      "?minProperties": "$posInt",
+      "?dependentRequired": { "": "$stringArray" },
+      "?unevaluatedProperties": "$Schema",
+      "?patternProperties": { "$REGEX": "$Schema" },
+      "?propertyNames": "$Schema",
+      "?dependentSchemas": { "": "$Schema" }
+    },
+    "Misc": {
+      "?const": "$ANY",
+      "?enum": ["$ANY"],
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?not": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray"
+    },
+    "TightSchema": {
+      "^": [ "$Null", "$Boolean", "$Number", "$String", "$Array", "$Object", "$Misc" ]
+    },
+    "ObjectSchema": {
+      "+": [ 
+        "$core",
+        "$meta",
+        "$TightSchema"
+      ]
+    }
+  },
+  "|": [ true, "$ObjectSchema" ]
+}

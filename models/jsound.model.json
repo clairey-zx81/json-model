@@ -1,0 +1,72 @@
+{
+  "#": "JSON Model for JSound (DOES NOT WORK, THEIR META SEEMS BROKEN)",
+  "%": {
+    "Schema": {
+      "?metadata": {
+        "?name": "",
+        "?previous": "",
+        "?date": "",
+        "?authors": [ "" ]
+      },
+      "types": [ "$Type" ]
+    },
+    "Type": { "|": [ "$Atomic", "$Object", "$Array", "$Union" ] },
+    "atomic-types": { "|": [
+        "string", "decimal", "integer", "double", "boolean", "anyURI",
+        "base64Binary", "hexBinary", "date", "dateTime", "time", "dateTimeStamp",
+        "duration", "null"
+      ]
+    },
+    "atomic": { "|": [ null, true, 0, 0.0, "" ] },
+    "Atomic": {
+      "?name": "",
+      "kind": "atomic",
+      "#": "could there be derived atomics as well?",
+      "baseType": "$atomic-types",
+      "?pattern": "",
+      "?length": 0,
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?totalDigits": 0,
+      "?fractionDigits": 0,
+      "?maxInclusive": "$atomic",
+      "?maxExclusive": "$atomic",
+      "?minInclusive": "$atomic",
+      "?minExclusive": "$atomic",
+      "?enumeration": [ "$atomic" ],
+      "?explicitTypeZone": { "|": [ "required", "prohibited", "optional" ] }
+    },
+    "Object": {
+      "?name": "",
+      "kind": "object",
+      "?baseType": "",
+      "?content": [ "$Fields" ],
+      "?closed": true
+    },
+    "Fields": {
+      "name": "",
+      "type": "$type-or-ref",
+      "?required": true,
+      "?default": "$ANY",
+      "?unique": true
+    },
+    "Array": {
+       "?name": "",
+       "kind": "array",
+       "?baseType": "",
+       "#": "WTF about 'content'?",
+       "?content":  "$type-or-ref",
+       "?minLength": 0,
+       "?maxLength": 0
+    },
+    "Union": {
+       "#": "jsound.jsound.json does not say that it is a type…",
+       "name": "",
+       "kind": "union",
+       "?baseType": "",
+       "content": [ "$type-or-ref" ]
+    },
+    "type-or-ref": { "|": [ "", "$Type" ] }
+  },
+  "@": "$Schema"
+}
