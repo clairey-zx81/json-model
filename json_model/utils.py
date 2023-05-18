@@ -134,15 +134,17 @@ def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others
 
 
 def is_constructed(model):
+    """Tell whether model is constructed, i.e. uses some operator."""
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
 
 def _rec_merge_models(currents, models: list[any]):
+    """Remove merge operator (+) into current."""
     if not models:
         return currents
     # else we have models to merge
-    raise ModelError("not implemeted yet")
+    raise ModelError("not implemented yet")
 
 
 def merge_complex_models(models: list[any]) -> dict[any]:
@@ -153,8 +155,18 @@ def merge_complex_models(models: list[any]) -> dict[any]:
         raise ModelError(f"empty models to merge")
 
     constructed = filter(is_constructed, models)
+
     raise ModelError("not implemeted yet")
 
+def merge_model(model):
+    if not isinstance(model, dict):
+        return model
+    if "+" in model:
+        models = model["+"]
+        if not isinstance(models, (tuple, list)):
+            raise ModelError(f"merge expects a list: {type(models)}")
+        model = {}
+    raise ModelError("not implemeted yet")
 
 # TODO add path?
 def merge_simple_models(models: list[any]) -> Object:
@@ -193,7 +205,7 @@ def merge_simple_models(models: list[any]) -> Object:
         for prop, mod in ma.items():
             if prop in must:
                 if not same_model(mod, must[prop]):  # ???
-                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m}") 
+                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m}")
                 # else pass
             elif prop in may:
                 if not same_model(mod, may[prop]):
@@ -383,7 +395,7 @@ def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
     depth = _json_metrics(data, counts, skip_metadata, json_type)
     metrics = (
         depth,
-        counts["array"] + 2* counts["object"], 
+        counts["array"] + 2* counts["object"],
         counts["null"] + counts["boolean"] + counts["integer"] +  counts["number"] + counts["string"],
         sum(_COSTS[k] * counts[k] for k in _COSTS.keys()),
         len(json.dumps(data)),
