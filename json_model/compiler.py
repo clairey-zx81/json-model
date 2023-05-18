@@ -60,11 +60,6 @@ class CompileModel:
             "gt": self._lambda_gt,
         }
 
-        self._BOOL_LAMBDAS = {
-            "distinct": self._distinct,
-            "invalid": self._invalid
-        }
-
         # predefs
         self._defs = ModelDefs(self._raw_compile)
         self._defs.set("ANY", lambda _v, _p: True, "accept anything")
@@ -130,19 +125,12 @@ class CompileModel:
     def _lambda_gt(self, val):
         return lambda v, p: v > val or self._no(p, f"gt {val} failed")
 
-    def _lambda_mo(self, val):
-        # type check needed to avoid accepting bool
-        return lambda v, p: type(v) in (int, float) and v % val == 0 or self._no(p, f"mo {val} failed")
-
-    def _lambda_re(self, val):
-        matcher = re.compile(val).search
-        return lambda v, p: isinstance(v, str) and matcher(v) is not None or self._no(p, f"re {val} failed")
+    # def _lambda_mo(self, val):
+    #     # type check needed to avoid accepting bool
+    #     return lambda v, p: type(v) in (int, float) and v % val == 0 or self._no(p, f"mo {val} failed")
 
     def _distinct(self):
         return lambda v, p: distinct_values(v) or self._no(p, "distinct failed")
-
-    def _invalid(self):
-        return lambda _, p: self._no(p, "invalid path")
 
     def _is_vartuple(self, model: ModelType) -> bool:
         """Is this model a variable-length tuple.
@@ -471,27 +459,21 @@ class CompileModel:
                     checks_val.append(lmd(vc))
                 else:
                     raise ModelError(f"unexpected type for {kc} {ttype}: {tvc}")
-            elif kc == "in":
-                if ttype not in (str, list, tuple):
-                    raise ModelError(f"unexpected type for {kc}: {ttype}")
-                item_filter = self._raw_compile(vc)
-            elif kc == "mo":
-                if type(vc) not in (int, float):
-                    raise ModelError(f"unexpected type for mo denominator: {type(vc)}")
-                if ttype not in (int, float):
-                    raise ModelError(f"unexpected type for mo numerator: {ttype}")
-                checks_val.append(self._lambda_mo(vc))
-            elif kc == "prop":
-                if not isinstance(vc, str):
-                    raise ModelError(f"unexpected type for prop: {type(vc)}")
-                if vc not in self._BOOL_LAMBDAS:
-                    raise ModelError(f"unexpected prop: {vc}")
-                checks_val.append(self._BOOL_LAMBDAS[vc]())
+            # elif kc == "in":
+            #     if ttype not in (str, list, tuple):
+            #         raise ModelError(f"unexpected type for {kc}: {ttype}")
+            #     item_filter = self._raw_compile(vc)
+            # elif kc == "mo":
+            #     if type(vc) not in (int, float):
+            #         raise ModelError(f"unexpected type for mo denominator: {type(vc)}")
+            #     if ttype not in (int, float):
+            #         raise ModelError(f"unexpected type for mo numerator: {ttype}")
+            #     checks_val.append(self._lambda_mo(vc))
             elif kc == "distinct":
                 if not isinstance(vc, bool):
                     raise ModelError(f"unexpected type for distinct: {type(vc)}")
                 if vc:
-                    checks_val.append(self._BOOL_LAMBDAS["distinct"]())
+                    checks_val.append(self._distinct())
             # OTHERS?
             else:
                 raise ModelError(f"unexpected constraint: {kc}")
@@ -687,7 +669,7 @@ class CompileModel:
             return lambda v, p: isinstance(v, str) and v == name or self._no(p, f"expecting string {name}")
         elif char == "^":
             check_re = re.compile(model).search
-            return lambda v, p: isinstance(v, str) and check_re(v) or self._no(p, f"expecting regex {model}")
+            return lambda v, p: isinstance(v, str) and check_re(v) is not None or self._no(p, f"expecting regex {model}")
         else:
             return lambda v, p: isinstance(v, str) and v == model or self._no(p, f"expecting string {model}")
 

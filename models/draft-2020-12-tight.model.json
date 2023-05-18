@@ -82,15 +82,16 @@
       "?oneOf": "$schemaArray"
     },
     "TightSchema": {
-      "^": [ "$Null", "$Boolean", "$Number", "$String", "$Array", "$Object", "$Misc" ]
-    },
-    "ObjectSchema": {
-      "+": [ 
-        "$core",
-        "$meta",
-        "$TightSchema"
+      "^": [
+        { "+": [ "$core", "$meta", "$Null" ] },
+        { "+": [ "$core", "$meta", "$Boolean" ] },
+        { "+": [ "$core", "$meta", "$Number" ] },
+        { "+": [ "$core", "$meta", "$String" ] },
+        { "+": [ "$core", "$meta", "$Array" ] },
+        { "+": [ "$core", "$meta", "$Object" ] },
+        { "+": [ "$core", "$meta", "$Misc" ] }
       ]
     }
   },
-  "|": [ true, "$ObjectSchema" ]
+  "|": [ true, "$TightSchema" ]
 }
