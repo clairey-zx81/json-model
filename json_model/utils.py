@@ -256,18 +256,17 @@ class ModelDefs:
     """Hold current model definitions."""
 
     def __init__(self, compiler: Compiler=lambda _: None):
-        # attributes
         self._compiler = compiler
         self._models: dict[str, Model] = {}
-        # json -> name?
 
     def set(self, name: str, model: ModelType|CheckFun, doc: str=None):
         """Add or override named JSON model."""
         if callable(model):
             m = Model(model, None, None, doc)
         else:
+            # FIXME warn on redefinitions? forbid? scope?
             m = Model(self._compiler(model), model, json.dumps(model), doc)
-        # FIXME warn on redefinitions?
+
         self._models[name] = m
 
     def get(self, name: str) -> CheckFun:
