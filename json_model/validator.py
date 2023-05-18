@@ -262,7 +262,7 @@ class DSV:
         elif "+" in model:
             assert set(model.keys()).issubset({"$", "%", "#", "+"})
             models = model["+"]
-            assert isinstance(models, (list, tuple)), f"illegal addition: {models}"
+            assert isinstance(models, (list, tuple)), f"illegal addition: {models} ({type(models)})"
             # very costly: object models are merged on each comparison...
             return self.check(value, utils.merge_simple_models(models))
 

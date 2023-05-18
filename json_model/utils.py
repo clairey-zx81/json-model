@@ -176,7 +176,9 @@ def merge_simple_models(models: list[any]) -> Object:
     if not isinstance(models, (list, tuple)):
         raise ModelError(f"unexpected models to merge: {models} (type{models})")
     if len(models) == 0:
-        raise ModelError(f"empty models to merge")
+        # raise ModelError(f"empty models to merge")
+        return "$NONE"
+    # FIXME must follow references!
     if not all(map(lambda m: isinstance(m, dict), models)):
         raise ModelError(f"can only merge dicts")
     if any(map(is_constructed, models)):

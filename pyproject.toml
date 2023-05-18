@@ -21,6 +21,7 @@ dev = [ "jschon", "pytest" ]
 
 [project.scripts]
 c-check-model = "json_model:c_check_model"
+v-check-model = "json_model:v_check_model"
 model2schema = "json_model:model2schema_script"
 schema2model = "json_model:schema2model_script"
 
