@@ -37,22 +37,16 @@ class DSV:
 
         # defined "<name>": check_value_fun(v)
         self._defs = ModelDefs(compiler=lambda m: lambda v: self.check(v, m))
-        self.set("any", lambda _: True)
-        self.set("none", lambda _: False)
-        self.set("regex", utils.is_regex)
-        self.set("uri", lambda s: isinstance(s, str))
-        self.set("uri-reference", lambda s: isinstance(s, str))
+        self.set("ANY", lambda _: True)
+        self.set("NONE", lambda _: False)
+        self.set("REGEX", utils.is_regex)
+        self.set("URI", lambda s: isinstance(s, str))
+        self.set("URL-REFERENCE", lambda s: isinstance(s, str))
 
     def _dollar(self, name: str, val: ValueType) -> bool:
         """Handle "$name"."""
         if name in self._defs:
             return self._defs[name](val)
-        elif name == "true":
-            return isinstance(val, bool) and val
-        elif name == "false":
-            return isinstance(val, bool) and not val
-        elif re.match(r"^\d+$", name):
-            return type(val) == int and val == int(name)
         else:
             raise ModelError(f"unexpected name: {name}")
 
@@ -76,7 +70,7 @@ class DSV:
         #     for v in value:
         #         if self.check(v, imodel):
         #             ivalue += 1
-        if submodel == "$any":  # FIXME handle $ here?
+        if submodel == "$ANY":  # FIXME handle $ here?
             ivalue = None
         elif type(submodel) in (list, tuple, dict, str):
             ivalue, has_nb = len(value), True
@@ -159,11 +153,11 @@ class DSV:
         if "distinct" in model:
             assert isinstance(model["distinct"], bool), "expecting a boolean value"
             assert isinstance(value, (list, tuple, str)), "distinct on iterables"
-            if model[distinct] and not distinct_values(value):
+            if model["distinct"] and not distinct_values(value):
                 return False
         return True
 
-    def _object_value_model_check(self, value, must, may, maybe, others) -> bool:
+    def _object_value_model_check(self, value, must, may, maybe, regex, others) -> bool:
 
         # for checking that all mandatory props are there
         must_see = len(must)
@@ -190,6 +184,15 @@ class DSV:
                         if not self.check(val, maybe[name]):
                             return False
                         break
+                # then regex
+                if not checked:
+                    for r in regex:
+                        if re.match(r, key):
+                            checked = True
+                            if not self.check(val, regex[r]):
+                                return False
+                            break
+                # then others
                 if not checked:
                     # try catch all case
                     if others:
@@ -198,6 +201,7 @@ class DSV:
                     else:
                         # unexpected property name
                         return False
+    
         # all properties and values are checked
 
         # return whether all mandatory properties were seen
@@ -307,12 +311,14 @@ class DSV:
             elif c == "_":
                 return isinstance(value, str) and name == value
             elif c == "^":
-                return isinstance(value, str) and re.match(model, value)
+                return isinstance(value, str) and re.match(model, value) is not None
             elif c == "=":
                 if name == "null":
                     return value is None
-                elif name in ("true", "false"):
-                    return isinstance(value, bool) and value == bool(name)
+                elif name == "true":
+                    return isinstance(value, bool) and value 
+                elif name == "false":
+                    return isinstance(value, bool) and not value 
                 elif re.match(r"^[0-9]+$", name):
                     return isinstance(value, int) and value == int(name)
                 else:

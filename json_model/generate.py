@@ -132,7 +132,7 @@ def schema2model(schema, path: str=""):
 
     # 4.3.2 Boolean JSON Schemas
     if isinstance(schema, bool):
-        return "$any" if schema else "$none"
+        return "$ANY" if schema else "$NONE"
 
     assert isinstance(schema, dict), path
 
@@ -302,7 +302,7 @@ def schema2model(schema, path: str=""):
                         constraints["ge"] = len(model) - 1
                     return buildModel(model, constraints, defs, sharp)
                 else:
-                    model.append("$any")
+                    model.append("$ANY")
                     if not constraints:
                         constraints["ge"] = len(model) - 1
                     return buildModel(model, constraints, defs, sharp)
@@ -315,7 +315,7 @@ def schema2model(schema, path: str=""):
             elif "contains" in schema:
                 # NO contains/items mixing yet
                 assert only(schema, "type", "contains", "minContains", "maxContains", "uniqueItems", *IGNORE), path
-                model = { "@": ["$any"], "in": schema2model(schema["contains"], path + "/contains") }
+                model = { "@": ["$ANY"], "in": schema2model(schema["contains"], path + "/contains") }
                 if "minContains" in schema:
                     mini = schema["minContains"]
                     assert type(mini) == int, path
@@ -326,7 +326,7 @@ def schema2model(schema, path: str=""):
                     model["le"] = maxi
                 return buildModel(model, constraints, defs, sharp)
             else:
-                return buildModel([ "$any" ], constraints, defs, sharp)
+                return buildModel([ "$ANY" ], constraints, defs, sharp)
         elif ts == "object":
             # handle meta data
             assert only(schema, "type", "properties", "additionalProperties", "required",
@@ -360,8 +360,8 @@ def schema2model(schema, path: str=""):
                     pat = pnames["pattern"]
                     assert isinstance(pat, str), path
                     name = new_def()
-                    defs[name] = { "@": "", "re": pat }
-                    model[f"${name}"] = "$any"
+                    defs[name] = pat if pat[0] == "^" else f"^.*{pat}"
+                    model[f"${name}"] = "$ANY"
                 # else nothing?!
             if "properties" in schema:
                 props = schema["properties"]
@@ -376,20 +376,20 @@ def schema2model(schema, path: str=""):
                     ap = schema["additionalProperties"]
                     if isinstance(ap, bool):
                         if ap:
-                            model[""] = "$any"
+                            model[""] = "$ANY"
                         # else nothing else is allowed
                     elif isinstance(ap, dict):
                         model[""] = schema2model(ap, path + "/additionalProperties")
                     else:
                         assert False, f"not implemented yet, {path}"
                 else:
-                    model[""] = "$any"
+                    model[""] = "$ANY"
             else:
                 assert only(schema, "type", "maxProperties", "minProperties", "patternProperties", "propertyNames", *IGNORE), path
                 if "propertyNames" in schema:
                     pass
                 else:
-                    model[""] = "$any"
+                    model[""] = "$ANY"
             # handle constraints
             return buildModel(model, constraints, defs, sharp)
         else:
@@ -432,7 +432,6 @@ def schema2model(schema, path: str=""):
         return buildModel(model, {}, defs, sharp)
     elif "not" in schema:
         # NOTE other option:
-        # { "&": ["$any", {"@": ..., "prop": "invalid"}] }
         assert only(schema, "not", *IGNORE), path
         val = schema["not"]
         assert isinstance(val, dict), path
@@ -440,11 +439,11 @@ def schema2model(schema, path: str=""):
             # { "not": {} }
             model = "$none"
         else:
-            model = {"^": ["$any", schema2model(val, path + "/not")]}
+            model = {"^": ["$ANY", schema2model(val, path + "/not")]}
         return buildModel(model, {}, defs, sharp)
     else:
         # empty schema
-        return buildModel("$any", {}, defs, sharp)
+        return buildModel("$ANY", {}, defs, sharp)
 
 # Identifiers
 DEF_MODEL: dict[str, any] = {}
@@ -466,7 +465,7 @@ def model2schema(model):
     elif tmodel == str:
         if model == "":
             schema["type"] = "string"
-        elif model == "$any":
+        elif model == "$ANY":
             # objet vide => ce qu'on veut
             pass
         elif model[0] == "_":
