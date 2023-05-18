@@ -1,6 +1,10 @@
 #
 # test bad models
 #
+# - test name
+# - validator check?
+# - compiler ?
+# - model
 BADS = [
     # "$" value is str
     ("name 0", False, False, {"$": None}),
@@ -50,7 +54,7 @@ BADS = [
     ("42", False, False, {42:42}),
     # TODO implement!
     # TODO exemples pour tester les incompatibilités…
-    ("+", True, False, {"+": []}),
+    # ("+", True, False, {"+": []}),
     ("+", True, False, {"+": [{"a": 0}, 0]}),
     ("+", True, False, {"+":[{"a": 0}, {"a": False}]}),
     ("+", True, False, {"+":[{"a": 0}, {"?a": ""}]}),

@@ -579,6 +579,8 @@ class CompileModel:
         models = model["+"]
         if not isinstance(models, (list, tuple)):
             raise ModelError(f"+ expects a list, got {type(models)}")
+        if len(models) == 0:
+            return lambda v, p: self._no(p, "empty +")
         models = [ self._ultimate_model(m) for m in models ]
         return self._dict_check(utils.merge_simple_models(models))
 

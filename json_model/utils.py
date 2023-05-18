@@ -156,7 +156,7 @@ def merge_complex_models(models: list[any]) -> dict[any]:
 
     constructed = filter(is_constructed, models)
 
-    raise ModelError("not implemeted yet")
+    raise ModelError("not implemented yet")
 
 def merge_model(model):
     if not isinstance(model, dict):
@@ -166,7 +166,7 @@ def merge_model(model):
         if not isinstance(models, (tuple, list)):
             raise ModelError(f"merge expects a list: {type(models)}")
         model = {}
-    raise ModelError("not implemeted yet")
+    raise ModelError("not implemented yet")
 
 # TODO add path?
 def merge_simple_models(models: list[any]) -> Object:
@@ -258,12 +258,16 @@ def normalize_model(model):
 #
 
 class Model:
+
     def __init__(self, check: CheckFun|None, model: ModelType|None, jsons: str|None, doc: str|None):
         self.check = check
         self.model = model
         self.jsons = jsons
         self.doc  = doc
         assert check is not None or model is not None
+
+    def __repr__(self):
+        return str(self.jsons)
 
 
 class ModelDefs:

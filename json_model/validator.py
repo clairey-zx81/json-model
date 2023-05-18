@@ -50,6 +50,11 @@ class DSV:
         else:
             raise ModelError(f"unexpected name: {name}")
 
+    def _follow_references(self, model):
+        while isinstance(model, str) and model and model[0] == "$":
+            model = self._defs.model(model[1:])
+        return model
+
     def _dict_constraint(self, value: ValueType, model: ModelType) -> bool:
         assert "@" in model
         assert set(model.keys()).issubset({"$", "%", "#", "@", "eq", "ne", "lt", "le", "gt", "ge", "distinct"})
@@ -220,7 +225,7 @@ class DSV:
             self.set(model["$"], model)
         if "%" in model:
             # model local definitions
-            assert isinstance(model["%"], dict), f"illegal :-definitions: {model[':']}"
+            assert isinstance(model["%"], dict), f"illegal %-definitions: {model['%']}"
             for name, mod in model["%"].items():
                 assert isinstance(name, str)
                 self.set(name, mod)
@@ -264,7 +269,8 @@ class DSV:
             models = model["+"]
             assert isinstance(models, (list, tuple)), f"illegal addition: {models} ({type(models)})"
             # very costly: object models are merged on each comparison...
-            return self.check(value, utils.merge_simple_models(models))
+            umodels = [ self._follow_references(m) for m in models ]
+            return self.check(value, utils.merge_simple_models(umodels))
 
             # raise ModelError("additive model not implemented yet")
         elif "@" in model:
@@ -334,4 +340,4 @@ class DSV:
         """Extend validator with a new definition."""
         #if ident in self._defs:
         #    log.warning(f"overriding {ident} previous definition")
-        self._defs[ident] = model if callable(model) else lambda v: self.check(v, model)
+        self._defs.set(ident, model)
