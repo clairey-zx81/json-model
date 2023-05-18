@@ -47,5 +47,6 @@ class jsonURLCache:
         j = requests.get(u).json()
         self._cache[u] = j
         with open(hfile, "w") as f:
-            json.dump(j, f)
+            # sort_keys?
+            json.dump(j, f, indent=2)
         return j
