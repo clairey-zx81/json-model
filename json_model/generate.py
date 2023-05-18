@@ -227,7 +227,11 @@ def schema2model(schema, path: str=""):
             if "pattern" in schema:
                 pattern = schema["pattern"]
                 assert isinstance(pattern, str), path
-                constraints["re"] = pattern
+                assert model == ""
+                if pattern and pattern[0] != "^":
+                    model = "^.*" + pattern
+                else:
+                    model = pattern
             if "minLength" in schema:
                 minlen = schema["minLength"]
                 assert isinstance(minlen, int), path
@@ -236,14 +240,14 @@ def schema2model(schema, path: str=""):
                 maxlen = schema["maxLength"]
                 assert isinstance(maxlen, int), path
                 constraints["le"] = maxlen
-            if "contentMediaType" in schema:
-                val = schema["contentMediaType"]
-                assert isinstance(val, str), path
-                constraints["mime"] = val
-            if "contentEncoding" in schema:
-                val = schema["contentEncoding"]
-                assert isinstance(val, str), path
-                constraints["encoding"] = val
+            # if "contentMediaType" in schema:
+            #     val = schema["contentMediaType"]
+            #     assert isinstance(val, str), path
+            #     constraints["mime"] = val
+            # if "contentEncoding" in schema:
+            #     val = schema["contentEncoding"]
+            #     assert isinstance(val, str), path
+            #     constraints["encoding"] = val
             return buildModel(model, constraints, defs, sharp)
         elif ts == "number":
             assert only(schema, "type", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
@@ -277,7 +281,7 @@ def schema2model(schema, path: str=""):
                 unique = schema["uniqueItems"]
                 assert isinstance(unique, bool), path
                 if unique:
-                    constraints["prop"] = "distinct"
+                    constraints["distinct"] = True
             if "prefixItems" in schema:
                 assert only(schema, "type", "prefixItems", "items", "minItems", "maxItems", "uniqueItems", *IGNORE), path
                 # tuple
@@ -470,6 +474,9 @@ def model2schema(model):
         elif model[0] == "$":
             # let us hope that it is an anchor elsewhere...
             schema["$ref"] = "#" + model[1:]
+        elif model[0] == "^":
+            schema["type"] = "string"
+            schema["pattern"] = model
         else:
             schema["const"] = model
     elif tmodel == list:
@@ -566,7 +573,7 @@ def model2schema(model):
                             schema["maxItems"] = model["le"]
                         if "ge" in model:
                             schema["minItems"] = model["ge"]
-                    if "prop" in model and model["prop"] == "distinct":
+                    if "distinct" in model and model["distinct"] == True:
                         schema["uniqueItems"] = True
         elif "&" in model:
             schema["allOf"] = [model2schema(m) for m in model["&"]]
@@ -601,24 +608,17 @@ def model2schema(model):
                     properties[prop[1:]] =  model2schema(val)
                 elif prop[0] == "?":
                     properties[prop[1:]] =  model2schema(val)
+                elif prop[0] == "^":
+                    if "patternProperties" not in schema:
+                        schema["patternProperties"] = {}
+                    schema["patternProperties"][prop] = model2schema(val)
+                    if addProp is None:
+                        addProp = False
                 elif prop[0] == "$":
-                    # only one special cases for patternProperties for now
-                    # $XXX with "%": { "XXX": { "@": "", "re": ... }}
-                    name = prop[1:]
-                    if name in DEF_MODEL:
-                        m = DEF_MODEL[name]
-                        if isinstance(m, dict) and "@" in m and m["@"] == "" and "re" in m:
-                            if "patternProperties" not in schema:
-                                schema["patternProperties"] = {}
-                            schema["patternProperties"][m["re"]] = model2schema(val)
-                            if addProp is None:
-                                addProp = False
-                        else:
-                            assert False, f"model2chema not implemented yet for {model}, {name}"
-                    else:
-                        assert False, f"model2chema not implemented yet for {model}"
+                    # FIXME could handle indirect pattern prop?
+                    assert False, f"model2chema not implemented yet for {model}"
                 else:
-                    properties[prop] =  model2schema(val)
+                    properties[prop] = model2schema(val)
 
             # merge into schema
             if properties:

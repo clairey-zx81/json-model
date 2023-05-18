@@ -9,8 +9,8 @@ except ModuleNotFoundError:
     import re
 import logging
 
-import utils
-from utils import ValueType, ModelType, ModelError, ModelDefs, distinct_values
+import json_model.utils as utils
+from json_model.utils import ValueType, ModelType, ModelError, ModelDefs, distinct_values
 
 logging.basicConfig()
 log = logging.getLogger("dsv")
@@ -58,7 +58,7 @@ class DSV:
 
     def _dict_constraint(self, value: ValueType, model: ModelType) -> bool:
         assert "@" in model
-        assert set(model.keys()).issubset({"$", "%", "#", "@", "eq", "ne", "lt", "le", "gt", "ge", "re", "in", "mo", "prop"})
+        assert set(model.keys()).issubset({"$", "%", "#", "@", "eq", "ne", "lt", "le", "gt", "ge", "distinct"})
         #
         submodel = model["@"]
         # what are the expected submodels?
@@ -69,14 +69,14 @@ class DSV:
             return False
         # then check constraints
         has_nb = False
-        if "in" in model:
-            assert type(submodel) in (str, list, tuple)
-            imodel = model["in"]
-            ivalue, has_nb = 0, True
-            for v in value:
-                if self.check(v, imodel):
-                    ivalue += 1
-        elif submodel == "$any":  # FIXME handle $ here?
+        # if "in" in model:
+        #     assert type(submodel) in (str, list, tuple)
+        #     imodel = model["in"]
+        #     ivalue, has_nb = 0, True
+        #     for v in value:
+        #         if self.check(v, imodel):
+        #             ivalue += 1
+        if submodel == "$any":  # FIXME handle $ here?
             ivalue = None
         elif type(submodel) in (list, tuple, dict, str):
             ivalue, has_nb = len(value), True
@@ -143,18 +143,23 @@ class DSV:
                     return False
             else:
                 return False
-        if "mo" in model:
-            val = model["mo"]
-            if value % val != 0:
-                return False
-        if "re" in model and not re.search(model["re"], value):
-            return False
-        if "prop" in model:
-            assert isinstance(model["prop"], str)
+        # if "mo" in model:
+        #     val = model["mo"]
+        #     if value % val != 0:
+        #         return False
+        # if "re" in model and not re.search(model["re"], value):
+        #     return False
+        # if "prop" in model:
+        #     assert isinstance(model["prop"], str)
+        #     assert isinstance(value, (list, tuple, str)), "distinct on iterables"
+        #     if model["prop"] == "distinct" and not distinct_values(value):
+        #         return False
+        #     if model["prop"] == "invalid":
+        #         return False
+        if "distinct" in model:
+            assert isinstance(model["distinct"], bool), "expecting a boolean value"
             assert isinstance(value, (list, tuple, str)), "distinct on iterables"
-            if model["prop"] == "distinct" and not distinct_values(value):
-                return False
-            if model["prop"] == "invalid":
+            if model[distinct] and not distinct_values(value):
                 return False
         return True
 
@@ -301,6 +306,17 @@ class DSV:
                 return self._dollar(name, value)
             elif c == "_":
                 return isinstance(value, str) and name == value
+            elif c == "^":
+                return isinstance(value, str) and re.match(model, value)
+            elif c == "=":
+                if name == "null":
+                    return value is None
+                elif name in ("true", "false"):
+                    return isinstance(value, bool) and value == bool(name)
+                elif re.match(r"^[0-9]+$", name):
+                    return isinstance(value, int) and value == int(name)
+                else:
+                    return isinstance(value, (int, float)) and value == float(name)
             else:
                 return isinstance(value, str) and model == value
 
