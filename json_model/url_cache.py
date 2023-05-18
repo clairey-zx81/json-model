@@ -19,6 +19,7 @@ class jsonURLCache:
         self._cache = {}
 
     def load(self, url: str):
+        """Load JSON URL."""
 
         up = urllib.parse.urlparse(url)
         # FIXME add query?
