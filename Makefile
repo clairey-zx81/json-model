@@ -18,4 +18,4 @@ clean: clean.venv
 
 .PHONY: clean.venv
 clean.venv:
-	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__
+	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build
