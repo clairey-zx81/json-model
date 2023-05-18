@@ -3,6 +3,9 @@ import json
 import urllib
 import requests
 import hashlib
+import logging
+
+log = logging.getLogger("url-cache")
 
 class jsonURLCache:
     """Cache JSON URL."""
@@ -33,12 +36,14 @@ class jsonURLCache:
         h = hashlib.sha3_256(u.encode("UTF-8")).hexdigest()
         hfile = self._cache_dir + "/" + h
         if os.path.exists(hfile):
+            log.info(f"loading: {url}")
             with open(hfile) as f:
                 j = json.load(f)
                 self._cache[u] = j
                 return j
 
         # download
+        log.info(f"downloading: {url}")
         j = requests.get(u).json()
         self._cache[u] = j
         with open(hfile, "w") as f:
