@@ -11,9 +11,14 @@ authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
 description = "JSON Model Tools"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "CC0-1.0" }
+license = { text = "CC0 1.0" }
 classifiers = [ "Topic :: Software Development" ]
 version = "0.9"
+dependencies = [ "requests" ]
+
+# how to install files in share?
+# [tool.setuptools.package-data]
+# json_model = ["./models/*.json"]
 
 [project.scripts]
 c-check-model = "json_model:c_check_model"

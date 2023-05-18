@@ -8,6 +8,7 @@ import enum
 import json
 import re  # re2?
 import logging
+import urllib
 
 # logging.basicConfig()
 log = logging.getLogger("compiler")
@@ -17,6 +18,7 @@ log.setLevel(level=logging.INFO)
 from typing import Callable
 
 import json_model.utils as utils
+import json_model.url_cache as url_cache
 from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, one, distinct_values
 
 # debug helpers
@@ -77,6 +79,10 @@ class CompileModel:
         self._defs.set("I64", lambda v, p: isinstance(v, int) and -2**63 <= v and v <= (2**63 - 1) or self._no(p, "invalid I64"))
         self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v and v <= (2**64 - 1) or self._no(p, "invalid U64"))
         self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no(p, "invalid F64"))
+
+        # url cache
+        self._urls = set()
+        self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
         self._fun = self._raw_compile(model)
@@ -619,6 +625,29 @@ class CompileModel:
         # NOTE beware that isinstance(true, int) == True
         return lambda v, p: type(v) in (float, int) or self._no(p, "expecting a number")
 
+    def _str_url_resolve(self, url: str):
+        """Handle a URL reference."""
+        assert isinstance(url, str) and re.match(r"(file|https?)://", url)
+
+        # prevent recursion on full urls
+        if url in self._urls or url in self._defs:
+            return
+        else:
+            self._urls.add(url)
+
+        umodel = self._cache.load(url)
+        u = urllib.parse.urlparse(url)
+        if u.fragment:
+            if url.fragment.startswith("/"):
+                # FIXME path handling
+                raise ModelError(f"unsupported url path: {url}")
+            else:
+                model = umodel["%"][u.fragment]
+        else:
+            model = umodel
+
+        self._defs[url] = self._raw_compile(model)
+
     def _str_raw_compile(self, model: str) -> CheckFun:
         """Compile a string."""
         if model == "":
@@ -627,25 +656,30 @@ class CompileModel:
         char, name = model[0], model[1:]
         if char == "=":
             # special constants
-            if re.search("^[0-9]+$", name):
-                val = int(name)
-                return lambda v, p: type(v) == int and v == val or self._no(p, f"expecting integer {val}")
-            elif name == "true":
-                return lambda v, p: isinstance(v, bool) and v or self._no(p, "expecting true")
+            if name == "true":
+                return lambda v, p: isinstance(v, bool) and v or self._no(p, "expecting boolean true")
             elif name == "false":
-                return lambda v, p: isinstance(v, bool) and not v or self._no(p, "expecting false")
+                return lambda v, p: isinstance(v, bool) and not v or self._no(p, "expecting boolean false")
             elif name == "null":
                 return lambda v, p: v is None or self._no(p, "expecting null")
+            elif re.search("^-?[0-9]+$", name):
+                val = int(name)
+                return lambda v, p: type(v) == int and v == val or self._no(p, f"expecting integer {val}")
             else:
-                raise ModelError(f"unexpected str constant: {name}")
+                try:
+                    val = float(name)
+                    return lambda v, p: type(v) in (int, float) and v == val or self._no(p, "expecting number {val}")
+                except:
+                    raise ModelError(f"unexpected str constant: {name}")
         elif char == "$":
             if len(model) == 1:
                 raise ModelError(f"unexpected str model: {model}")
             else:
-                # TODO handle generative floats! whatever!
+                if re.match(r"(file|https?)://", name):
+                    self._str_url_resolve(name)
                 if name in self._defs:
                     # log.warning(f"found defs[{name}]: {_DEFS[name](True)}")
-                    # TODO or no?
+                    # TODO or no, only dynamic?
                     return self._defs[name]
                 else:
                     return lambda v, p: self._defs[name](v, p) or self._no(p, f"${name} failed")
