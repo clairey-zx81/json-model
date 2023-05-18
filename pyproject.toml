@@ -16,9 +16,8 @@ classifiers = [ "Topic :: Software Development" ]
 version = "0.9"
 dependencies = [ "requests" ]
 
-# how to install files in share?
-# [tool.setuptools.package-data]
-# json_model = ["./models/*.json"]
+[project.optional-dependencies]
+dev = [ "jschon", "pytest" ]
 
 [project.scripts]
 c-check-model = "json_model:c_check_model"
