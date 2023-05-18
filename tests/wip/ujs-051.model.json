@@ -1,0 +1,14 @@
+{
+  "|": [
+    {
+      "street_address": "",
+      "country": "United States of America",
+      "postal_code": {"@": "","re": "^[0-9]{5}(-[0-9]{4})?$"}
+    },
+    {
+      "street_address": "",
+      "country": "Canada",
+      "postal_code": {"@": "","re": "^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$"}
+    }
+  ]
+}

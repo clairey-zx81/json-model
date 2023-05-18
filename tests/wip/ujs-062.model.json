@@ -1,0 +1,9 @@
+{
+  "#": {"$$": "https://..."},
+  "%": {"name": ""},
+  "first_name": "$name",
+  "last_name": "$name",
+  "shipping_address": "$$/...",
+  "billing_address": "$$/...",
+  "": "$any"
+}

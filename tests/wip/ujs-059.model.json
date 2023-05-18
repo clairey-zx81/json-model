@@ -1,0 +1,7 @@
+{
+  "#": {"$$": "https://..."},
+  "street_address": "",
+  "city": "",
+  "state": "",
+  "": "$any"
+}

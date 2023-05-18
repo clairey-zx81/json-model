@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^(foo|bla)$": { "type": "integer" }
+  },
+  "additionalProperties": false
+}

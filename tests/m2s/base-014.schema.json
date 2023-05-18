@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "nom": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "nom"
+  ],
+  "additionalProperties": {
+    "type": "string"
+  }
+}

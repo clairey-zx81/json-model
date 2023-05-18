@@ -1,0 +1,16 @@
+{
+  "|": [
+    {
+      "total": 0,
+      "restaurantType": "sit-down",
+      "tip": 0}
+    },
+    {
+      "total": 0,
+      "restaurantType": "fast-food"
+    },
+    {
+      "total": 0
+    }
+  ]
+}

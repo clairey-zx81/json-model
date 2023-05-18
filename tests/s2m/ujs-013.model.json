@@ -1,0 +1,5 @@
+{
+  "?number": 0.0,
+  "?street_name": "",
+  "?street_type": {"|": ["Street", "Avenue", "Boulevard"]}
+}

@@ -1,0 +1,7 @@
+{
+  "#": {
+    "title": "un booléen",
+    "description": "ceci est un booléen"
+  },
+  "@": true
+}

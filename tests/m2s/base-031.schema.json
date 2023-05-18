@@ -1,0 +1,12 @@
+{
+  "$anchor": "self",
+  "type": "object",
+  "properties": {
+    "bibi": {
+      "type": "array",
+      "items": {
+        "$ref": "#self"
+      }
+    }
+  }
+}

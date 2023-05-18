@@ -1,0 +1,35 @@
+{
+  "type" : "object",
+  "id" : "ActiviteCategorie",
+  "additionalProperties" : false,
+  "properties" : {
+    "elementReferenceType" : {
+      "type" : "string",
+      "enum" : [ "ActiviteCategorie" ]
+    },
+    "libellePtBR" : {
+      "type" : "string"
+    },
+    "libelleJa" : {
+      "type" : "string"
+    },
+    "actif" : {
+      "type" : "boolean",
+      "required" : true
+    },
+    "parent" : {
+      "type" : "object",
+      "id" : "elementReferenceLink",
+      "additionalProperties" : false,
+      "properties" : {
+        "elementReferenceType" : {
+          "type" : "string",
+          "enum" : ["ActiviteCategorie",  "DegustationStatutExploitant"]
+        },
+        "id" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "enum": [
+    "Lundi",
+    "Mardi",
+    "Mercredi"
+  ]
+}

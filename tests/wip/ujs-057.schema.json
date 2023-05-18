@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "requiredProperties": {
+    "foo": { "type": "string" }
+  }
+}

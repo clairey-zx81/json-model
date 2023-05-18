@@ -1,0 +1,9 @@
+{
+  "type": "array",
+  "items": true,
+  "contains": {
+    "type": "integer"
+  },
+  "maxContains": 3,
+  "minContains": 2
+}

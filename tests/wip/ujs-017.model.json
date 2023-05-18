@@ -1,0 +1,9 @@
+{
+  "street_address": "",
+  "city": "",
+  "state": "",
+  "|": [
+    {"type": "residential"},
+    {"type": "business", "?departement": ""}
+  ]
+}

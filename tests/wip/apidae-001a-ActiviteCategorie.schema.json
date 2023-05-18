@@ -1,0 +1,23 @@
+{
+  "type" : "object",
+  "additionalProperties" : false,
+  "properties" : {
+    "elementReferenceType" : {
+      "type" : "string",
+      "enum" : [ "ActiviteCategorie" ]
+    },
+    "libelleZh" : {
+      "type" : "string"
+    },
+    "libellePtBR" : {
+      "type" : "string"
+    },
+    "libelleJa" : {
+      "type" : "string"
+    },
+    "actif" : {
+      "type" : "boolean",
+      "required" : true
+    }
+  }
+}

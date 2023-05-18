@@ -1,0 +1,6 @@
+{
+  "$defs": {
+    "alice": { "$ref": "#/$defs/bob" },
+    "bob": { "$ref": "#/$defs/alice" }
+  }
+}
