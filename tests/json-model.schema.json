@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://json-model.org/json-model.schema.json",
+  "title": "JSON Schema for JSON Model",
+  "$anchor": "model",
+  "$defs": {
+    "common": {
+      "title": "Common Stuff",
+      "type": "object",
+      "properties": {
+        "$": { "type": "string" },
+        "#": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "object", "additionalProperties": true }
+          ]
+        },
+        "%": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#model" }
+        }
+      }
+    },
+    "simpleModel": {
+      "type": [ "null", "boolean", "integer", "number", "string" ]
+    },
+    "cmpValue": { "type": [ "integer", "number", "string" ] },
+    "arrayModel": {
+      "type": "array",
+      "items": { "$ref": "#model" }
+    },
+    "simpleObject": {
+      "type": "object",
+      "$ref": "#/$defs/common",
+      "patternProperties": { "^[@|^&+]$": false },
+      "additionalProperties": { "$ref": "#model" }
+    },
+    "andModel": {
+      "type": "object",
+      "$ref": "#/$defs/common",
+      "properties": {
+        "&": { "$ref": "#/$defs/arrayModel" }
+      },
+      "required": [ "&" ],
+      "unevaluatedProperties": false
+    },
+    "orModel": {
+      "type": "object",
+      "$ref": "#/$defs/common",
+      "properties": {
+        "|": { "$ref": "#/$defs/arrayModel" }
+      },
+      "required": [ "|" ],
+      "unevaluatedProperties": false
+    },
+    "xorModel": {
+      "type": "object",
+      "$ref": "#/$defs/common",
+      "properties": {
+        "^": { "$ref": "#/$defs/arrayModel" }
+      },
+      "required": [ "^" ],
+      "unevaluatedProperties": false
+    },
+    "addModel": {
+      "type": "object",
+      "$ref": "#/$defs/common",
+      "properties": {
+        "+": { "$ref": "#/$defs/arrayModel" }
+      },
+      "required": [ "+" ],
+      "unevaluatedProperties": false
+    },
+    "constrainedModel": {
+      "type": "object",
+      "allOf": [ { "$ref": "#/$defs/common" } ],
+      "properties": {
+        "@": { "$ref": "#model" },
+        "eq": { "$ref": "#/$defs/cmpValue" },
+        "ne": { "$ref": "#/$defs/cmpValue" },
+        "le": { "$ref": "#/$defs/cmpValue" },
+        "ge": { "$ref": "#/$defs/cmpValue" },
+        "lt": { "$ref": "#/$defs/cmpValue" },
+        "gt": { "$ref": "#/$defs/cmpValue" },
+        "mo": { "type": [ "integer", "number" ] },
+        "in": { "$ref": "#model" },
+        "distinct": { "type": "boolean" }
+      },
+      "required": [ "@" ],
+      "unevaluatedProperties": false
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/simpleModel" },
+    { "$ref": "#/$defs/arrayModel" },
+    { "$ref": "#/$defs/simpleObject" },
+    { "$ref": "#/$defs/andModel" },
+    { "$ref": "#/$defs/orModel" },
+    { "$ref": "#/$defs/xorModel" },
+    { "$ref": "#/$defs/addModel" },
+    { "$ref": "#/$defs/constrainedModel" }
+  ]
+}

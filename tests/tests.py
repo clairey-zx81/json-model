@@ -98,6 +98,7 @@ def test_jschon_bads():
             log.error(json.dumps(res.output('basic'), indent=2))
         assert not res.passed, f"model is invalid"
 
+# FIXME
 @pytest.mark.skip("validator must handle + with $...")
 def test_v_checked_json_schema():
     validator = DSV()
@@ -196,24 +197,24 @@ def json_schema_test_suite(version, fmodel):
 def test_draft3_fuzzy():
     # strict: fail on "definitions"
     # nesting: fail on "definitions"
-    json_schema_test_suite("draft3", "../json-model/models/draft-03-fuzzy.model.json")
+    json_schema_test_suite("draft3", "../models/draft-03-fuzzy.model.json")
 
 def test_draft4_fuzzy():
     # strict: errors on "$comment"
-    json_schema_test_suite("draft4", "../json-model/models/draft-04-fuzzy.model.json")
+    json_schema_test_suite("draft4", "../models/draft-04-fuzzy.model.json")
 
 def test_draft6_fuzzy():
-    json_schema_test_suite("draft6", "../json-model/models/draft-06-fuzzy.model.json")
+    json_schema_test_suite("draft6", "../models/draft-06-fuzzy.model.json")
 
 def test_draft7_fuzzy():
-    json_schema_test_suite("draft7", "../json-model/models/draft-07-fuzzy.model.json")
+    json_schema_test_suite("draft7", "../models/draft-07-fuzzy.model.json")
 
 def test_draft8_fuzzy():
-    json_schema_test_suite("draft2019-09", "../json-model/models/draft-2019-09-fuzzy.model.json")
+    json_schema_test_suite("draft2019-09", "../models/draft-2019-09-fuzzy.model.json")
 
 def test_draft9_fuzzy():
     # strict: error on maxContains with number instead of integer
-    json_schema_test_suite("draft2020-12", "../json-model/models/draft-2020-12-fuzzy.model.json")
+    json_schema_test_suite("draft2020-12", "../models/draft-2020-12-fuzzy.model.json")
 
 def test_draft_next_fuzzy():
-    json_schema_test_suite("draft-next", "../json-model/models/draft-next-fuzzy.model.json")
+    json_schema_test_suite("draft-next", "../models/draft-next-fuzzy.model.json")

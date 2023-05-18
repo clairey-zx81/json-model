@@ -1,12 +1,12 @@
 import json
 
-with open("../json-model/models/json-model.model.json") as model:
+with open("../models/json-model.model.json") as model:
     JSON_MODEL = json.load(model)
 
-with open("../json-model/models/draft-2020-12-tight.model.json") as model:
+with open("../models/draft-2020-12-tight.model.json") as model:
     JSON_SCHEMA_MODEL = json.load(model)
 
-with open("../schemas/json-model.schema.json") as schema:
+with open("./json-model.schema.json") as schema:
     JSON_MODEL_SCHEMA = json.load(schema)
 
 # only existing dates
