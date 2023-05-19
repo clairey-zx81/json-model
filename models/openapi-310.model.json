@@ -1,0 +1,39 @@
+{
+  "#": {
+    "title": "OpenAPI v3.1.0",
+    "spec": "https://spec.openapis.org/oas/v3.1.0",
+    "FIXME":  "mutual exclusion on id/url in License"
+  },
+  "%": {
+    "Schema": "$https://json-model.org/schema",
+    "Info": {
+      "title": "",
+      "?summary": "",
+      "?description": "",
+      "?termsOfService": "",
+      "?contact": "$Contact",
+      "?license": "$License",
+      "version": ""
+    },
+    "Server": {},
+    "Paths": {},
+    "PathItem": {},
+    "Reference": {},
+    "Components": {},
+    "SecurityRequirements": {},
+    "Tag": {},
+    "ExternalDocumentation": {},
+    "Contact": { "?name": "", "?url": "$URI", "?email": "" },
+    "License": { "name": "", "?identifier": "", "?url": "$URL" }
+  },
+  "openapi": "",
+  "info": "$Info",
+  "?jsonSchemaDialect": "",
+  "?servers": [ "$Server" ],
+  "?paths": "$Paths",
+  "?webhooks": { "": { "|": [ "$PathItem", "$Reference" ] } },
+  "?component": "$Components",
+  "?security": "$SecurityRequirements",
+  "?tags": [ "$Tag" ],
+  "?externalDocs": "$ExternalDocumentation" 
+}
