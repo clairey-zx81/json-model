@@ -39,17 +39,24 @@ def _show_index(checks: list[bool], val):
 
 class CompileModel:
 
-    def __init__(self, model, loose_int: bool = False):
+    def __init__(self, model, loose_int: bool = False, signed_int: bool = False):
 
-        # what is an int?
+        # is 2.0 an int?
         self._loose_int = loose_int
+        # use -1/0/1 for any int, positive and strictly positive
+        self._signed_int = signed_int
+
+        # get options for meta-data
         if isinstance(model, dict) and "#" in model:
             meta = model["#"]
             if isinstance(meta, dict) and "options" in meta:
                 options = meta["options"]
-                if isinstance(options, (list, tuple)) and "loose-int" in options:
-                    self._loose_int = True
-        # TODO other options?
+                if isinstance(options, (list, tuple)):
+                    if "loose-int" in options:
+                        self._loose_int = True
+                    if "signed-int" in options:
+                        self._signed_int = True
+                    # TODO other options?
 
         self._LENGTH_LAMBDAS = {
             "eq": self._lambda_eq,
@@ -596,11 +603,28 @@ class CompileModel:
         """Compile a number (int)."""
         # NOTE beware that isinstace(true, int) == True
         assert isinstance(model, int)
+
+        # loose int?
         if self._loose_int:
-            return lambda v, p: (type(v) == int or type(v) == float and v == int(v)) or \
+            is_an_int = lambda v, p: (type(v) == int or type(v) == float and v == int(v)) or \
                 self._no(p, "expecting a (loose) integer")
         else:
-            return lambda v, p: type(v) == int or self._no(p, "expecting an integer")
+            is_an_int = lambda v, p: type(v) == int or self._no(p, "expecting an integer")
+
+        # signed int?
+        if self._signed_int:
+            if model == -1:
+                check = is_an_int
+            elif model == 0:
+                check = lambda v, p: is_an_int(v, p) and v >= 0 or self._no(p, "must be positive")
+            elif model == 1:
+                check = lambda v, p: is_an_int(v, p) and v > 0 or self._no(p, "must be strictly positive")
+            else:
+                check = is_an_int
+        else:
+            check = is_an_int
+
+        return check
 
     def _float_raw_compile(self, model: float) -> CheckFun:
         """Compile a number (float)."""
