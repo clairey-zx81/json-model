@@ -1,0 +1,9 @@
+{
+  "$defs": {
+    "an_int": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "$ref": "#an_int"
+}

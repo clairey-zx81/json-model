@@ -1,0 +1,5 @@
+{
+  "description": "lower-case string",
+  "type": "string",
+  "pattern": "^[a-z]+"
+}

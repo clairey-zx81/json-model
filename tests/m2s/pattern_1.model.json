@@ -1,0 +1,4 @@
+{
+  "#": "lower-case string",
+  "@": "^[a-z]+"
+}

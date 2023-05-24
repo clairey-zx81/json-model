@@ -4,6 +4,10 @@ import logging
 log = logging.getLogger("s2m")
 log.setLevel(logging.DEBUG)
 
+#
+# SCHEMA TO MODEL CONVERSION
+#
+
 def only(schema, *props):
     """Tell whether schema only contains these props."""
     assert isinstance(schema, dict)
@@ -22,7 +26,8 @@ def has(schema, *props):
     return True
 
 def esc(s):
-    if isinstance(s, str) and (len(s) == 0 or s[0] in ("$", "?", "_")):
+    """Escape a string if necessary."""
+    if isinstance(s, str) and (len(s) == 0 or s[0] in ("$", "?", "_", "!", "=", "^")):
         return "_" + s
     else:
         return s
@@ -445,6 +450,11 @@ def schema2model(schema, path: str=""):
         # empty schema
         return buildModel("$ANY", {}, defs, sharp)
 
+
+#
+# MODEL TO SCHEMA CONVERSION
+#
+
 # Identifiers
 DEF_MODEL: dict[str, any] = {}
 
@@ -458,6 +468,12 @@ def model2schema(model):
         schema["type"] = "null"
     elif tmodel == int:
         schema["type"] = "integer"
+        # implement extension
+        # FIXME should check for option
+        if model == 0:
+            schema["minimum"] = 0
+        elif model == 1:
+            schema["minimum"] = 1
     elif tmodel == float:
         schema["type"] = "number"
     elif tmodel == bool:
@@ -468,10 +484,12 @@ def model2schema(model):
         elif model == "$ANY":
             # objet vide => ce qu'on veut
             pass
+        elif model == "$NONE":
+            schema["not"] = {}
         elif model[0] == "_":
             schema["const"] = model[1:]
         elif model[0] == "$":
-            # let us hope that it is an anchor elsewhere...
+            # FIXME let us hope that it is an anchor elsewhere...
             schema["$ref"] = "#" + model[1:]
         elif model[0] == "^":
             schema["type"] = "string"
@@ -489,6 +507,7 @@ def model2schema(model):
             for item in model:
                 pitems.append(model2schema(item))
             schema["prefixItems"] = pitems
+            schema["items"] = False
         else:
             # liste vide : tableau maxItems = 0
             schema["type"] = "array"
@@ -515,9 +534,12 @@ def model2schema(model):
 
         if "%" in model:
             # nom -> model: keep track of defines locally for now...
-            # maybe it could/should be a "$defs" in some cases
+            # FIXME maybe it could/should be a "$defs" in some cases
+            if "$defs" not in schema:
+                schema["$defs"] = {}
             for nom, m in model["%"].items():
                 DEF_MODEL[nom] = m 
+                schema["$defs"][nom] = model2schema(m)
 
         if "@" in model:
             # constraint...
@@ -535,8 +557,7 @@ def model2schema(model):
                         schema["maxLength"] = model["le"]
                     if "ge" in model:
                         schema["minLength"] = model["ge"]
-                    if "re" in model:
-                        schema["pattern"] = model["re"]
+                    # FIXME extension? remove?
                     if "mime" in model:
                         schema["contentEncoding"] = model["mime"]
                     if "encoding" in model:
@@ -551,6 +572,7 @@ def model2schema(model):
                         schema["exclusiveMaximum"] = model["lt"]
                     if "gt" in model:
                         schema["exclusiveMinimum"] = model["gt"]
+                    # FIXME extension? remove?
                     if "mo" in model:
                         schema["multipleOf"] = model["mo"]
                 # contraints on object

@@ -1,0 +1,5 @@
+{
+  "description": "an empty array",
+  "type": "array",
+  "maxItems": 0
+}
