@@ -1,0 +1,30 @@
+{
+  "#": "Self-Validating JSON Model (with + distributive over |)",
+  "$": "Model",
+  "%": {
+    "val": { "|":  [ null, true, 0, 0.0, "" ] },
+    "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
+    "none": { "|": [ ] },
+    "meta": { "|": [ "", { "": "$any" } ] },
+    "Ref": "^\\$.+$",
+    "Array": [ "$Model" ],
+    "Constraint": {
+      "_@": "$Model",
+      "^(le|ge|lt|gt)$": { "|": [ 0, 0.0, "" ] },
+      "^(eq|ne)$": "$val",
+      "?distinct": true
+    },
+    "Or": { "_|": ["$Model"] },
+    "And": { "_&": ["$Model"] },
+    "ExOr": { "_^": ["$Model"] },
+    "Add": { "_+": ["$Model"] },
+    "Object": { "": "$Model", "^[|@&^+]$": "$none" },
+    "Element": {
+      "+": [
+        { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
+        { "|": [ "$Constraint", "$Or", "$And", "$ExOr", "$Add", "$Object" ] }
+      ]
+    }
+  },
+  "|": [ "$Ref", "$val", "$Element" ]
+}
