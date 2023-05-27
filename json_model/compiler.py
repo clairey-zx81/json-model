@@ -241,11 +241,8 @@ class CompileModel:
         optional = { key: self._raw_compile(val) for key, val in may.items() }
 
         # other optional properties have key-value check functions
-        key_checks: dict[str, KeyCheckFun] = {}
-        for key, val in refs.items():
-            key_checks[key] = self._keyname_val_compile(key, val)
-        for key, val in regs.items():
-            key_checks[key] = self._keyreg_val_compile(key, val)
+        keyname_checks = { key:self._keyname_val_compile(key, val) for key, val in refs.items() }
+        keyregs_checks = { key:self._keyreg_val_compile(key, val) for key, val in regs.items() }
 
         if "" in ots:
             fun = self._raw_compile(ots[""])
@@ -275,14 +272,19 @@ class CompileModel:
                 else:
                     # else key checks, which return None if unchecked
                     checked = False
-                    for k, kc in key_checks.items():
+                    for k, kc in keyname_checks.items():
                         res = kc(key, val, p)
                         if res is not None:
                             if not res:
-                                return self._no(f"{p}.{kc}", f"bad key value for {k}")
+                                return self._no(f"{p}.{kc}", f"bad name key value for {k}")
                             checked = True
-                            # keep on checking all others for determinism?
-                            # break
+                    if not checked:
+                        for k, kc in keyregs_checks.items():
+                            res = kc(key, val, p)
+                            if res is not None:
+                                if not res:
+                                    return self._no(f"{p}.{kc}", f"bad regex key value for {k}")
+                                checked = True
                     # else try catch-all
                     if not checked and not others(key, val, f"{p}.{key}"):
                         return self._no(f"{p}.{key}", "unexpected other property")
