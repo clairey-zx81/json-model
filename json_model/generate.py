@@ -154,6 +154,7 @@ def schema2model(schema, path: str=""):
             sharp[prop] = schema[prop]
 
     # handle defs
+    # FIXME should delay conversion...
     defs = {}
     if "$defs" in schema or "definitions" in schema:
         dname = "$defs" if "$defs" in schema else "definitions"
@@ -161,6 +162,7 @@ def schema2model(schema, path: str=""):
         _defs = schema[dname]
         assert isinstance(_defs, dict)
         for name, val in _defs.items():
+            log.warning(f"registering {dname}/{name}")
             # keep json schema for handling $ref #
             IDS[dname][name] = val
             # provide a local converted version as well?
@@ -196,7 +198,7 @@ def schema2model(schema, path: str=""):
             names = ref[2:].split("/")
             val = IDS
             for name in names:
-                assert name in val
+                assert name in val, f"following path in {ref}: missing {name} ({IDS})"
                 val = val[name]
             model = schema2model(val, path + "/$ref")
             return buildModel(model, {}, defs, sharp)
