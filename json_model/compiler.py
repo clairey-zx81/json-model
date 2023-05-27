@@ -217,8 +217,7 @@ class CompileModel:
     def _keyname_val_compile(self, name: str, model: ModelType) -> KeyCheckFun:
         """Check object named property and its associated value."""
         val_check = self._raw_compile(model)
-        # NOTE could check that name is defined?
-        # TODO reset?
+        # NOTE if $name is not defined it should coldly fail
         return lambda k, v, p: val_check(v, p) if self._defs[name](k, p) else None
 
     def _keyreg_val_compile(self, reg: str, model: ModelType) -> KeyCheckFun:
@@ -229,6 +228,7 @@ class CompileModel:
 
     def _dict_check(self, model: ModelType) -> CheckFun:
         """Check a standard object."""
+
         assert isinstance(model, dict)
 
         # detect multiply defined properties
@@ -239,15 +239,20 @@ class CompileModel:
         # key/value checks functions
         mandatory = { key: self._raw_compile(val) for key, val in must.items() }
         optional = { key: self._raw_compile(val) for key, val in may.items() }
-        key_checks = [ self._keyname_val_compile(key, val) for key, val in refs.items() ] + \
-                     [ self._keyreg_val_compile(key, val) for key, val in regs.items() ]
+
+        # other optional properties have key-value check functions
+        key_checks: dict[str, KeyCheckFun] = {}
+        for key, val in refs.items():
+            key_checks[key] = self._keyname_val_compile(key, val)
+        for key, val in regs.items():
+            key_checks[key] = self._keyreg_val_compile(key, val)
 
         if "" in ots:
             fun = self._raw_compile(ots[""])
-            others = lambda k, v, p: isinstance(k, str) and fun(v, p) or self._no(f"{p}", f"bad property")
+            others = lambda k, v, p: isinstance(k, str) and fun(v, p) or self._no(f"{p}", f"bad property {k}")
         else:
             # reject unexpected properties
-            others = lambda k, _v, p: self._no(f"{p}", f"unexpected property")
+            others = lambda k, _v, p: self._no(f"{p}", f"unexpected property {k}")
 
         # function for the actual checking
         # captures mandatory, optional, key_checks, others
@@ -270,21 +275,22 @@ class CompileModel:
                 else:
                     # else key checks, which return None if unchecked
                     checked = False
-                    for kc in key_checks:
+                    for k, kc in key_checks.items():
                         res = kc(key, val, p)
                         if res is not None:
                             if not res:
-                                return self._no(f"{p}.{kc}", "bad key value")
+                                return self._no(f"{p}.{kc}", f"bad key value for {k}")
                             checked = True
-                            break
-                    # else
+                            # keep on checking all others for determinism?
+                            # break
+                    # else try catch-all
                     if not checked and not others(key, val, f"{p}.{key}"):
                         return self._no(f"{p}.{key}", "unexpected other property")
 
             # all mandatory are accounted for?
             if must_see != 0:
                 missing = set(mandatory.keys()).difference(v.keys())
-                return self._no(p, f"missing mandatory key: {missing}")
+                return self._no(p, f"missing mandatory key: {' '.join(sorted(missing))}")
 
             return True
 
@@ -708,7 +714,7 @@ class CompileModel:
             return self._tuple_check(model)
 
     def _dict_raw_compile(self, model: dict) -> CheckFun:
-        """Compile a generic object."""
+        """Compile a generic element."""
 
         # special properties
         if "$" in model and not isinstance(model["$"], str):
@@ -725,11 +731,12 @@ class CompileModel:
                 # _DEFS[name] = _raw_compile(val)
                 self._defs.set(name, val)
         if "#" in model:
+            # just basic checks
             meta = model["#"]
             if not isinstance(meta, (str, dict)):
                 raise ModelError(f"unexpected # value: {meta} ({type(meta)})")
-            if isinstance(meta, dict) and "$$" in meta and not isinstance(meta["$$"], str):
-                raise ModelError(f"unexpected $$ value: {meta['$$']} ({type(meta['$$'])})")
+            # if isinstance(meta, dict) and "$$" in meta and not isinstance(meta["$$"], str):
+            #     raise ModelError(f"unexpected $$ value: {meta['$$']} ({type(meta['$$'])})")
 
         # classes
         if "@" in model:
