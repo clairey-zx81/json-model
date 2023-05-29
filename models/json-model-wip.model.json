@@ -6,7 +6,6 @@
     "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
     "none": { "|": [ ] },
     "meta": { "|": [ "", { "": "$any" } ] },
-    "Ref": "^\\$.+$",
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
@@ -18,13 +17,13 @@
     "And": { "_&": ["$Model"] },
     "ExOr": { "_^": ["$Model"] },
     "Add": { "_+": ["$Model"] },
-    "Object": { "": "$Model", "^[|@&^+]$": "$none" },
-    "Element": {
+    "Obj": { "": "$Model", "^[|@&^+]$": "$none" },
+    "Elem": {
       "+": [
         { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
-        { "|": [ "$Constraint", "$Or", "$And", "$ExOr", "$Add", "$Object" ] }
+        { "|": [ "$Constraint", "$Or", "$And", "$ExOr", "$Add", "$Obj" ] }
       ]
     }
   },
-  "|": [ "$Ref", "$val", "$Element" ]
+  "|": [ "$val", "$Array", "$Elem" ]
 }
