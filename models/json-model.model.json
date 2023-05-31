@@ -15,14 +15,14 @@
     },
     "Or": { "_|": ["$Model"] },
     "And": { "_&": ["$Model"] },
-    "ExOr": { "_^": ["$Model"] },
+    "Xor": { "_^": ["$Model"] },
     "Add": { "_+": ["$Model"] },
     "Obj": { "": "$Model", "^[|@&^+]$": "$none" },
     "Elem": {
       "+": [
         { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
         { "|": [ "$Constraint", "$Or", "$And",
-                 "$ExOr", "$Add", "$Obj" ] }
+                 "$Xor", "$Add", "$Obj" ] }
       ]
     }
   },
