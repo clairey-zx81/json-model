@@ -13,14 +13,14 @@
       "^(eq|ne)$": "$val",
       "?distinct": true
     },
-    "Or": { "_|": ["$Model"] },
-    "And": { "_&": ["$Model"] },
-    "Xor": { "_^": ["$Model"] },
-    "Add": { "_+": ["$Model"] },
+    "Or": { "_|": [ "$Model" ] },
+    "And": { "_&": [ "$Model" ] },
+    "Xor": { "_^": [ "$Model" ] },
+    "Add": { "_+": [ "$Model" ] },
     "Obj": { "": "$Model", "^[|@&^+]$": "$none" },
     "Elem": {
       "+": [
-        { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
+        { "?$": "", "?#": "$meta", "?%": { "": "$Model" } },
         { "|": [ "$Constraint", "$Or", "$And",
                  "$Xor", "$Add", "$Obj" ] }
       ]
