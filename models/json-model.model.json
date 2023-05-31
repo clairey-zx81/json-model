@@ -1,5 +1,5 @@
 {
-  "#": "Self-Validating JSON Model (with + distributive over |)",
+  "#": "Self-Validating JSON Model",
   "$": "Model",
   "%": {
     "val": { "|":  [ null, true, 0, 0.0, "" ] },
@@ -21,7 +21,8 @@
     "Elem": {
       "+": [
         { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
-        { "|": [ "$Constraint", "$Or", "$And", "$ExOr", "$Add", "$Obj" ] }
+        { "|": [ "$Constraint", "$Or", "$And",
+                 "$ExOr", "$Add", "$Obj" ] }
       ]
     }
   },
