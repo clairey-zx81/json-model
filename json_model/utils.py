@@ -2,6 +2,7 @@
 import enum
 import json
 import re
+import copy
 from typing import Callable  # why not callable?
 
 import logging
@@ -138,35 +139,97 @@ def is_constructed(model):
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
+def _merge_object(i, j):
+    if isinstance(i, dict) and "+" in i:
+        d = copy.deepcopy(i)
+        d["+"].append(copy.deepcopy(j))
+    elif isinstance(j, dict) and "+" in j:
+        d = copy.deepcopy(j)
+        d["+"].append(copy.deepcopy(i))
+    else:
+        d = {"+": [i, j]}
+    return d
 
-def _rec_merge_models(currents, models: list[any]):
-    """Remove merge operator (+) into current."""
-    if not models:
-        return currents
-    # else we have models to merge
-    raise ModelError("not implemented yet")
+def _merge(data):
 
+    if not isinstance(data, dict) or "+" not in data:
+        return data
 
-def merge_complex_models(models: list[any]) -> dict[any]:
-    """Merge a complex list of models."""
-    if not isinstance(models, (list, tuple)):
-        raise ModelError(f"unexpected models to merge: {models} (type{models})")
-    if len(models) == 0:
-        raise ModelError(f"empty models to merge")
+    assert isinstance(data["+"], list)
+        
+    merged = None
+    for m in data["+"]:
+        # pourrait être une reference
+        # assert isinstance(m, dict)
+        if isinstance(m, dict) and  "|" in m:
+            assert isinstance(m["|"], list)
+            models = m["|"]
+            tmerged = []
+            if merged is None:
+                merged = models
+            else:
+                for i in merged:
+                    for j in models:
+                        n = _merge_object(i, j)
+                        n = _merge(n)
+                        tmerged.append(n)     
+                merged = tmerged
+        else:
+            if merged is None:
+                merged = [m]
+            else:
+                merged = [ _merge_object(i, m) for i in merged ]
 
-    constructed = filter(is_constructed, models)
+    del data["+"]
+    if merged:
+        if len(merged) > 1:
+            data["|"] = merged
+        else:
+            item = merged[0]
+            if isinstance(item, dict) and "+" in item and len(item) == 1:
+                data["+"]  = item["+"]
+            else:
+                data["@"] = merged
+    else:
+        pass
+        # objet sans attribut
+    return data
 
-    raise ModelError("not implemented yet")
-
-def merge_model(model):
-    if not isinstance(model, dict):
-        return model
-    if "+" in model:
-        models = model["+"]
-        if not isinstance(models, (tuple, list)):
-            raise ModelError(f"merge expects a list: {type(models)}")
-        model = {}
-    raise ModelError("not implemented yet")
+def merge_rewrite(data):
+    if data is None:
+        return data
+    elif isinstance(data, (bool, int, float, str)):
+        return data
+    elif isinstance(data, list):
+        return [merge_rewrite(i) for i in data]
+    else:
+        assert isinstance(data, dict)
+        if "%" in data:
+            defs = data["%"]
+            assert isinstance(defs, dict)
+            for k,v in defs.items():
+                defs[k] = merge_rewrite(v)
+        if "@" in data:
+            data["@"] = merge_rewrite(data["@"])
+        if "|" in data:
+            models = data["|"]
+            assert isinstance(models, list)
+            data["|"] = merge_rewrite(models)
+        if "&" in data:
+            models = data["&"]
+            assert isinstance(models, list)
+            data["&"] = merge_rewrite(models)
+        if "^" in data:
+            models = data["^"]
+            assert isinstance(models, list)
+            data["^"] = merge_rewrite(models)
+        if "+" in data:
+            models = data["+"]
+            assert isinstance(models, list)
+            data["+"] = merge_rewrite(models)
+            # Distribution des opérateurs avec le + et |
+            data = _merge(data)
+        return data
 
 # TODO add path?
 def merge_simple_models(models: list[any]) -> Object:
@@ -407,3 +470,4 @@ def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
         len(json.dumps(data)),
     )
     return metrics + (counts, )
+

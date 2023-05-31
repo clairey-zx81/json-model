@@ -87,7 +87,8 @@ class CompileModel:
         self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
-        self._fun = self._raw_compile(model)
+        rw_model = utils.merge_rewrite(model)
+        self._fun = self._raw_compile(rw_model)
         self._reasons = []
 
     def _no(self, path: str, msg: str, reset=False):
