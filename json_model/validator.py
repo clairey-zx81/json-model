@@ -334,7 +334,9 @@ class DSV:
 
     def check(self, value: any, model: any, strict: bool=True) -> bool:
         """Recursive type checker."""
-        return self._type[type(model)](value, model, strict)
+        # first rewrite merge operators
+        rw_model = utils.merge_rewrite(model)
+        return self._type[type(model)](value, rw_model, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any):
         """Extend validator with a new definition."""

@@ -162,8 +162,9 @@ def _merge(data):
         # pourrait être une reference
         # assert isinstance(m, dict)
         if isinstance(m, dict) and  "|" in m:
-            assert isinstance(m["|"], list)
             models = m["|"]
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type of |: {type(models)}")
             tmerged = []
             if merged is None:
                 merged = models
@@ -206,26 +207,31 @@ def merge_rewrite(data):
         assert isinstance(data, dict)
         if "%" in data:
             defs = data["%"]
-            assert isinstance(defs, dict)
+            if not isinstance(defs, dict):
+                raise ModelError(f"invalid type for %: {type(defs)}")
             for k,v in defs.items():
                 defs[k] = merge_rewrite(v)
         if "@" in data:
             data["@"] = merge_rewrite(data["@"])
         if "|" in data:
             models = data["|"]
-            assert isinstance(models, list)
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for |: {type(models)}")
             data["|"] = merge_rewrite(models)
         if "&" in data:
             models = data["&"]
-            assert isinstance(models, list)
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for &: {type(models)}")
             data["&"] = merge_rewrite(models)
         if "^" in data:
             models = data["^"]
-            assert isinstance(models, list)
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for ^: {type(models)}")
             data["^"] = merge_rewrite(models)
         if "+" in data:
             models = data["+"]
-            assert isinstance(models, list)
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for +: {type(models)}")
             data["+"] = merge_rewrite(models)
             # Distribution des opérateurs avec le + et |
             data = _merge(data)
