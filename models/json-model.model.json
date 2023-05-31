@@ -1,38 +1,29 @@
 {
-  "#": "Self-Validating JSON Model",
+  "#": "Self-Validating JSON Model (with + distributive over |)",
   "$": "Model",
   "%": {
     "val": { "|":  [ null, true, 0, 0.0, "" ] },
     "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
     "none": { "|": [ ] },
     "meta": { "|": [ "", { "": "$any" } ] },
-    "Ref": "^\\$.+$",
     "Array": [ "$Model" ],
     "Constraint": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_@": "$Model",
+      "_@": "$Model",
       "^(le|ge|lt|gt)$": { "|": [ 0, 0.0, "" ] },
       "^(eq|ne)$": "$val",
       "?distinct": true
     },
-    "Disjunction": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_|": ["$Model"]
-    },
-    "Conjunction": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_&": ["$Model"]
-    },
-    "Exclusive": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_^": ["$Model"]
-    },
-    "Addition": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_+": ["$Model"]
-    },
-    "Object": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "": "$Model",
-      "^[|@&^+]$": "$none"
+    "Or": { "_|": ["$Model"] },
+    "And": { "_&": ["$Model"] },
+    "ExOr": { "_^": ["$Model"] },
+    "Add": { "_+": ["$Model"] },
+    "Obj": { "": "$Model", "^[|@&^+]$": "$none" },
+    "Elem": {
+      "+": [
+        { "?$": "", "?#": "$meta", "?%": {"": "$Model"} },
+        { "|": [ "$Constraint", "$Or", "$And", "$ExOr", "$Add", "$Obj" ] }
+      ]
     }
   },
-  "|": [
-    "$Ref", "$val", "$Constraint", "$Array", "$Object",
-    "$Disjunction", "$Conjunction", "$Exclusive", "$Addition"
-  ]
+  "|": [ "$val", "$Array", "$Elem" ]
 }
