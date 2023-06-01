@@ -31,6 +31,7 @@ def _trace(*args) -> bool:
     return True
 
 def _show_index(checks: list[bool], val):
+    """For better error messages, show failing indexes."""
     bads = [ str(i) for i, b in enumerate(checks) if b == val ]
     # log.warning(f"checks={checks} bads={bads}")
     assert bads
@@ -324,6 +325,7 @@ class CompileModel:
                 return tmodel
 
     def _ultimate_model(self, model: ModelType, constrained=True) -> ModelType:
+        """Look for the real model, beyond references."""
         tmodel = type(model)
         if tmodel in (type(None), bool, int, float, list, tuple):
             return model
@@ -545,6 +547,7 @@ class CompileModel:
             return val_check
 
     def _alternate_model_check(self, model: dict[str, any]) -> CheckFun:
+        """Check a or-model |."""
         assert isinstance(model, dict) and "|" in model
         if not set(model.keys()).issubset(["#", "$", "%", "|"]):
             raise ModelError(f"key combination not implemented yet: {model}")
@@ -562,6 +565,7 @@ class CompileModel:
         return lambda v, p: self._yes(True) if any(map(lambda f: f(v, p), subs)) else self._no(p, "not any matched")
 
     def _conjunctive_model_check(self, model: dict[str, any]) -> CheckFun:
+        """Check a and-model &."""
         assert isinstance(model, dict) and "&" in model
         if not set(model.keys()).issubset(["#", "$", "%", "&"]):
             raise ModelError(f"key combination not implemented yet: {model}")
@@ -573,6 +577,7 @@ class CompileModel:
         return lambda v, p: self._yes(True) if all(map(lambda f: f(v, p), subs)) else self._no(p, "not all matched")
 
     def _exclusive_model_check(self, model: dict[str, any]) -> CheckFun:
+        """Check a xor-model ^."""
         assert isinstance(model, dict) and "^" in model
         if not set(model.keys()).issubset(["#", "$", "%", "^"]):
             raise ModelError(f"key combination not implemented yet: {model}")
@@ -586,6 +591,7 @@ class CompileModel:
         return lambda v, p: self._yes(True) if one(map(lambda f: f(v, p), subs)) else self._no(p, "not one matched")
 
     def _additive_model_check(self, model: dict[str, any]) -> CheckFun:
+        """Check a merge-model +."""
         # sanity checks
         assert isinstance(model, dict) and "+" in model
         if not set(model.keys()).issubset(["#", "$", "%", "+"]):

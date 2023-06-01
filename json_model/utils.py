@@ -70,13 +70,14 @@ def one(l) -> bool:
             seen = True   # first
     return seen
 
+# TODO maybe we should accept some simple type inclusions
 def same_model(m1, m2) -> bool:
     """Compare models…"""
     # beware that True == 0
     return type(m1) == type(m2) and m1 == m2
 
 def split_object(model: dict[str, any]) -> tuple[Object, Object, Object, Object, Object]:
-    """Split properties in must/may/maybe/other cases."""
+    """Split properties in must/may/refs/regs/other cases."""
 
     if not isinstance(model, dict):
         raise ModelError(f"unexpected + model: {model}")
@@ -312,15 +313,6 @@ def merge_simple_models(models: list[any]) -> Object:
 
     return unsplit_object(must, may, refs, regs, others)
 
-
-def normalize_model(model):
-    """Normalize Model: remove "+"."""
-    tmodel = type(model)
-    if tmodel in (list, tuple):
-        pass
-    elif tmodel == dict:
-        pass
-    return model
 
 #
 # DEFINITIONS
