@@ -15,7 +15,7 @@
       "?license": "$License",
       "version": ""
     },
-    "Server": { "url": "$URL", "?description": "?variables": { "": "$ServerVariable" } },
+    "Server": { "url": "$URL", "?description": "", "?variables": { "": "$ServerVariable" } },
     "ServerVariable": { "?enum": [""], "default": "", "?description": "" },
     "Components": {
         "?schemas": { "": "$Schema" },
@@ -52,7 +52,7 @@
         "?operationId": "",
         "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
         "?requestBody": { "": { "|": [ "$RequestBody", "$Reference" ] }},
-        "?responses": { "$Responses" },
+        "?responses": "$Responses",
         "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
         "?deprecated": true,
         "?security": [ "$SecurityRequirement" ],
@@ -64,7 +64,7 @@
     "Response": {
         "?description": "",
         "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
-        "?content": { "": { "$MediaType" } },
+        "?content": { "": "$MediaType" },
         "?links": { "": { "|": [ "$Link", "$Reference" ] }}
     },
     "Responses": {
@@ -84,14 +84,14 @@
         "?schema": "$Schema",
         "?example": "$ANY",
         "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-        "?content": { "": { "$MediaType" } }
+        "?content": { "": "$MediaType" }
     },
     "Example": {},
     "MediaType": {
         "?schema": "$Schema",
         "?example": "$ANY",
         "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-        "?encoding": { "": { "$Encoding" } }
+        "?encoding": { "": "$Encoding" }
     },
     "Encoding": {
         "?contentType": "",
@@ -99,6 +99,7 @@
         "?style": "",
         "?explode": true,
         "?allowReserved": true,
+        "TO BE": "CONTINUED"
     },
     "RequestBody": { "?description": "", "?content": { "": "$MediaType" }, "?required": true },
     "Header": {},
