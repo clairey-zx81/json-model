@@ -98,14 +98,33 @@
         "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
         "?style": "",
         "?explode": true,
-        "?allowReserved": true,
-        "TO BE": "CONTINUED"
+        "?allowReserved": true
+    },
+    "Responses": {
+        "^[1-5](\\d\\d|XX)$": { "|": [ "$Response", "$Reference" ] },
+        "?default": { "|": [ "$Response", "$Reference" ] }
+    },
+    "Response": [
+        "?description": "",
+        "?headers": { "": { "|": [ "$Header", "$Reference" ] } },
+        "?content": { "": "$MediaType" },
+        "?links": { "": { "|": [ "$Link", "$Reference" ] } }
+    },
+    "Callback": {
+        "": { "|": [ "$PathItem", "$Reference" ] }
+    },
+    "Example": {
+        "?summary": "",
+        "?description": "",
+        "?value": "$ANY",
+        "?externalValue": ""
+    },
+    "Link": {
+        "TODO": "CONTINUE"
     },
     "RequestBody": { "?description": "", "?content": { "": "$MediaType" }, "?required": true },
     "Header": {},
     "SecurityScheme": {},
-    "Link": {},
-    "Callback": {},
     "Reference": {},
     "SecurityRequirements": {},
     "Tag": {},
