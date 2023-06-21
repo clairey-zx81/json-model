@@ -5,7 +5,7 @@
     "FIXME":  "mutual exclusion on id/url in License"
   },
   "%": {
-    "Schema": "$https://json-model.org/schema",
+    "JSONSchema": "$https://json-model.org/schema",
     "Info": {
       "title": "",
       "?summary": "",
@@ -71,9 +71,7 @@
         "?default": { "|": [ "$Response", "$Reference" ] },
         "?httpStatusCode": { "|": [ "$Response", "$Reference" ] }
     },
-    "Parameter": {
-        "name": "",
-        "in": { "|": [ "query", "header", "path", "cookie" ] },
+    "parameterShare": {
         "?description": "",
         "?required": true,
         "?deprecated": true,
@@ -85,6 +83,9 @@
         "?example": "$ANY",
         "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
         "?content": { "": "$MediaType" }
+    },
+    "Parameter": {
+      "+": [ { "name": "", "in": { "|": [ "query", "header", "path", "cookie" ] } }, "$parameterShare" ]
     },
     "Example": {},
     "MediaType": {
@@ -120,14 +121,35 @@
         "?externalValue": ""
     },
     "Link": {
-        "TODO": "CONTINUE"
+        "+": [
+             { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
+             {
+               "?parameters": { "": { "|": [ "$ANY", "$Expression"] } },
+               "?requestBody": { "|": [ "$ANY", "$Expression"] }, 
+               "?description": "",
+               "?server": "$Server"
+             }
+        ]
     },
     "RequestBody": { "?description": "", "?content": { "": "$MediaType" }, "?required": true },
-    "Header": {},
-    "SecurityScheme": {},
-    "Reference": {},
+    "Header": "$parameterShare",
+    "Tag": { "name": "", "?description": "", "?externalDocs": "ExternalDocumentation" },
+    "Reference": { "_$ref": "", "?summary": "", "?description": "" },
+    "ExtendedObject": { "+": [ "$json-schema#ObjectSchema", { "?discriminator": "$Discriminator", "?externalDocs": "$ExternalDocumentation", "?xml": "$XML" } ] },
+    "Schema": "$ExtendedObject",
+    "Discriminator": { "propertyName": "", "?mapping": { "": "" } },
+    "XML": { "?name": "", "?namespace": "", "?prefix": "", "?attribute": true, "?wrapped": true },
+    "SecurityScheme": { "type": "", "?description": "", "name": "", "in": "", "scheme": "", "?bearerFormat": "", "flows": "$OAuthFlows", "openIdConnectUrl": "" },
+    "OAuthFlows": {
+      "?implicit": "$OAuthFlow",
+      "?password": "$OAuthFlow",
+      "?clientCredentials": "$OAuthFlow",
+      "?authorizationCode": "$OAuthFlow"
+    },
+    "OAuthFlow": {
+      "TODO": "to be continued…"
+    },
     "SecurityRequirements": {},
-    "Tag": {},
     "ExternalDocumentation": {},
     "Contact": { "?name": "", "?url": "$URL", "?email": "" },
     "License": { "name": "", "?identifier": "", "?url": "$URL" }
