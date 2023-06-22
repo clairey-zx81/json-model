@@ -192,7 +192,7 @@
       "?description": ""
     },
     "schema": "$https://json-model.org/draft-2020-12",
-    "extendedObject": {
+    "Schema": {
       "+": [
         "$schema#ObjectSchema",
         {
@@ -202,7 +202,6 @@
         }
       ]
     },
-    "Schema": "$extendedObject",
     "Discriminator": {
       "propertyName": "",
       "?mapping": { "": "" },
