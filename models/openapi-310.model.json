@@ -2,10 +2,21 @@
   "#": {
     "title": "OpenAPI v3.1.0",
     "spec": "https://spec.openapis.org/oas/v3.1.0",
-    "FIXME":  "mutual exclusion on id/url in License"
+    "FIXME": "extensions should be added where appropriate"
   },
   "%": {
-    "JSONSchema": "$https://json-model.org/schema",
+    "OpenAPI": {
+      "openapi": "",
+      "info": "$Info",
+      "?jsonSchemaDialect": "",
+      "?servers": [ "$Server" ],
+      "?paths": "$Paths",
+      "?webhooks": { "": { "|": [ "$PathItem", "$Reference" ] } },
+      "?component": "$Components",
+      "?security": "$SecurityRequirement",
+      "?tags": [ "$Tag" ],
+      "?externalDocs": "$ExternalDocumentation"
+    },
     "Info": {
       "title": "",
       "?summary": "",
@@ -15,131 +26,193 @@
       "?license": "$License",
       "version": ""
     },
-    "Server": { "url": "$URL", "?description": "", "?variables": { "": "$ServerVariable" } },
-    "ServerVariable": { "?enum": [""], "default": "", "?description": "" },
+    "Contact": {
+      "?name": "",
+      "?url": "$URL",
+      "?email": ""
+    },
+    "License": {
+      "|": [
+        { "name": "", "identifier": "" },
+        { "name": "", "url": "$URL" }
+      ]
+    },
+    "Server": {
+      "url": "$URL",
+      "?description": "",
+      "?variables": { "": "$ServerVariable" }
+    },
+    "ServerVariable": {
+      "?enum": [""],
+      "default": "",
+      "?description": ""
+    },
     "Components": {
-        "?schemas": { "": "$Schema" },
-        "?responses": { "": { "|": [ "$Response", "$Reference" ] }},
-        "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
-        "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-        "?requestBodies": { "": { "|": [ "$RequestBody", "$Reference" ] }},
-        "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
-        "?securitySchemes": { "": { "|": [ "$SecurityScheme", "$Reference" ] }},
-        "?links": { "": { "|": [ "$Link", "$Reference" ] }},
-        "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
-        "?pathItems": { "": { "|": [ "$PathItem", "$Reference" ] }}
+      "?schemas": { "": "$Schema" },
+      "?responses": { "": { "|": [ "$Response", "$Reference" ] }},
+      "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
+      "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
+      "?requestBodies": { "": { "|": [ "$RequestBody", "$Reference" ] }},
+      "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
+      "?securitySchemes": { "": { "|": [ "$SecurityScheme", "$Reference" ] }},
+      "?links": { "": { "|": [ "$Link", "$Reference" ] }},
+      "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
+      "?pathItems": { "": { "|": [ "$PathItem", "$Reference" ] }}
     },
     "Paths": { "^/": "$PathItem" },
     "PathItem": { 
-        "?$ref": "",
-        "?summary": "",
-        "?description": "",
-        "?get": "$Operation",
-        "?put": "$Operation",
-        "?post": "$Operation",
-        "?options": "$Operation",
-        "?head": "$Operation",
-        "?patch": "$Operation",
-        "?trace": "$Operation",
-        "?servers": "$Operation",
-        "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }}
+      "?$ref": "",
+      "?summary": "",
+      "?description": "",
+      "?get": "$Operation",
+      "?put": "$Operation",
+      "?post": "$Operation",
+      "?options": "$Operation",
+      "?head": "$Operation",
+      "?patch": "$Operation",
+      "?trace": "$Operation",
+      "?servers": "$Operation",
+      "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }}
     },
     "Operation": { 
-        "?tags": [ "" ],
-        "?summary": "",
-        "?description": "",
-        "?externalDocs": "$ExternalDocumentation",
-        "?operationId": "",
-        "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
-        "?requestBody": { "": { "|": [ "$RequestBody", "$Reference" ] }},
-        "?responses": "$Responses",
-        "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
-        "?deprecated": true,
-        "?security": [ "$SecurityRequirement" ],
-        "?servers": [ "$Server" ]
+      "?tags": [ "" ],
+      "?summary": "",
+      "?description": "",
+      "?externalDocs": "$ExternalDocumentation",
+      "?operationId": "",
+      "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
+      "?requestBody": { "": { "|": [ "$RequestBody", "$Reference" ] }},
+      "?responses": "$Responses",
+      "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
+      "?deprecated": true,
+      "?security": [ "$SecurityRequirement" ],
+      "?servers": [ "$Server" ]
     },
-    "SecurityRequirement": {},
-    "Server": {},
-    "ExternalDocumentation": { "?description": "", "url": "$URL" },
+    "ExternalDocumentation": {
+      "?description": "",
+      "url": "$URL"
+    },
     "Response": {
-        "?description": "",
-        "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
-        "?content": { "": "$MediaType" },
-        "?links": { "": { "|": [ "$Link", "$Reference" ] }}
+      "?description": "",
+      "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
+      "?content": { "": "$MediaType" },
+      "?links": { "": { "|": [ "$Link", "$Reference" ] }}
     },
     "Responses": {
-        "?default": { "|": [ "$Response", "$Reference" ] },
-        "?httpStatusCode": { "|": [ "$Response", "$Reference" ] }
+      "?default": { "|": [ "$Response", "$Reference" ] },
+      "?httpStatusCode": { "|": [ "$Response", "$Reference" ] }
     },
     "parameterShare": {
-        "?description": "",
-        "?required": true,
-        "?deprecated": true,
-        "?allowEmptyValue": true,
-        "?style": { "|": [ "matrix", "label", "form", "simple", "spaceDelimited", "pipeDelimited", "deepObject" ] },
-        "?explode": true,
-        "?allowReserved": true,
-        "?schema": "$Schema",
-        "?example": "$ANY",
-        "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-        "?content": { "": "$MediaType" }
+      "?description": "",
+      "?required": true,
+      "?deprecated": true,
+      "?allowEmptyValue": true,
+      "?style": { "|": [ "matrix", "label", "form", "simple", "spaceDelimited", "pipeDelimited", "deepObject" ] },
+      "?explode": true,
+      "?allowReserved": true,
+      "?schema": "$Schema",
+      "?example": "$ANY",
+      "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
+      "?content": { "": "$MediaType" }
     },
     "Parameter": {
-      "+": [ { "name": "", "in": { "|": [ "query", "header", "path", "cookie" ] } }, "$parameterShare" ]
+      "+": [
+        { "name": "", "in": { "|": [ "query", "header", "path", "cookie" ] } },
+        "$parameterShare"
+      ]
     },
-    "Example": {},
     "MediaType": {
-        "?schema": "$Schema",
-        "?example": "$ANY",
-        "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-        "?encoding": { "": "$Encoding" }
+      "?schema": "$Schema",
+      "?example": "$ANY",
+      "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
+      "?encoding": { "": "$Encoding" }
     },
     "Encoding": {
-        "?contentType": "",
-        "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
-        "?style": "",
-        "?explode": true,
-        "?allowReserved": true
+      "?contentType": "",
+      "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
+      "?style": "",
+      "?explode": true,
+      "?allowReserved": true
     },
     "Responses": {
-        "^[1-5](\\d\\d|XX)$": { "|": [ "$Response", "$Reference" ] },
-        "?default": { "|": [ "$Response", "$Reference" ] }
+      "^[1-5](\\d\\d|XX)$": { "|": [ "$Response", "$Reference" ] },
+      "?default": { "|": [ "$Response", "$Reference" ] }
     },
-    "Response": [
-        "?description": "",
-        "?headers": { "": { "|": [ "$Header", "$Reference" ] } },
-        "?content": { "": "$MediaType" },
-        "?links": { "": { "|": [ "$Link", "$Reference" ] } }
+    "Response": {
+      "?description": "",
+      "?headers": { "": { "|": [ "$Header", "$Reference" ] } },
+      "?content": { "": "$MediaType" },
+      "?links": { "": { "|": [ "$Link", "$Reference" ] } }
     },
     "Callback": {
-        "": { "|": [ "$PathItem", "$Reference" ] }
+      "": { "|": [ "$PathItem", "$Reference" ] }
     },
     "Example": {
-        "?summary": "",
-        "?description": "",
-        "?value": "$ANY",
-        "?externalValue": ""
+      "?summary": "",
+      "?description": "",
+      "?value": "$ANY",
+      "?externalValue": ""
     },
     "Link": {
-        "+": [
-             { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
-             {
-               "?parameters": { "": { "|": [ "$ANY", "$Expression"] } },
-               "?requestBody": { "|": [ "$ANY", "$Expression"] }, 
-               "?description": "",
-               "?server": "$Server"
-             }
-        ]
+      "+": [
+        { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
+        {
+          "?parameters": { "": { "|": [ "$ANY", "$Expression"] } },
+          "?requestBody": { "|": [ "$ANY", "$Expression"] }, 
+          "?description": "",
+          "?server": "$Server"
+        }
+      ]
     },
-    "RequestBody": { "?description": "", "?content": { "": "$MediaType" }, "?required": true },
+    "RequestBody": {
+      "?description": "",
+      "?content": { "": "$MediaType" },
+       "?required": true
+    },
     "Header": "$parameterShare",
-    "Tag": { "name": "", "?description": "", "?externalDocs": "ExternalDocumentation" },
-    "Reference": { "_$ref": "", "?summary": "", "?description": "" },
-    "ExtendedObject": { "+": [ "$json-schema#ObjectSchema", { "?discriminator": "$Discriminator", "?externalDocs": "$ExternalDocumentation", "?xml": "$XML" } ] },
-    "Schema": "$ExtendedObject",
-    "Discriminator": { "propertyName": "", "?mapping": { "": "" } },
-    "XML": { "?name": "", "?namespace": "", "?prefix": "", "?attribute": true, "?wrapped": true },
-    "SecurityScheme": { "type": "", "?description": "", "name": "", "in": "", "scheme": "", "?bearerFormat": "", "flows": "$OAuthFlows", "openIdConnectUrl": "" },
+    "Tag": {
+      "name": "",
+      "?description": "",
+      "?externalDocs": "ExternalDocumentation"
+    },
+    "Reference": {
+      "_$ref": "",
+      "?summary": "",
+      "?description": ""
+    },
+    "schema": "$https://json-model.org/schema",
+    "extendedObject": {
+      "+": [
+        "$schema#ObjectSchema",
+        {
+          "?discriminator": "$Discriminator",
+          "?externalDocs": "$ExternalDocumentation",
+          "?xml": "$XML"
+        }
+      ]
+    },
+    "Schema": "$extendedObject",
+    "Discriminator": {
+      "propertyName": "",
+      "?mapping": { "": "" }
+    },
+    "XML": {
+      "?name": "",
+      "?namespace": "",
+      "?prefix": "",
+      "?attribute": true,
+      "?wrapped": true
+    },
+    "SecurityScheme": {
+      "type": "",
+      "?description": "",
+      "name": "",
+      "in": "",
+      "scheme": "",
+      "?bearerFormat": "",
+      "flows": "$OAuthFlows",
+      "openIdConnectUrl": ""
+    },
     "OAuthFlows": {
       "?implicit": "$OAuthFlow",
       "?password": "$OAuthFlow",
@@ -147,21 +220,13 @@
       "?authorizationCode": "$OAuthFlow"
     },
     "OAuthFlow": {
-      "TODO": "to be continued…"
+      "authorizationUrl": "",
+      "tokenUrl": "",
+      "?refreshUrl": "",
+      "scopes": { "": "" }
     },
-    "SecurityRequirements": {},
-    "ExternalDocumentation": {},
-    "Contact": { "?name": "", "?url": "$URL", "?email": "" },
-    "License": { "name": "", "?identifier": "", "?url": "$URL" }
+    "SecurityRequirement": { "": [ "" ] },
+    "Extension": { "^x\\-.*$": "$ANY" }
   },
-  "openapi": "",
-  "info": "$Info",
-  "?jsonSchemaDialect": "",
-  "?servers": [ "$Server" ],
-  "?paths": "$Paths",
-  "?webhooks": { "": { "|": [ "$PathItem", "$Reference" ] } },
-  "?component": "$Components",
-  "?security": "$SecurityRequirements",
-  "?tags": [ "$Tag" ],
-  "?externalDocs": "$ExternalDocumentation" 
+  "@": "$OpenAPI"
 }
