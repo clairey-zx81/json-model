@@ -26,6 +26,7 @@ def c_check_model():
                 print(f"{fn}: {valid}")
                 if not valid:
                     log.info(f"failures: {checkModel._reasons}")
+                    print(f"failures: {checkModel._reasons}")
         except Exception as e:
             print(f"{fn}: error")
             log.error(f"{fn}: {e}")
