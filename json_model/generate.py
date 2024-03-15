@@ -262,9 +262,18 @@ def schema2model(schema, path: str=""):
             #     constraints["encoding"] = val
             return buildModel(model, constraints, defs, sharp)
         elif ts == "number":
-            assert only(schema, "type", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
-            constraints = numberConstraints(schema)
+            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
             model = "$NUMBER" if EXPLICIT_TYPE else 0.0
+            if "format" in schema:
+                fmt = schema["format"]
+                assert fmt in ("double", "float")
+                if fmt == "double":
+                    model = "$DOUBLE"
+                elif fmt == "float":
+                    model = "$FLOAT"
+                else:
+                    assert False, f"unexpected number format {fmt}"
+            constraints = numberConstraints(schema)
             return buildModel(model, constraints, defs, sharp)
         elif ts == "integer":
             assert only(schema, "type", "format", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
@@ -278,6 +287,8 @@ def schema2model(schema, path: str=""):
                     model = "$I32"
                 elif fmt == "int64":
                     model = "$I64"
+                else:
+                    assert False, f"unexpected integer format: {fmt}"
             constraints = numberConstraints(schema)
             return buildModel(model, constraints, defs, sharp)
         elif ts == "boolean":
