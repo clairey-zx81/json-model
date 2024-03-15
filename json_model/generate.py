@@ -259,7 +259,11 @@ def schema2model(schema, path: str=""):
                         *IGNORE), path
             model = "$STRING" if EXPLICIT_TYPE else ""
             if "format" in schema:
-                model = format2model(schema["format"])
+                fmt = schema["format"]
+                if fmt is not None:
+                    model = format2model(fmt)
+                else:
+                    log.warning("ignoring null format")
             constraints = {}
             if "enum" in schema:
                 ve = schema["enum"]
@@ -504,20 +508,20 @@ def schema2model(schema, path: str=""):
         assert only(schema, "oneOf", *IGNORE), path
         choices = schema["oneOf"]
         assert isinstance(choices, (list, tuple)), path
-        model = {"^": [schema2model(s, path + f"/oneOf") for s in choices]}
+        model = {"^": [schema2model(s, path + f"/oneOf[{i}]") for i, s in enumerate(choices)]}
         return buildModel(model, {}, defs, sharp)
     elif "anyOf" in schema:
         assert only(schema, "anyOf", *IGNORE), path
         choices = schema["anyOf"]
         assert isinstance(choices, (list, tuple)), path
-        model = {"|": [schema2model(s, path +"/anyOf") for s in choices]}
+        model = {"|": [schema2model(s, path + f"/anyOf[{i}]") for i, s in enumerate(choices)]}
         return buildModel(model, {}, defs, sharp)
     elif "allOf" in schema:
         # NOTE types should be compatible to avoid an empty match
         assert only(schema, "allOf", *IGNORE), path
         choices = schema["allOf"]
         assert isinstance(choices, (list, tuple)), path
-        model = {"&": [schema2model(s, path + "/allOf") for s in choices]}
+        model = {"&": [schema2model(s, path + f"/allOf[{i}]") for i, s in enumerate(choices)]}
         return buildModel(model, {}, defs, sharp)
     elif "not" in schema:
         # NOTE other option:
