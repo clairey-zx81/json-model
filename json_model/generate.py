@@ -201,7 +201,7 @@ def schema2model(schema, path: str=""):
             IDS[dname][name] = val
             # provide a local converted version as well?
             # this may not be enough in some cases
-            defs[name] = schema2model(val, path + f"/${dname}/{name}")
+            defs[name] = schema2model(val, path + f"/{dname}/{name}")
 
     # FIXME cleanup OpenAPI extentions "x-*"
     for prop in list(schema.keys()):
