@@ -273,7 +273,7 @@ def schema2model(schema, path: str=""):
             if "pattern" in schema:
                 pattern = schema["pattern"]
                 assert isinstance(pattern, str), path
-                assert model == ""
+                assert model in ("", "$STRING"), path
                 if pattern and pattern[0] != "^":
                     model = "^.*" + pattern
                 else:
