@@ -57,7 +57,7 @@ class DSV:
 
     def _dict_constraint(self, value: ValueType, model: ModelType) -> bool:
         assert "@" in model
-        assert set(model.keys()).issubset({"$", "%", "#", "@", "eq", "ne", "lt", "le", "gt", "ge", "distinct"})
+        assert set(model.keys()).issubset({"$", "%", "#", "@", "=", "!=", "<", "<=", ">", ">=", "!"})
         #
         submodel = model["@"]
         # what are the expected submodels?
@@ -82,8 +82,8 @@ class DSV:
         else:
             ivalue = None
         # handle numeric operators
-        if "eq" in model:
-            val = model["eq"]
+        if "=" in model:
+            val = model["="]
             if has_nb and type(val) == int:
                 if not ivalue == val:
                     return False
@@ -92,8 +92,8 @@ class DSV:
                     return False
             else:
                 return False
-        if "ne" in model:
-            val = model["ne"]
+        if "!=" in model:
+            val = model["!="]
             if has_nb and type(val) == int:
                 if not ivalue != val:
                     return False
@@ -102,8 +102,8 @@ class DSV:
                     return False
             else:
                 return False
-        if "le" in model:
-            val = model["le"]
+        if "<=" in model:
+            val = model["<="]
             if has_nb and type(val) == int:
                 if not ivalue <= val:
                     return False
@@ -112,8 +112,8 @@ class DSV:
                     return False
             else:
                 return False
-        if "lt" in model:
-            val = model["lt"]
+        if "<" in model:
+            val = model["<"]
             if has_nb and type(val) == int:
                 if not ivalue < val:
                     return False
@@ -122,8 +122,8 @@ class DSV:
                     return False
             else:
                 return False
-        if "ge" in model:
-            val = model["ge"]
+        if ">=" in model:
+            val = model[">="]
             if has_nb and type(val) == int:
                 if not ivalue >= val:
                     return False
@@ -132,8 +132,8 @@ class DSV:
                     return False
             else:
                 return False
-        if "gt" in model:
-            val = model["gt"]
+        if ">" in model:
+            val = model[">"]
             if has_nb and type(val) == int:
                 if not ivalue > val:
                     return False
@@ -155,10 +155,10 @@ class DSV:
         #         return False
         #     if model["prop"] == "invalid":
         #         return False
-        if "distinct" in model:
-            assert isinstance(model["distinct"], bool), "expecting a boolean value"
+        if "!" in model:
+            assert isinstance(model["!"], bool), "expecting a boolean value"
             assert isinstance(value, (list, tuple, str)), "distinct on iterables"
-            if model["distinct"] and not distinct_values(value):
+            if model["!"] and not distinct_values(value):
                 return False
         return True
 

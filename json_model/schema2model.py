@@ -5,18 +5,23 @@
 import json
 import sys
 import logging
-from json_model.generate import schema2model
+import json_model.generate as gen
 
 def schema2model_script():
 
     logging.basicConfig()
     log = logging.getLogger("s2m")
 
-    for fn in sys.argv[1:]:
+    params = sys.argv[1:]
+    if params and params[0] == "-e":
+        params = params[1:]
+        gen.EXPLICIT_TYPE = True
+
+    for fn in params:
         with open(fn) as f:
             jschema = f.read()
             schema = json.loads(jschema)
-            model = schema2model(schema)
+            model = gen.schema2model(schema)
             jmodel = json.dumps(model, indent=2)
             log.debug(f"schema: {jschema}")
             # log.debug(f"model: {jmodel}")

@@ -60,12 +60,12 @@ class CompileModel:
                     # TODO other options?
 
         self._LENGTH_LAMBDAS = {
-            "eq": self._lambda_eq,
-            "ne": self._lambda_ne,
-            "le": self._lambda_le,
-            "lt": self._lambda_lt,
-            "ge": self._lambda_ge,
-            "gt": self._lambda_gt,
+            "=": self._lambda_eq,
+            "!=": self._lambda_ne,
+            "<=": self._lambda_le,
+            "<": self._lambda_lt,
+            ">=": self._lambda_ge,
+            ">": self._lambda_gt,
         }
 
         # predefs

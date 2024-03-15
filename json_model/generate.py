@@ -42,19 +42,19 @@ def numberConstraints(schema):
     if "minimum" in schema:
         mini = schema["minimum"]
         assert type(mini) in (int, float)
-        constraints["ge"] = mini
+        constraints[">="] = mini
     if "maximum" in schema:
         maxi = schema["maximum"]
         assert type(maxi) in (int, float)
-        constraints["le"] = maxi
+        constraints["<="] = maxi
     if "exclusiveMinimum" in schema:
         mini = schema["exclusiveMinimum"]
         assert type(mini) in (int, float)
-        constraints["gt"] = mini
+        constraints[">"] = mini
     if "exclusiveMaximum" in schema:
         maxi = schema["exclusiveMaximum"]
         assert type(maxi) in (int, float)
-        constraints["lt"] = maxi
+        constraints["<"] = maxi
     return constraints
 
 def buildModel(model, constraints: dict, defs: dict, sharp: dict):
@@ -125,6 +125,8 @@ def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
 CURRENT_SCHEMA: str = None
 IDS: dict[str, dict[str, any]] = {}
 
+EXPLICIT_TYPE: bool = False
+
 def reset():
     global CURRENT_SCHEMA, IDS
     CURRENT_SCHEMA = None
@@ -133,7 +135,7 @@ def reset():
 def schema2model(schema, path: str=""):
     """Convert a JSON schema to a JSON model."""
 
-    global CURRENT_SCHEMA, IDS
+    global CURRENT_SCHEMA, IDS, EXPLICIT_TYPE
 
     # 4.3.2 Boolean JSON Schemas
     if isinstance(schema, bool):
@@ -194,7 +196,10 @@ def schema2model(schema, path: str=""):
         assert only(schema, "$ref", *IGNORE)
         ref = schema["$ref"]
         assert isinstance(ref, str) and len(ref) > 0
-        if ref.startswith("#/"):
+        if ref.startswith("#/$defs/") and only(schema, "$ref", *IGNORE):
+            # keep a reference if simple
+            return buildModel("$" + ref[8:], {}, defs, sharp)
+        elif ref.startswith("#/"):
             names = ref[2:].split("/")
             val = IDS
             for name in names:
@@ -220,7 +225,7 @@ def schema2model(schema, path: str=""):
             assert only(schema, "enum", "type", "pattern", "minLength", "maxLength",
                         "contentMediaType", "contentEncoding",
                         *IGNORE), path
-            model = ""
+            model = "$STRING" if EXPLICIT_TYPE else ""
             constraints = {}
             if "enum" in schema:
                 ve = schema["enum"]
@@ -242,11 +247,11 @@ def schema2model(schema, path: str=""):
             if "minLength" in schema:
                 minlen = schema["minLength"]
                 assert isinstance(minlen, int), path
-                constraints["ge"] = minlen
+                constraints[">="] = minlen
             if "maxLength" in schema:
                 maxlen = schema["maxLength"]
                 assert isinstance(maxlen, int), path
-                constraints["le"] = maxlen
+                constraints["<="] = maxlen
             # if "contentMediaType" in schema:
             #     val = schema["contentMediaType"]
             #     assert isinstance(val, str), path
@@ -259,18 +264,31 @@ def schema2model(schema, path: str=""):
         elif ts == "number":
             assert only(schema, "type", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
             constraints = numberConstraints(schema)
-            return buildModel(0.0, constraints, defs, sharp)
+            model = "$NUMBER" if EXPLICIT_TYPE else 0.0
+            return buildModel(model, constraints, defs, sharp)
         elif ts == "integer":
-            assert only(schema, "type", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
+            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
+            model = "$INTEGER" if EXPLICIT_TYPE else 0
+            # OpenAPI
+            if "format" in schema:
+                fmt = schema["format"]
+                log.warning(f"ignoring format {fmt}")
+                assert fmt in ("int32", "int64")
+                if fmt == "int32":
+                    model = "$I32"
+                elif fmt == "int64":
+                    model = "$I64"
             constraints = numberConstraints(schema)
-            return buildModel(0, constraints, defs, sharp)
+            return buildModel(model, constraints, defs, sharp)
         elif ts == "boolean":
             log.warning("'required' ignored for boolean")
             assert only(schema, "type", "required", *IGNORE), path
-            return buildModel(True, {}, defs, sharp)
+            model = "$BOOL" if EXPLICIT_TYPE else True
+            return buildModel(model, {}, defs, sharp)
         elif ts == "null":
+            model = "$NULL" if EXPLICIT_TYPE else None
             assert only(schema, "type", *IGNORE), path
-            return buildModel(None, {}, defs, sharp)
+            return buildModel(model, {}, defs, sharp)
         elif ts == "array":
             assert only(schema, "type", "prefixItems", "items",
                         "contains", "minContains", "maxContains",
@@ -279,11 +297,11 @@ def schema2model(schema, path: str=""):
             if "minItems" in schema:
                 mini = schema["minItems"]
                 assert type(mini) == int, path
-                constraints["ge"] = mini
+                constraints[">="] = mini
             if "maxItems" in schema:
                 maxi = schema["maxItems"]
                 assert type(maxi) == int, path
-                constraints["le"] = maxi
+                constraints["<="] = maxi
             if "uniqueItems" in schema:
                 unique = schema["uniqueItems"]
                 assert isinstance(unique, bool), path
@@ -300,18 +318,18 @@ def schema2model(schema, path: str=""):
                     if isinstance(schema["items"], bool):
                         assert not constraints, f"not implemented yet {path}"
                         if not schema["items"]:
-                            return buildModel(model, { "ge": 0, "le": len(model) }, defs, sharp)
+                            return buildModel(model, { "XXX": 0, "<=": len(model) }, defs, sharp)
                         else:
                             assert False, f"not implemented yet {path}"
                     # items is a type
                     model.append(schema2model(schema["items"], path + "/items"))
                     if not constraints:
-                        constraints["ge"] = len(model) - 1
+                        constraints[">="] = len(model) - 1
                     return buildModel(model, constraints, defs, sharp)
                 else:
                     model.append("$ANY")
                     if not constraints:
-                        constraints["ge"] = len(model) - 1
+                        constraints[">="] = len(model) - 1
                     return buildModel(model, constraints, defs, sharp)
             elif "items" in schema:
                 assert only(schema, "type", "items", "minItems", "maxItems", "uniqueItems", *IGNORE), path
@@ -326,11 +344,11 @@ def schema2model(schema, path: str=""):
                 if "minContains" in schema:
                     mini = schema["minContains"]
                     assert type(mini) == int, path
-                    model["ge"] = mini
+                    model[">="] = mini
                 if "maxContains" in schema:
                     maxi = schema["maxContains"]
                     assert type(maxi) == int, path
-                    model["le"] = maxi
+                    model["<="] = maxi
                 return buildModel(model, constraints, defs, sharp)
             else:
                 return buildModel([ "$ANY" ], constraints, defs, sharp)
@@ -344,17 +362,17 @@ def schema2model(schema, path: str=""):
             if "minProperties" in schema:
                 mini = schema["minProperties"]
                 assert type(mini) == int, path
-                constraints["ge"] = mini
+                constraints[">="] = mini
             if "maxProperties" in schema:
                 maxi = schema["maxProperties"]
                 assert type(maxi) == int, path
-                constraints["le"] = maxi
+                constraints["<="] = maxi
             if "patternProperties" in schema:
                 pats = schema["patternProperties"]
                 assert isinstance(pats, dict), path
                 for pp in sorted(pats.keys()):
                     name = new_def()
-                    defs[name] = { "@": "", "re": pp }
+                    defs[name] = { "@": "", "^": pp }
                     model[f"${name}"] = schema2model(pats[pp], path + f"/patternProperties[{pp}]")
             if "propertyNames" in schema:
                 # does not seem very useful?
@@ -555,10 +573,10 @@ def model2schema(model):
             if "type" in schema:
                 # contraints on string
                 if schema["type"] == "string":
-                    if "le" in model:
-                        schema["maxLength"] = model["le"]
-                    if "ge" in model:
-                        schema["minLength"] = model["ge"]
+                    if "<=" in model:
+                        schema["maxLength"] = model["<="]
+                    if ">=" in model:
+                        schema["minLength"] = model[">="]
                     # FIXME extension? remove?
                     if "mime" in model:
                         schema["contentEncoding"] = model["mime"]
@@ -566,37 +584,37 @@ def model2schema(model):
                         schema["contentMediaType"] = model["encoding"]
                 # contraints on number or integer
                 if schema["type"] in ("number","integer"):
-                    if "le" in model:
-                        schema["maximum"] = model["le"]
-                    if "ge" in model:
-                        schema["minimum"] = model["ge"]
-                    if "lt" in model:
-                        schema["exclusiveMaximum"] = model["lt"]
-                    if "gt" in model:
-                        schema["exclusiveMinimum"] = model["gt"]
+                    if "<=" in model:
+                        schema["maximum"] = model["<="]
+                    if ">=" in model:
+                        schema["minimum"] = model[">="]
+                    if "<" in model:
+                        schema["exclusiveMaximum"] = model["<"]
+                    if ">" in model:
+                        schema["exclusiveMinimum"] = model[">"]
                     # FIXME extension? remove?
-                    if "mo" in model:
-                        schema["multipleOf"] = model["mo"]
+                    if "*" in model:
+                        schema["multipleOf"] = model["*"]
                 # contraints on object
                 if schema["type"] == "object":
-                    if "le" in model:
-                        schema["maxProperties"] = model["le"]
-                    if "ge" in model:
-                        schema["minProperties"] = model["ge"]
+                    if "<=" in model:
+                        schema["maxProperties"] = model["<="]
+                    if ">=" in model:
+                        schema["minProperties"] = model[">="]
                 # constraints on array
                 if schema["type"] == "array":
-                    if "in" in model:
-                        schema["contains"] = model2schema(model["in"])
-                        if "le" in model:
-                            schema["maxContains"] = model["le"]
-                        if "ge" in model:
-                            schema["minContains"] = model["ge"]
+                    if "~" in model:
+                        schema["contains"] = model2schema(model["~"])
+                        if "<=" in model:
+                            schema["maxContains"] = model["<="]
+                        if ">=" in model:
+                            schema["minContains"] = model[">="]
                     else:
-                        if "le" in model:
-                            schema["maxItems"] = model["le"]
-                        if "ge" in model:
-                            schema["minItems"] = model["ge"]
-                    if "distinct" in model and model["distinct"] == True:
+                        if "<=" in model:
+                            schema["maxItems"] = model["<="]
+                        if ">=" in model:
+                            schema["minItems"] = model[">="]
+                    if "!" in model and model["!"] == True:
                         schema["uniqueItems"] = True
         elif "&" in model:
             schema["allOf"] = [model2schema(m) for m in model["&"]]
