@@ -203,6 +203,12 @@ def schema2model(schema, path: str=""):
             # this may not be enough in some cases
             defs[name] = schema2model(val, path + f"/${dname}/{name}")
 
+    # FIXME cleanup OpenAPI extentions "x-*"
+    for prop in list(schema.keys()):
+        if prop.startswith("x-"):
+            log.warning(f"deleting {prop} on {path}")
+            del schema[prop]
+
     # FIX missing type in some cases
     if "type" not in schema:
         if "properties" in schema:
@@ -251,14 +257,9 @@ def schema2model(schema, path: str=""):
             assert only(schema, "enum", "type", "format", "pattern", "minLength", "maxLength",
                         "contentMediaType", "contentEncoding",
                         *IGNORE), path
-            if "format" in schema:
-                assert only(schema, "type", "format", *IGNORE), path
-                model = format2model(schema["format"])
-                return buildModel(model, {}, defs, sharp)
-            assert only(schema, "enum", "type", "pattern", "minLength", "maxLength",
-                        "contentMediaType", "contentEncoding",
-                        *IGNORE), path
             model = "$STRING" if EXPLICIT_TYPE else ""
+            if "format" in schema:
+                model = format2model(schema["format"])
             constraints = {}
             if "enum" in schema:
                 ve = schema["enum"]
@@ -397,6 +398,9 @@ def schema2model(schema, path: str=""):
             else:
                 return buildModel([ "$ANY" ], constraints, defs, sharp)
         elif ts == "object":
+            if "discriminator" in schema:
+                log.warning(f"ignoring distriminator on {path}")
+                del schema["discriminator"]
             # handle meta data
             assert only(schema, "type", "properties", "additionalProperties", "required",
                         "minProperties", "maxProperties", "patternProperties", "propertyNames",
@@ -453,6 +457,18 @@ def schema2model(schema, path: str=""):
                         assert False, f"not implemented yet, {path}"
                 else:
                     model[""] = "$ANY"
+            elif "additionalProperties" in schema:
+                # "additionalProperties" without "properties"
+                assert only(schema, "type", "additionalProperties", *IGNORE), path
+                ap = schema["additionalProperties"]
+                if isinstance(ap, bool):
+                    if ap:
+                        model[""] = "$ANY"
+                    # else nothing else is allowed
+                elif isinstance(ap, dict):
+                    model[""] = schema2model(ap, path + "/additionalProperties")
+                else:
+                    assert False, f"not implemented yet, {path}"
             else:
                 assert only(schema, "type", "maxProperties", "minProperties", "patternProperties", "propertyNames", *IGNORE), path
                 if "propertyNames" in schema:
@@ -465,6 +481,10 @@ def schema2model(schema, path: str=""):
             assert False, f"unexpected type: {ts} {path}"
     elif "enum" in schema:
         # FIXME currently assume only a list of string
+        for prop in ("maxLength", "minLength"):
+            if prop in schema:
+                log.warning(f"ignoring doubtful {prop} from enum")
+                del schema[prop]
         assert only(schema, "enum", *IGNORE), path
         ve = schema["enum"]
         assert isinstance(ve, list), path
