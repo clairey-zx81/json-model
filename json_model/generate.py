@@ -132,6 +132,38 @@ def reset():
     CURRENT_SCHEMA = None
     IDS = {}
 
+_FMT2MODEL = {
+    "password": "$STRING",  # OpenAPI
+    "date": "$DATE",
+    "date-time": "$DATETIME",
+    "time": "$TIME",
+    "duration": "$DURATION",
+    "email": "$EMAIL",
+    "idn-email": "$EMAIL",
+    "hostname": "$HOSTNAME",
+    "idn-hostname": "$HOSTNAME",
+    "ipv4": "$IP4",
+    "ipv6": "$IP6",
+    "uri": "$URI",
+    "iri": "$URI",
+    "iri-reference": "$URI",
+    "uri-reference": "$URI",
+    "uri-template": "$URI",
+    "uuid": "$UUID",
+    "json-pointer": "$JSONPT",
+    "relative-json-pointer": "$JSONPT",
+    "regex": "$REGEX",
+    # hmmm…
+    "color": "$STRING",
+    "phone": "$STRING",
+}
+
+def format2model(fmt: str):
+    if fmt in _FMT2MODEL:
+        return _FMT2MODEL[fmt]
+    else:
+        return f"${fmt}"
+
 def schema2model(schema, path: str=""):
     """Convert a JSON schema to a JSON model."""
 
@@ -221,7 +253,8 @@ def schema2model(schema, path: str=""):
                         *IGNORE), path
             if "format" in schema:
                 assert only(schema, "type", "format", *IGNORE), path
-                return buildModel(f"${schema['format']}", {}, defs, sharp)
+                model = format2model(schema["format"])
+                return buildModel(model, {}, defs, sharp)
             assert only(schema, "enum", "type", "pattern", "minLength", "maxLength",
                         "contentMediaType", "contentEncoding",
                         *IGNORE), path
