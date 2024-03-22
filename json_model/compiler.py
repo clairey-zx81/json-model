@@ -487,7 +487,7 @@ class CompileModel:
             #     if ttype not in (int, float):
             #         raise ModelError(f"unexpected type for mo numerator: {ttype}")
             #     checks_val.append(self._lambda_mo(vc))
-            elif kc == "distinct":
+            elif kc == "!":
                 if not isinstance(vc, bool):
                     raise ModelError(f"unexpected type for distinct: {type(vc)}")
                 if vc:
