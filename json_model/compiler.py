@@ -708,8 +708,16 @@ class CompileModel:
                     return lambda v, p: self._defs[name](v, p) or self._no(p, f"${name} failed")
         elif char == "_":
             return lambda v, p: isinstance(v, str) and v == name or self._no(p, f"expecting string {name}")
-        elif char == "^":
-            check_re = re.compile(model).search
+        elif char == "/":  # regular expression /.../i?
+            if model.endswith("/i"):
+                option = re.IGNORECASE
+                regex = model[1:-2]
+            elif model.endswith("/"):
+                option = 0
+                regex = model[1:-1]
+            else:
+                raise ModelError(f"invalid regex: {model}")
+            check_re = re.compile(regex, option).search
             return lambda v, p: isinstance(v, str) and check_re(v) is not None or self._no(p, f"expecting regex {model}")
         else:
             return lambda v, p: isinstance(v, str) and v == model or self._no(p, f"expecting string {model}")

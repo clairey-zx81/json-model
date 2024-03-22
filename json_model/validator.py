@@ -316,8 +316,13 @@ class DSV:
                 return self._dollar(name, value)
             elif c == "_":
                 return isinstance(value, str) and name == value
-            elif c == "^":
-                return isinstance(value, str) and re.match(model, value) is not None
+            elif c == "/":
+                if name.endswith("/"):
+                    return isinstance(value, str) and re.match(name[-1], value) is not None
+                elif name.endswith("/i"):
+                    return isinstance(value, str) and re.match(name[-2], value, re.IGNORECASE) is not None
+                else:
+                    raise ModelError(f"invalid regex: {model}")
             elif c == "=":
                 if name == "null":
                     return value is None

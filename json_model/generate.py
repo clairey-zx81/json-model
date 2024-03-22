@@ -278,10 +278,7 @@ def schema2model(schema, path: str=""):
                 pattern = schema["pattern"]
                 assert isinstance(pattern, str), path
                 assert model in ("", "$STRING"), path
-                if pattern and pattern[0] != "^":
-                    model = "^.*" + pattern
-                else:
-                    model = pattern
+                model = f"/{pattern}/"
             if "minLength" in schema:
                 minlen = schema["minLength"]
                 assert isinstance(minlen, int), path
@@ -579,9 +576,10 @@ def model2schema(model):
         elif model[0] == "$":
             # FIXME let us hope that it is an anchor elsewhere...
             schema["$ref"] = "#" + model[1:]
-        elif model[0] == "^":
+        elif model[0] == "/":
             schema["type"] = "string"
-            schema["pattern"] = model
+            assert model.endswith("/")  # no support for /.../i
+            schema["pattern"] = model[1:-1]
         else:
             schema["const"] = model
     elif tmodel == list:
