@@ -16,16 +16,6 @@
         }
       }
     },
-    "defs": {
-      "title": "Common Stuff",
-      "type": "object",
-      "properties": {
-        "%": {
-          "type": "object",
-          "additionalProperties": { "$ref": "#/$defs/Model" }
-        }
-      }
-    },
     "simpleModel": {
       "type": [ "null", "boolean", "integer", "number", "string" ]
     },
@@ -111,10 +101,13 @@
     },
     "defsModel": {
       "type": "object",
-      "allOf": [
-        { "$ref": "#/$defs/defs" },
-        { "$ref": "#/$defs/objModel" }
-      ]
+      "allOf": [ { "$ref": "#/$defs/objModel" } ],
+      "properties": {
+        "%": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/Model" }
+        }
+      }
     },
     "rootModel": {
       "oneOf": [
