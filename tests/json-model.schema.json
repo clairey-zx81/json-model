@@ -2,7 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://json-model.org/json-model.schema.json",
   "title": "JSON Schema for JSON Model",
-  "$anchor": "model",
   "$defs": {
     "common": {
       "title": "Common Stuff",
@@ -14,10 +13,16 @@
             { "type": "string" },
             { "type": "object", "additionalProperties": true }
           ]
-        },
+        }
+      }
+    },
+    "defs": {
+      "title": "Common Stuff",
+      "type": "object",
+      "properties": {
         "%": {
           "type": "object",
-          "additionalProperties": { "$ref": "#model" }
+          "additionalProperties": { "$ref": "#/$defs/Model" }
         }
       }
     },
@@ -27,13 +32,13 @@
     "cmpValue": { "type": [ "integer", "number", "string" ] },
     "arrayModel": {
       "type": "array",
-      "items": { "$ref": "#model" }
+      "items": { "$ref": "#/$defs/Model" }
     },
     "simpleObject": {
       "type": "object",
       "$ref": "#/$defs/common",
       "patternProperties": { "^[@|^&+]$": false },
-      "additionalProperties": { "$ref": "#model" }
+      "additionalProperties": { "$ref": "#/$defs/Model" }
     },
     "andModel": {
       "type": "object",
@@ -75,27 +80,49 @@
       "type": "object",
       "allOf": [ { "$ref": "#/$defs/common" } ],
       "properties": {
-        "@": { "$ref": "#model" },
-        "eq": { "$ref": "#/$defs/cmpValue" },
-        "ne": { "$ref": "#/$defs/cmpValue" },
-        "le": { "$ref": "#/$defs/cmpValue" },
-        "ge": { "$ref": "#/$defs/cmpValue" },
-        "lt": { "$ref": "#/$defs/cmpValue" },
-        "gt": { "$ref": "#/$defs/cmpValue" },
-        "distinct": { "type": "boolean" }
+        "@": { "$ref": "#/$defs/Model" },
+        "=": { "$ref": "#/$defs/cmpValue" },
+        "!=": { "$ref": "#/$defs/cmpValue" },
+        "<=": { "$ref": "#/$defs/cmpValue" },
+        ">=": { "$ref": "#/$defs/cmpValue" },
+        "<": { "$ref": "#/$defs/cmpValue" },
+        ">": { "$ref": "#/$defs/cmpValue" },
+        "!": { "type": "boolean" }
       },
       "required": [ "@" ],
       "unevaluatedProperties": false
+    },
+    "objModel": {
+      "oneOf": [
+        { "$ref": "#/$defs/simpleObject" },
+        { "$ref": "#/$defs/andModel" },
+        { "$ref": "#/$defs/orModel" },
+        { "$ref": "#/$defs/xorModel" },
+        { "$ref": "#/$defs/addModel" },
+        { "$ref": "#/$defs/constrainedModel" }
+      ]
+    },
+    "Model": {
+      "oneOf": [
+        { "$ref": "#/$defs/simpleModel" },
+        { "$ref": "#/$defs/arrayModel" },
+        { "$ref": "#/$defs/objModel" }
+      ]
+    },
+    "defsModel": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "#/$defs/defs" },
+        { "$ref": "#/$defs/objModel" }
+      ]
+    },
+    "rootModel": {
+      "oneOf": [
+        { "$ref": "#/$defs/simpleModel" },
+        { "$ref": "#/$defs/arrayModel" },
+        { "$ref": "#/$defs/defsModel" }
+      ]
     }
   },
-  "oneOf": [
-    { "$ref": "#/$defs/simpleModel" },
-    { "$ref": "#/$defs/arrayModel" },
-    { "$ref": "#/$defs/simpleObject" },
-    { "$ref": "#/$defs/andModel" },
-    { "$ref": "#/$defs/orModel" },
-    { "$ref": "#/$defs/xorModel" },
-    { "$ref": "#/$defs/addModel" },
-    { "$ref": "#/$defs/constrainedModel" }
-  ]
+  "$ref": "#/$defs/rootModel"
 }
