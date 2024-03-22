@@ -715,10 +715,12 @@ def model2schema(model):
                     properties[prop[1:]] =  model2schema(val)
                 elif prop[0] == "?":
                     properties[prop[1:]] =  model2schema(val)
-                elif prop[0] == "^":
+                elif prop[0] == "/":
+                    assert prop.endswith("/")
+                    regex = prop[1:-1]
                     if "patternProperties" not in schema:
                         schema["patternProperties"] = {}
-                    schema["patternProperties"][prop] = model2schema(val)
+                    schema["patternProperties"][regex] = model2schema(val)
                     if addProp is None:
                         addProp = False
                 elif prop[0] == "$":
