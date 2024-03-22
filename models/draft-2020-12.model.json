@@ -42,7 +42,7 @@
     "simpleTypesArray": {
       "@": ["$simpleTypes"], ">=": 1, "!": true
     },
-    "stringArray": { "@": [""], "distinct": true },
+    "stringArray": { "@": [""], "!": true },
     "nonNegativeInteger": {"@": 0, ">=": 0 },
     "validation": {
       "?type": {"|": ["$simpleTypes", "$simpleTypesArray"]},

@@ -2,10 +2,10 @@
   "#": "JSON Model for JSON Schema Draft 02",
   "$": "Schema",
   "%": {
-    "posInt": {"@": 0, "ge": 0},
-    "strictPosNum": {"@": 0.0, "gt": 0.0},
+    "posInt": {"@": 0, ">=": 0},
+    "strictPosNum": {"@": 0.0, ">": 0.0},
     "allTypes": {"|": ["null", "boolean", "integer", "number", "string", "array", "object", "any"]},
-    "distinctStringArray": {"@": [""], "distinct": true}
+    "distinctStringArray": {"@": [""], "!": true}
   },
   "?type": {"|": ["$allTypes", [{"|": ["", "$Schema"]}]]},
   "?properties": { "": "$Schema" },
@@ -22,7 +22,7 @@
   "?pattern": "$REGEX",
   "?minLength": "$posInt",
   "?maxLength": "$posInt",
-  "?enum": {"@": ["$ANY"], "ge": 1, "distinct": true},
+  "?enum": {"@": ["$ANY"], ">=": 1, "!": true},
   "?uniqueItems": true,
   "?title": "",
   "?description": "",
