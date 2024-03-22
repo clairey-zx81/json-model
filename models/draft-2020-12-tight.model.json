@@ -2,7 +2,7 @@
   "$": "Schema",
   "#": "Tight JSON Model for JSON Schema 2020-12",
   "%": {
-    "posInt": { "@": 0, "ge": 0 },
+    "posInt": { "@": 0, ">=": 0 },
     "core": {
       "?$id": "$URI-REFERENCE",
       "?$schema": "$URI",
@@ -27,7 +27,7 @@
     "Boolean": { "type": "_boolean" },
     "Number": {
       "type": { "|": [ "_integer", "_number" ] },
-      "?multipleOf": {"@": 0.0, "gt": 0},
+      "?multipleOf": {"@": 0.0, ">": 0},
       "?maximum": 0.0,
       "?exclusiveMaximum": 0.0,
       "?minimum": 0.0,
@@ -43,8 +43,8 @@
       "?minLength": "$posInt",
       "?pattern": "$REGEX"
     },
-    "stringArray": { "@": [""], "ge": 1 },
-    "schemaArray": { "@": ["$Schema"], "ge": 1 },
+    "stringArray": { "@": [""], ">=": 1 },
+    "schemaArray": { "@": ["$Schema"], ">=": 1 },
     "Array": {
       "type": "_array",
       "?maxItems": "$posInt",

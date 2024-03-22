@@ -39,15 +39,15 @@
       "|": ["array", "boolean", "integer", "null", "number", "object", "string"]
     },
     "simpleTypesArray": {
-      "@": ["$simpleTypes"], "ge": 1, "distinct": true
+      "@": ["$simpleTypes"], ">=": 1, "!": true
     },
-    "stringArray": { "@": [""], "distinct": true },
-    "nonNegativeInteger": {"@": 0, "ge": 0 },
+    "stringArray": { "@": [""], "!": true },
+    "nonNegativeInteger": {"@": 0, ">=": 0 },
     "validation": {
       "?type": {"|": ["$simpleTypes", "$simpleTypesArray"]},
       "?const": "$ANY",
       "?enum": ["$ANY"],
-      "?multipleOf": {"@": 0.0, "gt": 0},
+      "?multipleOf": {"@": 0.0, ">": 0},
       "?maximum": 0.0,
       "?exclusiveMaximum": 0.0,
       "?minimum": 0.0,
@@ -65,7 +65,7 @@
       "?required": "$stringArray",
       "?dependentRequired": { "": "$stringArray" }
     },
-    "schemaArray": { "@": ["$Schema"], "ge": 1 },
+    "schemaArray": { "@": ["$Schema"], ">=": 1 },
     "applicator": {
       "?prefixItems": "$schemaArray",
       "?items": "$Schema",
