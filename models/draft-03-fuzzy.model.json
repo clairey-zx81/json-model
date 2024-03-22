@@ -2,10 +2,10 @@
   "#": "Fuzzy JSON Model for JSON Schema Draft 03",
   "$": "Schema",
   "%": {
-    "posInt": {"@": 0, "ge": 0},
-    "strictPosNum": {"@": 0.0, "gt": 0.0},
+    "posInt": {"@": 0, ">=": 0},
+    "strictPosNum": {"@": 0.0, ">": 0.0},
     "allTypes": {"|": ["null", "boolean", "integer", "number", "string", "array", "object", "any"]},
-    "distinctSchemaArray": {"@": [{"|": ["", "$Schema"]}], "distinct": true}
+    "distinctSchemaArray": {"@": [{"|": ["", "$Schema"]}], "!": true}
   },
   "?type": {"|": ["$allTypes", [{"|": ["", "$Schema"]}]]},
   "?properties": { "": "$Schema" },
@@ -24,7 +24,7 @@
   "?pattern": "",
   "?minLength": "$posInt",
   "?maxLength": "$posInt",
-  "?enum": {"@": ["$ANY"], "ge": 1, "distinct": true},
+  "?enum": {"@": ["$ANY"], ">=": 1, "!": true},
   "?uniqueItems": true,
   "?title": "",
   "?description": "",
