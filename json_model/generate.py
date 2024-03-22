@@ -364,7 +364,7 @@ def schema2model(schema, path: str=""):
                     if isinstance(schema["items"], bool):
                         assert not constraints, f"not implemented yet {path}"
                         if not schema["items"]:
-                            return buildModel(model, { "XXX": 0, "<=": len(model) }, defs, sharp)
+                            return buildModel(model, { ">=": 0, "<=": len(model) }, defs, sharp)
                         else:
                             assert False, f"not implemented yet {path}"
                     # items is a type
@@ -421,7 +421,7 @@ def schema2model(schema, path: str=""):
                 assert isinstance(pats, dict), path
                 for pp in sorted(pats.keys()):
                     name = new_def()
-                    defs[name] = { "@": "", "^": pp }
+                    defs[name] = { "@": f"/{pp}/" }
                     model[f"${name}"] = schema2model(pats[pp], path + f"/patternProperties[{pp}]")
             if "propertyNames" in schema:
                 # does not seem very useful?
