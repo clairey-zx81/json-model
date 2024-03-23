@@ -38,9 +38,9 @@ BADS = [
     ("+s", False, False, {"+": "bad"}),
     # FIXME @ restriction could be detected
     # ("@in", True, False, {"@": True, "in": ""}),
-    ("@eq", False, False, {"@": [0], "eq": [0, 0]}),
+    ("@eq", False, False, {"@": [0], "=": [0, 0]}),
     # bad types
-    ("@ type 0", False, False, {"@": "", "le": True}),
+    ("@ type 0", False, False, {"@": "", "<=": True}),
     # ("@ type 1", False, False, {"@": "", "prop": 0}),
     # ("@ type 2", False, False, {"@": "", "mo": "hello"}),
     # ("@ type 3", False, False, {"@": "", "mo": False}),
@@ -58,7 +58,7 @@ BADS = [
     ("+", True, False, {"+": [{"a": 0}, 0]}),
     ("+", True, False, {"+":[{"a": 0}, {"a": False}]}),
     ("+", True, False, {"+":[{"a": 0}, {"?a": ""}]}),
-    ("+", True, False, {"+":[{"@": 0, "le": 2}, {"a": 0, "b": 0, "c": ""}]}),
+    ("+", True, False, {"+":[{"@": 0, "<=": 2}, {"a": 0, "b": 0, "c": ""}]}),
     # #
     # detect infinite recursion?
     # FIXME compilation should fail?

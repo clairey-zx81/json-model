@@ -46,37 +46,37 @@ TOC_VAL_5 = {"toc": [{"toc": [{"toc": []}]}, {"toc": [{"toc": []}]}]}
 # list[int] with len in [2, 3]
 SHORT_INT_LIST = {
   "#": {"title": "Short Integer List"},
-  "@": [0], "le": 3, "ge": 2
+  "@": [0], "<=": 3, ">=": 2
 }
 
 # MO_CENT = {"@": 0, "mo": 100}
 
 LOCAL_DEFS = {
   "%": {
-    "quarante-deux": {"@": 0, "eq": 42},
-    "dix": {"@": 0, "eq": 10},
+    "quarante-deux": {"@": 0, "=": 42},
+    "dix": {"@": 0, "=": 10},
   },
   "|": ["$quarante-deux", "$dix"],
 }
 
 NO_PROPS = {
   "@": {"": 0},
-  "eq": 0
+  "=": 0
 }
 
 ONE_PROPS = {
   "@": {"": 0},
-  "eq": 1
+  "=": 1
 }
 
 TWO_PROPS = {
   "@": {"": "$ANY"},
-  "eq": 2
+  "=": 2
 }
 
 STR_LEN_3 = {
   "@": "",
-  "eq": 3
+  "=": 3
 }
 
 # constrained key
@@ -94,7 +94,7 @@ FBK_0_F = None
 FBK_1_F = {"fun": True}
 
 # distinct list
-INT_SET = {"@": [0], "distinct": True}
+INT_SET = {"@": [0], "!": True}
 IS_0_T = []
 IS_1_T = [1]
 IS_2_T = [1, 2]
@@ -124,9 +124,9 @@ IS_3_F = [0, 1, 2, 3, 4, 5, 6, 5, 5, 5, 4]
 # MO5_3_F = 5432.1
 
 # length
-L3_0 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "eq": 3}
-L3_1 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "le": 3, "ge": 3}
-L3_2 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "lt": 5, "gt": 2, "ne": 4}
+L3_0 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "=": 3}
+L3_1 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "<=": 3, ">=": 3}
+L3_2 = {"@": {"|": ["", {"": "$ANY"}, ["$ANY"]]}, "<": 5, ">": 2, "!=": 4}
 L3_0_T = "hel"
 L3_1_T = [0, 1, 2]
 L3_2_T = {"a":1, "b":2, "c":3}
@@ -141,7 +141,7 @@ L3_7_F = {}
 L3_8_F = {"a": 0}
 
 # constraint on str *value*
-STRCMP = {"@": "", "ge": "A", "lt": "["}
+STRCMP = {"@": "", ">=": "A", "<": "["}
 SC_0_T = "Calvin"
 SC_1_T = "Susie"
 SC_2_T = "A234"
@@ -214,7 +214,7 @@ DBOOL_3_F = {"flip": "true", "flap": "ok"}
 DBOOL_4_F = {"flap": "KO", "flop": "KO"}
 
 # variable length tuple
-VARTUP0 = {"@": [0, "", True], "ge": 2, "le": 5}
+VARTUP0 = {"@": [0, "", True], ">=": 2, "<=": 5}
 VARTUP0_0_T = [42, "Calvin"]
 VARTUP0_1_T = [42, "Susie", False]
 VARTUP0_2_T = [42, "Hobbes", False, True]
@@ -226,7 +226,7 @@ VARTUP0_3_F = [42, "Calvin", False, True, False, True]
 VARTUP0_4_F = "quarante-deux"
 
 # contains
-# CLINT = {"@": ["$ANY"], "in": 0, "eq": 2}
+# CLINT = {"@": ["$ANY"], "in": 0, "=": 2}
 # CLINT_0_T = [0, 1]
 # CLINT_1_T = [False, "one", 2, {"foo": "bla"}, 3, [False, True]]
 # CLINT_0_F = []
@@ -235,7 +235,7 @@ VARTUP0_4_F = "quarante-deux"
 # CLINT_3_F = [True, False]
 
 # and
-AND0 = {"&": [0, {"@": 0, "ge": 41}, {"@": 0, "le": 43}]}
+AND0 = {"&": [0, {"@": 0, ">=": 41}, {"@": 0, "<=": 43}]}
 AND0_0_T = 41
 AND0_1_T = 42
 AND0_2_T = 43
@@ -249,7 +249,7 @@ AND0_6_F = {"answer": 42}
 AND0_7_F = 3.14159
 
 # only one
-ONE0 = {"^": [0, {"@": 0, "eq": 1}]}
+ONE0 = {"^": [0, {"@": 0, "=": 1}]}
 ONE0_0_T = 0
 ONE0_1_T = 2
 ONE0_0_F = 1
@@ -261,8 +261,8 @@ ONE0_3_F = []
 AND1 = {
     "&": [
         {"@": "^[A-Z]"},
-        {"@": "", "eq": 6},
-        {"@": "", "distinct": True}
+        {"@": "", "=": 6},
+        {"@": "", "!": True}
     ]
 }
 AND1_0_T = "Calvin"
