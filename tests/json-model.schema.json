@@ -36,8 +36,7 @@
       "properties": {
         "&": { "$ref": "#/$defs/arrayModel" }
       },
-      "required": [ "&" ],
-      "unevaluatedProperties": false
+      "required": [ "&" ]
     },
     "orModel": {
       "type": "object",
@@ -45,8 +44,7 @@
       "properties": {
         "|": { "$ref": "#/$defs/arrayModel" }
       },
-      "required": [ "|" ],
-      "unevaluatedProperties": false
+      "required": [ "|" ]
     },
     "xorModel": {
       "type": "object",
@@ -54,8 +52,7 @@
       "properties": {
         "^": { "$ref": "#/$defs/arrayModel" }
       },
-      "required": [ "^" ],
-      "unevaluatedProperties": false
+      "required": [ "^" ]
     },
     "addModel": {
       "type": "object",
@@ -63,8 +60,7 @@
       "properties": {
         "+": { "$ref": "#/$defs/arrayModel" }
       },
-      "required": [ "+" ],
-      "unevaluatedProperties": false
+      "required": [ "+" ]
     },
     "constrainedModel": {
       "type": "object",
@@ -79,8 +75,7 @@
         ">": { "$ref": "#/$defs/cmpValue" },
         "!": { "type": "boolean" }
       },
-      "required": [ "@" ],
-      "unevaluatedProperties": false
+      "required": [ "@" ]
     },
     "objModel": {
       "oneOf": [
@@ -97,7 +92,8 @@
         { "$ref": "#/$defs/simpleModel" },
         { "$ref": "#/$defs/arrayModel" },
         { "$ref": "#/$defs/objModel" }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "defsModel": {
       "type": "object",
@@ -107,7 +103,8 @@
           "type": "object",
           "additionalProperties": { "$ref": "#/$defs/Model" }
         }
-      }
+      },
+      "unevaluatedProperties": false
     },
     "rootModel": {
       "oneOf": [
