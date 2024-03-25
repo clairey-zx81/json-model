@@ -117,8 +117,8 @@ def split_object(model: dict[str, any]) -> tuple[Object, Object, Object, Object,
             refs[name] = val
         elif c == "/":
             # FIXME /i support on keys
-            assert val.endswith("/")
-            regs[key] = val[-1]
+            assert key.endswith("/"), f"bad key: {key}"
+            regs[key] = val
         else:
             if key in must or key in may:
                 raise ModelError(f"multiply defined property: {name}")
