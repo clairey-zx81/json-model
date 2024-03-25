@@ -334,8 +334,10 @@ class DSV:
                     return isinstance(value, int) and value == int(name)
                 else:
                     return isinstance(value, (int, float)) and value == float(name)
-            else:
+            elif re.match(r"^[A-Za-z0-9]", c):
                 return isinstance(value, str) and model == value
+            else:
+                raise ModelError(f"unexpected sentinel character: {c} ({model})")
 
     def check(self, value: any, model: any, strict: bool=True) -> bool:
         """Recursive type checker."""
