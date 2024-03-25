@@ -477,8 +477,8 @@ TEST_MODELS = [
     # re
     ("Calvin", "/^[A-Z][a-z]*$/", True),
     ("1234", "/^[A-Z][a-z]*$/", False),
-    ("1970-10-14", "$DATE", True),
-    ("20 mars 1970", "$DATE", False),
+    ("1970-10-14", "$date", True),
+    ("20 mars 1970", "$date", False),
     # whatever: does not check anything a tall
     ("oops", "$ANY", True),
     (None, "$ANY", True),
@@ -812,7 +812,7 @@ def init_data(define):
     define("strint", STR_OR_INT)
     define("nullint", NULL_OR_INT)
     # vaguely look like a date
-    define("date", r"^\d{4}-\d{2}-\d{2}$")
+    define("date", r"/^\d{4}-\d{2}-\d{2}$/")
     define("bool", True)
     define("lf1", LIST_F_1)
     define("lf2", LIST_F_2)
