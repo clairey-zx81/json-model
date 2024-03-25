@@ -9,9 +9,9 @@
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
-      "^(le|ge|lt|gt)$": { "|": [ 0, 0.0, "" ] },
-      "^(eq|ne)$": "$val",
-      "?distinct": true
+      "^(<=|>=|<|>)$": { "|": [ 0, 0.0, "" ] },
+      "^(=|!=)$": "$val",
+      "?!": true
     },
     "Or": { "_|": [ "$Model" ] },
     "And": { "_&": [ "$Model" ] },
