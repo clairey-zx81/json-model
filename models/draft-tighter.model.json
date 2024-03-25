@@ -1,8 +1,8 @@
 {
   "#": "JSON Model for a Very Tight JSON Schema",
   "%": {
-     "const": { "|": [ null, true, 0, 0.0, "" ] },
-     "enum": { "|": [ [""], [0], [true], [0.0] ] },
+     "const": { "|": [ null, true, -1, -1.0, "" ] },
+     "enum": { "|": [ [""], [-1], [true], [-1.0] ] },
      "schemaArray": [ "$Schema" ],
      "stringKeywords": {
        "?pattern": "$REGEX",
@@ -34,8 +34,8 @@
      },
      "numberKeywords": {
        "#": "not included: exclusive*, multipleOf…",
-       "?minimum": 0.0,
-       "?maximum": 0.0
+       "?minimum": -1.0,
+       "?maximum": -1.0
      },
      "metas": {
        "#": "there is a trick with $schema… in RootSchema below",
