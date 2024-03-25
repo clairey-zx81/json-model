@@ -260,7 +260,7 @@ ONE0_3_F = []
 # additive: length-6 capitalized distinct-char string
 AND1 = {
     "&": [
-        {"@": "^[A-Z]"},
+        {"@": "/^[A-Z]/"},
         {"@": "", "=": 6},
         {"@": "", "!": True}
     ]
@@ -475,10 +475,10 @@ TEST_MODELS = [
     ([1, 2, 3], SIMPLE_COMMENT, True),
     ({"Calvin": "Susie"}, SIMPLE_COMMENT, True),
     # re
-    ("Calvin", "^[A-Z][a-z]*$", True),
-    ("1234", "^[A-Z][a-z]*$", False),
-    ("1970-10-14", "$date", True),
-    ("20 mars 1970", "$date", False),
+    ("Calvin", "/^[A-Z][a-z]*$/", True),
+    ("1234", "/^[A-Z][a-z]*$/", False),
+    ("1970-10-14", "$DATE", True),
+    ("20 mars 1970", "$DATE", False),
     # whatever: does not check anything a tall
     ("oops", "$ANY", True),
     (None, "$ANY", True),
