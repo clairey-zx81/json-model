@@ -132,7 +132,7 @@ def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others
         **{f"!{k}": v for k, v in must.items()},
         **{f"?{k}": v for k, v in may.items()},
         **{f"${k}": v for k, v in refs.items()},
-        **regs,
+        **{f"/{k}/": v for k, v in regs.items()},
         **others
     }
 
