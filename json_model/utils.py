@@ -7,7 +7,7 @@ from typing import Callable  # why not callable?
 
 import logging
 log = logging.getLogger("utils")
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 class UnknownModel:
     pass
@@ -168,7 +168,8 @@ def _merge(data, defs):
             name = m[1:]
             assert name in defs
             m = defs[name]
-        assert isinstance(m, dict)
+        if not isinstance(m, dict):
+            raise ModelError(f"invalid type for + item: {type(m)}")
         if isinstance(m, dict) and  "|" in m:
             models = m["|"]
             if not isinstance(models, list):
@@ -264,18 +265,18 @@ def merge_simple_models(models: list[any], defs) -> Object:
     # must follow references!
     dict_models = []
     for m in models:
-        log.debug(f"m 0: {m}")
+        # log.debug(f"m 0: {m}")
         if isinstance(m, dict):
             if "+" in m:
-                # XXX
-                # FIXME possibly recomputed, should be memoized
+                log.warning("+ in +")
                 m = merge_simple_models(m["+"], defs)
-            log.debug(f"m 1: {m}")
+            # log.debug(f"m 1: {m}")
             dict_models.append(m)
         elif isinstance(m, str) and len(m) >= 1 and m[0] == "$":  # reference
+            log.warning("+ with references should be resolved before?")
             m2 = defs.model(m[1:])  # FIXME $x -> $y -> {} ?
             assert isinstance(m2, dict)
-            log.debug(f"m 2: {m2}")
+            # log.debug(f"m 2: {m2}")
             dict_models.append(m2)
         else:
             raise ModelError(f"unexpected model to merge: {m}")
@@ -395,6 +396,12 @@ class ModelDefs:
             del self._models[name]
             self._known.remove(self._jsons[name])
 
+    def __str__(self):
+        return "models: " + " ".join(self._models.keys())
+
+    def __repr__(self):
+        return str(self)
+
     def __setitem__(self, key, val):
         self.set(key, val)
 
@@ -406,6 +413,7 @@ class ModelDefs:
 
     def __delitem__(self, key):
         self.delete(key)
+
 
 class JsonType(enum.IntEnum):
     DATA = 0

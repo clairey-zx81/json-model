@@ -168,7 +168,9 @@ class DSV:
         must_see = len(must)
 
         # test all value properties
-        for key, val in value.items():
+        value_keys = list(value.keys())  # FIXME why? someone changes the value??
+        for key in value_keys:
+            val = value[key]
 
             if not isinstance(key, str):
                 return False
@@ -270,7 +272,7 @@ class DSV:
             assert isinstance(models, (list, tuple)), f"illegal addition: {models} ({type(models)})"
             # very costly: object models are merged on each comparison...
             umodels = [ self._follow_references(m) for m in models ]
-            return self.check(value, utils.merge_simple_models(umodels))
+            return self.check(value, utils.merge_simple_models(umodels, self._defs))
 
             # raise ModelError("additive model not implemented yet")
         elif "@" in model:
@@ -342,7 +344,9 @@ class DSV:
     def check(self, value: any, model: any, strict: bool=True) -> bool:
         """Recursive type checker."""
         # first rewrite merge operators
-        rw_model = utils.merge_rewrite(model)
+        # FIXME ???
+        defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
+        rw_model = utils.merge_rewrite(model, defs)
         return self._type[type(model)](value, rw_model, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any):
