@@ -98,8 +98,6 @@ def test_jschon_bads():
             log.error(json.dumps(res.output('basic'), indent=2))
         assert not res.passed, f"model is invalid"
 
-# FIXME
-@pytest.mark.skip("validator must handle + with $...")
 def test_v_checked_json_schema():
     validator = DSV()
     s2m = pathlib.Path("./s2m")
