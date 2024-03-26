@@ -12,8 +12,8 @@ import urllib
 
 # logging.basicConfig()
 log = logging.getLogger("compiler")
-log.setLevel(level=logging.INFO)
-# log.setLevel(level=logging.DEBUG)
+# log.setLevel(level=logging.INFO)
+log.setLevel(level=logging.DEBUG)
 
 from typing import Callable
 
@@ -88,8 +88,9 @@ class CompileModel:
         self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
-        rw_model = utils.merge_rewrite(model)
-        self._fun = self._raw_compile(rw_model)
+        rw_model = utils.merge_rewrite(model)  # eliminate | under +
+        log.debug(f"rw: {rw_model}")
+        self._fun = self._root_compile(rw_model)
         self._reasons = []
 
     def _no(self, path: str, msg: str, reset=False):
@@ -604,7 +605,7 @@ class CompileModel:
         if len(models) == 0:
             return lambda v, p: self._no(p, "empty +")
         models = [ self._ultimate_model(m) for m in models ]
-        return self._dict_check(utils.merge_simple_models(models))
+        return self._dict_check(utils.merge_simple_models(models, self._defs))
 
     def _none_raw_compile(self, model: type(None)) -> CheckFun:
         """Compile null."""
@@ -730,23 +731,12 @@ class CompileModel:
         else:
             return self._tuple_check(model)
 
-    def _dict_raw_compile(self, model: dict) -> CheckFun:
+    def _dict_raw_compile(self, model: dict, is_root: bool = False) -> CheckFun:
         """Compile a generic element."""
 
         # special properties
         if "$" in model and not isinstance(model["$"], str):
             raise ModelError(f"unexpected model name type: {type(model['$'])}")
-        if "%" in model:
-            defs = model["%"]
-            if not isinstance(defs, dict):
-                raise ModelError(f"unexpected % value: {defs}")
-            for name, val in defs.items():
-                if not isinstance(name, str): # or len(str) == 0:
-                    raise ModelError(f"unexpected def name: {name} ({type(name)})")
-                # if name in _DEFS:
-                #    log.warning(f"overwriting definition for {name}")
-                # _DEFS[name] = _raw_compile(val)
-                self._defs.set(name, val)
         if "#" in model:
             # just basic checks
             meta = model["#"]
@@ -754,6 +744,8 @@ class CompileModel:
                 raise ModelError(f"unexpected # value: {meta} ({type(meta)})")
             # if isinstance(meta, dict) and "$$" in meta and not isinstance(meta["$$"], str):
             #     raise ModelError(f"unexpected $$ value: {meta['$$']} ({type(meta['$$'])})")
+        if "%" in model and not is_root:
+            raise ModelError(f"unexpected % not at model root")
 
         # classes
         if "@" in model:
@@ -775,7 +767,7 @@ class CompileModel:
 
         return check
 
-    def _raw_compile(self, model: any) -> CheckFun:
+    def _raw_compile(self, model: any, is_root: bool = False) -> CheckFun:
         """Dynamic "compilation" of a model."""
         # static switch on model type
         tmodel = type(model)
@@ -792,9 +784,27 @@ class CompileModel:
         elif tmodel in (list, tuple):
             return self._list_raw_compile(model)
         elif tmodel == dict:
-            return self._dict_raw_compile(model)
+            return self._dict_raw_compile(model, is_root)
         else:
             raise ModelError(f"unexpected model type {type(model)}: {model}")
+
+    def _root_compile(self, model: any) -> CheckFun:
+
+        if isinstance(model, dict) and "%" in model:
+            defs = model["%"]
+            if not isinstance(defs, dict):
+                raise ModelError(f"unexpected % value: {defs}")
+            for name, val in defs.items():
+                if not isinstance(name, str): # or len(str) == 0:
+                    raise ModelError(f"unexpected def name: {name} ({type(name)})")
+                # MUST preprocess "+" for defs if they are referenced
+                if isinstance(val, dict) and "+" in val:
+                    # FIXME is it always ok?
+                    log.debug(f"merging def {name}")
+                    val = utils.merge_simple_models(val["+"], self._defs)
+                self._defs.set(name, val)
+
+        return self._raw_compile(model, True)
 
 
 def compileModel(model: ModelType) -> CheckFun:

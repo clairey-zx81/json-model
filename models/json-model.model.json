@@ -1,30 +1,30 @@
 {
   "#": "Self-Validating JSON Model",
-  "$": "Model",
   "%": {
-    "val": { "|":  [ null, true, -1, -1.0, "" ] },
-    "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
-    "none": { "|": [ ] },
-    "meta": { "|": [ "", { "": "$any" } ] },
+    "Val": { "|":  [ null, true, -1, -1.0, "" ] },
+    "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
+    "None": { "|": [ ] },
+    "Meta": { "|": [ "", { "": "$Any" } ] },
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
       "/^(<=|>=|<|>)$/": { "|": [ -1, -1.0, "" ] },
-      "/^(=|!=)$/": "$val",
+      "/^(=|!=)$/": "$Val",
       "?!": true
     },
     "Or": { "_|": [ "$Model" ] },
     "And": { "_&": [ "$Model" ] },
     "Xor": { "_^": [ "$Model" ] },
     "Add": { "_+": [ "$Model" ] },
-    "Obj": { "": "$Model", "/^[|@&^+]$/": "$none" },
+    "Obj": { "": "$Model", "/^[|@&^+]$/": "$None" },
     "Elem": {
       "+": [
-        { "?$": "", "?#": "$meta", "?%": { "": "$Model" } },
-        { "|": [ "$Constraint", "$Or", "$And",
-                 "$Xor", "$Add", "$Obj" ] }
+        { "?$": "", "?#": "$Meta" },
+        { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
       ]
-    }
+    },
+    "Model": { "|": [ "$Val", "$Array", "$Elem" ] },
+    "Root": { "+": [ { "?%": { "": "$Model" } }, "$Elem" ] }
   },
-  "|": [ "$val", "$Array", "$Elem" ]
+  "|": [ "$Val", "$Array", "$Root" ]
 }

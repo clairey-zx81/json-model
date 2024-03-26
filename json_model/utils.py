@@ -7,6 +7,7 @@ from typing import Callable  # why not callable?
 
 import logging
 log = logging.getLogger("utils")
+log.setLevel(logging.DEBUG)
 
 class UnknownModel:
     pass
@@ -153,7 +154,7 @@ def _merge_object(i, j):
         d = {"+": [i, j]}
     return d
 
-def _merge(data):
+def _merge(data, defs):
 
     if not isinstance(data, dict) or "+" not in data:
         return data
@@ -162,8 +163,12 @@ def _merge(data):
         
     merged = None
     for m in data["+"]:
-        # pourrait être une reference
-        # assert isinstance(m, dict)
+        # resolve all references
+        while isinstance(m, str) and m.startswith("$"):
+            name = m[1:]
+            assert name in defs
+            m = defs[name]
+        assert isinstance(m, dict)
         if isinstance(m, dict) and  "|" in m:
             models = m["|"]
             if not isinstance(models, list):
@@ -175,7 +180,7 @@ def _merge(data):
                 for i in merged:
                     for j in models:
                         n = _merge_object(i, j)
-                        n = _merge(n)
+                        n = _merge(n, defs)
                         tmerged.append(n)     
                 merged = tmerged
         else:
@@ -199,49 +204,54 @@ def _merge(data):
         # objet sans attribut
     return data
 
-def merge_rewrite(data):
+def merge_rewrite(data, defs: dict[str, any] = {}):
+    """Rewrite model to handle "+"."""
+
     if data is None:
         return data
     elif isinstance(data, (bool, int, float, str)):
         return data
     elif isinstance(data, list):
-        return [merge_rewrite(i) for i in data]
+        return [merge_rewrite(i, defs) for i in data]
     else:
         assert isinstance(data, dict)
         if "%" in data:
-            defs = data["%"]
-            if not isinstance(defs, dict):
-                raise ModelError(f"invalid type for %: {type(defs)}")
-            for k,v in defs.items():
-                defs[k] = merge_rewrite(v)
+            ldefs = data["%"]
+            if not isinstance(ldefs, dict):
+                raise ModelError(f"invalid type for %: {type(ldefs)}")
+            for k,v in ldefs.items():
+                ldefs[k] = merge_rewrite(v, defs)
+                # keep definitions to resolve references!
+                defs[k] = ldefs[k]
         if "@" in data:
-            data["@"] = merge_rewrite(data["@"])
+            data["@"] = merge_rewrite(data["@"], defs)
         if "|" in data:
             models = data["|"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for |: {type(models)}")
-            data["|"] = merge_rewrite(models)
+            data["|"] = merge_rewrite(models, defs)
         if "&" in data:
             models = data["&"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for &: {type(models)}")
-            data["&"] = merge_rewrite(models)
+            data["&"] = merge_rewrite(models, defs)
         if "^" in data:
             models = data["^"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for ^: {type(models)}")
-            data["^"] = merge_rewrite(models)
+            data["^"] = merge_rewrite(models, defs)
         if "+" in data:
             models = data["+"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for +: {type(models)}")
-            data["+"] = merge_rewrite(models)
+            data["+"] = merge_rewrite(models, defs)
             # Distribution des opérateurs avec le + et |
-            data = _merge(data)
+            # Resolve defs
+            data = _merge(data, defs)
         return data
 
 # TODO add path?
-def merge_simple_models(models: list[any]) -> Object:
+def merge_simple_models(models: list[any], defs) -> Object:
     """Merge a list of simple object models."""
 
     # sanity checks
@@ -250,7 +260,28 @@ def merge_simple_models(models: list[any]) -> Object:
     if len(models) == 0:
         # raise ModelError(f"empty models to merge")
         return "$NONE"
-    # FIXME must follow references!
+
+    # must follow references!
+    dict_models = []
+    for m in models:
+        log.debug(f"m 0: {m}")
+        if isinstance(m, dict):
+            if "+" in m:
+                # XXX
+                # FIXME possibly recomputed, should be memoized
+                m = merge_simple_models(m["+"], defs)
+            log.debug(f"m 1: {m}")
+            dict_models.append(m)
+        elif isinstance(m, str) and len(m) >= 1 and m[0] == "$":  # reference
+            m2 = defs.model(m[1:])  # FIXME $x -> $y -> {} ?
+            assert isinstance(m2, dict)
+            log.debug(f"m 2: {m2}")
+            dict_models.append(m2)
+        else:
+            raise ModelError(f"unexpected model to merge: {m}")
+    models = dict_models
+    del dict_models
+
     if not all(map(lambda m: isinstance(m, dict), models)):
         raise ModelError(f"can only merge dicts")
     if any(map(is_constructed, models)):
