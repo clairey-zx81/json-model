@@ -234,18 +234,49 @@ def schema2model(schema, path: str=""):
         elif "pattern" in schema or "maxLength" in schema or "minLength" in schema:
             schema["type"] = "string"
 
+    # FIXME adhoc handling for table-schema.json and ADEME
+    if "type" in schema and schema["type"] == "object" and ("anyOf" in schema or "oneOf" in schema):
+        log.warning(f"distributing object on anyOf/oneOf on {path}")
+        # special case for Ademe
+        if "anyOf" in schema:
+            assert "oneOf" not in schema
+            lof = schema["anyOf"]
+        elif "oneOf" in schema:
+            assert "anyOf" not in schema
+            lof = schema["oneOf"]
+        else:
+            assert False  # dead code
+        # transfer type in list
+        del schema["type"]
+        for s in lof:
+            assert isinstance(s, dict)
+            s["type"] = "object"
+        if "required" in schema:
+            required = schema["required"]
+            del schema["required"]
+            for s in lof:
+                if "required" in s:
+                    s["required"].append(required)
+                else:
+                    s["required"] = required
+        if "properties" in schema:
+            props = schema["properties"]
+            del schema["properties"]
+            for s in lof:
+                if "properties" in s:
+                    s["properties"].update(props)
+                else:
+                    s["properties"] = props
+        if "additionalProperties" in schema:
+            addprop = schema["additionalProperties"]
+            del schema["additionalProperties"]
+            for s in lof:
+                # cold overwrite
+                s["additionalProperties"] = addprop
+
     if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or "enum" in schema):
         log.warning(f"removing type from constructed schema?")
         del schema["type"]
-
-    # FIXME adhoc handling for table-schema.json
-    if "required" in schema and "oneOf" in schema:
-        log.warning(f"distributing required on oneOf…")
-        required = schema["required"]
-        del schema["required"]
-        for s in schema["oneOf"]:
-            assert isinstance(s, dict), path
-            s["required"] = required
 
     # handle a schema
     if "$ref" in schema:
@@ -421,8 +452,8 @@ def schema2model(schema, path: str=""):
             else:
                 return buildModel([ "$ANY" ], constraints, defs, sharp)
         elif ts == "object":
-            if "discriminator" in schema:
-                log.warning(f"ignoring distriminator on {path}")
+            if "discriminator" in schema:  # OpenAPI
+                log.warning(f"ignoring discriminator on {path}")
                 del schema["discriminator"]
             # handle meta data
             assert only(schema, "type", "properties", "additionalProperties", "required",
