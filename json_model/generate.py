@@ -271,6 +271,9 @@ def schema2model(schema, path: str=""):
             # ooops
             schemas = split_schema(schema)
             return buildModel({"|": [ schema2model(v, path + "/typeS") for v in schemas.values() ]}, {}, defs, sharp)
+        elif ts == "string" and "const" in schema and len(schema) == 2:
+            const = schema["const"]
+            return buildModel(f"_{const}", {}, defs, sharp)
         elif ts == "string":
             assert only(schema, "enum", "type", "format", "pattern", "minLength", "maxLength",
                         "contentMediaType", "contentEncoding",
