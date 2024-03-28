@@ -280,7 +280,7 @@ def schema2model(schema, path: str=""):
 
     # handle a schema
     if "$ref" in schema:
-        assert only(schema, "$ref", *IGNORE)
+        assert only(schema, "$ref", *IGNORE), path
         ref = schema["$ref"]
         assert isinstance(ref, str) and len(ref) > 0
         if ref.startswith("#/$defs/") and only(schema, "$ref", *IGNORE):
