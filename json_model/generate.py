@@ -274,7 +274,7 @@ def schema2model(schema, path: str=""):
                 # cold overwrite
                 s["additionalProperties"] = addprop
 
-    if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or "enum" in schema):
+    if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or "enum" in schema or "$ref" in schema):
         log.warning(f"removing type from constructed schema?")
         del schema["type"]
 
