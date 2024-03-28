@@ -23,6 +23,6 @@ def schema2model_script():
             schema = json.loads(jschema)
             model = gen.schema2model(schema)
             jmodel = json.dumps(model, indent=2)
-            log.debug(f"schema: {jschema}")
+            # log.debug(f"schema: {jschema}")
             # log.debug(f"model: {jmodel}")
             print(jmodel)
