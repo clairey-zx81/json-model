@@ -319,13 +319,13 @@ def schema2model(schema, path: str=""):
             model = "$NUMBER" if EXPLICIT_TYPE else 0.0
             if "format" in schema:
                 fmt = schema["format"]
-                assert fmt in ("double", "float"), f"bad format {fmt}"
+                assert fmt in ("double", "float"), f"bad format {fmt} on {path}"
                 if fmt == "double":
                     model = "$DOUBLE"
                 elif fmt == "float":
                     model = "$FLOAT"
                 else:
-                    assert False, f"unexpected number format {fmt}"
+                    assert False, f"unexpected number format {fmt} on {path}"
             constraints = numberConstraints(schema)
             return buildModel(model, constraints, defs, sharp)
         elif ts == "integer":
@@ -335,13 +335,13 @@ def schema2model(schema, path: str=""):
             if "format" in schema:
                 fmt = schema["format"]
                 log.warning(f"ignoring format {fmt}")
-                assert fmt in ("int32", "int64"), f"bad format {fmt}"
+                assert fmt in ("int32", "int64"), f"bad format {fmt} on {path}"
                 if fmt == "int32":
                     model = "$I32"
                 elif fmt == "int64":
                     model = "$I64"
                 else:
-                    assert False, f"unexpected integer format: {fmt}"
+                    assert False, f"unexpected integer format: {fmt} on {path}"
             constraints = numberConstraints(schema)
             return buildModel(model, constraints, defs, sharp)
         elif ts == "boolean":
