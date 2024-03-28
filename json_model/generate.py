@@ -113,6 +113,16 @@ def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
     for prop, val in schema.items():
         if prop in META_KEYS or prop == "type":
             pass
+        elif prop == "format":
+            fmt = schema["format"]
+            if "string" in schemas:
+                schemas["string"]["format"] = fmt
+            elif "number" in schemas:
+                schemas["number"]["format"] = fmt
+            elif "integer" in schemas:
+                schemas["integer"]["format"] = fmt
+            else:
+                assert False, f"cannot map format to {types}"
         elif prop in SPLIT:
             assert SPLIT[prop] in types
             schemas[SPLIT[prop]][prop] = val
@@ -203,11 +213,19 @@ def schema2model(schema, path: str=""):
             # this may not be enough in some cases
             defs[name] = schema2model(val, path + f"/{dname}/{name}")
 
-    # FIXME cleanup OpenAPI extentions "x-*"
+    # FIXME cleanup OpenAPI extentions "x-*", nullable
     for prop in list(schema.keys()):
         if prop.startswith("x-"):
             log.warning(f"deleting {prop} on {path}")
             del schema[prop]
+        if "nullable" in schema:
+            nullable = schema["nullable"]
+            assert isinstance(nullable, bool)
+            if nullable:
+                if "type" in schema and isinstance(schema["type"], str):
+                    schema["type"] = [ schema["type"], "null" ]
+                log.warning(f"ignoring nullable directive")
+            del schema["nullable"]
 
     # FIX missing type in some cases
     if "type" not in schema:
@@ -301,7 +319,7 @@ def schema2model(schema, path: str=""):
             model = "$NUMBER" if EXPLICIT_TYPE else 0.0
             if "format" in schema:
                 fmt = schema["format"]
-                assert fmt in ("double", "float")
+                assert fmt in ("double", "float"), f"bad format {fmt}"
                 if fmt == "double":
                     model = "$DOUBLE"
                 elif fmt == "float":
@@ -317,7 +335,7 @@ def schema2model(schema, path: str=""):
             if "format" in schema:
                 fmt = schema["format"]
                 log.warning(f"ignoring format {fmt}")
-                assert fmt in ("int32", "int64")
+                assert fmt in ("int32", "int64"), f"bad format {fmt}"
                 if fmt == "int32":
                     model = "$I32"
                 elif fmt == "int64":
