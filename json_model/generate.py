@@ -172,7 +172,8 @@ def format2model(fmt: str):
     if fmt in _FMT2MODEL:
         return _FMT2MODEL[fmt]
     else:
-        return f"${fmt}"
+        log.warning(f"unknow format: {fmt}")
+        return f"$UNKNOWN:{fmt}"
 
 def schema2model(schema, path: str=""):
     """Convert a JSON schema to a JSON model."""
