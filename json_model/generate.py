@@ -2,7 +2,7 @@ import json
 
 import logging
 log = logging.getLogger("s2m")
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 #
 # SCHEMA TO MODEL CONVERSION

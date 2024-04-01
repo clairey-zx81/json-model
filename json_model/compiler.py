@@ -13,8 +13,8 @@ import urllib
 
 # logging.basicConfig()
 log = logging.getLogger("compiler")
-# log.setLevel(level=logging.INFO)
-log.setLevel(level=logging.DEBUG)
+log.setLevel(level=logging.INFO)
+# log.setLevel(level=logging.DEBUG)
 
 from typing import Callable
 

@@ -7,7 +7,7 @@ from typing import Callable  # why not callable?
 
 import logging
 log = logging.getLogger("utils")
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 class UnknownModel:
     pass

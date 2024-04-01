@@ -6,7 +6,7 @@ import hashlib
 import logging
 
 log = logging.getLogger("url-cache")
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 # FIXME should invalidate old cache entries?
 class jsonURLCache:

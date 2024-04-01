@@ -346,7 +346,7 @@ class DSV:
         # first rewrite merge operators
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
-        rw_model = utils.merge_rewrite(model, defs)
+        rw_model = utils.merge_rewrite(model, defs, "")
         return self._type[type(model)](value, rw_model, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any):
