@@ -7,7 +7,7 @@ from typing import Callable  # why not callable?
 
 import logging
 log = logging.getLogger("utils")
-# log.setLevel(logging.DEBUG)
+log.setLevel(logging.DEBUG)
 
 class UnknownModel:
     pass
@@ -404,19 +404,24 @@ def flatten(data, defs, path):
     if data is None:
         return data
     elif isinstance(data, (bool, int, float, str)):
-        # TODO handle defs?
         return data
     elif isinstance(data, list):
         return [flatten(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
     elif isinstance(data, dict):
+
         # recursions
         if "%" in data:
-            for prop, model in data.items():
-                data[prop] = flatten(model, defs, f"{path}.{prop}")
-                defs[prop] = data[prop]
+            ldefs = data["%"]
+            if not isinstance(ldefs, dict):
+                raise ModelError(f"unexpected '%' value type: {type(ldefs)}")
+            for prop, model in ldefs.items():
+                log.debug(f"handling defs {prop}")
+                ldefs[prop] = flatten(model, defs, f"{path}.{prop}")
+                defs[prop] = ldefs[prop]
         if "$" in data:
             name = data["$"]
-            assert isinstance(name, str) and len(name) > 0
+            if not isinstance(name, str) or len(name) == 0:
+                raise ModelError(f"unexpected name {name} ({type(name)})")
             defs[name] = data
         if "@" in data:
             data["@"] = flatten(data["@"], defs, f"{path}.'@'")
@@ -425,20 +430,35 @@ def flatten(data, defs, path):
             for prop, val in data.items():
                 if prop not in ("%", "$", "#", "@"):
                     data[prop] = flatten(val, defs, f"{path}.{prop}")
-        # actual flattening
+
+        # actual flattening for this level
         for op in ("|", "^", "&"):
             if op in data:
                 models = data[op]
                 flat = []
-                assert isinstance(models, list)
-                for m in models:
-                    if op in m:
-                        assert isinstance(m[op], list)
+                if not isinstance(models, list):
+                    raise ModelError(f"unexpected {op} value type: {type(models)} [{path}.'{op}']")
+                for model in models:
+                    m = model
+                    # primitive resolution of names
+                    while isinstance(m, str) and len(m) >= 2 and m[0] == "$":
+                        log.debug(f"resolving {m}")
+                        name = m[1:]
+                        if name not in defs:
+                            log.debug(f"{name} not found")
+                            break
+                        m = defs[name]
+                    # NOTE no handling of "@"
+                    # actual flattening
+                    if isinstance(m, dict) and op in m:
+                        if not isinstance(m[op], list):
+                            raise ModelError(f"unexpected {op} value type: {type(m[op])} [{path}.'{op}']")
                         flat += m[op]
-                    else:
-                        flat.append(m)
+                    else:  # NOTE we keep the initial definition!
+                        flat.append(model)
                 data[op] = flat
         return data
+
     else:
         raise ModelError(f"unexpected type {type(data)} [{path}]")
 
@@ -454,6 +474,7 @@ def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
     """
     jdata = copy.deepcopy(data)
     jdata = flatten(jdata, defs, path)
+    # log.debug(f"flattened: {jdata}")
     return _merge_rewrite(jdata, defs, path)
 
 #
@@ -482,10 +503,14 @@ class ModelDefs:
 
     def set(self, name: str, model: ModelType|CheckFun, doc: str=None):
         """Add or override named JSON model."""
+        # FIXME forbid? scope?
+        log.debug(f"set {name}")
+        if name in self._models:
+            log.warning(f"overriding definition for {name}")
+
         if callable(model):
             m = Model(model, None, None, doc)
         else:
-            # FIXME warn on redefinitions? forbid? scope?
             m = Model(self._compiler(model), model, json.dumps(model), doc)
 
         self._models[name] = m
@@ -502,7 +527,7 @@ class ModelDefs:
         """Delete JSON model."""
         if name in self._models:
             del self._models[name]
-            self._known.remove(self._jsons[name])
+            # self._known.remove(self._jsons[name])
 
     def __str__(self):
         return "models: " + " ".join(self._models.keys())

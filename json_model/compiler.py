@@ -5,8 +5,9 @@
 # TODO check for some obviously empty types?
 
 import enum
-import json
 import re  # re2?
+import copy
+import json
 import logging
 import urllib
 
@@ -19,7 +20,7 @@ from typing import Callable
 
 import json_model.utils as utils
 import json_model.url_cache as url_cache
-from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, one, distinct_values
+from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values
 
 # debug helpers
 _debug: bool = True
@@ -42,6 +43,8 @@ class CompileModel:
 
     def __init__(self, model, loose_int: bool = False, signed_int: bool = False):
 
+        # keep a copy of the initial model
+        self._model = copy.deepcopy(model)
         # is 2.0 an int?
         self._loose_int = loose_int
         # use -1/0/1 for any int, positive and strictly positive
@@ -72,15 +75,17 @@ class CompileModel:
         self._defs = ModelDefs(self._raw_compile)
         self._defs.set("ANY", lambda _v, _p: True, "accept anything")
         self._defs.set("NONE", lambda _v, p: self._no(p, "none"), "refuse everything")
+        # FIXME /.../ vs ...?
         self._defs.set("REGEX", lambda v, p: utils.is_regex(v) or self._no(p, "invalid regex"), "valid regular expression")
         # these are permissive for now
         self._defs.set("URI", lambda s, p: isinstance(s, str) or self._no(p, "invalid uri"))
         self._defs.set("URI-REFERENCE", lambda s, p: isinstance(s, str) or self._no(p, "invalid uri-reference"))
         # some predefined numeric types (strict)
-        self._defs.set("I32", lambda v, p: isinstance(v, int) and -2**31 <= v and v <= (2**31 - 1) or self._no(p, "invalid I32"))
-        self._defs.set("U32", lambda v, p: isinstance(v, int) and 0 <= v and v <= (2**32 - 1) or self._no(p, "invalid U32"))
-        self._defs.set("I64", lambda v, p: isinstance(v, int) and -2**63 <= v and v <= (2**63 - 1) or self._no(p, "invalid I64"))
-        self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v and v <= (2**64 - 1) or self._no(p, "invalid U64"))
+        self._defs.set("I32", lambda v, p: isinstance(v, int) and -2**31 <= v <= (2**31 - 1) or self._no(p, "invalid I32"))
+        self._defs.set("U32", lambda v, p: isinstance(v, int) and 0 <= v <= (2**32 - 1) or self._no(p, "invalid U32"))
+        self._defs.set("I64", lambda v, p: isinstance(v, int) and -2**63 <= v <= (2**63 - 1) or self._no(p, "invalid I64"))
+        self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v <= (2**64 - 1) or self._no(p, "invalid U64"))
+        # FIXME F32?
         self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no(p, "invalid F64"))
 
         # url cache
@@ -88,10 +93,39 @@ class CompileModel:
         self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
-        rw_model = utils.merge_rewrite(model)  # merge | under +, handle +
-        log.debug(f"rw: {rw_model}")
+        rw_model = utils.merge_rewrite(model, {}, "")  # merge | under +, handle +
+        self._rw_model = copy.deepcopy(rw_model)
+        # log.debug(f"rw: {rw_model}")
         self._fun = self._root_compile(rw_model)
         self._reasons = []
+
+    def __str__(self):
+        return f"defs={self._defs}, model={self._model} rw={self._rw_model}"
+
+    # NOTE long implementation to collect all results
+    def _one(self, l, path) -> bool:
+        okay = []
+        for i, b in enumerate(l):
+            if b:
+                okay.append(i)
+        if len(okay) != 1:
+            if len(okay) == 0:
+                return self._no(path, "no match found")
+            else:
+                return self._no(path, f"multiple matches found: {okay}")
+        else:
+            return True
+
+    # NOTE long implementation to collect all failures
+    def _all(self, l, path) -> bool:
+        failed = []
+        for i, b in enumerate(l):
+            if not b:
+                failed.append(i)
+        if failed:
+            return self._no(path, f"all failures: {failed}")
+        else:
+            return True
 
     def _no(self, path: str, msg: str, reset=False):
         """On error, record where and why it failed."""
@@ -197,7 +231,7 @@ class CompileModel:
             item_checks = []
             for i, e in enumerate(v):
                 item_checks.append(item(e, f"{p}[{i}]"))
-            return all(item_checks) or self._no(p + _show_index(item_checks, False), "not all items checked")
+            return self._all(item_checks, p)
         return check_list
 
     def _tuple_check(self, model: ModelType) -> CheckFun:
@@ -563,7 +597,7 @@ class CompileModel:
             return check
         # else alternate is to try till one matches, in order
         subs = [ self._raw_compile(m) for m in mv ]
-        return lambda v, p: self._yes(True) if any(map(lambda f: f(v, p), subs)) else self._no(p, "not any matched")
+        return lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(p, "no any matched")
 
     def _conjunctive_model_check(self, model: dict[str, any]) -> CheckFun:
         """Check a and-model &."""
@@ -575,7 +609,7 @@ class CompileModel:
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv})")
         subs = [ self._raw_compile(m) for m in mv ]
         # TODO tell which one(s) failed
-        return lambda v, p: self._yes(True) if all(map(lambda f: f(v, p), subs)) else self._no(p, "not all matched")
+        return lambda v, p: self._all(map(lambda f: f(v, p), subs), p)
 
     def _exclusive_model_check(self, model: dict[str, any]) -> CheckFun:
         """Check a xor-model ^."""
@@ -589,7 +623,7 @@ class CompileModel:
             return lambda _v, p: self._no(p, "no value allowed")
         subs = [ self._raw_compile(m) for m in mv ]
         # TODO tel why it failed (none or more than one)
-        return lambda v, p: self._yes(True) if one(map(lambda f: f(v, p), subs)) else self._no(p, "not one matched")
+        return lambda v, p: self._one(map(lambda f: f(v, p), subs), p)
 
     def _additive_model_check(self, model: dict[str, any]) -> CheckFun:
         """Check a merge-model +."""
@@ -706,7 +740,7 @@ class CompileModel:
                     # TODO or no, only dynamic?
                     return self._defs[name]
                 else:
-                    return lambda v, p: self._defs[name](v, p) or self._no(p, f"${name} failed")
+                    return lambda v, p: self._defs[name](v, p) or self._no(p, f"${name} failed") if name in self._defs else self._no(p, f"${name} not found")
         elif char == "_":
             return lambda v, p: isinstance(v, str) and v == name or self._no(p, f"expecting string {name}")
         elif char == "/":  # regular expression /.../i?
@@ -790,6 +824,7 @@ class CompileModel:
             raise ModelError(f"unexpected model type {type(model)}: {model}")
 
     def _root_compile(self, model: any) -> CheckFun:
+        """Special handling of definitions (%) at the model root."""
 
         if isinstance(model, dict) and "%" in model:
             defs = model["%"]

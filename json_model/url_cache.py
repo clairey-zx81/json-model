@@ -6,7 +6,9 @@ import hashlib
 import logging
 
 log = logging.getLogger("url-cache")
+log.setLevel(logging.DEBUG)
 
+# FIXME should invalidate old cache entries?
 class jsonURLCache:
     """Cache JSON URL."""
 
@@ -29,10 +31,11 @@ class jsonURLCache:
         u = up.scheme + "://" + up.netloc + up.path
 
         # first cache (memory)
+        # log.error("skipping cache!")
         if u in self._cache:
             return self._cache[u]
 
-        # second cache (file): we assume no hash collision!
+        # second cache (file): we assume no hash collision
         h = hashlib.sha3_256(u.encode("UTF-8")).hexdigest()
         hfile = self._cache_dir + "/" + h
         if os.path.exists(hfile):

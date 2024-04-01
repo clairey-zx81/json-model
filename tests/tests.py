@@ -1,7 +1,8 @@
-import pytest
 import pathlib
 import re
 import json
+import copy
+import pytest
 
 import logging
 logging.basicConfig()
@@ -134,13 +135,14 @@ def test_c_checked_json_model():
         assert checker(model), f"c-valid model: {model}"
 
 def test_c_checked_json_schema():
-    checker = compiler.compileModel(JSON_SCHEMA_MODEL)
+    """Check that s2m schemas are tight."""
+    schema_is_tight = compiler.compileModel(JSON_SCHEMA_MODEL)
     s2m = pathlib.Path("./s2m")
     for fs in s2m.glob("*.schema.json"):
-        log.info(f"schema to model: {fs}")
+        log.info(f"schema validation: {fs}")
         with open(fs) as f:
             schema = json.load(f)
-        assert checker(schema), f"c-checked schema: {fs}"
+        assert schema_is_tight(schema), f"c-checked schema: {fs}"
 
 def test_v_checked_json_model_values():
     validator = DSV()
@@ -196,16 +198,17 @@ def test_bad_json_models_compilation():
 def json_schema_test_suite(version, fmodel):
     # load model
     with open(fmodel) as f:
-        check_model = compiler.compileModel(json.load(f))
+        checker = compiler.compileModel(json.load(f))
     # get all tests
     path = pathlib.Path(f"./JSON-Schema-Test-Suite/tests/{version}")
-    for jstests in path.glob("*.json"):
-        log.info(f"considering file {jstests}")
-        with open(jstests) as f:
+    for jstest in path.glob("*.json"):
+        log.info(f"considering file {jstest}")
+        with open(jstest) as f:
             tests = json.load(f)
-            for schema in tests:
-                model = schema["schema"]
-                assert check_model(model), f"{jstests}/{schema['description']} is valid for {fmodel}"
+            assert isinstance(tests, list)
+            for test in tests:
+                schema = test["schema"]
+                assert checker(schema), f"{jstest}/{test['description']} is valid for {fmodel} ({checker._reasons}) {str(checker)}"
 
 def test_draft3_fuzzy():
     # strict: fail on "definitions"
