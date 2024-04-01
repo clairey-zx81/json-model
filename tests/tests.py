@@ -142,7 +142,6 @@ def test_c_checked_json_schema():
             schema = json.load(f)
         assert checker(schema), f"c-checked schema: {fs}"
 
-@pytest.mark.skip("wip")
 def test_v_checked_json_model_values():
     validator = DSV()
     init_data(validator.set)
@@ -161,7 +160,6 @@ def test_json_model_compilation():
         except ModelError as e:
             assert False, f"model compilation failed: {model}"
 
-@pytest.mark.skip("wip")
 def test_c_checked_json_model_values():
     # init_data(compiler._DEFS.set)
     for value, model, expect in TEST_MODELS:

@@ -332,7 +332,8 @@ def actual_merge(data, defs, path):
         data["@"] = obj
     return data
 
-def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
+
+def _merge_rewrite(data, defs: dict[str, any], path: str):
     """Rewrite model to handle "+"."""
 
     if data is None:
@@ -340,7 +341,7 @@ def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
     elif isinstance(data, (bool, int, float, str)):
         return data
     elif isinstance(data, list):
-        return [merge_rewrite(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
+        return [_merge_rewrite(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
     else:
         assert isinstance(data, dict)
         if "%" in data:
@@ -350,36 +351,36 @@ def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
             if not isinstance(ldefs, dict):
                 raise ModelError(f"invalid type for %: {type(ldefs)} [{lpath}]")
             for k, v in ldefs.items():
-                ldefs[k] = merge_rewrite(v, defs, f"{lpath}.{k}")
+                ldefs[k] = _merge_rewrite(v, defs, f"{lpath}.{k}")
                 # keep definitions to resolve references!
                 # FIXME should warn on overwrite?
                 defs[k] = ldefs[k]
         if "@" in data:
-            data["@"] = merge_rewrite(data["@"], defs, f"{path}.'@'")
+            data["@"] = _merge_rewrite(data["@"], defs, f"{path}.'@'")
         if "|" in data:
             lpath = f"{path}.'|'"
             models = data["|"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
-            data["|"] = merge_rewrite(models, defs, lpath)
+            data["|"] = _merge_rewrite(models, defs, lpath)
         if "&" in data:
             lpath = f"{path}.'&'"
             models = data["&"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
-            data["&"] = merge_rewrite(models, defs, lpath)
+            data["&"] = _merge_rewrite(models, defs, lpath)
         if "^" in data:
             lpath = f"{path}.'^'"
             models = data["^"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
-            data["^"] = merge_rewrite(models, defs, lpath)
+            data["^"] = _merge_rewrite(models, defs, lpath)
         if "+" in data:
             lpath = f"{path}.'+'"
             models = data["+"]
             if not isinstance(models, list):
                 raise ModelError(f"invalid type for +: {type(models)} [{lpath}]")
-            data["+"] = merge_rewrite(models, defs, lpath)
+            data["+"] = _merge_rewrite(models, defs, lpath)
 
             # Distribution des opérateurs avec le + et |
             # Resolve defs
@@ -397,6 +398,17 @@ def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
             data = actual_merge(data, defs, f"{path}.'+'")
 
         return data
+
+def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
+    """Merge rewrite entry point.
+
+    Remove all ``+`` (merge operator) from data:
+
+    - distribute ``+`` over ``|``.
+    - resolve definitions ``$something``.
+    - actually merge object properties.
+    """
+    return _merge_rewrite(copy.deepcopy(data), defs, path)
 
 #
 # DEFINITIONS
