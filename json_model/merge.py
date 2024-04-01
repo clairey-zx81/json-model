@@ -10,4 +10,4 @@ def merge():
     for fn in sys.argv[1:]:
         with open(fn) as f:
             data = json.load(f)
-            print(json.dumps(merge_rewrite(data), indent=2))
+            print(json.dumps(merge_rewrite(data, {}, ""), indent=2))
