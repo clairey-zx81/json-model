@@ -77,14 +77,14 @@ def same_model(m1, m2) -> bool:
     # beware that True == 0
     return type(m1) == type(m2) and m1 == m2
 
-def split_object(model: dict[str, any]) -> tuple[Object, Object, Object, Object, Object]:
+def split_object(model: dict[str, any], path: str) -> tuple[Object, Object, Object, Object, Object]:
     """Split properties in must/may/refs/regs/other cases."""
 
     if not isinstance(model, dict):
-        raise ModelError(f"unexpected + model: {model}")
+        raise ModelError(f"unexpected + model: {model} [{path}]")
 
     if "@" in model or "|" in model or "^" in model or "+" in model or "&" in model:
-        raise ModelError(f"unexpected + model: {model}")
+        raise ModelError(f"unexpected + model: {model} [{path}]")
 
     must, may, refs, regs, others = {}, {}, {}, {}, {"": model[""]} if "" in model else {}
 
@@ -92,23 +92,23 @@ def split_object(model: dict[str, any]) -> tuple[Object, Object, Object, Object,
     for key, val in model.items():
 
         if not isinstance(key, str):
-            raise ModelError(f"object proprety name must be a str: {type(key)}")
+            raise ModelError(f"object proprety name must be a str: {type(key)} [{path}.{key}]")
 
         # some (late) sanity check
         if key in ("$", "%", "#", ""):
             if key == "%" and not isinstance(val, dict):
-                raise ModelError(f"{key} value must be an object: {type(key)}")
+                raise ModelError(f"{key} value must be an object: {type(key)} [{path}.{key}]")
             if key == "#" and not isinstance(val, (str, dict)):
-                raise ModelError(f"{key} value must be string or object: {type(key)}")
+                raise ModelError(f"{key} value must be string or object: {type(key)} [{path}.{key}]")
             if key == "$" and not isinstance(val, str):
-                raise ModelError(f"{key} value must be string: {type(key)}")
+                raise ModelError(f"{key} value must be string: {type(key)} [{path}.{key}]")
             # ignore anyway
             continue
 
         c, name = key[0], key[1:]
 
         if c in ("_", "!", "?") and (name in must or name in may):
-            raise ModelError(f"multiply defined property: {name}")
+            raise ModelError(f"multiply defined property: {name} [{path}.{key}]")
 
         if c == "_" or c == "!":
             must[name] = val
@@ -122,7 +122,7 @@ def split_object(model: dict[str, any]) -> tuple[Object, Object, Object, Object,
             regs[name[:-1]] = val
         else:
             if key in must or key in may:
-                raise ModelError(f"multiply defined property: {name}")
+                raise ModelError(f"multiply defined property: {name} [{path}.{key}]")
             must[key] = val
 
     return must, may, refs, regs, others
@@ -143,7 +143,111 @@ def is_constructed(model):
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
+# TODO add path?
+def merge_simple_models(models: list[any], defs, path: str="") -> Object:
+    """Merge a list of simple object models."""
+
+    # sanity checks
+    if not isinstance(models, (list, tuple)):
+        raise ModelError(f"unexpected models to merge: {models} (type{models}) [{path}]")
+    if len(models) == 0:
+        # raise ModelError(f"empty models to merge")
+        return "$NONE"
+
+    # must follow references!
+    dict_models = []
+    for i, m in enumerate(models):
+        # log.debug(f"m {i}: {m}")
+        lpath = f"{path}[{i}]"
+        if isinstance(m, dict):
+            if "+" in m:
+                log.warning("+ in +")
+                m = merge_simple_models(m["+"], defs, lpath)
+            # log.debug(f"m 1: {m}")
+            dict_models.append(m)
+        elif isinstance(m, str) and len(m) >= 1 and m[0] == "$":  # reference
+            log.warning("+ with references should be resolved before?")
+            m2 = defs.model(m[1:])  # FIXME $x -> $y -> {} ?
+            assert isinstance(m2, dict)
+            # log.debug(f"m 2: {m2}")
+            dict_models.append(m2)
+        else:
+            raise ModelError(f"unexpected model to merge: {m} [{lpath}]")
+    models = dict_models
+    del dict_models
+
+    if not all(map(lambda m: isinstance(m, dict), models)):
+        raise ModelError(f"can only merge dicts [{path}]")
+    if any(map(is_constructed, models)):
+        raise ModelError(f"can only merge simple objects [{path}]")
+
+    m0 = models[0]
+    must, may, refs, regs, others = split_object(m0, f"{path}[0]")
+
+    for i, m in enumerate(models[1:]):
+        lpath = f"{path}[{i+1}]" 
+        mu, ma, rf, rg, ot = split_object(m, lpath)
+        # combine all properties
+        # merge MUST
+        for prop, mod in mu.items():
+            if prop in must:
+                if not same_model(mod, must[prop]):
+                    raise ModelError(f"incompatible must property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                # else pass
+            elif prop in may:
+                if not same_model(mod, may[prop]):
+                    raise ModelError(f"incompatible must property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                must[prop] = mod
+                del may[prop]
+            else:
+                must[prop] = mod
+        # merge MAY
+        for prop, mod in ma.items():
+            if prop in must:
+                if not same_model(mod, must[prop]):  # ???
+                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                # else pass
+            elif prop in may:
+                if not same_model(mod, may[prop]):
+                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                # else pass
+            else:
+                may[prop] = mod
+        # merge MAYBE
+        for prop, mod in rf.items():
+            # FIXME are the same $ available???
+            if prop in refs:
+                if not same_model(mod, refs[prop]):
+                    raise ModelError(f"incompatible refs property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                # else pass
+            else:
+                refs[prop] = mod
+        for prop, mod in rg.items():
+            # FIXME are the same $ available???
+            if prop in regs:
+                if not same_model(mod, regs[prop]):
+                    raise ModelError(f"incompatible regs property {prop} while merging: {m0} / {m} [{lpath}.{prop}]")
+                # else pass
+            else:
+                regs[prop] = mod
+        # merge OTHERS
+        if "" in ot:
+            if "" in others:
+                if not same_model(ot[""], others[""]):
+                    raise ModelError(f"incompatible catchall while merging: {m0} / {m} [{lpath}.'']")
+                # else pass
+            else:
+                others = ot
+
+    return unsplit_object(must, may, refs, regs, others)
+
 def _merge_object(i, j):
+    """Merge two objects.
+
+    - +(A), B -> +(A, B)
+    - A, +(B) -> +(A, B)
+    - A, B    -> +(A, B)
+    """
     if isinstance(i, dict) and "+" in i:
         d = copy.deepcopy(i)
         d["+"].append(copy.deepcopy(j))
@@ -154,26 +258,37 @@ def _merge_object(i, j):
         d = {"+": [i, j]}
     return d
 
-def _merge(data, defs):
+def _merge(data: any, defs: dict[str, any], path: str):
+    """Handle merge (+) operator on data."""
 
     if not isinstance(data, dict) or "+" not in data:
         return data
 
     assert isinstance(data["+"], list)
-        
+    n_merge = len(data["+"])
+
+    if n_merge == 0:
+        # not "$NONE"?
+        return {}
+    elif n_merge == 1:
+        return data["+"][0]
+    # else: something to handle
+
     merged = None
-    for m in data["+"]:
-        # resolve all references
+    for i, m in enumerate(data["+"]):
+        lpath = f"{path}[{i}]"
+        # resolve direct references
         while isinstance(m, str) and m.startswith("$"):
             name = m[1:]
             assert name in defs
             m = defs[name]
         if not isinstance(m, dict):
-            raise ModelError(f"invalid type for + item: {type(m)}")
+            raise ModelError(f"invalid type for + item: {type(m)} [{lpath}]")
+        # distribute + over |
         if isinstance(m, dict) and  "|" in m:
             models = m["|"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type of |: {type(models)}")
+                raise ModelError(f"invalid type of |: {type(models)} [{lpath}]")
             tmerged = []
             if merged is None:
                 merged = models
@@ -181,7 +296,7 @@ def _merge(data, defs):
                 for i in merged:
                     for j in models:
                         n = _merge_object(i, j)
-                        n = _merge(n, defs)
+                        n = _merge(n, defs, lpath)
                         tmerged.append(n)     
                 merged = tmerged
         else:
@@ -200,12 +315,24 @@ def _merge(data, defs):
                 data["+"]  = item["+"]
             else:
                 data["@"] = merged
-    else:
+    else:  # objet sans attribut
         pass
-        # objet sans attribut
     return data
 
-def merge_rewrite(data, defs: dict[str, any] = {}):
+def actual_merge(data, defs, path):
+    assert "+" in data
+    models = data["+"]
+    del data["+"]
+    assert isinstance(models, list)
+    obj = merge_simple_models(models, defs, f"{path}.'+'")
+    assert isinstance(obj, dict)
+    if len(data) == 0:
+        data = obj
+    else:  # keep metadata
+        data["@"] = obj
+    return data
+
+def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
     """Rewrite model to handle "+"."""
 
     if data is None:
@@ -213,140 +340,63 @@ def merge_rewrite(data, defs: dict[str, any] = {}):
     elif isinstance(data, (bool, int, float, str)):
         return data
     elif isinstance(data, list):
-        return [merge_rewrite(i, defs) for i in data]
+        return [merge_rewrite(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
     else:
         assert isinstance(data, dict)
         if "%" in data:
+            lpath = f"{path}.'%'"
+            # FIXME only at root?
             ldefs = data["%"]
             if not isinstance(ldefs, dict):
-                raise ModelError(f"invalid type for %: {type(ldefs)}")
-            for k,v in ldefs.items():
-                ldefs[k] = merge_rewrite(v, defs)
+                raise ModelError(f"invalid type for %: {type(ldefs)} [{lpath}]")
+            for k, v in ldefs.items():
+                ldefs[k] = merge_rewrite(v, defs, f"{lpath}.{k}")
                 # keep definitions to resolve references!
+                # FIXME should warn on overwrite?
                 defs[k] = ldefs[k]
         if "@" in data:
-            data["@"] = merge_rewrite(data["@"], defs)
+            data["@"] = merge_rewrite(data["@"], defs, f"{path}.'@'")
         if "|" in data:
+            lpath = f"{path}.'|'"
             models = data["|"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for |: {type(models)}")
-            data["|"] = merge_rewrite(models, defs)
+                raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
+            data["|"] = merge_rewrite(models, defs, lpath)
         if "&" in data:
+            lpath = f"{path}.'&'"
             models = data["&"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for &: {type(models)}")
-            data["&"] = merge_rewrite(models, defs)
+                raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
+            data["&"] = merge_rewrite(models, defs, lpath)
         if "^" in data:
+            lpath = f"{path}.'^'"
             models = data["^"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for ^: {type(models)}")
-            data["^"] = merge_rewrite(models, defs)
+                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
+            data["^"] = merge_rewrite(models, defs, lpath)
         if "+" in data:
+            lpath = f"{path}.'+'"
             models = data["+"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for +: {type(models)}")
-            data["+"] = merge_rewrite(models, defs)
+                raise ModelError(f"invalid type for +: {type(models)} [{lpath}]")
+            data["+"] = merge_rewrite(models, defs, lpath)
+
             # Distribution des opérateurs avec le + et |
             # Resolve defs
-            data = _merge(data, defs)
+            data = _merge(data, defs, lpath)
+
+            # catch merging
+            if "|" in data:
+                lpath += f"{path}.'|'"
+                models = data["|"]
+                assert isinstance(models, list)
+                data["|"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
+
+        # actual object merge
+        if "+" in data:
+            data = actual_merge(data, defs, f"{path}.'+'")
+
         return data
-
-# TODO add path?
-def merge_simple_models(models: list[any], defs) -> Object:
-    """Merge a list of simple object models."""
-
-    # sanity checks
-    if not isinstance(models, (list, tuple)):
-        raise ModelError(f"unexpected models to merge: {models} (type{models})")
-    if len(models) == 0:
-        # raise ModelError(f"empty models to merge")
-        return "$NONE"
-
-    # must follow references!
-    dict_models = []
-    for m in models:
-        # log.debug(f"m 0: {m}")
-        if isinstance(m, dict):
-            if "+" in m:
-                log.warning("+ in +")
-                m = merge_simple_models(m["+"], defs)
-            # log.debug(f"m 1: {m}")
-            dict_models.append(m)
-        elif isinstance(m, str) and len(m) >= 1 and m[0] == "$":  # reference
-            log.warning("+ with references should be resolved before?")
-            m2 = defs.model(m[1:])  # FIXME $x -> $y -> {} ?
-            assert isinstance(m2, dict)
-            # log.debug(f"m 2: {m2}")
-            dict_models.append(m2)
-        else:
-            raise ModelError(f"unexpected model to merge: {m}")
-    models = dict_models
-    del dict_models
-
-    if not all(map(lambda m: isinstance(m, dict), models)):
-        raise ModelError(f"can only merge dicts")
-    if any(map(is_constructed, models)):
-        raise ModelError(f"can only merge simple objects")
-
-    m0 = models[0]
-    must, may, refs, regs, others = split_object(m0)
-
-    for m in models[1:]:
-        mu, ma, rf, rg, ot = split_object(m)
-        # combine all properties
-        # merge MUST
-        for prop, mod in mu.items():
-            if prop in must:
-                if not same_model(mod, must[prop]):
-                    raise ModelError(f"incompatible must property {prop} while merging: {m0} / {m}")
-                # else pass
-            elif prop in may:
-                if not same_model(mod, may[prop]):
-                    raise ModelError(f"incompatible must property {prop} while merging: {m0} / {m}")
-                must[prop] = mod
-                del may[prop]
-            else:
-                must[prop] = mod
-        # merge MAY
-        for prop, mod in ma.items():
-            if prop in must:
-                if not same_model(mod, must[prop]):  # ???
-                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m}")
-                # else pass
-            elif prop in may:
-                if not same_model(mod, may[prop]):
-                    raise ModelError(f"incompatible may property {prop} while merging: {m0} / {m}")
-                # else pass
-            else:
-                may[prop] = mod
-        # merge MAYBE
-        for prop, mod in rf.items():
-            # FIXME are the same $ available???
-            if prop in refs:
-                if not same_model(mod, refs[prop]):
-                    raise ModelError(f"incompatible refs property {prop} while merging: {m0} / {m}")
-                # else pass
-            else:
-                refs[prop] = mod
-        for prop, mod in rg.items():
-            # FIXME are the same $ available???
-            if prop in regs:
-                if not same_model(mod, regs[prop]):
-                    raise ModelError(f"incompatible regs property {prop} while merging: {m0} / {m}")
-                # else pass
-            else:
-                regs[prop] = mod
-        # merge OTHERS
-        if "" in ot:
-            if "" in others:
-                if not same_model(ot[""], others[""]):
-                    raise ModelError(f"incompatible catchall while merging: {m0} / {m}")
-                # else pass
-            else:
-                others = ot
-
-    return unsplit_object(must, may, refs, regs, others)
-
 
 #
 # DEFINITIONS

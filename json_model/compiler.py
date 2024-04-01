@@ -88,7 +88,7 @@ class CompileModel:
         self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
-        rw_model = utils.merge_rewrite(model)  # eliminate | under +
+        rw_model = utils.merge_rewrite(model)  # merge | under +, handle +
         log.debug(f"rw: {rw_model}")
         self._fun = self._root_compile(rw_model)
         self._reasons = []
@@ -237,7 +237,7 @@ class CompileModel:
         # detect multiply defined properties
         properties: set(str) = set()
 
-        must, may, refs, regs, ots = utils.split_object(model)
+        must, may, refs, regs, ots = utils.split_object(model, "*")
 
         # key/value checks functions
         mandatory = { key: self._raw_compile(val) for key, val in must.items() }
@@ -757,7 +757,8 @@ class CompileModel:
         elif "^" in model:
             check = self._exclusive_model_check(model)
         elif "+" in model:
-            check = self._additive_model_check(model)
+            assert False, "+ operator must be resolved before compilation"
+            # check = self._additive_model_check(model)
         else:
             check = self._dict_check(model)
 

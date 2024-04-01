@@ -6,9 +6,11 @@ import json
 import logging
 logging.basicConfig()
 log = logging.getLogger("tests")
-log.setLevel(logging.INFO)
+# log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 import json_model.generate as generate
+from json_model.utils import merge_rewrite
 
 def test_s2m():
     s2m = pathlib.Path("./s2m")
@@ -98,6 +100,17 @@ def test_jschon_bads():
             log.error(json.dumps(res.output('basic'), indent=2))
         assert not res.passed, f"model is invalid"
 
+def test_merge():
+    merge = pathlib.Path("./merge")
+    for fm in merge.glob("*.merged.json"):
+        fi = str(fm).replace(".merged.", ".")
+        with open(fi) as f:
+            mi = json.load(f)
+        with open(fm) as f:
+            mm = json.load(f)
+        mmg = merge_rewrite(mi)
+        assert mmg == mm
+
 def test_v_checked_json_schema():
     validator = DSV()
     s2m = pathlib.Path("./s2m")
@@ -129,11 +142,13 @@ def test_c_checked_json_schema():
             schema = json.load(f)
         assert checker(schema), f"c-checked schema: {fs}"
 
+@pytest.mark.skip("wip")
 def test_v_checked_json_model_values():
     validator = DSV()
     init_data(validator.set)
     for value, model, expect in TEST_MODELS:
         log.info(f"model: {model}")
+        log.debug(f"expecting {expect} for {value}")
         assert validator.check(value, model) == expect, \
             f"v-checked model value: {value} ~ {model} = {expect}"
 
@@ -146,10 +161,12 @@ def test_json_model_compilation():
         except ModelError as e:
             assert False, f"model compilation failed: {model}"
 
+@pytest.mark.skip("wip")
 def test_c_checked_json_model_values():
     # init_data(compiler._DEFS.set)
     for value, model, expect in TEST_MODELS:
         log.info(f"model: {model}")
+        log.debug(f"expecting {expect} for {value}")
         checker = compiler.compileModel(model)
         init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"

@@ -284,7 +284,7 @@ class DSV:
             return False
 
         # NOTE this is not very efficient :-(
-        props = utils.split_object(model)
+        props = utils.split_object(model, "*")
 
         return self._object_value_model_check(value, *props)
 

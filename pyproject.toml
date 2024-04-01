@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "CC0 1.0" }
 classifiers = [ "Topic :: Software Development" ]
-version = "0.9"
+version = "1.0"
 dependencies = [ "requests" ]
 
 [project.optional-dependencies]
@@ -24,7 +24,7 @@ c-check-model = "json_model:c_check_model"
 v-check-model = "json_model:v_check_model"
 model2schema = "json_model:model2schema_script"
 schema2model = "json_model:schema2model_script"
-json-model-merge-test = "json_model:merge"
+json-model-merge = "json_model:merge"
 
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
