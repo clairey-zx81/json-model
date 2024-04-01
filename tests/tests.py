@@ -112,15 +112,6 @@ def test_merge():
         mmg = merge_rewrite(mi)
         assert mmg == mm
 
-def test_v_checked_json_schema():
-    validator = DSV()
-    s2m = pathlib.Path("./s2m")
-    for fs in s2m.glob("*.schema.json"):
-        log.info(f"schema to model: {fs}")
-        with open(fs) as f:
-            schema = json.load(f)
-        assert validator.check(schema, JSON_SCHEMA_MODEL), f"v-checked schema: {js}"
-
 def test_v_checked_json_model():
     """Check that test models validate the meta model."""
     validator = DSV()
@@ -133,6 +124,15 @@ def test_c_checked_json_model():
     for _v, model, _e in TEST_MODELS:
         log.info(f"model: {model}")
         assert checker(model), f"c-valid model: {model}"
+
+def test_v_checked_json_schema():
+    validator = DSV()
+    s2m = pathlib.Path("./s2m")
+    for fs in s2m.glob("*.schema.json"):
+        log.info(f"schema to model: {fs}")
+        with open(fs) as f:
+            schema = json.load(f)
+        assert validator.check(schema, JSON_SCHEMA_MODEL), f"v-checked schema: {js}"
 
 def test_c_checked_json_schema():
     """Check that s2m schemas are tight."""
@@ -153,15 +153,6 @@ def test_v_checked_json_model_values():
         assert validator.check(value, model) == expect, \
             f"v-checked model value: {value} ~ {model} = {expect}"
 
-def test_json_model_compilation():
-    for _v, model, _e in TEST_MODELS:
-        log.info(f"model: {model}")
-        try:
-            checker = compiler.compileModel(model)
-            assert checker is not None, f"model compilation: {model}"
-        except ModelError as e:
-            assert False, f"model compilation failed: {model}"
-
 def test_c_checked_json_model_values():
     # init_data(compiler._DEFS.set)
     for value, model, expect in TEST_MODELS:
@@ -170,6 +161,15 @@ def test_c_checked_json_model_values():
         checker = compiler.compileModel(model)
         init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
+
+def test_json_model_compilation():
+    for _v, model, _e in TEST_MODELS:
+        log.info(f"model: {model}")
+        try:
+            checker = compiler.compileModel(model)
+            assert checker is not None, f"model compilation: {model}"
+        except ModelError as e:
+            assert False, f"model compilation failed: {model}"
 
 from bad_models import BADS
 
