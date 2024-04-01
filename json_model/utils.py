@@ -399,16 +399,62 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
 
         return data
 
+def flatten(data, defs, path):
+    """Simplistic flattening."""
+    if data is None:
+        return data
+    elif isinstance(data, (bool, int, float, str)):
+        # TODO handle defs?
+        return data
+    elif isinstance(data, list):
+        return [flatten(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
+    elif isinstance(data, dict):
+        # recursions
+        if "%" in data:
+            for prop, model in data.items():
+                data[prop] = flatten(model, defs, f"{path}.{prop}")
+                defs[prop] = data[prop]
+        if "$" in data:
+            name = data["$"]
+            assert isinstance(name, str) and len(name) > 0
+            defs[name] = data
+        if "@" in data:
+            data["@"] = flatten(data["@"], defs, f"{path}.'@'")
+            # ignore constraints
+        else:
+            for prop, val in data.items():
+                if prop not in ("%", "$", "#", "@"):
+                    data[prop] = flatten(val, defs, f"{path}.{prop}")
+        # actual flattening
+        for op in ("|", "^", "&"):
+            if op in data:
+                models = data[op]
+                flat = []
+                assert isinstance(models, list)
+                for m in models:
+                    if op in m:
+                        assert isinstance(m[op], list)
+                        flat += m[op]
+                    else:
+                        flat.append(m)
+                data[op] = flat
+        return data
+    else:
+        raise ModelError(f"unexpected type {type(data)} [{path}]")
+
 def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
     """Merge rewrite entry point.
 
     Remove all ``+`` (merge operator) from data:
 
+    - flatten operators ``|``, ``^`` and ``&``.
     - distribute ``+`` over ``|``.
     - resolve definitions ``$something``.
     - actually merge object properties.
     """
-    return _merge_rewrite(copy.deepcopy(data), defs, path)
+    jdata = copy.deepcopy(data)
+    jdata = flatten(jdata, defs, path)
+    return _merge_rewrite(jdata, defs, path)
 
 #
 # DEFINITIONS
