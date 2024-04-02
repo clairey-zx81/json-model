@@ -29,24 +29,8 @@ pip install git+https://github.com/clairey-zx81/json-model.git
    same thing with the *validator* (aka interpreter).
 
 - `model2schema` convert a JSON Model to a JSON Schema.
-- `schema2model` convert a JSON Schema to a JSON Model.
-- `json-model-merge-test` distribute `+` (merge operator occurences) over
-  `|` (or operator).
-
-## TODO
-
-Some ideas about the syntax:
-
-- use only maths signs to enhance the distinction between user properties and the model
-  - `"=" "<" "<=" ">" ">=" "!="` for constraints?
-  - `"<>" "=="` what about them?
-  - `"!"` distinct constraint?
-  - `"~..."` for regex instead of `"^..."`?
-  - `"*"` multiple of if really required?
-  - `"/"` for contains if really required?
-  - what about a prefixed thing such as `":eq"` or `".eq"` instead? also?
-- think hard about pre-defined types
-  - add `"$STRING" "$BOOLEAN" "$INTEGER" "$NUMBER" "$NULL"` for simple OpenAPI-like subschemas used on parameters.
-  - arrays? `"$STRING_ARRAY"`
-  - they could be rewritten?
-  - they can be implicitely defined as a `"%"` object?
+- `schema2model` convert a JSON Schema (partial) to a JSON Model.
+- `json-model-merge` JSON Model preprocessor
+  - flatten operators `|` `^` and `&`
+  - distribute `+` (merge operator occurences) over `|` (or operator).
+  - compute merged objects definitions (removes `+` operators)
