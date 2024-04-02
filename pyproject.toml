@@ -17,7 +17,7 @@ version = "1.0"
 dependencies = [ "requests" ]
 
 [project.optional-dependencies]
-dev = [ "jschon", "pytest" ]
+dev = [ "jschon", "pytest", "pyyaml" ]
 
 [project.scripts]
 c-check-model = "json_model:c_check_model"
