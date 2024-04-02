@@ -109,7 +109,7 @@ def test_merge():
             mi = json.load(f)
         with open(fm) as f:
             mm = json.load(f)
-        mmg = merge_rewrite(mi)
+        mmg = merge_rewrite(mi, {})
         assert mmg == mm
 
 def test_v_checked_json_model():

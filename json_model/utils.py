@@ -462,7 +462,7 @@ def flatten(data, defs, path):
     else:
         raise ModelError(f"unexpected type {type(data)} [{path}]")
 
-def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
+def merge_rewrite(data, defs: dict[str, any], path: str=""):
     """Merge rewrite entry point.
 
     Remove all ``+`` (merge operator) from data:
@@ -474,7 +474,6 @@ def merge_rewrite(data, defs: dict[str, any] = {}, path: str=""):
     """
     jdata = copy.deepcopy(data)
     jdata = flatten(jdata, defs, path)
-    # log.debug(f"flattened: {jdata}")
     return _merge_rewrite(jdata, defs, path)
 
 #
