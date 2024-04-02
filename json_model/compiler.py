@@ -625,22 +625,6 @@ class CompileModel:
         # TODO tel why it failed (none or more than one)
         return lambda v, p: self._one(map(lambda f: f(v, p), subs), p)
 
-    def _additive_model_check(self, model: dict[str, any]) -> CheckFun:
-        """Check a merge-model +."""
-        # sanity checks
-        assert isinstance(model, dict) and "+" in model
-        if not set(model.keys()).issubset(["#", "$", "%", "+"]):
-            raise ModelError(f"key combination not implemented yet: {model}")
-        # merge!
-        # get actual models
-        models = model["+"]
-        if not isinstance(models, (list, tuple)):
-            raise ModelError(f"+ expects a list, got {type(models)}")
-        if len(models) == 0:
-            return lambda v, p: self._no(p, "empty +")
-        models = [ self._ultimate_model(m) for m in models ]
-        return self._dict_check(utils.merge_simple_models(models, self._defs))
-
     def _none_raw_compile(self, model: type(None)) -> CheckFun:
         """Compile null."""
         return lambda v, p: v is None or self._no(p, "expecting null")
@@ -791,8 +775,7 @@ class CompileModel:
         elif "^" in model:
             check = self._exclusive_model_check(model)
         elif "+" in model:
-            assert False, "+ operator must be resolved before compilation"
-            # check = self._additive_model_check(model)
+            raise ModelError("+ operator must be resolved before compilation")
         else:
             check = self._dict_check(model)
 

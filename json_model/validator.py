@@ -267,14 +267,7 @@ class DSV:
                     seen = True
             return seen
         elif "+" in model:
-            assert set(model.keys()).issubset({"$", "%", "#", "+"})
-            models = model["+"]
-            assert isinstance(models, (list, tuple)), f"illegal addition: {models} ({type(models)})"
-            # very costly: object models are merged on each comparison...
-            umodels = [ self._follow_references(m) for m in models ]
-            return self.check(value, utils.merge_simple_models(umodels, self._defs))
-
-            # raise ModelError("additive model not implemented yet")
+            raise ModelError("+ operator must be resolved before validation")
         elif "@" in model:
             return self._dict_constraint(value, model)
         #
