@@ -4,10 +4,9 @@
 
 import sys
 import json
-from json_model.utils import merge_rewrite
+from json_model.utils import merge_rewrite, openfiles
 
 def merge():
-    for fn in sys.argv[1:]:
-        with open(fn) as f:
-            data = json.load(f)
-            print(json.dumps(merge_rewrite(data, {}, ""), indent=2))
+    for fn, fh in openfiles(sys.argv[1:]):
+        data = json.load(fh)
+        print(json.dumps(merge_rewrite(data, {}, ""), indent=2))

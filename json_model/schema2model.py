@@ -6,6 +6,7 @@ import json
 import sys
 import logging
 import json_model.generate as gen
+import json_model.utils as utils
 
 def schema2model_script():
 
@@ -17,12 +18,11 @@ def schema2model_script():
         params = params[1:]
         gen.EXPLICIT_TYPE = True
 
-    for fn in params:
-        with open(fn) as f:
-            jschema = f.read()
-            schema = json.loads(jschema)
-            model = gen.schema2model(schema)
-            jmodel = json.dumps(model, indent=2)
-            # log.debug(f"schema: {jschema}")
-            # log.debug(f"model: {jmodel}")
-            print(jmodel)
+    for fn, fh in utils.openfiles(params):
+        jschema = fh.read()
+        schema = json.loads(jschema)
+        model = gen.schema2model(schema)
+        jmodel = json.dumps(model, indent=2)
+        # log.debug(f"schema: {jschema}")
+        # log.debug(f"model: {jmodel}")
+        print(jmodel)

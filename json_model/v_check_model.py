@@ -7,6 +7,7 @@ import sys
 import json
 import logging
 from json_model.validator import DSV
+from json_model.utils import openfiles
 
 def v_check_model():
 
@@ -20,15 +21,14 @@ def v_check_model():
 
     validator = DSV()
 
-    for fn in sys.argv[2:]:
+    for fn, fh in openfiles(sys.argv[2:]):
         valid = False
         try:
-            with open(fn) as f:
-                schema = json.load(f)
-                valid = validator.check(schema, model)
-                print(f"{fn}: {valid}")
-                # if not valid:
-                #    log.info(f"failures: {checkModel._reasons}")
+            schema = json.load(fh)
+            valid = validator.check(schema, model)
+            print(f"{fn}: {valid}")
+            # if not valid:
+            #    log.info(f"failures: {checkModel._reasons}")
         except Exception as e:
             print(f"{fn}: error")
             log.error(f"{fn}: {e}")

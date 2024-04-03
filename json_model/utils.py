@@ -1,4 +1,5 @@
 # common model utilities
+import sys
 import enum
 import json
 import re
@@ -642,3 +643,12 @@ def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
     )
     return metrics + (counts, )
 
+def openfiles(args: list[str] = []):
+    if not args:  # empty list is same as stdin
+        args = ["-"]
+    for fn in args:
+        if fn == "-":
+            yield fn, sys.stdin
+        else:
+            with open(fn) as fh:
+                yield fn, fh
