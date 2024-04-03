@@ -618,8 +618,7 @@ _COSTS = {
     "#props": 2,
 }
 
-def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
-    tuple[int, int, int, int, int, dict[str, int]]:
+def json_metrics_raw(data, skip_metadata=False, json_type=JsonType.DATA):
     """Compute metrics about a json data structure."""
     counts = {
         "null": 0,
@@ -633,13 +632,20 @@ def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
         "#props": 0,
         "#length": 0,
     }
-    depth = _json_metrics(data, counts, skip_metadata, json_type)
+    counts["_depth"] = _json_metrics(data, counts, skip_metadata, json_type)
+    counts["_length"] = len(json.dumps(data))
+    return counts
+
+def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
+    tuple[int, int, int, int, int, dict[str, int]]:
+    """Compute metrics about a json data structure."""
+    counts = json_metrics_raw(data, skip_metadata, json_type)
     metrics = (
-        depth,
+        counts["_depth"],
         counts["array"] + 2* counts["object"],
         counts["null"] + counts["boolean"] + counts["integer"] +  counts["number"] + counts["string"],
-        sum(_COSTS[k] * counts[k] for k in _COSTS.keys()),
-        len(json.dumps(data)),
+        sum(_COSTS[k] * counts[k] for k in _COSTS.keys() if k in counts),
+        counts["_length"],
     )
     return metrics + (counts, )
 
