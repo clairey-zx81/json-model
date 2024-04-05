@@ -504,7 +504,7 @@ class ModelDefs:
     def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str=None):
         """Add or override named JSON model."""
         # FIXME forbid? scope?
-        log.debug(f"set {name} [{math}]")
+        log.debug(f"set {name} [{mpath}]")
         if name in self._models:
             log.warning(f"overriding definition for {name}")
 

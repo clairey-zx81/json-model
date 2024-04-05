@@ -36,12 +36,12 @@ class DSV:
         }
 
         # defined "<name>": check_value_fun(v)
-        self._defs = ModelDefs(compiler=lambda m: lambda v: self.check(v, m))
-        self.set("ANY", lambda _: True)
-        self.set("NONE", lambda _: False)
-        self.set("REGEX", utils.is_regex)
-        self.set("URI", lambda s: isinstance(s, str))
-        self.set("URL-REFERENCE", lambda s: isinstance(s, str))
+        self._defs = ModelDefs(compiler=lambda m, p: lambda v: self.check(v, m))
+        self.set("ANY", lambda _: True, "<ANY>")
+        self.set("NONE", lambda _: False, "<NONE>")
+        self.set("REGEX", utils.is_regex, "<REGEX>")
+        self.set("URI", lambda s: isinstance(s, str), "<URI>")
+        self.set("URL-REFERENCE", lambda s: isinstance(s, str), "<URL-REFERENCE>")
 
     def _dollar(self, name: str, val: ValueType) -> bool:
         """Handle "$name"."""
@@ -342,8 +342,8 @@ class DSV:
         rw_model = utils.merge_rewrite(model, defs, "")
         return self._type[type(model)](value, rw_model, strict)
 
-    def set(self, ident: str, model: Callable[[any], bool] | any):
+    def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):
         """Extend validator with a new definition."""
         #if ident in self._defs:
         #    log.warning(f"overriding {ident} previous definition")
-        self._defs.set(ident, model)
+        self._defs.set(ident, model, mpath)
