@@ -501,7 +501,7 @@ class ModelDefs:
         self._compiler = compiler
         self._models: dict[str, Model] = {}
 
-    def set(self, name: str, model: ModelType|CheckFun, doc: str=None):
+    def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str=None):
         """Add or override named JSON model."""
         # FIXME forbid? scope?
         log.debug(f"set {name}")
@@ -511,7 +511,7 @@ class ModelDefs:
         if callable(model):
             m = Model(model, None, None, doc)
         else:
-            m = Model(self._compiler(model), model, json.dumps(model), doc)
+            m = Model(self._compiler(model, mpath), model, json.dumps(model), doc)
 
         self._models[name] = m
 
