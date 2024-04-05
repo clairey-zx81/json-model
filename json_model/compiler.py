@@ -1,7 +1,5 @@
 # WIP
-# TODO fix json path for all/any/one?! [1,2...]
 # TODO check for possibly undefined defs by tracking defs and uses
-# TODO define a Compiler class?
 # TODO check for some obviously empty types?
 
 import enum
@@ -324,7 +322,7 @@ class CompileModel:
                                 checked = True
                     # else try catch-all
                     if not checked and not others(key, val, f"{p}.{key}"):
-                        return self._no(f"{p}.{key}", "unexpected other property")
+                        return False # self._no(f"{p}.{key}", "unexpected other property")
 
             # all mandatory are accounted for?
             if must_see != 0:
@@ -392,11 +390,12 @@ class CompileModel:
                 return None
             elif v == "=null":
                 return None
-            elif re.search(r"^=\d+$", v):
-                return int(v[1:])
             elif re.search(r"^=(true|false)$", v):
                 return bool(v[1:])
-            # TODO float?
+            elif re.search(r"^=-?\d+$", v):
+                return int(v[1:])
+            elif re.search(r"^=", v):
+                return float(v[1:])
             elif v[0] == "_":
                 return v[1:]
             else:
@@ -424,7 +423,7 @@ class CompileModel:
             return None
         # only objects: collect their direct mandatory properties
         all_props: list[set[str]] = [
-            set(k for k in m.keys() if k and k[0] not in ("$", "?"))
+            set(k for k in m.keys() if k and k[0] not in ("$", "?", "/"))
             for m in models
         ]
         # get cleaned props and their constant values
@@ -433,8 +432,8 @@ class CompileModel:
             consts: dict[str, any] = {}
             for prop in props:
                 val = self._constant(model[prop])
-                key = prop[1:] if prop[0] == "_" else prop
                 if val is not None:
+                    key = prop[1:] if prop[0] in ("_", "!") else prop
                     consts[key] = val
             all_const_props.append(consts)
         # tag candidates must:
@@ -470,12 +469,14 @@ class CompileModel:
 
         # map tag values to value check
         TAG_CHECKS = {
+            # model check should skip the tag name check 
             consts[tag_name]: self._raw_compile(model)
             for consts, model in zip(all_const_props, models)
         }
 
         # actual check function
         def disjunct_check(v, p):
+            # log.warning(f"disjunct_check {p}")
             # is there a tag?
             if not isinstance(v, dict) or not tag_name in v:
                 return self._no(p, f"missing tag {tag_name}")
