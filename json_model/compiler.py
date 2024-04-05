@@ -71,20 +71,20 @@ class CompileModel:
 
         # predefs
         self._defs = ModelDefs(self._raw_compile)
-        self._defs.set("ANY", lambda _v, _p: True, "accept anything")
-        self._defs.set("NONE", lambda _v, p: self._no("", p, "none"), "refuse everything")
+        self._defs.set("ANY", lambda _v, _p: True, "<ANY>", "accept anything")
+        self._defs.set("NONE", lambda _v, p: self._no("<NONE>", p, "none"), "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
-        self._defs.set("REGEX", lambda v, p: utils.is_regex(v) or self._no("", p, "invalid regex"), "valid regular expression")
+        self._defs.set("REGEX", lambda v, p: utils.is_regex(v) or self._no("<REGEX>", p, "invalid regex"), "<REGEX>", "valid regular expression")
         # these are permissive for now
-        self._defs.set("URI", lambda s, p: isinstance(s, str) or self._no("", p, "invalid uri"))
-        self._defs.set("URI-REFERENCE", lambda s, p: isinstance(s, str) or self._no("", p, "invalid uri-reference"))
+        self._defs.set("URI", lambda s, p: isinstance(s, str) or self._no("<URI>", p, "invalid uri"))
+        self._defs.set("URI-REFERENCE", lambda s, p: isinstance(s, str) or self._no("<URI-REFERENCE>", p, "invalid uri-reference"))
         # some predefined numeric types (strict)
-        self._defs.set("I32", lambda v, p: isinstance(v, int) and -2**31 <= v <= (2**31 - 1) or self._no("", p, "invalid I32"))
-        self._defs.set("U32", lambda v, p: isinstance(v, int) and 0 <= v <= (2**32 - 1) or self._no("", p, "invalid U32"))
-        self._defs.set("I64", lambda v, p: isinstance(v, int) and -2**63 <= v <= (2**63 - 1) or self._no("", p, "invalid I64"))
-        self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v <= (2**64 - 1) or self._no("", p, "invalid U64"))
+        self._defs.set("I32", lambda v, p: isinstance(v, int) and -2**31 <= v <= (2**31 - 1) or self._no("<I32>", p, "invalid I32"))
+        self._defs.set("U32", lambda v, p: isinstance(v, int) and 0 <= v <= (2**32 - 1) or self._no("<U32>", p, "invalid U32"))
+        self._defs.set("I64", lambda v, p: isinstance(v, int) and -2**63 <= v <= (2**63 - 1) or self._no("<I64>", p, "invalid I64"))
+        self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v <= (2**64 - 1) or self._no("<U64>", p, "invalid U64"))
         # FIXME F32?
-        self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no("", p, "invalid F64"))
+        self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no("<F64>", p, "invalid F64"))
 
         # url cache
         self._urls = set()
@@ -265,6 +265,7 @@ class CompileModel:
         """Check a standard object."""
 
         assert isinstance(model, dict)
+        # log.warning(f"{mpath}: {model}")
 
         # detect multiply defined properties
         properties: set(str) = set()
@@ -301,10 +302,10 @@ class CompileModel:
                 if key in mandatory:
                     must_see -= 1
                     if not mandatory[key](val, f"{p}.{key}"):
-                        return self._no(f"{mpath}.{key}", f"{p}.{key}", "bad mandatory value")
+                        return False  # self._no(f"{mpath}.{key}", f"{p}.{key}", "bad mandatory value")
                 elif key in optional:
                     if not optional[key](val, f"{p}.{key}"):
-                        return self._no(f"{mpath}.{key}", f"{p}.{key}", "bad optional value")
+                        return False  # self._no(f"{mpath}.{key}", f"{p}.{key}", "bad optional value")
                 else:
                     # else key checks, which return None if unchecked
                     checked = False
@@ -312,14 +313,14 @@ class CompileModel:
                         res = kc(key, val, p)
                         if res is not None:
                             if not res:
-                                return self._no(f"{mpath}.{k}", f"{p}.{kc}", f"bad name key value for {k}")
+                                return False  # self._no(f"{mpath}.{k}", f"{p}.{kc}", f"bad name key value for {k}")
                             checked = True
                     if not checked:
                         for k, kc in keyregs_checks.items():
                             res = kc(key, val, p)
                             if res is not None:
                                 if not res:
-                                    return self._no(f"{mpath}.{k}", f"{p}.{kc}", f"bad regex key value for {k}")
+                                    return False  # self._no(f"{mpath}.{k}", f"{p}.{kc}", f"bad regex key value for {k}")
                                 checked = True
                     # else try catch-all
                     if not checked and not others(key, val, f"{p}.{key}"):
@@ -469,12 +470,11 @@ class CompileModel:
         assert tag_type in (bool, int, float, str)
 
         # map tag values to value check
-        # FIXME keep index for error message mpath
-        TAG_CHECKS = {
-            # model check should skip the tag name check 
-            consts[tag_name]: self._raw_compile(model, mpath)
-            for consts, model in zip(all_const_props, models)
-        }
+        TAG_CHECKS = {}
+        for i in range(len(models)):
+            model = models[i]
+            consts = all_const_props[i]
+            TAG_CHECKS[consts[tag_name]] = self._raw_compile(model, f"{mpath}[{i}]")  
 
         # actual check function
         def disjunct_check(v, p):
@@ -826,7 +826,7 @@ class CompileModel:
                     # FIXME is it always ok?
                     log.debug(f"merging def {name}")
                     val = utils.merge_simple_models(val["+"], self._defs)
-                self._defs.set(name, val, mpath)
+                self._defs.set(name, val, mpath + ".%." + name)
 
         return self._raw_compile(model, mpath, True)
 
