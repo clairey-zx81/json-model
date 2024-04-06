@@ -183,7 +183,7 @@
     "Tag": {
       "name": "",
       "?description": "",
-      "?externalDocs": "ExternalDocumentation",
+      "?externalDocs": "$ExternalDocumentation",
       "^x\\-.*$": "$ANY"
     },
     "Reference": {
