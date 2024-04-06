@@ -493,20 +493,23 @@ class CompileModel:
             consts = all_const_props[i]
             TAG_CHECKS[consts[tag_name]] = self._raw_compile(model, f"{mpath}[{i}]")  
 
+        mp = mpath + "[*]"
+
         # actual check function
         def disjunct_check(v, p):
             # log.warning(f"disjunct_check {p}")
             # is there a tag?
             if not isinstance(v, dict):
-                return self._no(mpath, p, f"not an object")
+                return self._no(mp, p, f"not an object")
             if not tag_name in v:
-                return self._no(mpath, p, f"missing tag {tag_name}")
+                return self._no(mp, p, f"missing tag {tag_name}")
             tag = v[tag_name]
             if not type(tag) == tag_type:
-                return self._no(f"{mpath}.{tag_name}", f"{p}.{tag_name}",
+                return self._no(f"{mp}.{tag_name}", f"{p}.{tag_name}",
                                 f"bad tag type {type(tag).__name__} for {tag_type.__name__}")
             if tag not in TAG_CHECKS:
-                return self._no(f"{mpath}[?]", p, f"unexpected tag {tag_name} value {tag}")
+                return self._no(f"{mp}.{tag_name}", f"{p}.{tag_name}",
+                                f"unexpected tag {tag_name} value {tag}")
             return TAG_CHECKS.get(tag)(v, p)
 
         return self.trace(disjunct_check, mpath, "{δ}")
