@@ -6,22 +6,30 @@
 import sys
 import json
 import logging
-from json_model.compiler import compileModel
-from json_model.utils import openfiles
+import argparse
+from json_model import compiler, utils
 
 def c_check_model():
-
-    assert len(sys.argv) >= 2 
 
     logging.basicConfig(level=logging.INFO)
     log = logging.getLogger("model")
 
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("model", type=str)
+    ap.add_argument("jsons", nargs="*")
+    args = ap.parse_args()
+
+    if args.debug:
+        compiler._debug = True
+        compiler.log.setLevel(logging.DEBUG)
+
     # load model
-    with open(sys.argv[1]) as f:
-        checkModel = compileModel(json.load(f))
+    with open(args.model) as f:
+        checkModel = compiler.compileModel(json.load(f))
 
     # process other files
-    for fn, fh in openfiles(sys.argv[2:]):
+    for fn, fh in utils.openfiles(args.jsons):
         valid = False
         try:
             valid = checkModel(json.load(fh))

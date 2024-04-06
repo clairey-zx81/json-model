@@ -16,14 +16,16 @@ log = logging.getLogger("compiler")
 log.setLevel(level=logging.INFO)
 # log.setLevel(level=logging.DEBUG)
 
+# debug helpers
+_debug: bool = False
+# _debug: bool = True
+
 from typing import Callable
 
 import json_model.utils as utils
 import json_model.url_cache as url_cache
 from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values
 
-# debug helpers
-_debug: bool = True
 
 def _trace(*args) -> bool:
     """Convenient expression debug tracer."""
@@ -169,12 +171,23 @@ class CompileModel:
     def _lambda_gt(self, val, mpath):
         return lambda v, p: v > val or self._no(mpath, p, f"gt {val} failed")
 
+    def trace(self, fun: CheckFun, mpath: str, what: str = "") -> CheckFun:
+        """Trace check function execution and results."""
+        if _debug:
+            def tfun(val, vpath):
+                ok = fun(val, vpath)
+                log.debug(f"{what} {vpath}: {ok} [{mpath}]")
+                return ok
+            return tfun
+        else:
+            return fun
+
     # def _lambda_mo(self, val):
     #     # type check needed to avoid accepting bool
     #     return lambda v, p: type(v) in (int, float) and v % val == 0 or self._no(p, f"mo {val} failed")
 
-    def _distinct(self, mpath):
-        return lambda v, p: distinct_values(v) or self._no(mpath, p, "distinct failed")
+    def _distinct(self, mpath: str):
+        return self.trace(lambda v, p: distinct_values(v) or self._no(mpath, p, "distinct failed"), mpath, "!")
 
     def _is_vartuple(self, model: ModelType) -> bool:
         """Is this model a variable-length tuple.
@@ -201,8 +214,8 @@ class CompileModel:
         nmodels = len(model)
         if nmodels == 0:
             # empty list/tuple
-            return lambda v, p: isinstance(v, (list, tuple)) and len(v) == 0 or \
-                self._no(mpath, p, "expecting empty list")
+            return self.trace(lambda v, p: isinstance(v, (list, tuple)) and len(v) == 0 or
+                             self._no(mpath, p, "expecting empty list"), mpath, "()")
         # else: we have a non empty list of models
  
         checks = [ self._raw_compile(m, f"{mpath}[{i}]") for i, m in enumerate(model) ]
@@ -219,11 +232,12 @@ class CompileModel:
                     return False
             return True
 
-        return check_vartuple
+        return self.trace(check_vartuple, mpath, "(+)")
 
     def _list_check(self, model: ModelType, mpath: str) -> CheckFun:
         """Check an array (list) and its contents."""
         item = self._raw_compile(model, mpath)
+
         def check_list(v, p) -> bool:
             if not isinstance(v, (list, tuple)):
                 return self._no(mpath, p, "expecting an array")
@@ -232,7 +246,8 @@ class CompileModel:
             for i, e in enumerate(v):
                 item_checks.append(item(e, f"{p}[{i}]"))
             return self._all(item_checks, mpath, p)
-        return check_list
+
+        return self.trace(check_list, mpath, "[*]")
 
     def _tuple_check(self, model: ModelType, mpath: str) -> CheckFun:
         """Check an array (tuple) and its contents."""
@@ -249,7 +264,7 @@ class CompileModel:
                 return self._no(mpath, p, "bad array length")
             return all([ items[i](v[i], f"{p}[{i}]") for i in range(nmodels) ])
 
-        return check_tuple
+        return self.trace(check_tuple, mpath, "(*)")
 
     def _keyname_val_compile(self, name: str, model: ModelType, mpath: str) -> KeyCheckFun:
         """Check object named property and its associated value."""
@@ -335,7 +350,7 @@ class CompileModel:
 
             return True
 
-        return check_dict
+        return self.trace(check_dict, mpath, "{*}")
 
     def _ultimate_type(self, model: ModelType) -> type:
         """Get the utimate type by following definitions."""
@@ -482,14 +497,19 @@ class CompileModel:
         def disjunct_check(v, p):
             # log.warning(f"disjunct_check {p}")
             # is there a tag?
-            if not isinstance(v, dict) or not tag_name in v:
+            if not isinstance(v, dict):
+                return self._no(mpath, p, f"not an object")
+            if not tag_name in v:
                 return self._no(mpath, p, f"missing tag {tag_name}")
             tag = v[tag_name]
             if not type(tag) == tag_type:
-                return self._no(f"{mpath}.{tag_name}", f"{p}.{tag_name}", f"bad tag type {type(tag)}/{tag_type}")
-            return TAG_CHECKS.get(tag, lambda _, p: self._no(f"{mpath}[?]", p, f"unexpected tag {tag_name} value {tag}"))(v, p)
+                return self._no(f"{mpath}.{tag_name}", f"{p}.{tag_name}",
+                                f"bad tag type {type(tag).__name__} for {tag_type.__name__}")
+            if tag not in TAG_CHECKS:
+                return self._no(f"{mpath}[?]", p, f"unexpected tag {tag_name} value {tag}")
+            return TAG_CHECKS.get(tag)(v, p)
 
-        return disjunct_check
+        return self.trace(disjunct_check, mpath, "{δ}")
 
     def _obj_constraints(self, constraint: dict[str, any], ttype: type, mpath: str):
         """Check a constrained type constraints."""
@@ -562,7 +582,7 @@ class CompileModel:
 
         # return final check
         if checks_val:
-           return lambda v, p: all(map(lambda f: f(v, p), checks_val))
+           return self.trace(lambda v, p: all(map(lambda f: f(v, p), checks_val)), mpath, "@")
         else:
            return None
 
@@ -599,12 +619,11 @@ class CompileModel:
         if not mv: # empty list shortcut
             return lambda _v, p: self._no(mp, p, "no value allowed")
         # try optimized disjuction
-        check = self._disjunction(model, mp)
-        if check:
+        if check := self._disjunction(model, mp):
             return check
         # else alternate is to try till one matches, in order
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(mp, p, "no any matched")
+        return self.trace(lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(mp, p, "no any matched"), mpath, "|")
 
     def _conjunctive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
         """Check a and-model &."""
@@ -616,7 +635,7 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p)
+        return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
     def _exclusive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
         """Check a xor-model ^."""
@@ -630,7 +649,7 @@ class CompileModel:
         if not mv: # empty list shortcut
             return lambda _v, p: self._no(mp, p, "no value allowed")
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p)
+        return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
     def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:
         """Compile null."""
@@ -731,7 +750,8 @@ class CompileModel:
                     # TODO or no, only dynamic?
                     return self._defs[name]
                 else:
-                    return lambda v, p: self._defs[name](v, p) or self._no(mpath, p, f"${name} failed") if name in self._defs else self._no(mpath, p, f"${name} not found")
+                    return lambda v, p: self._defs[name](v, p) or self._no(mpath, p, f"${name} failed") \
+                               if name in self._defs else self._no(mpath, p, f"${name} not found")
         elif char == "_":
             return lambda v, p: isinstance(v, str) and v == name or self._no(mpath, p, f"expecting string {name}")
         elif char == "/":  # regular expression /.../i?
@@ -744,9 +764,11 @@ class CompileModel:
             else:
                 raise ModelError(f"invalid regex: {model} [{mpath}]")
             check_re = re.compile(regex, option).search
-            return lambda v, p: isinstance(v, str) and check_re(v) is not None or self._no(mpath, p, f"expecting regex {model}")
+            return lambda v, p: isinstance(v, str) and check_re(v) is not None or \
+                                    self._no(mpath, p, f"expecting regex {model}")
         else:
-            return lambda v, p: isinstance(v, str) and v == model or self._no(mpath, p, f"expecting string {model}")
+            return lambda v, p: isinstance(v, str) and v == model or \
+                                    self._no(mpath, p, f"expecting string {model}")
 
     def _list_raw_compile(self, model: any, mpath: str) -> CheckFun:
         """Compile an array."""
