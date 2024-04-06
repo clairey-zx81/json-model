@@ -1,6 +1,8 @@
 # WIP
+#
 # TODO check for possibly undefined defs by tracking defs and uses
 # TODO check for some obviously empty types?
+# TODO partial eval: none & any propagation?
 
 import enum
 import re  # re2?
