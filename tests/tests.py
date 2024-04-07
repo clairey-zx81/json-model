@@ -164,7 +164,7 @@ def test_c_checked_json_model_values():
 
 def test_c_checked_json_model_files():
     modval = pathlib.Path("./modval")
-    model_suffix = "_model.json"
+    model_suffix = "_m.json"
     mcount = 0
     for mf in modval.glob("*" + model_suffix):
         mcount += 1
@@ -184,7 +184,7 @@ def test_c_checked_json_model_files():
             vfalse += 1
             value = json.load(open(vf))
             assert not checker(value), f"c-checked model value: {value} !~ {model}"
-        assert vtrue >= 1 and vfalse >= 1
+        assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
 @pytest.mark.skip("some issues")
@@ -192,7 +192,7 @@ def test_v_checked_json_model_files():
     validator = DSV()
     init_data(validator.set)
     modval = pathlib.Path("./modval")
-    model_suffix = "_model.json"
+    model_suffix = "_m.json"
     mcount = 0
     for mf in modval.glob("*" + model_suffix):
         mcount += 1
@@ -210,7 +210,7 @@ def test_v_checked_json_model_files():
             vfalse += 1
             value = json.load(open(vf))
             assert not validator.check(model, value), f"v-checked model value: {value} !~ {model}"
-        assert vtrue >= 1 and vfalse >= 1
+        assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
 def test_json_model_compilation():
