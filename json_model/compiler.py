@@ -679,9 +679,9 @@ class CompileModel:
             if model == -1:
                 check = is_an_int
             elif model == 0:
-                check = lambda v, p: is_an_int(v, p) and v >= 0 or self._no(mpath, p, "must be positive")
+                check = lambda v, p: is_an_int(v, p) and (v >= 0 or self._no(mpath, p, "int must be positive"))
             elif model == 1:
-                check = lambda v, p: is_an_int(v, p) and v > 0 or self._no(mpath, p, "must be strictly positive")
+                check = lambda v, p: is_an_int(v, p) and (v > 0 or self._no(mpath, p, "int must be strictly positive"))
             else:
                 check = is_an_int
         else:
