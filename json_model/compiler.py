@@ -416,7 +416,7 @@ class CompileModel:
             elif v == "=null":
                 return None
             elif re.search(r"^=(true|false)$", v):
-                return bool(v[1:])
+                return True if v == "=true" else False
             elif re.search(r"^=-?\d+$", v):
                 return int(v[1:])
             elif re.search(r"^=", v):
