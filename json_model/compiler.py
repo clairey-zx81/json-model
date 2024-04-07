@@ -75,8 +75,8 @@ class CompileModel:
 
         # predefs
         self._defs = ModelDefs(self._raw_compile)
-        self._defs.set("ANY", lambda _v, _p: True, "<ANY>", "accept anything")
-        self._defs.set("NONE", lambda _v, p: self._no("<NONE>", p, "none"), "<NONE>", "refuse everything")
+        self._defs.set("ANY", self._ANY, "<ANY>", "accept anything")
+        self._defs.set("NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
         self._defs.set("REGEX", lambda v, p: utils.is_regex(v) or self._no("<REGEX>", p, "invalid regex"), "<REGEX>", "valid regular expression")
         # these are permissive for now
@@ -103,6 +103,12 @@ class CompileModel:
 
     def __str__(self):
         return f"defs={self._defs}, model={self._model} rw={self._rw_model}"
+
+    def _NONE(self, _v, vpath: str):
+        return self._no("<NONE>", vpath, "$NONE")
+
+    def _ANY(self, _v, _p):
+        return True
 
     # NOTE long implementation to collect all results
     def _one(self, l, mpath, vpath) -> bool:
@@ -620,12 +626,13 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected | alternate value: {mv} ({type(mv)}) [{mp}]")
         if not mv: # empty list shortcut
-            return self.trace(lambda _v, p: self._no(mp, p, "no value allowed"), mpath, "|")
+            return self.trace(self._NONE, mpath, "|")
         # try optimized disjuction
         if check := self._disjunction(model, mp):
             return check
         # else alternate is to try till one matches, in order
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
+        # TODO partial eval?
         return self.trace(lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(mp, p, "no any matched"), mpath, "|")
 
     def _conjunctive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
@@ -638,9 +645,10 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         if not mv:  # empty list shortcut
-            return self.trace(lambda _v, _p: True, mpath, "&")
+            return self.trace(self._ANY, mpath, "&")
         # else some work to do
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
+        # TODO partial eval?
         return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
     def _exclusive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
@@ -653,9 +661,10 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         if not mv: # empty list shortcut
-            return self.trace(lambda _v, p: self._no(mp, p, "no value allowed"), mpath, "^")
+            return self.trace(self._NONE, mpath, "^")
         # else some work
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
+        # TODO partial eval?
         return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "^")
 
     def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:
