@@ -27,7 +27,7 @@ class DSV:
         self._type: dict[type, Callable[[ValueType, ModelType, bool], bool]] = {
             type(None): lambda v, _, _s: v is None,
             bool: lambda v, _, _s: isinstance(v, bool),
-            int: lambda v, _, _s: type(v) == int,
+            int: self._int,
             float: lambda v, _, _s: type(v) in (int, float),
             str: self._str,
             list: self._list,
@@ -42,6 +42,19 @@ class DSV:
         self.set("REGEX", utils.is_regex, "<REGEX>")
         self.set("URI", lambda s: isinstance(s, str), "<URI>")
         self.set("URL-REFERENCE", lambda s: isinstance(s, str), "<URL-REFERENCE>")
+
+    def _int(self, value: ValueType, model: ModelType, _strict: bool = True):
+        assert type(model) == int
+        if type(value) != int:
+            return False
+        if model == 0:
+            return value >= 0
+        elif model == 1:
+            return value >= 1
+        elif model == -1:
+            return True
+        else:
+            raise ModelError(f"unexpected int model: {model}")
 
     def _dollar(self, name: str, val: ValueType) -> bool:
         """Handle "$name"."""

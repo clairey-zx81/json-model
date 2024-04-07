@@ -43,7 +43,7 @@ def _show_index(checks: list[bool], val):
 
 class CompileModel:
 
-    def __init__(self, model, loose_int: bool = False, signed_int: bool = False):
+    def __init__(self, model, loose_int: bool = False, signed_int: bool = True):
 
         # keep a copy of the initial model
         self._model = copy.deepcopy(model)
@@ -125,7 +125,7 @@ class CompileModel:
             if not b:
                 failed.append(i)
         if failed:
-            return self._no(mpath, vpath, f"all failures: {failed}")
+            return self._no(mpath, vpath, f"all failures {len(failed)}/{i+1}: {failed}")
         else:
             return True
 
@@ -154,22 +154,29 @@ class CompileModel:
 
     # stupid work around loop value capture
     def _lambda_eq(self, val, mpath):
-        return lambda v, p: v == val or self._no(mpath, p, f"eq {val} failed")
+        return lambda v, p: v == val or self._no(mpath, p, f"== {val} failed")
 
     def _lambda_ne(self, val, mpath):
-        return lambda v, p: v != val or self._no(mpath, p, f"ne {val} failed")
+        return lambda v, p: v != val or self._no(mpath, p, f"!= {val} failed")
 
     def _lambda_le(self, val, mpath):
-        return lambda v, p: v <= val or self._no(mpath, p, f"le {val} failed")
+        return lambda v, p: v <= val or self._no(mpath, p, f"<= {val} failed")
 
     def _lambda_lt(self, val, mpath):
-        return lambda v, p: v < val or self._no(mpath, p, f"lt {val} failed")
+        return lambda v, p: v < val or self._no(mpath, p, f"< {val} failed")
 
     def _lambda_ge(self, val, mpath):
-        return lambda v, p: v >= val or self._no(mpath, p, f"ge {val} failed")
+        return lambda v, p: v >= val or self._no(mpath, p, f">= {val} failed")
 
     def _lambda_gt(self, val, mpath):
-        return lambda v, p: v > val or self._no(mpath, p, f"gt {val} failed")
+        return lambda v, p: v > val or self._no(mpath, p, f"> {val} failed")
+
+    def _distinct(self, mpath: str):
+        return self.trace(lambda v, p: distinct_values(v) or self._no(mpath, p, "distinct failed"), mpath, "!")
+
+    # def _lambda_mo(self, val):
+    #     # type check needed to avoid accepting bool
+    #     return lambda v, p: type(v) in (int, float) and v % val == 0 or self._no(p, f"mo {val} failed")
 
     def trace(self, fun: CheckFun, mpath: str, what: str = "") -> CheckFun:
         """Trace check function execution and results."""
@@ -181,13 +188,6 @@ class CompileModel:
             return tfun
         else:
             return fun
-
-    # def _lambda_mo(self, val):
-    #     # type check needed to avoid accepting bool
-    #     return lambda v, p: type(v) in (int, float) and v % val == 0 or self._no(p, f"mo {val} failed")
-
-    def _distinct(self, mpath: str):
-        return self.trace(lambda v, p: distinct_values(v) or self._no(mpath, p, "distinct failed"), mpath, "!")
 
     def _is_vartuple(self, model: ModelType) -> bool:
         """Is this model a variable-length tuple.
@@ -310,7 +310,7 @@ class CompileModel:
         def check_dict(v: any, p: str) -> bool:
 
             if not isinstance(v, dict):
-                return False
+                return self._no(mpath, p, "not an object")
 
             must_see = len(mandatory)
 

@@ -7,8 +7,8 @@ import pytest
 import logging
 logging.basicConfig()
 log = logging.getLogger("tests")
-# log.setLevel(logging.INFO)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
 
 import json_model.generate as generate
 from json_model.utils import merge_rewrite
