@@ -1,4 +1,0 @@
-{
-  "#": "exclusive properties: a ^ b",
-  "^": [ {"a": 0, "?b": "$NONE", "": 0}, {"?a": "$NONE", "b": 0, "": 0} ]
-}
