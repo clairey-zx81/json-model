@@ -620,7 +620,7 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected | alternate value: {mv} ({type(mv)}) [{mp}]")
         if not mv: # empty list shortcut
-            return lambda _v, p: self._no(mp, p, "no value allowed")
+            return self.trace(lambda _v, p: self._no(mp, p, "no value allowed"), mpath, "|")
         # try optimized disjuction
         if check := self._disjunction(model, mp):
             return check
@@ -637,6 +637,9 @@ class CompileModel:
         mp = mpath + ".&"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
+        if not mv:  # empty list shortcut
+            return self.trace(lambda _v, _p: True, mpath, "&")
+        # else some work to do
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
         return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
@@ -650,9 +653,10 @@ class CompileModel:
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         if not mv: # empty list shortcut
-            return lambda _v, p: self._no(mp, p, "no value allowed")
+            return self.trace(lambda _v, p: self._no(mp, p, "no value allowed"), mpath, "^")
+        # else some work
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
+        return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "^")
 
     def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:
         """Compile null."""
