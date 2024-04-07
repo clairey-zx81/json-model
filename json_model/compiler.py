@@ -632,7 +632,6 @@ class CompileModel:
             return check
         # else alternate is to try till one matches, in order
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        # TODO partial eval?
         return self.trace(lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(mp, p, "no any matched"), mpath, "|")
 
     def _conjunctive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
@@ -648,7 +647,6 @@ class CompileModel:
             return self.trace(self._ANY, mpath, "&")
         # else some work to do
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        # TODO partial eval?
         return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
     def _exclusive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
@@ -664,7 +662,6 @@ class CompileModel:
             return self.trace(self._NONE, mpath, "^")
         # else some work
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        # TODO partial eval?
         return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "^")
 
     def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:

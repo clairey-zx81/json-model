@@ -472,6 +472,8 @@ def merge_rewrite(data, defs: dict[str, any], path: str=""):
     - distribute ``+`` over ``|``.
     - resolve definitions ``$something``.
     - actually merge object properties.
+
+    TODO partial evaluation, propagation of $NONE and $ANY?
     """
     jdata = copy.deepcopy(data)
     jdata = flatten(jdata, defs, path)
