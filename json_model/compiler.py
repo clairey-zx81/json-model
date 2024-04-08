@@ -659,16 +659,40 @@ class CompileModel:
         if not set(model.keys()).issubset(["#", "$", "%", "^"]):
             raise ModelError(f"key combination not implemented yet: {model} [{mpath}]")
         mv = model["^"]
-        mp = mpath + ".^"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
+        mp = mpath + ".^"
+        # fun optimization: duplicate models lead to immediate errors
+        dcheck = None
+        if len(mv) >= 2:
+            # detect duplicated (strictly equal) models
+            seen, duplicated = [], []
+            for m in mv:
+                if m in seen:
+                    duplicated.append(m)
+                else:
+                    seen.append(m)
+            if duplicated:
+                # remove duplicated models which are managed independently
+                mv = list(filter(lambda m: m not in duplicated, mv))
+                # if v matchs a diplicated model, result is False
+                fchecks = [ self._raw_compile(m, f"{mp}[?]") for m in duplicated ]
+                dcheck = lambda v, p: not any(f(v, p) for f in fchecks) or self._no(mpath+ "[*]", p, "duplicated match in ^")
+        # standard case
         if not mv: # empty list shortcut
+            # even if dcheck!
             return self.trace(self._NONE, mpath, "^")
         elif len(mv) == 1:
-            return self._raw_compile(mv[0], mp + "[0]")
+            fun = self._raw_compile(mv[0], mp + "[0]")
+            if dcheck:
+                return lambda v, p: dcheck(v, p) and fun(v, p)
+            else:
+                return fun
         # else some work
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "^")
+        fun = lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p)
+        # we try dcheck (shortcut), else we try the remaining models
+        return self.trace((lambda v, p: dcheck(v, p) and fun(v, p)) if dcheck else fun, mpath, "^")
 
     def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:
         """Compile null."""
