@@ -642,7 +642,7 @@ class CompileModel:
             return check
         # else alternate is to try till one matches, in order
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        return self.trace(lambda v, p: any(map(lambda f: f(v, p), subs)) or self._no(mp, p, "no any matched"), mpath, "|")
+        return self.trace(lambda v, p: any(f(v, p) for f in subs) or self._no(mp, p, "no any matched"), mpath, "|")
 
     def _conjunctive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
         """Check a and-model &."""
