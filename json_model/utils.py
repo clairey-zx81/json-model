@@ -275,7 +275,7 @@ def _merge(data: any, defs: dict[str, any], path: str):
         return data["+"][0]
     # else: something to handle
 
-    merged = None
+    merged, is_xor = None, False
     for i, m in enumerate(data["+"]):
         lpath = f"{path}[{i}]"
         # resolve direct references
@@ -300,16 +300,32 @@ def _merge(data: any, defs: dict[str, any], path: str):
                         n = _merge(n, defs, lpath)
                         tmerged.append(n)     
                 merged = tmerged
+        elif isinstance(m, dict) and  "^" in m:
+            models = m["^"]
+            is_xor = True
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type of ^: {type(models)} [{lpath}]")
+            tmerged = []
+            if merged is None:
+                merged = models
+            else:
+                for i in merged:
+                    for j in models:
+                        n = _merge_object(i, j)
+                        n = _merge(n, defs, lpath)
+                        tmerged.append(n)     
+                merged = tmerged
         else:
             if merged is None:
                 merged = [m]
             else:
                 merged = [ _merge_object(i, m) for i in merged ]
 
+
     del data["+"]
     if merged:
         if len(merged) > 1:
-            data["|"] = merged
+            data["^" if is_xor else "|"] = merged
         else:
             item = merged[0]
             if isinstance(item, dict) and "+" in item and len(item) == 1:
@@ -394,9 +410,29 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 assert isinstance(models, list)
                 data["|"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
 
+            if "^" in data:
+                lpath += f"{path}.'^'"
+                models = data["^"]
+                assert isinstance(models, list)
+                data["^"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
+
         # actual object merge
         if "+" in data:
             data = actual_merge(data, defs, f"{path}.'+'")
+
+        # partial eval: remove duplicated models: [M, M, Z] => [Z]
+        # FIXME the model comparison is simplistic, it should ignore meta data!
+        if "^" in data:
+            merged = data["^"]
+            if len(merged) >= 2:
+                seen, torm = [], []
+                for m in merged:
+                    if m in seen:
+                        torm.append(m)
+                    else:
+                        seen.append(m)
+                if torm:
+                    data["^"] = list(filter(lambda m: m not in torm, merged))
 
         return data
 
