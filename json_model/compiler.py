@@ -627,6 +627,8 @@ class CompileModel:
             raise ModelError(f"unexpected | alternate value: {mv} ({type(mv)}) [{mp}]")
         if not mv: # empty list shortcut
             return self.trace(self._NONE, mpath, "|")
+        elif len(mv) == 1:
+            return self._raw_compile(mv[0], mp + "[0]")
         # try optimized disjuction
         if check := self._disjunction(model, mp):
             return check
@@ -645,6 +647,8 @@ class CompileModel:
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         if not mv:  # empty list shortcut
             return self.trace(self._ANY, mpath, "&")
+        elif len(mv) == 1:
+            return self._raw_compile(mv[0], mp + "[0]")
         # else some work to do
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
         return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
@@ -660,6 +664,8 @@ class CompileModel:
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
         if not mv: # empty list shortcut
             return self.trace(self._NONE, mpath, "^")
+        elif len(mv) == 1:
+            return self._raw_compile(mv[0], mp + "[0]")
         # else some work
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
         return self.trace(lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p), mpath, "^")
