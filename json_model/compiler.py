@@ -382,7 +382,7 @@ class CompileModel:
             else:
                 return tmodel
 
-    def _ultimate_model(self, model: ModelType, constrained=True) -> ModelType:
+    def _ultimate_model(self, model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
         tmodel = type(model)
         if tmodel in (type(None), bool, int, float, list, tuple):
@@ -397,6 +397,12 @@ class CompileModel:
                 return self._ultimate_model(m) if m != UnknownModel else m
         elif tmodel is dict:
             if "@" in model:
+                if strict:
+                    if set(model.keys()).issubset(["@", "#", "%", "%"]):
+                        return self._ultimate_model(model["@"])
+                    else:
+                        return UnknownModel
+                # else
                 return self._ultimate_model(model["@"]) if constrained else UnknownModel
             elif "|" in model:
                 return UnknownModel
@@ -429,7 +435,7 @@ class CompileModel:
             return None
 
     def _disjunction(self, model: ModelType, mpath: str) -> CheckFun|None:
-        """Return the disjonctive property and its values."""
+        """Return the optimized check function if possible."""
         assert isinstance(model, dict) and "|" in model
         # first filter out
         utype = self._ultimate_type(model)

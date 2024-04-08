@@ -75,8 +75,14 @@ def one(l) -> bool:
 # TODO maybe we should accept some simple type inclusions
 def same_model(m1, m2) -> bool:
     """Compare models…"""
-    # beware that True == 0
+    # beware that True == 1 and False == 0
     return type(m1) == type(m2) and m1 == m2
+
+def model_in_models(m: ModelType, l: list[ModelType]) -> bool:
+    for i in l:
+         if same_model(i, m):
+            return True
+    return False
 
 def split_object(model: dict[str, any], path: str) -> tuple[Object, Object, Object, Object, Object]:
     """Split properties in must/may/refs/regs/other cases."""
