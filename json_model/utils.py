@@ -420,21 +420,6 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
         if "+" in data:
             data = actual_merge(data, defs, f"{path}.'+'")
 
-        # partial eval: remove duplicated models: [M, M, Z] => [Z]
-        # FIXME the model comparison is simplistic, it should ignore meta data!
-        # TODO mv to compiler
-        if False and "^" in data:
-            merged = data["^"]
-            if len(merged) >= 2:
-                seen, torm = [], []
-                for m in merged:
-                    if m in seen:
-                        torm.append(m)
-                    else:
-                        seen.append(m)
-                if torm:
-                    data["^"] = list(filter(lambda m: m not in torm, merged))
-
         return data
 
 def flatten(data, defs, path):
