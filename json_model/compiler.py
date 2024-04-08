@@ -625,6 +625,14 @@ class CompileModel:
         mp = mpath + ".|"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected | alternate value: {mv} ({type(mv)}) [{mp}]")
+        # remove duplicate model
+        if len(mv) >= 2:
+            # detect duplicated (strictly equal) models
+            newmv = []
+            for m in mv:
+                if m not in newmv:
+                    newmv.append(m)
+            mv = newmv
         if not mv: # empty list shortcut
             return self.trace(self._NONE, mpath, "|")
         elif len(mv) == 1:
@@ -645,6 +653,14 @@ class CompileModel:
         mp = mpath + ".&"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
+        # remove duplicate model
+        if len(mv) >= 2:
+            # detect duplicated (strictly equal) models
+            newmv = []
+            for m in mv:
+                if m not in newmv:
+                    newmv.append(m)
+            mv = newmv
         if not mv:  # empty list shortcut
             return self.trace(self._ANY, mpath, "&")
         elif len(mv) == 1:
@@ -659,9 +675,9 @@ class CompileModel:
         if not set(model.keys()).issubset(["#", "$", "%", "^"]):
             raise ModelError(f"key combination not implemented yet: {model} [{mpath}]")
         mv = model["^"]
+        mp = mpath + ".^"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
-        mp = mpath + ".^"
         # fun optimization: duplicate models lead to immediate errors
         dcheck = None
         if len(mv) >= 2:
