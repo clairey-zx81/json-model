@@ -420,6 +420,9 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                 return False
             # else dict is a model for an object
             # TODO distinguishable objects?!
+            # - there is a tag! although it will be optimized anyway…
+            # - each object has a mandatory prop which cannot exists in others objects
+            #   possibly with one exception
             if mt in types:
                 return False
             types.add(mt)
