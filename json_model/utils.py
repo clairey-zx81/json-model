@@ -99,6 +99,7 @@ def model_eq(m1: ModelType, m2: ModelType) -> bool:
         for p in m2.keys():
             if p not in ("#", "%", "$") and p not in m1:
                 return False
+        # m1 == m2
         return True
     else:
         raise ModelError(f"unexpected model element type ({t1.__name__})")
@@ -412,24 +413,6 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 defs[k] = ldefs[k]
         if "@" in data:
             data["@"] = _merge_rewrite(data["@"], defs, f"{path}.'@'")
-        if "|" in data:
-            lpath = f"{path}.'|'"
-            models = data["|"]
-            if not isinstance(models, list):
-                raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
-            data["|"] = _merge_rewrite(models, defs, lpath)
-        if "&" in data:
-            lpath = f"{path}.'&'"
-            models = data["&"]
-            if not isinstance(models, list):
-                raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
-            data["&"] = _merge_rewrite(models, defs, lpath)
-        if "^" in data:
-            lpath = f"{path}.'^'"
-            models = data["^"]
-            if not isinstance(models, list):
-                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
-            data["^"] = _merge_rewrite(models, defs, lpath)
         if "+" in data:
             lpath = f"{path}.'+'"
             models = data["+"]
@@ -453,6 +436,71 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 models = data["^"]
                 assert isinstance(models, list)
                 data["^"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
+        if "|" in data:
+            lpath = f"{path}.'|'"
+            models = data["|"]
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
+
+            models = _merge_rewrite(models, defs, lpath)
+
+            # remove duplicate model
+            if len(models) >= 2:
+                # detect duplicated (strictly equal) models
+                newmodels = []
+                for m in models:
+                    if not model_in_models(m, newmodels):
+                        newmodels.append(m)
+                models = newmodels
+
+            # partial eval
+            if len(models) == 0:
+                return "$NONE"  # no model
+            elif len(models) == 1:
+                return models[0]
+            else:
+                data["|"] = models
+
+        if "&" in data:
+            lpath = f"{path}.'&'"
+            models = data["&"]
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
+
+            models = _merge_rewrite(models, defs, lpath)
+
+            # remove duplicate model
+            if len(models) >= 2:
+                # detect duplicated (strictly equal) models
+                newmodels = []
+                for m in models:
+                    if not model_in_models(m, newmodels):
+                        newmodels.append(m)
+                models = newmodels
+
+            # partial eval
+            if len(models) == 0:
+                return "$ANY"  # All models 
+            elif len(models) == 1:
+                return models[0]
+            else:
+                data["&"] = models
+
+        if "^" in data:
+            lpath = f"{path}.'^'"
+            models = data["^"]
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
+
+            models = _merge_rewrite(models, defs, lpath)
+
+            # partial eval
+            if len(models) == 0:
+                return "$NONE" 
+            elif len(models) == 1:
+                return models[0]
+            else:
+                data["^"] = models    
 
         # actual object merge
         if "+" in data:

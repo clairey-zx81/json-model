@@ -24,7 +24,7 @@ from typing import Callable
 
 import json_model.utils as utils
 import json_model.url_cache as url_cache
-from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values
+from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values, model_in_models
 
 
 def _trace(*args) -> bool:
@@ -631,14 +631,6 @@ class CompileModel:
         mp = mpath + ".|"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected | alternate value: {mv} ({type(mv)}) [{mp}]")
-        # remove duplicate model
-        if len(mv) >= 2:
-            # detect duplicated (strictly equal) models
-            newmv = []
-            for m in mv:
-                if m not in newmv:
-                    newmv.append(m)
-            mv = newmv
         if not mv: # empty list shortcut
             return self.trace(self._NONE, mpath, "|")
         elif len(mv) == 1:
@@ -659,14 +651,6 @@ class CompileModel:
         mp = mpath + ".&"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
-        # remove duplicate model
-        if len(mv) >= 2:
-            # detect duplicated (strictly equal) models
-            newmv = []
-            for m in mv:
-                if m not in newmv:
-                    newmv.append(m)
-            mv = newmv
         if not mv:  # empty list shortcut
             return self.trace(self._ANY, mpath, "&")
         elif len(mv) == 1:
@@ -690,7 +674,7 @@ class CompileModel:
             # detect duplicated (strictly equal) models
             seen, duplicated = [], []
             for m in mv:
-                if m in seen:
+                if model_in_models(m, seen):
                     duplicated.append(m)
                 else:
                     seen.append(m)
