@@ -2,7 +2,7 @@
 #
 # TODO check for possibly undefined defs by tracking defs and uses
 # TODO check for some obviously empty types?
-# TODO partial eval: none & any propagation?
+# TODO partial eval: none & any propagation in more cases?
 
 import enum
 import re  # re2?
@@ -24,7 +24,7 @@ from typing import Callable
 
 import json_model.utils as utils
 import json_model.url_cache as url_cache
-from json_model.utils import ModelError, ModelType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values, model_in_models
+from json_model.utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values, model_in_models
 
 
 def _trace(*args) -> bool:
@@ -135,14 +135,14 @@ class CompileModel:
         else:
             return True
 
-    def _no(self, mpath: str, vpath: str, msg: str, reset=False):
+    def _no(self, mpath: str, vpath: str, msg: str, reset:bool = False):
         """On error, record where and why it failed."""
         if reset:
             self._reasons = []
         self._reasons.append((mpath, vpath, msg))
         return False
 
-    def _yes(self, reset=False):
+    def _yes(self, reset: bool = False):
         if reset:
             self._reasons = []
         return True
@@ -159,25 +159,25 @@ class CompileModel:
             return False
 
     # stupid work around loop value capture
-    def _lambda_eq(self, val, mpath):
+    def _lambda_eq(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v == val or self._no(mpath, p, f"== {val} failed")
 
-    def _lambda_ne(self, val, mpath):
+    def _lambda_ne(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v != val or self._no(mpath, p, f"!= {val} failed")
 
-    def _lambda_le(self, val, mpath):
+    def _lambda_le(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v <= val or self._no(mpath, p, f"<= {val} failed")
 
-    def _lambda_lt(self, val, mpath):
+    def _lambda_lt(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v < val or self._no(mpath, p, f"< {val} failed")
 
-    def _lambda_ge(self, val, mpath):
+    def _lambda_ge(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v >= val or self._no(mpath, p, f">= {val} failed")
 
-    def _lambda_gt(self, val, mpath):
+    def _lambda_gt(self, val: ValueType, mpath: str) -> CheckFun:
         return lambda v, p: v > val or self._no(mpath, p, f"> {val} failed")
 
-    def _distinct(self, mpath: str):
+    def _distinct(self, mpath: str) -> CheckFun:
         return self.trace(lambda v, p: distinct_values(v) or self._no(mpath, p, "distinct failed"), mpath, "!")
 
     # def _lambda_mo(self, val):
