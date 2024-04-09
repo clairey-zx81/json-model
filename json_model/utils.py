@@ -72,15 +72,47 @@ def one(l) -> bool:
             seen = True   # first
     return seen
 
+def model_eq(m1: ModelType, m2: ModelType) -> bool:
+    """Recursively compare two models…"""
+    # TODO resolve @ and $
+    t1, t2 = type(m1), type(m2)
+    if t1 != t2:
+        return False
+    elif t1 == type(None):
+        return True
+    elif t1 in (bool, int, float, str):
+        return m1 == m2
+    elif t1 == list:
+        if len(m1) != len(m2):
+            return False
+        else:  # same size, recurse
+            return all(model_eq(i1, i2) for i1, i2 in zip(m1, m2))
+    elif t1 == dict:  # compare contents but # $ %
+        # check m1 ⊂  m2
+        for p in m1.keys():
+            if p not in ("#", "%", "$"):
+                if p not in m2:
+                    return False
+                if not model_eq(m1[p], m2[p]):
+                    return False
+        # check m2 ⊂  m1
+        for p in m2.keys():
+            if p not in ("#", "%", "$") and p not in m1:
+                return False
+        return True
+    else:
+        raise ModelError(f"unexpected model element type ({t1.__name__})")
+
 # TODO maybe we should accept some simple type inclusions
-def same_model(m1, m2) -> bool:
+def same_model(m1: ModelType, m2: ModelType) -> bool:
     """Compare models…"""
     # beware that True == 1 and False == 0
-    return type(m1) == type(m2) and m1 == m2
+    # return type(m1) == type(m2) and m1 == m2
+    return model_eq(m1, m2)
 
 def model_in_models(m: ModelType, l: list[ModelType]) -> bool:
     for i in l:
-         if same_model(i, m):
+         if model_eq(i, m):
             return True
     return False
 
