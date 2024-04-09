@@ -449,6 +449,8 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
 
             models = _merge_rewrite(models, defs, lpath)
+            # ignore $NONE in models list
+            models = list(filter(lambda m: m != "$NONE", models))
 
             # partial eval
             if len(models) == 0:
@@ -474,7 +476,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 # detect duplicated (strictly equal) models
                 newmodels = []
                 for m in models:
-                    if not model_in_models(m, newmodels):
+                    if not model_in_models(m, newmodels) and m != "$NONE":
                         newmodels.append(m)
                 models = newmodels
 
@@ -483,6 +485,8 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 return "$NONE"  # no model
             elif len(models) == 1:
                 return models[0]
+            elif "$ANY" in models:
+                return "$ANY"
             else:
                 data["|"] = models
 
@@ -499,7 +503,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 # detect duplicated (strictly equal) models
                 newmodels = []
                 for m in models:
-                    if not model_in_models(m, newmodels):
+                    if not model_in_models(m, newmodels) and m != "$ANY":
                         newmodels.append(m)
                 models = newmodels
 
@@ -508,6 +512,8 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 return "$ANY"  # All models
             elif len(models) == 1:
                 return models[0]
+            elif "$NONE" in models:
+                return "$NONE"
             else:
                 data["&"] = models
 
