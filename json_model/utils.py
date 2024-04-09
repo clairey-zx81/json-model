@@ -456,7 +456,12 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
             if len(models) == 0:
                 return "$NONE"
             elif len(models) == 1:
-                return models[0]
+                if "%" in data:
+                    data["@"] = models[0]
+                    del data["^"]
+                    return data
+                else:
+                    return models[0]
             else:
                 # TODO possible optimization, turn ^ into | if distinct
                 # { "^": [ 0, {} ] }  # structural
@@ -484,7 +489,12 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
             if len(models) == 0:
                 return "$NONE"  # no model
             elif len(models) == 1:
-                return models[0]
+                if "%" in data:
+                    data["@"] = models[0]
+                    del data["|"]
+                    return data
+                else:
+                    return models[0]
             elif "$ANY" in models:
                 return "$ANY"
             else:
@@ -511,7 +521,12 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
             if len(models) == 0:
                 return "$ANY"  # All models
             elif len(models) == 1:
-                return models[0]
+                if "%" in data:
+                    data["@"] = models[0]
+                    del data["&"]
+                    return data
+                else:
+                    return models[0]
             elif "$NONE" in models:
                 return "$NONE"
             else:
