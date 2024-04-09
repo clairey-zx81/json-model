@@ -4,7 +4,7 @@ import enum
 import json
 import re
 import copy
-from typing import Callable  # why not callable?
+from typing import Any, Callable  # why not callable?
 
 import logging
 log = logging.getLogger("utils")
@@ -388,6 +388,36 @@ def actual_merge(data, defs, path):
         data["@"] = obj
     return data
 
+def _resolve_type(m: ModelType, defs: dict[str, Any]) -> bool:
+    """Follow definitions and @ to find the underlying type."""
+    changed = True
+    while changed:
+        # FIXME possible infinite recursion?
+        changed = False
+        if isinstance(m, str) and m and m[0] == "$" and m[1:] in defs:
+            m, changed = defs[m[1:]], True
+        if isinstance(m, dict) and "@" in m:
+            m, changed = m["@"], True
+    return m
+
+def _structuraly_distinct_models(lm: list[ModelType], defs: dict[str, any]) -> bool:
+    """Whether all models are structurally distinct."""
+    types = set()
+    for m in lm:
+        m = _resolve_type(m)
+        mt = type(m)
+        if mt in (type(None), bool, int, float, list):
+            if mt in types:
+                return False
+        elif mt == str:
+            if mt.startswith("$"):  # unresolved reference
+                return False
+        elif mt == dict:
+            assert "@" not in m  # should have been resolved
+            assert False, "TO BE CONTINUED"
+        else:
+            raise ModelError(f"unexpected model type ({mt.__name__})")
+    return False
 
 def _merge_rewrite(data, defs: dict[str, any], path: str):
     """Rewrite model to handle "+"."""
@@ -449,6 +479,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
 
             models = _merge_rewrite(models, defs, lpath)
+
             # ignore $NONE in models list
             models = list(filter(lambda m: m != "$NONE", models))
 
