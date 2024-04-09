@@ -388,7 +388,7 @@ def actual_merge(data, defs, path):
         data["@"] = obj
     return data
 
-def _resolve_type(m: ModelType, defs: dict[str, Any]) -> bool:
+def _resolve_model(m: ModelType, defs: dict[str, Any]) -> bool:
     """Follow definitions and @ to find the underlying type."""
     changed = True
     while changed:
@@ -400,24 +400,32 @@ def _resolve_type(m: ModelType, defs: dict[str, Any]) -> bool:
             m, changed = m["@"], True
     return m
 
-def _structuraly_distinct_models(lm: list[ModelType], defs: dict[str, any]) -> bool:
+def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpath: str) -> bool:
     """Whether all models are structurally distinct."""
     types = set()
     for m in lm:
-        m = _resolve_type(m)
+        m = _resolve_model(m, defs)
         mt = type(m)
         if mt in (type(None), bool, int, float, list):
             if mt in types:
                 return False
+            types.add(mt)
         elif mt == str:
-            if mt.startswith("$"):  # unresolved reference
+            if m.startswith("$"):  # unresolved reference
                 return False
+            types.add(mt)
         elif mt == dict:
             assert "@" not in m  # should have been resolved
-            assert False, "TO BE CONTINUED"
+            if "|" in m or "^" in m or "&" in m:
+                return False
+            # else dict is a model for an object
+            # TODO distinguishable objects?!
+            if mt in types:
+                return False
+            types.add(mt)
         else:
-            raise ModelError(f"unexpected model type ({mt.__name__})")
-    return False
+            raise ModelError(f"unexpected model type ({mt.__name__}) [{mpath}]")
+    return True
 
 def _merge_rewrite(data, defs: dict[str, any], path: str):
     """Rewrite model to handle "+"."""
@@ -494,10 +502,13 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 else:
                     return models[0]
             else:
-                # TODO possible optimization, turn ^ into | if distinct
-                # { "^": [ 0, {} ] }  # structural
-                # { "^": [ {"a": 0}, {"b": 0} ] }  # properties
-                data["^"] = models
+                # possible optimization, turn ^ into | if distinct
+                if _structurally_distinct_models(models, defs, lpath):
+                    del data["^"]
+                    data["|"] = models
+                # TODO { "^": [ {"a": 0}, {"b": 0} ] }  # properties
+                else:
+                    data["^"] = models
 
         if "|" in data:
             lpath = f"{path}.'|'"
