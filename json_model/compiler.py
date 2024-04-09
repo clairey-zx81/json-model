@@ -675,7 +675,9 @@ class CompileModel:
             seen, duplicated = [], []
             for m in mv:
                 if model_in_models(m, seen):
-                    duplicated.append(m)
+                    # keep duplicates once
+                    if not model_in_models(m, duplicated):
+                        duplicated.append(m)
                 else:
                     seen.append(m)
             if duplicated:
