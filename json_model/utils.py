@@ -225,7 +225,7 @@ def merge_simple_models(models: list[any], defs, path: str="") -> Object:
     must, may, refs, regs, others = split_object(m0, f"{path}[0]")
 
     for i, m in enumerate(models[1:]):
-        lpath = f"{path}[{i+1}]" 
+        lpath = f"{path}[{i+1}]"
         mu, ma, rf, rg, ot = split_object(m, lpath)
         # combine all properties
         # merge MUST
@@ -337,7 +337,7 @@ def _merge(data: any, defs: dict[str, any], path: str):
                     for j in models:
                         n = _merge_object(i, j)
                         n = _merge(n, defs, lpath)
-                        tmerged.append(n)     
+                        tmerged.append(n)
                 merged = tmerged
         elif isinstance(m, dict) and  "^" in m:
             models = m["^"]
@@ -352,7 +352,7 @@ def _merge(data: any, defs: dict[str, any], path: str):
                     for j in models:
                         n = _merge_object(i, j)
                         n = _merge(n, defs, lpath)
-                        tmerged.append(n)     
+                        tmerged.append(n)
                 merged = tmerged
         else:
             if merged is None:
@@ -411,8 +411,10 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 # keep definitions to resolve references!
                 # FIXME should warn on overwrite?
                 defs[k] = ldefs[k]
+
         if "@" in data:
             data["@"] = _merge_rewrite(data["@"], defs, f"{path}.'@'")
+
         if "+" in data:
             lpath = f"{path}.'+'"
             models = data["+"]
@@ -423,6 +425,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
             # Distribution des opérateurs avec le + et |
             # Resolve defs
             data = _merge(data, defs, lpath)
+            assert isinstance(data, dict)
 
             # catch merging
             if "|" in data:
@@ -430,12 +433,34 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 models = data["|"]
                 assert isinstance(models, list)
                 data["|"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
-
-            if "^" in data:
+            elif "^" in data:
                 lpath += f"{path}.'^'"
                 models = data["^"]
                 assert isinstance(models, list)
                 data["^"] = [actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m for i, m in enumerate(models)]
+            elif "+" in data:
+                data = actual_merge(data, defs, f"{path}.'+'")
+            # else let it be
+
+        if "^" in data:
+            lpath = f"{path}.'^'"
+            models = data["^"]
+            if not isinstance(models, list):
+                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
+
+            models = _merge_rewrite(models, defs, lpath)
+
+            # partial eval
+            if len(models) == 0:
+                return "$NONE"
+            elif len(models) == 1:
+                return models[0]
+            else:
+                # TODO possible optimization, turn ^ into | if distinct
+                # { "^": [ 0, {} ] }  # structural
+                # { "^": [ {"a": 0}, {"b": 0} ] }  # properties
+                data["^"] = models
+
         if "|" in data:
             lpath = f"{path}.'|'"
             models = data["|"]
@@ -480,31 +505,11 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
 
             # partial eval
             if len(models) == 0:
-                return "$ANY"  # All models 
+                return "$ANY"  # All models
             elif len(models) == 1:
                 return models[0]
             else:
                 data["&"] = models
-
-        if "^" in data:
-            lpath = f"{path}.'^'"
-            models = data["^"]
-            if not isinstance(models, list):
-                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
-
-            models = _merge_rewrite(models, defs, lpath)
-
-            # partial eval
-            if len(models) == 0:
-                return "$NONE" 
-            elif len(models) == 1:
-                return models[0]
-            else:
-                data["^"] = models    
-
-        # actual object merge
-        if "+" in data:
-            data = actual_merge(data, defs, f"{path}.'+'")
 
         return data
 
