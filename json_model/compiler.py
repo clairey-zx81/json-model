@@ -668,6 +668,7 @@ class CompileModel:
         mp = mpath + ".^"
         if not isinstance(mv, (list, tuple)):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
+
         # fun optimization: duplicate models lead to immediate errors
         dcheck = None
         if len(mv) >= 2:
@@ -686,7 +687,8 @@ class CompileModel:
                 # if v matchs a diplicated model, result is False
                 fchecks = [ self._raw_compile(m, f"{mp}[?]") for m in duplicated ]
                 dcheck = lambda v, p: not any(f(v, p) for f in fchecks) or self._no(mpath+ "[*]", p, "duplicated match in ^")
-        # standard case
+
+        # special cases
         if not mv: # empty list shortcut
             # even if dcheck!
             return self.trace(self._NONE, mpath, "^")
@@ -696,7 +698,13 @@ class CompileModel:
                 return lambda v, p: dcheck(v, p) and fun(v, p)
             else:
                 return fun
-        # else some work
+        elif len(mv) == 2 and "$ANY" in mv:
+            #  {"^": ["$ANY", m]} means anything "not m"
+            model = mv[1] if mv[0] == "$ANY" else mv[0]
+            check = self._raw_compile(model, f"{mp}[?]")
+            return lambda v, p: not check(v, p) or self._no(f"{mp}[?]", p, "model inversion (not with $ANY)")
+
+        # else standard case
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
         fun = lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p)
         # we try dcheck (shortcut), else we try the remaining models
