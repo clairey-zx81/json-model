@@ -167,6 +167,62 @@ def split_object(model: dict[str, any], path: str) -> tuple[Object, Object, Obje
 
     return must, may, refs, regs, others
 
+def _constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
+    if m is None:
+        return True, None
+    elif isinstance(m, str):
+        char = m[0] if m else ""
+        if char == "=":
+            val = m[1:]
+            if val == "null":
+                return True, None
+            elif val == "true":
+                return True, True
+            elif val == "false":
+                return True, False
+            elif re.search(r"^-?[0-9]+$", val):
+                return True, int(val)
+            else:  # float?
+                try:
+                    return True, float(val)
+                except Exception:
+                    raise ModelError(f"unexpected float value {val} [{mpath}]")
+        elif char == "_":
+            return True, m[1:]
+        elif char == "/":
+            return False, None
+        elif char == "$":
+            return False, None
+        else:
+            return True, m
+    else:
+        return False, None
+
+def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: str) -> bool:
+    """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
+    m1, m2 = _resolve_model(m1, defs), _resolve_model(m2, defs)
+    tm1, tm2 = type(m1), type(m2)
+    # log.warning(f"m1={m1} m2={m2}")
+    # type
+    if tm1 == str and m1 and m1[0] == "$":  # unresolved reference
+        return m1 == "$NONE"  # special case for none which interact with nothing
+    if tm2 == str and m2 and m2[0] == "$":  # unresolved reference
+        return m2 == "$NONE"
+    if tm1 == dict and ("|" in m1 or "^" in m1 or "&" in m1):
+        return False
+    if tm2 == dict and ("|" in m2 or "^" in m2 or "&" in m2):
+        return False
+    if tm1 != tm2:
+        # log.warning("distinct!")
+        return True
+    # else same type… try value
+    c1, v1 = _constant_value(m1, mpath)
+    c2, v2 = _constant_value(m2, mpath)
+    # log.warning(f"{c1} {v1} / {c2} {v2}")
+    if c1 and c2 and (type(v1) != type(v2) or v1 != v2):
+        return True
+    return False
+
 class _Object:
     """Internal representation of an object model."""
 
@@ -190,13 +246,18 @@ class _Object:
             raise ModelError("Only objects can be compared")
         if self._defs:
             # FIXME improve?
-            log.warning("$-reference keys are not handled")
+            log.debug("$-reference keys are not handled")
             return True
         # we look for mandatory one property in o which allows to discriminate
-        for p in o._must.keys():
-            if p in self._must or p in self._may:
+        for p, m in o._must.items():
+            if p in self._must:
+                if _distinct_models(m, self._must[p], self._global_defs, self._mpath):
+                    return False
                 # o.p does not discriminate with self
-                # TODO check whether target models are distinct
+                continue
+            elif p in self._may:
+                if _distinct_models(m, self._may[p], self._global_defs, self._mpath):
+                    return False
                 continue
             for reg, model in self._regs.items():
                 if re.search(reg, p):
@@ -207,9 +268,13 @@ class _Object:
                     resolved = _resolve_model(model, self._global_defs)
                     if resolved == "$NONE":
                         return False
+                    if _distinct_models(m, model, self._global_defs, self._mpath):
+                        return False
                     # else o.p does not discrimate
                     continue
             if "" in self._oth:
+                if _distinct_models(m, self._oth[""], self._global_defs, self._mpath):
+                    return False
                 # self is open so would accept p
                 continue
             # else: p is not must nor may nor re nor others!

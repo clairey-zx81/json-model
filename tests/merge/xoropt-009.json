@@ -1,0 +1,7 @@
+{
+  "#": "NOT ^ to | because both empty objects are ok",
+  "^": [
+    { "/a/": "" },
+    { "?a": null }
+  ]
+}

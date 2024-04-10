@@ -1,0 +1,8 @@
+{
+  "#": "^ to | based on distinct types on same property",
+  "^": [
+    { "a": true },
+    { "a": "" },
+    { "a": [ 0 ] }
+  ]
+}
