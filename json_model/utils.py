@@ -167,12 +167,63 @@ def split_object(model: dict[str, any], path: str) -> tuple[Object, Object, Obje
 
     return must, may, refs, regs, others
 
+class _Object:
+    """Internal representation of an object model."""
+
+    def __init__(self, model: ModelType, gdefs: dict[str, Any], mpath: str):
+        must, may, defs, regs, oth = split_object(model, mpath)
+        self._must = must
+        self._may = may
+        self._defs = defs
+        self._regs = regs
+        self._oth = oth
+        self._global_defs = gdefs
+        self._mpath = mpath
+
+    def __contains__(self, o):
+        """Whether o may be included in self (safe).
+
+        That is all mandatory properties of o may be accepted by self.
+        We could do a better job by checking model target incompatibility.
+        """
+        if not isinstance(o, _Object):
+            raise ModelError("Only objects can be compared")
+        if self._defs:
+            # FIXME improve?
+            log.warning("$-reference keys are not handled")
+            return True
+        # we look for mandatory one property in o which allows to discriminate
+        for p in o._must.keys():
+            if p in self._must or p in self._may:
+                # o.p does not discriminate with self
+                # TODO check whether target models are distinct
+                continue
+            for reg, model in self._regs.items():
+                if re.search(reg, p):
+                    # TODO catch more $NONE cases?
+                    if model == "$NONE":
+                        return False
+                    # else try model resolution… this may depend on the execution order?
+                    resolved = _resolve_model(model, self._global_defs)
+                    if resolved == "$NONE":
+                        return False
+                    # else o.p does not discrimate
+                    continue
+            if "" in self._oth:
+                # self is open so would accept p
+                continue
+            # else: p is not must nor may nor re nor others!
+            return False
+        # we did not found any sure discrimination on this way
+        return True
+
 def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others: Object) -> Object:
     """Regenerate an object from separated properties."""
     return {
         **{f"!{k}": v for k, v in must.items()},
         **{f"?{k}": v for k, v in may.items()},
         **{f"${k}": v for k, v in refs.items()},
+        # FIXME /i support?
         **{f"/{k}/": v for k, v in regs.items()},
         **others
     }
@@ -388,7 +439,8 @@ def actual_merge(data, defs, path):
         data["@"] = obj
     return data
 
-def _resolve_model(m: ModelType, defs: dict[str, Any]) -> bool:
+
+def _resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
     """Follow definitions and @ to find the underlying type."""
     changed = True
     while changed:
@@ -402,7 +454,7 @@ def _resolve_model(m: ModelType, defs: dict[str, Any]) -> bool:
 
 def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpath: str) -> bool:
     """Whether all models are structurally distinct."""
-    types = set()
+    types, objects = set(), []
     for m in lm:
         m = _resolve_model(m, defs)
         mt = type(m)
@@ -415,17 +467,23 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                 return False
             types.add(mt)
         elif mt == dict:
-            assert "@" not in m  # should have been resolved
+            assert "@" not in m  # should have been resolved!
+            assert "+" not in m  # should have been merged!
             if "|" in m or "^" in m or "&" in m:
                 return False
             # else dict is a model for an object
-            # TODO distinguishable objects?!
-            # - there is a tag! although it will be optimized anyway…
+            obj = _Object(m, defs, mpath)
+            # distinguishable objects?
             # - each object has a mandatory prop which cannot exists in others objects
             #   possibly with one exception
-            if mt in types:
-                return False
-            types.add(mt)
+            if not objects:  # first encounted object
+                objects.append(obj)
+            else:
+                for o in objects:
+                    if o in obj and obj in o:
+                        return False
+                objects.append(obj)
+            # TODO there is a tag! although it will be optimized anyway…
         else:
             raise ModelError(f"unexpected model type ({mt.__name__}) [{mpath}]")
     return True

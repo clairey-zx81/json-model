@@ -1,0 +1,11 @@
+{
+  "#": "^ to |: FIXME, indirect $NONE is not recognized",
+  "%": {
+    "None": { "|": [] }
+  },
+  "^": [
+    { "a": 0 },
+    { "b": 0 },
+    { "/^[ab]$/": "$None", "": 0 }
+  ]
+}
