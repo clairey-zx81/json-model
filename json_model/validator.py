@@ -356,7 +356,7 @@ class DSV:
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
         pmodel = model_preprocessor(model, defs, "")
-        log.warning(f"processed model: {pmodel}")
+        # log.debug(f"processed model: {pmodel}")
         return self._type[type(pmodel)](value, pmodel, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):
