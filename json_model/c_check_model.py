@@ -7,7 +7,7 @@ import sys
 import json
 import logging
 import argparse
-from json_model import compiler, utils
+from . import compiler, utils
 
 def c_check_model():
 

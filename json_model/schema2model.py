@@ -5,7 +5,7 @@
 import json
 import sys
 import logging
-from json_model import generate, utils
+from . import generate, utils
 
 def schema2model_script():
 

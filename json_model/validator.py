@@ -9,7 +9,7 @@ except ModuleNotFoundError:
     import re
 import logging
 
-import json_model.utils as utils
+from . import utils
 from .preproc import model_preprocessor
 from .utils import ValueType, ModelType, ModelError, distinct_values
 from .defines import ModelDefs
