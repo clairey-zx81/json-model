@@ -19,6 +19,9 @@ log.setLevel(level=logging.INFO)
 _debug: bool = False
 # _debug: bool = True
 
+# whether to shorten one/all combinator computations
+fast_fail: bool = False
+
 from typing import Callable
 
 from . import utils, url_cache
@@ -118,6 +121,8 @@ class CompileModel:
         for i, b in enumerate(l):
             if b:
                 okay.append(i)
+                if fast_fail and len(okay) >= 2:
+                    return self._no(mpath, vpath, f"multiple matches found: {okay}")
         if len(okay) != 1:
             if len(okay) == 0:
                 return self._no(mpath, vpath, "no match found")
@@ -131,6 +136,8 @@ class CompileModel:
         failed = []
         for i, b in enumerate(l):
             if not b:
+                if fast_fail:
+                    return self._no(mpath, vpath, f"all failure on {i}")
                 failed.append(i)
         if failed:
             return self._no(mpath, vpath, f"all failures {len(failed)}/{i+1}: {failed}")
