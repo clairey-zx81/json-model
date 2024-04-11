@@ -16,6 +16,7 @@ def c_check_model():
 
     ap = argparse.ArgumentParser()
     ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("-D", "--dis", action="store_true")
     ap.add_argument("model", type=str)
     ap.add_argument("jsons", nargs="*")
     args = ap.parse_args()
@@ -27,6 +28,10 @@ def c_check_model():
     # load model
     with open(args.model) as f:
         checkModel = compiler.compileModel(json.load(f))
+
+    if args.dis:
+        import dis
+        print(dis.dis(checkModel))
 
     # process other files
     for fn, fh in utils.openfiles(args.jsons):
