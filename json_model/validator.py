@@ -10,6 +10,7 @@ except ModuleNotFoundError:
 import logging
 
 import json_model.utils as utils
+from json_model.preproc import model_preprocessor
 from json_model.utils import ValueType, ModelType, ModelError, ModelDefs, distinct_values
 
 logging.basicConfig()
@@ -352,7 +353,7 @@ class DSV:
         # first rewrite merge operators
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
-        rw_model = utils.merge_rewrite(model, defs, "")
+        rw_model = model_preprocessor(model, defs, "")
         return self._type[type(model)](value, rw_model, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):

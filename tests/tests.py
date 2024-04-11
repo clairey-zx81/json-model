@@ -11,7 +11,7 @@ log.setLevel(logging.INFO)
 # log.setLevel(logging.DEBUG)
 
 import json_model.generate as generate
-from json_model.utils import merge_rewrite
+from json_model.preproc import model_preprocessor
 
 def test_s2m():
     s2m = pathlib.Path("./s2m")
@@ -109,7 +109,7 @@ def test_merge():
             mi = json.load(f)
         with open(fm) as f:
             mm = json.load(f)
-        mmg = merge_rewrite(mi, {})
+        mmg = model_preprocessor(mi, {})
         assert mmg == mm
 
 def test_v_checked_json_model():

@@ -25,6 +25,7 @@ from typing import Callable
 import json_model.utils as utils
 import json_model.url_cache as url_cache
 from json_model.utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel, ModelDefs, distinct_values, model_in_models
+from json_model.preproc import model_preprocessor
 
 
 def _trace(*args) -> bool:
@@ -95,7 +96,7 @@ class CompileModel:
         self._cache = url_cache.jsonURLCache()
 
         # actually compile the model
-        rw_model = utils.merge_rewrite(model, {}, "")  # merge | under +, handle +
+        rw_model = model_preprocessor(model, {}, "")  # merge | under +, handle +
         self._rw_model = copy.deepcopy(rw_model)
         # log.debug(f"rw: {rw_model}")
         self._fun = self._root_compile(rw_model)
