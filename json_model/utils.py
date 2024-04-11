@@ -197,6 +197,7 @@ def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
             name = m[1:]
             if name not in resolved and name in defs:
                 m, changed = defs[name], True
+            resolved.add(name)
         if isinstance(m, dict) and "@" in m:
             m, changed = m["@"], True
     return m
