@@ -5,8 +5,8 @@
 import json
 import sys
 import logging
-from json_model.generate import model2schema
-from json_model.utils import openfiles
+from .generate import model2schema
+from .utils import openfiles
 
 def model2schema_script():
 

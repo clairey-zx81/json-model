@@ -1,18 +1,15 @@
 # common model utilities
 
 import sys
-import enum
 import json
 import re
 import copy
 from typing import Any, Callable
 import logging
-from json_model.utils import UnknownModel, Object, ValueType, ModelType, ModelError, model_eq, same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model
+from .utils import UnknownModel, Object, ValueType, ModelType, ModelError
+from .utils import model_eq, same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles
 
-# is_regex
-# distinct_values
-# one
-
+# preprocessor-specific debug
 log = logging.getLogger("preproc")
 # log.setLevel(logging.DEBUG)
 
@@ -621,9 +618,6 @@ def model_preprocessor(data, defs: dict[str, any], path: str=""):
     jdata = copy.deepcopy(data)
     jdata = flatten(jdata, defs, path)
     return _merge_rewrite(jdata, defs, path)
-
-import json
-from json_model.utils import openfiles
 
 def preprocessor():
     for fn, fh in openfiles(sys.argv[1:]):

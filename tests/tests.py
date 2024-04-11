@@ -171,7 +171,7 @@ def test_c_checked_json_model_files():
         vtrue, vfalse = 0, 0
         prefix = mf.name[:-len(model_suffix)]
         model = json.load(open(mf))
-        log.info(f"model: {model}")
+        log.info(f"model {mf}: {model}")
         checker = compiler.compileModel(model)
         init_data(checker._defs.set)
         for vf in modval.glob(f"{prefix}_*_t.json"):
@@ -199,7 +199,7 @@ def test_v_checked_json_model_files():
         vtrue, vfalse = 0, 0
         prefix = mf.name[:-len(model_suffix)]
         model = json.load(open(mf))
-        log.info(f"model: {model}")
+        log.info(f"model {mf}: {model}")
         for vf in modval.glob(f"{prefix}_*_t.json"):
             log.debug("true value file: {vf}")
             vtrue += 1

@@ -6,8 +6,8 @@
 import sys
 import json
 import logging
-from json_model.validator import DSV
-from json_model.utils import openfiles
+from .validator import DSV
+from .utils import openfiles
 
 def v_check_model():
 

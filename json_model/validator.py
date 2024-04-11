@@ -10,8 +10,9 @@ except ModuleNotFoundError:
 import logging
 
 import json_model.utils as utils
-from json_model.preproc import model_preprocessor
-from json_model.utils import ValueType, ModelType, ModelError, ModelDefs, distinct_values
+from .preproc import model_preprocessor
+from .utils import ValueType, ModelType, ModelError, distinct_values
+from .defines import ModelDefs
 
 logging.basicConfig()
 log = logging.getLogger("dsv")
@@ -256,6 +257,7 @@ class DSV:
             assert isinstance(model["|"], (list, tuple)), f"illegal disjunction: {model['|']}"
             # return on first match
             for m in model["|"]:
+                # log.warning(f"{value}/{m}")
                 if self.check(value, m):
                     return True
             return False
@@ -271,7 +273,7 @@ class DSV:
         elif "^" in model:
             # NOTE empty accepts anything…
             assert set(model.keys()).issubset({"$", "%", "#", "^"})
-            assert isinstance(model["^"], (list, tuple)), f"illegal conjunction: {model['^']}"
+            assert isinstance(model["^"], (list, tuple)), f"illegal disjunction: {model['^']}"
             # return on second success
             seen  = False
             for m in model["^"]:
@@ -350,7 +352,6 @@ class DSV:
 
     def check(self, value: any, model: any, strict: bool=True) -> bool:
         """Recursive type checker."""
-        # first rewrite merge operators
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
         rw_model = model_preprocessor(model, defs, "")
