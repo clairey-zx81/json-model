@@ -2,14 +2,18 @@
 #
 # TODO check for possibly undefined defs by tracking defs and uses
 # TODO check for some obviously empty types?
-# TODO partial eval: none & any propagation in more cases?
 
 import enum
 import re  # re2?
 import copy
 import json
 import logging
-import urllib
+
+from . import utils, url_cache
+from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
+from .utils import distinct_values, model_in_models
+from .preproc import model_preprocessor
+from .defines import ModelDefs
 
 log = logging.getLogger("compiler")
 log.setLevel(level=logging.INFO)
@@ -21,15 +25,6 @@ _debug: bool = False
 
 # whether to shorten one/all combinator computations
 fast_fail: bool = False
-
-from typing import Callable
-
-from . import utils, url_cache
-from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
-from .utils import distinct_values, model_in_models
-from .preproc import model_preprocessor
-from .defines import ModelDefs
-
 
 def _trace(*args) -> bool:
     """Convenient expression debug tracer."""
