@@ -581,12 +581,17 @@ def flatten(data, defs, path):
                 for model in models:
                     m = model
                     # primitive resolution of names
+                    resolved = set()
                     while isinstance(m, str) and len(m) >= 2 and m[0] == "$":
                         log.debug(f"resolving {m}")
                         name = m[1:]
                         if name not in defs:
                             log.debug(f"{name} not found")
                             break
+                        if name in resolved:
+                            log.debug(f"ignoring recursion on ${name}")
+                            break
+                        resolved.add(name)
                         m = defs[name]
                     # NOTE no handling of "@"
                     # actual flattening
@@ -615,9 +620,12 @@ def model_preprocessor(data, defs: dict[str, any], path: str=""):
     - optimize empty and one model lists on combinators.
     - some partial evaluation about $NONE and $ANY.
     """
+    log.debug(f"defs={defs}")
     jdata = copy.deepcopy(data)
-    jdata = flatten(jdata, defs, path)
-    return _merge_rewrite(jdata, defs, path)
+    fdata = flatten(jdata, defs, path)
+    rdata = _merge_rewrite(fdata, defs, path)
+    log.debug(f"rdata={rdata}")
+    return rdata
 
 def preprocessor():
     """Shell command entry point."""

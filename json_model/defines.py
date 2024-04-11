@@ -45,7 +45,7 @@ class ModelDefs:
             log.warning(f"overriding definition for {name}")
 
         if callable(model):
-            m = Model(model, None, None, doc)
+            m = Model(model, f"$!{name}", None, doc)
         else:
             m = Model(self._compiler(model, mpath), model, json.dumps(model), doc)
 

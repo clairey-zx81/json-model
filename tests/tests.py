@@ -187,14 +187,13 @@ def test_c_checked_json_model_files():
         assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
-@pytest.mark.skip("some issues")
 def test_v_checked_json_model_files():
     validator = DSV()
     init_data(validator.set)
     modval = pathlib.Path("./modval")
     model_suffix = "_m.json"
     mcount = 0
-    for mf in modval.glob("*" + model_suffix):
+    for mf in sorted(modval.glob("*" + model_suffix)):
         mcount += 1
         vtrue, vfalse = 0, 0
         prefix = mf.name[:-len(model_suffix)]
@@ -204,12 +203,12 @@ def test_v_checked_json_model_files():
             log.debug("true value file: {vf}")
             vtrue += 1
             value = json.load(open(vf))
-            assert validator.check(model, value), f"v-checked model value: {value} ~ {model}"
+            assert validator.check(value, model), f"v-checked model value: {value} ~ {model}"
         for vf in modval.glob(f"{prefix}_*_f.json"):
             log.debug("false value file: {vf}")
             vfalse += 1
             value = json.load(open(vf))
-            assert not validator.check(model, value), f"v-checked model value: {value} !~ {model}"
+            assert not validator.check(value, model), f"v-checked model value: {value} !~ {model}"
         assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 

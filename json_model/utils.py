@@ -188,13 +188,15 @@ def is_constructed(model):
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
 def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
-    """Follow definitions and @ to find the underlying type."""
-    changed = True
+    """Follow definitions and @ to find the underlying type, if possible."""
+    changed, resolved = True, set()
     while changed:
         # FIXME possible infinite recursion?
         changed = False
-        if isinstance(m, str) and m and m[0] == "$" and m[1:] in defs:
-            m, changed = defs[m[1:]], True
+        if isinstance(m, str) and m and m[0] == "$":
+            name = m[1:]
+            if name not in resolved and name in defs:
+                m, changed = defs[name], True
         if isinstance(m, dict) and "@" in m:
             m, changed = m["@"], True
     return m

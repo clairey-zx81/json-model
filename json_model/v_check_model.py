@@ -24,11 +24,8 @@ def v_check_model():
     for fn, fh in openfiles(sys.argv[2:]):
         valid = False
         try:
-            schema = json.load(fh)
-            valid = validator.check(schema, model)
+            m = json.load(fh)
+            valid = validator.check(m, model)
             print(f"{fn}: {valid}")
-            # if not valid:
-            #    log.info(f"failures: {checkModel._reasons}")
         except Exception as e:
-            print(f"{fn}: error")
             log.error(f"{fn}: {e}")

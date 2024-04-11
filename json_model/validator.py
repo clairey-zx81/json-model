@@ -16,8 +16,8 @@ from .defines import ModelDefs
 
 logging.basicConfig()
 log = logging.getLogger("dsv")
-#log.setLevel(logging.DEBUG)
-log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
+# log.setLevel(logging.INFO)
 
 # TODO rename class
 class DSV:
@@ -277,6 +277,7 @@ class DSV:
             # return on second success
             seen  = False
             for m in model["^"]:
+                log.warning(f"model={m} value={value}")
                 if self.check(value, m):
                     if seen:
                         return False
@@ -354,8 +355,9 @@ class DSV:
         """Recursive type checker."""
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
-        rw_model = model_preprocessor(model, defs, "")
-        return self._type[type(model)](value, rw_model, strict)
+        pmodel = model_preprocessor(model, defs, "")
+        log.warning(f"processed model: {pmodel}")
+        return self._type[type(pmodel)](value, pmodel, strict)
 
     def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):
         """Extend validator with a new definition."""
