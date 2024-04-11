@@ -620,6 +620,7 @@ def model_preprocessor(data, defs: dict[str, any], path: str=""):
     return _merge_rewrite(jdata, defs, path)
 
 def preprocessor():
+    """Shell command entry point."""
     for fn, fh in openfiles(sys.argv[1:]):
         data = json.load(fh)
         print(json.dumps(model_preprocessor(data, {}, ""), indent=2))
