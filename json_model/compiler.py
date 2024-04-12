@@ -440,6 +440,7 @@ class CompileModel:
 
     def _disjunction(self, model: ModelType, mpath: str) -> CheckFun|None:
         """Return the optimized check function if possible."""
+        # FIXME if there is a ^, the preprocessor will have detected the discriminant and turned it into a |.
         assert isinstance(model, dict) and "|" in model
         # first filter out
         utype = self._ultimate_type(model)
@@ -691,6 +692,8 @@ class CompileModel:
                 # if v matchs a diplicated model, result is False
                 fchecks = [ self._raw_compile(m, f"{mp}[?]") for m in duplicated ]
                 dcheck = lambda v, p: not any(f(v, p) for f in fchecks) or self._no(mpath+ "[*]", p, "duplicated match in ^")
+
+        # disjunction? NO, preprocessor should have turned this case into a |
 
         # special cases
         if not mv: # empty list shortcut
