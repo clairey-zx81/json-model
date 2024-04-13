@@ -2,6 +2,7 @@
 #
 # TODO
 # - check name override
+# - optimize out redundant checks!
 
 import sys
 import re
