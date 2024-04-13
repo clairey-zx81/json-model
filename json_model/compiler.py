@@ -1,12 +1,12 @@
 # WIP
 #
+# This compiler generates dynamic (lambda) code to check a value.
+#
 # TODO check for possibly undefined defs by tracking defs and uses
 # TODO check for some obviously empty types?
 
-import enum
 import re  # re2?
 import copy
-import json
 import logging
 
 from . import utils, url_cache
