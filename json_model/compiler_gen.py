@@ -27,12 +27,13 @@ _PREDEFS = {
 
 class SourceCode():
 
-    def __init__(self, model: ModelType):
+    def __init__(self, model: ModelType, prefix: str = ""):
+        self._prefix = prefix
+        self._model = model
         # keep track of generated identifiers
         self._nvars: dict[str, int] = {}
         self._names: dict[str, str] = {}
         self._regs: dict[str, str] = {}
-        self._model: ModelType = model
         self._code: Code = []
         self._compileRoot(model)
         self.define("")
@@ -44,7 +45,7 @@ class SourceCode():
     def _ident(self, prefix: str) -> str:
         if prefix not in self._nvars:
             self._nvars[prefix] = 0
-        ident = f"{prefix}{self._nvars[prefix]}"
+        ident = f"{self._prefix}{prefix}{self._nvars[prefix]}"
         self._nvars[prefix] += 1
         return ident
 
@@ -65,6 +66,9 @@ class SourceCode():
 
     def line(self, indent: int, line: str):
         self._code.append((indent, line))
+
+    def nl(self):
+        self.line(0, "")
 
     def define(self, line: str):
         self._code.insert(0, (0, line))
@@ -213,11 +217,19 @@ class SourceCode():
         self.line(1, "return result")
 
     def _compileRoot(self, model: ModelType):
+        # compile definitions
         if "%" in model:
             for name, mod in model["%"].items():
                 self._compileName(name, mod, f"$.%.{name}")
+        # compile root
         self._compileName("", model, "$")
+        self.nl()
         
-def static_compile(model: ModelType) -> SourceCode:
+def static_compile(model: ModelType, name: str = "main") -> SourceCode:
     rw_model = model_preprocessor(model, {}, "$")
-    return SourceCode(rw_model)
+    sc = SourceCode(rw_model, "jmsc_")
+    fun = sc._names[""]
+    sc.line(0, f"# model {name}")
+    sc.line(0, f"def {name}(value):")
+    sc.line(1, f"return {fun}(value, \"$\")")
+    return sc
