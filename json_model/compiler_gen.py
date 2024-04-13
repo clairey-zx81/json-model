@@ -10,7 +10,7 @@ from .preproc import _constant_value, model_preprocessor
 
 logging.basicConfig()
 log = logging.getLogger("gen")
-log.setLevel(logging.DEBUG)
+# log.setLevel(logging.DEBUG)
 
 Line = tuple[int, str]
 Code = list[Line]
@@ -55,14 +55,15 @@ class SourceCode():
                 pattern = regex[1:-1]
                 fun = self._ident("re_")
                 self._regs[regex] = fun
-                self.define(f"{fun} = re.compile(\"{self.esc(pattern)}\").search")
-                self.define(f"# regex {regex}")
+                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+                self.define(f"# regex {self._esc(regex)}")
             else:
                 raise NotImplementedError("model = {regex}")
         return self._regs[regex]
 
-    def esc(self, string: str):
-        return string.translate({"\"": "\\\"", "\\": "\\\\"})
+    def _esc(self, string: str):
+        # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
+        return json.dumps(string)
 
     def line(self, indent: int, line: str):
         self._code.append((indent, line))
@@ -118,7 +119,7 @@ class SourceCode():
             if model == "":
                 self.line(indent, f"{res} = {expr}")
             elif model[0] == "_":
-                self.line(indent, f"{res} = {expr} and {val} == \"{self.esc(model[1:])}\"")
+                self.line(indent, f"{res} = {expr} and {val} == {self._esc(model[1:])}")
             elif model[0] == "=":
                 (is_cst, value) = _constant_value(model, mpath)
                 if is_cst:
@@ -142,14 +143,14 @@ class SourceCode():
                     self.line(indent, f"{res} = " + _PREDEFS[name](val))
                 else:
                     fun = self._getName(name)
-                    self.line(indent, f"# call {model}")
+                    self.line(indent, f"# call {self._esc(model)}")
                     self.line(indent, f"{res} = {fun}({val}, path)")
             elif model[0] == "/":
                 fun = self._regex(model)
-                self.line(indent, f"# {model}")
+                self.line(indent, f"# {self._esc(model)}")
                 self.line(indent, f"{res} = {expr} and {fun}({val})")
             else:  # simple string
-                self.line(indent, f"{res} = {expr} and {val} == \"{self.esc(model)}\"")
+                self.line(indent, f"{res} = {expr} and {val} == {self._esc(model)}")
         elif isinstance(model, list):
             expr = f"isinstance({val}, list)"
             if len(model) == 0:
@@ -211,7 +212,7 @@ class SourceCode():
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False):
         fun = self._getName(name)
         self.line(0, "")
-        self.line(0, f"# define {name}")
+        self.line(0, f"# define {self._esc(name)}")
         self.line(0, f"def {fun}(value: ValueType, path: str) -> bool:")
         self._compileModel(model, "result", "value", 1, mpath, skip_dollar)
         self.line(1, "return result")
@@ -225,7 +226,7 @@ class SourceCode():
         self._compileName("", model, "$")
         self.nl()
         
-def static_compile(model: ModelType, name: str = "main") -> SourceCode:
+def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     rw_model = model_preprocessor(model, {}, "$")
     sc = SourceCode(rw_model, "jmsc_")
     fun = sc._names[""]
