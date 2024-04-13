@@ -20,11 +20,12 @@ dependencies = [ "requests" ]
 dev = [ "jschon", "pytest", "pyyaml" ]
 
 [project.scripts]
-c-check-model = "json_model:c_check_model"
-v-check-model = "json_model:v_check_model"
-model2schema = "json_model:model2schema_script"
-schema2model = "json_model:schema2model_script"
-json-model-preprocessor = "json_model:preprocessor"
+jm-c-check-model = "json_model:c_check_model"
+jm-v-check-model = "json_model:v_check_model"
+jm-model2schema = "json_model:model2schema_script"
+jm-schema2model = "json_model:schema2model_script"
+jm-preprocessor = "json_model:preprocessor"
+jm-compiler = "json_model:static_compiler"
 
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
