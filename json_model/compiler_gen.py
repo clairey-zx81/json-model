@@ -3,6 +3,7 @@
 # TODO
 # - check name override
 # - optimize out redundant checks!
+# - generate error messages
 
 import sys
 import re
@@ -53,10 +54,10 @@ class SourceCode():
                 "\n" +
                 "\n".join(("    " * line[0] + line[1]) for line in self._code))
 
-    def _ident(self, prefix: str) -> str:
+    def _ident(self, prefix: str, local: bool = False) -> str:
         if prefix not in self._nvars:
             self._nvars[prefix] = 0
-        ident = f"{self._prefix}{prefix}{self._nvars[prefix]}"
+        ident = f"{'' if local else self._prefix}{prefix}{self._nvars[prefix]}"
         self._nvars[prefix] += 1
         return ident
 
@@ -88,8 +89,10 @@ class SourceCode():
         """Append a definition."""
         self._defs.append(line)
 
-    def _compileModel(self, model: ModelType, res: str, val: str, indent: int, mpath: str, skip_dollar: bool = False):
-        log.debug(f"model={model} res={res} val={val} indent={indent} mpath={mpath}")
+    def _compileModel(self, model: ModelType, mpath: str,
+                      res: str, val: str, vpath: str, indent: int,
+                      skip_dollar: bool = False):
+        log.debug(f"model={model} res={res} val={val} vpath={vpath} indent={indent} mpath={mpath}")
         self.line(indent, f"# {mpath}")
         if model is None:
             self.line(indent, f"{res} = {val} is None")
@@ -158,7 +161,7 @@ class SourceCode():
                 else:
                     fun = self._getName(name)
                     self.line(indent, f"# call {self._esc(model)}")
-                    self.line(indent, f"{res} = {fun}({val}, path)")
+                    self.line(indent, f"{res} = {fun}({val}, {vpath})")
             elif model[0] == "/":
                 fun = self._regex(model)
                 self.line(indent, f"# {self._esc(model)}")
@@ -170,19 +173,21 @@ class SourceCode():
             if len(model) == 0:
                 expr += f" and len({val}) == 0"
             elif len(model) == 1:
-                item = self._ident("i")
-                self.line(indent, res + " = " + expr)
+                idx = self._ident("idx_", True)
+                item = self._ident("item_", True)
+                self.line(indent, f"{res} = {expr}")
                 self.line(indent, f"if {res}:")
                 # TODO enumerate
-                self.line(indent+1, f"for {item} in {val}:")
-                self._compileModel(model[0], res, item, indent+2, mpath + "[0]")
+                self.line(indent+1, f"for {idx}, {item} in enumerate({val}):")
+                self._compileModel(model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"", indent+2)
                 self.line(indent+2, f"if not {res}: break")
             else:
                 raise NotImplementedError("tuple check")
         elif isinstance(model, dict):
+            assert "+" not in model, "merge must have been preprocessed"
             if "@" in model:
-                self._compileModel(model["@"], res, val, indent, mpath + ".@")
-                # TODO constraints
+                self._compileModel(model["@"], f"{mpath}.@", res, val, vpath, indent)
+                # TODO constraints, needs the ultimate type…
                 raise NotImplementedError("@ check")
             elif "|" in model:
                 # TODO discriminant optimization
@@ -193,7 +198,7 @@ class SourceCode():
                 for i, m in enumerate(models):
                     if i:
                         self.line(indent + i - 1, f"if not {res}:")
-                    self._compileModel(m, res, val, indent + i, lpath + f"[{i}]")
+                    self._compileModel(m, f"{lpath}[{i}]", res, val, vpath, indent + i)
             elif "&" in model:
                 lpath = mpath + ".&"
                 models = model["&"]
@@ -202,7 +207,7 @@ class SourceCode():
                 for i, m in enumerate(models):
                     if i:
                         self.line(indent + i - 1, f"if {res}:")
-                    self._compileModel(m, res, val, indent + i, lpath + f"[{i}]")
+                    self._compileModel(m, f"{lpath}[{i}]", res, val, vpath, indent + i)
             elif "^" in model:
                 raise NotImplementedError("^ check")
             else:
@@ -221,6 +226,7 @@ class SourceCode():
     def _getName(self, name: str) -> str:
         if name not in self._names:
             self._names[name] = self._ident("f_")
+        log.warning(f"{name} -> {self._names[name]}")
         return self._names[name]
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False):
@@ -228,7 +234,7 @@ class SourceCode():
         self.nl()
         self.line(0, f"# define {self._esc(name)}")
         self.line(0, f"def {fun}(value: ValueType, path: str) -> bool:")
-        self._compileModel(model, "result", "value", 1, mpath, skip_dollar)
+        self._compileModel(model, mpath, "result", "value", "path", 1, skip_dollar)
         self.line(1, "return result")
 
     def _compileRoot(self, model: ModelType):
@@ -240,6 +246,7 @@ class SourceCode():
         self._compileName("", model, "$")
         
 def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
+    """Generate the check source code for a model."""
     rw_model = model_preprocessor(model, {}, "$")
     sc = SourceCode(rw_model, "jmsc_")
     fun = sc._names[""]
@@ -248,3 +255,11 @@ def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     sc.line(0, f"def {name}(value):")
     sc.line(1, f"return {fun}(value, \"$\")")
     return sc
+
+def static_compile_fun(model: ModelType):
+    """Generate a check function for a model."""
+    code = str(static_compile(model))
+    env = {}
+    exec(code, env)
+    assert "model_check" in env
+    return env["model_check"]
