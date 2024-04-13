@@ -1,4 +1,7 @@
 # generate python source code for a model
+#
+# TODO
+# - check name override
 
 import sys
 import re
@@ -15,6 +18,7 @@ log = logging.getLogger("gen")
 Line = tuple[int, str]
 Code = list[Line]
 
+# inlined predefs
 _PREDEFS = {
     "ANY": lambda _v: "True",
     "NONE": lambda _v: "False",
@@ -34,13 +38,19 @@ class SourceCode():
         self._nvars: dict[str, int] = {}
         self._names: dict[str, str] = {}
         self._regs: dict[str, str] = {}
+        # generated stuff
+        self._defs: list[str] = []
         self._code: Code = []
-        self._compileRoot(model)
-        self.define("")
+        # generate code
         self.define("import re")
+        self.define("")
+        self._compileRoot(model)
 
     def __str__(self):
-        return "\n".join(("    " * line[0] + line[1]) for line in self._code)
+        """Generate check package."""
+        return ("\n".join(self._defs) +
+                "\n" +
+                "\n".join(("    " * line[0] + line[1]) for line in self._code))
 
     def _ident(self, prefix: str) -> str:
         if prefix not in self._nvars:
@@ -55,8 +65,8 @@ class SourceCode():
                 pattern = regex[1:-1]
                 fun = self._ident("re_")
                 self._regs[regex] = fun
-                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
                 self.define(f"# regex {self._esc(regex)}")
+                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
             else:
                 raise NotImplementedError("model = {regex}")
         return self._regs[regex]
@@ -66,13 +76,16 @@ class SourceCode():
         return json.dumps(string)
 
     def line(self, indent: int, line: str):
+        """Append an indentend code line."""
         self._code.append((indent, line))
 
     def nl(self):
+        """Append a newline to code."""
         self.line(0, "")
 
     def define(self, line: str):
-        self._code.insert(0, (0, line))
+        """Append a definition."""
+        self._defs.append(line)
 
     def _compileModel(self, model: ModelType, res: str, val: str, indent: int, mpath: str, skip_dollar: bool = False):
         log.debug(f"model={model} res={res} val={val} indent={indent} mpath={mpath}")
@@ -211,7 +224,7 @@ class SourceCode():
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False):
         fun = self._getName(name)
-        self.line(0, "")
+        self.nl()
         self.line(0, f"# define {self._esc(name)}")
         self.line(0, f"def {fun}(value: ValueType, path: str) -> bool:")
         self._compileModel(model, "result", "value", 1, mpath, skip_dollar)
@@ -224,12 +237,12 @@ class SourceCode():
                 self._compileName(name, mod, f"$.%.{name}")
         # compile root
         self._compileName("", model, "$")
-        self.nl()
         
 def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     rw_model = model_preprocessor(model, {}, "$")
     sc = SourceCode(rw_model, "jmsc_")
     fun = sc._names[""]
+    sc.nl()
     sc.line(0, f"# model {name}")
     sc.line(0, f"def {name}(value):")
     sc.line(1, f"return {fun}(value, \"$\")")
