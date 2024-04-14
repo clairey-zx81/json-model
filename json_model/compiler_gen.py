@@ -338,7 +338,7 @@ class SourceCode():
     def _getName(self, name: str) -> str:
         if name not in self._names:
             self._names[name] = self._ident("f_")
-        log.warning(f"{name} -> {self._names[name]}")
+        log.debug(f"{name} -> {self._names[name]}")
         return self._names[name]
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
