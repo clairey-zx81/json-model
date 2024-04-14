@@ -182,7 +182,7 @@ class SourceCode():
                 else:
                     raise ModelError(f"unexpected constant: {model}")
             elif model[0] == "$":
-                code.add(indent, f"{res} = " + self._dollarExpr(model[1:], val, path))
+                code.add(indent, f"{res} = " + self._dollarExpr(model[1:], val, "path"))
             elif model[0] == "/":
                 fun = self._regex(model)
                 code.add(indent, f"# {self._esc(model)}")
@@ -234,6 +234,8 @@ class SourceCode():
                 raise NotImplementedError("^ check")
             else:
                 # TODO check for non-root %
+                # TODO optimize empty model?
+                # TODO generate separate functions for objects?
                 if "$" in model and not skip_dollar:
                     name = model["$"]
                     self.subs(self._compileName(name, model, mpath, skip_dollar=True))
@@ -244,20 +246,22 @@ class SourceCode():
                 must, may, defs, regs, oth = split_object(model, mpath)
                 prop_model: dict[str, str] = {}
                 # compile property helpers
-                prop_must = self._ident("pmu_")
-                prop_must_map: dict[str, str] = {}
-                self._maps[prop_must] = prop_must_map
-                prop_may = self._ident("pma_")
-                prop_may_map: dict[str, str] = {}
-                self._maps[prop_may] = prop_may_map
-                for p, m in must.items():
-                    pid = f"{prop_must}_{p}"  # tmp unique identifier
-                    self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
-                    prop_must_map[p] = self._getName(pid)
-                for p, m in may.items():
-                    pid = f"{prop_may}_{p}"
-                    self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
-                    prop_may_map[p] = self._getName(pid)
+                if must:
+                    prop_must = self._ident("pmu_")
+                    prop_must_map: dict[str, str] = {}
+                    self._maps[prop_must] = prop_must_map
+                    for p, m in must.items():
+                        pid = f"{prop_must}_{p}"  # tmp unique identifier
+                        self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
+                        prop_must_map[p] = self._getName(pid)
+                if may:
+                    prop_may = self._ident("pma_")
+                    prop_may_map: dict[str, str] = {}
+                    self._maps[prop_may] = prop_may_map
+                    for p, m in may.items():
+                        pid = f"{prop_may}_{p}"
+                        self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
+                        prop_may_map[p] = self._getName(pid)
                 # WIP    
                 code.add(indent, f"{res} = isinstance({val}, dict)")
                 code.add(indent, f"if {res}:")
@@ -276,20 +280,20 @@ class SourceCode():
                     code.add(indent+3, f"{must_c} += 1")
                     code.add(indent+3, f"{res} = {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
                     code.add(indent+3, f"if not {res}: break")
-                    code.add(indent+3, f"continue")
+                    # code.add(indent+3, f"continue")
                     cond = "elif"
                 if may:
                     code.add(indent+2, f"{cond} {prop} in {prop_may}:  # may")
                     code.add(indent+3, f"{res} = {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
                     code.add(indent+3, f"if not {res}: break")
-                    code.add(indent+3, f"continue")
+                    # code.add(indent+3, f"continue")
                     cond = "elif"
                 # $* is inlined expr
                 for d, v in defs.items():
                     code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, '?')}:  # ${d}")
-                    self._compileModel(code, v, f"{mpath}.{d}", res, v, vpath, indent+3)
+                    self._compileModel(code, v, f"{mpath}.{d}", res, value, vpath, indent+3)
                     code.add(indent+3, f"if not {res}: break")
-                    code.add(indent+3, f"continue")
+                    # code.add(indent+3, f"continue")
                     cond = "elif"
                 # // is inlined
                 for r, v in regs.items():
@@ -297,7 +301,7 @@ class SourceCode():
                     code.add(indent+2, f"{cond} {self._regex(regex)}({prop}):  # {regex}")
                     self._compileModel(code, v, f"{mpath}.{regex}", res, value, vpath, indent+3)
                     code.add(indent+3, f"if not {res}: break")
-                    code.add(indent+3, f"continue")
+                    # code.add(indent+3, f"continue")
                     cond = "elif"
                 # catchall is inlined
                 if oth:
@@ -305,18 +309,19 @@ class SourceCode():
                     if cond == "if":  # direct
                         code._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+2)
                         code.add(indent+2, f"if not {res}: break")
-                        code.add(indent+2, f"continue")
+                        # code.add(indent+2, f"continue")
                     else:
                         code.add(indent+2, "else:  # catch all")
                         self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+3)
                         code.add(indent+3, f"if not {res}: break")
-                        code.add(indent+3, f"continue")
+                        # code.add(indent+3, f"continue")
                 else:
                     if cond == "if":
+                        # we are expecting an empty object
                         code.add(indent+2, f"{res} = False")
                         code.add(indent+2, f"break")
                     else:
-                        code.add(indent+2, "else:  # catch all")
+                        code.add(indent+2, "else:  # no catch all")
                         code.add(indent+3, f"{res} = False")
                         code.add(indent+3, f"break")
                 # check that all must were seen
