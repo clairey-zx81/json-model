@@ -87,7 +87,7 @@ class ModelDefs:
 
 class Validator:
 
-    def __init__(self, compiler: Compiler = lambda _m: None):
+    def __init__(self, compiler: Compiler = lambda _m, _p: None):
         self._defs = ModelDefs(compiler)
 
     def _ultimate_type(self, model: ModelType) -> Any:

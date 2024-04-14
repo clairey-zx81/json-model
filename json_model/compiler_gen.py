@@ -393,6 +393,9 @@ class SourceCode(Validator):
         return self._names[name]
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
+        # keep definitions
+        self._defs.set(name, model)
+        # generate code
         fun = self._getName(name)
         code = Code()
         code.nl()
