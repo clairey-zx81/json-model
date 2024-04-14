@@ -56,13 +56,12 @@ class Code():
 
 class SourceCode(Validator):
 
-    def __init__(self, model: ModelType, prefix: str = ""):
+    def __init__(self, prefix: str = ""):
 
         # No actual compiler
         super().__init__()
 
         self._prefix = prefix
-        self._model = model
         # keep track of generated identifiers
         self._nvars: dict[str, int] = {}
         self._names: dict[str, str] = {}
@@ -72,10 +71,20 @@ class SourceCode(Validator):
         self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
         self._subs: list[Code] = []
-        # generate code
+        # initialization
+        self.reset()
+
+    def reset(self):
+        # self._defs.clear()
+        self._nvars.clear()
+        self._names.clear()
+        self._regs.clear()
+        self._defines.clear()
+        self._help.clear()
+        self._maps.clear()
+        self._subs.clear()
         self.define("import re")
         self.define("")
-        self._compileRoot(model)
 
     # add contents
     def subs(self, code: Code):
@@ -87,6 +96,10 @@ class SourceCode(Validator):
     def define(self, line: str):
         """Append a definition."""
         self._defines.append(line)
+
+    def compile(self, name: str, model: ModelType):
+        """Compile a model into name."""
+        self._compileRoot(name, model)
 
     # show generated code
     def _map(self, mp: dict[str, str]) -> str:
@@ -435,23 +448,23 @@ class SourceCode(Validator):
         code.add(1, "return result")
         return code
 
-    def _compileRoot(self, model: ModelType):
+    def _compileRoot(self, rname: str, model: ModelType):
         # compile definitions
         if isinstance(model, dict) and "%" in model:
             for name, mod in model["%"].items():
                 self.subs(self._compileName(name, mod, f"$.%.{name}"))
         # compile root
-        self.subs(self._compileName("", model, "$"))
+        self.subs(self._compileName(rname, model, "$"))
 
 def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     """Generate the check source code for a model."""
+    sc = SourceCode("jmsc_")
     rw_model = model_preprocessor(model, {}, "$")
-    sc = SourceCode(rw_model, "jmsc_")
-    fun = sc._names[""]
+    sc.compile(name, rw_model)
+    fun = sc._getName(name)
     code = Code()
     code.nl()
-    code.add(0, f"# model {name}")
-    code.add(0, f"def {name}(value):")
+    code.add(0, f"def {name}(value) -> bool:")
     code.add(1, f"return {fun}(value, \"$\")")
     sc.subs(code)
     return sc
@@ -469,6 +482,7 @@ def static_compile_fun(model: ModelType):
 #
 
 def static_compiler():
+    """Compile model file arguments."""
 
     # handle script options and arguments
     ap = argparse.ArgumentParser()
@@ -489,6 +503,7 @@ def static_compiler():
             log.error(e, exc_info=True)
 
 def static_compiler_check():
+    """Compile one model and check values."""
 
     # handle script options and arguments
     ap = argparse.ArgumentParser()
