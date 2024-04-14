@@ -10,13 +10,14 @@ import sys
 import re
 import json
 import logging
+import argparse
 
 from .utils import ModelType, ValueType, ModelError
 from .utils import openfiles, split_object
 from .preproc import _constant_value, model_preprocessor
 
 logging.basicConfig()
-log = logging.getLogger("gen")
+log = logging.getLogger("sc")
 # log.setLevel(logging.DEBUG)
 
 Line = tuple[int, str]
@@ -125,6 +126,97 @@ class SourceCode():
         else:
             fun = self._getName(name)
             return f"{fun}({val}, {vpath})"
+
+    def _compileObject(self, code: Code, model: ModelType, mpath: str,
+                       res: str, val: str, vpath: str, indent: int = 0):
+        # separate properties
+        must, may, defs, regs, oth = split_object(model, mpath)
+        prop_model: dict[str, str] = {}
+        # compile property helpers
+        # if indent == 0:
+        #     code.add(1, f"if not isinstance({val}, dict):")
+        #     code.add(2, "return False")
+        # else:
+        code.add(indent, f"{res} = isinstance({val}, dict)")
+        code.add(indent, f"if {res}:")
+        if must:
+            prop_must = self._ident("pmu_")
+            prop_must_map: dict[str, str] = {}
+            self._maps[prop_must] = prop_must_map
+            for p, m in must.items():
+                pid = f"{prop_must}_{p}"  # tmp unique identifier
+                self.help(self._compileName(pid, m, f"{mpath}.{p}"))
+                prop_must_map[p] = self._getName(pid)
+        if may:
+            prop_may = self._ident("pma_")
+            prop_may_map: dict[str, str] = {}
+            self._maps[prop_may] = prop_may_map
+            for p, m in may.items():
+                pid = f"{prop_may}_{p}"
+                self.help(self._compileName(pid, m, f"{mpath}.{p}"))
+                prop_may_map[p] = self._getName(pid)
+        # variables
+        prop = self._ident("p_", True)
+        value = self._ident("v_", True)
+        must_c = self._ident("mc_", True)
+        if must:
+            code.add(indent+1, f"{must_c} = 0")
+        code.add(indent+1, f"for {prop}, {value} in {val}.items():")
+        code.add(indent+2, f"{res} = isinstance({prop}, str)")
+        code.add(indent+2, f"if not {res}: break")
+        cond = "if"
+        if must:
+            code.add(indent+2, f"{cond} {prop} in {prop_must}:  # must")
+            code.add(indent+3, f"{must_c} += 1")
+            code.add(indent+3, f"{res} = {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
+            code.add(indent+3, f"if not {res}: break")
+            # code.add(indent+3, f"continue")
+            cond = "elif"
+        if may:
+            code.add(indent+2, f"{cond} {prop} in {prop_may}:  # may")
+            code.add(indent+3, f"{res} = {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
+            code.add(indent+3, f"if not {res}: break")
+            # code.add(indent+3, f"continue")
+            cond = "elif"
+        # $* is inlined expr
+        for d, v in defs.items():
+            code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
+            self._compileModel(code, v, f"{mpath}.{d}", res, value, vpath, indent+3)
+            code.add(indent+3, f"if not {res}: break")
+            # code.add(indent+3, f"continue")
+            cond = "elif"
+        # // is inlined
+        for r, v in regs.items():
+            regex = f"/{r}/"
+            code.add(indent+2, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
+            self._compileModel(code, v, f"{mpath}.{regex}", res, value, vpath, indent+3)
+            code.add(indent+3, f"if not {res}: break")
+            # code.add(indent+3, f"continue")
+            cond = "elif"
+        # catchall is inlined
+        if oth:
+            omodel = oth[""]
+            if cond == "if":  # direct
+                self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+2)
+                code.add(indent+2, f"if not {res}: break")
+                # code.add(indent+1, f"continue")
+            else:
+                code.add(indent+2, "else:  # catch all")
+                self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+3)
+                code.add(indent+3, f"if not {res}: break")
+                # code.add(indent+3, f"continue")
+        else:
+            if cond == "if":
+                # we are expecting an empty object
+                code.add(indent+2, f"{res} = False")
+                code.add(indent+2, f"break")
+            else:
+                code.add(indent+2, "else:  # no catch all")
+                code.add(indent+3, f"{res} = False")
+                code.add(indent+3, f"break")
+        # check that all must were seen
+        if must:
+            code.add(indent+1, f"{res} = {res} and {must_c} == {len(must)}")
 
     def _compileModel(self, code: Code, model: ModelType, mpath: str,
                       res: str, val: str, vpath: str, indent: int,
@@ -245,7 +337,22 @@ class SourceCode():
                         code.add(indent + i - 1, f"if {res}:")
                     self._compileModel(code, m, f"{lpath}[{i}]", res, val, vpath, indent + i)
             elif "^" in model:
-                raise NotImplementedError("^ check")
+                # TODO optimize out repeated models
+                lpath = mpath + ".^"
+                models = model["^"]
+                if not models:
+                    code.add(indent, f"{res} = False")
+                elif len(models) == 1:
+                    self._compileModel(code, models[0], f"{lpath}[0]", res, val, vpath, indent)
+                else:  # several models are inlined
+                    count = self._ident("xc_", True)
+                    test = self._ident("xr_", True)
+                    code.add(indent, f"{count} = 0")
+                    for i, m in enumerate(models):
+                        code.add(indent, f"if {count} <= 1:")
+                        self._compileModel(code, m, f"{lpath}[{i}]", test, val, vpath, indent+1)
+                        code.add(indent+1, f"if {test}: {count} += 1")
+                    code.add(indent, f"{res} = {count} == 1")
             else:
                 # TODO check for non-root %
                 # TODO optimize empty model?
@@ -256,91 +363,7 @@ class SourceCode():
                     fun = self._getName(name)
                     code.add(indent, f"{res} = {fun}({val}, path)")
                     return
-                # separate properties
-                must, may, defs, regs, oth = split_object(model, mpath)
-                prop_model: dict[str, str] = {}
-                # compile property helpers
-                if must:
-                    prop_must = self._ident("pmu_")
-                    prop_must_map: dict[str, str] = {}
-                    self._maps[prop_must] = prop_must_map
-                    for p, m in must.items():
-                        pid = f"{prop_must}_{p}"  # tmp unique identifier
-                        self.help(self._compileName(pid, m, f"{mpath}.{p}"))
-                        prop_must_map[p] = self._getName(pid)
-                if may:
-                    prop_may = self._ident("pma_")
-                    prop_may_map: dict[str, str] = {}
-                    self._maps[prop_may] = prop_may_map
-                    for p, m in may.items():
-                        pid = f"{prop_may}_{p}"
-                        self.help(self._compileName(pid, m, f"{mpath}.{p}"))
-                        prop_may_map[p] = self._getName(pid)
-                # WIP
-                code.add(indent, f"{res} = isinstance({val}, dict)")
-                code.add(indent, f"if {res}:")
-                # variables
-                prop = self._ident("p_", True)
-                value = self._ident("v_", True)
-                must_c = self._ident("mc_", True)
-                if must:
-                    code.add(indent+1, f"{must_c} = 0")
-                code.add(indent+1, f"for {prop}, {value} in {val}.items():")
-                code.add(indent+2, f"{res} = isinstance({prop}, str)")
-                code.add(indent+2, f"if not {res}: break")
-                cond = "if"
-                if must:
-                    code.add(indent+2, f"{cond} {prop} in {prop_must}:  # must")
-                    code.add(indent+3, f"{must_c} += 1")
-                    code.add(indent+3, f"{res} = {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
-                    code.add(indent+3, f"if not {res}: break")
-                    # code.add(indent+3, f"continue")
-                    cond = "elif"
-                if may:
-                    code.add(indent+2, f"{cond} {prop} in {prop_may}:  # may")
-                    code.add(indent+3, f"{res} = {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
-                    code.add(indent+3, f"if not {res}: break")
-                    # code.add(indent+3, f"continue")
-                    cond = "elif"
-                # $* is inlined expr
-                for d, v in defs.items():
-                    code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
-                    self._compileModel(code, v, f"{mpath}.{d}", res, value, vpath, indent+3)
-                    code.add(indent+3, f"if not {res}: break")
-                    # code.add(indent+3, f"continue")
-                    cond = "elif"
-                # // is inlined
-                for r, v in regs.items():
-                    regex = f"/{r}/"
-                    code.add(indent+2, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
-                    self._compileModel(code, v, f"{mpath}.{regex}", res, value, vpath, indent+3)
-                    code.add(indent+3, f"if not {res}: break")
-                    # code.add(indent+3, f"continue")
-                    cond = "elif"
-                # catchall is inlined
-                if oth:
-                    omodel = oth[""]
-                    if cond == "if":  # direct
-                        self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+2)
-                        code.add(indent+2, f"if not {res}: break")
-                        # code.add(indent+2, f"continue")
-                    else:
-                        code.add(indent+2, "else:  # catch all")
-                        self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+3)
-                        code.add(indent+3, f"if not {res}: break")
-                        # code.add(indent+3, f"continue")
-                else:
-                    if cond == "if":
-                        # we are expecting an empty object
-                        code.add(indent+2, f"{res} = False")
-                        code.add(indent+2, f"break")
-                    else:
-                        code.add(indent+2, "else:  # no catch all")
-                        code.add(indent+3, f"{res} = False")
-                        code.add(indent+3, f"break")
-                # check that all must were seen
-                if must:
-                    code.add(indent+1, f"{res} = {res} and {must_c} == {len(must)}")
+                self._compileObject(code, model, mpath, res, val, "path", indent)
         else:
             raise ModelError(f"unexpected model type: {type(model).__name__}")
 
@@ -367,7 +390,7 @@ class SourceCode():
                 self.subs(self._compileName(name, mod, f"$.%.{name}"))
         # compile root
         self.subs(self._compileName("", model, "$"))
- 
+
 def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     """Generate the check source code for a model."""
     rw_model = model_preprocessor(model, {}, "$")
@@ -394,8 +417,19 @@ def static_compile_fun(model: ModelType):
 #
 
 def static_compiler():
-    for fn, fh in openfiles(sys.argv[1:]):
+
+    # handle script options and arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("models", nargs="*")
+    args = ap.parse_args()
+
+    if args.debug:
+        log.setLevel(logging.DEBUG)
+
+    for fn, fh in openfiles(args.models):
         try:
+            log.debug(f"model: {fn}")
             model = json.load(fh)
             print(static_compile(model))
         except Exception as e:
@@ -403,9 +437,23 @@ def static_compiler():
             log.error(e, exc_info=True)
 
 def static_compiler_check():
-    model = json.load(open(sys.argv[1]))
+
+    # handle script options and arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("model", type=str)
+    ap.add_argument("jsons", nargs="*")
+    args = ap.parse_args()
+
+    if args.debug:
+        log.setLevel(logging.DEBUG)
+
+    log.debug(f"model: {args.model}")
+    with open(args.model) as f:
+        model = json.load(f)
     checker = static_compile_fun(model)
-    for fn, fh in openfiles(sys.argv[2:]):
+
+    for fn, fh in openfiles(args.jsons):
         try:
             value = json.load(fh)
             okay = checker(value)

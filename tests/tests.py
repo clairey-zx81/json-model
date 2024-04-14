@@ -125,7 +125,7 @@ def test_c_checked_json_model():
         log.info(f"model: {model}")
         assert checker(model), f"c-valid model: {model}"
 
-def test_cs_checked_json_model():
+def test_s_checked_json_model():
     checker = static_compile_fun(JSON_MODEL)
     for _v, model, _e in TEST_MODELS:
         log.info(f"model: {model}")
@@ -151,7 +151,7 @@ def test_c_checked_json_schema():
         assert schema_is_tight(schema), f"c-checked schema: {fs}"
 
 @pytest.mark.skip("needs @")
-def test_cs_checked_json_schema():
+def test_s_checked_json_schema():
     """Check that s2m schemas are tight."""
     schema_is_tight = static_compile_fun(JSON_SCHEMA_MODEL)
     s2m = pathlib.Path("./s2m")
@@ -180,7 +180,7 @@ def test_c_checked_json_model_values():
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
 
 @pytest.mark.skip("wip…")
-def test_cs_checked_json_model_values():
+def test_s_checked_json_model_values():
     # init_data(compiler._DEFS.set)
     for value, model, expect in TEST_MODELS:
         log.info(f"model: {model}")
@@ -240,8 +240,7 @@ def test_c_checked_json_model_files():
         assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
-@pytest.mark.skip("needs ^")
-def test_cs_checked_json_model_files():
+def test_s_checked_json_model_files():
     modval = pathlib.Path("./modval")
     model_suffix = "_m.json"
     mcount = 0
