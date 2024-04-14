@@ -60,6 +60,7 @@ class SourceCode():
         self._regs: dict[str, str] = {}
         # generated stuff
         self._defs: list[str] = []
+        self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
         self._subs: list[Code] = []
         # generate code
@@ -72,12 +73,14 @@ class SourceCode():
 
     def __str__(self):
         """Generate check package."""
-        return ("\n".join(self._defs) + "\n" +
+        return ("\n".join(self._defs) +
+                "\n" +
+                "\n".join(str(code) for code in self._help) + "\n" +
                 "\n" +
                 "# object properties must and may maps\n" +
                 "\n".join(f"{name} = {{\n{self._map(mp)}\n}}" for name, mp in self._maps.items()) +
                 "\n" +
-                "\n".join(str(code) for code in self._subs))
+                "\n".join(str(code) for code in self._subs) + "\n")
 
     def _ident(self, prefix: str, local: bool = False) -> str:
         if prefix not in self._nvars:
@@ -95,8 +98,12 @@ class SourceCode():
                 self.define(f"# regex {self._esc(regex)}")
                 self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
             else:
+                # TODO /…/i
                 raise NotImplementedError("model = {regex}")
         return self._regs[regex]
+
+    def _regExpr(self, regex: str, val: str):
+        return f"{self._regex(regex)}({val}) is not None"
 
     def _esc(self, string: str):
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
@@ -104,6 +111,9 @@ class SourceCode():
 
     def subs(self, code: Code):
         self._subs.append(code)
+
+    def help(self, code: Code):
+        self._help.append(code)
 
     def define(self, line: str):
         """Append a definition."""
@@ -184,9 +194,8 @@ class SourceCode():
             elif model[0] == "$":
                 code.add(indent, f"{res} = " + self._dollarExpr(model[1:], val, "path"))
             elif model[0] == "/":
-                fun = self._regex(model)
                 code.add(indent, f"# {self._esc(model)}")
-                code.add(indent, f"{res} = {expr} and {fun}({val})")
+                code.add(indent, f"{res} = {expr} and {self._regExpr(model, val)}")
             else:  # simple string
                 code.add(indent, f"{res} = {expr} and {val} == {self._esc(model)}")
         elif isinstance(model, list):
@@ -257,7 +266,7 @@ class SourceCode():
                     self._maps[prop_must] = prop_must_map
                     for p, m in must.items():
                         pid = f"{prop_must}_{p}"  # tmp unique identifier
-                        self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
+                        self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                         prop_must_map[p] = self._getName(pid)
                 if may:
                     prop_may = self._ident("pma_")
@@ -265,7 +274,7 @@ class SourceCode():
                     self._maps[prop_may] = prop_may_map
                     for p, m in may.items():
                         pid = f"{prop_may}_{p}"
-                        self.subs(self._compileName(pid, m, f"{mpath}.{p}"))
+                        self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                         prop_may_map[p] = self._getName(pid)
                 # WIP    
                 code.add(indent, f"{res} = isinstance({val}, dict)")
@@ -303,7 +312,7 @@ class SourceCode():
                 # // is inlined
                 for r, v in regs.items():
                     regex = f"/{r}/"
-                    code.add(indent+2, f"{cond} {self._regex(regex)}({prop}):  # {regex}")
+                    code.add(indent+2, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
                     self._compileModel(code, v, f"{mpath}.{regex}", res, value, vpath, indent+3)
                     code.add(indent+3, f"if not {res}: break")
                     # code.add(indent+3, f"continue")
@@ -346,7 +355,7 @@ class SourceCode():
         code = Code()
         code.nl()
         code.add(0, f"# define {self._esc(name)}")
-        code.add(0, f"def {fun}(value: ValueType, path: str) -> bool:")
+        code.add(0, f"def {fun}(value, path: str) -> bool:")
         self._compileModel(code, model, mpath, "result", "value", "path", 1, skip_dollar)
         code.add(1, "return result")
         return code
