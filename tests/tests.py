@@ -129,7 +129,7 @@ def test_s_checked_json_model():
     checker = static_compile_fun(JSON_MODEL)
     for _v, model, _e in TEST_MODELS:
         log.info(f"model: {model}")
-        assert checker(model), f"c-valid model: {model}"
+        assert checker(model), f"s-valid model: {model}"
 
 def test_v_checked_json_schema():
     validator = DSV()
@@ -159,7 +159,7 @@ def test_s_checked_json_schema():
         log.info(f"schema validation: {fs}")
         with open(fs) as f:
             schema = json.load(f)
-        assert schema_is_tight(schema), f"c-checked schema: {fs}"
+        assert schema_is_tight(schema), f"s-checked schema: {fs}"
 
 def test_v_checked_json_model_values():
     validator = DSV()
@@ -179,16 +179,16 @@ def test_c_checked_json_model_values():
         init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
 
+# FIXME this cannt work because there is no way to provide custom definitions
 @pytest.mark.skip("wip…")
 def test_s_checked_json_model_values():
-    # init_data(compiler._DEFS.set)
     for value, model, expect in TEST_MODELS:
         log.info(f"model: {model}")
         log.debug(f"expecting {expect} for {value}")
         checker = static_compile_fun(model)
         # FIXME
         # init_data(checker._defs.set)
-        assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
+        assert checker(value) == expect, f"s-checked model value: {value} ~ {model} = {expect}"
 
 def test_v_checked_json_model_files():
     validator = DSV()
@@ -256,12 +256,12 @@ def test_s_checked_json_model_files():
             log.debug("true value file: {vf}")
             vtrue += 1
             value = json.load(open(vf))
-            assert checker(value), f"c-checked model value: {value} ~ {model}"
+            assert checker(value), f"s-checked model value: {value} ~ {model}"
         for vf in modval.glob(f"{prefix}_*_f.json"):
             log.debug("false value file: {vf}")
             vfalse += 1
             value = json.load(open(vf))
-            assert not checker(value), f"c-checked model value: {value} !~ {model}"
+            assert not checker(value), f"s-checked model value: {value} !~ {model}"
         assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
@@ -274,15 +274,14 @@ def test_json_model_compilation():
         except ModelError as e:
             assert False, f"model compilation failed: {model}"
 
-@pytest.mark.skip("needs @…")
 def test_json_model_static_compilation():
     for _v, model, _e in TEST_MODELS:
         log.info(f"model: {model}")
         try:
             checker = static_compile_fun(model)
-            assert checker is not None, f"model compilation: {model}"
+            assert checker is not None, f"model static compilation: {model}"
         except ModelError as e:
-            assert False, f"model compilation failed: {model}"
+            assert False, f"model static compilation failed: {model}"
 
 from bad_models import BADS
 

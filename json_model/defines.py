@@ -10,7 +10,8 @@ class Model:
         self.model = model
         self.jsons = jsons
         self.doc  = doc
-        assert check is not None or model is not None
+        # FIXME too optimistic, None is a valid model!
+        # assert check is not None or model is not None
 
     def __repr__(self):
         return str(self.jsons)

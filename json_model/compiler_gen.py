@@ -12,7 +12,7 @@ import json
 import logging
 import argparse
 
-from .utils import ModelType, ValueType, ModelError
+from .utils import ModelType, ValueType, ModelError, UnknownModel
 from .utils import openfiles, split_object
 from .preproc import _constant_value, model_preprocessor
 from .defines import Validator
@@ -146,8 +146,33 @@ class SourceCode(Validator):
                            res: str, val: str, vpath: str):
         assert isinstance(model, dict) and "@" in model
         self._compileModel(code, indent, model["@"], f"{mpath}.@", res, val, vpath)
-        # TODO constraints, needs the ultimate type…
-        raise NotImplementedError("constraint handling")
+        tmodel = self._ultimate_type(model["@"])
+        # NOTE UnknownModel should raise an error on any constraint
+        # FIXME None?
+        assert tmodel in (int, float, str, list, dict, UnknownModel), f"simple {tmodel}"
+        checks = []
+        what = f"len({val})" if tmodel in (list, dict) else val
+        twhat = int if tmodel in (list, dict) else tmodel
+        for constraint in ("=", "!=", "<", "<=", ">", ">="):
+            if constraint in model:
+                op = "==" if constraint == "=" else constraint
+                cst = model[constraint]
+                if not isinstance(cst, (twhat, int)):
+                    raise ModelError(f"invalid constant: {cst} ({twhat.__name__}) [{mpath}]")
+                if tmodel == str and isinstance(cst, int):
+                    checks.append(f"len({val}) {op} {cst}")
+                elif isinstance(cst, str):
+                    checks.append(f"{what} {op} {self._esc(cst)}")
+                else:  # same type or list or dict
+                    checks.append(f"{what} {op} {cst}")
+        if "!" in model:
+            if not isinstance(model["!"], bool):
+                raise ModelError(f"! constraint expects a boolean [{mpath}]")
+            # FIXME partial implementation
+            code.add(indent, f"{res} = {res} and len(set({val})) == len({val})")
+            # raise NotImplementedError("! is not yet implemented")
+        if checks:
+            code.add(indent, f"{res} = {res} and {' and '.join(checks)}")
 
     def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: str,
                        res: str, val: str, vpath: str):
@@ -315,6 +340,7 @@ class SourceCode(Validator):
             expr = f"isinstance({val}, list)"
             if len(model) == 0:
                 expr += f" and len({val}) == 0"
+                code.add(indent, f"{res} = {expr}")
             elif len(model) == 1:
                 idx = self._ident("idx_", True)
                 item = self._ident("item_", True)
@@ -325,7 +351,11 @@ class SourceCode(Validator):
                 self._compileModel(code, indent+2, model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
                 code.add(indent+2, f"if not {res}: break")
             else:
-                raise NotImplementedError("tuple check")
+                code.add(indent, f"{res} = {expr}")
+                for i, m in enumerate(model):
+                    code.add(indent+i, f"if {res}:")
+                    # FIXME vpath
+                    self._compileModel(code, indent+i+1, model[i], f"{mpath}[{i}]", res, f"{val}[{i}]", f"{vpath}[{i}]")
         elif isinstance(model, dict):
             assert "+" not in model, "merge must have been preprocessed"
             if "@" in model:
