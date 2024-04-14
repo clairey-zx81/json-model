@@ -215,6 +215,11 @@ class SourceCode():
                 # TODO discriminant optimization
                 lpath = mpath + ".|"
                 models = model["|"]
+                if all(map(lambda m: _constant_value(m, lpath)[0], models)):
+                    # list of constants
+                    constants = set(map(lambda m: _constant_value(m, lpath)[1], models))
+                    code.add(indent, f"{res} = {val} in {constants}")
+                    return
                 if not models:
                     code.add(indent, f"{res} = False")
                 for i, m in enumerate(models):
@@ -290,7 +295,7 @@ class SourceCode():
                     cond = "elif"
                 # $* is inlined expr
                 for d, v in defs.items():
-                    code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, '?')}:  # ${d}")
+                    code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
                     self._compileModel(code, v, f"{mpath}.{d}", res, value, vpath, indent+3)
                     code.add(indent+3, f"if not {res}: break")
                     # code.add(indent+3, f"continue")
