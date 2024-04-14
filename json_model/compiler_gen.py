@@ -276,7 +276,7 @@ class SourceCode():
                         pid = f"{prop_may}_{p}"
                         self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                         prop_may_map[p] = self._getName(pid)
-                # WIP    
+                # WIP
                 code.add(indent, f"{res} = isinstance({val}, dict)")
                 code.add(indent, f"if {res}:")
                 # variables
@@ -367,7 +367,7 @@ class SourceCode():
                 self.subs(self._compileName(name, mod, f"$.%.{name}"))
         # compile root
         self.subs(self._compileName("", model, "$"))
-        
+ 
 def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
     """Generate the check source code for a model."""
     rw_model = model_preprocessor(model, {}, "$")
@@ -388,3 +388,28 @@ def static_compile_fun(model: ModelType):
     exec(code, env)
     assert "model_check" in env
     return env["model_check"]
+
+#
+# Static JSON Model Compiler
+#
+
+def static_compiler():
+    for fn, fh in openfiles(sys.argv[1:]):
+        try:
+            model = json.load(fh)
+            print(static_compile(model))
+        except Exception as e:
+            log.error(f"{fn}: {e}")
+            log.error(e, exc_info=True)
+
+def static_compiler_check():
+    model = json.load(open(sys.argv[1]))
+    checker = static_compile_fun(model)
+    for fn, fh in openfiles(sys.argv[2:]):
+        try:
+            value = json.load(fh)
+            okay = checker(value)
+            print(f"{fn}: {okay}")
+        except Exception as e:
+            log.error(f"{fn}: {e}")
+            log.error(e, exc_info=True)
