@@ -20,7 +20,7 @@ ModelType = ValueType|UnknownModel
 # grrr… should be callable?
 CheckFun = Callable[[Any, str], bool]
 KeyCheckFun = Callable[[str, Any, str], bool|None]
-Compiler = Callable[[ModelType], CheckFun|None]
+Compiler = Callable[[ModelType, str], CheckFun|None]
 
 class ModelError(BaseException):
     pass

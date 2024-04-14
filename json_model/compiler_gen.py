@@ -15,10 +15,11 @@ import argparse
 from .utils import ModelType, ValueType, ModelError
 from .utils import openfiles, split_object
 from .preproc import _constant_value, model_preprocessor
+from .defines import Validator
 
+# FIXME
 logging.basicConfig()
 log = logging.getLogger("sc")
-# log.setLevel(logging.DEBUG)
 
 Line = tuple[int, str]
 
@@ -32,6 +33,7 @@ _PREDEFS = {
     "FLOAT": lambda v: f"isinstance({v}, float)",
     "STRING": lambda v: f"isinstance({v}, str)",
 }
+
 
 class Code():
 
@@ -50,9 +52,14 @@ class Code():
     def __str__(self):
         return "\n".join(("    " * n + l) for n, l in self._code)
 
-class SourceCode():
+
+class SourceCode(Validator):
 
     def __init__(self, model: ModelType, prefix: str = ""):
+
+        # No actual compiler
+        super().__init__()
+
         self._prefix = prefix
         self._model = model
         # keep track of generated identifiers
@@ -60,7 +67,7 @@ class SourceCode():
         self._names: dict[str, str] = {}
         self._regs: dict[str, str] = {}
         # generated stuff
-        self._defs: list[str] = []
+        self._defines: list[str] = []
         self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
         self._subs: list[Code] = []
@@ -78,7 +85,7 @@ class SourceCode():
 
     def define(self, line: str):
         """Append a definition."""
-        self._defs.append(line)
+        self._defines.append(line)
 
     # show generated code
     def _map(self, mp: dict[str, str]) -> str:
@@ -86,7 +93,7 @@ class SourceCode():
 
     def __str__(self):
         """Generate check package."""
-        return ("\n".join(self._defs) +
+        return ("\n".join(self._defines) +
                 "\n" +
                 "\n".join(str(code) for code in self._help) + "\n" +
                 "\n" +

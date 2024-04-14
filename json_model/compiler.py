@@ -13,7 +13,7 @@ from . import utils, url_cache
 from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
 from .utils import distinct_values, model_in_models
 from .preproc import model_preprocessor
-from .defines import ModelDefs
+from .defines import Validator
 
 log = logging.getLogger("compiler")
 log.setLevel(level=logging.INFO)
@@ -40,9 +40,11 @@ def _show_index(checks: list[bool], val):
     return "[" + ",".join(bads) + "]"
 
 
-class CompileModel:
+class CompileModel(Validator):
 
     def __init__(self, model, loose_int: bool = False, signed_int: bool = True):
+
+        super().__init__(self._raw_compile)
 
         # keep a copy of the initial model
         self._model = copy.deepcopy(model)
@@ -73,7 +75,6 @@ class CompileModel:
         }
 
         # predefs
-        self._defs = ModelDefs(self._raw_compile)
         self._defs.set("ANY", self._ANY, "<ANY>", "accept anything")
         self._defs.set("NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
@@ -361,30 +362,6 @@ class CompileModel:
             return True
 
         return self.trace(check_dict, mpath, "{*}")
-
-    def _ultimate_type(self, model: ModelType) -> type:
-        """Get the utimate type by following definitions."""
-        tmodel = type(model)
-        if tmodel in (type(None), bool, int, float, list, tuple):
-            return tmodel
-        elif tmodel is str:
-            if model == "" or model[0] != "$":
-                return tmodel
-            else:  # follow definition if possible
-                m = self._defs.model(model[1:])
-                return self._ultimate_type(m) if m != UnknownModel else m
-        elif tmodel is dict:
-            if "@" in model:
-                return self._ultimate_type(model["@"])
-            elif "|" in model:
-                assert isinstance(model["|"], (list, tuple))
-                types = set(self._ultimate_type(i) for i in model["|"])
-                if len(types) == 1:
-                    return types.pop()
-                else:
-                    return UnknownModel
-            else:
-                return tmodel
 
     def _ultimate_model(self, model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""

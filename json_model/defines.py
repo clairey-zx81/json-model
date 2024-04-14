@@ -45,6 +45,7 @@ class ModelDefs:
             log.warning(f"overriding definition for {name}")
 
         if callable(model):
+            # direct function
             m = Model(model, f"${name}", None, doc)
         else:
             m = Model(self._compiler(model, mpath), model, json.dumps(model), doc)
@@ -82,3 +83,33 @@ class ModelDefs:
 
     def __delitem__(self, key):
         self.delete(key)
+
+
+class Validator:
+
+    def __init__(self, compiler: Compiler = lambda _m: None):
+        self._defs = ModelDefs(compiler)
+
+    def _ultimate_type(self, model: ModelType) -> Any:
+        """Get the utimate type by following definitions."""
+        tmodel = type(model)
+        if tmodel in (type(None), bool, int, float, list, tuple):
+            return tmodel
+        elif tmodel is str:
+            if model == "" or model[0] != "$":
+                return tmodel
+            else:  # follow definition if possible
+                m = self._defs.model(model[1:])
+                return self._ultimate_type(m) if m != UnknownModel else m
+        elif tmodel is dict:
+            if "@" in model:
+                return self._ultimate_type(model["@"])
+            elif "|" in model:
+                assert isinstance(model["|"], (list, tuple))
+                types = set(self._ultimate_type(i) for i in model["|"])
+                if len(types) == 1:
+                    return types.pop()
+                else:
+                    return UnknownModel
+            else:
+                return tmodel

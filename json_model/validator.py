@@ -12,7 +12,7 @@ import logging
 from . import utils
 from .preproc import model_preprocessor
 from .utils import ValueType, ModelType, ModelError, distinct_values
-from .defines import ModelDefs
+from .defines import Validator
 
 logging.basicConfig()
 log = logging.getLogger("dsv")
@@ -20,10 +20,12 @@ log = logging.getLogger("dsv")
 # log.setLevel(logging.INFO)
 
 # TODO rename class
-class DSV:
+class DSV(Validator):
     """Data Structure Validator Evaluator."""
 
     def __init__(self):
+
+        super().__init__(compiler=lambda m, p: lambda v: self.check(v, m))
 
         # per-type recursion
         self._type: dict[type, Callable[[ValueType, ModelType, bool], bool]] = {
@@ -38,7 +40,6 @@ class DSV:
         }
 
         # defined "<name>": check_value_fun(v)
-        self._defs = ModelDefs(compiler=lambda m, p: lambda v: self.check(v, m))
         self.set("ANY", lambda _: True, "<ANY>")
         self.set("NONE", lambda _: False, "<NONE>")
         self.set("REGEX", utils.is_regex, "<REGEX>")
