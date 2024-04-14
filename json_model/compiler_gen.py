@@ -69,6 +69,18 @@ class SourceCode():
         self.define("")
         self._compileRoot(model)
 
+    # add contents
+    def subs(self, code: Code):
+        self._subs.append(code)
+
+    def help(self, code: Code):
+        self._help.append(code)
+
+    def define(self, line: str):
+        """Append a definition."""
+        self._defs.append(line)
+
+    # show generated code
     def _map(self, mp: dict[str, str]) -> str:
         return "\n".join(f"    {self._esc(p)}: {v}," for p, v in mp.items())
 
@@ -83,6 +95,7 @@ class SourceCode():
                 "\n" +
                 "\n".join(str(code) for code in self._subs) + "\n")
 
+    # code generation
     def _ident(self, prefix: str, local: bool = False) -> str:
         if prefix not in self._nvars:
             self._nvars[prefix] = 0
@@ -92,14 +105,18 @@ class SourceCode():
 
     def _regex(self, regex: str) -> str:
         if regex not in self._regs:
+            self.define(f"# regex {self._esc(regex)}")
             if regex[-1] == "/":
                 pattern = regex[1:-1]
                 fun = self._ident("re_")
                 self._regs[regex] = fun
-                self.define(f"# regex {self._esc(regex)}")
                 self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+            elif regex.endswith("/i"):
+                pattern = regex[1:-2]
+                fun = self._ident("re_")
+                self._regs[regex] = fun
+                self.define(f"{fun} = re.compile({self._esc(pattern)}, re.IGNORECASE).search")
             else:
-                # TODO /…/i
                 raise NotImplementedError("model = {regex}")
         return self._regs[regex]
 
@@ -110,22 +127,19 @@ class SourceCode():
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
         return json.dumps(string)
 
-    def subs(self, code: Code):
-        self._subs.append(code)
-
-    def help(self, code: Code):
-        self._help.append(code)
-
-    def define(self, line: str):
-        """Append a definition."""
-        self._defs.append(line)
-
     def _dollarExpr(self, name: str, val: str, vpath: str):
         if name in _PREDEFS:
             return _PREDEFS[name](val)
         else:
             fun = self._getName(name)
             return f"{fun}({val}, {vpath})"
+
+    def _compileConstraint(self, code, model: ModelType, mpath: str,
+                           res: str, val: str, vpath: str, indent: int):
+        assert isinstance(model, dict) and "@" in model
+        self._compileModel(code, model["@"], f"{mpath}.@", res, val, vpath, indent)
+        # TODO constraints, needs the ultimate type…
+        raise NotImplementedError("constraint handling")
 
     def _compileObject(self, code: Code, model: ModelType, mpath: str,
                        res: str, val: str, vpath: str, indent: int = 0):
@@ -308,9 +322,7 @@ class SourceCode():
         elif isinstance(model, dict):
             assert "+" not in model, "merge must have been preprocessed"
             if "@" in model:
-                self._compileModel(code, model["@"], f"{mpath}.@", res, val, vpath, indent)
-                # TODO constraints, needs the ultimate type…
-                raise NotImplementedError("@ check")
+                self._compileConstraint(code, model, mpath, res, val, vpath, indent)
             elif "|" in model:
                 # TODO list of (string) constants optimization
                 # TODO discriminant optimization

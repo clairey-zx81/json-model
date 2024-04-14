@@ -187,7 +187,7 @@ def test_s_checked_json_model_values():
         log.debug(f"expecting {expect} for {value}")
         checker = static_compile_fun(model)
         # FIXME
-        init_data(checker._defs.set)
+        # init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
 
 def test_v_checked_json_model_files():
@@ -270,6 +270,16 @@ def test_json_model_compilation():
         log.info(f"model: {model}")
         try:
             checker = compiler.compileModel(model)
+            assert checker is not None, f"model compilation: {model}"
+        except ModelError as e:
+            assert False, f"model compilation failed: {model}"
+
+@pytest.mark.skip("needs @…")
+def test_json_model_static_compilation():
+    for _v, model, _e in TEST_MODELS:
+        log.info(f"model: {model}")
+        try:
+            checker = static_compile_fun(model)
             assert checker is not None, f"model compilation: {model}"
         except ModelError as e:
             assert False, f"model compilation failed: {model}"
