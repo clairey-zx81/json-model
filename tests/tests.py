@@ -12,6 +12,15 @@ log.setLevel(logging.INFO)
 
 import json_model.generate as generate
 from json_model.preproc import model_preprocessor
+from json_model.compiler_gen import static_compile_fun
+from json_model.utils import ModelError
+from json_model.validator import DSV
+import json_model.compiler as compiler
+
+from good_models import (
+    TEST_MODELS, JSON_MODEL, JSON_SCHEMA_MODEL, JSON_MODEL_SCHEMA,
+    init_data
+)
 
 def test_s2m():
     s2m = pathlib.Path("./s2m")
@@ -38,15 +47,6 @@ def test_m2s():
         with open(fs) as f:
             jsr = json.load(f)
         assert js == jsr, f"{fm} generated schema is ok"
-
-from json_model.utils import ModelError
-from json_model.validator import DSV
-import json_model.compiler as compiler
-
-from good_models import (
-    TEST_MODELS, JSON_MODEL, JSON_SCHEMA_MODEL, JSON_MODEL_SCHEMA,
-    init_data
-)
 
 # FIXME jschon tests are pretty slow…
 
@@ -125,6 +125,12 @@ def test_c_checked_json_model():
         log.info(f"model: {model}")
         assert checker(model), f"c-valid model: {model}"
 
+def test_cs_checked_json_model():
+    checker = static_compile_fun(JSON_MODEL)
+    for _v, model, _e in TEST_MODELS:
+        log.info(f"model: {model}")
+        assert checker(model), f"c-valid model: {model}"
+
 def test_v_checked_json_schema():
     validator = DSV()
     s2m = pathlib.Path("./s2m")
@@ -137,6 +143,17 @@ def test_v_checked_json_schema():
 def test_c_checked_json_schema():
     """Check that s2m schemas are tight."""
     schema_is_tight = compiler.compileModel(JSON_SCHEMA_MODEL)
+    s2m = pathlib.Path("./s2m")
+    for fs in s2m.glob("*.schema.json"):
+        log.info(f"schema validation: {fs}")
+        with open(fs) as f:
+            schema = json.load(f)
+        assert schema_is_tight(schema), f"c-checked schema: {fs}"
+
+@pytest.mark.skip("needs @")
+def test_cs_checked_json_schema():
+    """Check that s2m schemas are tight."""
+    schema_is_tight = static_compile_fun(JSON_SCHEMA_MODEL)
     s2m = pathlib.Path("./s2m")
     for fs in s2m.glob("*.schema.json"):
         log.info(f"schema validation: {fs}")
@@ -159,6 +176,17 @@ def test_c_checked_json_model_values():
         log.info(f"model: {model}")
         log.debug(f"expecting {expect} for {value}")
         checker = compiler.compileModel(model)
+        init_data(checker._defs.set)
+        assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
+
+@pytest.mark.skip("wip…")
+def test_cs_checked_json_model_values():
+    # init_data(compiler._DEFS.set)
+    for value, model, expect in TEST_MODELS:
+        log.info(f"model: {model}")
+        log.debug(f"expecting {expect} for {value}")
+        checker = static_compile_fun(model)
+        # FIXME
         init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
 
@@ -212,6 +240,32 @@ def test_c_checked_json_model_files():
         assert vtrue >= 1 or vfalse >= 1
     assert mcount > 5
 
+@pytest.mark.skip("needs ^")
+def test_cs_checked_json_model_files():
+    modval = pathlib.Path("./modval")
+    model_suffix = "_m.json"
+    mcount = 0
+    for mf in modval.glob("*" + model_suffix):
+        mcount += 1
+        vtrue, vfalse = 0, 0
+        prefix = mf.name[:-len(model_suffix)]
+        model = json.load(open(mf))
+        log.info(f"model {mf}: {model}")
+        checker = static_compile_fun(model)
+        # init_data(checker._defs.set)
+        for vf in modval.glob(f"{prefix}_*_t.json"):
+            log.debug("true value file: {vf}")
+            vtrue += 1
+            value = json.load(open(vf))
+            assert checker(value), f"c-checked model value: {value} ~ {model}"
+        for vf in modval.glob(f"{prefix}_*_f.json"):
+            log.debug("false value file: {vf}")
+            vfalse += 1
+            value = json.load(open(vf))
+            assert not checker(value), f"c-checked model value: {value} !~ {model}"
+        assert vtrue >= 1 or vfalse >= 1
+    assert mcount > 5
+
 def test_json_model_compilation():
     for _v, model, _e in TEST_MODELS:
         log.info(f"model: {model}")
@@ -235,6 +289,8 @@ def test_bad_json_model_c_checked():
         log.info(f"model: {model}")
         assert checker(model) == expect, f"c-checked bad model: {model}"
 
+# TODO cs
+
 def test_bad_json_models_compilation():
     for _i, _e, compiles, model in BADS:
         log.info(f"model: {model}")
@@ -244,6 +300,8 @@ def test_bad_json_models_compilation():
         except ModelError:
             compiled = False
         assert compiled == compiles, f"bad model compilation: {model} ({compiles})"
+
+# TODO cs
 
 def json_schema_test_suite(version, fmodel):
     # load model

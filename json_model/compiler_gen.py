@@ -321,7 +321,7 @@ class SourceCode():
                 if oth:
                     omodel = oth[""]
                     if cond == "if":  # direct
-                        code._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+2)
+                        self._compileModel(code, omodel, f"{mpath}.", res, value, vpath, indent+2)
                         code.add(indent+2, f"if not {res}: break")
                         # code.add(indent+2, f"continue")
                     else:
@@ -362,7 +362,7 @@ class SourceCode():
 
     def _compileRoot(self, model: ModelType):
         # compile definitions
-        if "%" in model:
+        if isinstance(model, dict) and "%" in model:
             for name, mod in model["%"].items():
                 self.subs(self._compileName(name, mod, f"$.%.{name}"))
         # compile root
