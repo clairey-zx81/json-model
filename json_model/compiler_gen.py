@@ -172,8 +172,11 @@ class SourceCode(Validator):
                 cst = model[constraint]
                 if not isinstance(cst, (twhat, int)):
                     raise ModelError(f"invalid constant: {cst} ({twhat.__name__}) [{mpath}]")
-                if tmodel == str and isinstance(cst, int):
+                if isinstance(cst, int) and tmodel == str:
                     checks.append(f"len({val}) {op} {cst}")
+                elif isinstance(cst, int) and tmodel == UnknownModel:
+                    checks.append(f"(len({val}) {op} {cst} if isinstance({val}, (str, list, dict)) else " +
+                                  f"{val} {op} {self._esc(cst) if isinstance(cst, str) else cst})")
                 elif isinstance(cst, str):
                     checks.append(f"{what} {op} {self._esc(cst)}")
                 else:  # same type or list or dict
