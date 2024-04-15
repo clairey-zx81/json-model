@@ -6,6 +6,7 @@ import re
 import copy
 from typing import Any, Callable
 import logging
+import argparse
 from .utils import UnknownModel, Object, ValueType, ModelType, ModelError
 from .utils import model_eq, same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles
 
@@ -345,6 +346,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
         # special str preprocessing
         if mt == str:
             if m.startswith("$"):  # unresolved reference
+                log.debug("- unresolved $-reference")
                 return False
             elif m.startswith("="):
                 c, v = _constant_value(m, defs)
@@ -353,27 +355,32 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
             # else: empty or re or str constant
         if mt in (type(None), bool, int, float, list):
             if mt in types:
+                log.debug(f"- multiple type {mt.__name__}")
                 return False
             types.add(mt)
         elif mt == str:
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
+                    log.debug(f"- multiple strings")
                     return False
                 types.add(str)
             else:  # constant string
                 if str in types:
+                    log.debug(f"- constant strings")
                     return False
                 if m[0] == "_":
                     m = m[1:]
                 # ???
                 if m in strings:
                     log.warning(f"repeated constant: {m} [{mpath}]")
+                    log.debug(f"- repeated constant strings")
                     return False
                 strings.add(m)
         elif mt == dict:
             assert "@" not in m  # should have been resolved!
             assert "+" not in m  # should have been merged!
             if is_constructed(m):
+                log.debug(f"- constructed model: {m}")
                 return False
             # else dict is a model for an object
             obj = _Object(m, defs, mpath)
@@ -385,6 +392,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
             else:
                 for o in objects:
                     if o in obj and obj in o:
+                        log.debug("- conflicting objects")
                         return False
                 objects.append(obj)
         else:
@@ -478,12 +486,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 else:
                     return models[0]
             else:
-                # possible optimization, turn ^ into | if distinct
-                if _structurally_distinct_models(models, defs, lpath):
-                    del data["^"]
-                    data["|"] = models
-                else:
-                    data["^"] = models
+                data["^"] = models
 
         if "|" in data:
             lpath = f"{path}.'|'"
@@ -628,7 +631,52 @@ def flatten(data, defs, path):
     else:
         raise ModelError(f"unexpected type {type(data)} [{path}]")
 
-def model_preprocessor(data, defs: dict[str, any], path: str=""):
+def xor_to_or(data, defs: dict[str, Any], path: str = ""):
+    """Change ^ to | if provably distinct."""
+    if data is None:
+        pass
+    elif isinstance(data, (bool, int, float, str)):
+        pass
+    elif isinstance(data, list):
+        data = [ xor_to_or(m, defs, f"{path}[{i}]") for i, m in enumerate(data) ]
+    elif isinstance(data, dict):
+
+        # definitions
+        if "%" in data:
+            defines = data["%"]
+            assert isinstance(defines, dict)
+            defines = { p: xor_to_or(m, defs, f"{path}.%.{p}") for p, m in defines.items() }
+        if "+" in data:
+            raise ModelError("+ must be preprocessed")
+        # constraints
+        if "@" in data:
+            data["@"] = xor_to_or(data["@"], defs, f"{path}.@")
+            # ignore other props…
+        # combinators
+        elif "|" in data:
+            data["|"] = xor_to_or(data["|"], defs, f"{path}.|")
+        elif "&" in data:
+            data["&"] = xor_to_or(data["&"], defs, f"{path}.&")
+        elif "^" in data:
+            models = xor_to_or(data["^"], defs, f"{path}.^")
+            if not isinstance(models, list):
+                raise ModelError("^ expects an array")
+            if _structurally_distinct_models(models, defs, path):
+                del data["^"]
+                data["|"] = models
+            else:
+                data["^"] = models
+        else:  # object
+            data2 = {}
+            for p, m in data.items():
+                if p in ("%", "$", "#"):
+                    data2[p] = m
+                else:
+                    data2[p] = xor_to_or(m, defs, f"{path}.{p}")
+            data = data2
+    return data
+
+def model_preprocessor(data, defs: dict[str, Any], path: str = ""):
     """Preprocessor entry point entry point.
 
     Remove all ``+`` (merge operator) from data:
@@ -643,13 +691,26 @@ def model_preprocessor(data, defs: dict[str, any], path: str=""):
     """
     log.debug(f"defs={defs}")
     jdata = copy.deepcopy(data)
+    # only later?
     fdata = flatten(jdata, defs, path)
     rdata = _merge_rewrite(fdata, defs, path)
-    log.debug(f"rdata={rdata}")
+    fdata = flatten(rdata, defs, path)
+    odata = xor_to_or(fdata, defs, path)
+    log.debug(f"odata={odata}")
     return rdata
 
 def preprocessor():
     """Shell command entry point."""
-    for fn, fh in openfiles(sys.argv[1:]):
+
+    # handle script options and arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("models", nargs="*")
+    args = ap.parse_args()
+
+    if args.debug:
+        log.setLevel(logging.DEBUG)
+
+    for fn, fh in openfiles(args.models):
         data = json.load(fh)
         print(json.dumps(model_preprocessor(data, {}, ""), indent=2))
