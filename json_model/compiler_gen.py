@@ -51,6 +51,9 @@ class Code():
     def nl(self):
         self.add(0, "")
 
+    def clear(self):
+        self._code.clear()
+
     def __str__(self):
         return "\n".join(("    " * n + l) for n, l in self._code)
 
@@ -62,12 +65,23 @@ class SourceCode(Validator):
         # No actual compiler
         super().__init__()
 
+        # global prefix
         self._prefix = prefix
-        # keep track of generated identifiers
+
+        # identifiers and functions
+        # ident-prefix -> next number to use to ensure unique identifiers
         self._nvars: dict[str, int] = {}
+        # $-definitions -> function
         self._names: dict[str, str] = {}
+        # /re.../ -> regex function
         self._regs: dict[str, str] = {}
+        # model path -> function name
+        self._paths: dict[str, str] = {}
+        # already generated object paths
+        self._generated: set[str] = set()
+        #
         # generated stuff
+        #
         self._defines: list[str] = []
         self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
@@ -190,6 +204,26 @@ class SourceCode(Validator):
             # raise NotImplementedError("! is not yet implemented")
         if checks:
             code.add(indent, f"{res} = {res} and {' and '.join(checks)}")
+
+    def _disjunction(self, code: Code, indent: int, model: ModelType, mpath: str,
+                     res: str, val: str, vpath: str):
+        """Generate optimized disjunction check.
+
+        model: `{"|": [ o1, o2, ... ] }`
+        """
+
+        dis = self._disjunct_analyse(model, mpath)
+        if dis is None:
+            return None
+        tag_name, tag_type, models, all_const_props = dis
+
+        # {disid}_tm = { tag-value: check_function_for_this_tag_value }
+        # if v is dict:
+        #     if v[tag] in object_tag:
+        #         res = object_tag[v[tag]](v)
+        disid = self._ident("dis_")
+        # WIP
+        assert False
 
     def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: str,
                        res: str, val: str, vpath: str):
@@ -427,8 +461,21 @@ class SourceCode(Validator):
             else:
                 # TODO check for non-root %
                 # TODO optimize empty model?
-                # TODO generate separate functions for objects?
-                self._compileObject(code, indent, model, mpath, res, val, "path")
+                # generate separate functions for objects?
+                if not mpath in self._paths:
+                    objid = self._ident("obj_")
+                else:
+                    objid = self._paths[mpath]
+                if mpath not in self._generated:
+                    ocode = Code()
+                    ocode.nl()
+                    ocode.add(0, f"# {mpath}")
+                    ocode.add(0, f"def {objid}(value, path):")
+                    self._compileObject(ocode, 1, model, mpath, "result", "value", "path")
+                    ocode.add(1, f"return result")
+                    self.subs(ocode)
+                    self._generated.add(mpath)
+                code.add(indent, f"{res} = {objid}({val}, {vpath})")
         else:
             raise ModelError(f"unexpected model type: {type(model).__name__}")
 
@@ -441,14 +488,22 @@ class SourceCode(Validator):
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
         # keep definitions
         self._defs.set(name, model)
-        # generate code
         fun = self._getName(name)
+        assert mpath not in self._paths
+        self._paths[mpath] = fun
+        # generate code
         code = Code()
         code.nl()
         code.add(0, f"# define {self._esc(name)}")
         code.add(0, f"def {fun}(value, path: str) -> bool:")
         self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
         code.add(1, "return result")
+        # NOTE yuk! the function may have been generated as a side effect of the previous call.
+        # if so, this version is simply discarded
+        if mpath not in self._generated:
+            self._generated.add(mpath)
+        else:
+            code.clear()
         return code
 
     def _compileRoot(self, rname: str, model: ModelType):
