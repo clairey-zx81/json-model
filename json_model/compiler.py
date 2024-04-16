@@ -39,13 +39,6 @@ def _show_index(checks: list[bool], val):
     assert bads
     return "[" + ",".join(bads) + "]"
 
-_UMODEL = {
-    "BOOL": True, "NULL": None,
-    "I32": -1, "U32": 0, "I64": -1, "U64": 0,
-    "F32": -1.0, "F64": -1.0,
-    "STRING": ""
-}
-
 class CompileModel(Validator):
 
     def __init__(self, model, loose_int: bool = False, signed_int: bool = True):
@@ -370,38 +363,6 @@ class CompileModel(Validator):
             return True
 
         return self.trace(check_dict, mpath, "{*}")
-
-    def _ultimate_model(self, model: ModelType, constrained=True, strict=False) -> ModelType:
-        """Look for the real model, beyond references."""
-        # FIXME stop infinite recursion?!
-        tmodel = type(model)
-        if tmodel in (type(None), bool, int, float, list, tuple):
-            return model
-        elif tmodel is str:
-            if model == "" or model[0] not in ("$", "="):
-                return model
-            elif model[0] == "=":
-                return model
-            else:  # follow definition if possible
-                m = self._defs.model(model[1:])
-                # handle some predefs
-                if isinstance(m, str) and m and m[0] == "$" and m[1:] in _UMODEL:
-                    return _UMODEL[m[1:]]
-                # else try recursing
-                return self._ultimate_model(m) if m != UnknownModel else m
-        elif tmodel is dict:
-            if "@" in model:
-                if strict:
-                    if set(model.keys()).issubset(["@", "#", "%", "%"]):
-                        return self._ultimate_model(model["@"])
-                    else:
-                        return UnknownModel
-                # else
-                return self._ultimate_model(model["@"]) if constrained else UnknownModel
-            elif "|" in model:
-                return UnknownModel
-            else:
-                return model
 
     def _constant(self, model: ModelType):
         """Tell an ultimate model value has a constant."""
