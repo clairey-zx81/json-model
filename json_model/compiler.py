@@ -364,77 +364,12 @@ class CompileModel(Validator):
 
         return self.trace(check_dict, mpath, "{*}")
 
-    def _disjunct_analyse(self, model: ModelType, mpath: str) -> tuple[str, list, dict]|None:
-        """Return the optimized check function if possible."""
-        # FIXME if there is a ^, the preprocessor will have detected the discriminant and turned it into a |.
-        assert isinstance(model, dict) and "|" in model
-        # first filter out
-        utype = self._ultimate_type(model)
-        if utype != dict:
-            log.debug(f"ultimate type not a dict: {utype}")
-            return None
-        # get models
-        models = [self._ultimate_model(m) for m in model["|"]]
-        # should not happen, just in case
-        if len(models) < 2:
-            log.debug(f"not enough models for a disjunction")
-            return None
-        # we may have some doubts yet (eg | in |)
-        if any(filter(lambda m: type(m) != dict, models)):
-            log.debug(f"some models are not objects")
-            return None
-        # only objects: collect their direct mandatory properties
-        all_props: list[set[str]] = [
-            set(k for k in m.keys() if k and k[0] not in ("$", "?", "/"))
-            for m in models
-        ]
-        # get cleaned props and their constant values
-        all_const_props: list[dict[str, any]] = []
-        for props, model in zip(all_props, models):
-            consts: dict[str, any] = {}
-            for prop in props:
-                val = self._constant(model[prop])
-                if val is not None:
-                    key = prop[1:] if prop[0] in ("_", "!") else prop
-                    consts[key] = val
-            all_const_props.append(consts)
-        # tag candidates must:
-        # - appear in all alternate models
-        candidates: set[str] = set(all_const_props[0].keys())
-        for props in all_const_props[1:]:
-            candidates.intersection_update(props.keys())
-        if not candidates:
-            log.debug(f"no property with constant values")
-            return None
-        # - have the same type
-        candidates_typed: set[str] = set()
-        for prop in candidates:
-            if len(set(type(consts[prop]) for consts in all_const_props)) == 1:
-                candidates_typed.add(prop)
-        if not candidates_typed:
-            log.debug(f"no proprety with same type constants")
-            return None
-        # - have distinct constant values
-        candidates_distinct: set[str] = set()
-        for prop in candidates_typed:
-            if len(set(consts[prop] for consts in all_const_props)) == len(all_const_props):
-                candidates_distinct.add(prop)
-        if not candidates_distinct:
-            log.debug("no property with distinct values")
-            return None
-        if len(candidates_distinct) > 1:
-            log.warning(f"several disjunctive properties: {candidates_distinct}")
-        # one tag with one type and only constants found!
-        tag_name = candidates_distinct.pop()
-        tag_type = self._ultimate_type(all_const_props[0][tag_name])
-        assert tag_type in (bool, int, float, str)
-
     def _disjunction(self, model: ModelType, mpath: str) -> CheckFun|None:
 
         dis = self._disjunct_analyse(model, mpath)
         if dis is None:
             return None
-        tag_name, models, all_const_props = dis
+        tag_name, tag_type, models, all_const_props = dis
 
         # map tag values to value check
         TAG_CHECKS = {}
