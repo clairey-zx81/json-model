@@ -364,7 +364,7 @@ class CompileModel(Validator):
 
         return self.trace(check_dict, mpath, "{*}")
 
-    def _disjunction(self, model: ModelType, mpath: str) -> CheckFun|None:
+    def _disjunct_analyse(self, model: ModelType, mpath: str) -> tuple[str, list, dict]|None:
         """Return the optimized check function if possible."""
         # FIXME if there is a ^, the preprocessor will have detected the discriminant and turned it into a |.
         assert isinstance(model, dict) and "|" in model
@@ -428,6 +428,13 @@ class CompileModel(Validator):
         tag_name = candidates_distinct.pop()
         tag_type = self._ultimate_type(all_const_props[0][tag_name])
         assert tag_type in (bool, int, float, str)
+
+    def _disjunction(self, model: ModelType, mpath: str) -> CheckFun|None:
+
+        dis = self._disjunct_analyse(model, mpath)
+        if dis is None:
+            return None
+        tag_name, models, all_const_props = dis
 
         # map tag values to value check
         TAG_CHECKS = {}
