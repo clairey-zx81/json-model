@@ -1,4 +1,5 @@
 import sys
+import re
 import json
 from typing import Any
 from .utils import log, CheckFun, ModelType, UnknownModel, Compiler
@@ -162,3 +163,28 @@ class Validator:
                 return UnknownModel
             else:
                 return model
+
+    def _constant(self, model: ModelType):
+        """Tell an ultimate model value has a constant."""
+        # FIXME should it detect @ eq?
+        v = self. _ultimate_model(model)
+        if v == UnknownModel:
+            return None
+        tv = type(v)
+        if tv == str:
+            if v == "":
+                return None
+            elif v == "=null":
+                return None
+            elif re.search(r"^=(true|false)$", v):
+                return True if v == "=true" else False
+            elif re.search(r"^=-?\d+$", v):
+                return int(v[1:])
+            elif re.search(r"^=", v):
+                return float(v[1:])
+            elif v[0] == "_":
+                return v[1:]
+            else:
+                return v
+        else:
+            return None
