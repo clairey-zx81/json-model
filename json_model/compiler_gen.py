@@ -86,6 +86,7 @@ class SourceCode(Validator):
         self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
         self._subs: list[Code] = []
+        self._main: Code = Code()
         # initialization
         self.reset()
 
@@ -99,6 +100,9 @@ class SourceCode(Validator):
         self._maps.clear()
         self._subs.clear()
         self.define("import re")
+        self.define("from typing import Any, Callable")
+        self.define("")
+        self.define("CheckFun = Callable[[Any, str], bool]")
         self.define("")
 
     # add contents
@@ -126,10 +130,12 @@ class SourceCode(Validator):
                 "\n" +
                 "\n".join(str(code) for code in self._help) + "\n" +
                 "\n" +
+                "\n".join(str(code) for code in self._subs) + "\n" +
+                "\n" +
                 "# object properties must and may maps\n" +
                 "\n".join(f"{name} = {{\n{self._map(mp)}\n}}" for name, mp in self._maps.items()) +
                 "\n" +
-                "\n".join(str(code) for code in self._subs) + "\n")
+                str(self._main))
 
     # code generation
     def _ident(self, prefix: str, local: bool = False) -> str:
@@ -229,17 +235,14 @@ class SourceCode(Validator):
                        res: str, val: str, vpath: str):
         # separate properties
         must, may, defs, regs, oth = split_object(model, mpath)
-        prop_model: dict[str, str] = {}
-        # compile property helpers
-        # if indent == 0:
-        #     code.add(1, f"if not isinstance({val}, dict):")
-        #     code.add(2, "return False")
-        # else:
+        # TODO optimize must only case?
+        # TODO direct return?
         code.add(indent, f"{res} = isinstance({val}, dict)")
         code.add(indent, f"if {res}:")
         if must:
             prop_must = self._ident("pmu_")
             prop_must_map: dict[str, str] = {}
+            self.define(f"{prop_must}: dict[str, CheckFun]")
             self._maps[prop_must] = prop_must_map
             for p, m in must.items():
                 pid = f"{prop_must}_{p}"  # tmp unique identifier
@@ -248,6 +251,7 @@ class SourceCode(Validator):
         if may:
             prop_may = self._ident("pma_")
             prop_may_map: dict[str, str] = {}
+            self.define(f"{prop_may}: dict[str, CheckFun]")
             self._maps[prop_may] = prop_may_map
             for p, m in may.items():
                 pid = f"{prop_may}_{p}"
@@ -486,18 +490,29 @@ class SourceCode(Validator):
         return self._names[name]
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
+        code = Code()
         # keep definitions
         self._defs.set(name, model)
-        fun = self._getName(name)
-        assert mpath not in self._paths
-        self._paths[mpath] = fun
+        fun2 = None
+        if mpath in self._paths:
+            fun = self._paths[mpath]
+            if name in self._names:
+                fun2 = self._names[name]
+            else:
+                self._names[name] = fun
+        else:
+            fun = self._getName(name)
+            self._paths[mpath] = fun
         # generate code
-        code = Code()
         code.nl()
         code.add(0, f"# define {self._esc(name)}")
         code.add(0, f"def {fun}(value, path: str) -> bool:")
         self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
         code.add(1, "return result")
+        # FIXME something went wrong in self-naming
+        if fun2:
+            code.nl()
+            code.add(0, f"{fun2} = {fun}")
         # NOTE yuk! the function may have been generated as a side effect of the previous call.
         # if so, this version is simply discarded
         if mpath not in self._generated:
@@ -514,17 +529,17 @@ class SourceCode(Validator):
         # compile root
         self.subs(self._compileName(rname, model, "$"))
 
-def static_compile(model: ModelType, name: str = "model_check") -> SourceCode:
+_DEFAULT_NAME = "check_model"
+
+def static_compile(model: ModelType, name: str = _DEFAULT_NAME) -> SourceCode:
     """Generate the check source code for a model."""
     sc = SourceCode("jmsc_")
     rw_model = model_preprocessor(model, {}, "$")
-    sc.compile(name, rw_model)
-    fun = sc._getName(name)
-    code = Code()
-    code.nl()
-    code.add(0, f"def {name}(value) -> bool:")
-    code.add(1, f"return {fun}(value, \"$\")")
-    sc.subs(code)
+    sc.compile("", rw_model)
+    fun = sc._getName("")
+    sc._main.nl()
+    sc._main.add(0, f"def {name}(value) -> bool:")
+    sc._main.add(1, f"return {fun}(value, \"$\")")
     return sc
 
 def static_compile_fun(model: ModelType):
@@ -532,8 +547,8 @@ def static_compile_fun(model: ModelType):
     code = str(static_compile(model))
     env = {}
     exec(code, env)
-    assert "model_check" in env
-    return env["model_check"]
+    assert _DEFAULT_NAME in env
+    return env[_DEFAULT_NAME]
 
 #
 # Static JSON Model Compiler
