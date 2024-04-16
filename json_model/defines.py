@@ -85,6 +85,13 @@ class ModelDefs:
     def __delitem__(self, key):
         self.delete(key)
 
+_UTYPE = {
+    "$NULL": None,
+    "$BOOL": bool,
+    "$I32": int, "$U32": int, "$I64": int, "$U64": int,
+    "$F32": float, "$F64": float,
+    "$STRING": str,
+}
 
 class Validator:
 
@@ -100,6 +107,8 @@ class Validator:
             if model == "" or model[0] != "$":
                 return tmodel
             else:  # follow definition if possible
+                if model in _UTYPE:
+                    return _UTYPE[model]
                 m = self._defs.model(model[1:])
                 return self._ultimate_type(m) if m != UnknownModel else m
         elif tmodel is dict:
@@ -114,3 +123,5 @@ class Validator:
                     return UnknownModel
             else:
                 return tmodel
+
+    # TODO move other methods: _ultimate_model?

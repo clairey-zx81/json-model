@@ -39,6 +39,12 @@ def _show_index(checks: list[bool], val):
     assert bads
     return "[" + ",".join(bads) + "]"
 
+_UMODEL = {
+    "BOOL": True, "NULL": None,
+    "I32": -1, "U32": 0, "I64": -1, "U64": 0,
+    "F32": -1.0, "F64": -1.0,
+    "STRING": ""
+}
 
 class CompileModel(Validator):
 
@@ -65,6 +71,7 @@ class CompileModel(Validator):
                         self._signed_int = True
                     # TODO other options?
 
+        # comparison which can apply on length if necessary
         self._LENGTH_LAMBDAS = {
             "=": self._lambda_eq,
             "!=": self._lambda_ne,
@@ -89,6 +96,7 @@ class CompileModel(Validator):
         self._defs.set("U64", lambda v, p: isinstance(v, int) and 0 <= v <= (2**64 - 1) or self._no("<U64>", p, "invalid U64"))
         # FIXME F32?
         self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no("<F64>", p, "invalid F64"))
+        self._defs.set("STRING", lambda v, p: isinstance(v, str) or self._no("<STRING>", p, "not a string"))
 
         # url cache
         self._urls = set()
@@ -365,6 +373,7 @@ class CompileModel(Validator):
 
     def _ultimate_model(self, model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
+        # FIXME stop infinite recursion?!
         tmodel = type(model)
         if tmodel in (type(None), bool, int, float, list, tuple):
             return model
@@ -375,6 +384,10 @@ class CompileModel(Validator):
                 return model
             else:  # follow definition if possible
                 m = self._defs.model(model[1:])
+                # handle some predefs
+                if isinstance(m, str) and m and m[0] == "$" and m[1:] in _UMODEL:
+                    return _UMODEL[m[1:]]
+                # else try recursing
                 return self._ultimate_model(m) if m != UnknownModel else m
         elif tmodel is dict:
             if "@" in model:
@@ -520,6 +533,7 @@ class CompileModel(Validator):
             if kc in ("@", "%", "$", "#"):
                 continue
 
+            # value constraint type
             tvc = type(vc)
 
             if kc in self._LENGTH_LAMBDAS:
@@ -567,12 +581,18 @@ class CompileModel(Validator):
                     # then check "in" count against expectations
                     return all(map(lambda f: f(ins, p), checks_nb))
                 checks_val.append(in_check)
+            elif ttype == UnknownModel:
+                # dynamic version
+                def nb_check_gen(v, p):
+                    l = len(v) if isinstance(v, (str, list, dict)) else v
+                    return all(map(lambda f: f(l, p), checks_nb))
+                checks_val.append(nb_check_gen)
             elif has_len:
                 # check length of whatever
-                def nb_check(v, p):
-                    l = len(v)
+                def nb_check_stat(v, p):
+                    l = len(v) if isinstance(v, (str, list, dict)) else v
                     return all(map(lambda f: f(l, p), checks_nb))
-                checks_val.append(nb_check)
+                checks_val.append(nb_check_stat)
             else:
                 # just apply on value
                 checks_val.append(lambda v, p: all(map(lambda f: f(v, p), checks_nb)))

@@ -45,6 +45,7 @@ class DSV(Validator):
         self.set("REGEX", utils.is_regex, "<REGEX>")
         self.set("URI", lambda s: isinstance(s, str), "<URI>")
         self.set("URL-REFERENCE", lambda s: isinstance(s, str), "<URL-REFERENCE>")
+        self.set("STRING", lambda s: isinstance(s, str), "<STRING>")
 
     def _int(self, value: ValueType, model: ModelType, _strict: bool = True):
         assert type(model) == int
@@ -91,8 +92,11 @@ class DSV(Validator):
         #     for v in value:
         #         if self.check(v, imodel):
         #             ivalue += 1
+        # FIXME the logic is broken!
         if submodel == "$ANY":  # FIXME handle $ here?
             ivalue = None
+        elif isinstance(value, int):
+            ivalue, has_nb = value, True
         elif type(submodel) in (list, tuple, dict, str):
             ivalue, has_nb = len(value), True
         else:
