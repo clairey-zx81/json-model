@@ -25,12 +25,20 @@
     "Null": { "type": "_null" },
     "Boolean": { "type": "_boolean" },
     "Number": {
-      "type": { "|": [ "_integer", "_number" ] },
-      "?multipleOf": 1.0,
-      "?maximum": -1.0,
-      "?exclusiveMaximum": -1.0,
-      "?minimum": -1.0,
-      "?exclusiveMinimum": -1.0
+      "type": "number",
+      "?multipleOf": { "|": [ 1, 1.0 ] },
+      "?maximum": { "|": [ -1, -1.0 ] },
+      "?exclusiveMaximum": { "|": [ -1, -1.0 ] },
+      "?minimum": { "|": [ -1, -1.0 ] },
+      "?exclusiveMinimum": { "|": [ -1, -1.0 ] }
+    },
+    "Integer": {
+      "type": "integer",
+      "?multipleOf": 1,
+      "?maximum": -1,
+      "?exclusiveMaximum": -1,
+      "?minimum": -1,
+      "?exclusiveMinimum": -1
     },
     "String": {
       "type": "_string",
@@ -85,6 +93,7 @@
         { "+": [ "$core", "$meta", "$Null" ] },
         { "+": [ "$core", "$meta", "$Boolean" ] },
         { "+": [ "$core", "$meta", "$Number" ] },
+        { "+": [ "$core", "$meta", "$Integer" ] },
         { "+": [ "$core", "$meta", "$String" ] },
         { "+": [ "$core", "$meta", "$Array" ] },
         { "+": [ "$core", "$meta", "$Object" ] },
