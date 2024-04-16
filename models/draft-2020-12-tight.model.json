@@ -25,7 +25,7 @@
     "Null": { "type": "_null" },
     "Boolean": { "type": "_boolean" },
     "Number": {
-      "type": "number",
+      "type": "_number",
       "?multipleOf": { "|": [ 1, 1.0 ] },
       "?maximum": { "|": [ -1, -1.0 ] },
       "?exclusiveMaximum": { "|": [ -1, -1.0 ] },
@@ -33,7 +33,7 @@
       "?exclusiveMinimum": { "|": [ -1, -1.0 ] }
     },
     "Integer": {
-      "type": "integer",
+      "type": "_integer",
       "?multipleOf": 1,
       "?maximum": -1,
       "?exclusiveMaximum": -1,

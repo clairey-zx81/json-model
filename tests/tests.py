@@ -150,7 +150,6 @@ def test_c_checked_json_schema():
             schema = json.load(f)
         assert schema_is_tight(schema), f"c-checked schema: {fs}"
 
-@pytest.mark.skip("needs @")
 def test_s_checked_json_schema():
     """Check that s2m schemas are tight."""
     schema_is_tight = static_compile_fun(JSON_SCHEMA_MODEL)

@@ -32,6 +32,7 @@ _PREDEFS = {
     "INTEGER": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
     "FLOAT": lambda v: f"isinstance({v}, float)",
     "STRING": lambda v: f"isinstance({v}, str)",
+    "REGEX": lambda v: f"isinstance({v}, str)",  # TODO should be a valid regex
     # TODO more
 }
 
@@ -374,6 +375,12 @@ class SourceCode(Validator):
                     self._compileModel(code, indent+i+1, model[i], f"{mpath}[{i}]", res, f"{val}[{i}]", f"{vpath}[{i}]")
         elif isinstance(model, dict):
             assert "+" not in model, "merge must have been preprocessed"
+            if "$" in model and not skip_dollar:
+                name = model["$"]
+                self.subs(self._compileName(name, model, mpath, skip_dollar=True))
+                fun = self._getName(name)
+                code.add(indent, f"{res} = {fun}({val}, path)")
+                return
             if "@" in model:
                 self._compileConstraint(code, indent, model, mpath, res, val, vpath)
             elif "|" in model:
@@ -422,12 +429,6 @@ class SourceCode(Validator):
                 # TODO check for non-root %
                 # TODO optimize empty model?
                 # TODO generate separate functions for objects?
-                if "$" in model and not skip_dollar:
-                    name = model["$"]
-                    self.subs(self._compileName(name, model, mpath, skip_dollar=True))
-                    fun = self._getName(name)
-                    code.add(indent, f"{res} = {fun}({val}, path)")
-                    return
                 self._compileObject(code, indent, model, mpath, res, val, "path")
         else:
             raise ModelError(f"unexpected model type: {type(model).__name__}")
