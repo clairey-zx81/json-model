@@ -226,8 +226,7 @@ class SourceCode(Validator):
         if must:
             code.add(indent+1, f"{must_c} = 0")
         code.add(indent+1, f"for {prop}, {value} in {val}.items():")
-        code.add(indent+2, f"{res} = isinstance({prop}, str)")
-        code.add(indent+2, f"if not {res}: break")
+        code.add(indent+2, f"assert isinstance({prop}, str)")
         cond = "if"
         if must:
             code.add(indent+2, f"{cond} {prop} in {prop_must}:  # must")
