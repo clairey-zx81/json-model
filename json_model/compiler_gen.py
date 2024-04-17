@@ -232,7 +232,7 @@ class SourceCode(Validator):
         assert False
 
     def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: str,
-                       res: str, val: str, vpath: str):
+                       oname: str, res: str, val: str, vpath: str):
         # separate properties
         must, may, defs, regs, oth = split_object(model, mpath)
         # TODO optimize must only case?
@@ -240,7 +240,7 @@ class SourceCode(Validator):
         code.add(indent, f"{res} = isinstance({val}, dict)")
         code.add(indent, f"if {res}:")
         if must:
-            prop_must = self._ident("pmu_")
+            prop_must = f"{oname}_must"
             prop_must_map: dict[str, str] = {}
             self.define(f"{prop_must}: dict[str, CheckFun]")
             self._maps[prop_must] = prop_must_map
@@ -249,7 +249,7 @@ class SourceCode(Validator):
                 self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                 prop_must_map[p] = self._getName(pid)
         if may:
-            prop_may = self._ident("pma_")
+            prop_may = f"{oname}_may"
             prop_may_map: dict[str, str] = {}
             self.define(f"{prop_may}: dict[str, CheckFun]")
             self._maps[prop_may] = prop_may_map
@@ -258,9 +258,10 @@ class SourceCode(Validator):
                 self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                 prop_may_map[p] = self._getName(pid)
         # variables
-        prop = self._ident("p_", True)
-        value = self._ident("v_", True)
-        must_c = self._ident("mc_", True)
+        # prop = self._ident("p_", True)
+        # value = self._ident("v_", True)
+        # must_c = self._ident("mc_", True)
+        prop, value, must_c = "prop", "model", "must_count"
         if must:
             code.add(indent+1, f"{must_c} = 0")
         code.add(indent+1, f"for {prop}, {value} in {val}.items():")
@@ -475,8 +476,8 @@ class SourceCode(Validator):
                     ocode = Code()
                     ocode.nl()
                     ocode.add(0, f"# object {mpath}")
-                    ocode.add(0, f"def {objid}(value, path):")
-                    self._compileObject(ocode, 1, model, mpath, "result", "value", "path")
+                    ocode.add(0, f"def {objid}(value: Any, path: str) -> bool:")
+                    self._compileObject(ocode, 1, model, mpath, objid, "result", "value", "path")
                     ocode.add(1, f"return result")
                     self.subs(ocode)
                     self._generated.add(mpath)
@@ -508,11 +509,12 @@ class SourceCode(Validator):
         # generate code
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({mpath})")
-        code.add(0, f"def {fun}(value, path: str) -> bool:")
+        code.add(0, f"def {fun}(value: Any, path: str) -> bool:")
         self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
         code.add(1, "return result")
         if fun2 and fun2 != fun:
             code.nl()
+            code.add(0, "# named root")
             code.add(0, f"{fun2} = {fun}")
         # NOTE yuk! the function may have been generated as a side effect of the previous call.
         # if so, this version is simply discarded
