@@ -309,6 +309,7 @@ class SourceCode(Validator):
         else:
             if cond == "if":
                 # we are expecting an empty object
+                code.add(indent+2, f"# no catch all")
                 code.add(indent+2, f"{res} = False")
                 code.add(indent+2, f"break")
             else:
@@ -321,7 +322,7 @@ class SourceCode(Validator):
 
     def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: str,
                       res: str, val: str, vpath: str, skip_dollar: bool = False):
-        log.debug(f"model={model} res={res} val={val} vpath={vpath} indent={indent} mpath={mpath}")
+        log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} indent={indent}")
         code.add(indent, f"# {mpath}")
         if model is None:
             code.add(indent, f"{res} = {val} is None")
@@ -466,14 +467,14 @@ class SourceCode(Validator):
                 # TODO check for non-root %
                 # TODO optimize empty model?
                 # generate separate functions for objects?
-                if not mpath in self._paths:
+                if mpath not in self._paths:
                     objid = self._ident("obj_")
                 else:
                     objid = self._paths[mpath]
                 if mpath not in self._generated:
                     ocode = Code()
                     ocode.nl()
-                    ocode.add(0, f"# {mpath}")
+                    ocode.add(0, f"# object {mpath}")
                     ocode.add(0, f"def {objid}(value, path):")
                     self._compileObject(ocode, 1, model, mpath, "result", "value", "path")
                     ocode.add(1, f"return result")
@@ -490,6 +491,7 @@ class SourceCode(Validator):
         return self._names[name]
 
     def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
+        log.debug(f"name: mpath={mpath} name={name}")
         code = Code()
         # keep definitions
         self._defs.set(name, model)
@@ -505,17 +507,17 @@ class SourceCode(Validator):
             self._paths[mpath] = fun
         # generate code
         code.nl()
-        code.add(0, f"# define {self._esc(name)}")
+        code.add(0, f"# define {self._esc(name)} ({mpath})")
         code.add(0, f"def {fun}(value, path: str) -> bool:")
         self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
         code.add(1, "return result")
-        # FIXME something went wrong in self-naming
-        if fun2:
+        if fun2 and fun2 != fun:
             code.nl()
             code.add(0, f"{fun2} = {fun}")
         # NOTE yuk! the function may have been generated as a side effect of the previous call.
         # if so, this version is simply discarded
         if mpath not in self._generated:
+            # on a named root, two names for the same path
             self._generated.add(mpath)
         else:
             code.clear()
