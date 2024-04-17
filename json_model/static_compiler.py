@@ -14,7 +14,7 @@ import argparse
 from typing import Any
 
 from .utils import ModelType, ValueType, ModelError, UnknownModel
-from .utils import openfiles, split_object
+from .utils import openfiles, split_object, model_in_models
 from .preproc import _constant_value, model_preprocessor
 from .defines import Validator
 
@@ -480,22 +480,48 @@ class SourceCode(Validator):
                         code.add(indent + i - 1, f"if {res}:")
                     self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath)
             elif "^" in model:
-                # TODO optimize out repeated models
                 lpath = mpath + ".^"
                 models = model["^"]
+
+                # optimize out repeated models
+                if len(models) >= 2:
+                    seen, dups, kept = [], [], []
+                    for m in models:
+                        if model_in_models(m, seen):
+                            if not model_in_models(m, dups):
+                                dups.append(m)
+                        else:
+                            seen.append(m)
+                    for m in seen:
+                        if not model_in_models(m, dups):
+                            kept.append(m)
+                    
+                    # false if in dups
+                    for i, m in enumerate(dups):
+                        self._compileModel(code, indent+i, m, f"{lpath}[?]", "isin", val, vpath)
+                        code.add(indent+i, f"{res} = not isin")                   
+                        code.add(indent+i, f"if {res}:")
+
+                    # update remaining models and identation
+                    models = kept
+                    depth = len(dups)
+                else:
+                    depth = 0
+
+                # standard case
                 if not models:
-                    code.add(indent, f"{res} = False")
+                    code.add(indent+depth, f"{res} = False")
                 elif len(models) == 1:
-                    self._compileModel(code, ident, models[0], f"{lpath}[0]", res, val, vpath)
+                    self._compileModel(code, indent+depth, models[0], f"{lpath}[0]", res, val, vpath)
                 else:  # several models are inlined
                     count = self._ident("xc_", True)
                     test = self._ident("xr_", True)
-                    code.add(indent, f"{count} = 0")
+                    code.add(indent+depth, f"{count} = 0")
                     for i, m in enumerate(models):
-                        code.add(indent, f"if {count} <= 1:")
-                        self._compileModel(code, indent+1, m, f"{lpath}[{i}]", test, val, vpath)
-                        code.add(indent+1, f"if {test}: {count} += 1")
-                    code.add(indent, f"{res} = {count} == 1")
+                        code.add(indent+depth, f"if {count} <= 1:")
+                        self._compileModel(code, indent+depth+1, m, f"{lpath}[{i}]", test, val, vpath)
+                        code.add(indent+depth+1, f"if {test}: {count} += 1")
+                    code.add(indent+depth, f"{res} = {count} == 1")
             else:
                 # TODO check for non-root %
                 # TODO optimize empty model?
