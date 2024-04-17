@@ -8,6 +8,8 @@
 import re  # re2?
 import copy
 import logging
+import argparse
+import json
 
 from . import utils, url_cache
 from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
@@ -799,3 +801,49 @@ class CompileModel(Validator):
 def compileModel(model: ModelType) -> CheckFun:
     """Compile a JSON Model."""
     return CompileModel(model)
+
+#
+# check some json files against a model
+#
+# usage: $0 model.json file.json …
+#
+def c_check_model():
+
+    logging.basicConfig(level=logging.INFO)
+    log = logging.getLogger("model")
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("-D", "--dis", action="store_true")
+    ap.add_argument("-F", "--fast-fail", action="store_true")
+    ap.add_argument("model", type=str)
+    ap.add_argument("jsons", nargs="*")
+    args = ap.parse_args()
+
+    # options
+    if args.debug:
+        _debug = True
+        log.setLevel(logging.DEBUG)
+
+    fast_fail = args.fast_fail
+
+    # load model
+    with open(args.model) as f:
+        checkModel = compileModel(json.load(f))
+
+    if args.dis:
+        import dis
+        print(dis.dis(checkModel))
+
+    # process other files
+    for fn, fh in utils.openfiles(args.jsons):
+        valid = False
+        try:
+            valid = checkModel(json.load(fh))
+            print(f"{fn}: {valid}")
+            if not valid:
+                log.info(f"failures: {checkModel._reasons}")
+                print(f"failures: {checkModel._reasons}")
+        except Exception as e:
+            print(f"{fn}: error")
+            log.error(f"{fn}: {e}")
