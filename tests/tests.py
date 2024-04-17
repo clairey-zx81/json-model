@@ -12,10 +12,10 @@ log.setLevel(logging.INFO)
 
 import json_model.generate as generate
 from json_model.preproc import model_preprocessor
-from json_model.compiler_gen import static_compile_fun
+from json_model.static_compiler import static_compile_fun
 from json_model.utils import ModelError
 from json_model.validator import DSV
-import json_model.compiler as compiler
+import json_model.dynamic_compiler as compiler
 
 from good_models import (
     TEST_MODELS, JSON_MODEL, JSON_SCHEMA_MODEL, JSON_MODEL_SCHEMA,

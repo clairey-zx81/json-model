@@ -7,7 +7,7 @@ import sys
 import json
 import logging
 import argparse
-from . import compiler, utils
+from . import dynamic_compiler as compiler, utils
 
 def c_check_model():
 
