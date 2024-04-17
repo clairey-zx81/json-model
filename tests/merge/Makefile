@@ -9,4 +9,4 @@ F.mjson = $(F.json:%.json=%.merged.json)
 merged: $(F.mjson)
 
 %.merged.json: %.json
-	json-model-merge $< > $@
+	jm-preprocessor $< > $@

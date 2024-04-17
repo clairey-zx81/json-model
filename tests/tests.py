@@ -105,6 +105,7 @@ def test_merge():
     merge = pathlib.Path("./merge")
     for fm in merge.glob("*.merged.json"):
         fi = str(fm).replace(".merged.", ".")
+        log.info(f"processing file {fi}")
         with open(fi) as f:
             mi = json.load(f)
         with open(fm) as f:

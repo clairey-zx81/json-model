@@ -170,8 +170,9 @@ def split_object(model: dict[str, Any], path: str) -> tuple[Object, Object, Obje
 
 def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others: Object) -> Object:
     """Regenerate an object from separated properties."""
+    bang = lambda s: s if re.match(r"[A-Za-z0-9]", s) else f"!{s}"
     return {
-        **{f"!{k}": v for k, v in must.items()},
+        **{bang(k): v for k, v in must.items()},
         **{f"?{k}": v for k, v in may.items()},
         **{f"${k}": v for k, v in refs.items()},
         # FIXME /i support?
