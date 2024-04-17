@@ -19,18 +19,29 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 
 ## Commands
 
-- `c-check-model some.model.json files.json…`
+- `jm-c-check-model some_model.json files.json…`
 
    check whether the model matches the JSON data in files
-   with the JSON Model Compiler.
+   with the JSON Model Dynamic Compiler.
 
-- `v-check-model some.model.json files.json…`
+- `jm-cs-check-model some_model.json files.json…`
+
+   check whether the model matches the JSON data in files
+   with the JSON Model Static Compiler.
+
+- `jm-v-check-model some_model.json files.json…`
 
    same thing with the *validator* (aka interpreter).
 
-- `model2schema` convert a JSON Model to a JSON Schema.
-- `schema2model` convert a JSON Schema (partial) to a JSON Model.
-- `json-model-merge` JSON Model preprocessor
+- `jm-model2schema` convert a JSON Model to a JSON Schema.
+- `jm-schema2model` convert a JSON Schema (partial) to a JSON Model.
+- `jm-preprocessor` JSON Model preprocessor
   - flatten operators `|` `^` and `&`
   - distribute `+` (merge operator occurences) over `|` (or operator).
   - compute merged objects definitions (removes `+` operators)
+  - partial evaluation
+  - deduplication in `^ |`
+  - xor to or convertion if possible (`^` -> `|`)
+- `jm-compiler some_model.json`
+  static compiler
+
