@@ -236,9 +236,8 @@ class SourceCode(Validator):
         # separate properties
         must, may, defs, regs, oth = split_object(model, mpath)
         # TODO optimize must only case?
-        # TODO direct return?
-        code.add(indent, f"{res} = isinstance({val}, dict)")
-        code.add(indent, f"if {res}:")
+        code.add(indent, f"if not isinstance({val}, dict):")
+        code.add(indent+1, f"return False")
         if must:
             prop_must = f"{oname}_must"
             prop_must_map: dict[str, str] = {}
@@ -263,63 +262,62 @@ class SourceCode(Validator):
         # must_c = self._ident("mc_", True)
         prop, value, must_c = "prop", "model", "must_count"
         if must:
-            code.add(indent+1, f"{must_c} = 0")
-        code.add(indent+1, f"for {prop}, {value} in {val}.items():")
-        code.add(indent+2, f"assert isinstance({prop}, str)")
+            code.add(indent, f"{must_c} = 0")
+        code.add(indent, f"for {prop}, {value} in {val}.items():")
+        code.add(indent+1, f"assert isinstance({prop}, str)")
         cond = "if"
         if must:
-            code.add(indent+2, f"{cond} {prop} in {prop_must}:  # must")
-            code.add(indent+3, f"{must_c} += 1")
-            code.add(indent+3, f"{res} = {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
-            code.add(indent+3, f"if not {res}: break")
+            code.add(indent+1, f"{cond} {prop} in {prop_must}:  # must")
+            code.add(indent+2, f"{must_c} += 1")
+            code.add(indent+2, f"if not {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent+3, f"return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         if may:
-            code.add(indent+2, f"{cond} {prop} in {prop_may}:  # may")
-            code.add(indent+3, f"{res} = {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\")")
-            code.add(indent+3, f"if not {res}: break")
+            code.add(indent+1, f"{cond} {prop} in {prop_may}:  # may")
+            code.add(indent+2, f"if not {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent+3, f"return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # $* is inlined expr
         for d, v in defs.items():
-            code.add(indent+2, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
-            self._compileModel(code, indent+3, v, f"{mpath}.{d}", res, value, vpath)
-            code.add(indent+3, f"if not {res}: break")
+            code.add(indent+1, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
+            self._compileModel(code, indent+2, v, f"{mpath}.{d}", res, value, vpath)
+            code.add(indent+2, f"if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # // is inlined
         for r, v in regs.items():
             regex = f"/{r}/"
-            code.add(indent+2, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
-            self._compileModel(code, indent+3, v, f"{mpath}.{regex}", res, value, vpath)
-            code.add(indent+3, f"if not {res}: break")
+            code.add(indent+1, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
+            self._compileModel(code, indent+2, v, f"{mpath}.{regex}", res, value, vpath)
+            code.add(indent+2, f"if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # catchall is inlined
         if oth:
             omodel = oth[""]
             if cond == "if":  # direct
-                self._compileModel(code, indent+2, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent+2, f"if not {res}: break")
-                # code.add(indent+1, f"continue")
+                self._compileModel(code, indent, omodel, f"{mpath}.", res, value, vpath)
+                code.add(indent, f"if not {res}: return False")
             else:
-                code.add(indent+2, "else:  # catch all")
-                self._compileModel(code, indent+3, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent+3, f"if not {res}: break")
+                code.add(indent+1, "else:  # catch all")
+                self._compileModel(code, indent+2, omodel, f"{mpath}.", res, value, vpath)
+                code.add(indent+2, f"if not {res}: return False")
                 # code.add(indent+3, f"continue")
         else:
             if cond == "if":
                 # we are expecting an empty object
-                code.add(indent+2, f"# no catch all")
-                code.add(indent+2, f"{res} = False")
-                code.add(indent+2, f"break")
+                code.add(indent+1, f"# no catch all")
+                code.add(indent+1, f"return False")
             else:
-                code.add(indent+2, "else:  # no catch all")
-                code.add(indent+3, f"{res} = False")
-                code.add(indent+3, f"break")
+                code.add(indent+1, "else:  # no catch all")
+                code.add(indent+2, f"return False")
         # check that all must were seen
         if must:
-            code.add(indent+1, f"{res} = {res} and {must_c} == {len(must)}")
+            code.add(indent, f"return {must_c} == {len(must)}")
+        else:
+            code.add(indent, f"return True")
 
     def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: str,
                       res: str, val: str, vpath: str, skip_dollar: bool = False):
@@ -478,7 +476,6 @@ class SourceCode(Validator):
                     ocode.add(0, f"# object {mpath}")
                     ocode.add(0, f"def {objid}(value: Any, path: str) -> bool:")
                     self._compileObject(ocode, 1, model, mpath, objid, "result", "value", "path")
-                    ocode.add(1, f"return result")
                     self.subs(ocode)
                     self._generated.add(mpath)
                 code.add(indent, f"{res} = {objid}({val}, {vpath})")
