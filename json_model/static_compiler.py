@@ -496,40 +496,49 @@ class SourceCode(Validator):
                 # optimize out repeated models
                 if len(models) >= 2:
                     seen, dups, kept = [], [], []
-                    for m in models:
+                    seen_i, dups_i, kept_i = [], [], []
+                    for i, m in enumerate(models):
                         if model_in_models(m, seen):
                             if not model_in_models(m, dups):
                                 dups.append(m)
+                                dups_i.append(i)
                         else:
                             seen.append(m)
-                    for m in seen:
+                            seen_i.append(i)
+                    for i, m in zip(seen_i, seen):
                         if not model_in_models(m, dups):
                             kept.append(m)
+                            kept_i.append(i)
                     
                     # false if in dups
                     for i, m in enumerate(dups):
-                        self._compileModel(code, indent+i, m, f"{lpath}[?]", "isin", val, vpath)
+                        idx = dups_i[i]
+                        self._compileModel(code, indent+i, m, f"{lpath}[{idx}]", "isin", val, vpath)
                         code.add(indent+i, f"{res} = not isin")                   
                         code.add(indent+i, f"if {res}:")
 
                     # update remaining models and identation
                     models = kept
+                    models_i = kept_i
                     depth = len(dups)
                 else:
+                    models_i = list(range(len(models)))
                     depth = 0
 
                 # standard case
                 if not models:
                     code.add(indent+depth, f"{res} = False")
                 elif len(models) == 1:
-                    self._compileModel(code, indent+depth, models[0], f"{lpath}[0]", res, val, vpath)
+                    mod, idx = models[0], models_i[0]
+                    self._compileModel(code, indent+depth, mod, f"{lpath}[{idx}]", res, val, vpath)
                 else:  # several models are inlined
                     count = self._ident("xc_", True)
                     test = self._ident("xr_", True)
                     code.add(indent+depth, f"{count} = 0")
                     for i, m in enumerate(models):
+                        idx = models_i[i]
                         code.add(indent+depth, f"if {count} <= 1:")
-                        self._compileModel(code, indent+depth+1, m, f"{lpath}[{i}]", test, val, vpath)
+                        self._compileModel(code, indent+depth+1, m, f"{lpath}[{idx}]", test, val, vpath)
                         code.add(indent+depth+1, f"if {test}: {count} += 1")
                     code.add(indent+depth, f"{res} = {count} == 1")
             else:
