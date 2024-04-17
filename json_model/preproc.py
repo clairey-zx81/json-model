@@ -8,11 +8,18 @@ from typing import Any, Callable
 import logging
 import argparse
 from .utils import UnknownModel, Object, ValueType, ModelType, ModelError
-from .utils import model_eq, same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles
+from .utils import same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles
 
 # preprocessor-specific debug
 log = logging.getLogger("preproc")
 # log.setLevel(logging.DEBUG)
+
+def _dedup_models(models: list[ModelType]) -> list[ModelType]:
+    dedups = []
+    for m in models:
+        if not model_in_models(m, dedups):
+            dedups.append(m)
+    return dedups
 
 def _constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
     if m is None:
@@ -625,6 +632,8 @@ def flatten(data, defs, path):
                         flat += m[op]
                     else:  # NOTE we keep the initial definition!
                         flat.append(model)
+                if op in ("|", "&"):
+                    flat = _dedup_models(flat)
                 data[op] = flat
         return data
 
