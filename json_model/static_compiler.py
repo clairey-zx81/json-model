@@ -11,6 +11,7 @@ import re
 import json
 import logging
 import argparse
+from typing import Any
 
 from .utils import ModelType, ValueType, ModelError, UnknownModel
 from .utils import openfiles, split_object
@@ -165,9 +166,9 @@ class SourceCode(Validator):
     def _regExpr(self, regex: str, val: str):
         return f"{self._regex(regex)}({val}) is not None"
 
-    def _esc(self, string: str):
+    def _esc(self, val: Any):
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
-        return json.dumps(string)
+        return json.dumps(val) if isinstance(val, str) else str(val)
 
     def _dollarExpr(self, name: str, val: str, vpath: str):
         if name in _PREDEFS:
@@ -212,7 +213,7 @@ class SourceCode(Validator):
             code.add(indent, f"{res} = {res} and {' and '.join(checks)}")
 
     def _disjunction(self, code: Code, indent: int, model: ModelType, mpath: str,
-                     res: str, val: str, vpath: str):
+                     res: str, val: str, vpath: str) -> bool:
         """Generate optimized disjunction check.
 
         model: `{"|": [ o1, o2, ... ] }`
@@ -220,16 +221,47 @@ class SourceCode(Validator):
 
         dis = self._disjunct_analyse(model, mpath)
         if dis is None:
-            return None
+            return False
         tag_name, tag_type, models, all_const_props = dis
+
+        # Compile all object models in the list if needed
+        for i, m in enumerate(models):
+            p = f"{mpath}[{i}]"
+            if p not in self._paths:
+                c = Code()
+                self._compileModel(c, 0, m, p, "result", "value", "path")
+                log.debug(f"{self._paths}")
+                # NOTE object function generated as a side effect
 
         # {disid}_tm = { tag-value: check_function_for_this_tag_value }
         # if v is dict:
         #     if v[tag] in object_tag:
         #         res = object_tag[v[tag]](v)
-        disid = self._ident("dis_")
-        # WIP
-        assert False
+        disid = self._ident("map_")
+        tag = self._ident("tag_", True)
+
+        # mapping from tag values to check functions
+        TAG_CHECKS = {}
+        for i in range(len(models)):
+            consts = all_const_props[i]
+            TAG_CHECKS[consts[tag_name]] = self._paths[f"{mpath}[{i}]"]
+
+        self.define(f"{disid}: dict[Any, CheckFun]")
+        self._maps[disid] = TAG_CHECKS
+        esctag = self._esc(tag_name)
+
+        # val is Object, tag is in val, tag_value is valid 
+        code.add(indent, f"{res} = isinstance({val}, dict)")
+        code.add(indent, f"if {res}:")
+        code.add(indent+1, f"{res} = {esctag} in {val}")
+        code.add(indent+1, f"if {res}:")
+        code.add(indent+2, f"{tag} = {val}[{esctag}]")
+        code.add(indent+2, f"if {tag} in {disid}:")
+        code.add(indent+3, f"{res} = {disid}[{tag}]({val}, {vpath})")
+        code.add(indent+2, f"else:")
+        code.add(indent+3, f"{res} = False")
+
+        return True
 
     def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: str,
                        oname: str, res: str, val: str, vpath: str):
@@ -421,14 +453,16 @@ class SourceCode(Validator):
             if "@" in model:
                 self._compileConstraint(code, indent, model, mpath, res, val, vpath)
             elif "|" in model:
-                # TODO list of (string) constants optimization
-                # TODO discriminant optimization
                 lpath = mpath + ".|"
                 models = model["|"]
+                # list of (string) constants optimization
                 if all(map(lambda m: _constant_value(m, lpath)[0], models)):
                     # list of constants
                     constants = set(map(lambda m: _constant_value(m, lpath)[1], models))
                     code.add(indent, f"{res} = {val} in {constants}")
+                    return
+                # discriminant optimization
+                if self._disjunction(code, indent, model, lpath, res, val, vpath):
                     return
                 if not models:
                     code.add(indent, f"{res} = False")
@@ -468,6 +502,7 @@ class SourceCode(Validator):
                 # generate separate functions for objects?
                 if mpath not in self._paths:
                     objid = self._ident("obj_")
+                    self._paths[mpath] = objid
                 else:
                     objid = self._paths[mpath]
                 if mpath not in self._generated:
