@@ -298,8 +298,8 @@ class SourceCode(Validator):
         if oth:
             omodel = oth[""]
             if cond == "if":  # direct
-                self._compileModel(code, indent, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent, f"if not {res}: return False")
+                self._compileModel(code, indent+1, omodel, f"{mpath}.", res, value, vpath)
+                code.add(indent+1, f"if not {res}: return False")
             else:
                 code.add(indent+1, "else:  # catch all")
                 self._compileModel(code, indent+2, omodel, f"{mpath}.", res, value, vpath)
