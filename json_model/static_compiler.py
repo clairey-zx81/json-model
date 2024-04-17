@@ -225,13 +225,23 @@ class SourceCode(Validator):
         tag_name, tag_type, models, all_const_props = dis
 
         # Compile all object models in the list if needed
+        init = model["|"]
+        assert len(models) == len(init)
         for i, m in enumerate(models):
             p = f"{mpath}[{i}]"
-            if p not in self._paths:
+            mi = init[i]  # initial model
+            if isinstance(mi, str) and mi and mi[0] == "$":
+                # it is a reference, it must be compiled for its name, no need to recompile it!
+                fun = self._getName(mi[1:])
+                if not p in self._paths:
+                    # several path will lead to the same function
+                    self._paths[p] = fun
+                # else nothing to do?
+            elif p not in self._paths:
+                # else compile the direct object as a side effect…
                 c = Code()
                 self._compileModel(c, 0, m, p, "result", "value", "path")
-                log.debug(f"{self._paths}")
-                # NOTE object function generated as a side effect
+                # log.debug(f"{self._paths}")
 
         # {disid}_tm = { tag-value: check_function_for_this_tag_value }
         # if v is dict:
