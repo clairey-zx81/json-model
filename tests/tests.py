@@ -2,6 +2,7 @@ import pathlib
 import re
 import json
 import copy
+import itertools
 import pytest
 
 import logging
@@ -12,7 +13,7 @@ log.setLevel(logging.INFO)
 
 import json_model.generate as generate
 from json_model.preproc import model_preprocessor
-from json_model.static_compiler import static_compile_fun
+from json_model.static_compiler import static_compile_fun, static_compile
 from json_model.utils import ModelError
 from json_model.validator import DSV
 import json_model.dynamic_compiler as compiler
@@ -112,6 +113,22 @@ def test_merge():
             mm = json.load(f)
         mmg = model_preprocessor(mi, {})
         assert mmg == mm
+
+def test_compiled():
+    merge = pathlib.Path("./merge")
+    modval = pathlib.Path("./modeval")
+    for fm in itertools.chain(merge.glob("*.py"), modval.glob("*.py")):
+        fi = str(fm).replace(".py", ".json")
+        log.info(f"processing file {fi} vs {fm}")
+        with open(fi) as f:
+            mi = json.load(f)
+        with open(fm) as f:
+            pys = f.read()
+        pyg = str(static_compile(mi)) + "\n"
+        if False:  # debug help
+            with open(f"{fi}.out", "w") as f:
+                f.write(pyg)
+        assert pyg == pys
 
 def test_v_checked_json_model():
     """Check that test models validate the meta model."""
