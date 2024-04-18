@@ -6,12 +6,13 @@ import itertools
 import pytest
 
 import logging
+
 logging.basicConfig()
 log = logging.getLogger("tests")
 log.setLevel(logging.INFO)
 # log.setLevel(logging.DEBUG)
 
-import json_model.generate as generate
+import json_model.convert as generate
 from json_model.preproc import model_preprocessor
 from json_model.static_compiler import static_compile_fun, static_compile
 from json_model.utils import ModelError

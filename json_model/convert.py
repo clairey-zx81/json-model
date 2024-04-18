@@ -1,7 +1,9 @@
-import json
-
+import sys
 import logging
-log = logging.getLogger("s2m")
+import json
+from . import utils
+
+log = logging.getLogger("convert")
 # log.setLevel(logging.DEBUG)
 
 #
@@ -801,3 +803,40 @@ def model2schema(model):
             schema["not"] = True
 
     return schema
+
+#
+# Generate a JSON Schema from a JSON Model
+#
+def model2schema_script():
+
+    logging.basicConfig()
+
+    for fn, fh in utils.openfiles(sys.argv[1:]):
+        jmodel = fh.read()
+        model = json.loads(jmodel)
+        schema = model2schema(model)
+        jschema = json.dumps(schema, indent=2)
+        # log.debug(f"schema: {}")
+        # log.debug(f"model: {jmodel}")
+        print(jschema)
+
+#
+# Take a (simple) JSON Schema and generate a JSON Model
+#
+def schema2model_script():
+
+    logging.basicConfig()
+
+    params = sys.argv[1:]
+    if params and params[0] == "-e":
+        params = params[1:]
+        EXPLICIT_TYPE = True
+
+    for fn, fh in utils.openfiles(params):
+        jschema = fh.read()
+        schema = json.loads(jschema)
+        model = schema2model(schema)
+        jmodel = json.dumps(model, indent=2)
+        # log.debug(f"schema: {jschema}")
+        # log.debug(f"model: {jmodel}")
+        print(jmodel)

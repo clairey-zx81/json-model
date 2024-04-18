@@ -2,11 +2,13 @@
 
 # NOTE on false the system should say *why*
 
+import sys
 from typing import Callable
 try:
     import re2 as re
 except ModuleNotFoundError:
     import re
+import json
 import logging
 
 from . import utils
@@ -14,8 +16,7 @@ from .preproc import model_preprocessor
 from .utils import ValueType, ModelType, ModelError, distinct_values
 from .defines import Validator
 
-logging.basicConfig()
-log = logging.getLogger("dsv")
+log = logging.getLogger("validator")
 # log.setLevel(logging.DEBUG)
 # log.setLevel(logging.INFO)
 
@@ -228,7 +229,7 @@ class DSV(Validator):
                     else:
                         # unexpected property name
                         return False
-    
+
         # all properties and values are checked
 
         # return whether all mandatory properties were seen
@@ -344,9 +345,9 @@ class DSV(Validator):
                 if name == "null":
                     return value is None
                 elif name == "true":
-                    return isinstance(value, bool) and value 
+                    return isinstance(value, bool) and value
                 elif name == "false":
-                    return isinstance(value, bool) and not value 
+                    return isinstance(value, bool) and not value
                 elif re.match(r"^[0-9]+$", name):
                     return isinstance(value, int) and value == int(name)
                 else:
@@ -369,3 +370,28 @@ class DSV(Validator):
         #if ident in self._defs:
         #    log.warning(f"overriding {ident} previous definition")
         self._defs.set(ident, model, mpath)
+
+#
+# check some json files against a model
+#
+# usage: $0 model.json file.json …
+#
+def v_check_model():
+
+    assert len(sys.argv) >= 2
+
+    logging.basicConfig(level=logging.INFO)
+
+    with open(sys.argv[1]) as f:
+        model = json.load(f)
+
+    validator = DSV()
+
+    for fn, fh in utils.openfiles(sys.argv[2:]):
+        valid = False
+        try:
+            m = json.load(fh)
+            valid = validator.check(m, model)
+            print(f"{fn}: {valid}")
+        except Exception as e:
+            log.error(f"{fn}: {e}")
