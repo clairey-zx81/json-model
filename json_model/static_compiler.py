@@ -438,11 +438,11 @@ class SourceCode(Validator):
                 expr += f" and len({val}) == 0"
                 code.add(indent, f"{res} = {expr}")
             elif len(model) == 1:
-                idx = self._ident("idx_", True)
-                item = self._ident("item_", True)
+                arrayid = self._ident("array_", True)
+                idx, item = f"{arrayid}_idx", f"{arrayid}_item"
                 code.add(indent, f"{res} = {expr}")
                 code.add(indent, f"if {res}:")
-                # TODO enumerate
+                code.add(indent+1, f"assert isinstance({val}, list)  # pyright helper")
                 code.add(indent+1, f"for {idx}, {item} in enumerate({val}):")
                 self._compileModel(code, indent+2, model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
                 code.add(indent+2, f"if not {res}: break")

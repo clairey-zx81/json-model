@@ -24,9 +24,10 @@ def jmsc_f_3(value: Any, path: str) -> bool:
     # $.|[2].a
     result = isinstance(value, list)
     if result:
-        for idx_0, item_0 in enumerate(value):
+        assert isinstance(value, list)  # pyright helper
+        for array_0_idx, array_0_item in enumerate(value):
             # $.|[2].a[0]
-            result = isinstance(item_0, int) and not isinstance(item_0, bool) and item_0 >= 0
+            result = isinstance(array_0_item, int) and not isinstance(array_0_item, bool) and array_0_item >= 0
             if not result: break
     return result
 

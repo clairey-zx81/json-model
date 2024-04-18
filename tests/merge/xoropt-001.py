@@ -41,9 +41,10 @@ def jmsc_f_5(value: Any, path: str) -> bool:
     # $.%.A
     result = isinstance(value, list)
     if result:
-        for idx_0, item_0 in enumerate(value):
+        assert isinstance(value, list)  # pyright helper
+        for array_0_idx, array_0_item in enumerate(value):
             # $.%.A[0]
-            result = jmsc_f_6(item_0, path)
+            result = jmsc_f_6(array_0_item, path)
             if not result: break
     return result
 
