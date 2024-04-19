@@ -533,15 +533,22 @@ class SourceCode(Validator):
                     mod, idx = models[0], models_i[0]
                     self._compileModel(code, indent+depth, mod, f"{lpath}[{idx}]", res, val, vpath)
                 else:  # several models are inlined
-                    count = self._ident("xc_", True)
-                    test = self._ident("xr_", True)
-                    code.add(indent+depth, f"{count} = 0")
-                    for i, m in enumerate(models):
-                        idx = models_i[i]
-                        code.add(indent+depth, f"if {count} <= 1:")
-                        self._compileModel(code, indent+depth+1, m, f"{lpath}[{idx}]", test, val, vpath)
-                        code.add(indent+depth+1, f"if {test}: {count} += 1")
-                    code.add(indent+depth, f"{res} = {count} == 1")
+                    if len(models) == 2 and "$ANY" in models:
+                        # get other model
+                        m = models[1] if models[0] == "$ANY" else models[0]
+                        is_m = self._ident("is_m_", True)
+                        self._compileModel(code, indent+depth, m, f"{lpath}[?]", is_m, val, vpath)
+                        code.add(indent+depth, f"{res} = not {is_m}")
+                    else:
+                        count = self._ident("xc_", True)
+                        test = self._ident("xr_", True)
+                        code.add(indent+depth, f"{count} = 0")
+                        for i, m in enumerate(models):
+                            idx = models_i[i]
+                            code.add(indent+depth, f"if {count} <= 1:")
+                            self._compileModel(code, indent+depth+1, m, f"{lpath}[{idx}]", test, val, vpath)
+                            code.add(indent+depth+1, f"if {test}: {count} += 1")
+                        code.add(indent+depth, f"{res} = {count} == 1")
             else:
                 # TODO check for non-root %
                 # TODO optimize empty model?
