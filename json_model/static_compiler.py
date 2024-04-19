@@ -18,8 +18,6 @@ from .utils import openfiles, split_object, model_in_models
 from .preproc import _constant_value, model_preprocessor
 from .defines import Validator
 
-# FIXME
-logging.basicConfig()
 log = logging.getLogger("sc")
 
 Line = tuple[int, str]
@@ -645,6 +643,8 @@ def static_compile_fun(model: ModelType):
 def static_compiler():
     """Compile model file arguments."""
 
+    logging.basicConfig()
+
     # handle script options and arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-d", "--debug", action="store_true")
@@ -674,6 +674,8 @@ def static_compiler():
 def static_compiler_check():
     """Compile one model and check values."""
 
+    logging.basicConfig()
+
     # handle script options and arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-d", "--debug", action="store_true")
@@ -687,6 +689,7 @@ def static_compiler_check():
     log.debug(f"model: {args.model}")
     with open(args.model) as f:
         model = json.load(f)
+
     checker = static_compile_fun(model)
 
     for fn, fh in openfiles(args.jsons):
