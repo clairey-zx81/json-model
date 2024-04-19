@@ -25,8 +25,8 @@ def jmsc_f_0(value: Any, path: str) -> bool:
                 result = isinstance(value, str) and jmsc_re_0(value) is not None
     return result
 
-# define "" ($)
-def jmsc_f_1(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.@
     result = jmsc_f_0(value, path)
@@ -34,6 +34,3 @@ def jmsc_f_1(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_1(value, "$")

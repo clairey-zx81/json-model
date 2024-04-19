@@ -61,7 +61,7 @@ def jmsc_f_7(value: Any, path: str) -> bool:
 
 
 # define "Any" ($)
-def jmsc_f_8(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.|[0]
     result = jmsc_f_0(value, path)
@@ -86,11 +86,8 @@ def jmsc_f_8(value: Any, path: str) -> bool:
     return result
 
 # named root
-jmsc_f_6 = jmsc_f_8
+jmsc_f_6 = check_model
 
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_8(value, "$")

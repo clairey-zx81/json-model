@@ -3,50 +3,50 @@ from typing import Any, Callable
 
 CheckFun = Callable[[Any, str], bool]
 
-jmsc_f_0_must: dict[str, CheckFun]
+check_model_must: dict[str, CheckFun]
 jmsc_obj_0_must: dict[str, CheckFun]
 jmsc_obj_1_must: dict[str, CheckFun]
 jmsc_obj_2_must: dict[str, CheckFun]
 jmsc_map_0: dict[Any, CheckFun]
 
 # define "jmsc_obj_0_must_t" ($.movie.|[0].t)
-def jmsc_f_2(value: Any, path: str) -> bool:
+def jmsc_f_1(value: Any, path: str) -> bool:
     # $.movie.|[0].t
     result = isinstance(value, str) and value == "fr"
     return result
 
 # define "jmsc_obj_0_must_titre" ($.movie.|[0].titre)
-def jmsc_f_3(value: Any, path: str) -> bool:
+def jmsc_f_2(value: Any, path: str) -> bool:
     # $.movie.|[0].titre
     result = isinstance(value, str)
     return result
 
 # define "jmsc_obj_1_must_t" ($.movie.|[1].t)
-def jmsc_f_4(value: Any, path: str) -> bool:
+def jmsc_f_3(value: Any, path: str) -> bool:
     # $.movie.|[1].t
     result = isinstance(value, str) and value == "en"
     return result
 
 # define "jmsc_obj_1_must_title" ($.movie.|[1].title)
-def jmsc_f_5(value: Any, path: str) -> bool:
+def jmsc_f_4(value: Any, path: str) -> bool:
     # $.movie.|[1].title
     result = isinstance(value, str)
     return result
 
 # define "jmsc_obj_2_must_t" ($.movie.|[2].t)
-def jmsc_f_6(value: Any, path: str) -> bool:
+def jmsc_f_5(value: Any, path: str) -> bool:
     # $.movie.|[2].t
     result = isinstance(value, str) and value == "ru"
     return result
 
 # define "jmsc_obj_2_must_suti" ($.movie.|[2].suti)
-def jmsc_f_7(value: Any, path: str) -> bool:
+def jmsc_f_6(value: Any, path: str) -> bool:
     # $.movie.|[2].suti
     result = isinstance(value, str)
     return result
 
-# define "jmsc_f_0_must_movie" ($.movie)
-def jmsc_f_1(value: Any, path: str) -> bool:
+# define "check_model_must_movie" ($.movie)
+def jmsc_f_0(value: Any, path: str) -> bool:
     # $.movie
     result = isinstance(value, dict)
     if result:
@@ -106,15 +106,15 @@ def jmsc_obj_2(value: Any, path: str) -> bool:
     return must_count == 2
 
 # object $
-def jmsc_f_0(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jmsc_f_0_must:  # must
+        if prop in check_model_must:  # must
             must_count += 1
-            if not jmsc_f_0_must[prop](model, f"{path}.{prop}"):
+            if not check_model_must[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -122,26 +122,23 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 
 # object properties must and may maps
-jmsc_f_0_must = {
-    "movie": jmsc_f_1,
+check_model_must = {
+    "movie": jmsc_f_0,
 }
 jmsc_obj_0_must = {
-    "t": jmsc_f_2,
-    "titre": jmsc_f_3,
+    "t": jmsc_f_1,
+    "titre": jmsc_f_2,
 }
 jmsc_obj_1_must = {
-    "t": jmsc_f_4,
-    "title": jmsc_f_5,
+    "t": jmsc_f_3,
+    "title": jmsc_f_4,
 }
 jmsc_obj_2_must = {
-    "t": jmsc_f_6,
-    "suti": jmsc_f_7,
+    "t": jmsc_f_5,
+    "suti": jmsc_f_6,
 }
 jmsc_map_0 = {
     "fr": jmsc_obj_0,
     "en": jmsc_obj_1,
     "ru": jmsc_obj_2,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

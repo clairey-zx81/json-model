@@ -64,8 +64,8 @@ def jmsc_f_3(value: Any, path: str) -> bool:
     return must_count == 2
 
 
-# define "" ($)
-def jmsc_f_6(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     result = isinstance(value, dict)
     if result:
@@ -91,6 +91,3 @@ jmsc_map_0 = {
     True: jmsc_f_0,
     False: jmsc_f_3,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_6(value, "$")

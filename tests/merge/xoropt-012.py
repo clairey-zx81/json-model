@@ -10,31 +10,31 @@ jmsc_obj_3_must: dict[str, CheckFun]
 jmsc_obj_4_must: dict[str, CheckFun]
 
 # define "jmsc_obj_0_must_a" ($.|[0].a)
-def jmsc_f_4(value: Any, path: str) -> bool:
+def jmsc_f_3(value: Any, path: str) -> bool:
     # $.|[0].a
     result = jmsc_f_0(value, path)
     return result
 
 # define "jmsc_obj_1_must_a" ($.|[1].a)
-def jmsc_f_5(value: Any, path: str) -> bool:
+def jmsc_f_4(value: Any, path: str) -> bool:
     # $.|[1].a
     result = jmsc_f_1(value, path)
     return result
 
 # define "jmsc_obj_2_must_a" ($.|[2].a)
-def jmsc_f_6(value: Any, path: str) -> bool:
+def jmsc_f_5(value: Any, path: str) -> bool:
     # $.|[2].a
     result = isinstance(value, float) and value == 1.0
     return result
 
 # define "jmsc_obj_3_must_a" ($.|[3].a)
-def jmsc_f_7(value: Any, path: str) -> bool:
+def jmsc_f_6(value: Any, path: str) -> bool:
     # $.|[3].a
     result = isinstance(value, bool) and value == True
     return result
 
 # define "jmsc_obj_4_must_a" ($.|[4].a)
-def jmsc_f_8(value: Any, path: str) -> bool:
+def jmsc_f_7(value: Any, path: str) -> bool:
     # $.|[4].a
     result = jmsc_f_2(value, path)
     return result
@@ -133,8 +133,8 @@ def jmsc_obj_4(value: Any, path: str) -> bool:
             return False
     return must_count == 1
 
-# define "" ($)
-def jmsc_f_3(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.|[0]
     result = jmsc_obj_0(value, path)
@@ -154,20 +154,17 @@ def jmsc_f_3(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 jmsc_obj_0_must = {
-    "a": jmsc_f_4,
+    "a": jmsc_f_3,
 }
 jmsc_obj_1_must = {
-    "a": jmsc_f_5,
+    "a": jmsc_f_4,
 }
 jmsc_obj_2_must = {
-    "a": jmsc_f_6,
+    "a": jmsc_f_5,
 }
 jmsc_obj_3_must = {
-    "a": jmsc_f_7,
+    "a": jmsc_f_6,
 }
 jmsc_obj_4_must = {
-    "a": jmsc_f_8,
+    "a": jmsc_f_7,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_3(value, "$")

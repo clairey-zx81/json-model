@@ -7,7 +7,7 @@ CheckFun = Callable[[Any, str], bool]
 
 
 # object $
-def jmsc_f_0(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
@@ -20,6 +20,3 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

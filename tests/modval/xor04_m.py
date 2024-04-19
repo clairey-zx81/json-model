@@ -8,8 +8,8 @@ jmsc_re_0 = re.compile("^[A-Z][a-z]+$").search
 
 
 
-# define "" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.|[0]
     result = isinstance(value, float) and value >= 0.0
@@ -21,6 +21,3 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

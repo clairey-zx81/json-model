@@ -6,8 +6,8 @@ CheckFun = Callable[[Any, str], bool]
 
 
 
-# define "" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.&[0]
     result = isinstance(value, int) and not isinstance(value, bool)
@@ -21,6 +21,3 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

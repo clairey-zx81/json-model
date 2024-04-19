@@ -70,7 +70,7 @@ def jmsc_f_3(value: Any, path: str) -> bool:
 
 
 # object $
-def jmsc_f_7(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
@@ -90,6 +90,3 @@ jmsc_f_3_must = {
     "b": jmsc_f_5,
     "c": jmsc_f_6,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_7(value, "$")

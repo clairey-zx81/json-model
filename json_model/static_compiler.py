@@ -87,7 +87,6 @@ class SourceCode(Validator):
         self._help: list[Code] = []
         self._maps: dict[str, dict[str, str]] = {}
         self._subs: list[Code] = []
-        self._main: Code = Code()
         # initialization
         self.reset()
 
@@ -134,9 +133,7 @@ class SourceCode(Validator):
                 "\n".join(str(code) for code in self._subs) + "\n" +
                 "\n" +
                 "# object properties must and may maps\n" +
-                "\n".join(f"{name} = {{\n{self._map(mp)}\n}}" for name, mp in self._maps.items()) +
-                "\n" +
-                str(self._main))
+                "\n".join(f"{name} = {{\n{self._map(mp)}\n}}" for name, mp in self._maps.items()))
 
     # code generation
     def _ident(self, prefix: str, local: bool = False) -> str:
@@ -554,7 +551,8 @@ class SourceCode(Validator):
                     ocode = Code()
                     ocode.nl()
                     ocode.add(0, f"# object {mpath}")
-                    ocode.add(0, f"def {objid}(value: Any, path: str) -> bool:")
+                    path_init = " = \"$\"" if mpath == "$" else ""
+                    ocode.add(0, f"def {objid}(value: Any, path: str{path_init}) -> bool:")
                     self._compileObject(ocode, 1, model, mpath, objid, "result", "value", "path")
                     self.subs(ocode)
                     self._generated.add(mpath)
@@ -584,9 +582,10 @@ class SourceCode(Validator):
             fun = self._getName(name)
             self._paths[mpath] = fun
         # generate code
+        path_init = " = \"$\"" if mpath == "$" else ""
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({mpath})")
-        code.add(0, f"def {fun}(value: Any, path: str) -> bool:")
+        code.add(0, f"def {fun}(value: Any, path: str{path_init}) -> bool:")
         self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
         code.add(1, "return result")
         if fun2 and fun2 != fun:
@@ -616,11 +615,8 @@ def static_compile(model: ModelType, name: str = _DEFAULT_NAME) -> SourceCode:
     """Generate the check source code for a model."""
     sc = SourceCode("jmsc_")
     rw_model = model_preprocessor(model, {}, "$")
-    sc.compile("", rw_model)
-    fun = sc._getName("")
-    sc._main.nl()
-    sc._main.add(0, f"def {name}(value) -> bool:")
-    sc._main.add(1, f"return {fun}(value, \"$\")")
+    sc._names[name] = name
+    sc.compile(name, rw_model)
     return sc
 
 def static_compile_fun(model: ModelType):

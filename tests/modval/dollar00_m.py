@@ -13,12 +13,12 @@ def jmsc_obj_0(value: Any, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.|[1].
-        result = jmsc_f_0(model, path)
+        result = check_model(model, path)
         if not result: return False
     return True
 
 # define "myself" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.|[0]
     result = isinstance(value, bool)
@@ -30,6 +30,3 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

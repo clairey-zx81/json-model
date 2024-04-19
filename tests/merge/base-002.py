@@ -3,31 +3,31 @@ from typing import Any, Callable
 
 CheckFun = Callable[[Any, str], bool]
 
-jmsc_f_0_must: dict[str, CheckFun]
+check_model_must: dict[str, CheckFun]
 
-# define "jmsc_f_0_must_a" ($.a)
-def jmsc_f_1(value: Any, path: str) -> bool:
+# define "check_model_must_a" ($.a)
+def jmsc_f_0(value: Any, path: str) -> bool:
     # $.a
     result = isinstance(value, str)
     return result
 
-# define "jmsc_f_0_must_b" ($.b)
-def jmsc_f_2(value: Any, path: str) -> bool:
+# define "check_model_must_b" ($.b)
+def jmsc_f_1(value: Any, path: str) -> bool:
     # $.b
     result = isinstance(value, str)
     return result
 
 
 # object $
-def jmsc_f_0(value: Any, path: str) -> bool:
+def check_model(value: Any, path: str = "$") -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jmsc_f_0_must:  # must
+        if prop in check_model_must:  # must
             must_count += 1
-            if not jmsc_f_0_must[prop](model, f"{path}.{prop}"):
+            if not check_model_must[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -35,10 +35,7 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 
 # object properties must and may maps
-jmsc_f_0_must = {
-    "a": jmsc_f_1,
-    "b": jmsc_f_2,
+check_model_must = {
+    "a": jmsc_f_0,
+    "b": jmsc_f_1,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

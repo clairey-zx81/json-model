@@ -8,7 +8,7 @@ jmsc_re_0 = re.compile("a").search
 jmsc_obj_1_may: dict[str, CheckFun]
 
 # define "jmsc_obj_1_may_a" ($.^[1].a)
-def jmsc_f_1(value: Any, path: str) -> bool:
+def jmsc_f_0(value: Any, path: str) -> bool:
     # $.^[1].a
     result = value is None
     return result
@@ -41,8 +41,8 @@ def jmsc_obj_1(value: Any, path: str) -> bool:
             return False
     return True
 
-# define "" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
@@ -58,8 +58,5 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 jmsc_obj_1_may = {
-    "a": jmsc_f_1,
+    "a": jmsc_f_0,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

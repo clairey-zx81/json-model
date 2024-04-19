@@ -8,25 +8,25 @@ jmsc_obj_1_must: dict[str, CheckFun]
 jmsc_map_0: dict[Any, CheckFun]
 
 # define "jmsc_obj_0_must_t" ($.|[0].t)
-def jmsc_f_1(value: Any, path: str) -> bool:
+def jmsc_f_0(value: Any, path: str) -> bool:
     # $.|[0].t
     result = isinstance(value, int) and not isinstance(value, bool) and value == 1
     return result
 
 # define "jmsc_obj_0_must_a" ($.|[0].a)
-def jmsc_f_2(value: Any, path: str) -> bool:
+def jmsc_f_1(value: Any, path: str) -> bool:
     # $.|[0].a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_1_must_t" ($.|[1].t)
-def jmsc_f_3(value: Any, path: str) -> bool:
+def jmsc_f_2(value: Any, path: str) -> bool:
     # $.|[1].t
     result = isinstance(value, int) and not isinstance(value, bool) and value == 2
     return result
 
 # define "jmsc_obj_1_must_b" ($.|[1].b)
-def jmsc_f_4(value: Any, path: str) -> bool:
+def jmsc_f_3(value: Any, path: str) -> bool:
     # $.|[1].b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
@@ -62,8 +62,8 @@ def jmsc_obj_1(value: Any, path: str) -> bool:
             return False
     return must_count == 2
 
-# define "" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     result = isinstance(value, dict)
     if result:
@@ -78,17 +78,14 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 jmsc_obj_0_must = {
-    "t": jmsc_f_1,
-    "a": jmsc_f_2,
+    "t": jmsc_f_0,
+    "a": jmsc_f_1,
 }
 jmsc_obj_1_must = {
-    "t": jmsc_f_3,
-    "b": jmsc_f_4,
+    "t": jmsc_f_2,
+    "b": jmsc_f_3,
 }
 jmsc_map_0 = {
     1: jmsc_obj_0,
     2: jmsc_obj_1,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")

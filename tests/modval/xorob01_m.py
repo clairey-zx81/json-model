@@ -37,43 +37,43 @@ def jmsc_f_5(value: Any, path: str) -> bool:
     return result
 
 # define "jmsc_obj_4_must_a" ($.|[0].a)
-def jmsc_f_7(value: Any, path: str) -> bool:
+def jmsc_f_6(value: Any, path: str) -> bool:
     # $.|[0].a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_5_must_a" ($.|[1].a)
-def jmsc_f_8(value: Any, path: str) -> bool:
+def jmsc_f_7(value: Any, path: str) -> bool:
     # $.|[1].a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_5_must_c" ($.|[1].c)
-def jmsc_f_9(value: Any, path: str) -> bool:
+def jmsc_f_8(value: Any, path: str) -> bool:
     # $.|[1].c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_6_must_b" ($.|[2].b)
-def jmsc_f_10(value: Any, path: str) -> bool:
+def jmsc_f_9(value: Any, path: str) -> bool:
     # $.|[2].b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_6_must_a" ($.|[2].a)
-def jmsc_f_11(value: Any, path: str) -> bool:
+def jmsc_f_10(value: Any, path: str) -> bool:
     # $.|[2].a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_7_must_b" ($.|[3].b)
-def jmsc_f_12(value: Any, path: str) -> bool:
+def jmsc_f_11(value: Any, path: str) -> bool:
     # $.|[3].b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "jmsc_obj_7_must_c" ($.|[3].c)
-def jmsc_f_13(value: Any, path: str) -> bool:
+def jmsc_f_12(value: Any, path: str) -> bool:
     # $.|[3].c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
@@ -219,8 +219,8 @@ def jmsc_obj_7(value: Any, path: str) -> bool:
             return False
     return must_count == 2
 
-# define "" ($)
-def jmsc_f_6(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.|[0]
     result = jmsc_obj_4(value, path)
@@ -249,20 +249,17 @@ jmsc_obj_3_must = {
     "c": jmsc_f_5,
 }
 jmsc_obj_4_must = {
-    "a": jmsc_f_7,
+    "a": jmsc_f_6,
 }
 jmsc_obj_5_must = {
-    "a": jmsc_f_8,
-    "c": jmsc_f_9,
+    "a": jmsc_f_7,
+    "c": jmsc_f_8,
 }
 jmsc_obj_6_must = {
-    "b": jmsc_f_10,
-    "a": jmsc_f_11,
+    "b": jmsc_f_9,
+    "a": jmsc_f_10,
 }
 jmsc_obj_7_must = {
-    "b": jmsc_f_12,
-    "c": jmsc_f_13,
+    "b": jmsc_f_11,
+    "c": jmsc_f_12,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_6(value, "$")

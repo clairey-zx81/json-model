@@ -138,8 +138,8 @@ def jmsc_f_3(value: Any, path: str) -> bool:
             result = jmsc_obj_4(value, path)
     return result
 
-# define "" ($)
-def jmsc_f_7(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     # $.@
     result = jmsc_f_3(value, path)
@@ -161,6 +161,3 @@ jmsc_obj_3_must = {
 jmsc_obj_4_must = {
     "b": jmsc_f_6,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_7(value, "$")

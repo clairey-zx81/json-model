@@ -9,13 +9,13 @@ jmsc_re_0 = re.compile("...").search
 jmsc_obj_1_must: dict[str, CheckFun]
 
 # define "jmsc_obj_0_must_a" ($.^[0].a)
-def jmsc_f_1(value: Any, path: str) -> bool:
+def jmsc_f_0(value: Any, path: str) -> bool:
     # $.^[0].a
     result = isinstance(value, str)
     return result
 
 # define "jmsc_obj_1_must_b" ($.^[1].b)
-def jmsc_f_2(value: Any, path: str) -> bool:
+def jmsc_f_1(value: Any, path: str) -> bool:
     # $.^[1].b
     result = isinstance(value, str)
     return result
@@ -57,8 +57,8 @@ def jmsc_obj_1(value: Any, path: str) -> bool:
             if not result: return False
     return must_count == 1
 
-# define "" ($)
-def jmsc_f_0(value: Any, path: str) -> bool:
+# define "check_model" ($)
+def check_model(value: Any, path: str = "$") -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
@@ -74,11 +74,8 @@ def jmsc_f_0(value: Any, path: str) -> bool:
 
 # object properties must and may maps
 jmsc_obj_0_must = {
-    "a": jmsc_f_1,
+    "a": jmsc_f_0,
 }
 jmsc_obj_1_must = {
-    "b": jmsc_f_2,
+    "b": jmsc_f_1,
 }
-
-def check_model(value) -> bool:
-    return jmsc_f_0(value, "$")
