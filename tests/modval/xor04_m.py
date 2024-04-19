@@ -3,8 +3,8 @@ from typing import Any, Callable
 
 CheckFun = Callable[[Any, str], bool]
 
-# regex "/^[A-Z][a-z]+$/"
-jmsc_re_0 = re.compile("^[A-Z][a-z]+$").search
+# regex "/^[a-z]+$/i"
+jmsc_re_0 = re.compile("^[a-z]+$", re.IGNORECASE).search
 
 
 
@@ -15,7 +15,7 @@ def check_model(value: Any, path: str = "$") -> bool:
     result = isinstance(value, float) and value >= 0.0
     if not result:
         # $.|[1]
-        # "/^[A-Z][a-z]+$/"
+        # "/^[a-z]+$/i"
         result = isinstance(value, str) and jmsc_re_0(value) is not None
     return result
 
