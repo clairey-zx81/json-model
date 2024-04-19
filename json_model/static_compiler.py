@@ -37,6 +37,10 @@ _PREDEFS = {
     # TODO more
 }
 
+# variable names in generated code
+_RESULT = "result"
+_VALUE = "value"
+_PATH = "path"
 
 class Code():
 
@@ -237,7 +241,7 @@ class SourceCode(Validator):
             elif p not in self._paths:
                 # else compile the direct object as a side effect…
                 c = Code()
-                self._compileModel(c, 0, m, p, "result", "value", "path")
+                self._compileModel(c, 0, m, p, _RESULT, _VALUE, _PATH)
                 # log.debug(f"{self._paths}")
 
         # {disid}_tm = { tag-value: check_function_for_this_tag_value }
@@ -553,7 +557,7 @@ class SourceCode(Validator):
                     ocode.add(0, f"# object {mpath}")
                     path_init = " = \"$\"" if mpath == "$" else ""
                     ocode.add(0, f"def {objid}(value: Any, path: str{path_init}) -> bool:")
-                    self._compileObject(ocode, 1, model, mpath, objid, "result", "value", "path")
+                    self._compileObject(ocode, 1, model, mpath, objid, _RESULT, _VALUE, _PATH)
                     self.subs(ocode)
                     self._generated.add(mpath)
                 code.add(indent, f"{res} = {objid}({val}, {vpath})")
@@ -586,8 +590,8 @@ class SourceCode(Validator):
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({mpath})")
         code.add(0, f"def {fun}(value: Any, path: str{path_init}) -> bool:")
-        self._compileModel(code, 1, model, mpath, "result", "value", "path", skip_dollar)
-        code.add(1, "return result")
+        self._compileModel(code, 1, model, mpath, _RESULT, _VALUE, _PATH, skip_dollar)
+        code.add(1, f"return {_RESULT}")
         if fun2 and fun2 != fun:
             code.nl()
             code.add(0, "# named root")
@@ -611,9 +615,9 @@ class SourceCode(Validator):
 
 _DEFAULT_NAME = "check_model"
 
-def static_compile(model: ModelType, name: str = _DEFAULT_NAME) -> SourceCode:
+def static_compile(model: ModelType, name: str = _DEFAULT_NAME, prefix: str = "jmsc_") -> SourceCode:
     """Generate the check source code for a model."""
-    sc = SourceCode("jmsc_")
+    sc = SourceCode(prefix)
     rw_model = model_preprocessor(model, {}, "$")
     sc._names[name] = name
     sc.compile(name, rw_model)
@@ -637,17 +641,25 @@ def static_compiler():
     # handle script options and arguments
     ap = argparse.ArgumentParser()
     ap.add_argument("-d", "--debug", action="store_true")
+    ap.add_argument("-p", "--prefix", type=str, default="jmsc_")
+    ap.add_argument("-r", "--result", type=str, default="result")
+    ap.add_argument("-v", "--value", type=str, default="value")
     ap.add_argument("models", nargs="*")
     args = ap.parse_args()
 
     if args.debug:
         log.setLevel(logging.DEBUG)
 
+    global _RESULT, _VALUE
+
+    _RESULT = args.result
+    _VALUE = args.value
+
     for fn, fh in openfiles(args.models):
         try:
             log.debug(f"model: {fn}")
             model = json.load(fh)
-            print(static_compile(model))
+            print(static_compile(model, prefix=args.prefix))
         except Exception as e:
             log.error(f"{fn}: {e}")
             log.error(e, exc_info=True)
