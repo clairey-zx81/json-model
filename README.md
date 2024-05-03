@@ -52,11 +52,11 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 - `jm-schema2model` convert a JSON Schema (partial) to a JSON Model.
 - `jm-preprocessor` JSON Model preprocessor
   - flatten operators `|` `^` and `&`
-  - distribute `+` (merge operator occurences) over `|` (or operator).
-  - compute merged objects definitions (removes `+` operators)
+  - distribute `+` (merge operator occurences) over `|` (or operator) and `^` (xor)
+  - compute merged objects definitions (i.e. removes `+` operators)
   - partial evaluation
   - deduplication in `^ |`
-  - xor to or convertion if possible (`^` -> `|`)
+  - xor to or convertion if possible (`^` → `|`)
 - `jm-compiler some_model.json`
   static compiler
 
