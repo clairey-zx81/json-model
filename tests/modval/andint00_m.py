@@ -13,10 +13,10 @@ def check_model(value: Any, path: str = "$") -> bool:
     result = isinstance(value, int) and not isinstance(value, bool)
     if result:
         # $.&[1]
-        result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+        result = value >= 0
         if result:
             # $.&[2]
-            result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
+            result = value >= 1
     return result
 
 # object properties must and may maps

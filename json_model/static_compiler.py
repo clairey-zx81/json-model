@@ -371,43 +371,54 @@ class SourceCode(Validator):
             code.add(indent, f"{res} = isinstance({val}, bool)")
         elif isinstance(model, int):
             expr = f"isinstance({val}, int) and not isinstance({val}, bool)"
+            if known is not None:
+                if expr in known:
+                    expr = None
+                known.add(expr)
             if model == -1:
                 pass
             elif model == 0:
-                expr += f" and {val} >= 0"
+                if expr:
+                    expr += f" and {val} >= 0"
+                else:
+                    expr = f"{val} >= 0"
             elif model == 1:
-                expr += f" and {val} >= 1"
+                if expr:
+                    expr += f" and {val} >= 1"
+                else:
+                    expr = f"{val} >= 1"
             else:
                 raise ModelError(f"unexpected int value {model} at {mpath}")
-            code.add(indent, res + " = " + expr)
-        elif isinstance(model, int):
-            expr = "isinstance({val}, int) and not isinstance({val}, bool)"
-            if model == -1:
-                pass
-            elif model == 0:
-                expr += f" and {val} >= 0"
-            elif model == 1:
-                expr += f" and {val} >= 1"
-            else:
-                raise ModelError(f"unexpected int value {model} at {mpath}")
-            code.add(indent, res + " = " + expr)
+            if expr:
+                code.add(indent, res + " = " + expr)
         elif isinstance(model, float):
             expr = f"isinstance({val}, float)"
+            if known is not None:
+                if expr in known:
+                    expr = None
+                known.add(expr)
             if model == -1.0:
                 pass
             elif model == 0.0:
-                expr += f" and {val} >= 0.0"
+                if expr:
+                    expr += f" and {val} >= 0.0"
+                else:
+                    expr = f"{val} >= 0.0"
             elif model == 1.0:
-                expr += f" and {val} >= 1.0"
+                if expr:
+                    expr += f" and {val} >= 1.0"
+                else:
+                    expr = f"{val} >= 1.0"
             else:
                 raise ModelError(f"unexpected float value {model} at {mpath}")
-            code.add(indent, res + " = " + expr)
+            if expr:
+                code.add(indent, res + " = " + expr)
         elif isinstance(model, str):
             expr = f"isinstance({val}, str)"
             if known is not None:
                 # Skip special cases
                 if model == "" or model[0] not in ["$", "="]:
-                    log.info(f"expr={expr} known={known}")
+                    # log.info(f"expr={expr} known={known}")
                     if expr in known:
                         expr = None
                     known.add(expr)
@@ -455,20 +466,33 @@ class SourceCode(Validator):
                     code.add(indent, f"{res} = {val} == {self._esc(model)}")
         elif isinstance(model, list):
             expr = f"isinstance({val}, list)"
+            if known is not None:
+                if expr in known:
+                    expr = None
+                known.add(expr)
             if len(model) == 0:
-                expr += f" and len({val}) == 0"
+                if expr:
+                    expr += f" and len({val}) == 0"
+                else:
+                    expr = f"len({val}) == 0"
                 code.add(indent, f"{res} = {expr}")
             elif len(model) == 1:
                 arrayid = self._ident("array_", True)
                 idx, item = f"{arrayid}_idx", f"{arrayid}_item"
-                code.add(indent, f"{res} = {expr}")
-                code.add(indent, f"if {res}:")
+                if expr:
+                    code.add(indent, f"{res} = {expr}")
+                    code.add(indent, f"if {res}:")
+                else:
+                    code.add(indent, f"if True:")
                 code.add(indent+1, f"assert isinstance({val}, list)  # pyright helper")
                 code.add(indent+1, f"for {idx}, {item} in enumerate({val}):")
                 self._compileModel(code, indent+2, model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
                 code.add(indent+2, f"if not {res}: break")
             else:
-                code.add(indent, f"{res} = {expr}")
+                if expr:
+                    code.add(indent, f"{res} = {expr}")
+                else:
+                    code.add(indent, f"{res} = True")
                 for i, m in enumerate(model):
                     code.add(indent+i, f"if {res}:")
                     # FIXME vpath
