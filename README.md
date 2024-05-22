@@ -61,4 +61,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
   static compiler, including some optimization:
   - detect object tags
   - optimize type checks in "&"
-
+  - set of only simple type constants
+  - TODO
+    - check for subset of constants
+    - factor out type checks on or
