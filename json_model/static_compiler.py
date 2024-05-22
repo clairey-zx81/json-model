@@ -361,7 +361,8 @@ class SourceCode(Validator):
             code.add(indent, f"return True")
 
     def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: str,
-                      res: str, val: str, vpath: str, skip_dollar: bool = False):
+                      res: str, val: str, vpath: str, known: set[str]|None = None, skip_dollar: bool = False):
+        # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} indent={indent}")
         code.add(indent, f"# {mpath}")
         if model is None:
@@ -403,11 +404,25 @@ class SourceCode(Validator):
             code.add(indent, res + " = " + expr)
         elif isinstance(model, str):
             expr = f"isinstance({val}, str)"
+            if known is not None:
+                # Skip special cases
+                if model == "" or model[0] not in ["$", "="]:
+                    log.info(f"expr={expr} known={known}")
+                    if expr in known:
+                        expr = None
+                    known.add(expr)
             if model == "":
-                code.add(indent, f"{res} = {expr}")
+                if expr:
+                    code.add(indent, f"{res} = {expr}")
+                else:
+                    code.add(indent, f"{res} = True")
             elif model[0] == "_":
-                code.add(indent, f"{res} = {expr} and {val} == {self._esc(model[1:])}")
+                if expr:
+                    code.add(indent, f"{res} = {expr} and {val} == {self._esc(model[1:])}")
+                else:
+                    code.add(indent, f"{res} = {val} == {self._esc(model[1:])}")
             elif model[0] == "=":
+                # TODO FIXME known
                 (is_cst, value) = _constant_value(model, mpath)
                 if is_cst:
                     if value is None:
@@ -425,12 +440,19 @@ class SourceCode(Validator):
                 else:
                     raise ModelError(f"unexpected constant: {model}")
             elif model[0] == "$":
+                # TODO FIXME known
                 code.add(indent, f"{res} = " + self._dollarExpr(model[1:], val, "path"))
             elif model[0] == "/":
                 code.add(indent, f"# {self._esc(model)}")
-                code.add(indent, f"{res} = {expr} and {self._regExpr(model, val)}")
+                if expr:
+                    code.add(indent, f"{res} = {expr} and {self._regExpr(model, val)}")
+                else:
+                    code.add(indent, f"{res} = {self._regExpr(model, val)}")
             else:  # simple string
-                code.add(indent, f"{res} = {expr} and {val} == {self._esc(model)}")
+                if expr:
+                    code.add(indent, f"{res} = {expr} and {val} == {self._esc(model)}")
+                else:
+                    code.add(indent, f"{res} = {val} == {self._esc(model)}")
         elif isinstance(model, list):
             expr = f"isinstance({val}, list)"
             if len(model) == 0:
@@ -480,6 +502,7 @@ class SourceCode(Validator):
                         code.add(indent + i - 1, f"if not {res}:")
                     self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath)
             elif "&" in model:
+                and_known = set(known or [])
                 lpath = mpath + ".&"
                 models = model["&"]
                 if not models:
@@ -487,7 +510,7 @@ class SourceCode(Validator):
                 for i, m in enumerate(models):
                     if i:
                         code.add(indent + i - 1, f"if {res}:")
-                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath)
+                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath, and_known)
             elif "^" in model:
                 lpath = mpath + ".^"
                 models = model["^"]
@@ -595,7 +618,7 @@ class SourceCode(Validator):
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({mpath})")
         code.add(0, f"def {fun}(value: Any, path: str{path_init}) -> bool:")
-        self._compileModel(code, 1, model, mpath, _RESULT, _VALUE, _PATH, skip_dollar)
+        self._compileModel(code, 1, model, mpath, _RESULT, _VALUE, _PATH, None, skip_dollar)
         code.add(1, f"return {_RESULT}")
         if fun2 and fun2 != fun:
             code.nl()
