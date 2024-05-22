@@ -58,5 +58,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
   - deduplication in `^ |`
   - xor to or convertion if possible (`^` → `|`)
 - `jm-compiler some_model.json`
-  static compiler
+  static compiler, including some optimization:
+  - detect object tags
+  - optimize type checks in "&"
 
