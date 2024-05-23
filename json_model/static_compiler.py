@@ -1,10 +1,16 @@
 # generate python source code for a model
 #
 # TODO
+# - optimize out redundant checks! (WIP)
 # - check name override
-# - optimize out redundant checks!
 # - generate error messages
 # - cache compiled models
+#
+# FIXME
+# - Python is fuzzy about int/bool distinction, eg
+#   - isinstance(True, int) is True
+#   - True == 1 is True
+#   as a consequence, some generated code may not provide the hoped answer
 
 import sys
 import re
