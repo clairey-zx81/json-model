@@ -1,0 +1,4 @@
+{
+  "#": "deux chaînes constantes et deux re, séparation possible ; constantes matchent re…",
+  "|": [ "_Susie", "_Calvin", "/[0-9]/", "/[a-z]/" ]
+}
