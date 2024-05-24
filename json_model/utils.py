@@ -188,6 +188,83 @@ def is_constructed(model):
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
+def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
+    first, current_type = True, None
+    for i, m in enumerate(models):
+        is_known, has_type = model_type(m, mpath + f"[{i}]")
+        if is_known:
+            if first:
+                current_type = has_type
+                first = False
+            elif current_type != has_type:
+                return False, None
+        else:
+            return False, None
+    if first:
+        # empty list
+        return False, None
+    else:
+        return True, current_type
+
+def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
+    """Tell the type of the model, if known."""
+    if model is None:
+        return True, None
+    elif isinstance(model, bool):
+        return True, bool
+    elif isinstance(model, int):
+        return True, int
+    elif isinstance(model, float):
+        return True, float
+    elif isinstance(model, str):
+        if model in ("", "$STRING"):
+            return True, str
+        elif model[0] in ("_", "/"):
+            return True, str
+        elif model == "$BOOL":
+            return True, bool
+        elif model == "$NULL":
+            return True, None
+        elif model in ("$INTEGER", "$I32", "$U32", "$I64", "$U64"):
+            return True, int
+        elif model in ("$FLOAT", "$F32", "$F64"):
+            return True, float
+        elif model[0] == "$":
+            # how to access definitions?
+            return False, None
+        elif model[0] == "=":
+            # handle constants
+            is_cst, val = _constant_value(model, mpath)
+            if is_cst:
+                return True, type(cst)
+            else:
+                return False, None
+        else:
+            return True, str
+    elif isinstance(model, list):
+        return True, list
+    elif isinstance(model, dict):
+        if "@"  in model:
+            return _model_type(model["@"], mpath + ".@")
+        elif "|" in model:
+            models = model["|"]
+            assert isinstance(models, list)
+            return all_type_model(models, mpath + ".|")
+        elif "&" in model:
+            models = model["&"]
+            assert isinstance(models, list)
+            return all_type_model(models, mpath + ".&")
+        elif "^" in model:
+            models = model["^"]
+            assert isinstance(models, list)
+            return all_type_model(models, mpath + ".^")
+        elif "+" in model:
+            return True, dict
+        else:  # simple object!
+            return True, dict
+    else:
+        raise ModelError(f"unexpected model: {model} ({type(model).__name__})")
+
 def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
     changed, resolved = True, set()
