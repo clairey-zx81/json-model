@@ -47,8 +47,10 @@ def _constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
             return False, None
         elif char == "$":
             return False, None
-        else:
+        elif len(m) > 0:
             return True, m
+        else:
+            return False, None
     else:
         return False, None
 
