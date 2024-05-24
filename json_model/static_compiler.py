@@ -516,12 +516,21 @@ class SourceCode(Validator):
             elif "|" in model:
                 lpath = mpath + ".|"
                 models = model["|"]
-                # list of (string) constants optimization
-                if all(map(lambda m: _constant_value(m, lpath)[0], models)):
-                    # list of constants
-                    constants = set(map(lambda m: _constant_value(m, lpath)[1], models))
+                # partial list of constants optimization
+                l_const = list(map(lambda m: _constant_value(m, lpath), models))
+                if len(list(filter(lambda t: t[0], l_const))) >= 2:
+                    constants, n_models = set(), []
+                    for i in range(len(models)):
+                        if l_const[i][0]:
+                            constants.add(l_const[i][1])
+                        else:
+                            n_models.append(models[i])
                     code.add(indent, f"{res} = {val} in {constants}")
-                    return
+                    if not n_models:
+                        return
+                    code.add(indent, f"if not {res}:")
+                    indent += 1
+                    models = n_models
                 # discriminant optimization
                 if self._disjunction(code, indent, model, lpath, res, val, vpath):
                     return
