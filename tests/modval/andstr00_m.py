@@ -19,7 +19,7 @@ def check_model(value: Any, path: str = "$") -> bool:
     if result:
         # $.&[1]
         # "/[0-9]/"
-        result = jmsc_re_1(value) is not None
+        result = isinstance(value, str) and jmsc_re_1(value) is not None
     return result
 
 # object properties must and may maps

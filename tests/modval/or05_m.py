@@ -15,17 +15,19 @@ jmsc_re_2 = re.compile("[A-Z]").search
 # define "check_model" ($)
 def check_model(value: Any, path: str = "$") -> bool:
     # $
-    # $.|[0]
-    # "/[0-9]/"
-    result = isinstance(value, str) and jmsc_re_0(value) is not None
-    if not result:
-        # $.|[1]
-        # "/[a-z]/"
-        result = isinstance(value, str) and jmsc_re_1(value) is not None
+    result = isinstance(value, str)
+    if result:
+        # $.|[0]
+        # "/[0-9]/"
+        result = jmsc_re_0(value) is not None
         if not result:
-            # $.|[2]
-            # "/[A-Z]/"
-            result = isinstance(value, str) and jmsc_re_2(value) is not None
+            # $.|[1]
+            # "/[a-z]/"
+            result = jmsc_re_1(value) is not None
+            if not result:
+                # $.|[2]
+                # "/[A-Z]/"
+                result = jmsc_re_2(value) is not None
     return result
 
 # object properties must and may maps

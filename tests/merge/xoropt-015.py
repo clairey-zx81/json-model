@@ -156,11 +156,13 @@ def jmsc_obj_1(value: Any, path: str) -> bool:
 # define "E" ($.%.E)
 def jmsc_f_5(value: Any, path: str) -> bool:
     # $.%.E
-    # $.%.E.|[0]
-    result = jmsc_obj_0(value, path)
-    if not result:
-        # $.%.E.|[1]
-        result = jmsc_obj_1(value, path)
+    result = isinstance(value, dict)
+    if result:
+        # $.%.E.|[0]
+        result = jmsc_obj_0(value, path)
+        if not result:
+            # $.%.E.|[1]
+            result = jmsc_obj_1(value, path)
     return result
 
 # object $.%.M.|[2]

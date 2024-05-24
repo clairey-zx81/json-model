@@ -9,13 +9,13 @@ CheckFun = Callable[[Any, str], bool]
 # define "p1" ($.%.p1)
 def jmsc_f_0(value: Any, path: str) -> bool:
     # $.%.p1
-    result = value in {'Hobbes', 'Calvin', 'Moe', 'Susie'}
+    result = value in {'Calvin', 'Moe', 'Susie', 'Hobbes'}
     return result
 
 # define "p2" ($.%.p2)
 def jmsc_f_1(value: Any, path: str) -> bool:
     # $.%.p2
-    result = value in {'Milou', 'Haddock', 'Tintin', 'Castafiore'}
+    result = value in {'Haddock', 'Tintin', 'Milou', 'Castafiore'}
     return result
 
 # define "check_model" ($)

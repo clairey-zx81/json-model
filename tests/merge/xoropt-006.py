@@ -76,14 +76,16 @@ def jmsc_obj_2(value: Any, path: str) -> bool:
 # define "check_model" ($)
 def check_model(value: Any, path: str = "$") -> bool:
     # $
-    # $.|[0]
-    result = jmsc_obj_0(value, path)
-    if not result:
-        # $.|[1]
-        result = jmsc_obj_1(value, path)
+    result = isinstance(value, dict)
+    if result:
+        # $.|[0]
+        result = jmsc_obj_0(value, path)
         if not result:
-            # $.|[2]
-            result = jmsc_obj_2(value, path)
+            # $.|[1]
+            result = jmsc_obj_1(value, path)
+            if not result:
+                # $.|[2]
+                result = jmsc_obj_2(value, path)
     return result
 
 # object properties must and may maps

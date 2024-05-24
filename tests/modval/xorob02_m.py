@@ -138,11 +138,13 @@ def jmsc_obj_1(value: Any, path: str) -> bool:
 # define "A" ($.%.A)
 def jmsc_f_0(value: Any, path: str) -> bool:
     # $.%.A
-    # $.%.A.|[0]
-    result = jmsc_obj_0(value, path)
-    if not result:
-        # $.%.A.|[1]
-        result = jmsc_obj_1(value, path)
+    result = isinstance(value, dict)
+    if result:
+        # $.%.A.|[0]
+        result = jmsc_obj_0(value, path)
+        if not result:
+            # $.%.A.|[1]
+            result = jmsc_obj_1(value, path)
     return result
 
 # object $.%.B.|[0]
@@ -178,11 +180,13 @@ def jmsc_obj_3(value: Any, path: str) -> bool:
 # define "B" ($.%.B)
 def jmsc_f_3(value: Any, path: str) -> bool:
     # $.%.B
-    # $.%.B.|[0]
-    result = jmsc_obj_2(value, path)
-    if not result:
-        # $.%.B.|[1]
-        result = jmsc_obj_3(value, path)
+    result = isinstance(value, dict)
+    if result:
+        # $.%.B.|[0]
+        result = jmsc_obj_2(value, path)
+        if not result:
+            # $.%.B.|[1]
+            result = jmsc_obj_3(value, path)
     return result
 
 # object $.%.C.|[0]
@@ -218,11 +222,13 @@ def jmsc_obj_5(value: Any, path: str) -> bool:
 # define "C" ($.%.C)
 def jmsc_f_6(value: Any, path: str) -> bool:
     # $.%.C
-    # $.%.C.|[0]
-    result = jmsc_obj_4(value, path)
-    if not result:
-        # $.%.C.|[1]
-        result = jmsc_obj_5(value, path)
+    result = isinstance(value, dict)
+    if result:
+        # $.%.C.|[0]
+        result = jmsc_obj_4(value, path)
+        if not result:
+            # $.%.C.|[1]
+            result = jmsc_obj_5(value, path)
     return result
 
 # object $.^[3]

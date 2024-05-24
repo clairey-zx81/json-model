@@ -20,7 +20,7 @@ import argparse
 from typing import Any
 
 from .utils import ModelType, ValueType, ModelError, UnknownModel
-from .utils import openfiles, split_object, model_in_models
+from .utils import openfiles, split_object, model_in_models, all_model_type
 from .preproc import _constant_value, model_preprocessor
 from .defines import Validator
 
@@ -380,9 +380,11 @@ class SourceCode(Validator):
             if known is not None:
                 if expr in known:
                     expr = None
-                known.add(expr)
             if model == -1:
-                pass
+                if known is not None: 
+                    known.add(expr)
+                if not expr:
+                    expr = "True"
             elif model == 0:
                 if expr:
                     expr += f" and {val} >= 0"
@@ -402,9 +404,11 @@ class SourceCode(Validator):
             if known is not None:
                 if expr in known:
                     expr = None
-                known.add(expr)
             if model == -1.0:
-                pass
+                if known is not None: 
+                    known.add(expr)
+                if not expr:
+                    expr = "True"
             elif model == 0.0:
                 if expr:
                     expr += f" and {val} >= 0.0"
@@ -427,8 +431,9 @@ class SourceCode(Validator):
                     # log.info(f"expr={expr} known={known}")
                     if expr in known:
                         expr = None
-                    known.add(expr)
             if model == "":
+                if known is not None: 
+                    known.add(expr)
                 if expr:
                     code.add(indent, f"{res} = {expr}")
                 else:
@@ -531,15 +536,30 @@ class SourceCode(Validator):
                     code.add(indent, f"if not {res}:")
                     indent += 1
                     models = n_models
+                # empty list
+                if not models:
+                    code.add(indent, f"{res} = False")
+                    return
                 # discriminant optimization
                 if self._disjunction(code, indent, model, lpath, res, val, vpath):
                     return
-                if not models:
-                    code.add(indent, f"{res} = False")
+                # homogeneous typed list
+                same_type, expected_type = all_model_type(models, lpath)
+                or_known = set()
+                if same_type:
+                    # all models have the same ultimate type
+                    if expected_type == int:
+                        type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
+                    else:
+                        type_test = f"isinstance({val}, {expected_type.__name__})"
+                    code.add(indent, f"{res} = {type_test}")
+                    code.add(indent, f"if {res}:")
+                    indent += 1
+                    or_known.add(type_test) 
                 for i, m in enumerate(models):
                     if i:
                         code.add(indent + i - 1, f"if not {res}:")
-                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath)
+                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath, or_known)
             elif "&" in model:
                 and_known = set(known or [])
                 lpath = mpath + ".&"
