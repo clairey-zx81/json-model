@@ -47,6 +47,7 @@ class DSV(Validator):
         self.set("URI", lambda s: isinstance(s, str), "<URI>")
         self.set("URL-REFERENCE", lambda s: isinstance(s, str), "<URL-REFERENCE>")
         self.set("STRING", lambda s: isinstance(s, str), "<STRING>")
+        self.set("BOOL", lambda b: isinstance(b, bool), "<BOOL>")
 
     def _int(self, value: ValueType, model: ModelType, _strict: bool = True):
         assert type(model) == int

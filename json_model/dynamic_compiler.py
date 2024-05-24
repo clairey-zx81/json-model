@@ -92,6 +92,7 @@ class CompileModel(Validator):
         # FIXME F32?
         self._defs.set("F64", lambda v, p: isinstance(v, float) or self._no("<F64>", p, "invalid F64"))
         self._defs.set("STRING", lambda v, p: isinstance(v, str) or self._no("<STRING>", p, "not a string"))
+        self._defs.set("BOOL", lambda v, p: isinstance(v, bool) or self._no("<BOOL>", p, "not a boolean"))
 
         # url cache
         self._urls = set()
