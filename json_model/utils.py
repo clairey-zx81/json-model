@@ -188,6 +188,39 @@ def is_constructed(model):
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
+def constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
+    if m is None:
+        return True, None
+    elif isinstance(m, str):
+        char = m[0] if m else ""
+        if char == "=":
+            val = m[1:]
+            if val == "null":
+                return True, None
+            elif val == "true":
+                return True, True
+            elif val == "false":
+                return True, False
+            elif re.search(r"^-?[0-9]+$", val):
+                return True, int(val)
+            else:  # float?
+                try:
+                    return True, float(val)
+                except Exception:
+                    raise ModelError(f"unexpected float value {val} [{mpath}]")
+        elif char == "_":
+            return True, m[1:]
+        elif char == "/":
+            return False, None
+        elif char == "$":
+            return False, None
+        elif len(m) > 0:
+            return True, m
+        else:
+            return False, None
+    else:
+        return False, None
+
 def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
     first, current_type = True, None
     for i, m in enumerate(models):
@@ -234,9 +267,9 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
             return False, None
         elif model[0] == "=":
             # handle constants
-            is_cst, val = _constant_value(model, mpath)
+            is_cst, val = constant_value(model, mpath)
             if is_cst:
-                return True, type(cst)
+                return True, type(val)
             else:
                 return False, None
         else:
@@ -245,7 +278,7 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
         return True, list
     elif isinstance(model, dict):
         if "@"  in model:
-            return _model_type(model["@"], mpath + ".@")
+            return model_type(model["@"], mpath + ".@")
         elif "|" in model:
             models = model["|"]
             assert isinstance(models, list)

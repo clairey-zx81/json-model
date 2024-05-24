@@ -20,8 +20,8 @@ import argparse
 from typing import Any
 
 from .utils import ModelType, ValueType, ModelError, UnknownModel
-from .utils import openfiles, split_object, model_in_models, all_model_type
-from .preproc import _constant_value, model_preprocessor
+from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value
+from .preproc import model_preprocessor
 from .defines import Validator
 
 log = logging.getLogger("sc")
@@ -445,7 +445,7 @@ class SourceCode(Validator):
                     code.add(indent, f"{res} = {val} == {self._esc(model[1:])}")
             elif model[0] == "=":
                 # TODO FIXME known
-                (is_cst, value) = _constant_value(model, mpath)
+                (is_cst, value) = constant_value(model, mpath)
                 if is_cst:
                     if value is None:
                         code.add(indent, f"{res} = {val} is None")
@@ -522,7 +522,7 @@ class SourceCode(Validator):
                 lpath = mpath + ".|"
                 models = model["|"]
                 # partial list of constants optimization
-                l_const = list(map(lambda m: _constant_value(m, lpath), models))
+                l_const = list(map(lambda m: constant_value(m, lpath), models))
                 if len(list(filter(lambda t: t[0], l_const))) >= 2:
                     constants, n_models = set(), []
                     for i in range(len(models)):
@@ -566,6 +566,19 @@ class SourceCode(Validator):
                 models = model["&"]
                 if not models:
                     code.add(indent, f"{res} = True")
+                    return
+                # homogeneous typed list
+                same_type, expected_type = all_model_type(models, lpath)
+                if same_type:
+                    # all models have the same ultimate type
+                    if expected_type == int:
+                        type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
+                    else:
+                        type_test = f"isinstance({val}, {expected_type.__name__})"
+                    code.add(indent, f"{res} = {type_test}")
+                    code.add(indent, f"if {res}:")
+                    indent += 1
+                    and_known.add(type_test)
                 for i, m in enumerate(models):
                     if i:
                         code.add(indent + i - 1, f"if {res}:")

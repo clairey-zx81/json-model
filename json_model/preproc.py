@@ -8,7 +8,7 @@ from typing import Any, Callable
 import logging
 import argparse
 from .utils import UnknownModel, Object, ValueType, ModelType, ModelError
-from .utils import same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles
+from .utils import same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles, constant_value
 
 # preprocessor-specific debug
 log = logging.getLogger("preproc")
@@ -20,39 +20,6 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
         if not model_in_models(m, dedups):
             dedups.append(m)
     return dedups
-
-def _constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
-    if m is None:
-        return True, None
-    elif isinstance(m, str):
-        char = m[0] if m else ""
-        if char == "=":
-            val = m[1:]
-            if val == "null":
-                return True, None
-            elif val == "true":
-                return True, True
-            elif val == "false":
-                return True, False
-            elif re.search(r"^-?[0-9]+$", val):
-                return True, int(val)
-            else:  # float?
-                try:
-                    return True, float(val)
-                except Exception:
-                    raise ModelError(f"unexpected float value {val} [{mpath}]")
-        elif char == "_":
-            return True, m[1:]
-        elif char == "/":
-            return False, None
-        elif char == "$":
-            return False, None
-        elif len(m) > 0:
-            return True, m
-        else:
-            return False, None
-    else:
-        return False, None
 
 # FIXME consistency with _structurally_distinct_models…
 def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: str) -> bool:
@@ -71,8 +38,8 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: 
         # log.warning("distinct!")
         return True
     # else same type… try value
-    c1, v1 = _constant_value(m1, mpath)
-    c2, v2 = _constant_value(m2, mpath)
+    c1, v1 = constant_value(m1, mpath)
+    c2, v2 = constant_value(m2, mpath)
     # log.warning(f"{c1} {v1} / {c2} {v2}")
     if c1 and c2 and (type(v1) != type(v2) or v1 != v2):
         return True
@@ -358,7 +325,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                 log.debug("- unresolved $-reference")
                 return False
             elif m.startswith("="):
-                c, v = _constant_value(m, defs)
+                c, v = constant_value(m, defs)
                 assert c
                 m, mt = v, type(v)
             # else: empty or re or str constant
