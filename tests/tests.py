@@ -197,15 +197,12 @@ def test_c_checked_json_model_values():
         init_data(checker._defs.set)
         assert checker(value) == expect, f"c-checked model value: {value} ~ {model} = {expect}"
 
-# FIXME this cannot work because there is no way to provide shared custom definitions
 @pytest.mark.skip("wip…")
 def test_s_checked_json_model_values():
     for value, model, expect in TEST_MODELS:
         log.info(f"model: {model}")
         log.debug(f"expecting {expect} for {value}")
-        checker = static_compile_fun(model)
-        # FIXME
-        # init_data(checker._defs.set)
+        checker = static_compile_fun(model, init_data)
         assert checker(value) == expect, f"s-checked model value: {value} ~ {model} = {expect}"
 
 def test_v_checked_json_model_files():

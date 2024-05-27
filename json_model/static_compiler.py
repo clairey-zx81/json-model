@@ -17,7 +17,7 @@ import re
 import json
 import logging
 import argparse
-from typing import Any
+from typing import Any, Callable
 
 from .utils import ModelType, ValueType, ModelError, UnknownModel
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value
@@ -53,9 +53,6 @@ class Code():
 
     def add(self, indent: int, line: str):
         self._code.append((indent, line))
-
-    # def append(self, code: Code):
-    #    self._code += code._code
 
     def nl(self):
         self.add(0, "")
@@ -715,17 +712,25 @@ class SourceCode(Validator):
 
 _DEFAULT_NAME = "check_model"
 
-def static_compile(model: ModelType, name: str = _DEFAULT_NAME, prefix: str = "jmsc_") -> SourceCode:
+DefFun = Callable[[str, str], None]
+InitFun = Callable[[DefFun], None]
+
+def static_compile(model: ModelType,
+                   name: str = _DEFAULT_NAME,
+                   prefix: str = "jmsc_",
+                   init: InitFun|None = None) -> SourceCode:
     """Generate the check source code for a model."""
     sc = SourceCode(prefix)
     rw_model = model_preprocessor(model, {}, "$")
     sc._names[name] = name
+    if init:
+        init(lambda n, m: sc._compileName(n, m, f"${n}"))
     sc.compile(name, rw_model)
     return sc
 
-def static_compile_fun(model: ModelType):
+def static_compile_fun(model: ModelType, init: InitFun|None = None):
     """Generate a check function for a model."""
-    code = str(static_compile(model))
+    code = str(static_compile(model, init=init))
     env = {}
     exec(code, env)
     assert _DEFAULT_NAME in env
