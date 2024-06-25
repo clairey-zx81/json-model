@@ -6,8 +6,10 @@ import sys
 from typing import Callable
 try:
     import re2 as re
+    is_re2 = True
 except ModuleNotFoundError:
     import re
+    is_re2 = False
 import json
 import logging
 
@@ -339,7 +341,12 @@ class DSV(Validator):
                 if name.endswith("/"):
                     return isinstance(value, str) and re.search(name[:-1], value) is not None
                 elif name.endswith("/i"):
-                    return isinstance(value, str) and re.search(name[:-2], value, re.IGNORECASE) is not None
+                    pattern = name[:-2]
+                    if is_re2:
+                        pattern = "(?i)" + pattern
+                        return isinstance(value, str) and re.search(pattern, value) is not None
+                    else:
+                        return isinstance(value, str) and re.search(pattern, value, re.IGNORECASE) is not None
                 else:
                     raise ModelError(f"invalid regex: {model}")
             elif c == "=":

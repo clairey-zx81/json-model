@@ -12,4 +12,4 @@ clean:
 compiled: $(M.py)
 
 %.py: %.json
-	jm-compiler $< > $@
+	jm-compiler --re $< > $@

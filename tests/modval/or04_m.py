@@ -1,4 +1,4 @@
-import re
+import re as re
 from typing import Any, Callable
 
 CheckFun = Callable[[Any, str], bool]
@@ -13,7 +13,7 @@ jmsc_re_1 = re.compile("[a-z]").search
 # define "check_model" ($)
 def check_model(value: Any, path: str = "$") -> bool:
     # $
-    result = value in {'Susie', 'Calvin'}
+    result = value in {'Calvin', 'Susie'}
     if not result:
         result = isinstance(value, str)
         if result:

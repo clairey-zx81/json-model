@@ -19,4 +19,4 @@ compiled: $(F.py)
 	jm-preprocessor $< > $@
 
 %.py: %.json
-	jm-compiler $< > $@
+	jm-compiler --re $< > $@

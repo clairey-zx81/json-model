@@ -45,6 +45,7 @@ _PREDEFS = {
 _RESULT = "result"
 _VALUE = "value"
 _PATH = "path"
+_RE = "re2"
 
 class Code():
 
@@ -104,7 +105,7 @@ class SourceCode(Validator):
         self._help.clear()
         self._maps.clear()
         self._subs.clear()
-        self.define("import re")
+        self.define(f"import {_RE} as re")
         self.define("from typing import Any, Callable")
         self.define("")
         self.define("CheckFun = Callable[[Any, str], bool]")
@@ -160,7 +161,11 @@ class SourceCode(Validator):
                 pattern = regex[1:-2]
                 fun = self._ident("re_")
                 self._regs[regex] = fun
-                self.define(f"{fun} = re.compile({self._esc(pattern)}, re.IGNORECASE).search")
+                if _RE == "re2":
+                    pattern = "(?i)" + pattern
+                    self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+                else:
+                    self.define(f"{fun} = re.compile({self._esc(pattern)}, re.IGNORECASE).search")
             else:
                 raise NotImplementedError("model = {regex}")
         return self._regs[regex]
@@ -718,8 +723,11 @@ InitFun = Callable[[DefFun], None]
 def static_compile(model: ModelType,
                    name: str = _DEFAULT_NAME,
                    prefix: str = "jmsc_",
-                   init: InitFun|None = None) -> SourceCode:
+                   init: InitFun|None = None,
+                   re: str = "re") -> SourceCode:
     """Generate the check source code for a model."""
+    global _RE
+    _RE = re
     sc = SourceCode(prefix)
     rw_model = model_preprocessor(model, {}, "$")
     sc._names[name] = name
@@ -751,16 +759,19 @@ def static_compiler():
     ap.add_argument("-p", "--prefix", type=str, default="jmsc_")
     ap.add_argument("-r", "--result", type=str, default="result")
     ap.add_argument("-v", "--value", type=str, default="value")
+    ap.add_argument("--re", action="store_true")
     ap.add_argument("models", nargs="*")
     args = ap.parse_args()
 
     if args.debug:
         log.setLevel(logging.DEBUG)
 
-    global _RESULT, _VALUE
+    global _RESULT, _VALUE, _RE
 
     _RESULT = args.result
     _VALUE = args.value
+    if args.re:
+        _RE = "re"
 
     for fn, fh in openfiles(args.models):
         try:

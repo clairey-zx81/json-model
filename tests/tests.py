@@ -19,6 +19,10 @@ from json_model.utils import ModelError
 from json_model.validator import DSV
 import json_model.dynamic_compiler as compiler
 
+# use re for tests
+import json_model.static_compiler as static_compiler
+static_compiler._RE = "re"
+
 from good_models import (
     TEST_MODELS, JSON_MODEL, JSON_SCHEMA_MODEL, JSON_MODEL_SCHEMA,
     init_data

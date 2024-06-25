@@ -1,4 +1,4 @@
-import re
+import re as re
 from typing import Any, Callable
 
 CheckFun = Callable[[Any, str], bool]
