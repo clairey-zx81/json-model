@@ -777,7 +777,7 @@ def static_compiler():
         try:
             log.debug(f"model: {fn}")
             model = json.load(fh)
-            print(static_compile(model, prefix=args.prefix))
+            print(static_compile(model, prefix=args.prefix, re=_RE))
         except Exception as e:
             log.error(f"{fn}: {e}")
             log.error(e, exc_info=True)
