@@ -13,6 +13,7 @@ _JSON_SCHEMA_METADATA = (
 
 def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=JsonType.DATA):
     """Recursive internal computation of json data structure metrics."""
+    counts["#nodes"] += 1
     tdata = type(data)
     if tdata == type(None):
         counts["null"] += 1
@@ -40,6 +41,7 @@ def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=J
     elif tdata == dict:
         counts["object"] += 1
         counts["#props"] += len(data)
+        counts["#nodes"] += len(data)  # count property names
         md = 0
         for k, v in data.items():
             assert isinstance(k, str)
@@ -69,6 +71,7 @@ _COSTS = {
     "#items": 1,
     "object": 2,
     "#props": 2,
+    "#nodes": 0,
 }
 
 def json_metrics_raw(data, skip_metadata=False, json_type=JsonType.DATA):
@@ -84,6 +87,7 @@ def json_metrics_raw(data, skip_metadata=False, json_type=JsonType.DATA):
         "#items": 0,
         "#props": 0,
         "#length": 0,
+        "#nodes": 0,
     }
     counts["_depth"] = _json_metrics(data, counts, skip_metadata, json_type)
     counts["_length"] = len(json.dumps(data))
