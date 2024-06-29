@@ -94,11 +94,18 @@ _UTYPE = {
     "$STRING": str,
 }
 
+# model predef to standard model
 _UMODEL = { 
     "BOOL": True, "NULL": None,
     "I32": -1, "U32": 0, "I64": -1, "U64": 0,
     "F32": -1.0, "F64": -1.0,
-    "STRING": ""
+    "STRING": "",
+    # stop recursion on some predefs
+    "URI": "$URI",
+    "REGEX": "$REGEX",
+    "DATE": "$DATE",
+    "UUID": "$UUID",
+    # to be continued…
 }
 
 class Validator:
@@ -144,7 +151,9 @@ class Validator:
             elif model[0] == "=":
                 return model
             else:  # follow definition if possible
-                m = self._defs.model(model[1:])
+                assert model[0] == "$"
+                name = model[1:]
+                m = self._defs.model(name)
                 # handle some predefs
                 if isinstance(m, str) and m and m[0] == "$" and m[1:] in _UMODEL:
                     return _UMODEL[m[1:]]
