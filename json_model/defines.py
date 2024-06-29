@@ -89,22 +89,22 @@ class ModelDefs:
 _UTYPE = {
     "$NULL": None,
     "$BOOL": bool,
-    "$I32": int, "$U32": int, "$I64": int, "$U64": int,
-    "$F32": float, "$F64": float,
+    "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
+    "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,
 }
 
 # model predef to standard model
 _UMODEL = { 
-    "BOOL": True, "NULL": None,
-    "I32": -1, "U32": 0, "I64": -1, "U64": 0,
-    "F32": -1.0, "F64": -1.0,
-    "STRING": "",
+    "$BOOL": True, "$NULL": None,
+    "$I32": -1, "$U32": 0, "$I64": -1, "$U64": 0, "$INTEGER": -1,
+    "$F32": -1.0, "$F64": -1.0, "$NUMBER": -1.0,
+    "$STRING": "",
     # stop recursion on some predefs
-    "URI": "$URI",
-    "REGEX": "$REGEX",
-    "DATE": "$DATE",
-    "UUID": "$UUID",
+    "$URI": "$URI",
+    "$REGEX": "$REGEX",
+    "$DATE": "$DATE",
+    "$UUID": "$UUID",
     # to be continued…
 }
 
@@ -155,8 +155,8 @@ class Validator:
                 name = model[1:]
                 m = self._defs.model(name)
                 # handle some predefs
-                if isinstance(m, str) and m and m[0] == "$" and m[1:] in _UMODEL:
-                    return _UMODEL[m[1:]]
+                if isinstance(m, str) and m in _UMODEL:
+                    return _UMODEL[m]
                 # else try recursing
                 return self._ultimate_model(m) if m != UnknownModel else m
         elif tmodel is dict: 
