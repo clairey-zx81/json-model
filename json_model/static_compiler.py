@@ -1,10 +1,10 @@
 # generate python source code for a model
 #
 # TODO
+# - cache already compiled models!
 # - optimize out redundant checks! (WIP)
 # - check name override
 # - generate error messages
-# - cache compiled models
 #
 # FIXME
 # - Python is fuzzy about int/bool distinction, eg
