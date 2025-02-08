@@ -104,7 +104,7 @@ class _Object:
         # we did not found any sure discrimination on this way
         return True
 
-def merge_simple_models(models: list[any], defs, path: str="") -> Object:
+def merge_simple_models(models: list[Any], defs, path: str="") -> Object:
     """Merge a list of simple object models."""
 
     # sanity checks
