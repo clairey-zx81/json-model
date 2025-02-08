@@ -79,6 +79,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 - think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
   for the Python ecosystem, see `SQLAlchemy` and `Django`?
 - think of extensions to direct object creation (Python pydantic, JS)?
+- extensions could allow synonyms enabling JSON Model l10n?!
 - name space?
 - conditionals or not conditionals… eg for interfaces
   if not in the description language, it should be easy to express outside.
