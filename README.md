@@ -72,8 +72,9 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 - readability and style: `:verbose` version of single char keywords?
 - clarify stuff inside the root `#`? or use `%` for specific purpose?
 - check and document API entry points
-- provide a model to form proof-of-concept, possibly using some convenient form library.
-- think of extensions to direct
+- provide a model to form proof-of-concept, possibly using some convenient form
+  library, eg [FormBuilder](https://formbuilder.online/).
+- think of extensions to direct forms for instance?
 - declaration of the meta model?
 
   ```json
