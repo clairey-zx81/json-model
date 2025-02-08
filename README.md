@@ -157,14 +157,14 @@ pip install git+https://github.com/clairey-zx81/json-model.git
         "~": "$ANY"
       },
       "list-selector": {
-        "#": "selection widget for lists",
+        "#": "selection widget for lists of strings",
         "@": { "|": [ "checkbox", "table", "whatever" ] },
-        "~": [ { "_|": [ "" ] } ]
+        "~": { "_|": [ "" ] }
       },
       "enum-selector": {
-        "#": "selection of one value among several",
+        "#": "selection one value string among several distinct choices",
         "@": { "|": [ "checkbox", "menu" ] }
-        "~": { "_|": [ "" ] }
+        "~": { "_|": { "@": [ "" ], "!": true, ">": 0 } },
       }
     },
     "@": {
