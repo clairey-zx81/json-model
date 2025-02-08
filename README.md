@@ -74,7 +74,11 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 - check and document API entry points
 - provide a model to form proof-of-concept, possibly using some convenient form
   library, eg [FormBuilder](https://formbuilder.online/).
-- think of extensions to direct forms for instance?
+- think of extensions to direct forms for instance? types, constraints, layout or not?
+- think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
+- think of extensions to direct object creation (pydantic, javascript)?
+- conditionals or not conditionals… eg for interfaces
+  if not in the description language, it should be easy to express outside.
 - declaration of the meta model?
 
   ```json
