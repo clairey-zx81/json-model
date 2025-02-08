@@ -34,17 +34,17 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 
 ## Commands
 
-- `jm-c-check-model some_model.json files.json…`
+- `jm-c-check-model awesome.model.json files.json…`
 
    check whether the model matches the JSON data in files
    with the JSON Model Dynamic Compiler.
 
-- `jm-cs-check-model some_model.json files.json…`
+- `jm-cs-check-model awesome.model.json files.json…`
 
    check whether the model matches the JSON data in files
    with the JSON Model Static Compiler.
 
-- `jm-v-check-model some_model.json files.json…`
+- `jm-v-check-model awesome.model.json files.json…`
 
    same thing with the *validator* (aka interpreter).
 
@@ -57,9 +57,120 @@ pip install git+https://github.com/clairey-zx81/json-model.git
   - partial evaluation
   - deduplication in `^ |`
   - xor to or convertion if possible (`^` → `|`)
-- `jm-compiler some_model.json`
+- `jm-compiler awesome.model.json`
+
   static compiler, including some optimization:
-  - detect object tags
+
+  - detect object tags (discriminators)
   - optimize type checks in "&"
   - optimize homogeneous typed list in "&" and "|" 
   - subset of simple type constants
+
+## TODO v2
+
+- change `%` to `$` and remove `$` intra-model naming shortcut?
+- readability and style: `:verbose` version of single char keywords?
+- clarify stuff inside the root `#`? or use `%` for specific purpose?
+- check and document API entry points
+- provide a model to form proof-of-concept, possibly using some convenient form library.
+- think of extensions to direct
+- declaration of the meta model?
+
+  ```json
+  {
+    "#": {
+      ":meta-model": "$URL"
+    }
+  }
+  ```
+
+  ```json
+  {
+    "%": "$URL"
+  }
+  ```
+
+- integration of json-model extensions?
+
+  This could be a simplified version of JSON Schema vocabularies?
+
+  - declare extensions with some meta?!
+
+    ```json
+    {
+      "#": {
+        "json-model-extension": {
+          ":?new-keyword": "$MODEL" 
+        }
+      }
+    }
+    ```
+
+  - contextualized? model context?
+
+    ```json
+    {
+      "#": {
+        "json-model-extensions": {
+          ":?new-keyword": {
+            "#": "@ is the target model, ~ is a conditional context model",
+            "@": "$Model",
+            "~": "$Model"
+          },
+          ":synonym-of": ":new-keyword"
+        }
+      }
+    }
+    ```
+
+    What about allowing several contexts and targets with alternative `|`?
+
+    Context semantics may be quite specific? Should it be open by default?
+    Should it be direct or meta? Should it be a structural match?
+
+  - can also be loaded through a reference?
+
+    ```json
+    {
+      "#": {
+        "json-model-extensions": {
+          ":?new-keyword": "$URL"
+        }
+      }
+    }
+    ```
+
+  - use something other than `#`? `%`?
+    - used sentinels and keywords: `# $ _ ? ! = @ & | ^ + / ops`…
+    - possibly available or reusable keywords: `~ * . : ; , ( ) [ ] { } ops`…
+
+- example
+
+  ```json
+  {
+    "%": {
+      "%": "https://json-model.org/v2",
+      "readOnly": {
+        "#": "readOnly can appear anywhere",
+        "@": true,
+        "~": "$ANY"
+      },
+      "list-selector": {
+        "#": "selection widget for lists",
+        "@": { "|": [ "checkbox", "table", "whatever" ] },
+        "~": [ { "_|": [ "" ] } ]
+      },
+      "enum-selector": {
+        "#": "selection of one value among several",
+        "@": { "|": [ "checkbox", "menu" ] }
+        "~": { "_|": [ "" ] }
+      }
+    },
+    "@": {
+      "domain": {
+        "|": [ "mathematics", "physics", "biology", "computer science" ],
+        "enum-selector": "menu"
+      }
+    }
+  }
+  ```
