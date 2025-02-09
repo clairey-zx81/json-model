@@ -1,5 +1,6 @@
 import enum
 import json
+from .utils import ModelError
 
 class JsonType(enum.IntEnum):
     DATA = 0
