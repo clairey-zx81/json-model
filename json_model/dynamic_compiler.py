@@ -10,6 +10,7 @@ import copy
 import logging
 import argparse
 import json
+import urllib
 
 from . import utils, url_cache
 from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
@@ -116,9 +117,9 @@ class CompileModel(Validator):
         return True
 
     # NOTE long implementation to collect all results
-    def _one(self, l, mpath, vpath) -> bool:
+    def _one(self, lb, mpath, vpath) -> bool:
         okay = []
-        for i, b in enumerate(l):
+        for i, b in enumerate(lb):
             if b:
                 okay.append(i)
                 if fast_fail and len(okay) >= 2:
@@ -132,9 +133,9 @@ class CompileModel(Validator):
             return True
 
     # NOTE long implementation to collect all failures
-    def _all(self, l, mpath, vpath) -> bool:
+    def _all(self, lb, mpath, vpath) -> bool:
         failed = []
-        for i, b in enumerate(l):
+        for i, b in enumerate(lb):
             if not b:
                 if fast_fail:
                     return self._no(mpath, vpath, f"all failure on {i}")
@@ -224,7 +225,7 @@ class CompileModel(Validator):
         FIXME: for now only direct models are managed.
         """
         if not isinstance(model, (list, tuple)):
-            raise ModelError(f"unexpected vartuple model: {m} ({type(m)}) [{mpath}]")
+            raise ModelError(f"unexpected vartuple model: {model} ({type(model)}) [{mpath}]")
 
         nmodels = len(model)
         if nmodels == 0:
@@ -266,8 +267,9 @@ class CompileModel(Validator):
 
     def _tuple_check(self, model: ModelType, mpath: str) -> CheckFun:
         """Check an array (tuple) and its contents."""
+
         if not isinstance(model, (list, tuple)):
-            raise ModelError(f"unexpected tuple model: {m} ({type(m)}) [{mpath}]")
+            raise ModelError(f"unexpected tuple model: {model} ({type(model)}) [{mpath}]")
 
         nmodels = len(model)
         items = [ self._raw_compile(m, f"{mpath}[{i}]") for i, m in enumerate(model) ]
@@ -299,9 +301,6 @@ class CompileModel(Validator):
         assert isinstance(model, dict)
         # log.warning(f"{mpath}: {model}")
 
-        # detect multiply defined properties
-        properties: set(str) = set()
-
         must, may, refs, regs, ots = utils.split_object(model, "*")
 
         # key/value checks functions
@@ -315,10 +314,12 @@ class CompileModel(Validator):
         if "" in ots:
             path = mpath + ".''"
             fun = self._raw_compile(ots[""], path)
-            others = lambda k, v, p: isinstance(k, str) and fun(v, p) or self._no(path, f"{p}", f"bad property {k}")
+            def others(k, v, p):
+                return isinstance(k, str) and fun(v, p) or self._no(path, f"{p}", f"bad property {k}")
         else:
             # reject unexpected properties
-            others = lambda k, _v, p: self._no(mpath, f"{p}", f"unexpected property {k}")
+            def others(k, _v, p):
+                return self._no(mpath, f"{p}", f"unexpected property {k}")
 
         # function for the actual checking
         # captures mandatory, optional, key_checks, others
@@ -392,7 +393,7 @@ class CompileModel(Validator):
             if tag_name not in v:
                 return self._no(mp, p, f"missing tag {tag_name}")
             tag = v[tag_name]
-            if not type(tag) == tag_type:
+            if type(tag) is not tag_type:
                 return self._no(f"{mp}.{tag_name}", f"{p}.{tag_name}",
                                 f"bad tag type {type(tag).__name__} for {tag_type.__name__}")
             if tag not in TAG_CHECKS:
@@ -422,11 +423,11 @@ class CompileModel(Validator):
                     raise ModelError(f"unexpected type for {kc} {ttype}: {tvc} [{mpath}]")
                 lmd = self._LENGTH_LAMBDAS[kc]
                 path = mpath + "." + kc
-                if tvc == int:
+                if tvc is int:
                     checks_nb.append(lmd(vc, path))
-                elif tvc == str and vc.startswith("$"):
+                elif tvc is str and vc.startswith("$"):
                     checks_nb.append(lmd(int(vc[1:]), path))
-                elif ttype == tvc:
+                elif ttype is tvc:
                     checks_val.append(lmd(vc, path))
                 else:
                     raise ModelError(f"unexpected type for {kc} {ttype}: {tvc} [{mpath}]")
@@ -465,14 +466,14 @@ class CompileModel(Validator):
             elif ttype == UnknownModel:
                 # dynamic version
                 def nb_check_gen(v, p):
-                    l = len(v) if isinstance(v, (str, list, dict)) else v
-                    return all(map(lambda f: f(l, p), checks_nb))
+                    lv = len(v) if isinstance(v, (str, list, dict)) else v
+                    return all(map(lambda f: f(lv, p), checks_nb))
                 checks_val.append(nb_check_gen)
             elif has_len:
                 # check length of whatever
                 def nb_check_stat(v, p):
-                    l = len(v) if isinstance(v, (str, list, dict)) else v
-                    return all(map(lambda f: f(l, p), checks_nb))
+                    lv = len(v) if isinstance(v, (str, list, dict)) else v
+                    return all(map(lambda f: f(lv, p), checks_nb))
                 checks_val.append(nb_check_stat)
             else:
                 # just apply on value
@@ -569,7 +570,8 @@ class CompileModel(Validator):
                 mv = list(filter(lambda m: m not in duplicated, mv))
                 # if v matchs a diplicated model, result is False
                 fchecks = [ self._raw_compile(m, f"{mp}[?]") for m in duplicated ]
-                dcheck = lambda v, p: not any(f(v, p) for f in fchecks) or self._no(mpath+ "[*]", p, "duplicated match in ^")
+                def dcheck(v, p):
+                    return not any(f(v, p) for f in fchecks) or self._no(mpath+ "[*]", p, "duplicated match in ^")
 
         # disjunction? NO, preprocessor should have turned this case into a |
 
@@ -591,7 +593,10 @@ class CompileModel(Validator):
 
         # else standard case
         subs = [ self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv) ]
-        fun = lambda v, p: self._one(map(lambda f: f(v, p), subs), mp, p)
+
+        def fun(v, p):
+            return self._one(map(lambda f: f(v, p), subs), mp, p)
+
         # we try dcheck (shortcut), else we try the remaining models
         return self.trace((lambda v, p: dcheck(v, p) and fun(v, p)) if dcheck else fun, mpath, "^")
 
@@ -610,19 +615,23 @@ class CompileModel(Validator):
 
         # loose int?
         if self._loose_int:
-            is_an_int = lambda v, p: (type(v) == int or type(v) == float and v == int(v)) or \
-                self._no(mpath, p, "expecting a (loose) integer")
+            def is_an_int(v, p):
+                return (type(v) in (int, float) and v == int(v)) or \
+                    self._no(mpath, p, "expecting a (loose) integer")
         else:
-            is_an_int = lambda v, p: type(v) == int or self._no(mpath, p, "expecting an integer")
+            def is_an_int(v, p):
+                return type(v) is int or self._no(mpath, p, "expecting an integer")
 
         # signed int?
         if self._signed_int:
             if model == -1:
                 check = is_an_int
             elif model == 0:
-                check = lambda v, p: is_an_int(v, p) and (v >= 0 or self._no(mpath, p, "int must be positive"))
+                def check(v, p):
+                    return is_an_int(v, p) and (v >= 0 or self._no(mpath, p, "int must be positive"))
             elif model == 1:
-                check = lambda v, p: is_an_int(v, p) and (v > 0 or self._no(mpath, p, "int must be strictly positive"))
+                def check(v, p):
+                    return is_an_int(v, p) and (v > 0 or self._no(mpath, p, "int must be strictly positive"))
             else:
                 check = is_an_int
         else:
@@ -676,12 +685,12 @@ class CompileModel(Validator):
                 return lambda v, p: v is None or self._no(mpath, p, "expecting null")
             elif re.search("^-?[0-9]+$", name):
                 val = int(name)
-                return lambda v, p: type(v) == int and v == val or self._no(mpath, p, f"expecting integer {val}")
+                return lambda v, p: type(v) is int and v == val or self._no(mpath, p, f"expecting integer {val}")
             else:
                 try:
                     val = float(name)
                     return lambda v, p: type(v) in (int, float) and v == val or self._no(mpath, p, "expecting number {val}")
-                except:
+                except Exception:
                     raise ModelError(f"unexpected str constant: {name} [{mpath}]")
         elif char == "$":
             if len(model) == 1:
@@ -762,19 +771,19 @@ class CompileModel(Validator):
         """Dynamic "compilation" of a model."""
         # static switch on model type
         tmodel = type(model)
-        if tmodel == type(None):
+        if tmodel is type(None):
             return self._none_raw_compile(model, mpath)
-        elif tmodel == bool:
+        elif tmodel is bool:
             return self._bool_raw_compile(model, mpath)
-        elif tmodel == int:
+        elif tmodel is int:
             return self._int_raw_compile(model, mpath)
-        elif tmodel == float:
+        elif tmodel is float:
             return self._float_raw_compile(model, mpath)
-        elif tmodel == str:
+        elif tmodel is str:
             return self._str_raw_compile(model, mpath)
         elif tmodel in (list, tuple):
             return self._list_raw_compile(model, mpath)
-        elif tmodel == dict:
+        elif tmodel is dict:
             return self._dict_raw_compile(model, mpath, is_root)
         else:
             raise ModelError(f"unexpected model type {type(model)}: {model} [{mpath}]")
@@ -825,8 +834,6 @@ def c_check_model():
     if args.debug:
         _debug = True
         log.setLevel(logging.DEBUG)
-
-    fast_fail = args.fast_fail
 
     # load model
     with open(args.model) as f:
