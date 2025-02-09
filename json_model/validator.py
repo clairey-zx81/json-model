@@ -22,6 +22,12 @@ log = logging.getLogger("validator")
 # log.setLevel(logging.DEBUG)
 # log.setLevel(logging.INFO)
 
+
+def _is_really_int(v):
+    """Python allucinates booleans as integers…"""
+    return isinstance(v, int) and not isinstance(v, bool)
+
+
 # TODO rename class
 class DSV(Validator):
     """Data Structure Validator Evaluator."""
@@ -52,8 +58,8 @@ class DSV(Validator):
         self.set("BOOL", lambda b: isinstance(b, bool), "<BOOL>")
 
     def _int(self, value: ValueType, model: ModelType, _strict: bool = True):
-        assert type(model) == int
-        if type(value) != int:
+        assert _is_really_int(model)
+        if not _is_really_int(value):
             return False
         if model == 0:
             return value >= 0
@@ -108,7 +114,7 @@ class DSV(Validator):
         # handle numeric operators
         if "=" in model:
             val = model["="]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue == val:
                     return False
             elif type(val) == type(value):
@@ -118,7 +124,7 @@ class DSV(Validator):
                 return False
         if "!=" in model:
             val = model["!="]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue != val:
                     return False
             elif type(val) == type(value):
@@ -128,7 +134,7 @@ class DSV(Validator):
                 return False
         if "<=" in model:
             val = model["<="]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue <= val:
                     return False
             elif type(val) == type(value):
@@ -138,7 +144,7 @@ class DSV(Validator):
                 return False
         if "<" in model:
             val = model["<"]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue < val:
                     return False
             elif type(val) == type(value):
@@ -148,7 +154,7 @@ class DSV(Validator):
                 return False
         if ">=" in model:
             val = model[">="]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue >= val:
                     return False
             elif type(val) == type(value):
@@ -158,7 +164,7 @@ class DSV(Validator):
                 return False
         if ">" in model:
             val = model[">"]
-            if has_nb and type(val) == int:
+            if has_nb and _is_really_int(val):
                 if not ivalue > val:
                     return False
             elif type(val) == type(value):
