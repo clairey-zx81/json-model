@@ -16,19 +16,19 @@ def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=J
     """Recursive internal computation of json data structure metrics."""
     counts["#nodes"] += 1
     tdata = type(data)
-    if tdata == type(None):
+    if tdata is type(None):
         counts["null"] += 1
         return 0
-    elif tdata == bool:
+    elif tdata is bool:
         counts["boolean"] += 1
         return 0
-    elif tdata == int:
+    elif tdata is int:
         counts["integer"] += 1
         return 0
-    elif tdata == float:
+    elif tdata is float:
         counts["number"] += 1
         return 0
-    elif tdata == str:
+    elif tdata is str:
         counts["string"] += 1
         counts["#length"] += len(data)
         return 0
@@ -39,7 +39,7 @@ def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=J
         for m in data:
             md = max(md, _json_metrics(m, counts, skip_metadata, json_type))
         return 1 + md
-    elif tdata == dict:
+    elif tdata is dict:
         counts["object"] += 1
         counts["#props"] += len(data)
         counts["#nodes"] += len(data)  # count property names
