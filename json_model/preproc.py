@@ -27,20 +27,20 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: 
     tm1, tm2 = type(m1), type(m2)
     # log.warning(f"m1={m1} m2={m2}")
     # type
-    if tm1 == str and m1 and m1[0] == "$":  # unresolved reference
+    if tm1 is str and m1 and m1[0] == "$":  # unresolved reference
         return m1 == "$NONE"  # special case for none which interact with nothing
-    if tm2 == str and m2 and m2[0] == "$":  # unresolved reference
+    if tm2 is str and m2 and m2[0] == "$":  # unresolved reference
         return m2 == "$NONE"
     if is_constructed(m1) or is_constructed(m2):
         return False
-    if tm1 != tm2:
+    if tm1 is not tm2:
         # log.warning("distinct!")
         return True
     # else same type… try value
     c1, v1 = constant_value(m1, mpath)
     c2, v2 = constant_value(m2, mpath)
     # log.warning(f"{c1} {v1} / {c2} {v2}")
-    if c1 and c2 and (type(v1) != type(v2) or v1 != v2):
+    if c1 and c2 and (type(v1) is not type(v2) or v1 != v2):
         return True
     return False
 
@@ -319,7 +319,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
         m = resolve_model(m, defs)
         mt = type(m)
         # special str preprocessing
-        if mt == str:
+        if mt is str:
             if m.startswith("$"):  # unresolved reference
                 log.debug("- unresolved $-reference")
                 return False
@@ -333,7 +333,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                 log.debug(f"- multiple type {mt.__name__}")
                 return False
             types.add(mt)
-        elif mt == str:
+        elif mt is str:
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
                     log.debug("- multiple strings")
@@ -351,7 +351,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                     log.debug("- repeated constant strings")
                     return False
                 strings.add(m)
-        elif mt == dict:
+        elif mt is dict:
             assert "@" not in m  # should have been resolved!
             assert "+" not in m  # should have been merged!
             if is_constructed(m):
