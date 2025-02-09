@@ -282,15 +282,15 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
         elif "|" in model:
             models = model["|"]
             assert isinstance(models, list)
-            return all_type_model(models, mpath + ".|")
+            return all_model_type(models, mpath + ".|")
         elif "&" in model:
             models = model["&"]
             assert isinstance(models, list)
-            return all_type_model(models, mpath + ".&")
+            return all_model_type(models, mpath + ".&")
         elif "^" in model:
             models = model["^"]
             assert isinstance(models, list)
-            return all_type_model(models, mpath + ".^")
+            return all_model_type(models, mpath + ".^")
         elif "+" in model:
             return True, dict
         else:  # simple object!

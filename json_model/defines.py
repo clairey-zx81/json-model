@@ -1,4 +1,3 @@
-import sys
 import re
 import json
 from typing import Any
@@ -211,11 +210,11 @@ class Validator:
         models = [self._ultimate_model(m) for m in model["|"]]
         # should not happen, just in case
         if len(models) < 2:
-            log.debug(f"not enough models for a disjunction")
+            log.debug("not enough models for a disjunction")
             return None
         # we may have some doubts yet (eg | in |)
         if any(filter(lambda m: type(m) != dict, models)):
-            log.debug(f"some models are not objects")
+            log.debug("some models are not objects")
             return None
         # only objects: collect their direct mandatory properties
         all_props: list[set[str]] = [
@@ -238,7 +237,7 @@ class Validator:
         for props in all_const_props[1:]:
             candidates.intersection_update(props.keys())
         if not candidates:
-            log.debug(f"no property with constant values")
+            log.debug("no property with constant values")
             return None
         # - have the same type
         candidates_typed: set[str] = set()
@@ -246,7 +245,7 @@ class Validator:
             if len(set(type(consts[prop]) for consts in all_const_props)) == 1:
                 candidates_typed.add(prop)
         if not candidates_typed:
-            log.debug(f"no proprety with same type constants")
+            log.debug("no proprety with same type constants")
             return None
         # - have distinct constant values
         candidates_distinct: set[str] = set()

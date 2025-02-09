@@ -227,7 +227,7 @@ def schema2model(schema, path: str=""):
             if nullable:
                 if "type" in schema and isinstance(schema["type"], str):
                     schema["type"] = [ schema["type"], "null" ]
-                log.warning(f"ignoring nullable directive")
+                log.warning("ignoring nullable directive")
             del schema["nullable"]
 
     # FIX missing type in some cases
@@ -278,7 +278,7 @@ def schema2model(schema, path: str=""):
                 s["additionalProperties"] = addprop
 
     if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or "enum" in schema or "$ref" in schema):
-        log.warning(f"removing type from constructed schema?")
+        log.warning("removing type from constructed schema?")
         del schema["type"]
 
     # handle a schema

@@ -274,7 +274,7 @@ class CompileModel(Validator):
 
         def check_tuple(v, p) -> bool:
             if not isinstance(v, (list, tuple)):
-                return self._no(mpath, p, f"expecting an array")
+                return self._no(mpath, p, "expecting an array")
             if len(v) != nmodels:
                 return self._no(mpath, p, "bad array length")
             return all([ items[i](v[i], f"{p}[{i}]") for i in range(nmodels) ])
@@ -388,8 +388,8 @@ class CompileModel(Validator):
             # log.warning(f"disjunct_check {p}")
             # is there a tag?
             if not isinstance(v, dict):
-                return self._no(mp, p, f"not an object")
-            if not tag_name in v:
+                return self._no(mp, p, "not an object")
+            if tag_name not in v:
                 return self._no(mp, p, f"missing tag {tag_name}")
             tag = v[tag_name]
             if not type(tag) == tag_type:
@@ -418,7 +418,7 @@ class CompileModel(Validator):
             tvc = type(vc)
 
             if kc in self._LENGTH_LAMBDAS:
-                if not tvc in (bool, int, float, str):
+                if tvc not in (bool, int, float, str):
                     raise ModelError(f"unexpected type for {kc} {ttype}: {tvc} [{mpath}]")
                 lmd = self._LENGTH_LAMBDAS[kc]
                 path = mpath + "." + kc
@@ -490,7 +490,7 @@ class CompileModel(Validator):
         vtype = model["@"]
         ttype = type(vtype)
         # FIXME skip: None, bool???
-        if not ttype in (bool, type(None), str, int, float, tuple, list, dict):
+        if ttype not in (bool, type(None), str, int, float, tuple, list, dict):
             raise ModelError(f"unexpected type object value type: {type(vtype)} [{mpath}]")
         if self._is_vartuple(model):
             # FIXME should skip it in some cases?

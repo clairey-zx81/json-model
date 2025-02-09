@@ -12,14 +12,12 @@
 #   - True == 1 is True
 #   as a consequence, some generated code may not provide the hoped answer
 
-import sys
-import re
 import json
 import logging
 import argparse
 from typing import Any, Callable
 
-from .utils import ModelType, ValueType, ModelError, UnknownModel
+from .utils import ModelType, ModelError, UnknownModel
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value
 from .preproc import model_preprocessor
 from .defines import Validator
@@ -240,7 +238,7 @@ class SourceCode(Validator):
             if isinstance(mi, str) and mi and mi[0] == "$":
                 # it is a reference, it must be compiled for its name, no need to recompile it!
                 fun = self._getName(mi[1:])
-                if not p in self._paths:
+                if p not in self._paths:
                     # several path will lead to the same function
                     self._paths[p] = fun
                 # else nothing to do?
@@ -275,7 +273,7 @@ class SourceCode(Validator):
         code.add(indent+2, f"{tag} = {val}[{esctag}]")
         code.add(indent+2, f"if {tag} in {disid}:")
         code.add(indent+3, f"{res} = {disid}[{tag}]({val}, {vpath})")
-        code.add(indent+2, f"else:")
+        code.add(indent+2, "else:")
         code.add(indent+3, f"{res} = False")
 
         return True
@@ -286,7 +284,7 @@ class SourceCode(Validator):
         must, may, defs, regs, oth = split_object(model, mpath)
         # TODO optimize must only case?
         code.add(indent, f"if not isinstance({val}, dict):")
-        code.add(indent+1, f"return False")
+        code.add(indent+1, "return False")
         if must:
             prop_must = f"{oname}_must"
             prop_must_map: dict[str, str] = {}
@@ -319,13 +317,13 @@ class SourceCode(Validator):
             code.add(indent+1, f"{cond} {prop} in {prop_must}:  # must")
             code.add(indent+2, f"{must_c} += 1")
             code.add(indent+2, f"if not {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent+3, f"return False")
+            code.add(indent+3, "return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         if may:
             code.add(indent+1, f"{cond} {prop} in {prop_may}:  # may")
             code.add(indent+2, f"if not {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent+3, f"return False")
+            code.add(indent+3, "return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # $* is inlined expr
@@ -357,16 +355,16 @@ class SourceCode(Validator):
         else:
             if cond == "if":
                 # we are expecting an empty object
-                code.add(indent+1, f"# no catch all")
-                code.add(indent+1, f"return False")
+                code.add(indent+1, "# no catch all")
+                code.add(indent+1, "return False")
             else:
                 code.add(indent+1, "else:  # no catch all")
-                code.add(indent+2, f"return False")
+                code.add(indent+2, "return False")
         # check that all must were seen
         if must:
             code.add(indent, f"return {must_c} == {len(must)}")
         else:
-            code.add(indent, f"return True")
+            code.add(indent, "return True")
 
     def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: str,
                       res: str, val: str, vpath: str, known: set[str]|None = None, skip_dollar: bool = False):
@@ -496,7 +494,7 @@ class SourceCode(Validator):
                     code.add(indent, f"{res} = {expr}")
                     code.add(indent, f"if {res}:")
                 else:
-                    code.add(indent, f"if True:")
+                    code.add(indent, "if True:")
                 code.add(indent+1, f"assert isinstance({val}, list)  # pyright helper")
                 code.add(indent+1, f"for {idx}, {item} in enumerate({val}):")
                 self._compileModel(code, indent+2, model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")

@@ -1,13 +1,12 @@
 # common model utilities
 
-import sys
 import json
 import re
 import copy
-from typing import Any, Callable
+from typing import Any
 import logging
 import argparse
-from .utils import UnknownModel, Object, ValueType, ModelType, ModelError
+from .utils import Object, ModelType, ModelError
 from .utils import same_model, model_in_models, split_object, unsplit_object, is_constructed, resolve_model, openfiles, constant_value
 
 # preprocessor-specific debug
@@ -337,19 +336,19 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
         elif mt == str:
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
-                    log.debug(f"- multiple strings")
+                    log.debug("- multiple strings")
                     return False
                 types.add(str)
             else:  # constant string
                 if str in types:
-                    log.debug(f"- constant strings")
+                    log.debug("- constant strings")
                     return False
                 if m[0] == "_":
                     m = m[1:]
                 # ???
                 if m in strings:
                     log.warning(f"repeated constant: {m} [{mpath}]")
-                    log.debug(f"- repeated constant strings")
+                    log.debug("- repeated constant strings")
                     return False
                 strings.add(m)
         elif mt == dict:
