@@ -1,9 +1,9 @@
 # common model utilities
 
-import json
+from typing import Any
 import re
 import copy
-from typing import Any
+import json
 import logging
 import argparse
 from .utils import Object, ModelType, ModelError
@@ -29,16 +29,15 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
 def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: str) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
     m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
-    tm1, tm2 = type(m1), type(m2)
     # log.warning(f"m1={m1} m2={m2}")
     # type
-    if tm1 is str and m1 and m1[0] == "$":  # unresolved reference
+    if isinstance(m1, str) and m1 and m1[0] == "$":  # unresolved reference
         return m1 == "$NONE"  # special case for none which interact with nothing
-    if tm2 is str and m2 and m2[0] == "$":  # unresolved reference
+    if isinstance(m2, str) and m2 and m2[0] == "$":  # unresolved reference
         return m2 == "$NONE"
     if is_constructed(m1) or is_constructed(m2):
         return False
-    if tm1 is not tm2:
+    if type(m1) is not type(m2):
         # log.warning("distinct!")
         return True
     # else same type… try value
@@ -54,6 +53,7 @@ class _Object:
     """Internal representation of an object model."""
 
     def __init__(self, model: ModelType, gdefs: dict[str, Any], mpath: str):
+        assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
         self._must = must
         self._may = may
@@ -110,7 +110,7 @@ class _Object:
         return True
 
 
-def merge_simple_models(models: list[Any], defs, path: str = "") -> Object:
+def merge_simple_models(models: list[Any], defs, path: str = "") -> Object|str:
     """Merge a list of simple object models."""
 
     # sanity checks
@@ -233,7 +233,7 @@ def _merge_object(i, j):
     return d
 
 
-def _merge(data: any, defs: dict[str, any], path: str):
+def _merge(data: Any, defs: dict[str, Any], path: str):
     """Handle merge (+) operator on data."""
 
     if not isinstance(data, dict) or "+" not in data:
@@ -324,7 +324,7 @@ def _actual_merge(data, defs, path):
     return data
 
 
-def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpath: str) -> bool:
+def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, Any], mpath: str) -> bool:
     """Whether all models are structurally distinct.
 
     This ensures that values in these are distinct.
@@ -336,21 +336,22 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
         m = resolve_model(m, defs)
         mt = type(m)
         # special str preprocessing
-        if mt is str:
+        if isinstance(m, str):
             if m.startswith("$"):  # unresolved reference
                 log.debug("- unresolved $-reference")
                 return False
             elif m.startswith("="):
-                c, v = constant_value(m, defs)
+                c, v = constant_value(m, mpath)
                 assert c
                 m, mt = v, type(v)
             # else: empty or re or str constant
+
         if mt in (type(None), bool, int, float, list):
             if mt in types:
                 log.debug(f"- multiple type {mt.__name__}")
                 return False
             types.add(mt)
-        elif mt is str:
+        elif isinstance(m, str):
             if m == "" or m[0] == "/":  # generic string
                 if str in types or strings:
                     log.debug("- multiple strings")
@@ -368,7 +369,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
                     log.debug("- repeated constant strings")
                     return False
                 strings.add(m)
-        elif mt is dict:
+        elif isinstance(m, dict):
             assert "@" not in m  # should have been resolved!
             assert "+" not in m  # should have been merged!
             if is_constructed(m):
@@ -392,7 +393,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, any], mpa
     return True
 
 
-def _merge_rewrite(data, defs: dict[str, any], path: str):
+def _merge_rewrite(data, defs: dict[str, Any], path: str):
     """Rewrite model to handle "+"."""
 
     if data is None:
@@ -466,6 +467,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
             models = _merge_rewrite(models, defs, lpath)
 
             # ignore $NONE in models list
+            assert isinstance(models, list)
             models = list(filter(lambda m: m != "$NONE", models))
 
             log.debug(f"^: {models}")
@@ -490,6 +492,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
 
             models = _merge_rewrite(models, defs, lpath)
+            assert isinstance(models, list)
 
             # remove duplicate model
             if len(models) >= 2:
@@ -522,6 +525,7 @@ def _merge_rewrite(data, defs: dict[str, any], path: str):
                 raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
 
             models = _merge_rewrite(models, defs, lpath)
+            assert isinstance(models, list)
 
             # remove duplicate model
             if len(models) >= 2:

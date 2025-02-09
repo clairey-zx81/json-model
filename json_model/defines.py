@@ -1,6 +1,6 @@
+from typing import Any
 import re
 import json
-from typing import Any
 from .utils import log, CheckFun, ModelType, UnknownModel, Compiler
 
 
@@ -35,20 +35,21 @@ class ReadOnlyDefs:
 class ModelDefs:
     """Hold current model definitions and possibly compiled versions."""
 
-    def __init__(self, compiler: Compiler = lambda _: None):
+    def __init__(self, compiler: Compiler = lambda _m, _s: None):
         self._compiler = compiler
         self._models: dict[str, Model] = {}
         self.defs = ReadOnlyDefs(self)
 
-    def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str = None):
+    def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str|None = None):
         """Add or override named JSON model."""
         # FIXME forbid? scope?
-        # log.debug(f"set {name} [{mpath}]")
+        log.debug(f"set {name} [{mpath}]")
+
         if name in self._models:
             log.warning(f"overriding definition for {name}")
 
         if callable(model):
-            # direct function
+            # direct function?!
             m = Model(model, f"${name}", None, doc)
         else:
             m = Model(self._compiler(model, mpath), model, json.dumps(model), doc)
@@ -57,7 +58,9 @@ class ModelDefs:
 
     def get(self, name: str) -> CheckFun:
         """Get compiled or native checker function."""
-        return self._models[name].check
+        assert self._models[name].check is not None
+        log.debug(f"returning check fun for {name}")
+        return self._models[name].check  # type: ignore
 
     def model(self, name: str):
         """Return the JSON model of this name, if available."""
@@ -122,14 +125,16 @@ class Validator:
         if tmodel in (type(None), bool, int, float, list, tuple):
             return tmodel
         elif tmodel is str:
+            assert isinstance(model, str)  # useless pyright hint
             if model == "" or model[0] != "$":
                 return tmodel
             else:  # follow definition if possible
                 if model in _UTYPE:
                     return _UTYPE[model]
                 m = self._defs.model(model[1:])
-                return self._ultimate_type(m) if m != UnknownModel else m
+                return self._ultimate_type(m) if m != UnknownModel else m  # type: ignore
         elif tmodel is dict:
+            assert isinstance(model, dict)
             if "@" in model:
                 return self._ultimate_type(model["@"])
             elif "|" in model:
@@ -149,6 +154,7 @@ class Validator:
         if tmodel in (type(None), bool, int, float, list, tuple):
             return model
         elif tmodel is str:
+            assert isinstance(model, str)  # useless pyright hint
             if model == "" or model[0] not in ("$", "="):
                 return model
             elif model[0] == "=":
@@ -161,18 +167,22 @@ class Validator:
                 if isinstance(m, str) and m in _UMODEL:
                     return _UMODEL[m]
                 # else try recursing
-                return self._ultimate_model(m) if m != UnknownModel else m
+                return self._ultimate_model(m) if m != UnknownModel else m  # type: ignore
         elif tmodel is dict:
+            assert isinstance(model, dict)  # useless pyright hint
             if "@" in model:
                 if strict:
                     if set(model.keys()).issubset(["@", "#", "%", "%"]):
                         return self._ultimate_model(model["@"])
                     else:
-                        return UnknownModel
-                # else
-                return self._ultimate_model(model["@"]) if constrained else UnknownModel
+                        return UnknownModel  # type: ignore
+                else:
+                    if constrained:
+                        return self._ultimate_model(model["@"])
+                    else:
+                        return UnknownModel  # type: ignore
             elif "|" in model:
-                return UnknownModel
+                return UnknownModel  # type: ignore
             else:
                 return model
 
@@ -184,15 +194,16 @@ class Validator:
             return None
         tv = type(v)
         if tv is str:
+            assert isinstance(v, str)  # useless pyright hint
             if v == "":
                 return None
             elif v == "=null":
                 return None
-            elif re.search(r"^=(true|false)$", v):
+            elif re.search(r"^=(true|false)$", v) is not None:
                 return True if v == "=true" else False
-            elif re.search(r"^=-?\d+$", v):
+            elif re.search(r"^=-?\d+$", v) is not None:
                 return int(v[1:])
-            elif re.search(r"^=", v):
+            elif re.search(r"^=", v) is not None:
                 return float(v[1:])
             elif v[0] == "_":
                 return v[1:]
@@ -224,12 +235,13 @@ class Validator:
         # only objects: collect their direct mandatory properties
         all_props: list[set[str]] = [
             set(k for k in m.keys() if k and k[0] not in ("$", "?", "/"))
-            for m in models
+            for m in models if isinstance(m, dict)
         ]
         # get cleaned props and their constant values
-        all_const_props: list[dict[str, any]] = []
+        all_const_props: list[dict[str, Any]] = []
         for props, model in zip(all_props, models):
-            consts: dict[str, any] = {}
+            consts: dict[str, Any] = {}
+            assert isinstance(model, dict)
             for prop in props:
                 val = self._constant(model[prop])
                 if val is not None:

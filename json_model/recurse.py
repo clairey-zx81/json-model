@@ -46,8 +46,8 @@ def _recModel(
 
 def recModel(
         model: ModelType,
-        flt: ModelFilter = lambda _: True,
-        rwt: ModelRewrite = lambda m: m
+        flt: ModelFilter = lambda _m, _p: True,
+        rwt: ModelRewrite = lambda m, _p: m
     ) -> ModelType:
 
     model = _recModel(model, ["$"], flt, rwt)

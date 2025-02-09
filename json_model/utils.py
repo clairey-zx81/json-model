@@ -31,7 +31,7 @@ class ModelError(BaseException):
 #
 
 
-def is_regex(s: str) -> bool:
+def is_regex(s: str, p: str = "") -> bool:
     if isinstance(s, str):
         try:
             re.compile(s)
@@ -41,8 +41,8 @@ def is_regex(s: str) -> bool:
             # \p{UnicodePropertyValueExpression} (same p. 553)
             good_anyway = re.search(r"\\[Pp]\{", s) or re.search(r"\\c[a-zA-Z]", s)
             if not good_anyway:
-                log.warning(f"invalid /{s}/: {e}")
-            return good_anyway
+                log.warning(f"invalid /{s}/ at {p}: {e}")
+            return good_anyway is not None
     else:
         return False
 
@@ -88,12 +88,14 @@ def model_eq(m1: ModelType, m2: ModelType) -> bool:
     elif t1 in (bool, int, float, str):
         return m1 == m2
     elif t1 is list:
+        assert isinstance(m1, list) and isinstance(m2, list)  # type hint
         if len(m1) != len(m2):
             return False
         else:  # same size, recurse
             return all(model_eq(i1, i2) for i1, i2 in zip(m1, m2))
     elif t1 is dict:  # compare contents but # $ %
         # check m1 ⊂  m2
+        assert isinstance(m1, dict) and isinstance(m2, dict)  # type hint helper
         for p in m1.keys():
             if p not in ("#", "%", "$"):
                 if p not in m2:

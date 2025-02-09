@@ -12,10 +12,10 @@
 #   - True == 1 is True
 #   as a consequence, some generated code may not provide the hoped answer
 
+from typing import Any, Callable
 import json
 import logging
 import argparse
-from typing import Any, Callable
 
 from .utils import ModelType, ModelError, UnknownModel
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value
@@ -232,6 +232,8 @@ class SourceCode(Validator):
         tag_name, tag_type, models, all_const_props = dis
 
         # Compile all object models in the list if needed
+        assert isinstance(model, dict)
+
         init = model["|"]
         assert len(models) == len(init)
         for i, m in enumerate(models):
@@ -283,12 +285,13 @@ class SourceCode(Validator):
     def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: str,
                        oname: str, res: str, val: str, vpath: str):
         # separate properties
+        assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
         # TODO optimize must only case?
         code.add(indent, f"if not isinstance({val}, dict):")
         code.add(indent + 1, "return False")
+        prop_must = f"{oname}_must"
         if must:
-            prop_must = f"{oname}_must"
             prop_must_map: dict[str, str] = {}
             self.define(f"{prop_must}: dict[str, CheckFun]")
             self._maps[prop_must] = prop_must_map
@@ -296,8 +299,8 @@ class SourceCode(Validator):
                 pid = f"{prop_must}_{p}"  # tmp unique identifier
                 self.help(self._compileName(pid, m, f"{mpath}.{p}"))
                 prop_must_map[p] = self._getName(pid)
+        prop_may = f"{oname}_may"
         if may:
-            prop_may = f"{oname}_may"
             prop_may_map: dict[str, str] = {}
             self.define(f"{prop_may}: dict[str, CheckFun]")
             self._maps[prop_may] = prop_may_map
@@ -313,34 +316,36 @@ class SourceCode(Validator):
         if must:
             code.add(indent, f"{must_c} = 0")
         code.add(indent, f"for {prop}, {value} in {val}.items():")
-        code.add(indent + 1, f"assert isinstance({prop}, str)")
+        code.add(indent, f"    assert isinstance({prop}, str)")
         cond = "if"
         if must:
-            code.add(indent + 1, f"{cond} {prop} in {prop_must}:  # must")
-            code.add(indent + 2, f"{must_c} += 1")
-            code.add(indent + 2, f"if not {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent + 3, "return False")
+            code.add(indent, f"    {cond} {prop} in {prop_must}:  # must")
+            code.add(indent, f"        {must_c} += 1")
+            code.add(indent, f"        if not {prop_must}[{prop}]({value}, "
+                     f"f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         if may:
-            code.add(indent + 1, f"{cond} {prop} in {prop_may}:  # may")
-            code.add(indent + 2, f"if not {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent + 3, "return False")
+            code.add(indent, f"    {cond} {prop} in {prop_may}:  # may")
+            code.add(indent, f"        if not {prop_may}[{prop}]({value}, "
+                     f"f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # $* is inlined expr
         for d, v in defs.items():
-            code.add(indent + 1, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
+            code.add(indent, f"    {cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
             self._compileModel(code, indent + 2, v, f"{mpath}.{d}", res, value, vpath)
-            code.add(indent + 2, f"if not {res}: return False")
+            code.add(indent, f"        if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # // is inlined
         for r, v in regs.items():
             regex = f"/{r}/"
-            code.add(indent + 1, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
+            code.add(indent, f"    {cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
             self._compileModel(code, indent + 2, v, f"{mpath}.{regex}", res, value, vpath)
-            code.add(indent + 2, f"if not {res}: return False")
+            code.add(indent, f"        if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # catchall is inlined
@@ -348,20 +353,20 @@ class SourceCode(Validator):
             omodel = oth[""]
             if cond == "if":  # direct
                 self._compileModel(code, indent + 1, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent + 1, f"if not {res}: return False")
+                code.add(indent, f"    if not {res}: return False")
             else:
-                code.add(indent + 1, "else:  # catch all")
+                code.add(indent, r"    else:  # catch all")
                 self._compileModel(code, indent + 2, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent + 2, f"if not {res}: return False")
+                code.add(indent, f"        if not {res}: return False")
                 # code.add(indent+3, f"continue")
         else:
             if cond == "if":
                 # we are expecting an empty object
-                code.add(indent + 1, "# no catch all")
-                code.add(indent + 1, "return False")
+                code.add(indent, "    # no catch all")
+                code.add(indent, "    return False")
             else:
-                code.add(indent + 1, "else:  # no catch all")
-                code.add(indent + 2, "return False")
+                code.add(indent, "    else:  # no catch all")
+                code.add(indent, "        return False")
         # check that all must were seen
         if must:
             code.add(indent, f"return {must_c} == {len(must)}")
@@ -385,7 +390,8 @@ class SourceCode(Validator):
                     expr = None
             if model == -1:
                 if known is not None:
-                    known.add(expr)
+                    if expr is not None:
+                        known.add(expr)
                 if not expr:
                     expr = "True"
             elif model == 0:
@@ -409,7 +415,8 @@ class SourceCode(Validator):
                     expr = None
             if model == -1.0:
                 if known is not None:
-                    known.add(expr)
+                    if expr is not None:
+                        known.add(expr)
                 if not expr:
                     expr = "True"
             elif model == 0.0:
@@ -436,7 +443,8 @@ class SourceCode(Validator):
                         expr = None
             if model == "":
                 if known is not None:
-                    known.add(expr)
+                    if expr is not None:
+                        known.add(expr)
                 if expr:
                     code.add(indent, f"{res} = {expr}")
                 else:
@@ -485,7 +493,8 @@ class SourceCode(Validator):
             if known is not None:
                 if expr in known:
                     expr = None
-                known.add(expr)
+                if expr is not None:
+                    known.add(expr)
             if len(model) == 0:
                 if expr:
                     expr += f" and len({val}) == 0"
@@ -730,7 +739,7 @@ class SourceCode(Validator):
 
 _DEFAULT_NAME = "check_model"
 
-DefFun = Callable[[str, str], None]
+DefFun = Callable[[str, str], Any]
 InitFun = Callable[[DefFun], None]
 
 

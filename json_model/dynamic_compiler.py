@@ -5,17 +5,18 @@
 # TODO check for possibly undefined defs by tracking defs and uses
 # TODO check for some obviously empty types?
 
-import re  # re2?
+from typing import Any, Callable
 import copy
-import logging
-import argparse
+import re  # re2?
 import json
-import urllib
+import argparse
+import logging
+import urllib.parse
 
 from . import utils, url_cache
 from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
 from .utils import distinct_values, model_in_models
-from .preproc import model_preprocessor
+from .preproc import model_preprocessor, merge_simple_models
 from .defines import Validator
 
 log = logging.getLogger("compiler")
@@ -85,7 +86,7 @@ class CompileModel(Validator):
         self._defs.set("NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
         self._defs.set("REGEX",
-                       lambda v, p: utils.is_regex(v) or self._no("<REGEX>", p, "invalid regex"),
+                       lambda v, p: utils.is_regex(v, p) or self._no("<REGEX>", p, "invalid regex"),
                        "<REGEX>", "valid regular expression")
         # these are permissive for now
         self._defs.set("URI", lambda s, p: isinstance(s, str) or self._no("<URI>",
@@ -149,7 +150,7 @@ class CompileModel(Validator):
 
     # NOTE long implementation to collect all failures
     def _all(self, lb, mpath, vpath) -> bool:
-        failed = []
+        failed, i = [], 0
         for i, b in enumerate(lb):
             if not b:
                 if fast_fail:
@@ -172,11 +173,11 @@ class CompileModel(Validator):
             self._reasons = []
         return True
 
-    def __call__(self, value: any) -> bool:
+    def __call__(self, value: Any, path: str = "$") -> bool:
         """Call the checker on a value."""
         self._reasons = []
         try:
-            return self._fun(value, "$")
+            return self._fun(value, path)
         except Exception as e:
             # exceptions should not occur
             if _debug:
@@ -303,8 +304,10 @@ class CompileModel(Validator):
     def _keyname_val_compile(self, name: str, model: ModelType, mpath: str) -> KeyCheckFun:
         """Check object named property and its associated value."""
         val_check = self._raw_compile(model, f"{mpath}.{name}")
+        def_check = self._defs[name]
         # NOTE if $name is not defined it should coldly fail
-        return lambda k, v, p: val_check(v, p) if self._defs[name](k, p) else None
+        assert val_check is not None and def_check is not None  # pyright hint
+        return lambda k, v, p: val_check(v, p) if def_check(k, p) else None
 
     def _keyreg_val_compile(self, reg: str, model: ModelType, mpath: str) -> KeyCheckFun:
         """Check object named property and its associated value."""
@@ -334,7 +337,7 @@ class CompileModel(Validator):
             path = mpath + ".''"
             fun = self._raw_compile(ots[""], path)
 
-            def others(k, v, p):
+            def others(k, v, p):  # type: ignore # pyright defect
                 return (isinstance(k, str) and fun(v, p) or
                         self._no(path, f"{p}", f"bad property {k}"))
         else:  # reject unexpected properties
@@ -344,7 +347,7 @@ class CompileModel(Validator):
 
         # function for the actual checking
         # captures mandatory, optional, key_checks, others
-        def check_dict(v: any, p: str) -> bool:
+        def check_dict(v: Any, p: str) -> bool:
 
             if not isinstance(v, dict):
                 return self._no(mpath, p, "not an object")
@@ -426,11 +429,14 @@ class CompileModel(Validator):
             if tag not in TAG_CHECKS:
                 return self._no(f"{mp}.{tag_name}", f"{p}.{tag_name}",
                                 f"unexpected tag {tag_name} value {tag}")
-            return TAG_CHECKS.get(tag)(v, p)
+
+            tag_check = TAG_CHECKS.get(tag)
+            assert tag_check
+            return tag_check(v, p)
 
         return self.trace(disjunct_check, mpath, "{δ}")
 
-    def _obj_constraints(self, constraint: dict[str, any], ttype: type, mpath: str):
+    def _obj_constraints(self, constraint: dict[str, Any], ttype: type, mpath: str):
         """Check a constrained type constraints."""
         checks_val, checks_nb = [], []
         has_len = ttype in (str, list, tuple, dict)
@@ -512,7 +518,7 @@ class CompileModel(Validator):
         else:
             return None
 
-    def _constrained_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
+    def _constrained_model_check(self, model: dict[str, Any], mpath: str) -> CheckFun:
         """Check a constrained type type and constraints."""
         assert isinstance(model, dict) and "@" in model
         vtype = model["@"]
@@ -533,7 +539,7 @@ class CompileModel(Validator):
         else:
             return val_check
 
-    def _alternate_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
+    def _alternate_model_check(self, model: dict[str, Any], mpath: str) -> CheckFun:
         """Check a or-model |."""
         assert isinstance(model, dict) and "|" in model
         if not set(model.keys()).issubset(["#", "$", "%", "|"]):
@@ -554,7 +560,7 @@ class CompileModel(Validator):
         return (self.trace(lambda v, p: any(f(v, p) for f in subs) or
                 self._no(mp, p, "no any matched"), mpath, "|"))
 
-    def _conjunctive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
+    def _conjunctive_model_check(self, model: dict[str, Any], mpath: str) -> CheckFun:
         """Check a and-model &."""
         assert isinstance(model, dict) and "&" in model
         if not set(model.keys()).issubset(["#", "$", "%", "&"]):
@@ -571,7 +577,7 @@ class CompileModel(Validator):
         subs = [self._raw_compile(m, f"{mp}[{i}]") for i, m in enumerate(mv)]
         return self.trace(lambda v, p: self._all(map(lambda f: f(v, p), subs), mp, p), mpath, "&")
 
-    def _exclusive_model_check(self, model: dict[str, any], mpath: str) -> CheckFun:
+    def _exclusive_model_check(self, model: dict[str, Any], mpath: str) -> CheckFun:
         """Check a xor-model ^."""
         assert isinstance(model, dict) and "^" in model
         if not set(model.keys()).issubset(["#", "$", "%", "^"]):
@@ -582,6 +588,7 @@ class CompileModel(Validator):
             raise ModelError(f"unexpected & conjonctive value: {mv} (type{mv}) [{mp}]")
 
         # fun optimization: duplicate models lead to immediate errors
+        dcheck: Callable[[Any, str], bool]|None
         if len(mv) >= 2:
 
             # detect duplicated (strictly equal) models
@@ -600,9 +607,10 @@ class CompileModel(Validator):
                 # if v matchs a diplicated model, result is False
                 fchecks = [self._raw_compile(m, f"{mp}[?]") for m in duplicated]
 
-                def dcheck(v, p):
+                def _dcheck(v: Any, p: str):
                     return (not any(f(v, p) for f in fchecks) or
                             self._no(mpath + "[*]", p, "duplicated match in ^"))
+                dcheck = _dcheck  # stupid ruff error avoidance
             else:
                 dcheck = None
         else:
@@ -615,9 +623,9 @@ class CompileModel(Validator):
             # even if dcheck!
             return self.trace(self._NONE, mpath, "^")
         elif len(mv) == 1:
-            fun = self._raw_compile(mv[0], mp + "[0]")
-            if dcheck:
-                return lambda v, p: dcheck(v, p) and fun(v, p)
+            fun: CheckFun = self._raw_compile(mv[0], mp + "[0]")  # type: ignore
+            if dcheck is not None:
+                return lambda v, p: dcheck(v, p) and fun(v, p)  # type: ignore
             else:
                 return fun
         elif len(mv) == 2 and "$ANY" in mv:
@@ -636,7 +644,7 @@ class CompileModel(Validator):
         # we try dcheck (shortcut), else we try the remaining models
         return self.trace((lambda v, p: dcheck(v, p) and fun(v, p)) if dcheck else fun, mpath, "^")
 
-    def _none_raw_compile(self, model: type(None), mpath: str) -> CheckFun:
+    def _none_raw_compile(self, model: None, mpath: str) -> CheckFun:
         """Compile null."""
         return lambda v, p: v is None or self._no(mpath, p, "expecting null")
 
@@ -651,11 +659,11 @@ class CompileModel(Validator):
 
         # loose int?
         if self._loose_int:
-            def is_an_int(v, p):
+            def is_an_int(v, p) -> bool:
                 return (type(v) in (int, float) and v == int(v)) or \
                     self._no(mpath, p, "expecting a (loose) integer")
         else:
-            def is_an_int(v, p):
+            def is_an_int(v, p) -> bool:
                 return type(v) is int or self._no(mpath, p, "expecting an integer")
 
         # signed int?
@@ -681,7 +689,7 @@ class CompileModel(Validator):
         """Compile a number (float)."""
         assert isinstance(model, float)
         # NOTE does not handle NaN, +-Infinity
-        # NOTE beware that isinstance(true, int) == True
+        # NOTE beware that isinstance(True, int) == True
         return lambda v, p: type(v) in (float, int) or self._no(mpath, p, "expecting a number")
 
     def _str_url_resolve(self, url: str, mpath: str):
@@ -695,9 +703,9 @@ class CompileModel(Validator):
             self._urls.add(url)
 
         umodel = self._cache.load(url)
-        u = urllib.parse.urlparse(url)
-        if u.fragment:
-            if url.fragment.startswith("/"):
+        u = urllib.parse.urlsplit(url)
+        if u.fragment:  # type: ignore
+            if url.fragment.startswith("/"):  # type: ignore
                 # FIXME path handling
                 raise ModelError(f"unsupported url path: {url} [{mpath}]")
             else:
@@ -740,12 +748,10 @@ class CompileModel(Validator):
             else:
                 if re.match(r"(file|https?)://", name):
                     self._str_url_resolve(name, mpath)
-                if name in self._defs:
-                    # log.warning(f"found defs[{name}]: {_DEFS[name](True)}")
-                    # TODO or no, only dynamic?
-                    return self._defs[name]
-                else:
-                    return lambda v, p: (self._defs[name](v, p) or
+                if name in self._defs:  # static
+                    return self._defs[name]  # type: ignore
+                else:  # dynamic
+                    return lambda v, p: (self._defs[name](v, p) or  # type: ignore
                                          self._no(mpath, p, f"${name} failed")
                                          if name in self._defs else
                                          self._no(mpath, p, f"${name} not found"))
@@ -768,7 +774,7 @@ class CompileModel(Validator):
             return lambda v, p: (isinstance(v, str) and v == model or
                                  self._no(mpath, p, f"expecting string {model}"))
 
-    def _list_raw_compile(self, model: any, mpath: str) -> CheckFun:
+    def _list_raw_compile(self, model: Any, mpath: str) -> CheckFun:
         """Compile an array."""
         nmodels = len(model)
         if nmodels == 1:
@@ -812,7 +818,7 @@ class CompileModel(Validator):
 
         return check
 
-    def _raw_compile(self, model: any, mpath: str, is_root: bool = False) -> CheckFun:
+    def _raw_compile(self, model: Any, mpath: str, is_root: bool = False) -> CheckFun:
         """Dynamic "compilation" of a model."""
         # static switch on model type
         tmodel = type(model)
@@ -833,7 +839,7 @@ class CompileModel(Validator):
         else:
             raise ModelError(f"unexpected model type {type(model)}: {model} [{mpath}]")
 
-    def _root_compile(self, model: any, mpath: str = "$") -> CheckFun:
+    def _root_compile(self, model: Any, mpath: str = "$") -> CheckFun:
         """Special handling of definitions (%) at the model root."""
 
         if isinstance(model, dict) and "%" in model:
@@ -847,7 +853,7 @@ class CompileModel(Validator):
                 if isinstance(val, dict) and "+" in val:
                     # FIXME is it always ok?
                     log.debug(f"merging def {name}")
-                    val = utils.merge_simple_models(val["+"], self._defs)
+                    val = merge_simple_models(val["+"], self._defs)
                 self._defs.set(name, val, mpath + ".%." + name)
 
         return self._raw_compile(model, mpath, True)
@@ -855,7 +861,7 @@ class CompileModel(Validator):
 
 def compileModel(model: ModelType) -> CheckFun:
     """Compile a JSON Model."""
-    return CompileModel(model)
+    return CompileModel(model)  # type: ignore
 
 
 def c_check_model():
@@ -882,7 +888,7 @@ def c_check_model():
 
     # load model
     with open(args.model) as f:
-        checkModel = compileModel(json.load(f))
+        checkModel = compileModel(json.load(f))  # type: ignore
 
     if args.dis:
         import dis
@@ -892,11 +898,11 @@ def c_check_model():
     for fn, fh in utils.openfiles(args.jsons):
         valid = False
         try:
-            valid = checkModel(json.load(fh))
+            valid = checkModel(json.load(fh), "$")
             print(f"{fn}: {valid}")
             if not valid:
-                log.info(f"failures: {checkModel._reasons}")
-                print(f"failures: {checkModel._reasons}")
+                log.info(f"failures: {checkModel._reasons}")  # type: ignore
+                print(f"failures: {checkModel._reasons}")  # type: ignore
         except Exception as e:
             print(f"{fn}: error")
             log.error(f"{fn}: {e}")

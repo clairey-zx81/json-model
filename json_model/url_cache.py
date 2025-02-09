@@ -1,9 +1,9 @@
 import os
 import json
-import urllib
-import requests
-import hashlib
 import logging
+import hashlib
+import urllib.parse
+import requests
 
 log = logging.getLogger("url-cache")
 # log.setLevel(logging.DEBUG)
@@ -14,7 +14,7 @@ class jsonURLCache:
 
     # FIXME should invalidate old cache entries?
 
-    def __init__(self, cache_dir: str = None):
+    def __init__(self, cache_dir: str|None = None):
 
         # keep a local copy
         self._cache_dir = cache_dir or (os.environ.get("HOME", ".") + "/.cache/json")

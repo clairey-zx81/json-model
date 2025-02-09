@@ -17,11 +17,11 @@ venv:
 dev: venv
 
 .PHONY: clean
-clean: clean.dev
+clean:
 	$(RM) $~
 
 .PHONY: clean.dev
-clean.dev:
+clean.dev: clean
 	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build
 
 .PHONY: check

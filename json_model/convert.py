@@ -1,3 +1,4 @@
+from typing import Any
 import sys
 import logging
 import json
@@ -116,7 +117,7 @@ for k in TYPE_SPLIT.keys():
 # log.warning(f"SPLIT = {SPLIT}")
 
 
-def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
+def split_schema(schema: dict[str, Any]) -> dict[str, dict[str, Any]]:
     assert isinstance(schema, dict) and "type" in schema
     types = schema["type"]
     assert isinstance(types, (list, tuple))
@@ -146,9 +147,8 @@ def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
 
 
 # identifiers
-CURRENT_SCHEMA: str = None
-IDS: dict[str, dict[str, any]] = {}
-
+CURRENT_SCHEMA: str|None = None
+IDS: dict[str, dict[str, Any]] = {}
 EXPLICIT_TYPE: bool = False
 
 
@@ -622,7 +622,7 @@ def schema2model(schema, path: str = ""):
 
 
 # Identifiers
-DEF_MODEL: dict[str, any] = {}
+DEF_MODEL: dict[str, Any] = {}
 
 
 def model2schema(model):

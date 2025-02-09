@@ -2,8 +2,7 @@
 
 # NOTE on false the system should say *why*
 
-import sys
-from typing import Callable
+from typing import Callable, Any
 try:
     import re2 as re
     is_re2 = True
@@ -11,16 +10,13 @@ except ModuleNotFoundError:
     import re
     is_re2 = False
 import json
+import argparse
 import logging
 
 from . import utils
 from .preproc import model_preprocessor
-from .utils import ValueType, ModelType, ModelError, distinct_values
+from .utils import ValueType, ModelType, ModelError, distinct_values, log
 from .defines import Validator
-
-log = logging.getLogger("validator")
-# log.setLevel(logging.DEBUG)
-# log.setLevel(logging.INFO)
 
 
 def _is_really_int(v):
@@ -38,7 +34,7 @@ class DSV(Validator):
 
     def __init__(self):
 
-        super().__init__(compiler=lambda m, p: lambda v: self.check(v, m))
+        super().__init__(compiler=lambda m, _p: lambda v, _p: self.check(v, m))
 
         # per-type recursion
         self._type: dict[type, Callable[[ValueType, ModelType, bool], bool]] = {
@@ -53,18 +49,19 @@ class DSV(Validator):
         }
 
         # defined "<name>": check_value_fun(v)
-        self.set("ANY", lambda _: True, "<ANY>")
-        self.set("NONE", lambda _: False, "<NONE>")
+        self.set("ANY", lambda _, _p: True, "<ANY>")
+        self.set("NONE", lambda _, _p: False, "<NONE>")
         self.set("REGEX", utils.is_regex, "<REGEX>")
-        self.set("URI", lambda s: isinstance(s, str), "<URI>")
-        self.set("URL-REFERENCE", lambda s: isinstance(s, str), "<URL-REFERENCE>")
-        self.set("STRING", lambda s: isinstance(s, str), "<STRING>")
-        self.set("BOOL", lambda b: isinstance(b, bool), "<BOOL>")
+        self.set("URI", lambda s, _p: isinstance(s, str), "<URI>")
+        self.set("URL-REFERENCE", lambda s, _p: isinstance(s, str), "<URL-REFERENCE>")
+        self.set("STRING", lambda s, _p: isinstance(s, str), "<STRING>")
+        self.set("BOOL", lambda b, _p: isinstance(b, bool), "<BOOL>")
 
     def _int(self, value: ValueType, model: ModelType, _strict: bool = True):
         assert _is_really_int(model)
         if not _is_really_int(value):
             return False
+        assert isinstance(value, (int, float))  # redundant type hint
         if model == 0:
             return value >= 0
         elif model == 1:
@@ -76,10 +73,10 @@ class DSV(Validator):
 
     def _dollar(self, name: str, val: ValueType) -> bool:
         """Handle "$name"."""
-        if name in self._defs:
-            return self._defs[name](val)
-        else:
+        if name not in self._defs:
             raise ModelError(f"unexpected name: {name}")
+        dfun = self._defs[name]
+        return dfun(val, "")  # type: ignore
 
     def _follow_references(self, model):
         while isinstance(model, str) and model and model[0] == "$":
@@ -87,7 +84,7 @@ class DSV(Validator):
         return model
 
     def _dict_constraint(self, value: ValueType, model: ModelType) -> bool:
-        assert "@" in model
+        assert isinstance(model, dict) and "@" in model
         assert set(model.keys()).issubset(_ANYWHERE_KW | _CONSTRAINT_KW)
         #
         submodel = model["@"]
@@ -112,7 +109,7 @@ class DSV(Validator):
         elif isinstance(value, int):
             ivalue, has_nb = value, True
         elif type(submodel) in (list, tuple, dict, str):
-            ivalue, has_nb = len(value), True
+            ivalue, has_nb = len(value), True  # type: ignore
         else:
             ivalue = None
         # handle numeric operators
@@ -220,7 +217,7 @@ class DSV(Validator):
                 checked = False
                 for name in maybe:
                     assert name in self._defs
-                    if self._defs[name](key):
+                    if self._defs[name](key, ""):  # type: ignore
                         checked = True
                         if not self.check(val, maybe[name]):
                             return False
@@ -264,8 +261,7 @@ class DSV(Validator):
             assert isinstance(model["%"], dict), f"illegal %-definitions: {model['%']}"
             for name, mod in model["%"].items():
                 assert isinstance(name, str)
-                self.set(name, mod)
-            # FIXME after cleanup?
+                self.set(name, mod, f"$.%.{name}")
         if "#" in model:
             # ignore metadata
             pass
@@ -339,6 +335,7 @@ class DSV(Validator):
     def _str(self, value: ValueType, model: ModelType, strict: bool = True) -> bool:
         """Validate value wrt a string model."""
         assert isinstance(model, str)
+        log.debug("string check with {model}")
         if not model:  # empty string
             return isinstance(value, str)
         else:
@@ -357,7 +354,7 @@ class DSV(Validator):
                         return isinstance(value, str) and re.search(pattern, value) is not None
                     else:
                         return (isinstance(value, str) and
-                                re.search(pattern, value, re.I) is not None)
+                                re.search(pattern, value, re.I) is not None)  # type: ignore
                 else:
                     raise ModelError(f"invalid regex: {model}")
             elif c == "=":
@@ -376,7 +373,7 @@ class DSV(Validator):
             else:
                 raise ModelError(f"unexpected sentinel character: {c} ({model})")
 
-    def check(self, value: any, model: any, strict: bool = True) -> bool:
+    def check(self, value: Any, model: Any, strict: bool = True) -> bool:
         """Recursive type checker."""
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
@@ -384,9 +381,9 @@ class DSV(Validator):
         # log.debug(f"processed model: {pmodel}")
         return self._type[type(pmodel)](value, pmodel, strict)
 
-    def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):
+    def set(self, ident: str, model: Callable[[Any], bool]|Any, mpath: str = ""):
         """Extend validator with a new definition."""
-        self._defs.set(ident, model, mpath)
+        self._defs.set(ident, model, mpath)  # type: ignore
 
 #
 # check some json files against a model
@@ -397,16 +394,24 @@ class DSV(Validator):
 
 def v_check_model():
 
-    assert len(sys.argv) >= 2
+    logging.basicConfig()
 
-    logging.basicConfig(level=logging.INFO)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--debug", "-d", action="store_true", help="debug mode")
+    ap.add_argument("model", help="model to check")
+    ap.add_argument("values", nargs="*", help="JSON values files to check")
+    args = ap.parse_args()
 
-    with open(sys.argv[1]) as f:
+    log.setLevel(logging.DEBUG if args.debug else logging.INFO)
+
+    log.debug("debugging mode…")
+
+    with open(args.model) as f:
         model = json.load(f)
 
     validator = DSV()
 
-    for fn, fh in utils.openfiles(sys.argv[2:]):
+    for fn, fh in utils.openfiles(args.values):
         valid = False
         try:
             m = json.load(fh)
