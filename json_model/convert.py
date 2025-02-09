@@ -10,6 +10,7 @@ log = logging.getLogger("convert")
 # SCHEMA TO MODEL CONVERSION
 #
 
+
 def only(schema, *props):
     """Tell whether schema only contains these props."""
     assert isinstance(schema, dict)
@@ -19,6 +20,7 @@ def only(schema, *props):
         log.debug(f"BAD SCHEMA {ttype}: {list(schema.keys())} {props}")
     return ok
 
+
 def has(schema, *props):
     """Tell whether schema has any of these props."""
     assert isinstance(schema, dict)
@@ -27,12 +29,14 @@ def has(schema, *props):
             return False
     return True
 
+
 def esc(s):
     """Escape a string if necessary."""
     if isinstance(s, str) and (len(s) == 0 or s[0] in ("$", "?", "_", "!", "=", "^")):
         return "_" + s
     else:
         return s
+
 
 def numberConstraints(schema):
     assert "type" in schema and schema["type"] in ("integer", "number")
@@ -59,14 +63,15 @@ def numberConstraints(schema):
         constraints["<"] = maxi
     return constraints
 
+
 def buildModel(model, constraints: dict, defs: dict, sharp: dict):
     if constraints or sharp or defs:
         if constraints:
-            m = { "@": model, **constraints }
+            m = {"@": model, **constraints}
         elif isinstance(model, dict):
             m = model
         else:
-            m = { "@": model }
+            m = {"@": model}
         if sharp:
             m["#"] = sharp
         if defs:
@@ -75,12 +80,16 @@ def buildModel(model, constraints: dict, defs: dict, sharp: dict):
     else:
         return model
 
+
 _definitions = 0
+
+
 def new_def():
     """Generate a new definition name."""
     global _definitions
     _definitions += 1
     return f"_{_definitions}"
+
 
 META_KEYS = [
     "title", "description", "default", "examples", "deprecated", "readOnly", "writeOnly", "id",
@@ -89,14 +98,15 @@ META_KEYS = [
     "context", "notes",
 ]
 
-IGNORE = META_KEYS + [ "$defs", "definitions" ]
+IGNORE = META_KEYS + ["$defs", "definitions"]
 
 # keywords specific to a type
 TYPE_SPLIT = {
-    "number": [ "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf" ],
-    "string": [ "minLength", "maxLength", "pattern" ],
-    "array": [ "minItems", "maxItems", "uniqueItems", "items", "prefixItems", "contains", "minContains", "maxContains" ],
-    "object": [ "properties", "required", "additionalProperties", "minProperties", "maxProperties" ],
+    "number": ["minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf"],
+    "string": ["minLength", "maxLength", "pattern"],
+    "array": ["minItems", "maxItems", "uniqueItems", "items", "prefixItems", "contains",
+              "minContains", "maxContains"],
+    "object": ["properties", "required", "additionalProperties", "minProperties", "maxProperties"],
 }
 
 SPLIT = {}
@@ -105,13 +115,14 @@ for k in TYPE_SPLIT.keys():
         SPLIT[n] = k
 # log.warning(f"SPLIT = {SPLIT}")
 
+
 def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
     assert isinstance(schema, dict) and "type" in schema
     types = schema["type"]
     assert isinstance(types, (list, tuple))
     # log.info(f"splitting on {types}")
     # per type
-    schemas = { t: {"type": t} for t in types }
+    schemas = {t: {"type": t} for t in types}
     for prop, val in schema.items():
         if prop in META_KEYS or prop == "type":
             pass
@@ -133,16 +144,19 @@ def split_schema(schema: dict[str, any]) -> dict[str, dict[str, any]]:
     # log.debug(f"splitted: {schemas}")
     return schemas
 
+
 # identifiers
 CURRENT_SCHEMA: str = None
 IDS: dict[str, dict[str, any]] = {}
 
 EXPLICIT_TYPE: bool = False
 
+
 def reset():
     global CURRENT_SCHEMA, IDS
     CURRENT_SCHEMA = None
     IDS = {}
+
 
 _FMT2MODEL = {
     "password": "$STRING",  # OpenAPI
@@ -170,6 +184,7 @@ _FMT2MODEL = {
     "phone": "$STRING",
 }
 
+
 def format2model(fmt: str):
     if fmt in _FMT2MODEL:
         return _FMT2MODEL[fmt]
@@ -177,7 +192,8 @@ def format2model(fmt: str):
         log.warning(f"unknow format: {fmt}")
         return f"$UNKNOWN:{fmt}"
 
-def schema2model(schema, path: str=""):
+
+def schema2model(schema, path: str = ""):
     """Convert a JSON schema to a JSON model."""
 
     global CURRENT_SCHEMA, IDS, EXPLICIT_TYPE
@@ -226,7 +242,7 @@ def schema2model(schema, path: str=""):
             assert isinstance(nullable, bool)
             if nullable:
                 if "type" in schema and isinstance(schema["type"], str):
-                    schema["type"] = [ schema["type"], "null" ]
+                    schema["type"] = [schema["type"], "null"]
                 log.warning("ignoring nullable directive")
             del schema["nullable"]
 
@@ -277,7 +293,8 @@ def schema2model(schema, path: str=""):
                 # cold overwrite
                 s["additionalProperties"] = addprop
 
-    if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or "enum" in schema or "$ref" in schema):
+    if "type" in schema and ("allOf" in schema or "anyOf" in schema or "oneOf" in schema or
+                             "enum" in schema or "$ref" in schema):
         log.warning("removing type from constructed schema?")
         del schema["type"]
 
@@ -304,7 +321,8 @@ def schema2model(schema, path: str=""):
         if isinstance(ts, (list, tuple)):
             # ooops
             schemas = split_schema(schema)
-            return buildModel({"|": [ schema2model(v, path + "/typeS") for v in schemas.values() ]}, {}, defs, sharp)
+            return buildModel({"|": [schema2model(v, path + "/typeS") for v in schemas.values()]},
+                              {}, defs, sharp)
         elif ts == "string" and "const" in schema:
             assert only(schema, "type", "const", *IGNORE), path
             const = schema["const"]
@@ -329,7 +347,7 @@ def schema2model(schema, path: str=""):
                     assert isinstance(ve[0], str), path
                     model = esc(ve[0])
                 else:
-                    model = {"|": [ esc(v) for v in ve ] }
+                    model = {"|": [esc(v) for v in ve]}
             if "pattern" in schema:
                 pattern = schema["pattern"]
                 assert isinstance(pattern, str), path
@@ -353,7 +371,8 @@ def schema2model(schema, path: str=""):
             #     constraints["encoding"] = val
             return buildModel(model, constraints, defs, sharp)
         elif ts == "number":
-            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
+            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum",
+                        "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
             model = "$NUMBER" if EXPLICIT_TYPE else 0.0
             if "format" in schema:
                 fmt = schema["format"]
@@ -367,7 +386,8 @@ def schema2model(schema, path: str=""):
             constraints = numberConstraints(schema)
             return buildModel(model, constraints, defs, sharp)
         elif ts == "integer":
-            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
+            assert only(schema, "type", "format", "multipleOf", "minimum", "maximum",
+                        "exclusiveMinimum", "exclusiveMaximum", *IGNORE), path
             model = "$INTEGER" if EXPLICIT_TYPE else 0
             # OpenAPI
             if "format" in schema:
@@ -410,17 +430,18 @@ def schema2model(schema, path: str=""):
                 if unique:
                     constraints["distinct"] = True
             if "prefixItems" in schema:
-                assert only(schema, "type", "prefixItems", "items", "minItems", "maxItems", "uniqueItems", *IGNORE), path
+                assert only(schema, "type", "prefixItems", "items", "minItems", "maxItems",
+                            "uniqueItems", *IGNORE), path
                 # tuple
                 vpi = schema["prefixItems"]
                 assert isinstance(vpi, list), path
-                model = [ schema2model(i, path + "/prefixItems") for i in vpi ]
+                model = [schema2model(i, path + "/prefixItems") for i in vpi]
                 if "items" in schema:
                     # cas prefixItems + items
                     if isinstance(schema["items"], bool):
                         assert not constraints, f"not implemented yet {path}"
                         if not schema["items"]:
-                            return buildModel(model, { ">=": 0, "<=": len(model) }, defs, sharp)
+                            return buildModel(model, {">=": 0, "<=": len(model)}, defs, sharp)
                         else:
                             assert False, f"not implemented yet {path}"
                     # items is a type
@@ -434,15 +455,17 @@ def schema2model(schema, path: str=""):
                         constraints[">="] = len(model) - 1
                     return buildModel(model, constraints, defs, sharp)
             elif "items" in schema:
-                assert only(schema, "type", "items", "minItems", "maxItems", "uniqueItems", *IGNORE), path
+                assert only(schema, "type", "items", "minItems", "maxItems", "uniqueItems",
+                            *IGNORE), path
                 sitems = schema["items"]
                 assert isinstance(sitems, (dict, bool)), path
-                model = [ schema2model(schema["items"], path + "/items!") ]
+                model = [schema2model(schema["items"], path + "/items!")]
                 return buildModel(model, constraints, defs, sharp)
             elif "contains" in schema:
                 # NO contains/items mixing yet
-                assert only(schema, "type", "contains", "minContains", "maxContains", "uniqueItems", *IGNORE), path
-                model = { "@": ["$ANY"], "in": schema2model(schema["contains"], path + "/contains") }
+                assert only(schema, "type", "contains", "minContains", "maxContains",
+                            "uniqueItems", *IGNORE), path
+                model = {"@": ["$ANY"], "in": schema2model(schema["contains"], path + "/contains")}
                 if "minContains" in schema:
                     mini = schema["minContains"]
                     assert type(mini) is int, path
@@ -453,7 +476,7 @@ def schema2model(schema, path: str=""):
                     model["<="] = maxi
                 return buildModel(model, constraints, defs, sharp)
             else:
-                return buildModel([ "$ANY" ], constraints, defs, sharp)
+                return buildModel(["$ANY"], constraints, defs, sharp)
         elif ts == "object":
             if "discriminator" in schema:  # OpenAPI
                 log.warning(f"ignoring discriminator on {path}")
@@ -477,7 +500,7 @@ def schema2model(schema, path: str=""):
                 assert isinstance(pats, dict), path
                 for pp in sorted(pats.keys()):
                     name = new_def()
-                    defs[name] = { "@": f"/{pp}/" }
+                    defs[name] = {"@": f"/{pp}/"}
                     model[f"${name}"] = schema2model(pats[pp], path + f"/patternProperties[{pp}]")
             if "propertyNames" in schema:
                 # does not seem very useful?
@@ -497,7 +520,7 @@ def schema2model(schema, path: str=""):
                 props = schema["properties"]
                 required = schema.get("required", [])
                 assert isinstance(props, dict), path
-                for k, v in props.items(): 
+                for k, v in props.items():
                     if k in required:
                         model[f"_{k}"] = schema2model(v, path + f"/properties[_{k}]")
                     else:
@@ -527,7 +550,8 @@ def schema2model(schema, path: str=""):
                 else:
                     assert False, f"not implemented yet, {path}"
             else:
-                assert only(schema, "type", "maxProperties", "minProperties", "patternProperties", "propertyNames", *IGNORE), path
+                assert only(schema, "type", "maxProperties", "minProperties", "patternProperties",
+                            "propertyNames", *IGNORE), path
                 if "propertyNames" in schema:
                     pass
                 else:
@@ -548,7 +572,7 @@ def schema2model(schema, path: str=""):
         if len(ve) == 1:
             model = esc(ve[0])
         else:
-            model = { "|": [ esc(v) for v in ve ] }
+            model = {"|": [esc(v) for v in ve]}
         # vérifier les valeurs?
         return buildModel(model, {}, defs, sharp)
     elif "const" in schema:
@@ -596,8 +620,10 @@ def schema2model(schema, path: str=""):
 # MODEL TO SCHEMA CONVERSION
 #
 
+
 # Identifiers
 DEF_MODEL: dict[str, any] = {}
+
 
 def model2schema(model):
     global DEF_MODEL
@@ -680,7 +706,7 @@ def model2schema(model):
             if "$defs" not in schema:
                 schema["$defs"] = {}
             for nom, m in model["%"].items():
-                DEF_MODEL[nom] = m 
+                DEF_MODEL[nom] = m
                 schema["$defs"][nom] = model2schema(m)
 
         if "@" in model:
@@ -705,7 +731,7 @@ def model2schema(model):
                     if "encoding" in model:
                         schema["contentMediaType"] = model["encoding"]
                 # contraints on number or integer
-                if schema["type"] in ("number","integer"):
+                if schema["type"] in ("number", "integer"):
                     if "<=" in model:
                         schema["maximum"] = model["<="]
                     if ">=" in model:
@@ -764,16 +790,16 @@ def model2schema(model):
             addProp = None
             # récupérer properties/required
             for prop, val in model.items():
-                # skip some properties: already managed before 
+                # skip some properties: already managed before
                 if prop == "%" or prop == "#" or prop == "$":
                     continue
                 if prop == "":
                     addProp = model2schema(val)
                 elif prop[0] == "_":
                     required.append(prop[1:])
-                    properties[prop[1:]] =  model2schema(val)
+                    properties[prop[1:]] = model2schema(val)
                 elif prop[0] == "?":
-                    properties[prop[1:]] =  model2schema(val)
+                    properties[prop[1:]] = model2schema(val)
                 elif prop[0] == "/":
                     assert prop.endswith("/")
                     regex = prop[1:-1]
@@ -807,6 +833,7 @@ def model2schema(model):
 
     return schema
 
+
 #
 # Generate a JSON Schema from a JSON Model
 #
@@ -822,6 +849,7 @@ def model2schema_script():
         # log.debug(f"schema: {}")
         # log.debug(f"model: {jmodel}")
         print(jschema)
+
 
 #
 # Take a (simple) JSON Schema and generate a JSON Model

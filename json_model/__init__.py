@@ -9,3 +9,13 @@ from .static_compiler import static_compiler as static_compiler
 from .static_compiler import static_compiler_check as static_compiler_check
 from .convert import schema2model_script as schema2model_script
 from .convert import model2schema_script as model2schema_script
+
+__ALL__ = [
+    preprocessor,
+    v_check_model,
+    c_check_model,
+    static_compiler,
+    static_compiler_check,
+    schema2model_script,
+    model2schema_script,
+]
