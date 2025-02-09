@@ -25,7 +25,7 @@ clean.dev:
 	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build
 
 .PHONY: check
-check: check.flake8 check.ruff check.pyright
+check: check.flake8 check.ruff check.pyright check.pytest
 
 IGNORE  = E227,E125
 
@@ -43,3 +43,8 @@ check.ruff:
 check.pyright:
 	source venv/bin/activate
 	pyright check json_model
+
+.PHONY: check.pytest
+check.pytest:
+	source venv/bin/activate
+	$(MAKE) -C tests check.pytest
