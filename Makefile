@@ -42,7 +42,7 @@ check.ruff:
 .PHONY: check.pyright
 check.pyright:
 	source venv/bin/activate
-	pyright check json_model
+	pyright json_model
 
 .PHONY: check.pytest
 check.pytest:
