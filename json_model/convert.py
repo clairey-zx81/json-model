@@ -398,11 +398,11 @@ def schema2model(schema, path: str=""):
             constraints = {}
             if "minItems" in schema:
                 mini = schema["minItems"]
-                assert type(mini) == int, path
+                assert type(mini) is int, path
                 constraints[">="] = mini
             if "maxItems" in schema:
                 maxi = schema["maxItems"]
-                assert type(maxi) == int, path
+                assert type(maxi) is int, path
                 constraints["<="] = maxi
             if "uniqueItems" in schema:
                 unique = schema["uniqueItems"]
@@ -445,11 +445,11 @@ def schema2model(schema, path: str=""):
                 model = { "@": ["$ANY"], "in": schema2model(schema["contains"], path + "/contains") }
                 if "minContains" in schema:
                     mini = schema["minContains"]
-                    assert type(mini) == int, path
+                    assert type(mini) is int, path
                     model[">="] = mini
                 if "maxContains" in schema:
                     maxi = schema["maxContains"]
-                    assert type(maxi) == int, path
+                    assert type(maxi) is int, path
                     model["<="] = maxi
                 return buildModel(model, constraints, defs, sharp)
             else:
@@ -466,11 +466,11 @@ def schema2model(schema, path: str=""):
             model = {}
             if "minProperties" in schema:
                 mini = schema["minProperties"]
-                assert type(mini) == int, path
+                assert type(mini) is int, path
                 constraints[">="] = mini
             if "maxProperties" in schema:
                 maxi = schema["maxProperties"]
-                assert type(maxi) == int, path
+                assert type(maxi) is int, path
                 constraints["<="] = maxi
             if "patternProperties" in schema:
                 pats = schema["patternProperties"]
@@ -605,9 +605,13 @@ def model2schema(model):
     tmodel = type(model)
     schema = {}
 
-    if tmodel == type(None):
+    if tmodel is type(None):
         schema["type"] = "null"
-    elif tmodel == int:
+    elif tmodel is bool:
+        schema["type"] = "boolean"
+    elif tmodel is float:
+        schema["type"] = "number"
+    elif tmodel is int:
         schema["type"] = "integer"
         # implement extension
         # FIXME should check for option
@@ -615,11 +619,7 @@ def model2schema(model):
             schema["minimum"] = 0
         elif model == 1:
             schema["minimum"] = 1
-    elif tmodel == float:
-        schema["type"] = "number"
-    elif tmodel == bool:
-        schema["type"] = "boolean"
-    elif tmodel == str:
+    elif tmodel is str:
         if model == "":
             schema["type"] = "string"
         elif model == "$ANY":
@@ -638,7 +638,7 @@ def model2schema(model):
             schema["pattern"] = model[1:-1]
         else:
             schema["const"] = model
-    elif tmodel == list:
+    elif tmodel is list:
         if len(model) == 1:
             schema["type"] = "array"
             schema["items"] = model2schema(model[0])
@@ -654,7 +654,7 @@ def model2schema(model):
             # liste vide : tableau maxItems = 0
             schema["type"] = "array"
             schema["maxItems"] = 0
-    elif tmodel == dict:
+    elif tmodel is dict:
         schema = {}
 
         if "$" in model:
@@ -736,8 +736,11 @@ def model2schema(model):
                             schema["maxItems"] = model["<="]
                         if ">=" in model:
                             schema["minItems"] = model[">="]
-                    if "!" in model and model["!"] == True:
-                        schema["uniqueItems"] = True
+                    if "!" in model:
+                        v = model["!"]
+                        assert isinstance(v, bool)
+                        if v:
+                            schema["uniqueItems"] = True
         elif "&" in model:
             schema["allOf"] = [model2schema(m) for m in model["&"]]
         elif "^" in model:
@@ -830,7 +833,7 @@ def schema2model_script():
     params = sys.argv[1:]
     if params and params[0] == "-e":
         params = params[1:]
-        EXPLICIT_TYPE = True
+        # EXPLICIT_TYPE = True
 
     for fn, fh in utils.openfiles(params):
         jschema = fh.read()
