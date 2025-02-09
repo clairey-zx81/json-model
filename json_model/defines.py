@@ -3,18 +3,20 @@ import json
 from typing import Any
 from .utils import log, CheckFun, ModelType, UnknownModel, Compiler
 
+
 class Model:
 
     def __init__(self, check: CheckFun|None, model: ModelType|None, jsons: str|None, doc: str|None):
         self.check = check
         self.model = model
         self.jsons = jsons
-        self.doc  = doc
+        self.doc = doc
         # FIXME too optimistic, None is a valid model!
         # assert check is not None or model is not None
 
     def __repr__(self):
         return str(self.jsons)
+
 
 class ReadOnlyDefs:
 
@@ -33,12 +35,12 @@ class ReadOnlyDefs:
 class ModelDefs:
     """Hold current model definitions and possibly compiled versions."""
 
-    def __init__(self, compiler: Compiler=lambda _: None):
+    def __init__(self, compiler: Compiler = lambda _: None):
         self._compiler = compiler
         self._models: dict[str, Model] = {}
         self.defs = ReadOnlyDefs(self)
 
-    def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str=None):
+    def set(self, name: str, model: ModelType|CheckFun, mpath: str = "", doc: str = None):
         """Add or override named JSON model."""
         # FIXME forbid? scope?
         # log.debug(f"set {name} [{mpath}]")
@@ -85,6 +87,7 @@ class ModelDefs:
     def __delitem__(self, key):
         self.delete(key)
 
+
 _UTYPE = {
     "$NULL": None,
     "$BOOL": bool,
@@ -94,7 +97,7 @@ _UTYPE = {
 }
 
 # model predef to standard model
-_UMODEL = { 
+_UMODEL = {
     "$BOOL": True, "$NULL": None,
     "$I32": -1, "$U32": 0, "$I64": -1, "$U64": 0, "$INTEGER": -1,
     "$F32": -1.0, "$F64": -1.0, "$NUMBER": -1.0,
@@ -106,6 +109,7 @@ _UMODEL = {
     "$UUID": "$UUID",
     # to be continued…
 }
+
 
 class Validator:
 
@@ -158,7 +162,7 @@ class Validator:
                     return _UMODEL[m]
                 # else try recursing
                 return self._ultimate_model(m) if m != UnknownModel else m
-        elif tmodel is dict: 
+        elif tmodel is dict:
             if "@" in model:
                 if strict:
                     if set(model.keys()).issubset(["@", "#", "%", "%"]):
@@ -199,7 +203,8 @@ class Validator:
 
     def _disjunct_analyse(self, model: ModelType, mpath: str) -> tuple[str, Any, list, list]|None:
         """Return the optimized check function if possible."""
-        # FIXME if there is a ^, the preprocessor will have detected the discriminant and turned it into a |.
+        # FIXME if there is a ^, the preprocessor will have detected the discriminant
+        # and turned it into a |.
         assert isinstance(model, dict) and "|" in model
         # first filter out
         utype = self._ultimate_type(model)
