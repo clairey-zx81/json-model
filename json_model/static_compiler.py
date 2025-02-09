@@ -60,7 +60,7 @@ class Code():
         self._code.clear()
 
     def __str__(self):
-        return "\n".join(("    " * n + l) for n, l in self._code)
+        return "\n".join(("    " * n + lc) for n, lc in self._code)
 
 
 class SourceCode(Validator):
@@ -199,7 +199,7 @@ class SourceCode(Validator):
                 cst = model[constraint]
                 if not isinstance(cst, (twhat, int)):
                     raise ModelError(f"invalid constant: {cst} ({twhat.__name__}) [{mpath}]")
-                if isinstance(cst, int) and tmodel == str:
+                if isinstance(cst, int) and tmodel is str:
                     checks.append(f"len({val}) {op} {cst}")
                 elif isinstance(cst, int) and tmodel == UnknownModel:
                     checks.append(f"(len({val}) {op} {cst} if isinstance({val}, (str, list, dict)) else " +
@@ -548,7 +548,7 @@ class SourceCode(Validator):
                 or_known = set()
                 if same_type:
                     # all models have the same ultimate type
-                    if expected_type == int:
+                    if expected_type is int:
                         type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
                     else:
                         type_test = f"isinstance({val}, {expected_type.__name__})"
@@ -571,7 +571,7 @@ class SourceCode(Validator):
                 same_type, expected_type = all_model_type(models, lpath)
                 if same_type:
                     # all models have the same ultimate type
-                    if expected_type == int:
+                    if expected_type is int:
                         type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
                     else:
                         type_test = f"isinstance({val}, {expected_type.__name__})"
