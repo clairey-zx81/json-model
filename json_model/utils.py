@@ -7,8 +7,10 @@ import logging
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
+
 class UnknownModel:
     pass
+
 
 Object = dict[str, Any]
 ValueType = None|bool|int|float|str|list[Any]|tuple[Any]|Object
@@ -118,7 +120,7 @@ def same_model(m1: ModelType, m2: ModelType) -> bool:
 
 def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     for i in lm:
-         if model_eq(i, m):
+        if model_eq(i, m):
             return True
     return False
 
@@ -146,7 +148,9 @@ def split_object(model: dict[str, Any], path: str) -> tuple[Object, Object, Obje
             if key == "%" and not isinstance(val, dict):
                 raise ModelError(f"{key} value must be an object: {type(key)} [{path}.{key}]")
             if key == "#" and not isinstance(val, (str, dict)):
-                raise ModelError(f"{key} value must be string or object: {type(key)} [{path}.{key}]")
+                raise ModelError(
+                    f"{key} value must be string or object: {type(key)} [{path}.{key}]"
+                )
             if key == "$" and not isinstance(val, str):
                 raise ModelError(f"{key} value must be string: {type(key)} [{path}.{key}]")
             # ignore anyway
@@ -291,7 +295,7 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
     elif isinstance(model, list):
         return True, list
     elif isinstance(model, dict):
-        if "@"  in model:
+        if "@" in model:
             return model_type(model["@"], mpath + ".@")
         elif "|" in model:
             models = model["|"]

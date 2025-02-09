@@ -2,15 +2,18 @@ import enum
 import json
 from .utils import ModelError
 
+
 class JsonType(enum.IntEnum):
     DATA = 0
     SCHEMA = 1
     MODEL = 2
 
+
 _JSON_SCHEMA_METADATA = (
     "title", "description", "default", "examples", "deprecated", "readOnly",
     "writeOnly"
 )
+
 
 def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=JsonType.DATA):
     """Recursive internal computation of json data structure metrics."""
@@ -49,16 +52,17 @@ def _json_metrics(data, counts: dict[str, int], skip_metadata=False, json_type=J
             counts["string"] += 1
             counts["#length"] += len(k)
             if skip_metadata:
-               if json_type == JsonType.MODEL and k == "#":
-                   continue
-               elif json_type == JsonType.SCHEMA and k in _JSON_SCHEMA_METADATA:
-                   continue
-               else:
-                   pass
+                if json_type == JsonType.MODEL and k == "#":
+                    continue
+                elif json_type == JsonType.SCHEMA and k in _JSON_SCHEMA_METADATA:
+                    continue
+                else:
+                    pass
             md = max(md, _json_metrics(v, counts, skip_metadata, json_type))
         return 1 + md
     else:
         raise ModelError(f"unexpected data node type: {tdata}")
+
 
 # normalized cost of JSON elements, for comparison purposes
 _COSTS = {
@@ -74,6 +78,7 @@ _COSTS = {
     "#props": 2,
     "#nodes": 0,
 }
+
 
 def json_metrics_raw(data, skip_metadata=False, json_type=JsonType.DATA):
     """Compute metrics about a json data structure."""
@@ -94,14 +99,16 @@ def json_metrics_raw(data, skip_metadata=False, json_type=JsonType.DATA):
     counts["_length"] = len(json.dumps(data))
     return counts
 
+
 def json_metrics(data, skip_metadata=False, json_type=JsonType.DATA) -> \
     tuple[int, int, int, int, int, dict[str, int]]:
     """Compute metrics about a json data structure."""
     counts = json_metrics_raw(data, skip_metadata, json_type)
     metrics = (
         counts["_depth"],
-        counts["array"] + 2* counts["object"],
-        counts["null"] + counts["boolean"] + counts["integer"] +  counts["number"] + counts["string"],
+        counts["array"] + 2 * counts["object"],
+        counts["null"] + counts["boolean"] + counts["integer"] +
+        counts["number"] + counts["string"],
         sum(_COSTS[k] * counts[k] for k in _COSTS.keys() if k in counts),
         counts["_length"],
     )

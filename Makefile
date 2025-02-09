@@ -27,12 +27,12 @@ clean.dev:
 .PHONY: check
 check: check.flake8 check.ruff check.pyright check.pytest
 
-IGNORE  = E227,E125
+IGNORE  = E121,E125,E227,W504
 
 .PHONY: check.flake8
 check.flake8:
 	source venv/bin/activate
-	flake8 --ignore=$(IGNORE) json_model
+	flake8 --ignore=$(IGNORE) --max-line-length=100 json_model
 
 .PHONY: check.ruff
 check.ruff:

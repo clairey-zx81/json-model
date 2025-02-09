@@ -28,6 +28,10 @@ def _is_really_int(v):
     return isinstance(v, int) and not isinstance(v, bool)
 
 
+_ANYWHERE_KW: set[str] = {"#", "$", "%"}
+_CONSTRAINT_KW: set[str] = {"@", "<", "<=", "=", "!=", ">", ">=", "!"}
+
+
 # TODO rename class
 class DSV(Validator):
     """Data Structure Validator Evaluator."""
@@ -84,7 +88,7 @@ class DSV(Validator):
 
     def _dict_constraint(self, value: ValueType, model: ModelType) -> bool:
         assert "@" in model
-        assert set(model.keys()).issubset({"$", "%", "#", "@", "=", "!=", "<", "<=", ">", ">=", "!"})
+        assert set(model.keys()).issubset(_ANYWHERE_KW | _CONSTRAINT_KW)
         #
         submodel = model["@"]
         # what are the expected submodels?
@@ -244,7 +248,7 @@ class DSV(Validator):
         # return whether all mandatory properties were seen
         return must_see == 0
 
-    def _dict(self, value: ValueType, model: ModelType, _strict: bool=True) -> bool:
+    def _dict(self, value: ValueType, model: ModelType, _strict: bool = True) -> bool:
         """Handle an object model."""
         assert isinstance(model, dict)
 
@@ -290,7 +294,7 @@ class DSV(Validator):
             assert set(model.keys()).issubset({"$", "%", "#", "^"})
             assert isinstance(model["^"], (list, tuple)), f"illegal disjunction: {model['^']}"
             # return on second success
-            seen  = False
+            seen = False
             for m in model["^"]:
                 log.warning(f"model={m} value={value}")
                 if self.check(value, m):
@@ -313,7 +317,7 @@ class DSV(Validator):
 
         return self._object_value_model_check(value, *props)
 
-    def _list(self, value: ValueType, model: ModelType, strict: bool=True) -> bool:
+    def _list(self, value: ValueType, model: ModelType, strict: bool = True) -> bool:
         """Validate value wrt a list or tuple model."""
         assert isinstance(model, (list, tuple))
         if not isinstance(value, (list, tuple)):
@@ -332,7 +336,7 @@ class DSV(Validator):
         return True
 
     # per root type checkers
-    def _str(self, value: ValueType, model: ModelType, strict: bool=True) -> bool:
+    def _str(self, value: ValueType, model: ModelType, strict: bool = True) -> bool:
         """Validate value wrt a string model."""
         assert isinstance(model, str)
         if not model:  # empty string
@@ -352,7 +356,8 @@ class DSV(Validator):
                         pattern = "(?i)" + pattern
                         return isinstance(value, str) and re.search(pattern, value) is not None
                     else:
-                        return isinstance(value, str) and re.search(pattern, value, re.IGNORECASE) is not None
+                        return (isinstance(value, str) and
+                                re.search(pattern, value, re.I) is not None)
                 else:
                     raise ModelError(f"invalid regex: {model}")
             elif c == "=":
@@ -371,7 +376,7 @@ class DSV(Validator):
             else:
                 raise ModelError(f"unexpected sentinel character: {c} ({model})")
 
-    def check(self, value: any, model: any, strict: bool=True) -> bool:
+    def check(self, value: any, model: any, strict: bool = True) -> bool:
         """Recursive type checker."""
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
@@ -381,8 +386,6 @@ class DSV(Validator):
 
     def set(self, ident: str, model: Callable[[any], bool] | any, mpath: str = ""):
         """Extend validator with a new definition."""
-        #if ident in self._defs:
-        #    log.warning(f"overriding {ident} previous definition")
         self._defs.set(ident, model, mpath)
 
 #
@@ -390,6 +393,8 @@ class DSV(Validator):
 #
 # usage: $0 model.json file.json …
 #
+
+
 def v_check_model():
 
     assert len(sys.argv) >= 2

@@ -8,9 +8,11 @@ import logging
 log = logging.getLogger("url-cache")
 # log.setLevel(logging.DEBUG)
 
-# FIXME should invalidate old cache entries?
+
 class jsonURLCache:
     """Cache JSON URL."""
+
+    # FIXME should invalidate old cache entries?
 
     def __init__(self, cache_dir: str = None):
 
@@ -19,7 +21,7 @@ class jsonURLCache:
         if not os.path.exists(self._cache_dir):
             os.mkdir(self._cache_dir)
         assert os.path.isdir(self._cache_dir)
-        
+
         # class cache
         self._cache = {}
 

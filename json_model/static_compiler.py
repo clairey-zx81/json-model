@@ -45,6 +45,7 @@ _VALUE = "value"
 _PATH = "path"
 _RE = "re2"
 
+
 class Code():
 
     def __init__(self):
@@ -202,7 +203,8 @@ class SourceCode(Validator):
                 if isinstance(cst, int) and tmodel is str:
                     checks.append(f"len({val}) {op} {cst}")
                 elif isinstance(cst, int) and tmodel == UnknownModel:
-                    checks.append(f"(len({val}) {op} {cst} if isinstance({val}, (str, list, dict)) else " +
+                    checks.append(f"(len({val}) {op} {cst} if isinstance({val}, (str, list, dict))"
+                                  " else "
                                   f"{val} {op} {self._esc(cst) if isinstance(cst, str) else cst})")
                 elif isinstance(cst, str):
                     checks.append(f"{what} {op} {self._esc(cst)}")
@@ -265,16 +267,16 @@ class SourceCode(Validator):
         self._maps[disid] = TAG_CHECKS
         esctag = self._esc(tag_name)
 
-        # val is Object, tag is in val, tag_value is valid 
+        # val is Object, tag is in val, tag_value is valid
         code.add(indent, f"{res} = isinstance({val}, dict)")
         code.add(indent, f"if {res}:")
-        code.add(indent+1, f"{res} = {esctag} in {val}")
-        code.add(indent+1, f"if {res}:")
-        code.add(indent+2, f"{tag} = {val}[{esctag}]")
-        code.add(indent+2, f"if {tag} in {disid}:")
-        code.add(indent+3, f"{res} = {disid}[{tag}]({val}, {vpath})")
-        code.add(indent+2, "else:")
-        code.add(indent+3, f"{res} = False")
+        code.add(indent, f"    {res} = {esctag} in {val}")
+        code.add(indent, f"    if {res}:")
+        code.add(indent, f"        {tag} = {val}[{esctag}]")
+        code.add(indent, f"        if {tag} in {disid}:")
+        code.add(indent, f"            {res} = {disid}[{tag}]({val}, {vpath})")
+        code.add(indent, r"        else:")
+        code.add(indent, f"            {res} = False")
 
         return True
 
@@ -284,7 +286,7 @@ class SourceCode(Validator):
         must, may, defs, regs, oth = split_object(model, mpath)
         # TODO optimize must only case?
         code.add(indent, f"if not isinstance({val}, dict):")
-        code.add(indent+1, "return False")
+        code.add(indent + 1, "return False")
         if must:
             prop_must = f"{oname}_must"
             prop_must_map: dict[str, str] = {}
@@ -311,55 +313,55 @@ class SourceCode(Validator):
         if must:
             code.add(indent, f"{must_c} = 0")
         code.add(indent, f"for {prop}, {value} in {val}.items():")
-        code.add(indent+1, f"assert isinstance({prop}, str)")
+        code.add(indent + 1, f"assert isinstance({prop}, str)")
         cond = "if"
         if must:
-            code.add(indent+1, f"{cond} {prop} in {prop_must}:  # must")
-            code.add(indent+2, f"{must_c} += 1")
-            code.add(indent+2, f"if not {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent+3, "return False")
+            code.add(indent + 1, f"{cond} {prop} in {prop_must}:  # must")
+            code.add(indent + 2, f"{must_c} += 1")
+            code.add(indent + 2, f"if not {prop_must}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent + 3, "return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         if may:
-            code.add(indent+1, f"{cond} {prop} in {prop_may}:  # may")
-            code.add(indent+2, f"if not {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
-            code.add(indent+3, "return False")
+            code.add(indent + 1, f"{cond} {prop} in {prop_may}:  # may")
+            code.add(indent + 2, f"if not {prop_may}[{prop}]({value}, f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent + 3, "return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # $* is inlined expr
         for d, v in defs.items():
-            code.add(indent+1, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
-            self._compileModel(code, indent+2, v, f"{mpath}.{d}", res, value, vpath)
-            code.add(indent+2, f"if not {res}: return False")
+            code.add(indent + 1, f"{cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
+            self._compileModel(code, indent + 2, v, f"{mpath}.{d}", res, value, vpath)
+            code.add(indent + 2, f"if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # // is inlined
         for r, v in regs.items():
             regex = f"/{r}/"
-            code.add(indent+1, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
-            self._compileModel(code, indent+2, v, f"{mpath}.{regex}", res, value, vpath)
-            code.add(indent+2, f"if not {res}: return False")
+            code.add(indent + 1, f"{cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
+            self._compileModel(code, indent + 2, v, f"{mpath}.{regex}", res, value, vpath)
+            code.add(indent + 2, f"if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # catchall is inlined
         if oth:
             omodel = oth[""]
             if cond == "if":  # direct
-                self._compileModel(code, indent+1, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent+1, f"if not {res}: return False")
+                self._compileModel(code, indent + 1, omodel, f"{mpath}.", res, value, vpath)
+                code.add(indent + 1, f"if not {res}: return False")
             else:
-                code.add(indent+1, "else:  # catch all")
-                self._compileModel(code, indent+2, omodel, f"{mpath}.", res, value, vpath)
-                code.add(indent+2, f"if not {res}: return False")
+                code.add(indent + 1, "else:  # catch all")
+                self._compileModel(code, indent + 2, omodel, f"{mpath}.", res, value, vpath)
+                code.add(indent + 2, f"if not {res}: return False")
                 # code.add(indent+3, f"continue")
         else:
             if cond == "if":
                 # we are expecting an empty object
-                code.add(indent+1, "# no catch all")
-                code.add(indent+1, "return False")
+                code.add(indent + 1, "# no catch all")
+                code.add(indent + 1, "return False")
             else:
-                code.add(indent+1, "else:  # no catch all")
-                code.add(indent+2, "return False")
+                code.add(indent + 1, "else:  # no catch all")
+                code.add(indent + 2, "return False")
         # check that all must were seen
         if must:
             code.add(indent, f"return {must_c} == {len(must)}")
@@ -367,7 +369,8 @@ class SourceCode(Validator):
             code.add(indent, "return True")
 
     def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: str,
-                      res: str, val: str, vpath: str, known: set[str]|None = None, skip_dollar: bool = False):
+                      res: str, val: str, vpath: str, known: set[str]|None = None,
+                      skip_dollar: bool = False):
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} indent={indent}")
         code.add(indent, f"# {mpath}")
@@ -381,7 +384,7 @@ class SourceCode(Validator):
                 if expr in known:
                     expr = None
             if model == -1:
-                if known is not None: 
+                if known is not None:
                     known.add(expr)
                 if not expr:
                     expr = "True"
@@ -405,7 +408,7 @@ class SourceCode(Validator):
                 if expr in known:
                     expr = None
             if model == -1.0:
-                if known is not None: 
+                if known is not None:
                     known.add(expr)
                 if not expr:
                     expr = "True"
@@ -432,7 +435,7 @@ class SourceCode(Validator):
                     if expr in known:
                         expr = None
             if model == "":
-                if known is not None: 
+                if known is not None:
                     known.add(expr)
                 if expr:
                     code.add(indent, f"{res} = {expr}")
@@ -452,7 +455,9 @@ class SourceCode(Validator):
                     elif isinstance(value, bool):
                         code.add(indent, f"{res} = isinstance({val}, bool) and {val} == {value}")
                     elif isinstance(value, int):
-                        code.add(indent, f"{res} = isinstance({val}, int) and not isinstance({val}, bool) and {val} == {value}")
+                        code.add(indent,
+                                 f"{res} = isinstance({val}, int) and "
+                                 f"not isinstance({val}, bool) and {val} == {value}")
                     elif isinstance(value, float):
                         code.add(indent, f"{res} = isinstance({val}, float) and {val} == {value}")
                     elif isinstance(value, str):
@@ -495,19 +500,21 @@ class SourceCode(Validator):
                     code.add(indent, f"if {res}:")
                 else:
                     code.add(indent, "if True:")
-                code.add(indent+1, f"assert isinstance({val}, list)  # pyright helper")
-                code.add(indent+1, f"for {idx}, {item} in enumerate({val}):")
-                self._compileModel(code, indent+2, model[0], f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
-                code.add(indent+2, f"if not {res}: break")
+                code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
+                code.add(indent + 1, f"for {idx}, {item} in enumerate({val}):")
+                self._compileModel(code, indent + 2, model[0],
+                                   f"{mpath}[0]", res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
+                code.add(indent + 2, f"if not {res}: break")
             else:
                 if expr:
                     code.add(indent, f"{res} = {expr}")
                 else:
                     code.add(indent, f"{res} = True")
                 for i, m in enumerate(model):
-                    code.add(indent+i, f"if {res}:")
+                    code.add(indent + i, f"if {res}:")
                     # FIXME vpath
-                    self._compileModel(code, indent+i+1, model[i], f"{mpath}[{i}]", res, f"{val}[{i}]", f"{vpath}[{i}]")
+                    self._compileModel(code, indent + i + 1, model[i],
+                                       f"{mpath}[{i}]", res, f"{val}[{i}]", f"{vpath}[{i}]")
         elif isinstance(model, dict):
             assert "+" not in model, "merge must have been preprocessed"
             if "$" in model and not skip_dollar:
@@ -555,11 +562,12 @@ class SourceCode(Validator):
                     code.add(indent, f"{res} = {type_test}")
                     code.add(indent, f"if {res}:")
                     indent += 1
-                    or_known.add(type_test) 
+                    or_known.add(type_test)
                 for i, m in enumerate(models):
                     if i:
                         code.add(indent + i - 1, f"if not {res}:")
-                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath, or_known)
+                    self._compileModel(code, indent + i, m,
+                                       f"{lpath}[{i}]", res, val, vpath, or_known)
             elif "&" in model:
                 and_known = set(known or [])
                 lpath = mpath + ".&"
@@ -582,7 +590,8 @@ class SourceCode(Validator):
                 for i, m in enumerate(models):
                     if i:
                         code.add(indent + i - 1, f"if {res}:")
-                    self._compileModel(code, indent+i, m, f"{lpath}[{i}]", res, val, vpath, and_known)
+                    self._compileModel(code, indent + i, m,
+                                       f"{lpath}[{i}]", res, val, vpath, and_known)
             elif "^" in model:
                 lpath = mpath + ".^"
                 models = model["^"]
@@ -603,13 +612,14 @@ class SourceCode(Validator):
                         if not model_in_models(m, dups):
                             kept.append(m)
                             kept_i.append(i)
-                    
+
                     # false if in dups
                     for i, m in enumerate(dups):
                         idx = dups_i[i]
-                        self._compileModel(code, indent+i, m, f"{lpath}[{idx}]", "isin", val, vpath)
-                        code.add(indent+i, f"{res} = not isin")                   
-                        code.add(indent+i, f"if {res}:")
+                        self._compileModel(code, indent + i, m,
+                                           f"{lpath}[{idx}]", "isin", val, vpath)
+                        code.add(indent + i, f"{res} = not isin")
+                        code.add(indent + i, f"if {res}:")
 
                     # update remaining models and identation
                     models = kept
@@ -621,27 +631,30 @@ class SourceCode(Validator):
 
                 # standard case
                 if not models:
-                    code.add(indent+depth, f"{res} = False")
+                    code.add(indent + depth, f"{res} = False")
                 elif len(models) == 1:
                     mod, idx = models[0], models_i[0]
-                    self._compileModel(code, indent+depth, mod, f"{lpath}[{idx}]", res, val, vpath)
+                    self._compileModel(code, indent + depth, mod,
+                                       f"{lpath}[{idx}]", res, val, vpath)
                 else:  # several models are inlined
                     if len(models) == 2 and "$ANY" in models:
                         # get other model
                         m = models[1] if models[0] == "$ANY" else models[0]
                         is_m = self._ident("is_m_", True)
-                        self._compileModel(code, indent+depth, m, f"{lpath}[?]", is_m, val, vpath)
-                        code.add(indent+depth, f"{res} = not {is_m}")
+                        self._compileModel(code, indent + depth, m,
+                                           f"{lpath}[?]", is_m, val, vpath)
+                        code.add(indent + depth, f"{res} = not {is_m}")
                     else:
                         count = self._ident("xc_", True)
                         test = self._ident("xr_", True)
-                        code.add(indent+depth, f"{count} = 0")
+                        code.add(indent + depth, f"{count} = 0")
                         for i, m in enumerate(models):
                             idx = models_i[i]
-                            code.add(indent+depth, f"if {count} <= 1:")
-                            self._compileModel(code, indent+depth+1, m, f"{lpath}[{idx}]", test, val, vpath)
-                            code.add(indent+depth+1, f"if {test}: {count} += 1")
-                        code.add(indent+depth, f"{res} = {count} == 1")
+                            code.add(indent + depth, f"if {count} <= 1:")
+                            self._compileModel(code, indent + depth + 1, m,
+                                               f"{lpath}[{idx}]", test, val, vpath)
+                            code.add(indent + depth + 1, f"if {test}: {count} += 1")
+                        code.add(indent + depth, f"{res} = {count} == 1")
             else:
                 # TODO check for non-root %
                 # TODO optimize empty model?
@@ -670,7 +683,8 @@ class SourceCode(Validator):
         log.debug(f"{name} -> {self._names[name]}")
         return self._names[name]
 
-    def _compileName(self, name: str, model: ModelType, mpath: str, skip_dollar: bool=False) -> Code:
+    def _compileName(self, name: str, model: ModelType, mpath: str,
+                     skip_dollar: bool = False) -> Code:
         log.debug(f"name: mpath={mpath} name={name}")
         code = Code()
         # keep definitions
@@ -713,10 +727,12 @@ class SourceCode(Validator):
         # compile root
         self.subs(self._compileName(rname, model, "$"))
 
+
 _DEFAULT_NAME = "check_model"
 
 DefFun = Callable[[str, str], None]
 InitFun = Callable[[DefFun], None]
+
 
 def static_compile(model: ModelType,
                    name: str = _DEFAULT_NAME,
@@ -734,6 +750,7 @@ def static_compile(model: ModelType,
     sc.compile(name, rw_model)
     return sc
 
+
 def static_compile_fun(model: ModelType, init: InitFun|None = None):
     """Generate a check function for a model."""
     code = str(static_compile(model, init=init))
@@ -742,9 +759,11 @@ def static_compile_fun(model: ModelType, init: InitFun|None = None):
     assert _DEFAULT_NAME in env
     return env[_DEFAULT_NAME]
 
+
 #
 # Static JSON Model Compiler
 #
+
 
 def static_compiler():
     """Compile model file arguments."""
@@ -779,6 +798,7 @@ def static_compiler():
         except Exception as e:
             log.error(f"{fn}: {e}")
             log.error(e, exc_info=True)
+
 
 def static_compiler_check():
     """Compile one model and check values."""
