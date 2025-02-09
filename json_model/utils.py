@@ -1,9 +1,6 @@
 # common model utilities
 import sys
-import enum
-import json
 import re
-import copy
 from typing import Any, Callable  # why not callable?
 
 import logging
@@ -22,12 +19,15 @@ CheckFun = Callable[[Any, str], bool]
 KeyCheckFun = Callable[[str, Any, str], bool|None]
 Compiler = Callable[[ModelType, str], CheckFun|None]
 
+
 class ModelError(BaseException):
     pass
+
 
 #
 # UTILITY FUNCTIONS
 #
+
 
 def is_regex(s: str) -> bool:
     if isinstance(s, str):
@@ -43,6 +43,7 @@ def is_regex(s: str) -> bool:
             return good_anyway
     else:
         return False
+
 
 def distinct_values(val):
     try:
@@ -62,32 +63,34 @@ def distinct_values(val):
                 seen.append(i)
         return True
 
-def one(l) -> bool:
+
+def one(lb) -> bool:
     """Tell if only one from an iterable is True."""
     seen = False
-    for b in l:
+    for b in lb:
         if b:
             if seen:
                 return False  # second
             seen = True   # first
     return seen
 
+
 def model_eq(m1: ModelType, m2: ModelType) -> bool:
     """Recursively compare two models…"""
     # TODO resolve @ and $
     t1, t2 = type(m1), type(m2)
-    if t1 != t2:
+    if t1 is not t2:
         return False
-    elif t1 == type(None):
+    elif t1 is type(None):
         return True
     elif t1 in (bool, int, float, str):
         return m1 == m2
-    elif t1 == list:
+    elif t1 is list:
         if len(m1) != len(m2):
             return False
         else:  # same size, recurse
             return all(model_eq(i1, i2) for i1, i2 in zip(m1, m2))
-    elif t1 == dict:  # compare contents but # $ %
+    elif t1 is dict:  # compare contents but # $ %
         # check m1 ⊂  m2
         for p in m1.keys():
             if p not in ("#", "%", "$"):
@@ -104,6 +107,7 @@ def model_eq(m1: ModelType, m2: ModelType) -> bool:
     else:
         raise ModelError(f"unexpected model element type ({t1.__name__})")
 
+
 # TODO maybe we should accept some simple type inclusions
 def same_model(m1: ModelType, m2: ModelType) -> bool:
     """Compare models…"""
@@ -111,11 +115,13 @@ def same_model(m1: ModelType, m2: ModelType) -> bool:
     # return type(m1) == type(m2) and m1 == m2
     return model_eq(m1, m2)
 
-def model_in_models(m: ModelType, l: list[ModelType]) -> bool:
-    for i in l:
+
+def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
+    for i in lm:
          if model_eq(i, m):
             return True
     return False
+
 
 def split_object(model: dict[str, Any], path: str) -> tuple[Object, Object, Object, Object, Object]:
     """Split properties in must/may/refs/regs/other cases."""
@@ -168,17 +174,22 @@ def split_object(model: dict[str, Any], path: str) -> tuple[Object, Object, Obje
 
     return must, may, refs, regs, others
 
+
+def _bang(s):
+    return s if re.match(r"[A-Za-z0-9]", s) else f"!{s}"
+
+
 def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others: Object) -> Object:
     """Regenerate an object from separated properties."""
-    bang = lambda s: s if re.match(r"[A-Za-z0-9]", s) else f"!{s}"
     return {
-        **{bang(k): v for k, v in must.items()},
+        **{_bang(k): v for k, v in must.items()},
         **{f"?{k}": v for k, v in may.items()},
         **{f"${k}": v for k, v in refs.items()},
         # FIXME /i support?
         **{f"/{k}/": v for k, v in regs.items()},
         **others
     }
+
 
 def is_constructed(model):
     """Tell whether model is constructed, i.e. uses some combinator or indirection.
@@ -187,6 +198,7 @@ def is_constructed(model):
     """
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
+
 
 def constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
     if m is None:
@@ -221,6 +233,7 @@ def constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
     else:
         return False, None
 
+
 def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
     first, current_type = True, None
     for i, m in enumerate(models):
@@ -238,6 +251,7 @@ def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
         return False, None
     else:
         return True, current_type
+
 
 def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
     """Tell the type of the model, if known."""
@@ -298,6 +312,7 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
     else:
         raise ModelError(f"unexpected model: {model} ({type(model).__name__})")
 
+
 def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
     changed, resolved = True, set()
@@ -312,6 +327,7 @@ def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
         if isinstance(m, dict) and "@" in m:
             m, changed = m["@"], True
     return m
+
 
 def openfiles(args: list[str] = []):
     if not args:  # empty list is same as stdin
