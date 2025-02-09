@@ -117,7 +117,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue == val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value == val:
                     return False
             else:
@@ -127,7 +127,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue != val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value != val:
                     return False
             else:
@@ -137,7 +137,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue <= val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value <= val:
                     return False
             else:
@@ -147,7 +147,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue < val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value < val:
                     return False
             else:
@@ -157,7 +157,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue >= val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value >= val:
                     return False
             else:
@@ -167,7 +167,7 @@ class DSV(Validator):
             if has_nb and _is_really_int(val):
                 if not ivalue > val:
                     return False
-            elif type(val) == type(value):
+            elif type(val) is type(value):
                 if not value > val:
                     return False
             else:
