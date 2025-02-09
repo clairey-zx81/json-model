@@ -179,7 +179,7 @@ class Validator:
         if v == UnknownModel:
             return None
         tv = type(v)
-        if tv == str:
+        if tv is str:
             if v == "":
                 return None
             elif v == "=null":
@@ -203,7 +203,7 @@ class Validator:
         assert isinstance(model, dict) and "|" in model
         # first filter out
         utype = self._ultimate_type(model)
-        if utype != dict:
+        if utype is not dict:
             log.debug(f"ultimate type not a dict: {utype}")
             return None
         # get models
@@ -213,7 +213,7 @@ class Validator:
             log.debug("not enough models for a disjunction")
             return None
         # we may have some doubts yet (eg | in |)
-        if any(filter(lambda m: type(m) != dict, models)):
+        if any(filter(lambda m: not isinstance(m, dict), models)):
             log.debug("some models are not objects")
             return None
         # only objects: collect their direct mandatory properties
