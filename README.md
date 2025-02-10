@@ -69,9 +69,10 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 ## TODO v2
 
 - change `%` to `$` and remove `$` intra-model naming shortcut?
-- readability and style: `:verbose` version of single char keywords?
+- readability and style: `:verbose` version of single char keywords!?
 - clarify stuff inside the root `#`? or use `%` for specific purpose?
 - check and document API entry points
+- add doc and test CI
 - provide a model to form proof-of-concept, possibly using some convenient form
   library, eg [FormBuilder](https://formbuilder.online/).
 - think of extensions to direct forms for instance?
@@ -107,26 +108,32 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 
     ```json
     {
-      "#": {
-        "json-model-extension": {
-          ":?new-keyword": "$MODEL" 
+      "$": {
+        "modelv2": "$https://models.json-model.org/modelv2"
+      },
+      "%": {
+        "#": "path to field to modify",
+        "$model2#Object": {
+          "+": { "?new-keyword": "$..." }
         }
       }
     }
     ```
 
-  - contextualized? model context?
+  - contextualized? model context? semantics ?!
 
     ```json
     {
-      "#": {
-        "json-model-extensions": {
-          ":?new-keyword": {
-            "#": "@ is the target model, ~ is a conditional context model",
-            "@": "$Model",
-            "~": "$Model"
-          },
-          ":synonym-of": ":new-keyword"
+      "$": {
+        "modelv2": "$https://models.json-model.org/modelv2"
+      },
+      "%": {
+        "#": "path to model to modify (remove, replace, add)",
+        "$model2#Object": {
+          "@": { "_@": "$ANY" },
+          "-": { "old-kw-1": "$..." },
+          "~": { "old-kw-2": "$..." },
+          "+": { "new-kw": "$..." }
         }
       }
     }
@@ -138,16 +145,6 @@ pip install git+https://github.com/clairey-zx81/json-model.git
     Should it be direct or meta? Should it be a structural match?
 
   - can also be loaded through a reference?
-
-    ```json
-    {
-      "#": {
-        "json-model-extensions": {
-          ":?new-keyword": "$URL"
-        }
-      }
-    }
-    ```
 
   - use something other than `#`? `%`?
     - used sentinels and keywords: `# $ _ ? ! = @ & | ^ + / ops`…
@@ -166,7 +163,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
       },
       "list-selector": {
         "#": "selection widget for lists of strings",
-        "@": { "|": [ "checkbox", "table", "whatever" ] },
+        "+": { "|": [ "checkbox", "table", "whatever" ] },
         "~": { "_|": [ "" ] }
       },
       "enum-selector": {
