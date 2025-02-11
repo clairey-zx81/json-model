@@ -75,6 +75,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 - add doc and test CI
 - provide a model to form proof-of-concept, possibly using some convenient form
   library, eg [FormBuilder](https://formbuilder.online/).
+- think of extensions for variants, i.e. form in progress vs final form with more constraints?
 - think of extensions to direct forms for instance?
   eg types, constraints, layout or not?
 - think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
