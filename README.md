@@ -155,29 +155,17 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 
   ```json
   {
+    "$": {
+      "model": "$https://json-model.org/model-v2"
+    },
     "%": {
-      "%": "https://json-model.org/v2",
-      "readOnly": {
-        "#": "readOnly can appear anywhere",
-        "@": true,
-        "~": "$ANY"
+      "$model#Elem.+.0": {
+        "+": { "?readOnly": true }
       },
-      "list-selector": {
-        "#": "selection widget for lists of strings",
-        "+": { "|": [ "checkbox", "table", "whatever" ] },
-        "~": { "_|": [ "" ] }
-      },
-      "enum-selector": {
-        "#": "selection one value string among several distinct choices",
-        "@": { "|": [ "checkbox", "menu" ] }
-        "~": { "_|": { "@": [ "" ], "!": true, ">": 0 } },
+      "$model#Or": {
+        "+": { "?selector": { "|": [ "checkbox", "menu", "whatever" ] } }
       }
     },
-    "@": {
-      "domain": {
-        "|": [ "mathematics", "physics", "biology", "computer science" ],
-        "enum-selector": "menu"
-      }
-    }
+    "@": "$Root"
   }
   ```
