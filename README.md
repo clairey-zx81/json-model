@@ -132,8 +132,8 @@ pip install git+https://github.com/clairey-zx81/json-model.git
         "#": "path to model to modify (remove, replace, add)",
         "$model2#Object": {
           "@": { "_@": "$ANY" },
-          "-": { "old-kw-1": "$..." },
-          "~": { "old-kw-2": "$..." },
+          "-": { "old-kw": null },
+          "~": { "some-kw": "$..." },
           "+": { "new-kw": "$..." }
         }
       }

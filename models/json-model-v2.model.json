@@ -1,0 +1,51 @@
+{
+  "#": "Self-Validating JSON Model v2 (WIP)",
+  "%": {
+    "#": "default English localization",
+    ":comment": "#",
+    ":defs": "$", ":rewrite": "%",
+    ":and": "&", ":or": "|", ":xor": "^",
+    ":add": "+", ":rem": "-", ":rep": "~",
+    ":model": "@",
+    ":le": "<=", ":lt": "<", ":ge": ">=", ":gt": ">", ":eq": "=", ":ne": "!=",
+    ":unique": "!"
+  },
+  "$": {
+    "#": "Definitions, without predefs",
+    "Val": { "|":  [ null, true, -1, -1.0, "" ] },
+    "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
+    "None": { "|": [ ] },
+    "Meta": { "|": [ "", { "": "$Any" } ] },
+    "Array": [ "$Model" ],
+    "Constraint": {
+      "_@": "$Model",
+      "/^(<=|>=|<|>)$/": { "|": [ -1, -1.0, "" ] },
+      "/^(=|!=)$/": "$Val",
+      "?!": true
+    },
+    "Or": { "_|": [ "$Model" ] },
+    "And": { "_&": [ "$Model" ] },
+    "Xor": { "_^": [ "$Model" ] },
+    "Add": { "_+": [ "$Model" ] },
+    "Obj": { "": "$Model", "/^[@|&^+]$/": "$None" },
+    "Elem": {
+      "+": [
+        { "?#": "$Meta" },
+        { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
+      ]
+    },
+    "Trafo": { "?#": "$Meta", "/^[-~+]$/": "$Model" },
+    "Model": { "|": [ "$Val", "$Array", "$Elem" ] },
+    "Root": {
+      "+": [
+        {
+          "#": "Keywords only at the model root",
+          "?$": { "?#": "$Meta", "": "$Model" },
+          "?%": { "?#": "$Meta", "/^:.*$/": "", "": "$Trafo" }
+        },
+        "$Elem"
+      ]
+    }
+  },
+  "|": [ "$Val", "$Array", "$Root" ]
+}

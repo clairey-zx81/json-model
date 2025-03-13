@@ -1,0 +1,30 @@
+{
+  "#": "Self-Validating JSON Model v1",
+  "%": {
+    "Val": { "|":  [ null, true, -1, -1.0, "" ] },
+    "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
+    "None": { "|": [ ] },
+    "Meta": { "|": [ "", { "": "$Any" } ] },
+    "Array": [ "$Model" ],
+    "Constraint": {
+      "_@": "$Model",
+      "/^(<=|>=|<|>)$/": { "|": [ -1, -1.0, "" ] },
+      "/^(=|!=)$/": "$Val",
+      "?!": true
+    },
+    "Or": { "_|": [ "$Model" ] },
+    "And": { "_&": [ "$Model" ] },
+    "Xor": { "_^": [ "$Model" ] },
+    "Add": { "_+": [ "$Model" ] },
+    "Obj": { "": "$Model", "/^[|@&^+]$/": "$None" },
+    "Elem": {
+      "+": [
+        { "?$": "", "?#": "$Meta" },
+        { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
+      ]
+    },
+    "Model": { "|": [ "$Val", "$Array", "$Elem" ] },
+    "Root": { "+": [ { "?%": { "": "$Model" } }, "$Elem" ] }
+  },
+  "|": [ "$Val", "$Array", "$Root" ]
+}
