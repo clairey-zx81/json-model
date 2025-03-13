@@ -166,6 +166,14 @@ pip install git+https://github.com/clairey-zx81/json-model.git
         "+": { "?selector": { "|": [ "checkbox", "menu", "whatever" ] } }
       }
     },
-    "@": "$Root"
+    "@": "$model#Root"
+  }
+  ```
+
+- localization with prefixed keywords? `:` (too many?), `*`, other?
+
+  ```json
+  {
+    "%": { "*or": "|" }
   }
   ```
