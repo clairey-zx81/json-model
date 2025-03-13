@@ -1,9 +1,9 @@
 {
   "#": "Self-Validating JSON Model v2 (WIP)",
   "%": {
-    "#": "default English localization preprocessing",
+    "#": "English localization preprocessing (FIXME should not be there!)",
     ":comment": "#",
-    ":defs": "$", ":rewrite": "%",
+    ":define": "$", ":rewrite": "%",
     ":and": "&", ":or": "|", ":xor": "^",
     ":add": "+", ":rem": "-", ":rep": "~",
     ":model": "@",
