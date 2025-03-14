@@ -29,7 +29,7 @@
     "Root": {
       "+": [
         {
-          "#": "Keywords only at the model root",
+          "#": "Special keywords only at the root of a model",
           "?$": { "?#": "$Meta", "": "$Model" },
           "?%": { "?#": "$Meta", "/^:.*$/": "", "": "$Trafo" }
         },
