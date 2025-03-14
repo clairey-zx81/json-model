@@ -170,7 +170,7 @@ pip install git+https://github.com/clairey-zx81/json-model.git
   }
   ```
 
-- localization with prefixed keywords? `:` (too many?), `*`, other?
+- localization with prefixed keywords? `:` (too many?), `*` too noizy, `.` discreet enough?
 
   ```json
   {

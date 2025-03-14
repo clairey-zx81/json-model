@@ -2,16 +2,16 @@
   "#": "Self-Validating JSON Model v2 (WIP)",
   "%": {
     "#": "English localization preprocessing",
-    "*comment": "#",
-    "*define": "$", "*rewrite": "%",
-    "*and": "&", "*or": "|", "*xor": "^",
-    "*add": "+", "*rem": "-", "*rep": "~",
-    "*model": "@",
-    "*le": "<=", "*lt": "<", "*ge": ">=", "*gt": ">", "*eq": "=", "*ne": "!=",
-    "*unique": "!"
+    ".comment": "#",
+    ".define": "$", ".rewrite": "%",
+    ".and": "&", ".or": "|", ".xor": "^",
+    ".add": "+", ".rem": "-", ".rep": "~",
+    ".model": "@",
+    ".le": "<=", ".lt": "<", ".ge": ">=", ".gt": ">", ".eq": "=", ".ne": "!=",
+    ".unique": "!"
   },
-  "*define": {
+  ".define": {
     "RootModel": "https://json-model.org/models/json-model-v2.model.json#RootModel"
   },
-  "*model": "$RootModel"
+  ".model": "$RootModel"
 }
