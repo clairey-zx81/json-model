@@ -1,3 +1,4 @@
+# TODO ValueType -> Value, ModelType -> Model?
 # common model utilities
 import sys
 import re
@@ -12,9 +13,14 @@ class UnknownModel:
     pass
 
 
-Object = dict[str, Any]
-ValueType = None|bool|int|float|str|list[Any]|tuple[Any]|Object
-ModelType = ValueType|UnknownModel
+# JSON compatible python value
+type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
+
+type ValueType = Jsonable
+type Object = dict[str, Jsonable]
+# FIXME ?!
+type ModelType = Jsonable|UnknownModel
+type Path = list[str|int]
 
 # grrr… should be callable?
 CheckFun = Callable[[Any, str], bool]

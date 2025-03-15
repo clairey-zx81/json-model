@@ -10,10 +10,10 @@ name = "json_model"
 authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
 description = "JSON Model Tools"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"  # for "type"
 license = { text = "CC0 1.0" }
 classifiers = [ "Topic :: Software Development" ]
-version = "1.0"
+version = "2.0-alpha"
 dependencies = [ "requests", "google-re2" ]
 
 [project.optional-dependencies]
@@ -27,6 +27,7 @@ jm-model2schema = "json_model:model2schema_script"
 jm-schema2model = "json_model:schema2model_script"
 jm-preprocessor = "json_model:preprocessor"
 jm-compiler = "json_model:static_compiler"
+jm-test = "json_model:jm_test_script"
 
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
