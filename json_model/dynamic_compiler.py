@@ -113,7 +113,7 @@ class CompileModel(Validator):
 
         # url cache
         self._urls = set()
-        self._cache = url_cache.jsonURLCache()
+        self._cache = url_cache.JsonURLCache()
 
         # actually compile the model
         # self._defs.defs ???

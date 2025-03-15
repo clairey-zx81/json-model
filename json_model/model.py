@@ -1,6 +1,9 @@
 import copy
 import logging
+
 from .utils import ModelError, Path, Jsonable
+from .recurse import recModel
+from .resolver import Resolver
 
 
 class JsonModel:
@@ -92,7 +95,6 @@ class JsonModel:
 
         if isinstance(model, dict) and "$" in model:
             self._defs = {
-                # NOTE for now models are not resolved
                 n: JsonModel(m)
                     for n, m in model["$"].items()
                         if isinstance(n, str) and n != "#"
@@ -125,6 +127,19 @@ class JsonModel:
                     for n, jm in self._defs.items()
             } if deep else self._init_dl
         return model
+
+    def resolve(self, resolver: Resolver):
+        # FIXME keywords?
+        """Resolve external references."""
+        for jm in self._defs.values():
+            jm.resolve(resolver)
+
+        def rewriteRef(model: Jsonable, path: Path) -> Jsonable:
+            if not isinstance(model, str) or not model or not model[0] == "$":
+                return model
+            return resolver(model[1:], path)
+
+        self._model = recModel(self._model, lambda _m, _p: True, rewriteRef)
 
     def rename(self, model: Jsonable, path: Path = ["$"], root: bool = False):
         """Apply keyword renaming.
@@ -201,12 +216,23 @@ def test_script():
     import argparse
     ap = argparse.ArgumentParser()
     # TODO resolver
+    ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
     ap.add_argument("jsons", nargs="*", help="JSON Models to load")
     args = ap.parse_args()
+
+    # resolver
+    maps: dict[str, str] = {}
+    for m in args.maps:
+        if " " not in m:
+            raise Exception(f"invalid map: {m}")
+        k, v = m.split(" ", 1)
+        maps[k] = v
+    resolver = Resolver(maps)
 
     for fn in args.jsons:
         with open(fn) as file:
             print(f"# {fn}")
             jm = JsonModel(json.load(file))
             print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
+            jm.resolve(resolver)
             print(json.dumps(jm.toModel(True), sort_keys=True, indent=2))

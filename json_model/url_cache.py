@@ -5,11 +5,13 @@ import hashlib
 import urllib.parse
 import requests
 
+from .utils import Jsonable
+
 log = logging.getLogger("url-cache")
 # log.setLevel(logging.DEBUG)
 
 
-class jsonURLCache:
+class JsonURLCache:
     """Cache JSON URL."""
 
     # FIXME should invalidate old cache entries?
@@ -17,13 +19,13 @@ class jsonURLCache:
     def __init__(self, cache_dir: str|None = None):
 
         # keep a local copy
-        self._cache_dir = cache_dir or (os.environ.get("HOME", ".") + "/.cache/json")
+        self._cache_dir = cache_dir or (os.environ.get("HOME", ".") + "/.cache/json-model")
         if not os.path.exists(self._cache_dir):
             os.mkdir(self._cache_dir)
         assert os.path.isdir(self._cache_dir)
 
         # class cache
-        self._cache = {}
+        self._cache: dict[str, Jsonable] = {}
 
     def load(self, url: str):
         """Load JSON URL."""
@@ -53,5 +55,6 @@ class jsonURLCache:
         self._cache[u] = j
         with open(hfile, "w") as f:
             # sort_keys?
-            json.dump(j, f, indent=2)
+            json.dump(j, f, sort_keys=True, indent=2)
+
         return j
