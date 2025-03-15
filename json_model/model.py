@@ -1,3 +1,4 @@
+import copy
 import logging
 from .utils import ModelError, Path, Jsonable
 
@@ -41,45 +42,54 @@ class JsonModel:
     }
 
     def __init__(self, model: Jsonable):
-        self._model = model
+
+        # copy parameter which may be modified
+        model = copy.deepcopy(model)
+
         # %: names and rewrites
         self._name: dict[str, str] = {}
         self._rewrite: dict[str, Jsonable] = {}
         self._init_pc: dict[str, Jsonable] = {}
+
         if isinstance(model, dict) and "%" in model:
+            lpath = ["$", "%"]
+
             # checks
             if not isinstance(model["%"], dict):
-                raise ModelError(f"expecting an object at {['$', '%']}")
+                raise ModelError(f"expecting an object at {lpath}")
             bads = {
                 name: kw
                     for name, kw in model["%"].items()
-                        if (not isinstance(name, str) or name != "#" or
-                            not isinstance(kw, str) or kw not in JsonModel.KEYWORDS)
+                        if (not isinstance(name, str) or name.startswith(".") and
+                            isinstance(kw, str) and kw not in JsonModel.KEYWORDS)
             }
             if bads:
-                lpath = ["$", "%"]
                 raise ModelError(f"keyword renames must be json model keywords at {lpath}: {bads}")
+
             # keyword localization
             self._name = {
                 name: kw
                     for name, kw in model["%"].items()
                         if isinstance(name, str) and name.startswith(".") and isinstance(kw, str)
             }
-            # RENAMING!?
+
             # FIXME what is the scope of renamings, eg wrt references?
-            self._model = model = self.rename(model, ["$"], True)
-        if isinstance(model, dict) and "%" in model:
+            model = self.rename(model, ["$"], True)
+
             # extract rewrites
             self._rewrite = {
                 name: rw
                     for name, rw in model["%"].items()
                         if isinstance(name, str) and not name.startswith(".")
             }
+
             self._init_pc = model["%"]
             del model["%"]
+
         # definitions
         self._defs: dict[str, JsonModel] = {}
         self._init_dl: dict[str, Jsonable] = {}
+
         if isinstance(model, dict) and "$" in model:
             self._defs = {
                 # NOTE for now models are not resolved
@@ -89,18 +99,32 @@ class JsonModel:
             }
             self._init_dl = model["$"]
             del model["$"]
+
+        self._model = model
         # TODO resolve references!
         # TODO apply rewrites!
         # TODO compute "+"
 
-    def __json__(self) -> Jsonable:
+    def toJSON(self) -> Jsonable:
         """Convenient JsonModel display."""
         return {
             "model": self._model,
-            "defs": {name: jm.__json__() for name, jm in self._defs.items()},
+            "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
             "rename": self._name,
             "rewrite": self._rewrite
         }
+
+    def toModel(self, deep: bool = False) -> Jsonable:
+        """Show Model."""
+        model = copy.deepcopy(self._model)
+        if self._defs:
+            assert isinstance(model, dict)
+            assert "$" not in model
+            model["$"] = {
+                n: jm.toModel()
+                    for n, jm in self._defs.items()
+            } if deep else self._init_dl
+        return model
 
     def rename(self, model: Jsonable, path: Path = ["$"], root: bool = False):
         """Apply keyword renaming.
@@ -184,4 +208,5 @@ def test_script():
         with open(fn) as file:
             print(f"# {fn}")
             jm = JsonModel(json.load(file))
-            print(json.dumps(jm.__json__(), sort_keys=True, indent=2))
+            print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
+            print(json.dumps(jm.toModel(True), sort_keys=True, indent=2))
