@@ -1,0 +1,13 @@
+{
+  "$": {
+    "foo": "$STRING"
+  },
+  "%": {
+    "#": "FIXME syntax? $foo$?",
+    ".target": "@",
+    "foo$": {
+      "~": "$BOOLEAN"
+    }
+  },
+  ".target": "$foo"
+}

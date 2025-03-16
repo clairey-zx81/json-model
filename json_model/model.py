@@ -1,3 +1,5 @@
+# TODO sharing until transformed?
+
 import copy
 import re
 import logging
@@ -8,9 +10,11 @@ from .recurse import recModel
 from .resolver import Resolver
 
 JsonModel = typing.NewType("JsonModel", None)
+type Trafo = dict[str, Jsonable]
 
 
 class JsonModelCache:
+    """Cache JSON Models."""
 
     def __init__(self, resolver: Resolver):
         self._resolver = resolver
@@ -82,17 +86,22 @@ class JsonModel:
 
         # NOTE **not** shared between models because it can be modified
         # However, if it is not, it could? optimization??
+        #
         # FIXME sharing semantics is not well defined yet!
         #
         # { "$": {
         #     "f": "$https://json-model.org/models/x",
         #     "g": "$https://json-model.org/models/x",
-        #     "h": "$https://json-model.org/models/x#Foo",
-        #     "i": "$https://json-model.org/models/x#Foo",
         # } }
         #
-        # then f & g and h & i should be independent
+        # then f & g should be independent, whereas
         #
+        # { "$": {
+        #     "f": "$https://json-model.org/models/x",
+        #     "g": "$f"
+        # } }
+        #
+        # then f & g are shared, so that if "$f#Foo" is changed, "$g#Foo" as well
         self._jm_cache = JsonModelCache(resolver)
 
         # copy parameter which may be modified
@@ -100,7 +109,7 @@ class JsonModel:
 
         # %: names and rewrites
         self._name: dict[str, str] = {}
-        self._rewrite: dict[str, Jsonable] = {}
+        self._rewrite: Trafo = {}
         self._init_pc: dict[str, Jsonable] = {}
 
         if isinstance(model, dict) and "%" in model:
@@ -143,13 +152,6 @@ class JsonModel:
         self._init_dl: dict[str, Jsonable] = {}
 
         if isinstance(model, dict) and "$" in model:
-            # extract actual definitions
-            # TODO restrict names?
-            self._defs = {
-                n: JsonModel(m, resolver)
-                    for n, m in model["$"].items()
-                        if isinstance(n, str) and n not in ("#", "")
-            }
             # extract model identifier if provided
             if u := model.get(""):
                 if not self._isUrlRef(f"${u}"):
@@ -157,15 +159,22 @@ class JsonModel:
                 if self._url != "" and u != self._url:
                     log.warning(f"inconsistent url identifier: {u}")
                 self._url = u
+            # extract actual definitions
+            # TODO restrict names?
+            self._defs = {
+                n: JsonModel(m, resolver, self._url + "#" + n)
+                    for n, m in model["$"].items()
+                        if isinstance(n, str) and n not in ("#", "")
+            }
             self._init_dl = model["$"]
             del model["$"]
 
         self._model = model
         self._jm_cache.set(self._url, self)
 
-        # TODO process references!
-        # TODO apply rewrites!
-        # TODO compute "+"
+        # TODO process references?
+        self.rewrite()
+        # TODO compute "+" and other preprocessing
 
     def toJSON(self) -> Jsonable:
         """Convenient JsonModel display."""
@@ -176,14 +185,16 @@ class JsonModel:
             "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
             "rename": self._name,
             "rewrite": self._rewrite,
-            "cached": list(self._jm_cache._cache.keys()),
+            "cached": sorted(self._jm_cache._cache.keys()),
         }
 
     # FIXME this is not very clean because $/% can appear inside defs
     def toModel(self, deep: bool = False) -> Jsonable:
         """Return JSON Model."""
+        # log.info(f"toModel on {self._model}")
         model = copy.deepcopy(self._model)
         if self._defs:
+            # log.info(f"defs: {self._defs}")
             assert isinstance(model, dict)
             assert "$" not in model
             model["$"] = {
@@ -192,13 +203,19 @@ class JsonModel:
             } if deep else self._init_dl
         return model
 
+    def _isPredef(self, s: str) -> bool:
+        return re.match(r"\$[A-Z]+$", s)
+
     def _isRef(self, model: Jsonable) -> bool:
-        return isinstance(model, str) and model and model[0] == "$"
+        return isinstance(model, str) and model and model[0] == "$" and not self._isPredef(model)
 
     def _isUrlRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
 
+    # FIXME this imply not sharing, which is not desirable! use prefix with $$?
+    # NOTE do we want that?
     def expandRefs(self):
+        """Replace short references by absolute references."""
 
         def expandRef(model: Jsonable, path: Path) -> Jsonable:
             if self._isRef(model):
@@ -215,22 +232,28 @@ class JsonModel:
 
     def resolveDef(self, name: str, path: Path) -> JsonModel:
         """Resolve $-definitions."""
-        jm = self
+
+        # log.debug(f"resolving def {name} ({list(self._defs.keys())})")
+        assert name and name[0] == "$"
+        name = name[1:]
+
         if "#" in name:
             name, others = name.split("#", 1)
         else:
             others = None
-        if name not in jm._defs:
+        if name not in self._defs:
             raise ModelError(f"resolution error at {path}: {name}")
-        jm = jm._defs[name]
+        jm = self._defs[name]
         if others:  # None or ""
-            return jm.resolveRef(f"${others}", path + ["$name"])
+            return jm.resolveRef(f"${others}", path + [f"${name}"])
         else:
             return jm
 
-    def resolveRef(self, model: Jsonable, path: Path) -> Jsonable:
+    def resolveRef(self, model: Jsonable, path: Path) -> JsonModel:
         """Resolve $-references up to an actual model."""
         jm, initial, followed = self, model, []
+
+        # log.debug(f"resolving ref {model} ({self._isRef(model)})")
 
         while jm._isRef(model):
             if jm._isUrlRef(model):
@@ -246,7 +269,9 @@ class JsonModel:
                 jm = jm.resolveDef(model, path)
                 model = jm._model
 
-        return jm.toModel(False)
+        # log.info(f"{initial} -> {jm._id}")
+
+        return jm
                 
 
     # NOTE probably useless
@@ -330,6 +355,100 @@ class JsonModel:
         else:  # pragma: no cover
             raise ModelError(f"unexpected model element while renaming: {type(model)}")
 
+    # FIXME parsing should conform to JSON Path
+    # TODO think transformation path spec
+    def _parsePath(self, tpath: str, path: Path) -> tuple[JsonModel, Path]:
+        """Parse "Foo$.foo.0.bla" reference and transformation path."""
+        if "$." in tpath:
+            name, jpath = tpath.split("$.", 1)
+            if jpath == "":
+                raise ModelError(f"bad transformation path at {path}: {tpath}")
+            xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
+        elif "$" in tpath:
+            name, jpath = tpath.split("$", 1)
+            if jpath != "":
+                raise ModelError(f"bad transformation path at {path}: {tpath}")
+            xpath = []
+        else:
+            raise ModelError(f"bad transformation path at {path}: {tpath}")
+        return (self.resolveRef("$" + name, path), xpath)
+
+    def _applyTrafo(self, j: Jsonable, trafo: Trafo, path: Path):
+        if "~" in trafo:
+            assert "-" not in trafo and "+" not in trafo, f"cannot mix ~ with + or - at {path}"
+            return trafo["~"]
+        if "-" in trafo:
+            sub = trafo["-"]
+            if isinstance(sub, list):
+                if instance(j, list):
+                    for i in sub:
+                        j.remove(i)
+                elif isinstance(j, dict):
+                    for i in sub:
+                        if i not in j:
+                            raise ModelError(f"cannot remove item {i} from object at {path}")
+                        del j[i]
+                else:
+                    raise ModelError(f"cannot remove list from {type(j)}")
+            else:
+                raise ModelError(f"expecting a remove list")
+        if "+" in trafo:
+            add = trafo["+"]
+            if isinstance(add, list):
+                if isinstance(j, list):
+                    j.extend(add)
+                else:
+                    raise ModelError(f"cannot add list to {type(j)} at {path}")
+            elif isinstance(add, dict):
+                if isinstance(j, dict):
+                    for k, v in add.items():
+                        if k in j:
+                            raise ModelError(f"cannot overwrite property at {path}, remove first")
+                        j[k] = v
+                else:
+                    raise ModelError(f"cannot add object to {type(j)} at {path}")
+            else:
+                raise ModelError(f"unexpected add type at {path}")
+    
+
+    def _applyTrafoAtPath(self, jm: JsonModel, tpath: Path, trafo: Trafo, path: Path):
+        """Apply a transformation into a JSON Model."""
+
+        # log.info(f"apply trafo on {jm._id} at {path}: {tpath}")
+
+        j = jm._model
+
+        for i, p in enumerate(tpath):
+            last = i == len(tpath) - 1
+            if isinstance(p, str):
+                if not isinstance(j, dict):
+                    raise ModelError(f"invalid transformation path at {path}: {tpath}")
+                if p not in j:
+                    raise ModelError(f"cannot find at {path}: {p} in {tpath}")
+            else:
+                assert isinstance(p, int)
+                if not isinstance(j, list):
+                    raise ModelError(f"invalid transformation path at {path}: {tpath}")
+                if not 0 <= p < len(j):
+                    raise ModelError(f"invalid index at {path}: {p} in {tpath}")
+            if last:
+                j[p] = self._applyTrafo(j[p], trafo) 
+            else:
+                j = j[p]
+        else:
+            jm._model = self._applyTrafo(jm._model, trafo, path)
+
+    def rewrite(self):
+        """Apply model rewriting to current JSON Model."""
+
+        # NOTE transformation specs may be empty
+        for tpath, trafo in self._rewrite.items():
+            lpath = ["$", "$", tpath]
+            if tpath == "#":  # skip comment
+                continue
+            else:
+                jm, path = self._parsePath(tpath, lpath)
+                self._applyTrafoAtPath(jm, path, trafo, lpath)
 
 def test_script():
 
@@ -344,8 +463,7 @@ def test_script():
     args = ap.parse_args()
 
     # debug
-    if args.debug:
-        log.setLevel(logging.DEBUG)
+    log.setLevel(logging.DEBUG if args.debug else logging.INFO)
 
     # resolver
     maps: dict[str, str] = {}
@@ -359,8 +477,9 @@ def test_script():
     for url in args.urls:
         print(f"# {url}")
         j = resolver(url, [])
+        # TODO update maps using file path
         jm = JsonModel(j, resolver, url)
         print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
         # jm.resolveExtRef()
-        jm.expandRefs()
+        # jm.expandRefs()
         print(json.dumps(jm.toModel(True), sort_keys=True, indent=2))
