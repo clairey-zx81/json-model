@@ -1,9 +1,30 @@
 import copy
+import re
 import logging
+import typing
 
-from .utils import ModelError, Path, Jsonable
+from .utils import ModelError, Path, Jsonable, log
 from .recurse import recModel
 from .resolver import Resolver
+
+JsonModel = typing.NewType("JsonModel", None)
+
+
+class JsonModelCache:
+
+    def __init__(self, resolver: Resolver):
+        self._resolver = resolver
+        self._cache: dict[str, JsonModel] = {}
+
+    def set(self, url: str, jm: JsonModel):
+        if url in self._cache:
+            log.warning(f"overriding cached model for: {url}")
+        self._cache[url] = jm
+
+    def get(self, url: str, path: Path) -> JsonModel:
+        if url not in self._cache:
+            self.set(url, JsonModel(self._resolver(url, path), self._resolver))
+        return self._cache[url]
 
 
 class JsonModel:
@@ -44,7 +65,35 @@ class JsonModel:
         # to be continued…
     }
 
-    def __init__(self, model: Jsonable):
+    NMODELS = 0
+
+    def __init__(self,
+            model: Jsonable,
+            resolver: Resolver,
+            url: str = "",
+        ):
+
+        # FIXME thread safety
+        self._id = JsonModel.NMODELS
+        JsonModel.NMODELS += 1
+
+        self._init_md = model
+        self._url = url
+
+        # NOTE **not** shared between models because it can be modified
+        # However, if it is not, it could? optimization??
+        # FIXME sharing semantics is not well defined yet!
+        #
+        # { "$": {
+        #     "f": "$https://json-model.org/models/x",
+        #     "g": "$https://json-model.org/models/x",
+        #     "h": "$https://json-model.org/models/x#Foo",
+        #     "i": "$https://json-model.org/models/x#Foo",
+        # } }
+        #
+        # then f & g and h & i should be independent
+        #
+        self._jm_cache = JsonModelCache(resolver)
 
         # copy parameter which may be modified
         model = copy.deepcopy(model)
@@ -94,30 +143,45 @@ class JsonModel:
         self._init_dl: dict[str, Jsonable] = {}
 
         if isinstance(model, dict) and "$" in model:
+            # extract actual definitions
+            # TODO restrict names?
             self._defs = {
-                n: JsonModel(m)
+                n: JsonModel(m, resolver)
                     for n, m in model["$"].items()
-                        if isinstance(n, str) and n != "#"
+                        if isinstance(n, str) and n not in ("#", "")
             }
+            # extract model identifier if provided
+            if u := model.get(""):
+                if not self._isUrlRef(f"${u}"):
+                    raise ModelError(f"model identifier should be a url: {u}")
+                if self._url != "" and u != self._url:
+                    log.warning(f"inconsistent url identifier: {u}")
+                self._url = u
             self._init_dl = model["$"]
             del model["$"]
 
         self._model = model
-        # TODO resolve references!
+        self._jm_cache.set(self._url, self)
+
+        # TODO process references!
         # TODO apply rewrites!
         # TODO compute "+"
 
     def toJSON(self) -> Jsonable:
         """Convenient JsonModel display."""
         return {
+            "id": self._id,
+            "url": self._url,
             "model": self._model,
             "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
             "rename": self._name,
-            "rewrite": self._rewrite
+            "rewrite": self._rewrite,
+            "cached": list(self._jm_cache._cache.keys()),
         }
 
+    # FIXME this is not very clean because $/% can appear inside defs
     def toModel(self, deep: bool = False) -> Jsonable:
-        """Show Model."""
+        """Return JSON Model."""
         model = copy.deepcopy(self._model)
         if self._defs:
             assert isinstance(model, dict)
@@ -128,18 +192,77 @@ class JsonModel:
             } if deep else self._init_dl
         return model
 
-    def resolve(self, resolver: Resolver):
+    def _isRef(self, model: Jsonable) -> bool:
+        return isinstance(model, str) and model and model[0] == "$"
+
+    def _isUrlRef(self, model: Jsonable) -> bool:
+        return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
+
+    def expandRefs(self):
+
+        def expandRef(model: Jsonable, path: Path) -> Jsonable:
+            if self._isRef(model):
+                if self._isUrlRef(model):
+                    return model
+                elif model[1] == "#":
+                    return self._url + model
+                else:
+                    return f"${self._url}#{model[1:]}"
+            else:
+                return model
+
+        self._model = recModel(self._model, lambda _m, _p: True, expandRef)
+
+    def resolveDef(self, name: str, path: Path) -> JsonModel:
+        """Resolve $-definitions."""
+        jm = self
+        if "#" in name:
+            name, others = name.split("#", 1)
+        else:
+            others = None
+        if name not in jm._defs:
+            raise ModelError(f"resolution error at {path}: {name}")
+        jm = jm._defs[name]
+        if others:  # None or ""
+            return jm.resolveRef(f"${others}", path + ["$name"])
+        else:
+            return jm
+
+    def resolveRef(self, model: Jsonable, path: Path) -> Jsonable:
+        """Resolve $-references up to an actual model."""
+        jm, initial, followed = self, model, []
+
+        while jm._isRef(model):
+            if jm._isUrlRef(model):
+                if model in followed:
+                    raise ModelError(f"cycle while resolving reference at {path}: {initial} ({followed})")
+                followed.append(model)
+                if "#" in model:
+                    url, model = model[1:].split("#", 1)
+                else:
+                    url, model = model[1:], None  # will stop resolution loop
+                jm = jm._jm_cache.get(url, path)
+            else:
+                jm = jm.resolveDef(model, path)
+                model = jm._model
+
+        return jm.toModel(False)
+                
+
+    # NOTE probably useless
+    def resolveExtRef(self, resolver: Resolver):
         # FIXME keywords?
         """Resolve external references."""
         for jm in self._defs.values():
-            jm.resolve(resolver)
+            jm.resolveExtRef(resolver)
 
-        def rewriteRef(model: Jsonable, path: Path) -> Jsonable:
-            if not isinstance(model, str) or not model or not model[0] == "$":
+        def resRef(model: Jsonable, path: Path) -> Jsonable:
+            if self._isUrlRef(model):
+                return resolver(model[1:], path)
+            else:
                 return model
-            return resolver(model[1:], path)
 
-        self._model = recModel(self._model, lambda _m, _p: True, rewriteRef)
+        self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
 
     def rename(self, model: Jsonable, path: Path = ["$"], root: bool = False):
         """Apply keyword renaming.
@@ -215,10 +338,14 @@ def test_script():
     import json
     import argparse
     ap = argparse.ArgumentParser()
-    # TODO resolver
+    ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
-    ap.add_argument("jsons", nargs="*", help="JSON Models to load")
+    ap.add_argument("urls", nargs="*", help="JSON Models to load")
     args = ap.parse_args()
+
+    # debug
+    if args.debug:
+        log.setLevel(logging.DEBUG)
 
     # resolver
     maps: dict[str, str] = {}
@@ -227,12 +354,13 @@ def test_script():
             raise Exception(f"invalid map: {m}")
         k, v = m.split(" ", 1)
         maps[k] = v
-    resolver = Resolver(maps)
+    resolver = Resolver(None, maps)
 
-    for fn in args.jsons:
-        with open(fn) as file:
-            print(f"# {fn}")
-            jm = JsonModel(json.load(file))
-            print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
-            jm.resolve(resolver)
-            print(json.dumps(jm.toModel(True), sort_keys=True, indent=2))
+    for url in args.urls:
+        print(f"# {url}")
+        j = resolver(url, [])
+        jm = JsonModel(j, resolver, url)
+        print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
+        # jm.resolveExtRef()
+        jm.expandRefs()
+        print(json.dumps(jm.toModel(True), sort_keys=True, indent=2))

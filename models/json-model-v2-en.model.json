@@ -1,5 +1,5 @@
 {
-  "#": "Self-Validating JSON Model v2 (WIP)",
+  "#": "English JSON Model",
   "%": {
     "#": "English localization preprocessing",
     ".comment": "#",
@@ -11,7 +11,7 @@
     ".unique": "!"
   },
   ".define": {
-    "RootModel": "https://json-model.org/models/json-model-v2.model.json#RootModel"
+    "RootModel": "$https://json-model.org/models/json-model-v2.model.json#RootModel"
   },
   ".model": "$RootModel"
 }
