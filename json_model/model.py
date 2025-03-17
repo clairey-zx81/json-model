@@ -380,7 +380,7 @@ class JsonModel:
         if "-" in trafo:
             sub = trafo["-"]
             if isinstance(sub, list):
-                if instance(j, list):
+                if isinstance(j, list):
                     for i in sub:
                         j.remove(i)
                 elif isinstance(j, dict):
@@ -409,6 +409,7 @@ class JsonModel:
                     raise ModelError(f"cannot add object to {type(j)} at {path}")
             else:
                 raise ModelError(f"unexpected add type at {path}")
+        return j
     
 
     def _applyTrafoAtPath(self, jm: JsonModel, tpath: Path, trafo: Trafo, path: Path):
