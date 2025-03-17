@@ -16,7 +16,8 @@ type Trafo = dict[str, Jsonable]
 class JsonModelCache:
     """Cache JSON Models."""
 
-    def __init__(self, resolver: Resolver):
+    def __init__(self, resolver: Resolver, debug: bool = False):
+        self._debug = debug
         self._resolver = resolver
         self._cache: dict[str, JsonModel] = {}
 
@@ -27,7 +28,8 @@ class JsonModelCache:
 
     def get(self, url: str, path: Path) -> JsonModel:
         if url not in self._cache:
-            self.set(url, JsonModel(self._resolver(url, path), self._resolver))
+            jm = JsonModel(self._resolver(url, path), self._resolver, "", self._debug)
+            self.set(url, jm)
         return self._cache[url]
 
 
@@ -75,6 +77,7 @@ class JsonModel:
             model: Jsonable,
             resolver: Resolver,
             url: str = "",
+            debug: bool = False,
         ):
 
         # FIXME thread safety
@@ -83,6 +86,7 @@ class JsonModel:
 
         self._init_md = model
         self._url = url
+        self._debug = debug
 
         # NOTE **not** shared between models because it can be modified
         # However, if it is not, it could? optimization??
@@ -102,7 +106,7 @@ class JsonModel:
         # } }
         #
         # then f & g are shared, so that if "$f#Foo" is changed, "$g#Foo" as well
-        self._jm_cache = JsonModelCache(resolver)
+        self._jm_cache = JsonModelCache(resolver, debug)
 
         # copy parameter which may be modified
         model = copy.deepcopy(model)
@@ -162,7 +166,7 @@ class JsonModel:
             # extract actual definitions
             # TODO restrict names?
             self._defs = {
-                n: JsonModel(m, resolver, self._url + "#" + n)
+                n: JsonModel(m, resolver, self._url + "#" + n, debug)
                     for n, m in model["$"].items()
                         if isinstance(n, str) and n not in ("#", "")
             }
@@ -233,7 +237,9 @@ class JsonModel:
     def resolveDef(self, name: str, path: Path) -> JsonModel:
         """Resolve $-definitions."""
 
-        # log.debug(f"resolving def {name} ({list(self._defs.keys())})")
+        if self._debug:
+            log.debug(f"resolveDef {name} at {path} in {self._id} (defs: {list(self._defs.keys())})")
+
         assert name and name[0] == "$"
         name = name[1:]
 
@@ -241,6 +247,9 @@ class JsonModel:
             name, others = name.split("#", 1)
         else:
             others = None
+
+        log.debug(f"id={self._id} name={name} defs={list(self._defs.keys())}")
+
         if name not in self._defs:
             raise ModelError(f"resolution error at {path}: {name}")
         jm = self._defs[name]
@@ -253,7 +262,8 @@ class JsonModel:
         """Resolve $-references up to an actual model."""
         jm, initial, followed = self, model, []
 
-        # log.debug(f"resolving ref {model} ({self._isRef(model)})")
+        if self._debug:
+            log.debug(f"resolveRef {model} at {path} in {self._id}")
 
         while jm._isRef(model):
             if jm._isUrlRef(model):
@@ -358,20 +368,24 @@ class JsonModel:
     # FIXME parsing should conform to JSON Path
     # TODO think transformation path spec
     def _parsePath(self, tpath: str, path: Path) -> tuple[JsonModel, Path]:
-        """Parse "Foo$.foo.0.bla" reference and transformation path."""
+        """Parse "$Foo$.foo.0.bla" reference and transformation path."""
+        if self._debug:
+            log.debug(f"parsePath at {path}: {tpath}")
+        assert tpath and tpath[0] == "$"
         if "$." in tpath:
             name, jpath = tpath.split("$.", 1)
             if jpath == "":
                 raise ModelError(f"bad transformation path at {path}: {tpath}")
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
-        elif "$" in tpath:
-            name, jpath = tpath.split("$", 1)
+        elif "$" in tpath[1:]:
+            name, jpath = tpath[1:].split("$", 1)
+            name = "$" + name
             if jpath != "":
                 raise ModelError(f"bad transformation path at {path}: {tpath}")
             xpath = []
         else:
             raise ModelError(f"bad transformation path at {path}: {tpath}")
-        return (self.resolveRef("$" + name, path), xpath)
+        return (self.resolveRef(name, path), xpath)
 
     def _applyTrafo(self, j: Jsonable, trafo: Trafo, path: Path):
         if "~" in trafo:
@@ -479,7 +493,7 @@ def test_script():
         print(f"# {url}")
         j = resolver(url, [])
         # TODO update maps using file path
-        jm = JsonModel(j, resolver, url)
+        jm = JsonModel(j, resolver, url, args.debug)
         print(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
         # jm.resolveExtRef()
         # jm.expandRefs()

@@ -5,7 +5,7 @@
   "%": {
     "#": "FIXME syntax? $foo$?",
     ".target": "@",
-    "foo$": {
+    "$foo$": {
       "~": "$BOOLEAN"
     }
   },
