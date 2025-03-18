@@ -51,21 +51,21 @@ class JsonModel:
     PROP_SENTINELS = "?!"
     SENTINELS = STR_SENTINELS + PROP_SENTINELS
 
-    PREDEFS_MODELS: dict[str, Jsonable] = {
+    PREDEFS: dict[str, Jsonable] = {
         "NONE": {"&": []},
         "ANY": {"|": []},
         "STRING": "",
         "BOOL": True,
-        "I32": -1,
-        "I64": -1,
         "INT": -1,
         "INTEGER": -1,
+        "FLOAT": -1.0,
+        "NUMBER": {"|": [-1, -1.0]},
+        "I32": -1,
+        "I64": -1,
         "U32": 0,
         "U64": 0,
-        "FLOAT": -1.0,
         "F32": -1.0,
         "F64": -1.0,
-        "NUMBER": {"|": [-1, -1.0]},
         "URL": r"/^\w+://.*/",
         "DATE": r"/^\d\d\d\d-\d\d?-\d\d?$/",  # FIXME
         # to be continued…
@@ -220,7 +220,7 @@ class JsonModel:
 
     # FIXME must check with an actual list
     def _isPredef(self, s: str) -> bool:
-        return re.match(r"\$[A-Z]+$", s)
+        return s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
 
     def _isRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and model and model[0] == "$" and not self._isPredef(model)
