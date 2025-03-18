@@ -1,0 +1,11 @@
+{
+  "#": "how to add a definition?",
+  "$": {
+    "bla": "$./obj_00.json"
+  },
+  "%": {
+    "$bla#fun": { "~": "$BOOLEAN" },
+    "$bla#foo": { "~": "$fun" }
+  },
+  "@": "$bla"
+}

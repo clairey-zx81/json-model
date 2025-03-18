@@ -13,29 +13,6 @@ JsonModel = typing.NewType("JsonModel", None)
 type Trafo = dict[str, Jsonable]
 
 
-class JsonModelCache:
-    """Cache JSON Models."""
-
-    def __init__(self, resolver: Resolver, debug: bool = False):
-        self._debug = debug
-        self._resolver = resolver
-        self._cache: dict[str, JsonModel] = {}
-
-    def set(self, url: str, jm: JsonModel):
-        log.debug(f"cache: setting {url}")
-        if url in self._cache:
-            log.warning(f"overriding cached model for: {url}")
-        self._cache[url] = jm
-
-    def get(self, url: str, path: Path) -> JsonModel:
-        log.debug(f"cache: getting {url}")
-        if url not in self._cache:
-            j = self._resolver(url, path)
-            jm = JsonModel(j, self._resolver, "", self._debug)
-            self.set(url, jm)
-        return self._cache[url]
-
-
 class JsonModel:
     """JSON Model v2."""
 
@@ -56,6 +33,7 @@ class JsonModel:
         "ANY": {"|": []},
         "STRING": "",
         "BOOL": True,
+        "BOOLEAN": True,
         "INT": -1,
         "INTEGER": -1,
         "FLOAT": -1.0,
@@ -99,7 +77,7 @@ class JsonModel:
         # NOTE **not** shared between models because it can be modified
         # However, if it is not, it could? optimization??
         #
-        # FIXME sharing semantics is not well defined yet!
+        # WARN sharing semantics is not well defined yet!?
         #
         # { "$": {
         #     "f": "$https://json-model.org/models/x",
@@ -114,7 +92,8 @@ class JsonModel:
         # } }
         #
         # then f & g are shared, so that if "$f#Foo" is changed, "$g#Foo" as well
-        self._jm_cache = JsonModelCache(resolver, debug)
+        self._resolver = resolver
+        self._cache: dict[str, JsonModel] = {}
 
         # copy parameter which may be modified
         model = copy.deepcopy(model)
@@ -182,11 +161,25 @@ class JsonModel:
             del model["$"]
 
         self._model = model
-        self._jm_cache.set(self._url, self)
+        self.set(self._url, self)
 
         # TODO process references?
         self.rewrite()
         # TODO compute "+" and other preprocessing
+
+    def set(self, url: str, jm: JsonModel):
+        log.debug(f"{self._id}: setting {url}")
+        if url in self._cache:
+            log.warning(f"overriding cached model for: {url}")
+        self._cache[url] = jm
+
+    def get(self, url: str, path: Path) -> JsonModel:
+        log.debug(f"{self._id}: getting {url}")
+        if url not in self._cache:
+            j = self._resolver(url, path)
+            jm = JsonModel(j, self._resolver, "", self._debug)
+            self.set(url, jm)
+        return self._cache[url]
 
     def toJSON(self) -> Jsonable:
         """Convenient JsonModel display."""
@@ -197,10 +190,10 @@ class JsonModel:
             "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
             "rename": self._name,
             "rewrite": self._rewrite,
-            "cached": sorted(self._jm_cache._cache.keys()),
+            "cached": sorted(self._cache.keys()),
         }
         if self.isUrlRef():
-            data["external"] = self._jm_cache.get(self._model[1:], []).toJSON()
+            data["external"] = self.get(self._model[1:], []).toJSON()
         return data
 
     # FIXME this is not very clean because $/% can appear inside defs
@@ -254,7 +247,7 @@ class JsonModel:
         """Resolve $-definitions."""
 
         if self._debug:
-            log.debug(f"resolveDef {name} at {path} in {self._id} (defs: {list(self._defs.keys())})")
+            log.debug(f"{self._id}: resolveDef {name} at {path} (defs: {list(self._defs.keys())})")
 
         assert name and name[0] == "$"
         name = name[1:]
@@ -265,15 +258,18 @@ class JsonModel:
             others = None
 
         jm = self
-        log.debug(f"isRef on {jm._id}: {jm.isRef()} / {jm._model}")
+        # log.debug(f"isRef on {jm._id}: {jm.isRef()} / {jm._model}")
         if jm.isRef():
             path.append(self._model)
+            if self._debug:
+                log.debug(f"{self._id}: following model ref {self._model}")
             jm = jm.resolveRef(self._model, path)
 
-        log.debug(f"id={jm._id} name={name} defs={list(jm._defs.keys())}")
+        log.debug(f"{jm._id}: name={name} defs={list(jm._defs.keys())}")
 
         if name not in jm._defs:
-            raise ModelError(f"resolution error at {path}: {name}")
+            log.info(f"{self._id}: creating empty definition {name}")
+            jm._defs[name] = JsonModel(None, self._resolver, jm._url + "#" + name, jm._debug)
 
         path.append(f"${name}")
         jm = jm._defs[name]
@@ -284,11 +280,11 @@ class JsonModel:
             return jm
 
     def resolveRef(self, model: Jsonable, path: Path) -> JsonModel:
-        """Resolve $-references up to an actual model."""
+        """Resolve references up to an actual model, maybe."""
         jm, initial, followed = self, model, []
 
         if self._debug:
-            log.debug(f"resolveRef {model} at {path} in {self._id}")
+            log.debug(f"{self._id}: resolveRef {model} at {path}")
 
         while jm._isRef(model):
             if jm._isUrlRef(model):
@@ -299,30 +295,25 @@ class JsonModel:
                     url, model = model[1:].split("#", 1)
                 else:
                     url, model = model[1:], None  # will stop resolution loop
-                jm = jm._jm_cache.get(url, path)
+                jm = jm.get(url, path)
             else:
                 jm = jm.resolveDef(model, path)
                 model = jm._model
 
-        # log.info(f"{initial} -> {jm._id}")
-
         return jm
-                
 
     # NOTE probably useless
-    def resolveExtRef(self, resolver: Resolver):
-        # FIXME keywords?
-        """Resolve external references."""
-        for jm in self._defs.values():
-            jm.resolveExtRef(resolver)
-
-        def resRef(model: Jsonable, path: Path) -> Jsonable:
-            if self._isUrlRef(model):
-                return resolver(model[1:], path)
-            else:
-                return model
-
-        self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
+    # def resolveExtRef(self, resolver: Resolver):
+    #     # FIXME keywords?
+    #     """Resolve external references."""
+    #     for jm in self._defs.values():
+    #         jm.resolveExtRef(resolver)
+    #     def resRef(model: Jsonable, path: Path) -> Jsonable:
+    #         if self._isUrlRef(model):
+    #             return resolver(model[1:], path)
+    #         else:
+    #             return model
+    #     self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
 
     def rename(self, model: Jsonable, path: Path = ["$"], root: bool = False):
         """Apply keyword renaming.
@@ -395,7 +386,7 @@ class JsonModel:
     def _parsePath(self, tpath: str, path: Path) -> tuple[JsonModel, Path]:
         """Parse "$Foo.foo.0.bla" reference and simple json path."""
         if self._debug:
-            log.debug(f"parsePath at {path}: {tpath}")
+            log.debug(f"{self._id}: parsePath at {path}: {tpath}")
         assert tpath and tpath[0] == "$"
         if "." in tpath:
             name, jpath = tpath.split(".", 1)
@@ -448,7 +439,8 @@ class JsonModel:
     def _applyTrafoAtPath(self, jm: JsonModel, tpath: Path, trafo: Trafo, path: Path):
         """Apply a transformation into a JSON Model."""
 
-        # log.info(f"apply trafo on {jm._id} at {path}: {tpath}")
+        if self._debug:
+            log.debug(f"{jm._id}: trafo at {path}: {tpath}")
 
         j = jm._model
 
