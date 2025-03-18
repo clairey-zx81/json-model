@@ -4,6 +4,7 @@
     "bla": "$./obj_00.json"
   },
   "%": {
+    "#": "could/should be direct?!",
     "$bla#fun": { "~": "$BOOLEAN" },
     "$bla#foo": { "~": "$fun" }
   },
