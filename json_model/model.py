@@ -129,6 +129,7 @@ class JsonModel:
             model = self.rename(model, ["$"], True)
 
             # extract rewrites
+            # TODO check name syntax? $Path#To#Def.path.to.prop
             self._rewrite = {
                 name: rw
                     for name, rw in model["%"].items()
@@ -150,6 +151,7 @@ class JsonModel:
                 if self._url != "" and u != self._url:
                     log.warning(f"inconsistent url identifier: {u}")
                 self._url = u
+            # TODO add model for current model?!
             # extract actual definitions
             # TODO restrict names?
             self._defs = {
@@ -168,12 +170,14 @@ class JsonModel:
         # TODO compute "+" and other preprocessing
 
     def set(self, url: str, jm: JsonModel):
+        """Store JSON Model for URL in cache."""
         log.debug(f"{self._id}: setting {url}")
         if url in self._cache:
             log.warning(f"overriding cached model for: {url}")
         self._cache[url] = jm
 
     def get(self, url: str, path: Path) -> JsonModel:
+        """Retrieve JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url}")
         if url not in self._cache:
             j = self._resolver(url, path)
@@ -211,18 +215,20 @@ class JsonModel:
             } if deep else self._init_dl
         return model
 
-    # FIXME must check with an actual list
+    # @staticmethod?
     def _isPredef(self, s: str) -> bool:
         return s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
 
+    # @staticmethod?
     def _isRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and model and model[0] == "$" and not self._isPredef(model)
 
-    def isRef(self) -> bool:
-        return self._isRef(self._model)
-
+    # @staticmethod?
     def _isUrlRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
+
+    def isRef(self) -> bool:
+        return self._isRef(self._model)
 
     def isUrlRef(self) -> bool:
         return self._isUrlRef(self._model)
@@ -244,7 +250,7 @@ class JsonModel:
     #     self._model = recModel(self._model, lambda _m, _p: True, expandRef)
 
     def resolveDef(self, name: str, path: Path) -> JsonModel:
-        """Resolve $-definitions."""
+        """Resolve a definition in the current Model."""
 
         if self._debug:
             log.debug(f"{self._id}: resolveDef {name} at {path} (defs: {list(self._defs.keys())})")
@@ -398,6 +404,7 @@ class JsonModel:
         return (self.resolveRef(name, path), xpath)
 
     def _applyTrafo(self, j: Jsonable, trafo: Trafo, path: Path):
+        # TODO handle $ANY
         if "~" in trafo:
             assert "-" not in trafo and "+" not in trafo, f"cannot mix ~ with + or - at {path}"
             return trafo["~"]
