@@ -22,13 +22,16 @@ class JsonModelCache:
         self._cache: dict[str, JsonModel] = {}
 
     def set(self, url: str, jm: JsonModel):
+        log.debug(f"cache: setting {url}")
         if url in self._cache:
             log.warning(f"overriding cached model for: {url}")
         self._cache[url] = jm
 
     def get(self, url: str, path: Path) -> JsonModel:
+        log.debug(f"cache: getting {url}")
         if url not in self._cache:
-            jm = JsonModel(self._resolver(url, path), self._resolver, "", self._debug)
+            j = self._resolver(url, path)
+            jm = JsonModel(j, self._resolver, "", self._debug)
             self.set(url, jm)
         return self._cache[url]
 
@@ -53,16 +56,21 @@ class JsonModel:
         "ANY": {"|": []},
         "STRING": "",
         "BOOL": True,
+        "I32": -1,
+        "I64": -1,
         "INT": -1,
-        "POS": 0,
+        "INTEGER": -1,
+        "U32": 0,
+        "U64": 0,
         "FLOAT": -1.0,
+        "F32": -1.0,
+        "F64": -1.0,
         "NUMBER": {"|": [-1, -1.0]},
         "URL": r"/^\w+://.*/",
         "DATE": r"/^\d\d\d\d-\d\d?-\d\d?$/",  # FIXME
         # to be continued…
         "optBOOL": {"|": [None, "$BOOL"]},
         "optINT": {"|": [None, "$INT"]},
-        "optPOS": {"|": [None, "$POS"]},
         "optFLOAT": {"|": [None, "$FLOAT"]},
         "optNUMBER": {"|": [None, "$NUMBER"]},
         "optSTRING": {"|": [None, "$STRING"]},
@@ -182,7 +190,7 @@ class JsonModel:
 
     def toJSON(self) -> Jsonable:
         """Convenient JsonModel display."""
-        return {
+        data = {
             "id": self._id,
             "url": self._url,
             "model": self._model,
@@ -191,6 +199,9 @@ class JsonModel:
             "rewrite": self._rewrite,
             "cached": sorted(self._jm_cache._cache.keys()),
         }
+        if self.isUrlRef():
+            data["external"] = self._jm_cache.get(self._model[1:], []).toJSON()
+        return data
 
     # FIXME this is not very clean because $/% can appear inside defs
     def toModel(self, deep: bool = False) -> Jsonable:
@@ -207,32 +218,37 @@ class JsonModel:
             } if deep else self._init_dl
         return model
 
+    # FIXME must check with an actual list
     def _isPredef(self, s: str) -> bool:
         return re.match(r"\$[A-Z]+$", s)
 
     def _isRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and model and model[0] == "$" and not self._isPredef(model)
 
+    def isRef(self) -> bool:
+        return self._isRef(self._model)
+
     def _isUrlRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
 
+    def isUrlRef(self) -> bool:
+        return self._isUrlRef(self._model)
+
     # FIXME this imply not sharing, which is not desirable! use prefix with $$?
     # NOTE do we want that?
-    def expandRefs(self):
-        """Replace short references by absolute references."""
-
-        def expandRef(model: Jsonable, path: Path) -> Jsonable:
-            if self._isRef(model):
-                if self._isUrlRef(model):
-                    return model
-                elif model[1] == "#":
-                    return self._url + model
-                else:
-                    return f"${self._url}#{model[1:]}"
-            else:
-                return model
-
-        self._model = recModel(self._model, lambda _m, _p: True, expandRef)
+    # def expandRefs(self):
+    #     """Replace short references by absolute references."""
+    #     def expandRef(model: Jsonable, path: Path) -> Jsonable:
+    #         if self._isRef(model):
+    #             if self._isUrlRef(model):
+    #                 return model
+    #             elif model[1] == "#":
+    #                 return self._url + model
+    #             else:
+    #                 return f"${self._url}#{model[1:]}"
+    #         else:
+    #             return model
+    #     self._model = recModel(self._model, lambda _m, _p: True, expandRef)
 
     def resolveDef(self, name: str, path: Path) -> JsonModel:
         """Resolve $-definitions."""
@@ -248,13 +264,22 @@ class JsonModel:
         else:
             others = None
 
-        log.debug(f"id={self._id} name={name} defs={list(self._defs.keys())}")
+        jm = self
+        log.debug(f"isRef on {jm._id}: {jm.isRef()} / {jm._model}")
+        if jm.isRef():
+            path.append(self._model)
+            jm = jm.resolveRef(self._model, path)
 
-        if name not in self._defs:
+        log.debug(f"id={jm._id} name={name} defs={list(jm._defs.keys())}")
+
+        if name not in jm._defs:
             raise ModelError(f"resolution error at {path}: {name}")
-        jm = self._defs[name]
+
+        path.append(f"${name}")
+        jm = jm._defs[name]
+
         if others:  # None or ""
-            return jm.resolveRef(f"${others}", path + [f"${name}"])
+            return jm.resolveRef(f"${others}", path)
         else:
             return jm
 
@@ -368,23 +393,17 @@ class JsonModel:
     # FIXME parsing should conform to JSON Path
     # TODO think transformation path spec
     def _parsePath(self, tpath: str, path: Path) -> tuple[JsonModel, Path]:
-        """Parse "$Foo$.foo.0.bla" reference and transformation path."""
+        """Parse "$Foo.foo.0.bla" reference and simple json path."""
         if self._debug:
             log.debug(f"parsePath at {path}: {tpath}")
         assert tpath and tpath[0] == "$"
-        if "$." in tpath:
-            name, jpath = tpath.split("$.", 1)
+        if "." in tpath:
+            name, jpath = tpath.split(".", 1)
             if jpath == "":
                 raise ModelError(f"bad transformation path at {path}: {tpath}")
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
-        elif "$" in tpath[1:]:
-            name, jpath = tpath[1:].split("$", 1)
-            name = "$" + name
-            if jpath != "":
-                raise ModelError(f"bad transformation path at {path}: {tpath}")
-            xpath = []
         else:
-            raise ModelError(f"bad transformation path at {path}: {tpath}")
+            name, xpath = tpath, []
         return (self.resolveRef(name, path), xpath)
 
     def _applyTrafo(self, j: Jsonable, trafo: Trafo, path: Path):
