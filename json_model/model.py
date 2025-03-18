@@ -9,7 +9,7 @@ from .utils import ModelError, Path, Jsonable, log
 from .recurse import recModel
 from .resolver import Resolver
 
-JsonModel = typing.NewType("JsonModel", None)
+type JsonModel = typing.NewType("JsonModel", None)
 type Trafo = dict[str, Jsonable]
 
 
