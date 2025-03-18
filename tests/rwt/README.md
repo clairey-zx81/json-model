@@ -29,3 +29,7 @@ Outline of a possible syntax (WIP)
   }
 }
 ```
+
+## TODO
+
+- accept relative URL? automaps?
