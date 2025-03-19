@@ -3,11 +3,8 @@
     "foo": "$STRING"
   },
   "%": {
-    "#": "FIXME syntax? $foo$?",
     ".target": "@",
-    "$foo": {
-      "~": "$BOOLEAN"
-    }
+    "$foo": "$BOOLEAN"
   },
   ".target": "$foo"
 }

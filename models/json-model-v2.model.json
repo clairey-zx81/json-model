@@ -1,37 +1,62 @@
 {
   "#": "Self-Validating JSON Model v2 (WIP)",
+  "~": "https://json-model.org/json-model-v2",
   "$": {
     "#": "Definitions, without predefs of any kind",
+    "": "https://json-model.org/json-model-v2",
+    "URL": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
     "Val": { "|":  [ null, true, -1, -1.0, "" ] },
     "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
     "None": { "|": [ ] },
-    "Meta": { "|": [ "", { "": "$Any" } ] },
+    "Comment": { "?#": { "|": [ "", { "": "$Any" } ] } },
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
-      "/^(<=|>=|<|>)$/": { "|": [ -1, -1.0, "" ] },
-      "/^(=|!=)$/": "$Val",
+      "/^(<=|>=|<|>|≥|≤)$/": { "|": [ -1, -1.0, "" ] },
+      "/^(=|!=|≠)$/": "$Val",
       "?!": true
     },
     "Or": { "_|": [ "$Model" ] },
     "And": { "_&": [ "$Model" ] },
     "Xor": { "_^": [ "$Model" ] },
     "Add": { "_+": [ "$Model" ] },
-    "Obj": { "": "$Model", "/^[@|&^+]$/": "$None" },
+    "Obj": { "": "$Model", "/^[@|&^+/*]$/": "$None" },
     "Elem": {
       "+": [
-        { "?#": "$Meta" },
+        "$Comment",
         { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
       ]
     },
-    "Trafo": { "?#": "$Meta", "/^[-~+]$/": "$Model" },
+    "Trafo": {
+      "|": [ "$Model", 
+        {
+          "+": [
+            "$Comment",
+            "|": [
+              {
+                "_/": [ "$Any" ],
+                "?*": { "|": [ [ "$ANY" ], { "": "$Model" } ] }
+              },
+              {
+                "_*": { "|": [ [ "$ANY" ], { "": "$Model" } ] },
+                "?/": [ "$Any" ]
+              }
+            ]
+          ]
+        }
+      ]
+    },
     "Model": { "|": [ "$Val", "$Array", "$Elem" ] },
+    "Defs": { "": "$Model" },
+    "Rename": { "/^\\..*$/": "/^([|&^+/*@~<>=!]|<=|>=|!=)$/" },
+    "Rewrite": { "": "$Trafo" },
     "Root": {
       "+": [
         {
           "#": "Special keywords only at the root of a model",
-          "?$": { "?#": "$Meta", "": "$Model" },
-          "?%": { "?#": "$Meta", "/^:.*$/": "", "": "$Trafo" }
+          "?~": "$URL",
+          "?$": { "+": [ "$Comment", { "?": "$URL", "?$": "$URL" }, "$Defs" ] },
+          "?%": { "+": [ "$Comment", "$Rename", "$Rewrite" ] }
         },
         "$Elem"
       ]

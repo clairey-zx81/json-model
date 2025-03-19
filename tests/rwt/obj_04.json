@@ -1,12 +1,12 @@
 {
-  "#": "how to add a definition?",
+  "#": "add a definition",
   "$": {
     "bla": "$./obj_00.json"
   },
   "%": {
-    "#": "could/should be direct?!",
-    "$bla#fun": { "~": "$BOOLEAN" },
-    "$bla#foo": { "~": "$fun" }
+    "#": "direct…",
+    "$bla#fun": "$BOOLEAN",
+    "$bla#foo": "$fun"
   },
   "@": "$bla"
 }

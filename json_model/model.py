@@ -4,6 +4,7 @@ import copy
 import re
 import logging
 import typing
+import threading
 
 from .utils import ModelError, Path, Jsonable, log
 from .recurse import recModel
@@ -16,14 +17,16 @@ type Trafo = dict[str, Jsonable]
 class JsonModel:
     """JSON Model v2."""
 
+    # keyword characters
     LIST_KW = ["|", "&", "^", "+"]
-    ROOT_KW = ["$", "%"]
+    ROOT_KW = ["$", "%", "~"]
     SCAL_KW = ["@"]
     MISC_KW = ["!", "#", "<", "<=", ">", ">=", "=", "!="]
-    TRAN_KW = ["+", "-", "~"]
+    TRAN_KW = ["*", "/"]
     CONS_KW = MISC_KW + ["@"]
     KEYWORDS = LIST_KW + ROOT_KW + SCAL_KW + MISC_KW + TRAN_KW
 
+    # sentinel characters
     STR_SENTINELS = "_/$=."
     PROP_SENTINELS = "?!"
     SENTINELS = STR_SENTINELS + PROP_SENTINELS
@@ -38,13 +41,13 @@ class JsonModel:
         "INTEGER": -1,
         "FLOAT": -1.0,
         "NUMBER": {"|": [-1, -1.0]},
-        "I32": -1,
-        "I64": -1,
-        "U32": 0,
-        "U64": 0,
+        "I32": -1,  # min/max?
+        "I64": -1,  # min/max?
+        "U32": 0,  # min/max?
+        "U64": 0,  # min/max?
         "F32": -1.0,
         "F64": -1.0,
-        "URL": r"/^\w+://.*/",
+        "URL": r"/^\w+://.*/",  # relative URL?
         "DATE": r"/^\d\d\d\d-\d\d?-\d\d?$/",  # FIXME
         # to be continued…
         "optBOOL": {"|": [None, "$BOOL"]},
@@ -57,6 +60,7 @@ class JsonModel:
         # to be continued…
     }
 
+    lock = threading.RLock()
     NMODELS = 0
 
     def __init__(self,
@@ -66,9 +70,9 @@ class JsonModel:
             debug: bool = False,
         ):
 
-        # FIXME thread safety
-        self._id = JsonModel.NMODELS
-        JsonModel.NMODELS += 1
+        with JsonModel.lock:
+            self._id = JsonModel.NMODELS
+            JsonModel.NMODELS += 1
 
         self._init_md = model
         self._url = url
@@ -109,6 +113,7 @@ class JsonModel:
             # checks
             if not isinstance(model["%"], dict):
                 raise ModelError(f"expecting an object at {lpath}")
+
             bads = {
                 name: kw
                     for name, kw in model["%"].items()
@@ -162,6 +167,15 @@ class JsonModel:
             self._init_dl = model["$"]
             del model["$"]
 
+        if isinstance(model, dict) and "~" in model:
+            version = model["~"]
+            if not isinstance(version, str):
+                raise ModelError(f"invalid model version type: {type(version)}")
+            self._version = version
+            del model["~"]
+        else:
+            self._version = "https://json-model.org/json-model/latest"
+
         self._model = model
         self.set(self._url, self)
 
@@ -189,6 +203,7 @@ class JsonModel:
         """Convenient JsonModel display."""
         data = {
             "id": self._id,
+            "version": self._version,
             "url": self._url,
             "model": self._model,
             "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
@@ -403,13 +418,16 @@ class JsonModel:
             name, xpath = tpath, []
         return (self.resolveRef(name, path), xpath)
 
+    def _isTrafo(self, trafo: Trafo):
+        return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
+
     def _applyTrafo(self, j: Jsonable, trafo: Trafo, path: Path):
-        # TODO handle $ANY
-        if "~" in trafo:
-            assert "-" not in trafo and "+" not in trafo, f"cannot mix ~ with + or - at {path}"
-            return trafo["~"]
-        if "-" in trafo:
-            sub = trafo["-"]
+        if not isinstance(trafo, dict) or not "/" in trafo and not "*" in trafo:
+            # $ANY
+            return trafo
+        assert self._isTrafo(trafo)
+        if "/" in trafo:
+            sub = trafo["/"]
             if isinstance(sub, list):
                 if isinstance(j, list):
                     for i in sub:
@@ -423,8 +441,8 @@ class JsonModel:
                     raise ModelError(f"cannot remove list from {type(j)}")
             else:
                 raise ModelError(f"expecting a remove list")
-        if "+" in trafo:
-            add = trafo["+"]
+        if "*" in trafo:
+            add = trafo["*"]
             if isinstance(add, list):
                 if isinstance(j, list):
                     j.extend(add)
@@ -441,7 +459,6 @@ class JsonModel:
             else:
                 raise ModelError(f"unexpected add type at {path}")
         return j
-    
 
     def _applyTrafoAtPath(self, jm: JsonModel, tpath: Path, trafo: Trafo, path: Path):
         """Apply a transformation into a JSON Model."""

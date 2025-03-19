@@ -8,25 +8,28 @@ Outline of a possible syntax (WIP)
 
 ```json
 {
+  "#": "schema version (FIXME apply rewrites!)",
+  "?~": "$URL",
   "$": {
-    "": "$URL of current model",
-    "????": "URL of model spec",
-    "name": "value"
+    "#": "local model definitions",
+    "_": "$URL of current model",
+    "": "$ANY"
   },
   "%": {
-    "#": "this is a comment",
+    "#": "rewrites",
+    "/^\\..*$": "/^([|&^+$%/*@=<>!#~]|<=|>=|!=)$/",
     "path#to#var.path.to.prop": {
       "|": [
         {
-          "#": "this is a comment",
-          "?~": "replacement value, or added definition?!",
-          "?-": [ "fields", "or", "items", "to", "remove" ],
-          "?+": { "|": [ { "prop": "toMerge" }, [ "items", "to", "append" ] ] }
+          "#": "transformation spec",
+          "?/": [ "fields", "or", "items", "to", "remove" ],
+          "?*": { "|": [ { "prop": "toMerge" }, [ "items", "to", "append" ] ] }
         },
         "$ANY"
       ]
     }
-  }
+  },
+  "@": "$target…"
 }
 ```
 
