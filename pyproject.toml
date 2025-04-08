@@ -11,7 +11,7 @@ authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
 description = "JSON Model Tools"
 readme = "README.md"
 requires-python = ">=3.12"  # for "type"
-license = { text = "CC0 1.0" }
+license = "CC0-1.0"
 classifiers = [ "Topic :: Software Development" ]
 version = "2.0-alpha"
 dependencies = [ "requests", "google-re2" ]
