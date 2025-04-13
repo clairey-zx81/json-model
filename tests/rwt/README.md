@@ -36,3 +36,5 @@ Outline of a possible syntax (WIP)
 ## TODO
 
 - accept relative URL? automaps?
+- fix "out" output with actual url when references are resolved?
+- keep track of changed vs pristine?

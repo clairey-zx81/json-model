@@ -1,8 +1,11 @@
 {
+  "#": "no ~",
   "$": {
+    "#": "initialy define foo as a string",
     "foo": "$STRING"
   },
   "%": {
+    "#": "rename .target as @, rewrite foo definition",
     ".target": "@",
     "$foo": "$BOOLEAN"
   },

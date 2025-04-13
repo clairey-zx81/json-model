@@ -1,7 +1,8 @@
 from typing import Any
 import re
 import json
-from .utils import log, CheckFun, ModelType, UnknownModel, Compiler
+from .types import CheckFun, ModelType, UnknownModel, Compiler
+from .utils import log
 
 
 class Model:

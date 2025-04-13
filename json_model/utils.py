@@ -1,41 +1,13 @@
-# TODO ValueType -> Value, ModelType -> Model?
-# common model utilities
+#
+# Common model utilities
+#
 import sys
 import re
-from typing import Any, Callable  # why not callable?
-
 import logging
+from .types import ModelType, ModelPath, ModelDefs, ModelError, Jsonable, JsonObject, ValueType
+
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
-
-
-class UnknownModel:
-    pass
-
-
-# JSON compatible python value
-type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-
-type ValueType = Jsonable
-type Object = dict[str, Jsonable]
-# FIXME ?!
-type ModelType = Jsonable|UnknownModel
-type Path = list[str|int]
-
-# grrr… should be callable?
-CheckFun = Callable[[Any, str], bool]
-KeyCheckFun = Callable[[str, Any, str], bool|None]
-Compiler = Callable[[ModelType, str], CheckFun|None]
-
-
-class ModelError(BaseException):
-    pass
-
-
-#
-# UTILITY FUNCTIONS
-#
-
 
 def is_regex(s: str, p: str = "") -> bool:
     if isinstance(s, str):
@@ -52,8 +24,7 @@ def is_regex(s: str, p: str = "") -> bool:
     else:
         return False
 
-
-def distinct_values(val):
+def distinct_values(val: Jsonable) -> bool:
     try:
         if isinstance(val, (list, tuple, str)):
             return len(val) == len(set(val))
@@ -133,7 +104,7 @@ def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     return False
 
 
-def split_object(model: dict[str, Any], path: str) -> tuple[Object, Object, Object, Object, Object]:
+def split_object(model: JsonObject, path: str) -> tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
     """Split properties in must/may/refs/regs/other cases."""
 
     if not isinstance(model, dict):
@@ -191,7 +162,7 @@ def _bang(s):
     return s if re.match(r"[A-Za-z0-9]", s) else f"!{s}"
 
 
-def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others: Object) -> Object:
+def unsplit_object(must: JsonObject, may: JsonObject, refs: JsonObject, regs: JsonObject, others: JsonObject) -> JsonObject:
     """Regenerate an object from separated properties."""
     return {
         **{_bang(k): v for k, v in must.items()},
@@ -203,16 +174,16 @@ def unsplit_object(must: Object, may: Object, refs: Object, regs: Object, others
     }
 
 
-def is_constructed(model):
+def is_constructed(model: ModelType):
     """Tell whether model is constructed, i.e. uses some combinator or indirection.
 
-    NOTE references are assumed to be resovled beforehand.
+    NOTE references are assumed to be resolved beforehand.
     """
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
 
 
-def constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
+def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
     if m is None:
         return True, None
     elif isinstance(m, str):
@@ -246,10 +217,10 @@ def constant_value(m: ModelType, mpath: str) -> tuple[bool, ValueType]:
         return False, None
 
 
-def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
+def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, ModelType]:
     first, current_type = True, None
     for i, m in enumerate(models):
-        is_known, has_type = model_type(m, mpath + f"[{i}]")
+        is_known, has_type = model_type(m, mpath + [i])
         if is_known:
             if first:
                 current_type = has_type
@@ -265,7 +236,7 @@ def all_model_type(models: list[ModelType], mpath: str) -> tuple[bool, Any]:
         return True, current_type
 
 
-def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
+def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, ModelType]:
     """Tell the type of the model, if known."""
     if model is None:
         return True, None
@@ -304,19 +275,19 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
         return True, list
     elif isinstance(model, dict):
         if "@" in model:
-            return model_type(model["@"], mpath + ".@")
+            return model_type(model["@"], mpath + ["@"])
         elif "|" in model:
             models = model["|"]
             assert isinstance(models, list)
-            return all_model_type(models, mpath + ".|")
+            return all_model_type(models, mpath + ["|"])
         elif "&" in model:
             models = model["&"]
             assert isinstance(models, list)
-            return all_model_type(models, mpath + ".&")
+            return all_model_type(models, mpath + ["&"])
         elif "^" in model:
             models = model["^"]
             assert isinstance(models, list)
-            return all_model_type(models, mpath + ".^")
+            return all_model_type(models, mpath + ["^"])
         elif "+" in model:
             return True, dict
         else:  # simple object!
@@ -325,7 +296,7 @@ def model_type(model: ModelType, mpath: str) -> tuple[bool, Any]:
         raise ModelError(f"unexpected model: {model} ({type(model).__name__})")
 
 
-def resolve_model(m: ModelType, defs: dict[str, Any]) -> ModelType:
+def resolve_model(m: ModelType, defs: ModelDefs) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
     changed, resolved = True, set()
     while changed:

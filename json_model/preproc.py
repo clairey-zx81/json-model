@@ -6,7 +6,7 @@ import copy
 import json
 import logging
 import argparse
-from .utils import Object, ModelType, ModelError
+from .types import JsonObject, ModelType, ModelError, ModelDefs, ModelPath
 from .utils import (
     same_model, model_in_models, split_object, unsplit_object, is_constructed,
     resolve_model, openfiles, constant_value
@@ -26,7 +26,7 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
 
 
 # FIXME consistency with _structurally_distinct_models…
-def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: str) -> bool:
+def _distinct_models(m1: ModelType, m2: ModelType, defs: ModelDefs, mpath: ModelPath) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
     m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
     # log.warning(f"m1={m1} m2={m2}")
@@ -52,7 +52,7 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: dict[str, Any], mpath: 
 class _Object:
     """Internal representation of an object model."""
 
-    def __init__(self, model: ModelType, gdefs: dict[str, Any], mpath: str):
+    def __init__(self, model: ModelType, gdefs: ModelDefs, mpath: ModelPath):
         assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
         self._must = must
@@ -110,7 +110,7 @@ class _Object:
         return True
 
 
-def merge_simple_models(models: list[Any], defs, path: str = "") -> Object|str:
+def merge_simple_models(models: list[ModelType], defs, path: ModelPath = []) -> JsonObject|str:
     """Merge a list of simple object models."""
 
     # sanity checks
@@ -124,7 +124,7 @@ def merge_simple_models(models: list[Any], defs, path: str = "") -> Object|str:
     dict_models = []
     for i, m in enumerate(models):
         # log.debug(f"m {i}: {m}")
-        lpath = f"{path}[{i}]"
+        lpath = path + [i]
         if isinstance(m, dict):
             if "+" in m:
                 log.warning("+ in +")
@@ -148,57 +148,61 @@ def merge_simple_models(models: list[Any], defs, path: str = "") -> Object|str:
         raise ModelError(f"can only merge simple objects [{path}]")
 
     m0 = models[0]
-    must, may, refs, regs, others = split_object(m0, f"{path}[0]")
+    must, may, refs, regs, others = split_object(m0, path + [0])
 
     for i, m in enumerate(models[1:]):
-        lpath = f"{path}[{i + 1}]"
+        lpath = path + [i + 1]
         mu, ma, rf, rg, ot = split_object(m, lpath)
         # combine all properties
         # merge MUST
         for prop, mod in mu.items():
+            lppath = path + [prop]
             if prop in must:
                 if not same_model(mod, must[prop]):
                     raise ModelError(f"incompatible must property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 # else pass
             elif prop in may:
                 if not same_model(mod, may[prop]):
                     raise ModelError(f"incompatible must property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 must[prop] = mod
                 del may[prop]
             else:
                 must[prop] = mod
         # merge MAY
         for prop, mod in ma.items():
+            lppath = path + [prop]
             if prop in must:
                 if not same_model(mod, must[prop]):  # ???
                     raise ModelError(f"incompatible may property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 # else pass
             elif prop in may:
                 if not same_model(mod, may[prop]):
                     raise ModelError(f"incompatible may property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 # else pass
             else:
                 may[prop] = mod
         # merge MAYBE
         for prop, mod in rf.items():
+            lppath = path + [prop]
             # FIXME are the same $ available???
             if prop in refs:
                 if not same_model(mod, refs[prop]):
                     raise ModelError(f"incompatible refs property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 # else pass
             else:
                 refs[prop] = mod
         for prop, mod in rg.items():
+            lppath = path + [prop]
             # FIXME are the same $ available???
             if prop in regs:
                 if not same_model(mod, regs[prop]):
                     raise ModelError(f"incompatible regs property {prop} while merging: "
-                                     f"{m0} / {m} [{lpath}.{prop}]")
+                                     f"{m0} / {m} {lppath}")
                 # else pass
             else:
                 regs[prop] = mod
@@ -233,7 +237,7 @@ def _merge_object(i, j):
     return d
 
 
-def _merge(data: Any, defs: dict[str, Any], path: str):
+def _merge(data: Any, defs: ModelDefs, path: ModelPath):
     """Handle merge (+) operator on data."""
 
     if not isinstance(data, dict) or "+" not in data:
@@ -251,19 +255,19 @@ def _merge(data: Any, defs: dict[str, Any], path: str):
 
     merged, is_xor = None, False
     for i, m in enumerate(data["+"]):
-        lpath = f"{path}[{i}]"
+        lpath = path + [i]
         # resolve direct references
         while isinstance(m, str) and m.startswith("$"):
             name = m[1:]
             assert name in defs
             m = defs[name]
         if not isinstance(m, dict):
-            raise ModelError(f"invalid type for + item: {type(m)} [{lpath}]")
+            raise ModelError(f"invalid type for + item: {type(m)} {lpath}")
         # distribute + over |
         if isinstance(m, dict) and "|" in m:
             models = m["|"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type of |: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type of |: {type(models)} {lpath}")
             tmerged = []
             if merged is None:
                 merged = models
@@ -278,7 +282,7 @@ def _merge(data: Any, defs: dict[str, Any], path: str):
             models = m["^"]
             is_xor = True
             if not isinstance(models, list):
-                raise ModelError(f"invalid type of ^: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type of ^: {type(models)} {lpath}")
             tmerged = []
             if merged is None:
                 merged = models
@@ -310,12 +314,12 @@ def _merge(data: Any, defs: dict[str, Any], path: str):
     return data
 
 
-def _actual_merge(data, defs, path):
+def _actual_merge(data, defs: ModelDefs, path: ModelPath):
     assert "+" in data
     models = data["+"]
     del data["+"]
     assert isinstance(models, list)
-    obj = merge_simple_models(models, defs, f"{path}.'+'")
+    obj = merge_simple_models(models, defs, path + ["+"])
     assert isinstance(obj, dict)
     if len(data) == 0:
         data = obj
@@ -324,7 +328,7 @@ def _actual_merge(data, defs, path):
     return data
 
 
-def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, Any], mpath: str) -> bool:
+def _structurally_distinct_models(lm: list[ModelType], defs: ModelDefs, mpath: ModelPath) -> bool:
     """Whether all models are structurally distinct.
 
     This ensures that values in these are distinct.
@@ -365,7 +369,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, Any], mpa
                     m = m[1:]
                 # ???
                 if m in strings:
-                    log.warning(f"repeated constant: {m} [{mpath}]")
+                    log.warning(f"repeated constant: {m} {mpath}")
                     log.debug("- repeated constant strings")
                     return False
                 strings.add(m)
@@ -389,11 +393,11 @@ def _structurally_distinct_models(lm: list[ModelType], defs: dict[str, Any], mpa
                         return False
                 objects.append(obj)
         else:
-            raise ModelError(f"unexpected model type ({mt.__name__}) [{mpath}]")
+            raise ModelError(f"unexpected model type ({mt.__name__}) {mpath}")
     return True
 
 
-def _merge_rewrite(data, defs: dict[str, Any], path: str):
+def _merge_rewrite(data, defs: ModelDefs, path: ModelPath):
     """Rewrite model to handle "+"."""
 
     if data is None:
@@ -401,31 +405,31 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
     elif isinstance(data, (bool, int, float, str)):
         return data
     elif isinstance(data, list):
-        return [_merge_rewrite(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
+        return [_merge_rewrite(m, defs, path + [i]) for i, m in enumerate(data)]
     else:
         assert isinstance(data, dict)
         if "%" in data:
-            lpath = f"{path}.'%'"
+            lpath = path + ["%"]
             # FIXME only at root?
             ldefs = data["%"]
             if not isinstance(ldefs, dict):
-                raise ModelError(f"invalid type for %: {type(ldefs)} [{lpath}]")
+                raise ModelError(f"invalid type for %: {type(ldefs)} {lpath}")
             for k, v in ldefs.items():
-                ldefs[k] = _merge_rewrite(v, defs, f"{lpath}.{k}")
+                ldefs[k] = _merge_rewrite(v, defs, lpath + [k])
                 # keep definitions to resolve references!
                 # FIXME should warn on overwrite?
                 defs[k] = ldefs[k]
 
         if "@" in data:
-            data["@"] = _merge_rewrite(data["@"], defs, f"{path}.'@'")
+            data["@"] = _merge_rewrite(data["@"], defs, path + ["@"])
             # NOTE no further recursion
             return data
 
         if "+" in data:
-            lpath = f"{path}.'+'"
+            lpath = path + ["+"]
             models = data["+"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for +: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type for +: {type(models)} {lpath}")
 
             data["+"] = _merge_rewrite(models, defs, lpath)
 
@@ -436,19 +440,19 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
 
             # catch merging
             if "|" in data:
-                lpath += f"{path}.'|'"
+                lpath += ["|"]
                 models = data["|"]
                 assert isinstance(models, list)
-                data["|"] = [_actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m
+                data["|"] = [_actual_merge(m, defs, lpath + [i]) if "+" in m else m
                              for i, m in enumerate(models)]
             elif "^" in data:
-                lpath += f"{path}.'^'"
+                lpath += ["^"]
                 models = data["^"]
                 assert isinstance(models, list)
-                data["^"] = [_actual_merge(m, defs, f"{lpath}[{i}]") if "+" in m else m
+                data["^"] = [_actual_merge(m, defs, lpath + [i]) if "+" in m else m
                              for i, m in enumerate(models)]
             elif "+" in data:
-                data = _actual_merge(data, defs, f"{path}.'+'")
+                data = _actual_merge(data, defs, lpath)
             # else let it be
 
             # NOTE must have been merged!
@@ -459,10 +463,10 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
                 return data
 
         if "^" in data:
-            lpath = f"{path}.'^'"
+            lpath = path + ["^"]
             models = data["^"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for ^: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type for ^: {type(models)} {lpath}")
 
             models = _merge_rewrite(models, defs, lpath)
 
@@ -486,10 +490,10 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
                 data["^"] = models
 
         if "|" in data:
-            lpath = f"{path}.'|'"
+            lpath = path + ["|"]
             models = data["|"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for |: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type for |: {type(models)} {lpath}")
 
             models = _merge_rewrite(models, defs, lpath)
             assert isinstance(models, list)
@@ -519,10 +523,10 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
                 data["|"] = models
 
         if "&" in data:
-            lpath = f"{path}.'&'"
+            lpath = path + ["&"]
             models = data["&"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for &: {type(models)} [{lpath}]")
+                raise ModelError(f"invalid type for &: {type(models)} {lpath}")
 
             models = _merge_rewrite(models, defs, lpath)
             assert isinstance(models, list)
@@ -558,50 +562,47 @@ def _merge_rewrite(data, defs: dict[str, Any], path: str):
                 if prop == "#":
                     continue
                 # else recurse on model values
-                data[prop] = _merge_rewrite(model, defs, f"{path}.{prop}")
+                data[prop] = _merge_rewrite(model, defs, path + [prop])
 
         return data
 
-
-def flatten(data, defs, path):
+# TODO use recurse!?
+def flatten(data: ModelType, defs: ModelDefs, path: ModelPath):
     """Simplistic flattening."""
     if data is None:
         return data
     elif isinstance(data, (bool, int, float, str)):
         return data
     elif isinstance(data, list):
-        return [flatten(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
+        return [flatten(m, defs, path + [i]) for i, m in enumerate(data)]
     elif isinstance(data, dict):
 
         # recursions
-        if "%" in data:
+        if "$" in data:
             ldefs = data["%"]
             if not isinstance(ldefs, dict):
                 raise ModelError(f"unexpected '%' value type: {type(ldefs)}")
             for prop, model in ldefs.items():
                 log.debug(f"handling defs {prop}")
-                ldefs[prop] = flatten(model, defs, f"{path}.{prop}")
+                ldefs[prop] = flatten(model, defs, path + [prop])
                 defs[prop] = ldefs[prop]
-        if "$" in data:
-            name = data["$"]
-            if not isinstance(name, str) or len(name) == 0:
-                raise ModelError(f"unexpected name {name} ({type(name)})")
-            defs[name] = data
         if "@" in data:
-            data["@"] = flatten(data["@"], defs, f"{path}.'@'")
+            data["@"] = flatten(data["@"], defs, path + ["@"])
             # ignore constraints
         else:
+            # FIXME
             for prop, val in data.items():
                 if prop not in ("%", "$", "#", "@"):
-                    data[prop] = flatten(val, defs, f"{path}.{prop}")
+                    data[prop] = flatten(val, defs, path + [prop])
 
         # actual flattening for this level
         for op in ("|", "^", "&"):
             if op in data:
+                lpath = path + [op]
                 models = data[op]
                 flat = []
                 if not isinstance(models, list):
-                    raise ModelError(f"unexpected {op} value type: {type(models)} [{path}.'{op}']")
+                    raise ModelError(f"unexpected {op} value type: {type(models)} {lpath}")
                 for model in models:
                     m = model
                     # primitive resolution of names
@@ -622,7 +623,7 @@ def flatten(data, defs, path):
                     if isinstance(m, dict) and op in m:
                         if not isinstance(m[op], list):
                             raise ModelError(f"unexpected {op} value type: "
-                                             f"{type(m[op])} [{path}.'{op}']")
+                                             f"{type(m[op])} {lpath}")
                         flat += m[op]
                     else:  # NOTE we keep the initial definition!
                         flat.append(model)
@@ -635,34 +636,35 @@ def flatten(data, defs, path):
         raise ModelError(f"unexpected type {type(data)} [{path}]")
 
 
-def xor_to_or(data, defs: dict[str, Any], path: str = ""):
+# TODO use recurse
+def xor_to_or(data: ModelType, defs: ModelDefs, path: ModelPath):
     """Change ^ to | if provably distinct."""
     if data is None:
         pass
     elif isinstance(data, (bool, int, float, str)):
         pass
     elif isinstance(data, list):
-        data = [xor_to_or(m, defs, f"{path}[{i}]") for i, m in enumerate(data)]
+        data = [xor_to_or(m, defs, path + [i]) for i, m in enumerate(data)]
     elif isinstance(data, dict):
 
         # definitions
         if "%" in data:
             defines = data["%"]
             assert isinstance(defines, dict)
-            defines = {p: xor_to_or(m, defs, f"{path}.%.{p}") for p, m in defines.items()}
+            defines = {p: xor_to_or(m, defs, path + ["%", p]) for p, m in defines.items()}
         if "+" in data:
             raise ModelError("+ must be preprocessed")
         # constraints
         if "@" in data:
-            data["@"] = xor_to_or(data["@"], defs, f"{path}.@")
+            data["@"] = xor_to_or(data["@"], defs, path + ["@"])
             # ignore other props…
         # combinators
         elif "|" in data:
-            data["|"] = xor_to_or(data["|"], defs, f"{path}.|")
+            data["|"] = xor_to_or(data["|"], defs, path + ["|"])
         elif "&" in data:
-            data["&"] = xor_to_or(data["&"], defs, f"{path}.&")
+            data["&"] = xor_to_or(data["&"], defs, path + ["&"])
         elif "^" in data:
-            models = xor_to_or(data["^"], defs, f"{path}.^")
+            models = xor_to_or(data["^"], defs, path + ["^"])
             if not isinstance(models, list):
                 raise ModelError("^ expects an array")
             if _structurally_distinct_models(models, defs, path):
@@ -673,15 +675,16 @@ def xor_to_or(data, defs: dict[str, Any], path: str = ""):
         else:  # object
             data2 = {}
             for p, m in data.items():
+                assert isinstance(p, str)
                 if p in ("%", "$", "#"):
                     data2[p] = m
                 else:
-                    data2[p] = xor_to_or(m, defs, f"{path}.{p}")
+                    data2[p] = xor_to_or(m, defs, path + [p])
             data = data2
     return data
 
 
-def model_preprocessor(data, defs: dict[str, Any], path: str = ""):
+def model_preprocessor(data: ModelType, defs: ModelDefs, path: ModelPath):
     """Preprocessor entry point entry point.
 
     Remove all ``+`` (merge operator) from data:

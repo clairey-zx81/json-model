@@ -1,0 +1,10 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./obj_00.model.json",
+      "foo": "$BOOLEAN"
+    },
+    "@": "$foo"
+  }
+]

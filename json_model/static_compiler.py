@@ -17,7 +17,7 @@ import json
 import logging
 import argparse
 
-from .utils import ModelType, ModelError, UnknownModel
+from .types import ModelType, ModelError, UnknownModel
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value
 from .preproc import model_preprocessor
 from .defines import Validator

@@ -1,16 +1,21 @@
 import json
-from .utils import ModelError, Path, Jsonable
+from .utils import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
 
 
 class Resolver:
+    """Resolve references to json data.
+
+    - `cache_dir`: where to store downloaded jsons.
+    - `maps`: url to directory mapping for testing.
+    """
 
     def __init__(self, cache_dir: str|None = None, maps: dict[str, str] = {}):
         self._maps = maps
         self._cache = JsonURLCache(cache_dir)
         self._jsons: dict[str, Jsonable] = {}
 
-    def __call__(self, ref: str, path: Path):
+    def __call__(self, ref: str, path: ModelPath):
 
         if "#" in ref:
             url, fragment = ref.split("#", 1)

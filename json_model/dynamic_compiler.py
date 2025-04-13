@@ -14,7 +14,7 @@ import logging
 import urllib.parse
 
 from . import utils, url_cache
-from .utils import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
+from .types import ModelError, ModelType, ValueType, CheckFun, KeyCheckFun, UnknownModel
 from .utils import distinct_values, model_in_models
 from .preproc import model_preprocessor, merge_simple_models
 from .defines import Validator

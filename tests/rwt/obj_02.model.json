@@ -1,7 +1,8 @@
 {
+  "~": "https://json-model.org/models/json-model-v2",
   "$": {
-    "#": "FIXME $... or ...?",
-    "": "https://json-model.org/models/obj_02",
+    "#": "",
+    "": "https://json-model.org/tests/obj_02",
     "li0": [ 1 ],
     "ls0": [ "" ],
     "lb0": [ true ],
