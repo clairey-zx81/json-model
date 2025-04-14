@@ -10,6 +10,11 @@ F.root  = $(F.model:%.model.json=%)
 # derived
 F.out   = $(F.root:%=%.out.json)
 
+.PHONY: check
+check:
+	$(MAKE) clean
+	$(MAKE) gen
+
 .PHONY: clean
 clean:
 	$(RM) $(F.out)

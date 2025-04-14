@@ -502,7 +502,8 @@ def test_script():
     ap = argparse.ArgumentParser()
     ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
-    ap.add_argument("urls", nargs="*", help="JSON Models to load")
+    ap.add_argument("model", help="JSON models to load")
+    ap.add_argument("files", nargs="*", help="JSON values to test")
     args = ap.parse_args()
 
     # debug
@@ -517,14 +518,11 @@ def test_script():
         maps[k] = v
     resolver = Resolver(None, maps)
 
-    for url in args.urls:
-        log.info(f"processing {url}")
-        j = resolver(url, [])
-        # TODO update maps using file path
-        jm = JsonModel(j, resolver, url, args.debug)
-        if args.debug:
-            log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
-        # jm.resolveExtRef()
-        # jm.expandRefs()
+    log.info(f"processing {args.model}")
+    j = resolver(args.model, [])
+    # TODO update maps using file path
+    jm = JsonModel(j, resolver, args.model, args.debug)
+    if args.debug:
+        log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
     show = list(filter(lambda j: isinstance(j, dict), [jm.toModel(True) for jm in JsonModel.MODELS]))
     print(json.dumps(show, sort_keys=True, indent=2))

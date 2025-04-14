@@ -1,6 +1,7 @@
 import json
-from .utils import ModelError, ModelPath, Jsonable
+from .types import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
+from .utils import log
 
 
 class Resolver:
@@ -16,12 +17,16 @@ class Resolver:
         self._jsons: dict[str, Jsonable] = {}
 
     def __call__(self, ref: str, path: ModelPath):
+        """Resolve a reference."""
 
+        # separate fragment
+        # FIXME use parse url instead?
         if "#" in ref:
             url, fragment = ref.split("#", 1)
         else:
             url, fragment = ref, None
 
+        # follow mappings
         changes, previous = 0, -1
         while changes != previous and changes <= len(self._maps):
             previous = changes
@@ -38,17 +43,25 @@ class Resolver:
 
         # handle local files
         if url.startswith("./") or url.startswith("../") or url.startswith("/"):
-            fn = url
+            file = url
         elif ref.startswith("file://"):
-            fn = url[7:]
+            file = url[7:]
+        elif not ":" in ref:
+            file = "./" + ref
         else:
-            fn = None
+            file = None
 
         # TODO handle fragment
-        if fn:
-            with open(fn) as f:
-                self._jsons[url] = j = json.load(f)
-                return j
+        if file:
+            for fn in [file, file + ".json", file + ".model", file + ".model.json"]:
+                try:
+                    with open(fn) as f:
+                        self._jsons[url] = j = json.load(f)
+                        return j
+                except FileNotFoundError:
+                    log.debug(f"no such file: {fn}")
+                    continue
+            raise ModelError(f"cannot resolve: {file}")
         else:  # other URLs
             self._jsons[url] = j = self._cache.load(url)
             return j
