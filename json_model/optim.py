@@ -12,6 +12,9 @@ from .utils import (
     resolve_model, openfiles, constant_value
 )
 
+from .utils import log
+from .recurse import recModel
+
 # preprocessor-specific debug
 log = logging.getLogger("preproc")
 # log.setLevel(logging.DEBUG)
@@ -634,92 +637,3 @@ def flatten(data: ModelType, defs: ModelDefs, path: ModelPath):
 
     else:
         raise ModelError(f"unexpected type {type(data)} [{path}]")
-
-
-# TODO use recurse
-def xor_to_or(model: ModelType, defs: ModelDefs, path: ModelPath):
-    """Change ^ to | if provably distinct."""
-    if model is None:
-        pass
-    elif isinstance(model, (bool, int, float, str)):
-        pass
-    elif isinstance(model, list):
-        model = [xor_to_or(m, defs, path + [i]) for i, m in enumerate(model)]
-    elif isinstance(model, dict):
-
-        # definitions
-        if "%" in model:
-            defines = model["%"]
-            assert isinstance(defines, dict)
-            defines = {p: xor_to_or(m, defs, path + ["%", p]) for p, m in defines.items()}
-        if "+" in model:
-            raise ModelError("+ must be preprocessed")
-        # constraints
-        if "@" in model:
-            model["@"] = xor_to_or(model["@"], defs, path + ["@"])
-            # ignore other props…
-        # combinators
-        elif "|" in model:
-            model["|"] = xor_to_or(model["|"], defs, path + ["|"])
-        elif "&" in model:
-            model["&"] = xor_to_or(model["&"], defs, path + ["&"])
-        elif "^" in model:
-            models = xor_to_or(model["^"], defs, path + ["^"])
-            if not isinstance(models, list):
-                raise ModelError("^ expects an array")
-            if _structurally_distinct_models(models, defs, path):
-                del model["^"]
-                model["|"] = models
-            else:
-                model["^"] = models
-        else:  # object
-            model2 = {}
-            for p, m in model.items():
-                assert isinstance(p, str)
-                if p in ("%", "$", "#"):
-                    model2[p] = m
-                else:
-                    model2[p] = xor_to_or(m, defs, path + [p])
-            model = model2
-    return model
-
-
-def model_preprocessor(data: ModelType, defs: ModelDefs, path: ModelPath):
-    """Preprocessor entry point entry point.
-
-    Remove all ``+`` (merge operator) from data:
-
-    - flatten operators ``|``, ``^`` and ``&``.
-    - distribute ``+`` over ``|`` and ``^``.
-    - resolve definitions ``$something``.
-    - actually merge object properties.
-    - switch ``^`` to less costly ``|`` when possible.
-    - optimize empty and one model lists on combinators.
-    - some partial evaluation about $NONE and $ANY.
-    """
-    log.debug(f"defs={defs}")
-    jdata = copy.deepcopy(data)
-    # only later?
-    fdata = flatten(jdata, defs, path)
-    rdata = _merge_rewrite(fdata, defs, path)
-    fdata = flatten(rdata, defs, path)
-    odata = xor_to_or(fdata, defs, path)
-    log.debug(f"odata={odata}")
-    return odata
-
-
-def preprocessor():
-    """Shell command entry point."""
-
-    # handle script options and arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-d", "--debug", action="store_true")
-    ap.add_argument("models", nargs="*")
-    args = ap.parse_args()
-
-    if args.debug:
-        log.setLevel(logging.DEBUG)
-
-    for fn, fh in openfiles(args.models):
-        data = json.load(fh)
-        print(json.dumps(model_preprocessor(data, {}, ""), indent=2))

@@ -10,6 +10,7 @@ from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, Mo
 from .utils import log
 from .recurse import recModel
 from .resolver import Resolver
+from .optim import _structurally_distinct_models
 
 # forward declaration
 type JsonModel = typing.NewType("JsonModel", None)
@@ -209,7 +210,73 @@ class JsonModel:
 
         # TODO process references?
         self.rewrite()
+
         # TODO compute "+" and other preprocessing
+
+    def xor_to_or(self):
+        """Change xor to less coslty or if possible."""
+
+        changed = False
+
+        def x2o_flt(model: ModelType, path: ModelPath) -> bool:
+            return isinstance(model, (list, dict))
+
+        def x2o_rwt(model: ModelType, path: ModelPath) -> ModelType:
+            nonlocal changed
+            if isinstance(model, dict) and "^" in model:
+                xor = model["^"]
+                assert isinstance(xor, list) and "|" not in model
+                if _structurally_distinct_models(xor, self._defs, path + ["^"]):
+                    changed = True
+                    del model["^"]
+                    model["|"] = xor
+            return model
+
+        self._model = recModel(self._model, x2o_flt, x2o_rwt)
+
+        return changed
+
+    def flatten(self):
+        """Flatten or, xor, and operators."""
+
+        changed = False
+
+        def flatten_flt(model: ModelType, path: ModelPath) -> bool:
+            return isinstance(model, (list, dict))
+
+        def flatten_rwt(model: ModelType, path: ModelPath) -> ModelType:
+            nonlocal changed
+            for op in ("|", "&", "^"):
+                if isinstance(model, dict) and op in model:
+                    models = model[op]
+                    assert isinstance(models, list)
+                    nmodels = []
+                    for m in models:
+                        if isinstance(m, dict) and op in m:
+                            changed = True
+                            nmodels.extend(m[op])
+                        else:
+                            nmodels.append(m)
+                    if changed:
+                        model[op] = nmodels
+            return model
+
+        self._model = recModel(self._model, flatten_flt, flatten_rwt)
+
+        return changed
+
+    # TODO inline defs
+    def inline(self):
+
+        return False
+
+    def optimize(self):
+        self.inline()
+        changed = True
+        while changed: 
+            changed = False
+            changed |= self.flatten()
+            changed |= self.xor_to_or()
 
     def set(self, url: str, jm: JsonModel):
         """Store JSON Model for URL in cache."""
@@ -504,6 +571,7 @@ def test_script():
     ap = argparse.ArgumentParser()
     ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
+    ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
     ap.add_argument("model", help="JSON models to load")
     ap.add_argument("files", nargs="*", help="JSON values to test")
     args = ap.parse_args()
@@ -522,8 +590,11 @@ def test_script():
 
     log.info(f"processing {args.model}")
     j = resolver(args.model, [])
-    # TODO update maps using file path
+    # TODO update maps using file path?
     jm = JsonModel(j, resolver, args.model, args.debug)
+    if args.optimize:
+        for m in JsonModel.MODELS:
+            m.optimize()
     if args.debug:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
     show = list(filter(lambda j: isinstance(j, dict), [jm.toModel(True) for jm in JsonModel.MODELS]))

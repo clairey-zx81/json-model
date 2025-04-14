@@ -23,4 +23,4 @@ clean:
 gen: $(F.out)
 
 %.out.json: %.model.json
-	$(JMC) ./$< > $@
+	$(JMC) -O ./$< > $@
