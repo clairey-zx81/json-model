@@ -1,5 +1,4 @@
 {
-  "#": "no ~",
   "$": {
     "#": "initialy define foo as a string",
     "foo": "$STRING"

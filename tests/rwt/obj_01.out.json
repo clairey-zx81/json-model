@@ -3,7 +3,7 @@
     "#": "JsonModel 0",
     "$": {
       "": "./obj_01.model.json",
-      "bla": "$./obj_00.json#foo"
+      "bla": "$./obj_00#foo"
     },
     "@": "$bla"
   }

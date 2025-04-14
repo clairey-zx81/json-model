@@ -3,14 +3,14 @@
     "#": "JsonModel 0",
     "$": {
       "": "./obj_03.model.json",
-      "foo": "$./obj_02.model.json"
+      "foo": "$./obj_02"
     },
     "@": "$foo#ls0"
   },
   {
     "#": "JsonModel 2",
     "$": {
-      "": "",
+      "": "./obj_02",
       "lb0": [
         "$BOOL"
       ],

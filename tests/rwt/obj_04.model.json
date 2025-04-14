@@ -1,7 +1,7 @@
 {
   "#": "add a definition",
   "$": {
-    "bla": "$./obj_00.model.json"
+    "bla": "$./obj_00.model"
   },
   "%": {
     "#": "direct…",

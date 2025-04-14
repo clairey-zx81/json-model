@@ -1,6 +1,6 @@
 {
   "$": {
-    "foo": "$./obj_02.model.json"
+    "foo": "$./obj_02"
   },
   "%": {
     "$foo#ls0": {

@@ -1,0 +1,7 @@
+{
+  "#": "JSON Model Subset for Localization Renames",
+  "_#": "",
+  "_~": "_l10n",
+  "_%": { "/^\\./": "" },
+  "_@": "_$NONE"
+}

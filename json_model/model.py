@@ -193,14 +193,16 @@ class JsonModel:
         if isinstance(model, dict) and "~" in model:
             version = model["~"]
             if not isinstance(version, str):
-                raise ModelError(f"invalid model version type: {type(version)}")
-            self._version = version
+                raise ModelError(f"invalid model version type: {type(version).__name__}")
+            self._spec = self.get(version, ["~"])
             del model["~"]
         else:
-            self._version = "https://json-model.org/json-model/latest"
+            # self._version = "https://json-model.org/json-model/latest"
+            self._spec = None
 
-        # TODO apply version renames!?
-        log.warning(f"{self._id}: TODO apply version renames?")
+        if self._spec:
+            log.info(f"renaming {self._id} from ~")
+            model = self._spec.rename(model, [], True)
 
         self._model = model
         self.set(self._url, self)
@@ -221,7 +223,7 @@ class JsonModel:
         log.debug(f"{self._id}: getting {url}")
         if url not in self._cache:
             j = self._resolver(url, path)
-            jm = JsonModel(j, self._resolver, "", self._debug)
+            jm = JsonModel(j, self._resolver, url, self._debug)
             self.set(url, jm)
         return self._cache[url]
 
