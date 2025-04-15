@@ -8,7 +8,7 @@ import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, Jsonable
 from .utils import log
-from .recurse import recModel
+from .recurse import recModel, allFlt, builtFlt
 from .resolver import Resolver
 from .optim import _structurally_distinct_models
 
@@ -98,24 +98,6 @@ class JsonModel:
         self._static_compiled = False
         self._dynamic_compiled = False
 
-        # NOTE **not** shared between models because it can be modified
-        # However, if it is not, it could? optimization??
-        #
-        # WARN sharing semantics is not well defined yet!?
-        #
-        # { "$": {
-        #     "f": "$https://json-model.org/models/x",
-        #     "g": "$https://json-model.org/models/x",
-        # } }
-        #
-        # then f & g should be independent, whereas
-        #
-        # { "$": {
-        #     "f": "$https://json-model.org/models/x",
-        #     "g": "$f"
-        # } }
-        #
-        # then f & g are shared, so that if "$f#Foo" is changed, "$g#Foo" as well
         self._resolver = resolver
         self._cache: dict[str, JsonModel] = {}
 
@@ -128,7 +110,7 @@ class JsonModel:
         self._rewrite: ModelTrafo = {}
 
         if isinstance(model, dict) and "%" in model:
-            lpath = ["$", "%"]
+            lpath = ["%"]
 
             # checks
             if not isinstance(model["%"], dict):
@@ -213,13 +195,61 @@ class JsonModel:
 
         # TODO compute "+" and other preprocessing
 
+    #
+    # Analyses
+    #
+    def references(self) -> dict[str, set[str]]:
+        """Get direct references."""
+
+        def direcRefs(model: ModelType) -> set[str]:
+
+            refs: set[str] = set()
+
+            def dr_rwt(m: ModelType, p) -> bool:
+                nonlocal refs
+                if isinstance(m, str) and m and m[0] == "$":
+                    refs.add(m)
+                return m
+
+            recModel(model, allFlt, dr_rwt)
+
+            return refs
+
+        contains = {}
+
+        for name, model in self._defs.items():
+            # FIXME model._url or name?
+            contains["$" + name] = directRefs(model._model)
+        contains[""] = directRefs(model._model)
+
+        return contains
+
+    def reachable(self):
+        """Build reachable defs."""
+
+        # should consider **all** loaded models!?
+        contains = self.references()
+        reached = copy.deepcopy(contains)
+
+        # simplistic transitive closure computation
+        changed = True
+        while changed:
+            changed = False
+            for ref, refs in reached.items():
+                for r in refs:
+                    if r in reached and not reached[r].issubset(refs):
+                        changed = True
+                        refs.update(reached[r])
+
+        return reached
+
+    #
+    # Optimizations
+    #
     def xor_to_or(self):
         """Change xor to less coslty or if possible."""
 
         changed = False
-
-        def x2o_flt(model: ModelType, path: ModelPath) -> bool:
-            return isinstance(model, (list, dict))
 
         def x2o_rwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
@@ -232,7 +262,7 @@ class JsonModel:
                     model["|"] = xor
             return model
 
-        self._model = recModel(self._model, x2o_flt, x2o_rwt)
+        self._model = recModel(self._model, builtFlt, x2o_rwt)
 
         return changed
 
@@ -240,9 +270,6 @@ class JsonModel:
         """Flatten or, xor, and and merge operators."""
 
         changed = False
-
-        def flatten_flt(model: ModelType, path: ModelPath) -> bool:
-            return isinstance(model, (list, dict))
 
         def flatten_rwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
@@ -264,7 +291,7 @@ class JsonModel:
                         model[op] = nmodels
             return model
 
-        self._model = recModel(self._model, flatten_flt, flatten_rwt)
+        self._model = recModel(self._model, builtFlt, flatten_rwt)
 
         return changed
 
@@ -277,9 +304,6 @@ class JsonModel:
         """Model partial evaluation."""
 
         changed = False
-
-        def eval_flt(m: ModelType, p: ModelPath) -> bool:
-            return isinstance(m, (list, dict))
 
         def eval_rwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
@@ -307,10 +331,21 @@ class JsonModel:
                     if "$NONE" in lxor:
                         changed = True
                         model["^"] = list(filter(lambda m: m != "$NONE", lxor))
-                # TODO ^ ?
+                    # TODO more cleanups
+                    # {"^": ["$ANY", "$ANY"]} == "$NONE"
+                elif "+" in model:
+                    lplus = model["+"]
+                    if len(lplus) == 0:  # {"+": []} == {}
+                        changed = True
+                        del model["+"]
+                    def empty_obj(o):
+                        return isinstance(o, dict) and (len(o) == 0 or len(o) == 1 and "#" in o)
+                    if any(map(empty_obj, lplus)):
+                        changed = True
+                        model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
             return model
 
-        self._model = recModel(self._model, eval_flt, eval_rwt)
+        self._model = recModel(self._model, builtFlt, eval_rwt)
 
         return changed
 
@@ -397,6 +432,7 @@ class JsonModel:
         return self._isUrlRef(self._model)
 
     # FIXME this imply not sharing, which is not desirable! use prefix with $$?
+    # possibly we want to distinguish different models
     # NOTE do we want that?
     # def expandRefs(self):
     #     """Replace short references by absolute references."""

@@ -5,6 +5,7 @@ from .types import ModelType, ModelPath, ModelFilter, ModelRewrite
 
 NO_MODEL_KEYWORDS = {"#", "~", "=", "!=", "<", "<=", ">", ">=", "!", "/"}
 MODEL_KEYWORDS = {"@"}
+# "/" expects a list, but we do not want to recurse
 MODEL_LIST_KEYWORDS = {"|", "&", "^", "+"}
 MODEL_VALUE_KEYWORDS = {"$", "%", "*"}
 
@@ -26,6 +27,13 @@ def _recModel(
             val = model[prop]
             assert isinstance(prop, str)
             if prop in NO_MODEL_KEYWORDS:
+                # sanity checks in passing
+                if prop in ("#", "~"):
+                    assert isinstance(val, str)
+                elif prop in ("!"):
+                    assert isinstance(val, bool)
+                elif prop in ("/"):
+                    assert isinstance(val, list)
                 continue
             elif prop in MODEL_LIST_KEYWORDS:
                 assert isinstance(val, list)  # sanity check in passing
@@ -35,6 +43,7 @@ def _recModel(
                 for k, v in val.items():
                     assert isinstance(k, str)
                     if k == "#":
+                        assert isinstance(v, str)
                         continue
                     elif k.startswith("."):  # rename
                         assert isinstance(v, str)
@@ -46,13 +55,17 @@ def _recModel(
             elif prop in MODEL_VALUE_KEYWORDS:
                 model[prop] = _recModel(val, path + [prop], flt, rwt)
             else:  # assume properties
-                pname = prop[1:] if prop and prop[0] in ("_", "?", "!") else prop
-                model[prop] = _recModel(val, path + [pname], flt, rwt)
+                model[prop] = _recModel(val, path + [prop], flt, rwt)
     else:  # sanity check
         assert model is None or isinstance(model, (bool, int, float, str))
 
     return rwt(model, path)
 
+def allFlt(_m: ModelType, _p: ModelPath) -> bool:
+    return True
+
+def builtFlt(m: ModelType, _p: ModelPath) -> bool:
+    return isinstance(m, (list, dict))
 
 def recModel(
         model: ModelType,
