@@ -237,7 +237,7 @@ class JsonModel:
         return changed
 
     def flatten(self):
-        """Flatten or, xor, and operators."""
+        """Flatten or, xor, and and merge operators."""
 
         changed = False
 
@@ -246,7 +246,7 @@ class JsonModel:
 
         def flatten_rwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
-            for op in ("|", "&", "^"):
+            for op in ("|", "&", "^", "+"):
                 if isinstance(model, dict) and op in model:
                     models = model[op]
                     assert isinstance(models, list)
