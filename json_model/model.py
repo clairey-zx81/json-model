@@ -251,6 +251,9 @@ class JsonModel:
                     models = model[op]
                     assert isinstance(models, list)
                     nmodels = []
+                    if len(models) == 1:
+                        changed = True
+                        return models[0]
                     for m in models:
                         if isinstance(m, dict) and op in m:
                             changed = True
@@ -270,6 +273,47 @@ class JsonModel:
 
         return False
 
+    def eval(self):
+        """Model partial evaluation."""
+
+        changed = False
+
+        def eval_flt(m: ModelType, p: ModelPath) -> bool:
+            return isinstance(m, (list, dict))
+
+        def eval_rwt(model: ModelType, path: ModelPath) -> ModelType:
+            nonlocal changed
+            if isinstance(model, dict):
+                if "|" in model:
+                    lor = model["|"]
+                    if len(lor) == 0:
+                        changed = True
+                        return "$NONE"
+                    elif any(map(lambda m: m == "$ANY", lor)):
+                        changed = True
+                        return "$ANY"
+                    # TODO remove duplicates
+                elif "&" in model:
+                    land = model["&"]
+                    if len(land) == 0:
+                        changed = True
+                        return "$ANY"
+                    elif any(map(lambda m: m == "$NONE", land)):
+                        changed = True
+                        return "$NONE"
+                    # TODO remove duplicates
+                elif "^" in model:
+                    lxor = model["^"]
+                    if "$NONE" in lxor:
+                        changed = True
+                        model["^"] = list(filter(lambda m: m != "$NONE", lxor))
+                # TODO ^ ?
+            return model
+
+        self._model = recModel(self._model, eval_flt, eval_rwt)
+
+        return changed
+
     def optimize(self):
         self.inline()
         changed = True
@@ -277,6 +321,7 @@ class JsonModel:
             changed = False
             changed |= self.flatten()
             changed |= self.xor_to_or()
+            changed |= self.eval()
 
     def set(self, url: str, jm: JsonModel):
         """Store JSON Model for URL in cache."""
@@ -597,5 +642,7 @@ def test_script():
             m.optimize()
     if args.debug:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
-    show = list(filter(lambda j: isinstance(j, dict), [jm.toModel(True) for jm in JsonModel.MODELS]))
+    show = [JsonModel.MODELS[0].toModel(True)] + \
+            list(filter(lambda j: isinstance(j, dict),
+                 [jm.toModel(True) for jm in JsonModel.MODELS[1:]]))
     print(json.dumps(show, sort_keys=True, indent=2))

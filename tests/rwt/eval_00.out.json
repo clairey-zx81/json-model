@@ -1,0 +1,16 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./eval_00.model.json",
+      "false": "$NONE",
+      "true": "$ANY"
+    },
+    "@": {
+      "|": [
+        "$true",
+        "$false"
+      ]
+    }
+  }
+]
