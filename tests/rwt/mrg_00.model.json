@@ -1,0 +1,7 @@
+{
+  "#": "simple direct merging of objects",
+  "+": [
+    {"a": 0, "b": 1},
+    {"c": true, "d": -1}
+  ]
+}

@@ -5,7 +5,7 @@ from .types import ModelType, ModelPath, ModelFilter, ModelRewrite
 
 NO_MODEL_KEYWORDS = {"#", "~", "=", "!=", "<", "<=", ">", ">=", "!", "/"}
 MODEL_KEYWORDS = {"@"}
-# "/" expects a list, but we do not want to recurse
+# "/" expects a list, but we do not want to recurse there
 MODEL_LIST_KEYWORDS = {"|", "&", "^", "+"}
 MODEL_VALUE_KEYWORDS = {"$", "%", "*"}
 
@@ -66,6 +66,9 @@ def allFlt(_m: ModelType, _p: ModelPath) -> bool:
 
 def builtFlt(m: ModelType, _p: ModelPath) -> bool:
     return isinstance(m, (list, dict))
+
+def noRwt(m: ModelType, _p: ModelPath) -> ModelType:
+    return m
 
 def recModel(
         model: ModelType,

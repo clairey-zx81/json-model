@@ -7,8 +7,8 @@ import typing
 import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, Jsonable
-from .utils import log
-from .recurse import recModel, allFlt, builtFlt
+from .utils import log, tname
+from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 from .optim import _structurally_distinct_models
 
@@ -77,6 +77,7 @@ class JsonModel:
     def __init__(self,
             model: ModelType,
             resolver: Resolver,
+            scope: ModelDefs = None,
             url: str = "",
             debug: bool = False,
         ):
@@ -148,8 +149,8 @@ class JsonModel:
             self._init_pc = model["%"]
             del model["%"]
 
-        # definitions
-        self._defs: dict[str, JsonModel] = {}
+        # definitions, possibly shared
+        self._defs: dict[str, JsonModel|str]
         self._init_dl: dict[str, ModelType] = {}
 
         if isinstance(model, dict) and "$" in model:
@@ -162,21 +163,24 @@ class JsonModel:
                 if self._url != "" and u != self._url:
                     log.warning(f"inconsistent url identifier: {u}")
                 self._url = u
-            # extract actual definitions
             # TODO restrict names?
-            self._defs = {
-                n: JsonModel(m, resolver, self._url + "#" + n, debug)
+            # extract actual definitions
+            self._defs = {"#": f"scope: {self._id}"}
+            self._defs.update({
+                n: JsonModel(m, resolver, self._defs, self._url + "#" + n, debug)
                     for n, m in model["$"].items()
                         if isinstance(n, str) and n not in ("#", "")
-            }
+            })
             # keep initial definitions
             self._init_dl = model["$"]
             del model["$"]
+        else:
+            self._defs = scope if scope is not None else {"#": f"scope: {self._id}"}
 
         if isinstance(model, dict) and "~" in model:
             version = model["~"]
             if not isinstance(version, str):
-                raise ModelError(f"invalid model version type: {type(version).__name__}")
+                raise ModelError(f"invalid model version type: {tname(version)}")
             self._spec = self.get(version, ["~"])
             del model["~"]
         else:
@@ -194,6 +198,8 @@ class JsonModel:
         self.rewrite()
 
         # TODO compute "+" and other preprocessing
+        # TODO allow skipping?
+        self.merge()
 
     #
     # Analyses
@@ -352,12 +358,15 @@ class JsonModel:
     def optimize(self):
         self.inline()
         changed = True
-        while changed: 
+        while changed:
             changed = False
             changed |= self.flatten()
             changed |= self.xor_to_or()
             changed |= self.eval()
 
+    #
+    # Sub-model Memoization
+    #
     def set(self, url: str, jm: JsonModel):
         """Store JSON Model for URL in cache."""
         log.debug(f"{self._id}: setting {url}")
@@ -370,19 +379,23 @@ class JsonModel:
         log.debug(f"{self._id}: getting {url}")
         if url not in self._cache:
             j = self._resolver(url, path)
-            jm = JsonModel(j, self._resolver, url, self._debug)
+            # FIXME scope?!
+            jm = JsonModel(j, self._resolver, self._defs, url, self._debug)
             self.set(url, jm)
         return self._cache[url]
 
+    #
+    # Display
+    #
     def toJSON(self) -> Jsonable:
-        """Convenient JsonModel display."""
+        """Convenient JsonModel debug display."""
         data = {
             "id": self._id,
-            "version": self._version,
             "url": self._url,
             "model": self._model,
             "init": self._init_md,
-            "defs": {name: jm.toJSON() for name, jm in self._defs.items()},
+            # FIXME infinite recursion on sharing
+            # "defs": {name: jm.toJSON() if isinstance(jm, JsonModel) else jm for name, jm in self._defs.items()},
             "rename": self._name,
             "rewrite": self._rewrite,
             "cached": sorted(self._cache.keys()),
@@ -393,7 +406,7 @@ class JsonModel:
 
     # FIXME this is **not** very clean because $/% can appear inside defs
     def toModel(self, deep: bool = False) -> Jsonable:
-        """Return JSON Model."""
+        """Return JSON Model for display."""
         # log.debug(f"toModel on {self._model}")
         model = copy.deepcopy(self._model)
         if isinstance(model, dict):
@@ -402,17 +415,26 @@ class JsonModel:
             model["#"] = f"JsonModel {self._id}"
         if self._defs:
             # log.info(f"defs: {self._defs}")
-            assert isinstance(model, dict)
-            assert "$" not in model
             defs = {
-                n: jm.toModel()
+                n: jm.toModel() if isinstance(jm, JsonModel) else jm
                     for n, jm in self._defs.items()
             } if deep else self._init_dl
             if "" not in defs:
                 defs[""] = self._url
-            model["$"] = defs
+            if isinstance(model, dict):
+                assert "$" not in model
+                model["$"] = defs
+            elif self._debug:
+                model = {
+                    "#": f"Debug JsonModel {self._id}",
+                    "$": defs,
+                    "@": model,
+                }
         return model
 
+    #
+    # Resolution
+    #
     # @staticmethod?
     def _isPredef(self, s: str) -> bool:
         return s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
@@ -430,23 +452,6 @@ class JsonModel:
 
     def isUrlRef(self) -> bool:
         return self._isUrlRef(self._model)
-
-    # FIXME this imply not sharing, which is not desirable! use prefix with $$?
-    # possibly we want to distinguish different models
-    # NOTE do we want that?
-    # def expandRefs(self):
-    #     """Replace short references by absolute references."""
-    #     def expandRef(model: Jsonable, path: ModelPath) -> Jsonable:
-    #         if self._isRef(model):
-    #             if self._isUrlRef(model):
-    #                 return model
-    #             elif model[1] == "#":
-    #                 return self._url + model
-    #             else:
-    #                 return f"${self._url}#{model[1:]}"
-    #         else:
-    #             return model
-    #     self._model = recModel(self._model, lambda _m, _p: True, expandRef)
 
     def resolveDef(self, name: str, path: ModelPath) -> JsonModel:
         """Resolve a definition in the current Model.
@@ -477,7 +482,7 @@ class JsonModel:
 
         if name not in jm._defs:
             log.info(f"{self._id}: creating empty definition {name}")
-            jm._defs[name] = JsonModel(None, self._resolver, jm._url + "#" + name, jm._debug)
+            jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, jm._debug)
 
         path.append("$" + name)
         jm = jm._defs[name]
@@ -510,19 +515,67 @@ class JsonModel:
 
         return jm
 
-    # NOTE probably useless
-    # def resolveExtRef(self, resolver: Resolver):
-    #     # FIXME keywords?
-    #     """Resolve external references."""
-    #     for jm in self._defs.values():
-    #         jm.resolveExtRef(resolver)
-    #     def resRef(model: Jsonable, path: ModelPath) -> Jsonable:
-    #         if self._isUrlRef(model):
-    #             return resolver(model[1:], path)
-    #         else:
-    #             return model
-    #     self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
+    #
+    # Merging
+    #
+    # - inline defs inside +
+    # - distribute + over | and ^
+    # - merge objects, removing all +
+    #
+    def mergeInlining(self):
 
+        def mi_flt(model: ModelType, path: ModelPath) -> bool:
+
+            updated = False
+
+            def inline(m: model, p: path):
+                nonlocal updated
+                if isinstance(m, str):
+                    updated = True
+                    assert m and m[0] == "$"
+                    # FIXME DOES NOT WORK! resolution scope is lost!
+                    return copy.deepcopy(self.resolveRef(m, p)._model)
+                else:
+                    assert isinstance(m, dict)
+                    return m
+
+            if isinstance(model, dict) and "+" in model:
+                model["+"] = [inline(n, path + ["+", i]) for i, n in enumerate(model["+"])]
+
+            return True
+
+        self._model = recModel(self._model, mi_flt, noRwt)
+
+    def mergeDistribute(self):
+
+        def distrib_flt(model: ModelType, path: ModelPath) -> ModelType:
+            # +( |(A B) |(C D) ) -> |( +(A C) +(A D) +(B C) +(B D) )
+
+            def has_orxor(m: ModelType) -> bool:
+                if isinstance(m, str) and m and m[0] == "$":
+                    m = self.resolveRef(m, path)._model
+                return isinstance(m, dict) and ("|" in m or "^" in m)
+
+            if isinstance(model, dict) and "+" in model:
+                lplus = model["+"]
+                if any(map(has_orxor, lplus)):
+                    ...
+
+            return model
+
+        self._model = _recModel(self._model, distrib_flt, noRwt)
+
+    def mergeObjects(self):
+        ...
+
+    def merge(self):
+        self.mergeInlining()
+        # self.mergeDistribute()
+        # self.mergeObjects()
+
+    #
+    # Rename and Rewrite Transformations
+    #
     def rename(self, model: ModelType, path: ModelPath = [], root: bool = False):
         """Apply keyword renaming."""
         # FIXME should check that all are ".…" are replaced?!
@@ -583,7 +636,7 @@ class JsonModel:
                             raise ModelError(f"cannot remove item {i} from object at {path}")
                         del j[i]
                 else:
-                    raise ModelError(f"cannot remove list from {type(j)}")
+                    raise ModelError(f"cannot remove list from {tname(j)}")
             else:
                 raise ModelError(f"expecting a remove list")
         if "*" in trafo:
@@ -592,7 +645,7 @@ class JsonModel:
                 if isinstance(j, list):
                     j.extend(add)
                 else:
-                    raise ModelError(f"cannot add list to {type(j)} at {path}")
+                    raise ModelError(f"cannot add list to {tname(j)} at {path}")
             elif isinstance(add, dict):
                 if isinstance(j, dict):
                     for k, v in add.items():
@@ -600,7 +653,7 @@ class JsonModel:
                             raise ModelError(f"cannot overwrite property at {path}, remove first")
                         j[k] = v
                 else:
-                    raise ModelError(f"cannot add object to {type(j)} at {path}")
+                    raise ModelError(f"cannot add object to {tname(j)} at {path}")
             else:
                 raise ModelError(f"unexpected add type at {path}")
         return j
@@ -627,7 +680,7 @@ class JsonModel:
                 if not 0 <= p < len(j):
                     raise ModelError(f"invalid index at {path}: {p} in {tpath}")
             if last:
-                j[p] = self._applyTrafo(j[p], trafo) 
+                j[p] = self._applyTrafo(j[p], trafo)
             else:
                 j = j[p]
         else:
@@ -672,7 +725,7 @@ def test_script():
     log.info(f"processing {args.model}")
     j = resolver(args.model, [])
     # TODO update maps using file path?
-    jm = JsonModel(j, resolver, args.model, args.debug)
+    jm = JsonModel(j, resolver, None, args.model, args.debug)
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
@@ -682,3 +735,33 @@ def test_script():
             list(filter(lambda j: isinstance(j, dict),
                  [jm.toModel(True) for jm in JsonModel.MODELS[1:]]))
     print(json.dumps(show, sort_keys=True, indent=2))
+
+# NOTE probably useless
+# def resolveExtRef(self, resolver: Resolver):
+#     # FIXME keywords?
+#     """Resolve external references."""
+#     for jm in self._defs.values():
+#         jm.resolveExtRef(resolver)
+#     def resRef(model: Jsonable, path: ModelPath) -> Jsonable:
+#         if self._isUrlRef(model):
+#             return resolver(model[1:], path)
+#         else:
+#             return model
+#     self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
+
+# FIXME this imply not sharing, which is not desirable! use prefix with $$?
+# possibly we want to distinguish different models
+# NOTE do we want that?
+# def expandRefs(self):
+#     """Replace short references by absolute references."""
+#     def expandRef(model: Jsonable, path: ModelPath) -> Jsonable:
+#         if self._isRef(model):
+#             if self._isUrlRef(model):
+#                 return model
+#             elif model[1] == "#":
+#                 return self._url + model
+#             else:
+#                 return f"${self._url}#{model[1:]}"
+#         else:
+#             return model
+#     self._model = recModel(self._model, lambda _m, _p: True, expandRef)

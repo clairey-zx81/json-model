@@ -3,6 +3,7 @@
     "#": "JsonModel 0",
     "$": {
       "": "./obj_04.model.json",
+      "#": "scope: 0",
       "bla": "$./obj_00.model"
     },
     "@": "$bla"
@@ -11,6 +12,7 @@
     "#": "JsonModel 2",
     "$": {
       "": "./obj_00.model",
+      "#": "scope: 2",
       "foo": "$fun",
       "fun": "$BOOLEAN"
     },

@@ -3,6 +3,7 @@
     "#": "JsonModel 0",
     "$": {
       "": "./eval_00.model.json",
+      "#": "scope: 0",
       "false": "$NONE",
       "true": "$ANY"
     },

@@ -3,6 +3,7 @@
     "#": "JsonModel 0",
     "$": {
       "": "./obj_02.model.json",
+      "#": "scope: 0",
       "lb0": [
         "$BOOL"
       ],

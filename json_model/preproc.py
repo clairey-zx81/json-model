@@ -115,7 +115,7 @@ def merge_simple_models(models: list[ModelType], defs, path: ModelPath = []) -> 
 
     # sanity checks
     if not isinstance(models, (list, tuple)):
-        raise ModelError(f"unexpected models to merge: {models} (type{models}) [{path}]")
+        raise ModelError(f"unexpected models to merge: {models} (type{models}.__name__) [{path}]")
     if len(models) == 0:
         # raise ModelError(f"empty models to merge")
         return "$NONE"
@@ -397,7 +397,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: ModelDefs, mpath: M
     return True
 
 
-def _merge_rewrite(data, defs: ModelDefs, path: ModelPath):
+def _merge_rewrite(data: ModelType, defs: ModelDefs, path: ModelPath):
     """Rewrite model to handle "+"."""
 
     if data is None:
@@ -429,7 +429,7 @@ def _merge_rewrite(data, defs: ModelDefs, path: ModelPath):
             lpath = path + ["+"]
             models = data["+"]
             if not isinstance(models, list):
-                raise ModelError(f"invalid type for +: {type(models)} {lpath}")
+                raise ModelError(f"invalid type for +: {type(models).__name__} {lpath}")
 
             data["+"] = _merge_rewrite(models, defs, lpath)
 

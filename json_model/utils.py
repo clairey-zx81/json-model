@@ -9,6 +9,9 @@ from .types import ModelType, ModelPath, ModelDefs, ModelError, Jsonable, JsonOb
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
+def tname(m) -> str:
+    return type(m).__name__ if m is not None else "null"
+
 def is_regex(s: str, p: str = "") -> bool:
     if isinstance(s, str):
         try:

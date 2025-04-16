@@ -1,0 +1,88 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./mrg_01.model.json",
+      "#": "scope: 0",
+      "T": "_mrg_01",
+      "X": {
+        "#": "JsonModel 2",
+        "$": {
+          "": "./mrg_01.model.json#X"
+        },
+        "a": "$T",
+        "b": "$T"
+      },
+      "Y": {
+        "#": "JsonModel 3",
+        "$": {
+          "": "./mrg_01.model.json#Y"
+        },
+        "c": "$T",
+        "d": "$T"
+      }
+    },
+    "+": [
+      {
+        "a": "$T",
+        "b": "$T"
+      },
+      {
+        "c": "$T",
+        "d": "$T"
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 2",
+    "$": {
+      "": "./mrg_01.model.json#X",
+      "#": "scope: 0",
+      "T": "_mrg_01",
+      "X": {
+        "#": "JsonModel 2",
+        "$": {
+          "": "./mrg_01.model.json#X"
+        },
+        "a": "$T",
+        "b": "$T"
+      },
+      "Y": {
+        "#": "JsonModel 3",
+        "$": {
+          "": "./mrg_01.model.json#Y"
+        },
+        "c": "$T",
+        "d": "$T"
+      }
+    },
+    "a": "$T",
+    "b": "$T"
+  },
+  {
+    "#": "JsonModel 3",
+    "$": {
+      "": "./mrg_01.model.json#Y",
+      "#": "scope: 0",
+      "T": "_mrg_01",
+      "X": {
+        "#": "JsonModel 2",
+        "$": {
+          "": "./mrg_01.model.json#X"
+        },
+        "a": "$T",
+        "b": "$T"
+      },
+      "Y": {
+        "#": "JsonModel 3",
+        "$": {
+          "": "./mrg_01.model.json#Y"
+        },
+        "c": "$T",
+        "d": "$T"
+      }
+    },
+    "c": "$T",
+    "d": "$T"
+  }
+]
