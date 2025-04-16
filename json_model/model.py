@@ -387,21 +387,24 @@ class JsonModel:
     #
     # Display
     #
-    def toJSON(self) -> Jsonable:
+    def toJSON(self, recurse: bool = True) -> Jsonable:
         """Convenient JsonModel debug display."""
         data = {
             "id": self._id,
             "url": self._url,
             "model": self._model,
             "init": self._init_md,
-            # FIXME infinite recursion on sharing
-            # "defs": {name: jm.toJSON() if isinstance(jm, JsonModel) else jm for name, jm in self._defs.items()},
             "rename": self._name,
             "rewrite": self._rewrite,
             "cached": sorted(self._cache.keys()),
         }
         if self.isUrlRef():
             data["external"] = self.get(self._model[1:], []).toJSON()
+        if recurse:
+            data["defs"] = {name: jm.toJSON(False) if isinstance(jm, JsonModel) else jm
+                            for name, jm in self._defs.items()}
+        else:
+            data["defs"] = self._defs["#"]
         return data
 
     # FIXME this is **not** very clean because $/% can appear inside defs
