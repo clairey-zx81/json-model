@@ -409,7 +409,7 @@ class JsonModel:
         """Store JSON Model for URL in cache."""
         log.debug(f"{self._id}: setting {url}")
         if url in self._cache:
-            log.warning(f"overriding cached model for: {url}")
+            raise ModelError(f"cannot override cached model for: {url}")
         self._cache[url] = jm
 
     def get(self, url: str, path: ModelPath) -> JsonModel:
