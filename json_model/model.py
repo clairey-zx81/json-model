@@ -262,6 +262,7 @@ class JsonModel:
             if isinstance(model, dict) and "^" in model:
                 xor = model["^"]
                 assert isinstance(xor, list) and "|" not in model
+                # TODO handle distinct constants, eg "=1", "=2"…
                 if _structurally_distinct_models(xor, self._defs, path + ["^"]):
                     changed = True
                     del model["^"]
@@ -284,6 +285,7 @@ class JsonModel:
                     models = model[op]
                     assert isinstance(models, list)
                     nmodels = []
+                    # NOTE empty lists are handled in eval
                     if len(models) == 1:
                         changed = True
                         return models[0]
@@ -311,6 +313,21 @@ class JsonModel:
 
         changed = False
 
+        # helpers
+        def empty_obj(o):
+            return isinstance(o, dict) and (len(o) == 0 or len(o) == 1 and "#" in o)
+
+        def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
+            return type(i) == type(j) and i == j
+
+        def deduplicate(l):
+            # return list(set(l))
+            n = []
+            for i in l:
+                if not any(map(lambda x: real_equal(x, i), n)):
+                    n.append(i)
+            return n
+
         def eval_rwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
             if isinstance(model, dict):
@@ -319,34 +336,55 @@ class JsonModel:
                     if len(lor) == 0:
                         changed = True
                         return "$NONE"
-                    elif any(map(lambda m: m == "$ANY", lor)):
+                    elif "$ANY" in lor:
                         changed = True
                         return "$ANY"
+                    elif len(l := deduplicate(lor)) != len(lor):
+                        changed = True
+                        model["|"] = lor = l
+                    if len(lor) == 1:
+                        changed = True
+                        return lor[0]
                     # TODO remove duplicates
                 elif "&" in model:
                     land = model["&"]
                     if len(land) == 0:
                         changed = True
                         return "$ANY"
-                    elif any(map(lambda m: m == "$NONE", land)):
+                    elif "$NONE" in land:
                         changed = True
                         return "$NONE"
-                    # TODO remove duplicates
+                    elif len(l := deduplicate(land)) != len(land):
+                        changed = True
+                        model["&"] = land = l
+                    if len(land) == 1:
+                        changed = True
+                        return land[0]
                 elif "^" in model:
                     lxor = model["^"]
-                    if "$NONE" in lxor:
+                    if len(lxor) == 0:
+                        changed = True
+                        return "$NONE"
+                    elif len(lxor) == 1:
+                        changed = True
+                        return lxor[0]
+                    elif "$NONE" in lxor:
                         changed = True
                         model["^"] = list(filter(lambda m: m != "$NONE", lxor))
+                    elif len(list(filter(lambda m: m == "$ANY", lxor))) >= 2:
+                        changed = True
+                        return "$NONE"
                     # TODO more cleanups
-                    # {"^": ["$ANY", "$ANY"]} == "$NONE"
+                    # ^(A A ...) = ^(...) ? not so, depends on inclusions?
                 elif "+" in model:
                     lplus = model["+"]
                     if len(lplus) == 0:  # {"+": []} == {}
                         changed = True
                         del model["+"]
-                    def empty_obj(o):
-                        return isinstance(o, dict) and (len(o) == 0 or len(o) == 1 and "#" in o)
-                    if any(map(empty_obj, lplus)):
+                    elif len(lplus) == 1:
+                        changed = True
+                        return lplus[0]
+                    elif any(map(empty_obj, lplus)):
                         changed = True
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
             return model
@@ -360,9 +398,9 @@ class JsonModel:
         changed = True
         while changed:
             changed = False
+            changed |= self.eval()
             changed |= self.flatten()
             changed |= self.xor_to_or()
-            changed |= self.eval()
 
     #
     # Sub-model Memoization
