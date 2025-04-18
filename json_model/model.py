@@ -4,6 +4,7 @@ import copy
 import re
 import logging
 import typing
+from collections.abc import MutableMapping
 import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, Jsonable
@@ -15,6 +16,43 @@ from .optim import _structurally_distinct_models
 # forward declaration
 type JsonModel = typing.NewType("JsonModel", None)
 
+# class?
+type Symbols = dict[str, JsonModel]
+
+class Symbols(MutableMapping):
+
+    def __init__(self, mid: int):
+        self._id = mid
+        self._syms: dict[str, JsonModel] = {}
+        # methods
+        self.__delitem__ = self._syms.__delitem__
+        self.__getitem__ = self._syms.__getitem__
+        self.__setitem__ = self._syms.__setitem__
+        self.__iter__ = self._syms.__iter__
+        self.__len__ = self._syms.__len__
+
+    def toJSON(self, rec: bool = False):
+        data = {}
+        data["#"] = f"symbol: {self._id}"
+        # data[""] = self._url
+        if rec:
+            data.update(**{n: jm.toJSON(rec) for n, jm in self.items()})
+        return data
+
+    def __setitem__(self, k, v):
+        return self._syms.__setitem__(k, v)
+
+    def __getitem__(self, k):
+        return self._syms.__getitem__(k)
+
+    def __delitem__(self, k):
+        return self._syms.__delitem__(k)
+
+    def __len__(self):
+        return self._syms.__len__()
+
+    def __iter__(self):
+        return self._syms.__iter__()
 
 class JsonModel:
     """JSON Model v2."""
@@ -77,7 +115,7 @@ class JsonModel:
     def __init__(self,
             model: ModelType,
             resolver: Resolver,
-            scope: ModelDefs = None,
+            scope: Symbols|None = None,
             url: str = "",
             debug: bool = False,
         ):
@@ -150,7 +188,7 @@ class JsonModel:
             del model["%"]
 
         # definitions, possibly shared
-        self._defs: dict[str, JsonModel|str]
+        self._defs = Symbols(self._id)
         self._init_dl: dict[str, ModelType] = {}
 
         if isinstance(model, dict) and "$" in model:
@@ -165,7 +203,6 @@ class JsonModel:
                 self._url = u
             # TODO restrict names?
             # extract actual definitions
-            self._defs = {"#": f"scope: {self._id}"}
             self._defs.update({
                 n: JsonModel(m, resolver, self._defs, self._url + "#" + n, debug)
                     for n, m in model["$"].items()
@@ -184,7 +221,7 @@ class JsonModel:
             self._spec = self.get(version, ["~"])
             del model["~"]
         else:
-            # self._version = "https://json-model.org/json-model/latest"
+            # FIXME add a default?
             self._spec = None
 
         if self._spec:
@@ -197,9 +234,15 @@ class JsonModel:
         # TODO process references?
         self.rewrite()
 
+        if self._id == 0:
+            self._global = Symbols(-1)
+            self.rootScope(self._global, "", set())
+        else:
+            self._global = None
+
         # TODO compute "+" and other preprocessing
         # TODO allow skipping?
-        self.merge()
+        # self.merge()
 
     #
     # Analyses
@@ -403,26 +446,6 @@ class JsonModel:
             changed |= self.xor_to_or()
 
     #
-    # Sub-model Memoization
-    #
-    def set(self, url: str, jm: JsonModel):
-        """Store JSON Model for URL in cache."""
-        log.debug(f"{self._id}: setting {url}")
-        if url in self._cache:
-            raise ModelError(f"cannot override cached model for: {url}")
-        self._cache[url] = jm
-
-    def get(self, url: str, path: ModelPath) -> JsonModel:
-        """Retrieve JSON Model for a URL."""
-        log.debug(f"{self._id}: getting {url}")
-        if url not in self._cache:
-            j = self._resolver(url, path)
-            # FIXME scope?!
-            jm = JsonModel(j, self._resolver, self._defs, url, self._debug)
-            self.set(url, jm)
-        return self._cache[url]
-
-    #
     # Display
     #
     def toJSON(self, recurse: bool = True) -> Jsonable:
@@ -439,10 +462,15 @@ class JsonModel:
         if self.isUrlRef():
             data["external"] = self.get(self._model[1:], []).toJSON()
         if recurse:
-            data["defs"] = {name: jm.toJSON(False) if isinstance(jm, JsonModel) else jm
-                            for name, jm in self._defs.items()}
+            data["defs"] = {
+                name: jm.toJSON(False) for name, jm in self._defs.items()
+            }
         else:
-            data["defs"] = self._defs["#"]
+            data["defs"] = self._defs._id
+        if self._global:
+            data["global"] = {
+                name: jm._id for name, jm in self._global.items()
+            }
         return data
 
     # FIXME this is **not** very clean because $/% can appear inside defs
@@ -487,6 +515,10 @@ class JsonModel:
     # @staticmethod?
     def _isUrlRef(self, model: Jsonable) -> bool:
         return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
+
+    # @staticmethod?
+    def _isSimpleRef(self, model: Jsonable) -> bool:
+        return self._isRef(model) and not self._isUrlRef(model)
 
     def isRef(self) -> bool:
         return self._isRef(self._model)
@@ -555,6 +587,71 @@ class JsonModel:
                 model = jm._model
 
         return jm
+
+    #
+    # Compute the root symbol table.
+    # Move all references to the root scope.
+    #
+    def rootScope(self, symbols: Symbols, root: str, visited: set[tuple[str, int]]):
+        """Move all local references to the root scope."""
+        log.debug(f"scoping {self._defs._id}: {root}")
+
+        assert root == "" or root[0] != "$"
+
+        #  prevent recursion
+        mid = ("m", self._id)
+        if mid in visited:
+            return
+        visited.add(mid)
+
+        root_ref = "$" + root
+        symbols[root_ref] = self
+
+        # handle models's symbol table if not done yet
+        sid = ("s", self._defs._id)
+        if sid not in visited:
+            visited.add(sid)
+            for name, jm in self._defs.items():
+                jm.rootScope(symbols, root + "#" + name, visited)
+
+        # substitute local references for global references
+        def rootRwt(m: ModelType, p: ModelPath) -> ModelType:
+            if self._isSimpleRef(m):
+                ref = root_ref + "#" + m[1:]
+                if ref not in symbols:
+                    jm = self.resolveRef(m, p + [m])
+                    symbols[ref] = jm
+                    jm.rootScope(symbols, ref[1:], visited)
+                return ref
+            elif self._isUrlRef(m):
+                # FIXME does not need to be scoped? Or as a root?
+                if m not in symbols:
+                    symbols[m] = self.resolveRef(m, p + [m])
+                return m
+            else:
+                return m
+
+        self._model = recModel(self._model, allFlt, rootRwt, True)
+
+    #
+    # Sub-model Memoization
+    #
+    def set(self, url: str, jm: JsonModel):
+        """Store JSON Model for URL in cache."""
+        log.debug(f"{self._id}: setting {url}")
+        if url in self._cache:
+            raise ModelError(f"cannot override cached model for: {url}")
+        self._cache[url] = jm
+
+    def get(self, url: str, path: ModelPath) -> JsonModel:
+        """Retrieve JSON Model for a URL."""
+        log.debug(f"{self._id}: getting {url}")
+        if url not in self._cache:
+            j = self._resolver(url, path)
+            # FIXME scope?!
+            jm = JsonModel(j, self._resolver, self._defs, url, self._debug)
+            self.set(url, jm)
+        return self._cache[url]
 
     #
     # Merging
