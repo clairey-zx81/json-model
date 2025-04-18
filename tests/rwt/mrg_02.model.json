@@ -1,7 +1,7 @@
 {
   "#": "merge remote references",
   "$": {
-    "T": "_mrg_02",
+    "T": "_cst_02",
     "R": "$./mrg_01",
     "Z": {"e": "$T", "f": "$T"}
   },

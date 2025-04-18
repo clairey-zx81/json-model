@@ -6,6 +6,9 @@ Transformations of a model into another model.
 
 Outline of a possible syntax (WIP)
 
+- `"~"` could be a Model, possibly a reference to a URL
+- add `$REF` to denote a reference?
+
 ```json
 {
   "#": "schema version (FIXME apply rewrites!)",

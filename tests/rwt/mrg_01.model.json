@@ -1,7 +1,7 @@
 {
   "#": "merge local references",
   "$": {
-    "T": "_mrg_01",
+    "T": "_cst_01",
     "X": {"a": "$T", "b": "$T"},
     "Y": {"c": "$T", "d": "$T"}
   },

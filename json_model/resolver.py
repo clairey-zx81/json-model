@@ -56,6 +56,7 @@ class Resolver:
             for fn in [file, file + ".json", file + ".model", file + ".model.json"]:
                 try:
                     with open(fn) as f:
+                        log.info(f"loading: {fn}")
                         self._jsons[url] = j = json.load(f)
                         return j
                 except FileNotFoundError:

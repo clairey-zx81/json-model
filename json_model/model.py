@@ -21,15 +21,17 @@ type Symbols = dict[str, JsonModel]
 
 class Symbols(MutableMapping):
 
-    def __init__(self, mid: int):
-        self._id = mid
+    # keep track of allocated symbol tables
+    lock = threading.RLock()
+    SYMBOLS: list[Symbols] = []
+
+    def __init__(self):
+
+        with Symbols.lock:
+            self._id = len(Symbols.SYMBOLS)
+            Symbols.SYMBOLS.append(self)
+
         self._syms: dict[str, JsonModel] = {}
-        # methods
-        self.__delitem__ = self._syms.__delitem__
-        self.__getitem__ = self._syms.__getitem__
-        self.__setitem__ = self._syms.__setitem__
-        self.__iter__ = self._syms.__iter__
-        self.__len__ = self._syms.__len__
 
     def toJSON(self, rec: bool = False):
         data = {}
@@ -110,13 +112,14 @@ class JsonModel:
 
     # store models
     lock = threading.RLock()
-    MODELS: list[ModelType] = []
+    MODELS: list[JsonModel] = []
 
     def __init__(self,
             model: ModelType,
             resolver: Resolver,
             scope: Symbols|None = None,
             url: str = "",
+            root: bool = True,
             debug: bool = False,
         ):
 
@@ -124,11 +127,14 @@ class JsonModel:
             self._id = len(JsonModel.MODELS)
             JsonModel.MODELS.append(self)
 
+        # unmodified parameters
         self._init_md = model
+        self._resolver = resolver
         self._url = url
+        self._root = root
         self._debug = debug
 
-        # processing
+        # processing (is it useful?)
         self._self_renamed = False
         self._renamed = False
         self._rewritten = False
@@ -137,7 +143,7 @@ class JsonModel:
         self._static_compiled = False
         self._dynamic_compiled = False
 
-        self._resolver = resolver
+        # ???
         self._cache: dict[str, JsonModel] = {}
 
         # copy parameter which may be modified
@@ -188,34 +194,37 @@ class JsonModel:
             del model["%"]
 
         # definitions, possibly shared
-        self._defs = Symbols(self._id)
+        assert root and scope is None or not root and scope is not None
         self._init_dl: dict[str, ModelType] = {}
+        self._defs = Symbols() if root else scope
 
         if isinstance(model, dict) and "$" in model:
+            assert root  # $ only at root
+            dollar = model["$"]
+            assert isinstance(dollar, dict)
             # check that keys are str
-            assert all(map(lambda k: isinstance(k, str), model["$"].keys()))
+            assert all(map(lambda k: isinstance(k, str), dollar.keys()))
             # extract current model identifier if provided
-            if u := model.get(""):
+            if u := dollar.get(""):
                 if not self._isUrlRef(f"${u}"):
                     raise ModelError(f"model identifier should be a url: {u}")
                 if self._url != "" and u != self._url:
                     log.warning(f"inconsistent url identifier: {u}")
-                self._url = u
+                self._url = u  # override
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._defs, self._url + "#" + n, debug)
-                    for n, m in model["$"].items()
+                n: JsonModel(m, resolver, self._defs, self._url + "#" + n, False, debug)
+                    for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
             # keep initial definitions
-            self._init_dl = model["$"]
+            self._init_dl = dollar
             del model["$"]
-        else:
-            self._defs = scope if scope is not None else {"#": f"scope: {self._id}"}
 
         if isinstance(model, dict) and "~" in model:
             version = model["~"]
+            # FIXME should accept a *model*, not just a URL?
             if not isinstance(version, str):
                 raise ModelError(f"invalid model version type: {tname(version)}")
             self._spec = self.get(version, ["~"])
@@ -234,8 +243,8 @@ class JsonModel:
         # TODO process references?
         self.rewrite()
 
-        if self._id == 0:
-            self._global = Symbols(-1)
+        if root:
+            self._global = Symbols()
             self.rootScope(self._global, "", set())
         else:
             self._global = None
@@ -260,7 +269,7 @@ class JsonModel:
                     refs.add(m)
                 return m
 
-            recModel(model, allFlt, dr_rwt)
+            recModel(model, allFlt, dr_rwt, True)
 
             return refs
 
@@ -469,7 +478,7 @@ class JsonModel:
             data["defs"] = self._defs._id
         if self._global:
             data["global"] = {
-                name: jm._id for name, jm in self._global.items()
+                name: f"Symbol {jm._id}" for name, jm in self._global.items()
             }
         return data
 
@@ -540,22 +549,25 @@ class JsonModel:
 
         if "#" in name:
             name, others = name.split("#", 1)
+            if name == "":  # self!
+                name, others = others.split("#", 1)
         else:
             others = None
 
         jm = self
         # log.debug(f"isRef on {jm._id}: {jm.isRef()} / {jm._model}")
         if jm.isRef():
-            path.append(self._model)
             if self._debug:
                 log.debug(f"{self._id}: following model ref {self._model}")
+            path.append(self._model)
             jm = jm.resolveRef(self._model, path)
 
-        log.debug(f"{jm._id}: name={name} defs={list(jm._defs.keys())}")
+        log.debug(f"{jm._id}: name=\"{name}\" defs={list(jm._defs.keys())}")
 
         if name not in jm._defs:
-            log.info(f"{self._id}: creating empty definition {name}")
-            jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, jm._debug)
+            raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
+            # log.info(f"{self._id}: creating empty definition \"{name}\"")
+            # jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, False, jm._debug)
 
         path.append("$" + name)
         jm = jm._defs[name]
@@ -572,6 +584,11 @@ class JsonModel:
         if self._debug:
             log.debug(f"{self._id}: resolveRef {model} at {path}")
 
+        # shortcut for globals?!
+        if self._global and self._isRef(model) and model in self._global:
+            return self._global[model]
+
+        # actual resolution
         while jm._isRef(model):
             if jm._isUrlRef(model):
                 if model in followed:
@@ -624,7 +641,6 @@ class JsonModel:
                     jm.rootScope(symbols, ref[1:], visited)
                 return ref
             elif self._isUrlRef(m):
-                # FIXME does not need to be scoped? Or as a root?
                 if m not in symbols:
                     symbols[m] = self.resolveRef(m, p + [m])
                 return m
@@ -634,7 +650,7 @@ class JsonModel:
         self._model = recModel(self._model, allFlt, rootRwt, True)
 
     #
-    # Sub-model Memoization
+    # URL Model Memoization
     #
     def set(self, url: str, jm: JsonModel):
         """Store JSON Model for URL in cache."""
@@ -646,10 +662,10 @@ class JsonModel:
     def get(self, url: str, path: ModelPath) -> JsonModel:
         """Retrieve JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url}")
+        assert self._isUrlRef("$" + url)
         if url not in self._cache:
             j = self._resolver(url, path)
-            # FIXME scope?!
-            jm = JsonModel(j, self._resolver, self._defs, url, self._debug)
+            jm = JsonModel(j, self._resolver, None, url, True, self._debug)
             self.set(url, jm)
         return self._cache[url]
 
@@ -863,7 +879,7 @@ def test_script():
     log.info(f"processing {args.model}")
     j = resolver(args.model, [])
     # TODO update maps using file path?
-    jm = JsonModel(j, resolver, None, args.model, args.debug)
+    jm = JsonModel(j, resolver, None, args.model, True, args.debug)
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
