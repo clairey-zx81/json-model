@@ -498,6 +498,7 @@ class JsonModel:
                     for n, jm in self._defs.items()
             } if deep else self._init_dl
             if "" not in defs:
+                defs["#"] = f"Symbol {self._defs._id}"
                 defs[""] = self._url
             if isinstance(model, dict):
                 assert "$" not in model
@@ -505,7 +506,7 @@ class JsonModel:
             elif self._debug:
                 model = {
                     "#": f"Debug JsonModel {self._id}",
-                    "$": defs,
+                    "$": defs if deep else f"Symbol {self._defs._id}",
                     "@": model,
                 }
         return model
@@ -885,9 +886,13 @@ def test_script():
             m.optimize()
     if args.debug:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
-    show = [JsonModel.MODELS[0].toModel(True)] + \
-            list(filter(lambda j: isinstance(j, dict),
-                 [jm.toModel(True) for jm in JsonModel.MODELS[1:]]))
+    show = [JsonModel.MODELS[0].toModel(True)]
+    symbols = {JsonModel.MODELS[0]._defs._id}
+    for jm in JsonModel.MODELS[1:]:
+        j = jm.toModel(jm._defs._id not in symbols)
+        symbols.add(jm._defs._id)
+        if isinstance(j, dict):
+            show.append(j)
     print(json.dumps(show, sort_keys=True, indent=2))
 
 # NOTE probably useless
