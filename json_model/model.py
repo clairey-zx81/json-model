@@ -938,19 +938,25 @@ def test_script():
     j = resolver(args.model, [])
     # TODO update maps using file path?
     jm = JsonModel(j, resolver, None, args.model, True, args.debug)
+
     # simplify before merging
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
-    # merge in reverse order to move alts up
+
+    # merge in reverse order to move alts up before inlining
     for m in reversed(JsonModel.MODELS):
         m.merge()
+
     # optimize again?
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
+
     if args.debug:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
+
+    # test output
     show = [JsonModel.MODELS[0].toModel(True)]
     symbols = {JsonModel.MODELS[0]._defs._id}
     for jm in JsonModel.MODELS[1:]:
@@ -959,33 +965,3 @@ def test_script():
         if isinstance(j, dict):
             show.append(j)
     print(json.dumps(show, sort_keys=True, indent=2))
-
-# NOTE probably useless
-# def resolveExtRef(self, resolver: Resolver):
-#     # FIXME keywords?
-#     """Resolve external references."""
-#     for jm in self._defs.values():
-#         jm.resolveExtRef(resolver)
-#     def resRef(model: Jsonable, path: ModelPath) -> Jsonable:
-#         if self._isUrlRef(model):
-#             return resolver(model[1:], path)
-#         else:
-#             return model
-#     self._model = recModel(self._model, lambda _m, _p: True, rwtRef)
-
-# FIXME this imply not sharing, which is not desirable! use prefix with $$?
-# possibly we want to distinguish different models
-# NOTE do we want that?
-# def expandRefs(self):
-#     """Replace short references by absolute references."""
-#     def expandRef(model: Jsonable, path: ModelPath) -> Jsonable:
-#         if self._isRef(model):
-#             if self._isUrlRef(model):
-#                 return model
-#             elif model[1] == "#":
-#                 return self._url + model
-#             else:
-#                 return f"${self._url}#{model[1:]}"
-#         else:
-#             return model
-#     self._model = recModel(self._model, lambda _m, _p: True, expandRef)
