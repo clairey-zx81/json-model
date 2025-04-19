@@ -11,7 +11,7 @@ from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, Mo
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
-from .optim import _structurally_distinct_models
+from .optim import _structurally_distinct_models, merge_objects
 
 # forward declaration
 type JsonModel = typing.NewType("JsonModel", None)
@@ -705,7 +705,7 @@ class JsonModel:
 
         updated = False
 
-        def mi_flt(model: ModelType, path: ModelPath) -> bool:
+        def miFlt(model: ModelType, path: ModelPath) -> bool:
 
             def inline(m: model, p: path):
                 nonlocal updated
@@ -730,7 +730,7 @@ class JsonModel:
 
             return True
 
-        self._model = recModel(self._model, mi_flt, noRwt)
+        self._model = recModel(self._model, miFlt, noRwt)
 
         return updated
 
@@ -739,20 +739,21 @@ class JsonModel:
         def isAlt(m: ModelType) -> bool:
             return isinstance(m, dict) and ("|" in m or "^" in m)
 
-        def distrib_flt(model: ModelType, path: ModelPath) -> ModelType:
+        def mdFlt(model: ModelType, path: ModelPath) -> ModelType:
             # +( |(A B) C ) -> |( +(A C) +(B C) )
 
-            dive = isinstance(model, (list, dict))
+            dive = builtFlt(model, path)
 
-            if not isinstance(model, dict) or "+" not in model:
+            if not isinstance(model, dict) or "+" not in model:  # no merge here
                 return dive
 
             plus, is_xor = model["+"], False
             assert isinstance(plus, list), f"+ type: {tname(plus)}"
 
-            if not any(map(isAlt, plus)):  # nothing to do
+            if not any(map(isAlt, plus)):  # nothing to distribute
                 return dive
 
+            # actual distribution
             lmodels: list[list[ModelType]] = [[]]
             for m in plus:
                 if isAlt(m):
@@ -768,22 +769,35 @@ class JsonModel:
                     for l in lmodels:
                         l.append(m)
 
+            # substitute + by ^ or | in place
             model["^" if is_xor else "|"] = [{"+": l} for l in lmodels]
             del model["+"]
 
             return dive
 
-        self._model = recModel(self._model, distrib_flt, noRwt)
+        self._model = recModel(self._model, mdFlt, noRwt)
 
     def mergeObjects(self):
-        ...
+        """Actually compute and remove operator "+"."""
+
+        def moRwt(model: ModelType, path: ModelPath) -> ModelType:
+            if not isinstance(model, dict) or not "+" in model:
+                return model
+            merged = merge_objects(model["+"], path + ["+"])
+            del model["+"]
+            if len(model) > 0:
+                model["@"] = merged
+            else:
+                model.update(merged)
+            return model
+
+        self._model = recModel(self._model, builtFlt, moRwt)
 
     def merge(self):
         self.mergeInlining()
-        # log.debug(self._model)
         self.mergeDistribute()
         # log.debug(self._model)
-        # self.mergeObjects()
+        self.mergeObjects()
 
     #
     # Rename and Rewrite Transformations
