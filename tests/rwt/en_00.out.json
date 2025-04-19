@@ -14,9 +14,10 @@
   },
   {
     "#": "JsonModel 2",
-    "_#": "",
+    "?#": "",
     "_%": {
-      "/^\\./": ""
+      "#": "dot-prefixed arbitrary key, one or two char keyword values",
+      "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
     },
     "_@": "_$NONE",
     "_~": "_l10n"

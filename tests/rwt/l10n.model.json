@@ -1,7 +1,10 @@
 {
   "#": "JSON Model Subset for Localization Renames",
-  "_#": "",
+  "?#": "",
   "_~": "_l10n",
-  "_%": { "/^\\./": "" },
+  "_%": {
+    "#": "dot-prefixed arbitrary key, one or two char keyword values",
+    "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
+  },
   "_@": "_$NONE"
 }
