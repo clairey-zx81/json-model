@@ -714,12 +714,12 @@ class JsonModel:
                     assert m and m[0] == "$"
                     jm = self.resolveRef(m, p)
                     mo = copy.deepcopy(jm._model)
-                    # substitute local references after inlining if not in same namespace
-                    if self._defs._id != jm._defs._id:
+                    if self._defs._id != jm._defs._id:  # if not in same name space
+                        # substitute local references
                         def subRefRwt(m, p):
                             return jm._gmap[m] if jm._isRef(m) else m
                         return recModel(mo, allFlt, subRefRwt)
-                    else:
+                    else:  # keep as is
                         return mo
                 else:
                     assert isinstance(m, dict)
