@@ -736,29 +736,53 @@ class JsonModel:
 
     def mergeDistribute(self):
 
+        def isAlt(m: ModelType) -> bool:
+            return isinstance(m, dict) and ("|" in m or "^" in m)
+
         def distrib_flt(model: ModelType, path: ModelPath) -> ModelType:
-            # +( |(A B) |(C D) ) -> |( +(A C) +(A D) +(B C) +(B D) )
+            # +( |(A B) C ) -> |( +(A C) +(B C) )
 
-            def has_orxor(m: ModelType) -> bool:
-                if isinstance(m, str) and m and m[0] == "$":
-                    m = self.resolveRef(m, path)._model
-                return isinstance(m, dict) and ("|" in m or "^" in m)
+            dive = isinstance(model, (list, dict))
 
-            if isinstance(model, dict) and "+" in model:
-                lplus = model["+"]
-                if any(map(has_orxor, lplus)):
-                    ...
+            if not isinstance(model, dict) or "+" not in model:
+                return dive
 
-            return model
+            plus, is_xor = model["+"], False
+            assert isinstance(plus, list), f"+ type: {tname(plus)}"
 
-        self._model = _recModel(self._model, distrib_flt, noRwt)
+            if not any(map(isAlt, plus)):  # nothing to do
+                return dive
+
+            lmodels: list[list[ModelType]] = [[]]
+            for m in plus:
+                if isAlt(m):
+                    alts = m["|"] if "|" in m else m["^"]
+                    is_xor |= "^" in m
+                    assert isinstance(alts, list)
+                    lmodels = [
+                        copy.deepcopy(l) + [n]
+                            for l in lmodels
+                                for n in alts
+                    ]
+                else:
+                    for l in lmodels:
+                        l.append(m)
+
+            model["^" if is_xor else "|"] = [{"+": l} for l in lmodels]
+            del model["+"]
+
+            return dive
+
+        self._model = recModel(self._model, distrib_flt, noRwt)
 
     def mergeObjects(self):
         ...
 
     def merge(self):
         self.mergeInlining()
-        # self.mergeDistribute()
+        # log.debug(self._model)
+        self.mergeDistribute()
+        # log.debug(self._model)
         # self.mergeObjects()
 
     #
@@ -904,8 +928,7 @@ def test_script():
     # resolver
     maps: dict[str, str] = {}
     for m in args.maps:
-        if " " not in m:
-            raise Exception(f"invalid map: {m}")
+        assert " " in m, f"valid map require a space: {m}"
         k, v = m.split(" ", 1)
         maps[k] = v
     resolver = Resolver(None, maps)
@@ -914,8 +937,14 @@ def test_script():
     j = resolver(args.model, [])
     # TODO update maps using file path?
     jm = JsonModel(j, resolver, None, args.model, True, args.debug)
-    for m in JsonModel.MODELS:
+    # simplify before merging
+    if args.optimize:
+        for m in JsonModel.MODELS:
+            m.optimize()
+    # merge in reverse order to move alts up
+    for m in reversed(JsonModel.MODELS):
         m.merge()
+    # optimize again?
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
