@@ -703,20 +703,27 @@ class JsonModel:
     #
     def mergeInlining(self):
 
-        def mi_flt(model: ModelType, path: ModelPath) -> bool:
+        updated = False
 
-            updated = False
+        def mi_flt(model: ModelType, path: ModelPath) -> bool:
 
             def inline(m: model, p: path):
                 nonlocal updated
-                if isinstance(m, str):
+                if isinstance(m, str):  # actual inlining
                     updated = True
                     assert m and m[0] == "$"
-                    # FIXME DOES NOT WORK! resolution scope is lost!
-                    return copy.deepcopy(self.resolveRef(m, p)._model)
+                    jm = self.resolveRef(m, p)
+                    mo = copy.deepcopy(jm._model)
+                    # substitute local references after inlining if not in same namespace
+                    if self._defs._id != jm._defs._id:
+                        def subRefRwt(m, p):
+                            return jm._gmap[m] if jm._isRef(m) else m
+                        return recModel(mo, allFlt, subRefRwt)
+                    else:
+                        return mo
                 else:
                     assert isinstance(m, dict)
-                    return m
+                return m
 
             if isinstance(model, dict) and "+" in model:
                 model["+"] = [inline(n, path + ["+", i]) for i, n in enumerate(model["+"])]
@@ -724,6 +731,8 @@ class JsonModel:
             return True
 
         self._model = recModel(self._model, mi_flt, noRwt)
+
+        return updated
 
     def mergeDistribute(self):
 
@@ -905,6 +914,8 @@ def test_script():
     j = resolver(args.model, [])
     # TODO update maps using file path?
     jm = JsonModel(j, resolver, None, args.model, True, args.debug)
+    for m in JsonModel.MODELS:
+        m.merge()
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
