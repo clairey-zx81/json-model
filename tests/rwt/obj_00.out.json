@@ -6,6 +6,6 @@
       "#": "Symbol 1",
       "foo": "$BOOLEAN"
     },
-    "@": "$#foo"
+    "@": "$foo"
   }
 ]

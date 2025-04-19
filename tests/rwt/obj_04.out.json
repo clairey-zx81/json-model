@@ -1,0 +1,21 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./obj_04.model.json",
+      "#": "Symbol 1",
+      "bla": "$./obj_00.model"
+    },
+    "@": "$bla"
+  },
+  {
+    "#": "JsonModel 2",
+    "$": {
+      "": "./obj_00.model",
+      "#": "Symbol 2",
+      "foo": "$fun",
+      "fun": "$BOOLEAN"
+    },
+    "@": "$foo"
+  }
+]

@@ -6,7 +6,7 @@
       "#": "Symbol 1",
       "bla": "$./obj_00#foo"
     },
-    "@": "$#bla"
+    "@": "$bla"
   },
   {
     "#": "JsonModel 2",
@@ -15,6 +15,6 @@
       "#": "Symbol 2",
       "foo": "$BOOLEAN"
     },
-    "@": "$#bla#foo"
+    "@": "$foo"
   }
 ]

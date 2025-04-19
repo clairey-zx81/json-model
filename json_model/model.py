@@ -148,6 +148,9 @@ class JsonModel:
         # ???
         self._cache: dict[str, JsonModel] = {}
 
+        # local to global references
+        self._gmap: dict[str, str] = {}
+
         # copy parameter which may be modified
         model = copy.deepcopy(model)
 
@@ -242,11 +245,10 @@ class JsonModel:
         self._model = model
         self.set(self._url, self)
 
-        # TODO process references?
         self.rewrite()
 
         if self._id == 0:
-            self.rootScope(JsonModel.GLOBALS, "", set())
+            self.scope(JsonModel.GLOBALS, "", set())
 
         # TODO compute "+" and other preprocessing
         # TODO allow skipping?
@@ -466,6 +468,7 @@ class JsonModel:
             "rename": self._name,
             "rewrite": self._rewrite,
             "cached": sorted(self._cache.keys()),
+            "gmap": self._gmap,
         }
         if self.isUrlRef():
             data["external"] = self.get(self._model[1:], []).toJSON()
@@ -535,17 +538,17 @@ class JsonModel:
     def isUrlRef(self) -> bool:
         return self._isUrlRef(self._model)
 
-    def resolveDef(self, name: str, path: ModelPath) -> JsonModel:
+    def resolveDef(self, ref: str, path: ModelPath, create: bool = False) -> JsonModel:
         """Resolve a definition in the current Model.
 
         format: /\\$($URL#)?name/
         """
 
         if self._debug:
-            log.debug(f"{self._id}: resolveDef {name} at {path} (defs: {list(self._defs.keys())})")
+            log.debug(f"{self._id}: resolveDef {ref} at {path} (defs: {list(self._defs.keys())})")
 
-        assert name and name[0] == "$"
-        name = name[1:]
+        assert ref and ref[0] == "$"
+        name = ref[1:]
 
         if "#" in name:
             name, others = name.split("#", 1)
@@ -554,30 +557,43 @@ class JsonModel:
         else:
             others = None
 
-        jm = self
-        # log.debug(f"isRef on {jm._id}: {jm.isRef()} / {jm._model}")
+        log.debug(f"{self._id}: isRef for {ref}: {self.isRef()} / {self._model}")
+
+        if name in self._defs:
+            log.debug(f"{self._id}: {ref} / {self._model} / {self._defs[name]._id} / {self._defs[name]._model}")
+
+        if name in self._defs:
+            jm = self._defs[name]
+            path.append(name)
+        else:
+            jm = self
+
         if jm.isRef():
             if self._debug:
                 log.debug(f"{self._id}: following model ref {self._model}")
-            path.append(self._model)
-            jm = jm.resolveRef(self._model, path)
+            if path:
+                assert path[-1] != jm._model, f"path={path} ref={ref}"
+            path.append(jm._model)
+            jm = jm.resolveRef(self._model, path, create)
 
         log.debug(f"{jm._id}: name=\"{name}\" defs={list(jm._defs.keys())}")
 
         if name not in jm._defs:
-            raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
-            # log.info(f"{self._id}: creating empty definition \"{name}\"")
-            # jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, False, jm._debug)
+            if not create:
+                raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
+            # creation is only allowed while rewriting
+            log.info(f"{self._id}: creating empty definition \"{name}\"")
+            jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, False, jm._debug)
 
         path.append("$" + name)
         jm = jm._defs[name]
 
-        if others:  # None or ""
-            return jm.resolveRef(f"${others}", path)
+        if others:  # not None or ""
+            return jm.resolveRef(f"${others}", path, create)
         else:
             return jm
 
-    def resolveRef(self, model: Jsonable, path: ModelPath) -> JsonModel:
+    def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
         """Resolve references up to an actual model, maybe."""
         jm, initial, followed = self, model, []
 
@@ -585,8 +601,8 @@ class JsonModel:
             log.debug(f"{self._id}: resolveRef {model} at {path}")
 
         # shortcut
-        if self._isRef(model) and model in JsonModel.GLOBALS:
-            return JsonModel.GLOBALS[model]
+        if self._isRef(model) and model in self._gmap:
+            return JsonModel.GLOBALS[self._gmap[model]]
 
         # actual resolution
         while jm._isRef(model):
@@ -600,16 +616,16 @@ class JsonModel:
                     url, model = model[1:], None  # will stop resolution loop
                 jm = jm.get(url, path)
             else:
-                jm = jm.resolveDef(model, path)
+                jm = jm.resolveDef(model, path, create)
                 model = jm._model
 
         return jm
 
     #
-    # Compute the root symbol table.
-    # Move all references to the root scope.
+    # Compute root symbol table: JsonModel.GLOBALS
+    # Compute mapping of local references to global references: self._gmap
     #
-    def rootScope(self, symbols: Symbols, root: str, visited: set[tuple[str, int]]):
+    def scope(self, symbols: Symbols, root: str, visited: set[tuple[str, int]]):
         """Move all local references to the root scope."""
         log.debug(f"scoping {self._defs._id}: {root}")
 
@@ -627,31 +643,33 @@ class JsonModel:
         # override URLs with their target
         if self.isUrlRef():
             jm = self.resolveRef(self._model, [])
-            jm.rootScope(symbols, root, visited)
+            jm.scope(symbols, root, visited)
 
         # handle models's symbol table if not done yet
         sid = ("s", self._defs._id)
         if sid not in visited:
             visited.add(sid)
             for name, jm in self._defs.items():
-                jm.rootScope(symbols, root + "#" + name, visited)
+                jm.scope(symbols, root + "#" + name, visited)
 
-        # substitute local references for global references
+        # update map of local references to global references
         def rootRwt(m: ModelType, p: ModelPath) -> ModelType:
             if self._isSimpleRef(m):
                 ref = root_ref + "#" + m[1:]
                 if ref not in symbols:
                     jm = self.resolveRef(m, p + [m])
                     symbols[ref] = jm
-                    jm.rootScope(symbols, ref[1:], visited)
-                return ref
+                    jm.scope(symbols, ref[1:], visited)
+                if m not in self._gmap:
+                    self._gmap[m] = ref
+                if ref not in self._gmap:  # also accept global references
+                    self._gmap[ref] = ref
             elif self._isUrlRef(m):
                 if m not in symbols:
                     symbols[m] = self.resolveRef(m, p + [m])
-                    # symbols[m].rootScope(symbols, m[1:], visited)
-                return m
-            else:
-                return m
+                if m not in self._gmap:
+                    self._gmap[m] = m
+            return m
 
         self._model = recModel(self._model, allFlt, rootRwt, True)
 
@@ -775,7 +793,7 @@ class JsonModel:
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
         else:
             name, xpath = tpath, []
-        return (self.resolveRef(name, path), xpath)
+        return (self.resolveRef(name, path, True), xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
         return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
