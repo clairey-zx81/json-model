@@ -918,12 +918,13 @@ def test_script():
     ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
     ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
+    ap.add_argument("--quiet", "-q", action="store_true", help="reduce verbosity")
     ap.add_argument("model", help="JSON models to load")
     ap.add_argument("files", nargs="*", help="JSON values to test")
     args = ap.parse_args()
 
     # debug
-    log.setLevel(logging.DEBUG if args.debug else logging.INFO)
+    log.setLevel(logging.DEBUG if args.debug else logging.WARNING if args.quiet else logging.INFO)
 
     # resolver
     maps: dict[str, str] = {}
