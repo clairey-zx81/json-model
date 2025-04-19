@@ -1,0 +1,36 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./obj_03.model.json",
+      "#": "Symbol 1",
+      "foo": "$./obj_02"
+    },
+    "@": "$#foo#ls0"
+  },
+  {
+    "#": "JsonModel 2",
+    "$": {
+      "": "https://json-model.org/tests/obj_02",
+      "#": "Symbol 2",
+      "lb0": [
+        "$BOOL"
+      ],
+      "lf0": [
+        0.0
+      ],
+      "li0": [
+        0
+      ],
+      "ls0": [
+        "$DATE"
+      ]
+    },
+    "|": [
+      "$#foo#li0",
+      "$#foo#ls0",
+      "$#foo#lb0",
+      "$#foo#lf0"
+    ]
+  }
+]

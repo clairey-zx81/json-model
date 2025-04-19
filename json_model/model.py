@@ -113,6 +113,9 @@ class JsonModel:
     lock = threading.RLock()
     MODELS: list[JsonModel] = []
 
+    # FIXME unsure whether we really want that
+    GLOBALS: Symbols = Symbols()
+
     def __init__(self,
             model: ModelType,
             resolver: Resolver,
@@ -223,7 +226,7 @@ class JsonModel:
 
         if isinstance(model, dict) and "~" in model:
             version = model["~"]
-            # FIXME should accept a *model*, not just a URL?
+            # FIXME should accept a *model*, not just a URL? or not?
             if not isinstance(version, str):
                 raise ModelError(f"invalid model version type: {tname(version)}")
             self._spec = self.get(version, ["~"])
@@ -243,10 +246,7 @@ class JsonModel:
         self.rewrite()
 
         if self._id == 0:
-            self._global = Symbols()
-            self.rootScope(self._global, "", set())
-        else:
-            self._global = None
+            self.rootScope(JsonModel.GLOBALS, "", set())
 
         # TODO compute "+" and other preprocessing
         # TODO allow skipping?
@@ -475,9 +475,9 @@ class JsonModel:
             }
         else:
             data["defs"] = self._defs._id
-        if self._id == 0 and self._global:
-            data["global"] = {
-                name: f"Symbol {jm._id}" for name, jm in self._global.items()
+        if self._id == 0:
+            data["globals"] = {
+                name: f"Symbol {jm._id}" for name, jm in JsonModel.GLOBALS.items()
             }
         return data
 
@@ -584,9 +584,9 @@ class JsonModel:
         if self._debug:
             log.debug(f"{self._id}: resolveRef {model} at {path}")
 
-        # shortcut for globals?!
-        if self._global and self._isRef(model) and model in self._global:
-            return self._global[model]
+        # shortcut
+        if self._isRef(model) and model in JsonModel.GLOBALS:
+            return JsonModel.GLOBALS[model]
 
         # actual resolution
         while jm._isRef(model):
@@ -623,7 +623,6 @@ class JsonModel:
 
         root_ref = "$" + root
         symbols[root_ref] = self
-        self._global = symbols
 
         # override URLs with their target
         if self.isUrlRef():
@@ -669,7 +668,8 @@ class JsonModel:
     def get(self, url: str, path: ModelPath) -> JsonModel:
         """Retrieve JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url}")
-        assert self._isUrlRef("$" + url)
+        if self._debug and not self._isUrlRef("$" + url):
+            log.debug(f"loading non explicit url: {url}")
         if url not in self._cache:
             j = self._resolver(url, path)
             jm = JsonModel(j, self._resolver, None, url, True, self._debug)

@@ -3,11 +3,13 @@
     "#": "JsonModel 0",
     "$": {
       "": "./mrg_01.model.json",
-      "T": "_mrg_01",
+      "#": "Symbol 1",
+      "T": "_cst_01",
       "X": {
         "#": "JsonModel 2",
         "$": {
-          "": "./mrg_01.model.json#X"
+          "": "./mrg_01.model.json#X",
+          "#": "Symbol 1"
         },
         "a": "$#X#T",
         "b": "$#X#T"
@@ -15,7 +17,8 @@
       "Y": {
         "#": "JsonModel 3",
         "$": {
-          "": "./mrg_01.model.json#Y"
+          "": "./mrg_01.model.json#Y",
+          "#": "Symbol 1"
         },
         "c": "$#Y#T",
         "d": "$#Y#T"
@@ -30,23 +33,7 @@
     "#": "JsonModel 2",
     "$": {
       "": "./mrg_01.model.json#X",
-      "T": "_mrg_01",
-      "X": {
-        "#": "JsonModel 2",
-        "$": {
-          "": "./mrg_01.model.json#X"
-        },
-        "a": "$#X#T",
-        "b": "$#X#T"
-      },
-      "Y": {
-        "#": "JsonModel 3",
-        "$": {
-          "": "./mrg_01.model.json#Y"
-        },
-        "c": "$#Y#T",
-        "d": "$#Y#T"
-      }
+      "#": "Symbol 1"
     },
     "a": "$#X#T",
     "b": "$#X#T"
@@ -55,23 +42,7 @@
     "#": "JsonModel 3",
     "$": {
       "": "./mrg_01.model.json#Y",
-      "T": "_mrg_01",
-      "X": {
-        "#": "JsonModel 2",
-        "$": {
-          "": "./mrg_01.model.json#X"
-        },
-        "a": "$#X#T",
-        "b": "$#X#T"
-      },
-      "Y": {
-        "#": "JsonModel 3",
-        "$": {
-          "": "./mrg_01.model.json#Y"
-        },
-        "c": "$#Y#T",
-        "d": "$#Y#T"
-      }
+      "#": "Symbol 1"
     },
     "c": "$#Y#T",
     "d": "$#Y#T"

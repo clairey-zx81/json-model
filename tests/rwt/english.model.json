@@ -1,12 +1,17 @@
 {
-  "#": "Some English…",
-  "~": "./l10n",
+  "#": "English Keywords",
+  "~": "l10n",
   "%": {
     ".model": "@",
     ".defs": "$",
+    ".trafo": "%",
     ".or": "|",
     ".and": "&",
-    ".xor": "^"
+    ".xor": "^",
+    ".merge": "+",
+    ".unique": "!",
+    ".del": "/",
+    ".add": "*"
   },
   "@": "$NONE"
 }
