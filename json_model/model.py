@@ -15,8 +15,6 @@ from .optim import _structurally_distinct_models
 
 # forward declaration
 type JsonModel = typing.NewType("JsonModel", None)
-
-# class?
 type Symbols = dict[str, JsonModel]
 
 class Symbols(MutableMapping):
@@ -34,11 +32,12 @@ class Symbols(MutableMapping):
         self._syms: dict[str, JsonModel] = {}
 
     def toJSON(self, rec: bool = False):
-        data = {}
-        data["#"] = f"symbol: {self._id}"
-        # data[""] = self._url
         if rec:
-            data.update(**{n: jm.toJSON(rec) for n, jm in self.items()})
+            data = {}
+            data["#"] = f"Symbols {self._id}"
+            data.update({n: jm.toJSON(rec) for n, jm in self.items()})
+        else:
+            data = f"Symbols {self._id}"
         return data
 
     def __setitem__(self, k, v):
@@ -243,7 +242,7 @@ class JsonModel:
         # TODO process references?
         self.rewrite()
 
-        if root:
+        if self._id == 0:
             self._global = Symbols()
             self.rootScope(self._global, "", set())
         else:
@@ -476,7 +475,7 @@ class JsonModel:
             }
         else:
             data["defs"] = self._defs._id
-        if self._global:
+        if self._id == 0 and self._global:
             data["global"] = {
                 name: f"Symbol {jm._id}" for name, jm in self._global.items()
             }
@@ -624,6 +623,12 @@ class JsonModel:
 
         root_ref = "$" + root
         symbols[root_ref] = self
+        self._global = symbols
+
+        # override URLs with their target
+        if self.isUrlRef():
+            jm = self.resolveRef(self._model, [])
+            jm.rootScope(symbols, root, visited)
 
         # handle models's symbol table if not done yet
         sid = ("s", self._defs._id)
@@ -644,6 +649,7 @@ class JsonModel:
             elif self._isUrlRef(m):
                 if m not in symbols:
                     symbols[m] = self.resolveRef(m, p + [m])
+                    # symbols[m].rootScope(symbols, m[1:], visited)
                 return m
             else:
                 return m
