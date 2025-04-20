@@ -331,7 +331,7 @@ class JsonModel:
 
         changed = False
 
-        def flatten_rwt(model: ModelType, path: ModelPath) -> ModelType:
+        def flatRwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
             for op in ("|", "&", "^", "+"):
                 if isinstance(model, dict) and op in model:
@@ -352,14 +352,13 @@ class JsonModel:
                         model[op] = nmodels
             return model
 
-        self._model = recModel(self._model, builtFlt, flatten_rwt)
+        self._model = recModel(self._model, builtFlt, flatRwt)
 
         return changed
 
-    # TODO inline defs
-    def inline(self):
-
-        return False
+    # TODO inline defs under some condition?
+    # def inline(self):
+    #     return False
 
     def eval(self):
         """Model partial evaluation."""
@@ -374,14 +373,14 @@ class JsonModel:
             return type(i) == type(j) and i == j
 
         def deduplicate(l):
-            # return list(set(l))
+            # return list(set(l))  # too easy: {True, 1} == {True}
             n = []
             for i in l:
                 if not any(map(lambda x: real_equal(x, i), n)):
                     n.append(i)
             return n
 
-        def eval_rwt(model: ModelType, path: ModelPath) -> ModelType:
+        def evalRwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
             if isinstance(model, dict):
                 if "|" in model:
@@ -398,7 +397,6 @@ class JsonModel:
                     if len(lor) == 1:
                         changed = True
                         return lor[0]
-                    # TODO remove duplicates
                 elif "&" in model:
                     land = model["&"]
                     if len(land) == 0:
@@ -442,12 +440,12 @@ class JsonModel:
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
             return model
 
-        self._model = recModel(self._model, builtFlt, eval_rwt)
+        self._model = recModel(self._model, builtFlt, evalRwt)
 
         return changed
 
     def optimize(self):
-        self.inline()
+        # self.inline()
         changed = True
         while changed:
             changed = False
