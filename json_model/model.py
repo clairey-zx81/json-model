@@ -17,7 +17,7 @@ from .optim import _structurally_distinct_models, merge_objects
 type JsonModel = typing.NewType("JsonModel", None)
 type Symbols = dict[str, JsonModel]
 
-class Symbols(MutableMapping):
+class Symbols(MutableMapping[str, JsonModel]):
 
     # keep track of allocated symbol tables
     lock = threading.RLock()

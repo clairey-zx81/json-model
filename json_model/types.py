@@ -22,6 +22,8 @@ type CheckFun = Callable[[Any, str], bool]
 type KeyCheckFun = Callable[[str, Any, str], bool|None]
 type Compiler = Callable[[ModelType, str], CheckFun|None]
 
+type ModelCheckFun = Callable[[ValueType, JsonPath], bool]
+
 
 class ModelError(BaseException):
     pass
