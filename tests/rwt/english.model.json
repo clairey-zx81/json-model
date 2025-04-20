@@ -1,6 +1,6 @@
 {
   "#": "English Keywords",
-  "~": "l10n",
+  "~": "https://json-model.org/models/l10n",
   "%": {
     ".model": "@",
     ".defs": "$",

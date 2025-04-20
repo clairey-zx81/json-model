@@ -107,14 +107,14 @@ def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     return False
 
 
-def split_object(model: JsonObject, path: str) -> tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
+def split_object(model: JsonObject, path: ModelPath) -> tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
     """Split properties in must/may/refs/regs/other cases."""
 
     if not isinstance(model, dict):
-        raise ModelError(f"unexpected + model: {model} [{path}]")
+        raise ModelError(f"unexpected + model: {model} {path}")
 
     if "@" in model or "|" in model or "^" in model or "+" in model or "&" in model:
-        raise ModelError(f"unexpected + model: {model} [{path}]")
+        raise ModelError(f"unexpected + model: {model} {path}")
 
     # FIXME should it be lists to keep the initial order?
     must, may, refs, regs, others = {}, {}, {}, {}, {"": model[""]} if "" in model else {}
@@ -123,25 +123,25 @@ def split_object(model: JsonObject, path: str) -> tuple[JsonObject, JsonObject, 
     for key, val in model.items():
 
         if not isinstance(key, str):
-            raise ModelError(f"object proprety name must be a str: {type(key)} [{path}.{key}]")
+            raise ModelError(f"object proprety name must be a str: {tname(key)} {path + [key]}")
 
         # some (late) sanity check
         if key in ("$", "%", "#", ""):
             if key == "%" and not isinstance(val, dict):
-                raise ModelError(f"{key} value must be an object: {type(key)} [{path}.{key}]")
+                raise ModelError(f"{key} value must be an object: {tname(key)} {path + [key]}")
             if key == "#" and not isinstance(val, (str, dict)):
                 raise ModelError(
-                    f"{key} value must be string or object: {type(key)} [{path}.{key}]"
+                    f"{key} value must be string or object: {tname(key)} {path + [key]}"
                 )
             if key == "$" and not isinstance(val, str):
-                raise ModelError(f"{key} value must be string: {type(key)} [{path}.{key}]")
+                raise ModelError(f"{key} value must be string: {tname(key)} {path + [key]}")
             # ignore anyway
             continue
 
         c, name = key[0], key[1:]
 
         if c in ("_", "!", "?") and (name in must or name in may):
-            raise ModelError(f"multiply defined property: {name} [{path}.{key}]")
+            raise ModelError(f"multiply defined property: {name} {path + [key]}")
 
         if c == "_" or c == "!":
             must[name] = val
@@ -155,7 +155,7 @@ def split_object(model: JsonObject, path: str) -> tuple[JsonObject, JsonObject, 
             regs[name[:-1]] = val
         else:
             if key in must or key in may:
-                raise ModelError(f"multiply defined property: {name} [{path}.{key}]")
+                raise ModelError(f"multiply defined property: {name} {path + [key]}")
             must[key] = val
 
     return must, may, refs, regs, others

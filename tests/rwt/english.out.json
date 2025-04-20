@@ -1,7 +1,8 @@
 [
   {
     "#": "JsonModel 0",
-    "@": "$NONE"
+    "@": "$NONE",
+    "~": "https://json-model.org/models/l10n"
   },
   {
     "#": "JsonModel 1",
@@ -11,6 +12,6 @@
       "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
     },
     "_@": "_$NONE",
-    "_~": "_l10n"
+    "_~": "_https://json-model.org/models/l10n"
   }
 ]

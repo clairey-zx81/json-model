@@ -6,11 +6,13 @@
         0,
         0.0
       ]
-    }
+    },
+    "~": "fran\u00e7ais"
   },
   {
     "#": "JsonModel 1",
-    "@": "$NONE"
+    "@": "$NONE",
+    "~": "https://json-model.org/models/l10n"
   },
   {
     "#": "JsonModel 2",
@@ -20,6 +22,6 @@
       "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
     },
     "_@": "_$NONE",
-    "_~": "_l10n"
+    "_~": "_https://json-model.org/models/l10n"
   }
 ]

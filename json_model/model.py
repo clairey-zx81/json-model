@@ -1,5 +1,3 @@
-# TODO sharing until transformed?
-
 import copy
 import re
 import logging
@@ -11,6 +9,7 @@ from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, Mo
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
+# FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
 
 # forward declaration
@@ -19,6 +18,7 @@ type Symbols = dict[str, JsonModel]
 
 
 class Symbols(MutableMapping[str, JsonModel]):
+    """JSON Model Symbol Table."""
 
     # keep track of allocated symbol tables
     lock = threading.RLock()
@@ -33,6 +33,7 @@ class Symbols(MutableMapping[str, JsonModel]):
         self._syms: dict[str, JsonModel] = {}
 
     def toJSON(self, rec: bool = False):
+        """Display as JSON."""
         if rec:
             data = {}
             data["#"] = f"Symbols {self._id}"
@@ -55,6 +56,7 @@ class Symbols(MutableMapping[str, JsonModel]):
 
     def __iter__(self):
         return self._syms.__iter__()
+
 
 class JsonModel:
     """JSON Model v2."""
@@ -230,11 +232,16 @@ class JsonModel:
 
         if isinstance(model, dict) and "~" in model:
             version = model["~"]
+            del model["~"]
             # FIXME should accept a *model*, not just a URL? or not?
             if not isinstance(version, str):
                 raise ModelError(f"invalid model version type: {tname(version)}")
-            self._spec = self.get(version, ["~"])
-            del model["~"]
+            log.debug(f"url={url} version={version}")
+            # FIXME prevent all recursions
+            if version != self._url:  # prevent direct recursion
+                self._spec = self.get(version, ["~"])
+            else:
+                self._spec = self
         else:
             # FIXME add a default?
             self._spec = None
@@ -498,17 +505,15 @@ class JsonModel:
             }
         return data
 
-    # FIXME this is **not** very clean because $/% can appear inside defs
+    # FIXME this is **not** very clean, should be a valid model?!
     def toModel(self, deep: bool = False) -> Jsonable:
-        """Return JSON Model for display."""
-        # log.debug(f"toModel on {self._model}")
+        """Return JSON Model (more or less) for display."""
         model = copy.deepcopy(self._model)
         if isinstance(model, dict):
             if "#" in model:
                 del model["#"]
             model["#"] = f"JsonModel {self._id}"
         if self._defs:
-            # log.info(f"defs: {self._defs}")
             defs = {
                 n: jm.toModel() if isinstance(jm, JsonModel) else jm
                     for n, jm in self._defs.items()
@@ -525,6 +530,8 @@ class JsonModel:
                     "$": defs if deep else f"Symbol {self._defs._id}",
                     "@": model,
                 }
+        if self._spec and isinstance(model, dict):
+            model["~"] = self._spec._url
         return model
 
     #
@@ -688,7 +695,7 @@ class JsonModel:
         self._model = recModel(self._model, allFlt, rootRwt, True)
 
     #
-    # URL Model Memoization
+    # URL Model Memoization (??)
     #
     def set(self, url: str, jm: JsonModel):
         """Store JSON Model for URL in cache."""
@@ -750,11 +757,14 @@ class JsonModel:
 
     def mergeDistribute(self):
 
+        updated = False
+
         def isAlt(m: ModelType) -> bool:
             return isinstance(m, dict) and ("|" in m or "^" in m)
 
         def mdFlt(model: ModelType, path: ModelPath) -> ModelType:
             # +( |(A B) C ) -> |( +(A C) +(B C) )
+            nonlocal updated
 
             dive = builtFlt(model, path)
 
@@ -768,6 +778,8 @@ class JsonModel:
                 return dive
 
             # actual distribution
+            updated = True
+
             lmodels: list[list[ModelType]] = [[]]
             for m in plus:
                 if isAlt(m):
@@ -791,12 +803,18 @@ class JsonModel:
 
         self._model = recModel(self._model, mdFlt, noRwt)
 
+        return updated
+
     def mergeObjects(self):
         """Actually compute and remove operator "+"."""
 
+        updated = False
+
         def moRwt(model: ModelType, path: ModelPath) -> ModelType:
+            nonlocal updated
             if not isinstance(model, dict) or not "+" in model:
                 return model
+            updated = True
             merged = merge_objects(model["+"], path + ["+"])
             del model["+"]
             if len(model) > 0:
@@ -807,24 +825,34 @@ class JsonModel:
 
         self._model = recModel(self._model, builtFlt, moRwt)
 
+        return updated
+
     def merge(self):
-        self.mergeInlining()
 
-        if self._debug:
+        # NOTE after distribution, more inlining may be required
+        # +( |( $A, {.1.} ), {.2.} ) -> |( +( $A, {.2.} ), +( {.1.}, {.2.} ) )
+        updated = True
+        while updated:
+            self.mergeInlining()
+            updated = self.mergeDistribute()
 
-            # only objects under "+"
+        if self._debug:  # check merge precondition
+
+            def is_object(m: ModelType) -> bool:  # NOTE "+" is allowed
+                return isinstance(m, dict) and not ("@" in m or "|" in m or "^" in m or "&" in m)
+
             def merge_on_objects(model: ModelType, path: ModelPath) -> bool:
                 if isinstance(model, dict) and "+" in model:
                     assert isinstance(plus := model["+"], list)  # sanity
-                    return all(map(lambda m: isinstance(m, dict), plus))
+                    return all(map(is_object, plus))
                 return True
 
-            assert self.check(merge_on_objects)
+            assert self.check(merge_on_objects, "only objects under +")
 
-        self.mergeDistribute()
         self.mergeObjects()
+
         if self._debug:
-            assert self.check(lambda m, _: not isinstance(m, dict) and "+" in m)
+            assert self.check(lambda m, _: not isinstance(m, dict) or "+" not in m)
 
     #
     # Rename and Rewrite Transformations

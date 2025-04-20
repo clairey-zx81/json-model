@@ -1,10 +1,10 @@
 {
-  "#": "Self-Validating JSON Model v2 (WIP)",
-  "~": "https://json-model.org/json-model-v2",
+  "#": "Self-Validating JSON Model",
+  "~": "https://json-model.org/models/json-model-v2",
   "$": {
     "#": "Definitions, without predefs of any kind",
-    "": "https://json-model.org/json-model-v2",
-    "URL": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+    "": "https://json-model.org/models/json-model-v2",
+    "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
     "Val": { "|":  [ null, true, -1, -1.0, "" ] },
     "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
     "None": { "|": [ ] },
@@ -50,15 +50,15 @@
       ]
     },
     "Model": { "|": [ "$Val", "$Array", "$Elem" ] },
-    "Defs": { "": "$Model" },
+    "Defs": { "/.+/": "$Model" },
     "Rename": { "/^\\..*$/": "/^([|&^+/*@~<>=!]|<=|>=|!=)$/" },
-    "Rewrite": { "": "$Trafo" },
+    "Rewrite": { "/^\\$.*$/": "$Trafo" },
     "Root": {
       "+": [
         {
           "#": "Special keywords only at the root of a model",
-          "?~": "$URL",
-          "?$": { "+": [ "$Comment", { "?": "$URL", "?$": "$URL" }, "$Defs" ] },
+          "?~": "$Url",
+          "?$": { "+": [ "$Comment", { "?": "$Url" }, "$Defs" ] },
           "?%": { "+": [ "$Comment", "$Rename", "$Rewrite" ] }
         },
         "$Elem"
