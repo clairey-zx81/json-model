@@ -419,53 +419,58 @@ class JsonModel:
     def xor_to_or(self):
         """Change xor to less coslty or if possible."""
 
-        changed = False
+        changes = 0
 
         def x2oRwt(model: ModelType, path: ModelPath) -> ModelType:
-            nonlocal changed
+            nonlocal changes
             if isinstance(model, dict) and "^" in model:
                 xor = model["^"]
                 assert isinstance(xor, list) and "|" not in model
                 # TODO handle distinct constants, eg "=1", "=2"…
                 if _structurally_distinct_models(xor, self._defs, path + ["^"]):
-                    changed = True
+                    changes += 1
                     del model["^"]
                     model["|"] = xor
             return model
 
         self._model = recModel(self._model, builtFlt, x2oRwt)
 
-        return changed
+        log.debug(f"{self._id}: x2o {changes}")
+
+        return changes > 0
 
     def flatten(self):
         """Flatten or, xor, and and merge operators."""
 
-        changed = False
+        changes = 0
 
         def flatRwt(model: ModelType, path: ModelPath) -> ModelType:
-            nonlocal changed
+            nonlocal changes
             for op in ("|", "&", "^", "+"):
                 if isinstance(model, dict) and op in model:
-                    models = model[op]
+                    models, updated = model[op], False
                     assert isinstance(models, list)
                     nmodels = []
                     # NOTE empty lists are handled in eval
                     if len(models) == 1:
-                        changed = True
+                        changes += 1
                         return models[0]
                     for m in models:
                         if isinstance(m, dict) and op in m:
-                            changed = True
+                            changes += 1
+                            updated = True
                             nmodels.extend(m[op])
                         else:
                             nmodels.append(m)
-                    if changed:
+                    if updated:
                         model[op] = nmodels
             return model
 
         self._model = recModel(self._model, builtFlt, flatRwt)
 
-        return changed
+        log.debug(f"{self._id}: flatten {changes}")
+
+        return changes > 0
 
     # TODO inline defs under some condition?
     # def inline(self):
@@ -474,7 +479,7 @@ class JsonModel:
     def eval(self):
         """Model partial evaluation."""
 
-        changed = False
+        changes = 0
 
         # helpers
         def empty_obj(o):
@@ -492,68 +497,70 @@ class JsonModel:
             return n
 
         def evalRwt(model: ModelType, path: ModelPath) -> ModelType:
-            nonlocal changed
+            nonlocal changes
             if isinstance(model, dict):
                 if "|" in model:
                     lor = model["|"]
                     if len(lor) == 0:
-                        changed = True
+                        changes += 1
                         return "$NONE"
                     elif "$ANY" in lor:
-                        changed = True
+                        changes += 1
                         return "$ANY"
                     elif len(l := deduplicate(lor)) != len(lor):
-                        changed = True
+                        changes += 1
                         model["|"] = lor = l
                     if len(lor) == 1:
-                        changed = True
+                        changes += 1
                         return lor[0]
                 elif "&" in model:
                     land = model["&"]
                     if len(land) == 0:
-                        changed = True
+                        changes += 1
                         return "$ANY"
                     elif "$NONE" in land:
-                        changed = True
+                        changes += 1
                         return "$NONE"
                     elif len(l := deduplicate(land)) != len(land):
-                        changed = True
+                        changes += 1
                         model["&"] = land = l
                     if len(land) == 1:
-                        changed = True
+                        changes += 1
                         return land[0]
                 elif "^" in model:
                     lxor = model["^"]
                     if len(lxor) == 0:
-                        changed = True
+                        changes += 1
                         return "$NONE"
                     elif len(lxor) == 1:
-                        changed = True
+                        changes += 1
                         return lxor[0]
                     elif "$NONE" in lxor:
-                        changed = True
+                        changes += 1
                         model["^"] = list(filter(lambda m: m != "$NONE", lxor))
                     elif len(list(filter(lambda m: m == "$ANY", lxor))) >= 2:
-                        changed = True
+                        changes += 1
                         return "$NONE"
                     # TODO more cleanups
                     # ^(A A ...) = ^(...) ? not so, depends on inclusions?
                 elif "+" in model:
                     lplus = model["+"]
                     if len(lplus) == 0:  # {"+": []} == {}
-                        changed = True
+                        changes += 1
                         del model["+"]
                     elif len(lplus) == 1:
-                        changed = True
+                        changes += 1
                         return lplus[0]
                     elif any(map(empty_obj, lplus)):
-                        changed = True
+                        changes += 1
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
             return model
 
         self._model = recModel(self._model, builtFlt, evalRwt)
 
-        return changed
+        log.debug(f"{self._id}: eval {changes}")
+
+        return changes > 0
 
     def optimize(self):
         # self.inline()
