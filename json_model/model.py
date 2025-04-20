@@ -7,7 +7,7 @@ import typing
 from collections.abc import MutableMapping
 import threading
 
-from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, Jsonable
+from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter, Jsonable
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
@@ -16,6 +16,7 @@ from .optim import _structurally_distinct_models, merge_objects
 # forward declaration
 type JsonModel = typing.NewType("JsonModel", None)
 type Symbols = dict[str, JsonModel]
+
 
 class Symbols(MutableMapping[str, JsonModel]):
 
@@ -302,6 +303,21 @@ class JsonModel:
 
         return reached
 
+    def check(self, assertion: ModelFilter, what: str = "?", short: bool = False) -> bool:
+        """Check an arbitrary local assertion on a model."""
+
+        okay = True
+
+        def checkFlt(model: ModelType, path: ModelPath) -> bool:
+            nonlocal okay
+            if not assertion(model, path):
+                log.info(f"{self._id}: check {what} failed at {path}")
+                okay = False
+            return okay if short else True
+
+        recModel(self._model, checkFlt, noRwt, True)
+
+        return okay
     #
     # Optimizations
     #
@@ -310,7 +326,7 @@ class JsonModel:
 
         changed = False
 
-        def x2o_rwt(model: ModelType, path: ModelPath) -> ModelType:
+        def x2oRwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changed
             if isinstance(model, dict) and "^" in model:
                 xor = model["^"]
@@ -322,7 +338,7 @@ class JsonModel:
                     model["|"] = xor
             return model
 
-        self._model = recModel(self._model, builtFlt, x2o_rwt)
+        self._model = recModel(self._model, builtFlt, x2oRwt)
 
         return changed
 
@@ -794,8 +810,9 @@ class JsonModel:
     def merge(self):
         self.mergeInlining()
         self.mergeDistribute()
-        # log.debug(self._model)
         self.mergeObjects()
+        if self._debug:
+            assert self.check(lambda m, _: not isinstance(m, dict) and "+" in m)
 
     #
     # Rename and Rewrite Transformations
