@@ -102,14 +102,15 @@ class JsonModel:
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
         "REGEX": "",  # FIXME
         # to be continued…
-        "optBOOL": {"|": [None, "$BOOL"]},
-        "optINT": {"|": [None, "$INT"]},
-        "optFLOAT": {"|": [None, "$FLOAT"]},
-        "optNUMBER": {"|": [None, "$NUMBER"]},
-        "optSTRING": {"|": [None, "$STRING"]},
-        "optURL": {"|": [None, "$URL"]},
-        "optDATE": {"|": [None, "$DATE"]},
-        "optREGEX": {"|": [None, "$REGEX"]},
+        # o = optional
+        "oBOOL": {"|": [None, "$BOOL"]},
+        "oINT": {"|": [None, "$INT"]},
+        "oFLOAT": {"|": [None, "$FLOAT"]},
+        "oNUMBER": {"|": [None, "$NUMBER"]},
+        "oSTRING": {"|": [None, "$STRING"]},
+        "oURL": {"|": [None, "$URL"]},
+        "oDATE": {"|": [None, "$DATE"]},
+        "oREGEX": {"|": [None, "$REGEX"]},
         # to be continued…
     }
 
