@@ -351,6 +351,7 @@ class JsonModel:
                     is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
                 elif model[0] == "/":
                     is_valid &= model.endswith("/") or mode.endswith("/i")
+                    # TODO check re validity
                 else:  # TODO more checks
                     pass
             elif isinstance(model, list):
@@ -1114,6 +1115,11 @@ def test_script():
     j = resolver(args.model, [])
     # TODO update maps using file path? and declared url
     jm = JsonModel(j, resolver, None, args.model, True, args.debug)
+
+    # initial sanity check
+    if args.debug or args.check:
+        for jm in JsonModel.MODELS:
+            assert jm.valid()
 
     # simplify before merging
     if args.optimize:
