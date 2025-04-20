@@ -3,12 +3,13 @@
 # JSON Model Compiler
 JMC = jm-test
 
-# inputs
+# inputs, skip _*
 F.model = $(wildcard [a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived
-F.out   = $(F.root:%=%.out.json)
+F.test  = $(F.root:%=%.test.json)
+F.pp   = $(F.root:%=%.pp.json)
 
 .PHONY: check
 check:
@@ -17,10 +18,13 @@ check:
 
 .PHONY: clean
 clean:
-	$(RM) $(F.out)
+	$(RM) $(F.test) $(F.pp)
 
 .PHONY: gen
-gen: $(F.out)
+gen: $(F.test) $(F.pp)
 
-%.out.json: %.model.json
-	$(JMC) -m "https://json-model.org/models ." -O ./$< > $@
+%.test.json: %.model.json
+	$(JMC) -m "https://json-model.org/models ." -T -O ./$< > $@
+
+%.pp.json: %.model.json
+	$(JMC) -m "https://json-model.org/models ." -E -O ./$< > $@

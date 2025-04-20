@@ -1,0 +1,10 @@
+{
+  "#": "JsonModel 0",
+  "?#": "",
+  "_%": {
+    "#": "dot-prefixed arbitrary key, one or two char keyword values",
+    "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
+  },
+  "_@": "_$NONE",
+  "_~": "_https://json-model.org/models/l10n"
+}
