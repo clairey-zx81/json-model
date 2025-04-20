@@ -1,5 +1,6 @@
 import copy
 import re
+import sys
 import logging
 import typing
 from collections.abc import MutableMapping
@@ -327,6 +328,89 @@ class JsonModel:
         recModel(self._model, checkFlt, noRwt, True)
 
         return okay
+
+    def valid(self, path: ModelPath = [], root: bool = True) -> bool:
+        """Check JSON Model structural validity."""
+
+        is_valid = True
+
+        def validFlt(model: ModelType, path: ModelPath) -> bool:
+            nonlocal is_valid
+            if model is None:
+                pass
+            elif isinstance(model, bool):
+                is_valid &= model == True
+            elif isinstance(model, int):
+                is_valid &= model in (-1, 0, 1)
+            elif isinstance(model, float):
+                is_valid &= model in (-1.0, 0.0, 1.0)
+            elif isinstance(model, str):
+                if model == "":
+                    pass
+                elif model[0] == "=":
+                    pass  # TODO
+                elif model[0] == "/":
+                    is_valid &= model.endswith("/") or mode.endswith("/i")
+                # TODO more checks
+            elif isinstance(model, list):
+                pass
+            elif isinstance(model, dict):
+                if "#" in model:
+                    is_valid &= isinstance(model["#"], str)
+                if "@" in model:
+                    pass  # TODO contraint keys
+                elif "|" in model:
+                    is_valid &= isinstance(model["|"], list)
+                    # no other keys
+                elif "^" in model:
+                    is_valid &= isinstance(model["^"], list)
+                    # no other keys
+                elif "&" in model:
+                    is_valid &= isinstance(model["&"], list)
+                    # no other keys
+                elif "+" in model:
+                    is_valid &= isinstance(model["+"], list)
+                    # no other keys
+                else:  # check object
+                    for p, m in model.items():
+                        is_valid &= isinstance(p, str)
+                        # more checks on p if p[0] == "$"
+            else:  # unexpected type
+                is_valid = False
+            return False
+
+        # check root-specific keywords
+        if root and isinstance(self._model, dict):
+            if "~" in self._model:
+                is_valid &= isinstance(self._model["~"], str)  # and url
+            if "$" in self._model:
+                is_valid &= isinstance(defs := self._model["$"], dict)
+                if is_valid:
+                    for p, m in defs.items():
+                        is_valid &= isinstance(p, str)
+                        if p in ("", "#"):
+                            is_valid &= isinstance(m, str)
+                            # TODO "" expects an URL
+                        else:
+                            is_valid &= self.valid(m, ["$", p], False)
+            if "%" in self._model:
+                is_valid &= isinstance(trafo := self._model["%"], dict)
+                if is_valid:
+                    for p, t in trafo.items():
+                        is_valid &= isinstance(p, str)
+                        if p == "#":
+                            is_valid &= isinstance(t, str)
+                        else:
+                            is_valid &= isinstance(t, dict)
+                            # TODO more checks on t
+
+        if is_valid:
+            self.check(validFlt, "JSON Model Structural Validity")
+
+        # TODO also check other instances?!
+
+        return is_valid
+
     #
     # Optimizations
     #
@@ -986,13 +1070,32 @@ def test_script():
     import json
     import argparse
     ap = argparse.ArgumentParser()
+    # verbosity
     ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
-    ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
-    ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
     ap.add_argument("--quiet", "-q", action="store_true", help="reduce verbosity")
-    ap.add_argument("model", help="JSON models to load")
-    ap.add_argument("files", nargs="*", help="JSON values to test")
+    # misc options
+    ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
+    ap.add_argument("--output", "-o", default=None, help="output file")
+    # operations
+    ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
+    ap.add_argument("--test", "-T", action="store_true", help="dump model")
+    ap.add_argument("--preprocess", "-E", action="store_true", help="preprocess model")
+    ap.add_argument("--static", "-S", action="store_true", help="static compile model")
+    ap.add_argument("--dynamic", "-D", action="store_true", help="dynamic compile model")
+    ap.add_argument("--validate", "-V", action="store_true", help="dynamic compile model")
+    # parameters
+    ap.add_argument("model", help="JSON model")
+    ap.add_argument("true", nargs="*", help="valid JSON values")
+    ap.add_argument("false", nargs="*", help="invalid JSON values")
     args = ap.parse_args()
+
+    # operation
+    ops = args.test + args.preprocess + args.static + args.dynamic + args.validate
+    if ops == 0:
+        args.test = True
+    elif ops > 1:
+        log.error("must chose between -E, -S, -D, -V and -T")
+        sys.exit(1)
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.WARNING if args.quiet else logging.INFO)
@@ -1007,7 +1110,7 @@ def test_script():
 
     log.info(f"processing {args.model}")
     j = resolver(args.model, [])
-    # TODO update maps using file path?
+    # TODO update maps using file path? and declared url
     jm = JsonModel(j, resolver, None, args.model, True, args.debug)
 
     # simplify before merging
@@ -1015,7 +1118,7 @@ def test_script():
         for m in JsonModel.MODELS:
             m.optimize()
 
-    # merge in reverse order to move alts up before inlining
+    # merge in reverse order to move alts up before inlining?!
     for m in reversed(JsonModel.MODELS):
         m.merge()
 
@@ -1026,13 +1129,23 @@ def test_script():
 
     if args.debug:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
+        for jm in JsonModel.MODELS:
+            assert jm.valid()
 
-    # test output
-    show = [JsonModel.MODELS[0].toModel(True)]
-    symbols = {JsonModel.MODELS[0]._defs._id}
-    for jm in JsonModel.MODELS[1:]:
-        j = jm.toModel(jm._defs._id not in symbols)
-        symbols.add(jm._defs._id)
-        if isinstance(j, dict):
-            show.append(j)
-    print(json.dumps(show, sort_keys=True, indent=2))
+    # TODO check overwrite?!
+    output = file(args.output, "w") if args.output else sys.stdout
+
+    # actual output
+    if args.test:
+        # test output
+        show, symbols = [], set()
+        for jm in JsonModel.MODELS:
+            j = jm.toModel(jm._defs._id not in symbols)
+            symbols.add(jm._defs._id)
+            if isinstance(j, dict) or jm._id == 0:
+                show.append(j)
+        print(json.dumps(show, sort_keys=True, indent=2), file=output)
+    elif args.preprocess:
+        print(json.dumps(jm.toModel(), sort_keys=True, indent=2), file=output)
+    else:
+        raise Exception("operation not implemented yet")
