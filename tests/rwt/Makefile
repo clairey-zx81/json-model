@@ -1,7 +1,7 @@
 # convenient Makefile for testing
 
 # JSON Model Compiler
-JMC = jm-test
+JMC = jm-test --check
 
 # inputs, skip _*
 F.model = $(wildcard [a-zA-Z]*.model.json)

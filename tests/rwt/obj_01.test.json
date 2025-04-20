@@ -16,5 +16,14 @@
       "foo": "$BOOLEAN"
     },
     "@": "$foo"
+  },
+  {
+    "#": "JsonModel 4",
+    "$": {
+      "": "./obj_00#foo",
+      "#": "Symbol 3",
+      "foo": "$BOOLEAN"
+    },
+    "@": "$foo"
   }
 ]

@@ -348,10 +348,11 @@ class JsonModel:
                 if model == "":
                     pass
                 elif model[0] == "=":
-                    pass  # TODO
+                    is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
                 elif model[0] == "/":
                     is_valid &= model.endswith("/") or mode.endswith("/i")
-                # TODO more checks
+                else:  # TODO more checks
+                    pass
             elif isinstance(model, list):
                 pass
             elif isinstance(model, dict):
@@ -377,7 +378,7 @@ class JsonModel:
                         # more checks on p if p[0] == "$"
             else:  # unexpected type
                 is_valid = False
-            return False
+            return True
 
         # check root-specific keywords
         if root and isinstance(self._model, dict):
@@ -1076,6 +1077,7 @@ def test_script():
     # misc options
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
     ap.add_argument("--output", "-o", default=None, help="output file")
+    ap.add_argument("--check", "-c", action="store_true", help="check model validity")
     # operations
     ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
     ap.add_argument("--test", "-T", action="store_true", help="dump model")
@@ -1127,7 +1129,7 @@ def test_script():
         for m in JsonModel.MODELS:
             m.optimize()
 
-    if args.debug:
+    if args.debug or args.check:
         log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
         for jm in JsonModel.MODELS:
             assert jm.valid()
@@ -1146,6 +1148,6 @@ def test_script():
                 show.append(j)
         print(json.dumps(show, sort_keys=True, indent=2), file=output)
     elif args.preprocess:
-        print(json.dumps(jm.toModel(), sort_keys=True, indent=2), file=output)
+        print(json.dumps(JsonModel.MODELS[0].toModel(), sort_keys=True, indent=2), file=output)
     else:
         raise Exception("operation not implemented yet")
