@@ -4,7 +4,7 @@
 JMC = jm-test
 
 # inputs
-F.model = $(wildcard *.model.json)
+F.model = $(wildcard [a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived

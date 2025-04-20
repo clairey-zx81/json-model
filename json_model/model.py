@@ -809,6 +809,18 @@ class JsonModel:
 
     def merge(self):
         self.mergeInlining()
+
+        if self._debug:
+
+            # only objects under "+"
+            def merge_on_objects(model: ModelType, path: ModelPath) -> bool:
+                if isinstance(model, dict) and "+" in model:
+                    assert isinstance(plus := model["+"], list)  # sanity
+                    return all(map(lambda m: isinstance(m, dict), plus))
+                return True
+
+            assert self.check(merge_on_objects)
+
         self.mergeDistribute()
         self.mergeObjects()
         if self._debug:
