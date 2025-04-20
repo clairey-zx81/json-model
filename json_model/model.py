@@ -84,6 +84,7 @@ class JsonModel:
         "ANY": {"&": []},
         "NONE": {"|": []},
         # type inference
+        "NULL": None,
         "BOOL": True,
         "BOOLEAN": True,
         "INT": -1,
