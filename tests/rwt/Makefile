@@ -1,7 +1,8 @@
 # convenient Makefile for testing
 
 # JSON Model Compiler
-JMC = jm-test --check --quiet \
+JMC.opts    = --check --quiet
+JMC = jm-test $(JMC.opts) \
         -m "https://json-model.org/models ." \
         -m "https://json-model.org/tests ."
 
@@ -10,9 +11,9 @@ F.model = $(wildcard [a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived
-F.TO    = $(F.root:%=%.TO.json)
-F.EO    = $(F.root:%=%.EO.json)
-F.gen   = $(F.TO) $(F.EO)
+F.UO    = $(F.root:%=%.UO.json)
+F.PO    = $(F.root:%=%.PO.json)
+F.gen   = $(F.UO) $(F.PO)
 
 .PHONY: check
 check:
@@ -26,8 +27,8 @@ clean:
 .PHONY: gen
 gen: $(F.gen)
 
-%.TO.json: %.model.json
-	$(JMC) -TO ./$< > $@
+%.UO.json: %.model.json
+	$(JMC) -UO ./$< > $@
 
-%.EO.json: %.model.json
-	$(JMC) -EO ./$< > $@
+%.PO.json: %.model.json
+	$(JMC) -PO ./$< > $@

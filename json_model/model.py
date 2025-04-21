@@ -1083,28 +1083,29 @@ def test_script():
     ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
     ap.add_argument("--quiet", "-q", action="store_true", help="reduce verbosity")
     # misc options
+    ap.add_argument("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
+    ap.add_argument("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
+    ap.add_argument("--indent", "-i", type=int, default=2, help="JSON indentation")
+    ap.add_argument("--check", "-c", action="store_true", help="check model validity")
     ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
     ap.add_argument("--output", "-o", default=None, help="output file")
-    ap.add_argument("--check", "-c", action="store_true", help="check model validity")
-    # operations
+    ap.add_argument("--true", "-t", dest="expect", action="store_const", const=True, default=True, help="test values for true")
+    ap.add_argument("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
+    # operations on model
     ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
-    ap.add_argument("--test", "-T", action="store_true", help="dump model")
-    ap.add_argument("--preprocess", "-E", action="store_true", help="preprocess model")
-    ap.add_argument("--static", "-S", action="store_true", help="static compile model")
-    ap.add_argument("--dynamic", "-D", action="store_true", help="dynamic compile model")
-    ap.add_argument("--validate", "-V", action="store_true", help="dynamic compile model")
+    ap.add_argument("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
+    ap.add_argument("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
+    ap.add_argument("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
+    ap.add_argument("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
+    ap.add_argument("--validate", "-V", dest="op", action="store_const", const="V", help="dynamic compile model")
     # parameters
     ap.add_argument("model", help="JSON model")
-    ap.add_argument("true", nargs="*", help="valid JSON values")
-    ap.add_argument("false", nargs="*", help="invalid JSON values")
+    ap.add_argument("values", nargs="*", help="JSON values to test")
     args = ap.parse_args()
 
-    # operation
-    ops = args.test + args.preprocess + args.static + args.dynamic + args.validate
-    if ops == 0:
-        args.test = True
-    elif ops > 1:
-        log.error("must chose between -E, -S, -D, -V and -T")
+    # option/parameter consistency
+    if args.values and args.op not in ("S", "D", "V"):
+        log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
         sys.exit(1)
 
     # debug
@@ -1151,16 +1152,16 @@ def test_script():
     output = file(args.output, "w") if args.output else sys.stdout
 
     # actual output
-    if args.test:
-        # test output
+    if args.op == "U":  # test output
         show, symbols = [], set()
         for jm in JsonModel.MODELS:
             j = jm.toModel(jm._defs._id not in symbols)
             symbols.add(jm._defs._id)
             if isinstance(j, dict) or jm._id == 0:
                 show.append(j)
-        print(json.dumps(show, sort_keys=True, indent=2), file=output)
-    elif args.preprocess:
-        print(json.dumps(JsonModel.MODELS[0].toModel(), sort_keys=True, indent=2), file=output)
+        print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
+    elif args.op == "P":  # preprocessed model
+        show = JsonModel.MODELS[0].toModel()
+        print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     else:
-        raise Exception("operation not implemented yet")
+        raise Exception(f"operation not implemented yet: {args.op}")
