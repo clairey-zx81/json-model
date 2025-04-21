@@ -43,6 +43,9 @@ class Symbols(MutableMapping[str, JsonModel]):
             data = f"Symbols {self._id}"
         return data
 
+    def __str__(self):
+        return str({n: m._id for n, m in self.items()})
+
     def __setitem__(self, k, v):
         return self._syms.__setitem__(k, v)
 
@@ -119,12 +122,10 @@ class JsonModel:
     lock = threading.RLock()
     MODELS: list[JsonModel] = []
 
-    # FIXME unsure whether we really want that
-    GLOBALS: Symbols = Symbols()
-
     def __init__(self,
             model: ModelType,
             resolver: Resolver,
+            globs: Symbols|None = None,
             scope: Symbols|None = None,
             url: str = "",
             root: bool = True,
@@ -138,6 +139,8 @@ class JsonModel:
         # unmodified parameters
         self._init_md = model
         self._resolver = resolver
+        self._isolated = globs is None
+        self._globs = Symbols() if globs is None else globs
         self._url = url
         self._root = root
         self._debug = debug
@@ -225,7 +228,7 @@ class JsonModel:
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._defs, self._url + "#" + n, False, debug)
+                n: JsonModel(m, resolver, self._globs, self._defs, self._url + "#" + n, False, debug)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
@@ -240,9 +243,9 @@ class JsonModel:
             if not isinstance(version, str):
                 raise ModelError(f"invalid model version type: {tname(version)}")
             log.debug(f"url={url} version={version}")
-            # FIXME prevent all recursions
+            # FIXME prevent all recursions!
             if version != self._url:  # prevent direct recursion
-                self._spec = self.get(version, ["~"])
+                self._spec = self.get(version, ["~"], True)
             else:
                 self._spec = self
         else:
@@ -258,8 +261,9 @@ class JsonModel:
 
         self.rewrite()
 
-        if self._id == 0:
-            self.scope(JsonModel.GLOBALS, "", set())
+        if globs is None:
+            self.scope(self._globs, "", set())
+            log.debug(f"globs = {self._globs}")
 
         # TODO compute "+" and other preprocessing
         # TODO allow skipping?
@@ -594,9 +598,10 @@ class JsonModel:
             }
         else:
             data["defs"] = self._defs._id
-        if self._id == 0:
+        if self._isolated:
+            log.debug(f"len(globals) = {len(self._globs)}")
             data["globals"] = {
-                name: f"Symbol {jm._id}" for name, jm in JsonModel.GLOBALS.items()
+                name: f"Symbol {jm._id}" for name, jm in self._globs.items()
             }
         return data
 
@@ -699,7 +704,7 @@ class JsonModel:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation is only allowed while rewriting
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            jm._defs[name] = JsonModel(None, self._resolver, jm._defs, jm._url + "#" + name, False, jm._debug)
+            jm._defs[name] = JsonModel(None, self._resolver, jm._globs, jm._defs, jm._url + "#" + name, False, jm._debug)
 
         path.append("$" + name)
         jm = jm._defs[name]
@@ -718,7 +723,8 @@ class JsonModel:
 
         # shortcut
         if self._isRef(model) and model in self._gmap:
-            return JsonModel.GLOBALS[self._gmap[model]]
+            log.debug(f"{self._id}: globs = {self._globs}")
+            return self._globs[self._gmap[model]]
 
         # actual resolution
         while jm._isRef(model):
@@ -738,12 +744,12 @@ class JsonModel:
         return jm
 
     #
-    # Compute root symbol table: JsonModel.GLOBALS
+    # Compute global symbol table
     # Compute mapping of local references to global references: self._gmap
     #
     def scope(self, symbols: Symbols, root: str, visited: set[tuple[str, int]]):
         """Move all local references to the root scope."""
-        log.debug(f"scoping {self._defs._id}: {root}")
+        log.debug(f"scoping {self._id} at {root}")
 
         assert root == "" or root[0] != "$"
 
@@ -755,6 +761,8 @@ class JsonModel:
 
         root_ref = "$" + root
         symbols[root_ref] = self
+
+        log.debug(f"{self._id}: symbols {symbols}")
 
         # override URLs with their target
         if self.isUrlRef():
@@ -799,14 +807,15 @@ class JsonModel:
             raise ModelError(f"cannot override cached model for: {url}")
         self._cache[url] = jm
 
-    def get(self, url: str, path: ModelPath) -> JsonModel:
+    def get(self, url: str, path: ModelPath, isolated: bool = False) -> JsonModel:
         """Retrieve JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url}")
         if self._debug and not self._isUrlRef("$" + url):
             log.debug(f"loading non explicit url: {url}")
         if url not in self._cache:
             j = self._resolver(url, path)
-            jm = JsonModel(j, self._resolver, None, url, True, self._debug)
+            jm = JsonModel(j, self._resolver, None if isolated else self._globs,
+                           None, url, True, self._debug)
             self.set(url, jm)
         return self._cache[url]
 
@@ -1126,17 +1135,23 @@ def test_script():
     log.info(f"processing {args.model}")
     j = resolver(args.model, [])
     # TODO update maps using file path? and declared url
-    jm = JsonModel(j, resolver, None, args.model, True, args.debug)
+    model = JsonModel(j, resolver, None, None, args.model, True, args.debug)
+    assert model._isolated
 
     # initial sanity check
     if args.debug or args.check:
-        for jm in JsonModel.MODELS:
-            assert jm.valid()
+        for m in JsonModel.MODELS:
+            assert m.valid()
 
     # simplify before merging
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
+
+    if args.debug or args.check:
+        log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
+        for m in JsonModel.MODELS:
+            assert m.valid()
 
     # merge in reverse order to move alts up before inlining?!
     for m in reversed(JsonModel.MODELS):
@@ -1148,9 +1163,9 @@ def test_script():
             m.optimize()
 
     if args.debug or args.check:
-        log.debug(json.dumps(jm.toJSON(), sort_keys=True, indent=2))
-        for jm in JsonModel.MODELS:
-            assert jm.valid()
+        log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
+        for m in JsonModel.MODELS:
+            assert m.valid()
 
     # TODO check overwrite?!
     output = file(args.output, "w") if args.output else sys.stdout
@@ -1159,10 +1174,10 @@ def test_script():
     # actual output
     if args.op == "U":  # test output
         show, symbols = [], set()
-        for jm in JsonModel.MODELS:
-            j = jm.toModel(jm._defs._id not in symbols)
-            symbols.add(jm._defs._id)
-            if isinstance(j, dict) or jm._id == 0:
+        for m in JsonModel.MODELS:
+            j = m.toModel(m._defs._id not in symbols)
+            symbols.add(m._defs._id)
+            if isinstance(j, dict) or model._isolated:
                 show.append(j)
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     elif args.op == "P":  # preprocessed model
@@ -1177,6 +1192,7 @@ def test_script():
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
 
+    # values
     nerrors = 0
     for fn in args.values:
         assert checker

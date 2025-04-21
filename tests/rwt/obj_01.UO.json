@@ -8,6 +8,7 @@
     },
     "@": "$bla"
   },
+  "$./obj_00#foo",
   {
     "#": "JsonModel 2",
     "$": {
@@ -16,5 +17,16 @@
       "foo": "$BOOLEAN"
     },
     "@": "$foo"
-  }
+  },
+  "$BOOLEAN",
+  {
+    "#": "JsonModel 4",
+    "$": {
+      "": "./obj_00#foo",
+      "#": "Symbol 3",
+      "foo": "$BOOLEAN"
+    },
+    "@": "$foo"
+  },
+  "$BOOLEAN"
 ]

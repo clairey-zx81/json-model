@@ -375,6 +375,7 @@
     "@": "$RootModel",
     "~": "https://json-model.org/models/json-model-v2"
   },
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
   {
     "#": "JsonModel 2",
     "$": {
@@ -405,6 +406,7 @@
       }
     ]
   },
+  "$NONE",
   {
     "#": "JsonModel 5",
     "$": {
@@ -413,6 +415,9 @@
     },
     "?#": ""
   },
+  [
+    "$Model"
+  ],
   {
     "#": "JsonModel 7",
     "$": {

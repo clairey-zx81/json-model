@@ -8,6 +8,7 @@
     },
     "@": "$bla"
   },
+  "$./obj_00.model",
   {
     "#": "JsonModel 2",
     "$": {
@@ -17,5 +18,7 @@
       "fun": "$BOOLEAN"
     },
     "@": "$foo"
-  }
+  },
+  "$fun",
+  "$BOOLEAN"
 ]
