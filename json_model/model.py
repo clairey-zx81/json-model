@@ -3,6 +3,7 @@ import re
 import sys
 import logging
 import typing
+import json
 from collections.abc import MutableMapping
 import threading
 
@@ -1074,33 +1075,37 @@ class JsonModel:
 
 def test_script():
 
+    import argparse
+
     logging.basicConfig()
 
-    import json
-    import argparse
     ap = argparse.ArgumentParser()
-    # verbosity
-    ap.add_argument("--debug", "-d", action="store_true", help="set debugging mode")
-    ap.add_argument("--quiet", "-q", action="store_true", help="reduce verbosity")
-    # misc options
-    ap.add_argument("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
-    ap.add_argument("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
-    ap.add_argument("--indent", "-i", type=int, default=2, help="JSON indentation")
-    ap.add_argument("--check", "-c", action="store_true", help="check model validity")
-    ap.add_argument("--maps", "-m", action="append", default=[], help="URL mappings")
-    ap.add_argument("--output", "-o", default=None, help="output file")
-    ap.add_argument("--true", "-t", dest="expect", action="store_const", const=True, default=True, help="test values for true")
-    ap.add_argument("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
+    arg = ap.add_argument
+    # verbosity and checks
+    arg("--debug", "-d", action="store_true", help="set debugging mode")
+    arg("--quiet", "-q", action="store_true", help="reduce verbosity")
+    arg("--check", "-c", action="store_true", help="check model validity")
+    # input options
+    arg("--maps", "-m", action="append", default=[], help="URL mappings")
+    # output options
+    arg("--output", "-o", default=None, help="output file")
+    arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
+    arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
+    arg("--indent", "-i", type=int, default=2, help="JSON indentation")
+    # expected results on values
+    arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
+    arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
+    arg("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
     # operations on model
-    ap.add_argument("--optimize", "-O", action="store_true", help="optimize model")
-    ap.add_argument("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
-    ap.add_argument("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
-    ap.add_argument("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
-    ap.add_argument("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
-    ap.add_argument("--validate", "-V", dest="op", action="store_const", const="V", help="dynamic compile model")
+    arg("--optimize", "-O", action="store_true", help="optimize model")
+    arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
+    arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
+    arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
+    arg("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
+    arg("--validate", "-V", dest="op", action="store_const", const="V", help="dynamic compile model")
     # parameters
-    ap.add_argument("model", help="JSON model")
-    ap.add_argument("values", nargs="*", help="JSON values to test")
+    arg("model", help="JSON model")
+    arg("values", nargs="*", help="JSON values to testing")
     args = ap.parse_args()
 
     # option/parameter consistency
@@ -1150,6 +1155,7 @@ def test_script():
 
     # TODO check overwrite?!
     output = file(args.output, "w") if args.output else sys.stdout
+    checker = None
 
     # actual output
     if args.op == "U":  # test output
@@ -1163,5 +1169,25 @@ def test_script():
     elif args.op == "P":  # preprocessed model
         show = JsonModel.MODELS[0].toModel()
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
+    elif args.op == "D":
+        checker = "TODO"
+        raise Exception(f"operation not implemented yet: {args.op}")
+        if args.debug:
+            import dis
+            print(dis.dis(checker))
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
+
+    nerrors = 0
+    for fn in args.values:
+        assert checker
+        with open(fn) as fh:
+            value = json.load(fh)
+            okay = checker(value)
+            if args.expect is None or okay == args.expect:
+                log.info(f"check value {fn}: {okay}")
+            else:
+                nerrors += 1
+                log.error(f"check value {fn}: {okay}")
+
+    sys.exit(2 if nerrors > 0 else 0)
