@@ -7,7 +7,7 @@ import json
 from collections.abc import MutableMapping
 import threading
 
-from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter, Jsonable
+from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter, Jsonable, JsonModel
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
@@ -15,7 +15,6 @@ from .resolver import Resolver
 from .optim import _structurally_distinct_models, merge_objects
 
 # forward declaration
-type JsonModel = typing.NewType("JsonModel", None)
 type Symbols = dict[str, JsonModel]
 
 

@@ -24,6 +24,8 @@ type Compiler = Callable[[ModelType, str], CheckFun|None]
 
 type ModelCheckFun = Callable[[ValueType, JsonPath], bool]
 
+type JsonModel = typing.NewType("JsonModel", None)
+
 
 class ModelError(BaseException):
     pass
