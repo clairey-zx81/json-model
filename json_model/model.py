@@ -7,7 +7,8 @@ import json
 from collections.abc import MutableMapping
 import threading
 
-from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter, Jsonable, JsonModel
+from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
+from .types import Jsonable, JsonModel
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
@@ -16,11 +17,12 @@ from .optim import _structurally_distinct_models, merge_objects
 
 # forward declaration
 type Symbols = dict[str, JsonModel]
-
+type ModelRef = list[str]  # $stuff#name#inside
 
 class Symbols(MutableMapping[str, JsonModel]):
     """JSON Model Symbol Table."""
 
+    # TODO move to JsonModel instances
     # keep track of allocated symbol tables
     lock = threading.RLock()
     SYMBOLS: list[Symbols] = []
@@ -118,6 +120,7 @@ class JsonModel:
         # to be continued…
     }
 
+    # TODO move to instances
     # store models
     lock = threading.RLock()
     MODELS: list[JsonModel] = []
@@ -262,7 +265,7 @@ class JsonModel:
         self.rewrite()
 
         if globs is None:
-            self.scope(self._globs, "", set())
+            self.scope(self._globs, [""], set(), {})
             log.debug(f"globs = {self._globs}")
 
         # TODO compute "+" and other preprocessing
@@ -744,46 +747,59 @@ class JsonModel:
         return jm
 
     #
-    # Compute global symbol table
-    # Compute mapping of local references to global references: self._gmap
+    # Build global symbol table
+    # Build mapping of local references to global references: self._gmap
     #
-    def scope(self, symbols: Symbols, root: str, visited: set[tuple[str, int]]):
+    def scope(self, symbols: Symbols, root: ModelRef,
+              visited: set[tuple[str, int]], references: dict[int, str]):
         """Move all local references to the root scope."""
-        log.debug(f"scoping {self._id} at {root}")
+        log.debug(f"scoping {self._id} at {root} ({visited}/{references})")
 
-        assert root == "" or root[0] != "$"
-
-        #  prevent recursion
+        # prevent infinite recursion
         mid = ("m", self._id)
         if mid in visited:
             return
         visited.add(mid)
 
-        root_ref = "$" + root
-        symbols[root_ref] = self
+        root_ref = "$" + "#".join(root)
 
-        log.debug(f"{self._id}: symbols {symbols}")
+        if root_ref not in symbols:
+            symbols[root_ref] = self
+
+        if self._id not in references:
+            references[self._id] = root_ref
 
         # override URLs with their target
-        if self.isUrlRef():
+        if is_url := self.isUrlRef():
             jm = self.resolveRef(self._model, [])
-            jm.scope(symbols, root, visited)
+            symbols[root_ref] = jm
+            jm.scope(symbols, root, visited, references)
 
         # handle models's symbol table if not done yet
         sid = ("s", self._defs._id)
         if sid not in visited:
             visited.add(sid)
             for name, jm in self._defs.items():
-                jm.scope(symbols, root + "#" + name, visited)
+                assert jm._id not in references
+                gref = "$" + "#".join(root + [name])
+                references[jm._id] = gref
+                self._gmap["$" + name] = gref
+                symbols[gref] = jm
+            for name, jm in self._defs.items():
+                jm.scope(symbols, root + [name], visited, references)
 
         # update map of local references to global references
         def rootRwt(m: ModelType, p: ModelPath) -> ModelType:
             if self._isSimpleRef(m):
-                ref = root_ref + "#" + m[1:]
-                if ref not in symbols:
-                    jm = self.resolveRef(m, p + [m])
-                    symbols[ref] = jm
-                    jm.scope(symbols, ref[1:], visited)
+                jm = self.resolveRef(m, p + [m])
+                if jm._id in references:
+                    ref = references[jm._id]
+                else:
+                    ref = root_ref + "#" + m[1:]
+                    if ref not in symbols:
+                        symbols[ref] = jm
+                        jm.scope(symbols, root + [m[1:]], visited, references)
+                    references[jm._id] = ref
                 if m not in self._gmap:
                     self._gmap[m] = ref
                 if ref not in self._gmap:  # also accept global references
