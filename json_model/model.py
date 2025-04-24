@@ -345,56 +345,57 @@ class JsonModel:
 
         def validFlt(model: ModelType, path: ModelPath) -> bool:
             nonlocal is_valid
-            if model is None:
-                pass
-            elif isinstance(model, bool):
-                is_valid &= model == True
-            elif isinstance(model, int):
-                is_valid &= model in (-1, 0, 1)
-            elif isinstance(model, float):
-                is_valid &= model in (-1.0, 0.0, 1.0)
-            elif isinstance(model, str):
-                if model == "":
+            match model:
+                case None:
                     pass
-                elif model[0] == "=":
-                    is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
-                elif model[0] == "/":
-                    is_valid &= model.endswith("/") or model.endswith("/i")
-                    # TODO check re validity
-                else:  # TODO more checks
+                case bool():
+                    is_valid &= model == True
+                case int():
+                    is_valid &= model in (-1, 0, 1)
+                case float():
+                    is_valid &= model in (-1.0, 0.0, 1.0)
+                case str():
+                    if model == "":
+                        pass
+                    elif model[0] == "=":
+                        is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
+                    elif model[0] == "/":
+                        is_valid &= model.endswith("/") or model.endswith("/i")
+                        # TODO check re validity
+                    else:  # TODO more checks
+                        pass
+                case list():
                     pass
-            elif isinstance(model, list):
-                pass
-            elif isinstance(model, dict):
-                if "#" in model:
-                    is_valid &= isinstance(model["#"], str)
-                if "@" in model:
-                    pass  # contraint keys in recurse
-                elif "|" in model:
-                    is_valid &= isinstance(model["|"], list)
-                    # no other keys in recurse
-                elif "^" in model:
-                    is_valid &= isinstance(model["^"], list)
-                    # no other keys in recurse
-                elif "&" in model:
-                    is_valid &= isinstance(model["&"], list)
-                    # no other keys in recurse
-                elif "+" in model:
-                    is_valid &= isinstance(model["+"], list)
-                    # no other keys in recurse
-                else:  # check object
-                    props = set()
-                    for p, m in model.items():
-                        if p == "#":
-                            continue
-                        is_valid &= isinstance(p, str)
-                        if p and p[0] not in ("$", "/"):
-                            name = p[1:] if p[0] in ("?", "_", "!") else p
-                            is_valid &= name not in props
-                            props.add(name) 
-                        # more checks on p if p[0] == "$"
-            else:  # unexpected type
-                is_valid = False
+                case dict():
+                    if "#" in model:
+                        is_valid &= isinstance(model["#"], str)
+                    if "@" in model:
+                        pass  # contraint keys in recurse
+                    elif "|" in model:
+                        is_valid &= isinstance(model["|"], list)
+                        # no other keys in recurse
+                    elif "^" in model:
+                        is_valid &= isinstance(model["^"], list)
+                        # no other keys in recurse
+                    elif "&" in model:
+                        is_valid &= isinstance(model["&"], list)
+                        # no other keys in recurse
+                    elif "+" in model:
+                        is_valid &= isinstance(model["+"], list)
+                        # no other keys in recurse
+                    else:  # check object
+                        props = set()
+                        for p, m in model.items():
+                            if p == "#":
+                                continue
+                            is_valid &= isinstance(p, str)
+                            if p and p[0] not in ("$", "/"):
+                                name = p[1:] if p[0] in ("?", "_", "!") else p
+                                is_valid &= name not in props
+                                props.add(name) 
+                            # more checks on p if p[0] == "$"
+                case _:
+                    is_valid = False
             return True
 
         # check root-specific keywords
