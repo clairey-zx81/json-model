@@ -1,0 +1,7 @@
+bool_s.0.true.json: True
+bool_s.1.true.json: True
+bool_s.0.false.json: False [('<BOOL>', '$', 'not a boolean'), ('', '$', '$BOOL failed')]
+bool_s.1.false.json: False [('<BOOL>', '$', 'not a boolean'), ('', '$', '$BOOL failed')]
+bool_s.2.false.json: False [('<BOOL>', '$', 'not a boolean'), ('', '$', '$BOOL failed')]
+bool_s.3.false.json: False [('<BOOL>', '$', 'not a boolean'), ('', '$', '$BOOL failed')]
+bool_s.4.false.json: False [('<BOOL>', '$', 'not a boolean'), ('', '$', '$BOOL failed')]

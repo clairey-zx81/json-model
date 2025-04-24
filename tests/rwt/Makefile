@@ -1,4 +1,6 @@
 # convenient Makefile for testing
+SHELL	= /bin/bash
+.ONESHELL:
 
 # JSON Model Compiler
 JMC.opts    = --check --quiet
@@ -37,4 +39,9 @@ gen: $(F.gen)
 	$(JMC) -DO --dis ./$< > $@
 
 %.dcheck.json: %.model.json
-	$(JMC) -DO ./$< $*.*.true.json $*.*.false.json > $@
+	shopt -s nullglob
+	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
+
+%.ALL: %.model.json
+	$(RM) $*.UO.json $*.PO.json $*.DO.json $*.dcheck.json
+	$(MAKE) $*.UO.json $*.PO.json $*.DO.json $*.dcheck.json
