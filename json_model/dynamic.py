@@ -138,7 +138,7 @@ class CompileJsonModel(Validator):
         if ref in self._defs:
             return self._defs.get(ref)
         # URL or simple refs only
-        jmref = jm.resolveRef(ref)
+        jmref = jm.resolveRef(ref, mpath.split("."))
         refid = jmref._id
         if refid not in self._compiled_ids:
             self._compile(jmref, ref)

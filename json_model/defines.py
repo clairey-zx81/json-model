@@ -150,17 +150,17 @@ class Validator:
                     return _UTYPE[model]
                 elif model in self._defs:
                     m = self._defs.model[model]
-                    return self._ultimate_type(m) if m != UnknownModel else m  # type: ignore
+                    return self._ultimate_type(jm, m) if m != UnknownModel else m  # type: ignore
                 else:
-                    m = jm.resolveRef(m)
+                    m = jm.resolveRef(model, ["<?>"])
                     return self._ultimate_type(m, m._model)
         elif tmodel is dict:
             assert isinstance(model, dict)
             if "@" in model:
-                return self._ultimate_type(model["@"])
+                return self._ultimate_type(jm, model["@"])
             elif "|" in model:
                 assert isinstance(model["|"], (list, tuple))
-                types = set(self._ultimate_type(i) for i in model["|"])
+                types = set(self._ultimate_type(jm, i) for i in model["|"])
                 if len(types) == 1:
                     return types.pop()
                 else:
@@ -207,11 +207,12 @@ class Validator:
             else:
                 return model
 
-    def _constant(self, model: ModelType):
+    def _constant(self, jm: JsonModel, model: ModelType):
         """Tell an ultimate model value has a constant."""
         # FIXME should it detect @ eq?
-        v = self. _ultimate_model(model)
+        v = self. _ultimate_model(jm, model)
         if v == UnknownModel:
+            # FIXME ?!
             return None
         tv = type(v)
         if tv is str:
@@ -239,12 +240,12 @@ class Validator:
         # and turned it into a |.
         assert isinstance(model, dict) and "|" in model
         # first filter out
-        utype = self._ultimate_type(model)
+        utype = self._ultimate_type(jm, model)
         if utype is not dict:
             log.debug(f"ultimate type not a dict: {utype}")
             return None
         # get models
-        models = [self._ultimate_model(m) for m in model["|"]]
+        models = [self._ultimate_model(jm, m) for m in model["|"]]
         # should not happen, just in case
         if len(models) < 2:
             log.debug("not enough models for a disjunction")
@@ -264,7 +265,7 @@ class Validator:
             consts: dict[str, Any] = {}
             assert isinstance(model, dict)
             for prop in props:
-                val = self._constant(model[prop])
+                val = self._constant(jm, model[prop])
                 if val is not None:
                     key = prop[1:] if prop[0] in ("_", "!") else prop
                     consts[key] = val

@@ -1,5 +1,5 @@
 {
-  "~": "english",
+  "~": "./english",
   ".model": {
     ".xor": [0, 0.0]
   }

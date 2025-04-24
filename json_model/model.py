@@ -1243,15 +1243,16 @@ def test_script():
         with open(fn) as fh:
             value = json.load(fh)
             okay = checker(value)
-            if args.expect is None:
+            if args.expect is None or args.verbose:
                 msg = f"{fn}: {okay}"
                 if not okay and args.verbose:
                     msg += " " + str(checker._reasons)
                 print(msg, file=output)
-            elif okay == args.expect:
-                log.info(f"check value {fn}: {okay}")
-            else:
-                nerrors += 1
-                log.error(f"check value {fn}: {okay}")
+            if args.expect is not None:
+                if okay == args.expect:
+                    log.info(f"check value {fn}: {okay}")
+                elif okat:
+                    nerrors += 1
+                    log.error(f"check value {fn}: {okay}")
 
     sys.exit(2 if nerrors > 0 else 0)

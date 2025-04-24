@@ -53,11 +53,16 @@ DO: $(F.DO)
 %.DO.out: %.model.json
 	$(JMC) -DO --dis ./$< > $@
 
+json-model-v2.dcheck.out: json-model-v2.model.json
+	# TODO ./bads/*.model.json
+	$(JMC) -v -DO --true ./$< *.model.json > $@
+
 .PHONY: dcheck
 dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
+	test -z $@ && $(RM) $@
 
 .PHONY: %.ALL
 %.ALL: %.model.json
