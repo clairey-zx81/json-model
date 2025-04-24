@@ -4,6 +4,17 @@
     "#": {
       "type": "string"
     },
+    "$": {
+      "properties": {
+        "Model": {
+          "const": "$https://json-model.org/models/json-model-v2"
+        }
+      },
+      "required": [
+        "Model"
+      ],
+      "type": "object"
+    },
     "%": {
       "additionalProperties": false,
       "description": "dot-prefixed arbitrary key, one or two char keyword values",
@@ -16,13 +27,14 @@
       "type": "object"
     },
     "@": {
-      "const": "$NONE"
+      "const": "$Model"
     },
     "~": {
       "const": "https://json-model.org/models/l10n"
     }
   },
   "required": [
+    "$",
     "~",
     "%",
     "@"

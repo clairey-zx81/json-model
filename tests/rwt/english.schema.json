@@ -1,1 +1,9 @@
-false
+{
+  "$defs": {
+    "Model": {
+      "$ref": "#https://json-model.org/models/json-model-v2"
+    }
+  },
+  "$ref": "#Model",
+  "description": "JSON Model with English Keywords"
+}
