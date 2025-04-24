@@ -52,7 +52,7 @@ schema: $(F.EO)
 .PHONY: DO
 DO: $(F.DO)
 %.DO.out: %.model.json
-	$(JMC) -DO --dis ./$< > $@
+	$(JMC) -DO --dis ./$< | sed -e 's/(<code object .*/(*)/' > $@
 
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json

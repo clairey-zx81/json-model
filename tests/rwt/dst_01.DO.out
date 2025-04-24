@@ -8,7 +8,7 @@ Disassembly of _fun:
              18 LOAD_CLOSURE             1 (p)
              20 LOAD_CLOSURE             0 (v)
              22 BUILD_TUPLE              2
-             24 LOAD_CONST               1 (<code object <genexpr> at 0x72b1c7fa3690, file "/home/fabien/DEV/GIT/dsv/json-model/json_model/dynamic.py", line 588>)
+             24 LOAD_CONST               1 (*)
              26 MAKE_FUNCTION            8 (closure)
              28 LOAD_DEREF               4 (subs)
              30 GET_ITER
@@ -27,7 +27,7 @@ Disassembly of _fun:
 
 588     >>   90 RETURN_VALUE
 
-Disassembly of <code object <genexpr> at 0x72b1c7fa3690, file "/home/fabien/DEV/GIT/dsv/json-model/json_model/dynamic.py", line 588>:
+Disassembly of <code object <genexpr> at 0x7be4366d7690, file "/home/fabien/DEV/GIT/dsv/json-model/json_model/dynamic.py", line 588>:
               0 COPY_FREE_VARS           2
 
 588           2 RETURN_GENERATOR
