@@ -1,0 +1,8 @@
+number.0.true.json: True
+number.1.true.json: True
+number.2.true.json: True
+number.3.true.json: True
+number.0.false.json: False [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
+number.1.false.json: False [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
+number.3.false.json: False [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
+number.4.false.json: False [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]

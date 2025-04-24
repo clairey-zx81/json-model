@@ -59,15 +59,20 @@ class CompileJsonModel(Validator):
         self._compiled_ids: set[int] = set()
         self._compiled: dict[int, CheckFun] = {}
 
-        # FIXME must be global!
-        # is 2.0 an int?
-        self._loose_int = False
+        self._loose_int = False  # is 2.0 an int?
+        self._loose_float = False  # is 42 a float?
         # get options for meta-data
         if isinstance(model, dict) and "#" in model:
             meta = model["#"]
             assert isinstance(meta, str)
             if "JSON_MODEL_LOOSE_INT" in meta:
                 self._loose_int = True
+            if "JSON_MODEL_NOT_LOOSE_INT" in meta:
+                self._loose_int = False
+            if "JSON_MODEL_LOOSE_FLOAT" in meta:
+                self._loose_float = True
+            if "JSON_MODEL_NOT_LOOSE_FLOAT" in meta:
+                self._loose_float = False
             # TODO other options?
 
         # comparison which can apply on length if necessary
@@ -104,12 +109,15 @@ class CompileJsonModel(Validator):
         self._defs.set("$U64", lambda v, p: (isinstance(v, int) and 0 <= v <= (2**64 - 1) or
                                             self._no("<U64>", p, "invalid U64")))
         # FIXME F32? FLOAT?
-        self._defs.set("$F64", lambda v, p: isinstance(v, float) or self._no("<F64>",
-                       p, "invalid F64"))
-        self._defs.set("$STRING", lambda v, p: isinstance(v, str) or self._no("<STRING>",
-                       p, "not a string"))
-        self._defs.set("$BOOL", lambda v, p: isinstance(v, bool) or self._no("<BOOL>",
-                       p, "not a boolean"))
+        self._defs.set("$F64", lambda v, p: isinstance(v, float) or
+                                            self._no("<F64>", p, "invalid F64"))
+        self._defs.set("$STRING", lambda v, p: isinstance(v, str) or
+                                               self._no("<STRING>", p, "not a string"))
+        self._defs.set("$BOOL", lambda v, p: isinstance(v, bool) or
+                                             self._no("<BOOL>", p, "not a boolean"))
+        self._defs.set("$NUMBER",
+                       lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) or
+                                    self._no("<NUMBER>", p, "invalid number"))
 
         # actually compile the model
         # FIXME make path JsonPath?!
@@ -709,32 +717,21 @@ class CompileJsonModel(Validator):
         assert isinstance(model, float)
         # NOTE does not handle NaN, +-Infinity
         # NOTE beware that isinstance(True, int) == True
-        # TODO handle -1.0, 0.0 and 1.0
-        return lambda v, p: type(v) in (float, int) or self._no(mpath, p, "expecting a number")
-
-    # NOTE should not be needed
-    # def _str_url_resolve(self, url: str, mpath: str):
-    #     """Handle a URL reference."""
-    #     assert isinstance(url, str) and re.match(r"(file|https?)://", url)
-
-    #     # prevent recursion on full urls
-    #     if url in self._urls or url in self._defs:
-    #         return
-    #     else:
-    #         self._urls.add(url)
-
-    #     umodel = self._cache.load(url)
-    #     u = urllib.parse.urlsplit(url)
-    #     if u.fragment:  # type: ignore
-    #         if url.fragment.startswith("/"):  # type: ignore
-    #             # FIXME path handling
-    #             raise ModelError(f"unsupported url path: {url} [{mpath}]")
-    #         else:
-    #             model = umodel["%"][u.fragment]
-    #     else:
-    #         model = umodel
-
-    #     self._defs[url] = self._raw_compile(model, mpath)
+        assert model in (0.0, 1.0, -1.0)
+        if self._loose_float:
+            if model == -1.0:
+                return lambda v, p: type(v) in (float, int) or self._no(mpath, p, "expecting a number")
+            elif model == 0.0:
+                return lambda v, p: type(v) in (float, int) and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+            else:
+                return lambda v, p: type(v) in (float, int) and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
+        else:
+            if model == -1.0:
+                return lambda v, p: type(v) == float or self._no(mpath, p, "expecting a number")
+            elif model == 0.0:
+                return lambda v, p: type(v) == float and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+            else:
+                return lambda v, p: type(v) == float and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
 
     def _str_raw_compile(self, jm: JsonModel, model: str, mpath: str) -> CheckFun:
         """Compile a string."""
