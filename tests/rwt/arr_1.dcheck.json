@@ -1,0 +1,3 @@
+arr_1.0.true.json: True
+arr_1.0.false.json: False [('', '$', 'bad array length')]
+arr_1.1.false.json: False [('', '$', 'expecting an array')]
