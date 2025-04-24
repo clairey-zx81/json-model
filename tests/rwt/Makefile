@@ -4,7 +4,7 @@ SHELL	= /bin/bash
 
 # JSON Model Compiler
 JMC.opts    = --check --quiet
-JMC = jm-test $(JMC.opts) \
+JMC = jmc $(JMC.opts) \
         -m "https://json-model.org/models ." \
         -m "https://json-model.org/tests ."
 

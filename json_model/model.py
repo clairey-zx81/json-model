@@ -1127,7 +1127,7 @@ class JsonModel:
             self._applyTrafoAtPath(jm, path, trafo, lpath)
         self._rewritten = True
 
-def test_script():
+def jmc_script():
 
     import argparse
 

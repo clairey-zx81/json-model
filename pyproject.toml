@@ -20,14 +20,7 @@ dependencies = [ "requests", "google-re2" ]
 dev = [ "jschon", "pytest", "pyyaml", "flake8", "ruff", "pyright" ]
 
 [project.scripts]
-jm-c-check-model = "json_model:c_check_model"
-jm-cs-check-model = "json_model:static_compiler_check"
-jm-v-check-model = "json_model:v_check_model"
-jm-model2schema = "json_model:model2schema_script"
-jm-schema2model = "json_model:schema2model_script"
-jm-preprocessor = "json_model:preprocessor"
-jm-compiler = "json_model:static_compiler"
-jm-test = "json_model:jm_test_script"
+jmc = "json_model:jmc_script"
 
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
