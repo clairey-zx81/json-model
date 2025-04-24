@@ -40,7 +40,7 @@ def _show_index(checks: list[bool], val):
     return "[" + ",".join(bads) + "]"
 
 
-class CompileJsonModel(Validator):
+class DynamicCompiler(Validator):
 
     def __init__(self, model: JsonModel, debug: bool = False):
 
@@ -841,8 +841,3 @@ class CompileJsonModel(Validator):
             return self._dict_raw_compile(jm, model, mpath, is_root)
         else:
             raise ModelError(f"unexpected model type {tname(model)}: {model} [{mpath}]")
-
-
-def compileModel(model: ModelType) -> CheckFun:
-    """Compile a JSON Model."""
-    return CompileModel(model)  # type: ignore

@@ -12,7 +12,7 @@ from .types import Jsonable, JsonModel
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
-from .dynamic import CompileJsonModel
+from .dynamic import DynamicCompiler
 # FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
 
@@ -1255,7 +1255,7 @@ def test_script():
         show = JsonModel.MODELS[0].toModel()
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     elif args.op == "D":
-        checker = CompileJsonModel(m)
+        checker = DynamicCompiler(m)
         if args.debug or args.dis:
             import dis
             print(dis.dis(checker), file=output)
