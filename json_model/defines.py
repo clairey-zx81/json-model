@@ -1,7 +1,7 @@
-from typing import Any
+from typing import Any, Mapping, MutableMapping
 import re
 import json
-from .types import CheckFun, ModelType, UnknownModel, Compiler
+from .types import CheckFun, ModelType, UnknownModel, Compiler, JsonModel
 from .utils import log
 
 
@@ -12,14 +12,12 @@ class Model:
         self.model = model
         self.jsons = jsons
         self.doc = doc
-        # FIXME too optimistic, None is a valid model!
-        # assert check is not None or model is not None
 
     def __repr__(self):
         return str(self.jsons)
 
 
-class ReadOnlyDefs:
+class ReadOnlyDefs(Mapping[str, Model]):
 
     def __init__(self, md):
         self._md = md
@@ -29,11 +27,18 @@ class ReadOnlyDefs:
         # FIXME what about "null" model?
         return model if model is not None else f"${key}"
 
+    def __iter__(self):
+        return self._md.__iter__()
+
+    def __len__(self):
+        return self._md.__len__()
+
     def __contains__(self, key):
         return key in self._md._models
 
 
-class ModelDefs:
+# TODO remove compiler ?!
+class ModelDefs(MutableMapping[str, Model]):
     """Hold current model definitions and possibly compiled versions."""
 
     def __init__(self, compiler: Compiler = lambda _m, _s: None):
@@ -89,7 +94,13 @@ class ModelDefs:
         return self._models[key].check
 
     def __delitem__(self, key):
-        self.delete(key)
+        return self.delete(key)
+
+    def __iter__(self):
+        return self._models.__iter__()
+
+    def __len__(self):
+        return self._models.__len__()
 
 
 _UTYPE = {
@@ -120,20 +131,29 @@ class Validator:
     def __init__(self, compiler: Compiler = lambda _m, _p: None):
         self._defs = ModelDefs(compiler)
 
-    def _ultimate_type(self, model: ModelType) -> Any:
+    def _ultimate_type(self, jm: JsonModel, model: ModelType) -> type:
         """Get the utimate type by following definitions."""
         tmodel = type(model)
         if tmodel in (type(None), bool, int, float, list, tuple):
             return tmodel
         elif tmodel is str:
             assert isinstance(model, str)  # useless pyright hint
-            if model == "" or model[0] != "$":
+            if model == "" or model[0] not in ("$", "="):
                 return tmodel
-            else:  # follow definition if possible
+            elif model[0] == "=":  # constants
+                return (type(None) if model == "=null" else 
+                        bool if model in ("=true", "=false") else
+                        float if "." in model else
+                        int)
+            else:  # $... follow definition if possible
                 if model in _UTYPE:
                     return _UTYPE[model]
-                m = self._defs.model(model[1:])
-                return self._ultimate_type(m) if m != UnknownModel else m  # type: ignore
+                elif model in self._defs:
+                    m = self._defs.model[model]
+                    return self._ultimate_type(m) if m != UnknownModel else m  # type: ignore
+                else:
+                    m = jm.resolveRef(m)
+                    return self._ultimate_type(m, m._model)
         elif tmodel is dict:
             assert isinstance(model, dict)
             if "@" in model:
@@ -148,7 +168,7 @@ class Validator:
             else:
                 return tmodel
 
-    def _ultimate_model(self, model: ModelType, constrained=True, strict=False) -> ModelType:
+    def _ultimate_model(self, jm: JsonModel, model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
         # FIXME stop infinite recursion?!
         tmodel = type(model)
@@ -213,7 +233,7 @@ class Validator:
         else:
             return None
 
-    def _disjunct_analyse(self, model: ModelType, mpath: str) -> tuple[str, Any, list, list]|None:
+    def _disjunct_analyse(self, jm: JsonModel, model: ModelType, mpath: str) -> tuple[str, Any, list, list]|None:
         """Return the optimized check function if possible."""
         # FIXME if there is a ^, the preprocessor will have detected the discriminant
         # and turned it into a |.

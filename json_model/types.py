@@ -1,4 +1,4 @@
-from typing import Any, Callable  # why not callable?
+from typing import Callable  # why not callable?
 
 # JSON types
 type JsonScalar = None|bool|int|float|str
@@ -11,6 +11,8 @@ type ValueType = Jsonable
 
 # JSON Model Types
 type ModelType = Jsonable
+type ModelArray = JsonArray
+type ModelObject = JsonObject
 type ModelPath = JsonPath
 type ModelDefs = dict[str, ModelType]
 type ModelTrafo = dict[str, Jsonable]
@@ -18,8 +20,9 @@ type ModelRename = dict[str, str]
 type ModelFilter = Callable[[ModelType, ModelPath], bool]
 type ModelRewrite = Callable[[ModelType, ModelPath], ModelType]
 
-type CheckFun = Callable[[Any, str], bool]
-type KeyCheckFun = Callable[[str, Any, str], bool|None]
+type CheckFun = Callable[[ValueType, str], bool]
+type KeyCheckFun = Callable[[str, ValueType, str], bool|None]
+# FIXME remove None
 type Compiler = Callable[[ModelType, str], CheckFun|None]
 
 type ModelCheckFun = Callable[[ValueType, JsonPath], bool]

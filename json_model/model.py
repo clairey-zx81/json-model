@@ -12,6 +12,7 @@ from .types import Jsonable, JsonModel
 from .utils import log, tname
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
+from .dynamic import CompileJsonModel
 # FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
 
@@ -357,7 +358,7 @@ class JsonModel:
                 elif model[0] == "=":
                     is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
                 elif model[0] == "/":
-                    is_valid &= model.endswith("/") or mode.endswith("/i")
+                    is_valid &= model.endswith("/") or model.endswith("/i")
                     # TODO check re validity
                 else:  # TODO more checks
                     pass
@@ -1107,7 +1108,8 @@ def test_script():
     arg = ap.add_argument
     # verbosity and checks
     arg("--debug", "-d", action="store_true", help="set debugging mode")
-    arg("--quiet", "-q", action="store_true", help="reduce verbosity")
+    arg("--verbose", "-v", action="store_true", help="set verbose mode")
+    arg("--quiet", "-q", dest="verbose", action="store_false", help="reduce verbosity")
     arg("--check", "-c", action="store_true", help="check model validity")
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
@@ -1116,6 +1118,7 @@ def test_script():
     arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
+    arg("--dis", action="store_true", help="show assembly")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
@@ -1136,9 +1139,12 @@ def test_script():
     if args.values and args.op not in ("S", "D", "V"):
         log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
         sys.exit(1)
+    if args.dis and args.op != "D":
+        log.error("Disassembly only available for -D: {args.op}")
+        sys.exit(1)
 
     # debug
-    log.setLevel(logging.DEBUG if args.debug else logging.WARNING if args.quiet else logging.INFO)
+    log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
 
     # resolver
     maps: dict[str, str] = {}
@@ -1200,9 +1206,8 @@ def test_script():
         show = JsonModel.MODELS[0].toModel()
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     elif args.op == "D":
-        checker = "TODO"
-        raise Exception(f"operation not implemented yet: {args.op}")
-        if args.debug:
+        checker = CompileJsonModel(m)
+        if args.debug or args.dis:
             import dis
             print(dis.dis(checker))
     else:
@@ -1215,7 +1220,12 @@ def test_script():
         with open(fn) as fh:
             value = json.load(fh)
             okay = checker(value)
-            if args.expect is None or okay == args.expect:
+            if args.expect is None:
+                msg = f"{fn}: {okay}"
+                if not okay and args.verbose:
+                    msg += " " + str(checker._reasons)
+                print(msg, file=output)
+            elif okay == args.expect:
                 log.info(f"check value {fn}: {okay}")
             else:
                 nerrors += 1
