@@ -54,6 +54,7 @@ DO: $(F.DO)
 %.DO.out: %.model.json
 	$(JMC) -DO --dis ./$< > $@
 
+# special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json
 	# TODO ./bads/*.model.json
 	$(JMC) -v -DO --true ./$< $(F.model) > $@
@@ -68,5 +69,5 @@ dcheck: $(F.dcheck)
 
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.EO.json $*.DO.out $*.dcheck.out
-	$(MAKE) $*.UO.json $*.PO.json $*.EO.json $*.DO.out $*.dcheck.out
+	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out
+	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out
