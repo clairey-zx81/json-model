@@ -1,0 +1,5 @@
+or_1.0.true.json: True
+or_1.1.true.json: True
+or_1.2.true.json: True
+or_1.0.false.json: False [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number {val}'), ('.|[5]', '$', 'expecting string Susie'), ('.|[6]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]
+or_1.1.false.json: False [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number {val}'), ('.|[5]', '$', 'expecting string Susie'), ('.|[6]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]

@@ -1,0 +1,12 @@
+{
+  "description": "mixed type constants",
+  "enum": [
+    null,
+    null,
+    false,
+    42,
+    3.14159,
+    "Susie",
+    "Calvin"
+  ]
+}

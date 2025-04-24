@@ -43,6 +43,7 @@ opt_04.model.json: True
 opt_05.model.json: True
 opt_06.model.json: True
 opt_07.model.json: True
+or_0.model.json: True
 re_0.model.json: True
 re_1.model.json: True
 scp_00.model.json: True

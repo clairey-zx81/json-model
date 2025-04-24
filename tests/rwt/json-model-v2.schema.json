@@ -226,10 +226,16 @@
       ]
     },
     "Model": {
-      "enum": [
-        "$Scalar",
-        "$Array",
-        "$Elem"
+      "anyOf": [
+        {
+          "$ref": "#Scalar"
+        },
+        {
+          "$ref": "#Array"
+        },
+        {
+          "$ref": "#Elem"
+        }
       ]
     },
     "None": false,
@@ -626,10 +632,16 @@
       ]
     },
     "RootModel": {
-      "enum": [
-        "$Scalar",
-        "$Array",
-        "$Root"
+      "anyOf": [
+        {
+          "$ref": "#Scalar"
+        },
+        {
+          "$ref": "#Array"
+        },
+        {
+          "$ref": "#Root"
+        }
       ]
     },
     "Scalar": {
