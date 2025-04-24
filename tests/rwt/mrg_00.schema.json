@@ -1,0 +1,20 @@
+{
+  "description": "simple direct merging of objects",
+  "properties": {
+    "a": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "b": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "c": {
+      "type": "boolean"
+    },
+    "d": {
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

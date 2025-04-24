@@ -1,0 +1,29 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "b": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

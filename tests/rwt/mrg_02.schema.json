@@ -1,0 +1,43 @@
+{
+  "$defs": {
+    "R": {
+      "$ref": "#./mrg_01"
+    },
+    "T": {
+      "const": "cst_02"
+    },
+    "Z": {
+      "properties": {
+        "e": {
+          "$ref": "#T"
+        },
+        "f": {
+          "$ref": "#T"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "description": "merge remote references",
+  "properties": {
+    "a": {
+      "$ref": "##R#T"
+    },
+    "b": {
+      "$ref": "##R#T"
+    },
+    "c": {
+      "$ref": "##R#T"
+    },
+    "d": {
+      "$ref": "##R#T"
+    },
+    "e": {
+      "$ref": "#T"
+    },
+    "f": {
+      "$ref": "#T"
+    }
+  },
+  "type": "object"
+}

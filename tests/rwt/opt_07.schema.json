@@ -1,0 +1,38 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "d": {
+          "const": 1
+        },
+        "val": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "d": {
+          "const": 2
+        },
+        "val": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "d": {
+          "const": 3
+        },
+        "val": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "description": "^ to | on discriminant property"
+}

@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "a": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "b": {
+      "type": "integer"
+    },
+    "c": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

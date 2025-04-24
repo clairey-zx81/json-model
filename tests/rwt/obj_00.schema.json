@@ -1,0 +1,8 @@
+{
+  "$defs": {
+    "foo": {
+      "type": "boolean"
+    }
+  },
+  "type": "boolean"
+}

@@ -1,0 +1,18 @@
+{
+  "anyOf": [
+    {
+      "const": 1
+    },
+    {
+      "oneOf": [
+        {
+          "const": 2
+        },
+        {
+          "const": 3
+        }
+      ]
+    }
+  ],
+  "description": "FIXME flatten and xor to or test"
+}

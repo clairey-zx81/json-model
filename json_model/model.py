@@ -643,6 +643,16 @@ class JsonModel:
             model["~"] = self._spec._url
         return model
 
+    def toSchema(self, recurse: bool = True) -> Jsonable:
+        from . import convert
+        schema = convert.model2schema(self._model)
+        if recurse and self._defs:
+            schema["$defs"] = {
+                name: jm.toSchema(False)
+                    for name, jm in self._defs.items()
+            }
+        return schema
+
     #
     # Resolution
     #
@@ -1134,7 +1144,8 @@ def test_script():
     arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
     arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
     arg("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
-    arg("--validate", "-V", dest="op", action="store_const", const="V", help="dynamic compile model")
+    arg("--validate", "-V", dest="op", action="store_const", const="V", help="direct validation")
+    arg("--export", "-E", dest="op", action="store_const", const="E", help="export as JSON Schema")
     # parameters
     arg("model", help="JSON model")
     arg("values", nargs="*", help="JSON values to testing")
@@ -1214,7 +1225,14 @@ def test_script():
         checker = CompileJsonModel(m)
         if args.debug or args.dis:
             import dis
-            print(dis.dis(checker))
+            print(dis.dis(checker), file=output)
+    elif args.op == "E":
+        try:
+            schema = model.toSchema()
+        except Exception as e:
+            log.error(f"convertion error: {e}")
+            schema = {"ERROR": str(e)}
+        print(json.dumps(schema, sort_keys=args.sort, indent=args.indent), file=output)
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
 

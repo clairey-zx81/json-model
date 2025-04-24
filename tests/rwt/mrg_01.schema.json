@@ -1,0 +1,45 @@
+{
+  "$defs": {
+    "T": {
+      "const": "cst_01"
+    },
+    "X": {
+      "properties": {
+        "a": {
+          "$ref": "#T"
+        },
+        "b": {
+          "$ref": "#T"
+        }
+      },
+      "type": "object"
+    },
+    "Y": {
+      "properties": {
+        "c": {
+          "$ref": "#T"
+        },
+        "d": {
+          "$ref": "#T"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "description": "merge local references",
+  "properties": {
+    "a": {
+      "$ref": "#T"
+    },
+    "b": {
+      "$ref": "#T"
+    },
+    "c": {
+      "$ref": "#T"
+    },
+    "d": {
+      "$ref": "#T"
+    }
+  },
+  "type": "object"
+}

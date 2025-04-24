@@ -1,0 +1,8 @@
+{
+  "description": "flatten and xor to or test",
+  "enum": [
+    "Hobbes",
+    "Susie",
+    "Calvin"
+  ]
+}

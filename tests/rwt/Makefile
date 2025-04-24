@@ -15,9 +15,11 @@ F.root  = $(F.model:%.model.json=%)
 # derived
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
+F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.dc    = $(F.root:%=%.dcheck.out)
-F.gen   = $(F.UO) $(F.PO)
+
+F.gen   = $(F.UO) $(F.PO) $(F.EO)
 
 .PHONY: check
 check:
@@ -31,20 +33,33 @@ clean:
 .PHONY: gen
 gen: $(F.gen)
 
+.PHONY: UO
+UO: $(F.UO)
 %.UO.json: %.model.json
 	$(JMC) -UO ./$< > $@
 
+.PHONY: PO
+PO: $(F.PO)
 %.PO.json: %.model.json
 	$(JMC) -PO ./$< > $@
 
+.PHONY: schema
+schema: $(F.EO)
+%.schema.json: %.model.json
+	$(JMC) -EO ./$< > $@
+
+.PHONY: DO
+DO: $(F.DO)
 %.DO.out: %.model.json
 	$(JMC) -DO --dis ./$< > $@
 
+.PHONY: dcheck
+dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
 
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.DO.out $*.dcheck.out
-	$(MAKE) $*.UO.json $*.PO.json $*.DO.out $*.dcheck.out
+	$(RM) $*.UO.json $*.PO.json $*.EO.json $*.DO.out $*.dcheck.out
+	$(MAKE) $*.UO.json $*.PO.json $*.EO.json $*.DO.out $*.dcheck.out

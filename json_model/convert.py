@@ -2,6 +2,7 @@ from typing import Any
 import sys
 import logging
 import json
+from .types import ModelType, ModelPath
 from . import utils
 
 log = logging.getLogger("convert")
@@ -615,17 +616,30 @@ def schema2model(schema, path: str = ""):
         # empty schema
         return buildModel("$ANY", {}, defs, sharp)
 
-
 #
 # MODEL TO SCHEMA CONVERSION
 #
 
+PREDEF_TYPES = {
+    "$STRING": "string",
+    "$NUMBER": "number",
+    "$BOOL": "boolean",
+    "$BOOLEAN": "boolean",
+    "$NULL": "null",
+    "$INTEGER": "integer",
+    "$INT": "integer",
+    "$I32": "integer",
+    "$I64": "integer",
+    "$FLOAT": "number",
+    "$F32": "number",
+    "$F64": "number",
+}
 
 # Identifiers
 DEF_MODEL: dict[str, Any] = {}
 
 
-def model2schema(model):
+def model2schema(model: ModelType, path: ModelPath = []):
     global DEF_MODEL
 
     tmodel = type(model)
@@ -650,9 +664,16 @@ def model2schema(model):
             schema["type"] = "string"
         elif model == "$ANY":
             # objet vide => ce qu'on veut
-            pass
+            # pass
+            # shortcut
+            schema = True
+            return schema
         elif model == "$NONE":
-            schema["not"] = {}
+            # schema["not"] = {}  # false?
+            schema = False
+            return schema
+        elif model in PREDEF_TYPES:
+            schema["type"] = PREDEF_TYPES[model]
         elif model[0] == "_":
             schema["const"] = model[1:]
         elif model[0] == "$":
@@ -660,20 +681,35 @@ def model2schema(model):
             schema["$ref"] = "#" + model[1:]
         elif model[0] == "/":
             schema["type"] = "string"
-            assert model.endswith("/")  # no support for /.../i
-            schema["pattern"] = model[1:-1]
+            assert model.endswith("/") or model.endswith("/i")
+            if model.endswith("/i"):
+                pattern = "(?i)" + model[1:-2]
+            else:
+                pattern = model[1:-1]
+            schema["pattern"] = pattern
+        elif model[0] == "=":
+            if model == "=null":
+                schema["const"] = None
+            elif model == "=true":
+                schema["const"] = True
+            elif model == "=false":
+                schema["const"] = False
+            elif "." in model:
+                schema["const"] = float(model[1:])
+            else:
+                schema["const"] = int(model[1:])
         else:
             schema["const"] = model
     elif tmodel is list:
         if len(model) == 1:
             schema["type"] = "array"
-            schema["items"] = model2schema(model[0])
+            schema["items"] = model2schema(model[0], path + [0])
         elif len(model) > 1:
             # tuple: prefixItems/items?
             schema["type"] = "array"
             pitems = []
-            for item in model:
-                pitems.append(model2schema(item))
+            for i, item in enumerate(model):
+                pitems.append(model2schema(item), path + [i])
             schema["prefixItems"] = pitems
             schema["items"] = False
         else:
@@ -700,18 +736,18 @@ def model2schema(model):
             else:
                 log.error("invalid # type")
 
-        if "%" in model:
-            # nom -> model: keep track of defines locally for now...
-            # FIXME maybe it could/should be a "$defs" in some cases
-            if "$defs" not in schema:
-                schema["$defs"] = {}
-            for nom, m in model["%"].items():
-                DEF_MODEL[nom] = m
-                schema["$defs"][nom] = model2schema(m)
+        # if "$" in model:
+        #     # nom -> model: keep track of defines locally for now...
+        #     # FIXME maybe it could/should be a "$defs" in some cases
+        #     if "$defs" not in schema:
+        #         schema["$defs"] = {}
+        #     for nom, m in model["%"].items():
+        #         DEF_MODEL[nom] = m
+        #         schema["$defs"][nom] = model2schema(m)
 
         if "@" in model:
             # constraint...
-            subschema = model2schema(model["@"])
+            subschema = model2schema(model["@"], path + ["@"])
             if isinstance(subschema, dict):
                 schema.update(**subschema)
             else:
@@ -751,35 +787,36 @@ def model2schema(model):
                         schema["minProperties"] = model[">="]
                 # constraints on array
                 if schema["type"] == "array":
-                    if "~" in model:
-                        schema["contains"] = model2schema(model["~"])
-                        if "<=" in model:
-                            schema["maxContains"] = model["<="]
-                        if ">=" in model:
-                            schema["minContains"] = model[">="]
-                    else:
-                        if "<=" in model:
-                            schema["maxItems"] = model["<="]
-                        if ">=" in model:
-                            schema["minItems"] = model[">="]
+                    # if "~" in model:
+                    #     schema["contains"] = model2schema(model["~"])
+                    #     if "<=" in model:
+                    #         schema["maxContains"] = model["<="]
+                    #     if ">=" in model:
+                    #         schema["minContains"] = model[">="]
+                    # else:
+                    if "<=" in model:
+                        schema["maxItems"] = model["<="]
+                    if ">=" in model:
+                        schema["minItems"] = model[">="]
                     if "!" in model:
                         v = model["!"]
                         assert isinstance(v, bool)
                         if v:
                             schema["uniqueItems"] = True
         elif "&" in model:
-            schema["allOf"] = [model2schema(m) for m in model["&"]]
+            schema["allOf"] = [model2schema(m, path + ["&", i]) for i, m in enumerate(model["&"])]
         elif "^" in model:
-            schema["oneOf"] = [model2schema(m) for m in model["^"]]
+            schema["oneOf"] = [model2schema(m, path + ["^", i]) for i, m in enumerate(model["^"])]
         elif "|" in model:
             # enum - liste de chaînes non vides
             choices = model["|"]
             # all choices are string
+            # TODO any constants?!
             if all(map(lambda s: isinstance(s, str) and len(s), choices)):
                 schema["enum"] = choices
             else:
                 # anyOf
-                schema["anyOf"] = [model2schema(m) for m in choices]
+                schema["anyOf"] = [model2schema(m, path + ["|", i]) for i, m in enumerate(choices)]
         elif "+" in model:
             # TODO remove with some preprocessing?
             assert False
@@ -790,29 +827,29 @@ def model2schema(model):
             addProp = None
             # récupérer properties/required
             for prop, val in model.items():
+                lpath = path + [prop]
                 # skip some properties: already managed before
-                if prop == "%" or prop == "#" or prop == "$":
+                if prop in ("~", "#", "$", "%"):
                     continue
                 if prop == "":
-                    addProp = model2schema(val)
-                elif prop[0] == "_":
+                    addProp = model2schema(val, lpath)
+                elif prop[0] in ("_", "!"):
                     required.append(prop[1:])
-                    properties[prop[1:]] = model2schema(val)
+                    properties[prop[1:]] = model2schema(val, lpath)
                 elif prop[0] == "?":
-                    properties[prop[1:]] = model2schema(val)
+                    properties[prop[1:]] = model2schema(val, lpath)
                 elif prop[0] == "/":
                     assert prop.endswith("/")
                     regex = prop[1:-1]
                     if "patternProperties" not in schema:
                         schema["patternProperties"] = {}
-                    schema["patternProperties"][regex] = model2schema(val)
+                    schema["patternProperties"][regex] = model2schema(val, lpath)
                     if addProp is None:
                         addProp = False
                 elif prop[0] == "$":
-                    # FIXME could handle indirect pattern prop?
-                    assert False, f"model2chema not implemented yet for {model}"
-                else:
-                    properties[prop] = model2schema(val)
+                    raise Exception(f"JSON Schema does not support properties as refs at {lpath}")
+                else:  # standard property
+                    properties[prop] = model2schema(val, lpath)
 
             # merge into schema
             if properties:

@@ -1,0 +1,31 @@
+{
+  "description": "JSON Model Subset for Localization Renames",
+  "properties": {
+    "#": {
+      "type": "string"
+    },
+    "%": {
+      "additionalProperties": false,
+      "description": "dot-prefixed arbitrary key, one or two char keyword values",
+      "patternProperties": {
+        "^\\.": {
+          "pattern": "^([#~$%@|&+^/*=!]|[<>!]=)$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "@": {
+      "const": "$NONE"
+    },
+    "~": {
+      "const": "https://json-model.org/models/l10n"
+    }
+  },
+  "required": [
+    "~",
+    "%",
+    "@"
+  ],
+  "type": "object"
+}

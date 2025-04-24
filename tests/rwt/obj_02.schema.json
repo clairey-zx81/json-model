@@ -1,0 +1,35 @@
+{
+  "$defs": {
+    "lb0": {
+      "items": {
+        "type": "boolean"
+      },
+      "type": "array"
+    },
+    "lf0": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "li0": {
+      "items": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "ls0": {
+      "items": {
+        "$ref": "#URL"
+      },
+      "type": "array"
+    }
+  },
+  "enum": [
+    "$li0",
+    "$ls0",
+    "$lb0",
+    "$lf0"
+  ]
+}

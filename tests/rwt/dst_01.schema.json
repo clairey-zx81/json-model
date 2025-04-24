@@ -1,0 +1,100 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "b": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "d": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "b": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "e": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "b": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "f": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "d": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "e": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "f": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ]
+}

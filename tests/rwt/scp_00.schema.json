@@ -1,0 +1,3 @@
+{
+  "ERROR": "JSON Schema does not support properties as refs at ['@', '$a']"
+}
