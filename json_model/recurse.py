@@ -5,13 +5,15 @@
 #
 from .types import ModelType, ModelPath, ModelFilter, ModelRewrite
 
-NO_MODEL_KEYWORDS = {"#", "~", "=", "!=", "<", "<=", ">", ">=", "!", "/"}
-MODEL_KEYWORDS = {"@"}
+ROOT_KEYWORDS = {"~", "$", "%"}
+CONSTRAINT_KEYWORDS = {"=", "!=", "<", "<=", ">", ">=", "!"}
+NO_MODEL_KEYWORDS = {"#", "~", "/"} | CONSTRAINT_KEYWORDS
+MODEL_KEYWORD = {"@"}
 # "/" expects a list, but we do not want to recurse there
 MODEL_LIST_KEYWORDS = {"|", "&", "^", "+"}
 MODEL_VALUE_KEYWORDS = {"$", "%", "*"}
 
-ALL_KEYWORDS = NO_MODEL_KEYWORDS | MODEL_KEYWORDS | MODEL_LIST_KEYWORDS | MODEL_VALUE_KEYWORDS
+ALL_KEYWORDS = NO_MODEL_KEYWORDS | MODEL_KEYWORD | MODEL_LIST_KEYWORDS | MODEL_VALUE_KEYWORDS
 
 def _recModel(
         model: ModelType,
@@ -29,10 +31,17 @@ def _recModel(
     if isinstance(model, list):
         return [_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)]
     elif isinstance(model, dict):
-        for prop in list(model.keys()):
+        keys = list(model.keys())
+        for prop in keys:
             val = model[prop]
             assert isinstance(prop, str)
-            if prop in NO_MODEL_KEYWORDS:
+            if prop in MODEL_KEYWORD:
+                okprops = {prop, "#"} | CONSTRAINT_KEYWORDS
+                if root:
+                    okprops.update(ROOT_KEYWORDS)
+                assert not (set(keys) - okprops), "@ restricts other keywords"
+                model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+            elif prop in NO_MODEL_KEYWORDS:
                 # some sanity checks in passing
                 if prop == "#":
                     assert isinstance(val, str), "# is a string"
@@ -46,6 +55,10 @@ def _recModel(
             elif prop in MODEL_LIST_KEYWORDS:
                 assert isinstance(val, list)  # sanity check in passing
                 model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+                okprops = {prop, "#"}
+                if root:
+                    okprops.update(ROOT_KEYWORDS)
+                assert not (set(keys) - okprops), f"{prop} restricts other keywords"
             elif prop == "%":  # renames and rewrites
                 assert root and isinstance(val, dict), "% transformations at root"
                 for k, v in val.items():
