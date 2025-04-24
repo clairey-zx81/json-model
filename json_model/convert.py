@@ -719,31 +719,11 @@ def model2schema(model: ModelType, path: ModelPath = []):
     elif tmodel is dict:
         schema = {}
 
-        if "$" in model:
-            schema["$anchor"] = model["$"]
-
-        # meta donnees
+        # commenaires
         if "#" in model:
             sharp = model["#"]
-            if isinstance(sharp, str):
-                schema["description"] = sharp
-            elif isinstance(sharp, dict):
-                for prop, val in sharp.items():
-                    if prop in META_KEYS:
-                        schema[prop] = val
-                    else:
-                        log.warning(f"prop ignored = {prop}")
-            else:
-                log.error("invalid # type")
-
-        # if "$" in model:
-        #     # nom -> model: keep track of defines locally for now...
-        #     # FIXME maybe it could/should be a "$defs" in some cases
-        #     if "$defs" not in schema:
-        #         schema["$defs"] = {}
-        #     for nom, m in model["%"].items():
-        #         DEF_MODEL[nom] = m
-        #         schema["$defs"][nom] = model2schema(m)
+            assert isinstance(sharp, str)
+            schema["description"] = sharp
 
         if "@" in model:
             # constraint...
@@ -753,7 +733,11 @@ def model2schema(model: ModelType, path: ModelPath = []):
             else:
                 assert isinstance(subschema, bool)
                 if not subschema:
-                    schema["not"] = {}
+                    # schema["not"] = {}
+                    # no matching schema, no point in checking anything further
+                    schema = False
+                    return schema
+                # FIXME what if true?
             if "type" in schema:
                 # contraints on string
                 if schema["type"] == "string":

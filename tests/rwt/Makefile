@@ -60,6 +60,13 @@ json-model-v2.dcheck.out: json-model-v2.model.json
 	$(JMC) -v -DO --true ./$< $(F.model) > $@
 	$(JMC) -v -DO --false ./$< $(F.bads) >> $@
 
+# special case for localizations
+l10n.dcheck.out: l10n.model.json
+	$(JMC) -v -DO --true ./$< english.model.json français.model.json > $@
+	echo "# localized models" >> $@
+	$(JMC) -v -DO --true ./english.model.json en_00.model.json >> $@
+	$(JMC) -v -DO --true ./français.model.json fr_00.model.json >> $@
+
 .PHONY: dcheck
 dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
