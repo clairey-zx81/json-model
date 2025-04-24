@@ -20,7 +20,7 @@ F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.dc    = $(F.root:%=%.dcheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) bads.check.out
 
 .PHONY: check
 check:
@@ -53,6 +53,13 @@ schema: $(F.EO)
 DO: $(F.DO)
 %.DO.out: %.model.json
 	$(JMC) -DO --dis ./$< | sed -e 's/<code object .*>/<*>/' > $@
+
+# test that --check rejects **all** bads
+bads.check.out:
+	for bad in bads/*.model.json ; do
+	  $(JMC) --check -PO $$bad && exit 1
+	done 2> $@
+	exit 0
 
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json

@@ -368,19 +368,19 @@ class JsonModel:
                 if "#" in model:
                     is_valid &= isinstance(model["#"], str)
                 if "@" in model:
-                    pass  # TODO contraint keys
+                    pass  # contraint keys in recurse
                 elif "|" in model:
                     is_valid &= isinstance(model["|"], list)
-                    # no other keys
+                    # no other keys in recurse
                 elif "^" in model:
                     is_valid &= isinstance(model["^"], list)
-                    # no other keys
+                    # no other keys in recurse
                 elif "&" in model:
                     is_valid &= isinstance(model["&"], list)
-                    # no other keys
+                    # no other keys in recurse
                 elif "+" in model:
                     is_valid &= isinstance(model["+"], list)
-                    # no other keys
+                    # no other keys in recurse
                 else:  # check object
                     for p, m in model.items():
                         is_valid &= isinstance(p, str)
@@ -401,7 +401,7 @@ class JsonModel:
                         if p in ("", "#"):
                             is_valid &= isinstance(m, str)
                             # TODO "" expects an URL
-                        else:
+                        else:  # recursion!
                             is_valid &= self.valid(m, ["$", p], False)
             if "%" in self._model:
                 is_valid &= isinstance(trafo := self._model["%"], dict)
@@ -415,7 +415,13 @@ class JsonModel:
                             # TODO more checks on t
 
         if is_valid:
-            self.check(validFlt, "JSON Model Structural Validity")
+            try:
+                self.check(validFlt, "JSON Model Structural Validity")
+            except AssertionError as e:
+                log.error(e)
+                is_valid = False
+                if self._debug:
+                    raise
 
         # TODO also check other instances?!
 
@@ -1140,6 +1146,7 @@ def test_script():
     arg("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
     # operations on model
     arg("--optimize", "-O", action="store_true", help="optimize model")
+    arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
     arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
     arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
@@ -1171,25 +1178,39 @@ def test_script():
     resolver = Resolver(None, maps)
 
     log.info(f"processing {args.model}")
-    j = resolver(args.model, [])
-    # TODO update maps using file path? and declared url
-    model = JsonModel(j, resolver, None, None, args.model, True, args.debug)
-    assert model._isolated
+    try:
+        # TODO update maps using file path? and declared url
+        j = resolver(args.model, [])
+        model = JsonModel(j, resolver, None, None, args.model, True, args.debug)
+        assert model._isolated
+    except BaseException as e:
+        log.error(e)
+        if args.debug:
+            raise
+        else:
+            log.error(f"invalid model {args.model}")
+            sys.exit(2)
 
     # initial sanity check
     if args.debug or args.check:
         for m in JsonModel.MODELS:
-            assert m.valid()
+            # assert m.valid()
+            if not m.valid():
+                log.error(f"invalid initial model {args.model}[{m._id}]")
+                sys.exit(3)
 
     # simplify before merging
     if args.optimize:
         for m in JsonModel.MODELS:
             m.optimize()
 
+    # check after initial optimize
     if args.debug or args.check:
         log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
         for m in JsonModel.MODELS:
-            assert m.valid()
+            if not m.valid():
+                log.error(f"invalid optimized model {args.model}[{m._id}]")
+                sys.exit(3)
 
     # merge in reverse order to move alts up before inlining?!
     for m in reversed(JsonModel.MODELS):
@@ -1200,10 +1221,14 @@ def test_script():
         for m in JsonModel.MODELS:
             m.optimize()
 
+    # check after merge & optimize
     if args.debug or args.check:
         log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
         for m in JsonModel.MODELS:
-            assert m.valid()
+            # assert m.valid()
+            if not m.valid():
+                log.error(f"invalid merged model {args.model}[{m._id}]")
+                sys.exit(3)
 
     # TODO check overwrite?!
     output = file(args.output, "w") if args.output else sys.stdout
@@ -1255,4 +1280,4 @@ def test_script():
                     nerrors += 1
                     log.error(f"check value {fn}: {okay}")
 
-    sys.exit(2 if nerrors > 0 else 0)
+    sys.exit(4 if nerrors > 0 else 0)
