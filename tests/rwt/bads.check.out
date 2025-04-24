@@ -1,5 +1,7 @@
 ERROR:json-model:invalid initial model bads/bool_0.model.json[0]
 ERROR:json-model:invalid initial model bads/bool_1.model.json[0]
+ERROR:json-model:invalid initial model bads/dup_prop_1.model.json[0]
+ERROR:json-model:invalid initial model bads/dup_prop_2.model.json[0]
 ERROR:json-model:@ restricts other keywords ['@']
 ERROR:json-model:invalid model bads/exclusive_0.model.json
 ERROR:json-model:@ restricts other keywords ['@']

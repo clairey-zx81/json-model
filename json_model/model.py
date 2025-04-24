@@ -382,8 +382,13 @@ class JsonModel:
                     is_valid &= isinstance(model["+"], list)
                     # no other keys in recurse
                 else:  # check object
+                    props = set()
                     for p, m in model.items():
                         is_valid &= isinstance(p, str)
+                        if p and p[0] not in ("$", "/"):
+                            name = p[1:] if p[0] in ("?", "_", "!") else p
+                            is_valid &= name not in props
+                            props.add(name) 
                         # more checks on p if p[0] == "$"
             else:  # unexpected type
                 is_valid = False
