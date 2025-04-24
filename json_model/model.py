@@ -337,8 +337,9 @@ class JsonModel:
 
         return okay
 
+    # FIXME must tell why it is unhappy!
     def valid(self, path: ModelPath = [], root: bool = True) -> bool:
-        """Check JSON Model structural validity."""
+        """Check JSON Model structural (and slightly more) validity."""
 
         is_valid = True
 
@@ -384,6 +385,8 @@ class JsonModel:
                 else:  # check object
                     props = set()
                     for p, m in model.items():
+                        if p == "#":
+                            continue
                         is_valid &= isinstance(p, str)
                         if p and p[0] not in ("$", "/"):
                             name = p[1:] if p[0] in ("?", "_", "!") else p
@@ -1281,7 +1284,7 @@ def test_script():
             if args.expect is not None:
                 if okay == args.expect:
                     log.info(f"check value {fn}: {okay}")
-                elif okat:
+                elif okay != args.expect:
                     nerrors += 1
                     log.error(f"check value {fn}: {okay}")
 
