@@ -10,7 +10,7 @@ Disassembly of _fun:
              40 LOAD_CLOSURE             1 (p)
              42 LOAD_CLOSURE             0 (v)
              44 BUILD_TUPLE              2
-             46 LOAD_CONST               1 (*)
+             46 LOAD_CONST               1 (<*>)
              48 MAKE_FUNCTION            8 (closure)
              50 LOAD_DEREF               4 (subs)
              52 CALL                     2
@@ -19,7 +19,7 @@ Disassembly of _fun:
              64 CALL                     3
              72 RETURN_VALUE
 
-Disassembly of <code object <lambda> at 0x7823f9684110, file "/home/fabien/DEV/GIT/dsv/json-model/json_model/dynamic.py", line 606>:
+Disassembly of <*>:
               0 COPY_FREE_VARS           2
 
 606           2 RESUME                   0
