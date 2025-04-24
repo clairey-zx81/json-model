@@ -1,0 +1,5 @@
+{
+  "#": "incompatible keywords",
+  "@": "$ANY",
+  "^": [ "$NONE", "$NONE" ]
+}
