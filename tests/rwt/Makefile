@@ -32,3 +32,9 @@ gen: $(F.gen)
 
 %.PO.json: %.model.json
 	$(JMC) -PO ./$< > $@
+
+%.DO.json: %.model.json
+	$(JMC) -DO --dis ./$< > $@
+
+%.dcheck.json: %.model.json
+	$(JMC) -DO ./$< $*.*.true.json $*.*.false.json > $@
