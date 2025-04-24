@@ -20,7 +20,7 @@ F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.dc    = $(F.root:%=%.dcheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc)
 
 .PHONY: check
 check:
@@ -65,7 +65,7 @@ dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
-	test -z $@ && $(RM) $@
+	# test -z $@ && $(RM) $@
 
 .PHONY: %.ALL
 %.ALL: %.model.json

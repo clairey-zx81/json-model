@@ -1,9 +1,9 @@
 Disassembly of _fun:
               0 COPY_FREE_VARS           3
 
-695           2 RESUME                   0
+701           2 RESUME                   0
 
-696           4 PUSH_NULL
+702           4 PUSH_NULL
               6 LOAD_DEREF               2 (is_an_int)
               8 LOAD_FAST                0 (v)
              10 LOAD_FAST                1 (p)
@@ -12,7 +12,7 @@ Disassembly of _fun:
              22 POP_JUMP_IF_FALSE       26 (to 76)
              24 POP_TOP
 
-697          26 LOAD_FAST                0 (v)
+703          26 LOAD_FAST                0 (v)
              28 LOAD_CONST               1 (0)
              30 COMPARE_OP              92 (>=)
              34 COPY                     1
@@ -25,6 +25,6 @@ Disassembly of _fun:
              66 LOAD_CONST               2 ('int must be positive')
              68 CALL                     3
 
-696     >>   76 RETURN_VALUE
+702     >>   76 RETURN_VALUE
 
 None

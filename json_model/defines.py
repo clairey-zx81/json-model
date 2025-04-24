@@ -298,7 +298,7 @@ class Validator:
             log.warning(f"several disjunctive properties: {candidates_distinct}")
         # one tag with one type and only constants found!
         tag_name = candidates_distinct.pop()
-        tag_type = self._ultimate_type(all_const_props[0][tag_name])
+        tag_type = self._ultimate_type(jm, all_const_props[0][tag_name])
         assert tag_type in (bool, int, float, str)
 
         return tag_name, tag_type, models, all_const_props
