@@ -10,6 +10,7 @@ JMC = jm-test $(JMC.opts) \
 
 # inputs, skip _*
 F.model = $(wildcard [a-zA-Z]*.model.json)
+F.bads  = $(wildcard bads/[a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived
@@ -55,7 +56,8 @@ DO: $(F.DO)
 
 json-model-v2.dcheck.out: json-model-v2.model.json
 	# TODO ./bads/*.model.json
-	$(JMC) -v -DO --true ./$< *.model.json > $@
+	$(JMC) -v -DO --true ./$< $(F.model) > $@
+	$(JMC) -v -DO --false ./$< $(F.bads) >> $@
 
 .PHONY: dcheck
 dcheck: $(F.dcheck)
