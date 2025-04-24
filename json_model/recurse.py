@@ -34,56 +34,57 @@ def _recModel(
         keys = list(model.keys())
         for prop in keys:
             val = model[prop]
-            assert isinstance(prop, str)
+            lpath = path + [prop]
+            assert isinstance(prop, str), f"properties are strings {lpath}"
             if prop in MODEL_KEYWORD:
                 okprops = {prop, "#"} | CONSTRAINT_KEYWORDS
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(keys) - okprops), "@ restricts other keywords"
-                model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+                assert not (set(keys) - okprops), f"@ restricts other keywords {lpath}"
+                model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             elif prop in NO_MODEL_KEYWORDS:
                 # some sanity checks in passing
                 if prop == "#":
-                    assert isinstance(val, str), "# is a string"
+                    assert isinstance(val, str), f"# is a string {lpath}"
                 elif prop == "~":
-                    assert root and isinstance(val, str), "~ is a string at root"
+                    assert root and isinstance(val, str), f"~ is a string at root {lpath}"
                 elif prop == "!":
-                    assert isinstance(val, bool), "! is a bool"
+                    assert isinstance(val, bool), f"! is a bool {lpath}"
                 elif prop == "/":
-                    assert isinstance(val, list), "/ is a list"
+                    assert isinstance(val, list), f"/ is a list {lpath}"
                 continue
             elif prop in MODEL_LIST_KEYWORDS:
-                assert isinstance(val, list)  # sanity check in passing
-                model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+                assert isinstance(val, list), f"{prop} is a list {lpath}"
+                model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
                 okprops = {prop, "#"}
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(keys) - okprops), f"{prop} restricts other keywords"
+                assert not (set(keys) - okprops), f"{prop} restricts other keywords {lpath}"
             elif prop == "%":  # renames and rewrites
-                assert root and isinstance(val, dict), "% transformations at root"
+                assert root and isinstance(val, dict), f"% transformations at root {lpath}"
                 for k, v in val.items():
-                    assert isinstance(k, str), "props are strings"
+                    assert isinstance(k, str), f"% props are strings {lpath}"
                     if k == "#":
-                        assert isinstance(v, str), "# is a string"
+                        assert isinstance(v, str), f"# is a string {lpath}"
                     elif k.startswith("."):  # rename
-                        assert isinstance(v, str), "rename to a string"
-                        assert v in ALL_KEYWORDS, "rename to a valid keyword"
+                        assert isinstance(v, str), f"rename to a string {lpath + [k]}"
+                        assert v in ALL_KEYWORDS, f"rename to a valid keyword {lpath + [k]}"
                     else:  # rewrite
                         # FIXME recurse or not?
                         # model[k] = _recModel(v, path + ["%", k], flt, rwt)
                         continue
             elif prop in MODEL_VALUE_KEYWORDS:
                 if prop == "$":
-                    assert root and isinstance(val, dict), "$ definitions at root"
-                model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+                    assert root and isinstance(val, dict), f"$ definitions at root {lpath}"
+                model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             else:  # assume properties
-                model[prop] = _recModel(val, path + [prop], flt, rwt, keys, False)
+                model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             if keys:  # possibly rewrite key references
                 if prop != "" and prop[0] == "$":
-                    nprop = _recModel(prop, path + [prop], flt, rwt, keys, False)
+                    nprop = _recModel(prop, lpath, flt, rwt, keys, False)
                     if nprop != prop:
                         if nprop in model:
-                            raise ModelError(f"cannot override rewritten key {prop}: {nprop}")
+                            raise ModelError(f"cannot override rewritten key {prop}: {nprop} {lpath}")
                         model[nprop] = model[prop]
                         del model[prop]
     else:  # sanity check

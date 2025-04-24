@@ -1,22 +1,24 @@
 ERROR:json-model:invalid initial model bads/bool_0.model.json[0]
 ERROR:json-model:invalid initial model bads/bool_1.model.json[0]
-ERROR:json-model:@ restricts other keywords
+ERROR:json-model:@ restricts other keywords ['@']
 ERROR:json-model:invalid model bads/exclusive_0.model.json
-ERROR:json-model:@ restricts other keywords
+ERROR:json-model:@ restricts other keywords ['@']
 ERROR:json-model:invalid model bads/exclusive_1.model.json
-ERROR:json-model:@ restricts other keywords
+ERROR:json-model:@ restricts other keywords ['@']
 ERROR:json-model:invalid model bads/exclusive_2.model.json
-ERROR:json-model:| restricts other keywords
+ERROR:json-model:| restricts other keywords ['|']
 ERROR:json-model:invalid model bads/exclusive_3.model.json
-ERROR:json-model:& restricts other keywords
+ERROR:json-model:& restricts other keywords ['&']
 ERROR:json-model:invalid model bads/exclusive_4.model.json
-ERROR:json-model:| restricts other keywords
+ERROR:json-model:| restricts other keywords ['|']
 ERROR:json-model:invalid model bads/exclusive_5.model.json
 ERROR:json-model:maximum recursion depth exceeded
 ERROR:json-model:invalid model bads/_infinite_recursion.model.json
 ERROR:json-model:invalid initial model bads/int_0.model.json[0]
 ERROR:json-model:invalid initial model bads/int_1.model.json[0]
-ERROR:json-model:# is a string
+ERROR:json-model:| is a list ['|']
+ERROR:json-model:invalid model bads/pipe_list.model.json
+ERROR:json-model:# is a string ['#']
 ERROR:json-model:invalid model bads/sharp_type.model.json
 ERROR:json-model:invalid model version type: bool
 ERROR:json-model:invalid model bads/tilde_str.model.json

@@ -79,7 +79,6 @@ dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
-	# test -z $@ && $(RM) $@
 
 .PHONY: %.ALL
 %.ALL: %.model.json
