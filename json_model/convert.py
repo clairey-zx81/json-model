@@ -849,6 +849,7 @@ def model2schema(model: ModelType, path: ModelPath = []):
                 elif prop[0] == "$":
                     raise Exception(f"JSON Schema does not support properties as refs at {lpath}")
                 else:  # standard property
+                    required.append(prop)
                     properties[prop] = model2schema(val, lpath)
 
             # merge into schema

@@ -12,5 +12,10 @@
       "type": "integer"
     }
   },
+  "required": [
+    "a",
+    "b",
+    "c"
+  ],
   "type": "object"
 }

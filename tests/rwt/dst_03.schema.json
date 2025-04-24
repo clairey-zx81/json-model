@@ -7,6 +7,9 @@
           "type": "integer"
         }
       },
+      "required": [
+        "a"
+      ],
       "type": "object"
     },
     {
@@ -19,6 +22,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "c"
+      ],
       "type": "object"
     }
   ]

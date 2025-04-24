@@ -14,6 +14,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "b",
+        "d"
+      ],
       "type": "object"
     },
     {
@@ -30,6 +35,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "b",
+        "e"
+      ],
       "type": "object"
     },
     {
@@ -46,6 +56,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "b",
+        "f"
+      ],
       "type": "object"
     },
     {
@@ -62,6 +77,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "c",
+        "d"
+      ],
       "type": "object"
     },
     {
@@ -78,6 +98,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "c",
+        "e"
+      ],
       "type": "object"
     },
     {
@@ -94,6 +119,11 @@
           "type": "string"
         }
       },
+      "required": [
+        "a",
+        "c",
+        "f"
+      ],
       "type": "object"
     }
   ]

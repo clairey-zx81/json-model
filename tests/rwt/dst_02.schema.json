@@ -14,6 +14,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "b",
+        "a",
+        "d"
+      ],
       "type": "object"
     },
     {
@@ -30,6 +35,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "b",
+        "a",
+        "e"
+      ],
       "type": "object"
     },
     {
@@ -46,6 +56,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "b",
+        "a",
+        "f"
+      ],
       "type": "object"
     },
     {
@@ -62,6 +77,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "c",
+        "a",
+        "d"
+      ],
       "type": "object"
     },
     {
@@ -78,6 +98,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "c",
+        "a",
+        "e"
+      ],
       "type": "object"
     },
     {
@@ -94,6 +119,11 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "c",
+        "a",
+        "f"
+      ],
       "type": "object"
     }
   ]

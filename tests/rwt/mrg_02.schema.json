@@ -15,6 +15,10 @@
           "$ref": "#T"
         }
       },
+      "required": [
+        "e",
+        "f"
+      ],
       "type": "object"
     }
   },
@@ -39,5 +43,13 @@
       "$ref": "#T"
     }
   },
+  "required": [
+    "a",
+    "b",
+    "e",
+    "f",
+    "c",
+    "d"
+  ],
   "type": "object"
 }

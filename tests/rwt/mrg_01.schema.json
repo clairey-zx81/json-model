@@ -12,6 +12,10 @@
           "$ref": "#T"
         }
       },
+      "required": [
+        "a",
+        "b"
+      ],
       "type": "object"
     },
     "Y": {
@@ -23,6 +27,10 @@
           "$ref": "#T"
         }
       },
+      "required": [
+        "c",
+        "d"
+      ],
       "type": "object"
     }
   },
@@ -41,5 +49,11 @@
       "$ref": "#T"
     }
   },
+  "required": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
   "type": "object"
 }

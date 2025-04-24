@@ -9,6 +9,10 @@
           "type": "integer"
         }
       },
+      "required": [
+        "d",
+        "val"
+      ],
       "type": "object"
     },
     {
@@ -20,6 +24,10 @@
           "type": "string"
         }
       },
+      "required": [
+        "d",
+        "val"
+      ],
       "type": "object"
     },
     {
@@ -31,6 +39,10 @@
           "type": "boolean"
         }
       },
+      "required": [
+        "d",
+        "val"
+      ],
       "type": "object"
     }
   ],

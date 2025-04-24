@@ -34,6 +34,7 @@ obj_01.model.json: True
 obj_02.model.json: True
 obj_03.model.json: True
 obj_04.model.json: True
+obj_05.model.json: True
 opt_00.model.json: True
 opt_01.model.json: True
 opt_02.model.json: True

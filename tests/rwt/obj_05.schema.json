@@ -1,17 +1,16 @@
 {
   "properties": {
-    "a": {
-      "minimum": 1,
+    "age": {
+      "minimum": 0,
       "type": "integer"
     },
-    "b": {
-      "minimum": 1,
-      "type": "integer"
+    "name": {
+      "type": "string"
     }
   },
   "required": [
-    "a",
-    "b"
+    "name",
+    "age"
   ],
   "type": "object"
 }

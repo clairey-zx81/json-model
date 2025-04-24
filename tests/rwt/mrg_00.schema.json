@@ -16,5 +16,11 @@
       "type": "integer"
     }
   },
+  "required": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
   "type": "object"
 }
