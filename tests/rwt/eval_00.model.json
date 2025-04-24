@@ -1,4 +1,5 @@
 {
+  "#": "FIXME optimizations should return $ANY",
   "$": {
     "false": {"|": []},
     "true": {"&": []}

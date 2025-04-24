@@ -17,26 +17,17 @@ import urllib.parse
 from . import utils, url_cache
 from .types import ModelError, ModelType, ModelArray, ModelObject
 from .types import ValueType, CheckFun, KeyCheckFun, JsonModel, JsonObject, Jsonable
-from .utils import distinct_values, model_in_models, tname
+from .utils import distinct_values, model_in_models, tname, log
 
 # FIXME move to validator? change name?!
 from .defines import Validator
 
-log = logging.getLogger("compiler")
-log.setLevel(level=logging.INFO)
-# log.setLevel(level=logging.DEBUG)
-
-# debug helpers
-_debug: bool = False
-# _debug: bool = True
-
 # whether to shorten one/all combinator computations
 fast_fail: bool = False
 
-
 def _trace(*args) -> bool:
     """Convenient expression debug tracer."""
-    if _debug:
+    if True:
         log.debug(f"trace{args}")
     return True
 
@@ -51,10 +42,14 @@ def _show_index(checks: list[bool], val):
 
 class CompileJsonModel(Validator):
 
-    def __init__(self, model: JsonModel):
+    def __init__(self, model: JsonModel, debug: bool = False):
 
+        log.debug(f"dynamic compiling {model._id}")
+
+        # TODO remove compiler
         super().__init__(self._raw_compile)
 
+        self._debug = debug
         self._model = model
         self._compiled_ids: set[int] = set()
         self._compiled: dict[int, CheckFun] = {}
@@ -122,18 +117,21 @@ class CompileJsonModel(Validator):
         # actually compile the model
         # FIXME make path JsonPath?!
         for name, jm in model._defs.items():
-            self._compile(jm, jm._model, "." + name, False)
+            self._compile(jm, "." + name, False)
 
-        assert self._model._id not in self._compiled_ids
-        self._compile(self._model, "")
+        # log.debug(f"compiled_ids: {self._compiled_ids}")
+        # FIXME fix globals on references!?
+        # NOTE may have been already compiled in references
+        self._compile(self._model, "", True)
 
         self._fun = self._compiled[self._model._id]
         self._reasons = []
 
-    def _compile(self, jm: JsonModel, mpath: str):
+    def _compile(self, jm: JsonModel, mpath: str, is_root: bool = False):
         if jm._id not in self._compiled_ids:
+            log.debug(f"compiling {mpath} ({jm._id})")
             self._compiled_ids.add(jm._id)
-            self._compiled[jm._id] = self._raw_compile(jm, jm._model, mpath, False)
+            self._compiled[jm._id] = self._raw_compile(jm, jm._model, mpath, is_root)
 
     def _ref2fun(self, jm: JsonModel, ref: str, mpath: str) -> CheckFun:
         # predefs…
@@ -209,7 +207,7 @@ class CompileJsonModel(Validator):
             return self._fun(value, path)
         except Exception as e:
             # exceptions should not occur
-            if _debug:
+            if self._debug:
                 log.error(e, exc_info=True)
             # FIXME raise?!
             return False
@@ -244,7 +242,7 @@ class CompileJsonModel(Validator):
 
     def trace(self, fun: CheckFun, mpath: str, what: str = "") -> CheckFun:
         """Trace check function execution and results."""
-        if _debug:
+        if self._debug:
             def tfun(val, vpath):
                 ok = fun(val, vpath)
                 log.debug(f"{what} {vpath}: {ok} [{mpath}]")
