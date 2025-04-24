@@ -755,7 +755,7 @@ class DynamicCompiler(Validator):
                 try:
                     val = float(name)
                     return lambda v, p: (type(v) in (int, float) and v == val or
-                                         self._no(mpath, p, "expecting number {val}"))
+                                         self._no(mpath, p, f"expecting number {val}"))
                 except Exception:
                     raise ModelError(f"unexpected str constant: {name} [{mpath}]")
         elif char == "$":

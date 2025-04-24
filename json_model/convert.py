@@ -650,7 +650,7 @@ def cst(s: str|None):  # JsonScalar
             return True
         elif s == "=false":
             return False
-        elif "." in s:
+        elif "." in s or "e" in s or "E" in s:
             return float(s[1:])
         else:
             return int(s[1:])

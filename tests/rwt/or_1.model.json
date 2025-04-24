@@ -1,4 +1,4 @@
 {
   "#": "mixed type constants",
-  "|": [ null, "=null", "=false", "=42", "=3.14159", "_Susie", "Calvin" ]
+  "|": [ null, "=null", "=false", "=42", "=3.14159", "=10E100", "_Susie", "Calvin" ]
 }
