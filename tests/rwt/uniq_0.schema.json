@@ -1,0 +1,8 @@
+{
+  "items": {
+    "minimum": 1,
+    "type": "integer"
+  },
+  "type": "array",
+  "uniqueItems": true
+}

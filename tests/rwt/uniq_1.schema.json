@@ -1,0 +1,7 @@
+{
+  "description": "allow duplicates",
+  "items": {
+    "type": "string"
+  },
+  "type": "array"
+}
