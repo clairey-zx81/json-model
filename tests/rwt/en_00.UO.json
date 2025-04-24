@@ -7,7 +7,7 @@
         0.0
       ]
     },
-    "~": "english"
+    "~": "./english"
   },
   {
     "#": "JsonModel 1",
