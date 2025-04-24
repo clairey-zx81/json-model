@@ -6,7 +6,7 @@
       "#": "Symbol 1",
       "foo": "$BOOLEAN"
     },
-    "@": "$foo"
+    "@": "$BOOLEAN"
   },
   "$BOOLEAN"
 ]

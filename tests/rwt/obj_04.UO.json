@@ -14,11 +14,11 @@
     "$": {
       "": "./obj_00.model",
       "#": "Symbol 2",
-      "foo": "$fun",
+      "foo": "$BOOLEAN",
       "fun": "$BOOLEAN"
     },
-    "@": "$foo"
+    "@": "$BOOLEAN"
   },
-  "$fun",
+  "$BOOLEAN",
   "$BOOLEAN"
 ]

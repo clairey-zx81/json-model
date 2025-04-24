@@ -5,5 +5,5 @@
     "#": "Symbol 1",
     "foo": "$STRING"
   },
-  "@": "$foo"
+  "@": "$BOOLEAN"
 }

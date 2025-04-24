@@ -506,7 +506,12 @@ class JsonModel:
 
         def evalRwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal changes
-            if isinstance(model, dict):
+            if isinstance(model, str) and self._isRef(model):
+                jm = self.resolveRef(model, path)
+                if isinstance(jm._model, str) and self._isPredef(jm._model):
+                    changes += 1
+                    return jm._model
+            elif isinstance(model, dict):
                 if "|" in model:
                     lor = model["|"]
                     if len(lor) == 0:
@@ -564,7 +569,7 @@ class JsonModel:
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
             return model
 
-        self._model = recModel(self._model, builtFlt, evalRwt)
+        self._model = recModel(self._model, allFlt, evalRwt)
 
         log.debug(f"{self._id}: eval {changes}")
 

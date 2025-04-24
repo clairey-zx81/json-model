@@ -7,12 +7,7 @@
       "false": "$NONE",
       "true": "$ANY"
     },
-    "@": {
-      "|": [
-        "$true",
-        "$false"
-      ]
-    }
+    "@": "$ANY"
   },
   "$NONE",
   "$ANY"
