@@ -346,3 +346,16 @@ def openfiles(args: list[str] = []):
         else:
             with open(fn) as fh:
                 yield fn, fh
+
+def json_path(path: ModelPath) -> str:
+    """Show path as a JSON Path (RFC9535), with proper escaping when necessary."""
+
+    def esc(item: str|int) -> str:
+        if isinstance(item, int):
+            return str(item)
+        elif not item.isidentifier():
+            return "'" + "\\'".join(item.split("'")) + "'"
+        else:
+            return item
+
+    return ".".join(map(esc, path))

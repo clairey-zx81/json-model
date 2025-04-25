@@ -13,6 +13,8 @@ from .utils import log, tname, is_cst
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 from .dynamic import DynamicCompiler
+from .static import static_compile
+
 # FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
 
@@ -1290,6 +1292,9 @@ def jmc_script():
         if args.debug or args.dis:
             import dis
             print(dis.dis(checker), file=output)
+    elif args.op == "S":
+        code = static_compile(m)
+        print(str(code), file=output)
     elif args.op == "E":
         try:
             schema = model.toSchema()

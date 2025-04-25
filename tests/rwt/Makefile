@@ -18,6 +18,7 @@ F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
+F.SO    = $(F.root:%=%.py)
 F.dc    = $(F.root:%=%.dcheck.out)
 
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) bads.check.out
@@ -54,12 +55,19 @@ DO: $(F.DO)
 %.DO.out: %.model.json
 	$(JMC) -DO --dis ./$< | sed -e 's/<code object .*>/<*>/' > $@
 
+.PHONY: py
+py: $(F.SO)
+%.py: %.model.json
+	$(JMC) -SO ./$< > $@
+
 # test that --check rejects **all** bads
 bads.check.out:
 	for bad in bads/*.model.json ; do
 	  $(JMC) --check -PO $$bad && exit 1
 	done 2> $@
 	exit 0
+
+# TODO scheck
 
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json
@@ -82,5 +90,5 @@ dcheck: $(F.dcheck)
 
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out
-	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out
+	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py
+	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py
