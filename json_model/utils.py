@@ -27,6 +27,28 @@ def is_regex(s: str, p: str = "") -> bool:
     else:
         return False
 
+def is_cst(s) -> bool:
+    return s is None or isinstance(s, str) and s and s[0] not in ("$", "/")
+
+def cst(s: str|None):  # JsonScalar
+    if s is None:
+        return None
+    elif s[0] == "_":
+        return s[1:]
+    elif s[0] == "=":
+        if s == "=null":
+            return None
+        elif s == "=true":
+            return True
+        elif s == "=false":
+            return False
+        elif "." in s or "e" in s or "E" in s:
+            return float(s[1:])
+        else:
+            return int(s[1:])
+    else:
+        return s
+
 def distinct_values(val: Jsonable) -> bool:
     try:
         if isinstance(val, (list, tuple, str)):
@@ -267,8 +289,8 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, ModelType]:
             return False, None
         elif model[0] == "=":
             # handle constants
-            is_cst, val = constant_value(model, mpath)
-            if is_cst:
+            a_cst, val = constant_value(model, mpath)
+            if a_cst:
                 return True, type(val)
             else:
                 return False, None

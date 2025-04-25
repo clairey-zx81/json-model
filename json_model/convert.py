@@ -4,6 +4,7 @@ import logging
 import json
 from .types import ModelType, ModelPath
 from . import utils
+from .utils import is_cst, cst
 
 log = logging.getLogger("convert")
 # log.setLevel(logging.DEBUG)
@@ -634,28 +635,6 @@ PREDEF_TYPES = {
     "$F32": "number",
     "$F64": "number",
 }
-
-def is_cst(s) -> bool:
-    return s is None or isinstance(s, str) and s and s[0] not in ("$", "/")
-
-def cst(s: str|None):  # JsonScalar
-    if s is None:
-        return None
-    elif s[0] == "_":
-        return s[1:]
-    elif s[0] == "=":
-        if s == "=null":
-            return None
-        elif s == "=true":
-            return True
-        elif s == "=false":
-            return False
-        elif "." in s or "e" in s or "E" in s:
-            return float(s[1:])
-        else:
-            return int(s[1:])
-    else:
-        return s
 
 def model2schema(model: ModelType, path: ModelPath = []):
     """Convert model to schema."""

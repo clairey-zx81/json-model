@@ -456,8 +456,8 @@ class SourceCode(Validator):
                     code.add(indent, f"{res} = {val} == {self._esc(model[1:])}")
             elif model[0] == "=":
                 # TODO FIXME known
-                (is_cst, value) = constant_value(model, mpath)
-                if is_cst:
+                (a, value) = constant_value(model, mpath)
+                if a_cst:
                     if value is None:
                         code.add(indent, f"{res} = {val} is None")
                     elif isinstance(value, bool):
