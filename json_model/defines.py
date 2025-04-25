@@ -188,18 +188,18 @@ class Validator:
                 if isinstance(m, str) and m in _UMODEL:
                     return _UMODEL[m]
                 # else try recursing
-                return self._ultimate_model(m) if m != UnknownModel else m  # type: ignore
+                return self._ultimate_model(jm, m) if m != UnknownModel else m  # type: ignore
         elif tmodel is dict:
             assert isinstance(model, dict)  # useless pyright hint
             if "@" in model:
                 if strict:
                     if set(model.keys()).issubset(["@", "#", "%", "%"]):
-                        return self._ultimate_model(model["@"])
+                        return self._ultimate_model(jm, model["@"])
                     else:
                         return UnknownModel  # type: ignore
                 else:
                     if constrained:
-                        return self._ultimate_model(model["@"])
+                        return self._ultimate_model(jm, model["@"])
                     else:
                         return UnknownModel  # type: ignore
             elif "|" in model:

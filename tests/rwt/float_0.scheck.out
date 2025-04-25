@@ -1,0 +1,7 @@
+float_0.0.true.json: True
+float_0.1.true.json: True
+float_0.2.true.json: True
+float_0.3.true.json: True
+float_0.0.false.json: False
+float_0.1.false.json: False
+float_0.2.false.json: False

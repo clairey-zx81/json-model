@@ -129,7 +129,8 @@ def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     return False
 
 
-def split_object(model: JsonObject, path: ModelPath) -> tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
+def split_object(model: JsonObject, path: ModelPath) -> \
+        tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
     """Split properties in must/may/refs/regs/other cases."""
 
     if not isinstance(model, dict):

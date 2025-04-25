@@ -1,0 +1,8 @@
+bool.0.true.json: True
+bool.1.true.json: True
+bool.0.false.json: False
+bool.1.false.json: False
+bool.2.false.json: False
+bool.3.false.json: False
+bool.4.false.json: False
+bool.5.false.json: False

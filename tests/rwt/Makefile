@@ -20,8 +20,9 @@ F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
 F.dc    = $(F.root:%=%.dcheck.out)
+F.sc    = $(F.root:%=%.scheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) bads.check.out
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) bads.check.out
 
 .PHONY: check
 check:
@@ -53,12 +54,12 @@ schema: $(F.EO)
 .PHONY: DO
 DO: $(F.DO)
 %.DO.out: %.model.json
-	$(JMC) -DO --dis ./$< | sed -e 's/<code object .*>/<*>/' > $@
+	$(JMC) -DO --code ./$< | sed -e 's/<code object .*>/<*>/' > $@
 
 .PHONY: py
 py: $(F.SO)
 %.py: %.model.json
-	$(JMC) -SO ./$< > $@
+	$(JMC) -SO --code ./$< > $@
 
 # test that --check rejects **all** bads
 bads.check.out:
@@ -67,7 +68,11 @@ bads.check.out:
 	done 2> $@
 	exit 0
 
-# TODO scheck
+#
+# Dynamic CHECKs
+#
+.PHONY: dcheck
+dcheck: $(F.dc)
 
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json
@@ -82,13 +87,37 @@ l10n.dcheck.out: l10n.model.json
 	$(JMC) -v -DO --true ./english.model.json en_00.model.json >> $@
 	$(JMC) -v -DO --true ./français.model.json fr_00.model.json >> $@
 
-.PHONY: dcheck
-dcheck: $(F.dcheck)
 %.dcheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
 
+#
+# Static CHECKs
+#
+.PHONY: scheck
+scheck: $(F.sc)
+
+# special case for the meta model
+json-model-v2.scheck.out: json-model-v2.model.json
+	# TODO ./bads/*.model.json
+	$(JMC) -v -SO --true ./$< $(F.model) > $@
+	$(JMC) -v -SO --false ./$< $(F.bads) >> $@
+
+# special case for localizations
+l10n.scheck.out: l10n.model.json
+	$(JMC) -v -SO --true ./$< english.model.json français.model.json > $@
+	echo "# localized models" >> $@
+	$(JMC) -v -SO --true ./english.model.json en_00.model.json >> $@
+	$(JMC) -v -SO --true ./français.model.json fr_00.model.json >> $@
+
+%.scheck.out: %.model.json
+	shopt -s nullglob
+	$(JMC) -v -SO ./$< $*.*.true.json $*.*.false.json > $@
+
+#
+# generate everything from a model
+#
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py
-	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py
+	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py $*.scheck.out
+	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py $*.scheck.out

@@ -1,0 +1,4 @@
+float_m1.0.true.json: True
+float_m1.1.true.json: True
+float_m1.0.false.json: False
+float_m1.1.false.json: False

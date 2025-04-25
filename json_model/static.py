@@ -34,6 +34,7 @@ _PREDEFS = {
     "BOOL": lambda v: f"isinstance({v}, bool)",
     "INTEGER": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
     "FLOAT": lambda v: f"isinstance({v}, float)",
+    "NUMBER": lambda v: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
     "STRING": lambda v: f"isinstance({v}, str)",
     "REGEX": lambda v: f"isinstance({v}, str)",  # TODO should be a valid regex
     # TODO more
@@ -110,6 +111,8 @@ class SourceCode(Validator):
         self.define("")
         self.define("type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]")
         self.define("type CheckFun = Callable[[Jsonable, str], bool]")
+        self.define("type PropMap = dict[str, CheckFun]")
+        self.define("type TagMap = dict[None|bool|float|int|str, CheckFun]")
         self.define("")
 
     # add contents
@@ -122,10 +125,6 @@ class SourceCode(Validator):
     def define(self, line: str):
         """Append a definition."""
         self._defines.append(line)
-
-    def compile(self, name: str, model: ModelType):
-        """Compile a model into name."""
-        self._compileRoot(name, model)
 
     # show generated code
     def _map(self, mp: dict[str, str]) -> str:
@@ -225,10 +224,12 @@ class SourceCode(Validator):
             if not isinstance(model["!"], bool):
                 raise ModelError(f"! constraint expects a boolean {mpath}")
             # FIXME partial implementation
-            code.add(indent, f"{res} = {res} and len(set({val})) == len({val})")
+            if model["!"]:
+                code.add(indent, f"{res} &= len(set({val})) == len({val})")
+            # else defaut is nothing to check
             # raise NotImplementedError("! is not yet implemented")
         if checks:
-            code.add(indent, f"{res} = {res} and {' and '.join(checks)}")
+            code.add(indent, f"{res} &= {' and '.join(checks)}")
 
     def _disjunction(self, code: Code, indent: int, model: ModelType, mpath: ModelPath,
                      res: str, val: str, vpath: str) -> bool:
@@ -276,7 +277,7 @@ class SourceCode(Validator):
             consts = all_const_props[i]
             TAG_CHECKS[consts[tag_name]] = self._paths[tuple(mpath + [i])]
 
-        self.define(f"{disid}: dict[None|bool|float|int|str, CheckFun]")
+        self.define(f"{disid}: TagMap")
         self._maps[disid] = TAG_CHECKS
         esctag = self._esc(tag_name)
 
@@ -304,7 +305,7 @@ class SourceCode(Validator):
         prop_must = f"{oname}_must"
         if must:
             prop_must_map: dict[str, str] = {}
-            self.define(f"{prop_must}: dict[str, CheckFun]")
+            self.define(f"{prop_must}: PropMap")
             self._maps[prop_must] = prop_must_map
             for p, m in must.items():
                 pid = f"{prop_must}_{p}"  # tmp unique identifier
@@ -313,7 +314,7 @@ class SourceCode(Validator):
         prop_may = f"{oname}_may"
         if may:
             prop_may_map: dict[str, str] = {}
-            self.define(f"{prop_may}: dict[str, CheckFun]")
+            self.define(f"{prop_may}: PropMap")
             self._maps[prop_may] = prop_may_map
             for p, m in may.items():
                 pid = f"{prop_may}_{p}"
@@ -439,9 +440,9 @@ class SourceCode(Validator):
                         expr = f"{val} >= 0.0"
                 elif model == 1.0:
                     if expr:
-                        expr += f" and {val} >= 1.0"
+                        expr += f" and {val} > 0.0"
                     else:
-                        expr = f"{val} >= 1.0"
+                        expr = f"{val} > 0.0"
                 else:
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
@@ -529,9 +530,9 @@ class SourceCode(Validator):
                     code.add(indent + 2, f"if not {res}: break")
                 else:
                     if expr:
-                        code.add(indent, f"{res} = {expr}")
+                        code.add(indent, f"{res} = {expr} and len({val}) == {len(model)}")
                     else:
-                        code.add(indent, f"{res} = True")
+                        code.add(indent, f"{res} = len({val}) == {len(model)}")
                     for i, m in enumerate(model):
                         code.add(indent + i, f"if {res}:")
                         # FIXME vpath
@@ -555,11 +556,14 @@ class SourceCode(Validator):
                     if len(list(filter(lambda t: t[0], l_const))) >= 2:
                         constants, n_models = set(), []
                         for i in range(len(models)):
-                            if l_const[i][0]:
+                            # NOTE python equality is a pain, True == 1 == 1.0, False == 0 == 0.0
+                            # NOTE python typing is a pain, isinstance(True, int) == True
+                            # thus we only keep strings…
+                            if l_const[i][0] and isinstance(l_const[i][1], str):
                                 constants.add(l_const[i][1])
                             else:
                                 n_models.append(models[i])
-                        code.add(indent, f"{res} = {val} in {constants}")
+                        code.add(indent, f"{res} = not isinstance({val}, (list, dict)) and {val} in {constants}")
                         if not n_models:
                             return
                         code.add(indent, f"if not {res}:")
@@ -725,7 +729,7 @@ class SourceCode(Validator):
             fun = self._getName(name)
             self._paths[hpath] = fun
         # generate code
-        path_init = " = \"$\"" if mpath == "$" else ""
+        path_init = " = \"$\"" if mpath == ["$"] else ""
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({json_path(mpath)})")
         code.add(0, f"def {fun}(value: Jsonable, path: str{path_init}) -> bool:")
@@ -744,14 +748,6 @@ class SourceCode(Validator):
             code.clear()
         return code
 
-    def _compileRoot(self, rname: str, model: ModelType):
-        # compile definitions
-        if isinstance(model, dict) and "%" in model:
-            for name, mod in model["%"].items():
-                self.subs(self._compileName(name, mod, f"$.%.{name}"))
-        # compile root
-        self.subs(self._compileName(rname, model, ["$"]))
-
 
 _DEFAULT_NAME = "check_model"
 
@@ -762,7 +758,6 @@ def static_compile(
         model: JsonModel,
         name: str = _DEFAULT_NAME,
         prefix: str = "jmsc_",
-        init: InitFun|None = None,
         re: str = "re",
     ) -> SourceCode:
     """Generate the check source code for a model."""
@@ -770,87 +765,8 @@ def static_compile(
     _RE = re
     sc = SourceCode(model, prefix)
     sc._names[name] = name
-    if init:
-        init(lambda n, m: sc._compileName(n, m, ["$", name]))
-    sc.compile(name, model._model)
+    if model._defs:
+        for fn, jm in model._defs.items():
+            sc.subs(sc._compileName(fn, jm._model, ["$", "$", fn]))
+    sc.subs(sc._compileName(name, model._model, ["$"]))
     return sc
-
-
-def static_compile_fun(model: ModelType, init: InitFun|None = None):
-    """Generate a check function for a model."""
-    code = str(static_compile(model, init=init))
-    env = {}
-    exec(code, env)
-    assert _DEFAULT_NAME in env
-    return env[_DEFAULT_NAME]
-
-
-#
-# Static JSON Model Compiler
-#
-
-
-def static_compiler():
-    """Compile model file arguments."""
-
-    logging.basicConfig()
-
-    # handle script options and arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-d", "--debug", action="store_true")
-    ap.add_argument("-p", "--prefix", type=str, default="jmsc_")
-    ap.add_argument("-r", "--result", type=str, default="result")
-    ap.add_argument("-v", "--value", type=str, default="value")
-    ap.add_argument("--re", action="store_true")
-    ap.add_argument("models", nargs="*")
-    args = ap.parse_args()
-
-    if args.debug:
-        log.setLevel(logging.DEBUG)
-
-    global _RESULT, _VALUE, _RE
-
-    _RESULT = args.result
-    _VALUE = args.value
-    if args.re:
-        _RE = "re"
-
-    for fn, fh in openfiles(args.models):
-        try:
-            log.debug(f"model: {fn}")
-            model = json.load(fh)
-            print(static_compile(model, prefix=args.prefix, re=_RE))
-        except Exception as e:
-            log.error(f"{fn}: {e}")
-            log.error(e, exc_info=True)
-
-
-def static_compiler_check():
-    """Compile one model and check values."""
-
-    logging.basicConfig()
-
-    # handle script options and arguments
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-d", "--debug", action="store_true")
-    ap.add_argument("model", type=str)
-    ap.add_argument("jsons", nargs="*")
-    args = ap.parse_args()
-
-    if args.debug:
-        log.setLevel(logging.DEBUG)
-
-    log.debug(f"model: {args.model}")
-    with open(args.model) as f:
-        model = json.load(f)
-
-    checker = static_compile_fun(model)
-
-    for fn, fh in openfiles(args.jsons):
-        try:
-            value = json.load(fh)
-            okay = checker(value)
-            print(f"{fn}: {okay}")
-        except Exception as e:
-            log.error(f"{fn}: {e}")
-            log.error(e, exc_info=True)

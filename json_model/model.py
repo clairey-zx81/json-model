@@ -1180,7 +1180,7 @@ def jmc_script():
     arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
-    arg("--dis", action="store_true", help="show assembly")
+    arg("--code", action="store_true", help="show source code")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
@@ -1203,8 +1203,8 @@ def jmc_script():
     if args.values and args.op not in ("S", "D", "V"):
         log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
         sys.exit(1)
-    if args.dis and args.op != "D":
-        log.error("Disassembly only available for -D: {args.op}")
+    if args.code and args.op not in ("D", "S"):
+        log.error("Code only available for -D and -S: {args.op}")
         sys.exit(1)
 
     # debug
@@ -1289,12 +1289,17 @@ def jmc_script():
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     elif args.op == "D":
         checker = DynamicCompiler(m)
-        if args.debug or args.dis:
+        if args.debug or args.code:
             import dis
             print(dis.dis(checker), file=output)
     elif args.op == "S":
-        code = static_compile(m)
-        print(str(code), file=output)
+        code = static_compile(m, "check_model")
+        source_code = f"# generated from model: {args.model}\n" + str(code)
+        if args.debug or args.code:
+            print(source_code, file=output)
+        env = {}
+        exec(source_code, env)
+        checker = env["check_model"]
     elif args.op == "E":
         try:
             schema = model.toSchema()
@@ -1314,7 +1319,7 @@ def jmc_script():
             okay = checker(value)
             if args.expect is None or args.verbose:
                 msg = f"{fn}: {okay}"
-                if not okay and args.verbose:
+                if not okay and args.verbose and args.op == "D":
                     msg += " " + str(checker._reasons)
                 print(msg, file=output)
             if args.expect is not None:

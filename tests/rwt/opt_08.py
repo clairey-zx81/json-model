@@ -1,0 +1,23 @@
+# generated from model: ./opt_08.model.json
+from typing import Callable
+import re as re
+
+type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
+type CheckFun = Callable[[Jsonable, str], bool]
+type PropMap = dict[str, CheckFun]
+type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+
+# define "one" ('$'.'$'.one)
+def jmsc_f_0(value: Jsonable, path: str) -> bool:
+    # '$'.'$'.one
+    result = isinstance(value, int) and not isinstance(value, bool) and value == 1
+    return result
+
+
+# define "check_model" ('$')
+def check_model(value: Jsonable, path: str = "$") -> bool:
+    # '$'
+    result = isinstance(value, int) and not isinstance(value, bool) and value == 1
+    return result
+
