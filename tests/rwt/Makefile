@@ -73,6 +73,8 @@ bads.check.out:
 #
 .PHONY: dcheck
 dcheck: $(F.dc)
+	egrep -v 'true.*True|false.*False' *.dcheck.out | egrep -v '^(json-model-v2|l10n)'
+	exit 0
 
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json
@@ -96,6 +98,8 @@ l10n.dcheck.out: l10n.model.json
 #
 .PHONY: scheck
 scheck: $(F.sc)
+	egrep -v 'true.*True|false.*False' *.scheck.out | egrep -v '^(json-model-v2|l10n)'
+	exit 0
 
 # special case for the meta model
 json-model-v2.scheck.out: json-model-v2.model.json
