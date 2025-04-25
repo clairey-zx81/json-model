@@ -4,6 +4,5 @@
       "$ref": "#https://json-model.org/models/json-model-v2"
     }
   },
-  "$ref": "#Model",
-  "description": "JSON Model en fran\u00e7ais\u2026"
+  "$ref": "#Model"
 }

@@ -1,6 +1,6 @@
 [
   {
-    "#": "JsonModel 0",
+    "#": "JsonModel 0 with defs",
     "$": {
       "": "./obj_04.model.json",
       "#": "Symbol 1",
@@ -10,7 +10,7 @@
   },
   "$./obj_00.model",
   {
-    "#": "JsonModel 2",
+    "#": "JsonModel 2 with defs",
     "$": {
       "": "./obj_00.model",
       "#": "Symbol 2",

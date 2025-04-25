@@ -1,10 +1,6 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "./fran\u00e7ais.model.json",
-    "#": "Symbol 1",
-    "Model": "$https://json-model.org/models/json-model-v2"
-  },
+  "#": "JsonModel 0 with defs",
+  "$": "Symbol 1",
   "@": "$Model",
   "~": "https://json-model.org/models/l10n"
 }

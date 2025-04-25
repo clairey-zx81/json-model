@@ -7,47 +7,29 @@
       "T": "_cst_01",
       "X": {
         "#": "JsonModel 2",
-        "$": {
-          "": "./mrg_01.model.json#X",
-          "#": "Symbol 1"
-        },
-        "a": "$T",
-        "b": "$T"
+        "a": "_cst_01",
+        "b": "_cst_01"
       },
       "Y": {
         "#": "JsonModel 3",
-        "$": {
-          "": "./mrg_01.model.json#Y",
-          "#": "Symbol 1"
-        },
-        "c": "$T",
-        "d": "$T"
+        "c": "_cst_01",
+        "d": "_cst_01"
       }
     },
-    "@": {
-      "a": "$T",
-      "b": "$T",
-      "c": "$T",
-      "d": "$T"
-    }
+    "a": "_cst_01",
+    "b": "_cst_01",
+    "c": "_cst_01",
+    "d": "_cst_01"
   },
   "_cst_01",
   {
     "#": "JsonModel 2",
-    "$": {
-      "": "./mrg_01.model.json#X",
-      "#": "Symbol 1"
-    },
-    "a": "$T",
-    "b": "$T"
+    "a": "_cst_01",
+    "b": "_cst_01"
   },
   {
     "#": "JsonModel 3",
-    "$": {
-      "": "./mrg_01.model.json#Y",
-      "#": "Symbol 1"
-    },
-    "c": "$T",
-    "d": "$T"
+    "c": "_cst_01",
+    "d": "_cst_01"
   }
 ]

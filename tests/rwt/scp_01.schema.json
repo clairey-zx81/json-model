@@ -1,3 +1,30 @@
 {
-  "ERROR": "JSON Schema does not support properties as refs at ['$b']"
+  "$defs": {
+    "B": {
+      "type": "string"
+    },
+    "R": {
+      "$ref": "#./scp_00"
+    },
+    "b": {
+      "const": "b"
+    }
+  },
+  "properties": {
+    "RA": {
+      "$ref": "#R"
+    },
+    "a": {
+      "$ref": "#R#A"
+    },
+    "b": {
+      "$ref": "#B"
+    }
+  },
+  "required": [
+    "RA",
+    "b",
+    "a"
+  ],
+  "type": "object"
 }

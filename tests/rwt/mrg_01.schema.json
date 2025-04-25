@@ -6,10 +6,10 @@
     "X": {
       "properties": {
         "a": {
-          "$ref": "#T"
+          "const": "cst_01"
         },
         "b": {
-          "$ref": "#T"
+          "const": "cst_01"
         }
       },
       "required": [
@@ -21,10 +21,10 @@
     "Y": {
       "properties": {
         "c": {
-          "$ref": "#T"
+          "const": "cst_01"
         },
         "d": {
-          "$ref": "#T"
+          "const": "cst_01"
         }
       },
       "required": [
@@ -34,19 +34,18 @@
       "type": "object"
     }
   },
-  "description": "merge local references",
   "properties": {
     "a": {
-      "$ref": "#T"
+      "const": "cst_01"
     },
     "b": {
-      "$ref": "#T"
+      "const": "cst_01"
     },
     "c": {
-      "$ref": "#T"
+      "const": "cst_01"
     },
     "d": {
-      "$ref": "#T"
+      "const": "cst_01"
     }
   },
   "required": [

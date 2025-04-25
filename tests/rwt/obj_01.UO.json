@@ -1,16 +1,16 @@
 [
   {
-    "#": "JsonModel 0",
+    "#": "JsonModel 0 with defs",
     "$": {
       "": "./obj_01.model.json",
       "#": "Symbol 1",
-      "bla": "$./obj_00#foo"
+      "bla": "$BOOLEAN"
     },
-    "@": "$bla"
+    "@": "$BOOLEAN"
   },
-  "$./obj_00#foo",
+  "$BOOLEAN",
   {
-    "#": "JsonModel 2",
+    "#": "JsonModel 2 with defs",
     "$": {
       "": "./obj_00",
       "#": "Symbol 2",
@@ -20,7 +20,7 @@
   },
   "$BOOLEAN",
   {
-    "#": "JsonModel 4",
+    "#": "JsonModel 4 with defs",
     "$": {
       "": "./obj_00#foo",
       "#": "Symbol 3",

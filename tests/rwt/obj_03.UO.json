@@ -1,6 +1,6 @@
 [
   {
-    "#": "JsonModel 0",
+    "#": "JsonModel 0 with defs",
     "$": {
       "": "./obj_03.model.json",
       "#": "Symbol 1",

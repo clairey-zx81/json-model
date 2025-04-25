@@ -1,16 +1,14 @@
 [
   {
     "#": "JsonModel 0",
-    "@": {
-      "|": [
-        0,
-        0.0
-      ]
-    },
+    "|": [
+      0,
+      0.0
+    ],
     "~": "./fran\u00e7ais"
   },
   {
-    "#": "JsonModel 1",
+    "#": "JsonModel 1 with defs",
     "$": {
       "": "./fran\u00e7ais",
       "#": "Symbol 3",
@@ -34,36 +32,24 @@
     "_~": "_https://json-model.org/models/l10n"
   },
   {
-    "#": "JsonModel 4",
+    "#": "JsonModel 4 with defs",
     "$": {
       "": "https://json-model.org/models/json-model-v2",
       "#": "Symbol 6",
       "Add": {
         "#": "JsonModel 15",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Add",
-          "#": "Symbol 6"
-        },
         "_+": [
           "$Model"
         ]
       },
       "And": {
         "#": "JsonModel 13",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#And",
-          "#": "Symbol 6"
-        },
         "_&": [
           "$Model"
         ]
       },
       "Any": {
         "#": "JsonModel 7",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Any",
-          "#": "Symbol 6"
-        },
         "|": [
           "$Val",
           [
@@ -79,18 +65,10 @@
       ],
       "Comment": {
         "#": "JsonModel 9",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Comment",
-          "#": "Symbol 6"
-        },
         "?#": ""
       },
       "Constraint": {
         "#": "JsonModel 11",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Constraint",
-          "#": "Symbol 6"
-        },
         "/^(<=|>=|<|>|\u2265|\u2264)$/": {
           "|": [
             -1,
@@ -104,18 +82,10 @@
       },
       "Defs": {
         "#": "JsonModel 21",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Defs",
-          "#": "Symbol 6"
-        },
         "/.+/": "$Model"
       },
       "Elem": {
         "#": "JsonModel 17",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Elem",
-          "#": "Symbol 6"
-        },
         "|": [
           {
             "!@": "$Model",
@@ -163,10 +133,6 @@
       },
       "Model": {
         "#": "JsonModel 20",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Model",
-          "#": "Symbol 6"
-        },
         "|": [
           "$Scalar",
           "$Array",
@@ -177,44 +143,24 @@
       "Obj": {
         "": "$Model",
         "#": "JsonModel 16",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Obj",
-          "#": "Symbol 6"
-        },
         "/^[@|&^+/*]$/": "$NONE"
       },
       "Or": {
         "#": "JsonModel 12",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Or",
-          "#": "Symbol 6"
-        },
         "_|": [
           "$Model"
         ]
       },
       "Rename": {
         "#": "JsonModel 22",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Rename",
-          "#": "Symbol 6"
-        },
         "/^\\..*$/": "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
       },
       "Rewrite": {
         "#": "JsonModel 23",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Rewrite",
-          "#": "Symbol 6"
-        },
         "/^\\$.*$/": "$Trafo"
       },
       "Root": {
         "#": "JsonModel 24",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Root",
-          "#": "Symbol 6"
-        },
         "|": [
           {
             "!@": "$Model",
@@ -328,10 +274,6 @@
       },
       "RootModel": {
         "#": "JsonModel 25",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#RootModel",
-          "#": "Symbol 6"
-        },
         "|": [
           "$Scalar",
           "$Array",
@@ -340,10 +282,6 @@
       },
       "Scalar": {
         "#": "JsonModel 19",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Scalar",
-          "#": "Symbol 6"
-        },
         "|": [
           "=null",
           "=true",
@@ -358,10 +296,6 @@
       },
       "Trafo": {
         "#": "JsonModel 18",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Trafo",
-          "#": "Symbol 6"
-        },
         "|": [
           "$Model",
           {
@@ -401,10 +335,6 @@
       "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
       "Val": {
         "#": "JsonModel 6",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Val",
-          "#": "Symbol 6"
-        },
         "|": [
           null,
           true,
@@ -415,10 +345,6 @@
       },
       "Xor": {
         "#": "JsonModel 14",
-        "$": {
-          "": "https://json-model.org/models/json-model-v2#Xor",
-          "#": "Symbol 6"
-        },
         "_^": [
           "$Model"
         ]
@@ -430,10 +356,6 @@
   "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
   {
     "#": "JsonModel 6",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Val",
-      "#": "Symbol 6"
-    },
     "|": [
       null,
       true,
@@ -444,10 +366,6 @@
   },
   {
     "#": "JsonModel 7",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Any",
-      "#": "Symbol 6"
-    },
     "|": [
       "$Val",
       [
@@ -461,10 +379,6 @@
   "$NONE",
   {
     "#": "JsonModel 9",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Comment",
-      "#": "Symbol 6"
-    },
     "?#": ""
   },
   [
@@ -472,10 +386,6 @@
   ],
   {
     "#": "JsonModel 11",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Constraint",
-      "#": "Symbol 6"
-    },
     "/^(<=|>=|<|>|\u2265|\u2264)$/": {
       "|": [
         -1,
@@ -489,40 +399,24 @@
   },
   {
     "#": "JsonModel 12",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Or",
-      "#": "Symbol 6"
-    },
     "_|": [
       "$Model"
     ]
   },
   {
     "#": "JsonModel 13",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#And",
-      "#": "Symbol 6"
-    },
     "_&": [
       "$Model"
     ]
   },
   {
     "#": "JsonModel 14",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Xor",
-      "#": "Symbol 6"
-    },
     "_^": [
       "$Model"
     ]
   },
   {
     "#": "JsonModel 15",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Add",
-      "#": "Symbol 6"
-    },
     "_+": [
       "$Model"
     ]
@@ -530,18 +424,10 @@
   {
     "": "$Model",
     "#": "JsonModel 16",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Obj",
-      "#": "Symbol 6"
-    },
     "/^[@|&^+/*]$/": "$NONE"
   },
   {
     "#": "JsonModel 17",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Elem",
-      "#": "Symbol 6"
-    },
     "|": [
       {
         "!@": "$Model",
@@ -589,10 +475,6 @@
   },
   {
     "#": "JsonModel 18",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Trafo",
-      "#": "Symbol 6"
-    },
     "|": [
       "$Model",
       {
@@ -631,10 +513,6 @@
   },
   {
     "#": "JsonModel 19",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Scalar",
-      "#": "Symbol 6"
-    },
     "|": [
       "=null",
       "=true",
@@ -649,10 +527,6 @@
   },
   {
     "#": "JsonModel 20",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Model",
-      "#": "Symbol 6"
-    },
     "|": [
       "$Scalar",
       "$Array",
@@ -661,34 +535,18 @@
   },
   {
     "#": "JsonModel 21",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Defs",
-      "#": "Symbol 6"
-    },
     "/.+/": "$Model"
   },
   {
     "#": "JsonModel 22",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Rename",
-      "#": "Symbol 6"
-    },
     "/^\\..*$/": "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
   },
   {
     "#": "JsonModel 23",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Rewrite",
-      "#": "Symbol 6"
-    },
     "/^\\$.*$/": "$Trafo"
   },
   {
     "#": "JsonModel 24",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#Root",
-      "#": "Symbol 6"
-    },
     "|": [
       {
         "!@": "$Model",
@@ -802,10 +660,6 @@
   },
   {
     "#": "JsonModel 25",
-    "$": {
-      "": "https://json-model.org/models/json-model-v2#RootModel",
-      "#": "Symbol 6"
-    },
     "|": [
       "$Scalar",
       "$Array",

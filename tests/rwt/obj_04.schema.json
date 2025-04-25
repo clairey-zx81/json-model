@@ -4,6 +4,5 @@
       "$ref": "#./obj_00.model"
     }
   },
-  "$ref": "#bla",
-  "description": "add a definition"
+  "$ref": "#bla"
 }

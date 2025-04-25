@@ -9,10 +9,10 @@
     "Z": {
       "properties": {
         "e": {
-          "$ref": "#T"
+          "const": "cst_02"
         },
         "f": {
-          "$ref": "#T"
+          "const": "cst_02"
         }
       },
       "required": [
@@ -22,25 +22,24 @@
       "type": "object"
     }
   },
-  "description": "merge remote references",
   "properties": {
     "a": {
-      "$ref": "##R#T"
+      "const": "cst_01"
     },
     "b": {
-      "$ref": "##R#T"
+      "const": "cst_01"
     },
     "c": {
-      "$ref": "##R#T"
+      "const": "cst_01"
     },
     "d": {
-      "$ref": "##R#T"
+      "const": "cst_01"
     },
     "e": {
-      "$ref": "#T"
+      "const": "cst_02"
     },
     "f": {
-      "$ref": "#T"
+      "const": "cst_02"
     }
   },
   "required": [

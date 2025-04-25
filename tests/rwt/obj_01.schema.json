@@ -1,8 +1,8 @@
 {
   "$defs": {
     "bla": {
-      "$ref": "#./obj_00#foo"
+      "type": "boolean"
     }
   },
-  "$ref": "#bla"
+  "type": "boolean"
 }

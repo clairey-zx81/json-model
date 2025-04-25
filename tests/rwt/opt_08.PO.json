@@ -1,9 +1,5 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "./opt_08.model.json",
-    "#": "Symbol 1",
-    "one": "=1"
-  },
+  "#": "JsonModel 0 with defs",
+  "$": "Symbol 1",
   "@": "=1"
 }

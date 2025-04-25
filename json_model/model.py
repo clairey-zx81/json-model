@@ -601,6 +601,10 @@ class JsonModel:
                     elif any(map(empty_obj, lplus)):
                         changes += 1
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
+                elif "@" in model:
+                    # constraint without actual constraints
+                    if not(set(model.keys()) - {"#", "~", "$", "%", "@"}):
+                        return model["@"]
             return model
 
         self._model = recModel(self._model, allFlt, evalRwt)
@@ -657,23 +661,24 @@ class JsonModel:
             if "#" in model:
                 del model["#"]
             model["#"] = f"JsonModel {self._id}"
-        if self._defs:
+        if len(self._defs):
             defs = {
                 n: jm.toModel() if isinstance(jm, JsonModel) else jm
                     for n, jm in self._defs.items()
             } if deep else self._init_dl
-            if "" not in defs:
-                defs["#"] = f"Symbol {self._defs._id}"
-                defs[""] = self._url
-            if isinstance(model, dict):
-                assert "$" not in model
-                model["$"] = defs
-            elif self._debug:
-                model = {
-                    "#": f"Debug JsonModel {self._id}",
-                    "$": defs if deep else f"Symbol {self._defs._id}",
-                    "@": model,
-                }
+            if defs:
+                if "" not in defs:
+                    defs["#"] = f"Symbol {self._defs._id}"
+                    defs[""] = self._url
+                if isinstance(model, dict):
+                    assert "$" not in model
+                    model["$"] = defs
+                else:
+                    model = {
+                        "#": f"JsonModel {self._id} with defs",
+                        "$": defs if deep else f"Symbol {self._defs._id}",
+                        "@": model,
+                    }
         if self._spec and isinstance(model, dict):
             model["~"] = self._spec._url
         return model
@@ -682,6 +687,11 @@ class JsonModel:
         from . import convert
         schema = convert.model2schema(self._model)
         if recurse and self._defs:
+            if isinstance(schema, bool):  # we need an object to store defs
+                schema = {} if schema else {"not": True}
+                # possibly salvage comment
+                if isinstance(self._model, dict) and "#" in self._model:
+                    schema["description"] = self._model["#"]
             schema["$defs"] = {
                 name: jm.toSchema(False)
                     for name, jm in self._defs.items()
@@ -692,8 +702,8 @@ class JsonModel:
     # Resolution
     #
     # @staticmethod?
-    def _isPredef(self, s: str) -> bool:
-        return s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
+    def _isPredef(self, s: Jsonable) -> bool:
+        return isinstance(s, str) and s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
 
     # @staticmethod?
     def _isRef(self, model: Jsonable) -> bool:
@@ -1284,7 +1294,7 @@ def jmc_script():
         try:
             schema = model.toSchema()
         except Exception as e:
-            log.error(f"convertion error: {e}")
+            log.error(e, exc_info=args.debug)
             schema = {"ERROR": str(e)}
         print(json.dumps(schema, sort_keys=args.sort, indent=args.indent), file=output)
     else:

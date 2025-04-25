@@ -2,6 +2,5 @@
   "$defs": {
     "false": false,
     "true": true
-  },
-  "description": "anything"
+  }
 }

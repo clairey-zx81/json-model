@@ -711,9 +711,8 @@ def model2schema(model: ModelType, path: ModelPath = []):
                     if not subschema:
                         # schema["not"] = {}
                         # no matching schema, no point in checking anything further
-                        schema = False
-                        return schema
-                    # FIXME what if true?
+                        return False
+                    # if true, we keep the schema as is
                 if "type" in schema:
                     # contraints on string
                     if schema["type"] == "string":
@@ -770,19 +769,15 @@ def model2schema(model: ModelType, path: ModelPath = []):
             elif "|" in model:
                 # enum - liste de chaînes non vides
                 choices = model["|"]
-                # all choices are simple strings or constants
-                if all(map(is_cst, choices)):
+                if all(map(is_cst, choices)):  # all choices are constants
                     schema["enum"] = list(map(cst, choices))
                 else:
                     schema["anyOf"] = [model2schema(m, path + ["|", i]) for i, m in enumerate(choices)]
             elif "+" in model:
-                # TODO remove with some preprocessing?
-                assert False
+                assert False,  f"+ must have been removed by preprocessing {path + ['+']}"
             else:
                 schema["type"] = "object"
-                properties = {}
-                required = []
-                addProp = None
+                properties, required, addProp = {}, [], None
                 # récupérer properties/required
                 for prop, val in model.items():
                     lpath = path + [prop]
