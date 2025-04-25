@@ -9,7 +9,7 @@ import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
 from .types import Jsonable, JsonModel
-from .utils import log, tname
+from .utils import log, tname, is_cst
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 from .dynamic import DynamicCompiler
@@ -495,9 +495,28 @@ class JsonModel:
 
         return changes > 0
 
-    # TODO inline defs under some condition?
-    # def inline(self):
-    #     return False
+    def const_prop(self):
+        """Propagate constants and predefs to their references."""
+
+        changes = 0
+
+        def cpRwt(model: ModelType, path: ModelPath) -> ModelType:
+            nonlocal changes
+            if self._isRef(model):
+                jm = self.resolveRef(model, path)
+                if self._isPredef(jm._model):
+                    changes += 1
+                    return jm._model
+                elif is_cst(jm._model):
+                    changes += 1
+                    return jm._model
+            return model
+
+        self._model = recModel(self._model, allFlt, cpRwt)
+
+        log.debug(f"{self._id}: constant propagation {changes}")
+
+        return changes > 0
 
     def eval(self):
         """Model partial evaluation."""
@@ -595,6 +614,7 @@ class JsonModel:
         changed = True
         while changed:
             changed = False
+            changed |= self.const_prop()
             changed |= self.eval()
             changed |= self.flatten()
             changed |= self.xor_to_or()
