@@ -12,8 +12,6 @@ from .types import Jsonable, JsonModel, Symbols
 from .utils import log, tname, is_cst
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
-from .dynamic import DynamicCompiler
-from .static import static_compile
 
 # FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
@@ -1173,6 +1171,11 @@ class JsonModel:
             jm, path = self._parsePath(tpath, lpath)
             self._applyTrafoAtPath(jm, path, trafo, lpath)
         self._rewritten = True
+
+
+# TODO move elsewhere
+from .dynamic import DynamicCompiler
+from .static import static_compile
 
 def jmc_script():
 
