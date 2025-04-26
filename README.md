@@ -32,76 +32,50 @@ source venv/bin/activate
 pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
-## Commands
+## Command
 
-- `jm-c-check-model awesome.model.json files.json…`
+Command `jmc` (JSON Model Compiler) options:
 
-   check whether the model matches the JSON data in files
-   with the JSON Model Dynamic Compiler.
-
-- `jm-cs-check-model awesome.model.json files.json…`
-
-   check whether the model matches the JSON data in files
-   with the JSON Model Static Compiler.
-
-- `jm-v-check-model awesome.model.json files.json…`
-
-   same thing with the *validator* (aka interpreter).
-
-- `jm-model2schema` convert a JSON Model to a JSON Schema.
-- `jm-schema2model` convert a JSON Schema (partial) to a JSON Model.
-- `jm-preprocessor` JSON Model preprocessor
-  - flatten operators `|` `^` and `&`
-  - distribute `+` (merge operator occurences) over `|` (or operator) and `^` (xor)
-  - compute merged objects definitions (i.e. removes `+` operators)
-  - partial evaluation
-  - deduplication in `^ |`
-  - xor to or convertion if possible (`^` → `|`)
-- `jm-compiler awesome.model.json`
-
-  static compiler, including some optimization:
-
-  - detect object tags (discriminators)
-  - optimize type checks in "&"
-  - optimize homogeneous typed list in "&" and "|" 
-  - subset of simple type constants
+- `--optimize` or `-O`: optimize (const prop, partial eval, xor to or, flatten)
+- `-P -D -S -E -U`: operation (preprocess, dynamic and static compile, JSON Schema export, dump)
+- `-o output`: output file instead of standard
+- …
 
 ## TODO v2
 
-- change `%` to `$` and remove `$` intra-model naming shortcut?
-- readability and style: `:verbose` version of single char keywords!?
-- clarify stuff inside the root `#`? or use `%` for specific purpose?
-- check and document API entry points
-- add doc and test CI
-- provide a model to form proof-of-concept, possibly using some convenient form
-  library, eg [FormBuilder](https://formbuilder.online/).
-- think of extensions for variants, i.e. form in progress vs final form with more constraints?
-- think of extensions to direct forms for instance?
-  eg types, constraints, layout or not?
-- think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
-  for the Python ecosystem, see `SQLAlchemy` and `Django`?
-- think of extensions to direct object creation (Python pydantic, JS)?
-- extensions could allow synonyms enabling JSON Model l10n?!
-- name space?
-- conditionals or not conditionals… eg for interfaces
-  if not in the description language, it should be easy to express outside.
-- declaration of the meta model?
+- [x] move schema to model conversion to json-schema-utils.
+- [x] change `%` to `$` and remove `$` intra-model naming shortcut.
+- [~] readability and style: `:verbose` version of single char keywords!? (see extensions)
+- [x] clarify stuff inside the root `#`? or use `%` for specific purpose?
+- [x] dynamic python compiler
+- [x] static python compiler
+- [ ] improve `-P` to have a re-intrant model
+- [ ] prettyprint rejection reasons?
+- [ ] static js/ts compiler
+- [ ] direct validator
+- [ ] check and document API entry points
+- [ ] add doc and test CI
+- [x] extenstion for preprocessed (merged and trafo).
+- [x] think of extensions for variants, i.e. form in progress vs final form with more constraints?
+- [ ] think of extensions to direct forms for instance, eg types, constraints, layout?
+      see [FormBuilder](https://formbuilder.online/).
+- [ ] think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
+- [ ] think of extensions to direct object creation (Python pydantic, JS)?
+- [ ] think of extensions for ORM, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
+- [ ] think of extensions for accepting any extension?! eg opened objects?
+- [x] extensions could allow synonyms enabling JSON Model l10n?
+- [x] name space decision, there is only one name space per file.
+- [ ] conditionals or not conditionals… eg for interfaces
+      if not in the description language, it should be easy to express outside.
+- [x] declaration of the meta model?
 
   ```json
   {
-    "#": {
-      ":meta-model": "$URL"
-    }
+    "~": "$URL"
   }
   ```
 
-  ```json
-  {
-    "%": "$URL"
-  }
-  ```
-
-- integration of json-model extensions?
+- [ ] integration of json-model extensions?
 
   This could be a simplified version of JSON Schema vocabularies?
 
