@@ -11,6 +11,7 @@
 # - Python is fuzzy about int/bool distinction, eg
 #   - isinstance(True, int) is True
 #   - True == 1 is True
+#   - { True, 1, 1.0 } == { True }
 #   as a consequence, some generated code may not provide the hoped answer
 
 from typing import Any, Callable
@@ -19,7 +20,7 @@ import json
 import logging
 import argparse
 
-from .types import ModelType, ModelError, ModelPath, UnknownModel, JsonModel
+from .types import ModelType, ModelError, ModelPath, UnknownModel, JsonModel, Symbols
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value, log, tname, json_path
 from .preproc import model_preprocessor
 from .defines import Validator
@@ -28,15 +29,21 @@ type Line = tuple[int, str]
 
 # inlined predefs
 _PREDEFS = {
-    "ANY": lambda _v: "True",
-    "NONE": lambda _v: "False",
-    "NULL": lambda v: f"{v} is None",
-    "BOOL": lambda v: f"isinstance({v}, bool)",
-    "INTEGER": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
-    "FLOAT": lambda v: f"isinstance({v}, float)",
-    "NUMBER": lambda v: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
-    "STRING": lambda v: f"isinstance({v}, str)",
-    "REGEX": lambda v: f"isinstance({v}, str)",  # TODO should be a valid regex
+    "$ANY": lambda _v: "True",
+    "$NONE": lambda _v: "False",
+    "$NULL": lambda v: f"{v} is None",
+    "$BOOL": lambda v: f"isinstance({v}, bool)",
+    "$INTEGER": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
+    "$INT": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
+    "$I32": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
+    "$I64": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
+    "$FLOAT": lambda v: f"isinstance({v}, float)",
+    "$F32": lambda v: f"isinstance({v}, float)",
+    "$F64": lambda v: f"isinstance({v}, float)",
+    "$NUMBER": lambda v: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
+    "$STRING": lambda v: f"isinstance({v}, str)",
+    "$URL": lambda v: f"isinstance({v}, str)",  # TODO improve
+    "$REGEX": lambda v: f"isinstance({v}, str)",  # TODO should be a valid regex
     # TODO more
 }
 
@@ -66,27 +73,32 @@ class Code():
 
 
 class SourceCode(Validator):
+    """Source code for compiling JSON Models."""
 
-    def __init__(self, model: JsonModel, prefix: str = ""):
+    def __init__(self, globs: Symbols, prefix: str = "", debug: bool = False, remod: str = _RE):
 
         # No actual compiler
         super().__init__()
 
-        # global prefix
-        self._model = model
         self._prefix = prefix
+        self._globs = globs
+        self._debug = debug
+        self._re = remod
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
         self._nvars: dict[str, int] = {}
-        # $-definitions -> function
+        # FIXME global namespace! $-definitions -> function
         self._names: dict[str, str] = {}
-        # /re.../ -> regex function
+        # /re.../ -> regex function name
         self._regs: dict[str, str] = {}
         # model path -> function name
         self._paths: dict[str, str] = {}
         # already generated object paths
         self._generated: set[str] = set()
+        # compiled json models ids
+        self._compiled: dict[int, Code] = {}
+        self._to_compile: dict[int, tuple[JsonModel, str]] = {}
         #
         # generated stuff
         #
@@ -106,8 +118,10 @@ class SourceCode(Validator):
         self._help.clear()
         self._maps.clear()
         self._subs.clear()
+        self._compiled.clear()
+        self._to_compile.clear()
         self.define("from typing import Callable")
-        self.define(f"import {_RE} as re")
+        self.define(f"import {self._re} as re")
         self.define("")
         self.define("type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]")
         self.define("type CheckFun = Callable[[Jsonable, str], bool]")
@@ -152,6 +166,7 @@ class SourceCode(Validator):
 
     # code generation
     def _ident(self, prefix: str, local: bool = False) -> str:
+        """Generate a new identifier using a prefix and a counter."""
         if prefix not in self._nvars:
             self._nvars[prefix] = 0
         ident = f"{'' if local else self._prefix}{prefix}{self._nvars[prefix]}"
@@ -159,6 +174,7 @@ class SourceCode(Validator):
         return ident
 
     def _regex(self, regex: str) -> str:
+        """Compile are regular expression, with memoization."""
         if regex not in self._regs:
             self.define(f"# regex {self._esc(regex)}")
             if regex[-1] == "/":
@@ -180,24 +196,28 @@ class SourceCode(Validator):
         return self._regs[regex]
 
     def _regExpr(self, regex: str, val: str):
+        """Generate re check expression on a value."""
         return f"{self._regex(regex)}({val}) is not None"
 
     def _esc(self, val: Any):
+        """Escape value as necessary."""
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
         return json.dumps(val) if isinstance(val, str) else str(val)
 
-    def _dollarExpr(self, name: str, val: str, vpath: str):
-        if name in _PREDEFS:
-            return _PREDEFS[name](val)
+    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str):
+        assert ref and ref[0] == "$"
+        if ref in _PREDEFS:
+            return _PREDEFS[ref](val)
         else:
-            fun = self._getName(name)
+            fun = self._getNameRef(jm, ref, [])
             return f"{fun}({val}, {vpath})"
 
-    def _compileConstraint(self, code: Code, indent: int, model: ModelType, mpath: ModelPath,
+    def _compileConstraint(self, code: Code, indent: int,
+                           jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
         assert isinstance(model, dict) and "@" in model
-        self._compileModel(code, indent, model["@"], mpath + ["@"], res, val, vpath)
-        tmodel = self._ultimate_type(self._model, model["@"])
+        self._compileModel(code, indent, jm, model["@"], mpath + ["@"], res, val, vpath)
+        tmodel = self._ultimate_type(jm, model["@"])
         # NOTE UnknownModel should raise an error on any constraint
         # FIXME None?
         assert tmodel in (int, float, str, list, dict, UnknownModel), f"simple {tmodel}"
@@ -231,14 +251,15 @@ class SourceCode(Validator):
         if checks:
             code.add(indent, f"{res} &= {' and '.join(checks)}")
 
-    def _disjunction(self, code: Code, indent: int, model: ModelType, mpath: ModelPath,
+    def _disjunction(self, code: Code, indent: int,
+                     jm: JsonModel, model: ModelType, mpath: ModelPath,
                      res: str, val: str, vpath: str) -> bool:
         """Generate optimized disjunction check.
 
         model: `{"|": [ o1, o2, ... ] }`
         """
 
-        dis = self._disjunct_analyse(self._model, model, mpath)
+        dis = self._disjunct_analyse(jm, model, mpath)
         if dis is None:
             return False
         tag_name, tag_type, models, all_const_props = dis
@@ -253,7 +274,7 @@ class SourceCode(Validator):
             mi = init[i]  # initial model
             if isinstance(mi, str) and mi and mi[0] == "$":
                 # it is a reference, it must be compiled for its name, no need to recompile it!
-                fun = self._getName(mi[1:])
+                fun = self._getNameRef(jm, mi)
                 if p not in self._paths:
                     # several path will lead to the same function
                     self._paths[p] = fun
@@ -261,7 +282,7 @@ class SourceCode(Validator):
             elif tuple(p) not in self._paths:
                 # else compile the direct object as a side effect…
                 c = Code()
-                self._compileModel(c, 0, m, p, _RESULT, _VALUE, _PATH)
+                self._compileModel(c, 0, jm, m, p, _RESULT, _VALUE, _PATH)
                 # log.debug(f"{self._paths}")
 
         # {disid}_tm = { tag-value: check_function_for_this_tag_value }
@@ -294,7 +315,8 @@ class SourceCode(Validator):
 
         return True
 
-    def _compileObject(self, code: Code, indent: int, model: ModelType, mpath: ModelPath,
+    def _compileObject(self, code: Code, indent: int,
+                       jm: JsonModel, model: ModelType, mpath: ModelPath,
                        oname: str, res: str, val: str, vpath: str):
         # separate properties
         assert isinstance(model, dict)
@@ -309,8 +331,8 @@ class SourceCode(Validator):
             self._maps[prop_must] = prop_must_map
             for p, m in must.items():
                 pid = f"{prop_must}_{p}"  # tmp unique identifier
-                self.help(self._compileName(pid, m, mpath + [p]))
-                prop_must_map[p] = self._getName(pid)
+                self.help(self._compileName(jm, pid, m, mpath + [p]))
+                prop_must_map[p] = self._getName(jm, pid)
         prop_may = f"{oname}_may"
         if may:
             prop_may_map: dict[str, str] = {}
@@ -318,12 +340,8 @@ class SourceCode(Validator):
             self._maps[prop_may] = prop_may_map
             for p, m in may.items():
                 pid = f"{prop_may}_{p}"
-                self.help(self._compileName(pid, m, mpath + [p]))
-                prop_may_map[p] = self._getName(pid)
-        # variables
-        # prop = self._ident("p_", True)
-        # value = self._ident("v_", True)
-        # must_c = self._ident("mc_", True)
+                self.help(self._compileName(jm, pid, m, mpath + [p]))
+                prop_may_map[p] = self._getName(jm, pid)
         prop, value, must_c = "prop", "model", "must_count"
         if must:
             code.add(indent, f"{must_c} = 0")
@@ -347,8 +365,8 @@ class SourceCode(Validator):
             cond = "elif"
         # $* is inlined expr
         for d, v in defs.items():
-            code.add(indent, f"    {cond} {self._dollarExpr(d, prop, 'path')}:  # ${d}")
-            self._compileModel(code, indent + 2, v, mpath + [d], res, value, vpath)
+            code.add(indent, f"    {cond} {self._dollarExpr(jm, '$' + d, prop, 'path')}:  # ${d}")
+            self._compileModel(code, indent + 2, jm, v, mpath + [d], res, value, vpath)
             code.add(indent, f"        if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
@@ -356,7 +374,7 @@ class SourceCode(Validator):
         for r, v in regs.items():
             regex = f"/{r}/"
             code.add(indent, f"    {cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
-            self._compileModel(code, indent + 2, v, mpath + [regex], res, value, vpath)
+            self._compileModel(code, indent + 2, jm, v, mpath + [regex], res, value, vpath)
             code.add(indent, f"        if not {res}: return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
@@ -364,11 +382,11 @@ class SourceCode(Validator):
         if oth:
             omodel = oth[""]
             if cond == "if":  # direct
-                self._compileModel(code, indent + 1, omodel, mpath + [""], res, value, vpath)
+                self._compileModel(code, indent + 1, jm, omodel, mpath + [""], res, value, vpath)
                 code.add(indent, f"    if not {res}: return False")
             else:
                 code.add(indent, r"    else:  # catch all")
-                self._compileModel(code, indent + 2, omodel, mpath + [""], res, value, vpath)
+                self._compileModel(code, indent + 2, jm, omodel, mpath + [""], res, value, vpath)
                 code.add(indent, f"        if not {res}: return False")
                 # code.add(indent+3, f"continue")
         else:
@@ -385,9 +403,9 @@ class SourceCode(Validator):
         else:
             code.add(indent, "return True")
 
-    def _compileModel(self, code: Code, indent: int, model: ModelType, mpath: ModelPath,
-                      res: str, val: str, vpath: str, known: set[str]|None = None,
-                      skip_dollar: bool = False):
+    def _compileModel(self, code: Code, indent: int,
+                      jm: JsonModel, model: ModelType, mpath: ModelPath,
+                      res: str, val: str, vpath: str, known: set[str]|None = None):
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} indent={indent}")
         assert isinstance(mpath, list)
@@ -490,7 +508,7 @@ class SourceCode(Validator):
                         raise ModelError(f"unexpected constant: {model}")
                 elif model[0] == "$":
                     # TODO FIXME known
-                    code.add(indent, f"{res} = " + self._dollarExpr(model[1:], val, "path"))
+                    code.add(indent, f"{res} = " + self._dollarExpr(jm, model, val, "path"))
                 elif model[0] == "/":
                     code.add(indent, f"# {self._esc(model)}")
                     if expr:
@@ -525,8 +543,8 @@ class SourceCode(Validator):
                         code.add(indent, "if True:")
                     code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
                     code.add(indent + 1, f"for {idx}, {item} in enumerate({val}):")
-                    self._compileModel(code, indent + 2, model[0],
-                                       mpath + [0], res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
+                    self._compileModel(code, indent + 2, jm, model[0], mpath + [0],
+                                       res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
                     code.add(indent + 2, f"if not {res}: break")
                 else:
                     if expr:
@@ -536,18 +554,12 @@ class SourceCode(Validator):
                     for i, m in enumerate(model):
                         code.add(indent + i, f"if {res}:")
                         # FIXME vpath
-                        self._compileModel(code, indent + i + 1, model[i],
-                                           mpath + [i], res, f"{val}[{i}]", f"{vpath}[{i}]")
+                        self._compileModel(code, indent + i + 1, jm, model[i], mpath + [i],
+                                           res, f"{val}[{i}]", f"{vpath}[{i}]")
             case dict():
                 assert "+" not in model, "merge must have been preprocessed"
-                # if "$" in model and not skip_dollar:
-                #     name = model["$"]
-                #     self.subs(self._compileName(name, model, mpath, skip_dollar=True))
-                #     fun = self._getName(name)
-                #     code.add(indent, f"{res} = {fun}({val}, path)")
-                #     return
                 if "@" in model:
-                    self._compileConstraint(code, indent, model, mpath, res, val, vpath)
+                    self._compileConstraint(code, indent, jm, model, mpath, res, val, vpath)
                 elif "|" in model:
                     lpath = mpath + ["|"]
                     models = model["|"]
@@ -574,7 +586,7 @@ class SourceCode(Validator):
                         code.add(indent, f"{res} = False")
                         return
                     # discriminant optimization
-                    if self._disjunction(code, indent, model, lpath, res, val, vpath):
+                    if self._disjunction(code, indent, jm, model, lpath, res, val, vpath):
                         return
                     # homogeneous typed list
                     same_type, expected_type = all_model_type(models, lpath)
@@ -592,8 +604,8 @@ class SourceCode(Validator):
                     for i, m in enumerate(models):
                         if i:
                             code.add(indent + i - 1, f"if not {res}:")
-                        self._compileModel(code, indent + i, m,
-                                           lpath + [i], res, val, vpath, or_known)
+                        self._compileModel(code, indent + i, jm, m, lpath + [i],
+                                           res, val, vpath, or_known)
                 elif "&" in model:
                     and_known = set(known or [])
                     lpath = mpath + ["&"]
@@ -616,8 +628,8 @@ class SourceCode(Validator):
                     for i, m in enumerate(models):
                         if i:
                             code.add(indent + i - 1, f"if {res}:")
-                        self._compileModel(code, indent + i, m,
-                                           lpath + [i], res, val, vpath, and_known)
+                        self._compileModel(code, indent + i, jm, m, lpath + [i],
+                                           res, val, vpath, and_known)
                 elif "^" in model:
                     lpath = mpath + ["^"]
                     models = model["^"]
@@ -642,8 +654,8 @@ class SourceCode(Validator):
                         # false if in dups
                         for i, m in enumerate(dups):
                             idx = dups_i[i]
-                            self._compileModel(code, indent + i, m,
-                                               lpath + [idx], "isin", val, vpath)
+                            self._compileModel(code, indent + i, jm, m, lpath + [idx],
+                                               "isin", val, vpath)
                             code.add(indent + i, f"{res} = not isin")
                             code.add(indent + i, f"if {res}:")
 
@@ -660,15 +672,15 @@ class SourceCode(Validator):
                         code.add(indent + depth, f"{res} = False")
                     elif len(models) == 1:
                         mod, idx = models[0], models_i[0]
-                        self._compileModel(code, indent + depth, mod,
-                                           lpath + [idx], res, val, vpath)
+                        self._compileModel(code, indent + depth, jm, mod, lpath + [idx],
+                                           res, val, vpath)
                     else:  # several models are inlined
                         if len(models) == 2 and "$ANY" in models:
                             # get other model
                             m = models[1] if models[0] == "$ANY" else models[0]
                             is_m = self._ident("is_m_", True)
-                            self._compileModel(code, indent + depth, m,
-                                               lpath + ["?"], is_m, val, vpath)
+                            self._compileModel(code, indent + depth, jm, m, lpath + ["?"],
+                                               is_m, val, vpath)
                             code.add(indent + depth, f"{res} = not {is_m}")
                         else:
                             count = self._ident("xc_", True)
@@ -677,8 +689,8 @@ class SourceCode(Validator):
                             for i, m in enumerate(models):
                                 idx = models_i[i]
                                 code.add(indent + depth, f"if {count} <= 1:")
-                                self._compileModel(code, indent + depth + 1, m,
-                                                   lpath + [idx], test, val, vpath)
+                                self._compileModel(code, indent + depth + 1, jm, m, lpath + [idx],
+                                                   test, val, vpath)
                                 code.add(indent + depth + 1, f"if {test}: {count} += 1")
                             code.add(indent + depth, f"{res} = {count} == 1")
                 else:
@@ -697,7 +709,7 @@ class SourceCode(Validator):
                         ocode.add(0, f"# object {json_path(mpath)}")
                         path_init = " = \"$\"" if mpath == ["$"] else ""
                         ocode.add(0, f"def {objid}(value: Jsonable, path: str{path_init}) -> bool:")
-                        self._compileObject(ocode, 1, model, mpath, objid, _RESULT, _VALUE, _PATH)
+                        self._compileObject(ocode, 1, jm, model, mpath, objid, _RESULT, _VALUE, _PATH)
                         self.subs(ocode)
                         self._generated.add(hpath)
                     del hpath
@@ -705,18 +717,33 @@ class SourceCode(Validator):
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
 
-    def _getName(self, name: str) -> str:
+    def _getName(self, jm: JsonModel, name: str) -> str:
+        """Ensure global unique names for internal functions."""
+        # FIXME global name space! prefix with jm._id ?
         if name not in self._names:
             self._names[name] = self._ident("f_")
         log.debug(f"{name} -> {self._names[name]}")
         return self._names[name]
 
-    def _compileName(self, name: str, model: ModelType, mpath: ModelPath,
-                     skip_dollar: bool = False) -> Code:
-        log.debug(f"name: mpath={mpath} name={name}")
+    def _getNameRef(self, jm: JsonModel, ref: str, path: ModelPath) -> str:
+        assert jm._isRef(ref)
+        gref = jm._defs.gget(ref)
+        # log.debug(f"ref={ref} gref={gref} at {path}")
+        if gref not in self._names:
+            jm = self._globs[gref]
+            if jm._id not in self._compiled:
+                self._to_compile[jm._id] = (jm, gref)
+            self._names[gref] = f"json_model_{jm._id}"
+        return self._names[gref]
+
+    def _compileName(self, jm: JsonModel, name: str, model: ModelType, mpath: ModelPath) -> Code:
+        """Compile a model under a given name in a given scope."""
+        log.debug(f"name: mpath={mpath} name={name} jm={jm._id}")
         code = Code()
         # keep definitions
-        self._defs.set(name, model)
+        # XXX self._defs.set(name, model)
+        xname = name if not name or name[0] != "$" else name[1:]
+        self._defs.set(xname, model)
         fun2 = None
         hpath = tuple(mpath)
         if hpath in self._paths:
@@ -726,14 +753,14 @@ class SourceCode(Validator):
             else:
                 self._names[name] = fun
         else:
-            fun = self._getName(name)
+            fun = self._getName(jm, name)
             self._paths[hpath] = fun
         # generate code
-        path_init = " = \"$\"" if mpath == ["$"] else ""
+        path_init = " = \"$\"" if not mpath else ""
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({json_path(mpath)})")
         code.add(0, f"def {fun}(value: Jsonable, path: str{path_init}) -> bool:")
-        self._compileModel(code, 1, model, mpath, _RESULT, _VALUE, _PATH, None, skip_dollar)
+        self._compileModel(code, 1, jm, model, mpath, _RESULT, _VALUE, _PATH, None)
         code.add(1, f"return {_RESULT}")
         if fun2 and fun2 != fun:
             code.nl()
@@ -748,25 +775,40 @@ class SourceCode(Validator):
             code.clear()
         return code
 
-
-_DEFAULT_NAME = "check_model"
-
-DefFun = Callable[[str, str], Any]
-InitFun = Callable[[DefFun], None]
+    def compileOneJsonModel(self, jm: JsonModel, name: str, path: ModelPath):
+        if jm._id not in self._compiled:
+            if name not in self._names:
+                self._names[name] = "json_model_" + str(jm._id)
+            self._compiled[jm._id] = self._compileName(jm, name, jm._model, path)
+        return self._compiled[jm._id]
 
 def static_compile(
         model: JsonModel,
-        name: str = _DEFAULT_NAME,
-        prefix: str = "jmsc_",
-        re: str = "re",
+        name: str = "check_model",
+        prefix: str = "jm_",
+        remod: str = "re",
+        debug: bool = False,
     ) -> SourceCode:
-    """Generate the check source code for a model."""
-    global _RE
-    _RE = re
-    sc = SourceCode(model, prefix)
+    """Generate the check source code for a model.
+
+    - `model`: JSON Model root to compile.
+    - `name`: target function name.
+    - `prefix`: prefix for generated functions
+    - `remod`: regular expression module to use, "re" or "re2"
+    - `debug`: debugging mode generates more traces
+    """
+    sc = SourceCode(model._globs, prefix, debug, remod)
+    # fix main name
     sc._names[name] = name
-    if model._defs:
-        for fn, jm in model._defs.items():
-            sc.subs(sc._compileName(fn, jm._model, ["$", "$", fn]))
-    sc.subs(sc._compileName(name, model._model, ["$"]))
+    # compile definitions
+    for n, jm in model._defs.items():
+        sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))
+    # compile main
+    main = sc.compileOneJsonModel(model, name, [])
+    # compile other encountered references
+    while todo := set(sc._to_compile.keys()) - set(sc._compiled.keys()):
+        jm, gref = sc._to_compile[min(todo)]
+        sc.subs(sc.compileOneJsonModel(jm, gref, [gref]))
+    # register main
+    sc.subs(main)
     return sc

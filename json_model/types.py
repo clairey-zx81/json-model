@@ -28,7 +28,7 @@ type Compiler = Callable[[ModelType, str], CheckFun|None]
 type ModelCheckFun = Callable[[ValueType, JsonPath], bool]
 
 type JsonModel = typing.NewType("JsonModel", None)
-
+type Symbols = dict[str, JsonModel]
 
 class ModelError(BaseException):
     pass

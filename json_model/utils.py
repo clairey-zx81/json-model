@@ -359,4 +359,4 @@ def json_path(path: ModelPath) -> str:
         else:
             return item
 
-    return ".".join(map(esc, path))
+    return ".".join(["$"] + list(map(esc, path)))

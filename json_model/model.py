@@ -8,7 +8,7 @@ from collections.abc import MutableMapping
 import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
-from .types import Jsonable, JsonModel
+from .types import Jsonable, JsonModel, Symbols
 from .utils import log, tname, is_cst
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
@@ -18,8 +18,7 @@ from .static import static_compile
 # FIXME misnomer
 from .optim import _structurally_distinct_models, merge_objects
 
-# forward declaration
-type Symbols = dict[str, JsonModel]
+type Globals = dict[str, str]
 type ModelRef = list[str]  # $stuff#name#inside
 
 class Symbols(MutableMapping[str, JsonModel]):
@@ -36,14 +35,16 @@ class Symbols(MutableMapping[str, JsonModel]):
             self._id = len(Symbols.SYMBOLS)
             Symbols.SYMBOLS.append(self)
 
-        self._syms: dict[str, JsonModel] = {}
+        self._syms: Symbols = {}
+        self._gmap: Globals = {}
 
     def toJSON(self, rec: bool = False):
         """Display as JSON."""
         if rec:
             data = {}
             data["#"] = f"Symbols {self._id}"
-            data.update({n: jm.toJSON(rec) for n, jm in self.items()})
+            data["~"] = self._gmap
+            data.update({n: jm.toJSON(False) for n, jm in self.items()})
         else:
             data = f"Symbols {self._id}"
         return data
@@ -51,6 +52,17 @@ class Symbols(MutableMapping[str, JsonModel]):
     def __str__(self):
         return str({n: m._id for n, m in self.items()})
 
+    # local to global symbol
+    def gset(self, ref: str, gref: str):
+        self._gmap[ref] = gref
+
+    def gget(self, ref: str):
+        return self._gmap[ref]
+
+    def ghas(self, ref: str):
+        return ref in self._gmap
+
+    # local to model
     def __setitem__(self, k, v):
         return self._syms.__setitem__(k, v)
 
@@ -162,9 +174,6 @@ class JsonModel:
 
         # ???
         self._cache: dict[str, JsonModel] = {}
-
-        # local to global references
-        self._gmap: dict[str, str] = {}
 
         # copy parameter which may be modified
         model = copy.deepcopy(model)
@@ -556,6 +565,9 @@ class JsonModel:
                     elif "$ANY" in lor:
                         changes += 1
                         return "$ANY"
+                    elif "$NONE" in lor:
+                        changes += 1
+                        model["|"] = lor = list(filter(lambda m: m != "$NONE", lor))
                     elif len(l := deduplicate(lor)) != len(lor):
                         changes += 1
                         model["|"] = lor = l
@@ -603,7 +615,11 @@ class JsonModel:
                     elif any(map(empty_obj, lplus)):
                         changes += 1
                         model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
+                    # TODO more cleanup? could I remove $NONE? $ANY?
                 elif "@" in model:
+                    # "!": false is the default, so is not really needed
+                    if "!" in model and not model["!"]:
+                        del model["!"]
                     # constraint without actual constraints
                     if not(set(model.keys()) - {"#", "~", "$", "%", "@"}):
                         return model["@"]
@@ -638,16 +654,10 @@ class JsonModel:
             "rename": self._name,
             "rewrite": self._rewrite,
             "cached": sorted(self._cache.keys()),
-            "gmap": self._gmap,
+            "defs": self._defs.toJSON(recurse),
         }
         if self.isUrlRef():
             data["external"] = self.get(self._model[1:], []).toJSON()
-        if recurse:
-            data["defs"] = {
-                name: jm.toJSON(False) for name, jm in self._defs.items()
-            }
-        else:
-            data["defs"] = self._defs._id
         if self._isolated:
             log.debug(f"len(globals) = {len(self._globs)}")
             data["globals"] = {
@@ -726,17 +736,18 @@ class JsonModel:
         return self._isUrlRef(self._model)
 
     def resolveDef(self, ref: str, path: ModelPath, create: bool = False) -> JsonModel:
-        """Resolve a definition in the current Model.
+        """Resolve a definition in the current Model context.
 
-        format: /\\$($URL#)?name/
+        format: /\\$($URL#)*name/
         """
 
         if self._debug:
-            log.debug(f"{self._id}: resolveDef {ref} at {path} (defs: {list(self._defs.keys())})")
+            log.debug(f"{self._id}: RD {ref} at {path} (defs: {list(self._defs.keys())})")
 
         assert ref and ref[0] == "$"
         name = ref[1:]
 
+        # extract first name, will have to recurse
         if "#" in name:
             name, others = name.split("#", 1)
             if name == "":  # self!
@@ -744,79 +755,75 @@ class JsonModel:
         else:
             others = None
 
-        log.debug(f"{self._id}: isRef for {ref}: {self.isRef()} / {self._model}")
-
+        # name resolution
         if name in self._defs:
-            log.debug(f"{self._id}: {ref} / {self._model} / {self._defs[name]._id} / {self._defs[name]._model}")
-
-        if name in self._defs:
+            log.debug(f"{self._id}: ref={ref} model={self._model} namedef={self._defs[name]._id}")
             jm = self._defs[name]
-            path.append(name)
+            if jm.isRef():
+                log.debug(f"{self._id}: following {ref} in {jm._model}")
+                model = jm._model
+                if others:
+                    model += "#" + others
+                return jm.resolveRef(model, path + [name, jm._model], create)
+            else:
+                return jm.resolveRef("$" + others, path + [name], create) if others else jm
         else:
-            jm = self
-
-        if jm.isRef():
-            if self._debug:
-                log.debug(f"{self._id}: following model ref {self._model}")
-            if path:
-                assert path[-1] != jm._model, f"path={path} ref={ref}"
-            path.append(jm._model)
-            jm = jm.resolveRef(self._model, path, create)
-
-        log.debug(f"{jm._id}: name=\"{name}\" defs={list(jm._defs.keys())}")
-
-        if name not in jm._defs:
             if not create:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
-            # creation is only allowed while rewriting
+            # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            jm._defs[name] = JsonModel(None, self._resolver, jm._globs, jm._defs, jm._url + "#" + name, False, jm._debug)
-
-        path.append("$" + name)
-        jm = jm._defs[name]
-
-        if others:  # not None or ""
-            return jm.resolveRef(f"${others}", path, create)
-        else:
-            return jm
+            self._defs[name] = JsonModel(None, self._resolver, self._globs, self._defs, self._url + "#" + name, False, self._debug)
+            return self._defs[name]
 
     def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
         """Resolve references up to an actual model, maybe."""
         jm, initial, followed = self, model, []
 
         if self._debug:
-            log.debug(f"{self._id}: resolveRef {model} at {path}")
+            log.debug(f"{self._id}: RR {model} at {path}")
 
-        # shortcut
-        if self._isRef(model) and model in self._gmap:
-            log.debug(f"{self._id}: globs = {self._globs}")
-            return self._globs[self._gmap[model]]
+        # no jm for predefs
+        assert not self._isPredef(model)
+
+        # shortcut with global scoping
+        if self._isRef(model) and self._defs.ghas(model):
+            if self._debug:
+                log.debug(f"{self._id}: gmap shortcut {self._defs._gmap}")
+                log.debug(f"{self._id}: globs = {self._globs}")
+            return self._globs[self._defs.gget(model)]
 
         # actual resolution
         while jm._isRef(model):
+            log.debug(f"{self._id}: RR {model} in {jm._id}")
             if jm._isUrlRef(model):
+                # detect recursion
                 if model in followed:
                     raise ModelError(f"cycle while resolving reference at {path}: {initial} ({followed})")
+                # change scope
                 followed.append(model)
                 if "#" in model:
                     url, model = model[1:].split("#", 1)
+                    model = "$" + model
                 else:
                     url, model = model[1:], None  # will stop resolution loop
                 jm = jm.get(url, path)
             else:
                 jm = jm.resolveDef(model, path, create)
                 model = jm._model
+            log.debug(f"{self._id}: RR next {model} in {jm._id}")
 
+        log.debug(f"{self._id}: RR resolved {initial} to {jm._id}")
         return jm
 
     #
     # Build global symbol table
-    # Build mapping of local references to global references: self._gmap
+    # Build mapping of local references to global references
     #
     def scope(self, symbols: Symbols, root: ModelRef,
               visited: set[tuple[str, int]], references: dict[int, str]):
         """Move all local references to the root scope."""
-        log.debug(f"scoping {self._id} at {root} ({visited}/{references})")
+        log.debug(f"{self._id}: scoping {self._defs._id} at {root} ({visited} / {references})")
+        log.debug(f" - symbols: {symbols}")
 
         # prevent infinite recursion
         mid = ("m", self._id)
@@ -842,12 +849,14 @@ class JsonModel:
         sid = ("s", self._defs._id)
         if sid not in visited:
             visited.add(sid)
+            # two phase ensure that maps are okay for resolveRef
             for name, jm in self._defs.items():
                 assert jm._id not in references
                 gref = "$" + "#".join(root + [name])
                 references[jm._id] = gref
-                self._gmap["$" + name] = gref
+                self._defs.gset("$" + name, gref)
                 symbols[gref] = jm
+            log.debug(f"{self._id}: gmap={self._defs._gmap}")
             for name, jm in self._defs.items():
                 jm.scope(symbols, root + [name], visited, references)
 
@@ -856,22 +865,25 @@ class JsonModel:
             if self._isSimpleRef(m):
                 jm = self.resolveRef(m, p + [m])
                 if jm._id in references:
-                    ref = references[jm._id]
+                    gref = references[jm._id]
                 else:
-                    ref = root_ref + "#" + m[1:]
-                    if ref not in symbols:
-                        symbols[ref] = jm
+                    assert False
+                    gref = root_ref + "#" + m[1:]
+                    if gref not in symbols:
+                        symbols[gref] = jm
                         jm.scope(symbols, root + [m[1:]], visited, references)
-                    references[jm._id] = ref
-                if m not in self._gmap:
-                    self._gmap[m] = ref
-                if ref not in self._gmap:  # also accept global references
-                    self._gmap[ref] = ref
+                    references[jm._id] = gref
+                log.debug(f"### {self._id}: m={m} jm={jm._id} gref={gref}")
+                if not self._defs.ghas(m):
+                    log.debug(f"{self._id}: gmap {m} -> {gref} for {self._defs._id}")
+                    self._defs.gset(m, gref)
+                # if not jm._defs.ghas(gref):  # also accept global references?
+                #     jm._defs.gset(gref, gref)
             elif self._isUrlRef(m):
                 if m not in symbols:
                     symbols[m] = self.resolveRef(m, p + [m])
-                if m not in self._gmap:
-                    self._gmap[m] = m
+                if not self._defs.ghas(m):
+                    self._defs.gset(m, m)
             return m
 
         self._model = recModel(self._model, allFlt, rootRwt, True)
@@ -914,14 +926,16 @@ class JsonModel:
             def inline(m: model, p: path):
                 nonlocal updated
                 if isinstance(m, str):  # actual inlining
-                    updated = True
                     assert m and m[0] == "$"
+                    if self._isPredef(m):
+                        return m
+                    updated = True
                     jm = self.resolveRef(m, p)
                     mo = copy.deepcopy(jm._model)
                     if self._defs._id != jm._defs._id:  # if not in same name space
                         # substitute local references
                         def subRefRwt(m, p):
-                            return jm._gmap[m] if jm._isRef(m) else m
+                            return jm._defs.gget(m) if jm._isRef(m) else m
                         return recModel(mo, allFlt, subRefRwt)
                     else:  # keep as is
                         return mo
@@ -1180,7 +1194,8 @@ def jmc_script():
     arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
-    arg("--code", action="store_true", help="show source code")
+    arg("--code", action="store_true", default=None, help="show source code")
+    arg("--no-code", dest="code", action="store_false", help="do not show source code")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
@@ -1199,12 +1214,16 @@ def jmc_script():
     arg("values", nargs="*", help="JSON values to testing")
     args = ap.parse_args()
 
+    # update op-dependent default
+    if args.code is None:
+        args.code = args.op in ("D", "S") and not args.values
+
     # option/parameter consistency
     if args.values and args.op not in ("S", "D", "V"):
         log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
         sys.exit(1)
     if args.code and args.op not in ("D", "S"):
-        log.error("Code only available for -D and -S: {args.op}")
+        log.error(f"Showing code requires -S or -D: {args.op}")
         sys.exit(1)
 
     # debug
@@ -1288,12 +1307,12 @@ def jmc_script():
         show = JsonModel.MODELS[0].toModel()
         print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
     elif args.op == "D":
-        checker = DynamicCompiler(m)
+        checker = DynamicCompiler(model)
         if args.debug or args.code:
             import dis
             print(dis.dis(checker), file=output)
     elif args.op == "S":
-        code = static_compile(m, "check_model")
+        code = static_compile(model, "check_model", debug=args.debug)
         source_code = f"# generated from model: {args.model}\n" + str(code)
         if args.debug or args.code:
             print(source_code, file=output)
