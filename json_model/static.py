@@ -575,12 +575,13 @@ class SourceCode(Validator):
                                 constants.add(l_const[i][1])
                             else:
                                 n_models.append(models[i])
-                        code.add(indent, f"{res} = not isinstance({val}, (list, dict)) and {val} in {constants}")
-                        if not n_models:
-                            return
-                        code.add(indent, f"if not {res}:")
-                        indent += 1
-                        models = n_models
+                        if constants:
+                            code.add(indent, f"{res} = not isinstance({val}, (list, dict)) and {val} in {constants}")
+                            if not n_models:
+                                return
+                            code.add(indent, f"if not {res}:")
+                            indent += 1
+                            models = n_models
                     # empty list
                     if not models:
                         code.add(indent, f"{res} = False")
