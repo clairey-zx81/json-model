@@ -1,0 +1,19 @@
+{
+  "$defs": {
+    "R": {
+      "$ref": "#./scope_0"
+    },
+    "S": {
+      "pattern": "[a-z]",
+      "type": "string"
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#S"
+    },
+    {
+      "$ref": "#R#S"
+    }
+  ]
+}
