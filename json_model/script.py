@@ -31,7 +31,7 @@ def jmc_script():
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
-    arg("--no-code", dest="code", action="store_false", help="do not show source code")
+    arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
@@ -171,7 +171,9 @@ def jmc_script():
         assert checker
         with open(fn) as fh:
             value = json.load(fh)
-            okay = checker(value)
+            # FIXME python default at root in some cases
+            # okay = checker(value)
+            okay = checker(value) if args.op != "S" else checker(value, "$")
             if args.expect is None or args.verbose:
                 msg = f"{fn}: {okay}"
                 if not okay and args.verbose and args.op == "D":

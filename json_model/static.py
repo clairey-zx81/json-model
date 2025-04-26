@@ -741,6 +741,7 @@ class SourceCode(Validator):
         """Compile a model under a given name in a given scope."""
         log.debug(f"name: mpath={mpath} name={name} jm={jm._id}")
         code = Code()
+        # FIXME explain this junk code
         # keep definitions
         # XXX self._defs.set(name, model)
         xname = name if not name or name[0] != "$" else name[1:]
@@ -757,7 +758,9 @@ class SourceCode(Validator):
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
         # generate code
-        path_init = " = \"$\"" if not mpath else ""
+        # path initial value at root only
+        # FIXME this does not work if the function is overwritten
+        path_init = " = \"$\"" if mpath == [] else ""
         code.nl()
         code.add(0, f"# define {self._esc(name)} ({json_path(mpath)})")
         code.add(0, f"def {fun}(value: Jsonable, path: str{path_init}) -> bool:")
@@ -767,6 +770,7 @@ class SourceCode(Validator):
             code.nl()
             code.add(0, "# named root")
             code.add(0, f"{fun2} = {fun}")
+        # FIXME!
         # NOTE yuk! the function may have been generated as a side effect of the previous call.
         # if so, this version is simply discarded
         if hpath not in self._generated:

@@ -91,7 +91,7 @@ l10n.dcheck.out: l10n.model.json
 
 %.dcheck.out: %.model.json
 	shopt -s nullglob
-	$(JMC) -v -DO ./$< $*.*.true.json $*.*.false.json > $@
+	$(JMC) -v -DO -nc ./$< $*.*.true.json $*.*.false.json > $@
 
 #
 # Static CHECKs
@@ -116,7 +116,7 @@ l10n.scheck.out: l10n.model.json
 
 %.scheck.out: %.model.json
 	shopt -s nullglob
-	$(JMC) -v -SO ./$< $*.*.true.json $*.*.false.json > $@
+	$(JMC) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
 
 #
 # generate everything from a model
