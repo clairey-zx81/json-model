@@ -76,7 +76,7 @@ def model2schema(model: ModelType, path: ModelPath = []):
                 schema["type"] = "array"
                 pitems = []
                 for i, item in enumerate(model):
-                    pitems.append(model2schema(item), path + [i])
+                    pitems.append(model2schema(item, path + [i]))
                 schema["prefixItems"] = pitems
                 schema["items"] = False
             else:

@@ -9,36 +9,36 @@ type TagMap = dict[None|bool|float|int|str, CheckFun]
 
 check_model_must: PropMap
 
-# define "check_model_must_a" ('$'.a)
-def jmsc_f_0(value: Jsonable, path: str) -> bool:
-    # '$'.a
+# define "check_model_must_a" ($.a)
+def jm_f_0(value: Jsonable, path: str) -> bool:
+    # $.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 
-# define "check_model_must_b" ('$'.b)
-def jmsc_f_1(value: Jsonable, path: str) -> bool:
-    # '$'.b
+# define "check_model_must_b" ($.b)
+def jm_f_1(value: Jsonable, path: str) -> bool:
+    # $.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
     return result
 
 
-# define "check_model_must_c" ('$'.c)
-def jmsc_f_2(value: Jsonable, path: str) -> bool:
-    # '$'.c
+# define "check_model_must_c" ($.c)
+def jm_f_2(value: Jsonable, path: str) -> bool:
+    # $.c
     result = isinstance(value, bool)
     return result
 
 
-# define "check_model_must_d" ('$'.d)
-def jmsc_f_3(value: Jsonable, path: str) -> bool:
-    # '$'.d
+# define "check_model_must_d" ($.d)
+def jm_f_3(value: Jsonable, path: str) -> bool:
+    # $.d
     result = isinstance(value, int) and not isinstance(value, bool)
     return result
 
 
-# object '$'
-def check_model(value: Jsonable, path: str = "$") -> bool:
+# object $
+def check_model(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
@@ -56,9 +56,9 @@ def check_model(value: Jsonable, path: str = "$") -> bool:
 
 # object properties maps
 check_model_must = {
-    "a": jmsc_f_0,
-    "b": jmsc_f_1,
-    "c": jmsc_f_2,
-    "d": jmsc_f_3,
+    "a": jm_f_0,
+    "b": jm_f_1,
+    "c": jm_f_2,
+    "d": jm_f_3,
 }
 
