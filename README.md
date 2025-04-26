@@ -45,29 +45,34 @@ Command `jmc` (JSON Model Compiler) options:
 
 - [x] move schema to model conversion to json-schema-utils.
 - [x] change `%` to `$` and remove `$` intra-model naming shortcut.
+- [x] name space decision, there is only one name space per file. trafo path are exceptions?
 - [~] readability and style: `:verbose` version of single char keywords!? (see extensions)
 - [x] clarify stuff inside the root `#`? or use `%` for specific purpose?
+- [x] extenstion for preprocessed (merged and trafo).
 - [x] dynamic python compiler
 - [x] static python compiler
+- [x] think of extensions for variants, i.e. form in progress vs final form with more constraints?
+- [x] extensions could allow synonyms enabling JSON Model l10n?
+- [x] declaration of the meta model?
+- [ ] static python: generate separate `check_model` root function and simplify code.
+- [ ] recheck existing tests in rwt
+- [ ] move/add more tests to rwt
+- [ ] refactor all tests
+- [ ] test schemas with jsu?
+- [ ] add doc and test CI
 - [ ] improve `-P` to have a re-intrant model
 - [ ] prettyprint rejection reasons?
-- [ ] static js/ts compiler
 - [ ] direct validator
+- [ ] static js/ts compiler
 - [ ] check and document API entry points
-- [ ] add doc and test CI
-- [x] extenstion for preprocessed (merged and trafo).
-- [x] think of extensions for variants, i.e. form in progress vs final form with more constraints?
 - [ ] think of extensions to direct forms for instance, eg types, constraints, layout?
       see [FormBuilder](https://formbuilder.online/).
 - [ ] think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
 - [ ] think of extensions to direct object creation (Python pydantic, JS)?
 - [ ] think of extensions for ORM, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
 - [ ] think of extensions for accepting any extension?! eg opened objects?
-- [x] extensions could allow synonyms enabling JSON Model l10n?
-- [x] name space decision, there is only one name space per file.
 - [ ] conditionals or not conditionals… eg for interfaces
       if not in the description language, it should be easy to express outside.
-- [x] declaration of the meta model?
 
   ```json
   {
