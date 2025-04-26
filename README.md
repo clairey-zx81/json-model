@@ -73,6 +73,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] think of extensions for accepting any extension?! eg opened objects?
 - [ ] conditionals or not conditionals… eg for interfaces
       if not in the description language, it should be easy to express outside.
+- [ ] create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] model tutorial which mimics [json schema](https://tour.json-schema.org/).
 
   ```json
