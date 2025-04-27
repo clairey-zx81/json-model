@@ -56,7 +56,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] declaration of the meta model?
 - [x] accept js suffix as input, possibly removing comments.
 - [x] add `--auto` option to automatically extract url mappings
-- [ ] static python: generate separate `check_model` root function and simplify code.
+- [x] static python: generate separate `check_model` root function and simplify code.
 - [ ] recheck existing tests in rwt
 - [ ] move/add more tests to rwt
 - [ ] refactor all tests

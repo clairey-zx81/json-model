@@ -758,12 +758,9 @@ class SourceCode(Validator):
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
         # generate code
-        # path initial value at root only
-        # FIXME this does not work if the function is overwritten
-        path_init = " = \"$\"" if mpath == [] else ""
-        code.nl()
+        # code.nl()
         code.add(0, f"# define {self._esc(name)} ({json_path(mpath)})")
-        code.add(0, f"def {fun}(value: Jsonable, path: str{path_init}) -> bool:")
+        code.add(0, f"def {fun}(value: Jsonable, path: str) -> bool:")
         self._compileModel(code, 1, jm, model, mpath, _RESULT, _VALUE, _PATH, None)
         code.add(1, f"return {_RESULT}")
         if fun2 and fun2 != fun:
@@ -803,17 +800,21 @@ def static_compile(
     - `debug`: debugging mode generates more traces
     """
     sc = SourceCode(model._globs, prefix, debug, remod)
-    # fix main name
-    sc._names[name] = name
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))
     # compile main
-    main = sc.compileOneJsonModel(model, name, [])
+    root = sc.compileOneJsonModel(model, "$", [])
     # compile other encountered references
     while todo := set(sc._to_compile.keys()) - set(sc._compiled.keys()):
         jm, gref = sc._to_compile[min(todo)]
         sc.subs(sc.compileOneJsonModel(jm, gref, [gref]))
-    # register main
+    # register root
+    sc.subs(root)
+    # create main
+    main = Code()
+    main.add(0, f"# entry function {name}")
+    main.add(0, f"def {name}(value: Jsonable, path: str = \"$\") -> bool:")
+    main.add(1, f"return json_model_{model._id}(value, path)")
     sc.subs(main)
     return sc

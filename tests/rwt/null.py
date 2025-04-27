@@ -7,10 +7,13 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-
-# define "check_model" ('$')
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    # '$'
+# define "$" ($)
+def json_model_0(value: Jsonable, path: str) -> bool:
+    # $
     result = value is None
     return result
+
+# entry function check_model
+def check_model(value: Jsonable, path: str = "$") -> bool:
+    return json_model_0(value, path)
 

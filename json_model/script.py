@@ -198,9 +198,7 @@ def jmc_script():
         assert checker
         with open(fn) as fh:
             value = json.load(fh)
-            # FIXME python default at root in some cases
-            # okay = checker(value)
-            okay = checker(value) if args.op != "S" else checker(value, "$")
+            okay = checker(value)
             if args.expect is None or args.verbose:
                 msg = f"{fn}: {okay}"
                 if not okay and args.verbose and args.op == "D":
