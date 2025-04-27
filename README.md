@@ -57,35 +57,34 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] accept js suffix as input, possibly removing comments.
 - [x] add `--auto` option to automatically extract url mappings
 - [x] static python: generate separate `check_model` root function and simplify code.
+- [ ] python: add pyright, flake8 and other static checks
 - [ ] static python: remove spurious newlines
-- [ ] recheck existing tests in rwt
-- [ ] move/add more tests to rwt
-- [ ] refactor all tests
-- [ ] test schemas with jsu?
-- [ ] add doc and test CI
-- [ ] improve `-P` to have a re-intrant model
-- [ ] prettyprint rejection reasons?
-- [ ] direct validator
-- [ ] static js/ts compiler
-- [ ] check and document API entry points
-- [ ] think of extensions to direct forms for instance, eg types, constraints, layout?
+- [ ] tests: recheck existing tests in rwt
+- [ ] tests: move/add more tests to rwt
+- [ ] tests: refactor all tests
+- [ ] tests: test schemas with jsu?
+- [ ] output: improve `-P` to have a re-intrant model
+- [ ] output: prettyprint rejection reasons?
+- [ ] python: refactor and cleanup
+- [ ] feature: direct validator
+- [ ] feature: static js/ts compiler
+- [ ] doc: add doc
+- [ ] tests: add github CI
+- [ ] doc: check and document API entry points
+- [ ] extend: direct forms for instance, eg types, constraints, layout?
       see [FormBuilder](https://formbuilder.online/).
-- [ ] think of extensions to direct relational mapping? (eg foreign key/primary key/unique)
-- [ ] think of extensions to direct object creation (Python pydantic, JS)?
-- [ ] think of extensions for ORM, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
-- [ ] think of extensions for accepting any extension?! eg opened objects?
-- [ ] conditionals or not conditionals… eg for interfaces
+- [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)
+- [ ] extend: direct object creation (Python pydantic, JS)?
+- [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
+- [ ] extend: accepting any extension?! eg opened objects?
+- [ ] feature: conditionals or not conditionals… eg for interfaces
       if not in the description language, it should be easy to express outside.
-- [ ] create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
-- [ ] model tutorial which mimics [json schema](https://tour.json-schema.org/).
+- [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
+- [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
 
-  ```json
-  {
-    "~": "$URL"
-  }
-  ```
+## WIP
 
-- [ ] integration of json-model extensions?
+- integration of json-model extensions?
 
   This could be a simplified version of JSON Schema vocabularies?
 
@@ -139,25 +138,26 @@ Command `jmc` (JSON Model Compiler) options:
 
   ```json
   {
+    "~": "https://json-model.org/models/json-model-v2-form"
     "$": {
-      "model": "$https://json-model.org/model-v2"
+      "model": "$https://json-model.org/models/json-model-v2"
     },
     "%": {
       "$model#Elem.+.0": {
-        "+": { "?readOnly": true }
+        "*": { "?.readOnly": true }
       },
       "$model#Or": {
-        "+": { "?selector": { "|": [ "checkbox", "menu", "whatever" ] } }
+        "*": { "?.selector": { "|": [ "checkbox", "menu", "whatever" ] } }
       }
     },
-    "@": "$model#Root"
+    "@": "$model"
   }
   ```
 
-- localization with prefixed keywords? `:` (too many?), `*` too noizy, `.` discreet enough?
+- localization with prefixed keywords: `: ,` (too many?), `*` too noizy, `.` discreet and rare enough?
 
   ```json
   {
-    "%": { "*or": "|" }
+    "%": { ".or": "|" }
   }
   ```
