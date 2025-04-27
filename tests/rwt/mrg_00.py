@@ -7,30 +7,26 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-check_model_must: PropMap
-
-# define "check_model_must_a" ($.a)
+json_model_0_must: PropMap
+# define "json_model_0_must_a" ($.a)
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-
-# define "check_model_must_b" ($.b)
+# define "json_model_0_must_b" ($.b)
 def jm_f_1(value: Jsonable, path: str) -> bool:
     # $.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
     return result
 
-
-# define "check_model_must_c" ($.c)
+# define "json_model_0_must_c" ($.c)
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.c
     result = isinstance(value, bool)
     return result
 
-
-# define "check_model_must_d" ($.d)
+# define "json_model_0_must_d" ($.d)
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.d
     result = isinstance(value, int) and not isinstance(value, bool)
@@ -38,15 +34,15 @@ def jm_f_3(value: Jsonable, path: str) -> bool:
 
 
 # object $
-def check_model(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in check_model_must:  # must
+        if prop in json_model_0_must:  # must
             must_count += 1
-            if not check_model_must[prop](model, f"{path}.{prop}"):
+            if not json_model_0_must[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -54,8 +50,12 @@ def check_model(value: Jsonable, path: str) -> bool:
 
 
 
+# entry function check_model
+def check_model(value: Jsonable, path: str = "$") -> bool:
+    return json_model_0(value, path)
+
 # object properties maps
-check_model_must = {
+json_model_0_must = {
     "a": jm_f_0,
     "b": jm_f_1,
     "c": jm_f_2,
