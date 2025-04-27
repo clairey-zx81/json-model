@@ -8,9 +8,9 @@ type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
 
-# define "check_model" ('$')
+# define "check_model" ($)
 def check_model(value: Jsonable, path: str = "$") -> bool:
-    # '$'
+    # $
     result = isinstance(value, bool)
     return result
 

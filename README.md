@@ -54,6 +54,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] think of extensions for variants, i.e. form in progress vs final form with more constraints?
 - [x] extensions could allow synonyms enabling JSON Model l10n?
 - [x] declaration of the meta model?
+- [x] accept js suffix as input, possibly removing comments.
+- [x] add `--auto` option to automatically extract url mappings
 - [ ] static python: generate separate `check_model` root function and simplify code.
 - [ ] recheck existing tests in rwt
 - [ ] move/add more tests to rwt

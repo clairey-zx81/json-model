@@ -1,3 +1,4 @@
+import re
 import json
 from .types import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
@@ -11,9 +12,9 @@ class Resolver:
     - `maps`: url to directory mapping for testing.
     """
 
-    def __init__(self, cache_dir: str|None = None, maps: dict[str, str] = {}):
-        self._maps = maps
+    def __init__(self, cache_dir: str|None = None, maps: dict[str, str]|None = None):
         self._cache = JsonURLCache(cache_dir)
+        self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
 
     def __call__(self, ref: str, path: ModelPath):
@@ -51,13 +52,18 @@ class Resolver:
         else:
             file = None
 
-        # TODO handle fragment
         if file:
-            for fn in [file, file + ".json", file + ".model", file + ".model.json"]:
+            for suffix in ["", ".json", ".model", ".model.json", ".js", ".model.js"]:
+                fn = file + suffix
                 try:
                     with open(fn) as f:
                         log.info(f"loading: {fn}")
-                        self._jsons[url] = j = json.load(f)
+                        j = f.read()
+                        # possibly remove js comments, with some guessing
+                        if fn.endswith(".js") or re.match(r"(?m)^\s*//\s", j):
+                            j = re.sub(r"(?s)/\*.*?\*/", "", j)
+                            j = re.sub(r"\s*//\s.*", "", j)
+                        self._jsons[url] = j = json.loads(j)
                         return j
                 except FileNotFoundError:
                     log.debug(f"no such file: {fn}")

@@ -1,7 +1,10 @@
 {
   "#": "JSON Model en français…",
   "~": "https://json-model.org/models/l10n",
-  "$": { "Model": "$https://json-model.org/models/json-model-v2" },
+  "$": {
+    "": "https://json-model.org/models/français",
+    "MODEL": "$https://json-model.org/models/json-model-v2"
+  },
   "%": {
     ".model": "@",
     ".defs": "$",
@@ -14,5 +17,5 @@
     ".moins": "/",
     ".plus": "*"
   },
-  "@": "$Model"
+  "@": "$MODEL"
 }

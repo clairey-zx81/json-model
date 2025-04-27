@@ -9,11 +9,13 @@ JMC = jmc $(JMC.opts) \
         -m "https://json-model.org/tests ."
 
 # inputs, skip _*
-F.model = $(wildcard [a-zA-Z]*.model.json)
+F.mjs   = $(wildcard *.model.js)
+F.model = $(wildcard [a-zA-Z]*.model.json) $(F.mjs:%.model.js=%.model.json)
 F.bads  = $(wildcard bads/[a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived
+F.mjson = $(F.mjs:%.model.js=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
@@ -22,7 +24,7 @@ F.SO    = $(F.root:%=%.py)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) bads.check.out
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) bads.check.out
 
 .PHONY: check
 check:
@@ -35,6 +37,11 @@ clean:
 
 .PHONY: gen
 gen: $(F.gen)
+
+.PHONY: mjson
+mjson: $(F.mjson)
+%.model.json: %.model.js
+	$(JMC) -N ./$< > $@
 
 .PHONY: UO
 UO: $(F.UO)

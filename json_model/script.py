@@ -1,9 +1,11 @@
 import sys
-import logging
+import re
 import json
+import logging
 
 # from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
 # from .types import Jsonable, JsonModel, Symbols
+from .types import Jsonable
 from .utils import log
 from .resolver import Resolver
 from .model import JsonModel
@@ -25,6 +27,7 @@ def jmc_script():
     arg("--check", "-c", action="store_true", help="check model validity")
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
+    arg("--auto", "-a", action="store_true", help="automatic mapping")
     # output options
     arg("--output", "-o", default=None, help="output file")
     arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
@@ -40,6 +43,7 @@ def jmc_script():
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
+    arg("--nope", "-N", dest="op", action="store_const", const="N", help="dump (retrieved) json input")
     arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
     arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
     arg("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
@@ -75,8 +79,21 @@ def jmc_script():
 
     log.info(f"processing {args.model}")
     try:
-        # TODO update maps using file path? and declared url
         j = resolver(args.model, [])
+        # automatic URL mapping
+        if args.auto and isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]:
+            # add automatic mapping
+            url = j["$"][""]
+            fn = re.sub(r"(\.model)?(\.js(on))?$", "", args.model)  # drop suffix
+            log.debug(f"url={url} fn={fn}")
+            file = fn if "/" in fn else ("./" + fn)
+            if fn != url and file != url and "/" in url:
+                upref, uend = url.rsplit("/", 1)
+                fpref, fend = file.rsplit("/", 1)
+                log.debug(f"upref={upref} fpref={fpref}")
+                if upref not in resolver._maps and uend == fend:
+                    log.info(f"auto adding url map: {upref} -> {fpref}")
+                    resolver._maps[upref] = fpref
         model = JsonModel(j, resolver, None, None, args.model, True, args.debug)
         assert model._isolated
     except BaseException as e:
@@ -90,7 +107,6 @@ def jmc_script():
     # initial sanity check
     if args.debug or args.check:
         for m in JsonModel.MODELS:
-            # assert m.valid()
             if not m.valid():
                 log.error(f"invalid initial model {args.model}[{m._id}]")
                 sys.exit(3)
@@ -109,8 +125,9 @@ def jmc_script():
                 sys.exit(3)
 
     # merge in reverse order to move alts up before inlining?!
-    for m in reversed(JsonModel.MODELS):
-        m.merge()
+    if args.op != "N":
+        for m in reversed(JsonModel.MODELS):
+            m.merge()
 
     # optimize again?
     if args.optimize:
@@ -130,6 +147,9 @@ def jmc_script():
     output = file(args.output, "w") if args.output else sys.stdout
     checker = None
 
+    def json2str(j: Jsonable) -> str:
+        return json.dumps(j, sort_keys=args.sort, indent=args.indent)
+
     # actual output
     if args.op == "U":  # test output
         show, symbols = [], set()
@@ -138,10 +158,12 @@ def jmc_script():
             symbols.add(m._defs._id)
             if isinstance(j, dict) or model._isolated:
                 show.append(j)
-        print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
+        print(json2str(show), file=output)
+    elif args.op == "N":  # no operation
+        print(json2str(model._init_md), file=output)
     elif args.op == "P":  # preprocessed model
         show = JsonModel.MODELS[0].toModel()
-        print(json.dumps(show, sort_keys=args.sort, indent=args.indent), file=output)
+        print(json2str(show), file=output)
     elif args.op == "D":
         checker = DynamicCompiler(model)
         if args.debug or args.code:
@@ -161,7 +183,7 @@ def jmc_script():
         except Exception as e:
             log.error(e, exc_info=args.debug)
             schema = {"ERROR": str(e)}
-        print(json.dumps(schema, sort_keys=args.sort, indent=args.indent), file=output)
+        print(json2str(schema), file=output)
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
 

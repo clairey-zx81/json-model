@@ -236,7 +236,7 @@ class JsonModel:
                 if not self._isUrlRef(f"${u}"):
                     raise ModelError(f"model identifier should be a url: {u}")
                 if self._url != "" and u != self._url:
-                    log.warning(f"inconsistent url identifier: {u}")
+                    log.info(f"inconsistent url identifier: {u}")
                 self._url = u  # override
             # TODO restrict names?
             # extract actual definitions
