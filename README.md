@@ -68,6 +68,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] python: refactor and cleanup
 - [ ] feature: direct validator
 - [ ] feature: static js/ts compiler
+- [ ] feature: integrate or remove `stats`?
 - [ ] doc: add doc
 - [ ] tests: add github CI
 - [ ] doc: check and document API entry points
