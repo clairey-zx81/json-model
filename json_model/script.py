@@ -21,10 +21,10 @@ def jmc_script():
     ap = argparse.ArgumentParser()
     arg = ap.add_argument
     # verbosity and checks
+    arg("--version", action="store_true", help="show current version and exit")
     arg("--debug", "-d", action="store_true", help="set debugging mode")
     arg("--verbose", "-v", action="store_true", help="set verbose mode")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="reduce verbosity")
-    arg("--check", "-c", action="store_true", help="check model validity")
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic mapping")
@@ -40,6 +40,7 @@ def jmc_script():
     arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
     arg("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
     # operations on model
+    arg("--check", "-c", action="store_true", help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
@@ -65,6 +66,10 @@ def jmc_script():
     if args.code and args.op not in ("D", "S"):
         log.error(f"Showing code requires -S or -D: {args.op}")
         sys.exit(1)
+    if args.version:
+        from importlib.metadata import version
+        print(version("json-model"))
+        sys.exit(0)
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
