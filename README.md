@@ -43,23 +43,23 @@ Command `jmc` (JSON Model Compiler) options:
 
 ## TODO v2
 
-- [x] move schema to model conversion to json-schema-utils.
-- [x] change `%` to `$` and remove `$` intra-model naming shortcut.
-- [x] name space decision, there is only one name space per file. trafo path are exceptions?
-- [~] readability and style: `:verbose` version of single char keywords!? (see extensions)
-- [x] clarify stuff inside the root `#`? or use `%` for specific purpose?
-- [x] extenstion for preprocessed (merged and trafo).
-- [x] dynamic python compiler
-- [x] static python compiler
-- [x] think of extensions for variants, i.e. form in progress vs final form with more constraints?
-- [x] extensions could allow synonyms enabling JSON Model l10n?
-- [x] declaration of the meta model?
-- [x] accept js suffix as input, possibly removing comments.
-- [x] add `--auto` option to automatically extract url mappings
-- [x] static python: generate separate `check_model` root function and simplify code.
+- [x] refactor: move schema to model conversion to json-schema-utils.
+- [x] design: change `%` to `$` and remove `$` intra-model naming shortcut.
+- [x] design: name space decision, there is only one name space per file. trafo path are exceptions?
+- [~] design: readability and style: `:verbose` version of single char keywords!? (see extensions)
+- [x] design: clarify stuff inside the root `#`? or use `%` for specific purpose?
+- [x] design: extension for preprocessed (merged and trafo).
+- [x] dynamic: python compiler
+- [x] static: python compiler
+- [x] design: variants, i.e. form in progress vs final form with more constraints?
+- [x] design: extensions could allow synonyms enabling JSON Model l10n?
+- [x] tests: declaration of the meta model?
+- [x] feature: accept js suffix as input, possibly removing comments.
+- [x] feature: add `--auto` option to automatically extract url mappings
+- [x] static: generate separate `check_model` root function and simplify code.
+- [x] tests: recheck existing tests in rwt
 - [ ] python: add pyright, flake8 and other static checks
 - [ ] static python: remove spurious newlines
-- [ ] tests: recheck existing tests in rwt
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
 - [ ] tests: test schemas with jsu?
