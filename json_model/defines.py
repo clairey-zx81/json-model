@@ -1,7 +1,7 @@
 from typing import Any, Mapping, MutableMapping
 import re
 import json
-from .types import CheckFun, ModelType, UnknownModel, Compiler, JsonModel
+from .types import CheckFun, ModelType, UnknownModel, Compiler, JsonModel, ModelPath
 from .utils import log
 
 
@@ -41,8 +41,7 @@ class ReadOnlyDefs(Mapping[str, Model]):
 class ModelDefs(MutableMapping[str, Model]):
     """Hold current model definitions and possibly compiled versions."""
 
-    def __init__(self, compiler: Compiler = lambda _m, _s: None):
-        self._compiler = compiler
+    def __init__(self):
         self._models: dict[str, Model] = {}
         self.defs = ReadOnlyDefs(self)
 
@@ -55,10 +54,10 @@ class ModelDefs(MutableMapping[str, Model]):
             log.warning(f"overriding definition for {name}")
 
         if callable(model):
-            # direct function?!
             m = Model(model, f"${name}", None, doc)
         else:
-            m = Model(self._compiler(model, mpath), model, json.dumps(model), doc)
+            log.warning(f"no compiler for {name}")
+            m = Model(None, model, json.dumps(model), doc)
 
         self._models[name] = m
 
@@ -128,8 +127,8 @@ _UMODEL = {
 
 class Validator:
 
-    def __init__(self, compiler: Compiler = lambda _m, _p: None):
-        self._defs = ModelDefs(compiler)
+    def __init__(self):
+        self._defs = ModelDefs()
 
     def _ultimate_type(self, jm: JsonModel, model: ModelType) -> type:
         """Get the utimate type by following definitions."""
@@ -234,7 +233,8 @@ class Validator:
         else:
             return None
 
-    def _disjunct_analyse(self, jm: JsonModel, model: ModelType, mpath: str) -> tuple[str, Any, list, list]|None:
+    def _disjunct_analyse(self, jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
+            tuple[str, Any, list, list]|None:
         """Return the optimized check function if possible."""
         # FIXME if there is a ^, the preprocessor will have detected the discriminant
         # and turned it into a |.

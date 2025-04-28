@@ -46,8 +46,7 @@ class DynamicCompiler(Validator):
 
         log.debug(f"dynamic compiling {model._id}")
 
-        # TODO remove compiler
-        super().__init__(self._raw_compile)
+        super().__init__()
 
         self._debug = debug
         self._model = model
@@ -214,22 +213,22 @@ class DynamicCompiler(Validator):
 
     # stupid work around loop value capture
     def _lambda_eq(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v == val or self._no(mpath, p, f"== {val} failed")
+        return lambda v, p: v == val or self._no(mpath, p, f"== {val} failed")  # type: ignore
 
     def _lambda_ne(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v != val or self._no(mpath, p, f"!= {val} failed")
+        return lambda v, p: v != val or self._no(mpath, p, f"!= {val} failed")  # type: ignore
 
     def _lambda_le(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v <= val or self._no(mpath, p, f"<= {val} failed")
+        return lambda v, p: v <= val or self._no(mpath, p, f"<= {val} failed")  # type: ignore
 
     def _lambda_lt(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v < val or self._no(mpath, p, f"< {val} failed")
+        return lambda v, p: v < val or self._no(mpath, p, f"< {val} failed")  # type: ignore
 
     def _lambda_ge(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v >= val or self._no(mpath, p, f">= {val} failed")
+        return lambda v, p: v >= val or self._no(mpath, p, f">= {val} failed")  # type: ignore
 
     def _lambda_gt(self, val: ValueType, mpath: str) -> CheckFun:
-        return lambda v, p: v > val or self._no(mpath, p, f"> {val} failed")
+        return lambda v, p: v > val or self._no(mpath, p, f"> {val} failed")  # type: ignore
 
     def _distinct(self, mpath: str) -> CheckFun:
         return (self.trace(lambda v, p: distinct_values(v) or
@@ -296,7 +295,7 @@ class DynamicCompiler(Validator):
 
         return self.trace(check_vartuple, mpath, "(+)")
 
-    def _list_check(self, jm: JsonModel, model: ModelArray, mpath: str) -> CheckFun:
+    def _list_check(self, jm: JsonModel, model: ModelType, mpath: str) -> CheckFun:
         """Check an array (list) and its contents."""
         item = self._raw_compile(jm, model, mpath)
 
@@ -349,7 +348,7 @@ class DynamicCompiler(Validator):
         assert isinstance(model, dict)
         # log.warning(f"{mpath}: {model}")
 
-        must, may, refs, regs, ots = utils.split_object(model, "*")
+        must, may, refs, regs, ots = utils.split_object(model, ["*"])
 
         # key/value checks functions
         mandatory = {key: self._raw_compile(jm, val, f"{mpath}.{key}") for key, val in must.items()}
@@ -428,7 +427,8 @@ class DynamicCompiler(Validator):
 
     def _disjunction(self, jm: JsonModel, model: ModelObject, mpath: str) -> CheckFun|None:
 
-        dis = self._disjunct_analyse(jm, model, mpath)
+        # FIXME split
+        dis = self._disjunct_analyse(jm, model, mpath.split("."))
         if dis is None:
             return None
         tag_name, tag_type, models, all_const_props = dis
@@ -477,26 +477,27 @@ class DynamicCompiler(Validator):
                 continue
 
             # value constraint type
-            tvc = type(vc)
-
             if kc in self._LENGTH_LAMBDAS:
-                if tvc not in (bool, int, float, str):
-                    raise ModelError(f"unexpected type for {kc} {ttype}: {tvc} [{mpath}]")
                 lmd = self._LENGTH_LAMBDAS[kc]
                 path = mpath + "." + kc
-                if tvc is int:
-                    checks_nb.append(lmd(vc, path))
-                elif tvc is str and vc.startswith("$"):
-                    checks_nb.append(lmd(int(vc[1:]), path))
-                elif ttype is tvc:
-                    checks_val.append(lmd(vc, path))
-                else:
-                    raise ModelError(f"unexpected type for {kc} {ttype}: {tvc} [{mpath}]")
-            # elif kc == "in":
+                if not isinstance(vc, (bool, int, float, str)):
+                    raise ModelError(f"unexpected type for {kc} {ttype}: {tname(vc)} [{mpath}]")
+                match vc:
+                    case int():
+                        checks_nb.append(lmd(vc, path))
+                    case str():
+                        if vc.startswith("="):
+                            checks_nb.append(lmd(int(vc[1:]), path))
+                    case _:
+                        if ttype is type(vc):
+                            checks_val.append(lmd(vc, path))
+                        else:
+                            raise ModelError(f"unexpected type for {kc} {ttype}: {tname(vc)} [{mpath}]")
+            # elif kc == ".in":
             #     if ttype not in (str, list, tuple):
             #         raise ModelError(f"unexpected type for {kc}: {ttype}")
             #     item_filter = self._raw_compile(vc)
-            # elif kc == "mo":
+            # elif kc == ".mo":
             #     if type(vc) not in (int, float):
             #         raise ModelError(f"unexpected type for mo denominator: {type(vc)}")
             #     if ttype not in (int, float):
@@ -524,12 +525,12 @@ class DynamicCompiler(Validator):
                     # then check "in" count against expectations
                     return all(map(lambda f: f(ins, p), checks_nb))
                 checks_val.append(in_check)
-            elif ttype == UnknownModel:
-                # dynamic version
-                def nb_check_gen(v, p):
-                    lv = len(v) if isinstance(v, (str, list, dict)) else v
-                    return all(map(lambda f: f(lv, p), checks_nb))
-                checks_val.append(nb_check_gen)
+            # elif ttype == UnknownModel:
+            #     # dynamic version
+            #     def nb_check_gen(v, p):
+            #         lv = len(v) if isinstance(v, (str, list, dict)) else v
+            #         return all(map(lambda f: f(lv, p), checks_nb))
+            #     checks_val.append(nb_check_gen)
             elif has_len:
                 # check length of whatever
                 def nb_check_stat(v, p):
@@ -556,6 +557,7 @@ class DynamicCompiler(Validator):
             raise ModelError(f"unexpected type object value type: {tname(vtype)} [{mpath}]")
         if self._is_vartuple(model):
             # FIXME should skip it in some cases?
+            assert isinstance(vtype, list)  # pyright hint
             val_check = self._vartuple_check(jm, vtype, mpath + ".@", False)
         else:
             val_check = self._raw_compile(jm, vtype, mpath + ".@")
@@ -658,8 +660,8 @@ class DynamicCompiler(Validator):
                 return fun
         elif len(mv) == 2 and "$ANY" in mv:
             #  {"^": ["$ANY", m]} means anything "not m"
-            model = mv[1] if mv[0] == "$ANY" else mv[0]
-            check = self._raw_compile(jm, model, f"{mp}[?]")
+            mitem = mv[1] if mv[0] == "$ANY" else mv[0]
+            check = self._raw_compile(jm, mitem, f"{mp}[?]")
             return lambda v, p: (not check(v, p) or
                                  self._no(f"{mp}[?]", p, "model inversion (not with $ANY)"))
 
@@ -718,11 +720,14 @@ class DynamicCompiler(Validator):
         assert model in (0.0, 1.0, -1.0)
         if self._loose_float:
             if model == -1.0:
-                return lambda v, p: type(v) in (float, int) or self._no(mpath, p, "expecting a number")
+                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) \
+                            or self._no(mpath, p, "expecting a number")
             elif model == 0.0:
-                return lambda v, p: type(v) in (float, int) and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) and \
+                            v >= 0.0 or self._no(mpath, p, "expecting a positive number")
             else:
-                return lambda v, p: type(v) in (float, int) and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
+                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) and \
+                            v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
         else:
             if model == -1.0:
                 return lambda v, p: type(v) == float or self._no(mpath, p, "expecting a number")
@@ -824,20 +829,20 @@ class DynamicCompiler(Validator):
     def _raw_compile(self, jm: JsonModel, model: ModelType, mpath: str, is_root: bool = False) -> CheckFun:
         """Dynamic "compilation" of a model."""
         # static switch on model type
-        tmodel = type(model)
-        if tmodel is type(None):
-            return self._none_raw_compile(model, mpath)
-        elif tmodel is bool:
-            return self._bool_raw_compile(model, mpath)
-        elif tmodel is int:
-            return self._int_raw_compile(model, mpath)
-        elif tmodel is float:
-            return self._float_raw_compile(model, mpath)
-        elif tmodel is str:
-            return self._str_raw_compile(jm, model, mpath)
-        elif tmodel in (list, tuple):
-            return self._list_raw_compile(jm, model, mpath)
-        elif tmodel is dict:
-            return self._dict_raw_compile(jm, model, mpath, is_root)
-        else:
-            raise ModelError(f"unexpected model type {tname(model)}: {model} [{mpath}]")
+        match model:
+            case None:
+                return self._none_raw_compile(model, mpath)
+            case bool():
+                return self._bool_raw_compile(model, mpath)
+            case int():
+                return self._int_raw_compile(model, mpath)
+            case float():
+                return self._float_raw_compile(model, mpath)
+            case str():
+                return self._str_raw_compile(jm, model, mpath)
+            case list():
+                return self._list_raw_compile(jm, model, mpath)
+            case dict():
+                return self._dict_raw_compile(jm, model, mpath, is_root)
+            case _:
+                raise ModelError(f"unexpected model type {tname(model)}: {model} [{mpath}]")

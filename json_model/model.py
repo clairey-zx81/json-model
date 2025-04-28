@@ -8,14 +8,16 @@ from collections.abc import MutableMapping
 import threading
 
 from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
-from .types import Jsonable, JsonModel, Symbols
-from .utils import log, tname, is_cst
+from .types import Jsonable, JsonSchema
+from .utils import log, tname, is_cst, _structurally_distinct_models, merge_objects
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 
-# FIXME misnomer
-from .optim import _structurally_distinct_models, merge_objects
+# FIXME
+JsonModel = typing.NewType("JsonModel", None)
+Symbols = typing.NewType("Symbols", None)
 
+type SymTable = dict[str, JsonModel]
 type Globals = dict[str, str]
 type ModelRef = list[str]  # $stuff#name#inside
 
@@ -33,7 +35,7 @@ class Symbols(MutableMapping[str, JsonModel]):
             self._id = len(Symbols.SYMBOLS)
             Symbols.SYMBOLS.append(self)
 
-        self._syms: Symbols = {}
+        self._syms: SymTable = {}
         self._gmap: Globals = {}
 
     def toJSON(self, rec: bool = False):
@@ -182,15 +184,15 @@ class JsonModel:
         self._rewrite: ModelTrafo = {}
 
         if isinstance(model, dict) and "%" in model:
-            lpath = ["%"]
 
-            # checks
-            if not isinstance(model["%"], dict):
-                raise ModelError(f"expecting an object at {lpath}")
+            lpath = ["%"]
+            model_pc = model["%"]
+            del model["%"]
+            assert isinstance(model_pc, dict)
 
             bads = {
                 name: kw
-                    for name, kw in model["%"].items()
+                    for name, kw in model_pc.items()
                         if (not isinstance(name, str) or name.startswith(".") and
                             isinstance(kw, str) and kw not in JsonModel.KEYWORDS)
             }
@@ -200,30 +202,35 @@ class JsonModel:
             # keyword localization
             self._name = {
                 name: kw
-                    for name, kw in model["%"].items()
+                    for name, kw in model_pc.items()
                         if isinstance(name, str) and name.startswith(".") and isinstance(kw, str)
             }
 
             # FIXME what is the scope of renamings, eg wrt references?
             model = self.rename(model, [], True)
+            assert isinstance(model, dict)
             self._self_renamed = True
 
             # extract rewrites
             # TODO check name syntax? $Path#To#Def.path.to.prop
             self._rewrite = {
                 name: rw
-                    for name, rw in model["%"].items()
+                    for name, rw in model_pc.items()
                         if isinstance(name, str) and not name.startswith(".") and not name == "#"
             }
 
             # save initial definition
-            self._init_pc = model["%"]
-            del model["%"]
+            self._init_pc = model_pc
 
         # definitions, possibly shared
         assert root and scope is None or not root and scope is not None
         self._init_dl: dict[str, ModelType] = {}
-        self._defs = Symbols() if root else scope
+        self._defs: Symbols
+        if root:
+            self._defs = Symbols()
+        else:   
+            assert scope is not None
+            self._defs = scope
 
         if isinstance(model, dict) and "$" in model:
             assert root  # $ only at root
@@ -233,6 +240,7 @@ class JsonModel:
             assert all(map(lambda k: isinstance(k, str), dollar.keys()))
             # extract current model identifier if provided
             if u := dollar.get(""):
+                assert isinstance(u, str)
                 if not self._isUrlRef(f"${u}"):
                     raise ModelError(f"model identifier should be a url: {u}")
                 if self._url != "" and u != self._url:
@@ -288,17 +296,17 @@ class JsonModel:
     def references(self) -> dict[str, set[str]]:
         """Get direct references."""
 
-        def direcRefs(model: ModelType) -> set[str]:
+        def directRefs(model: ModelType) -> set[str]:
 
             refs: set[str] = set()
 
-            def dr_rwt(m: ModelType, p) -> bool:
+            def drRwt(m: ModelType, p: ModelPath) -> ModelType:
                 nonlocal refs
-                if isinstance(m, str) and m and m[0] == "$":
+                if isinstance(m, str) and m != "" and m[0] == "$":
                     refs.add(m)
                 return m
 
-            recModel(model, allFlt, dr_rwt, True)
+            recModel(model, allFlt, drRwt, True)
 
             return refs
 
@@ -307,7 +315,8 @@ class JsonModel:
         for name, model in self._defs.items():
             # FIXME model._url or name?
             contains["$" + name] = directRefs(model._model)
-        contains[""] = directRefs(model._model)
+
+        contains[""] = directRefs(self._model)
 
         return contains
 
@@ -414,16 +423,19 @@ class JsonModel:
             if "$" in self._model:
                 is_valid &= isinstance(defs := self._model["$"], dict)
                 if is_valid:
+                    assert isinstance(defs, dict)  # redundant pyright hint
                     for p, m in defs.items():
                         is_valid &= isinstance(p, str)
                         if p in ("", "#"):
                             is_valid &= isinstance(m, str)
                             # TODO "" expects an URL
                         else:  # recursion!
-                            is_valid &= self.valid(m, ["$", p], False)
+                            jm = self._defs[p]
+                            is_valid &= jm.valid(["$", p], False)
             if "%" in self._model:
                 is_valid &= isinstance(trafo := self._model["%"], dict)
                 if is_valid:
+                    assert isinstance(trafo, dict)  # redundant pyright hint
                     for p, t in trafo.items():
                         is_valid &= isinstance(p, str)
                         if p == "#":
@@ -491,7 +503,9 @@ class JsonModel:
                         if isinstance(m, dict) and op in m:
                             changes += 1
                             updated = True
-                            nmodels.extend(m[op])
+                            l = m[op]
+                            assert isinstance(l, list)
+                            nmodels.extend(l)
                         else:
                             nmodels.append(m)
                     if updated:
@@ -557,6 +571,7 @@ class JsonModel:
             elif isinstance(model, dict):
                 if "|" in model:
                     lor = model["|"]
+                    assert isinstance(lor, list)
                     if len(lor) == 0:
                         changes += 1
                         return "$NONE"
@@ -574,6 +589,7 @@ class JsonModel:
                         return lor[0]
                 elif "&" in model:
                     land = model["&"]
+                    assert isinstance(land, list)
                     if len(land) == 0:
                         changes += 1
                         return "$ANY"
@@ -588,6 +604,7 @@ class JsonModel:
                         return land[0]
                 elif "^" in model:
                     lxor = model["^"]
+                    assert isinstance(lxor, list)
                     if len(lxor) == 0:
                         changes += 1
                         return "$NONE"
@@ -603,16 +620,17 @@ class JsonModel:
                     # TODO more cleanups
                     # ^(A A ...) = ^(...) ? not so, depends on inclusions?
                 elif "+" in model:
-                    lplus = model["+"]
-                    if len(lplus) == 0:  # {"+": []} == {}
+                    plus = model["+"]
+                    assert isinstance(plus, list)
+                    if len(plus) == 0:  # {"+": []} == {}
                         changes += 1
                         del model["+"]
-                    elif len(lplus) == 1:
+                    elif len(plus) == 1:
                         changes += 1
-                        return lplus[0]
-                    elif any(map(empty_obj, lplus)):
+                        return plus[0]
+                    elif any(map(empty_obj, plus)):
                         changes += 1
-                        model["+"] = list(filter(lambda o: not empty_obj(o), lplus))
+                        model["+"] = list(filter(lambda o: not empty_obj(o), plus))
                     # TODO more cleanup? could I remove $NONE? $ANY?
                 elif "@" in model:
                     # "!": false is the default, so is not really needed
@@ -654,7 +672,7 @@ class JsonModel:
             "cached": sorted(self._cache.keys()),
             "defs": self._defs.toJSON(recurse),
         }
-        if self.isUrlRef():
+        if isinstance(self._model, str) and self.isUrlRef():
             data["external"] = self.get(self._model[1:], []).toJSON()
         if self._isolated:
             log.debug(f"len(globals) = {len(self._globs)}")
@@ -693,8 +711,9 @@ class JsonModel:
             model["~"] = self._spec._url
         return model
 
-    def toSchema(self, recurse: bool = True) -> Jsonable:
+    def toSchema(self, recurse: bool = True) -> JsonSchema:
         from . import convert
+        schema: JsonSchema
         schema = convert.model2schema(self._model)
         if recurse and self._defs:
             if isinstance(schema, bool):  # we need an object to store defs
@@ -702,26 +721,26 @@ class JsonModel:
                 # possibly salvage comment
                 if isinstance(self._model, dict) and "#" in self._model:
                     schema["description"] = self._model["#"]
-            schema["$defs"] = {
+            schema["$defs"] = {  # type: ignore
                 name: jm.toSchema(False)
                     for name, jm in self._defs.items()
             }
-        return schema
+        return schema  # type: ignore
 
     #
     # Resolution
     #
     # @staticmethod?
     def _isPredef(self, s: Jsonable) -> bool:
-        return isinstance(s, str) and s and s[0] == "$" and s[1:] in JsonModel.PREDEFS
+        return isinstance(s, str) and s != "" and s[0] == "$" and s[1:] in JsonModel.PREDEFS
 
     # @staticmethod?
     def _isRef(self, model: Jsonable) -> bool:
-        return isinstance(model, str) and model and model[0] == "$" and not self._isPredef(model)
+        return isinstance(model, str) and model != "" and model[0] == "$" and not self._isPredef(model)
 
     # @staticmethod?
     def _isUrlRef(self, model: Jsonable) -> bool:
-        return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model)
+        return isinstance(model, str) and re.match(r"\$(file://|https?://|\.|/)", model) is not None
 
     # @staticmethod?
     def _isSimpleRef(self, model: Jsonable) -> bool:
@@ -757,7 +776,7 @@ class JsonModel:
         if name in self._defs:
             log.debug(f"{self._id}: ref={ref} model={self._model} namedef={self._defs[name]._id}")
             jm = self._defs[name]
-            if jm.isRef():
+            if isinstance(jm._model, str) and jm.isRef():
                 log.debug(f"{self._id}: following {ref} in {jm._model}")
                 model = jm._model
                 if others:
@@ -770,7 +789,8 @@ class JsonModel:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            self._defs[name] = JsonModel(None, self._resolver, self._globs, self._defs, self._url + "#" + name, False, self._debug)
+            self._defs[name] = JsonModel(None, self._resolver, self._globs, self._defs,
+                                         self._url + "#" + name, False, self._debug)
             return self._defs[name]
 
     def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
@@ -784,7 +804,7 @@ class JsonModel:
         assert not self._isPredef(model)
 
         # shortcut with global scoping
-        if self._isRef(model) and self._defs.ghas(model):
+        if isinstance(model, str) and self._isRef(model) and self._defs.ghas(model):
             if self._debug:
                 log.debug(f"{self._id}: gmap shortcut {self._defs._gmap}")
                 log.debug(f"{self._id}: globs = {self._globs}")
@@ -792,6 +812,7 @@ class JsonModel:
 
         # actual resolution
         while jm._isRef(model):
+            assert isinstance(model, str)  # pyright hint
             log.debug(f"{self._id}: RR {model} in {jm._id}")
             if jm._isUrlRef(model):
                 # detect recursion
@@ -860,28 +881,29 @@ class JsonModel:
 
         # update map of local references to global references
         def rootRwt(m: ModelType, p: ModelPath) -> ModelType:
-            if self._isSimpleRef(m):
-                jm = self.resolveRef(m, p + [m])
-                if jm._id in references:
-                    gref = references[jm._id]
-                else:
-                    assert False
-                    gref = root_ref + "#" + m[1:]
-                    if gref not in symbols:
-                        symbols[gref] = jm
-                        jm.scope(symbols, root + [m[1:]], visited, references)
-                    references[jm._id] = gref
-                log.debug(f"### {self._id}: m={m} jm={jm._id} gref={gref}")
-                if not self._defs.ghas(m):
-                    log.debug(f"{self._id}: gmap {m} -> {gref} for {self._defs._id}")
-                    self._defs.gset(m, gref)
-                # if not jm._defs.ghas(gref):  # also accept global references?
-                #     jm._defs.gset(gref, gref)
-            elif self._isUrlRef(m):
-                if m not in symbols:
-                    symbols[m] = self.resolveRef(m, p + [m])
-                if not self._defs.ghas(m):
-                    self._defs.gset(m, m)
+            if isinstance(m, str):
+                if self._isSimpleRef(m):
+                    jm = self.resolveRef(m, p + [m])
+                    if jm._id in references:
+                        gref = references[jm._id]
+                    else:
+                        assert False
+                        gref = root_ref + "#" + m[1:]
+                        if gref not in symbols:
+                            symbols[gref] = jm
+                            jm.scope(symbols, root + [m[1:]], visited, references)
+                        references[jm._id] = gref
+                    log.debug(f"### {self._id}: m={m} jm={jm._id} gref={gref}")
+                    if not self._defs.ghas(m):
+                        log.debug(f"{self._id}: gmap {m} -> {gref} for {self._defs._id}")
+                        self._defs.gset(m, gref)
+                    # if not jm._defs.ghas(gref):  # also accept global references?
+                    #     jm._defs.gset(gref, gref)
+                elif self._isUrlRef(m):
+                    if m not in symbols:
+                        symbols[m] = self.resolveRef(m, p + [m])
+                    if not self._defs.ghas(m):
+                        self._defs.gset(m, m)
             return m
 
         self._model = recModel(self._model, allFlt, rootRwt, True)
@@ -921,7 +943,7 @@ class JsonModel:
 
         def miFlt(model: ModelType, path: ModelPath) -> bool:
 
-            def inline(m: model, p: path):
+            def inline(m: ModelType, p: ModelPath):
                 nonlocal updated
                 if isinstance(m, str):  # actual inlining
                     assert m and m[0] == "$"
@@ -942,7 +964,9 @@ class JsonModel:
                 return m
 
             if isinstance(model, dict) and "+" in model:
-                model["+"] = [inline(n, path + ["+", i]) for i, n in enumerate(model["+"])]
+                plus = model["+"]
+                assert isinstance(plus, list)  # pyright hint
+                model["+"] = [inline(n, path + ["+", i]) for i, n in enumerate(plus)]
 
             return True
 
@@ -957,7 +981,7 @@ class JsonModel:
         def isAlt(m: ModelType) -> bool:
             return isinstance(m, dict) and ("|" in m or "^" in m)
 
-        def mdFlt(model: ModelType, path: ModelPath) -> ModelType:
+        def mdFlt(model: ModelType, path: ModelPath) -> bool:
             # +( |(A B) C ) -> |( +(A C) +(B C) )
             nonlocal updated
 
@@ -977,6 +1001,7 @@ class JsonModel:
 
             lmodels: list[list[ModelType]] = [[]]
             for m in plus:
+                assert isinstance(m, dict)  # pyright hint
                 if isAlt(m):
                     alts = m["|"] if "|" in m else m["^"]
                     is_xor |= "^" in m
@@ -1010,11 +1035,14 @@ class JsonModel:
             if not isinstance(model, dict) or not "+" in model:
                 return model
             updated = True
-            merged = merge_objects(model["+"], path + ["+"])
+            plus = model["+"]
+            assert isinstance(plus, list)  # pyright hint
+            merged = merge_objects(plus, path + ["+"])
             del model["+"]
             if len(model) > 0:
                 model["@"] = merged
             else:
+                assert isinstance(merged, dict)  # pyright hint
                 model.update(merged)
             return model
 
@@ -1052,13 +1080,13 @@ class JsonModel:
     #
     # Rename and Rewrite Transformations
     #
-    def rename(self, model: ModelType, path: ModelPath = [], root: bool = False):
+    def rename(self, model: ModelType, path: ModelPath = [], root: bool = False) -> ModelType:
         """Apply keyword renaming."""
         # FIXME should check that all are ".…" are replaced?!
         if root and not self._name:
             return model
 
-        def flt(m: ModelType, path: ModelPath) -> bool:
+        def rnFlt(m: ModelType, path: ModelPath) -> bool:
             if isinstance(m, dict):
                 remove, added = set(), {}
                 for k, v in m.items():
@@ -1074,7 +1102,7 @@ class JsonModel:
                 m.update(**added)
             return True
 
-        return recModel(model, flt, lambda m, _p: m)
+        return recModel(model, rnFlt, noRwt)
 
     # FIXME parsing should conform to JSON Path
     # TODO think transformation path spec
@@ -1100,6 +1128,7 @@ class JsonModel:
             # $ANY
             return trafo
         assert self._isTrafo(trafo)
+        assert isinstance(trafo, dict)  # pyright hint
         if "/" in trafo:
             sub = trafo["/"]
             if isinstance(sub, list):
@@ -1143,6 +1172,7 @@ class JsonModel:
         j = jm._model
 
         for i, p in enumerate(tpath):
+            assert isinstance(j, (list, dict))
             last = i == len(tpath) - 1
             if isinstance(p, str):
                 if not isinstance(j, dict):
@@ -1156,9 +1186,9 @@ class JsonModel:
                 if not 0 <= p < len(j):
                     raise ModelError(f"invalid index at {path}: {p} in {tpath}")
             if last:
-                j[p] = self._applyTrafo(j[p], trafo)
+                j[p] = self._applyTrafo(j[p], trafo)  # type: ignore
             else:
-                j = j[p]
+                j = j[p]  # type: ignore
         else:
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
@@ -1167,7 +1197,9 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
+            assert isinstance(trafo, dict)  # pyright hint
             lpath = ["$", "$", tpath]  # FIXME
-            jm, path = self._parsePath(tpath, lpath)
-            self._applyTrafoAtPath(jm, path, trafo, lpath)
+            # typing issue, cannot assign list[str] to list[str|int] !?
+            jm, path = self._parsePath(tpath, lpath)  # type: ignore
+            self._applyTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
         self._rewritten = True

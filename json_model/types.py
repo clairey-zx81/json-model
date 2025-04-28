@@ -29,6 +29,7 @@ type ModelCheckFun = Callable[[ValueType, JsonPath], bool]
 
 type JsonModel = typing.NewType("JsonModel", None)
 type Symbols = dict[str, JsonModel]
+type JsonSchema = bool|dict[str, Jsonable]
 
 class ModelError(BaseException):
     pass

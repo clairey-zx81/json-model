@@ -22,7 +22,6 @@ import argparse
 
 from .types import ModelType, ModelError, ModelPath, UnknownModel, JsonModel, Symbols
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value, log, tname, json_path
-from .preproc import model_preprocessor
 from .defines import Validator
 
 type Line = tuple[int, str]
@@ -93,9 +92,9 @@ class SourceCode(Validator):
         # /re.../ -> regex function name
         self._regs: dict[str, str] = {}
         # model path -> function name
-        self._paths: dict[str, str] = {}
+        self._paths: dict[str|tuple[int|str, ...], str] = {}
         # already generated object paths
-        self._generated: set[str] = set()
+        self._generated: set[str|tuple[int|str, ...]] = set()
         # compiled json models ids
         self._compiled: dict[int, Code] = {}
         self._to_compile: dict[int, tuple[JsonModel, str]] = {}
@@ -268,18 +267,20 @@ class SourceCode(Validator):
         assert isinstance(model, dict)
 
         init = model["|"]
+        assert isinstance(init, list)  # pyright hint
         assert len(models) == len(init)
         for i, m in enumerate(models):
             p = mpath + [i]
+            tp = tuple(p)
             mi = init[i]  # initial model
             if isinstance(mi, str) and mi and mi[0] == "$":
                 # it is a reference, it must be compiled for its name, no need to recompile it!
-                fun = self._getNameRef(jm, mi)
-                if p not in self._paths:
+                fun = self._getNameRef(jm, mi, p)
+                if tp not in self._paths:
                     # several path will lead to the same function
-                    self._paths[p] = fun
+                    self._paths[tp] = fun
                 # else nothing to do?
-            elif tuple(p) not in self._paths:
+            elif tp not in self._paths:
                 # else compile the direct object as a side effect…
                 c = Code()
                 self._compileModel(c, 0, jm, m, p, _RESULT, _VALUE, _PATH)
@@ -557,12 +558,14 @@ class SourceCode(Validator):
                         self._compileModel(code, indent + i + 1, jm, model[i], mpath + [i],
                                            res, f"{val}[{i}]", f"{vpath}[{i}]")
             case dict():
+                assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
                 if "@" in model:
                     self._compileConstraint(code, indent, jm, model, mpath, res, val, vpath)
                 elif "|" in model:
                     lpath = mpath + ["|"]
                     models = model["|"]
+                    assert isinstance(models, list)  # pyright hint
                     # partial list of constants optimization
                     l_const = list(map(lambda m: constant_value(m, lpath), models))
                     if len(list(filter(lambda t: t[0], l_const))) >= 2:
@@ -597,7 +600,7 @@ class SourceCode(Validator):
                         if expected_type is int:
                             type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
                         else:
-                            type_test = f"isinstance({val}, {expected_type.__name__})"
+                            type_test = f"isinstance({val}, {expected_type.__name__})"  # type: ignore
                         code.add(indent, f"{res} = {type_test}")
                         code.add(indent, f"if {res}:")
                         indent += 1
@@ -611,6 +614,7 @@ class SourceCode(Validator):
                     and_known = set(known or [])
                     lpath = mpath + ["&"]
                     models = model["&"]
+                    assert isinstance(models, list)  # pyright hint
                     if not models:
                         code.add(indent, f"{res} = True")
                         return
@@ -621,7 +625,7 @@ class SourceCode(Validator):
                         if expected_type is int:
                             type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
                         else:
-                            type_test = f"isinstance({val}, {expected_type.__name__})"
+                            type_test = f"isinstance({val}, {expected_type.__name__})"  # type: ignore
                         code.add(indent, f"{res} = {type_test}")
                         code.add(indent, f"if {res}:")
                         indent += 1
@@ -634,6 +638,7 @@ class SourceCode(Validator):
                 elif "^" in model:
                     lpath = mpath + ["^"]
                     models = model["^"]
+                    assert isinstance(models, list)  # pyright hint
 
                     # optimize out repeated models
                     if len(models) >= 2:

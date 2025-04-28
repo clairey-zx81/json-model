@@ -2,7 +2,7 @@ from typing import Any
 import sys
 import logging
 import json
-from .types import ModelType, ModelPath
+from .types import ModelType, ModelPath, JsonSchema
 from . import utils
 from .utils import is_cst, cst, log
 
@@ -25,7 +25,7 @@ PREDEF_TYPES = {
     "$F64": "number",
 }
 
-def model2schema(model: ModelType, path: ModelPath = []):
+def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
     """Convert model to schema."""
 
     schema: Jsonable = {}
