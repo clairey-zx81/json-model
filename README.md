@@ -71,6 +71,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: integrate or remove `stats`?
 - [ ] doc: add doc
 - [ ] tests: add github CI
+- [ ] feature: think about code integration in a realistic project? doc and usability?
 - [ ] doc: check and document API entry points
 - [ ] extend: direct forms for instance, eg types, constraints, layout?
       see [FormBuilder](https://formbuilder.online/).
