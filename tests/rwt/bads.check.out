@@ -14,8 +14,7 @@ ERROR:json-model:& restricts other keywords ['&']
 ERROR:json-model:invalid model bads/exclusive_4.model.json
 ERROR:json-model:| restricts other keywords ['|']
 ERROR:json-model:invalid model bads/exclusive_5.model.json
-ERROR:json-model:maximum recursion depth exceeded
-ERROR:json-model:invalid model bads/_infinite_recursion.model.json
+ERROR:json-model:invalid initial model bads/_infinite_recursion.model.json[0]
 ERROR:json-model:invalid initial model bads/int_0.model.json[0]
 ERROR:json-model:invalid initial model bads/int_1.model.json[0]
 ERROR:json-model:| is a list ['|']

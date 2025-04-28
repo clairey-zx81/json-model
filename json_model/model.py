@@ -376,10 +376,19 @@ class JsonModel:
                     if model == "":
                         pass
                     elif model[0] == "=":
-                        is_valid &= re.match(r"=(true|false|null|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
+                        is_valid &= re.match(r"=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
                     elif model[0] == "/":
                         is_valid &= model.endswith("/") or model.endswith("/i")
-                        # TODO check re validity
+                        # TODO check re validity: is_regex
+                    elif model[0] == "$":
+                        # detect direct infinite recursion? is this enough?!
+                        ref, rec, jm = model, [], self
+                        while isinstance(ref, str) and self._isRef(ref) and ref not in rec:
+                            jm = jm.resolveRef(ref, path + rec)
+                            rec.append(ref)
+                            ref = jm._model
+                        log.debug(f"infinite recursion path {rec} at {path}")
+                        is_valid &= not self._isRef(ref)
                     else:  # TODO more checks
                         pass
                 case list():
