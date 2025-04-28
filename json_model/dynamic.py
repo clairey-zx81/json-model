@@ -81,6 +81,7 @@ class DynamicCompiler(Validator):
 
         # load all predefs
         # FIXME ensure model.py consistency!
+        # FIXME compile some predefs?
         self._defs.set("$ANY", self._ANY, "<ANY>", "accept anything")
         self._defs.set("$NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
@@ -95,23 +96,35 @@ class DynamicCompiler(Validator):
                                      self._no("<URI-REFERENCE>", p, "invalid uri-reference")))
         # some predefined numeric types (strict)
         self._defs.set("$I32", lambda v, p: (isinstance(v, int) and -2**31 <= v <= (2**31 - 1) or
-                                            self._no("<I32>", p, "invalid I32")))
+                                            self._no("<I32>", p, "invalid int32")))
         self._defs.set("$U32", lambda v, p: (isinstance(v, int) and 0 <= v <= (2**32 - 1) or
-                                            self._no("<U32>", p, "invalid U32")))
+                                            self._no("<U32>", p, "invalid uint32")))
         self._defs.set("$I64", lambda v, p: (isinstance(v, int) and -2**63 <= v <= (2**63 - 1) or
-                                            self._no("<I64>", p, "invalid I64")))
+                                            self._no("<I64>", p, "invalid int64")))
         self._defs.set("$U64", lambda v, p: (isinstance(v, int) and 0 <= v <= (2**64 - 1) or
-                                            self._no("<U64>", p, "invalid U64")))
-        # FIXME F32? FLOAT?
+                                            self._no("<U64>", p, "invalid uint64")))
+        self._defs.set("$F32", lambda v, p: isinstance(v, float) or
+                                            self._no("<F32>", p, "invalid float"))
         self._defs.set("$F64", lambda v, p: isinstance(v, float) or
-                                            self._no("<F64>", p, "invalid F64"))
+                                            self._no("<F64>", p, "invalid float"))
+        self._defs.set("$FLOAT", lambda v, p: isinstance(v, float) or
+                                            self._no("<FLOAT>", p, "invalid float"))
         self._defs.set("$STRING", lambda v, p: isinstance(v, str) or
                                                self._no("<STRING>", p, "not a string"))
         self._defs.set("$BOOL", lambda v, p: isinstance(v, bool) or
                                              self._no("<BOOL>", p, "not a boolean"))
+        self._defs.set("$BOOLEAN", lambda v, p: isinstance(v, bool) or
+                                             self._no("<BOOLEAN>", p, "not a boolean"))
         self._defs.set("$NUMBER",
                        lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) or
                                     self._no("<NUMBER>", p, "invalid number"))
+        self._defs.set("$DATE",  # FIXME partial!
+                       lambda v, p: isinstance(v, str) and
+                                    re.match(r"\d{4}-\d{2}-\d{2}$", v) is not None or
+                                    self._no("<DATE>", p, "invalid date"))
+        self._defs.set("$URL",  # FIXME partial!
+                       lambda v, p: isinstance(v, str) and re.match(r"(https?|file)://.*|\.|/", v) or
+                                    self._no("<URL>", p, "invalid URL"))
 
         # actually compile the model
         # FIXME make path JsonPath?!
@@ -134,6 +147,7 @@ class DynamicCompiler(Validator):
 
     def _ref2fun(self, jm: JsonModel, ref: str, mpath: str) -> CheckFun:
         # predefs…
+        log.debug(f"{jm._id}: ref2fun ref={ref} defs={self._defs}")
         if ref in self._defs:
             return self._defs.get(ref)
         # URL or simple refs only

@@ -176,7 +176,7 @@ def jmc_script():
             print(dis.dis(checker), file=output)
     elif args.op == "S":
         code = static_compile(model, "check_model", debug=args.debug)
-        source_code = f"# generated from model: {args.model}\n" + str(code)
+        source_code = f"# Generated for model: {args.model}\n" + str(code)
         if args.debug or args.code:
             print(source_code, file=output)
         env = {}

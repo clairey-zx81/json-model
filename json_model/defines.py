@@ -56,7 +56,7 @@ class ModelDefs(MutableMapping[str, Model]):
         if callable(model):
             m = Model(model, f"${name}", None, doc)
         else:
-            log.warning(f"no compiler for {name}")
+            log.debug(f"no compiler for {name}")
             m = Model(None, model, json.dumps(model), doc)
 
         self._models[name] = m

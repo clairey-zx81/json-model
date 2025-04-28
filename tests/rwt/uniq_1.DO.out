@@ -1,86 +1,59 @@
 Disassembly of _fun:
-              0 COPY_FREE_VARS           6
+              0 COPY_FREE_VARS           3
 
-286           2 RESUME                   0
+316           2 RESUME                   0
 
-287           4 LOAD_GLOBAL              1 (NULL + isinstance)
+317           4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (list)
-             26 LOAD_GLOBAL              4 (tuple)
-             36 BUILD_TUPLE              2
-             38 CALL                     2
-             46 POP_JUMP_IF_TRUE        19 (to 86)
+             26 CALL                     2
+             34 POP_JUMP_IF_TRUE        19 (to 74)
 
-288          48 LOAD_DEREF               9 (self)
-             50 LOAD_ATTR                7 (NULL|self + _no)
-             70 LOAD_DEREF               7 (mpath)
-             72 LOAD_FAST                1 (p)
-             74 LOAD_CONST               1 ('expecting an array')
-             76 CALL                     3
-             84 RETURN_VALUE
+318          36 LOAD_DEREF               7 (self)
+             38 LOAD_ATTR                5 (NULL|self + _no)
+             58 LOAD_DEREF               6 (mpath)
+             60 LOAD_FAST                1 (p)
+             62 LOAD_CONST               1 ('expecting an array')
+             64 CALL                     3
+             72 RETURN_VALUE
 
-289     >>   86 LOAD_DEREF               6 (length)
-             88 POP_JUMP_IF_FALSE       37 (to 164)
-             90 LOAD_GLOBAL              9 (NULL + len)
-            100 LOAD_FAST                0 (v)
-            102 CALL                     1
-            110 LOAD_DEREF               8 (nmodels)
-            112 COMPARE_OP              55 (!=)
-            116 POP_JUMP_IF_FALSE       23 (to 164)
+320     >>   74 BUILD_LIST               0
+             76 STORE_FAST               2 (item_checks)
 
-290         118 LOAD_DEREF               9 (self)
-            120 LOAD_ATTR                7 (NULL|self + _no)
-            140 LOAD_DEREF               7 (mpath)
-            142 LOAD_FAST                1 (p)
-            144 LOAD_CONST               2 ('expecting ')
-            146 LOAD_DEREF               8 (nmodels)
+321          78 LOAD_GLOBAL              7 (NULL + enumerate)
+             88 LOAD_FAST                0 (v)
+             90 CALL                     1
+             98 GET_ITER
+        >>  100 FOR_ITER                35 (to 174)
+            104 UNPACK_SEQUENCE          2
+            108 STORE_FAST               3 (i)
+            110 STORE_FAST               4 (e)
+
+322         112 LOAD_FAST                2 (item_checks)
+            114 LOAD_ATTR                9 (NULL|self + append)
+            134 PUSH_NULL
+            136 LOAD_DEREF               5 (item)
+            138 LOAD_FAST                4 (e)
+            140 LOAD_FAST                1 (p)
+            142 FORMAT_VALUE             0
+            144 LOAD_CONST               2 ('[')
+            146 LOAD_FAST                3 (i)
             148 FORMAT_VALUE             0
-            150 LOAD_CONST               3 (' items')
-            152 BUILD_STRING             3
-            154 CALL                     3
-            162 RETURN_VALUE
+            150 LOAD_CONST               3 (']')
+            152 BUILD_STRING             4
+            154 CALL                     2
+            162 CALL                     1
+            170 POP_TOP
+            172 JUMP_BACKWARD           37 (to 100)
 
-291     >>  164 LOAD_GLOBAL             11 (NULL + range)
-            174 LOAD_GLOBAL              9 (NULL + len)
-            184 LOAD_FAST                0 (v)
-            186 CALL                     1
-            194 CALL                     1
-            202 GET_ITER
-        >>  204 FOR_ITER                34 (to 276)
-            208 STORE_FAST               2 (i)
+321     >>  174 END_FOR
 
-292         210 LOAD_FAST                2 (i)
-            212 LOAD_DEREF               8 (nmodels)
-            214 COMPARE_OP               2 (<)
-            218 POP_JUMP_IF_FALSE        5 (to 230)
-            220 LOAD_DEREF               4 (checks)
-            222 LOAD_FAST                2 (i)
-            224 BINARY_SUBSCR
-            228 JUMP_FORWARD             1 (to 232)
-        >>  230 LOAD_DEREF               5 (last)
-        >>  232 STORE_FAST               3 (check)
-
-293         234 PUSH_NULL
-            236 LOAD_FAST                3 (check)
-            238 LOAD_FAST                0 (v)
-            240 LOAD_FAST                2 (i)
-            242 BINARY_SUBSCR
-            246 LOAD_FAST                1 (p)
-            248 FORMAT_VALUE             0
-            250 LOAD_CONST               4 ('[')
-            252 LOAD_FAST                2 (i)
-            254 FORMAT_VALUE             0
-            256 LOAD_CONST               5 (']')
-            258 BUILD_STRING             4
-            260 CALL                     2
-            268 POP_JUMP_IF_FALSE        1 (to 272)
-            270 JUMP_BACKWARD           34 (to 204)
-
-294     >>  272 POP_TOP
-            274 RETURN_CONST             6 (False)
-
-291     >>  276 END_FOR
-
-295         278 RETURN_CONST             7 (True)
+323         176 LOAD_DEREF               7 (self)
+            178 LOAD_ATTR               11 (NULL|self + _all)
+            198 LOAD_FAST                2 (item_checks)
+            200 LOAD_DEREF               6 (mpath)
+            202 LOAD_FAST                1 (p)
+            204 CALL                     3
+            212 RETURN_VALUE
 
 None

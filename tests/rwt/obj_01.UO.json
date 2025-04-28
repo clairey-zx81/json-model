@@ -18,15 +18,5 @@
     },
     "@": "$BOOLEAN"
   },
-  "$BOOLEAN",
-  {
-    "#": "JsonModel 4 with defs",
-    "$": {
-      "": "./obj_00#foo",
-      "#": "Symbol 3",
-      "foo": "$BOOLEAN"
-    },
-    "@": "$BOOLEAN"
-  },
   "$BOOLEAN"
 ]

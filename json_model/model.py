@@ -801,7 +801,7 @@ class JsonModel:
             log.debug(f"{self._id}: RR {model} at {path}")
 
         # no jm for predefs
-        assert not self._isPredef(model)
+        assert not self._isPredef(model), f"no resolution for {model}"
 
         # shortcut with global scoping
         if isinstance(model, str) and self._isRef(model) and self._defs.ghas(model):
@@ -870,11 +870,11 @@ class JsonModel:
             visited.add(sid)
             # two phase ensure that maps are okay for resolveRef
             for name, jm in self._defs.items():
-                assert jm._id not in references
-                gref = "$" + "#".join(root + [name])
-                references[jm._id] = gref
-                self._defs.gset("$" + name, gref)
-                symbols[gref] = jm
+                if jm._id not in references:
+                    gref = "$" + "#".join(root + [name])
+                    references[jm._id] = gref
+                    self._defs.gset("$" + name, gref)
+                    symbols[gref] = jm
             log.debug(f"{self._id}: gmap={self._defs._gmap}")
             for name, jm in self._defs.items():
                 jm.scope(symbols, root + [name], visited, references)
@@ -1197,7 +1197,6 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
-            assert isinstance(trafo, dict)  # pyright hint
             lpath = ["$", "$", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore

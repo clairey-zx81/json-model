@@ -1,3 +1,13 @@
 {
-  "ERROR": "list.append() takes exactly one argument (2 given)"
+  "items": false,
+  "prefixItems": [
+    {
+      "type": "boolean"
+    },
+    {
+      "minimum": 0,
+      "type": "integer"
+    }
+  ],
+  "type": "array"
 }

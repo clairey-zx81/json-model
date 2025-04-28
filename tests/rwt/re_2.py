@@ -40,6 +40,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
             return False
     return False
 
+
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
@@ -49,4 +50,5 @@ def json_model_0(value: Jsonable, path: str) -> bool:
 # entry function check_model
 def check_model(value: Jsonable, path: str = "$") -> bool:
     return json_model_0(value, path)
+
 

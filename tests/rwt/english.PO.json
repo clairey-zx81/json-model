@@ -1,6 +1,6 @@
 {
   "#": "JsonModel 0 with defs",
   "$": "Symbol 1",
-  "@": "$Model",
+  "@": "$MODEL",
   "~": "https://json-model.org/models/l10n"
 }

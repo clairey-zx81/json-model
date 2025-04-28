@@ -1,59 +1,55 @@
 Disassembly of _fun:
               0 COPY_FREE_VARS           3
+              2 MAKE_CELL                0 (v)
+              4 MAKE_CELL                1 (p)
 
-303           2 RESUME                   0
+604           6 RESUME                   0
+              8 LOAD_GLOBAL              1 (NULL + any)
+             18 LOAD_CLOSURE             1 (p)
+             20 LOAD_CLOSURE             0 (v)
+             22 BUILD_TUPLE              2
+             24 LOAD_CONST               1 (<*>)
+             26 MAKE_FUNCTION            8 (closure)
+             28 LOAD_DEREF               4 (subs)
+             30 GET_ITER
+             32 CALL                     0
+             40 CALL                     1
+             48 COPY                     1
+             50 POP_JUMP_IF_TRUE        19 (to 90)
+             52 POP_TOP
 
-304           4 LOAD_GLOBAL              1 (NULL + isinstance)
-             14 LOAD_FAST                0 (v)
-             16 LOAD_GLOBAL              2 (list)
-             26 CALL                     2
-             34 POP_JUMP_IF_TRUE        19 (to 74)
+605          54 LOAD_DEREF               3 (self)
+             56 LOAD_ATTR                3 (NULL|self + _no)
+             76 LOAD_DEREF               2 (mp)
+             78 LOAD_DEREF               1 (p)
+             80 LOAD_CONST               2 ('no any matched')
+             82 CALL                     3
 
-305          36 LOAD_DEREF               7 (self)
-             38 LOAD_ATTR                5 (NULL|self + _no)
-             58 LOAD_DEREF               6 (mpath)
-             60 LOAD_FAST                1 (p)
-             62 LOAD_CONST               1 ('expecting an array')
-             64 CALL                     3
-             72 RETURN_VALUE
+604     >>   90 RETURN_VALUE
 
-307     >>   74 BUILD_LIST               0
-             76 STORE_FAST               2 (item_checks)
+Disassembly of <*>:
+              0 COPY_FREE_VARS           2
 
-308          78 LOAD_GLOBAL              7 (NULL + enumerate)
-             88 LOAD_FAST                0 (v)
-             90 CALL                     1
-             98 GET_ITER
-        >>  100 FOR_ITER                35 (to 174)
-            104 UNPACK_SEQUENCE          2
-            108 STORE_FAST               3 (i)
-            110 STORE_FAST               4 (e)
-
-309         112 LOAD_FAST                2 (item_checks)
-            114 LOAD_ATTR                9 (NULL|self + append)
-            134 PUSH_NULL
-            136 LOAD_DEREF               5 (item)
-            138 LOAD_FAST                4 (e)
-            140 LOAD_FAST                1 (p)
-            142 FORMAT_VALUE             0
-            144 LOAD_CONST               2 ('[')
-            146 LOAD_FAST                3 (i)
-            148 FORMAT_VALUE             0
-            150 LOAD_CONST               3 (']')
-            152 BUILD_STRING             4
-            154 CALL                     2
-            162 CALL                     1
-            170 POP_TOP
-            172 JUMP_BACKWARD           37 (to 100)
-
-308     >>  174 END_FOR
-
-310         176 LOAD_DEREF               7 (self)
-            178 LOAD_ATTR               11 (NULL|self + _all)
-            198 LOAD_FAST                2 (item_checks)
-            200 LOAD_DEREF               6 (mpath)
-            202 LOAD_FAST                1 (p)
-            204 CALL                     3
-            212 RETURN_VALUE
+604           2 RETURN_GENERATOR
+              4 POP_TOP
+              6 RESUME                   0
+              8 LOAD_FAST                0 (.0)
+        >>   10 FOR_ITER                13 (to 40)
+             14 STORE_FAST               1 (f)
+             16 PUSH_NULL
+             18 LOAD_FAST                1 (f)
+             20 LOAD_DEREF               3 (v)
+             22 LOAD_DEREF               2 (p)
+             24 CALL                     2
+             32 YIELD_VALUE              1
+             34 RESUME                   1
+             36 POP_TOP
+             38 JUMP_BACKWARD           15 (to 10)
+        >>   40 END_FOR
+             42 RETURN_CONST             0 (None)
+        >>   44 CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+             46 RERAISE                  1
+ExceptionTable:
+  6 to 42 -> 44 [0] lasti
 
 None

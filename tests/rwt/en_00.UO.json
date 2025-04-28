@@ -5,16 +5,16 @@
       0,
       0.0
     ],
-    "~": "./english"
+    "~": "https://json-model.org/models/english"
   },
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "": "./english",
+      "": "https://json-model.org/models/english",
       "#": "Symbol 3",
-      "Model": "$https://json-model.org/models/json-model-v2"
+      "MODEL": "$https://json-model.org/models/json-model-v2"
     },
-    "@": "$Model",
+    "@": "$MODEL",
     "~": "https://json-model.org/models/l10n"
   },
   "$https://json-model.org/models/json-model-v2",

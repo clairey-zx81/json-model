@@ -3,7 +3,6 @@ arr_0.model.json: True
 arr_1.model.json: True
 arr_2.model.json: True
 bool_a.model.json: True
-bool.model.json: True
 bool_s.model.json: True
 dst_00.model.json: True
 dst_01.model.json: True
@@ -24,12 +23,10 @@ int_m1.model.json: True
 json-model-preprocessed-v2.model.json: True
 json-model-v2.model.json: True
 l10n.model.json: True
-mrg_00.model.json: True
 mrg_01.model.json: True
 mrg_02.model.json: True
 mrg_03.model.json: True
 none.model.json: True
-null.model.json: True
 number.model.json: True
 obj_00.model.json: True
 obj_01.model.json: True
@@ -60,8 +57,10 @@ str_2.model.json: True
 uniq_0.model.json: True
 uniq_1.model.json: True
 bool.model.json: True
+date.model.json: True
 mrg_00.model.json: True
 null.model.json: True
+re_2.model.json: True
 bads/bool_0.model.json: False [('$Scalar.|[0]', '$', 'expecting null'), ('$Scalar.|[1]', '$', 'expecting boolean true'), ('$Scalar.|[2]', '$', 'expecting integer 0'), ('$Scalar.|[3]', '$', 'expecting integer 1'), ('$Scalar.|[4]', '$', 'expecting integer -1'), ('$Scalar.|[5]', '$', 'expecting number 0.0'), ('$Scalar.|[6]', '$', 'expecting number 1.0'), ('$Scalar.|[7]', '$', 'expecting number -1.0'), ('$Scalar.|[8]', '$', 'expecting a string'), ('$Scalar.|', '$', 'no any matched'), ('.RootModel.|[0]', '$', '$Scalar failed'), ('.Array', '$', 'expecting an array'), ('.RootModel.|[1]', '$', '$Array failed'), ('.Root.|[0]', '$', 'not an object'), ('.Root.|[1]', '$', 'not an object'), ('.Root.|[2]', '$', 'not an object'), ('.Root.|[3]', '$', 'not an object'), ('.Root.|[4]', '$', 'not an object'), ('.Root.|[5]', '$', 'not an object'), ('.Root.|', '$', 'no any matched'), ('.RootModel.|[2]', '$', '$Root failed'), ('.RootModel.|', '$', 'no any matched'), ('', '$', '$RootModel failed')]
 bads/bool_1.model.json: False [('$Scalar.|[0]', '$', 'expecting null'), ('$Scalar.|[1]', '$', 'expecting boolean true'), ('$Scalar.|[2]', '$', 'expecting integer 0'), ('$Scalar.|[3]', '$', 'expecting integer 1'), ('$Scalar.|[4]', '$', 'expecting integer -1'), ('$Scalar.|[5]', '$', 'expecting number 0.0'), ('$Scalar.|[6]', '$', 'expecting number 1.0'), ('$Scalar.|[7]', '$', 'expecting number -1.0'), ('$Scalar.|[8]', '$', 'expecting a string'), ('$Scalar.|', '$', 'no any matched'), ('.RootModel.|[0]', '$', '$Scalar failed'), ('.Array', '$', 'expecting an array'), ('.RootModel.|[1]', '$', '$Array failed'), ('$Scalar.|[0]', '$.@', 'expecting null'), ('$Scalar.|[1]', '$.@', 'expecting boolean true'), ('$Scalar.|[2]', '$.@', 'expecting integer 0'), ('$Scalar.|[3]', '$.@', 'expecting integer 1'), ('$Scalar.|[4]', '$.@', 'expecting integer -1'), ('$Scalar.|[5]', '$.@', 'expecting number 0.0'), ('$Scalar.|[6]', '$.@', 'expecting number 1.0'), ('$Scalar.|[7]', '$.@', 'expecting number -1.0'), ('$Scalar.|[8]', '$.@', 'expecting a string'), ('$Scalar.|', '$.@', 'no any matched'), ('$Model.|[0]', '$.@', '$Scalar failed'), ('.Array', '$.@', 'expecting an array'), ('$Model.|[1]', '$.@', '$Array failed'), ('$Elem.|[0]', '$.@', 'not an object'), ('$Elem.|[1]', '$.@', 'not an object'), ('$Elem.|[2]', '$.@', 'not an object'), ('$Elem.|[3]', '$.@', 'not an object'), ('$Elem.|[4]', '$.@', 'not an object'), ('$Elem.|[5]', '$.@', 'not an object'), ('$Elem.|', '$.@', 'no any matched'), ('$Model.|[2]', '$.@', '$Elem failed'), ('$Model.|', '$.@', 'no any matched'), ('.Root.|[0].@', '$.@', '$Model failed'), ('.Root.|[1]', '$.@', 'unexpected property @'), ('.Root.|[2]', '$.@', 'unexpected property @'), ('.Root.|[3]', '$.@', 'unexpected property @'), ('.Root.|[4]', '$.@', 'unexpected property @'), ('<NONE>', '$', '$NONE'), ('.Root.|[5].^[@|&^+/*]$', '$', '$NONE failed'), ('.Root.|', '$', 'no any matched'), ('.RootModel.|[2]', '$', '$Root failed'), ('.RootModel.|', '$', 'no any matched'), ('', '$', '$RootModel failed')]
 bads/exclusive_0.model.json: False [('$Scalar.|[0]', '$', 'expecting null'), ('$Scalar.|[1]', '$', 'expecting boolean true'), ('$Scalar.|[2]', '$', 'expecting integer 0'), ('$Scalar.|[3]', '$', 'expecting integer 1'), ('$Scalar.|[4]', '$', 'expecting integer -1'), ('$Scalar.|[5]', '$', 'expecting number 0.0'), ('$Scalar.|[6]', '$', 'expecting number 1.0'), ('$Scalar.|[7]', '$', 'expecting number -1.0'), ('$Scalar.|[8]', '$', 'expecting a string'), ('$Scalar.|', '$', 'no any matched'), ('.RootModel.|[0]', '$', '$Scalar failed'), ('.Array', '$', 'expecting an array'), ('.RootModel.|[1]', '$', '$Array failed'), ('$Scalar.|[0]', '$.@', 'expecting null'), ('.Root.|[0]', '$.&', 'unexpected property &'), ('.Root.|[1]', '$.@', 'unexpected property @'), ('.Root.|[2]', '$.@', 'unexpected property @'), ('.Root.|[3]', '$.@', 'unexpected property @'), ('.Root.|[4]', '$.@', 'unexpected property @'), ('<NONE>', '$', '$NONE'), ('.Root.|[5].^[@|&^+/*]$', '$', '$NONE failed'), ('.Root.|', '$', 'no any matched'), ('.RootModel.|[2]', '$', '$Root failed'), ('.RootModel.|', '$', 'no any matched'), ('', '$', '$RootModel failed')]

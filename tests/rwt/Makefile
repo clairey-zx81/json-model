@@ -26,6 +26,9 @@ F.sc    = $(F.root:%=%.scheck.out)
 
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) bads.check.out
 
+.PHONY: gen
+gen: $(F.gen)
+
 .PHONY: check
 check:
 	$(MAKE) clean
@@ -34,9 +37,6 @@ check:
 .PHONY: clean
 clean:
 	$(RM) $(F.gen)
-
-.PHONY: gen
-gen: $(F.gen)
 
 .PHONY: mjson
 mjson: $(F.mjson)

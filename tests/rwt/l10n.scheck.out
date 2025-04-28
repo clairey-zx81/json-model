@@ -1,5 +1,5 @@
-english.model.json: True
-français.model.json: True
+english.model.json: False
+français.model.json: False
 # localized models
 en_00.model.json: True
 fr_00.model.json: True

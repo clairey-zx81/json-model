@@ -1,2 +1,2 @@
 uniq_1.0.true.json: True
-uniq_1.0.false.json: False [('.@[0]', '$[0]', 'expecting a string')]
+uniq_1.0.false.json: False [('', '$[0]', 'expecting a string'), ('', '$[1]', 'expecting a string'), ('', '$[2]', 'expecting a string'), ('', '$', 'all failures 3/3: [0, 1, 2]')]

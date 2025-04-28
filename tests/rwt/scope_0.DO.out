@@ -1,9 +1,9 @@
 Disassembly of _fun:
               0 COPY_FREE_VARS           4
 
-323           2 RESUME                   0
+336           2 RESUME                   0
 
-324           4 LOAD_GLOBAL              1 (NULL + isinstance)
+337           4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (list)
              26 LOAD_GLOBAL              4 (tuple)
@@ -11,7 +11,7 @@ Disassembly of _fun:
              38 CALL                     2
              46 POP_JUMP_IF_TRUE        19 (to 86)
 
-325          48 LOAD_DEREF               6 (self)
+338          48 LOAD_DEREF               6 (self)
              50 LOAD_ATTR                7 (NULL|self + _no)
              70 LOAD_DEREF               4 (mpath)
              72 LOAD_FAST                1 (p)
@@ -19,14 +19,14 @@ Disassembly of _fun:
              76 CALL                     3
              84 RETURN_VALUE
 
-326     >>   86 LOAD_GLOBAL              9 (NULL + len)
+339     >>   86 LOAD_GLOBAL              9 (NULL + len)
              96 LOAD_FAST                0 (v)
              98 CALL                     1
             106 LOAD_DEREF               5 (nmodels)
             108 COMPARE_OP              55 (!=)
             112 POP_JUMP_IF_FALSE       19 (to 152)
 
-327         114 LOAD_DEREF               6 (self)
+340         114 LOAD_DEREF               6 (self)
             116 LOAD_ATTR                7 (NULL|self + _no)
             136 LOAD_DEREF               4 (mpath)
             138 LOAD_FAST                1 (p)
@@ -34,7 +34,7 @@ Disassembly of _fun:
             142 CALL                     3
             150 RETURN_VALUE
 
-328     >>  152 LOAD_GLOBAL             11 (NULL + all)
+341     >>  152 LOAD_GLOBAL             11 (NULL + all)
             162 LOAD_GLOBAL             13 (NULL + range)
             172 LOAD_DEREF               5 (nmodels)
             174 CALL                     1
