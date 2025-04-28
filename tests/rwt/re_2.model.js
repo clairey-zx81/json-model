@@ -1,0 +1,2 @@
+// a regular expression
+"$REGEX"

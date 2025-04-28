@@ -1,0 +1,4 @@
+date.0.true.json: True
+date.1.true.json: True
+date.0.false.json: False [('<DATE>', '$', 'invalid date'), ('', '$', '$DATE failed')]
+date.1.false.json: True
