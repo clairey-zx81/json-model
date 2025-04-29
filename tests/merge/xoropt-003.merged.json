@@ -1,6 +1,10 @@
 {
-  "%": {
+  "#": "JsonModel 0 with defs",
+  "$": {
+    "": "xoropt-003.model.json",
+    "#": "Symbol 1",
     "A": {
+      "#": "JsonModel 1",
       "|": [
         true,
         1,

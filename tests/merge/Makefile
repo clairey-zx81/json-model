@@ -1,22 +1,24 @@
-F.json = $(filter-out %.merged.json, $(wildcard *.json))
-F.mjson = $(F.json:%.json=%.merged.json)
-F.py = $(F.json:%.json=%.py)
+F.model = $(wildcard *.model.json)
+
+# derived
+F.merge = $(F.model:%.model.json=%.merged.json)
+F.py = $(F.model:%.model.json=%.py)
 
 .PHONY: all
 all: merged compiled
 
 .PHONY: clean
 clean:
-	$(RM) $(F.mjson) $(F.py) *.out
+	$(RM) $(F.merge) $(F.py) *.out
 
 .PHONY: merged
-merged: $(F.mjson)
+merged: $(F.merge)
 
 .PHONY: compiled
 compiled: $(F.py)
 
-%.merged.json: %.json
-	jm-preprocessor $< > $@
+%.merged.json: %.model.json
+	jmc -PO $< > $@
 
-%.py: %.json
-	jm-compiler --re $< > $@
+%.py: %.model.json
+	jmc -SO $< > $@

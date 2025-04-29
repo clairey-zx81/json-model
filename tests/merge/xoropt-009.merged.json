@@ -1,5 +1,5 @@
 {
-  "#": "NOT ^ to | because both empty objects are ok",
+  "#": "JsonModel 0",
   "^": [
     {
       "/a/": ""

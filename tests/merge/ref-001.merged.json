@@ -1,10 +1,15 @@
 {
-  "%": {
+  "#": "JsonModel 0",
+  "$": {
+    "": "ref-001.model.json",
+    "#": "Symbol 1",
     "A": {
+      "#": "JsonModel 1",
       "a": 0,
       "b": 0
     },
     "B": {
+      "#": "JsonModel 2",
       "a": 0,
       "b": 0,
       "c": 0

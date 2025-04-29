@@ -1,26 +1,32 @@
 {
-  "#": "explicit $ANY",
-  "$": "Any",
-  "%": {
-    "N": null,
-    "B": true,
-    "I": -1,
-    "F": -1.0,
-    "S": "",
+  "#": "JsonModel 0 with defs",
+  "$": {
+    "": "xoropt-001.model.json",
+    "#": "Symbol 1",
     "A": [
       "$Any"
     ],
+    "Any": {
+      "#": "JsonModel 8",
+      "|": [
+        null,
+        "$B",
+        "$I",
+        "$F",
+        "$S",
+        "$A",
+        "$O"
+      ]
+    },
+    "B": true,
+    "F": -1.0,
+    "I": -1,
+    "N": null,
     "O": {
-      "": "$Any"
-    }
+      "": "$Any",
+      "#": "JsonModel 7"
+    },
+    "S": ""
   },
-  "|": [
-    "$N",
-    "$B",
-    "$I",
-    "$F",
-    "$S",
-    "$A",
-    "$O"
-  ]
+  "@": "$Any"
 }

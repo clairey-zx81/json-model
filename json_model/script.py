@@ -172,7 +172,7 @@ def jmc_script():
     elif args.op == "N":  # no operation
         print(json2str(model._init_md), file=output)
     elif args.op == "P":  # preprocessed model
-        show = JsonModel.MODELS[0].toModel()
+        show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "D":
         checker = DynamicCompiler(model)
