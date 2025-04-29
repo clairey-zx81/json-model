@@ -544,7 +544,7 @@ class JsonModel:
                     return jm._model
             return model
 
-        self._model = recModel(self._model, allFlt, cpRwt)
+        self._model = recModel(self._model, allFlt, cpRwt, True)
 
         log.debug(f"{self._id}: constant propagation {changes}")
 
