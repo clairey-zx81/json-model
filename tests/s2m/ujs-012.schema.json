@@ -1,7 +1,0 @@
-{
-  "type": "object",
-  "patternProperties": {
-    "^S_": { "type": "string" },
-    "^I_": { "type": "integer" }
-  }
-}

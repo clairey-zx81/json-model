@@ -1,6 +1,0 @@
-{
-  "allOf": [
-    { "type": "string", "minLength": 2 },
-    { "type": "string", "maxLength": 5 }
-  ]
-}
