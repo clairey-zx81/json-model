@@ -64,7 +64,9 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: flake8
 - [ ] python: coverage
 - [ ] dynamic: fix output instability
-- [ ] static python: remove spurious newlines
+- [ ] static: remove spurious newlines
+- [ ] static: detect and remove duplicate functions!
+- [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
 - [ ] tests: test schemas with jsu?
