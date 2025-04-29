@@ -1,7 +1,7 @@
 Disassembly of _fun:
               0 COPY_FREE_VARS           4
 
-799           2 RESUME                   0
+801           2 RESUME                   0
               4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (str)
@@ -19,7 +19,7 @@ Disassembly of _fun:
              60 POP_JUMP_IF_TRUE        22 (to 106)
              62 POP_TOP
 
-800          64 LOAD_DEREF               5 (self)
+802          64 LOAD_DEREF               5 (self)
              66 LOAD_ATTR                5 (NULL|self + _no)
              86 LOAD_DEREF               4 (mpath)
              88 LOAD_FAST                1 (p)
@@ -29,6 +29,6 @@ Disassembly of _fun:
              96 BUILD_STRING             2
              98 CALL                     3
 
-799     >>  106 RETURN_VALUE
+801     >>  106 RETURN_VALUE
 
 None

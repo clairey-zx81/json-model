@@ -3,7 +3,7 @@ Disassembly of _fun:
               2 MAKE_CELL                0 (v)
               4 MAKE_CELL                1 (p)
 
-604           6 RESUME                   0
+606           6 RESUME                   0
               8 LOAD_GLOBAL              1 (NULL + any)
              18 LOAD_CLOSURE             1 (p)
              20 LOAD_CLOSURE             0 (v)
@@ -18,19 +18,19 @@ Disassembly of _fun:
              50 POP_JUMP_IF_TRUE        19 (to 90)
              52 POP_TOP
 
-605          54 LOAD_DEREF               3 (self)
+607          54 LOAD_DEREF               3 (self)
              56 LOAD_ATTR                3 (NULL|self + _no)
              76 LOAD_DEREF               2 (mp)
              78 LOAD_DEREF               1 (p)
              80 LOAD_CONST               2 ('no any matched')
              82 CALL                     3
 
-604     >>   90 RETURN_VALUE
+606     >>   90 RETURN_VALUE
 
 Disassembly of <*>:
               0 COPY_FREE_VARS           2
 
-604           2 RETURN_GENERATOR
+606           2 RETURN_GENERATOR
               4 POP_TOP
               6 RESUME                   0
               8 LOAD_FAST                0 (.0)
