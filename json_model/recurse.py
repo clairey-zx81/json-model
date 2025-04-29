@@ -85,7 +85,7 @@ def _recModel(
                     assert isinstance(nprop, str)
                     if nprop != prop:
                         if nprop in model:
-                            raise ModelError(f"cannot override rewritten key {prop}: {nprop} {lpath}")
+                            raise ModelError(f"cannot override key {prop}: {nprop} {lpath}")
                         model[nprop] = model[prop]
                         del model[prop]
     else:  # sanity check

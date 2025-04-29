@@ -140,7 +140,7 @@ class Validator:
                 if model == "" or model[0] not in ("$", "="):
                     return type(model)
                 elif model[0] == "=":  # constants
-                    return (type(None) if model == "=null" else 
+                    return (type(None) if model == "=null" else
                             bool if model in ("=true", "=false") else
                             float if "." in model else
                             int)
@@ -167,7 +167,8 @@ class Validator:
             case _:
                 return type(model)
 
-    def _ultimate_model(self, jm: JsonModel, model: ModelType, constrained=True, strict=False) -> ModelType:
+    def _ultimate_model(self, jm: JsonModel,
+                        model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
         match model:
             case str():
@@ -200,7 +201,7 @@ class Validator:
                 else:
                     return model
             case _:
-                 return model
+                return model
 
     def _constant(self, jm: JsonModel, model: ModelType):
         """Tell an ultimate model value has a constant."""

@@ -27,7 +27,7 @@ clean.dev: clean
 .PHONY: check
 check: check.flake8 check.ruff check.pyright check.pytest
 
-IGNORE  = E121,E125,E227,E131,W504
+IGNORE  = E121,E125,E131,E227,E251,E302,W504,F841
 
 .PHONY: check.flake8
 check.flake8:

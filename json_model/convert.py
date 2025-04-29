@@ -160,9 +160,10 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 if all(map(is_cst, models)):  # all choices are constants
                     schema["enum"] = list(map(cst, models))  # pyright: ignore
                 else:
-                    schema["anyOf"] = [model2schema(m, path + ["|", i]) for i, m in enumerate(models)]
+                    schema["anyOf"] = [model2schema(m, path + ["|", i])
+                                       for i, m in enumerate(models)]
             elif "+" in model:
-                assert False,  f"+ must have been removed by preprocessing {path + ['+']}"
+                assert False, f"+ must have been removed by preprocessing {path + ['+']}"
             else:
                 schema["type"] = "object"
                 properties, required, addProp = {}, [], None
@@ -195,7 +196,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                             addProp = False
                     elif prop[0] == "$":
                         # NOTE should be ok if simple enough so that constant propagation removed it
-                        raise Exception(f"JSON Schema does not support properties as refs at {lpath}")
+                        raise Exception(f"JSON Schema: no support for property ref at {lpath}")
                     else:  # standard property
                         required.append(prop)
                         properties[prop] = model2schema(val, lpath)

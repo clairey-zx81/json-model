@@ -31,7 +31,7 @@ def is_regex(s: ValueType, p: str = "") -> bool:
 def is_cst(s: Jsonable) -> bool:
     return s is None or isinstance(s, str) and s != "" and s[0] not in ("$", "/")
 
-def cst(s: str|None):  # JsonScalar
+def cst(s: str|None) -> None|bool|int|float|str:  # JsonScalar
     if s is None:
         return None
     elif s[0] == "_":
@@ -70,7 +70,6 @@ def one(lb) -> bool:
             seen = True   # first
     return seen
 
-
 def model_eq(m1: ModelType, m2: ModelType) -> bool:
     """Recursively compare two models…"""
     # TODO resolve @ and $
@@ -105,7 +104,6 @@ def model_eq(m1: ModelType, m2: ModelType) -> bool:
     else:
         raise ModelError(f"unexpected model element type ({t1.__name__})")
 
-
 # TODO maybe we should accept some simple type inclusions
 def same_model(m1: ModelType, m2: ModelType) -> bool:
     """Compare models…"""
@@ -113,13 +111,11 @@ def same_model(m1: ModelType, m2: ModelType) -> bool:
     # return type(m1) == type(m2) and m1 == m2
     return model_eq(m1, m2)
 
-
 def model_in_models(m: ModelType, lm: list[ModelType]) -> bool:
     for i in lm:
         if model_eq(i, m):
             return True
     return False
-
 
 def split_object(model: JsonObject, path: ModelPath) -> \
         tuple[JsonObject, JsonObject, JsonObject, JsonObject, JsonObject]:
@@ -175,12 +171,11 @@ def split_object(model: JsonObject, path: ModelPath) -> \
 
     return must, may, refs, regs, others
 
-
 def _bang(s):
     return s if re.match(r"[A-Za-z0-9]", s) else f"!{s}"
 
-
-def unsplit_object(must: JsonObject, may: JsonObject, refs: JsonObject, regs: JsonObject, others: JsonObject) -> JsonObject:
+def unsplit_object(must: JsonObject, may: JsonObject, refs: JsonObject,
+                   regs: JsonObject, others: JsonObject) -> JsonObject:
     """Regenerate an object from separated properties."""
     return {
         **{_bang(k): v for k, v in must.items()},
@@ -191,7 +186,6 @@ def unsplit_object(must: JsonObject, may: JsonObject, refs: JsonObject, regs: Js
         **others
     }
 
-
 def is_constructed(model: ModelType):
     """Tell whether model is constructed, i.e. uses some combinator or indirection.
 
@@ -199,7 +193,6 @@ def is_constructed(model: ModelType):
     """
     return isinstance(model, dict) and \
         ("|" in model or "&" in model or "^" in model or "+" in model or "@" in model)
-
 
 def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
     if m is None:
@@ -234,7 +227,6 @@ def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
     else:
         return False, None
 
-
 def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, type|None]:
     first, current_type = True, None
     for i, m in enumerate(models):
@@ -253,66 +245,65 @@ def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, typ
     else:
         return True, current_type
 
-
 def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
     """Tell the type of the model, if known."""
-    if model is None:
-        return True, None
-    elif isinstance(model, bool):
-        return True, bool
-    elif isinstance(model, int):
-        return True, int
-    elif isinstance(model, float):
-        return True, float
-    elif isinstance(model, str):
-        if model in ("", "$STRING"):
-            return True, str
-        elif model[0] in ("_", "/"):
-            return True, str
-        elif model == "$BOOL":
-            return True, bool
-        elif model == "$NULL":
+    match model:
+        case None:
             return True, None
-        elif model in ("$INTEGER", "$I32", "$U32", "$I64", "$U64"):
+        case bool():
+            return True, bool
+        case int():
             return True, int
-        elif model in ("$FLOAT", "$F32", "$F64"):
+        case float():
             return True, float
-        elif model[0] == "$":
-            # how to access definitions?
-            return False, None
-        elif model[0] == "=":
-            # handle constants
-            a_cst, val = constant_value(model, mpath)
-            if a_cst:
-                return True, type(val)
-            else:
+        case str():
+            if model in ("", "$STRING"):
+                return True, str
+            elif model[0] in ("_", "/"):
+                return True, str
+            elif model == "$BOOL":
+                return True, bool
+            elif model == "$NULL":
+                return True, None
+            elif model in ("$INTEGER", "$I32", "$U32", "$I64", "$U64"):
+                return True, int
+            elif model in ("$FLOAT", "$F32", "$F64"):
+                return True, float
+            elif model[0] == "$":
+                # how to access definitions?
                 return False, None
-        else:
-            return True, str
-    elif isinstance(model, list):
-        return True, list
-    elif isinstance(model, dict):
-        if "@" in model:
-            return model_type(model["@"], mpath + ["@"])
-        elif "|" in model:
-            models = model["|"]
-            assert isinstance(models, list)
-            return all_model_type(models, mpath + ["|"])
-        elif "&" in model:
-            models = model["&"]
-            assert isinstance(models, list)
-            return all_model_type(models, mpath + ["&"])
-        elif "^" in model:
-            models = model["^"]
-            assert isinstance(models, list)
-            return all_model_type(models, mpath + ["^"])
-        elif "+" in model:
-            return True, dict
-        else:  # simple object!
-            return True, dict
-    else:
-        raise ModelError(f"unexpected model: {model} ({type(model).__name__})")
-
+            elif model[0] == "=":
+                # handle constants
+                a_cst, val = constant_value(model, mpath)
+                if a_cst:
+                    return True, type(val)
+                else:
+                    return False, None
+            else:
+                return True, str
+        case list():
+            return True, list
+        case dict():
+            if "@" in model:
+                return model_type(model["@"], mpath + ["@"])
+            elif "|" in model:
+                models = model["|"]
+                assert isinstance(models, list)
+                return all_model_type(models, mpath + ["|"])
+            elif "&" in model:
+                models = model["&"]
+                assert isinstance(models, list)
+                return all_model_type(models, mpath + ["&"])
+            elif "^" in model:
+                models = model["^"]
+                assert isinstance(models, list)
+                return all_model_type(models, mpath + ["^"])
+            elif "+" in model:
+                return True, dict
+            else:  # simple object!
+                return True, dict
+        case _:
+            raise ModelError(f"unexpected model: {model} ({tname(model)})")
 
 def resolve_model(m: ModelType, defs: Symbols) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
@@ -328,7 +319,6 @@ def resolve_model(m: ModelType, defs: Symbols) -> ModelType:
         if isinstance(m, dict) and "@" in m:
             m, changed = m["@"], True
     return m
-
 
 def openfiles(args: list[str] = []):
     if not args:  # empty list is same as stdin
@@ -353,14 +343,12 @@ def json_path(path: ModelPath) -> str:
 
     return ".".join(["$"] + list(map(esc, path)))
 
-
 def _dedup_models(models: list[ModelType]) -> list[ModelType]:
     dedups = []
     for m in models:
         if not model_in_models(m, dedups):
             dedups.append(m)
     return dedups
-
 
 # FIXME consistency with _structurally_distinct_models…
 def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPath) -> bool:

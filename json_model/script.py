@@ -3,8 +3,6 @@ import re
 import json
 import logging
 
-# from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
-# from .types import Jsonable, JsonModel, Symbols
 from .types import Jsonable, JsonSchema
 from .utils import log, tname
 from .resolver import Resolver
@@ -36,15 +34,19 @@ def jmc_script():
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
     # expected results on values
-    arg("--none", "-n", dest="expect", action="store_const", const=None, default=None, help="no test expectations")
-    arg("--true", "-t", dest="expect", action="store_const", const=True, help="test values for true")
-    arg("--false", "-f", dest="expect", action="store_const", const=False, help="test values for false")
+    arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
+        help="no test expectations")
+    arg("--true", "-t", dest="expect", action="store_const", const=True,
+        help="test values for true")
+    arg("--false", "-f", dest="expect", action="store_const", const=False,
+        help="test values for false")
     # operations on model
     arg("--check", "-c", action="store_true", help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
-    arg("--nope", "-N", dest="op", action="store_const", const="N", help="dump (retrieved) json input")
+    arg("--nope", "-N", dest="op", action="store_const", const="N",
+        help="dump (retrieved) json input")
     arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
     arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
     arg("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
@@ -86,7 +88,8 @@ def jmc_script():
     try:
         j = resolver(args.model, [])
         # automatic URL mapping
-        if args.auto and isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]:
+        if args.auto and (
+            isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
             # add automatic mapping
             url = j["$"][""]
             assert isinstance(url, str), f"$ expects a string: {tname(url)}"

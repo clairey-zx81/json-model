@@ -138,14 +138,13 @@ class JsonModel:
     MODELS: list[JsonModel] = []
 
     def __init__(self,
-            model: ModelType,
-            resolver: Resolver,
-            globs: Symbols|None = None,
-            scope: Symbols|None = None,
-            url: str = "",
-            root: bool = True,
-            debug: bool = False,
-        ):
+                 model: ModelType,
+                 resolver: Resolver,
+                 globs: Symbols|None = None,
+                 scope: Symbols|None = None,
+                 url: str = "",
+                 root: bool = True,
+                 debug: bool = False):
 
         with JsonModel.lock:
             self._id = len(JsonModel.MODELS)
@@ -225,7 +224,7 @@ class JsonModel:
         self._defs: Symbols
         if root:
             self._defs = Symbols()
-        else:   
+        else:
             assert scope is not None
             self._defs = scope
 
@@ -246,7 +245,8 @@ class JsonModel:
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._globs, self._defs, self._url + "#" + n, False, debug)
+                n: JsonModel(m, resolver, self._globs, self._defs,
+                             self._url + "#" + n, False, debug)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
@@ -298,7 +298,6 @@ class JsonModel:
             refs: set[str] = set()
 
             def drRwt(m: ModelType, p: ModelPath) -> ModelType:
-                nonlocal refs
                 if isinstance(m, str) and m != "" and m[0] == "$":
                     refs.add(m)
                 return m
@@ -373,7 +372,8 @@ class JsonModel:
                     if model == "":
                         pass
                     elif model[0] == "=":
-                        is_valid &= re.match(r"=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$", model) is not None
+                        is_valid &= re.match(r"=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$",
+                                             model) is not None
                     elif model[0] == "/":
                         is_valid &= model.endswith("/") or model.endswith("/i")
                         # TODO check re validity: is_regex
@@ -416,7 +416,7 @@ class JsonModel:
                             if p and p[0] not in ("$", "/"):
                                 name = p[1:] if p[0] in ("?", "_", "!") else p
                                 is_valid &= name not in props
-                                props.add(name) 
+                                props.add(name)
                             # more checks on p if p[0] == "$"
                 case _:
                     is_valid = False
@@ -643,7 +643,7 @@ class JsonModel:
                     if "!" in model and not model["!"]:
                         del model["!"]
                     # constraint without actual constraints
-                    if not(set(model.keys()) - {"#", "~", "$", "%", "@"}):
+                    if not (set(model.keys()) - {"#", "~", "$", "%", "@"}):
                         return model["@"]
             return model
 
@@ -742,7 +742,8 @@ class JsonModel:
 
     # @staticmethod?
     def _isRef(self, model: Jsonable) -> bool:
-        return isinstance(model, str) and model != "" and model[0] == "$" and not self._isPredef(model)
+        return isinstance(model, str) and (
+            model != "" and model[0] == "$" and not self._isPredef(model))
 
     # @staticmethod?
     def _isUrlRef(self, model: Jsonable) -> bool:
@@ -823,7 +824,7 @@ class JsonModel:
             if jm._isUrlRef(model):
                 # detect recursion
                 if model in followed:
-                    raise ModelError(f"cycle while resolving reference at {path}: {initial} ({followed})")
+                    raise ModelError(f"cycle while resolving ref at {path}: {initial} ({followed})")
                 # change scope
                 followed.append(model)
                 if "#" in model:
@@ -1169,7 +1170,8 @@ class JsonModel:
                 raise ModelError(f"unexpected add type at {path}")
         return j
 
-    def _applyTrafoAtPath(self, jm: JsonModel, tpath: ModelPath, trafo: ModelTrafo, path: ModelPath):
+    def _applyTrafoAtPath(self, jm: JsonModel, tpath: ModelPath,
+                          trafo: ModelTrafo, path: ModelPath):
         """Apply a transformation into a JSON Model."""
 
         if self._debug:

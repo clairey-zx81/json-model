@@ -92,36 +92,36 @@ class DynamicCompiler(Validator):
                                      self._no("<URI-REFERENCE>", p, "invalid uri-reference")))
         # some predefined numeric types (strict)
         self._defs.set("$I32", lambda v, p: (isinstance(v, int) and -2**31 <= v <= (2**31 - 1) or
-                                            self._no("<I32>", p, "invalid int32")))
+                                             self._no("<I32>", p, "invalid int32")))
         self._defs.set("$U32", lambda v, p: (isinstance(v, int) and 0 <= v <= (2**32 - 1) or
-                                            self._no("<U32>", p, "invalid uint32")))
+                                             self._no("<U32>", p, "invalid uint32")))
         self._defs.set("$I64", lambda v, p: (isinstance(v, int) and -2**63 <= v <= (2**63 - 1) or
-                                            self._no("<I64>", p, "invalid int64")))
+                                             self._no("<I64>", p, "invalid int64")))
         self._defs.set("$U64", lambda v, p: (isinstance(v, int) and 0 <= v <= (2**64 - 1) or
-                                            self._no("<U64>", p, "invalid uint64")))
-        self._defs.set("$F32", lambda v, p: isinstance(v, float) or
-                                            self._no("<F32>", p, "invalid float"))
-        self._defs.set("$F64", lambda v, p: isinstance(v, float) or
-                                            self._no("<F64>", p, "invalid float"))
-        self._defs.set("$FLOAT", lambda v, p: isinstance(v, float) or
-                                            self._no("<FLOAT>", p, "invalid float"))
-        self._defs.set("$STRING", lambda v, p: isinstance(v, str) or
-                                               self._no("<STRING>", p, "not a string"))
-        self._defs.set("$BOOL", lambda v, p: isinstance(v, bool) or
-                                             self._no("<BOOL>", p, "not a boolean"))
-        self._defs.set("$BOOLEAN", lambda v, p: isinstance(v, bool) or
-                                             self._no("<BOOLEAN>", p, "not a boolean"))
+                                             self._no("<U64>", p, "invalid uint64")))
+        self._defs.set("$F32", lambda v, p: (isinstance(v, float) or
+                                             self._no("<F32>", p, "invalid float")))
+        self._defs.set("$F64", lambda v, p: (isinstance(v, float) or
+                                             self._no("<F64>", p, "invalid float")))
+        self._defs.set("$FLOAT", lambda v, p: (isinstance(v, float) or
+                                               self._no("<FLOAT>", p, "invalid float")))
+        self._defs.set("$STRING", lambda v, p: (isinstance(v, str) or
+                                                self._no("<STRING>", p, "not a string")))
+        self._defs.set("$BOOL", lambda v, p: (isinstance(v, bool) or
+                                              self._no("<BOOL>", p, "not a boolean")))
+        self._defs.set("$BOOLEAN", lambda v, p: (isinstance(v, bool) or
+                                                 self._no("<BOOLEAN>", p, "not a boolean")))
         self._defs.set("$NUMBER",
-                       lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) or
-                                    self._no("<NUMBER>", p, "invalid number"))
+                       lambda v, p: (isinstance(v, (int, float)) and not isinstance(v, bool) or
+                                     self._no("<NUMBER>", p, "invalid number")))
         self._defs.set("$DATE",  # FIXME partial!
-                       lambda v, p: isinstance(v, str) and
-                                    re.match(r"\d{4}-\d{2}-\d{2}$", v) is not None or
-                                    self._no("<DATE>", p, "invalid date"))
+                       lambda v, p: (isinstance(v, str) and
+                                     re.match(r"\d{4}-\d{2}-\d{2}$", v) is not None or
+                                     self._no("<DATE>", p, "invalid date")))
         self._defs.set("$URL",  # FIXME partial!
-                       lambda v, p: isinstance(v, str) and  # type: ignore
-                                    re.match(r"(https?|file)://.*|\.|/", v) or
-                                    self._no("<URL>", p, "invalid URL"))
+                       lambda v, p: (isinstance(v, str) and  # type: ignore
+                                     re.match(r"(https?|file)://.*|\.|/", v) or
+                                     self._no("<URL>", p, "invalid URL")))
 
         # actually compile the model
         # FIXME make path JsonPath?!
@@ -272,7 +272,8 @@ class DynamicCompiler(Validator):
             return False
         return isinstance(model["@"], list)
 
-    def _vartuple_check(self, jm: JsonModel, model: ModelArray, mpath: str, length=True) -> CheckFun:
+    def _vartuple_check(self, jm: JsonModel,
+                        model: ModelArray, mpath: str, length=True) -> CheckFun:
         """Check a variable-length tuple.
 
         The last model is implicitly expanded for tail values.
@@ -339,7 +340,8 @@ class DynamicCompiler(Validator):
 
         return self.trace(check_tuple, mpath, "(*)")
 
-    def _keyname_val_compile(self, jm: JsonModel, name: str, model: ModelType, mpath: str) -> KeyCheckFun:
+    def _keyname_val_compile(self, jm: JsonModel,
+                             name: str, model: ModelType, mpath: str) -> KeyCheckFun:
         """Check object named property and its associated value."""
         val_check = self._raw_compile(jm, model, f"{mpath}.{name}")
         def_check = self._ref2fun(jm, name, mpath)
@@ -347,7 +349,8 @@ class DynamicCompiler(Validator):
         assert val_check is not None and def_check is not None  # pyright hint
         return lambda k, v, p: val_check(v, p) if def_check(k, p) else None
 
-    def _keyreg_val_compile(self, jm: JsonModel, reg: str, model: ModelType, mpath: str) -> KeyCheckFun:
+    def _keyreg_val_compile(self, jm: JsonModel,
+                            reg: str, model: ModelType, mpath: str) -> KeyCheckFun:
         """Check object named property and its associated value."""
         val_check = self._raw_compile(jm, model, f"{mpath}.{reg}")
         re_check = re.compile(reg).search
@@ -503,7 +506,8 @@ class DynamicCompiler(Validator):
                         if ttype is type(vc):
                             checks_val.append(lmd(vc, path))
                         else:
-                            raise ModelError(f"unexpected type for {kc} {ttype}: {tname(vc)} [{mpath}]")
+                            raise ModelError(f"unexpected type for {kc} {ttype}: "
+                                             f"{tname(vc)} [{mpath}]")
             # elif kc == ".in":
             #     if ttype not in (str, list, tuple):
             #         raise ModelError(f"unexpected type for {kc}: {ttype}")
@@ -731,21 +735,26 @@ class DynamicCompiler(Validator):
         assert model in (0.0, 1.0, -1.0)
         if self._loose_float:
             if model == -1.0:
-                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) \
-                            or self._no(mpath, p, "expecting a number")
+                return lambda v, p: (
+                    isinstance(v, (int, float)) and not isinstance(v, bool) or
+                    self._no(mpath, p, "expecting a number"))
             elif model == 0.0:
-                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) and \
-                            v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+                return lambda v, p: (
+                    isinstance(v, (int, float)) and not isinstance(v, bool) and
+                    v >= 0.0 or self._no(mpath, p, "expecting a positive number"))
             else:
-                return lambda v, p: isinstance(v, (int, float)) and not isinstance(v, bool) and \
-                            v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
+                return lambda v, p: (
+                    isinstance(v, (int, float)) and not isinstance(v, bool) and
+                    v > 0.0 or self._no(mpath, p, "expecting a strictly positive number"))
         else:
             if model == -1.0:
                 return lambda v, p: type(v) is float or self._no(mpath, p, "expecting a number")
             elif model == 0.0:
-                return lambda v, p: type(v) is float and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+                return lambda v, p: (type(v) is float and v >= 0.0 or
+                                     self._no(mpath, p, "expecting a positive number"))
             else:
-                return lambda v, p: type(v) is float and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
+                return lambda v, p: (type(v) is float and v > 0.0 or
+                                     self._no(mpath, p, "expecting a strictly positive number"))
 
     def _str_raw_compile(self, jm: JsonModel, model: str, mpath: str) -> CheckFun:
         """Compile a string."""
@@ -807,7 +816,8 @@ class DynamicCompiler(Validator):
         else:
             return self._tuple_check(jm, model, mpath)
 
-    def _dict_raw_compile(self, jm: JsonModel, model: ModelObject, mpath: str, is_root: bool = False) -> CheckFun:
+    def _dict_raw_compile(self, jm: JsonModel,
+                          model: ModelObject, mpath: str, is_root: bool = False) -> CheckFun:
         """Compile a generic element."""
 
         # special properties redundant sanity check
@@ -837,7 +847,8 @@ class DynamicCompiler(Validator):
 
         return check
 
-    def _raw_compile(self, jm: JsonModel, model: ModelType, mpath: str, is_root: bool = False) -> CheckFun:
+    def _raw_compile(self, jm: JsonModel,
+                     model: ModelType, mpath: str, is_root: bool = False) -> CheckFun:
         """Dynamic "compilation" of a model."""
         # static switch on model type
         match model:
