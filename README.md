@@ -74,6 +74,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: direct validator
 - [ ] feature: static js/ts compiler
 - [ ] feature: integrate or remove `stats`?
+- [ ] feature: --yaml show yaml instead of json
 - [ ] doc: add doc
 - [ ] tests: add github CI
 - [ ] feature: think about code integration in a realistic project? doc and usability?
