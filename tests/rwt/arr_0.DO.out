@@ -1,15 +1,17 @@
-Disassembly of _fun:
+#
+# json model 0
+#
               0 COPY_FREE_VARS           3
 
-318           2 RESUME                   0
+              2 RESUME                   0
 
-319           4 LOAD_GLOBAL              1 (NULL + isinstance)
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (list)
              26 CALL                     2
              34 POP_JUMP_IF_TRUE        19 (to 74)
 
-320          36 LOAD_DEREF               7 (self)
+             36 LOAD_DEREF               7 (self)
              38 LOAD_ATTR                5 (NULL|self + _no)
              58 LOAD_DEREF               6 (mpath)
              60 LOAD_FAST                1 (p)
@@ -17,10 +19,10 @@ Disassembly of _fun:
              64 CALL                     3
              72 RETURN_VALUE
 
-322     >>   74 BUILD_LIST               0
+        >>   74 BUILD_LIST               0
              76 STORE_FAST               2 (item_checks)
 
-323          78 LOAD_GLOBAL              7 (NULL + enumerate)
+             78 LOAD_GLOBAL              7 (NULL + enumerate)
              88 LOAD_FAST                0 (v)
              90 CALL                     1
              98 GET_ITER
@@ -29,7 +31,7 @@ Disassembly of _fun:
             108 STORE_FAST               3 (i)
             110 STORE_FAST               4 (e)
 
-324         112 LOAD_FAST                2 (item_checks)
+            112 LOAD_FAST                2 (item_checks)
             114 LOAD_ATTR                9 (NULL|self + append)
             134 PUSH_NULL
             136 LOAD_DEREF               5 (item)
@@ -46,9 +48,9 @@ Disassembly of _fun:
             170 POP_TOP
             172 JUMP_BACKWARD           37 (to 100)
 
-323     >>  174 END_FOR
+        >>  174 END_FOR
 
-325         176 LOAD_DEREF               7 (self)
+            176 LOAD_DEREF               7 (self)
             178 LOAD_ATTR               11 (NULL|self + _all)
             198 LOAD_FAST                2 (item_checks)
             200 LOAD_DEREF               6 (mpath)
@@ -56,4 +58,3 @@ Disassembly of _fun:
             204 CALL                     3
             212 RETURN_VALUE
 
-None

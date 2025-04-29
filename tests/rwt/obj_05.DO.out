@@ -1,15 +1,17 @@
-Disassembly of _fun:
+#
+# json model 0
+#
               0 COPY_FREE_VARS           7
 
-393           2 RESUME                   0
+              2 RESUME                   0
 
-395           4 LOAD_GLOBAL              1 (NULL + isinstance)
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (dict)
              26 CALL                     2
              34 POP_JUMP_IF_TRUE        19 (to 74)
 
-396          36 LOAD_DEREF              16 (self)
+             36 LOAD_DEREF              16 (self)
              38 LOAD_ATTR                5 (NULL|self + _no)
              58 LOAD_DEREF              13 (mpath)
              60 LOAD_FAST                1 (p)
@@ -17,12 +19,12 @@ Disassembly of _fun:
              64 CALL                     3
              72 RETURN_VALUE
 
-398     >>   74 LOAD_GLOBAL              7 (NULL + len)
+        >>   74 LOAD_GLOBAL              7 (NULL + len)
              84 LOAD_DEREF              12 (mandatory)
              86 CALL                     1
              94 STORE_FAST               2 (must_see)
 
-401          96 LOAD_FAST                0 (v)
+             96 LOAD_FAST                0 (v)
              98 LOAD_ATTR                9 (NULL|self + items)
             118 CALL                     0
             126 GET_ITER
@@ -31,17 +33,17 @@ Disassembly of _fun:
             136 STORE_FAST               3 (key)
             138 STORE_FAST               4 (val)
 
-402         140 LOAD_FAST                3 (key)
+            140 LOAD_FAST                3 (key)
             142 LOAD_DEREF              12 (mandatory)
             144 CONTAINS_OP              0
             146 POP_JUMP_IF_FALSE       25 (to 198)
 
-403         148 LOAD_FAST                2 (must_see)
+            148 LOAD_FAST                2 (must_see)
             150 LOAD_CONST               2 (1)
             152 BINARY_OP               23 (-=)
             156 STORE_FAST               2 (must_see)
 
-404         158 PUSH_NULL
+            158 PUSH_NULL
             160 LOAD_DEREF              12 (mandatory)
             162 LOAD_FAST                3 (key)
             164 BINARY_SUBSCR
@@ -56,15 +58,15 @@ Disassembly of _fun:
             190 POP_JUMP_IF_FALSE        1 (to 194)
             192 JUMP_BACKWARD           33 (to 128)
 
-406     >>  194 POP_TOP
+        >>  194 POP_TOP
             196 RETURN_CONST             4 (False)
 
-407     >>  198 LOAD_FAST                3 (key)
+        >>  198 LOAD_FAST                3 (key)
             200 LOAD_DEREF              14 (optional)
             202 CONTAINS_OP              0
             204 POP_JUMP_IF_FALSE       20 (to 246)
 
-408         206 PUSH_NULL
+            206 PUSH_NULL
             208 LOAD_DEREF              14 (optional)
             210 LOAD_FAST                3 (key)
             212 BINARY_SUBSCR
@@ -79,13 +81,13 @@ Disassembly of _fun:
             238 POP_JUMP_IF_FALSE        1 (to 242)
             240 JUMP_BACKWARD           57 (to 128)
 
-410     >>  242 POP_TOP
+        >>  242 POP_TOP
             244 RETURN_CONST             4 (False)
 
-413     >>  246 LOAD_CONST               4 (False)
+        >>  246 LOAD_CONST               4 (False)
             248 STORE_FAST               5 (checked)
 
-414         250 LOAD_DEREF              10 (keyname_checks)
+            250 LOAD_DEREF              10 (keyname_checks)
             252 LOAD_ATTR                9 (NULL|self + items)
             272 CALL                     0
             280 GET_ITER
@@ -94,7 +96,7 @@ Disassembly of _fun:
             290 STORE_FAST               6 (k)
             292 STORE_FAST               7 (kc)
 
-415         294 PUSH_NULL
+            294 PUSH_NULL
             296 LOAD_FAST                7 (kc)
             298 LOAD_FAST                3 (key)
             300 LOAD_FAST                4 (val)
@@ -102,27 +104,27 @@ Disassembly of _fun:
             304 CALL                     3
             312 STORE_FAST               8 (res)
 
-416         314 LOAD_FAST                8 (res)
+            314 LOAD_FAST                8 (res)
             316 POP_JUMP_IF_NOT_NONE     1 (to 320)
             318 JUMP_BACKWARD           19 (to 282)
 
-417     >>  320 LOAD_FAST                8 (res)
+        >>  320 LOAD_FAST                8 (res)
             322 POP_JUMP_IF_TRUE         3 (to 330)
 
-420         324 POP_TOP
+            324 POP_TOP
             326 POP_TOP
             328 RETURN_CONST             4 (False)
 
-421     >>  330 LOAD_CONST               5 (True)
+        >>  330 LOAD_CONST               5 (True)
             332 STORE_FAST               5 (checked)
             334 JUMP_BACKWARD           27 (to 282)
 
-414     >>  336 END_FOR
+        >>  336 END_FOR
 
-422         338 LOAD_FAST                5 (checked)
+            338 LOAD_FAST                5 (checked)
             340 POP_JUMP_IF_TRUE        44 (to 430)
 
-423         342 LOAD_DEREF              11 (keyregs_checks)
+            342 LOAD_DEREF              11 (keyregs_checks)
             344 LOAD_ATTR                9 (NULL|self + items)
             364 CALL                     0
             372 GET_ITER
@@ -131,7 +133,7 @@ Disassembly of _fun:
             382 STORE_FAST               6 (k)
             384 STORE_FAST               7 (kc)
 
-424         386 PUSH_NULL
+            386 PUSH_NULL
             388 LOAD_FAST                7 (kc)
             390 LOAD_FAST                3 (key)
             392 LOAD_FAST                4 (val)
@@ -139,24 +141,24 @@ Disassembly of _fun:
             396 CALL                     3
             404 STORE_FAST               8 (res)
 
-425         406 LOAD_FAST                8 (res)
+            406 LOAD_FAST                8 (res)
             408 POP_JUMP_IF_NOT_NONE     1 (to 412)
             410 JUMP_BACKWARD           19 (to 374)
 
-426     >>  412 LOAD_FAST                8 (res)
+        >>  412 LOAD_FAST                8 (res)
             414 POP_JUMP_IF_TRUE         3 (to 422)
 
-429         416 POP_TOP
+            416 POP_TOP
             418 POP_TOP
             420 RETURN_CONST             4 (False)
 
-430     >>  422 LOAD_CONST               5 (True)
+        >>  422 LOAD_CONST               5 (True)
             424 STORE_FAST               5 (checked)
             426 JUMP_BACKWARD           27 (to 374)
 
-423     >>  428 END_FOR
+        >>  428 END_FOR
 
-432     >>  430 LOAD_FAST                5 (checked)
+        >>  430 LOAD_FAST                5 (checked)
             432 POP_JUMP_IF_FALSE        1 (to 436)
             434 JUMP_BACKWARD          154 (to 128)
         >>  436 PUSH_NULL
@@ -173,17 +175,17 @@ Disassembly of _fun:
             464 POP_JUMP_IF_FALSE        1 (to 468)
             466 JUMP_BACKWARD          170 (to 128)
 
-433     >>  468 POP_TOP
+        >>  468 POP_TOP
             470 RETURN_CONST             4 (False)
 
-401     >>  472 END_FOR
+        >>  472 END_FOR
 
-436         474 LOAD_FAST                2 (must_see)
+            474 LOAD_FAST                2 (must_see)
             476 LOAD_CONST               6 (0)
             478 COMPARE_OP              55 (!=)
             482 POP_JUMP_IF_FALSE      100 (to 684)
 
-437         484 LOAD_GLOBAL             11 (NULL + set)
+            484 LOAD_GLOBAL             11 (NULL + set)
             494 LOAD_DEREF              12 (mandatory)
             496 LOAD_ATTR               13 (NULL|self + keys)
             516 CALL                     0
@@ -195,7 +197,7 @@ Disassembly of _fun:
             582 CALL                     1
             590 STORE_FAST               9 (missing)
 
-438         592 LOAD_DEREF              16 (self)
+            592 LOAD_DEREF              16 (self)
             594 LOAD_ATTR                5 (NULL|self + _no)
             614 LOAD_DEREF              13 (mpath)
             616 LOAD_FAST                1 (p)
@@ -211,6 +213,5 @@ Disassembly of _fun:
             674 CALL                     3
             682 RETURN_VALUE
 
-440     >>  684 RETURN_CONST             5 (True)
+        >>  684 RETURN_CONST             5 (True)
 
-None

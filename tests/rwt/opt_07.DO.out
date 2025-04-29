@@ -1,15 +1,17 @@
-Disassembly of _fun:
+#
+# json model 0
+#
               0 COPY_FREE_VARS           5
 
-462           2 RESUME                   0
+              2 RESUME                   0
 
-465           4 LOAD_GLOBAL              1 (NULL + isinstance)
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
              14 LOAD_FAST                0 (v)
              16 LOAD_GLOBAL              2 (dict)
              26 CALL                     2
              34 POP_JUMP_IF_TRUE        19 (to 74)
 
-466          36 LOAD_DEREF               6 (self)
+             36 LOAD_DEREF               6 (self)
              38 LOAD_ATTR                5 (NULL|self + _no)
              58 LOAD_DEREF               5 (mp)
              60 LOAD_FAST                1 (p)
@@ -17,12 +19,12 @@ Disassembly of _fun:
              64 CALL                     3
              72 RETURN_VALUE
 
-467     >>   74 LOAD_DEREF               7 (tag_name)
+        >>   74 LOAD_DEREF               7 (tag_name)
              76 LOAD_FAST                0 (v)
              78 CONTAINS_OP              1
              80 POP_JUMP_IF_FALSE       22 (to 126)
 
-468          82 LOAD_DEREF               6 (self)
+             82 LOAD_DEREF               6 (self)
              84 LOAD_ATTR                5 (NULL|self + _no)
             104 LOAD_DEREF               5 (mp)
             106 LOAD_FAST                1 (p)
@@ -33,19 +35,19 @@ Disassembly of _fun:
             116 CALL                     3
             124 RETURN_VALUE
 
-469     >>  126 LOAD_FAST                0 (v)
+        >>  126 LOAD_FAST                0 (v)
             128 LOAD_DEREF               7 (tag_name)
             130 BINARY_SUBSCR
             134 STORE_FAST               2 (tag)
 
-470         136 LOAD_GLOBAL              7 (NULL + type)
+            136 LOAD_GLOBAL              7 (NULL + type)
             146 LOAD_FAST                2 (tag)
             148 CALL                     1
             156 LOAD_DEREF               8 (tag_type)
             158 IS_OP                    1
             160 POP_JUMP_IF_FALSE       54 (to 270)
 
-471         162 LOAD_DEREF               6 (self)
+            162 LOAD_DEREF               6 (self)
             164 LOAD_ATTR                5 (NULL|self + _no)
             184 LOAD_DEREF               5 (mp)
             186 FORMAT_VALUE             0
@@ -60,7 +62,7 @@ Disassembly of _fun:
             204 FORMAT_VALUE             0
             206 BUILD_STRING             3
 
-472         208 LOAD_CONST               4 ('bad tag type ')
+            208 LOAD_CONST               4 ('bad tag type ')
             210 LOAD_GLOBAL              9 (NULL + tname)
             220 LOAD_FAST                2 (tag)
             222 CALL                     1
@@ -71,15 +73,15 @@ Disassembly of _fun:
             256 FORMAT_VALUE             0
             258 BUILD_STRING             4
 
-471         260 CALL                     3
+            260 CALL                     3
             268 RETURN_VALUE
 
-473     >>  270 LOAD_FAST                2 (tag)
+        >>  270 LOAD_FAST                2 (tag)
             272 LOAD_DEREF               4 (TAG_CHECKS)
             274 CONTAINS_OP              1
             276 POP_JUMP_IF_FALSE       35 (to 348)
 
-474         278 LOAD_DEREF               6 (self)
+            278 LOAD_DEREF               6 (self)
             280 LOAD_ATTR                5 (NULL|self + _no)
             300 LOAD_DEREF               5 (mp)
             302 FORMAT_VALUE             0
@@ -94,7 +96,7 @@ Disassembly of _fun:
             320 FORMAT_VALUE             0
             322 BUILD_STRING             3
 
-475         324 LOAD_CONST               6 ('unexpected tag ')
+            324 LOAD_CONST               6 ('unexpected tag ')
             326 LOAD_DEREF               7 (tag_name)
             328 FORMAT_VALUE             0
             330 LOAD_CONST               7 (' value ')
@@ -102,25 +104,24 @@ Disassembly of _fun:
             334 FORMAT_VALUE             0
             336 BUILD_STRING             4
 
-474         338 CALL                     3
+            338 CALL                     3
             346 RETURN_VALUE
 
-477     >>  348 LOAD_DEREF               4 (TAG_CHECKS)
+        >>  348 LOAD_DEREF               4 (TAG_CHECKS)
             350 LOAD_ATTR               13 (NULL|self + get)
             370 LOAD_FAST                2 (tag)
             372 CALL                     1
             380 STORE_FAST               3 (tag_check)
 
-478         382 LOAD_FAST                3 (tag_check)
+            382 LOAD_FAST                3 (tag_check)
             384 POP_JUMP_IF_TRUE         2 (to 390)
             386 LOAD_ASSERTION_ERROR
             388 RAISE_VARARGS            1
 
-479     >>  390 PUSH_NULL
+        >>  390 PUSH_NULL
             392 LOAD_FAST                3 (tag_check)
             394 LOAD_FAST                0 (v)
             396 LOAD_FAST                1 (p)
             398 CALL                     2
             406 RETURN_VALUE
 
-None

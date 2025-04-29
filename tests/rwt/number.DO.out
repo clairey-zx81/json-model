@@ -1,7 +1,9 @@
-Disassembly of _fun:
+#
+# json model 0
+#
               0 COPY_FREE_VARS           4
 
-787           2 RESUME                   0
+              2 RESUME                   0
               4 PUSH_NULL
               6 LOAD_DEREF               2 (fun)
               8 LOAD_FAST                0 (v)
@@ -21,4 +23,3 @@ Disassembly of _fun:
              60 CALL                     3
         >>   68 RETURN_VALUE
 
-None

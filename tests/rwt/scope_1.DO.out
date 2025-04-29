@@ -1,9 +1,11 @@
-Disassembly of _fun:
+#
+# json model 0
+#
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)
               4 MAKE_CELL                1 (p)
 
-606           6 RESUME                   0
+              6 RESUME                   0
               8 LOAD_GLOBAL              1 (NULL + any)
              18 LOAD_CLOSURE             1 (p)
              20 LOAD_CLOSURE             0 (v)
@@ -18,38 +20,186 @@ Disassembly of _fun:
              50 POP_JUMP_IF_TRUE        19 (to 90)
              52 POP_TOP
 
-607          54 LOAD_DEREF               3 (self)
+             54 LOAD_DEREF               3 (self)
              56 LOAD_ATTR                3 (NULL|self + _no)
              76 LOAD_DEREF               2 (mp)
              78 LOAD_DEREF               1 (p)
              80 LOAD_CONST               2 ('no any matched')
              82 CALL                     3
 
-606     >>   90 RETURN_VALUE
+        >>   90 RETURN_VALUE
 
-Disassembly of <*>:
-              0 COPY_FREE_VARS           2
+#
+# json model 1
+#
+              0 COPY_FREE_VARS           4
 
-606           2 RETURN_GENERATOR
-              4 POP_TOP
-              6 RESUME                   0
-              8 LOAD_FAST                0 (.0)
-        >>   10 FOR_ITER                13 (to 40)
-             14 STORE_FAST               1 (f)
-             16 PUSH_NULL
-             18 LOAD_FAST                1 (f)
-             20 LOAD_DEREF               3 (v)
-             22 LOAD_DEREF               2 (p)
-             24 CALL                     2
-             32 YIELD_VALUE              1
-             34 RESUME                   1
-             36 POP_TOP
-             38 JUMP_BACKWARD           15 (to 10)
-        >>   40 END_FOR
-             42 RETURN_CONST             0 (None)
-        >>   44 CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
-             46 RERAISE                  1
+              2 RESUME                   0
+              4 PUSH_NULL
+              6 LOAD_DEREF               2 (fun)
+              8 LOAD_FAST                0 (v)
+             10 LOAD_FAST                1 (p)
+             12 CALL                     2
+             20 COPY                     1
+             22 POP_JUMP_IF_TRUE        22 (to 68)
+             24 POP_TOP
+             26 LOAD_DEREF               5 (self)
+             28 LOAD_ATTR                1 (NULL|self + _no)
+             48 LOAD_DEREF               4 (mpath)
+             50 LOAD_FAST                1 (p)
+             52 LOAD_DEREF               3 (model)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               1 (' failed')
+             58 BUILD_STRING             2
+             60 CALL                     3
+        >>   68 RETURN_VALUE
+
+#
+# json model 2
+#
+              0 COPY_FREE_VARS           4
+
+              2 RESUME                   0
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
+             14 LOAD_FAST                0 (v)
+             16 LOAD_GLOBAL              2 (str)
+             26 CALL                     2
+             34 COPY                     1
+             36 POP_JUMP_IF_FALSE       10 (to 58)
+             38 POP_TOP
+             40 PUSH_NULL
+             42 LOAD_DEREF               2 (check_re)
+             44 LOAD_FAST                0 (v)
+             46 CALL                     1
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    1
+        >>   58 COPY                     1
+             60 POP_JUMP_IF_TRUE        22 (to 106)
+             62 POP_TOP
+
+             64 LOAD_DEREF               5 (self)
+             66 LOAD_ATTR                5 (NULL|self + _no)
+             86 LOAD_DEREF               4 (mpath)
+             88 LOAD_FAST                1 (p)
+             90 LOAD_CONST               1 ('expecting regex ')
+             92 LOAD_DEREF               3 (model)
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             2
+             98 CALL                     3
+
+        >>  106 RETURN_VALUE
+
+#
+# json model 3
+#
+              0 COPY_FREE_VARS           4
+
+              2 RESUME                   0
+
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
+             14 LOAD_FAST                0 (v)
+             16 LOAD_GLOBAL              2 (list)
+             26 LOAD_GLOBAL              4 (tuple)
+             36 BUILD_TUPLE              2
+             38 CALL                     2
+             46 POP_JUMP_IF_TRUE        19 (to 86)
+
+             48 LOAD_DEREF               6 (self)
+             50 LOAD_ATTR                7 (NULL|self + _no)
+             70 LOAD_DEREF               4 (mpath)
+             72 LOAD_FAST                1 (p)
+             74 LOAD_CONST               1 ('expecting an array')
+             76 CALL                     3
+             84 RETURN_VALUE
+
+        >>   86 LOAD_GLOBAL              9 (NULL + len)
+             96 LOAD_FAST                0 (v)
+             98 CALL                     1
+            106 LOAD_DEREF               5 (nmodels)
+            108 COMPARE_OP              55 (!=)
+            112 POP_JUMP_IF_FALSE       19 (to 152)
+
+            114 LOAD_DEREF               6 (self)
+            116 LOAD_ATTR                7 (NULL|self + _no)
+            136 LOAD_DEREF               4 (mpath)
+            138 LOAD_FAST                1 (p)
+            140 LOAD_CONST               2 ('bad array length')
+            142 CALL                     3
+            150 RETURN_VALUE
+
+        >>  152 LOAD_GLOBAL             11 (NULL + all)
+            162 LOAD_GLOBAL             13 (NULL + range)
+            172 LOAD_DEREF               5 (nmodels)
+            174 CALL                     1
+            182 GET_ITER
+            184 LOAD_FAST_AND_CLEAR      2 (i)
+            186 SWAP                     2
+            188 BUILD_LIST               0
+            190 SWAP                     2
+        >>  192 FOR_ITER                23 (to 242)
+            196 STORE_FAST               2 (i)
+            198 PUSH_NULL
+            200 LOAD_DEREF               3 (items)
+            202 LOAD_FAST                2 (i)
+            204 BINARY_SUBSCR
+            208 LOAD_FAST                0 (v)
+            210 LOAD_FAST                2 (i)
+            212 BINARY_SUBSCR
+            216 LOAD_FAST                1 (p)
+            218 FORMAT_VALUE             0
+            220 LOAD_CONST               3 ('[')
+            222 LOAD_FAST                2 (i)
+            224 FORMAT_VALUE             0
+            226 LOAD_CONST               4 (']')
+            228 BUILD_STRING             4
+            230 CALL                     2
+            238 LIST_APPEND              2
+            240 JUMP_BACKWARD           25 (to 192)
+        >>  242 END_FOR
+            244 SWAP                     2
+            246 STORE_FAST               2 (i)
+            248 CALL                     1
+            256 RETURN_VALUE
+        >>  258 SWAP                     2
+            260 POP_TOP
+            262 SWAP                     2
+            264 STORE_FAST               2 (i)
+            266 RERAISE                  0
 ExceptionTable:
-  6 to 42 -> 44 [0] lasti
+  188 to 242 -> 258 [4]
 
-None
+#
+# json model 4
+#
+              0 COPY_FREE_VARS           4
+
+              2 RESUME                   0
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
+             14 LOAD_FAST                0 (v)
+             16 LOAD_GLOBAL              2 (str)
+             26 CALL                     2
+             34 COPY                     1
+             36 POP_JUMP_IF_FALSE       10 (to 58)
+             38 POP_TOP
+             40 PUSH_NULL
+             42 LOAD_DEREF               2 (check_re)
+             44 LOAD_FAST                0 (v)
+             46 CALL                     1
+             54 LOAD_CONST               0 (None)
+             56 IS_OP                    1
+        >>   58 COPY                     1
+             60 POP_JUMP_IF_TRUE        22 (to 106)
+             62 POP_TOP
+
+             64 LOAD_DEREF               5 (self)
+             66 LOAD_ATTR                5 (NULL|self + _no)
+             86 LOAD_DEREF               4 (mpath)
+             88 LOAD_FAST                1 (p)
+             90 LOAD_CONST               1 ('expecting regex ')
+             92 LOAD_DEREF               3 (model)
+             94 FORMAT_VALUE             0
+             96 BUILD_STRING             2
+             98 CALL                     3
+
+        >>  106 RETURN_VALUE
+
