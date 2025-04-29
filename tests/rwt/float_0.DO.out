@@ -18,11 +18,13 @@
         >>   50 COPY                     1
              52 POP_JUMP_IF_TRUE        19 (to 92)
              54 POP_TOP
+
              56 LOAD_DEREF               3 (self)
              58 LOAD_ATTR                5 (NULL|self + _no)
              78 LOAD_DEREF               2 (mpath)
              80 LOAD_FAST                1 (p)
              82 LOAD_CONST               2 ('expecting a positive number')
              84 CALL                     3
+
         >>   92 RETURN_VALUE
 
