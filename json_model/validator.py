@@ -14,7 +14,6 @@ import argparse
 import logging
 
 from . import utils
-from .preproc import model_preprocessor
 from .utils import ValueType, ModelType, ModelError, distinct_values, log
 from .defines import Validator
 
@@ -34,7 +33,7 @@ class DSV(Validator):
 
     def __init__(self):
 
-        super().__init__(compiler=lambda m, _p: lambda v, _p: self.check(v, m))
+        super().__init__()
 
         # per-type recursion
         self._type: dict[type, Callable[[ValueType, ModelType, bool], bool]] = {
@@ -136,40 +135,40 @@ class DSV(Validator):
         if "<=" in model:
             val = model["<="]
             if has_nb and _is_really_int(val):
-                if not ivalue <= val:
+                if not ivalue <= val:  # pyright: ignore
                     return False
             elif type(val) is type(value):
-                if not value <= val:
+                if not value <= val:  # pyright: ignore
                     return False
             else:
                 return False
         if "<" in model:
             val = model["<"]
             if has_nb and _is_really_int(val):
-                if not ivalue < val:
+                if not ivalue < val:  # pyright: ignore
                     return False
             elif type(val) is type(value):
-                if not value < val:
+                if not value < val:  # pyright: ignore
                     return False
             else:
                 return False
         if ">=" in model:
             val = model[">="]
             if has_nb and _is_really_int(val):
-                if not ivalue >= val:
+                if not ivalue >= val:  # pyright: ignore
                     return False
             elif type(val) is type(value):
-                if not value >= val:
+                if not value >= val:  # pyright: ignore
                     return False
             else:
                 return False
         if ">" in model:
             val = model[">"]
             if has_nb and _is_really_int(val):
-                if not ivalue > val:
+                if not ivalue > val:  # pyright: ignore
                     return False
             elif type(val) is type(value):
-                if not value > val:
+                if not value > val:  # pyright: ignore
                     return False
             else:
                 return False
@@ -309,7 +308,7 @@ class DSV(Validator):
             return False
 
         # NOTE this is not very efficient :-(
-        props = utils.split_object(model, "*")
+        props = utils.split_object(model, ["*"])
 
         return self._object_value_model_check(value, *props)
 
@@ -377,9 +376,7 @@ class DSV(Validator):
         """Recursive type checker."""
         # FIXME ???
         defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
-        pmodel = model_preprocessor(model, defs, "")
-        # log.debug(f"processed model: {pmodel}")
-        return self._type[type(pmodel)](value, pmodel, strict)
+        return self._type[type(model)](value, model, strict)
 
     def set(self, ident: str, model: Callable[[Any], bool]|Any, mpath: str = ""):
         """Extend validator with a new definition."""

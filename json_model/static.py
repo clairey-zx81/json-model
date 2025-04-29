@@ -20,9 +20,10 @@ import json
 import logging
 import argparse
 
-from .types import ModelType, ModelError, ModelPath, UnknownModel, JsonModel, Symbols
+from .types import ModelType, ModelError, ModelPath, UnknownModel, Symbols
 from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value, log, tname, json_path
 from .defines import Validator
+from .model import JsonModel
 
 type Line = tuple[int, str]
 
@@ -255,7 +256,7 @@ class SourceCode(Validator):
                            res: str, val: str, vpath: str):
         assert isinstance(model, dict) and "@" in model
         self._compileModel(code, indent, jm, model["@"], mpath + ["@"], res, val, vpath)
-        tmodel = self._ultimate_type(jm, model["@"])
+        tmodel = self._ultimate_type(jm, model["@"])  # pyright: ignore
         # NOTE UnknownModel should raise an error on any constraint
         # FIXME None?
         assert tmodel in (int, float, str, list, dict, UnknownModel), f"simple {tmodel}"
@@ -297,7 +298,7 @@ class SourceCode(Validator):
         model: `{"|": [ o1, o2, ... ] }`
         """
 
-        dis = self._disjunct_analyse(jm, model, mpath)
+        dis = self._disjunct_analyse(jm, model, mpath)  # pyright: ignore
         if dis is None:
             return False
         tag_name, tag_type, models, all_const_props = dis
@@ -777,7 +778,7 @@ class SourceCode(Validator):
         gref = jm._defs.gget(ref)
         # log.debug(f"ref={ref} gref={gref} at {path}")
         if gref not in self._names:
-            jm = self._globs[gref]
+            jm = self._globs[gref]  # pyright: ignore
             if jm._id not in self._compiled:
                 self._to_compile[jm._id] = (jm, gref)
             self._names[gref] = f"json_model_{jm._id}"
@@ -845,7 +846,7 @@ def static_compile(
     - `remod`: regular expression module to use, "re" or "re2"
     - `debug`: debugging mode generates more traces
     """
-    sc = SourceCode(model._globs, prefix, debug, remod)
+    sc = SourceCode(model._globs, prefix, debug, remod)  # pyright: ignore
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))

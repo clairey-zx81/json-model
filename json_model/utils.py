@@ -4,7 +4,8 @@
 import sys
 import re
 import logging
-from .types import ModelType, ModelPath, ModelDefs, ModelError, Jsonable, JsonObject, ValueType
+from .types import ModelType, ModelPath, ModelError, ModelObject
+from .types import Jsonable, JsonObject, ValueType, Symbols
 
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
@@ -27,8 +28,8 @@ def is_regex(s: ValueType, p: str = "") -> bool:
     else:
         return False
 
-def is_cst(s) -> bool:
-    return s is None or isinstance(s, str) and s and s[0] not in ("$", "/")
+def is_cst(s: Jsonable) -> bool:
+    return s is None or isinstance(s, str) and s != "" and s[0] not in ("$", "/")
 
 def cst(s: str|None):  # JsonScalar
     if s is None:
@@ -50,23 +51,14 @@ def cst(s: str|None):  # JsonScalar
         return s
 
 def distinct_values(val: Jsonable) -> bool:
-    try:
-        if isinstance(val, (list, tuple, str)):
-            return len(val) == len(set(val))
-        else:
-            return False
-    except TypeError as e:
-        # log.warning(f"ignoring error: {e}", exc_info=True)
-        log.warning(f"ignoring error: {e}")
-        # try slow iterative version which relies on ==
+    # stupid implementation because True == 1
+    if isinstance(val, (list, tuple, str)):
         seen = []
         for i in val:
-            if i in seen:
+            if any(map(lambda v: type(v) == type(i) and v == i, seen)):
                 return False
-            else:
-                seen.append(i)
-        return True
-
+            seen.append(i)
+    return True
 
 def one(lb) -> bool:
     """Tell if only one from an iterable is True."""
@@ -243,7 +235,7 @@ def constant_value(m: ModelType, mpath: ModelPath) -> tuple[bool, ValueType]:
         return False, None
 
 
-def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, ModelType]:
+def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, type|None]:
     first, current_type = True, None
     for i, m in enumerate(models):
         is_known, has_type = model_type(m, mpath + [i])
@@ -262,7 +254,7 @@ def all_model_type(models: list[ModelType], mpath: ModelPath) -> tuple[bool, Mod
         return True, current_type
 
 
-def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, ModelType]:
+def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, type|None]:
     """Tell the type of the model, if known."""
     if model is None:
         return True, None
@@ -322,16 +314,16 @@ def model_type(model: ModelType, mpath: ModelPath) -> tuple[bool, ModelType]:
         raise ModelError(f"unexpected model: {model} ({type(model).__name__})")
 
 
-def resolve_model(m: ModelType, defs: ModelDefs) -> ModelType:
+def resolve_model(m: ModelType, defs: Symbols) -> ModelType:
     """Follow definitions and @ to find the underlying type, if possible."""
     changed, resolved = True, set()
     while changed:
         # FIXME possible infinite recursion?
         changed = False
-        if isinstance(m, str) and m and m[0] == "$":
+        if isinstance(m, str) and m != "" and m[0] == "$":
             name = m[1:]
             if name not in resolved and name in defs:
-                m, changed = defs[name], True
+                m, changed = defs[name]._model, True  # pyright: ignore
             resolved.add(name)
         if isinstance(m, dict) and "@" in m:
             m, changed = m["@"], True
@@ -371,7 +363,7 @@ def _dedup_models(models: list[ModelType]) -> list[ModelType]:
 
 
 # FIXME consistency with _structurally_distinct_models…
-def _distinct_models(m1: ModelType, m2: ModelType, defs: ModelDefs, mpath: ModelPath) -> bool:
+def _distinct_models(m1: ModelType, m2: ModelType, defs: Symbols, mpath: ModelPath) -> bool:
     """Whether m1 and m2 are provably distinct, i.e. do not have values in common."""
     m1, m2 = resolve_model(m1, defs), resolve_model(m2, defs)
     # log.warning(f"m1={m1} m2={m2}")
@@ -397,7 +389,7 @@ def _distinct_models(m1: ModelType, m2: ModelType, defs: ModelDefs, mpath: Model
 class _Object:
     """Internal representation of an object model."""
 
-    def __init__(self, model: ModelType, gdefs: ModelDefs, mpath: ModelPath):
+    def __init__(self, model: ModelType, gdefs: Symbols, mpath: ModelPath):
         assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
         self._must = must
@@ -455,7 +447,7 @@ class _Object:
         return True
 
 
-def merge_objects(models: list[ModelType], path: ModelPath) -> JsonObject|str:
+def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
     """Merge a list of simple object models."""
 
     assert isinstance(models, list) and len(models) > 0
@@ -532,7 +524,7 @@ def merge_objects(models: list[ModelType], path: ModelPath) -> JsonObject|str:
     return unsplit_object(must, may, refs, regs, others)
 
 
-def _structurally_distinct_models(lm: list[ModelType], defs: ModelDefs, mpath: ModelPath) -> bool:
+def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: ModelPath) -> bool:
     """Whether all models are structurally distinct.
 
     This ensures that values in these are distinct.

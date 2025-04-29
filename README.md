@@ -59,10 +59,11 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] static: generate separate `check_model` root function and simplify code.
 - [x] tests: recheck existing tests in rwt
 - [x] static: deterministic set output
-- [ ] python: pyright
+- [x] python: pyright
 - [ ] python: flake8
 - [ ] python: ruff
 - [ ] python: coverage
+- [ ] dynamic: fix output instability
 - [ ] static python: remove spurious newlines
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests

@@ -1,4 +1,4 @@
-from typing import Callable  # why not callable?
+import typing
 
 # JSON types
 type JsonScalar = None|bool|int|float|str
@@ -17,19 +17,20 @@ type ModelPath = JsonPath
 type ModelDefs = dict[str, ModelType]
 type ModelTrafo = ModelType
 type ModelRename = dict[str, str]
-type ModelFilter = Callable[[ModelType, ModelPath], bool]
-type ModelRewrite = Callable[[ModelType, ModelPath], ModelType]
+type ModelFilter = typing.Callable[[ModelType, ModelPath], bool]
+type ModelRewrite = typing.Callable[[ModelType, ModelPath], ModelType]
 
-type CheckFun = Callable[[ValueType, str], bool]
-type KeyCheckFun = Callable[[str, ValueType, str], bool|None]
+type CheckFun = typing.Callable[[ValueType, str], bool]
+type KeyCheckFun = typing.Callable[[str, ValueType, str], bool|None]
 # FIXME remove None
-type Compiler = Callable[[ModelType, str], CheckFun|None]
+type Compiler = typing.Callable[[ModelType, str], CheckFun|None]
 
-type ModelCheckFun = Callable[[ValueType, JsonPath], bool]
+type ModelCheckFun = typing.Callable[[ValueType, JsonPath], bool]
 
-type JsonModel = typing.NewType("JsonModel", None)
+JsonModel = typing.NewType("JsonModel", None)
 type Symbols = dict[str, JsonModel]
 type JsonSchema = bool|dict[str, Jsonable]
+del JsonModel
 
 class ModelError(BaseException):
     pass

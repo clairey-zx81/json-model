@@ -1,9 +1,11 @@
-from typing import Any, Mapping, MutableMapping
+import typing
 import re
 import json
-from .types import CheckFun, ModelType, UnknownModel, Compiler, JsonModel, ModelPath
+from .types import CheckFun, ModelType, UnknownModel, Compiler, ModelPath
 from .utils import log
 
+JsonModel = typing.NewType("JsonModel", None)
+type Constants = bool|int|float|str
 
 class Model:
 
@@ -17,7 +19,7 @@ class Model:
         return str(self.jsons)
 
 
-class ReadOnlyDefs(Mapping[str, Model]):
+class ReadOnlyDefs(typing.Mapping[str, Model|str]):
 
     def __init__(self, md):
         self._md = md
@@ -38,7 +40,8 @@ class ReadOnlyDefs(Mapping[str, Model]):
 
 
 # TODO remove compiler ?!
-class ModelDefs(MutableMapping[str, Model]):
+# TODO simplify wrt to JsonModel
+class ModelDefs(typing.MutableMapping[str, CheckFun|None]):
     """Hold current model definitions and possibly compiled versions."""
 
     def __init__(self):
@@ -61,7 +64,7 @@ class ModelDefs(MutableMapping[str, Model]):
 
         self._models[name] = m
 
-    def get(self, name: str) -> CheckFun:
+    def get(self, name: str, default = None) -> CheckFun:
         """Get compiled or native checker function."""
         assert self._models[name].check is not None
         log.debug(f"returning check fun for {name}")
@@ -89,7 +92,7 @@ class ModelDefs(MutableMapping[str, Model]):
     def __contains__(self, key):
         return key in self._models
 
-    def __getitem__(self, key):
+    def __getitem__(self, key):  # pyright: ignore
         return self._models[key].check
 
     def __delitem__(self, key):
@@ -130,81 +133,74 @@ class Validator:
     def __init__(self):
         self._defs = ModelDefs()
 
-    def _ultimate_type(self, jm: JsonModel, model: ModelType) -> type:
+    def _ultimate_type(self, jm: JsonModel, model: ModelType) -> type|None:
         """Get the utimate type by following definitions."""
-        tmodel = type(model)
-        if tmodel in (type(None), bool, int, float, list, tuple):
-            return tmodel
-        elif tmodel is str:
-            assert isinstance(model, str)  # useless pyright hint
-            if model == "" or model[0] not in ("$", "="):
-                return tmodel
-            elif model[0] == "=":  # constants
-                return (type(None) if model == "=null" else 
-                        bool if model in ("=true", "=false") else
-                        float if "." in model else
-                        int)
-            else:  # $... follow definition if possible
-                if model in _UTYPE:
+        match model:
+            case str():
+                if model == "" or model[0] not in ("$", "="):
+                    return type(model)
+                elif model[0] == "=":  # constants
+                    return (type(None) if model == "=null" else 
+                            bool if model in ("=true", "=false") else
+                            float if "." in model else
+                            int)
+                elif model in _UTYPE:
                     return _UTYPE[model]
                 elif model in self._defs:
-                    m = self._defs.model[model]
+                    m = self._defs.model[model]  # pyright: ignore
                     return self._ultimate_type(jm, m) if m != UnknownModel else m  # type: ignore
                 else:
-                    m = jm.resolveRef(model, ["<?>"])
+                    m = jm.resolveRef(model, ["<?>"])  # type: ignore
                     return self._ultimate_type(m, m._model)
-        elif tmodel is dict:
-            assert isinstance(model, dict)
-            if "@" in model:
-                return self._ultimate_type(jm, model["@"])
-            elif "|" in model:
-                assert isinstance(model["|"], (list, tuple))
-                types = set(self._ultimate_type(jm, i) for i in model["|"])
-                if len(types) == 1:
-                    return types.pop()
+            case dict():
+                if "@" in model:
+                    return self._ultimate_type(jm, model["@"])
+                elif "|" in model:
+                    assert isinstance(models := model["|"], list)
+                    types = set(self._ultimate_type(jm, i) for i in models)
+                    if len(types) == 1:
+                        return types.pop()
+                    else:
+                        return None
                 else:
-                    return UnknownModel
-            else:
-                return tmodel
+                    return type(model)
+            case _:
+                return type(model)
 
     def _ultimate_model(self, jm: JsonModel, model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
-        # FIXME stop infinite recursion?!
-        tmodel = type(model)
-        if tmodel in (type(None), bool, int, float, list, tuple):
-            return model
-        elif tmodel is str:
-            assert isinstance(model, str)  # useless pyright hint
-            if model == "" or model[0] not in ("$", "="):
-                return model
-            elif model[0] == "=":
-                return model
-            else:  # follow definition if possible
-                assert model[0] == "$"
-                name = model[1:]
-                m = self._defs.model(name)
-                # handle some predefs
-                if isinstance(m, str) and m in _UMODEL:
-                    return _UMODEL[m]
-                # else try recursing
-                return self._ultimate_model(jm, m) if m != UnknownModel else m  # type: ignore
-        elif tmodel is dict:
-            assert isinstance(model, dict)  # useless pyright hint
-            if "@" in model:
-                if strict:
-                    if set(model.keys()).issubset(["@", "#", "%", "%"]):
+        match model:
+            case str():
+                if model == "" or model[0] not in ("$", "="):
+                    return model
+                elif model[0] == "=":
+                    return model
+                else:  # follow definition if possible
+                    assert model[0] == "$"
+                    name = model[1:]
+                    m = self._defs.model(name)
+                    # handle some predefs
+                    if isinstance(m, str) and m in _UMODEL:
+                        return _UMODEL[m]
+                    # else try recursing
+                    return self._ultimate_model(jm, m) if m != UnknownModel else m  # type: ignore
+            case dict():
+                if "@" in model:
+                    if strict:
+                        if set(model.keys()).issubset(["@", "#", "~", "%", "$"]):
+                            return self._ultimate_model(jm, model["@"])
+                        else:
+                            return UnknownModel  # type: ignore
+                    elif constrained:
                         return self._ultimate_model(jm, model["@"])
                     else:
                         return UnknownModel  # type: ignore
+                elif "|" in model:
+                    return UnknownModel  # type: ignore
                 else:
-                    if constrained:
-                        return self._ultimate_model(jm, model["@"])
-                    else:
-                        return UnknownModel  # type: ignore
-            elif "|" in model:
-                return UnknownModel  # type: ignore
-            else:
-                return model
+                    return model
+            case _:
+                 return model
 
     def _constant(self, jm: JsonModel, model: ModelType):
         """Tell an ultimate model value has a constant."""
@@ -234,7 +230,7 @@ class Validator:
             return None
 
     def _disjunct_analyse(self, jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
-            tuple[str, Any, list, list]|None:
+            tuple[str, type, list, list]|None:
         """Return the optimized check function if possible."""
         # FIXME if there is a ^, the preprocessor will have detected the discriminant
         # and turned it into a |.
@@ -245,7 +241,8 @@ class Validator:
             log.debug(f"ultimate type not a dict: {utype}")
             return None
         # get models
-        models = [self._ultimate_model(jm, m) for m in model["|"]]
+        assert isinstance(models := model["|"], list)
+        models = [self._ultimate_model(jm, m) for m in models]
         # should not happen, just in case
         if len(models) < 2:
             log.debug("not enough models for a disjunction")
@@ -260,9 +257,9 @@ class Validator:
             for m in models if isinstance(m, dict)
         ]
         # get cleaned props and their constant values
-        all_const_props: list[dict[str, Any]] = []
+        all_const_props: list[dict[str, Constants]] = []
         for props, model in zip(all_props, models):
-            consts: dict[str, Any] = {}
+            consts: dict[str, Constants] = {}
             assert isinstance(model, dict)
             for prop in props:
                 val = self._constant(jm, model[prop])

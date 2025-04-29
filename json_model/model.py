@@ -14,8 +14,8 @@ from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 
 # FIXME
-JsonModel = typing.NewType("JsonModel", None)
-Symbols = typing.NewType("Symbols", None)
+JsonModel = typing.NewType("JsonModel", None)  # pyright: ignore
+Symbols = typing.NewType("Symbols", None)  # pyright: ignore
 
 type SymTable = dict[str, JsonModel]
 type Globals = dict[str, str]
@@ -181,7 +181,7 @@ class JsonModel:
         # %: names and rewrites
         self._init_pc: dict[str, ModelType] = {}
         self._name: ModelRename = {}
-        self._rewrite: ModelTrafo = {}
+        self._rewrite: dict[str, ModelTrafo] = {}
 
         if isinstance(model, dict) and "%" in model:
 
@@ -480,7 +480,7 @@ class JsonModel:
                 xor = model["^"]
                 assert isinstance(xor, list) and "|" not in model
                 # TODO handle distinct constants, eg "=1", "=2"…
-                if _structurally_distinct_models(xor, self._defs, path + ["^"]):
+                if _structurally_distinct_models(xor, self._defs, path + ["^"]):  # pyright: ignore
                     changes += 1
                     del model["^"]
                     model["|"] = xor
@@ -1046,7 +1046,7 @@ class JsonModel:
             updated = True
             plus = model["+"]
             assert isinstance(plus, list)  # pyright hint
-            merged = merge_objects(plus, path + ["+"])
+            merged = merge_objects(plus, path + ["+"])  # pyright: ignore
             del model["+"]
             if len(model) > 0:
                 model["@"] = merged
