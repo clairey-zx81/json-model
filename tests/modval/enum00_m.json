@@ -1,7 +1,0 @@
-{
-  "%": {
-    "p1": { "^": [ "Susie", "Calvin", "Hobbes", "Moe" ] },
-    "p2": { "|": [ "Castafiore", "Haddock", "Milou", "Tintin" ] }
-  },
-  "^": [ "$p1", "$p2" ]
-}
