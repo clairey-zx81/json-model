@@ -7,18 +7,13 @@
       "title": "Common Stuff",
       "type": "object",
       "properties": {
-        "$": { "type": "string" },
-        "#": {
-          "oneOf": [
-            { "type": "string" },
-            { "type": "object", "additionalProperties": true }
-          ]
-        }
+        "#": { "type": "string" }
       }
     },
     "simpleModel": {
-      "type": [ "null", "boolean", "integer", "number", "string" ]
+      "enum": [ null, true, -1, 0, 1, -1.0, 0.0, 1.0, "" ]
     },
+    "stringModel": { "type": "string", "minLength": 1 },
     "cmpValue": { "type": [ "integer", "number", "string" ] },
     "arrayModel": {
       "type": "array",
@@ -64,7 +59,7 @@
     },
     "constrainedModel": {
       "type": "object",
-      "allOf": [ { "$ref": "#/$defs/common" } ],
+      "$ref": "#/$defs/common",
       "properties": {
         "@": { "$ref": "#/$defs/Model" },
         "=": { "$ref": "#/$defs/cmpValue" },
@@ -78,6 +73,7 @@
       "required": [ "@" ]
     },
     "objModel": {
+      "description": "A model which uses an object representation",
       "oneOf": [
         { "$ref": "#/$defs/simpleObject" },
         { "$ref": "#/$defs/andModel" },
@@ -90,17 +86,40 @@
     "Model": {
       "oneOf": [
         { "$ref": "#/$defs/simpleModel" },
+        { "$ref": "#/$defs/stringModel" },
         { "$ref": "#/$defs/arrayModel" },
         { "$ref": "#/$defs/objModel" }
       ],
       "unevaluatedProperties": false
     },
     "defsModel": {
+      "description": "Keywords available only at the root",
       "type": "object",
-      "allOf": [ { "$ref": "#/$defs/objModel" } ],
+      "$ref": "#/$defs/objModel",
       "properties": {
-        "%": {
+        "~": {
+          "description": "Meta Model URL",
+          "type": "string",
+          "format": "url"
+        },
+        "$": {
+          "description": "local definitions",
           "type": "object",
+          "properties": {
+            "#": {"type": "string"}
+           },
+          "additionalProperties": { "$ref": "#/$defs/Model" }
+        },
+        "%": {
+          "description": "renames and rewrites",
+          "type": "object",
+          "properties": {
+            "#": {"type": "string"},
+            "": {"type": "string"}
+          },
+          "patternProperties": {
+            "^\\.": { "type": "string" }
+          },
           "additionalProperties": { "$ref": "#/$defs/Model" }
         }
       },
@@ -109,6 +128,7 @@
     "rootModel": {
       "oneOf": [
         { "$ref": "#/$defs/simpleModel" },
+        { "$ref": "#/$defs/stringModel" },
         { "$ref": "#/$defs/arrayModel" },
         { "$ref": "#/$defs/defsModel" }
       ]
