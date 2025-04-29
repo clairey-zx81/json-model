@@ -3,7 +3,7 @@
 #
 # TODO multi recurse?
 #
-from .types import ModelType, ModelPath, ModelFilter, ModelRewrite
+from .types import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
 
 ROOT_KEYWORDS = {"~", "$", "%"}
 CONSTRAINT_KEYWORDS = {"=", "!=", "<", "<=", ">", ">=", "!"}
@@ -31,8 +31,8 @@ def _recModel(
     if isinstance(model, list):
         return [_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)]
     elif isinstance(model, dict):
-        keys = list(model.keys())
-        for prop in keys:
+        mkeys: list[str] = list(model.keys())
+        for prop in mkeys:
             val = model[prop]
             lpath = path + [prop]
             assert isinstance(prop, str), f"properties are strings {lpath}"
@@ -40,7 +40,7 @@ def _recModel(
                 okprops = {prop, "#"} | CONSTRAINT_KEYWORDS
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(keys) - okprops), f"@ restricts other keywords {lpath}"
+                assert not (set(mkeys) - okprops), f"@ restricts other keywords {lpath}"
                 model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             elif prop in NO_MODEL_KEYWORDS:
                 # some sanity checks in passing
@@ -59,7 +59,7 @@ def _recModel(
                 okprops = {prop, "#"}
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(keys) - okprops), f"{prop} restricts other keywords {lpath}"
+                assert not (set(mkeys) - okprops), f"{prop} restricts other keywords {lpath}"
             elif prop == "%":  # renames and rewrites
                 assert root and isinstance(val, dict), f"% transformations at root {lpath}"
                 for k, v in val.items():
@@ -82,6 +82,7 @@ def _recModel(
             if keys:  # possibly rewrite key references
                 if prop != "" and prop[0] == "$":
                     nprop = _recModel(prop, lpath, flt, rwt, keys, False)
+                    assert isinstance(nprop, str)
                     if nprop != prop:
                         if nprop in model:
                             raise ModelError(f"cannot override rewritten key {prop}: {nprop} {lpath}")

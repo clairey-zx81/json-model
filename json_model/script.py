@@ -5,8 +5,8 @@ import logging
 
 # from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
 # from .types import Jsonable, JsonModel, Symbols
-from .types import Jsonable
-from .utils import log
+from .types import Jsonable, JsonSchema
+from .utils import log, tname
 from .resolver import Resolver
 from .model import JsonModel
 from .dynamic import DynamicCompiler
@@ -89,6 +89,7 @@ def jmc_script():
         if args.auto and isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]:
             # add automatic mapping
             url = j["$"][""]
+            assert isinstance(url, str), f"$ expects a string: {tname(url)}"
             fn = re.sub(r"(\.model)?(\.js(on))?$", "", args.model)  # drop suffix
             log.debug(f"url={url} fn={fn}")
             file = fn if "/" in fn else ("./" + fn)
@@ -149,9 +150,10 @@ def jmc_script():
                 sys.exit(3)
 
     # TODO check overwrite?!
-    output = file(args.output, "w") if args.output else sys.stdout
+    output = open(args.output, "w") if args.output else sys.stdout
     checker = None
 
+    # convert json to a string using prettyprint options
     def json2str(j: Jsonable) -> str:
         return json.dumps(j, sort_keys=args.sort, indent=args.indent)
 
@@ -183,6 +185,7 @@ def jmc_script():
         exec(source_code, env)
         checker = env["check_model"]
     elif args.op == "E":
+        schema: JsonSchema
         try:
             schema = model.toSchema()
         except Exception as e:

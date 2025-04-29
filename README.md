@@ -62,6 +62,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] python: pyright
 - [ ] python: flake8
 - [ ] python: ruff
+- [ ] python: coverage
 - [ ] static python: remove spurious newlines
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
