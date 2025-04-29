@@ -2,7 +2,7 @@ from typing import Any
 import sys
 import logging
 import json
-from .types import ModelType, ModelPath, JsonSchema
+from .types import ModelType, ModelPath, JsonSchema, Jsonable
 from . import utils
 from .utils import is_cst, cst, log
 
@@ -152,16 +152,20 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                             if v:
                                 schema["uniqueItems"] = True
             elif "&" in model:
-                schema["allOf"] = [model2schema(m, path + ["&", i]) for i, m in enumerate(model["&"])]
+                models = model["&"]
+                assert isinstance(models, list)  # pyright hint
+                schema["allOf"] = [model2schema(m, path + ["&", i]) for i, m in enumerate(models)]
             elif "^" in model:
-                schema["oneOf"] = [model2schema(m, path + ["^", i]) for i, m in enumerate(model["^"])]
+                models = model["^"]
+                assert isinstance(models, list)  # pyright hint
+                schema["oneOf"] = [model2schema(m, path + ["^", i]) for i, m in enumerate(models)]
             elif "|" in model:
-                # enum - liste de chaînes non vides
-                choices = model["|"]
-                if all(map(is_cst, choices)):  # all choices are constants
-                    schema["enum"] = list(map(cst, choices))
+                models = model["|"]
+                assert isinstance(models, list)
+                if all(map(is_cst, models)):  # all choices are constants
+                    schema["enum"] = list(map(cst, models))  # pyright: ignore
                 else:
-                    schema["anyOf"] = [model2schema(m, path + ["|", i]) for i, m in enumerate(choices)]
+                    schema["anyOf"] = [model2schema(m, path + ["|", i]) for i, m in enumerate(models)]
             elif "+" in model:
                 assert False,  f"+ must have been removed by preprocessing {path + ['+']}"
             else:
@@ -169,6 +173,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 properties, required, addProp = {}, [], None
                 # récupérer properties/required
                 for prop, val in model.items():
+                    assert isinstance(prop, str)
                     lpath = path + [prop]
                     # skip some properties: already managed before
                     if prop in ("~", "#", "$", "%"):
@@ -181,14 +186,20 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     elif prop[0] == "?":
                         properties[prop[1:]] = model2schema(val, lpath)
                     elif prop[0] == "/":
-                        assert prop.endswith("/")
-                        regex = prop[1:-1]
+                        if prop.endswith("/"):
+                            regex = prop[1:-1]
+                        elif prop.endswith("/i")
+                            regex = "(?i)" + prop[1:-2]
+                        else:
+                            raise Exception(f"invalid model regex: {prop}")
                         if "patternProperties" not in schema:
                             schema["patternProperties"] = {}
+                        assert isinstance(schema["patternProperties"], dict)
                         schema["patternProperties"][regex] = model2schema(val, lpath)
                         if addProp is None:
                             addProp = False
                     elif prop[0] == "$":
+                        # NOTE should be ok if simple enough so that constant propagation removed it
                         raise Exception(f"JSON Schema does not support properties as refs at {lpath}")
                     else:  # standard property
                         required.append(prop)
