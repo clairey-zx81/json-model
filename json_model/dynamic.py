@@ -7,16 +7,11 @@
 # TODO check for some obviously empty types?
 
 from typing import Callable
-import copy
 import re  # re2?
-import json
-import argparse
-import logging
-import urllib.parse
 
-from . import utils, url_cache
+from . import utils
 from .types import ModelError, ModelType, ModelArray, ModelObject
-from .types import ValueType, CheckFun, KeyCheckFun, JsonObject, Jsonable, JsonPath
+from .types import ValueType, CheckFun, KeyCheckFun, Jsonable
 from .utils import distinct_values, model_in_models, tname, log
 from .model import JsonModel
 
@@ -746,11 +741,11 @@ class DynamicCompiler(Validator):
                             v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
         else:
             if model == -1.0:
-                return lambda v, p: type(v) == float or self._no(mpath, p, "expecting a number")
+                return lambda v, p: type(v) is float or self._no(mpath, p, "expecting a number")
             elif model == 0.0:
-                return lambda v, p: type(v) == float and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
+                return lambda v, p: type(v) is float and v >= 0.0 or self._no(mpath, p, "expecting a positive number")
             else:
-                return lambda v, p: type(v) == float and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
+                return lambda v, p: type(v) is float and v > 0.0 or self._no(mpath, p, "expecting a strictly positive number")
 
     def _str_raw_compile(self, jm: JsonModel, model: str, mpath: str) -> CheckFun:
         """Compile a string."""

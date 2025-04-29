@@ -21,11 +21,10 @@ class Resolver:
         """Resolve a reference."""
 
         # separate fragment
-        # FIXME use parse url instead?
         if "#" in ref:
-            url, fragment = ref.split("#", 1)
+            url, _fragment = ref.split("#", 1)
         else:
-            url, fragment = ref, None
+            url, _fragment = ref, None
 
         # follow mappings
         changes, previous = 0, -1
@@ -47,7 +46,7 @@ class Resolver:
             file = url
         elif ref.startswith("file://"):
             file = url[7:]
-        elif not ":" in ref:
+        elif ":" not in ref:
             file = "./" + ref
         else:
             file = None

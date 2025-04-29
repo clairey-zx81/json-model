@@ -175,7 +175,11 @@ def jmc_script():
         checker = DynamicCompiler(model)
         if args.debug or args.code:
             import dis
-            print(dis.dis(checker), file=output)
+            for jmid in sorted(checker._compiled.keys()):
+                fun = checker._compiled[jmid]
+                asm = re.sub(r"(?m)^\d+", lambda m: " " * len(m.group(0)), dis.Bytecode(fun).dis())
+                print(f"#\n# json model {jmid}\n#", file=output)
+                print(asm, file=output)
     elif args.op == "S":
         code = static_compile(model, "check_model", debug=args.debug)
         source_code = f"# Generated for model: {args.model}\n" + str(code)

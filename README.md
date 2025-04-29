@@ -60,8 +60,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: recheck existing tests in rwt
 - [x] static: deterministic set output
 - [x] python: pyright
+- [x] python: ruff
 - [ ] python: flake8
-- [ ] python: ruff
 - [ ] python: coverage
 - [ ] dynamic: fix output instability
 - [ ] static python: remove spurious newlines

@@ -14,14 +14,11 @@
 #   - { True, 1, 1.0 } == { True }
 #   as a consequence, some generated code may not provide the hoped answer
 
-from typing import Any, Callable
 import re
 import json
-import logging
-import argparse
 
-from .types import ModelType, ModelError, ModelPath, UnknownModel, Symbols
-from .utils import openfiles, split_object, model_in_models, all_model_type, constant_value, log, tname, json_path
+from .types import ModelType, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
+from .utils import split_object, model_in_models, all_model_type, constant_value, log, tname, json_path
 from .defines import Validator
 from .model import JsonModel
 
@@ -238,7 +235,7 @@ class SourceCode(Validator):
         """Generate re check expression on a value."""
         return f"{self._regex(regex)}({val}) is not None"
 
-    def _esc(self, val: Any):
+    def _esc(self, val: Jsonable):
         """Escape value as necessary."""
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
         return json.dumps(val) if isinstance(val, str) else str(val)

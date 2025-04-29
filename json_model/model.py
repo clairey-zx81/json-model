@@ -1,9 +1,6 @@
 import copy
 import re
-import sys
-import logging
 import typing
-import json
 from collections.abc import MutableMapping
 import threading
 
@@ -367,7 +364,7 @@ class JsonModel:
                 case None:
                     pass
                 case bool():
-                    is_valid &= model == True
+                    is_valid &= model
                 case int():
                     is_valid &= model in (-1, 0, 1)
                 case float():
@@ -512,9 +509,9 @@ class JsonModel:
                         if isinstance(m, dict) and op in m:
                             changes += 1
                             updated = True
-                            l = m[op]
-                            assert isinstance(l, list)
-                            nmodels.extend(l)
+                            lm = m[op]
+                            assert isinstance(lm, list)
+                            nmodels.extend(lm)
                         else:
                             nmodels.append(m)
                     if updated:
@@ -560,12 +557,12 @@ class JsonModel:
             return isinstance(o, dict) and (len(o) == 0 or len(o) == 1 and "#" in o)
 
         def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
-            return type(i) == type(j) and i == j
+            return type(i) is type(j) and i == j
 
-        def deduplicate(l):
+        def deduplicate(lv):
             # return list(set(l))  # too easy: {True, 1} == {True}
             n = []
-            for i in l:
+            for i in lv:
                 if not any(map(lambda x: real_equal(x, i), n)):
                     n.append(i)
             return n
@@ -590,9 +587,9 @@ class JsonModel:
                     elif "$NONE" in lor:
                         changes += 1
                         model["|"] = lor = list(filter(lambda m: m != "$NONE", lor))
-                    elif len(l := deduplicate(lor)) != len(lor):
+                    elif len(lv := deduplicate(lor)) != len(lor):
                         changes += 1
-                        model["|"] = lor = l
+                        model["|"] = lor = lv
                     if len(lor) == 1:
                         changes += 1
                         return lor[0]
@@ -605,9 +602,9 @@ class JsonModel:
                     elif "$NONE" in land:
                         changes += 1
                         return "$NONE"
-                    elif len(l := deduplicate(land)) != len(land):
+                    elif len(lv := deduplicate(land)) != len(land):
                         changes += 1
-                        model["&"] = land = l
+                        model["&"] = land = lv
                     if len(land) == 1:
                         changes += 1
                         return land[0]
@@ -868,7 +865,7 @@ class JsonModel:
             references[self._id] = root_ref
 
         # override URLs with their target
-        if is_url := self.isUrlRef():
+        if self.isUrlRef():
             jm = self.resolveRef(self._model, [])
             symbols[root_ref] = jm
             jm.scope(symbols, root, visited, references)
@@ -1016,16 +1013,16 @@ class JsonModel:
                     is_xor |= "^" in m
                     assert isinstance(alts, list)
                     lmodels = [
-                        copy.deepcopy(l) + [n]
-                            for l in lmodels
+                        copy.deepcopy(lm) + [n]
+                            for lm in lmodels
                                 for n in alts
                     ]
                 else:
-                    for l in lmodels:
-                        l.append(m)
+                    for lm in lmodels:
+                        lm.append(m)
 
             # substitute + by ^ or | in place
-            model["^" if is_xor else "|"] = [{"+": l} for l in lmodels]
+            model["^" if is_xor else "|"] = [{"+": lo} for lo in lmodels]
             del model["+"]
 
             return dive
@@ -1041,7 +1038,7 @@ class JsonModel:
 
         def moRwt(model: ModelType, path: ModelPath) -> ModelType:
             nonlocal updated
-            if not isinstance(model, dict) or not "+" in model:
+            if not isinstance(model, dict) or "+" not in model:
                 return model
             updated = True
             plus = model["+"]
@@ -1133,7 +1130,7 @@ class JsonModel:
         return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
-        if not isinstance(trafo, dict) or not "/" in trafo and not "*" in trafo:
+        if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo:
             # $ANY
             return trafo
         assert self._isTrafo(trafo)
@@ -1152,7 +1149,7 @@ class JsonModel:
                 else:
                     raise ModelError(f"cannot remove list from {tname(j)}")
             else:
-                raise ModelError(f"expecting a remove list")
+                raise ModelError("expecting a remove list")
         if "*" in trafo:
             add = trafo["*"]
             if isinstance(add, list):

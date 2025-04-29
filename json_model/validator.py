@@ -375,7 +375,7 @@ class DSV(Validator):
     def check(self, value: Any, model: Any, strict: bool = True) -> bool:
         """Recursive type checker."""
         # FIXME ???
-        defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
+        _defs = {k: self._defs.model(k) for k in self._defs._models.keys()}
         return self._type[type(model)](value, model, strict)
 
     def set(self, ident: str, model: Callable[[Any], bool]|Any, mpath: str = ""):

@@ -55,7 +55,7 @@ def distinct_values(val: Jsonable) -> bool:
     if isinstance(val, (list, tuple, str)):
         seen = []
         for i in val:
-            if any(map(lambda v: type(v) == type(i) and v == i, seen)):
+            if any(map(lambda v: type(v) is type(i) and v == i, seen)):
                 return False
             seen.append(i)
     return True
