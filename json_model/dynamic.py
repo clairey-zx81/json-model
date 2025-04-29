@@ -16,8 +16,9 @@ import urllib.parse
 
 from . import utils, url_cache
 from .types import ModelError, ModelType, ModelArray, ModelObject
-from .types import ValueType, CheckFun, KeyCheckFun, JsonModel, JsonObject, Jsonable
+from .types import ValueType, CheckFun, KeyCheckFun, JsonObject, Jsonable, JsonPath
 from .utils import distinct_values, model_in_models, tname, log
+from .model import JsonModel
 
 # FIXME move to validator? change name?!
 from .defines import Validator
@@ -123,7 +124,8 @@ class DynamicCompiler(Validator):
                                     re.match(r"\d{4}-\d{2}-\d{2}$", v) is not None or
                                     self._no("<DATE>", p, "invalid date"))
         self._defs.set("$URL",  # FIXME partial!
-                       lambda v, p: isinstance(v, str) and re.match(r"(https?|file)://.*|\.|/", v) or
+                       lambda v, p: isinstance(v, str) and  # type: ignore
+                                    re.match(r"(https?|file)://.*|\.|/", v) or
                                     self._no("<URL>", p, "invalid URL"))
 
         # actually compile the model
@@ -151,7 +153,7 @@ class DynamicCompiler(Validator):
         if ref in self._defs:
             return self._defs.get(ref)
         # URL or simple refs only
-        jmref = jm.resolveRef(ref, mpath.split("."))
+        jmref = jm.resolveRef(ref, mpath.split("."))  # pyright: ignore
         refid = jmref._id
         if refid not in self._compiled_ids:
             self._compile(jmref, ref)
@@ -442,7 +444,7 @@ class DynamicCompiler(Validator):
     def _disjunction(self, jm: JsonModel, model: ModelObject, mpath: str) -> CheckFun|None:
 
         # FIXME split
-        dis = self._disjunct_analyse(jm, model, mpath.split("."))
+        dis = self._disjunct_analyse(jm, model, mpath.split("."))  # pyright: ignore
         if dis is None:
             return None
         tag_name, tag_type, models, all_const_props = dis
