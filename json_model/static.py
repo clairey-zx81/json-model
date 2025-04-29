@@ -618,7 +618,9 @@ class SourceCode(Validator):
                             else:
                                 n_models.append(models[i])
                         if constants:
-                            code.add(indent, f"{res} = not isinstance({val}, (list, dict)) and {val} in {constants}")
+                            # ensure a deterministic output
+                            sconst = "{" + str(sorted(constants))[1:-1] + "}"
+                            code.add(indent, f"{res} = not isinstance({val}, (list, dict)) and {val} in {sconst}")
                             if not n_models:
                                 return
                             code.add(indent, f"if not {res}:")

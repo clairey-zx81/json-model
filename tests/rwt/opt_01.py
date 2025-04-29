@@ -44,7 +44,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
-    result = not isinstance(value, (list, dict)) and value in {'Susie', 'Calvin', 'Hobbes'}
+    result = not isinstance(value, (list, dict)) and value in {'Calvin', 'Hobbes', 'Susie'}
     return result
 
 # entry function check_model
