@@ -188,7 +188,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     elif prop[0] == "/":
                         if prop.endswith("/"):
                             regex = prop[1:-1]
-                        elif prop.endswith("/i")
+                        elif prop.endswith("/i"):
                             regex = "(?i)" + prop[1:-2]
                         else:
                             raise Exception(f"invalid model regex: {prop}")
