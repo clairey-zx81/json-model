@@ -1,0 +1,5 @@
+orob00.0.true.json: True
+orob00.1.true.json: True
+orob00.2.false.json: False [('.|[0]', '$.b', 'unexpected property b'), ('.|[1]', '$.a', 'unexpected property a'), ('.|', '$', 'no any matched')]
+orob00.3.false.json: False [('.|[0]', '$', 'not an object'), ('.|[1]', '$', 'not an object'), ('.|', '$', 'no any matched')]
+orob00.4.false.json: False [('.|[0]', '$', 'missing mandatory key: a'), ('.|[1]', '$', 'missing mandatory key: b'), ('.|', '$', 'no any matched')]

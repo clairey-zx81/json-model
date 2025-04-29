@@ -258,11 +258,11 @@ class SourceCode(Validator):
         self._compileModel(code, indent, jm, model["@"], mpath + ["@"], res, val, vpath)
         tmodel = self._ultimate_type(jm, model["@"])  # pyright: ignore
         # NOTE UnknownModel should raise an error on any constraint
-        # FIXME None?
-        assert tmodel in (int, float, str, list, dict, UnknownModel), f"simple {tmodel}"
+        # FIXME None? multiple types?! see _untype00.model.json
+        assert tmodel in (int, float, str, list, dict, UnknownModel, None), f"simple {tmodel}"
         checks = []
         what = f"len({val})" if tmodel in (list, dict) else val
-        twhat = int if tmodel in (list, dict) else tmodel
+        twhat = int if tmodel in (list, dict, None) else tmodel
         for constraint in ("=", "!=", "<", "<=", ">", ">="):
             if constraint in model:
                 op = "==" if constraint == "=" else constraint

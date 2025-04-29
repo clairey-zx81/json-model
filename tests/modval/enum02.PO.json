@@ -1,0 +1,29 @@
+{
+  "#": "JsonModel 0",
+  "$": {
+    "": "./enum02.model.json",
+    "#": "Symbol 1",
+    "p1": {
+      "#": "JsonModel 1",
+      "|": [
+        "Susie",
+        "Calvin",
+        "Hobbes",
+        "Moe"
+      ]
+    },
+    "p2": {
+      "#": "JsonModel 2",
+      "|": [
+        "Castafiore",
+        "Haddock",
+        "Milou",
+        "Tintin"
+      ]
+    }
+  },
+  "^": [
+    "$p1",
+    "$p2"
+  ]
+}

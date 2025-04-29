@@ -1,0 +1,10 @@
+{
+  "allOf": [
+    {
+      "const": 2
+    },
+    {
+      "type": "string"
+    }
+  ]
+}

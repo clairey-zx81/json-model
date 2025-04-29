@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "A": {
+      "anyOf": [
+        {
+          "properties": {
+            "a": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "a"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "b": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "b"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "B": {
+      "anyOf": [
+        {
+          "properties": {
+            "c": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "c"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "d": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "d"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "c"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "d": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "d"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "c": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "b",
+        "c"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "d": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "b",
+        "d"
+      ],
+      "type": "object"
+    }
+  ]
+}

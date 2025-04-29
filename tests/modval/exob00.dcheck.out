@@ -1,0 +1,3 @@
+exob00.0.true.json: True
+exob00.1.true.json: True
+exob00.2.false.json: False [('<NONE>', '$.b', '$NONE'), ('.|[0].b', '$.b', '$NONE failed'), ('<NONE>', '$.a', '$NONE'), ('.|[1].a', '$.a', '$NONE failed'), ('.|', '$', 'no any matched')]

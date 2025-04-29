@@ -1,0 +1,18 @@
+{
+  "$defs": {
+    "rec": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#rec"
+          },
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$ref": "#rec"
+}

@@ -1,0 +1,19 @@
+{
+  "anyOf": [
+    {
+      "const": "Susie"
+    },
+    {
+      "const": "Calvin"
+    },
+    {
+      "pattern": "[0-9]",
+      "type": "string"
+    },
+    {
+      "pattern": "[a-z]",
+      "type": "string"
+    }
+  ],
+  "description": "deux cha\u00eenes constantes et deux re, s\u00e9paration possible ; constantes matchent re\u2026"
+}

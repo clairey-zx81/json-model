@@ -1,0 +1,7 @@
+tag00.0.true.json: True
+tag00.1.true.json: True
+tag00.2.false.json: False [('.A.t', '$.t', 'expecting integer 1'), ('.|[0]', '$', '$A failed'), ('.B.t', '$.t', 'expecting integer 2'), ('.|[1]', '$', '$B failed'), ('.|', '$', 'no any matched')]
+tag00.3.false.json: False [('.A', '$.b', 'unexpected property b'), ('.|[0]', '$', '$A failed'), ('.B.t', '$.t', 'expecting integer 2'), ('.|[1]', '$', '$B failed'), ('.|', '$', 'no any matched')]
+tag00.4.false.json: False [('.A', '$.b', 'unexpected property b'), ('.|[0]', '$', '$A failed'), ('.B', '$.a', 'unexpected property a'), ('.|[1]', '$', '$B failed'), ('.|', '$', 'no any matched')]
+tag00.5.false.json: False [('.A', '$', 'not an object'), ('.|[0]', '$', '$A failed'), ('.B', '$', 'not an object'), ('.|[1]', '$', '$B failed'), ('.|', '$', 'no any matched')]
+tag00.6.false.json: False [('.A.t', '$.t', 'expecting integer 1'), ('.|[0]', '$', '$A failed'), ('.B.t', '$.t', 'expecting integer 2'), ('.|[1]', '$', '$B failed'), ('.|', '$', 'no any matched')]

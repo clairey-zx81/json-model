@@ -1,0 +1,41 @@
+{
+  "oneOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "description": "oops!",
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    }
+  ]
+}

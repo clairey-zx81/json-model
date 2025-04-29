@@ -1,0 +1,36 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "t": {
+          "const": 1
+        }
+      },
+      "required": [
+        "t",
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "t": {
+          "const": 2
+        }
+      },
+      "required": [
+        "t",
+        "b"
+      ],
+      "type": "object"
+    }
+  ]
+}

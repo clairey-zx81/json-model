@@ -1,0 +1,10 @@
+{
+  "description": "not a word",
+  "oneOf": [
+    true,
+    {
+      "pattern": "(?i)^[a-z]+$",
+      "type": "string"
+    }
+  ]
+}

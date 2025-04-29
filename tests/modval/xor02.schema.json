@@ -1,0 +1,29 @@
+{
+  "description": "this is $NONE",
+  "oneOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    }
+  ]
+}

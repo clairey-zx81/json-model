@@ -1,0 +1,29 @@
+{
+  "anyOf": [
+    {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "properties": {
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "b"
+      ],
+      "type": "object"
+    }
+  ],
+  "description": "no discriminant or"
+}

@@ -1,0 +1,3 @@
+or02.0.true.json: True
+or02.1.false.json: False [('.|[0]', '$', 'expecting integer 10'), ('.|[1]', '$', 'expecting integer 42'), ('.|', '$', 'no any matched')]
+or02.2.false.json: False [('.|[0]', '$', 'expecting integer 10'), ('.|[1]', '$', 'expecting integer 42'), ('.|', '$', 'no any matched')]

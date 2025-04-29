@@ -1,0 +1,39 @@
+{
+  "anyOf": [
+    {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "b": false
+      },
+      "required": [
+        "a"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "properties": {
+        "a": false,
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "b"
+      ],
+      "type": "object"
+    }
+  ],
+  "description": "exclusive properties: a ^ b"
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./tag01.model.json",
+      "#": "Symbol 1",
+      "A": {
+        "#": "JsonModel 1",
+        "a": 0,
+        "t": "=true"
+      },
+      "B": {
+        "#": "JsonModel 2",
+        "b": 0,
+        "t": "=false"
+      }
+    },
+    "|": [
+      "$A",
+      "$B"
+    ]
+  },
+  {
+    "#": "JsonModel 1",
+    "a": 0,
+    "t": "=true"
+  },
+  {
+    "#": "JsonModel 2",
+    "b": 0,
+    "t": "=false"
+  }
+]

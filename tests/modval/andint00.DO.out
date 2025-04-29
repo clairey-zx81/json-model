@@ -1,0 +1,23 @@
+#
+# json model 0
+#
+              0 COPY_FREE_VARS           3
+              2 MAKE_CELL                0 (v)
+              4 MAKE_CELL                1 (p)
+
+              6 RESUME                   0
+              8 LOAD_DEREF               3 (self)
+             10 LOAD_ATTR                1 (NULL|self + _all)
+             30 LOAD_GLOBAL              3 (NULL + map)
+             40 LOAD_CLOSURE             1 (p)
+             42 LOAD_CLOSURE             0 (v)
+             44 BUILD_TUPLE              2
+             46 LOAD_CONST               1 (<*>)
+             48 MAKE_FUNCTION            8 (closure)
+             50 LOAD_DEREF               4 (subs)
+             52 CALL                     2
+             60 LOAD_DEREF               2 (mp)
+             62 LOAD_DEREF               1 (p)
+             64 CALL                     3
+             72 RETURN_VALUE
+

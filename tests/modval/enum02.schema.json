@@ -1,0 +1,28 @@
+{
+  "$defs": {
+    "p1": {
+      "enum": [
+        "Susie",
+        "Calvin",
+        "Hobbes",
+        "Moe"
+      ]
+    },
+    "p2": {
+      "enum": [
+        "Castafiore",
+        "Haddock",
+        "Milou",
+        "Tintin"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#p1"
+    },
+    {
+      "$ref": "#p2"
+    }
+  ]
+}

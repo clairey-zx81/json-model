@@ -1,0 +1,57 @@
+{
+  "properties": {
+    "movie": {
+      "anyOf": [
+        {
+          "properties": {
+            "t": {
+              "const": "fr"
+            },
+            "titre": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "t",
+            "titre"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "t": {
+              "const": "en"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "t",
+            "title"
+          ],
+          "type": "object"
+        },
+        {
+          "properties": {
+            "suti": {
+              "type": "string"
+            },
+            "t": {
+              "const": "ru"
+            }
+          },
+          "required": [
+            "t",
+            "suti"
+          ],
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "required": [
+    "movie"
+  ],
+  "type": "object"
+}

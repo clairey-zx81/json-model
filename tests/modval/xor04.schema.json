@@ -1,0 +1,11 @@
+{
+  "anyOf": [
+    {
+      "type": "number"
+    },
+    {
+      "pattern": "(?i)^[a-z]+$",
+      "type": "string"
+    }
+  ]
+}

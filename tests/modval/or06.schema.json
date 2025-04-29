@@ -1,0 +1,11 @@
+{
+  "anyOf": [
+    {
+      "const": "Susie"
+    },
+    {
+      "pattern": "^[a-z]+$",
+      "type": "string"
+    }
+  ]
+}

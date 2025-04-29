@@ -1,0 +1,14 @@
+{
+  "anyOf": [
+    {
+      "const": "Susie"
+    },
+    {
+      "const": "Calvin"
+    },
+    {
+      "pattern": "[0-9]",
+      "type": "string"
+    }
+  ]
+}

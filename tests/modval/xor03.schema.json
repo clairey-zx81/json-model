@@ -1,0 +1,10 @@
+{
+  "description": "(any xor m) is (not m)",
+  "oneOf": [
+    true,
+    {
+      "minimum": 0,
+      "type": "integer"
+    }
+  ]
+}

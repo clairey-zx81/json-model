@@ -1,0 +1,1 @@
+xorob02.0.false.json: False [('.|[0]', '$', 'missing mandatory key: a b'), ('.|[1]', '$', 'missing mandatory key: a c'), ('.|[2]', '$', 'missing mandatory key: a b c'), ('.|[3]', '$', 'missing mandatory key: b c'), ('.|', '$', 'no any matched')]

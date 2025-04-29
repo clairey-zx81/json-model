@@ -1,0 +1,3 @@
+rec00.00.true.json: True
+rec00.01.true.json: True
+rec00.02.false.json: False [('$rec.|[0]', '$', 'expecting a boolean'), ('.obj', '$', 'not an object'), ('$rec.|[1]', '$', '$obj failed'), ('$rec.|', '$', 'no any matched'), ('', '$', '$rec failed')]

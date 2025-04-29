@@ -1,0 +1,28 @@
+#
+# json model 0
+#
+              0 COPY_FREE_VARS           3
+
+              2 RESUME                   0
+              4 PUSH_NULL
+              6 LOAD_DEREF               2 (check)
+              8 LOAD_FAST                0 (v)
+             10 LOAD_FAST                1 (p)
+             12 CALL                     2
+             20 UNARY_NOT
+             22 COPY                     1
+             24 POP_JUMP_IF_TRUE        22 (to 70)
+             26 POP_TOP
+
+             28 LOAD_DEREF               4 (self)
+             30 LOAD_ATTR                1 (NULL|self + _no)
+             50 LOAD_DEREF               3 (mp)
+             52 FORMAT_VALUE             0
+             54 LOAD_CONST               1 ('[?]')
+             56 BUILD_STRING             2
+             58 LOAD_FAST                1 (p)
+             60 LOAD_CONST               2 ('model inversion (not with $ANY)')
+             62 CALL                     3
+
+        >>   70 RETURN_VALUE
+

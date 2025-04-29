@@ -1,0 +1,2 @@
+ERROR:json-model:cannot resolve: ./bads/*.model.json
+ERROR:json-model:invalid model bads/*.model.json

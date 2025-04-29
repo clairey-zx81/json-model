@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "type": "number"
+    },
+    {
+      "type": "number"
+    },
+    {
+      "type": "number"
+    }
+  ]
+}

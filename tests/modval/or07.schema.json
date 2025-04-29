@@ -1,0 +1,13 @@
+{
+  "anyOf": [
+    {
+      "type": "null"
+    },
+    {
+      "type": "integer"
+    },
+    {
+      "type": "string"
+    }
+  ]
+}

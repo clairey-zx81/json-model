@@ -1,0 +1,44 @@
+{
+  "$defs": {
+    "A": {
+      "properties": {
+        "a": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "t": {
+          "const": true
+        }
+      },
+      "required": [
+        "t",
+        "a"
+      ],
+      "type": "object"
+    },
+    "B": {
+      "properties": {
+        "b": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "t": {
+          "const": false
+        }
+      },
+      "required": [
+        "t",
+        "b"
+      ],
+      "type": "object"
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#A"
+    },
+    {
+      "$ref": "#B"
+    }
+  ]
+}
