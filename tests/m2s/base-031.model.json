@@ -1,4 +1,6 @@
 {
-  "$": "self",
-  "bibi": [ "$self" ]
+  "$": {
+    "bibi": {"bibi": [ "$bibi" ]}
+  },
+  "@": "$bibi"
 }

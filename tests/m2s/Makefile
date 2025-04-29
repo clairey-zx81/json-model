@@ -5,4 +5,4 @@ F.schema = $(F.model:%.model.json=%.schema.json)
 default: $(F.schema)
 
 %.schema.json: %.model.json
-	model2schema $< > $@
+	jmc -EO $< > $@

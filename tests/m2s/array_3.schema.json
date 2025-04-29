@@ -1,12 +1,12 @@
 {
-  "type": "array",
+  "items": false,
   "prefixItems": [
     {
       "type": "boolean"
     },
     {
-      "type": "integer",
-      "minimum": 0
+      "minimum": 0,
+      "type": "integer"
     },
     {
       "type": "number"
@@ -15,5 +15,5 @@
       "type": "string"
     }
   ],
-  "items": false
+  "type": "array"
 }

@@ -1,18 +1,18 @@
 {
-  "type": "object",
+  "additionalProperties": {
+    "type": "string"
+  },
   "properties": {
+    "age": {
+      "minimum": 0,
+      "type": "integer"
+    },
     "nom": {
       "type": "string"
-    },
-    "age": {
-      "type": "integer",
-      "minimum": 0
     }
   },
   "required": [
     "nom"
   ],
-  "additionalProperties": {
-    "type": "string"
-  }
+  "type": "object"
 }

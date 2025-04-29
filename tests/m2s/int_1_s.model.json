@@ -1,4 +1,4 @@
 {
-  "#": { "options": [ "signed-int" ] },
+  "#": "JSON_MODEL_SIGNED_INT",
   "@": 1
 }

@@ -1,5 +1,5 @@
 {
-  "type": "integer",
   "maximum": 10,
-  "minimum": 1
+  "minimum": 1,
+  "type": "integer"
 }

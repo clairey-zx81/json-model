@@ -1,12 +1,19 @@
 {
-  "$anchor": "self",
-  "type": "object",
-  "properties": {
+  "$defs": {
     "bibi": {
-      "type": "array",
-      "items": {
-        "$ref": "#self"
-      }
+      "properties": {
+        "bibi": {
+          "items": {
+            "$ref": "#bibi"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "bibi"
+      ],
+      "type": "object"
     }
-  }
+  },
+  "$ref": "#bibi"
 }
