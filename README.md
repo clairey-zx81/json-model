@@ -66,6 +66,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] refactor: move basic script pre processing as functions
 - [x] tests: test schemas and values with jsu
 - [ ] feature: simplify lib usage wrt script-like features with some functions
+- [ ] design: handle `.` and `/` references as relative url
 - [ ] python: remove globals in Symbols and JsonModel
 - [ ] python: refactor and cleanup
 - [ ] python: coverage
@@ -74,13 +75,13 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
+- [ ] tests: working `make check`
 - [ ] output: improve `-P` to have a re-intrant model
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
 - [ ] feature: static js/ts compiler
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
-- [ ] doc: add doc
 - [ ] tests: add github CI
 - [ ] feature: think about code integration in a realistic project? doc and usability?
 - [ ] doc: check and document API entry points
@@ -91,10 +92,12 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
 - [ ] extend: `.schema` extension to add JSON Schema specific stuff?
 - [ ] extend: accepting any extension?! eg opened objects?
+- [ ] extend: data structure _documentation_
 - [ ] feature: conditionals or not conditionals… eg for interfaces
       if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
+- [ ] doc: add doc
 
 ## WIP
 
