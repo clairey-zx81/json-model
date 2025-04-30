@@ -65,6 +65,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: flake8
 - [x] refactor: move basic script pre processing as functions
 - [x] tests: test schemas and values with jsu
+- [ ] tests: rename with explicit `-v2`
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] python: remove globals in Symbols and JsonModel
