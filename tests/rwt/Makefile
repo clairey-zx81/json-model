@@ -71,6 +71,7 @@ py: $(F.SO)
 
 # test that --check rejects **all** bads
 bads.check.out:
+	shopt -s nullglob
 	for bad in bads/*.model.json ; do
 	  $(JMC) --check -PO $$bad && exit 1
 	done 2> $@
@@ -138,6 +139,7 @@ jcheck: $(F.js)
 
 # special cases
 json-model-v2.jcheck.out: json-model-v2.schema.json
+	shopt -s nullglob
 	$(JS_CHECK) $< *.model.json bads/*.model.json > $@
 
 l10n.jcheck.out: l10n.schema.json

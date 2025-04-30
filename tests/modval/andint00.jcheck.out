@@ -1,0 +1,4 @@
+andint00.0.true.json: PASS
+andint00.1.false.json: FAIL
+andint00.2.false.json: FAIL
+andint00.3.false.json: FAIL

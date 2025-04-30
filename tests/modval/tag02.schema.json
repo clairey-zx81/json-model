@@ -1,6 +1,7 @@
 {
   "anyOf": [
     {
+      "additionalProperties": false,
       "properties": {
         "a": {
           "minimum": 0,
@@ -17,6 +18,7 @@
       "type": "object"
     },
     {
+      "additionalProperties": false,
       "properties": {
         "b": {
           "minimum": 0,
