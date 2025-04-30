@@ -59,6 +59,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] static: generate separate `check_model` root function and simplify code.
 - [x] tests: recheck existing tests in rwt
 - [x] static: deterministic set output
+- [x] dynamic: fix output instability
 - [x] python: pyright
 - [x] python: ruff
 - [x] python: flake8
@@ -67,7 +68,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] python: remove globals in Symbols and JsonModel
 - [ ] python: refactor and cleanup
 - [ ] python: coverage
-- [ ] dynamic: fix output instability
 - [ ] static: remove spurious newlines
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
@@ -89,6 +89,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)
 - [ ] extend: direct object creation (Python pydantic, JS)?
 - [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
+- [ ] extend: `.schema` extension to add JSON Schema specific stuff?
 - [ ] extend: accepting any extension?! eg opened objects?
 - [ ] feature: conditionals or not conditionals… eg for interfaces
       if not in the description language, it should be easy to express outside.
