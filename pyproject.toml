@@ -18,7 +18,10 @@ dependencies = [ "requests", "google-re2" ]
 
 [project.optional-dependencies]
 # dev = [ "pytest", "pyyaml", "flake8", "ruff", "pyright" ]
-dev = [ "flake8", "ruff", "pyright" ]
+dev = [
+  "flake8", "ruff", "pyright",
+  "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
+]
 
 [project.scripts]
 jmc = "json_model:jmc_script"

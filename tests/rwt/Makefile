@@ -25,7 +25,7 @@ F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) bads.check.out
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) $(F.js) bads.check.out
 
 .PHONY: gen
 gen: $(F.gen)
@@ -129,6 +129,10 @@ l10n.scheck.out: l10n.model.json
 
 #
 # JSON Schema Checks
+#
+# this is not perfect:
+# - models distinguish between floats and ints, schema not really.
+# - the json schema library used does not seem to implement "format" checks.
 #
 JS_CHECK    = jsu-check --quiet
 

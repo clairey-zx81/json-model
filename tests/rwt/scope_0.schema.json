@@ -8,6 +8,7 @@
   },
   "$id": "./scope_0.model.json",
   "items": false,
+  "minItems": 2,
   "prefixItems": [
     {
       "$ref": "#/$defs/S"

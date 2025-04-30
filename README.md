@@ -64,6 +64,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: ruff
 - [x] python: flake8
 - [x] refactor: move basic script pre processing as functions
+- [x] tests: test schemas and values with jsu
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] python: remove globals in Symbols and JsonModel
 - [ ] python: refactor and cleanup
@@ -73,7 +74,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
-- [ ] tests: test schemas with jsu?
 - [ ] output: improve `-P` to have a re-intrant model
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
