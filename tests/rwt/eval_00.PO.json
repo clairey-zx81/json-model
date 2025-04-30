@@ -1,5 +1,10 @@
 {
   "#": "JsonModel 0 with defs",
-  "$": "Symbol 1",
+  "$": {
+    "": "./eval_00.model.json",
+    "#": "Symbol 1",
+    "false": "$NONE",
+    "true": "$ANY"
+  },
   "@": "$ANY"
 }

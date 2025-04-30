@@ -62,6 +62,10 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: pyright
 - [x] python: ruff
 - [x] python: flake8
+- [x] refactor: move basic script pre processing as functions
+- [ ] feature: simplify lib usage wrt script-like features with some functions
+- [ ] python: remove globals in Symbols and JsonModel
+- [ ] python: refactor and cleanup
 - [ ] python: coverage
 - [ ] dynamic: fix output instability
 - [ ] static: remove spurious newlines
@@ -72,12 +76,10 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] tests: test schemas with jsu?
 - [ ] output: improve `-P` to have a re-intrant model
 - [ ] output: prettyprint rejection reasons?
-- [ ] python: refactor and cleanup
 - [ ] feature: direct validator
 - [ ] feature: static js/ts compiler
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
-- [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] doc: add doc
 - [ ] tests: add github CI
 - [ ] feature: think about code integration in a realistic project? doc and usability?

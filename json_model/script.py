@@ -3,12 +3,75 @@ import re
 import json
 import logging
 
-from .types import Jsonable, JsonSchema
+from .types import Jsonable, JsonSchema, ModelError
 from .utils import log, tname
 from .resolver import Resolver
 from .model import JsonModel
 from .dynamic import DynamicCompiler
 from .static import static_compile
+
+def create_model(murl: str, resolver: Resolver,
+                 auto: bool = False, debug: bool = False) -> JsonModel:
+
+    # load JSON
+    j = resolver(murl, [])
+
+    # handle automatic URL mapping
+    if auto and (isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
+        url = j["$"][""]
+        assert isinstance(url, str), f"$ expects a string: {tname(url)}"
+        fn = re.sub(r"(\.model)?(\.js(on))?$", "", murl)  # drop suffix
+        log.debug(f"url={url} fn={fn}")
+        file = fn if "/" in fn else ("./" + fn)
+        if fn != url and file != url and "/" in url:
+            upref, uend = url.rsplit("/", 1)
+            fpref, fend = file.rsplit("/", 1)
+            log.debug(f"upref={upref} fpref={fpref}")
+            if upref not in resolver._maps and uend == fend:
+                log.info(f"auto adding url map: {upref} -> {fpref}")
+                resolver._maps[upref] = fpref
+
+    # build model
+    return JsonModel(j, resolver, None, None, murl, True, debug)
+
+def process_model(model: JsonModel, check: bool = True,
+                  merge: bool = True, optimize: bool = True, debug: bool = False):
+
+    # initial sanity check
+    if debug or check:
+        for m in JsonModel.MODELS:
+            if not m.valid():
+                raise ModelError(f"invalid initial model {model._url}[{model._id}]")
+
+    # simplify before merging
+    if optimize:
+        for m in JsonModel.MODELS:
+            m.optimize()
+
+    # check after initial optimize
+    if debug or check:
+        # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
+        for m in JsonModel.MODELS:
+            if not m.valid():
+                raise ModelError(f"invalid optimized model {model._url}[{model._id}]")
+
+    # merge in reverse order to move alts up before inlining?!
+    if merge:
+        for m in reversed(JsonModel.MODELS):
+            m.merge()
+
+    # optimize again?
+    if optimize:
+        for m in JsonModel.MODELS:
+            m.optimize()
+
+    # check after merge & optimize
+    if debug or check:
+        # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
+        for m in JsonModel.MODELS:
+            # assert m.valid()
+            if not m.valid():
+                raise ModelError(f"invalid merged model {model._url}[{model._id}]")
 
 def jmc_script():
 
@@ -85,25 +148,10 @@ def jmc_script():
     resolver = Resolver(None, maps)
 
     log.info(f"processing {args.model}")
+
+    # CREATE FROM FILE OR URL
     try:
-        j = resolver(args.model, [])
-        # automatic URL mapping
-        if args.auto and (
-            isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
-            # add automatic mapping
-            url = j["$"][""]
-            assert isinstance(url, str), f"$ expects a string: {tname(url)}"
-            fn = re.sub(r"(\.model)?(\.js(on))?$", "", args.model)  # drop suffix
-            log.debug(f"url={url} fn={fn}")
-            file = fn if "/" in fn else ("./" + fn)
-            if fn != url and file != url and "/" in url:
-                upref, uend = url.rsplit("/", 1)
-                fpref, fend = file.rsplit("/", 1)
-                log.debug(f"upref={upref} fpref={fpref}")
-                if upref not in resolver._maps and uend == fend:
-                    log.info(f"auto adding url map: {upref} -> {fpref}")
-                    resolver._maps[upref] = fpref
-        model = JsonModel(j, resolver, None, None, args.model, True, args.debug)
+        model = create_model(args.model, resolver, args.auto, args.debug)
         assert model._isolated
     except BaseException as e:
         log.error(e)
@@ -113,45 +161,14 @@ def jmc_script():
             log.error(f"invalid model {args.model}")
             sys.exit(2)
 
-    # initial sanity check
-    if args.debug or args.check:
-        for m in JsonModel.MODELS:
-            if not m.valid():
-                log.error(f"invalid initial model {args.model}[{m._id}]")
-                sys.exit(3)
+    # PREPROCESSING
+    try:
+        process_model(model, args.check, args.op != "N", args.optimize, args.debug)
+    except BaseException as e:
+        log.error(e, excp_info=args.debug)
+        sys.exit(3)
 
-    # simplify before merging
-    if args.optimize:
-        for m in JsonModel.MODELS:
-            m.optimize()
-
-    # check after initial optimize
-    if args.debug or args.check:
-        log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for m in JsonModel.MODELS:
-            if not m.valid():
-                log.error(f"invalid optimized model {args.model}[{m._id}]")
-                sys.exit(3)
-
-    # merge in reverse order to move alts up before inlining?!
-    if args.op != "N":
-        for m in reversed(JsonModel.MODELS):
-            m.merge()
-
-    # optimize again?
-    if args.optimize:
-        for m in JsonModel.MODELS:
-            m.optimize()
-
-    # check after merge & optimize
-    if args.debug or args.check:
-        log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for m in JsonModel.MODELS:
-            # assert m.valid()
-            if not m.valid():
-                log.error(f"invalid merged model {args.model}[{m._id}]")
-                sys.exit(3)
-
+    # OUTPUT
     # TODO check overwrite?!
     output = open(args.output, "w") if args.output else sys.stdout
     checker = None

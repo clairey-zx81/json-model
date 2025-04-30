@@ -2,18 +2,18 @@
   "#": "JsonModel 0",
   "$": {
     "": "https://json-model.org/tests/obj_02",
-    "#": "",
+    "#": "Symbol 1",
     "lb0": [
-      true
+      "$BOOL"
     ],
     "lf0": [
-      1.0
+      0.0
     ],
     "li0": [
-      1
+      0
     ],
     "ls0": [
-      ""
+      "$URL"
     ]
   },
   "|": [
