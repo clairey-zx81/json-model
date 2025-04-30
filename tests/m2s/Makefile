@@ -1,8 +1,22 @@
 F.model = $(wildcard *.model.json)
+
 F.schema = $(F.model:%.model.json=%.schema.json)
 
-.PHONY: default
-default: $(F.schema)
+F.gen   = $(F.schema)
 
+.PHONY: gen
+gen: $(F.gen)
+
+.PHONY: schema
+schema: $(F.schema)
 %.schema.json: %.model.json
 	jmc -EO $< > $@
+
+.PHONY: clean
+clean:
+	$(RM) $(F.gen)
+
+.PHONY: check
+check:
+	$(MAKE) clean
+	$(MAKE) gen
