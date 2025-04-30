@@ -165,7 +165,7 @@ def jmc_script():
     try:
         process_model(model, args.check, args.op != "N", args.optimize, args.debug)
     except BaseException as e:
-        log.error(e, excp_info=args.debug)
+        log.error(e, exc_info=args.debug)
         sys.exit(3)
 
     # OUTPUT
