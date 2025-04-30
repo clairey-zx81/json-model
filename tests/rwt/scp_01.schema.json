@@ -4,7 +4,7 @@
       "type": "string"
     },
     "R": {
-      "$ref": "#./scp_00"
+      "$ref": "#/$defs/./scp_00"
     },
     "b": {
       "const": "b"
@@ -12,13 +12,13 @@
   },
   "properties": {
     "RA": {
-      "$ref": "#R"
+      "$ref": "#/$defs/R"
     },
     "a": {
-      "$ref": "#R#A"
+      "$ref": "#/$defs/R#A"
     },
     "b": {
-      "$ref": "#B"
+      "$ref": "#/$defs/B"
     }
   },
   "required": [

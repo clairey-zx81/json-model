@@ -7,6 +7,10 @@ from .utils import is_cst, cst
 
 PREDEF_TYPES = {
     "$STRING": "string",
+    "$DATE": "string",
+    "$REGEX": "string",
+    "$UUID": "string",
+    "$URL": "string",
     "$NUMBER": "number",
     "$BOOL": "boolean",
     "$BOOLEAN": "boolean",
@@ -18,6 +22,13 @@ PREDEF_TYPES = {
     "$FLOAT": "number",
     "$F32": "number",
     "$F64": "number",
+}
+
+PREDEF_FORMATS = {
+    "$DATE": "date",
+    "$URL": "uri",
+    "$REGEX": "regex",
+    "$UUID": "uuid",
 }
 
 def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
@@ -32,9 +43,12 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
             schema["type"] = "boolean"
         case float():
             schema["type"] = "number"
+            if model == 0.0:
+                schema["minimum"] = 0.0
+            elif model == 1.0:
+                schema["exclusiveMinimum"] = 0.0
         case int():
             schema["type"] = "integer"
-            # implement extension
             # FIXME should check for option
             if model == 0:
                 schema["minimum"] = 0
@@ -49,9 +63,11 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 return False
             elif model in PREDEF_TYPES:
                 schema["type"] = PREDEF_TYPES[model]
+                if model in PREDEF_FORMATS:
+                    schema["format"] = PREDEF_FORMATS[model]
             elif model[0] == "$":
                 # FIXME let us hope that it is an anchor elsewhere...
-                schema["$ref"] = "#" + model[1:]
+                schema["$ref"] = "#/$defs/" + model[1:]
             elif model[0] == "/":
                 schema["type"] = "string"
                 assert model.endswith("/") or model.endswith("/i")

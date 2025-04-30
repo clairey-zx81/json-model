@@ -7,12 +7,12 @@
         },
         {
           "additionalProperties": {
-            "$ref": "#rec"
+            "$ref": "#/$defs/rec"
           },
           "type": "object"
         }
       ]
     }
   },
-  "$ref": "#rec"
+  "$ref": "#/$defs/rec"
 }

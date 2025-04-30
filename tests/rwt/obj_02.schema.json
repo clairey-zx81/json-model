@@ -8,6 +8,7 @@
     },
     "lf0": {
       "items": {
+        "minimum": 0.0,
         "type": "number"
       },
       "type": "array"
@@ -21,23 +22,24 @@
     },
     "ls0": {
       "items": {
-        "$ref": "#URL"
+        "format": "uri",
+        "type": "string"
       },
       "type": "array"
     }
   },
   "anyOf": [
     {
-      "$ref": "#li0"
+      "$ref": "#/$defs/li0"
     },
     {
-      "$ref": "#ls0"
+      "$ref": "#/$defs/ls0"
     },
     {
-      "$ref": "#lb0"
+      "$ref": "#/$defs/lb0"
     },
     {
-      "$ref": "#lf0"
+      "$ref": "#/$defs/lf0"
     }
   ]
 }

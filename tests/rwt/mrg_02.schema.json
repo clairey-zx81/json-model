@@ -1,7 +1,7 @@
 {
   "$defs": {
     "R": {
-      "$ref": "#./mrg_01"
+      "$ref": "#/$defs/./mrg_01"
     },
     "T": {
       "const": "cst_02"

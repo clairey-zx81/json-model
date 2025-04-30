@@ -1,8 +1,8 @@
 {
   "$defs": {
     "foo": {
-      "$ref": "#./obj_02"
+      "$ref": "#/$defs/./obj_02"
     }
   },
-  "$ref": "#foo#ls0"
+  "$ref": "#/$defs/foo#ls0"
 }

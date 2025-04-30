@@ -1,8 +1,8 @@
 {
   "$defs": {
     "MODEL": {
-      "$ref": "#https://json-model.org/models/json-model-v2"
+      "$ref": "#/$defs/https://json-model.org/models/json-model-v2"
     }
   },
-  "$ref": "#MODEL"
+  "$ref": "#/$defs/MODEL"
 }

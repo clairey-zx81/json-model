@@ -5,5 +5,5 @@
       "type": "integer"
     }
   },
-  "$ref": "#an_int"
+  "$ref": "#/$defs/an_int"
 }

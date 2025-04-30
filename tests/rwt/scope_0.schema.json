@@ -8,10 +8,10 @@
   "items": false,
   "prefixItems": [
     {
-      "$ref": "#S"
+      "$ref": "#/$defs/S"
     },
     {
-      "$ref": "#S"
+      "$ref": "#/$defs/S"
     }
   ],
   "type": "array"

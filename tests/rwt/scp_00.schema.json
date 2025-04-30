@@ -9,7 +9,7 @@
   },
   "properties": {
     "a": {
-      "$ref": "#A"
+      "$ref": "#/$defs/A"
     }
   },
   "required": [

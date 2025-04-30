@@ -1,3 +1,4 @@
 {
-  "$ref": "#REGEX"
+  "format": "regex",
+  "type": "string"
 }

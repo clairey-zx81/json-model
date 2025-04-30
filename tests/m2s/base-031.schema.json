@@ -4,7 +4,7 @@
       "properties": {
         "bibi": {
           "items": {
-            "$ref": "#bibi"
+            "$ref": "#/$defs/bibi"
           },
           "type": "array"
         }
@@ -15,5 +15,5 @@
       "type": "object"
     }
   },
-  "$ref": "#bibi"
+  "$ref": "#/$defs/bibi"
 }

@@ -1,3 +1,4 @@
 {
-  "$ref": "#DATE"
+  "format": "date",
+  "type": "string"
 }

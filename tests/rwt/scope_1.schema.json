@@ -1,7 +1,7 @@
 {
   "$defs": {
     "R": {
-      "$ref": "#./scope_0"
+      "$ref": "#/$defs/./scope_0"
     },
     "S": {
       "pattern": "[a-z]",
@@ -10,10 +10,10 @@
   },
   "anyOf": [
     {
-      "$ref": "#S"
+      "$ref": "#/$defs/S"
     },
     {
-      "$ref": "#R#S"
+      "$ref": "#/$defs/R#S"
     }
   ]
 }

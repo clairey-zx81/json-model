@@ -2,7 +2,7 @@
   "$defs": {
     "obj": {
       "additionalProperties": {
-        "$ref": "#rec"
+        "$ref": "#/$defs/rec"
       },
       "type": "object"
     },
@@ -12,10 +12,10 @@
           "type": "boolean"
         },
         {
-          "$ref": "#obj"
+          "$ref": "#/$defs/obj"
         }
       ]
     }
   },
-  "$ref": "#rec"
+  "$ref": "#/$defs/rec"
 }
