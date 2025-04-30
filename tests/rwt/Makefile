@@ -91,10 +91,10 @@ json-model-v2.dcheck.out: json-model-v2.model.json
 
 # special case for localizations
 l10n.dcheck.out: l10n.model.json
-	$(JMC) -v -DO --true ./$< english.model.json français.model.json > $@
+	$(JMC) -v -DO --no-code --true ./$< english.model.json français.model.json > $@
 	echo "# localized models" >> $@
-	$(JMC) -v -DO --true ./english.model.json en_00.model.json >> $@
-	$(JMC) -v -DO --true ./français.model.json fr_00.model.json >> $@
+	$(JMC) -v -DO --no-code --true ./english.model.json en_00.model.json >> $@
+	$(JMC) -v -DO --no-code --true ./français.model.json fr_00.model.json >> $@
 
 %.dcheck.out: %.model.json
 	shopt -s nullglob
@@ -111,15 +111,15 @@ scheck: $(F.sc)
 # special case for the meta model
 json-model-v2.scheck.out: json-model-v2.model.json
 	# TODO ./bads/*.model.json
-	$(JMC) -v -SO --true ./$< $(F.model) > $@
-	$(JMC) -v -SO --false ./$< $(F.bads) >> $@
+	$(JMC) -v -SO --no-code --true ./$< $(F.model) > $@
+	$(JMC) -v -SO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations
 l10n.scheck.out: l10n.model.json
-	$(JMC) -v -SO --true ./$< english.model.json français.model.json > $@
+	$(JMC) -v -SO --no-code --true ./$< english.model.json français.model.json > $@
 	echo "# localized models" >> $@
-	$(JMC) -v -SO --true ./english.model.json en_00.model.json >> $@
-	$(JMC) -v -SO --true ./français.model.json fr_00.model.json >> $@
+	$(JMC) -v -SO --no-code --true ./english.model.json en_00.model.json >> $@
+	$(JMC) -v -SO --no-code --true ./français.model.json fr_00.model.json >> $@
 
 %.scheck.out: %.model.json
 	shopt -s nullglob
