@@ -104,7 +104,7 @@ def jmc_script():
     arg("--false", "-f", dest="expect", action="store_const", const=False,
         help="test values for false")
     # operations on model
-    arg("--check", "-c", action="store_true", help="check model validity")
+    arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
