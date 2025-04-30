@@ -23,6 +23,7 @@ F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
+F.js    = $(F.root:%=%.jcheck.out)
 
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) bads.check.out
 
@@ -124,6 +125,36 @@ l10n.scheck.out: l10n.model.json
 %.scheck.out: %.model.json
 	shopt -s nullglob
 	$(JMC) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
+
+#
+# JSON Schema Checks
+#
+JS_CHECK    = jsu-check --quiet
+
+.PHONY: jcheck
+jcheck: $(F.js)
+	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model-v2|l10n)'
+	exit 0
+
+# special cases
+json-model-v2.jcheck.out: json-model-v2.schema.json
+	$(JS_CHECK) $< *.model.json bads/*.model.json > $@
+
+l10n.jcheck.out: l10n.schema.json
+	$(JS_CHECK) $< english.model.json français.model.json > $@
+	# echo "# localized models" >> $@
+	# $(JS_CHECK) english.schema.json en_00.model.json >> $@
+	# $(JS_CHECK) français.schema.json fr_00.model.json >> $@
+
+# external references are not supported
+english.jcheck.out français.jcheck.out json-model-preprocessed-v2.jcheck.out \
+mrg_02.jcheck.out obj_03.jcheck.out obj_04.jcheck.out scope_1.jcheck.out scp_01.jcheck.out:
+	touch $@
+
+# default case
+%.jcheck.out: %.schema.json
+	shopt -s nullglob
+	$(JS_CHECK) $< $*.*.true.json $*.*.false.json > $@
 
 #
 # generate everything from a model

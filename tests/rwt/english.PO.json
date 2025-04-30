@@ -3,8 +3,8 @@
   "$": {
     "": "https://json-model.org/models/english",
     "#": "Symbol 1",
-    "MODEL": "$https://json-model.org/models/json-model-v2"
+    "Model": "$https://json-model.org/models/json-model-v2"
   },
-  "@": "$MODEL",
+  "@": "$Model",
   "~": "https://json-model.org/models/l10n"
 }

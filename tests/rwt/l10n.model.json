@@ -1,7 +1,7 @@
 {
   "#": "JSON Model Subset for Localization Renames",
   "?#": "",
-  "_$": { "Model": "_$https://json-model.org/models/json-model-v2" },
+  "_$": { "?": "$URL", "Model": "_$https://json-model.org/models/json-model-v2" },
   "_~": "_https://json-model.org/models/l10n",
   "_%": {
     "#": "dot-prefixed arbitrary key, one or two char keyword values",

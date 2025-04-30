@@ -42,6 +42,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 
 json_model_0_must: PropMap
 jm_f_0_must: PropMap
+jm_f_0_may: PropMap
 # regex "/^\\./"
 jm_re_0 = re.compile("^\\.").search
 # regex "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
@@ -54,10 +55,16 @@ def jm_f_1(value: Jsonable, path: str) -> bool:
     result = isinstance(value, str) and value == "$https://json-model.org/models/json-model-v2"
     return result
 
+# define "jm_f_0_may_" ($.'$'.'')
+def jm_f_2(value: Jsonable, path: str) -> bool:
+    # $.'$'.''
+    result = is_valid_url(value, path)
+    return result
+
 
 
 # define "json_model_0_must_~" ($.'~')
-def jm_f_2(value: Jsonable, path: str) -> bool:
+def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'~'
     result = isinstance(value, str) and value == "https://json-model.org/models/l10n"
     return result
@@ -65,13 +72,13 @@ def jm_f_2(value: Jsonable, path: str) -> bool:
 
 
 # define "json_model_0_must_@" ($.'@')
-def jm_f_4(value: Jsonable, path: str) -> bool:
+def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.'@'
     result = isinstance(value, str) and value == "$Model"
     return result
 
 # define "json_model_0_may_#" ($.'#')
-def jm_f_5(value: Jsonable, path: str) -> bool:
+def jm_f_6(value: Jsonable, path: str) -> bool:
     # $.'#'
     result = isinstance(value, str)
     return result
@@ -89,13 +96,16 @@ def jm_f_0(value: Jsonable, path: str = "$") -> bool:
             must_count += 1
             if not jm_f_0_must[prop](model, f"{path}.{prop}"):
                 return False
+        elif prop in jm_f_0_may:  # may
+            if not jm_f_0_may[prop](model, f"{path}.{prop}"):
+                return False
         else:  # no catch all
             return False
     return must_count == 1
 
 
 # object $.'%'
-def jm_f_3(value: Jsonable, path: str) -> bool:
+def jm_f_4(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
@@ -138,15 +148,18 @@ def check_model(value: Jsonable, path: str = "$") -> bool:
 # object properties maps
 json_model_0_must = {
     "$": jm_f_0,
-    "~": jm_f_2,
-    "%": jm_f_3,
-    "@": jm_f_4,
+    "~": jm_f_3,
+    "%": jm_f_4,
+    "@": jm_f_5,
 }
 jm_f_0_must = {
     "Model": jm_f_1,
 }
+jm_f_0_may = {
+    "": jm_f_2,
+}
 json_model_0_may = {
-    "#": jm_f_5,
+    "#": jm_f_6,
 }
 
 

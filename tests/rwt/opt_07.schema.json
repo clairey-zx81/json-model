@@ -1,6 +1,7 @@
 {
   "anyOf": [
     {
+      "additionalProperties": false,
       "properties": {
         "d": {
           "const": 1
@@ -16,6 +17,7 @@
       "type": "object"
     },
     {
+      "additionalProperties": false,
       "properties": {
         "d": {
           "const": 2
@@ -31,6 +33,7 @@
       "type": "object"
     },
     {
+      "additionalProperties": false,
       "properties": {
         "d": {
           "const": 3

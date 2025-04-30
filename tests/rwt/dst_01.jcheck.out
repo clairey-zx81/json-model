@@ -1,0 +1,2 @@
+dst_01.0.true.json: PASS
+dst_01.0.false.json: FAIL

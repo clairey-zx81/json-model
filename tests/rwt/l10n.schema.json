@@ -1,11 +1,17 @@
 {
+  "additionalProperties": false,
   "description": "JSON Model Subset for Localization Renames",
   "properties": {
     "#": {
       "type": "string"
     },
     "$": {
+      "additionalProperties": false,
       "properties": {
+        "": {
+          "format": "uri",
+          "type": "string"
+        },
         "Model": {
           "const": "$https://json-model.org/models/json-model-v2"
         }

@@ -1,0 +1,7 @@
+float_0.0.true.json: PASS
+float_0.1.true.json: PASS
+float_0.2.true.json: PASS
+float_0.3.true.json: PASS
+float_0.0.false.json: FAIL
+float_0.1.false.json: PASS
+float_0.2.false.json: FAIL

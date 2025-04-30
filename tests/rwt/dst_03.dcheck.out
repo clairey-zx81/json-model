@@ -1,0 +1,3 @@
+dst_03.0.true.json: True
+dst_03.1.true.json: True
+dst_03.0.false.json: False [('.|[0]', '$.b', 'unexpected property b'), ('.|[1]', '$.b', 'unexpected property b'), ('.|', '$', 'no any matched')]

@@ -3,6 +3,7 @@
     "#": "JsonModel 0",
     "?#": "",
     "_$": {
+      "?": "$URL",
       "Model": "_$https://json-model.org/models/json-model-v2"
     },
     "_%": {

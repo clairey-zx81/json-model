@@ -1,5 +1,5 @@
-english.model.json: False [('.$', '$.$.', 'unexpected property ')]
-français.model.json: False [('.$', '$.$.', 'unexpected property ')]
+english.model.json: True
+français.model.json: True
 # localized models
 en_00.model.json: True
 fr_00.model.json: True

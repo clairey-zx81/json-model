@@ -1,0 +1,10 @@
+int_m1.0.true.json: PASS
+int_m1.1.true.json: PASS
+int_m1.2.true.json: PASS
+int_m1.3.true.json: PASS
+int_m1.0.false.json: FAIL
+int_m1.1.false.json: FAIL
+int_m1.2.false.json: FAIL
+int_m1.3.false.json: FAIL
+int_m1.4.false.json: FAIL
+int_m1.5.false.json: FAIL
