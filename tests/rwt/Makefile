@@ -86,8 +86,8 @@ dcheck: $(F.dc)
 # special case for the meta model
 json-model-v2.dcheck.out: json-model-v2.model.json
 	# TODO ./bads/*.model.json
-	$(JMC) -v -DO --true ./$< $(F.model) > $@
-	$(JMC) -v -DO --false ./$< $(F.bads) >> $@
+	$(JMC) -v -DO --no-code --true ./$< $(F.model) > $@
+	$(JMC) -v -DO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations
 l10n.dcheck.out: l10n.model.json
