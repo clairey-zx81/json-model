@@ -357,6 +357,17 @@ class JsonModel:
 
         is_valid = True
 
+        def finiteRef(model: str) -> bool:
+            ref, rec, jm = model, [], self
+            while isinstance(ref, str) and self._isRef(ref) and ref not in rec:
+                jm = jm.resolveRef(ref, path + rec)
+                rec.append(ref)
+                ref = jm._model
+            finite = not self._isRef(ref)
+            if not finite:
+                log.debug(f"infinite recursion on {model}: {rec}")
+            return finite
+
         def validFlt(model: ModelType, path: ModelPath) -> bool:
             nonlocal is_valid
             match model:
@@ -378,14 +389,7 @@ class JsonModel:
                         is_valid &= model.endswith("/") or model.endswith("/i")
                         # TODO check re validity: is_regex
                     elif model[0] == "$":
-                        # detect direct infinite recursion? is this enough?!
-                        ref, rec, jm = model, [], self
-                        while isinstance(ref, str) and self._isRef(ref) and ref not in rec:
-                            jm = jm.resolveRef(ref, path + rec)
-                            rec.append(ref)
-                            ref = jm._model
-                        log.debug(f"infinite recursion path {rec} at {path}")
-                        is_valid &= not self._isRef(ref)
+                        pass
                     else:  # TODO more checks
                         pass
                 case list():
@@ -449,6 +453,10 @@ class JsonModel:
                         else:
                             is_valid &= isinstance(t, dict)
                             # TODO more checks on t
+
+        if is_valid and self._defs:
+            for name, jm in self._defs.items():
+                is_valid &= finiteRef("$" + name)
 
         if is_valid:
             try:
