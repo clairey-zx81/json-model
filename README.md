@@ -5,20 +5,23 @@ It is presented in:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
   Fabien Coelho and Claire Yannou-Medrala.  
-  Technical Report [A/817/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf), Mines Paris - PSL, April 2024
+  Technical Report [A/817/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf),
+  Mines Paris - PSL, April 2024
 
   JSON Model version 1.
-  
+
 - An Analysis of Defects in Public JSON Schemas.
   Claire Yannou-Medrala and Fabien Coelho.  
   In BDA 2023, 39eme conférence sur la gestion de données - Principes, technologies et applications.
-  Also TR [A/794/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf), Mines Paris - PSL, October 2023
+  Also TR [A/794/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf),
+  Mines Paris - PSL, October 2023
 
   Very brief introduction to version 0 at the end of the paper.
 
 - JSON Model: a Lightweight Featureful Description Language for JSON Data Structures.
   Fabien Coelho and Claire Yannou-Medrala.  
-  Technical Report [A/795/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf), Mines Paris - PSL, May 2023
+  Technical Report [A/795/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf),
+  Mines Paris - PSL, May 2023
 
   JSON Model version 0 (work in progress).
 
@@ -67,117 +70,95 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: test schemas and values with jsu
 - [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
 - [ ] tests: rename with explicit `-v2`
+- [ ] design: handle `.` and `/` references as relative url
+- [ ] python: remove globals in Symbols
+- [ ] python: remove globals in JsonModel
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline to generate a working model without includes
-- [ ] design: handle `.` and `/` references as relative url
-- [ ] python: remove globals in Symbols and JsonModel
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
-- [ ] tests: working `make check`
 - [ ] tests: coverage
+- [ ] tests: working `make check`
+- [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
 - [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
-- [ ] feature: static js/ts compiler
+- [ ] feature: static/dynamic js/ts compiler?
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
-- [ ] feature: think about code integration in a realistic project? doc and usability?
+- [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] feature: clarify and implement options management `JSON_MODEL_…`
 - [ ] doc: check and document API entry points
-- [ ] extend: direct forms for instance, eg types, constraints, layout?
-      see [FormBuilder](https://formbuilder.online/).
+- [ ] extend: direct forms for instance, eg types, constraints, layout? see [FormBuilder](https://formbuilder.online/).
 - [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)
 - [ ] extend: direct object creation (Python pydantic, JS)?
 - [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
-- [ ] extend: accepting any extension?! eg opened objects?
 - [ ] extend: data structure _documentation_
-- [ ] feature: conditionals or not conditionals… eg for interfaces
+- [ ] extend: accepting any extension?! eg opened objects?
+- [ ] design: conditionals or not conditionals… eg for interfaces?
       if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
-- [ ] doc: add doc
+- [ ] research: paper themes? extensions, compilation (CGO), ...?
 
 ## WIP
 
 - integration of json-model extensions?
 
-  This could be a simplified version of JSON Schema vocabularies?
-
-  - declare extensions with some meta?!
-
-    ```json
-    {
-      "$": {
-        "modelv2": "$https://models.json-model.org/modelv2"
-      },
-      "%": {
-        "#": "path to field to modify",
-        "$model2#Object": {
-          "+": { "?new-keyword": "$..." }
-        }
-      }
-    }
-    ```
-
-  - contextualized? model context? semantics ?!
-
-    ```json
-    {
-      "$": {
-        "modelv2": "$https://models.json-model.org/modelv2"
-      },
-      "%": {
-        "#": "path to model to modify (remove, replace, add)",
-        "$model2#Object": {
-          "@": { "_@": "$ANY" },
-          "-": { "old-kw": null },
-          "~": { "some-kw": "$..." },
-          "+": { "new-kw": "$..." }
-        }
-      }
-    }
-    ```
-
-    What about allowing several contexts and targets with alternative `|`?
-
-    Context semantics may be quite specific? Should it be open by default?
-    Should it be direct or meta? Should it be a structural match?
-
+  - could be a simplified version of JSON Schema vocabularies?
   - can also be loaded through a reference?
+  - available characters
+    - json characters to avoid (?) by decreasing frequency: `" : , {} [] - .`
+    - used as keywords: `# $ @ ! = < > & | ^ +`…
+    - used as sentinels: `$ _ ? ! = /`…
+    - thus: `% ~ * / . ; ( ) ? `` -`…
 
-  - use something other than `#`? `%`?
-    - used sentinels and keywords: `# $ _ ? ! = @ & | ^ + / ops`…
-    - possibly available or reusable keywords: `~ * . : ; , ( ) [ ] { } ops`…
+  - examples
 
-- example
-
-  ```json
-  {
-    "~": "https://json-model.org/models/json-model-v2-form"
-    "$": {
-      "model": "$https://json-model.org/models/json-model-v2"
-    },
-    "%": {
-      "$model#Elem.+.0": {
-        "*": { "?.readOnly": true }
+    ```json
+    {
+      "~": "https://json-model.org/models/json-model-v2",
+      "$": {
+        "": "https://json-model.org/models/json-model-v2-form"
+        "Model": "$https://json-model.org/models/json-model-v2"
       },
-      "$model#Or": {
-        "*": { "?.selector": { "|": [ "checkbox", "menu", "whatever" ] } }
-      }
-    },
-    "@": "$model"
-  }
-  ```
+      "%": {
+        "$Model#Elem.+.0": {
+          "*": { "?.readOnly": true }
+        },
+        "$Model#Or": {
+          "*": { "?.selector": { "|": [ "checkbox", "menu", "whatever" ] } }
+        }
+      },
+      "@": "$Model"
+    }
+    ```
 
-- localization with prefixed keywords: `: ,` (too many?), `*` too noizy, `.` discreet and rare enough?
+    ```json
+    {
+      "$": {
+        "modelv2": "$https://models.json-model.org/modelv2"
+      },
+      "%": {
+        "#": "path to field to modify, change",
+        "$model2#Object": {
+          "*": { "?new-keyword": "$..." },
+          "/": [ "props", "to", "remove", "in", "target" ]
+        },
+        "$model2#Common": "replacement_model"
+      }
+    }
+    ```
+
+- localization with prefixed keywords: `: ,` (too many?), `*` noizy and ugly, `.` discreet and rare enough?
 
   ```json
   {
-    "%": { ".or": "|" }
+    "%": { ".or": "|", ".unique": "!" }
   }
   ```
