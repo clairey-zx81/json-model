@@ -1,2 +1,0 @@
-- "format" keyword seems to be ignored by schema checker
-- dynamic compiler only checks a regex

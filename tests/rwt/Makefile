@@ -9,7 +9,7 @@ JMC = jmc $(JMC.opts) \
         -m "https://json-model.org/tests ."
 
 # inputs, skip _*
-F.mjs   = $(wildcard *.model.js)
+F.mjs   = $(wildcard [a-zA-Z]*.model.js)
 F.model = $(wildcard [a-zA-Z]*.model.json) $(F.mjs:%.model.js=%.model.json)
 F.bads  = $(wildcard bads/[a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
@@ -88,7 +88,7 @@ dcheck: $(F.dc)
 # special case for the meta model
 json-model.dcheck.out: json-model.model.json
 	# TODO ./bads/*.model.json
-	$(JMC) -v -DO --no-code --true ./$< $(F.model) > $@
+	$(JMC) -v -DO --no-code --true ./$< $(F.model) bads/_*.model.json > $@
 	$(JMC) -v -DO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations
@@ -113,7 +113,7 @@ scheck: $(F.sc)
 # special case for the meta model
 json-model.scheck.out: json-model.model.json
 	# TODO ./bads/*.model.json
-	$(JMC) -v -SO --no-code --true ./$< $(F.model) > $@
+	$(JMC) -v -SO --no-code --true ./$< $(F.model) bads/_*.model.json > $@
 	$(JMC) -v -SO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations

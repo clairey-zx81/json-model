@@ -72,21 +72,25 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: rename without explicit `-v2`
 - [x] python: remove global lisrt in Symbols
 - [ ] python: remove global list in JsonModel
-- [ ] python: remove all globals in Symbols
-- [ ] python: remove all globals in JsonModel
+- [ ] python: remove all globals in Symbols?
+- [ ] python: remove all globals in JsonModel?
+- [ ] python: measure coverage
+- [ ] static: fix `modval/_untyped*`
 - [ ] design: handle `.` and `/` references as relative url
+- [ ] command: add option to control name of generated function
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline to generate a working model without includes
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
-- [ ] tests: move/add more tests to rwt
-- [ ] tests: refactor all tests
-- [ ] tests: coverage
+- [ ] tests: move/add more tests to rwt, modval, bads
+- [ ] tests: move bads up
+- [ ] tests: refactor all tests, keep or drop `pytest`
 - [ ] tests: working `make check`
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
+- [ ] tests: raise coverage, possibly to 100%?
 - [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
