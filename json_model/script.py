@@ -2,6 +2,7 @@ import sys
 import re
 import json
 import logging
+from importlib.metadata import version as pkg_version
 
 from .types import Jsonable, JsonSchema, ModelError
 from .utils import log, tname
@@ -118,7 +119,17 @@ def jmc_script():
     # parameters
     arg("model", help="JSON model")
     arg("values", nargs="*", help="JSON values to testing")
+
+    # special case
+    if len(sys.argv) >= 2 and sys.argv[1] == "--version":
+        print(pkg_version("json-model"))
+        sys.exit(0)
+
     args = ap.parse_args()
+
+    if args.version:
+        print(pkg_version("json-model"))
+        sys.exit(0)
 
     # update op-dependent default
     if args.code is None:
@@ -131,10 +142,6 @@ def jmc_script():
     if args.code and args.op not in ("D", "S"):
         log.error(f"Showing code requires -S or -D: {args.op}")
         sys.exit(1)
-    if args.version:
-        from importlib.metadata import version
-        print(version("json-model"))
-        sys.exit(0)
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
