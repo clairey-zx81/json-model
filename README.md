@@ -69,7 +69,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] refactor: move basic script pre processing as functions
 - [x] tests: test schemas and values with jsu
 - [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
-- [ ] tests: rename with explicit `-v2`
+- [x] tests: rename without explicit `-v2`
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] python: remove globals in Symbols
 - [ ] python: remove globals in JsonModel
@@ -93,6 +93,10 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: --yaml show yaml instead of json
 - [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] feature: clarify and implement options management `JSON_MODEL_…`
+- [ ] design: (online) extension register?
+- [ ] pr: register `json-model.org`?
+- [ ] design: official (meta) model url:
+      `https://models.json-model.org/...` vs `https://json-model.org/models/...`?
 - [ ] doc: check and document API entry points
 - [ ] extend: direct forms for instance, eg types, constraints, layout? see [FormBuilder](https://formbuilder.online/).
 - [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)

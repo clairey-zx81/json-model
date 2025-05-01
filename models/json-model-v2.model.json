@@ -1,9 +1,9 @@
 {
   "#": "Self-Validating JSON Model",
-  "~": "https://json-model.org/models/json-model-v2",
+  "~": "https://json-model.org/models/json-model",
   "$": {
     "#": "Definitions, without predefs of any kind",
-    "": "https://json-model.org/models/json-model-v2",
+    "": "https://json-model.org/models/json-model",
     "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
     "Val": { "|":  [ null, true, -1, -1.0, "" ] },
     "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },

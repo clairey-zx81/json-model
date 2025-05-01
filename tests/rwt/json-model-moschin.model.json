@@ -1,9 +1,9 @@
 {
   "#": "Minor JSON Model extensions",
-  "~": "https://json-model.org/models/json-model-v2",
+  "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-model-moschin",
-    "Model": "$https://json-model.org/models/json-model-v2"
+    "Model": "$https://json-model.org/models/json-model"
   },
   "%": {
     "$Model#Common": { "*": {"?.schema": {"": "$Any"}} },

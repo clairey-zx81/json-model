@@ -13,7 +13,7 @@
           "type": "string"
         },
         "Model": {
-          "const": "$https://json-model.org/models/json-model-v2"
+          "const": "$https://json-model.org/models/json-model"
         }
       },
       "required": [

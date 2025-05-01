@@ -1,0 +1,13 @@
+{
+  "#": "Preprocessed JSON Model",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-model-preprocessed",
+    "Model": "$https://json-model.org/models/json-model"
+  },
+  "%": {
+    "$Model#Add": "$NONE",
+    "$Model#Rewrite": {}
+  },
+  "@": "$Model"
+}

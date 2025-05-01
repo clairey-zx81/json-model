@@ -2,7 +2,7 @@
   {
     "#": "JsonModel 0 with defs",
     "$": {
-      "": "https://json-model.org/models/json-model-v2",
+      "": "https://json-model.org/models/json-model",
       "#": "Symbol 1",
       "Add": {
         "#": "JsonModel 11",
@@ -319,7 +319,7 @@
       }
     },
     "@": "$RootModel",
-    "~": "https://json-model.org/models/json-model-v2"
+    "~": "https://json-model.org/models/json-model"
   },
   "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
   {

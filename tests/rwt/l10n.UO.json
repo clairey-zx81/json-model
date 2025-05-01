@@ -4,7 +4,7 @@
     "?#": "",
     "_$": {
       "?": "$URL",
-      "Model": "_$https://json-model.org/models/json-model-v2"
+      "Model": "_$https://json-model.org/models/json-model"
     },
     "_%": {
       "#": "dot-prefixed arbitrary key, one or two char keyword values",

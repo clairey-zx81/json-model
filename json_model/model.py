@@ -116,7 +116,7 @@ class JsonModel:
         "F64": -1.0,
         "NUMBER": {"|": [-1, -1.0]},
         "STRING": "",
-        "URL": r"/^\w+://.*/",  # relative URL?
+        "URL": r"/^\w+://.*/",  # FIXME relative URL?
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
         "REGEX": "",  # FIXME
         # to be continued…
@@ -130,6 +130,12 @@ class JsonModel:
         "oDATE": {"|": [None, "$DATE"]},
         "oREGEX": {"|": [None, "$REGEX"]},
         # to be continued…
+    }
+
+    # OFFICIAL VERSION URLS
+    VERSION_URLS = {
+        "https://json-model.org/models/json-model",  # latest
+        "https://json-model.org/models/json-model-v2",
     }
 
     # TODO move to instances

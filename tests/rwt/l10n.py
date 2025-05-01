@@ -52,7 +52,7 @@ json_model_0_may: PropMap
 # define "jm_f_0_must_Model" ($.'$'.Model)
 def jm_f_1(value: Jsonable, path: str) -> bool:
     # $.'$'.Model
-    result = isinstance(value, str) and value == "$https://json-model.org/models/json-model-v2"
+    result = isinstance(value, str) and value == "$https://json-model.org/models/json-model"
     return result
 
 # define "jm_f_0_may_" ($.'$'.'')

@@ -22,9 +22,9 @@ français.model.json: PASS
 int_0.model.json: PASS
 int_1.model.json: PASS
 int_m1.model.json: PASS
+json-model.model.json: PASS
 json-model-moschin.model.json: PASS
-json-model-preprocessed-v2.model.json: PASS
-json-model-v2.model.json: PASS
+json-model-preprocessed.model.json: PASS
 l10n.model.json: PASS
 mrg_00.model.json: PASS
 mrg_01.model.json: PASS

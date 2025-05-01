@@ -802,6 +802,6 @@
       "type": "object"
     }
   },
-  "$id": "https://json-model.org/models/json-model-v2",
+  "$id": "https://json-model.org/models/json-model",
   "$ref": "#/$defs/RootModel"
 }

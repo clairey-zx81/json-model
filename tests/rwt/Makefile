@@ -82,11 +82,11 @@ bads.check.out:
 #
 .PHONY: dcheck
 dcheck: $(F.dc)
-	egrep -v 'true.*True|false.*False' *.dcheck.out | egrep -v '^(json-model-v2|l10n)'
+	egrep -v 'true.*True|false.*False' *.dcheck.out | egrep -v '^(json-model|l10n)'
 	exit 0
 
 # special case for the meta model
-json-model-v2.dcheck.out: json-model-v2.model.json
+json-model.dcheck.out: json-model.model.json
 	# TODO ./bads/*.model.json
 	$(JMC) -v -DO --no-code --true ./$< $(F.model) > $@
 	$(JMC) -v -DO --no-code --false ./$< $(F.bads) >> $@
@@ -107,11 +107,11 @@ l10n.dcheck.out: l10n.model.json
 #
 .PHONY: scheck
 scheck: $(F.sc)
-	egrep -v 'true.*True|false.*False' *.scheck.out | egrep -v '^(json-model-v2|l10n)'
+	egrep -v 'true.*True|false.*False' *.scheck.out | egrep -v '^(json-model|l10n)'
 	exit 0
 
 # special case for the meta model
-json-model-v2.scheck.out: json-model-v2.model.json
+json-model.scheck.out: json-model.model.json
 	# TODO ./bads/*.model.json
 	$(JMC) -v -SO --no-code --true ./$< $(F.model) > $@
 	$(JMC) -v -SO --no-code --false ./$< $(F.bads) >> $@
@@ -138,11 +138,11 @@ JS_CHECK    = jsu-check --quiet
 
 .PHONY: jcheck
 jcheck: $(F.js)
-	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model-v2|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n)'
 	exit 0
 
 # special cases
-json-model-v2.jcheck.out: json-model-v2.schema.json
+json-model.jcheck.out: json-model.schema.json
 	shopt -s nullglob
 	$(JS_CHECK) $< *.model.json bads/*.model.json > $@
 
@@ -153,9 +153,15 @@ l10n.jcheck.out: l10n.schema.json
 	# $(JS_CHECK) français.schema.json fr_00.model.json >> $@
 
 # external references are not supported
-english.jcheck.out français.jcheck.out \
-json-model-preprocessed-v2.jcheck.out json-model-moschin.jcheck.out \
-mrg_02.jcheck.out obj_03.jcheck.out obj_04.jcheck.out scope_1.jcheck.out scp_01.jcheck.out:
+json-model-preprocessed.jcheck.out \
+json-model-moschin.jcheck.out \
+english.jcheck.out \
+français.jcheck.out \
+mrg_02.jcheck.out \
+obj_03.jcheck.out \
+obj_04.jcheck.out \
+scope_1.jcheck.out \
+scp_01.jcheck.out:
 	touch $@
 
 # default case
