@@ -80,6 +80,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: add malformed bad models
 - [x] tests: with an actual url! (hello2)
 - [ ] feature: yaml url input
+- [ ] feature: control cache
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
