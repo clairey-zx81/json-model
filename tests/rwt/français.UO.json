@@ -56,7 +56,7 @@
       "Array": [
         "$Model"
       ],
-      "Comment": {
+      "Common": {
         "#": "JsonModel 8",
         "?#": ""
       },

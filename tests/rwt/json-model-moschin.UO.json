@@ -42,7 +42,7 @@
       "Array": [
         "$Model"
       ],
-      "Comment": {
+      "Common": {
         "#": "JsonModel 7",
         "?#": ""
       },
@@ -677,7 +677,7 @@
       "Array": [
         "$Model"
       ],
-      "Comment": {
+      "Common": {
         "#": "JsonModel 29",
         "?#": "",
         "?.schema": {

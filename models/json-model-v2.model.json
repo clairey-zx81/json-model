@@ -8,7 +8,7 @@
     "Val": { "|":  [ null, true, -1, -1.0, "" ] },
     "Any": { "|": [ "$Val", [ "$Any" ], { "": "$Any" } ] },
     "None": { "|": [ ] },
-    "Comment": { "?#": "" },
+    "Common": { "?#": "" },
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
@@ -23,7 +23,7 @@
     "Obj": { "": "$Model", "/^[@|&^+/*]$/": "$None" },
     "Elem": {
       "+": [
-        "$Comment",
+        "$Common",
         { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
       ]
     },
@@ -32,7 +32,7 @@
         "$Model",
         {
           "+": [
-            "$Comment",
+            "$Common",
             {
               "|": [
                 {
@@ -59,8 +59,8 @@
         {
           "#": "Special keywords only at the root of a model",
           "?~": "$Url",
-          "?$": { "+": [ "$Comment", { "?": "$Url" }, "$Defs" ] },
-          "?%": { "+": [ "$Comment", "$Rename", "$Rewrite" ] }
+          "?$": { "+": [ "$Common", { "?": "$Url" }, "$Defs" ] },
+          "?%": { "+": [ "$Common", "$Rename", "$Rewrite" ] }
         },
         "$Elem"
       ]

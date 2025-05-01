@@ -56,7 +56,7 @@
       },
       "type": "array"
     },
-    "Comment": {
+    "Common": {
       "additionalProperties": false,
       "properties": {
         "#": {

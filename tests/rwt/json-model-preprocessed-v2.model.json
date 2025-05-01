@@ -3,11 +3,11 @@
   "~": "https://json-model.org/models/json-model-v2",
   "$": {
     "": "https://json-model.org/models/json-model-preprocessed-v2",
-    "model": "$https://json-model.org/models/json-model-v2"
+    "Model": "$https://json-model.org/models/json-model-v2"
   },
   "%": {
-    "$model#Add": "$NONE",
-    "$model#Rewrite": {}
+    "$Model#Add": "$NONE",
+    "$Model#Rewrite": {}
   },
-  "@": "$model"
+  "@": "$Model"
 }

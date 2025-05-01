@@ -6,7 +6,7 @@
     "Model": "$https://json-model.org/models/json-model-v2"
   },
   "%": {
-    "$Model#Comment": { "*": {"?.schema": {"": "$Any"}} },
+    "$Model#Common": { "*": {"?.schema": {"": "$Any"}} },
     "$Model#Constraint": { "*": {"?.mo": 1, "?.in": "$Model"} }
   },
   "@": "$Model"
