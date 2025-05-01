@@ -111,6 +111,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
 - [ ] research: paper themes? extensions, compilation (CGO), ...?
+- [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 
 ## WIP
 
@@ -168,3 +169,19 @@ Command `jmc` (JSON Model Compiler) options:
     "%": { ".or": "|", ".unique": "!" }
   }
   ```
+
+- usability use cases:
+
+  - manage (related) models:
+    - in files
+    - in files in a directory
+    - through a URL
+    - inlined in source files
+  - derive JSON Model from an actual/existing data structure:
+    - how to import and use such definitions?
+  - non JSON format:
+    - yaml: for convenient data structure documentation
+    - js: for convenient data structure documentation (i.e. JSON with comments)
+    - py: for convenient data structure documentation (?!)
+    - ORM, tables, pydantic, dataclass, python types, ts…
+  - derived models for distinct usages?
