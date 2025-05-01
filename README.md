@@ -79,14 +79,15 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
 - [ ] tests: working `make check`
-- [ ] output: improve `-P` to have a re-intrant model
+- [ ] tests: add github CI
+- [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
 - [ ] feature: static js/ts compiler
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
-- [ ] tests: add github CI
 - [ ] feature: think about code integration in a realistic project? doc and usability?
+- [ ] feature: clarify and implement options management `JSON_MODEL_…`
 - [ ] doc: check and document API entry points
 - [ ] extend: direct forms for instance, eg types, constraints, layout?
       see [FormBuilder](https://formbuilder.online/).
