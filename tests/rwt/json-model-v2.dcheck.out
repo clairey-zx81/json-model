@@ -20,6 +20,7 @@ français.model.json: True
 int_0.model.json: True
 int_1.model.json: True
 int_m1.model.json: True
+json-model-moschin.model.json: True
 json-model-preprocessed-v2.model.json: True
 json-model-v2.model.json: True
 l10n.model.json: True

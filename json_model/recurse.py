@@ -2,12 +2,15 @@
 # Generic recursion on models in a JSON Model
 #
 # TODO multi recurse?
+# TODO allow extending the parameterization
 #
 from .types import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
 
 ROOT_KEYWORDS = {"~", "$", "%"}
-CONSTRAINT_KEYWORDS = {"=", "!=", "<", "<=", ">", ">=", "!"}
-NO_MODEL_KEYWORDS = {"#", "~", "/"} | CONSTRAINT_KEYWORDS
+# .mo and .in are extensions
+ANYWHERE_KEYWORDS = {"#", ".schema"}
+CONSTRAINT_KEYWORDS = {"=", "!=", "<", "<=", ">", ">=", "!", ".mo", ".in"}
+NO_MODEL_KEYWORDS = ANYWHERE_KEYWORDS | CONSTRAINT_KEYWORDS | {"~", "/"}
 MODEL_KEYWORD = {"@"}
 # "/" expects a list, but we do not want to recurse there
 MODEL_LIST_KEYWORDS = {"|", "&", "^", "+"}
@@ -37,7 +40,7 @@ def _recModel(
             lpath = path + [prop]
             assert isinstance(prop, str), f"properties are strings {lpath}"
             if prop in MODEL_KEYWORD:
-                okprops = {prop, "#"} | CONSTRAINT_KEYWORDS
+                okprops = {prop} | ANYWHERE_KEYWORDS | CONSTRAINT_KEYWORDS
                 if root:
                     okprops.update(ROOT_KEYWORDS)
                 assert not (set(mkeys) - okprops), f"@ restricts other keywords {lpath}"

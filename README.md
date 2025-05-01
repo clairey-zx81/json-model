@@ -65,6 +65,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: flake8
 - [x] refactor: move basic script pre processing as functions
 - [x] tests: test schemas and values with jsu
+- [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
 - [ ] tests: rename with explicit `-v2`
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline to generate a working model without includes
@@ -92,7 +93,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)
 - [ ] extend: direct object creation (Python pydantic, JS)?
 - [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
-- [ ] extend: `.schema` extension to add JSON Schema specific stuff?
 - [ ] extend: accepting any extension?! eg opened objects?
 - [ ] extend: data structure _documentation_
 - [ ] feature: conditionals or not conditionals… eg for interfaces

@@ -153,7 +153,8 @@ l10n.jcheck.out: l10n.schema.json
 	# $(JS_CHECK) français.schema.json fr_00.model.json >> $@
 
 # external references are not supported
-english.jcheck.out français.jcheck.out json-model-preprocessed-v2.jcheck.out \
+english.jcheck.out français.jcheck.out \
+json-model-preprocessed-v2.jcheck.out json-model-moschin.jcheck.out \
 mrg_02.jcheck.out obj_03.jcheck.out obj_04.jcheck.out scope_1.jcheck.out scp_01.jcheck.out:
 	touch $@
 
