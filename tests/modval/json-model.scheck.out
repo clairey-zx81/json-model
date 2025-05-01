@@ -100,6 +100,11 @@ xorob01.model.json: True
 xorob02.model.json: True
 xorob03.model.json: True
 zero00.model.json: True
+../bads/bad_arr.model.json: Error
+../bads/bad_char.model.json: Error
+../bads/bad_colon.model.json: Error
+../bads/bad_comma.model.json: Error
+../bads/bad_key.model.json: Error
 ../bads/bool_0.model.json: False
 ../bads/bool_1.model.json: False
 ../bads/ex_0.model.json: False

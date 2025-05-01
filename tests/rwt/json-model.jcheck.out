@@ -1,3 +1,8 @@
+../bads/bad_arr.model.json: ERROR
+../bads/bad_char.model.json: ERROR
+../bads/bad_colon.model.json: ERROR
+../bads/bad_comma.model.json: ERROR
+../bads/bad_key.model.json: ERROR
 ../bads/bool_0.model.json: FAIL
 ../bads/bool_1.model.json: FAIL
 ../bads/_dup_prop_1.model.json: PASS

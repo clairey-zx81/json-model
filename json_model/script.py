@@ -225,18 +225,22 @@ def jmc_script():
     for fn in args.values:
         assert checker
         with open(fn) as fh:
-            value = json.load(fh)
-            okay = checker(value)
-            if args.expect is None or args.verbose:
-                msg = f"{fn}: {okay}"
-                if not okay and args.verbose and args.op == "D":
-                    msg += " " + str(checker._reasons)
-                print(msg, file=output)
-            if args.expect is not None:
-                if okay == args.expect:
-                    log.info(f"check value {fn}: {okay}")
-                elif okay != args.expect:
-                    nerrors += 1
-                    log.error(f"check value {fn}: {okay}")
+            try:
+                value = json.load(fh)
+                okay = checker(value)
+                if args.expect is None or args.verbose:
+                    msg = f"{fn}: {okay}"
+                    if not okay and args.verbose and args.op == "D":
+                        msg += " " + str(checker._reasons)
+                    print(msg, file=output)
+                if args.expect is not None:
+                    if okay == args.expect:
+                        log.info(f"check value {fn}: {okay}")
+                    elif okay != args.expect:
+                        nerrors += 1
+                        log.error(f"check value {fn}: {okay}")
+            except Exception as e:
+                log.debug(e, exc_info=args.verbose)
+                print(f"{fn}: Error")
 
     sys.exit(4 if nerrors > 0 else 0)
