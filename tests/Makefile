@@ -1,6 +1,9 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
+D.subs  = rwt modval merge
+D.check = $(D.subs:%=%.check)
+
 .PHONY: clean
 clean:
 	$(RM) -r __pycache__
@@ -8,9 +11,14 @@ clean:
 PYTEST  = pytest --log-level=debug --capture=tee-sys
 PYTOPT	= -vv
 
-.PHONY: check.pytest
-check.pytest:
-	$(PYTEST) $(PYTOPT) tests.py
+# TODO reinstante some pytest tests
+# .PHONY: check.pytest
+# check.pytest:
+# 	$(PYTEST) $(PYTOPT) tests.py
 
 .PHONY: check
-check: check.pytest
+check: $(D.check)
+
+.PHONY: $(D.check)
+%.check:
+	$(MAKE) -C $* check

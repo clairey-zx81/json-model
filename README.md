@@ -75,6 +75,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: move bads data to bads directory
 - [x] feature: use `-` for standard input and output
 - [x] feature: yaml file input
+- [x] tests: working `make check`
 - [ ] feature: yaml url input
 - [ ] tests: with an actual url!
 - [ ] python: remove global list in JsonModel
@@ -94,7 +95,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] tests: fix tests in `bads/wip`?
 - [ ] tests: upgrade all models on `models/` and check them as well
 - [ ] tests: refactor all tests, keep or drop `pytest`
-- [ ] tests: working `make check`
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?

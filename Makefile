@@ -44,7 +44,7 @@ check.pyright:
 	source venv/bin/activate
 	pyright json_model
 
-.PHONY: check.pytest
-check.pytest:
+.PHONY: check.tests
+check.tests:
 	source venv/bin/activate
-	$(MAKE) -C tests check.pytest
+	$(MAKE) -C tests check
