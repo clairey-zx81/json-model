@@ -86,26 +86,26 @@ def test_jschon_goods():
             log.error(json.dumps(res.output('basic'), indent=2))
         assert res.passed, f"model seems okay"
 
-def test_jschon_bads():
-    jschon = pytest.importorskip("jschon")
-    import jschon
-    jschon.create_catalog("2020-12")
-    model_schema = jschon.JSONSchema(JSON_MODEL_SCHEMA)
-    for _i, valid, _c, model in BADS:
-        if valid:
-            continue
-        if isinstance(model, str) and model.startswith("$"):
-            continue
-        log.info(f"model: {model}")
-        try:
-            res = model_schema.evaluate(jschon.JSON(model))
-        except TypeError as error:
-            log.error(f"on {model}: {error}")
-            continue
-        if res.passed:
-            log.error(f"model: {model}")
-            log.error(json.dumps(res.output('basic'), indent=2))
-        assert not res.passed, f"model is invalid"
+## def test_jschon_bads():
+##     jschon = pytest.importorskip("jschon")
+##     import jschon
+##     jschon.create_catalog("2020-12")
+##     model_schema = jschon.JSONSchema(JSON_MODEL_SCHEMA)
+##     for _i, valid, _c, model in BADS:
+##         if valid:
+##             continue
+##         if isinstance(model, str) and model.startswith("$"):
+##             continue
+##         log.info(f"model: {model}")
+##         try:
+##             res = model_schema.evaluate(jschon.JSON(model))
+##         except TypeError as error:
+##             log.error(f"on {model}: {error}")
+##             continue
+##         if res.passed:
+##             log.error(f"model: {model}")
+##             log.error(json.dumps(res.output('basic'), indent=2))
+##         assert not res.passed, f"model is invalid"
 
 def test_merge():
     merge = pathlib.Path("./merge")
@@ -302,31 +302,31 @@ def test_json_model_static_compilation():
         except ModelError as e:
             assert False, f"model static compilation failed: {model}"
 
-from bad_models import BADS
-
-def test_bad_json_model_v_checked():
-    validator = DSV()
-    for _i, expect, _c, model in BADS:
-        log.info(f"model: {model}")
-        assert validator.check(model, JSON_MODEL) == expect, f"v-checked bad model: {model}"
-
-def test_bad_json_model_c_checked():
-    checker = compiler.compileModel(JSON_MODEL)
-    for _i, expect, _c, model in BADS:
-        log.info(f"model: {model}")
-        assert checker(model) == expect, f"c-checked bad model: {model}"
-
-# TODO cs
-
-def test_bad_json_models_compilation():
-    for _i, _e, compiles, model in BADS:
-        log.info(f"model: {model}")
-        try:
-            checker = compiler.compileModel(model)
-            compiled = True
-        except ModelError:
-            compiled = False
-        assert compiled == compiles, f"bad model compilation: {model} ({compiles})"
+# from bad_models import BADS
+# 
+# def test_bad_json_model_v_checked():
+#     validator = DSV()
+#     for _i, expect, _c, model in BADS:
+#         log.info(f"model: {model}")
+#         assert validator.check(model, JSON_MODEL) == expect, f"v-checked bad model: {model}"
+# 
+# def test_bad_json_model_c_checked():
+#     checker = compiler.compileModel(JSON_MODEL)
+#     for _i, expect, _c, model in BADS:
+#         log.info(f"model: {model}")
+#         assert checker(model) == expect, f"c-checked bad model: {model}"
+# 
+# # TODO cs
+# 
+# def test_bad_json_models_compilation():
+#     for _i, _e, compiles, model in BADS:
+#         log.info(f"model: {model}")
+#         try:
+#             checker = compiler.compileModel(model)
+#             compiled = True
+#         except ModelError:
+#             compiled = False
+#         assert compiled == compiles, f"bad model compilation: {model} ({compiles})"
 
 # TODO cs
 

@@ -72,6 +72,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: rename without explicit `-v2`
 - [x] python: remove global list in Symbols
 - [x] tests: move bads up
+- [x] tests: move bads data to bads directory
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?

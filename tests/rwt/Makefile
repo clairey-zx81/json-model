@@ -25,7 +25,7 @@ F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) $(F.js) bads.check.out
+F.gen   = bads.check.out $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) $(F.js)
 
 .PHONY: gen
 gen: $(F.gen)
