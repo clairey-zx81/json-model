@@ -72,13 +72,13 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] python: remove globals in Symbols and JsonModel
 - [ ] python: refactor and cleanup
-- [ ] python: coverage
 - [ ] static: remove spurious newlines
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt
 - [ ] tests: refactor all tests
 - [ ] tests: working `make check`
+- [ ] tests: coverage
 - [ ] tests: add github CI
 - [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
