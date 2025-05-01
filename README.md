@@ -87,6 +87,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt, modval, bads
+- [ ] tests: fix tests in `bads/wip`?
+- [ ] tests: upgrade all models on `models/` and check them as well
 - [ ] tests: refactor all tests, keep or drop `pytest`
 - [ ] tests: working `make check`
 - [ ] tests: use ref instead of git?
