@@ -70,9 +70,11 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: test schemas and values with jsu
 - [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
 - [x] tests: rename without explicit `-v2`
+- [x] python: remove global lisrt in Symbols
+- [ ] python: remove global list in JsonModel
+- [ ] python: remove all globals in Symbols
+- [ ] python: remove all globals in JsonModel
 - [ ] design: handle `.` and `/` references as relative url
-- [ ] python: remove globals in Symbols
-- [ ] python: remove globals in JsonModel
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline to generate a working model without includes
 - [ ] python: refactor and cleanup

@@ -21,16 +21,15 @@ type ModelRef = list[str]  # $stuff#name#inside
 class Symbols(MutableMapping[str, JsonModel]):
     """JSON Model Symbol Table."""
 
-    # TODO move to JsonModel instances
-    # keep track of allocated symbol tables
+    # debug identification helper
     lock = threading.RLock()
-    SYMBOLS: list[Symbols] = []
+    NSYMBOLS = 0
 
     def __init__(self):
 
         with Symbols.lock:
-            self._id = len(Symbols.SYMBOLS)
-            Symbols.SYMBOLS.append(self)
+            self._id = Symbols.NSYMBOLS
+            Symbols.NSYMBOLS += 1
 
         self._syms: SymTable = {}
         self._gmap: Globals = {}
