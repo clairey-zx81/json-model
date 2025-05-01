@@ -66,7 +66,9 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 if model in PREDEF_FORMATS:
                     schema["format"] = PREDEF_FORMATS[model]
             elif model[0] == "$":
-                if "/" in model or "." in model:  # probable URL
+                if model == "$#":
+                    schema["$ref"] = "#"
+                elif "/" in model or "." in model:  # probable URL
                     schema["$ref"] = model[1:]
                 else:
                     schema["$ref"] = "#/$defs/" + model[1:]

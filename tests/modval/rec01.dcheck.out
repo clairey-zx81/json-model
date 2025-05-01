@@ -1,0 +1,9 @@
+rec01.0.true.json: True
+rec01.1.true.json: True
+rec01.2.true.json: True
+rec01.0.false.json: False [('', '$', 'not an object')]
+rec01.1.false.json: False [('', '$', 'not an object')]
+rec01.2.false.json: False [('', '$', 'not an object')]
+rec01.3.false.json: False [('', '$', 'not an object')]
+rec01.4.false.json: False [('', '$', 'not an object')]
+rec01.5.false.json: False [('', '$.Susie', 'not an object'), (".''", '$.Susie', '$# failed'), (".''", '$.Susie', 'bad property Susie')]
