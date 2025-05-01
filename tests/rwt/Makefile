@@ -159,6 +159,7 @@ mrg_02.jcheck.out \
 obj_03.jcheck.out \
 obj_04.jcheck.out \
 scope_1.jcheck.out \
+hello2.jcheck.out \
 scp_01.jcheck.out:
 	touch $@
 

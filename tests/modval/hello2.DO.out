@@ -1,0 +1,242 @@
+#
+# json model 0
+#
+              0 COPY_FREE_VARS           4
+
+              2 RESUME                   0
+              4 PUSH_NULL
+              6 LOAD_DEREF               2 (fun)
+              8 LOAD_FAST                0 (v)
+             10 LOAD_FAST                1 (p)
+             12 CALL                     2
+             20 COPY                     1
+             22 POP_JUMP_IF_TRUE        22 (to 68)
+             24 POP_TOP
+             26 LOAD_DEREF               5 (self)
+             28 LOAD_ATTR                1 (NULL|self + _no)
+             48 LOAD_DEREF               4 (mpath)
+             50 LOAD_FAST                1 (p)
+             52 LOAD_DEREF               3 (model)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               1 (' failed')
+             58 BUILD_STRING             2
+             60 CALL                     3
+        >>   68 RETURN_VALUE
+
+#
+# json model 1
+#
+              0 COPY_FREE_VARS           7
+
+              2 RESUME                   0
+
+              4 LOAD_GLOBAL              1 (NULL + isinstance)
+             14 LOAD_FAST                0 (v)
+             16 LOAD_GLOBAL              2 (dict)
+             26 CALL                     2
+             34 POP_JUMP_IF_TRUE        19 (to 74)
+
+             36 LOAD_DEREF              16 (self)
+             38 LOAD_ATTR                5 (NULL|self + _no)
+             58 LOAD_DEREF              13 (mpath)
+             60 LOAD_FAST                1 (p)
+             62 LOAD_CONST               1 ('not an object')
+             64 CALL                     3
+             72 RETURN_VALUE
+
+        >>   74 LOAD_GLOBAL              7 (NULL + len)
+             84 LOAD_DEREF              12 (mandatory)
+             86 CALL                     1
+             94 STORE_FAST               2 (must_see)
+
+             96 LOAD_FAST                0 (v)
+             98 LOAD_ATTR                9 (NULL|self + items)
+            118 CALL                     0
+            126 GET_ITER
+        >>  128 FOR_ITER               170 (to 472)
+            132 UNPACK_SEQUENCE          2
+            136 STORE_FAST               3 (key)
+            138 STORE_FAST               4 (val)
+
+            140 LOAD_FAST                3 (key)
+            142 LOAD_DEREF              12 (mandatory)
+            144 CONTAINS_OP              0
+            146 POP_JUMP_IF_FALSE       25 (to 198)
+
+            148 LOAD_FAST                2 (must_see)
+            150 LOAD_CONST               2 (1)
+            152 BINARY_OP               23 (-=)
+            156 STORE_FAST               2 (must_see)
+
+            158 PUSH_NULL
+            160 LOAD_DEREF              12 (mandatory)
+            162 LOAD_FAST                3 (key)
+            164 BINARY_SUBSCR
+            168 LOAD_FAST                4 (val)
+            170 LOAD_FAST                1 (p)
+            172 FORMAT_VALUE             0
+            174 LOAD_CONST               3 ('.')
+            176 LOAD_FAST                3 (key)
+            178 FORMAT_VALUE             0
+            180 BUILD_STRING             3
+            182 CALL                     2
+            190 POP_JUMP_IF_FALSE        1 (to 194)
+            192 JUMP_BACKWARD           33 (to 128)
+
+        >>  194 POP_TOP
+            196 RETURN_CONST             4 (False)
+
+        >>  198 LOAD_FAST                3 (key)
+            200 LOAD_DEREF              14 (optional)
+            202 CONTAINS_OP              0
+            204 POP_JUMP_IF_FALSE       20 (to 246)
+
+            206 PUSH_NULL
+            208 LOAD_DEREF              14 (optional)
+            210 LOAD_FAST                3 (key)
+            212 BINARY_SUBSCR
+            216 LOAD_FAST                4 (val)
+            218 LOAD_FAST                1 (p)
+            220 FORMAT_VALUE             0
+            222 LOAD_CONST               3 ('.')
+            224 LOAD_FAST                3 (key)
+            226 FORMAT_VALUE             0
+            228 BUILD_STRING             3
+            230 CALL                     2
+            238 POP_JUMP_IF_FALSE        1 (to 242)
+            240 JUMP_BACKWARD           57 (to 128)
+
+        >>  242 POP_TOP
+            244 RETURN_CONST             4 (False)
+
+        >>  246 LOAD_CONST               4 (False)
+            248 STORE_FAST               5 (checked)
+
+            250 LOAD_DEREF              10 (keyname_checks)
+            252 LOAD_ATTR                9 (NULL|self + items)
+            272 CALL                     0
+            280 GET_ITER
+        >>  282 FOR_ITER                25 (to 336)
+            286 UNPACK_SEQUENCE          2
+            290 STORE_FAST               6 (k)
+            292 STORE_FAST               7 (kc)
+
+            294 PUSH_NULL
+            296 LOAD_FAST                7 (kc)
+            298 LOAD_FAST                3 (key)
+            300 LOAD_FAST                4 (val)
+            302 LOAD_FAST                1 (p)
+            304 CALL                     3
+            312 STORE_FAST               8 (res)
+
+            314 LOAD_FAST                8 (res)
+            316 POP_JUMP_IF_NOT_NONE     1 (to 320)
+            318 JUMP_BACKWARD           19 (to 282)
+
+        >>  320 LOAD_FAST                8 (res)
+            322 POP_JUMP_IF_TRUE         3 (to 330)
+
+            324 POP_TOP
+            326 POP_TOP
+            328 RETURN_CONST             4 (False)
+
+        >>  330 LOAD_CONST               5 (True)
+            332 STORE_FAST               5 (checked)
+            334 JUMP_BACKWARD           27 (to 282)
+
+        >>  336 END_FOR
+
+            338 LOAD_FAST                5 (checked)
+            340 POP_JUMP_IF_TRUE        44 (to 430)
+
+            342 LOAD_DEREF              11 (keyregs_checks)
+            344 LOAD_ATTR                9 (NULL|self + items)
+            364 CALL                     0
+            372 GET_ITER
+        >>  374 FOR_ITER                25 (to 428)
+            378 UNPACK_SEQUENCE          2
+            382 STORE_FAST               6 (k)
+            384 STORE_FAST               7 (kc)
+
+            386 PUSH_NULL
+            388 LOAD_FAST                7 (kc)
+            390 LOAD_FAST                3 (key)
+            392 LOAD_FAST                4 (val)
+            394 LOAD_FAST                1 (p)
+            396 CALL                     3
+            404 STORE_FAST               8 (res)
+
+            406 LOAD_FAST                8 (res)
+            408 POP_JUMP_IF_NOT_NONE     1 (to 412)
+            410 JUMP_BACKWARD           19 (to 374)
+
+        >>  412 LOAD_FAST                8 (res)
+            414 POP_JUMP_IF_TRUE         3 (to 422)
+
+            416 POP_TOP
+            418 POP_TOP
+            420 RETURN_CONST             4 (False)
+
+        >>  422 LOAD_CONST               5 (True)
+            424 STORE_FAST               5 (checked)
+            426 JUMP_BACKWARD           27 (to 374)
+
+        >>  428 END_FOR
+
+        >>  430 LOAD_FAST                5 (checked)
+            432 POP_JUMP_IF_FALSE        1 (to 436)
+            434 JUMP_BACKWARD          154 (to 128)
+        >>  436 PUSH_NULL
+            438 LOAD_DEREF              15 (others)
+            440 LOAD_FAST                3 (key)
+            442 LOAD_FAST                4 (val)
+            444 LOAD_FAST                1 (p)
+            446 FORMAT_VALUE             0
+            448 LOAD_CONST               3 ('.')
+            450 LOAD_FAST                3 (key)
+            452 FORMAT_VALUE             0
+            454 BUILD_STRING             3
+            456 CALL                     3
+            464 POP_JUMP_IF_FALSE        1 (to 468)
+            466 JUMP_BACKWARD          170 (to 128)
+
+        >>  468 POP_TOP
+            470 RETURN_CONST             4 (False)
+
+        >>  472 END_FOR
+
+            474 LOAD_FAST                2 (must_see)
+            476 LOAD_CONST               6 (0)
+            478 COMPARE_OP              55 (!=)
+            482 POP_JUMP_IF_FALSE      100 (to 684)
+
+            484 LOAD_GLOBAL             11 (NULL + set)
+            494 LOAD_DEREF              12 (mandatory)
+            496 LOAD_ATTR               13 (NULL|self + keys)
+            516 CALL                     0
+            524 CALL                     1
+            532 LOAD_ATTR               15 (NULL|self + difference)
+            552 LOAD_FAST                0 (v)
+            554 LOAD_ATTR               13 (NULL|self + keys)
+            574 CALL                     0
+            582 CALL                     1
+            590 STORE_FAST               9 (missing)
+
+            592 LOAD_DEREF              16 (self)
+            594 LOAD_ATTR                5 (NULL|self + _no)
+            614 LOAD_DEREF              13 (mpath)
+            616 LOAD_FAST                1 (p)
+            618 LOAD_CONST               7 ('missing mandatory key: ')
+            620 LOAD_CONST               8 (' ')
+            622 LOAD_ATTR               17 (NULL|self + join)
+            642 LOAD_GLOBAL             19 (NULL + sorted)
+            652 LOAD_FAST                9 (missing)
+            654 CALL                     1
+            662 CALL                     1
+            670 FORMAT_VALUE             0
+            672 BUILD_STRING             2
+            674 CALL                     3
+            682 RETURN_VALUE
+
+        >>  684 RETURN_CONST             5 (True)
+

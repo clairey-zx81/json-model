@@ -75,6 +75,7 @@ float_0.model.json: PASS
 float_1.model.json: PASS
 float_m1.model.json: PASS
 fourty-two.model.json: PASS
+hello2.model.json: PASS
 hello.model.json: PASS
 int00.model.json: PASS
 int_0.model.json: PASS
