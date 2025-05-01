@@ -103,7 +103,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] feature: clarify and implement options management `JSON_MODEL_…`
 - [ ] design: (online) extension register?
-- [ ] pr: register `json-model.org`?
+- [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] design: official (meta) model url:
       `https://models.json-model.org/...` vs `https://json-model.org/models/...`?
 - [ ] doc: check and document API entry points
