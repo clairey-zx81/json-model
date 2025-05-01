@@ -25,7 +25,7 @@ clean.dev: clean
 	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build
 
 .PHONY: check
-check: check.flake8 check.ruff check.pyright check.pytest
+check: check.flake8 check.ruff check.pyright check.tests
 
 IGNORE  = E121,E125,E131,E227,E251,E302,W504,F841
 

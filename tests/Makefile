@@ -11,7 +11,7 @@ clean:
 PYTEST  = pytest --log-level=debug --capture=tee-sys
 PYTOPT	= -vv
 
-# TODO reinstante some pytest tests
+# TODO reinstate some pytest tests
 # .PHONY: check.pytest
 # check.pytest:
 # 	$(PYTEST) $(PYTOPT) tests.py
@@ -19,6 +19,5 @@ PYTOPT	= -vv
 .PHONY: check
 check: $(D.check)
 
-.PHONY: $(D.check)
 %.check:
 	$(MAKE) -C $* check
