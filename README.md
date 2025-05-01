@@ -79,6 +79,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: make check for bads
 - [x] tests: add malformed bad models
 - [x] tests: with an actual url! (hello2)
+- [ ] python: rename `types.py` which is a pain
 - [ ] feature: yaml url input
 - [ ] feature: control cache
 - [ ] python: remove global list in JsonModel
