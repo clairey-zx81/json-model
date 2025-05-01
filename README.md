@@ -70,7 +70,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: test schemas and values with jsu
 - [x] extend: `.schema` extension to add JSON Schema specific stuff, and `.mo` and `.in`
 - [x] tests: rename without explicit `-v2`
-- [x] python: remove global lisrt in Symbols
+- [x] python: remove global list in Symbols
+- [x] tests: move bads up
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
@@ -85,7 +86,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt, modval, bads
-- [ ] tests: move bads up
 - [ ] tests: refactor all tests, keep or drop `pytest`
 - [ ] tests: working `make check`
 - [ ] tests: use ref instead of git?

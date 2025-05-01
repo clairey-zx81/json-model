@@ -11,7 +11,7 @@ JMC = jmc $(JMC.opts) \
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
 F.model = $(wildcard [a-zA-Z]*.model.json) $(F.mjs:%.model.js=%.model.json)
-F.bads  = $(wildcard bads/[a-zA-Z]*.model.json)
+F.bads  = $(wildcard ../bads/[a-zA-Z]*.model.json)
 F.root  = $(F.model:%.model.json=%)
 
 # derived
@@ -72,7 +72,7 @@ py: $(F.SO)
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob
-	for bad in bads/*.model.json ; do
+	for bad in ../bads/*.model.json ; do
 	  $(JMC) --check -PO $$bad && exit 1
 	done 2> $@
 	exit 0
@@ -87,8 +87,7 @@ dcheck: $(F.dc)
 
 # special case for the meta model
 json-model.dcheck.out: json-model.model.json
-	# TODO ./bads/*.model.json
-	$(JMC) -v -DO --no-code --true ./$< $(F.model) bads/_*.model.json > $@
+	$(JMC) -v -DO --no-code --true ./$< $(F.model) ../bads/_*.model.json > $@
 	$(JMC) -v -DO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations
@@ -112,8 +111,7 @@ scheck: $(F.sc)
 
 # special case for the meta model
 json-model.scheck.out: json-model.model.json
-	# TODO ./bads/*.model.json
-	$(JMC) -v -SO --no-code --true ./$< $(F.model) bads/_*.model.json > $@
+	$(JMC) -v -SO --no-code --true ./$< $(F.model) ../bads/_*.model.json > $@
 	$(JMC) -v -SO --no-code --false ./$< $(F.bads) >> $@
 
 # special case for localizations
@@ -144,7 +142,7 @@ jcheck: $(F.js)
 # special cases
 json-model.jcheck.out: json-model.schema.json
 	shopt -s nullglob
-	$(JS_CHECK) $< *.model.json bads/*.model.json > $@
+	$(JS_CHECK) $< *.model.json ../bads/*.model.json > $@
 
 l10n.jcheck.out: l10n.schema.json
 	$(JS_CHECK) $< english.model.json français.model.json > $@
