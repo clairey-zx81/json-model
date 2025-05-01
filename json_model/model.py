@@ -12,7 +12,7 @@ from .resolver import Resolver
 
 # FIXME
 JsonModel = typing.NewType("JsonModel", None)  # pyright: ignore
-Symbols = typing.NewType("Symbols", None)  # pyright: ignore
+# Symbols = typing.NewType("Symbols", None)  # pyright: ignore
 
 type SymTable = dict[str, JsonModel]
 type Globals = dict[str, str]

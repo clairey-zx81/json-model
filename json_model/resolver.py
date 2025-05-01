@@ -34,7 +34,7 @@ class Resolver:
             url, _fragment = ref, None
 
         if url == "-":  # no caching, cannot read same input twice?
-            log.info(f"reading: stdin")
+            log.info("reading: stdin")
             return json.load(sys.stdin)
 
         # follow mappings
