@@ -1,13 +1,18 @@
 import sys
 import re
 import json
+import yaml
+
 from .types import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
 from .utils import log
 
+JSON_SUFFIX = ["", ".json", ".model", ".model.json"]
+YAML_SUFFIX = [".yaml", ".model.yaml", ".yml", "model.yml"]
+JS_SUFFIX = [".js", ".model.js"]
 
 class Resolver:
-    """Resolve external references to json data.
+    """Resolve external references to jsonable data.
 
     - `cache_dir`: where to store downloaded jsons.
     - `maps`: url to directory mapping for testing.
@@ -58,17 +63,23 @@ class Resolver:
             file = None
 
         if file:
-            for suffix in ["", ".json", ".model", ".model.json", ".js", ".model.js"]:
+            for suffix in JSON_SUFFIX + JS_SUFFIX + YAML_SUFFIX:
                 fn = file + suffix
                 try:
                     with open(fn) as f:
                         log.info(f"loading: {fn}")
-                        j = f.read()
-                        # possibly remove js comments, with some guessing
-                        if fn.endswith(".js") or re.match(r"(?m)^\s*//\s", j):
-                            j = re.sub(r"(?s)/\*.*?\*/", "", j)
-                            j = re.sub(r"\s*//\s.*", "", j)
-                        self._jsons[url] = j = json.loads(j)
+                        content = f.read()
+                        if fn.endswith(".js") or re.match(r"(?m)^\s*//\s", content):
+                            # possibly remove js comments
+                            content = re.sub(r"(?s)/\*.*?\*/", "", content)
+                            content = re.sub(r"\s*//\s.*", "", content)
+                        # guess content type
+                        if fn.endswith(".json") or \
+                            re.match(r"\s*(\[|\{|\"|\d).*$|(null|true|false)\s*$", content):
+                            # try JSON
+                            self._jsons[url] = j = json.loads(content)
+                        else:  # try yaml
+                            self._jsons[url] = j = yaml.full_load(content)
                         return j
                 except FileNotFoundError:
                     log.debug(f"no such file: {fn}")

@@ -1,6 +1,6 @@
 float_1.0.true.json: PASS
-float_1.0.false.json: FAIL
 float_1.1.false.json: FAIL
 float_1.2.false.json: FAIL
 float_1.3.false.json: FAIL
 float_1.4.false.json: FAIL
+float_1.5.false.json: FAIL

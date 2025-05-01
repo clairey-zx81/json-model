@@ -1,4 +1,4 @@
 str_1.0.true.json: True
-str_1.0.false.json: False [('<STRING>', '$', 'not a string'), ('', '$', '$STRING failed')]
 str_1.1.false.json: False [('<STRING>', '$', 'not a string'), ('', '$', '$STRING failed')]
 str_1.2.false.json: False [('<STRING>', '$', 'not a string'), ('', '$', '$STRING failed')]
+str_1.3.false.json: False [('<STRING>', '$', 'not a string'), ('', '$', '$STRING failed')]

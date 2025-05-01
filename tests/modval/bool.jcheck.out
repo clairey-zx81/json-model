@@ -1,8 +1,8 @@
 bool.0.true.json: PASS
 bool.1.true.json: PASS
-bool.0.false.json: FAIL
-bool.1.false.json: FAIL
 bool.2.false.json: FAIL
 bool.3.false.json: FAIL
 bool.4.false.json: FAIL
 bool.5.false.json: FAIL
+bool.6.false.json: FAIL
+bool.7.false.json: FAIL

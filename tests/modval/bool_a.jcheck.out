@@ -1,4 +1,4 @@
 bool_a.0.true.json: PASS
 bool_a.1.true.json: PASS
-bool_a.0.false.json: FAIL
-bool_a.1.false.json: FAIL
+bool_a.2.false.json: FAIL
+bool_a.3.false.json: FAIL

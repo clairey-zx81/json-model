@@ -1,5 +1,5 @@
 uniq_0.0.true.json: True
 uniq_0.1.true.json: True
 uniq_0.2.true.json: True
-uniq_0.0.false.json: False [('.!', '$', 'distinct failed')]
-uniq_0.1.false.json: False [('.@[0]', '$[0]', 'int must be strictly positive')]
+uniq_0.3.false.json: False [('.!', '$', 'distinct failed')]
+uniq_0.4.false.json: False [('.@[0]', '$[0]', 'int must be strictly positive')]

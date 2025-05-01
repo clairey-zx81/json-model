@@ -1,4 +1,4 @@
 re_1.0.true.json: True
 re_1.1.true.json: True
-re_1.0.false.json: False [('', '$', 'expecting regex /^S/i')]
-re_1.1.false.json: False [('', '$', 'expecting regex /^S/i')]
+re_1.2.false.json: False [('', '$', 'expecting regex /^S/i')]
+re_1.3.false.json: False [('', '$', 'expecting regex /^S/i')]

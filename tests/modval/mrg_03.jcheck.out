@@ -1,2 +1,2 @@
-mrg_03.0.true.json: PASS
 mrg_03.0.false.json: FAIL
+mrg_03.0.true.json: PASS

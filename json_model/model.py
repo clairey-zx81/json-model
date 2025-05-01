@@ -236,9 +236,9 @@ class JsonModel:
         if isinstance(model, dict) and "$" in model:
             assert root  # $ only at root
             dollar = model["$"]
-            assert isinstance(dollar, dict)
+            assert isinstance(dollar, dict), "$ expects an object"
             # check that keys are str
-            assert all(map(lambda k: isinstance(k, str), dollar.keys()))
+            assert all(map(lambda k: isinstance(k, str), dollar.keys())), "$ keys must be str"
             # extract current model identifier if provided
             if u := dollar.get(""):
                 assert isinstance(u, str)

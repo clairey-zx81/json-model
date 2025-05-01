@@ -1,4 +1,4 @@
 dollar00.00.true.json: True
 dollar00.01.true.json: True
-dollar00.03.true.json: True
 dollar00.02.false.json: False [('.rec.|[0]', '$', 'expecting a boolean'), ('.rec.|[1]', '$', 'not an object'), ('.rec.|', '$', 'no any matched'), ('', '$', '$rec failed')]
+dollar00.03.true.json: True

@@ -10,12 +10,16 @@ JMC = jmc $(JMC.opts) \
 
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
-F.model = $(wildcard [a-zA-Z]*.model.json) $(F.mjs:%.model.js=%.model.json)
+F.myaml = $(wildcard *.model.yaml)
+F.model = $(wildcard [a-zA-Z]*.model.json) \
+          $(F.mjs:%.model.js=%.model.json) \
+          $(F.myaml:%.model.yaml=%.model.json)
 F.bads  = $(wildcard ../bads/[a-zA-Z]*.model.json)
+
 F.root  = $(F.model:%.model.json=%)
 
 # derived
-F.mjson = $(F.mjs:%.model.js=%.model.json)
+F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
@@ -25,7 +29,7 @@ F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 
-F.gen   = bads.check.out $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.mjson) $(F.js)
+F.gen   = bads.check.out $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js)
 
 .PHONY: gen
 gen: $(F.gen)
@@ -39,9 +43,13 @@ check:
 clean:
 	$(RM) $(F.gen)
 
-.PHONY: mjson
-mjson: $(F.mjson)
+.PHONY: json
+json: $(F.json)
+
 %.model.json: %.model.js
+	$(JMC) -N ./$< > $@
+
+%.model.json: %.model.yaml
 	$(JMC) -N ./$< > $@
 
 .PHONY: UO
@@ -87,8 +95,8 @@ dcheck: $(F.dc)
 
 # special case for the meta model
 json-model.dcheck.out: json-model.model.json
-	$(JMC) -v -DO --no-code --true ./$< $(F.model) ../bads/_*.model.json > $@
-	$(JMC) -v -DO --no-code --false ./$< $(F.bads) >> $@
+	$(JMC) -v -DO --no-code --true ./$< $(F.model) ../bads/_*.model.json | sort > $@
+	$(JMC) -v -DO --no-code --false ./$< $(F.bads) | sort >> $@
 
 # special case for localizations
 l10n.dcheck.out: l10n.model.json
@@ -99,7 +107,7 @@ l10n.dcheck.out: l10n.model.json
 
 %.dcheck.out: %.model.json
 	shopt -s nullglob
-	$(JMC) -v -DO -nc ./$< $*.*.true.json $*.*.false.json > $@
+	$(JMC) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
 
 #
 # Static CHECKs
@@ -111,8 +119,8 @@ scheck: $(F.sc)
 
 # special case for the meta model
 json-model.scheck.out: json-model.model.json
-	$(JMC) -v -SO --no-code --true ./$< $(F.model) ../bads/_*.model.json > $@
-	$(JMC) -v -SO --no-code --false ./$< $(F.bads) >> $@
+	$(JMC) -v -SO --no-code --true ./$< $(F.model) ../bads/_*.model.json | sort > $@
+	$(JMC) -v -SO --no-code --false ./$< $(F.bads) | sort >> $@
 
 # special case for localizations
 l10n.scheck.out: l10n.model.json
@@ -142,7 +150,7 @@ jcheck: $(F.js)
 # special cases
 json-model.jcheck.out: json-model.schema.json
 	shopt -s nullglob
-	$(JS_CHECK) $< *.model.json ../bads/*.model.json > $@
+	$(JS_CHECK) $< *.model.json ../bads/*.model.json | sort > $@
 
 l10n.jcheck.out: l10n.schema.json
 	$(JS_CHECK) $< english.model.json français.model.json > $@
@@ -165,7 +173,7 @@ scp_01.jcheck.out:
 # default case
 %.jcheck.out: %.schema.json
 	shopt -s nullglob
-	$(JS_CHECK) $< $*.*.true.json $*.*.false.json > $@
+	$(JS_CHECK) $< $*.*.true.json $*.*.false.json | sort > $@
 
 #
 # generate everything from a model

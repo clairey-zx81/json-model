@@ -1,4 +1,4 @@
 enum01.0.true.json: PASS
-enum01.2.true.json: PASS
 enum01.1.false.json: FAIL
+enum01.2.true.json: PASS
 enum01.3.false.json: FAIL

@@ -74,6 +74,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: move bads up
 - [x] tests: move bads data to bads directory
 - [x] feature: use `-` for standard input and output
+- [x] feature: yaml file input
+- [ ] feature: yaml url input
 - [ ] tests: with an actual url!
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
@@ -100,6 +102,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
 - [ ] feature: static/dynamic js/ts compiler?
+- [ ] feature: (limited) pydantic export?
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
 - [ ] feature: think about code integration in a realistic project? usability? doc?

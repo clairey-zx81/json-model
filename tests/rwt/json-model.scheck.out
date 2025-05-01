@@ -1,3 +1,11 @@
+../bads/_dup_prop_1.model.json: True
+../bads/_dup_prop_2.model.json: True
+../bads/_infinite_recursion.model.json: True
+../bads/_xx_0.model.json: True
+../bads/_xx_1.model.json: True
+../bads/_xx_2.model.json: True
+../bads/_xx_4.model.json: True
+../bads/_xx_5.model.json: True
 en_00.model.json: True
 english.model.json: True
 fr_00.model.json: True
@@ -12,14 +20,6 @@ obj_02.model.json: True
 obj_03.model.json: True
 obj_04.model.json: True
 obj_05.model.json: True
-../bads/_dup_prop_1.model.json: True
-../bads/_dup_prop_2.model.json: True
-../bads/_infinite_recursion.model.json: True
-../bads/_xx_0.model.json: True
-../bads/_xx_1.model.json: True
-../bads/_xx_2.model.json: True
-../bads/_xx_4.model.json: True
-../bads/_xx_5.model.json: True
 ../bads/bool_0.model.json: False
 ../bads/bool_1.model.json: False
 ../bads/ex_0.model.json: False

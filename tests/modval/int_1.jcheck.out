@@ -1,10 +1,10 @@
 int_1.0.true.json: PASS
 int_1.1.true.json: PASS
-int_1.0.false.json: FAIL
-int_1.1.false.json: FAIL
 int_1.2.false.json: FAIL
 int_1.3.false.json: FAIL
 int_1.4.false.json: PASS
 int_1.5.false.json: FAIL
 int_1.6.false.json: FAIL
 int_1.7.false.json: FAIL
+int_1.8.false.json: FAIL
+int_1.9.false.json: FAIL

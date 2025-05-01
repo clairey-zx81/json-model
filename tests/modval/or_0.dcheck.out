@@ -1,4 +1,4 @@
 or_0.0.true.json: True
-or_0.0.false.json: False [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
 or_0.1.false.json: False [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
 or_0.2.false.json: False [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
+or_0.3.false.json: False [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
