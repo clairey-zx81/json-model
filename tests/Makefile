@@ -1,7 +1,7 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
-D.subs  = rwt modval merge
+D.subs  = rwt modval merge m2s
 D.check = $(D.subs:%=%.check)
 
 .PHONY: clean

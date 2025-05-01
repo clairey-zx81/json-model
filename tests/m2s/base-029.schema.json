@@ -1,4 +1,5 @@
 {
+  "additionalProperties": false,
   "properties": {
     "country": {
       "const": "United States of America"
