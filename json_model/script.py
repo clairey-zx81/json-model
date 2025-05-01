@@ -91,7 +91,7 @@ def jmc_script():
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic mapping")
     # output options
-    arg("--output", "-o", default=None, help="output file")
+    arg("--output", "-o", default="-", help="output file")
     arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
@@ -117,14 +117,8 @@ def jmc_script():
     arg("--validate", "-V", dest="op", action="store_const", const="V", help="direct validation")
     arg("--export", "-E", dest="op", action="store_const", const="E", help="export as JSON Schema")
     # parameters
-    arg("model", help="JSON model")
+    arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
-
-    # special case
-    if len(sys.argv) >= 2 and sys.argv[1] == "--version":
-        print(pkg_version("json-model"))
-        sys.exit(0)
-
     args = ap.parse_args()
 
     if args.version:
@@ -177,7 +171,7 @@ def jmc_script():
 
     # OUTPUT
     # TODO check overwrite?!
-    output = open(args.output, "w") if args.output else sys.stdout
+    output = open(args.output, "w") if args.output != "-" else sys.stdout
     checker = None
 
     # convert json to a string using prettyprint options

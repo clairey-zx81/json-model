@@ -27,7 +27,7 @@ It is presented in:
 
 ## Tool Installation
 
-Proof-of-concept tools to test JSON Model are available as Python commands:
+Proof-of-concept compiler to test JSON Model is available as Python a command:
 
 ```shell
 python -m venv venv
@@ -41,7 +41,7 @@ Command `jmc` (JSON Model Compiler) options:
 
 - `--optimize` or `-O`: optimize (const prop, partial eval, xor to or, flatten)
 - `-P -D -S -E -U`: operation (preprocess, dynamic and static compile, JSON Schema export, dump)
-- `-o output`: output file instead of standard
+- `-o output`: file output instead of standard
 - …
 
 ## TODO v2
@@ -73,6 +73,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: remove global list in Symbols
 - [x] tests: move bads up
 - [x] tests: move bads data to bads directory
+- [x] feature: use `-` for standard input and output
+- [ ] tests: with an actual url!
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
@@ -81,7 +83,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] command: add option to control name of generated function
 - [ ] feature: simplify lib usage wrt script-like features with some functions
-- [ ] feature: full inline to generate a working model without includes
+- [ ] feature: full inline of externals to generate a working model without includes
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
 - [ ] static: detect and remove duplicate functions!

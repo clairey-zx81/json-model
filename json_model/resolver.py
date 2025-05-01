@@ -1,3 +1,4 @@
+import sys
 import re
 import json
 from .types import ModelError, ModelPath, Jsonable
@@ -6,7 +7,7 @@ from .utils import log
 
 
 class Resolver:
-    """Resolve references to json data.
+    """Resolve external references to json data.
 
     - `cache_dir`: where to store downloaded jsons.
     - `maps`: url to directory mapping for testing.
@@ -18,13 +19,18 @@ class Resolver:
         self._jsons: dict[str, Jsonable] = {}
 
     def __call__(self, ref: str, path: ModelPath):
-        """Resolve a reference."""
+        """Resolve an external reference."""
 
         # separate fragment
+        # FIXME remove fragment support?
         if "#" in ref:
             url, _fragment = ref.split("#", 1)
         else:
             url, _fragment = ref, None
+
+        if url == "-":  # no caching, cannot read same input twice?
+            log.info(f"reading: stdin")
+            return json.load(sys.stdin)
 
         # follow mappings
         changes, previous = 0, -1
@@ -68,6 +74,7 @@ class Resolver:
                     log.debug(f"no such file: {fn}")
                     continue
             raise ModelError(f"cannot resolve: {file}")
-        else:  # other URLs
+        else:  # other actual URLs will download
+            log.info(f"downloading: {url}")
             self._jsons[url] = j = self._cache.load(url)
             return j
