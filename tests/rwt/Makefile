@@ -29,7 +29,7 @@ F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 
-F.gen   = bads.check.out $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js)
 
 .PHONY: gen
 gen: $(F.gen)
@@ -76,14 +76,6 @@ DO: $(F.DO)
 py: $(F.SO)
 %.py: %.model.json
 	$(JMC) -SO --code ./$< > $@
-
-# test that --check rejects **all** bads
-bads.check.out:
-	shopt -s nullglob
-	for bad in ../bads/*.model.json ; do
-	  $(JMC) --check -PO $$bad && exit 1
-	done 2> $@
-	exit 0
 
 #
 # Dynamic CHECKs

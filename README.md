@@ -76,6 +76,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] feature: use `-` for standard input and output
 - [x] feature: yaml file input
 - [x] tests: working `make check`
+- [x] tests: make check for bads
 - [ ] feature: yaml url input
 - [ ] tests: with an actual url!
 - [ ] python: remove global list in JsonModel

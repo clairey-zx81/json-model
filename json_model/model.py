@@ -189,7 +189,7 @@ class JsonModel:
             lpath = ["%"]
             model_pc = model["%"]
             del model["%"]
-            assert isinstance(model_pc, dict)
+            assert isinstance(model_pc, dict), "% expects an object"
 
             bads = {
                 name: kw
