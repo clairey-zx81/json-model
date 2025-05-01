@@ -79,6 +79,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: make check for bads
 - [x] tests: add malformed bad models
 - [x] tests: with an actual url! (hello2)
+- [ ] design: handle `.` and `/` references as relative url
 - [ ] python: rename `types.py` which is a pain
 - [ ] feature: yaml url input
 - [ ] feature: control cache
@@ -87,7 +88,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] python: remove all globals in JsonModel?
 - [ ] python: measure coverage
 - [ ] static: fix `modval/_untyped*`
-- [ ] design: handle `.` and `/` references as relative url
 - [ ] command: add option to control name of generated function
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
