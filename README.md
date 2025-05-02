@@ -195,11 +195,16 @@ Command `jmc` (JSON Model Compiler) options:
     - in files in a directory
     - through a URL
     - inlined in source files
-  - derive JSON Model from an actual/existing data structure:
+  - tooling, file derivation
+    - how to manage model changes and file derivations depending on the output
+    - (easy) integration into the JS (npm) ecosystem?
+    - (easy) integration into the Python (pip) ecosystem?
+    - web development specific ecosystems: Flask, Django, express.js…
+  - derive/import JSON Model from an actual/existing data structure:
     - how to import and use such definitions?
   - non JSON format:
     - yaml: for convenient data structure documentation
-    - js: for convenient data structure documentation (i.e. JSON with comments)
+    - js/ts: for convenient data structure documentation (i.e. JSON with comments)
     - py: for convenient data structure documentation (?!)
-    - ORM, tables, pydantic, dataclass, python types, ts…
-  - derived models for distinct usages?
+    - ORM, tables, pydantic, dataclass, python types…
+  - extensions: derive models for distinct usages?
