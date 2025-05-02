@@ -84,6 +84,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] tests: True/False -> PASS/FAIL
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] feature: control url caching, change dir location or disable
+- [ ] feature: cache expiration?
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
