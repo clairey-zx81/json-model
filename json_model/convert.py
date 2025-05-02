@@ -1,4 +1,4 @@
-from .types import ModelType, ModelPath, JsonSchema, Jsonable
+from .mtypes import ModelType, ModelPath, JsonSchema, Jsonable
 from .utils import is_cst, cst
 
 #

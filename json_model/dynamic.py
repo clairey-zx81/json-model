@@ -10,8 +10,8 @@ from typing import Callable
 import re  # re2?
 
 from . import utils
-from .types import ModelError, ModelType, ModelArray, ModelObject
-from .types import ValueType, CheckFun, KeyCheckFun, Jsonable
+from .mtypes import ModelError, ModelType, ModelArray, ModelObject
+from .mtypes import ValueType, CheckFun, KeyCheckFun, Jsonable
 from .utils import distinct_values, model_in_models, tname, log
 from .model import JsonModel
 

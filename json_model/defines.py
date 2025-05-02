@@ -1,7 +1,7 @@
 import typing
 import re
 import json
-from .types import CheckFun, ModelType, UnknownModel, ModelPath
+from .mtypes import CheckFun, ModelType, UnknownModel, ModelPath
 from .utils import log
 
 JsonModel = typing.NewType("JsonModel", None)

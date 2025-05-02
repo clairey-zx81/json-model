@@ -4,8 +4,8 @@ import typing
 from collections.abc import MutableMapping
 import threading
 
-from .types import ModelError, ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
-from .types import Jsonable, JsonSchema
+from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
+from .mtypes import ModelError, Jsonable, JsonSchema
 from .utils import log, tname, is_cst, _structurally_distinct_models, merge_objects
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver

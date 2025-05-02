@@ -4,7 +4,7 @@ import json
 import logging
 from importlib.metadata import version as pkg_version
 
-from .types import Jsonable, JsonSchema, ModelError
+from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname
 from .resolver import Resolver
 from .model import JsonModel

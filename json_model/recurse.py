@@ -4,7 +4,7 @@
 # TODO multi recurse?
 # TODO allow extending the parameterization
 #
-from .types import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
+from .mtypes import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
 
 ROOT_KEYWORDS = {"~", "$", "%"}
 # .mo and .in are extensions

@@ -3,7 +3,7 @@ import re
 import json
 import yaml
 
-from .types import ModelError, ModelPath, Jsonable
+from .mtypes import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
 from .utils import log
 

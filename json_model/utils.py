@@ -4,8 +4,8 @@
 import sys
 import re
 import logging
-from .types import ModelType, ModelPath, ModelError, ModelObject
-from .types import Jsonable, JsonObject, ValueType, Symbols
+from .mtypes import ModelType, ModelPath, ModelError, ModelObject
+from .mtypes import Jsonable, JsonObject, ValueType, Symbols
 
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)

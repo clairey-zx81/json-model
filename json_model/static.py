@@ -17,7 +17,7 @@
 import re
 import json
 
-from .types import ModelType, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
+from .mtypes import ModelType, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
 from .defines import Validator
