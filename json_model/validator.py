@@ -14,7 +14,7 @@ import argparse
 import logging
 
 from . import utils
-from .mutils import ValueType, ModelType, ModelError, distinct_values, log
+from .utils import ValueType, ModelType, ModelError, distinct_values, log
 from .defines import Validator
 
 
