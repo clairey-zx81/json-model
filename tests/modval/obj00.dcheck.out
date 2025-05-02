@@ -1,2 +1,2 @@
-obj00.00.true.json: True
-obj00.01.false.json: False [(".''", '$.a', 'expecting an integer'), (".''", '$.a', 'bad property a')]
+obj00.00.true.json: PASS
+obj00.01.false.json: FAIL [(".''", '$.a', 'expecting an integer'), (".''", '$.a', 'bad property a')]

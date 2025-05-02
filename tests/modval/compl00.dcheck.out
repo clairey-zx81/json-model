@@ -1,3 +1,3 @@
-compl00.0.true.json: True
-compl00.1.true.json: True
-compl00.2.false.json: False [('.^[?]', '$', 'model inversion (not with $ANY)')]
+compl00.0.true.json: PASS
+compl00.1.true.json: PASS
+compl00.2.false.json: FAIL [('.^[?]', '$', 'model inversion (not with $ANY)')]

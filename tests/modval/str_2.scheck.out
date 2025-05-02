@@ -1,6 +1,6 @@
-str_2.0.true.json: True
-str_2.1.false.json: False
-str_2.2.false.json: False
-str_2.3.false.json: False
-str_2.4.false.json: False
-str_2.5.false.json: False
+str_2.0.true.json: PASS
+str_2.1.false.json: FAIL
+str_2.2.false.json: FAIL
+str_2.3.false.json: FAIL
+str_2.4.false.json: FAIL
+str_2.5.false.json: FAIL

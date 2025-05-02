@@ -1,4 +1,4 @@
-dollar00.00.true.json: True
-dollar00.01.true.json: True
-dollar00.03.true.json: True
-dollar00.02.false.json: False
+dollar00.00.true.json: PASS
+dollar00.01.true.json: PASS
+dollar00.03.true.json: PASS
+dollar00.02.false.json: FAIL

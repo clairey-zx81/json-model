@@ -228,8 +228,9 @@ def jmc_script():
             try:
                 value = json.load(fh)
                 okay = checker(value)
+                sokay = "PASS" if okay else "FAIL"
                 if args.expect is None or args.verbose:
-                    msg = f"{fn}: {okay}"
+                    msg = f"{fn}: {sokay}"
                     if not okay and args.verbose and args.op == "D":
                         msg += " " + str(checker._reasons)
                     print(msg, file=output)
@@ -241,6 +242,6 @@ def jmc_script():
                         log.error(f"check value {fn}: {okay}")
             except Exception as e:
                 log.debug(e, exc_info=args.verbose)
-                print(f"{fn}: Error")
+                print(f"{fn}: ERROR")
 
     sys.exit(4 if nerrors > 0 else 0)

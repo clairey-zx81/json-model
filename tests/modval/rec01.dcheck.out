@@ -1,9 +1,9 @@
-rec01.0.true.json: True
-rec01.1.true.json: True
-rec01.2.true.json: True
-rec01.3.false.json: False [('', '$', 'not an object')]
-rec01.4.false.json: False [('', '$', 'not an object')]
-rec01.5.false.json: False [('', '$.Susie', 'not an object'), (".''", '$.Susie', '$# failed'), (".''", '$.Susie', 'bad property Susie')]
-rec01.6.false.json: False [('', '$', 'not an object')]
-rec01.7.false.json: False [('', '$', 'not an object')]
-rec01.8.false.json: False [('', '$', 'not an object')]
+rec01.0.true.json: PASS
+rec01.1.true.json: PASS
+rec01.2.true.json: PASS
+rec01.3.false.json: FAIL [('', '$', 'not an object')]
+rec01.4.false.json: FAIL [('', '$', 'not an object')]
+rec01.5.false.json: FAIL [('', '$.Susie', 'not an object'), (".''", '$.Susie', '$# failed'), (".''", '$.Susie', 'bad property Susie')]
+rec01.6.false.json: FAIL [('', '$', 'not an object')]
+rec01.7.false.json: FAIL [('', '$', 'not an object')]
+rec01.8.false.json: FAIL [('', '$', 'not an object')]

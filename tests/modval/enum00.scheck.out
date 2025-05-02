@@ -1,4 +1,4 @@
-enum00.0.true.json: True
-enum00.2.true.json: True
-enum00.1.false.json: False
-enum00.3.false.json: False
+enum00.0.true.json: PASS
+enum00.2.true.json: PASS
+enum00.1.false.json: FAIL
+enum00.3.false.json: FAIL

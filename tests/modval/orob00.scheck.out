@@ -1,5 +1,5 @@
-orob00.0.true.json: True
-orob00.1.true.json: True
-orob00.2.false.json: False
-orob00.3.false.json: False
-orob00.4.false.json: False
+orob00.0.true.json: PASS
+orob00.1.true.json: PASS
+orob00.2.false.json: FAIL
+orob00.3.false.json: FAIL
+orob00.4.false.json: FAIL

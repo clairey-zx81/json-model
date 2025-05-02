@@ -1,6 +1,6 @@
-zero00.0.true.json: True
-zero00.1.true.json: True
-zero00.2.false.json: False [('', '$', 'int must be positive')]
-zero00.3.false.json: False [('', '$', 'expecting an integer')]
-zero00.4.false.json: False [('', '$', 'expecting an integer')]
-zero00.5.false.json: False [('', '$', 'expecting an integer')]
+zero00.0.true.json: PASS
+zero00.1.true.json: PASS
+zero00.2.false.json: FAIL [('', '$', 'int must be positive')]
+zero00.3.false.json: FAIL [('', '$', 'expecting an integer')]
+zero00.4.false.json: FAIL [('', '$', 'expecting an integer')]
+zero00.5.false.json: FAIL [('', '$', 'expecting an integer')]

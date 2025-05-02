@@ -1,7 +1,7 @@
-null.0.true.json: True
-null.1.false.json: False
-null.2.false.json: False
-null.3.false.json: False
-null.4.false.json: False
-null.5.false.json: False
-null.6.false.json: False
+null.0.true.json: PASS
+null.1.false.json: FAIL
+null.2.false.json: FAIL
+null.3.false.json: FAIL
+null.4.false.json: FAIL
+null.5.false.json: FAIL
+null.6.false.json: FAIL

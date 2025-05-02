@@ -1,11 +1,11 @@
-arr_0.0.true.json: True
-arr_0.1.true.json: True
-arr_0.2.true.json: True
-arr_0.3.true.json: True
-arr_0.4.false.json: False [('', '$', 'expecting an array')]
-arr_0.5.false.json: False [('', '$', 'expecting an array')]
-arr_0.6.false.json: False [('', '$[2]', 'expecting a boolean'), ('', '$', 'all failures 1/3: [2]')]
-arr_0.7.false.json: False [('', '$[0]', 'expecting a boolean'), ('', '$', 'all failures 1/1: [0]')]
-arr_0.8.false.json: False [('', '$[0]', 'expecting a boolean'), ('', '$', 'all failures 1/1: [0]')]
-arr_0.9.false.json: False [('', '$', 'expecting an array')]
-arr_0.a.false.json: False [('', '$', 'expecting an array')]
+arr_0.0.true.json: PASS
+arr_0.1.true.json: PASS
+arr_0.2.true.json: PASS
+arr_0.3.true.json: PASS
+arr_0.4.false.json: FAIL [('', '$', 'expecting an array')]
+arr_0.5.false.json: FAIL [('', '$', 'expecting an array')]
+arr_0.6.false.json: FAIL [('', '$[2]', 'expecting a boolean'), ('', '$', 'all failures 1/3: [2]')]
+arr_0.7.false.json: FAIL [('', '$[0]', 'expecting a boolean'), ('', '$', 'all failures 1/1: [0]')]
+arr_0.8.false.json: FAIL [('', '$[0]', 'expecting a boolean'), ('', '$', 'all failures 1/1: [0]')]
+arr_0.9.false.json: FAIL [('', '$', 'expecting an array')]
+arr_0.a.false.json: FAIL [('', '$', 'expecting an array')]

@@ -1,3 +1,3 @@
-or03.0.true.json: True
-or03.1.false.json: False [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]
-or03.2.false.json: False [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]
+or03.0.true.json: PASS
+or03.1.false.json: FAIL [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]
+or03.2.false.json: FAIL [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]

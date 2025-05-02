@@ -81,7 +81,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: with an actual url! (hello2)
 - [x] python: rename `types.py` which is a pain
 - [x] feature: yaml url input
-- [ ] tests: True/False -> PASS/FAIL
+- [x] tests: True/False -> PASS/FAIL
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] feature: control url caching, change dir location or disable
 - [ ] feature: cache expiration?

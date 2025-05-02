@@ -1,4 +1,4 @@
-opt_08.0.true.json: True
-opt_08.1.false.json: False [('', '$', 'expecting integer 1')]
-opt_08.2.false.json: False [('', '$', 'expecting integer 1')]
-opt_08.3.false.json: False [('', '$', 'expecting integer 1')]
+opt_08.0.true.json: PASS
+opt_08.1.false.json: FAIL [('', '$', 'expecting integer 1')]
+opt_08.2.false.json: FAIL [('', '$', 'expecting integer 1')]
+opt_08.3.false.json: FAIL [('', '$', 'expecting integer 1')]

@@ -1,2 +1,2 @@
-or06.0.true.json: True
-or06.1.false.json: False
+or06.0.true.json: PASS
+or06.1.false.json: FAIL

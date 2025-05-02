@@ -82,7 +82,7 @@ py: $(F.SO)
 #
 .PHONY: dcheck
 dcheck: $(F.dc)
-	egrep -v 'true.*True|false.*False' *.dcheck.out | egrep -v '^(json-model|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n)'
 	exit 0
 
 # special case for the meta model
@@ -106,7 +106,7 @@ l10n.dcheck.out: l10n.model.json
 #
 .PHONY: scheck
 scheck: $(F.sc)
-	egrep -v 'true.*True|false.*False' *.scheck.out | egrep -v '^(json-model|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n)'
 	exit 0
 
 # special case for the meta model

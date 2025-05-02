@@ -1,2 +1,2 @@
-dst_01.0.true.json: True
-dst_01.1.false.json: False [('.|[0]', '$', 'not an object'), ('.|[1]', '$', 'not an object'), ('.|[2]', '$', 'not an object'), ('.|[3]', '$', 'not an object'), ('.|[4]', '$', 'not an object'), ('.|[5]', '$', 'not an object'), ('.|', '$', 'no any matched')]
+dst_01.0.true.json: PASS
+dst_01.1.false.json: FAIL [('.|[0]', '$', 'not an object'), ('.|[1]', '$', 'not an object'), ('.|[2]', '$', 'not an object'), ('.|[3]', '$', 'not an object'), ('.|[4]', '$', 'not an object'), ('.|[5]', '$', 'not an object'), ('.|', '$', 'no any matched')]

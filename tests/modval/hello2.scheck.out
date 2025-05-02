@@ -1,3 +1,3 @@
-hello2.0.true.json: True
-hello2.1.true.json: True
-hello2.2.false.json: False
+hello2.0.true.json: PASS
+hello2.1.true.json: PASS
+hello2.2.false.json: FAIL

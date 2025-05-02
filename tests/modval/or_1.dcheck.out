@@ -1,5 +1,5 @@
-or_1.0.true.json: True
-or_1.1.true.json: True
-or_1.2.true.json: True
-or_1.3.false.json: False [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number 3.14159'), ('.|[5]', '$', 'expecting number 1e+101'), ('.|[6]', '$', 'expecting string Susie'), ('.|[7]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]
-or_1.4.false.json: False [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number 3.14159'), ('.|[5]', '$', 'expecting number 1e+101'), ('.|[6]', '$', 'expecting string Susie'), ('.|[7]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]
+or_1.0.true.json: PASS
+or_1.1.true.json: PASS
+or_1.2.true.json: PASS
+or_1.3.false.json: FAIL [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number 3.14159'), ('.|[5]', '$', 'expecting number 1e+101'), ('.|[6]', '$', 'expecting string Susie'), ('.|[7]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]
+or_1.4.false.json: FAIL [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting null'), ('.|[2]', '$', 'expecting boolean false'), ('.|[3]', '$', 'expecting integer 42'), ('.|[4]', '$', 'expecting number 3.14159'), ('.|[5]', '$', 'expecting number 1e+101'), ('.|[6]', '$', 'expecting string Susie'), ('.|[7]', '$', 'expecting string Calvin'), ('.|', '$', 'no any matched')]

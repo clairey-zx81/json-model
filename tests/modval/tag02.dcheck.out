@@ -1,7 +1,7 @@
-tag02.0.true.json: True
-tag02.1.true.json: True
-tag02.2.false.json: False [('.|[*].t', '$.t', 'unexpected tag t value 3')]
-tag02.3.false.json: False [('.|[0]', '$.b', 'unexpected property b')]
-tag02.4.false.json: False [('.|[*]', '$', 'missing tag t')]
-tag02.5.false.json: False [('.|[*]', '$', 'not an object')]
-tag02.6.false.json: False [('.|[*].t', '$.t', 'bad tag type str for int')]
+tag02.0.true.json: PASS
+tag02.1.true.json: PASS
+tag02.2.false.json: FAIL [('.|[*].t', '$.t', 'unexpected tag t value 3')]
+tag02.3.false.json: FAIL [('.|[0]', '$.b', 'unexpected property b')]
+tag02.4.false.json: FAIL [('.|[*]', '$', 'missing tag t')]
+tag02.5.false.json: FAIL [('.|[*]', '$', 'not an object')]
+tag02.6.false.json: FAIL [('.|[*].t', '$.t', 'bad tag type str for int')]

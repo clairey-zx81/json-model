@@ -1,4 +1,4 @@
-scope_1.0.true.json: True
-scope_1.1.true.json: True
-scope_1.2.false.json: False
-scope_1.3.false.json: False
+scope_1.0.true.json: PASS
+scope_1.1.true.json: PASS
+scope_1.2.false.json: FAIL
+scope_1.3.false.json: FAIL

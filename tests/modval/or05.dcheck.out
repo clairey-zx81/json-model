@@ -1,4 +1,4 @@
-or05.0.true.json: True
-or05.1.false.json: False [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
-or05.2.false.json: False [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
-or05.3.false.json: False [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
+or05.0.true.json: PASS
+or05.1.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
+or05.2.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
+or05.3.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]

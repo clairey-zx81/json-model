@@ -1,2 +1,2 @@
-uniq_1.0.true.json: True
-uniq_1.1.false.json: False
+uniq_1.0.true.json: PASS
+uniq_1.1.false.json: FAIL

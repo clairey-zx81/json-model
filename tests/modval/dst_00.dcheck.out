@@ -1,3 +1,3 @@
-dst_00.0.true.json: True
-dst_00.1.true.json: True
-dst_00.2.false.json: False [('.|[0]', '$', 'missing mandatory key: b'), ('.|[1]', '$', 'missing mandatory key: c'), ('.|', '$', 'no any matched')]
+dst_00.0.true.json: PASS
+dst_00.1.true.json: PASS
+dst_00.2.false.json: FAIL [('.|[0]', '$', 'missing mandatory key: b'), ('.|[1]', '$', 'missing mandatory key: c'), ('.|', '$', 'no any matched')]

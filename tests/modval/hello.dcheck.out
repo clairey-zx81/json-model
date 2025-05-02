@@ -1,3 +1,3 @@
-hello.0.true.json: True
-hello.1.true.json: True
-hello.2.false.json: False [('.world', '$.world', 'expecting a boolean')]
+hello.0.true.json: PASS
+hello.1.true.json: PASS
+hello.2.false.json: FAIL [('.world', '$.world', 'expecting a boolean')]

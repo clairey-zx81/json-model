@@ -1,7 +1,7 @@
-tag02.0.true.json: True
-tag02.1.true.json: True
-tag02.2.false.json: False
-tag02.3.false.json: False
-tag02.4.false.json: False
-tag02.5.false.json: False
-tag02.6.false.json: False
+tag02.0.true.json: PASS
+tag02.1.true.json: PASS
+tag02.2.false.json: FAIL
+tag02.3.false.json: FAIL
+tag02.4.false.json: FAIL
+tag02.5.false.json: FAIL
+tag02.6.false.json: FAIL

@@ -1,4 +1,4 @@
-fourty-two.00.true.json: True
-fourty-two.01.false.json: False [('', '$', 'expecting integer 42')]
-fourty-two.02.false.json: False [('', '$', 'expecting integer 42')]
-fourty-two.03.false.json: False [('', '$', 'expecting integer 42')]
+fourty-two.00.true.json: PASS
+fourty-two.01.false.json: FAIL [('', '$', 'expecting integer 42')]
+fourty-two.02.false.json: FAIL [('', '$', 'expecting integer 42')]
+fourty-two.03.false.json: FAIL [('', '$', 'expecting integer 42')]

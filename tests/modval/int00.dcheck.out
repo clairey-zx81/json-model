@@ -1,4 +1,4 @@
-int00.0.true.json: True
-int00.1.true.json: True
-int00.2.true.json: True
-int00.3.false.json: False [('', '$', 'expecting an integer')]
+int00.0.true.json: PASS
+int00.1.true.json: PASS
+int00.2.true.json: PASS
+int00.3.false.json: FAIL [('', '$', 'expecting an integer')]
