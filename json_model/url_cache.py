@@ -1,15 +1,16 @@
+# URL to JSON with 2 level caching
+#
+# TODO add specific environment variable for cache directory, for testing
+# TODO fix add url parameters? use provided url as is?
+
 import os
-import json
-import logging
 import hashlib
 import urllib.parse
 import requests
+import json
+import yaml
 
-from .utils import Jsonable
-
-log = logging.getLogger("url-cache")
-# log.setLevel(logging.DEBUG)
-
+from .utils import Jsonable, log
 
 class JsonURLCache:
     """Cache JSON URL."""
@@ -17,6 +18,9 @@ class JsonURLCache:
     # FIXME should invalidate old cache entries?
 
     def __init__(self, cache_dir: str|None = None):
+
+        # loader
+        self._requests = requests.Session()
 
         # keep a local copy
         self._cache_dir = cache_dir or (os.environ.get("HOME", ".") + "/.cache/json-model")
@@ -26,6 +30,14 @@ class JsonURLCache:
 
         # class cache
         self._cache: dict[str, Jsonable] = {}
+
+    def getJSON(self, url: str) -> Jsonable:
+        res = self._requests.get(url)
+        try:
+            return res.json()
+        except requests.JSONDecodeError as e:  # else try YAML
+            log.debug(e)
+            return yaml.full_load(res.text)
 
     def load(self, url: str):
         """Load JSON URL."""
@@ -51,7 +63,7 @@ class JsonURLCache:
 
         # download
         log.info(f"downloading: {url}")
-        j = requests.get(u).json()
+        j = self.getJSON(u)
         self._cache[u] = j
         with open(hfile, "w") as f:
             # sort_keys?

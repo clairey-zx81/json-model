@@ -34,6 +34,7 @@ float_1.model.json: True
 float_m1.model.json: True
 fourty-two.model.json: True
 hello2.model.json: True
+hello3.model.json: True
 hello.model.json: True
 int00.model.json: True
 int_0.model.json: True
