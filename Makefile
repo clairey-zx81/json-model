@@ -30,21 +30,21 @@ check: check.flake8 check.ruff check.pyright check.tests
 IGNORE  = E121,E125,E131,E227,E251,E302,W504,F841
 
 .PHONY: check.flake8
-check.flake8:
+check.flake8: dev
 	source venv/bin/activate
 	flake8 --ignore=$(IGNORE) --max-line-length=100 json_model
 
 .PHONY: check.ruff
-check.ruff:
+check.ruff: dev
 	source venv/bin/activate
 	ruff check json_model
 
 .PHONY: check.pyright
-check.pyright:
+check.pyright: dev
 	source venv/bin/activate
 	pyright json_model
 
 .PHONY: check.tests
-check.tests:
+check.tests: dev
 	source venv/bin/activate
 	$(MAKE) -C tests check
