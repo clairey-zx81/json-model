@@ -935,8 +935,8 @@ def static_compile(
         loose_float = (True if "JSON_MODEL_LOOSE_FLOAT" in comment else
                        False if "JSON_MODEL_STRICT_FLOAT" in comment else
                        loose_float)
-    sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod,
-                    loose_int=loose_int, loose_float=loose_float)  # pyright: ignore
+    sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod,  # pyright: ignore
+                    loose_int=loose_int, loose_float=loose_float)
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))

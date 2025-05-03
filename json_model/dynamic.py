@@ -83,8 +83,9 @@ class DynamicCompiler(Validator):
         self._defs.set("$NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
         self._defs.set("$REGEX",
-                       lambda v, p: utils.is_regex(v, p) or
-                            self._no("<REGEX>", p, "invalid regex"), "<REGEX>", "valid regex")
+                       lambda v, p: (utils.is_regex(v, p) or
+                                     self._no("<REGEX>", p, "invalid regex")),
+                       "<REGEX>", "valid regex")
         # these are permissive for now
         self._defs.set("$URI", lambda s, p: isinstance(s, str) or self._no("<URI>",
                        p, "invalid uri"))
@@ -746,11 +747,11 @@ class DynamicCompiler(Validator):
         if model == -1.0:
             return is_a_float
         elif model == 0.0:
-            return lambda v, p: (is_a_float(v, p) and (
-                v >= 0.0 or self._no(mpath, p, "expecting a positive number")))
+            return lambda v, p: (is_a_float(v, p) and (v >= 0.0 or  # type: ignore
+                                 self._no(mpath, p, "expecting a positive number")))
         else:
-            return lambda v, p: (is_a_float(v, p) and (
-                v > 0.0 or self._no(mpath, p, "expecting a strictly ositive number")))
+            return lambda v, p: (is_a_float(v, p) and (v > 0.0 or  # type: ignore
+                                 self._no(mpath, p, "expecting a strictly ositive number")))
 
     def _str_raw_compile(self, jm: JsonModel, model: str, mpath: str) -> CheckFun:
         """Compile a string."""

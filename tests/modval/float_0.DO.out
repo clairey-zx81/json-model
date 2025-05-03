@@ -12,13 +12,13 @@
              20 COPY                     1
              22 POP_JUMP_IF_FALSE       26 (to 76)
              24 POP_TOP
-
              26 LOAD_FAST                0 (v)
              28 LOAD_CONST               1 (0.0)
              30 COMPARE_OP              92 (>=)
              34 COPY                     1
              36 POP_JUMP_IF_TRUE        19 (to 76)
              38 POP_TOP
+
              40 LOAD_DEREF               4 (self)
              42 LOAD_ATTR                1 (NULL|self + _no)
              62 LOAD_DEREF               3 (mpath)

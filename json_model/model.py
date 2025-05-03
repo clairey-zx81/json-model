@@ -655,10 +655,11 @@ class JsonModel:
                         del model["!"]
                     # constraint without actual constraints
                     if not (set(model.keys()) - {"#", "~", "$", "%", "@"}):
-                        if path == [] and "#" in model and  "JSON_MODEL_" in model["#"]:
-                            return model
-                        else:
-                            return model["@"]
+                        if path == [] and "#" in model:
+                            assert isinstance(model["#"], str)
+                            if "JSON_MODEL_" in model["#"]:
+                                return model
+                        return model["@"]
             return model
 
         self._model = recModel(self._model, allFlt, evalRwt)
