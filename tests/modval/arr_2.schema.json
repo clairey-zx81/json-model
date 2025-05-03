@@ -1,14 +1,14 @@
 {
-  "items": false,
-  "minItems": 2,
+  "type": "array",
   "prefixItems": [
     {
       "type": "boolean"
     },
     {
-      "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     }
   ],
-  "type": "array"
+  "items": false,
+  "minItems": 2
 }

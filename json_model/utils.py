@@ -10,6 +10,8 @@ from .mtypes import Jsonable, JsonObject, ValueType, Symbols
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
+WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
+
 def tname(m) -> str:
     return type(m).__name__ if m is not None else "null"
 

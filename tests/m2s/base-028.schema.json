@@ -1,10 +1,10 @@
 {
-  "additionalProperties": false,
   "description": "ZA",
+  "type": "object",
   "properties": {
     "country": {
       "const": "South Africa"
     }
   },
-  "type": "object"
+  "additionalProperties": false
 }

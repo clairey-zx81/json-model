@@ -65,7 +65,7 @@ PO: $(F.PO)
 .PHONY: schema
 schema: $(F.EO)
 %.schema.json: %.model.json
-	$(JMC) -EO ./$< > $@
+	$(JMC) -EO -ns ./$< > $@
 
 .PHONY: DO
 DO: $(F.DO)

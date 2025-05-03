@@ -4,8 +4,8 @@
       "type": "string"
     },
     {
-      "minimum": 0.0,
-      "type": "number"
+      "type": "number",
+      "minimum": 0.0
     }
   ]
 }

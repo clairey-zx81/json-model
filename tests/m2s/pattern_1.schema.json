@@ -1,4 +1,4 @@
 {
-  "pattern": "^[a-z]+",
-  "type": "string"
+  "type": "string",
+  "pattern": "^[a-z]+"
 }

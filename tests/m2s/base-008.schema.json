@@ -1,20 +1,20 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
-    "age": {
-      "minimum": 0,
-      "type": "integer"
-    },
     "nom": {
       "type": "string"
     },
     "prenom": {
       "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0
     }
   },
   "required": [
     "nom",
     "prenom"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

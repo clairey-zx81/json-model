@@ -1,4 +1,4 @@
 {
-  "exclusiveMinimum": 0.0,
-  "type": "number"
+  "type": "number",
+  "exclusiveMinimum": 0.0
 }

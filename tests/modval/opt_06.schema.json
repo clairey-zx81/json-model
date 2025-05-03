@@ -1,16 +1,16 @@
 {
+  "description": "this is 1",
   "allOf": [
     {
-      "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     },
     {
       "type": "integer"
     }
-  ],
-  "description": "this is 1"
+  ]
 }

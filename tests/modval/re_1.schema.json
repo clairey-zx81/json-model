@@ -1,4 +1,4 @@
 {
-  "pattern": "(?i)^S",
-  "type": "string"
+  "type": "string",
+  "pattern": "(?i)^S"
 }

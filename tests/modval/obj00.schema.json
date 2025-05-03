@@ -1,7 +1,7 @@
 {
+  "type": "object",
   "additionalProperties": {
-    "minimum": 0,
-    "type": "integer"
-  },
-  "type": "object"
+    "type": "integer",
+    "minimum": 0
+  }
 }

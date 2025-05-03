@@ -1,13 +1,13 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
     "a": {
-      "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     "b": {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     },
     "c": {
       "type": "boolean"
@@ -22,5 +22,5 @@
     "c",
     "d"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

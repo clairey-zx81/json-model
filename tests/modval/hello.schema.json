@@ -1,9 +1,9 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
     "hello": {
-      "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     "world": {
       "type": "boolean"
@@ -13,5 +13,5 @@
     "hello",
     "world"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

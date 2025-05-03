@@ -1,4 +1,4 @@
 {
-  "format": "regex",
-  "type": "string"
+  "type": "string",
+  "format": "regex"
 }

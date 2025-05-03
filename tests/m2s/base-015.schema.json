@@ -1,4 +1,4 @@
 {
-  "maxItems": 0,
-  "type": "array"
+  "type": "array",
+  "maxItems": 0
 }

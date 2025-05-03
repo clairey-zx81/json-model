@@ -2,16 +2,16 @@
   "description": "equivalent to =0",
   "oneOf": [
     {
-      "minimum": 0,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     },
     {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     }
   ]
 }

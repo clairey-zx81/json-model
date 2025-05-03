@@ -1,12 +1,12 @@
 {
   "anyOf": [
     {
-      "minimum": 0.0,
-      "type": "number"
+      "type": "number",
+      "minimum": 0.0
     },
     {
-      "pattern": "(?i)^[a-z]+$",
-      "type": "string"
+      "type": "string",
+      "pattern": "(?i)^[a-z]+$"
     }
   ]
 }

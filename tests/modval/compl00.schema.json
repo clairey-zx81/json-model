@@ -3,8 +3,8 @@
   "oneOf": [
     true,
     {
-      "pattern": "(?i)^[a-z]+$",
-      "type": "string"
+      "type": "string",
+      "pattern": "(?i)^[a-z]+$"
     }
   ]
 }

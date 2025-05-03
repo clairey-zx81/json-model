@@ -1,5 +1,5 @@
 {
-  "items": true,
   "type": "array",
+  "items": true,
   "uniqueItems": true
 }

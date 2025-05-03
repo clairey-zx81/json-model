@@ -1,39 +1,39 @@
 {
+  "description": "exclusive properties: a ^ b",
   "anyOf": [
     {
-      "additionalProperties": {
-        "minimum": 0,
-        "type": "integer"
-      },
+      "type": "object",
       "properties": {
         "a": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "b": false
       },
       "required": [
         "a"
       ],
-      "type": "object"
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
     },
     {
-      "additionalProperties": {
-        "minimum": 0,
-        "type": "integer"
-      },
+      "type": "object",
       "properties": {
         "a": false,
         "b": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         }
       },
       "required": [
         "b"
       ],
-      "type": "object"
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
     }
-  ],
-  "description": "exclusive properties: a ^ b"
+  ]
 }

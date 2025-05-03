@@ -86,6 +86,9 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] tests: upgrade all models in `models/` and check them as well
 - [x] tests: add expected "$schema" value to schema models
 - [x] static: do not inline unused support function (`is_valid_*` and possibly others)
+- [x] schema: control keyword sorting to put type-related stuff on top (-ns)
+- [ ] schema: test json schema conformity
+- [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: extract optimization in another file
@@ -104,7 +107,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
 - [ ] python: measure coverage
-- [ ] static: fix `modval/_untyped*`
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
 - [ ] feature: check/forbid/allow url references with an anchor
@@ -146,7 +148,9 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? CGO (end of may)?
-- [ ] schema: control keyword sorting to put type-related stuff on top
+- [ ] static: abstract code generation wrt imperative language?!
+- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
+- [ ] rust-backend see [json crate](https://docs.rs/json/latest/json/).
 
 ## WIP
 

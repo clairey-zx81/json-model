@@ -1,18 +1,18 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
     "a": {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     },
     "b": {
-      "minimum": 1,
-      "type": "integer"
+      "type": "integer",
+      "minimum": 1
     }
   },
   "required": [
     "a",
     "b"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

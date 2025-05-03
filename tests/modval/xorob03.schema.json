@@ -1,10 +1,10 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
     "movie": {
       "anyOf": [
         {
-          "additionalProperties": false,
+          "type": "object",
           "properties": {
             "t": {
               "const": "fr"
@@ -17,10 +17,10 @@
             "t",
             "titre"
           ],
-          "type": "object"
+          "additionalProperties": false
         },
         {
-          "additionalProperties": false,
+          "type": "object",
           "properties": {
             "t": {
               "const": "en"
@@ -33,23 +33,23 @@
             "t",
             "title"
           ],
-          "type": "object"
+          "additionalProperties": false
         },
         {
-          "additionalProperties": false,
+          "type": "object",
           "properties": {
-            "suti": {
-              "type": "string"
-            },
             "t": {
               "const": "ru"
+            },
+            "suti": {
+              "type": "string"
             }
           },
           "required": [
             "t",
             "suti"
           ],
-          "type": "object"
+          "additionalProperties": false
         }
       ]
     }
@@ -57,5 +57,5 @@
   "required": [
     "movie"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

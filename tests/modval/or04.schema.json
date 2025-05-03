@@ -1,4 +1,5 @@
 {
+  "description": "deux cha\u00eenes constantes et deux re, s\u00e9paration possible ; constantes matchent re\u2026",
   "anyOf": [
     {
       "const": "Susie"
@@ -7,13 +8,12 @@
       "const": "Calvin"
     },
     {
-      "pattern": "[0-9]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[0-9]"
     },
     {
-      "pattern": "[a-z]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[a-z]"
     }
-  ],
-  "description": "deux cha\u00eenes constantes et deux re, s\u00e9paration possible ; constantes matchent re\u2026"
+  ]
 }

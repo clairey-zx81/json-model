@@ -1,4 +1,4 @@
 {
-  "format": "date",
-  "type": "string"
+  "type": "string",
+  "format": "date"
 }

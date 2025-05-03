@@ -1,17 +1,17 @@
 {
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
-    "age": {
-      "minimum": 0,
-      "type": "integer"
-    },
     "nom": {
       "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0
     }
   },
   "required": [
     "nom",
     "age"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

@@ -1,29 +1,29 @@
 {
   "anyOf": [
     {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "a": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "b": {
-          "minimum": 1,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 1
         }
       },
       "required": [
         "a",
         "b"
       ],
-      "type": "object"
+      "additionalProperties": false
     },
     {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "a": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "c": {
           "type": "string"
@@ -33,7 +33,7 @@
         "a",
         "c"
       ],
-      "type": "object"
+      "additionalProperties": false
     }
   ]
 }

@@ -10,7 +10,7 @@ gen: $(F.gen)
 .PHONY: schema
 schema: $(F.schema)
 %.schema.json: %.model.json
-	jmc -EO $< > $@
+	jmc -EO -ns $< > $@
 
 .PHONY: clean
 clean:

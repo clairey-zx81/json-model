@@ -1,24 +1,24 @@
 {
   "anyOf": [
     {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "a": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         }
       },
       "required": [
         "a"
       ],
-      "type": "object"
+      "additionalProperties": false
     },
     {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "a": {
-          "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "minimum": 0
         },
         "c": {
           "type": "string"
@@ -28,7 +28,7 @@
         "a",
         "c"
       ],
-      "type": "object"
+      "additionalProperties": false
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "additionalProperties": false,
   "description": "JSON Model Subset for Localization Renames",
+  "type": "object",
   "properties": {
     "#": {
       "type": "string"
     },
     "$": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "": {
-          "format": "uri",
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "Model": {
           "const": "$https://json-model.org/models/json-model"
@@ -19,24 +19,24 @@
       "required": [
         "Model"
       ],
-      "type": "object"
-    },
-    "%": {
-      "additionalProperties": false,
-      "description": "dot-prefixed arbitrary key, one or two char keyword values",
-      "patternProperties": {
-        "^\\.": {
-          "pattern": "^([#~$%@|&+^/*=!]|[<>!]=)$",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "@": {
-      "const": "$Model"
+      "additionalProperties": false
     },
     "~": {
       "const": "https://json-model.org/models/l10n"
+    },
+    "%": {
+      "description": "dot-prefixed arbitrary key, one or two char keyword values",
+      "type": "object",
+      "patternProperties": {
+        "^\\.": {
+          "type": "string",
+          "pattern": "^([#~$%@|&+^/*=!]|[<>!]=)$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "@": {
+      "const": "$Model"
     }
   },
   "required": [
@@ -45,5 +45,5 @@
     "%",
     "@"
   ],
-  "type": "object"
+  "additionalProperties": false
 }

@@ -1,12 +1,12 @@
 {
   "allOf": [
     {
-      "pattern": "[a-z]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[a-z]"
     },
     {
-      "pattern": "[0-9]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[0-9]"
     }
   ]
 }

@@ -12,14 +12,11 @@ import re  # re2?
 from . import utils
 from .mtypes import ModelError, ModelType, ModelArray, ModelObject
 from .mtypes import ValueType, CheckFun, KeyCheckFun, Jsonable
-from .utils import distinct_values, model_in_models, tname, log
+from .utils import distinct_values, model_in_models, tname, log, WEAK_DATE_RE
 from .model import JsonModel
 
 # FIXME move to validator? change name?!
 from .defines import Validator
-
-# approximated date regular expression
-WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
 
 # whether to shorten one/all combinator computations
 fast_fail: bool = False

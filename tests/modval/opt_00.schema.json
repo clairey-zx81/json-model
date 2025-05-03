@@ -1,4 +1,5 @@
 {
+  "description": "FIXME flatten and xor to or test",
   "anyOf": [
     {
       "const": 1
@@ -13,6 +14,5 @@
         }
       ]
     }
-  ],
-  "description": "FIXME flatten and xor to or test"
+  ]
 }

@@ -1,7 +1,7 @@
 {
+  "type": "array",
   "items": {
-    "minimum": 0,
-    "type": "integer"
-  },
-  "type": "array"
+    "type": "integer",
+    "minimum": 0
+  }
 }

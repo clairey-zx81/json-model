@@ -7,8 +7,8 @@
       "const": "Calvin"
     },
     {
-      "pattern": "[0-9]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[0-9]"
     }
   ]
 }

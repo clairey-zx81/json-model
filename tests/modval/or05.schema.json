@@ -1,16 +1,16 @@
 {
   "anyOf": [
     {
-      "pattern": "[0-9]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[0-9]"
     },
     {
-      "pattern": "[a-z]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[a-z]"
     },
     {
-      "pattern": "[A-Z]",
-      "type": "string"
+      "type": "string",
+      "pattern": "[A-Z]"
     }
   ]
 }
