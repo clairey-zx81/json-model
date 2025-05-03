@@ -5,7 +5,7 @@ from collections.abc import MutableMapping
 import threading
 
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
-from .mtypes import ModelError, Jsonable, JsonSchema
+from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
 from .utils import log, tname, is_cst, _structurally_distinct_models, merge_objects
 from .utils import WEAK_DATE_RE
 from .recurse import recModel, allFlt, builtFlt, noRwt

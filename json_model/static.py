@@ -118,7 +118,7 @@ class SourceCode(Validator):
     - remod: regular expression module, "re" or "re2".
     """
 
-    def __init__(self, globs: Symbols, prefix: str = "", debug: bool = False, remod: str = _RE):
+    def __init__(self, globs: Symbols, *, prefix: str = "", debug: bool = False, remod: str = _RE):
 
         super().__init__()
 
@@ -886,6 +886,7 @@ class SourceCode(Validator):
 def static_compile(
         model: JsonModel,
         name: str = "check_model",
+        *,
         prefix: str = "jm_",
         remod: str = "re",
         debug: bool = False,
@@ -898,7 +899,7 @@ def static_compile(
     - `remod`: regular expression module to use, "re" or "re2"
     - `debug`: debugging mode generates more traces
     """
-    sc = SourceCode(model._globs, prefix, debug, remod)  # pyright: ignore
+    sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod)  # pyright: ignore
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))
