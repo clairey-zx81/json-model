@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://json-model.org/json-model.schema.json",
-  "title": "JSON Schema for JSON Model",
+  "$id": "https://json-model.org/schemas/json-model",
+  "title": "JSON Schema for JSON Model, written by hand",
   "$defs": {
     "common": {
       "title": "Common Stuff",
@@ -106,7 +106,8 @@
           "description": "local definitions",
           "type": "object",
           "properties": {
-            "#": {"type": "string"}
+            "#": {"type": "string"},
+            "": {"type": "string"}
            },
           "additionalProperties": { "$ref": "#/$defs/Model" }
         },
@@ -114,8 +115,7 @@
           "description": "renames and rewrites",
           "type": "object",
           "properties": {
-            "#": {"type": "string"},
-            "": {"type": "string"}
+            "#": {"type": "string"}
           },
           "patternProperties": {
             "^\\.": { "type": "string" }
