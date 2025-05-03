@@ -90,12 +90,13 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] static: use mandatory keyword parameters where appropriate
 - [x] feature: clarify and implement options management `JSON_MODEL_…`
 - [x] schema: test output json schema (strict) conformity
-- [ ] tests: remove unstable DO output?
+- [ ] tests: remove unstable DO output? remove empty lines?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] dynamic: use mandatory keyword parameters where appropriate
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
-- [ ] python: extract optimization in another file
+- [ ] python: extract optimizations in another file
+- [ ] design: convention for local vs exported definitions? capital?
 - [ ] optim: remove unused local (not exported) definitions
 - [ ] feature: make (static/dynamic) compiled exported defs accessible… which imply fname control
 - [ ] static: detect and remove duplicate functions!
