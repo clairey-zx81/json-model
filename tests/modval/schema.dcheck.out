@@ -33,7 +33,6 @@ int00.schema.json: PASS
 int_0.schema.json: PASS
 int_1.schema.json: PASS
 int_m1.schema.json: PASS
-json-model.schema.json: PASS
 jsound.schema.json: PASS
 m06.schema.json: PASS
 m07.schema.json: PASS
