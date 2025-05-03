@@ -7,7 +7,7 @@ JMC = jmc
 JMC.opts    = --check --quiet
 JMC.cmd = \
 	$(JMC) $(JMC.opts) \
-        -m "https://json-model.org/models ." \
+        -m "https://json-model.org/models ../../models" \
         -m "https://json-model.org/tests ."
 
 # JSON Schema Checker
