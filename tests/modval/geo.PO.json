@@ -1,0 +1,153 @@
+{
+  "#": "JsonModel 0",
+  "$": {
+    "": "./geo.model.json",
+    "#": "Symbol 1",
+    "Feature": {
+      "#": "JsonModel 12",
+      "?bbox": [
+        -1.0
+      ],
+      "?id": {
+        "|": [
+          "",
+          -1.0
+        ]
+      },
+      "geometry": {
+        "|": [
+          null,
+          "$geometry",
+          "$GeometryCollection"
+        ]
+      },
+      "properties": {
+        "|": [
+          null,
+          {
+            "": "$ANY"
+          }
+        ]
+      },
+      "type": "Feature"
+    },
+    "FeatureCollection": {
+      "#": "JsonModel 13",
+      "?bbox": [
+        -1.0
+      ],
+      "features": [
+        "$Feature"
+      ],
+      "type": "FeatureCollection"
+    },
+    "GeometryCollection": {
+      "#": "JsonModel 11",
+      "?bbox": [
+        -1.0
+      ],
+      "geometries": [
+        "$geometry"
+      ],
+      "type": "GeometryCollection"
+    },
+    "LineString": {
+      "#": "JsonModel 6",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": "$coord_array",
+      "type": "LineString"
+    },
+    "MultiLineString": {
+      "#": "JsonModel 7",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": [
+        "$coord_array"
+      ],
+      "type": "MultiLineString"
+    },
+    "MultiPoint": {
+      "#": "JsonModel 5",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": [
+        "$position"
+      ],
+      "type": "MultiPoint"
+    },
+    "MultiPolygon": {
+      "#": "JsonModel 9",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": [
+        [
+          "$linear_ring"
+        ]
+      ],
+      "type": "MultiPolygon"
+    },
+    "Point": {
+      "#": "JsonModel 4",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": "$position",
+      "type": "Point"
+    },
+    "Polygon": {
+      "#": "JsonModel 8",
+      "?bbox": [
+        -1.0
+      ],
+      "coordinates": [
+        "$linear_ring"
+      ],
+      "type": "Polygon"
+    },
+    "coord_array": {
+      "#": "JsonModel 2",
+      ">=": 2,
+      "@": [
+        "$position"
+      ]
+    },
+    "geometry": {
+      "#": "JsonModel 10",
+      "|": [
+        "$Point",
+        "$MultiPoint",
+        "$LineString",
+        "$MultiLineString",
+        "$Polygon",
+        "$MultiPolygon"
+      ]
+    },
+    "linear_ring": {
+      "#": "JsonModel 3",
+      ">=": 4,
+      "@": [
+        "$position"
+      ]
+    },
+    "position": {
+      "#": "JsonModel 1",
+      "<=": 3,
+      ">=": 2,
+      "@": [
+        -1.0
+      ]
+    }
+  },
+  "^": [
+    "$geometry",
+    "$GeometryCollection",
+    "$Feature",
+    "$FeatureCollection"
+  ],
+  "~": "https://json-model.org/models/json-model"
+}

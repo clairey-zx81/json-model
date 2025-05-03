@@ -1,0 +1,27 @@
+{
+  "#": "OpenAPI 3.1.0 with JSON Models",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/openapi-310-models",
+    "openapi": "$https://json-model.org/models/openapi-310"
+  },
+  "%": {
+    "$openapi#schema": "$NONE",
+    "$openapi#Schema": "$NONE",
+    "$openapi#model": "$https://json-model.org/models/json-model",
+    "$openapi#Model": "$model#Model",
+    "$openapi#Components": {
+      "/": "?schemas",
+      "*": {"?models": {"": "$Model"}}
+    },
+    "$openapi#parameterShare": {
+      "/": "?schema",
+      "*": {"?model": "$Model"}
+    },
+    "$openapi#MediaType": {
+      "/": "?schema",
+      "*": {"?model": "$Model"}
+    }
+  },
+  "@": "$openapi"
+}

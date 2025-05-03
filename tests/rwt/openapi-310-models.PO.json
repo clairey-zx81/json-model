@@ -1,0 +1,10 @@
+{
+  "#": "JsonModel 0 with defs",
+  "$": {
+    "": "https://json-model.org/models/openapi-310-models",
+    "#": "Symbol 1",
+    "openapi": "$https://json-model.org/models/openapi-310"
+  },
+  "@": "$openapi",
+  "~": "https://json-model.org/models/json-model"
+}

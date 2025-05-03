@@ -8,6 +8,8 @@ ERROR:json-model:Expecting ',' delimiter: line 1 column 5 (char 4)
 ERROR:json-model:invalid model bad_comma.model.json
 ERROR:json-model:Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
 ERROR:json-model:invalid model bad_key.model.json
+ERROR:json-model:cannot add object to null at ['$', '%', '$bad#Polygon']
+ERROR:json-model:invalid model _bad_tref.model.json
 ERROR:json-model:invalid initial model bool_0.model.json[0]
 ERROR:json-model:invalid initial model bool_1.model.json[0]
 ERROR:json-model:invalid initial model _dup_prop_1.model.json[0]

@@ -558,8 +558,10 @@ def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: Mod
                     return False
                 strings.add(m)
         elif isinstance(m, dict):
+            if "+" in m:  # may try later, after merging
+                return False
             assert "@" not in m  # should have been resolved!
-            assert "+" not in m  # should have been merged!
+            # assert "+" not in m  # should have been merged!
             if is_constructed(m):
                 log.debug(f"- constructed model: {m}")
                 return False

@@ -1,0 +1,141 @@
+{
+  "#": "JsonModel 0",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-03",
+    "#": "Symbol 1",
+    "Schema": "$#",
+    "URI": "$URL",
+    "allTypes": {
+      "#": "JsonModel 2",
+      "|": [
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
+        "any"
+      ]
+    },
+    "distinctSchemaArray": {
+      "!": true,
+      "#": "JsonModel 3",
+      "@": [
+        {
+          "|": [
+            "",
+            "$Schema"
+          ]
+        }
+      ]
+    }
+  },
+  "?$ref": "$URL",
+  "?$schema": "",
+  "?additionalItems": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
+  "?additionalProperties": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
+  "?default": "$ANY",
+  "?dependencies": {
+    "": {
+      "|": [
+        "",
+        [
+          ""
+        ],
+        "$Schema"
+      ]
+    }
+  },
+  "?description": "",
+  "?disallow": {
+    "|": [
+      "",
+      "$distinctSchemaArray"
+    ]
+  },
+  "?divisibleBy": 1.0,
+  "?enum": {
+    "!": true,
+    ">=": 1,
+    "@": [
+      "$ANY"
+    ]
+  },
+  "?exclusiveMaximum": true,
+  "?exclusiveMinimum": true,
+  "?extends": {
+    "|": [
+      "$Schema",
+      [
+        "$Schema"
+      ]
+    ]
+  },
+  "?format": {
+    "|": [
+      "date-time",
+      "date",
+      "time",
+      "utc-millisec",
+      "regex",
+      "color",
+      "style",
+      "phone",
+      "uri",
+      "email",
+      "ip-address",
+      "ipv6",
+      "host-name"
+    ]
+  },
+  "?id": "",
+  "?items": {
+    "|": [
+      "$Schema",
+      [
+        "$Schema"
+      ]
+    ]
+  },
+  "?maxItems": 0,
+  "?maxLength": 0,
+  "?maximum": -1.0,
+  "?minItems": 0,
+  "?minLength": 0,
+  "?minimum": -1.0,
+  "?pattern": "$REGEX",
+  "?patternProperties": {
+    "": "$Schema"
+  },
+  "?properties": {
+    "": "$Schema"
+  },
+  "?required": true,
+  "?title": "",
+  "?type": {
+    "|": [
+      "$allTypes",
+      [
+        {
+          "|": [
+            "",
+            "$Schema"
+          ]
+        }
+      ]
+    ]
+  },
+  "?uniqueItems": true,
+  "~": "https://json-model.org/models/json-model"
+}

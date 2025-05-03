@@ -1,0 +1,12 @@
+{
+  "#": "missing $ for an external reference",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "bad": "https://json-model.org/models/geo"
+  },
+  "%": {
+    "$bad#Point": "$NONE",
+    "$bad#Polygon": {"*": {"#": ""}}
+  },
+  "@": "$bad"
+}

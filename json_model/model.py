@@ -282,15 +282,12 @@ class JsonModel:
         self._model = model
         self.set(self._url, self)
 
+        # NOTE references are loaded as a side effect
         self.rewrite()
 
         if globs is None:
             self.scope(self._globs, [""], set(), {})
             log.debug(f"globs = {self._globs}")
-
-        # TODO compute "+" and other preprocessing
-        # TODO allow skipping?
-        # self.merge()
 
     #
     # Analyses
@@ -733,7 +730,48 @@ class JsonModel:
     def toSchema(self, recurse: bool = True) -> JsonSchema:
         from . import convert
         schema: JsonSchema
-        schema = convert.model2schema(self._model)
+        model = copy.deepcopy(self._model)
+
+        # try to replace key references
+        def keyFlt(model: ModelType, path: ModelPath) -> bool:
+            if isinstance(model, dict):
+                for key in list(model.keys()):
+                    lpath = path + [key]
+                    if self._isRef(key):
+                        jm = self.resolveRef(key, lpath)
+                        if isinstance(jm._model, str):
+                            m = jm._model
+                        else:  # give up, will fail later anyway
+                            raise Exception(f"cannot replace {key} at {lpath}")
+                    else:
+                        m = key
+                    match m:
+                        case ""|"$STRING":
+                            m = ""
+                        case "$URL":
+                            log.warning(f"approximating $URL key at {lpath}")
+                            m = r"/[:/#]/"  # hmmm…
+                        case "$REGEX":
+                            log.warning(f"approximating $REGEX key at {lpath}")
+                            m = ""
+                        case "$DATE":
+                            log.warning(f"approximating $DATE key at {lpath}")
+                            m = r"/^\d\d\d\d-(0?[1-9]|1[012])-([1-9]|[012]\d|3[01])$/"
+                        case _:
+                            if m[0] == "_":
+                                m = "?" + m[1:]
+                            elif m[0] not in ("/", "$"):
+                                m = "?" + m
+                    if m != key and (m == "" or m[0] == "/"):
+                        assert m not in model, f"cannot overwrite key {m} at {lpath}"
+                        model[m] = model[key]
+                        del model[key]
+            return isinstance(model, (list, dict))
+
+        model = recModel(model, keyFlt, noRwt)
+
+        # convert root model
+        schema = convert.model2schema(model)
         if recurse and self._defs:
             if isinstance(schema, bool):  # we need an object to store defs
                 schema = {} if schema else {"not": True}
@@ -854,6 +892,12 @@ class JsonModel:
                 jm = jm.get(url, path)
             else:
                 jm = jm.resolveDef(model, path, create)
+                # special case for "$#"
+                if model == jm._model:
+                    if model == "$#":
+                        break
+                    else:
+                        raise ModelError(f"resolution cycle on {model}")
                 model = jm._model
             log.debug(f"{self._id}: RR next {model} in {jm._id}")
 
@@ -881,6 +925,10 @@ class JsonModel:
         if root_ref not in symbols:
             symbols[root_ref] = self
 
+        if root_ref == "$":  # also add "$#" for the root model
+            if "$#" not in symbols:
+                symbols["$#"] = self
+
         if self._id not in references:
             references[self._id] = root_ref
 
@@ -900,7 +948,13 @@ class JsonModel:
                     gref = "$" + "#".join(root + [name])
                     references[jm._id] = gref
                     self._defs.gset("$" + name, gref)
-                    symbols[gref] = jm
+                    # FIXME should also but "$#" + name?
+                    # NOTE for $#, we put the root jm directly
+                    # FIXME this kludge avoids bad recursions later…
+                    if isinstance(jm._model, str) and jm._model == "$#":
+                        symbols[gref] = self
+                    else:
+                        symbols[gref] = jm
             log.debug(f"{self._id}: gmap={self._defs._gmap}")
             for name, jm in self._defs.items():
                 jm.scope(symbols, root + [name], visited, references)
@@ -1144,22 +1198,30 @@ class JsonModel:
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
         else:
             name, xpath = tpath, []
+        log.debug(f"name={name} xpath={xpath}")
         return (self.resolveRef(name, path, True), xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
         return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
+        """Apply this transformation on j."""
         if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo:
-            # $ANY
             return trafo
         assert self._isTrafo(trafo)
         assert isinstance(trafo, dict)  # pyright hint
+        if self._debug:
+            log.debug(f"trafo={trafo} on j={j}")
         if "/" in trafo:
             sub = trafo["/"]
+            # handle scalars
+            if sub is None or isinstance(sub, (bool, int, float, str)):
+                sub = [sub]
             if isinstance(sub, list):
                 if isinstance(j, list):
                     for i in sub:
+                        if i not in j:
+                            raise ModelError(f"cannot remove item {i} from object at {path}")
                         j.remove(i)
                 elif isinstance(j, dict):
                     for i in sub:
@@ -1198,6 +1260,20 @@ class JsonModel:
 
         j = jm._model
 
+        # if tpath == ["$"]:
+        #     log.warning("TODO add/remove definitions ?!")
+        #     if "/" in trafo:
+        #         assert isinstance(trafo["/"], list)
+        #         for name in trafo["/"]:
+        #             assert isinstance(name, str)
+        #             if name in jm._defs:
+        #                 del jm._defs[name]
+        #             else:
+        #                 log.warning(f"cannot remove definition for {name}")
+        #     assert "*" not in trafo, f"not implemented yet"
+        #     return
+
+        # follow the JSON path
         for i, p in enumerate(tpath):
             assert isinstance(j, (list, dict))
             last = i == len(tpath) - 1
@@ -1212,11 +1288,14 @@ class JsonModel:
                     raise ModelError(f"invalid transformation path at {path}: {tpath}")
                 if not 0 <= p < len(j):
                     raise ModelError(f"invalid index at {path}: {p} in {tpath}")
-            if last:
-                j[p] = self._applyTrafo(j[p], trafo)  # type: ignore
-            else:
+            if last:  # apply!
+                log.debug(f"applying on p={p} in j={j}")
+                j[p] = self._applyTrafo(j[p], trafo, path)  # type: ignore
+            else:  # move forward
+                log.debug(f"moving forward on p={p}")
                 j = j[p]  # type: ignore
-        else:
+        if not tpath:
+            log.debug(f"empty tpath on {jm._model}")
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
     def rewrite(self):
@@ -1224,7 +1303,7 @@ class JsonModel:
 
         # NOTE transformation specs may be empty
         for tpath, trafo in self._rewrite.items():
-            lpath = ["$", "$", tpath]  # FIXME
+            lpath = ["$", "%", tpath]  # FIXME
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
             self._applyTrafoAtPath(jm, path, trafo, lpath)  # type: ignore

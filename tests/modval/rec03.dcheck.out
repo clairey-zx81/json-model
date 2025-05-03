@@ -1,0 +1,6 @@
+rec03.0.true.json: PASS
+rec03.1.true.json: PASS
+rec03.2.true.json: PASS
+rec03.3.true.json: PASS
+rec03.4.true.json: PASS
+rec03.5.false.json: FAIL [('$#', '$.foo', 'not an object'), ('$#.foo.|[0]', '$.foo', '$root failed'), ('$#', '$.foo[0]', 'not an object'), ('$#.foo.|[1]', '$.foo[0]', '$root failed'), ('$#.foo.|[1]', '$.foo', 'all failures 1/1: [0]'), ('$#.foo.|', '$.foo', 'no any matched')]

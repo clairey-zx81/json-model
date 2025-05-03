@@ -1,0 +1,15 @@
+{
+  "#": "JSON Model for JSON Schema Draft 03 (fuzzy version)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-03-fuzzy",
+    "schema": "$https://json-model.org/models/json-schema-draft-03"
+  },
+  "%": {
+    "$schema#": {
+      "/": ["?pattern", "?format"],
+      "*": { "": "$ANY", "?pattern": "", "?format": "" }
+    }
+  },
+  "@": "$schema"
+}

@@ -1,17 +1,16 @@
 {
-  "#": "English JSON Model",
+  "#": "English JSON Model Localization",
+  "~": "https://json-model.org/models/json-model",
   "%": {
-    "#": "English localization preprocessing",
-    ".comment": "#",
-    ".define": "$", ".rewrite": "%",
-    ".and": "&", ".or": "|", ".xor": "^",
-    ".add": "+", ".rem": "-", ".rep": "~",
-    ".model": "@",
+    "#": "English keywords",
+    ".comment": "#", ".meta": "~",
+    ".define": "$", ".rewrite": "%", ".del": "/", ".add": "*",
+    ".and": "&", ".or": "|", ".xor": "^", ".merge": "+", ".model": "@",
     ".le": "<=", ".lt": "<", ".ge": ">=", ".gt": ">", ".eq": "=", ".ne": "!=",
     ".unique": "!"
   },
   ".define": {
-    "RootModel": "$https://json-model.org/models/json-model-v2.model.json#RootModel"
+    "Model": "$https://json-model.org/models/json-model"
   },
-  ".model": "$RootModel"
+  ".model": "$Model"
 }

@@ -5,8 +5,7 @@ SHELL	= /bin/bash
 # JSON Model Compiler
 JMC.opts    = --check --quiet
 JMC = jmc $(JMC.opts) \
-        -m "https://json-model.org/models ." \
-        -m "https://json-model.org/tests ."
+        -m "https://json-model.org/models ../../models"
 
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)

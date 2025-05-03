@@ -1,0 +1,10 @@
+{
+  "#": "JsonModel 0 with defs",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-tighter-loose",
+    "#": "Symbol 1",
+    "tight": "$https://json-model.org/models/json-schema-draft-tighter"
+  },
+  "@": "$tight#RootSchema",
+  "~": "https://json-model.org/models/json-model"
+}

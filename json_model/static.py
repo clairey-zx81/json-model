@@ -779,7 +779,14 @@ class SourceCode(Validator):
 
     def _getNameRef(self, jm: JsonModel, ref: str, path: ModelPath) -> str:
         assert jm._isRef(ref), f"reference: {ref}"
-        gref = jm._defs.gget(ref)
+        try:
+            gref = jm._defs.gget(ref)
+        except KeyError:
+            if self._debug:
+                log.debug(f"_getNameRef[{jm._id},{jm._defs._id}]({ref}) at {path}")
+                log.debug(f"XXX gmap={jm._defs._gmap}")
+            # FIXME maybe we already have a global reference?
+            gref = ref
         # log.debug(f"ref={ref} gref={gref} at {path}")
         if gref not in self._names:
             jm = self._globs[gref]  # pyright: ignore
@@ -792,7 +799,7 @@ class SourceCode(Validator):
         """Compile a model under a given name in a given scope."""
         log.debug(f"name: mpath={mpath} name={name} jm={jm._id}")
         code = Code()
-        # FIXME explain this junk code
+        # FIXME explain this junk code, or remove it!
         # keep definitions
         # XXX self._defs.set(name, model)
         xname = name if not name or name[0] != "$" else name[1:]

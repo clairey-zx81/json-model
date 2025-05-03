@@ -1,0 +1,23 @@
+{
+  "#": "JSON Model for a Very Tight JSON Schema, Loosed a bit",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-tighter-loose",
+    "tight": "$https://json-model.org/models/json-schema-draft-tighter"
+  },
+  "%": {
+    "#": "allow redundant type declarations on enum and const",
+    "$tight#EnumString": {"+": [{"enum": [""], "type": "string"}, "$metas"]},
+    "$tight#EnumNum": {"+": [{ "enum": [-1.0], "type": "number"}, "$metas"]},
+    "$tight#EnumInt": {"+": [{ "enum": [-1], "type": "integer"}, "$metas"]},
+    "$tight#ConstString": {"+": [{"const": "", "type": "string"}, "$metas"]},
+    "$tight#ConstNum": {"+": [{"const": -1.0, "type": "number"}, "$metas"]},
+    "$tight#ConstInt": {"+": [{"const": -1, "type": "integer"}, "$metas"]},
+    "$tight#ConstBool": {"+": [{"const": true, "type": "boolean"}, "$metas"]},
+    "$tight#ObjectSchema.|": {"*": [
+       "$EnumString", "$EnumNum", "$EnumInt",
+       "$ConstString", "$ConstNum", "$ConstInt", "$ConstBool"
+    ]}
+  },
+  "@": "$tight#RootSchema"
+}

@@ -3,3 +3,5 @@ date.1.true.json: PASS
 date.2.false.json: FAIL [('<DATE>', '$', 'invalid date'), ('', '$', '$DATE failed')]
 date.3.false.json: FAIL [('<DATE>', '$', 'invalid date'), ('', '$', '$DATE failed')]
 date.4.false.json: PASS
+date.5.false.json: FAIL [('<DATE>', '$', 'invalid date'), ('', '$', '$DATE failed')]
+date.6.false.json: FAIL [('<DATE>', '$', 'invalid date'), ('', '$', '$DATE failed')]

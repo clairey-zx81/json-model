@@ -1,0 +1,10 @@
+{
+  "#": "JsonModel 0 with defs",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-01-fuzzy",
+    "#": "Symbol 1",
+    "schema": "$https://json-model.org/models/json-schema-draft-01"
+  },
+  "@": "$schema",
+  "~": "https://json-model.org/models/json-model"
+}

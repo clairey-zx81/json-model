@@ -153,8 +153,10 @@ l10n.jcheck.out: l10n.schema.json
 # external references are not supported
 json-model-preprocessed.jcheck.out \
 json-model-moschin.jcheck.out \
+json-model-v2-en.jcheck.out \
 english.jcheck.out \
 français.jcheck.out \
+openapi-310.jcheck.out \
 mrg_02.jcheck.out \
 obj_03.jcheck.out \
 obj_04.jcheck.out \

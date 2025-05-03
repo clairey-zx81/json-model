@@ -1,0 +1,83 @@
+{
+  "#": "JSON Model for a Very Tight JSON Schema",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-tighter",
+    "const": { "|": [ null, true, -1, -1.0, "" ] },
+    "enum": { "|": [ [""], [-1], [true], [-1.0] ] },
+    "schemaArray": [ "$Schema" ],
+    "stringKeywords": {
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?format": { "|": [
+        "uri", "uri-reference", "iri", "iri-reference", "date", "time",
+        "date-time", "ipv4", "ipv6", "regex", "uuid", "hostname", "email",
+        "idn-hostname", "idn-email", "duration", "int32", "int64", "uint",
+        "uint32", "uint64", "json-pointer", "relative-json-pointer", "byte",
+        "double", "int", "mime-type" ]
+      }
+    },
+    "arrayKeywords": {
+      "#": "not included: contains…",
+      "?prefixItems": "$schemaArray",
+      "?items": { "|": [ "$Schema", "$schemaArray" ] },
+      "?additionalItems": "$Schema",
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?uniqueItems": true
+    },
+    "objectKeywords": {
+      "#": "not included: dependentRequired, min/maxProps…",
+      "?properties": { "": "$Schema" },
+      "?required": [ "" ],
+      "?additionalProperties": "$Schema",
+      "?patternProperties": { "$REGEX": "$Schema" }
+    },
+    "numberKeywords": {
+      "#": "not included: exclusive*, multipleOf…",
+      "?minimum": -1.0,
+      "?maximum": -1.0
+    },
+    "metas": {
+      "#": "there is a trick with $schema… in RootSchema below",
+      "?$schema": "",
+      "?$id": "",
+      "?id": "",
+      "?$comment": "",
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [ "$ANY" ],
+      "?description": "",
+      "?$defs": { "": "$Schema" },
+      "?definitions": { "": "$Schema" }
+    },
+    "String": { "+": [ { "type": "string" }, "$metas", "$stringKeywords" ] },
+    "Array": { "+": [ { "type": "array" }, "$metas", "$arrayKeywords" ] },
+    "Object": { "+": [ { "type": "object" }, "$metas", "$objectKeywords" ] },
+    "Integer": { "+": [ { "type": "integer" }, "$metas", "$numberKeywords" ] },
+    "Number": { "+": [ { "type": "number" }, "$metas", "$numberKeywords" ] },
+    "Bool": { "+": [ { "type": "boolean" }, "$metas" ] },
+    "Null": { "+": [ { "type": "null" }, "$metas" ] },
+    "AllOf": { "+": [ { "allOf": "$schemaArray" }, "$metas" ] },
+    "AnyOf": { "+": [ { "anyOf": "$schemaArray" }, "$metas" ] },
+    "OneOf": { "+": [ { "oneOf": "$schemaArray" }, "$metas" ] },
+    "Enum": { "+": [ { "enum": "$enum" }, "$metas" ] },
+    "Const": { "+": [ { "const": "$const" }, "$metas" ] },
+    "Ref": { "+": [ { "_$ref": "$URL" }, "$metas" ] },
+    "ObjectSchema": {
+      "#": "we could use ^ instead of | below",
+      "|": [
+        "$Null", "$Bool", "$Const", "$Enum", "$Integer", "$Number",
+        "$String", "$Array", "$Object", "$AllOf", "$AnyOf", "$OneOf",
+        "$Ref", "$metas"
+      ]
+    },
+    "Schema": { "|": [ true, "$ObjectSchema" ] },
+    "RootSchema": {
+      "#": "keyword $schema is mandatory at the root, and optional elsewhere",
+      "&": [ { "_$schema": "", "": "$ANY" }, "$ObjectSchema" ]
+    }
+  },
+  "@": "$RootSchema"
+}

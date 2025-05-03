@@ -1,0 +1,118 @@
+{
+  "#": "JsonModel 0",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-04",
+    "#": "Symbol 1",
+    "Schema": "$#",
+    "URI": "$URL",
+    "schemaArray": {
+      "#": "JsonModel 2",
+      ">=": 1,
+      "@": [
+        "$Schema"
+      ]
+    },
+    "simpleTypes": {
+      "#": "JsonModel 3",
+      "|": [
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object"
+      ]
+    },
+    "stringArray": {
+      "!": true,
+      "#": "JsonModel 4",
+      ">=": 1,
+      "@": [
+        ""
+      ]
+    },
+    "typeArray": {
+      "!": true,
+      "#": "JsonModel 5",
+      ">=": 1,
+      "@": [
+        "$simpleTypes"
+      ]
+    }
+  },
+  "?$ref": "$URL",
+  "?$schema": "",
+  "?additionalItems": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
+  "?additionalProperties": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
+  "?allOf": "$schemaArray",
+  "?anyOf": "$schemaArray",
+  "?default": "$ANY",
+  "?definitions": {
+    "": "$Schema"
+  },
+  "?dependencies": {
+    "": {
+      "|": [
+        "$Schema",
+        "$stringArray"
+      ]
+    }
+  },
+  "?description": "",
+  "?enum": {
+    "!": true,
+    ">=": 1,
+    "@": [
+      "$ANY"
+    ]
+  },
+  "?exclusiveMaximum": true,
+  "?exclusiveMinimum": true,
+  "?format": "",
+  "?id": "",
+  "?items": {
+    "|": [
+      "$Schema",
+      "$schemaArray"
+    ]
+  },
+  "?maxItems": 0,
+  "?maxLength": 0,
+  "?maxProperties": 0,
+  "?maximum": -1.0,
+  "?minItems": 0,
+  "?minLength": 0,
+  "?minProperties": 0,
+  "?minimum": -1.0,
+  "?multipleOf": 1.0,
+  "?not": "$Schema",
+  "?oneOf": "$schemaArray",
+  "?pattern": "$REGEX",
+  "?patternProperties": {
+    "": "$Schema"
+  },
+  "?properties": {
+    "": "$Schema"
+  },
+  "?required": "$stringArray",
+  "?title": "",
+  "?type": {
+    "|": [
+      "$simpleTypes",
+      "$typeArray"
+    ]
+  },
+  "?uniqueItems": true,
+  "~": "https://json-model.org/models/json-model"
+}

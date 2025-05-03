@@ -1,9 +1,7 @@
 {
-  "#": {
-    "title": "OpenAPI v3.1.0 (2021-02-15)",
-    "spec": "https://spec.openapis.org/oas/v3.1.0"
-  },
-  "%": {
+  "#": "OpenAPI v3.1.0 (2021-02-15, https://spec.openapis.org/oas/v3.1.0)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
     "OpenAPI": {
       "openapi": "",
       "info": "$Info",
@@ -15,7 +13,7 @@
       "?security": "$SecurityRequirement",
       "?tags": [ "$Tag" ],
       "?externalDocs": "$ExternalDocumentation",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Info": {
       "title": "",
@@ -25,31 +23,31 @@
       "?contact": "$Contact",
       "?license": "$License",
       "version": "",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Contact": {
       "?name": "",
       "?url": "$URL",
       "?email": "",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "License": {
       "|": [
-        { "name": "", "identifier": "", "^x\\-.*$": "$ANY" },
-        { "name": "", "url": "$URL", "^x\\-.*$": "$ANY" }
+        { "name": "", "identifier": "", "/^x\\-.*$/": "$ANY" },
+        { "name": "", "url": "$URL", "/^x\\-.*$/": "$ANY" }
       ]
     },
     "Server": {
       "url": "$URL",
       "?description": "",
       "?variables": { "": "$ServerVariable" },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "ServerVariable": {
       "?enum": [""],
       "default": "",
       "?description": "",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Components": {
       "?schemas": { "": "$Schema" },
@@ -62,11 +60,11 @@
       "?links": { "": { "|": [ "$Link", "$Reference" ] }},
       "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
       "?pathItems": { "": { "|": [ "$PathItem", "$Reference" ] }},
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Paths": {
-      "^/": "$PathItem",
-      "^x\\-.*$": "$ANY"
+      "/^//": "$PathItem",
+      "/^x\\-.*$/": "$ANY"
     },
     "PathItem": { 
       "?$ref": "",
@@ -81,7 +79,7 @@
       "?trace": "$Operation",
       "?servers": "$Operation",
       "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Operation": { 
       "?tags": [ "" ],
@@ -96,12 +94,12 @@
       "?deprecated": true,
       "?security": [ "$SecurityRequirement" ],
       "?servers": [ "$Server" ],
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "ExternalDocumentation": {
       "?description": "",
       "url": "$URL",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "parameterShare": {
       "?description": "",
@@ -115,7 +113,7 @@
       "?example": "$ANY",
       "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
       "?content": { "": "$MediaType" },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Parameter": {
       "+": [
@@ -127,14 +125,14 @@
       "?description": "",
       "?content": { "": "$MediaType" },
        "?required": true,
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "MediaType": {
       "?schema": "$Schema",
       "?example": "$ANY",
       "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
       "?encoding": { "": "$Encoding" },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Encoding": {
       "?contentType": "",
@@ -142,40 +140,41 @@
       "?style": "",
       "?explode": true,
       "?allowReserved": true,
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Responses": {
-      "^[1-5](\\d\\d|XX)$": { "|": [ "$Response", "$Reference" ] },
+      "/^[1-5](\\d\\d|XX)$/": { "|": [ "$Response", "$Reference" ] },
       "?default": { "|": [ "$Response", "$Reference" ] },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Response": {
       "?description": "",
       "?headers": { "": { "|": [ "$Header", "$Reference" ] } },
       "?content": { "": "$MediaType" },
       "?links": { "": { "|": [ "$Link", "$Reference" ] } },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Callback": {
-      "": { "|": [ "$PathItem", "$Reference" ] },
-      "^x\\-.*$": "$ANY"
+      "$Expression": { "|": [ "$PathItem", "$Reference" ] },
+      "/^x\\-.*$/": "$ANY"
     },
     "Example": {
       "?summary": "",
       "?description": "",
       "?value": "$ANY",
       "?externalValue": "",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
+    "Expression": "/\\{.*\\}/",
     "Link": {
       "+": [
         { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
         {
-          "?parameters": { "": { "|": [ "$ANY", "$Expression"] } },
-          "?requestBody": { "|": [ "$ANY", "$Expression"] }, 
+          "?parameters": { "": { "|": ["$Expression", "$ANY"] } },
+          "?requestBody": { "|": ["$Expression", "$ANY"] }, 
           "?description": "",
           "?server": "$Server",
-          "^x\\-.*$": "$ANY"
+          "/^x\\-.*$/": "$ANY"
         }
       ]
     },
@@ -184,14 +183,14 @@
       "name": "",
       "?description": "",
       "?externalDocs": "$ExternalDocumentation",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "Reference": {
       "_$ref": "",
       "?summary": "",
       "?description": ""
     },
-    "schema": "$https://json-model.org/draft-2020-12",
+    "schema": "$https://json-model.org/models/json-schema-draft-2020-12",
     "Schema": {
       "+": [
         "$schema#ObjectSchema",
@@ -205,7 +204,7 @@
     "Discriminator": {
       "propertyName": "",
       "?mapping": { "": "" },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "XML": {
       "?name": "",
@@ -213,7 +212,7 @@
       "?prefix": "",
       "?attribute": true,
       "?wrapped": true,
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "SecurityScheme": {
       "type": "",
@@ -224,24 +223,24 @@
       "?bearerFormat": "",
       "flows": "$OAuthFlows",
       "openIdConnectUrl": "",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "OAuthFlows": {
       "?implicit": "$OAuthFlow",
       "?password": "$OAuthFlow",
       "?clientCredentials": "$OAuthFlow",
       "?authorizationCode": "$OAuthFlow",
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "OAuthFlow": {
       "authorizationUrl": "",
       "tokenUrl": "",
       "?refreshUrl": "",
       "scopes": { "": "" },
-      "^x\\-.*$": "$ANY"
+      "/^x\\-.*$/": "$ANY"
     },
     "SecurityRequirement": { "": [ "" ] },
-    "Extension": { "^x\\-.*$": "$ANY" }
+    "Extension": { "/^x\\-.*$/": "$ANY" }
   },
   "@": "$OpenAPI"
 }

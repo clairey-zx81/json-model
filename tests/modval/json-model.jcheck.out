@@ -10,6 +10,7 @@ arr_2.model.json: PASS
 ../bads/bad_colon.model.json: ERROR
 ../bads/bad_comma.model.json: ERROR
 ../bads/bad_key.model.json: ERROR
+../bads/_bad_tref.model.json: PASS
 ../bads/bool_0.model.json: FAIL
 ../bads/bool_1.model.json: FAIL
 ../bads/_dup_prop_1.model.json: PASS
@@ -75,6 +76,7 @@ float_0.model.json: PASS
 float_1.model.json: PASS
 float_m1.model.json: PASS
 fourty-two.model.json: PASS
+geo.model.json: PASS
 hello2.model.json: PASS
 hello3.model.json: PASS
 hello.model.json: PASS
@@ -83,6 +85,7 @@ int_0.model.json: PASS
 int_1.model.json: PASS
 int_m1.model.json: PASS
 json-model.model.json: PASS
+jsound.model.json: PASS
 m06.model.json: PASS
 m07.model.json: PASS
 m08.model.json: PASS
@@ -122,6 +125,8 @@ re_1.model.json: PASS
 re_2.model.json: PASS
 rec00.model.json: PASS
 rec01.model.json: PASS
+rec02.model.json: PASS
+rec03.model.json: PASS
 scope_0.model.json: PASS
 scope_1.model.json: PASS
 scp_00.model.json: PASS

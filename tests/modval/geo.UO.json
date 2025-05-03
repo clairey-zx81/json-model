@@ -1,0 +1,929 @@
+[
+  {
+    "#": "JsonModel 0",
+    "$": {
+      "": "./geo.model.json",
+      "#": "Symbol 1",
+      "Feature": {
+        "#": "JsonModel 12",
+        "?bbox": [
+          -1.0
+        ],
+        "?id": {
+          "|": [
+            "",
+            -1.0
+          ]
+        },
+        "geometry": {
+          "|": [
+            null,
+            "$geometry",
+            "$GeometryCollection"
+          ]
+        },
+        "properties": {
+          "|": [
+            null,
+            {
+              "": "$ANY"
+            }
+          ]
+        },
+        "type": "Feature"
+      },
+      "FeatureCollection": {
+        "#": "JsonModel 13",
+        "?bbox": [
+          -1.0
+        ],
+        "features": [
+          "$Feature"
+        ],
+        "type": "FeatureCollection"
+      },
+      "GeometryCollection": {
+        "#": "JsonModel 11",
+        "?bbox": [
+          -1.0
+        ],
+        "geometries": [
+          "$geometry"
+        ],
+        "type": "GeometryCollection"
+      },
+      "LineString": {
+        "#": "JsonModel 6",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": "$coord_array",
+        "type": "LineString"
+      },
+      "MultiLineString": {
+        "#": "JsonModel 7",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": [
+          "$coord_array"
+        ],
+        "type": "MultiLineString"
+      },
+      "MultiPoint": {
+        "#": "JsonModel 5",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": [
+          "$position"
+        ],
+        "type": "MultiPoint"
+      },
+      "MultiPolygon": {
+        "#": "JsonModel 9",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": [
+          [
+            "$linear_ring"
+          ]
+        ],
+        "type": "MultiPolygon"
+      },
+      "Point": {
+        "#": "JsonModel 4",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": "$position",
+        "type": "Point"
+      },
+      "Polygon": {
+        "#": "JsonModel 8",
+        "?bbox": [
+          -1.0
+        ],
+        "coordinates": [
+          "$linear_ring"
+        ],
+        "type": "Polygon"
+      },
+      "coord_array": {
+        "#": "JsonModel 2",
+        ">=": 2,
+        "@": [
+          "$position"
+        ]
+      },
+      "geometry": {
+        "#": "JsonModel 10",
+        "|": [
+          "$Point",
+          "$MultiPoint",
+          "$LineString",
+          "$MultiLineString",
+          "$Polygon",
+          "$MultiPolygon"
+        ]
+      },
+      "linear_ring": {
+        "#": "JsonModel 3",
+        ">=": 4,
+        "@": [
+          "$position"
+        ]
+      },
+      "position": {
+        "#": "JsonModel 1",
+        "<=": 3,
+        ">=": 2,
+        "@": [
+          -1.0
+        ]
+      }
+    },
+    "^": [
+      "$geometry",
+      "$GeometryCollection",
+      "$Feature",
+      "$FeatureCollection"
+    ],
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "#": "JsonModel 1",
+    "<=": 3,
+    ">=": 2,
+    "@": [
+      -1.0
+    ]
+  },
+  {
+    "#": "JsonModel 2",
+    ">=": 2,
+    "@": [
+      "$position"
+    ]
+  },
+  {
+    "#": "JsonModel 3",
+    ">=": 4,
+    "@": [
+      "$position"
+    ]
+  },
+  {
+    "#": "JsonModel 4",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": "$position",
+    "type": "Point"
+  },
+  {
+    "#": "JsonModel 5",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": [
+      "$position"
+    ],
+    "type": "MultiPoint"
+  },
+  {
+    "#": "JsonModel 6",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": "$coord_array",
+    "type": "LineString"
+  },
+  {
+    "#": "JsonModel 7",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": [
+      "$coord_array"
+    ],
+    "type": "MultiLineString"
+  },
+  {
+    "#": "JsonModel 8",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": [
+      "$linear_ring"
+    ],
+    "type": "Polygon"
+  },
+  {
+    "#": "JsonModel 9",
+    "?bbox": [
+      -1.0
+    ],
+    "coordinates": [
+      [
+        "$linear_ring"
+      ]
+    ],
+    "type": "MultiPolygon"
+  },
+  {
+    "#": "JsonModel 10",
+    "|": [
+      "$Point",
+      "$MultiPoint",
+      "$LineString",
+      "$MultiLineString",
+      "$Polygon",
+      "$MultiPolygon"
+    ]
+  },
+  {
+    "#": "JsonModel 11",
+    "?bbox": [
+      -1.0
+    ],
+    "geometries": [
+      "$geometry"
+    ],
+    "type": "GeometryCollection"
+  },
+  {
+    "#": "JsonModel 12",
+    "?bbox": [
+      -1.0
+    ],
+    "?id": {
+      "|": [
+        "",
+        -1.0
+      ]
+    },
+    "geometry": {
+      "|": [
+        null,
+        "$geometry",
+        "$GeometryCollection"
+      ]
+    },
+    "properties": {
+      "|": [
+        null,
+        {
+          "": "$ANY"
+        }
+      ]
+    },
+    "type": "Feature"
+  },
+  {
+    "#": "JsonModel 13",
+    "?bbox": [
+      -1.0
+    ],
+    "features": [
+      "$Feature"
+    ],
+    "type": "FeatureCollection"
+  },
+  {
+    "#": "JsonModel 14 with defs",
+    "$": {
+      "": "https://json-model.org/models/json-model",
+      "#": "Symbol 3",
+      "Add": {
+        "#": "JsonModel 25",
+        "_+": [
+          "$Model"
+        ]
+      },
+      "And": {
+        "#": "JsonModel 23",
+        "_&": [
+          "$Model"
+        ]
+      },
+      "Any": {
+        "#": "JsonModel 17",
+        "|": [
+          "$Val",
+          [
+            "$Any"
+          ],
+          {
+            "": "$Any"
+          }
+        ]
+      },
+      "Array": [
+        "$Model"
+      ],
+      "Common": {
+        "#": "JsonModel 19",
+        "?#": ""
+      },
+      "Constraint": {
+        "#": "JsonModel 21",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "_@": "$Model"
+      },
+      "Defs": {
+        "#": "JsonModel 31",
+        "/.+/": "$Model"
+      },
+      "Elem": {
+        "#": "JsonModel 27",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": ""
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": ""
+          }
+        ]
+      },
+      "Model": {
+        "#": "JsonModel 30",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Elem"
+        ]
+      },
+      "None": "$NONE",
+      "Obj": {
+        "": "$Model",
+        "#": "JsonModel 26",
+        "/^[@|&^+/*]$/": "$NONE"
+      },
+      "Or": {
+        "#": "JsonModel 22",
+        "_|": [
+          "$Model"
+        ]
+      },
+      "Rename": {
+        "#": "JsonModel 32",
+        "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+      },
+      "Rewrite": {
+        "#": "JsonModel 33",
+        "/^\\$.*$/": "$Trafo"
+      },
+      "Root": {
+        "#": "JsonModel 34",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          }
+        ]
+      },
+      "RootModel": {
+        "#": "JsonModel 35",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Root"
+        ]
+      },
+      "Scalar": {
+        "#": "JsonModel 29",
+        "|": [
+          "=null",
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          ""
+        ]
+      },
+      "Trafo": {
+        "#": "JsonModel 28",
+        "|": [
+          "$Model",
+          {
+            "!/": [
+              "$Any"
+            ],
+            "?#": "",
+            "?*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            }
+          },
+          {
+            "!*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            },
+            "?#": "",
+            "?/": [
+              "$Any"
+            ]
+          }
+        ]
+      },
+      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+      "Val": {
+        "#": "JsonModel 16",
+        "|": [
+          null,
+          true,
+          -1,
+          -1.0,
+          ""
+        ]
+      },
+      "Xor": {
+        "#": "JsonModel 24",
+        "_^": [
+          "$Model"
+        ]
+      }
+    },
+    "@": "$RootModel",
+    "~": "https://json-model.org/models/json-model"
+  },
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+  {
+    "#": "JsonModel 16",
+    "|": [
+      null,
+      true,
+      -1,
+      -1.0,
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 17",
+    "|": [
+      "$Val",
+      [
+        "$Any"
+      ],
+      {
+        "": "$Any"
+      }
+    ]
+  },
+  "$NONE",
+  {
+    "#": "JsonModel 19",
+    "?#": ""
+  },
+  [
+    "$Model"
+  ],
+  {
+    "#": "JsonModel 21",
+    "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+      "|": [
+        -1,
+        -1.0,
+        ""
+      ]
+    },
+    "/^(=|!=|\u2260)$/": "$Val",
+    "?!": true,
+    "_@": "$Model"
+  },
+  {
+    "#": "JsonModel 22",
+    "_|": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 23",
+    "_&": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 24",
+    "_^": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 25",
+    "_+": [
+      "$Model"
+    ]
+  },
+  {
+    "": "$Model",
+    "#": "JsonModel 26",
+    "/^[@|&^+/*]$/": "$NONE"
+  },
+  {
+    "#": "JsonModel 27",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": ""
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": ""
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 28",
+    "|": [
+      "$Model",
+      {
+        "!/": [
+          "$Any"
+        ],
+        "?#": "",
+        "?*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        }
+      },
+      {
+        "!*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        },
+        "?#": "",
+        "?/": [
+          "$Any"
+        ]
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 29",
+    "|": [
+      "=null",
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 30",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Elem"
+    ]
+  },
+  {
+    "#": "JsonModel 31",
+    "/.+/": "$Model"
+  },
+  {
+    "#": "JsonModel 32",
+    "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+  },
+  {
+    "#": "JsonModel 33",
+    "/^\\$.*$/": "$Trafo"
+  },
+  {
+    "#": "JsonModel 34",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 35",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Root"
+    ]
+  }
+]

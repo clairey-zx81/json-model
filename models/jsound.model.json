@@ -1,6 +1,6 @@
 {
   "#": "JSON Model for JSound (DOES NOT WORK, THEIR META SEEMS BROKEN)",
-  "%": {
+  "$": {
     "Schema": {
       "?metadata": {
         "?name": "",

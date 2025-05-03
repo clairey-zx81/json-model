@@ -1,0 +1,2920 @@
+[
+  {
+    "#": "JsonModel 0 with defs",
+    "$": {
+      "": "./openapi-310.model.json",
+      "#": "Symbol 1",
+      "Callback": {
+        "#": "JsonModel 19",
+        "$Expression": {
+          "|": [
+            "$PathItem",
+            "$Reference"
+          ]
+        },
+        "/^x\\-.*$/": "$ANY"
+      },
+      "Components": {
+        "#": "JsonModel 7",
+        "/^x\\-.*$/": "$ANY",
+        "?callbacks": {
+          "": {
+            "|": [
+              "$Callback",
+              "$Reference"
+            ]
+          }
+        },
+        "?examples": {
+          "": {
+            "|": [
+              "$Example",
+              "$Reference"
+            ]
+          }
+        },
+        "?headers": {
+          "": {
+            "|": [
+              "$Header",
+              "$Reference"
+            ]
+          }
+        },
+        "?links": {
+          "": {
+            "|": [
+              "$Link",
+              "$Reference"
+            ]
+          }
+        },
+        "?parameters": {
+          "": {
+            "|": [
+              "$Parameter",
+              "$Reference"
+            ]
+          }
+        },
+        "?pathItems": {
+          "": {
+            "|": [
+              "$PathItem",
+              "$Reference"
+            ]
+          }
+        },
+        "?requestBodies": {
+          "": {
+            "|": [
+              "$RequestBody",
+              "$Reference"
+            ]
+          }
+        },
+        "?responses": {
+          "": {
+            "|": [
+              "$Response",
+              "$Reference"
+            ]
+          }
+        },
+        "?schemas": {
+          "": "$Schema"
+        },
+        "?securitySchemes": {
+          "": {
+            "|": [
+              "$SecurityScheme",
+              "$Reference"
+            ]
+          }
+        }
+      },
+      "Contact": {
+        "#": "JsonModel 3",
+        "/^x\\-.*$/": "$ANY",
+        "?email": "",
+        "?name": "",
+        "?url": "$URL"
+      },
+      "Discriminator": {
+        "#": "JsonModel 28",
+        "/^x\\-.*$/": "$ANY",
+        "?mapping": {
+          "": ""
+        },
+        "propertyName": ""
+      },
+      "Encoding": {
+        "#": "JsonModel 16",
+        "/^x\\-.*$/": "$ANY",
+        "?allowReserved": true,
+        "?contentType": "",
+        "?explode": true,
+        "?headers": {
+          "": {
+            "|": [
+              "$Header",
+              "$Reference"
+            ]
+          }
+        },
+        "?style": ""
+      },
+      "Example": {
+        "#": "JsonModel 20",
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?externalValue": "",
+        "?summary": "",
+        "?value": "$ANY"
+      },
+      "Expression": "/\\{.*\\}/",
+      "Extension": {
+        "#": "JsonModel 34",
+        "/^x\\-.*$/": "$ANY"
+      },
+      "ExternalDocumentation": {
+        "#": "JsonModel 11",
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "url": "$URL"
+      },
+      "Header": "$parameterShare",
+      "Info": {
+        "#": "JsonModel 2",
+        "/^x\\-.*$/": "$ANY",
+        "?contact": "$Contact",
+        "?description": "",
+        "?license": "$License",
+        "?summary": "",
+        "?termsOfService": "",
+        "title": "",
+        "version": ""
+      },
+      "License": {
+        "#": "JsonModel 4",
+        "|": [
+          {
+            "/^x\\-.*$/": "$ANY",
+            "identifier": "",
+            "name": ""
+          },
+          {
+            "/^x\\-.*$/": "$ANY",
+            "name": "",
+            "url": "$URL"
+          }
+        ]
+      },
+      "Link": {
+        "#": "JsonModel 22",
+        "|": [
+          {
+            "/^x\\-.*$/": "$ANY",
+            "?description": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?server": "$Server",
+            "operationRef": ""
+          },
+          {
+            "/^x\\-.*$/": "$ANY",
+            "?description": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?server": "$Server",
+            "operationId": ""
+          }
+        ]
+      },
+      "MediaType": {
+        "#": "JsonModel 15",
+        "/^x\\-.*$/": "$ANY",
+        "?encoding": {
+          "": "$Encoding"
+        },
+        "?example": "$ANY",
+        "?examples": {
+          "": {
+            "|": [
+              "$Example",
+              "$Reference"
+            ]
+          }
+        },
+        "?schema": "$Schema"
+      },
+      "OAuthFlow": {
+        "#": "JsonModel 32",
+        "/^x\\-.*$/": "$ANY",
+        "?refreshUrl": "",
+        "authorizationUrl": "",
+        "scopes": {
+          "": ""
+        },
+        "tokenUrl": ""
+      },
+      "OAuthFlows": {
+        "#": "JsonModel 31",
+        "/^x\\-.*$/": "$ANY",
+        "?authorizationCode": "$OAuthFlow",
+        "?clientCredentials": "$OAuthFlow",
+        "?implicit": "$OAuthFlow",
+        "?password": "$OAuthFlow"
+      },
+      "OpenAPI": {
+        "#": "JsonModel 1",
+        "/^x\\-.*$/": "$ANY",
+        "?component": "$Components",
+        "?externalDocs": "$ExternalDocumentation",
+        "?jsonSchemaDialect": "",
+        "?paths": "$Paths",
+        "?security": "$SecurityRequirement",
+        "?servers": [
+          "$Server"
+        ],
+        "?tags": [
+          "$Tag"
+        ],
+        "?webhooks": {
+          "": {
+            "|": [
+              "$PathItem",
+              "$Reference"
+            ]
+          }
+        },
+        "info": "$Info",
+        "openapi": ""
+      },
+      "Operation": {
+        "#": "JsonModel 10",
+        "/^x\\-.*$/": "$ANY",
+        "?callbacks": {
+          "": {
+            "|": [
+              "$Callback",
+              "$Reference"
+            ]
+          }
+        },
+        "?deprecated": true,
+        "?description": "",
+        "?externalDocs": "$ExternalDocumentation",
+        "?operationId": "",
+        "?parameters": {
+          "": {
+            "|": [
+              "$Parameter",
+              "$Reference"
+            ]
+          }
+        },
+        "?requestBody": {
+          "": {
+            "|": [
+              "$RequestBody",
+              "$Reference"
+            ]
+          }
+        },
+        "?responses": "$Responses",
+        "?security": [
+          "$SecurityRequirement"
+        ],
+        "?servers": [
+          "$Server"
+        ],
+        "?summary": "",
+        "?tags": [
+          ""
+        ]
+      },
+      "Parameter": {
+        "#": "JsonModel 13",
+        "/^x\\-.*$/": "$ANY",
+        "?allowEmptyValue": true,
+        "?allowReserved": true,
+        "?content": {
+          "": "$MediaType"
+        },
+        "?deprecated": true,
+        "?description": "",
+        "?example": "$ANY",
+        "?examples": {
+          "": {
+            "|": [
+              "$Example",
+              "$Reference"
+            ]
+          }
+        },
+        "?explode": true,
+        "?required": true,
+        "?schema": "$Schema",
+        "?style": {
+          "|": [
+            "matrix",
+            "label",
+            "form",
+            "simple",
+            "spaceDelimited",
+            "pipeDelimited",
+            "deepObject"
+          ]
+        },
+        "in": {
+          "|": [
+            "query",
+            "header",
+            "path",
+            "cookie"
+          ]
+        },
+        "name": ""
+      },
+      "PathItem": {
+        "#": "JsonModel 9",
+        "/^x\\-.*$/": "$ANY",
+        "?$ref": "",
+        "?description": "",
+        "?get": "$Operation",
+        "?head": "$Operation",
+        "?options": "$Operation",
+        "?parameters": {
+          "": {
+            "|": [
+              "$Parameter",
+              "$Reference"
+            ]
+          }
+        },
+        "?patch": "$Operation",
+        "?post": "$Operation",
+        "?put": "$Operation",
+        "?servers": "$Operation",
+        "?summary": "",
+        "?trace": "$Operation"
+      },
+      "Paths": {
+        "#": "JsonModel 8",
+        "/^//": "$PathItem",
+        "/^x\\-.*$/": "$ANY"
+      },
+      "Reference": {
+        "#": "JsonModel 25",
+        "?description": "",
+        "?summary": "",
+        "_$ref": ""
+      },
+      "RequestBody": {
+        "#": "JsonModel 14",
+        "/^x\\-.*$/": "$ANY",
+        "?content": {
+          "": "$MediaType"
+        },
+        "?description": "",
+        "?required": true
+      },
+      "Response": {
+        "#": "JsonModel 18",
+        "/^x\\-.*$/": "$ANY",
+        "?content": {
+          "": "$MediaType"
+        },
+        "?description": "",
+        "?headers": {
+          "": {
+            "|": [
+              "$Header",
+              "$Reference"
+            ]
+          }
+        },
+        "?links": {
+          "": {
+            "|": [
+              "$Link",
+              "$Reference"
+            ]
+          }
+        }
+      },
+      "Responses": {
+        "#": "JsonModel 17",
+        "/^[1-5](\\d\\d|XX)$/": {
+          "|": [
+            "$Response",
+            "$Reference"
+          ]
+        },
+        "/^x\\-.*$/": "$ANY",
+        "?default": {
+          "|": [
+            "$Response",
+            "$Reference"
+          ]
+        }
+      },
+      "Schema": {
+        "#": "JsonModel 27",
+        "?$anchor": "$URL",
+        "?$comment": "",
+        "?$defs": {
+          "": "$#schema#Schema"
+        },
+        "?$dynamicAnchor": "$URL",
+        "?$dynamicRef": "$URL",
+        "?$id": "$URL",
+        "?$ref": "$URL",
+        "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+        "?$vocabulary": {
+          "$URL": true
+        },
+        "?additionalProperties": "$#schema#Schema",
+        "?allOf": "$#schema#schemaArray",
+        "?anyOf": "$#schema#schemaArray",
+        "?const": "$ANY",
+        "?contains": "$#schema#Schema",
+        "?contentEncoding": "",
+        "?contentMediaType": "",
+        "?contentSchema": "$#schema#Schema",
+        "?default": "$ANY",
+        "?dependentRequired": {
+          "": "$#schema#stringArray"
+        },
+        "?dependentSchemas": {
+          "": "$#schema#Schema"
+        },
+        "?deprecated": true,
+        "?description": "",
+        "?discriminator": "$Discriminator",
+        "?else": "$#schema#Schema",
+        "?enum": [
+          "$ANY"
+        ],
+        "?examples": [
+          "$ANY"
+        ],
+        "?exclusiveMaximum": -1.0,
+        "?exclusiveMinimum": -1.0,
+        "?externalDocs": "$ExternalDocumentation",
+        "?format": "",
+        "?if": "$#schema#Schema",
+        "?items": "$#schema#Schema",
+        "?maxContains": "$#schema#nonNegativeInteger",
+        "?maxItems": "$#schema#nonNegativeInteger",
+        "?maxLength": "$#schema#nonNegativeInteger",
+        "?maxProperties": "$#schema#nonNegativeInteger",
+        "?maximum": -1.0,
+        "?minContains": "$#schema#nonNegativeInteger",
+        "?minItems": "$#schema#nonNegativeInteger",
+        "?minLength": "$#schema#nonNegativeInteger",
+        "?minProperties": "$#schema#nonNegativeInteger",
+        "?minimum": -1.0,
+        "?multipleOf": 1.0,
+        "?not": "$#schema#Schema",
+        "?oneOf": "$#schema#schemaArray",
+        "?pattern": "$REGEX",
+        "?patternProperties": {
+          "$REGEX": "$#schema#Schema"
+        },
+        "?prefixItems": "$#schema#schemaArray",
+        "?properties": {
+          "": "$#schema#Schema"
+        },
+        "?propertyNames": "$#schema#Schema",
+        "?readOnly": true,
+        "?required": "$#schema#stringArray",
+        "?then": "$#schema#Schema",
+        "?title": "",
+        "?type": {
+          "|": [
+            "$#schema#simpleTypes",
+            "$#schema#simpleTypesArray"
+          ]
+        },
+        "?unevaluatedItems": "$#schema#Schema",
+        "?unevaluatedProperties": "$#schema#Schema",
+        "?uniqueItems": true,
+        "?writeOnly": true,
+        "?xml": "$XML"
+      },
+      "SecurityRequirement": {
+        "": [
+          ""
+        ],
+        "#": "JsonModel 33"
+      },
+      "SecurityScheme": {
+        "#": "JsonModel 30",
+        "/^x\\-.*$/": "$ANY",
+        "?bearerFormat": "",
+        "?description": "",
+        "flows": "$OAuthFlows",
+        "in": "",
+        "name": "",
+        "openIdConnectUrl": "",
+        "scheme": "",
+        "type": ""
+      },
+      "Server": {
+        "#": "JsonModel 5",
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?variables": {
+          "": "$ServerVariable"
+        },
+        "url": "$URL"
+      },
+      "ServerVariable": {
+        "#": "JsonModel 6",
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?enum": [
+          ""
+        ],
+        "default": ""
+      },
+      "Tag": {
+        "#": "JsonModel 24",
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?externalDocs": "$ExternalDocumentation",
+        "name": ""
+      },
+      "XML": {
+        "#": "JsonModel 29",
+        "/^x\\-.*$/": "$ANY",
+        "?attribute": true,
+        "?name": "",
+        "?namespace": "",
+        "?prefix": "",
+        "?wrapped": true
+      },
+      "parameterShare": {
+        "#": "JsonModel 12",
+        "/^x\\-.*$/": "$ANY",
+        "?allowEmptyValue": true,
+        "?allowReserved": true,
+        "?content": {
+          "": "$MediaType"
+        },
+        "?deprecated": true,
+        "?description": "",
+        "?example": "$ANY",
+        "?examples": {
+          "": {
+            "|": [
+              "$Example",
+              "$Reference"
+            ]
+          }
+        },
+        "?explode": true,
+        "?required": true,
+        "?schema": "$Schema",
+        "?style": {
+          "|": [
+            "matrix",
+            "label",
+            "form",
+            "simple",
+            "spaceDelimited",
+            "pipeDelimited",
+            "deepObject"
+          ]
+        }
+      },
+      "schema": "$https://json-model.org/models/json-schema-draft-2020-12"
+    },
+    "@": "$OpenAPI",
+    "~": "https://json-model.org/models/json-model"
+  },
+  {
+    "#": "JsonModel 1",
+    "/^x\\-.*$/": "$ANY",
+    "?component": "$Components",
+    "?externalDocs": "$ExternalDocumentation",
+    "?jsonSchemaDialect": "",
+    "?paths": "$Paths",
+    "?security": "$SecurityRequirement",
+    "?servers": [
+      "$Server"
+    ],
+    "?tags": [
+      "$Tag"
+    ],
+    "?webhooks": {
+      "": {
+        "|": [
+          "$PathItem",
+          "$Reference"
+        ]
+      }
+    },
+    "info": "$Info",
+    "openapi": ""
+  },
+  {
+    "#": "JsonModel 2",
+    "/^x\\-.*$/": "$ANY",
+    "?contact": "$Contact",
+    "?description": "",
+    "?license": "$License",
+    "?summary": "",
+    "?termsOfService": "",
+    "title": "",
+    "version": ""
+  },
+  {
+    "#": "JsonModel 3",
+    "/^x\\-.*$/": "$ANY",
+    "?email": "",
+    "?name": "",
+    "?url": "$URL"
+  },
+  {
+    "#": "JsonModel 4",
+    "|": [
+      {
+        "/^x\\-.*$/": "$ANY",
+        "identifier": "",
+        "name": ""
+      },
+      {
+        "/^x\\-.*$/": "$ANY",
+        "name": "",
+        "url": "$URL"
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 5",
+    "/^x\\-.*$/": "$ANY",
+    "?description": "",
+    "?variables": {
+      "": "$ServerVariable"
+    },
+    "url": "$URL"
+  },
+  {
+    "#": "JsonModel 6",
+    "/^x\\-.*$/": "$ANY",
+    "?description": "",
+    "?enum": [
+      ""
+    ],
+    "default": ""
+  },
+  {
+    "#": "JsonModel 7",
+    "/^x\\-.*$/": "$ANY",
+    "?callbacks": {
+      "": {
+        "|": [
+          "$Callback",
+          "$Reference"
+        ]
+      }
+    },
+    "?examples": {
+      "": {
+        "|": [
+          "$Example",
+          "$Reference"
+        ]
+      }
+    },
+    "?headers": {
+      "": {
+        "|": [
+          "$Header",
+          "$Reference"
+        ]
+      }
+    },
+    "?links": {
+      "": {
+        "|": [
+          "$Link",
+          "$Reference"
+        ]
+      }
+    },
+    "?parameters": {
+      "": {
+        "|": [
+          "$Parameter",
+          "$Reference"
+        ]
+      }
+    },
+    "?pathItems": {
+      "": {
+        "|": [
+          "$PathItem",
+          "$Reference"
+        ]
+      }
+    },
+    "?requestBodies": {
+      "": {
+        "|": [
+          "$RequestBody",
+          "$Reference"
+        ]
+      }
+    },
+    "?responses": {
+      "": {
+        "|": [
+          "$Response",
+          "$Reference"
+        ]
+      }
+    },
+    "?schemas": {
+      "": "$Schema"
+    },
+    "?securitySchemes": {
+      "": {
+        "|": [
+          "$SecurityScheme",
+          "$Reference"
+        ]
+      }
+    }
+  },
+  {
+    "#": "JsonModel 8",
+    "/^//": "$PathItem",
+    "/^x\\-.*$/": "$ANY"
+  },
+  {
+    "#": "JsonModel 9",
+    "/^x\\-.*$/": "$ANY",
+    "?$ref": "",
+    "?description": "",
+    "?get": "$Operation",
+    "?head": "$Operation",
+    "?options": "$Operation",
+    "?parameters": {
+      "": {
+        "|": [
+          "$Parameter",
+          "$Reference"
+        ]
+      }
+    },
+    "?patch": "$Operation",
+    "?post": "$Operation",
+    "?put": "$Operation",
+    "?servers": "$Operation",
+    "?summary": "",
+    "?trace": "$Operation"
+  },
+  {
+    "#": "JsonModel 10",
+    "/^x\\-.*$/": "$ANY",
+    "?callbacks": {
+      "": {
+        "|": [
+          "$Callback",
+          "$Reference"
+        ]
+      }
+    },
+    "?deprecated": true,
+    "?description": "",
+    "?externalDocs": "$ExternalDocumentation",
+    "?operationId": "",
+    "?parameters": {
+      "": {
+        "|": [
+          "$Parameter",
+          "$Reference"
+        ]
+      }
+    },
+    "?requestBody": {
+      "": {
+        "|": [
+          "$RequestBody",
+          "$Reference"
+        ]
+      }
+    },
+    "?responses": "$Responses",
+    "?security": [
+      "$SecurityRequirement"
+    ],
+    "?servers": [
+      "$Server"
+    ],
+    "?summary": "",
+    "?tags": [
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 11",
+    "/^x\\-.*$/": "$ANY",
+    "?description": "",
+    "url": "$URL"
+  },
+  {
+    "#": "JsonModel 12",
+    "/^x\\-.*$/": "$ANY",
+    "?allowEmptyValue": true,
+    "?allowReserved": true,
+    "?content": {
+      "": "$MediaType"
+    },
+    "?deprecated": true,
+    "?description": "",
+    "?example": "$ANY",
+    "?examples": {
+      "": {
+        "|": [
+          "$Example",
+          "$Reference"
+        ]
+      }
+    },
+    "?explode": true,
+    "?required": true,
+    "?schema": "$Schema",
+    "?style": {
+      "|": [
+        "matrix",
+        "label",
+        "form",
+        "simple",
+        "spaceDelimited",
+        "pipeDelimited",
+        "deepObject"
+      ]
+    }
+  },
+  {
+    "#": "JsonModel 13",
+    "/^x\\-.*$/": "$ANY",
+    "?allowEmptyValue": true,
+    "?allowReserved": true,
+    "?content": {
+      "": "$MediaType"
+    },
+    "?deprecated": true,
+    "?description": "",
+    "?example": "$ANY",
+    "?examples": {
+      "": {
+        "|": [
+          "$Example",
+          "$Reference"
+        ]
+      }
+    },
+    "?explode": true,
+    "?required": true,
+    "?schema": "$Schema",
+    "?style": {
+      "|": [
+        "matrix",
+        "label",
+        "form",
+        "simple",
+        "spaceDelimited",
+        "pipeDelimited",
+        "deepObject"
+      ]
+    },
+    "in": {
+      "|": [
+        "query",
+        "header",
+        "path",
+        "cookie"
+      ]
+    },
+    "name": ""
+  },
+  {
+    "#": "JsonModel 14",
+    "/^x\\-.*$/": "$ANY",
+    "?content": {
+      "": "$MediaType"
+    },
+    "?description": "",
+    "?required": true
+  },
+  {
+    "#": "JsonModel 15",
+    "/^x\\-.*$/": "$ANY",
+    "?encoding": {
+      "": "$Encoding"
+    },
+    "?example": "$ANY",
+    "?examples": {
+      "": {
+        "|": [
+          "$Example",
+          "$Reference"
+        ]
+      }
+    },
+    "?schema": "$Schema"
+  },
+  {
+    "#": "JsonModel 16",
+    "/^x\\-.*$/": "$ANY",
+    "?allowReserved": true,
+    "?contentType": "",
+    "?explode": true,
+    "?headers": {
+      "": {
+        "|": [
+          "$Header",
+          "$Reference"
+        ]
+      }
+    },
+    "?style": ""
+  },
+  {
+    "#": "JsonModel 17",
+    "/^[1-5](\\d\\d|XX)$/": {
+      "|": [
+        "$Response",
+        "$Reference"
+      ]
+    },
+    "/^x\\-.*$/": "$ANY",
+    "?default": {
+      "|": [
+        "$Response",
+        "$Reference"
+      ]
+    }
+  },
+  {
+    "#": "JsonModel 18",
+    "/^x\\-.*$/": "$ANY",
+    "?content": {
+      "": "$MediaType"
+    },
+    "?description": "",
+    "?headers": {
+      "": {
+        "|": [
+          "$Header",
+          "$Reference"
+        ]
+      }
+    },
+    "?links": {
+      "": {
+        "|": [
+          "$Link",
+          "$Reference"
+        ]
+      }
+    }
+  },
+  {
+    "#": "JsonModel 19",
+    "$Expression": {
+      "|": [
+        "$PathItem",
+        "$Reference"
+      ]
+    },
+    "/^x\\-.*$/": "$ANY"
+  },
+  {
+    "#": "JsonModel 20",
+    "/^x\\-.*$/": "$ANY",
+    "?description": "",
+    "?externalValue": "",
+    "?summary": "",
+    "?value": "$ANY"
+  },
+  "/\\{.*\\}/",
+  {
+    "#": "JsonModel 22",
+    "|": [
+      {
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?parameters": {
+          "": "$ANY"
+        },
+        "?requestBody": "$ANY",
+        "?server": "$Server",
+        "operationRef": ""
+      },
+      {
+        "/^x\\-.*$/": "$ANY",
+        "?description": "",
+        "?parameters": {
+          "": "$ANY"
+        },
+        "?requestBody": "$ANY",
+        "?server": "$Server",
+        "operationId": ""
+      }
+    ]
+  },
+  "$parameterShare",
+  {
+    "#": "JsonModel 24",
+    "/^x\\-.*$/": "$ANY",
+    "?description": "",
+    "?externalDocs": "$ExternalDocumentation",
+    "name": ""
+  },
+  {
+    "#": "JsonModel 25",
+    "?description": "",
+    "?summary": "",
+    "_$ref": ""
+  },
+  "$https://json-model.org/models/json-schema-draft-2020-12",
+  {
+    "#": "JsonModel 27",
+    "?$anchor": "$URL",
+    "?$comment": "",
+    "?$defs": {
+      "": "$#schema#Schema"
+    },
+    "?$dynamicAnchor": "$URL",
+    "?$dynamicRef": "$URL",
+    "?$id": "$URL",
+    "?$ref": "$URL",
+    "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+    "?$vocabulary": {
+      "$URL": true
+    },
+    "?additionalProperties": "$#schema#Schema",
+    "?allOf": "$#schema#schemaArray",
+    "?anyOf": "$#schema#schemaArray",
+    "?const": "$ANY",
+    "?contains": "$#schema#Schema",
+    "?contentEncoding": "",
+    "?contentMediaType": "",
+    "?contentSchema": "$#schema#Schema",
+    "?default": "$ANY",
+    "?dependentRequired": {
+      "": "$#schema#stringArray"
+    },
+    "?dependentSchemas": {
+      "": "$#schema#Schema"
+    },
+    "?deprecated": true,
+    "?description": "",
+    "?discriminator": "$Discriminator",
+    "?else": "$#schema#Schema",
+    "?enum": [
+      "$ANY"
+    ],
+    "?examples": [
+      "$ANY"
+    ],
+    "?exclusiveMaximum": -1.0,
+    "?exclusiveMinimum": -1.0,
+    "?externalDocs": "$ExternalDocumentation",
+    "?format": "",
+    "?if": "$#schema#Schema",
+    "?items": "$#schema#Schema",
+    "?maxContains": "$#schema#nonNegativeInteger",
+    "?maxItems": "$#schema#nonNegativeInteger",
+    "?maxLength": "$#schema#nonNegativeInteger",
+    "?maxProperties": "$#schema#nonNegativeInteger",
+    "?maximum": -1.0,
+    "?minContains": "$#schema#nonNegativeInteger",
+    "?minItems": "$#schema#nonNegativeInteger",
+    "?minLength": "$#schema#nonNegativeInteger",
+    "?minProperties": "$#schema#nonNegativeInteger",
+    "?minimum": -1.0,
+    "?multipleOf": 1.0,
+    "?not": "$#schema#Schema",
+    "?oneOf": "$#schema#schemaArray",
+    "?pattern": "$REGEX",
+    "?patternProperties": {
+      "$REGEX": "$#schema#Schema"
+    },
+    "?prefixItems": "$#schema#schemaArray",
+    "?properties": {
+      "": "$#schema#Schema"
+    },
+    "?propertyNames": "$#schema#Schema",
+    "?readOnly": true,
+    "?required": "$#schema#stringArray",
+    "?then": "$#schema#Schema",
+    "?title": "",
+    "?type": {
+      "|": [
+        "$#schema#simpleTypes",
+        "$#schema#simpleTypesArray"
+      ]
+    },
+    "?unevaluatedItems": "$#schema#Schema",
+    "?unevaluatedProperties": "$#schema#Schema",
+    "?uniqueItems": true,
+    "?writeOnly": true,
+    "?xml": "$XML"
+  },
+  {
+    "#": "JsonModel 28",
+    "/^x\\-.*$/": "$ANY",
+    "?mapping": {
+      "": ""
+    },
+    "propertyName": ""
+  },
+  {
+    "#": "JsonModel 29",
+    "/^x\\-.*$/": "$ANY",
+    "?attribute": true,
+    "?name": "",
+    "?namespace": "",
+    "?prefix": "",
+    "?wrapped": true
+  },
+  {
+    "#": "JsonModel 30",
+    "/^x\\-.*$/": "$ANY",
+    "?bearerFormat": "",
+    "?description": "",
+    "flows": "$OAuthFlows",
+    "in": "",
+    "name": "",
+    "openIdConnectUrl": "",
+    "scheme": "",
+    "type": ""
+  },
+  {
+    "#": "JsonModel 31",
+    "/^x\\-.*$/": "$ANY",
+    "?authorizationCode": "$OAuthFlow",
+    "?clientCredentials": "$OAuthFlow",
+    "?implicit": "$OAuthFlow",
+    "?password": "$OAuthFlow"
+  },
+  {
+    "#": "JsonModel 32",
+    "/^x\\-.*$/": "$ANY",
+    "?refreshUrl": "",
+    "authorizationUrl": "",
+    "scopes": {
+      "": ""
+    },
+    "tokenUrl": ""
+  },
+  {
+    "": [
+      ""
+    ],
+    "#": "JsonModel 33"
+  },
+  {
+    "#": "JsonModel 34",
+    "/^x\\-.*$/": "$ANY"
+  },
+  {
+    "#": "JsonModel 35 with defs",
+    "$": {
+      "": "https://json-model.org/models/json-model",
+      "#": "Symbol 3",
+      "Add": {
+        "#": "JsonModel 46",
+        "_+": [
+          "$Model"
+        ]
+      },
+      "And": {
+        "#": "JsonModel 44",
+        "_&": [
+          "$Model"
+        ]
+      },
+      "Any": {
+        "#": "JsonModel 38",
+        "|": [
+          "$Val",
+          [
+            "$Any"
+          ],
+          {
+            "": "$Any"
+          }
+        ]
+      },
+      "Array": [
+        "$Model"
+      ],
+      "Common": {
+        "#": "JsonModel 40",
+        "?#": ""
+      },
+      "Constraint": {
+        "#": "JsonModel 42",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "_@": "$Model"
+      },
+      "Defs": {
+        "#": "JsonModel 52",
+        "/.+/": "$Model"
+      },
+      "Elem": {
+        "#": "JsonModel 48",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": ""
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": ""
+          }
+        ]
+      },
+      "Model": {
+        "#": "JsonModel 51",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Elem"
+        ]
+      },
+      "None": "$NONE",
+      "Obj": {
+        "": "$Model",
+        "#": "JsonModel 47",
+        "/^[@|&^+/*]$/": "$NONE"
+      },
+      "Or": {
+        "#": "JsonModel 43",
+        "_|": [
+          "$Model"
+        ]
+      },
+      "Rename": {
+        "#": "JsonModel 53",
+        "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+      },
+      "Rewrite": {
+        "#": "JsonModel 54",
+        "/^\\$.*$/": "$Trafo"
+      },
+      "Root": {
+        "#": "JsonModel 55",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          }
+        ]
+      },
+      "RootModel": {
+        "#": "JsonModel 56",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Root"
+        ]
+      },
+      "Scalar": {
+        "#": "JsonModel 50",
+        "|": [
+          "=null",
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          ""
+        ]
+      },
+      "Trafo": {
+        "#": "JsonModel 49",
+        "|": [
+          "$Model",
+          {
+            "!/": [
+              "$Any"
+            ],
+            "?#": "",
+            "?*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            }
+          },
+          {
+            "!*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            },
+            "?#": "",
+            "?/": [
+              "$Any"
+            ]
+          }
+        ]
+      },
+      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+      "Val": {
+        "#": "JsonModel 37",
+        "|": [
+          null,
+          true,
+          -1,
+          -1.0,
+          ""
+        ]
+      },
+      "Xor": {
+        "#": "JsonModel 45",
+        "_^": [
+          "$Model"
+        ]
+      }
+    },
+    "@": "$RootModel",
+    "~": "https://json-model.org/models/json-model"
+  },
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+  {
+    "#": "JsonModel 37",
+    "|": [
+      null,
+      true,
+      -1,
+      -1.0,
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 38",
+    "|": [
+      "$Val",
+      [
+        "$Any"
+      ],
+      {
+        "": "$Any"
+      }
+    ]
+  },
+  "$NONE",
+  {
+    "#": "JsonModel 40",
+    "?#": ""
+  },
+  [
+    "$Model"
+  ],
+  {
+    "#": "JsonModel 42",
+    "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+      "|": [
+        -1,
+        -1.0,
+        ""
+      ]
+    },
+    "/^(=|!=|\u2260)$/": "$Val",
+    "?!": true,
+    "_@": "$Model"
+  },
+  {
+    "#": "JsonModel 43",
+    "_|": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 44",
+    "_&": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 45",
+    "_^": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 46",
+    "_+": [
+      "$Model"
+    ]
+  },
+  {
+    "": "$Model",
+    "#": "JsonModel 47",
+    "/^[@|&^+/*]$/": "$NONE"
+  },
+  {
+    "#": "JsonModel 48",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": ""
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": ""
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 49",
+    "|": [
+      "$Model",
+      {
+        "!/": [
+          "$Any"
+        ],
+        "?#": "",
+        "?*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        }
+      },
+      {
+        "!*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        },
+        "?#": "",
+        "?/": [
+          "$Any"
+        ]
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 50",
+    "|": [
+      "=null",
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 51",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Elem"
+    ]
+  },
+  {
+    "#": "JsonModel 52",
+    "/.+/": "$Model"
+  },
+  {
+    "#": "JsonModel 53",
+    "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+  },
+  {
+    "#": "JsonModel 54",
+    "/^\\$.*$/": "$Trafo"
+  },
+  {
+    "#": "JsonModel 55",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 56",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Root"
+    ]
+  },
+  {
+    "#": "JsonModel 57 with defs",
+    "$": {
+      "": "https://json-model.org/models/json-schema-draft-2020-12",
+      "#": "Symbol 4",
+      "ObjectSchema": {
+        "#": "JsonModel 72",
+        "?$anchor": "$URL",
+        "?$comment": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?$dynamicAnchor": "$URL",
+        "?$dynamicRef": "$URL",
+        "?$id": "$URL",
+        "?$ref": "$URL",
+        "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+        "?$vocabulary": {
+          "$URL": true
+        },
+        "?additionalProperties": "$Schema",
+        "?allOf": "$schemaArray",
+        "?anyOf": "$schemaArray",
+        "?const": "$ANY",
+        "?contains": "$Schema",
+        "?contentEncoding": "",
+        "?contentMediaType": "",
+        "?contentSchema": "$Schema",
+        "?default": "$ANY",
+        "?dependentRequired": {
+          "": "$stringArray"
+        },
+        "?dependentSchemas": {
+          "": "$Schema"
+        },
+        "?deprecated": true,
+        "?description": "",
+        "?else": "$Schema",
+        "?enum": [
+          "$ANY"
+        ],
+        "?examples": [
+          "$ANY"
+        ],
+        "?exclusiveMaximum": -1.0,
+        "?exclusiveMinimum": -1.0,
+        "?format": "",
+        "?if": "$Schema",
+        "?items": "$Schema",
+        "?maxContains": "$nonNegativeInteger",
+        "?maxItems": "$nonNegativeInteger",
+        "?maxLength": "$nonNegativeInteger",
+        "?maxProperties": "$nonNegativeInteger",
+        "?maximum": -1.0,
+        "?minContains": "$nonNegativeInteger",
+        "?minItems": "$nonNegativeInteger",
+        "?minLength": "$nonNegativeInteger",
+        "?minProperties": "$nonNegativeInteger",
+        "?minimum": -1.0,
+        "?multipleOf": 1.0,
+        "?not": "$Schema",
+        "?oneOf": "$schemaArray",
+        "?pattern": "$REGEX",
+        "?patternProperties": {
+          "$REGEX": "$Schema"
+        },
+        "?prefixItems": "$schemaArray",
+        "?properties": {
+          "": "$Schema"
+        },
+        "?propertyNames": "$Schema",
+        "?readOnly": true,
+        "?required": "$stringArray",
+        "?then": "$Schema",
+        "?title": "",
+        "?type": {
+          "|": [
+            "$simpleTypes",
+            "$simpleTypesArray"
+          ]
+        },
+        "?unevaluatedItems": "$Schema",
+        "?unevaluatedProperties": "$Schema",
+        "?uniqueItems": true,
+        "?writeOnly": true
+      },
+      "Schema": {
+        "#": "JsonModel 73",
+        "|": [
+          true,
+          "$ObjectSchema"
+        ]
+      },
+      "URI": "$URL",
+      "URI-REFERENCE": "$URL",
+      "applicator": {
+        "#": "JsonModel 71",
+        "?additionalProperties": "$Schema",
+        "?allOf": "$schemaArray",
+        "?anyOf": "$schemaArray",
+        "?contains": "$Schema",
+        "?dependentSchemas": {
+          "": "$Schema"
+        },
+        "?else": "$Schema",
+        "?if": "$Schema",
+        "?items": "$Schema",
+        "?not": "$Schema",
+        "?oneOf": "$schemaArray",
+        "?patternProperties": {
+          "$REGEX": "$Schema"
+        },
+        "?prefixItems": "$schemaArray",
+        "?properties": {
+          "": "$Schema"
+        },
+        "?propertyNames": "$Schema",
+        "?then": "$Schema"
+      },
+      "content": {
+        "#": "JsonModel 62",
+        "?contentEncoding": "",
+        "?contentMediaType": "",
+        "?contentSchema": "$Schema"
+      },
+      "core": {
+        "#": "JsonModel 60",
+        "?$anchor": "$URL",
+        "?$comment": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?$dynamicAnchor": "$URL",
+        "?$dynamicRef": "$URL",
+        "?$id": "$URL",
+        "?$ref": "$URL",
+        "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+        "?$vocabulary": {
+          "$URL": true
+        }
+      },
+      "format": {
+        "#": "JsonModel 64",
+        "?format": ""
+      },
+      "meta": {
+        "#": "JsonModel 61",
+        "?default": "$ANY",
+        "?deprecated": true,
+        "?description": "",
+        "?examples": [
+          "$ANY"
+        ],
+        "?readOnly": true,
+        "?title": "",
+        "?writeOnly": true
+      },
+      "nonNegativeInteger": 0,
+      "schemaArray": {
+        "#": "JsonModel 70",
+        ">=": 1,
+        "@": [
+          "$Schema"
+        ]
+      },
+      "simpleTypes": {
+        "#": "JsonModel 65",
+        "|": [
+          "array",
+          "boolean",
+          "integer",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "simpleTypesArray": {
+        "!": true,
+        "#": "JsonModel 66",
+        ">=": 1,
+        "@": [
+          "$simpleTypes"
+        ]
+      },
+      "stringArray": {
+        "!": true,
+        "#": "JsonModel 67",
+        "@": [
+          ""
+        ]
+      },
+      "unevaluated": {
+        "#": "JsonModel 63",
+        "?unevaluatedItems": "$Schema",
+        "?unevaluatedProperties": "$Schema"
+      },
+      "validation": {
+        "#": "JsonModel 69",
+        "?const": "$ANY",
+        "?dependentRequired": {
+          "": "$stringArray"
+        },
+        "?enum": [
+          "$ANY"
+        ],
+        "?exclusiveMaximum": -1.0,
+        "?exclusiveMinimum": -1.0,
+        "?maxContains": "$nonNegativeInteger",
+        "?maxItems": "$nonNegativeInteger",
+        "?maxLength": "$nonNegativeInteger",
+        "?maxProperties": "$nonNegativeInteger",
+        "?maximum": -1.0,
+        "?minContains": "$nonNegativeInteger",
+        "?minItems": "$nonNegativeInteger",
+        "?minLength": "$nonNegativeInteger",
+        "?minProperties": "$nonNegativeInteger",
+        "?minimum": -1.0,
+        "?multipleOf": 1.0,
+        "?pattern": "$REGEX",
+        "?required": "$stringArray",
+        "?type": {
+          "|": [
+            "$simpleTypes",
+            "$simpleTypesArray"
+          ]
+        },
+        "?uniqueItems": true
+      }
+    },
+    "@": "$Schema",
+    "~": "https://json-model.org/models/json-model"
+  },
+  "$URL",
+  "$URL",
+  {
+    "#": "JsonModel 60",
+    "?$anchor": "$URL",
+    "?$comment": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?$dynamicAnchor": "$URL",
+    "?$dynamicRef": "$URL",
+    "?$id": "$URL",
+    "?$ref": "$URL",
+    "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+    "?$vocabulary": {
+      "$URL": true
+    }
+  },
+  {
+    "#": "JsonModel 61",
+    "?default": "$ANY",
+    "?deprecated": true,
+    "?description": "",
+    "?examples": [
+      "$ANY"
+    ],
+    "?readOnly": true,
+    "?title": "",
+    "?writeOnly": true
+  },
+  {
+    "#": "JsonModel 62",
+    "?contentEncoding": "",
+    "?contentMediaType": "",
+    "?contentSchema": "$Schema"
+  },
+  {
+    "#": "JsonModel 63",
+    "?unevaluatedItems": "$Schema",
+    "?unevaluatedProperties": "$Schema"
+  },
+  {
+    "#": "JsonModel 64",
+    "?format": ""
+  },
+  {
+    "#": "JsonModel 65",
+    "|": [
+      "array",
+      "boolean",
+      "integer",
+      "null",
+      "number",
+      "object",
+      "string"
+    ]
+  },
+  {
+    "!": true,
+    "#": "JsonModel 66",
+    ">=": 1,
+    "@": [
+      "$simpleTypes"
+    ]
+  },
+  {
+    "!": true,
+    "#": "JsonModel 67",
+    "@": [
+      ""
+    ]
+  },
+  0,
+  {
+    "#": "JsonModel 69",
+    "?const": "$ANY",
+    "?dependentRequired": {
+      "": "$stringArray"
+    },
+    "?enum": [
+      "$ANY"
+    ],
+    "?exclusiveMaximum": -1.0,
+    "?exclusiveMinimum": -1.0,
+    "?maxContains": "$nonNegativeInteger",
+    "?maxItems": "$nonNegativeInteger",
+    "?maxLength": "$nonNegativeInteger",
+    "?maxProperties": "$nonNegativeInteger",
+    "?maximum": -1.0,
+    "?minContains": "$nonNegativeInteger",
+    "?minItems": "$nonNegativeInteger",
+    "?minLength": "$nonNegativeInteger",
+    "?minProperties": "$nonNegativeInteger",
+    "?minimum": -1.0,
+    "?multipleOf": 1.0,
+    "?pattern": "$REGEX",
+    "?required": "$stringArray",
+    "?type": {
+      "|": [
+        "$simpleTypes",
+        "$simpleTypesArray"
+      ]
+    },
+    "?uniqueItems": true
+  },
+  {
+    "#": "JsonModel 70",
+    ">=": 1,
+    "@": [
+      "$Schema"
+    ]
+  },
+  {
+    "#": "JsonModel 71",
+    "?additionalProperties": "$Schema",
+    "?allOf": "$schemaArray",
+    "?anyOf": "$schemaArray",
+    "?contains": "$Schema",
+    "?dependentSchemas": {
+      "": "$Schema"
+    },
+    "?else": "$Schema",
+    "?if": "$Schema",
+    "?items": "$Schema",
+    "?not": "$Schema",
+    "?oneOf": "$schemaArray",
+    "?patternProperties": {
+      "$REGEX": "$Schema"
+    },
+    "?prefixItems": "$schemaArray",
+    "?properties": {
+      "": "$Schema"
+    },
+    "?propertyNames": "$Schema",
+    "?then": "$Schema"
+  },
+  {
+    "#": "JsonModel 72",
+    "?$anchor": "$URL",
+    "?$comment": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?$dynamicAnchor": "$URL",
+    "?$dynamicRef": "$URL",
+    "?$id": "$URL",
+    "?$ref": "$URL",
+    "?$schema": "_https://json-schema.org/draft/2020-12/schema",
+    "?$vocabulary": {
+      "$URL": true
+    },
+    "?additionalProperties": "$Schema",
+    "?allOf": "$schemaArray",
+    "?anyOf": "$schemaArray",
+    "?const": "$ANY",
+    "?contains": "$Schema",
+    "?contentEncoding": "",
+    "?contentMediaType": "",
+    "?contentSchema": "$Schema",
+    "?default": "$ANY",
+    "?dependentRequired": {
+      "": "$stringArray"
+    },
+    "?dependentSchemas": {
+      "": "$Schema"
+    },
+    "?deprecated": true,
+    "?description": "",
+    "?else": "$Schema",
+    "?enum": [
+      "$ANY"
+    ],
+    "?examples": [
+      "$ANY"
+    ],
+    "?exclusiveMaximum": -1.0,
+    "?exclusiveMinimum": -1.0,
+    "?format": "",
+    "?if": "$Schema",
+    "?items": "$Schema",
+    "?maxContains": "$nonNegativeInteger",
+    "?maxItems": "$nonNegativeInteger",
+    "?maxLength": "$nonNegativeInteger",
+    "?maxProperties": "$nonNegativeInteger",
+    "?maximum": -1.0,
+    "?minContains": "$nonNegativeInteger",
+    "?minItems": "$nonNegativeInteger",
+    "?minLength": "$nonNegativeInteger",
+    "?minProperties": "$nonNegativeInteger",
+    "?minimum": -1.0,
+    "?multipleOf": 1.0,
+    "?not": "$Schema",
+    "?oneOf": "$schemaArray",
+    "?pattern": "$REGEX",
+    "?patternProperties": {
+      "$REGEX": "$Schema"
+    },
+    "?prefixItems": "$schemaArray",
+    "?properties": {
+      "": "$Schema"
+    },
+    "?propertyNames": "$Schema",
+    "?readOnly": true,
+    "?required": "$stringArray",
+    "?then": "$Schema",
+    "?title": "",
+    "?type": {
+      "|": [
+        "$simpleTypes",
+        "$simpleTypesArray"
+      ]
+    },
+    "?unevaluatedItems": "$Schema",
+    "?unevaluatedProperties": "$Schema",
+    "?uniqueItems": true,
+    "?writeOnly": true
+  },
+  {
+    "#": "JsonModel 73",
+    "|": [
+      true,
+      "$ObjectSchema"
+    ]
+  },
+  {
+    "#": "JsonModel 74 with defs",
+    "$": {
+      "": "https://json-model.org/models/json-model",
+      "#": "Symbol 6",
+      "Add": {
+        "#": "JsonModel 85",
+        "_+": [
+          "$Model"
+        ]
+      },
+      "And": {
+        "#": "JsonModel 83",
+        "_&": [
+          "$Model"
+        ]
+      },
+      "Any": {
+        "#": "JsonModel 77",
+        "|": [
+          "$Val",
+          [
+            "$Any"
+          ],
+          {
+            "": "$Any"
+          }
+        ]
+      },
+      "Array": [
+        "$Model"
+      ],
+      "Common": {
+        "#": "JsonModel 79",
+        "?#": ""
+      },
+      "Constraint": {
+        "#": "JsonModel 81",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "_@": "$Model"
+      },
+      "Defs": {
+        "#": "JsonModel 91",
+        "/.+/": "$Model"
+      },
+      "Elem": {
+        "#": "JsonModel 87",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": ""
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": ""
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": ""
+          }
+        ]
+      },
+      "Model": {
+        "#": "JsonModel 90",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Elem"
+        ]
+      },
+      "None": "$NONE",
+      "Obj": {
+        "": "$Model",
+        "#": "JsonModel 86",
+        "/^[@|&^+/*]$/": "$NONE"
+      },
+      "Or": {
+        "#": "JsonModel 82",
+        "_|": [
+          "$Model"
+        ]
+      },
+      "Rename": {
+        "#": "JsonModel 92",
+        "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+      },
+      "Rewrite": {
+        "#": "JsonModel 93",
+        "/^\\$.*$/": "$Trafo"
+      },
+      "Root": {
+        "#": "JsonModel 94",
+        "|": [
+          {
+            "!@": "$Model",
+            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+              "|": [
+                -1,
+                -1.0,
+                ""
+              ]
+            },
+            "/^(=|!=|\u2260)$/": "$Val",
+            "?!": true,
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          },
+          {
+            "": "$Model",
+            "/^[@|&^+/*]$/": "$NONE",
+            "?#": "",
+            "?$": {
+              "/.+/": "$Model",
+              "?": "$Url",
+              "?#": ""
+            },
+            "?%": {
+              "/^\\$.*$/": "$Trafo",
+              "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+              "?#": ""
+            },
+            "?~": "$Url"
+          }
+        ]
+      },
+      "RootModel": {
+        "#": "JsonModel 95",
+        "|": [
+          "$Scalar",
+          "$Array",
+          "$Root"
+        ]
+      },
+      "Scalar": {
+        "#": "JsonModel 89",
+        "|": [
+          "=null",
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          ""
+        ]
+      },
+      "Trafo": {
+        "#": "JsonModel 88",
+        "|": [
+          "$Model",
+          {
+            "!/": [
+              "$Any"
+            ],
+            "?#": "",
+            "?*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            }
+          },
+          {
+            "!*": {
+              "|": [
+                [
+                  "$Any"
+                ],
+                {
+                  "": "$Model"
+                }
+              ]
+            },
+            "?#": "",
+            "?/": [
+              "$Any"
+            ]
+          }
+        ]
+      },
+      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+      "Val": {
+        "#": "JsonModel 76",
+        "|": [
+          null,
+          true,
+          -1,
+          -1.0,
+          ""
+        ]
+      },
+      "Xor": {
+        "#": "JsonModel 84",
+        "_^": [
+          "$Model"
+        ]
+      }
+    },
+    "@": "$RootModel",
+    "~": "https://json-model.org/models/json-model"
+  },
+  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+  {
+    "#": "JsonModel 76",
+    "|": [
+      null,
+      true,
+      -1,
+      -1.0,
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 77",
+    "|": [
+      "$Val",
+      [
+        "$Any"
+      ],
+      {
+        "": "$Any"
+      }
+    ]
+  },
+  "$NONE",
+  {
+    "#": "JsonModel 79",
+    "?#": ""
+  },
+  [
+    "$Model"
+  ],
+  {
+    "#": "JsonModel 81",
+    "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+      "|": [
+        -1,
+        -1.0,
+        ""
+      ]
+    },
+    "/^(=|!=|\u2260)$/": "$Val",
+    "?!": true,
+    "_@": "$Model"
+  },
+  {
+    "#": "JsonModel 82",
+    "_|": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 83",
+    "_&": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 84",
+    "_^": [
+      "$Model"
+    ]
+  },
+  {
+    "#": "JsonModel 85",
+    "_+": [
+      "$Model"
+    ]
+  },
+  {
+    "": "$Model",
+    "#": "JsonModel 86",
+    "/^[@|&^+/*]$/": "$NONE"
+  },
+  {
+    "#": "JsonModel 87",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": ""
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": ""
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": ""
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 88",
+    "|": [
+      "$Model",
+      {
+        "!/": [
+          "$Any"
+        ],
+        "?#": "",
+        "?*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        }
+      },
+      {
+        "!*": {
+          "|": [
+            [
+              "$Any"
+            ],
+            {
+              "": "$Model"
+            }
+          ]
+        },
+        "?#": "",
+        "?/": [
+          "$Any"
+        ]
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 89",
+    "|": [
+      "=null",
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      ""
+    ]
+  },
+  {
+    "#": "JsonModel 90",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Elem"
+    ]
+  },
+  {
+    "#": "JsonModel 91",
+    "/.+/": "$Model"
+  },
+  {
+    "#": "JsonModel 92",
+    "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+  },
+  {
+    "#": "JsonModel 93",
+    "/^\\$.*$/": "$Trafo"
+  },
+  {
+    "#": "JsonModel 94",
+    "|": [
+      {
+        "!@": "$Model",
+        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
+          "|": [
+            -1,
+            -1.0,
+            ""
+          ]
+        },
+        "/^(=|!=|\u2260)$/": "$Val",
+        "?!": true,
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
+      {
+        "": "$Model",
+        "/^[@|&^+/*]$/": "$NONE",
+        "?#": "",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      }
+    ]
+  },
+  {
+    "#": "JsonModel 95",
+    "|": [
+      "$Scalar",
+      "$Array",
+      "$Root"
+    ]
+  }
+]

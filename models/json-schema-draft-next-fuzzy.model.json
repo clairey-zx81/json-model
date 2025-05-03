@@ -1,0 +1,19 @@
+{
+  "#": "JSON Model for JSON Schema Draft Next (fuzzy version)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-next-fuzzy",
+    "schema": "$https://json-model.org/models/json-schema-draft-next"
+  },
+  "%": {
+    "$schema#validation.?pattern": "",
+    "$schema#applicator.?patternProperties": {"": "$Schema"},
+    "$schema#deprecated": {
+      "?definitions": { "": "$Schema" },
+      "?dependencies": { "": {"|": [ "$Schema", "$stringArray" ] }}
+    },
+    "$schema#fuzzy": { "": "$ANY" },
+    "$schema#ObjectSchema.+": { "*": ["$deprecated", "$fuzzy"] }
+  },
+  "@": "$schema"
+}

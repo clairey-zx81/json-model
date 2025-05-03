@@ -1,6 +1,7 @@
 {
  "#": "Tight Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946)",
- "%": {
+ "~": "https://json-model.org/models/json-model",
+ "$": {
     "position": { "@": [ -1.0 ], ">=": 2, "<=": 3 },
     "coord_array": { "@": [ "$position" ], ">=": 2 },
     "linear_ring": { "@": [ "$position" ], ">=": 4 },

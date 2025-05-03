@@ -1,0 +1,16 @@
+{
+  "#": "JsonModel 0",
+  "$": {
+    "": "./rec03.model.json",
+    "#": "Symbol 1",
+    "root": "$#"
+  },
+  "?foo": {
+    "|": [
+      "$root",
+      [
+        "$root"
+      ]
+    ]
+  }
+}

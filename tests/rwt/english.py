@@ -65,8 +65,8 @@ jm_re_3 = re.compile(".+").search
 jm_f_17_may: PropMap
 # regex "/^\\..*$/"
 jm_re_4 = re.compile("^\\..*$").search
-# regex "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
-jm_re_5 = re.compile("^([|&^+/*@~<>=!$%]|<=|>=|!=)$").search
+# regex "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+jm_re_5 = re.compile("^([#|&^+/*@~<>=!$%]|<=|>=|!=)$").search
 # regex "/^\\$.*$/"
 jm_re_6 = re.compile("^\\$.*$").search
 jm_obj_7_must: PropMap
@@ -808,7 +808,7 @@ def jm_f_17(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.0.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/
@@ -883,7 +883,7 @@ def jm_f_26(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.1.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/
@@ -943,7 +943,7 @@ def jm_f_34(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.2.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/
@@ -1003,7 +1003,7 @@ def jm_f_42(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.3.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/
@@ -1063,7 +1063,7 @@ def jm_f_50(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.4.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/
@@ -1123,7 +1123,7 @@ def jm_f_57(value: Jsonable, path: str) -> bool:
                 return False
         elif jm_re_4(prop) is not None:  # /^\..*$/
             # $.'$#Model#Root'.'|'.5.'%'.'/^\..*$/'
-            # "/^([|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
             result = isinstance(model, str) and jm_re_5(model) is not None
             if not result: return False
         elif jm_re_6(prop) is not None:  # /^\$.*$/

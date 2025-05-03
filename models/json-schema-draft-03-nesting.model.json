@@ -1,0 +1,12 @@
+{
+  "#": "JSON Model for JSON Schema Draft 03 (nesting version)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-03-nesting",
+    "schema": "$https://json-model.org/models/json-schema-draft-03"
+  },
+  "%": {
+    "$schema#": { "*": { "": "$Schema" } }
+  },
+  "@": "$schema"
+}

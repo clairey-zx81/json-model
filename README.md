@@ -82,24 +82,38 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] python: rename `types.py` which is a pain
 - [x] feature: yaml url input
 - [x] tests: True/False -> PASS/FAIL
+- [~] feature: how to remove a definition? nope, must be nullified (eg `$NONE`) because refs
+- [x] tests: upgrade all models in `models/` and check them as well
+- [x] tests: add expected "$schema" value to schema models
 - [ ] design: handle `.` and `/` references as relative url
+- [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
+- [ ] python: extract optimization in another file
+- [ ] optim: remove unused local (not exported) definitions
+- [ ] feature: make (static/dynamic) compiled exported defs accessible… which imply fname control
+- [ ] static: detect and remove duplicate functions!
+- [ ] static: separate compilation of included models
+- [ ] command: add option to control name of generated function
 - [ ] feature: control url caching, change dir location or disable
 - [ ] feature: cache expiration?
+- [ ] feature: improve error messages, eg missing "$" on a URL reference
+- [ ] feature: restrict definitions as proper identifiers
+- [ ] tests: re-check some results of json schema analysis paper
+- [ ] feature: self trafo example, eg create a variant between local defs
 - [ ] python: remove global list in JsonModel
 - [ ] python: remove all globals in Symbols?
 - [ ] python: remove all globals in JsonModel?
 - [ ] python: measure coverage
 - [ ] static: fix `modval/_untyped*`
-- [ ] command: add option to control name of generated function
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
+- [ ] feature: check/forbid/allow url references with an anchor
+- [ ] feature: allow scalar value for `/`
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
-- [ ] static: detect and remove duplicate functions!
 - [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt, modval, bads
+- [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?
-- [ ] tests: upgrade all models on `models/` and check them as well
 - [ ] tests: refactor all tests, keep or drop `pytest`
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
@@ -114,7 +128,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] feature: clarify and implement options management `JSON_MODEL_…`
 - [ ] design: (online) extension register?
-- [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] design: official (meta) model url:
       `https://models.json-model.org/...` vs `https://json-model.org/models/...`?
 - [ ] doc: check and document API entry points
@@ -124,12 +137,16 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] extend: ORM support, eg in the Python ecosystem, see `SQLAlchemy` and `Django`?
 - [ ] extend: data structure _documentation_
 - [ ] extend: accepting any extension?! eg opened objects?
+- [ ] extend: variants, see `models/json-schema-*`
 - [ ] design: conditionals or not conditionals… eg for interfaces?
       if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
 - [ ] research: paper themes? extensions, compilation (CGO), ...?
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
+- [ ] pr: register `json-model.org`? use `github.io`?
+- [ ] pr: article submission about data structure trafo? CGO (end of may)?
+- [ ] schema: control keyword sorting to put type-related stuff on top
 
 ## WIP
 
@@ -179,6 +196,8 @@ Command `jmc` (JSON Model Compiler) options:
       }
     }
     ```
+
+- NOTE we decided to avoid reusing `+ ~` for `* /`.
 
 - localization with prefixed keywords: `: ,` (too many?), `*` noizy and ugly, `.` discreet and rare enough?
 

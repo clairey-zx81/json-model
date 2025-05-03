@@ -18,6 +18,9 @@ from .model import JsonModel
 # FIXME move to validator? change name?!
 from .defines import Validator
 
+# approximated date regular expression
+WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
+
 # whether to shorten one/all combinator computations
 fast_fail: bool = False
 
@@ -116,9 +119,9 @@ class DynamicCompiler(Validator):
                                      self._no("<NUMBER>", p, "invalid number")))
         self._defs.set("$DATE",  # FIXME partial!
                        lambda v, p: (isinstance(v, str) and
-                                     re.match(r"\d{4}-\d{2}-\d{2}$", v) is not None or
+                                     re.match(WEAK_DATE_RE, v) is not None or
                                      self._no("<DATE>", p, "invalid date")))
-        self._defs.set("$URL",  # FIXME partial!
+        self._defs.set("$URL",  # FIXME partial!?
                        lambda v, p: (isinstance(v, str) and  # type: ignore
                                      re.match(r"(https?|file)://.*|\.|/", v) or
                                      self._no("<URL>", p, "invalid URL")))
