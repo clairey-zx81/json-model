@@ -1,14 +1,14 @@
 [
   {
-    "#": "JsonModel 0 with defs",
+    "#": "JsonModel 0",
     "$": {
       "": "https://json-model.org/models/json-schema-draft-07",
       "#": "Symbol 1",
       "ObjectSchema": {
         "#": "JsonModel 6",
         "?$comment": "",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "$URL",
         "?additionalItems": "$Schema",
         "?additionalProperties": "$Schema",
@@ -96,7 +96,7 @@
         ]
       },
       "URI": "$URL",
-      "URI-REFERENCE": "$URL",
+      "URI-REFERENCE": "",
       "arrayTypes": {
         "!": true,
         "#": "JsonModel 5",
@@ -129,7 +129,7 @@
     "~": "https://json-model.org/models/json-model"
   },
   "$URL",
-  "$URL",
+  "",
   {
     "#": "JsonModel 3",
     ">=": 1,
@@ -160,8 +160,8 @@
   {
     "#": "JsonModel 6",
     "?$comment": "",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "$URL",
     "?additionalItems": "$Schema",
     "?additionalProperties": "$Schema",
@@ -516,9 +516,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -543,9 +548,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -695,9 +705,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -722,9 +737,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },

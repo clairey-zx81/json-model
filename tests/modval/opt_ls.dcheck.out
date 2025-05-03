@@ -1,0 +1,5 @@
+opt_ls.0.true.json: PASS
+opt_ls.1.true.json: PASS
+opt_ls.2.false.json: FAIL [('.f', '$.f', 'expecting a number')]
+opt_ls.3.false.json: FAIL [('.f', '$.f', 'expecting a number')]
+opt_ls.4.false.json: FAIL [('.i', '$.i', 'expecting a (loose) integer')]

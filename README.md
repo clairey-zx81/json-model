@@ -88,7 +88,9 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] static: do not inline unused support function (`is_valid_*` and possibly others)
 - [x] schema: control keyword sorting to put type-related stuff on top (-ns)
 - [x] static: use mandatory keyword parameters where appropriate
-- [ ] schema: test json schema conformity?
+- [x] feature: clarify and implement options management `JSON_MODEL_…`
+- [x] schema: test output json schema (strict) conformity
+- [ ] tests: remove unstable DO output?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] dynamic: use mandatory keyword parameters where appropriate
 - [ ] design: handle `.` and `/` references as relative url
@@ -130,7 +132,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: --yaml show yaml instead of json
 - [ ] feature: think about code integration in a realistic project? usability? doc?
-- [ ] feature: clarify and implement options management `JSON_MODEL_…`
 - [ ] design: (online) extension register?
 - [ ] design: official (meta) model url:
       `https://models.json-model.org/...` vs `https://json-model.org/models/...`?
@@ -150,6 +151,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? CGO (end of may)?
+- [ ] schema: handle includes? inline?!
 - [ ] static: abstract imperative language code generation with intermediate code?
       see JSON Schema C++ Blaze, RUST boon?
 - [ ] static: prioritize ts/js for usability, c for speed.
@@ -157,6 +159,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
+- [ ] feature: add model predef for URI-REF
 
 ## WIP
 

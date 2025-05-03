@@ -4,7 +4,7 @@
   "$": {
     "": "https://json-model.org/models/json-schema-draft-2020-12-tight",
     "URI": "$URL",
-    "URI-REFERENCE": "$URL",
+    "URI-REFERENCE": "",
     "core": {
       "?$id": "$URI-REFERENCE",
       "?$schema": "$URI",

@@ -1,4 +1,5 @@
 {
+  "description": "JSON_MODEL_SIGNED_INT",
   "type": "integer",
   "minimum": 1
 }

@@ -116,9 +116,13 @@ class SourceCode(Validator):
     - prefix: use this prefix for function name generation.
     - debug: verbose debug mode.
     - remod: regular expression module, "re" or "re2".
+    - loose_int: whether "42.0" is considered an int.
+    - loose_float: whether "42" is considered a float.
     """
 
-    def __init__(self, globs: Symbols, *, prefix: str = "", debug: bool = False, remod: str = _RE):
+    def __init__(self, globs: Symbols, *, prefix: str = "",
+                 debug: bool = False, remod: str = _RE,
+                 loose_int: bool = False, loose_float: bool = False):
 
         super().__init__()
 
@@ -126,6 +130,8 @@ class SourceCode(Validator):
         self._globs = globs
         self._debug = debug
         self._re = remod
+        self._loose_int = loose_int
+        self._loose_float = loose_float
 
         def used(att: str) -> bool:
             setattr(self, f"_{att}_used", True)
@@ -138,15 +144,15 @@ class SourceCode(Validator):
             "$NULL": lambda v: f"{v} is None",
             "$BOOL": lambda v: f"isinstance({v}, bool)",
             "$BOOLEAN": lambda v: f"isinstance({v}, bool)",
-            "$INTEGER": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
-            "$INT": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
-            "$I32": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
-            "$I64": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool)",
-            "$U32": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool) and {v} >= 0",
-            "$U64": lambda v: f"isinstance({v}, int) and not isinstance({v}, bool) and {v} >= 0",
-            "$FLOAT": lambda v: f"isinstance({v}, float)",
-            "$F32": lambda v: f"isinstance({v}, float)",
-            "$F64": lambda v: f"isinstance({v}, float)",
+            "$INTEGER": self._in_is_int,
+            "$INT": self._in_is_int,
+            "$I32": self._in_is_int,
+            "$I64": self._in_is_int,
+            "$U32": lambda v: self._in_is_int(v) + f" and {v} >= 0",
+            "$U64": lambda v: self._in_is_int(v) + f" and {v} >= 0",
+            "$FLOAT": self._in_is_float,
+            "$F32": self._in_is_float,
+            "$F64": self._in_is_float,
             "$NUMBER": lambda v: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
             "$STRING": lambda v: f"isinstance({v}, str)",
             "$URL": lambda v: used("url") and f"is_valid_url({v}, path)",
@@ -245,6 +251,21 @@ class SourceCode(Validator):
         return res
 
     # code generation
+
+    def _in_is_int(self, v: str) -> str:
+        if self._loose_int:
+            return (f"((isinstance({v}, int) and not isinstance({v}, bool)) or"
+                    f" (isinstance({v}, float) and int({v}) == {v}))")
+        else:
+            return f"isinstance({v}, int) and not isinstance({v}, bool)"
+
+    def _in_is_float(self, v: str) -> str:
+        if self._loose_float:
+            return (f"(isinstance({v}, float) or"
+                    f" isinstance({v}, int) and not isinstance({v}, bool))")
+        else:
+            return f"isinstance({v}, float)"
+
     def _ident(self, prefix: str, local: bool = False) -> str:
         """Generate a new identifier using a prefix and a counter."""
         if prefix not in self._nvars:
@@ -498,7 +519,7 @@ class SourceCode(Validator):
             case bool():
                 code.add(indent, f"{res} = isinstance({val}, bool)")
             case int():
-                expr = f"isinstance({val}, int) and not isinstance({val}, bool)"
+                expr = self._in_is_int(val)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -523,7 +544,7 @@ class SourceCode(Validator):
                 if expr:
                     code.add(indent, res + " = " + expr)
             case float():
-                expr = f"isinstance({val}, float)"
+                expr = self._in_is_float(val)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -890,6 +911,8 @@ def static_compile(
         prefix: str = "jm_",
         remod: str = "re",
         debug: bool = False,
+        loose_int: bool = False,
+        loose_float: bool = False,
     ) -> SourceCode:
     """Generate the check source code for a model.
 
@@ -898,8 +921,22 @@ def static_compile(
     - `prefix`: prefix for generated functions
     - `remod`: regular expression module to use, "re" or "re2"
     - `debug`: debugging mode generates more traces
+    - `loose_int`: whether 42.0 is an integer
+    - `loose_float`: whether 42 is a float
     """
-    sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod)  # pyright: ignore
+    # TODO move to compileOneJsonModel
+    # options
+    if isinstance(model._model, dict) and "#" in model._model:
+        comment = model._model["#"]
+        assert isinstance(comment, str)
+        loose_int = (True if "JSON_MODEL_LOOSE_INT" in comment else
+                     False if "JSON_MODEL_STRICT_INT" in comment else
+                     loose_int)
+        loose_float = (True if "JSON_MODEL_LOOSE_FLOAT" in comment else
+                       False if "JSON_MODEL_STRICT_FLOAT" in comment else
+                       loose_float)
+    sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod,
+                    loose_int=loose_int, loose_float=loose_float)  # pyright: ignore
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))

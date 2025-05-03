@@ -297,10 +297,17 @@
           "type": "object",
           "properties": {
             "/": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/Any"
-              }
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Any"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/Any"
+                  }
+                }
+              ]
             },
             "#": {
               "type": "string"
@@ -350,10 +357,17 @@
               "type": "string"
             },
             "/": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/Any"
-              }
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Any"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/Any"
+                  }
+                }
+              ]
             }
           },
           "required": [

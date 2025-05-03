@@ -28,8 +28,12 @@ F.SO    = $(F.root:%=%.py)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
+F.sXc   = schema.jcheck.out \
+    schema.dcheck.out schema.scheck.out \
+    schema.dcheck2.out schema.scheck2.out
 
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js)
+# all generated
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js) $(F.sXc)
 
 .PHONY: gen
 gen: $(F.gen)
@@ -78,11 +82,11 @@ py: $(F.SO)
 	$(JMC) -SO --code ./$< > $@
 
 #
-# Dynamic CHECKs
+# Dynamic value checks
 #
 .PHONY: dcheck
 dcheck: $(F.dc)
-	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
 # special case for the meta model
@@ -102,11 +106,11 @@ l10n.dcheck.out: l10n.model.json
 	$(JMC) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
 
 #
-# Static CHECKs
+# Static value checks
 #
 .PHONY: scheck
 scheck: $(F.sc)
-	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
 # special case for the meta model
@@ -126,7 +130,43 @@ l10n.scheck.out: l10n.model.json
 	$(JMC) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
 
 #
-# JSON Schema Checks
+# Generated JSON Schema checks
+#
+.PHONY: check.schema
+check.schema: $(F.sXc)
+
+F.schema    = $(F.root:%=%.schema.json)
+
+# NOTE some failures are expected because external refs are not handled.
+schema.jcheck.out: $(F.schema)
+	for f in $(F.schema) ; do
+	  if jsu-check --quiet $$f ; then
+	    echo "$$f: PASS"
+	  else
+	    echo "$$f: FAIL"
+	  fi
+	done | sort > $@
+
+schema.dcheck.out: $(F.schema)
+	jmc --auto --check --quiet -DO ../../models/json-schema-draft-2020-12.model.json $^ |
+	  sort > $@
+
+schema.scheck.out: $(F.schema)
+	jmc --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
+	  sort > $@
+
+# FIXME json-schema-draft-tighter.model.json: KO, mandatory $schema
+
+schema.dcheck2.out: $(F.schema)
+	jmc --auto --check --verbose -DO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
+	  sort > $@
+
+schema.scheck2.out: $(F.schema)
+	jmc --auto --check --quiet -SO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
+	  sort > $@
+
+#
+# JSON model value checks with generated JSON schemas
 #
 # this is not perfect:
 # - models distinguish between floats and ints, schema not really.
@@ -136,7 +176,7 @@ JS_CHECK    = jsu-check --quiet
 
 .PHONY: jcheck
 jcheck: $(F.js)
-	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n)'
+	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
 # special cases
@@ -151,19 +191,30 @@ l10n.jcheck.out: l10n.schema.json
 	# $(JS_CHECK) français.schema.json fr_00.model.json >> $@
 
 # external references are not supported
-json-model-preprocessed.jcheck.out \
-json-model-moschin.jcheck.out \
-json-model-v2-en.jcheck.out \
-english.jcheck.out \
-français.jcheck.out \
-openapi-310.jcheck.out \
-mrg_02.jcheck.out \
-obj_03.jcheck.out \
-obj_04.jcheck.out \
-scope_1.jcheck.out \
-hello2.jcheck.out \
-hello3.jcheck.out \
-scp_01.jcheck.out:
+E.KO    = \
+    $(wildcard json-schema-*-fuzzy.model.json) \
+    $(wildcard json-schema-*-nesting.model.json) \
+    json-schema-draft-tighter-loose
+
+# skip errors
+E.root  = \
+    $(E.KO:%.model.json=%) \
+    json-model-preprocessed \
+    json-model-moschin \
+    json-model-v2-en \
+    english \
+    français \
+    openapi-310 \
+    openapi-310-models \
+    mrg_02 \
+    obj_03 \
+    obj_04 \
+    scope_1 \
+    hello2 \
+    hello3 \
+    scp_01
+
+$(addsuffix .jcheck.out,$(E.root)):
 	touch $@
 
 # default case

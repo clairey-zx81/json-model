@@ -1,10 +1,10 @@
 {
-  "#": "JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT]",
+  "#": "JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-07",
     "URI": "$URL",
-    "URI-REFERENCE": "$URL",
+    "URI-REFERENCE": "",
     "schemaArray": {"@": ["$Schema"], ">=": 1},
     "simpleTypes": {"|": ["null", "boolean", "integer", "number", "string", "array", "object"]},
     "arrayTypes": {"@": ["$simpleTypes"], ">=": 1, "!": true},

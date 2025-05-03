@@ -503,13 +503,17 @@ def jm_f_86(value: Jsonable, path: str) -> bool:
 # define "jm_obj_13_must_/" ($.'$#Model#Trafo'.'|'.1.'/')
 def jm_f_88(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Trafo'.'|'.1.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_10_idx, array_10_item in enumerate(value):
-            # $.'$#Model#Trafo'.'|'.1.'/'.0
-            result = json_model_27(array_10_item, path)
-            if not result: break
+    # $.'$#Model#Trafo'.'|'.1.'/'.'|'.0
+    result = json_model_27(value, path)
+    if not result:
+        # $.'$#Model#Trafo'.'|'.1.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_10_idx, array_10_item in enumerate(value):
+                # $.'$#Model#Trafo'.'|'.1.'/'.'|'.1.0
+                result = json_model_27(array_10_item, path)
+                if not result: break
     return result
 
 # define "jm_obj_13_may_#" ($.'$#Model#Trafo'.'|'.1.'#')
@@ -563,13 +567,17 @@ def jm_f_93(value: Jsonable, path: str) -> bool:
 # define "jm_obj_15_may_/" ($.'$#Model#Trafo'.'|'.2.'/')
 def jm_f_95(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Trafo'.'|'.2.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_13_idx, array_13_item in enumerate(value):
-            # $.'$#Model#Trafo'.'|'.2.'/'.0
-            result = json_model_27(array_13_item, path)
-            if not result: break
+    # $.'$#Model#Trafo'.'|'.2.'/'.'|'.0
+    result = json_model_27(value, path)
+    if not result:
+        # $.'$#Model#Trafo'.'|'.2.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_13_idx, array_13_item in enumerate(value):
+                # $.'$#Model#Trafo'.'|'.2.'/'.'|'.1.0
+                result = json_model_27(array_13_item, path)
+                if not result: break
     return result
 
 

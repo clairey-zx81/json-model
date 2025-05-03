@@ -66,13 +66,13 @@ def jm_f_4(value: Jsonable, path: str) -> bool:
 # define "json_model_0_may_multipleOf" ($.multipleOf)
 def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.multipleOf
-    result = isinstance(value, float) and value > 0.0
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool)) and value > 0.0
     return result
 
 # define "json_model_0_may_maximum" ($.maximum)
 def jm_f_6(value: Jsonable, path: str) -> bool:
     # $.maximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_0_may_exclusiveMaximum" ($.exclusiveMaximum)
@@ -84,7 +84,7 @@ def jm_f_7(value: Jsonable, path: str) -> bool:
 # define "json_model_0_may_minimum" ($.minimum)
 def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.minimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_0_may_exclusiveMinimum" ($.exclusiveMinimum)

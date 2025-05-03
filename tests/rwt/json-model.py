@@ -240,13 +240,17 @@ def jm_f_18(value: Jsonable, path: str) -> bool:
 # define "jm_obj_7_must_/" ($.Trafo.'|'.1.'/')
 def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.Trafo.'|'.1.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_10_idx, array_10_item in enumerate(value):
-            # $.Trafo.'|'.1.'/'.0
-            result = json_model_3(array_10_item, path)
-            if not result: break
+    # $.Trafo.'|'.1.'/'.'|'.0
+    result = json_model_3(value, path)
+    if not result:
+        # $.Trafo.'|'.1.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_10_idx, array_10_item in enumerate(value):
+                # $.Trafo.'|'.1.'/'.'|'.1.0
+                result = json_model_3(array_10_item, path)
+                if not result: break
     return result
 
 # define "jm_obj_7_may_#" ($.Trafo.'|'.1.'#')
@@ -296,13 +300,17 @@ def jm_f_23(value: Jsonable, path: str) -> bool:
 # define "jm_obj_9_may_/" ($.Trafo.'|'.2.'/')
 def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.Trafo.'|'.2.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_13_idx, array_13_item in enumerate(value):
-            # $.Trafo.'|'.2.'/'.0
-            result = json_model_3(array_13_item, path)
-            if not result: break
+    # $.Trafo.'|'.2.'/'.'|'.0
+    result = json_model_3(value, path)
+    if not result:
+        # $.Trafo.'|'.2.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_13_idx, array_13_item in enumerate(value):
+                # $.Trafo.'|'.2.'/'.'|'.1.0
+                result = json_model_3(array_13_item, path)
+                if not result: break
     return result
 
 # define "jm_obj_11_must_@" ($.Root.'|'.0.'@')

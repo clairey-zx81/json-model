@@ -51,17 +51,18 @@ class DynamicCompiler(Validator):
 
         self._loose_int = False  # is 2.0 an int?
         self._loose_float = False  # is 42 a float?
+
         # get options for meta-data
-        if isinstance(model, dict) and "#" in model:
-            meta = model["#"]
+        if isinstance(model._model, dict) and "#" in model._model:
+            meta = model._model["#"]
             assert isinstance(meta, str)
             if "JSON_MODEL_LOOSE_INT" in meta:
                 self._loose_int = True
-            if "JSON_MODEL_NOT_LOOSE_INT" in meta:
+            if "JSON_MODEL_STRICT_INT" in meta:
                 self._loose_int = False
             if "JSON_MODEL_LOOSE_FLOAT" in meta:
                 self._loose_float = True
-            if "JSON_MODEL_NOT_LOOSE_FLOAT" in meta:
+            if "JSON_MODEL_STRICT_FLOAT" in meta:
                 self._loose_float = False
             # TODO other options?
 
@@ -82,8 +83,8 @@ class DynamicCompiler(Validator):
         self._defs.set("$NONE", self._NONE, "<NONE>", "refuse everything")
         # FIXME /.../ vs ...?
         self._defs.set("$REGEX",
-                       lambda v, p: utils.is_regex(v, p) or self._no("<REGEX>", p, "invalid regex"),
-                       "<REGEX>", "valid regular expression")
+                       lambda v, p: utils.is_regex(v, p) or
+                            self._no("<REGEX>", p, "invalid regex"), "<REGEX>", "valid regex")
         # these are permissive for now
         self._defs.set("$URI", lambda s, p: isinstance(s, str) or self._no("<URI>",
                        p, "invalid uri"))
@@ -143,6 +144,7 @@ class DynamicCompiler(Validator):
             self._compiled[jm._id] = self._raw_compile(jm, jm._model, mpath, is_root)
 
     def _ref2fun(self, jm: JsonModel, ref: str, mpath: str) -> CheckFun:
+        assert ref and ref[0] == "$"
         # predefs…
         log.debug(f"{jm._id}: ref2fun ref={ref} defs={self._defs}")
         if ref in self._defs:
@@ -360,7 +362,6 @@ class DynamicCompiler(Validator):
         """Check a standard object."""
 
         assert isinstance(model, dict)
-        # log.warning(f"{mpath}: {model}")
 
         must, may, refs, regs, ots = utils.split_object(model, ["*"])
 
@@ -369,7 +370,7 @@ class DynamicCompiler(Validator):
         optional = {key: self._raw_compile(jm, val, f"{mpath}.{key}") for key, val in may.items()}
 
         # other optional properties have key-value check functions
-        keyname_checks = {key: self._keyname_val_compile(jm, key, val, mpath)
+        keyname_checks = {key: self._keyname_val_compile(jm, "$" + key, val, mpath)
                           for key, val in refs.items()}
         keyregs_checks = {key: self._keyreg_val_compile(jm, key, val, mpath)
                           for key, val in regs.items()}
@@ -391,7 +392,7 @@ class DynamicCompiler(Validator):
         def check_dict(v: Jsonable, p: str) -> bool:
 
             if not isinstance(v, dict):
-                return self._no(mpath, p, "not an object")
+                return self._no(mpath, p, f"not an object ({tname(v)})")
 
             must_see = len(mandatory)
 
@@ -411,6 +412,7 @@ class DynamicCompiler(Validator):
                     checked = False
                     for k, kc in keyname_checks.items():
                         res = kc(key, val, p)
+                        # log.warning(f"k={k} key={key} res={res}")
                         if res is not None:
                             if not res:
                                 # self._no(f"{mpath}.{k}", f"{p}.{kc}",
@@ -458,7 +460,6 @@ class DynamicCompiler(Validator):
 
         # actual check function
         def disjunct_check(v, p):
-            # log.warning(f"disjunct_check {p}")
             # is there a tag?
             if not isinstance(v, dict):
                 return self._no(mp, p, "not an object")
@@ -702,14 +703,15 @@ class DynamicCompiler(Validator):
         # NOTE beware that isinstance(true, int) == True
         assert isinstance(model, int)
 
-        # loose int?
         if self._loose_int:
             def is_an_int(v, p) -> bool:
-                return (type(v) in (int, float) and v == int(v)) or \
-                    self._no(mpath, p, "expecting a (loose) integer")
+                return ((isinstance(v, int) and not isinstance(v, bool)) or
+                        (isinstance(v, float) and v == int(v)) or
+                        self._no(mpath, p, "expecting a (loose) integer"))
         else:
             def is_an_int(v, p) -> bool:
-                return type(v) is int or self._no(mpath, p, "expecting an integer")
+                return isinstance(v, int) and not isinstance(v, bool) or \
+                    self._no(mpath, p, "expecting an integer")
 
         # signed int?
         if model == -1:
@@ -734,27 +736,21 @@ class DynamicCompiler(Validator):
         # NOTE beware that isinstance(True, int) == True
         assert model in (0.0, 1.0, -1.0)
         if self._loose_float:
-            if model == -1.0:
-                return lambda v, p: (
-                    isinstance(v, (int, float)) and not isinstance(v, bool) or
-                    self._no(mpath, p, "expecting a number"))
-            elif model == 0.0:
-                return lambda v, p: (
-                    isinstance(v, (int, float)) and not isinstance(v, bool) and
-                    v >= 0.0 or self._no(mpath, p, "expecting a positive number"))
-            else:
-                return lambda v, p: (
-                    isinstance(v, (int, float)) and not isinstance(v, bool) and
-                    v > 0.0 or self._no(mpath, p, "expecting a strictly positive number"))
+            def is_a_float(v, p):
+                return (isinstance(v, (int, float)) and not isinstance(v, bool) or
+                        self._no(mpath, p, "expecting a (loose) number"))
         else:
-            if model == -1.0:
-                return lambda v, p: type(v) is float or self._no(mpath, p, "expecting a number")
-            elif model == 0.0:
-                return lambda v, p: (type(v) is float and v >= 0.0 or
-                                     self._no(mpath, p, "expecting a positive number"))
-            else:
-                return lambda v, p: (type(v) is float and v > 0.0 or
-                                     self._no(mpath, p, "expecting a strictly positive number"))
+            def is_a_float(v, p):
+                return isinstance(v, float) or self._no(mpath, p, "expecting a number")
+
+        if model == -1.0:
+            return is_a_float
+        elif model == 0.0:
+            return lambda v, p: (is_a_float(v, p) and (
+                v >= 0.0 or self._no(mpath, p, "expecting a positive number")))
+        else:
+            return lambda v, p: (is_a_float(v, p) and (
+                v > 0.0 or self._no(mpath, p, "expecting a strictly ositive number")))
 
     def _str_raw_compile(self, jm: JsonModel, model: str, mpath: str) -> CheckFun:
         """Compile a string."""

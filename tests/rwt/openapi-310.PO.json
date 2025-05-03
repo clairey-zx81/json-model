@@ -425,15 +425,15 @@
     },
     "Schema": {
       "#": "JsonModel 27",
-      "?$anchor": "$URL",
+      "?$anchor": "$#schema#URI-REFERENCE",
       "?$comment": "",
       "?$defs": {
         "": "$#schema#Schema"
       },
-      "?$dynamicAnchor": "$URL",
-      "?$dynamicRef": "$URL",
-      "?$id": "$URL",
-      "?$ref": "$URL",
+      "?$dynamicAnchor": "$#schema#URI-REFERENCE",
+      "?$dynamicRef": "$#schema#URI-REFERENCE",
+      "?$id": "$#schema#URI-REFERENCE",
+      "?$ref": "$#schema#URI-REFERENCE",
       "?$schema": "_https://json-schema.org/draft/2020-12/schema",
       "?$vocabulary": {
         "$URL": true

@@ -27,7 +27,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 # define "json_model_39_may_$id" ($.'$#schema#ObjectSchema'.'$id')
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "json_model_39_may_$schema" ($.'$#schema#ObjectSchema'.'$schema')
@@ -39,25 +39,25 @@ def jm_f_1(value: Jsonable, path: str) -> bool:
 # define "json_model_39_may_$ref" ($.'$#schema#ObjectSchema'.'$ref')
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "json_model_39_may_$anchor" ($.'$#schema#ObjectSchema'.'$anchor')
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "json_model_39_may_$dynamicRef" ($.'$#schema#ObjectSchema'.'$dynamicRef')
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "json_model_39_may_$dynamicAnchor" ($.'$#schema#ObjectSchema'.'$dynamicAnchor')
 def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_25(value, path)
     return result
 
 
@@ -384,6 +384,7 @@ def json_model_1(value: Jsonable, path: str) -> bool:
 # define "$#schema" ($.'$#schema')
 def json_model_24(value: Jsonable, path: str) -> bool:
     # $.'$#schema'
+    # $.'$#schema'.'@'
     result = json_model_40(value, path)
     return result
 
@@ -517,6 +518,12 @@ def json_model_39(value: Jsonable, path: str) -> bool:
     return True
 
 
+
+# define "$#schema#URI-REFERENCE" ($.'$#schema#URI-REFERENCE')
+def json_model_25(value: Jsonable, path: str) -> bool:
+    # $.'$#schema#URI-REFERENCE'
+    result = isinstance(value, str)
+    return result
 
 # define "$#schema#simpleTypes" ($.'$#schema#simpleTypes')
 def json_model_32(value: Jsonable, path: str) -> bool:

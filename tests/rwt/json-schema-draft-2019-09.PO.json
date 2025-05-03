@@ -1,19 +1,19 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 0",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-2019-09",
     "#": "Symbol 1",
     "ObjectSchema": {
       "#": "JsonModel 15",
-      "?$anchor": "$URL",
+      "?$anchor": "$URI-REFERENCE",
       "?$comment": "",
       "?$defs": {
         "": "$Schema"
       },
-      "?$id": "$URL",
+      "?$id": "$id",
       "?$recursiveAnchor": true,
-      "?$recursiveRef": "$URL",
-      "?$ref": "$URL",
+      "?$recursiveRef": "$URI-REFERENCE",
+      "?$ref": "$URI-REFERENCE",
       "?$schema": "_https://json-schema.org/draft/2019-09/schema",
       "?$vocabulary": {
         "$URL": true
@@ -97,7 +97,7 @@
       ]
     },
     "URI": "$URL",
-    "URI-REFERENCE": "$URL",
+    "URI-REFERENCE": "",
     "applicator": {
       "#": "JsonModel 14",
       "?additionalItems": "$Schema",
@@ -137,15 +137,15 @@
     },
     "core": {
       "#": "JsonModel 4",
-      "?$anchor": "$URL",
+      "?$anchor": "$URI-REFERENCE",
       "?$comment": "",
       "?$defs": {
         "": "$Schema"
       },
-      "?$id": "$URL",
+      "?$id": "$id",
       "?$recursiveAnchor": true,
-      "?$recursiveRef": "$URL",
-      "?$ref": "$URL",
+      "?$recursiveRef": "$URI-REFERENCE",
+      "?$ref": "$URI-REFERENCE",
       "?$schema": "_https://json-schema.org/draft/2019-09/schema",
       "?$vocabulary": {
         "$URL": true
@@ -155,7 +155,7 @@
       "#": "JsonModel 7",
       "?format": ""
     },
-    "id": "$URL",
+    "id": "$URI-REFERENCE",
     "meta": {
       "#": "JsonModel 5",
       "?default": "$ANY",

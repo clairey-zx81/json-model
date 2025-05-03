@@ -1,0 +1,17 @@
+{
+  "description": "JSON_MODEL_STRICT_INT, JSON_MODEL_STRICT_FLOAT",
+  "type": "object",
+  "properties": {
+    "i": {
+      "type": "integer"
+    },
+    "f": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "i",
+    "f"
+  ],
+  "additionalProperties": false
+}

@@ -1,5 +1,5 @@
 orob00.0.true.json: PASS
 orob00.1.true.json: PASS
 orob00.2.false.json: FAIL [('.|[0]', '$.b', 'unexpected property b'), ('.|[1]', '$.a', 'unexpected property a'), ('.|', '$', 'no any matched')]
-orob00.3.false.json: FAIL [('.|[0]', '$', 'not an object'), ('.|[1]', '$', 'not an object'), ('.|', '$', 'no any matched')]
+orob00.3.false.json: FAIL [('.|[0]', '$', 'not an object (int)'), ('.|[1]', '$', 'not an object (int)'), ('.|', '$', 'no any matched')]
 orob00.4.false.json: FAIL [('.|[0]', '$', 'missing mandatory key: a'), ('.|[1]', '$', 'missing mandatory key: b'), ('.|', '$', 'no any matched')]

@@ -650,12 +650,15 @@ class JsonModel:
                         model["+"] = list(filter(lambda o: not empty_obj(o), plus))
                     # TODO more cleanup? could I remove $NONE? $ANY?
                 elif "@" in model:
-                    # "!": false is the default, so is not really needed
+                    # "!": false is the default, so is not needed
                     if "!" in model and not model["!"]:
                         del model["!"]
                     # constraint without actual constraints
                     if not (set(model.keys()) - {"#", "~", "$", "%", "@"}):
-                        return model["@"]
+                        if path == [] and "#" in model and  "JSON_MODEL_" in model["#"]:
+                            return model
+                        else:
+                            return model["@"]
             return model
 
         self._model = recModel(self._model, allFlt, evalRwt)

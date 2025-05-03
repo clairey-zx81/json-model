@@ -1,12 +1,12 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 0",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-06",
     "#": "Symbol 1",
     "ObjectSchema": {
       "#": "JsonModel 7",
-      "?$id": "$URL",
-      "?$ref": "$URL",
+      "?$id": "$URI-REFERENCE",
+      "?$ref": "$URI-REFERENCE",
       "?$schema": "$URL",
       "?additionalItems": "$Schema",
       "?additionalProperties": "$Schema",
@@ -83,7 +83,7 @@
       ]
     },
     "URI": "$URL",
-    "URI-REFERENCE": "$URL",
+    "URI-REFERENCE": "",
     "schemaArray": {
       "#": "JsonModel 3",
       ">=": 1,

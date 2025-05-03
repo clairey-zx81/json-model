@@ -7,35 +7,29 @@
       "format": "uri"
     },
     "URI-REFERENCE": {
-      "type": "string",
-      "format": "uri"
+      "type": "string"
     },
     "core": {
       "type": "object",
       "properties": {
         "$id": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/URI-REFERENCE"
         },
         "$schema": {
           "type": "string",
           "format": "uri"
         },
         "$ref": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/URI-REFERENCE"
         },
         "$anchor": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/URI-REFERENCE"
         },
         "$dynamicRef": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/URI-REFERENCE"
         },
         "$dynamicAnchor": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/URI-REFERENCE"
         },
         "$vocabulary": {
           "type": "object",
@@ -390,28 +384,23 @@
               "const": "null"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -464,28 +453,23 @@
               "const": "boolean"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -538,28 +522,23 @@
               "const": "number"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -664,28 +643,23 @@
               "const": "integer"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -754,28 +728,23 @@
               "const": "string"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -852,28 +821,23 @@
               "const": "array"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -957,28 +921,23 @@
               "const": "object"
             },
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",
@@ -1072,28 +1031,23 @@
           "type": "object",
           "properties": {
             "$id": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$schema": {
               "type": "string",
               "format": "uri"
             },
             "$ref": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$anchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicRef": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$dynamicAnchor": {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/URI-REFERENCE"
             },
             "$vocabulary": {
               "type": "object",

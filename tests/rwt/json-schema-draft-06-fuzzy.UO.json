@@ -278,9 +278,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -305,9 +310,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -457,9 +467,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -484,9 +499,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -646,15 +666,15 @@
     ]
   },
   {
-    "#": "JsonModel 24 with defs",
+    "#": "JsonModel 24",
     "$": {
       "": "https://json-model.org/models/json-schema-draft-06",
       "#": "Symbol 4",
       "ObjectSchema": {
         "": "$ANY",
         "#": "JsonModel 31",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "$URL",
         "?additionalItems": "$Schema",
         "?additionalProperties": "$Schema",
@@ -731,7 +751,7 @@
         ]
       },
       "URI": "$URL",
-      "URI-REFERENCE": "$URL",
+      "URI-REFERENCE": "",
       "schemaArray": {
         "#": "JsonModel 27",
         ">=": 1,
@@ -765,7 +785,7 @@
     "@": "$Schema",
     "~": "https://json-model.org/models/json-model"
   },
-  "$URL",
+  "",
   "$URL",
   {
     "#": "JsonModel 27",
@@ -799,8 +819,8 @@
   {
     "": "$ANY",
     "#": "JsonModel 31",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "$URL",
     "?additionalItems": "$Schema",
     "?additionalProperties": "$Schema",
@@ -1144,9 +1164,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -1171,9 +1196,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -1323,9 +1353,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -1350,9 +1385,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },

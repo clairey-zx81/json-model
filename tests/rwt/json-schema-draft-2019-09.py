@@ -42,7 +42,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 # define "json_model_4_may_$id" ($.core.'$id')
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.core.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_3(value, path)
     return result
 
 # define "json_model_4_may_$schema" ($.core.'$schema')
@@ -54,19 +54,19 @@ def jm_f_1(value: Jsonable, path: str) -> bool:
 # define "json_model_4_may_$ref" ($.core.'$ref')
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.core.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_4_may_$anchor" ($.core.'$anchor')
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.core.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_4_may_$recursiveRef" ($.core.'$recursiveRef')
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.core.'$recursiveRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_4_may_$recursiveAnchor" ($.core.'$recursiveAnchor')
@@ -188,31 +188,31 @@ def jm_f_22(value: Jsonable, path: str) -> bool:
 # define "json_model_12_may_multipleOf" ($.validation.multipleOf)
 def jm_f_23(value: Jsonable, path: str) -> bool:
     # $.validation.multipleOf
-    result = isinstance(value, float) and value > 0.0
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool)) and value > 0.0
     return result
 
 # define "json_model_12_may_maximum" ($.validation.maximum)
 def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.validation.maximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_12_may_exclusiveMaximum" ($.validation.exclusiveMaximum)
 def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.validation.exclusiveMaximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_12_may_minimum" ($.validation.minimum)
 def jm_f_26(value: Jsonable, path: str) -> bool:
     # $.validation.minimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_12_may_exclusiveMinimum" ($.validation.exclusiveMinimum)
 def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.validation.exclusiveMinimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_12_may_maxLength" ($.validation.maxLength)
@@ -380,7 +380,7 @@ def jm_f_56(value: Jsonable, path: str) -> bool:
 # define "json_model_15_may_$id" ($.ObjectSchema.'$id')
 def jm_f_57(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_3(value, path)
     return result
 
 # define "json_model_15_may_$schema" ($.ObjectSchema.'$schema')
@@ -392,19 +392,19 @@ def jm_f_58(value: Jsonable, path: str) -> bool:
 # define "json_model_15_may_$ref" ($.ObjectSchema.'$ref')
 def jm_f_59(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_15_may_$anchor" ($.ObjectSchema.'$anchor')
 def jm_f_60(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_15_may_$recursiveRef" ($.ObjectSchema.'$recursiveRef')
 def jm_f_61(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$recursiveRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_15_may_$recursiveAnchor" ($.ObjectSchema.'$recursiveAnchor')
@@ -548,31 +548,31 @@ def jm_f_85(value: Jsonable, path: str) -> bool:
 # define "json_model_15_may_multipleOf" ($.ObjectSchema.multipleOf)
 def jm_f_86(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.multipleOf
-    result = isinstance(value, float) and value > 0.0
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool)) and value > 0.0
     return result
 
 # define "json_model_15_may_maximum" ($.ObjectSchema.maximum)
 def jm_f_87(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.maximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_15_may_exclusiveMaximum" ($.ObjectSchema.exclusiveMaximum)
 def jm_f_88(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.exclusiveMaximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_15_may_minimum" ($.ObjectSchema.minimum)
 def jm_f_89(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.minimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_15_may_exclusiveMinimum" ($.ObjectSchema.exclusiveMinimum)
 def jm_f_90(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.exclusiveMinimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_15_may_maxLength" ($.ObjectSchema.maxLength)
@@ -725,13 +725,13 @@ def json_model_1(value: Jsonable, path: str) -> bool:
 # define "$URI-REFERENCE" ($.'URI-REFERENCE')
 def json_model_2(value: Jsonable, path: str) -> bool:
     # $.'URI-REFERENCE'
-    result = is_valid_url(value, path)
+    result = isinstance(value, str)
     return result
 
 # define "$id" ($.id)
 def json_model_3(value: Jsonable, path: str) -> bool:
     # $.id
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -863,7 +863,7 @@ def json_model_10(value: Jsonable, path: str) -> bool:
 # define "$nonNegativeInteger" ($.nonNegativeInteger)
 def json_model_11(value: Jsonable, path: str) -> bool:
     # $.nonNegativeInteger
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 
@@ -1070,6 +1070,7 @@ def json_model_16(value: Jsonable, path: str) -> bool:
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
+    # $.'@'
     result = json_model_16(value, path)
     return result
 

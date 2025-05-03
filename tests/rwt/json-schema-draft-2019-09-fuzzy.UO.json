@@ -278,9 +278,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -305,9 +310,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -457,9 +467,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -484,9 +499,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -646,22 +666,22 @@
     ]
   },
   {
-    "#": "JsonModel 24 with defs",
+    "#": "JsonModel 24",
     "$": {
       "": "https://json-model.org/models/json-schema-draft-2019-09",
       "#": "Symbol 4",
       "ObjectSchema": {
         "": "$ANY",
         "#": "JsonModel 39",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$id": "$URL",
+        "?$id": "$id",
         "?$recursiveAnchor": true,
-        "?$recursiveRef": "$URL",
-        "?$ref": "$URL",
+        "?$recursiveRef": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "$URL",
         "?$vocabulary": {
           "$URL": true
@@ -756,7 +776,7 @@
         ]
       },
       "URI": "$URL",
-      "URI-REFERENCE": "$URL",
+      "URI-REFERENCE": "",
       "applicator": {
         "#": "JsonModel 38",
         "?additionalItems": "$Schema",
@@ -796,15 +816,15 @@
       },
       "core": {
         "#": "JsonModel 28",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$id": "$URL",
+        "?$id": "$id",
         "?$recursiveAnchor": true,
-        "?$recursiveRef": "$URL",
-        "?$ref": "$URL",
+        "?$recursiveRef": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "$URL",
         "?$vocabulary": {
           "$URL": true
@@ -832,7 +852,7 @@
         "": "$ANY",
         "#": "JsonModel 64"
       },
-      "id": "$URL",
+      "id": "$URI-REFERENCE",
       "meta": {
         "#": "JsonModel 29",
         "?default": "$ANY",
@@ -917,19 +937,19 @@
     "~": "https://json-model.org/models/json-model"
   },
   "$URL",
-  "$URL",
-  "$URL",
+  "",
+  "$URI-REFERENCE",
   {
     "#": "JsonModel 28",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "$URL",
+    "?$id": "$id",
     "?$recursiveAnchor": true,
-    "?$recursiveRef": "$URL",
-    "?$ref": "$URL",
+    "?$recursiveRef": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "$URL",
     "?$vocabulary": {
       "$URL": true
@@ -1058,15 +1078,15 @@
   {
     "": "$ANY",
     "#": "JsonModel 39",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "$URL",
+    "?$id": "$id",
     "?$recursiveAnchor": true,
-    "?$recursiveRef": "$URL",
-    "?$ref": "$URL",
+    "?$recursiveRef": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "$URL",
     "?$vocabulary": {
       "$URL": true
@@ -1428,9 +1448,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -1455,9 +1480,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -1607,9 +1637,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -1634,9 +1669,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },

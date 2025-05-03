@@ -65,7 +65,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 # define "json_model_3_may_$id" ($.core.'$id')
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.core.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_3_may_$schema" ($.core.'$schema')
@@ -77,25 +77,25 @@ def jm_f_1(value: Jsonable, path: str) -> bool:
 # define "json_model_3_may_$ref" ($.core.'$ref')
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.core.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_3_may_$anchor" ($.core.'$anchor')
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.core.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_3_may_$dynamicRef" ($.core.'$dynamicRef')
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.core.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_3_may_$dynamicAnchor" ($.core.'$dynamicAnchor')
 def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.core.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -487,7 +487,7 @@ def jm_f_68(value: Jsonable, path: str) -> bool:
 # define "jm_obj_0_may_$id" ($.TightSchema.'|'.0.'$id')
 def jm_f_69(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.0.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_0_may_$schema" ($.TightSchema.'|'.0.'$schema')
@@ -499,25 +499,25 @@ def jm_f_70(value: Jsonable, path: str) -> bool:
 # define "jm_obj_0_may_$ref" ($.TightSchema.'|'.0.'$ref')
 def jm_f_71(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.0.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_0_may_$anchor" ($.TightSchema.'|'.0.'$anchor')
 def jm_f_72(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.0.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_0_may_$dynamicRef" ($.TightSchema.'|'.0.'$dynamicRef')
 def jm_f_73(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.0.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_0_may_$dynamicAnchor" ($.TightSchema.'|'.0.'$dynamicAnchor')
 def jm_f_74(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.0.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -587,7 +587,7 @@ def jm_f_85(value: Jsonable, path: str) -> bool:
 # define "jm_obj_1_may_$id" ($.TightSchema.'|'.1.'$id')
 def jm_f_86(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.1.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_1_may_$schema" ($.TightSchema.'|'.1.'$schema')
@@ -599,25 +599,25 @@ def jm_f_87(value: Jsonable, path: str) -> bool:
 # define "jm_obj_1_may_$ref" ($.TightSchema.'|'.1.'$ref')
 def jm_f_88(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.1.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_1_may_$anchor" ($.TightSchema.'|'.1.'$anchor')
 def jm_f_89(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.1.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_1_may_$dynamicRef" ($.TightSchema.'|'.1.'$dynamicRef')
 def jm_f_90(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.1.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_1_may_$dynamicAnchor" ($.TightSchema.'|'.1.'$dynamicAnchor')
 def jm_f_91(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.1.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -687,7 +687,7 @@ def jm_f_102(value: Jsonable, path: str) -> bool:
 # define "jm_obj_2_may_$id" ($.TightSchema.'|'.2.'$id')
 def jm_f_103(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.2.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_2_may_$schema" ($.TightSchema.'|'.2.'$schema')
@@ -699,25 +699,25 @@ def jm_f_104(value: Jsonable, path: str) -> bool:
 # define "jm_obj_2_may_$ref" ($.TightSchema.'|'.2.'$ref')
 def jm_f_105(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.2.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_2_may_$anchor" ($.TightSchema.'|'.2.'$anchor')
 def jm_f_106(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.2.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_2_may_$dynamicRef" ($.TightSchema.'|'.2.'$dynamicRef')
 def jm_f_107(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.2.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_2_may_$dynamicAnchor" ($.TightSchema.'|'.2.'$dynamicAnchor')
 def jm_f_108(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.2.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -837,7 +837,7 @@ def jm_f_124(value: Jsonable, path: str) -> bool:
 # define "jm_obj_3_may_$id" ($.TightSchema.'|'.3.'$id')
 def jm_f_125(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.3.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_3_may_$schema" ($.TightSchema.'|'.3.'$schema')
@@ -849,25 +849,25 @@ def jm_f_126(value: Jsonable, path: str) -> bool:
 # define "jm_obj_3_may_$ref" ($.TightSchema.'|'.3.'$ref')
 def jm_f_127(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.3.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_3_may_$anchor" ($.TightSchema.'|'.3.'$anchor')
 def jm_f_128(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.3.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_3_may_$dynamicRef" ($.TightSchema.'|'.3.'$dynamicRef')
 def jm_f_129(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.3.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_3_may_$dynamicAnchor" ($.TightSchema.'|'.3.'$dynamicAnchor')
 def jm_f_130(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.3.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -967,7 +967,7 @@ def jm_f_146(value: Jsonable, path: str) -> bool:
 # define "jm_obj_4_may_$id" ($.TightSchema.'|'.4.'$id')
 def jm_f_147(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.4.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_4_may_$schema" ($.TightSchema.'|'.4.'$schema')
@@ -979,25 +979,25 @@ def jm_f_148(value: Jsonable, path: str) -> bool:
 # define "jm_obj_4_may_$ref" ($.TightSchema.'|'.4.'$ref')
 def jm_f_149(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.4.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_4_may_$anchor" ($.TightSchema.'|'.4.'$anchor')
 def jm_f_150(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.4.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_4_may_$dynamicRef" ($.TightSchema.'|'.4.'$dynamicRef')
 def jm_f_151(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.4.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_4_may_$dynamicAnchor" ($.TightSchema.'|'.4.'$dynamicAnchor')
 def jm_f_152(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.4.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -1109,7 +1109,7 @@ def jm_f_170(value: Jsonable, path: str) -> bool:
 # define "jm_obj_5_may_$id" ($.TightSchema.'|'.5.'$id')
 def jm_f_171(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.5.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_5_may_$schema" ($.TightSchema.'|'.5.'$schema')
@@ -1121,25 +1121,25 @@ def jm_f_172(value: Jsonable, path: str) -> bool:
 # define "jm_obj_5_may_$ref" ($.TightSchema.'|'.5.'$ref')
 def jm_f_173(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.5.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_5_may_$anchor" ($.TightSchema.'|'.5.'$anchor')
 def jm_f_174(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.5.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_5_may_$dynamicRef" ($.TightSchema.'|'.5.'$dynamicRef')
 def jm_f_175(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.5.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_5_may_$dynamicAnchor" ($.TightSchema.'|'.5.'$dynamicAnchor')
 def jm_f_176(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.5.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -1263,7 +1263,7 @@ def jm_f_196(value: Jsonable, path: str) -> bool:
 # define "jm_obj_6_may_$id" ($.TightSchema.'|'.6.'$id')
 def jm_f_197(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.6.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_6_may_$schema" ($.TightSchema.'|'.6.'$schema')
@@ -1275,25 +1275,25 @@ def jm_f_198(value: Jsonable, path: str) -> bool:
 # define "jm_obj_6_may_$ref" ($.TightSchema.'|'.6.'$ref')
 def jm_f_199(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.6.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_6_may_$anchor" ($.TightSchema.'|'.6.'$anchor')
 def jm_f_200(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.6.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_6_may_$dynamicRef" ($.TightSchema.'|'.6.'$dynamicRef')
 def jm_f_201(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.6.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_6_may_$dynamicAnchor" ($.TightSchema.'|'.6.'$dynamicAnchor')
 def jm_f_202(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.6.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -1401,7 +1401,7 @@ def jm_f_221(value: Jsonable, path: str) -> bool:
 # define "jm_obj_7_may_$id" ($.TightSchema.'|'.7.'$id')
 def jm_f_223(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.7.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_7_may_$schema" ($.TightSchema.'|'.7.'$schema')
@@ -1413,25 +1413,25 @@ def jm_f_224(value: Jsonable, path: str) -> bool:
 # define "jm_obj_7_may_$ref" ($.TightSchema.'|'.7.'$ref')
 def jm_f_225(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.7.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_7_may_$anchor" ($.TightSchema.'|'.7.'$anchor')
 def jm_f_226(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.7.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_7_may_$dynamicRef" ($.TightSchema.'|'.7.'$dynamicRef')
 def jm_f_227(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.7.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "jm_obj_7_may_$dynamicAnchor" ($.TightSchema.'|'.7.'$dynamicAnchor')
 def jm_f_228(value: Jsonable, path: str) -> bool:
     # $.TightSchema.'|'.7.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -1562,7 +1562,7 @@ def json_model_1(value: Jsonable, path: str) -> bool:
 # define "$URI-REFERENCE" ($.'URI-REFERENCE')
 def json_model_2(value: Jsonable, path: str) -> bool:
     # $.'URI-REFERENCE'
-    result = is_valid_url(value, path)
+    result = isinstance(value, str)
     return result
 
 

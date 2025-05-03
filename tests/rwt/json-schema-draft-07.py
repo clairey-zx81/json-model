@@ -36,7 +36,7 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
 # define "json_model_6_may_$id" ($.ObjectSchema.'$id')
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 # define "json_model_6_may_$schema" ($.ObjectSchema.'$schema')
@@ -96,43 +96,43 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
 # define "json_model_6_may_multipleOf" ($.ObjectSchema.multipleOf)
 def jm_f_9(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.multipleOf
-    result = isinstance(value, float) and value > 0.0
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool)) and value > 0.0
     return result
 
 # define "json_model_6_may_maximum" ($.ObjectSchema.maximum)
 def jm_f_10(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.maximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_6_may_exclusiveMaximum" ($.ObjectSchema.exclusiveMaximum)
 def jm_f_11(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.exclusiveMaximum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_6_may_minimum" ($.ObjectSchema.minimum)
 def jm_f_12(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.minimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_6_may_exclusiveMinimum" ($.ObjectSchema.exclusiveMinimum)
 def jm_f_13(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.exclusiveMinimum
-    result = isinstance(value, float)
+    result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     return result
 
 # define "json_model_6_may_maxLength" ($.ObjectSchema.maxLength)
 def jm_f_14(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.maxLength
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_minLength" ($.ObjectSchema.minLength)
 def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.minLength
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_pattern" ($.ObjectSchema.pattern)
@@ -160,13 +160,13 @@ def jm_f_18(value: Jsonable, path: str) -> bool:
 # define "json_model_6_may_maxItems" ($.ObjectSchema.maxItems)
 def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.maxItems
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_minItems" ($.ObjectSchema.minItems)
 def jm_f_20(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.minItems
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_uniqueItems" ($.ObjectSchema.uniqueItems)
@@ -184,13 +184,13 @@ def jm_f_22(value: Jsonable, path: str) -> bool:
 # define "json_model_6_may_maxProperties" ($.ObjectSchema.maxProperties)
 def jm_f_23(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.maxProperties
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_minProperties" ($.ObjectSchema.minProperties)
 def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.minProperties
-    result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     return result
 
 # define "json_model_6_may_required" ($.ObjectSchema.required)
@@ -319,7 +319,7 @@ def jm_f_44(value: Jsonable, path: str) -> bool:
 # define "json_model_6_may_$ref" ($.ObjectSchema.'$ref')
 def jm_f_45(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_2(value, path)
     return result
 
 
@@ -332,7 +332,7 @@ def json_model_1(value: Jsonable, path: str) -> bool:
 # define "$URI-REFERENCE" ($.'URI-REFERENCE')
 def json_model_2(value: Jsonable, path: str) -> bool:
     # $.'URI-REFERENCE'
-    result = is_valid_url(value, path)
+    result = isinstance(value, str)
     return result
 
 # define "$schemaArray" ($.schemaArray)
@@ -460,6 +460,7 @@ def json_model_7(value: Jsonable, path: str) -> bool:
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
+    # $.'@'
     result = json_model_7(value, path)
     return result
 

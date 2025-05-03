@@ -1,10 +1,10 @@
 {
-  "#": "JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT]",
+  "#": "JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-next",
     "URI": "$URL",
-    "URI-REFERENCE": "$URL",
+    "URI-REFERENCE": "",
     "core": {
       "?$id": "$URI-REFERENCE",
       "?$schema": "$URI",

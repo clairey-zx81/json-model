@@ -772,7 +772,7 @@ def jm_f_126(value: Jsonable, path: str) -> bool:
 # define "json_model_27_may_$id" ($.Schema.'$id')
 def jm_f_127(value: Jsonable, path: str) -> bool:
     # $.Schema.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_27_may_$schema" ($.Schema.'$schema')
@@ -784,25 +784,25 @@ def jm_f_128(value: Jsonable, path: str) -> bool:
 # define "json_model_27_may_$ref" ($.Schema.'$ref')
 def jm_f_129(value: Jsonable, path: str) -> bool:
     # $.Schema.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_27_may_$anchor" ($.Schema.'$anchor')
 def jm_f_130(value: Jsonable, path: str) -> bool:
     # $.Schema.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_27_may_$dynamicRef" ($.Schema.'$dynamicRef')
 def jm_f_131(value: Jsonable, path: str) -> bool:
     # $.Schema.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_27_may_$dynamicAnchor" ($.Schema.'$dynamicAnchor')
 def jm_f_132(value: Jsonable, path: str) -> bool:
     # $.Schema.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 
@@ -1254,7 +1254,7 @@ def jm_f_209(value: Jsonable, path: str) -> bool:
 # define "json_model_72_may_$id" ($.'$#schema#ObjectSchema'.'$id')
 def jm_f_210(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$id'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_72_may_$schema" ($.'$#schema#ObjectSchema'.'$schema')
@@ -1266,25 +1266,25 @@ def jm_f_211(value: Jsonable, path: str) -> bool:
 # define "json_model_72_may_$ref" ($.'$#schema#ObjectSchema'.'$ref')
 def jm_f_212(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$ref'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_72_may_$anchor" ($.'$#schema#ObjectSchema'.'$anchor')
 def jm_f_213(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$anchor'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_72_may_$dynamicRef" ($.'$#schema#ObjectSchema'.'$dynamicRef')
 def jm_f_214(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$dynamicRef'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 # define "json_model_72_may_$dynamicAnchor" ($.'$#schema#ObjectSchema'.'$dynamicAnchor')
 def jm_f_215(value: Jsonable, path: str) -> bool:
     # $.'$#schema#ObjectSchema'.'$dynamicAnchor'
-    result = is_valid_url(value, path)
+    result = json_model_58(value, path)
     return result
 
 
@@ -2886,7 +2886,14 @@ def json_model_34(value: Jsonable, path: str) -> bool:
 # define "$https://json-model.org/models/json-schema-draft-2020-12" ($.'$https://json-model.org/models/json-schema-draft-2020-12')
 def json_model_57(value: Jsonable, path: str) -> bool:
     # $.'$https://json-model.org/models/json-schema-draft-2020-12'
+    # $.'$https://json-model.org/models/json-schema-draft-2020-12'.'@'
     result = json_model_73(value, path)
+    return result
+
+# define "$#schema#URI-REFERENCE" ($.'$#schema#URI-REFERENCE')
+def json_model_58(value: Jsonable, path: str) -> bool:
+    # $.'$#schema#URI-REFERENCE'
+    result = isinstance(value, str)
     return result
 
 # define "$#schema#simpleTypes" ($.'$#schema#simpleTypes')

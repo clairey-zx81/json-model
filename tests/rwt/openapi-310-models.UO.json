@@ -278,9 +278,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -305,9 +310,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -457,9 +467,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -484,9 +499,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -1940,9 +1960,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -1967,9 +1992,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -2119,9 +2149,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -2146,9 +2181,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -2314,15 +2354,15 @@
       "#": "Symbol 7",
       "ObjectSchema": {
         "#": "JsonModel 96",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$dynamicAnchor": "$URL",
-        "?$dynamicRef": "$URL",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$dynamicAnchor": "$URI-REFERENCE",
+        "?$dynamicRef": "$URI-REFERENCE",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
         "?$vocabulary": {
           "$URL": true
@@ -2401,7 +2441,7 @@
         ]
       },
       "URI": "$URL",
-      "URI-REFERENCE": "$URL",
+      "URI-REFERENCE": "",
       "applicator": {
         "#": "JsonModel 95",
         "?additionalProperties": "$Schema",
@@ -2434,15 +2474,15 @@
       },
       "core": {
         "#": "JsonModel 84",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$dynamicAnchor": "$URL",
-        "?$dynamicRef": "$URL",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$dynamicAnchor": "$URI-REFERENCE",
+        "?$dynamicRef": "$URI-REFERENCE",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
         "?$vocabulary": {
           "$URL": true
@@ -2540,19 +2580,19 @@
     "@": "$NONE",
     "~": "https://json-model.org/models/json-model"
   },
-  "$URL",
+  "",
   "$URL",
   {
     "#": "JsonModel 84",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$dynamicAnchor": "$URL",
-    "?$dynamicRef": "$URL",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$dynamicAnchor": "$URI-REFERENCE",
+    "?$dynamicRef": "$URI-REFERENCE",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
     "?$vocabulary": {
       "$URL": true
@@ -2678,15 +2718,15 @@
   },
   {
     "#": "JsonModel 96",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$dynamicAnchor": "$URL",
-    "?$dynamicRef": "$URL",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$dynamicAnchor": "$URI-REFERENCE",
+    "?$dynamicRef": "$URI-REFERENCE",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
     "?$vocabulary": {
       "$URL": true
@@ -3032,9 +3072,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -3059,9 +3104,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -3211,9 +3261,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -3238,9 +3293,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -3669,9 +3729,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -3696,9 +3761,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -3848,9 +3918,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -3875,9 +3950,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },

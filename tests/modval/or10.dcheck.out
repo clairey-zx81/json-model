@@ -1,4 +1,4 @@
 or10.0.true.json: PASS
 or10.1.true.json: PASS
-or10.2.false.json: FAIL [('.|[0]', '$', 'not an object'), ('.|[1]', '$', 'not an object'), ('.|', '$', 'no any matched')]
+or10.2.false.json: FAIL [('.|[0]', '$', 'not an object (str)'), ('.|[1]', '$', 'not an object (str)'), ('.|', '$', 'no any matched')]
 or10.3.false.json: FAIL [('.|[0]', '$.nom', 'unexpected property nom'), ('.|[1]', '$.nom', 'unexpected property nom'), ('.|', '$', 'no any matched')]

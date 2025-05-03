@@ -106,6 +106,14 @@ opt_05.model.json: PASS
 opt_06.model.json: PASS
 opt_07.model.json: PASS
 opt_08.model.json: PASS
+opt_fl.model.json: PASS
+opt_fs.model.json: PASS
+opt_il.model.json: PASS
+opt_is.model.json: PASS
+opt_ll.model.json: PASS
+opt_ls.model.json: PASS
+opt_sl.model.json: PASS
+opt_ss.model.json: PASS
 or00.model.json: PASS
 or01.model.json: PASS
 or02.model.json: PASS

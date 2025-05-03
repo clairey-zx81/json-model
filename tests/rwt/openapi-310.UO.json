@@ -426,15 +426,15 @@
       },
       "Schema": {
         "#": "JsonModel 27",
-        "?$anchor": "$URL",
+        "?$anchor": "$#schema#URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$#schema#Schema"
         },
-        "?$dynamicAnchor": "$URL",
-        "?$dynamicRef": "$URL",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$dynamicAnchor": "$#schema#URI-REFERENCE",
+        "?$dynamicRef": "$#schema#URI-REFERENCE",
+        "?$id": "$#schema#URI-REFERENCE",
+        "?$ref": "$#schema#URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
         "?$vocabulary": {
           "$URL": true
@@ -1051,15 +1051,15 @@
   "$https://json-model.org/models/json-schema-draft-2020-12",
   {
     "#": "JsonModel 27",
-    "?$anchor": "$URL",
+    "?$anchor": "$#schema#URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$#schema#Schema"
     },
-    "?$dynamicAnchor": "$URL",
-    "?$dynamicRef": "$URL",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$dynamicAnchor": "$#schema#URI-REFERENCE",
+    "?$dynamicRef": "$#schema#URI-REFERENCE",
+    "?$id": "$#schema#URI-REFERENCE",
+    "?$ref": "$#schema#URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
     "?$vocabulary": {
       "$URL": true
@@ -1458,9 +1458,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -1485,9 +1490,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -1637,9 +1647,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -1664,9 +1679,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -1826,21 +1846,21 @@
     ]
   },
   {
-    "#": "JsonModel 57 with defs",
+    "#": "JsonModel 57",
     "$": {
       "": "https://json-model.org/models/json-schema-draft-2020-12",
       "#": "Symbol 4",
       "ObjectSchema": {
         "#": "JsonModel 72",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$dynamicAnchor": "$URL",
-        "?$dynamicRef": "$URL",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$dynamicAnchor": "$URI-REFERENCE",
+        "?$dynamicRef": "$URI-REFERENCE",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
         "?$vocabulary": {
           "$URL": true
@@ -1919,7 +1939,7 @@
         ]
       },
       "URI": "$URL",
-      "URI-REFERENCE": "$URL",
+      "URI-REFERENCE": "",
       "applicator": {
         "#": "JsonModel 71",
         "?additionalProperties": "$Schema",
@@ -1952,15 +1972,15 @@
       },
       "core": {
         "#": "JsonModel 60",
-        "?$anchor": "$URL",
+        "?$anchor": "$URI-REFERENCE",
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "?$dynamicAnchor": "$URL",
-        "?$dynamicRef": "$URL",
-        "?$id": "$URL",
-        "?$ref": "$URL",
+        "?$dynamicAnchor": "$URI-REFERENCE",
+        "?$dynamicRef": "$URI-REFERENCE",
+        "?$id": "$URI-REFERENCE",
+        "?$ref": "$URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
         "?$vocabulary": {
           "$URL": true
@@ -2058,19 +2078,19 @@
     "@": "$Schema",
     "~": "https://json-model.org/models/json-model"
   },
-  "$URL",
+  "",
   "$URL",
   {
     "#": "JsonModel 60",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$dynamicAnchor": "$URL",
-    "?$dynamicRef": "$URL",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$dynamicAnchor": "$URI-REFERENCE",
+    "?$dynamicRef": "$URI-REFERENCE",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
     "?$vocabulary": {
       "$URL": true
@@ -2196,15 +2216,15 @@
   },
   {
     "#": "JsonModel 72",
-    "?$anchor": "$URL",
+    "?$anchor": "$URI-REFERENCE",
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$dynamicAnchor": "$URL",
-    "?$dynamicRef": "$URL",
-    "?$id": "$URL",
-    "?$ref": "$URL",
+    "?$dynamicAnchor": "$URI-REFERENCE",
+    "?$dynamicRef": "$URI-REFERENCE",
+    "?$id": "$URI-REFERENCE",
+    "?$ref": "$URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
     "?$vocabulary": {
       "$URL": true
@@ -2550,9 +2570,14 @@
         "|": [
           "$Model",
           {
-            "!/": [
-              "$Any"
-            ],
+            "!/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            },
             "?#": "",
             "?*": {
               "|": [
@@ -2577,9 +2602,14 @@
               ]
             },
             "?#": "",
-            "?/": [
-              "$Any"
-            ]
+            "?/": {
+              "|": [
+                "$Any",
+                [
+                  "$Any"
+                ]
+              ]
+            }
           }
         ]
       },
@@ -2729,9 +2759,14 @@
     "|": [
       "$Model",
       {
-        "!/": [
-          "$Any"
-        ],
+        "!/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        },
         "?#": "",
         "?*": {
           "|": [
@@ -2756,9 +2791,14 @@
           ]
         },
         "?#": "",
-        "?/": [
-          "$Any"
-        ]
+        "?/": {
+          "|": [
+            "$Any",
+            [
+              "$Any"
+            ]
+          ]
+        }
       }
     ]
   },

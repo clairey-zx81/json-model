@@ -194,7 +194,7 @@ def jmc_script():
         print(json2str(show), file=output)
     elif args.op == "D":
         checker = DynamicCompiler(model)
-        if args.debug or args.code:
+        if args.code:
             import dis
             for jmid in sorted(checker._compiled.keys()):
                 fun = checker._compiled[jmid]

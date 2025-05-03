@@ -948,27 +948,22 @@
       "type": "object",
       "properties": {
         "$id": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/#schema#URI-REFERENCE"
         },
         "$schema": {
           "const": "https://json-schema.org/draft/2020-12/schema"
         },
         "$ref": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/#schema#URI-REFERENCE"
         },
         "$anchor": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/#schema#URI-REFERENCE"
         },
         "$dynamicRef": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/#schema#URI-REFERENCE"
         },
         "$dynamicAnchor": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/#schema#URI-REFERENCE"
         },
         "$vocabulary": {
           "type": "object",

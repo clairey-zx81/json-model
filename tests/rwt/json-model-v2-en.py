@@ -431,13 +431,17 @@ def jm_f_59(value: Jsonable, path: str) -> bool:
 # define "jm_obj_12_must_/" ($.'$#Model#Trafo'.'|'.1.'/')
 def jm_f_60(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Trafo'.'|'.1.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_9_idx, array_9_item in enumerate(value):
-            # $.'$#Model#Trafo'.'|'.1.'/'.0
-            result = json_model_27(array_9_item, path)
-            if not result: break
+    # $.'$#Model#Trafo'.'|'.1.'/'.'|'.0
+    result = json_model_27(value, path)
+    if not result:
+        # $.'$#Model#Trafo'.'|'.1.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_9_idx, array_9_item in enumerate(value):
+                # $.'$#Model#Trafo'.'|'.1.'/'.'|'.1.0
+                result = json_model_27(array_9_item, path)
+                if not result: break
     return result
 
 # define "jm_obj_12_may_#" ($.'$#Model#Trafo'.'|'.1.'#')
@@ -487,13 +491,17 @@ def jm_f_64(value: Jsonable, path: str) -> bool:
 # define "jm_obj_14_may_/" ($.'$#Model#Trafo'.'|'.2.'/')
 def jm_f_65(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Trafo'.'|'.2.'/'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_12_idx, array_12_item in enumerate(value):
-            # $.'$#Model#Trafo'.'|'.2.'/'.0
-            result = json_model_27(array_12_item, path)
-            if not result: break
+    # $.'$#Model#Trafo'.'|'.2.'/'.'|'.0
+    result = json_model_27(value, path)
+    if not result:
+        # $.'$#Model#Trafo'.'|'.2.'/'.'|'.1
+        result = isinstance(value, list)
+        if result:
+            assert isinstance(value, list)  # pyright helper
+            for array_12_idx, array_12_item in enumerate(value):
+                # $.'$#Model#Trafo'.'|'.2.'/'.'|'.1.0
+                result = json_model_27(array_12_item, path)
+                if not result: break
     return result
 
 

@@ -3,5 +3,5 @@ float_0.1.true.json: PASS
 float_0.2.true.json: PASS
 float_0.3.true.json: PASS
 float_0.4.false.json: FAIL [('', '$', 'expecting a positive number')]
-float_0.5.false.json: FAIL [('', '$', 'expecting a positive number')]
-float_0.6.false.json: FAIL [('', '$', 'expecting a positive number')]
+float_0.5.false.json: FAIL [('', '$', 'expecting a number')]
+float_0.6.false.json: FAIL [('', '$', 'expecting a number')]

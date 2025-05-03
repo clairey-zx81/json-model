@@ -92,4 +92,4 @@ obj_03.model.json: PASS
 obj_04.model.json: PASS
 obj_05.model.json: PASS
 openapi-310.model.json: PASS
-openapi-310-models.model.json: FAIL
+openapi-310-models.model.json: PASS

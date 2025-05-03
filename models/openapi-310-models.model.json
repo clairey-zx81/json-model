@@ -6,6 +6,7 @@
     "openapi": "$https://json-model.org/models/openapi-310"
   },
   "%": {
+    "#": "Replace schema/schemas/Schema with model/models/Model",
     "$openapi#schema": "$NONE",
     "$openapi#Schema": "$NONE",
     "$openapi#model": "$https://json-model.org/models/json-model",
