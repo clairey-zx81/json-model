@@ -44,7 +44,7 @@ Command `jmc` (JSON Model Compiler) options:
 - `-o output`: file output instead of standard
 - …
 
-## TODO v2
+## Backlog v2
 
 - [x] refactor: move schema to model conversion to json-schema-utils.
 - [x] design: change `%` to `$` and remove `$` intra-model naming shortcut.
@@ -89,6 +89,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] schema: control keyword sorting to put type-related stuff on top (-ns)
 - [x] static: use mandatory keyword parameters where appropriate
 - [x] feature: clarify and implement options management `JSON_MODEL_…`
+- [x] feature: allow scalar value for `/`
 - [x] schema: test output json schema (strict) conformity
 - [ ] static: detect and remove duplicate functions!
 - [ ] tests: remove unstable DO output? remove empty lines?
@@ -115,7 +116,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
 - [ ] feature: check/forbid/allow url references with an anchor
-- [ ] feature: allow scalar value for `/`
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
 - [ ] tests: move/add more tests to rwt, modval, bads
