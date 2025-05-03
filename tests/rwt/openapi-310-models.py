@@ -13,33 +13,6 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-def is_valid_re(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            re.compile(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_date(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            datetime.date.fromisoformat(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_url(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            urllib.parse.urlparse(value)
-            return True
-        except:
-            return False
-    return False
-
 json_model_25_must: PropMap
 json_model_25_may: PropMap
 # regex "/^x\\-.*$/"
@@ -103,6 +76,15 @@ jm_obj_8_may: PropMap
 jm_obj_9_may: PropMap
 # regex "/^[@|&^+/*]$/"
 jm_re_6 = re.compile("^[@|&^+/*]$").search
+
+def is_valid_url(value: Jsonable, path: str) -> bool:
+    if isinstance(value, str):
+        try:
+            urllib.parse.urlparse(value)
+            return True
+        except:
+            return False
+    return False
 
 # define "json_model_25_must_openapi" ($.'$#openapi#OpenAPI'.openapi)
 def jm_f_0(value: Jsonable, path: str) -> bool:

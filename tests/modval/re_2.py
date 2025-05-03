@@ -13,6 +13,7 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+
 def is_valid_re(value: Jsonable, path: str) -> bool:
     if isinstance(value, str):
         try:
@@ -21,25 +22,6 @@ def is_valid_re(value: Jsonable, path: str) -> bool:
         except:
             return False
     return False
-
-def is_valid_date(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            datetime.date.fromisoformat(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_url(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            urllib.parse.urlparse(value)
-            return True
-        except:
-            return False
-    return False
-
 
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:

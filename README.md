@@ -85,6 +85,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [~] feature: how to remove a definition? nope, must be nullified (eg `$NONE`) because refs
 - [x] tests: upgrade all models in `models/` and check them as well
 - [x] tests: add expected "$schema" value to schema models
+- [x] static: do not inline unused support function (`is_valid_*` and possibly others)
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: extract optimization in another file
@@ -110,7 +111,6 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: allow scalar value for `/`
 - [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
-- [ ] static: do not inline unused support function (`is_valid_*`)
 - [ ] tests: move/add more tests to rwt, modval, bads
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?

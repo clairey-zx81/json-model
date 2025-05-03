@@ -13,23 +13,14 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-def is_valid_re(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            re.compile(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_date(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            datetime.date.fromisoformat(value)
-            return True
-        except:
-            return False
-    return False
+json_model_0_must: PropMap
+jm_f_0_must: PropMap
+jm_f_0_may: PropMap
+# regex "/^\\./"
+jm_re_0 = re.compile("^\\.").search
+# regex "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
+jm_re_1 = re.compile("^([#~$%@|&+^/*=!]|[<>!]=)$").search
+json_model_0_may: PropMap
 
 def is_valid_url(value: Jsonable, path: str) -> bool:
     if isinstance(value, str):
@@ -39,15 +30,6 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
         except:
             return False
     return False
-
-json_model_0_must: PropMap
-jm_f_0_must: PropMap
-jm_f_0_may: PropMap
-# regex "/^\\./"
-jm_re_0 = re.compile("^\\.").search
-# regex "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
-jm_re_1 = re.compile("^([#~$%@|&+^/*=!]|[<>!]=)$").search
-json_model_0_may: PropMap
 
 # define "jm_f_0_must_Model" ($.'$'.Model)
 def jm_f_1(value: Jsonable, path: str) -> bool:

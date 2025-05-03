@@ -13,33 +13,6 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-def is_valid_re(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            re.compile(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_date(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            datetime.date.fromisoformat(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_url(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            urllib.parse.urlparse(value)
-            return True
-        except:
-            return False
-    return False
-
 json_model_4_may: PropMap
 json_model_5_may: PropMap
 json_model_6_may: PropMap
@@ -74,6 +47,24 @@ json_model_20_may: PropMap
 json_model_21_must: PropMap
 json_model_21_may: PropMap
 jm_obj_0_must: PropMap
+
+def is_valid_re(value: Jsonable, path: str) -> bool:
+    if isinstance(value, str):
+        try:
+            re.compile(value)
+            return True
+        except:
+            return False
+    return False
+
+def is_valid_url(value: Jsonable, path: str) -> bool:
+    if isinstance(value, str):
+        try:
+            urllib.parse.urlparse(value)
+            return True
+        except:
+            return False
+    return False
 
 # define "json_model_4_may_pattern" ($.stringKeywords.pattern)
 def jm_f_0(value: Jsonable, path: str) -> bool:

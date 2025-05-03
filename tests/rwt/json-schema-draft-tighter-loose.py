@@ -13,33 +13,6 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-def is_valid_re(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            re.compile(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_date(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            datetime.date.fromisoformat(value)
-            return True
-        except:
-            return False
-    return False
-
-def is_valid_url(value: Jsonable, path: str) -> bool:
-    if isinstance(value, str):
-        try:
-            urllib.parse.urlparse(value)
-            return True
-        except:
-            return False
-    return False
-
 jm_obj_0_must: PropMap
 json_model_32_may: PropMap
 json_model_33_must: PropMap
@@ -82,6 +55,24 @@ json_model_76_must: PropMap
 json_model_76_may: PropMap
 json_model_77_must: PropMap
 json_model_77_may: PropMap
+
+def is_valid_re(value: Jsonable, path: str) -> bool:
+    if isinstance(value, str):
+        try:
+            re.compile(value)
+            return True
+        except:
+            return False
+    return False
+
+def is_valid_url(value: Jsonable, path: str) -> bool:
+    if isinstance(value, str):
+        try:
+            urllib.parse.urlparse(value)
+            return True
+        except:
+            return False
+    return False
 
 # define "jm_obj_0_must_$schema" ($.'$#tight#RootSchema'.'&'.0.'$schema')
 def jm_f_0(value: Jsonable, path: str) -> bool:
