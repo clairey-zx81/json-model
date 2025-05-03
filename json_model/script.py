@@ -85,8 +85,8 @@ def jmc_script():
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
     arg("--debug", "-d", action="store_true", help="set debugging mode")
-    arg("--verbose", "-v", action="store_true", help="set verbose mode")
-    arg("--quiet", "-q", dest="verbose", action="store_false", help="reduce verbosity")
+    arg("--verbose", "-v", action="store_true", help="more verbose")
+    arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic mapping")
@@ -108,14 +108,22 @@ def jmc_script():
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
-    arg("--dump", "-U", dest="op", action="store_const", const="U", default="U", help="dump model")
-    arg("--nope", "-N", dest="op", action="store_const", const="N",
+    operation = ap.add_mutually_exclusive_group()
+    ope = operation.add_argument
+    ope("--dump", "-U", dest="op", action="store_const", const="U", default="U",
+        help="dump model")
+    ope("--nope", "-N", dest="op", action="store_const", const="N",
         help="dump (retrieved) json input")
-    arg("--preproc", "-P", dest="op", action="store_const", const="P", help="preprocess model")
-    arg("--static", "-S", dest="op", action="store_const", const="S", help="static compile model")
-    arg("--dynamic", "-D", dest="op", action="store_const", const="D", help="dynamic compile model")
-    arg("--validate", "-V", dest="op", action="store_const", const="V", help="direct validation")
-    arg("--export", "-E", dest="op", action="store_const", const="E", help="export as JSON Schema")
+    ope("--preproc", "-P", dest="op", action="store_const", const="P",
+            help="preprocess model")
+    ope("--static", "-S", dest="op", action="store_const", const="S",
+            help="static compile model for Python")
+    ope("--dynamic", "-D", dest="op", action="store_const", const="D",
+            help="dynamic compile model for Python")
+    ope("--validate", "-V", dest="op", action="store_const", const="V",
+            help="interpreted model validation")
+    ope("--export", "-E", dest="op", action="store_const", const="E",
+            help="export as JSON Schema")
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")

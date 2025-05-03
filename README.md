@@ -91,6 +91,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] feature: clarify and implement options management `JSON_MODEL_…`
 - [x] feature: allow scalar value for `/`
 - [x] schema: test output json schema (strict) conformity
+- [x] command: use exclusive options where appropriate
 - [ ] static: detect and remove duplicate functions!
 - [ ] tests: remove unstable DO output? remove empty lines?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
@@ -103,6 +104,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: make (static/dynamic) compiled exported defs accessible… which implies fname control
 - [ ] static: separate compilation of included models
 - [ ] command: add option to control name of generated function
+- [ ] command: add option to do/skip check of `~` model
 - [ ] feature: control url caching, change dir location or disable
 - [ ] feature: cache expiration?
 - [ ] feature: improve error messages, eg missing "$" on a URL reference
@@ -147,6 +149,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] design: conditionals or not conditionals… eg for interfaces?
       if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
+- [ ] doc: setup mkdocs
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
 - [ ] research: paper themes? extensions, compilation (CGO), ...?
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
