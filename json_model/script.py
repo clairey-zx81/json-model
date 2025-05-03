@@ -218,6 +218,13 @@ def jmc_script():
         exec(source_code, env)
         checker = env["check_model"]
     elif args.op == "E":
+        warn = True
+        if isinstance(model._model, dict) and "#" in model._model:
+            comment = model._model["#"]
+            assert isinstance(comment, str), "root # is a string"
+            warn = not ("JSON_MODEL_LOOSE_INT" in comment and "JSON_MODEL_LOOSE_FLOAT" in comment)
+        if warn:
+            log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
         schema: JsonSchema
         try:
             schema = model.toSchema()

@@ -94,6 +94,7 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] command: use exclusive options where appropriate
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
+- [x] schema: warn when generating schema with strict options
 - [ ] static: add a `_` to the default prefix to separate exports
 - [ ] static: update path
 - [ ] static: fast vs slow with path and reasons?
