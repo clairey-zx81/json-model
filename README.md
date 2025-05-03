@@ -148,9 +148,13 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? CGO (end of may)?
-- [ ] static: abstract code generation wrt imperative language?!
+- [ ] static: abstract imperative language code generation with intermediate code?
+      see JSON Schema Blaze?
+- [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
-- [ ] rust-backend see [json crate](https://docs.rs/json/latest/json/).
+- [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
+- [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
+- [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 
 ## WIP
 
