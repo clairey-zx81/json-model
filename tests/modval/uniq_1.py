@@ -19,7 +19,6 @@ def json_model_0(value: Jsonable, path: str) -> bool:
     # $
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.0
             result = isinstance(array_0_item, str)

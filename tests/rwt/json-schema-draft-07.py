@@ -86,7 +86,6 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.ObjectSchema.examples.0
             result = True
@@ -198,7 +197,6 @@ def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.required
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.ObjectSchema.required.0
             result = isinstance(array_3_item, str)
@@ -231,7 +229,6 @@ def jm_f_32(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.enum.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.ObjectSchema.enum.'@'.0
             result = True
@@ -341,7 +338,6 @@ def json_model_3(value: Jsonable, path: str) -> bool:
     # $.schemaArray.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.schemaArray.'@'.0
             result = json_model_7(array_0_item, path)
@@ -361,7 +357,6 @@ def json_model_5(value: Jsonable, path: str) -> bool:
     # $.arrayTypes.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.arrayTypes.'@'.0
             result = json_model_4(array_1_item, path)
@@ -423,7 +418,6 @@ def jm_f_31(value: Jsonable, path: str) -> bool:
             # $.ObjectSchema.dependencies.''.'|'.1
             result = isinstance(model, list)
             if result:
-                assert isinstance(model, list)  # pyright helper
                 for array_4_idx, array_4_item in enumerate(model):
                     # $.ObjectSchema.dependencies.''.'|'.1.0
                     result = isinstance(array_4_item, str)

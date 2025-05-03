@@ -121,7 +121,6 @@ def jm_f_7(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.'$#tight#metas'.examples.0
             result = True
@@ -185,7 +184,6 @@ def jm_f_18(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.'$#tight#String'.examples.0
             result = True
@@ -273,7 +271,6 @@ def jm_f_33(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.'$#tight#Array'.examples.0
             result = True
@@ -377,7 +374,6 @@ def jm_f_50(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.'$#tight#Object'.examples.0
             result = True
@@ -401,7 +397,6 @@ def jm_f_55(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.required
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.'$#tight#Object'.required.0
             result = isinstance(array_5_item, str)
@@ -463,7 +458,6 @@ def jm_f_65(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_6_idx, array_6_item in enumerate(value):
             # $.'$#tight#Integer'.examples.0
             result = True
@@ -539,7 +533,6 @@ def jm_f_78(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_7_idx, array_7_item in enumerate(value):
             # $.'$#tight#Number'.examples.0
             result = True
@@ -615,7 +608,6 @@ def jm_f_91(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_8_idx, array_8_item in enumerate(value):
             # $.'$#tight#Bool'.examples.0
             result = True
@@ -679,7 +671,6 @@ def jm_f_102(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_9_idx, array_9_item in enumerate(value):
             # $.'$#tight#Null'.examples.0
             result = True
@@ -743,7 +734,6 @@ def jm_f_113(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_10_idx, array_10_item in enumerate(value):
             # $.'$#tight#AllOf'.examples.0
             result = True
@@ -807,7 +797,6 @@ def jm_f_124(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_11_idx, array_11_item in enumerate(value):
             # $.'$#tight#AnyOf'.examples.0
             result = True
@@ -871,7 +860,6 @@ def jm_f_135(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_12_idx, array_12_item in enumerate(value):
             # $.'$#tight#OneOf'.examples.0
             result = True
@@ -935,7 +923,6 @@ def jm_f_146(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_13_idx, array_13_item in enumerate(value):
             # $.'$#tight#Enum'.examples.0
             result = True
@@ -999,7 +986,6 @@ def jm_f_157(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_17_idx, array_17_item in enumerate(value):
             # $.'$#tight#Const'.examples.0
             result = True
@@ -1063,7 +1049,6 @@ def jm_f_168(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_18_idx, array_18_item in enumerate(value):
             # $.'$#tight#Ref'.examples.0
             result = True
@@ -1085,7 +1070,6 @@ def jm_f_172(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_19_idx, array_19_item in enumerate(value):
             # $.'$#tight#EnumString'.enum.0
             result = isinstance(array_19_item, str)
@@ -1139,7 +1123,6 @@ def jm_f_180(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_20_idx, array_20_item in enumerate(value):
             # $.'$#tight#EnumString'.examples.0
             result = True
@@ -1161,7 +1144,6 @@ def jm_f_184(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_21_idx, array_21_item in enumerate(value):
             # $.'$#tight#EnumNum'.enum.0
             result = isinstance(array_21_item, float)
@@ -1215,7 +1197,6 @@ def jm_f_192(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_22_idx, array_22_item in enumerate(value):
             # $.'$#tight#EnumNum'.examples.0
             result = True
@@ -1237,7 +1218,6 @@ def jm_f_196(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_23_idx, array_23_item in enumerate(value):
             # $.'$#tight#EnumInt'.enum.0
             result = isinstance(array_23_item, int) and not isinstance(array_23_item, bool)
@@ -1291,7 +1271,6 @@ def jm_f_204(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_24_idx, array_24_item in enumerate(value):
             # $.'$#tight#EnumInt'.examples.0
             result = True
@@ -1361,7 +1340,6 @@ def jm_f_216(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_25_idx, array_25_item in enumerate(value):
             # $.'$#tight#ConstString'.examples.0
             result = True
@@ -1431,7 +1409,6 @@ def jm_f_228(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_26_idx, array_26_item in enumerate(value):
             # $.'$#tight#ConstNum'.examples.0
             result = True
@@ -1501,7 +1478,6 @@ def jm_f_240(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_27_idx, array_27_item in enumerate(value):
             # $.'$#tight#ConstInt'.examples.0
             result = True
@@ -1571,7 +1547,6 @@ def jm_f_252(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_28_idx, array_28_item in enumerate(value):
             # $.'$#tight#ConstBool'.examples.0
             result = True
@@ -1831,7 +1806,6 @@ def json_model_28(value: Jsonable, path: str) -> bool:
     # $.'$#tight#schemaArray'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.'$#tight#schemaArray'.0
             result = json_model_48(array_3_item, path)
@@ -2277,7 +2251,6 @@ def json_model_27(value: Jsonable, path: str) -> bool:
     if result:
         # $.'$#tight#enum'.'|'.0
         if True:
-            assert isinstance(value, list)  # pyright helper
             for array_14_idx, array_14_item in enumerate(value):
                 # $.'$#tight#enum'.'|'.0.0
                 result = isinstance(array_14_item, str)
@@ -2285,7 +2258,6 @@ def json_model_27(value: Jsonable, path: str) -> bool:
         if not result:
             # $.'$#tight#enum'.'|'.1
             if True:
-                assert isinstance(value, list)  # pyright helper
                 for array_15_idx, array_15_item in enumerate(value):
                     # $.'$#tight#enum'.'|'.1.0
                     result = isinstance(array_15_item, int) and not isinstance(array_15_item, bool)
@@ -2293,7 +2265,6 @@ def json_model_27(value: Jsonable, path: str) -> bool:
             if not result:
                 # $.'$#tight#enum'.'|'.2
                 if True:
-                    assert isinstance(value, list)  # pyright helper
                     for array_16_idx, array_16_item in enumerate(value):
                         # $.'$#tight#enum'.'|'.2.0
                         result = isinstance(array_16_item, bool)

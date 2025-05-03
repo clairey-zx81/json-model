@@ -32,7 +32,6 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.Schema.types
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.Schema.types.0
             result = json_model_2(array_0_item, path)
@@ -62,7 +61,6 @@ def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.Schema.metadata.authors
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.Schema.metadata.authors.0
             result = isinstance(array_1_item, str)
@@ -154,7 +152,6 @@ def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.Atomic.enumeration
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.Atomic.enumeration.0
             result = json_model_4(array_2_item, path)
@@ -190,7 +187,6 @@ def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.Object.content
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.Object.content.0
             result = json_model_7(array_3_item, path)
@@ -286,7 +282,6 @@ def jm_f_39(value: Jsonable, path: str) -> bool:
     # $.Union.content
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.Union.content.0
             result = json_model_10(array_4_item, path)

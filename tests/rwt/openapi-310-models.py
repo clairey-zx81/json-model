@@ -109,7 +109,6 @@ def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.servers
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.'$#openapi#OpenAPI'.servers.0
             result = json_model_30(array_0_item, path)
@@ -141,7 +140,6 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.tags
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.'$#openapi#OpenAPI'.tags.0
             result = json_model_49(array_1_item, path)
@@ -263,7 +261,6 @@ def jm_f_28(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ServerVariable'.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.'$#openapi#ServerVariable'.enum.0
             result = isinstance(array_2_item, str)
@@ -369,7 +366,6 @@ def jm_f_52(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.tags
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.'$#openapi#Operation'.tags.0
             result = isinstance(array_3_item, str)
@@ -423,7 +419,6 @@ def jm_f_62(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.security
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.'$#openapi#Operation'.security.0
             result = json_model_58(array_4_item, path)
@@ -435,7 +430,6 @@ def jm_f_63(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.servers
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.'$#openapi#Operation'.servers.0
             result = json_model_30(array_5_item, path)
@@ -887,7 +881,6 @@ def jm_f_146(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'.'|'.1.'|'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_8_idx, array_8_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.1.'|'.0
             result = json_model_141(array_8_item, path)
@@ -905,7 +898,6 @@ def jm_f_148(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'.'|'.2.'&'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_9_idx, array_9_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.2.'&'.0
             result = json_model_141(array_9_item, path)
@@ -923,7 +915,6 @@ def jm_f_150(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'.'|'.3.'^'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_10_idx, array_10_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.3.'^'.0
             result = json_model_141(array_10_item, path)
@@ -941,7 +932,6 @@ def jm_f_152(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'.'|'.4.'+'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_11_idx, array_11_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.4.'+'.0
             result = json_model_141(array_11_item, path)
@@ -2086,7 +2076,6 @@ def json_model_58(value: Jsonable, path: str) -> bool:
         # $.'$#openapi#SecurityRequirement'.''
         result = isinstance(model, list)
         if result:
-            assert isinstance(model, list)  # pyright helper
             for array_6_idx, array_6_item in enumerate(model):
                 # $.'$#openapi#SecurityRequirement'.''.0
                 result = isinstance(array_6_item, str)
@@ -2120,7 +2109,6 @@ def json_model_131(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Array'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_7_idx, array_7_item in enumerate(value):
             # $.'$#openapi#model#Array'.0
             result = json_model_141(array_7_item, path)

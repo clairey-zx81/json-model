@@ -79,7 +79,6 @@ def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Elem'.'|'.1.'|'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.'$#Model#Elem'.'|'.1.'|'.0
             result = json_model_41(array_1_item, path)
@@ -97,7 +96,6 @@ def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Elem'.'|'.2.'&'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.'$#Model#Elem'.'|'.2.'&'.0
             result = json_model_41(array_2_item, path)
@@ -115,7 +113,6 @@ def jm_f_7(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Elem'.'|'.3.'^'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.'$#Model#Elem'.'|'.3.'^'.0
             result = json_model_41(array_3_item, path)
@@ -185,7 +182,6 @@ def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Root'.'|'.1.'|'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.'$#Model#Root'.'|'.1.'|'.0
             result = json_model_41(array_4_item, path)
@@ -231,7 +227,6 @@ def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Root'.'|'.2.'&'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.'$#Model#Root'.'|'.2.'&'.0
             result = json_model_41(array_5_item, path)
@@ -277,7 +272,6 @@ def jm_f_35(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Root'.'|'.3.'^'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_6_idx, array_6_item in enumerate(value):
             # $.'$#Model#Root'.'|'.3.'^'.0
             result = json_model_41(array_6_item, path)
@@ -383,7 +377,6 @@ def json_model_31(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Array'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.'$#Model#Array'.0
             result = json_model_41(array_0_item, path)

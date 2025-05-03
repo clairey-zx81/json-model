@@ -646,7 +646,7 @@ class SourceCode(Validator):
                         code.add(indent, f"if {res}:")
                     else:
                         code.add(indent, "if True:")
-                    code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
+                    # code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
                     code.add(indent + 1, f"for {idx}, {item} in enumerate({val}):")
                     self._compileModel(code, indent + 2, jm, model[0], mpath + [0],
                                        res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")

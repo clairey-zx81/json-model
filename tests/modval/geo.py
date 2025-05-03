@@ -50,7 +50,6 @@ def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.Point.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.Point.bbox.0
             result = isinstance(array_3_item, float)
@@ -68,7 +67,6 @@ def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.MultiPoint.coordinates
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.MultiPoint.coordinates.0
             result = json_model_1(array_4_item, path)
@@ -80,7 +78,6 @@ def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.MultiPoint.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.MultiPoint.bbox.0
             result = isinstance(array_5_item, float)
@@ -104,7 +101,6 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.LineString.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_6_idx, array_6_item in enumerate(value):
             # $.LineString.bbox.0
             result = isinstance(array_6_item, float)
@@ -122,7 +118,6 @@ def jm_f_10(value: Jsonable, path: str) -> bool:
     # $.MultiLineString.coordinates
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_7_idx, array_7_item in enumerate(value):
             # $.MultiLineString.coordinates.0
             result = json_model_2(array_7_item, path)
@@ -134,7 +129,6 @@ def jm_f_11(value: Jsonable, path: str) -> bool:
     # $.MultiLineString.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_8_idx, array_8_item in enumerate(value):
             # $.MultiLineString.bbox.0
             result = isinstance(array_8_item, float)
@@ -152,7 +146,6 @@ def jm_f_13(value: Jsonable, path: str) -> bool:
     # $.Polygon.coordinates
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_9_idx, array_9_item in enumerate(value):
             # $.Polygon.coordinates.0
             result = json_model_3(array_9_item, path)
@@ -164,7 +157,6 @@ def jm_f_14(value: Jsonable, path: str) -> bool:
     # $.Polygon.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_10_idx, array_10_item in enumerate(value):
             # $.Polygon.bbox.0
             result = isinstance(array_10_item, float)
@@ -182,12 +174,10 @@ def jm_f_16(value: Jsonable, path: str) -> bool:
     # $.MultiPolygon.coordinates
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_11_idx, array_11_item in enumerate(value):
             # $.MultiPolygon.coordinates.0
             result = isinstance(array_11_item, list)
             if result:
-                assert isinstance(array_11_item, list)  # pyright helper
                 for array_12_idx, array_12_item in enumerate(array_11_item):
                     # $.MultiPolygon.coordinates.0.0
                     result = json_model_3(array_12_item, path)
@@ -200,7 +190,6 @@ def jm_f_17(value: Jsonable, path: str) -> bool:
     # $.MultiPolygon.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_13_idx, array_13_item in enumerate(value):
             # $.MultiPolygon.bbox.0
             result = isinstance(array_13_item, float)
@@ -218,7 +207,6 @@ def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.GeometryCollection.geometries
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_14_idx, array_14_item in enumerate(value):
             # $.GeometryCollection.geometries.0
             result = json_model_10(array_14_item, path)
@@ -230,7 +218,6 @@ def jm_f_20(value: Jsonable, path: str) -> bool:
     # $.GeometryCollection.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_15_idx, array_15_item in enumerate(value):
             # $.GeometryCollection.bbox.0
             result = isinstance(array_15_item, float)
@@ -281,7 +268,6 @@ def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.Feature.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_16_idx, array_16_item in enumerate(value):
             # $.Feature.bbox.0
             result = isinstance(array_16_item, float)
@@ -299,7 +285,6 @@ def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.FeatureCollection.features
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_17_idx, array_17_item in enumerate(value):
             # $.FeatureCollection.features.0
             result = json_model_12(array_17_item, path)
@@ -311,7 +296,6 @@ def jm_f_28(value: Jsonable, path: str) -> bool:
     # $.FeatureCollection.bbox
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_18_idx, array_18_item in enumerate(value):
             # $.FeatureCollection.bbox.0
             result = isinstance(array_18_item, float)
@@ -325,7 +309,6 @@ def json_model_1(value: Jsonable, path: str) -> bool:
     # $.position.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.position.'@'.0
             result = isinstance(array_0_item, float)
@@ -339,7 +322,6 @@ def json_model_2(value: Jsonable, path: str) -> bool:
     # $.coord_array.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.coord_array.'@'.0
             result = json_model_1(array_1_item, path)
@@ -353,7 +335,6 @@ def json_model_3(value: Jsonable, path: str) -> bool:
     # $.linear_ring.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.linear_ring.'@'.0
             result = json_model_1(array_2_item, path)

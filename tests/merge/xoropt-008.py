@@ -34,7 +34,6 @@ def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.'|'.2.a
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.'|'.2.a.0
             result = isinstance(array_0_item, int) and not isinstance(array_0_item, bool) and array_0_item >= 0

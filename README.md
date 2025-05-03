@@ -93,7 +93,10 @@ Command `jmc` (JSON Model Compiler) options:
 - [x] schema: test output json schema (strict) conformity
 - [x] command: use exclusive options where appropriate
 - [x] tests: check all models wrt to the meta model, once
+- [x] static: remove pyright asserts from generated code
 - [ ] static: detect and remove duplicate functions!
+- [ ] static: add option to report where it fails (aka reasons)
+- [ ] static: generate pyright compatible code…
 - [ ] tests: remove unstable DO output? remove empty lines?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] design: handle `.` and `/` references as relative url

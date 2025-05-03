@@ -33,7 +33,6 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
         # $.type.'|'.1
         result = isinstance(value, list)
         if result:
-            assert isinstance(value, list)  # pyright helper
             for array_0_idx, array_0_item in enumerate(value):
                 # $.type.'|'.1.0
                 # $.type.'|'.1.0.'|'.0
@@ -55,7 +54,6 @@ def jm_f_2(value: Jsonable, path: str) -> bool:
         # $.items.'|'.1
         result = isinstance(value, list)
         if result:
-            assert isinstance(value, list)  # pyright helper
             for array_1_idx, array_1_item in enumerate(value):
                 # $.items.'|'.1.0
                 result = json_model_0(array_1_item, path)
@@ -148,7 +146,6 @@ def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.enum.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.enum.'@'.0
             result = True
@@ -201,7 +198,6 @@ def jm_f_22(value: Jsonable, path: str) -> bool:
         # $.disallow.'|'.1
         result = isinstance(value, list)
         if result:
-            assert isinstance(value, list)  # pyright helper
             for array_3_idx, array_3_item in enumerate(value):
                 # $.disallow.'|'.1.0
                 result = isinstance(array_3_item, str)
@@ -217,7 +213,6 @@ def jm_f_23(value: Jsonable, path: str) -> bool:
         # $.extends.'|'.1
         result = isinstance(value, list)
         if result:
-            assert isinstance(value, list)  # pyright helper
             for array_4_idx, array_4_item in enumerate(value):
                 # $.extends.'|'.1.0
                 result = json_model_0(array_4_item, path)

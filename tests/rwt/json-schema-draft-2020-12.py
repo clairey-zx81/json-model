@@ -127,7 +127,6 @@ def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.meta.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.meta.examples.0
             result = True
@@ -191,7 +190,6 @@ def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.validation.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.validation.enum.0
             result = True
@@ -531,7 +529,6 @@ def jm_f_85(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.enum
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.ObjectSchema.enum.0
             result = True
@@ -677,7 +674,6 @@ def jm_f_109(value: Jsonable, path: str) -> bool:
     # $.ObjectSchema.examples
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_6_idx, array_6_item in enumerate(value):
             # $.ObjectSchema.examples.0
             result = True
@@ -840,7 +836,6 @@ def json_model_9(value: Jsonable, path: str) -> bool:
     # $.simpleTypesArray.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.simpleTypesArray.'@'.0
             result = json_model_8(array_1_item, path)
@@ -855,7 +850,6 @@ def json_model_10(value: Jsonable, path: str) -> bool:
     # $.stringArray.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.stringArray.'@'.0
             result = isinstance(array_2_item, str)
@@ -903,7 +897,6 @@ def json_model_13(value: Jsonable, path: str) -> bool:
     # $.schemaArray.'@'
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.schemaArray.'@'.0
             result = json_model_16(array_4_item, path)

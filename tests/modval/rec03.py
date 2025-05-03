@@ -24,7 +24,6 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
         # $.foo.'|'.1
         result = isinstance(value, list)
         if result:
-            assert isinstance(value, list)  # pyright helper
             for array_0_idx, array_0_item in enumerate(value):
                 # $.foo.'|'.1.0
                 result = json_model_0(array_0_item, path)

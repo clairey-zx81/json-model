@@ -28,7 +28,6 @@ def json_model_1(value: Jsonable, path: str) -> bool:
     # $.li0
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.li0.0
             result = isinstance(array_0_item, int) and not isinstance(array_0_item, bool) and array_0_item >= 0
@@ -40,7 +39,6 @@ def json_model_2(value: Jsonable, path: str) -> bool:
     # $.ls0
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.ls0.0
             result = is_valid_url(array_1_item, path)
@@ -52,7 +50,6 @@ def json_model_3(value: Jsonable, path: str) -> bool:
     # $.lb0
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_2_idx, array_2_item in enumerate(value):
             # $.lb0.0
             result = isinstance(array_2_item, bool)
@@ -64,7 +61,6 @@ def json_model_4(value: Jsonable, path: str) -> bool:
     # $.lf0
     result = isinstance(value, list)
     if result:
-        assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.lf0.0
             result = isinstance(array_3_item, float) and array_3_item >= 0.0

@@ -80,6 +80,7 @@ m08.model.json: PASS
 ../../models/json-schema-draft-tight.model.json: PASS
 ../../models/json-schema-linter.model.json: PASS
 ../../models/jsound.model.json: PASS
+../../models/l10n.model.json: PASS
 ../../models/openapi-310.model.json: PASS
 ../../models/openapi-310-models.model.json: PASS
 ../../models/person2.model.json: PASS
