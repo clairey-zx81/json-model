@@ -38,7 +38,8 @@
     },
     "Defs": {
       "#": "JsonModel 17",
-      "/.+/": "$Model"
+      "/.+/": "$Model",
+      "?": "$Url"
     },
     "Elem": {
       "#": "JsonModel 13",
@@ -116,7 +117,7 @@
       "/^\\$.*$/": "$Trafo"
     },
     "Root": {
-      "#": "JsonModel 20",
+      "#": "JsonModel 21",
       "|": [
         {
           "!@": "$Model",
@@ -229,12 +230,26 @@
       ]
     },
     "RootModel": {
-      "#": "JsonModel 21",
+      "#": "JsonModel 22",
       "|": [
         "$Scalar",
         "$Array",
         "$Root"
       ]
+    },
+    "RootOnly": {
+      "#": "JsonModel 20",
+      "?$": {
+        "/.+/": "$Model",
+        "?": "$Url",
+        "?#": ""
+      },
+      "?%": {
+        "/^\\$.*$/": "$Trafo",
+        "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+        "?#": ""
+      },
+      "?~": "$Url"
     },
     "Scalar": {
       "#": "JsonModel 15",

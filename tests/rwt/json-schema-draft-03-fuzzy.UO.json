@@ -50,7 +50,8 @@
       },
       "Defs": {
         "#": "JsonModel 19",
-        "/.+/": "$Model"
+        "/.+/": "$Model",
+        "?": "$Url"
       },
       "Elem": {
         "#": "JsonModel 15",
@@ -128,7 +129,7 @@
         "/^\\$.*$/": "$Trafo"
       },
       "Root": {
-        "#": "JsonModel 22",
+        "#": "JsonModel 23",
         "|": [
           {
             "!@": "$Model",
@@ -241,12 +242,26 @@
         ]
       },
       "RootModel": {
-        "#": "JsonModel 23",
+        "#": "JsonModel 24",
         "|": [
           "$Scalar",
           "$Array",
           "$Root"
         ]
+      },
+      "RootOnly": {
+        "#": "JsonModel 22",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
       },
       "Scalar": {
         "#": "JsonModel 17",
@@ -484,7 +499,8 @@
   },
   {
     "#": "JsonModel 19",
-    "/.+/": "$Model"
+    "/.+/": "$Model",
+    "?": "$Url"
   },
   {
     "#": "JsonModel 20",
@@ -496,6 +512,20 @@
   },
   {
     "#": "JsonModel 22",
+    "?$": {
+      "/.+/": "$Model",
+      "?": "$Url",
+      "?#": ""
+    },
+    "?%": {
+      "/^\\$.*$/": "$Trafo",
+      "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+      "?#": ""
+    },
+    "?~": "$Url"
+  },
+  {
+    "#": "JsonModel 23",
     "|": [
       {
         "!@": "$Model",
@@ -608,7 +638,7 @@
     ]
   },
   {
-    "#": "JsonModel 23",
+    "#": "JsonModel 24",
     "|": [
       "$Scalar",
       "$Array",
@@ -617,14 +647,14 @@
   },
   {
     "": "$ANY",
-    "#": "JsonModel 24",
+    "#": "JsonModel 25",
     "$": {
       "": "https://json-model.org/models/json-schema-draft-03",
       "#": "Symbol 4",
       "Schema": "$#",
       "URI": "$URL",
       "allTypes": {
-        "#": "JsonModel 26",
+        "#": "JsonModel 27",
         "|": [
           "null",
           "boolean",
@@ -638,7 +668,7 @@
       },
       "distinctSchemaArray": {
         "!": true,
-        "#": "JsonModel 27",
+        "#": "JsonModel 28",
         "@": [
           {
             "|": [
@@ -743,7 +773,7 @@
   },
   "$URL",
   {
-    "#": "JsonModel 26",
+    "#": "JsonModel 27",
     "|": [
       "null",
       "boolean",
@@ -757,7 +787,7 @@
   },
   {
     "!": true,
-    "#": "JsonModel 27",
+    "#": "JsonModel 28",
     "@": [
       {
         "|": [
@@ -769,18 +799,18 @@
   },
   "$#",
   {
-    "#": "JsonModel 29 with defs",
+    "#": "JsonModel 30 with defs",
     "$": {
       "": "https://json-model.org/models/json-model",
       "#": "Symbol 6",
       "Add": {
-        "#": "JsonModel 40",
+        "#": "JsonModel 41",
         "_+": [
           "$Model"
         ]
       },
       "And": {
-        "#": "JsonModel 38",
+        "#": "JsonModel 39",
         "_&": [
           "$Model"
         ]
@@ -790,11 +820,11 @@
         "$Model"
       ],
       "Common": {
-        "#": "JsonModel 34",
+        "#": "JsonModel 35",
         "?#": ""
       },
       "Constraint": {
-        "#": "JsonModel 36",
+        "#": "JsonModel 37",
         "/^(<=|>=|<|>|\u2265|\u2264)$/": {
           "|": [
             -1,
@@ -807,11 +837,12 @@
         "_@": "$Model"
       },
       "Defs": {
-        "#": "JsonModel 46",
-        "/.+/": "$Model"
+        "#": "JsonModel 47",
+        "/.+/": "$Model",
+        "?": "$Url"
       },
       "Elem": {
-        "#": "JsonModel 42",
+        "#": "JsonModel 43",
         "|": [
           {
             "!@": "$Model",
@@ -858,7 +889,7 @@
         ]
       },
       "Model": {
-        "#": "JsonModel 45",
+        "#": "JsonModel 46",
         "|": [
           "$Scalar",
           "$Array",
@@ -868,25 +899,25 @@
       "None": "$NONE",
       "Obj": {
         "": "$Model",
-        "#": "JsonModel 41",
+        "#": "JsonModel 42",
         "/^[@|&^+/*]$/": "$NONE"
       },
       "Or": {
-        "#": "JsonModel 37",
+        "#": "JsonModel 38",
         "_|": [
           "$Model"
         ]
       },
       "Rename": {
-        "#": "JsonModel 47",
+        "#": "JsonModel 48",
         "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
       },
       "Rewrite": {
-        "#": "JsonModel 48",
+        "#": "JsonModel 49",
         "/^\\$.*$/": "$Trafo"
       },
       "Root": {
-        "#": "JsonModel 49",
+        "#": "JsonModel 51",
         "|": [
           {
             "!@": "$Model",
@@ -999,15 +1030,29 @@
         ]
       },
       "RootModel": {
-        "#": "JsonModel 50",
+        "#": "JsonModel 52",
         "|": [
           "$Scalar",
           "$Array",
           "$Root"
         ]
       },
+      "RootOnly": {
+        "#": "JsonModel 50",
+        "?$": {
+          "/.+/": "$Model",
+          "?": "$Url",
+          "?#": ""
+        },
+        "?%": {
+          "/^\\$.*$/": "$Trafo",
+          "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+          "?#": ""
+        },
+        "?~": "$Url"
+      },
       "Scalar": {
-        "#": "JsonModel 44",
+        "#": "JsonModel 45",
         "|": [
           "=null",
           "=true",
@@ -1021,7 +1066,7 @@
         ]
       },
       "Trafo": {
-        "#": "JsonModel 43",
+        "#": "JsonModel 44",
         "|": [
           "$Model",
           {
@@ -1056,7 +1101,7 @@
       },
       "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
       "Val": {
-        "#": "JsonModel 31",
+        "#": "JsonModel 32",
         "|": [
           null,
           true,
@@ -1066,7 +1111,7 @@
         ]
       },
       "Xor": {
-        "#": "JsonModel 39",
+        "#": "JsonModel 40",
         "_^": [
           "$Model"
         ]
@@ -1077,7 +1122,7 @@
   },
   "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
   {
-    "#": "JsonModel 31",
+    "#": "JsonModel 32",
     "|": [
       null,
       true,
@@ -1089,14 +1134,14 @@
   "$ANY",
   "$NONE",
   {
-    "#": "JsonModel 34",
+    "#": "JsonModel 35",
     "?#": ""
   },
   [
     "$Model"
   ],
   {
-    "#": "JsonModel 36",
+    "#": "JsonModel 37",
     "/^(<=|>=|<|>|\u2265|\u2264)$/": {
       "|": [
         -1,
@@ -1109,36 +1154,36 @@
     "_@": "$Model"
   },
   {
-    "#": "JsonModel 37",
+    "#": "JsonModel 38",
     "_|": [
       "$Model"
     ]
   },
   {
-    "#": "JsonModel 38",
+    "#": "JsonModel 39",
     "_&": [
       "$Model"
     ]
   },
   {
-    "#": "JsonModel 39",
+    "#": "JsonModel 40",
     "_^": [
       "$Model"
     ]
   },
   {
-    "#": "JsonModel 40",
+    "#": "JsonModel 41",
     "_+": [
       "$Model"
     ]
   },
   {
     "": "$Model",
-    "#": "JsonModel 41",
+    "#": "JsonModel 42",
     "/^[@|&^+/*]$/": "$NONE"
   },
   {
-    "#": "JsonModel 42",
+    "#": "JsonModel 43",
     "|": [
       {
         "!@": "$Model",
@@ -1185,7 +1230,7 @@
     ]
   },
   {
-    "#": "JsonModel 43",
+    "#": "JsonModel 44",
     "|": [
       "$Model",
       {
@@ -1219,7 +1264,7 @@
     ]
   },
   {
-    "#": "JsonModel 44",
+    "#": "JsonModel 45",
     "|": [
       "=null",
       "=true",
@@ -1233,7 +1278,7 @@
     ]
   },
   {
-    "#": "JsonModel 45",
+    "#": "JsonModel 46",
     "|": [
       "$Scalar",
       "$Array",
@@ -1241,19 +1286,34 @@
     ]
   },
   {
-    "#": "JsonModel 46",
-    "/.+/": "$Model"
-  },
-  {
     "#": "JsonModel 47",
-    "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+    "/.+/": "$Model",
+    "?": "$Url"
   },
   {
     "#": "JsonModel 48",
-    "/^\\$.*$/": "$Trafo"
+    "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
   },
   {
     "#": "JsonModel 49",
+    "/^\\$.*$/": "$Trafo"
+  },
+  {
+    "#": "JsonModel 50",
+    "?$": {
+      "/.+/": "$Model",
+      "?": "$Url",
+      "?#": ""
+    },
+    "?%": {
+      "/^\\$.*$/": "$Trafo",
+      "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/",
+      "?#": ""
+    },
+    "?~": "$Url"
+  },
+  {
+    "#": "JsonModel 51",
     "|": [
       {
         "!@": "$Model",
@@ -1366,7 +1426,7 @@
     ]
   },
   {
-    "#": "JsonModel 50",
+    "#": "JsonModel 52",
     "|": [
       "$Scalar",
       "$Array",

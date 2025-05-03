@@ -3,10 +3,15 @@ SHELL	= /bin/bash
 .ONESHELL:
 
 # JSON Model Compiler
+JMC = jmc
 JMC.opts    = --check --quiet
-JMC = jmc $(JMC.opts) \
+JMC.cmd = \
+	$(JMC) $(JMC.opts) \
         -m "https://json-model.org/models ." \
         -m "https://json-model.org/tests ."
+
+# JSON Schema Checker
+JSC = jsu-check --quiet
 
 # inputs, skip _*
 F.mjs   = $(wildcard [a-zA-Z]*.model.js)
@@ -35,6 +40,8 @@ F.sXc   = schema.jcheck.out \
 # all generated
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js) $(F.sXc)
 
+-include local.mk
+
 .PHONY: gen
 gen: $(F.gen)
 
@@ -51,35 +58,35 @@ clean:
 json: $(F.json)
 
 %.model.json: %.model.js
-	$(JMC) -N ./$< > $@
+	$(JMC.cmd) -N ./$< > $@
 
 %.model.json: %.model.yaml
-	$(JMC) -N ./$< > $@
+	$(JMC.cmd) -N ./$< > $@
 
 .PHONY: UO
 UO: $(F.UO)
 %.UO.json: %.model.json
-	$(JMC) -UO ./$< > $@
+	$(JMC.cmd) -UO ./$< > $@
 
 .PHONY: PO
 PO: $(F.PO)
 %.PO.json: %.model.json
-	$(JMC) -PO ./$< > $@
+	$(JMC.cmd) -PO ./$< > $@
 
 .PHONY: schema
 schema: $(F.EO)
 %.schema.json: %.model.json
-	$(JMC) -EO -ns ./$< > $@
+	$(JMC.cmd) -EO -ns ./$< > $@
 
 .PHONY: DO
 DO: $(F.DO)
 %.DO.out: %.model.json
-	$(JMC) -DO --code ./$< | sed -e 's/<code object .*>/<*>/' > $@
+	$(JMC.cmd) -DO --code ./$< | sed -e 's/<code object .*>/<*>/' > $@
 
 .PHONY: py
 py: $(F.SO)
 %.py: %.model.json
-	$(JMC) -SO --code ./$< > $@
+	$(JMC.cmd) -SO --code ./$< > $@
 
 #
 # Dynamic value checks
@@ -89,21 +96,9 @@ dcheck: $(F.dc)
 	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
-# special case for the meta model
-json-model.dcheck.out: json-model.model.json
-	$(JMC) -v -DO --no-code --true ./$< $(F.model) ../bads/_*.model.json | sort > $@
-	$(JMC) -v -DO --no-code --false ./$< $(F.bads) | sort >> $@
-
-# special case for localizations
-l10n.dcheck.out: l10n.model.json
-	$(JMC) -v -DO --no-code --true ./$< english.model.json français.model.json > $@
-	echo "# localized models" >> $@
-	$(JMC) -v -DO --no-code --true ./english.model.json en_00.model.json >> $@
-	$(JMC) -v -DO --no-code --true ./français.model.json fr_00.model.json >> $@
-
 %.dcheck.out: %.model.json
 	shopt -s nullglob
-	$(JMC) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
+	$(JMC.cmd) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
 
 #
 # Static value checks
@@ -113,21 +108,9 @@ scheck: $(F.sc)
 	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
-# special case for the meta model
-json-model.scheck.out: json-model.model.json
-	$(JMC) -v -SO --no-code --true ./$< $(F.model) ../bads/_*.model.json | sort > $@
-	$(JMC) -v -SO --no-code --false ./$< $(F.bads) | sort >> $@
-
-# special case for localizations
-l10n.scheck.out: l10n.model.json
-	$(JMC) -v -SO --no-code --true ./$< english.model.json français.model.json > $@
-	echo "# localized models" >> $@
-	$(JMC) -v -SO --no-code --true ./english.model.json en_00.model.json >> $@
-	$(JMC) -v -SO --no-code --true ./français.model.json fr_00.model.json >> $@
-
 %.scheck.out: %.model.json
 	shopt -s nullglob
-	$(JMC) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
+	$(JMC.cmd) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
 
 #
 # Generated JSON Schema checks
@@ -148,21 +131,21 @@ schema.jcheck.out: $(F.schema)
 	done | sort > $@
 
 schema.dcheck.out: $(F.schema)
-	jmc --auto --check --quiet -DO ../../models/json-schema-draft-2020-12.model.json $^ |
+	$(JMC) --auto --check --quiet -DO ../../models/json-schema-draft-2020-12.model.json $^ |
 	  sort > $@
 
 schema.scheck.out: $(F.schema)
-	jmc --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
+	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
 	  sort > $@
 
 # FIXME json-schema-draft-tighter.model.json: KO, mandatory $schema
 
 schema.dcheck2.out: $(F.schema)
-	jmc --auto --check --verbose -DO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
+	$(JMC) --auto --check --verbose -DO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
 	  sort > $@
 
 schema.scheck2.out: $(F.schema)
-	jmc --auto --check --quiet -SO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
+	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
 	  sort > $@
 
 #
@@ -172,55 +155,16 @@ schema.scheck2.out: $(F.schema)
 # - models distinguish between floats and ints, schema not really.
 # - the json schema library used does not seem to implement "format" checks.
 #
-JS_CHECK    = jsu-check --quiet
 
 .PHONY: jcheck
 jcheck: $(F.js)
 	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n|schema)'
 	exit 0
 
-# special cases
-json-model.jcheck.out: json-model.schema.json
-	shopt -s nullglob
-	$(JS_CHECK) $< *.model.json ../bads/*.model.json | sort > $@
-
-l10n.jcheck.out: l10n.schema.json
-	$(JS_CHECK) $< english.model.json français.model.json > $@
-	# echo "# localized models" >> $@
-	# $(JS_CHECK) english.schema.json en_00.model.json >> $@
-	# $(JS_CHECK) français.schema.json fr_00.model.json >> $@
-
-# external references are not supported
-E.KO    = \
-    $(wildcard json-schema-*-fuzzy.model.json) \
-    $(wildcard json-schema-*-nesting.model.json) \
-    json-schema-draft-tighter-loose
-
-# skip errors
-E.root  = \
-    $(E.KO:%.model.json=%) \
-    json-model-preprocessed \
-    json-model-moschin \
-    json-model-v2-en \
-    english \
-    français \
-    openapi-310 \
-    openapi-310-models \
-    mrg_02 \
-    obj_03 \
-    obj_04 \
-    scope_1 \
-    hello2 \
-    hello3 \
-    scp_01
-
-$(addsuffix .jcheck.out,$(E.root)):
-	touch $@
-
 # default case
 %.jcheck.out: %.schema.json
 	shopt -s nullglob
-	$(JS_CHECK) $< $*.*.true.json $*.*.false.json | sort > $@
+	$(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
 
 #
 # generate everything from a model

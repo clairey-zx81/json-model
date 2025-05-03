@@ -13,52 +13,52 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-json_model_25_must: PropMap
-json_model_25_may: PropMap
-# regex "/^x\\-.*$/"
-jm_re_0 = re.compile("^x\\-.*$").search
 json_model_26_must: PropMap
 json_model_26_may: PropMap
+# regex "/^x\\-.*$/"
+jm_re_0 = re.compile("^x\\-.*$").search
+json_model_27_must: PropMap
 json_model_27_may: PropMap
+json_model_28_may: PropMap
 jm_obj_0_must: PropMap
 jm_obj_1_must: PropMap
-json_model_29_must: PropMap
-json_model_29_may: PropMap
 json_model_30_must: PropMap
 json_model_30_may: PropMap
+json_model_31_must: PropMap
 json_model_31_may: PropMap
+json_model_32_may: PropMap
 # regex "/^//"
 jm_re_1 = re.compile("^/").search
-json_model_33_may: PropMap
 json_model_34_may: PropMap
-json_model_35_must: PropMap
 json_model_35_may: PropMap
-json_model_37_must: PropMap
-json_model_37_may: PropMap
+json_model_36_must: PropMap
+json_model_36_may: PropMap
+json_model_38_must: PropMap
 json_model_38_may: PropMap
 json_model_39_may: PropMap
 json_model_40_may: PropMap
 json_model_41_may: PropMap
+json_model_42_may: PropMap
 # regex "/^[1-5](\\d\\d|XX)$/"
 jm_re_2 = re.compile("^[1-5](\\d\\d|XX)$").search
-json_model_42_may: PropMap
-json_model_44_may: PropMap
+json_model_43_may: PropMap
+json_model_45_may: PropMap
 # regex "/\\{.*\\}/"
 jm_re_3 = re.compile("\\{.*\\}").search
 jm_obj_2_must: PropMap
 jm_obj_2_may: PropMap
 jm_obj_3_must: PropMap
 jm_obj_3_may: PropMap
-json_model_36_may: PropMap
-json_model_48_must: PropMap
-json_model_48_may: PropMap
+json_model_37_may: PropMap
 json_model_49_must: PropMap
 json_model_49_may: PropMap
-json_model_54_must: PropMap
-json_model_54_may: PropMap
+json_model_50_must: PropMap
+json_model_50_may: PropMap
+json_model_55_must: PropMap
 json_model_55_may: PropMap
-json_model_56_must: PropMap
 json_model_56_may: PropMap
+json_model_57_must: PropMap
+json_model_57_may: PropMap
 jm_obj_4_must: PropMap
 jm_obj_4_may: PropMap
 # regex "/^(<=|>=|<|>|\u2265|\u2264)$/"
@@ -86,25 +86,25 @@ def is_valid_url(value: Jsonable, path: str) -> bool:
             return False
     return False
 
-# define "json_model_25_must_openapi" ($.'$#openapi#OpenAPI'.openapi)
+# define "json_model_26_must_openapi" ($.'$#openapi#OpenAPI'.openapi)
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.openapi
     result = isinstance(value, str)
     return result
 
-# define "json_model_25_must_info" ($.'$#openapi#OpenAPI'.info)
+# define "json_model_26_must_info" ($.'$#openapi#OpenAPI'.info)
 def jm_f_1(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.info
-    result = json_model_26(value, path)
+    result = json_model_27(value, path)
     return result
 
-# define "json_model_25_may_jsonSchemaDialect" ($.'$#openapi#OpenAPI'.jsonSchemaDialect)
+# define "json_model_26_may_jsonSchemaDialect" ($.'$#openapi#OpenAPI'.jsonSchemaDialect)
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.jsonSchemaDialect
     result = isinstance(value, str)
     return result
 
-# define "json_model_25_may_servers" ($.'$#openapi#OpenAPI'.servers)
+# define "json_model_26_may_servers" ($.'$#openapi#OpenAPI'.servers)
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.servers
     result = isinstance(value, list)
@@ -112,31 +112,31 @@ def jm_f_3(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_0_idx, array_0_item in enumerate(value):
             # $.'$#openapi#OpenAPI'.servers.0
-            result = json_model_29(array_0_item, path)
+            result = json_model_30(array_0_item, path)
             if not result: break
     return result
 
-# define "json_model_25_may_paths" ($.'$#openapi#OpenAPI'.paths)
+# define "json_model_26_may_paths" ($.'$#openapi#OpenAPI'.paths)
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.paths
+    result = json_model_33(value, path)
+    return result
+
+
+
+# define "json_model_26_may_component" ($.'$#openapi#OpenAPI'.component)
+def jm_f_6(value: Jsonable, path: str) -> bool:
+    # $.'$#openapi#OpenAPI'.component
     result = json_model_32(value, path)
     return result
 
-
-
-# define "json_model_25_may_component" ($.'$#openapi#OpenAPI'.component)
-def jm_f_6(value: Jsonable, path: str) -> bool:
-    # $.'$#openapi#OpenAPI'.component
-    result = json_model_31(value, path)
-    return result
-
-# define "json_model_25_may_security" ($.'$#openapi#OpenAPI'.security)
+# define "json_model_26_may_security" ($.'$#openapi#OpenAPI'.security)
 def jm_f_7(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.security
-    result = json_model_57(value, path)
+    result = json_model_58(value, path)
     return result
 
-# define "json_model_25_may_tags" ($.'$#openapi#OpenAPI'.tags)
+# define "json_model_26_may_tags" ($.'$#openapi#OpenAPI'.tags)
 def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.tags
     result = isinstance(value, list)
@@ -144,71 +144,71 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.'$#openapi#OpenAPI'.tags.0
-            result = json_model_48(array_1_item, path)
+            result = json_model_49(array_1_item, path)
             if not result: break
     return result
 
-# define "json_model_25_may_externalDocs" ($.'$#openapi#OpenAPI'.externalDocs)
+# define "json_model_26_may_externalDocs" ($.'$#openapi#OpenAPI'.externalDocs)
 def jm_f_9(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OpenAPI'.externalDocs
-    result = json_model_35(value, path)
+    result = json_model_36(value, path)
     return result
 
-# define "json_model_26_must_title" ($.'$#openapi#Info'.title)
+# define "json_model_27_must_title" ($.'$#openapi#Info'.title)
 def jm_f_10(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_26_must_version" ($.'$#openapi#Info'.version)
+# define "json_model_27_must_version" ($.'$#openapi#Info'.version)
 def jm_f_11(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.version
     result = isinstance(value, str)
     return result
 
-# define "json_model_26_may_summary" ($.'$#openapi#Info'.summary)
+# define "json_model_27_may_summary" ($.'$#openapi#Info'.summary)
 def jm_f_12(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.summary
     result = isinstance(value, str)
     return result
 
-# define "json_model_26_may_description" ($.'$#openapi#Info'.description)
+# define "json_model_27_may_description" ($.'$#openapi#Info'.description)
 def jm_f_13(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_26_may_termsOfService" ($.'$#openapi#Info'.termsOfService)
+# define "json_model_27_may_termsOfService" ($.'$#openapi#Info'.termsOfService)
 def jm_f_14(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.termsOfService
     result = isinstance(value, str)
     return result
 
-# define "json_model_26_may_contact" ($.'$#openapi#Info'.contact)
+# define "json_model_27_may_contact" ($.'$#openapi#Info'.contact)
 def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Info'.contact
-    result = json_model_27(value, path)
-    return result
-
-# define "json_model_26_may_license" ($.'$#openapi#Info'.license)
-def jm_f_16(value: Jsonable, path: str) -> bool:
-    # $.'$#openapi#Info'.license
     result = json_model_28(value, path)
     return result
 
-# define "json_model_27_may_name" ($.'$#openapi#Contact'.name)
+# define "json_model_27_may_license" ($.'$#openapi#Info'.license)
+def jm_f_16(value: Jsonable, path: str) -> bool:
+    # $.'$#openapi#Info'.license
+    result = json_model_29(value, path)
+    return result
+
+# define "json_model_28_may_name" ($.'$#openapi#Contact'.name)
 def jm_f_17(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Contact'.name
     result = isinstance(value, str)
     return result
 
-# define "json_model_27_may_url" ($.'$#openapi#Contact'.url)
+# define "json_model_28_may_url" ($.'$#openapi#Contact'.url)
 def jm_f_18(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Contact'.url
     result = is_valid_url(value, path)
     return result
 
-# define "json_model_27_may_email" ($.'$#openapi#Contact'.email)
+# define "json_model_28_may_email" ($.'$#openapi#Contact'.email)
 def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Contact'.email
     result = isinstance(value, str)
@@ -238,13 +238,13 @@ def jm_f_23(value: Jsonable, path: str) -> bool:
     result = is_valid_url(value, path)
     return result
 
-# define "json_model_29_must_url" ($.'$#openapi#Server'.url)
+# define "json_model_30_must_url" ($.'$#openapi#Server'.url)
 def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Server'.url
     result = is_valid_url(value, path)
     return result
 
-# define "json_model_29_may_description" ($.'$#openapi#Server'.description)
+# define "json_model_30_may_description" ($.'$#openapi#Server'.description)
 def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Server'.description
     result = isinstance(value, str)
@@ -252,13 +252,13 @@ def jm_f_25(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_30_must_default" ($.'$#openapi#ServerVariable'.default)
+# define "json_model_31_must_default" ($.'$#openapi#ServerVariable'.default)
 def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ServerVariable'.default
     result = isinstance(value, str)
     return result
 
-# define "json_model_30_may_enum" ($.'$#openapi#ServerVariable'.enum)
+# define "json_model_31_may_enum" ($.'$#openapi#ServerVariable'.enum)
 def jm_f_28(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ServerVariable'.enum
     result = isinstance(value, list)
@@ -270,7 +270,7 @@ def jm_f_28(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_30_may_description" ($.'$#openapi#ServerVariable'.description)
+# define "json_model_31_may_description" ($.'$#openapi#ServerVariable'.description)
 def jm_f_29(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ServerVariable'.description
     result = isinstance(value, str)
@@ -296,75 +296,75 @@ def jm_f_29(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_33_may_$ref" ($.'$#openapi#PathItem'.'$ref')
+# define "json_model_34_may_$ref" ($.'$#openapi#PathItem'.'$ref')
 def jm_f_40(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.'$ref'
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_summary" ($.'$#openapi#PathItem'.summary)
+# define "json_model_34_may_summary" ($.'$#openapi#PathItem'.summary)
 def jm_f_41(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.summary
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_description" ($.'$#openapi#PathItem'.description)
+# define "json_model_34_may_description" ($.'$#openapi#PathItem'.description)
 def jm_f_42(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_get" ($.'$#openapi#PathItem'.get)
+# define "json_model_34_may_get" ($.'$#openapi#PathItem'.get)
 def jm_f_43(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.get
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_put" ($.'$#openapi#PathItem'.put)
+# define "json_model_34_may_put" ($.'$#openapi#PathItem'.put)
 def jm_f_44(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.put
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_post" ($.'$#openapi#PathItem'.post)
+# define "json_model_34_may_post" ($.'$#openapi#PathItem'.post)
 def jm_f_45(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.post
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_options" ($.'$#openapi#PathItem'.options)
+# define "json_model_34_may_options" ($.'$#openapi#PathItem'.options)
 def jm_f_46(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.options
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_head" ($.'$#openapi#PathItem'.head)
+# define "json_model_34_may_head" ($.'$#openapi#PathItem'.head)
 def jm_f_47(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.head
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_patch" ($.'$#openapi#PathItem'.patch)
+# define "json_model_34_may_patch" ($.'$#openapi#PathItem'.patch)
 def jm_f_48(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.patch
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_trace" ($.'$#openapi#PathItem'.trace)
+# define "json_model_34_may_trace" ($.'$#openapi#PathItem'.trace)
 def jm_f_49(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.trace
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
-# define "json_model_33_may_servers" ($.'$#openapi#PathItem'.servers)
+# define "json_model_34_may_servers" ($.'$#openapi#PathItem'.servers)
 def jm_f_50(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#PathItem'.servers
-    result = json_model_34(value, path)
+    result = json_model_35(value, path)
     return result
 
 
 
-# define "json_model_34_may_tags" ($.'$#openapi#Operation'.tags)
+# define "json_model_35_may_tags" ($.'$#openapi#Operation'.tags)
 def jm_f_52(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.tags
     result = isinstance(value, list)
@@ -376,25 +376,25 @@ def jm_f_52(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_34_may_summary" ($.'$#openapi#Operation'.summary)
+# define "json_model_35_may_summary" ($.'$#openapi#Operation'.summary)
 def jm_f_53(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.summary
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_description" ($.'$#openapi#Operation'.description)
+# define "json_model_35_may_description" ($.'$#openapi#Operation'.description)
 def jm_f_54(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_externalDocs" ($.'$#openapi#Operation'.externalDocs)
+# define "json_model_35_may_externalDocs" ($.'$#openapi#Operation'.externalDocs)
 def jm_f_55(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.externalDocs
-    result = json_model_35(value, path)
+    result = json_model_36(value, path)
     return result
 
-# define "json_model_34_may_operationId" ($.'$#openapi#Operation'.operationId)
+# define "json_model_35_may_operationId" ($.'$#openapi#Operation'.operationId)
 def jm_f_56(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.operationId
     result = isinstance(value, str)
@@ -404,21 +404,21 @@ def jm_f_56(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_34_may_responses" ($.'$#openapi#Operation'.responses)
+# define "json_model_35_may_responses" ($.'$#openapi#Operation'.responses)
 def jm_f_59(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.responses
-    result = json_model_41(value, path)
+    result = json_model_42(value, path)
     return result
 
 
 
-# define "json_model_34_may_deprecated" ($.'$#openapi#Operation'.deprecated)
+# define "json_model_35_may_deprecated" ($.'$#openapi#Operation'.deprecated)
 def jm_f_61(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.deprecated
     result = isinstance(value, bool)
     return result
 
-# define "json_model_34_may_security" ($.'$#openapi#Operation'.security)
+# define "json_model_35_may_security" ($.'$#openapi#Operation'.security)
 def jm_f_62(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.security
     result = isinstance(value, list)
@@ -426,11 +426,11 @@ def jm_f_62(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_4_idx, array_4_item in enumerate(value):
             # $.'$#openapi#Operation'.security.0
-            result = json_model_57(array_4_item, path)
+            result = json_model_58(array_4_item, path)
             if not result: break
     return result
 
-# define "json_model_34_may_servers" ($.'$#openapi#Operation'.servers)
+# define "json_model_35_may_servers" ($.'$#openapi#Operation'.servers)
 def jm_f_63(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Operation'.servers
     result = isinstance(value, list)
@@ -438,77 +438,77 @@ def jm_f_63(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_5_idx, array_5_item in enumerate(value):
             # $.'$#openapi#Operation'.servers.0
-            result = json_model_29(array_5_item, path)
+            result = json_model_30(array_5_item, path)
             if not result: break
     return result
 
-# define "json_model_35_must_url" ($.'$#openapi#ExternalDocumentation'.url)
+# define "json_model_36_must_url" ($.'$#openapi#ExternalDocumentation'.url)
 def jm_f_64(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ExternalDocumentation'.url
     result = is_valid_url(value, path)
     return result
 
-# define "json_model_35_may_description" ($.'$#openapi#ExternalDocumentation'.description)
+# define "json_model_36_may_description" ($.'$#openapi#ExternalDocumentation'.description)
 def jm_f_65(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#ExternalDocumentation'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_must_name" ($.'$#openapi#Parameter'.name)
+# define "json_model_38_must_name" ($.'$#openapi#Parameter'.name)
 def jm_f_66(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.name
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_must_in" ($.'$#openapi#Parameter'.in)
+# define "json_model_38_must_in" ($.'$#openapi#Parameter'.in)
 def jm_f_67(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.in
     result = not isinstance(value, (list, dict)) and value in {'cookie', 'header', 'path', 'query'}
     return result
 
-# define "json_model_37_may_description" ($.'$#openapi#Parameter'.description)
+# define "json_model_38_may_description" ($.'$#openapi#Parameter'.description)
 def jm_f_68(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_required" ($.'$#openapi#Parameter'.required)
+# define "json_model_38_may_required" ($.'$#openapi#Parameter'.required)
 def jm_f_69(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.required
     result = isinstance(value, bool)
     return result
 
-# define "json_model_37_may_deprecated" ($.'$#openapi#Parameter'.deprecated)
+# define "json_model_38_may_deprecated" ($.'$#openapi#Parameter'.deprecated)
 def jm_f_70(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.deprecated
     result = isinstance(value, bool)
     return result
 
-# define "json_model_37_may_allowEmptyValue" ($.'$#openapi#Parameter'.allowEmptyValue)
+# define "json_model_38_may_allowEmptyValue" ($.'$#openapi#Parameter'.allowEmptyValue)
 def jm_f_71(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.allowEmptyValue
     result = isinstance(value, bool)
     return result
 
-# define "json_model_37_may_style" ($.'$#openapi#Parameter'.style)
+# define "json_model_38_may_style" ($.'$#openapi#Parameter'.style)
 def jm_f_72(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.style
     result = not isinstance(value, (list, dict)) and value in {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
     return result
 
-# define "json_model_37_may_explode" ($.'$#openapi#Parameter'.explode)
+# define "json_model_38_may_explode" ($.'$#openapi#Parameter'.explode)
 def jm_f_73(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.explode
     result = isinstance(value, bool)
     return result
 
-# define "json_model_37_may_allowReserved" ($.'$#openapi#Parameter'.allowReserved)
+# define "json_model_38_may_allowReserved" ($.'$#openapi#Parameter'.allowReserved)
 def jm_f_74(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.allowReserved
     result = isinstance(value, bool)
     return result
 
-# define "json_model_37_may_example" ($.'$#openapi#Parameter'.example)
+# define "json_model_38_may_example" ($.'$#openapi#Parameter'.example)
 def jm_f_75(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.example
     result = True
@@ -518,13 +518,13 @@ def jm_f_75(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_37_may_model" ($.'$#openapi#Parameter'.model)
+# define "json_model_38_may_model" ($.'$#openapi#Parameter'.model)
 def jm_f_78(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Parameter'.model
-    result = json_model_121(value, path)
+    result = json_model_124(value, path)
     return result
 
-# define "json_model_38_may_description" ($.'$#openapi#RequestBody'.description)
+# define "json_model_39_may_description" ($.'$#openapi#RequestBody'.description)
 def jm_f_79(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#RequestBody'.description
     result = isinstance(value, str)
@@ -532,13 +532,13 @@ def jm_f_79(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_38_may_required" ($.'$#openapi#RequestBody'.required)
+# define "json_model_39_may_required" ($.'$#openapi#RequestBody'.required)
 def jm_f_81(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#RequestBody'.required
     result = isinstance(value, bool)
     return result
 
-# define "json_model_39_may_example" ($.'$#openapi#MediaType'.example)
+# define "json_model_40_may_example" ($.'$#openapi#MediaType'.example)
 def jm_f_82(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#MediaType'.example
     result = True
@@ -548,13 +548,13 @@ def jm_f_82(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_39_may_model" ($.'$#openapi#MediaType'.model)
+# define "json_model_40_may_model" ($.'$#openapi#MediaType'.model)
 def jm_f_85(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#MediaType'.model
-    result = json_model_121(value, path)
+    result = json_model_124(value, path)
     return result
 
-# define "json_model_40_may_contentType" ($.'$#openapi#Encoding'.contentType)
+# define "json_model_41_may_contentType" ($.'$#openapi#Encoding'.contentType)
 def jm_f_86(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Encoding'.contentType
     result = isinstance(value, str)
@@ -562,35 +562,35 @@ def jm_f_86(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_40_may_style" ($.'$#openapi#Encoding'.style)
+# define "json_model_41_may_style" ($.'$#openapi#Encoding'.style)
 def jm_f_88(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Encoding'.style
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_explode" ($.'$#openapi#Encoding'.explode)
+# define "json_model_41_may_explode" ($.'$#openapi#Encoding'.explode)
 def jm_f_89(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Encoding'.explode
     result = isinstance(value, bool)
     return result
 
-# define "json_model_40_may_allowReserved" ($.'$#openapi#Encoding'.allowReserved)
+# define "json_model_41_may_allowReserved" ($.'$#openapi#Encoding'.allowReserved)
 def jm_f_90(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Encoding'.allowReserved
     result = isinstance(value, bool)
     return result
 
-# define "json_model_41_may_default" ($.'$#openapi#Responses'.default)
+# define "json_model_42_may_default" ($.'$#openapi#Responses'.default)
 def jm_f_91(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Responses'.default
     # $.'$#openapi#Responses'.default.'|'.0
-    result = json_model_42(value, path)
+    result = json_model_43(value, path)
     if not result:
         # $.'$#openapi#Responses'.default.'|'.1
-        result = json_model_49(value, path)
+        result = json_model_50(value, path)
     return result
 
-# define "json_model_42_may_description" ($.'$#openapi#Response'.description)
+# define "json_model_43_may_description" ($.'$#openapi#Response'.description)
 def jm_f_92(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Response'.description
     result = isinstance(value, str)
@@ -602,25 +602,25 @@ def jm_f_92(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_44_may_summary" ($.'$#openapi#Example'.summary)
+# define "json_model_45_may_summary" ($.'$#openapi#Example'.summary)
 def jm_f_96(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Example'.summary
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_description" ($.'$#openapi#Example'.description)
+# define "json_model_45_may_description" ($.'$#openapi#Example'.description)
 def jm_f_97(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Example'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_value" ($.'$#openapi#Example'.value)
+# define "json_model_45_may_value" ($.'$#openapi#Example'.value)
 def jm_f_98(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Example'.value
     result = True
     return result
 
-# define "json_model_44_may_externalValue" ($.'$#openapi#Example'.externalValue)
+# define "json_model_45_may_externalValue" ($.'$#openapi#Example'.externalValue)
 def jm_f_99(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Example'.externalValue
     result = isinstance(value, str)
@@ -649,7 +649,7 @@ def jm_f_103(value: Jsonable, path: str) -> bool:
 # define "jm_obj_2_may_server" ($.'$#openapi#Link'.'|'.0.server)
 def jm_f_104(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Link'.'|'.0.server
-    result = json_model_29(value, path)
+    result = json_model_30(value, path)
     return result
 
 # define "jm_obj_3_must_operationId" ($.'$#openapi#Link'.'|'.1.operationId)
@@ -675,52 +675,52 @@ def jm_f_108(value: Jsonable, path: str) -> bool:
 # define "jm_obj_3_may_server" ($.'$#openapi#Link'.'|'.1.server)
 def jm_f_109(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Link'.'|'.1.server
-    result = json_model_29(value, path)
+    result = json_model_30(value, path)
     return result
 
-# define "json_model_36_may_description" ($.'$#openapi#parameterShare'.description)
+# define "json_model_37_may_description" ($.'$#openapi#parameterShare'.description)
 def jm_f_110(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_required" ($.'$#openapi#parameterShare'.required)
+# define "json_model_37_may_required" ($.'$#openapi#parameterShare'.required)
 def jm_f_111(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.required
     result = isinstance(value, bool)
     return result
 
-# define "json_model_36_may_deprecated" ($.'$#openapi#parameterShare'.deprecated)
+# define "json_model_37_may_deprecated" ($.'$#openapi#parameterShare'.deprecated)
 def jm_f_112(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.deprecated
     result = isinstance(value, bool)
     return result
 
-# define "json_model_36_may_allowEmptyValue" ($.'$#openapi#parameterShare'.allowEmptyValue)
+# define "json_model_37_may_allowEmptyValue" ($.'$#openapi#parameterShare'.allowEmptyValue)
 def jm_f_113(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.allowEmptyValue
     result = isinstance(value, bool)
     return result
 
-# define "json_model_36_may_style" ($.'$#openapi#parameterShare'.style)
+# define "json_model_37_may_style" ($.'$#openapi#parameterShare'.style)
 def jm_f_114(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.style
     result = not isinstance(value, (list, dict)) and value in {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
     return result
 
-# define "json_model_36_may_explode" ($.'$#openapi#parameterShare'.explode)
+# define "json_model_37_may_explode" ($.'$#openapi#parameterShare'.explode)
 def jm_f_115(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.explode
     result = isinstance(value, bool)
     return result
 
-# define "json_model_36_may_allowReserved" ($.'$#openapi#parameterShare'.allowReserved)
+# define "json_model_37_may_allowReserved" ($.'$#openapi#parameterShare'.allowReserved)
 def jm_f_116(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.allowReserved
     result = isinstance(value, bool)
     return result
 
-# define "json_model_36_may_example" ($.'$#openapi#parameterShare'.example)
+# define "json_model_37_may_example" ($.'$#openapi#parameterShare'.example)
 def jm_f_117(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.example
     result = True
@@ -730,127 +730,127 @@ def jm_f_117(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_36_may_model" ($.'$#openapi#parameterShare'.model)
+# define "json_model_37_may_model" ($.'$#openapi#parameterShare'.model)
 def jm_f_120(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#parameterShare'.model
-    result = json_model_121(value, path)
+    result = json_model_124(value, path)
     return result
 
-# define "json_model_48_must_name" ($.'$#openapi#Tag'.name)
+# define "json_model_49_must_name" ($.'$#openapi#Tag'.name)
 def jm_f_121(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Tag'.name
     result = isinstance(value, str)
     return result
 
-# define "json_model_48_may_description" ($.'$#openapi#Tag'.description)
+# define "json_model_49_may_description" ($.'$#openapi#Tag'.description)
 def jm_f_122(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Tag'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_48_may_externalDocs" ($.'$#openapi#Tag'.externalDocs)
+# define "json_model_49_may_externalDocs" ($.'$#openapi#Tag'.externalDocs)
 def jm_f_123(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Tag'.externalDocs
-    result = json_model_35(value, path)
+    result = json_model_36(value, path)
     return result
 
-# define "json_model_49_must_$ref" ($.'$#openapi#Reference'.'$ref')
+# define "json_model_50_must_$ref" ($.'$#openapi#Reference'.'$ref')
 def jm_f_124(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Reference'.'$ref'
     result = isinstance(value, str)
     return result
 
-# define "json_model_49_may_summary" ($.'$#openapi#Reference'.summary)
+# define "json_model_50_may_summary" ($.'$#openapi#Reference'.summary)
 def jm_f_125(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Reference'.summary
     result = isinstance(value, str)
     return result
 
-# define "json_model_49_may_description" ($.'$#openapi#Reference'.description)
+# define "json_model_50_may_description" ($.'$#openapi#Reference'.description)
 def jm_f_126(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Reference'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_must_type" ($.'$#openapi#SecurityScheme'.type)
+# define "json_model_55_must_type" ($.'$#openapi#SecurityScheme'.type)
 def jm_f_127(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.type
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_must_name" ($.'$#openapi#SecurityScheme'.name)
+# define "json_model_55_must_name" ($.'$#openapi#SecurityScheme'.name)
 def jm_f_128(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.name
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_must_in" ($.'$#openapi#SecurityScheme'.in)
+# define "json_model_55_must_in" ($.'$#openapi#SecurityScheme'.in)
 def jm_f_129(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.in
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_must_scheme" ($.'$#openapi#SecurityScheme'.scheme)
+# define "json_model_55_must_scheme" ($.'$#openapi#SecurityScheme'.scheme)
 def jm_f_130(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.scheme
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_must_flows" ($.'$#openapi#SecurityScheme'.flows)
+# define "json_model_55_must_flows" ($.'$#openapi#SecurityScheme'.flows)
 def jm_f_131(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.flows
-    result = json_model_55(value, path)
+    result = json_model_56(value, path)
     return result
 
-# define "json_model_54_must_openIdConnectUrl" ($.'$#openapi#SecurityScheme'.openIdConnectUrl)
+# define "json_model_55_must_openIdConnectUrl" ($.'$#openapi#SecurityScheme'.openIdConnectUrl)
 def jm_f_132(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.openIdConnectUrl
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_may_description" ($.'$#openapi#SecurityScheme'.description)
+# define "json_model_55_may_description" ($.'$#openapi#SecurityScheme'.description)
 def jm_f_133(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_54_may_bearerFormat" ($.'$#openapi#SecurityScheme'.bearerFormat)
+# define "json_model_55_may_bearerFormat" ($.'$#openapi#SecurityScheme'.bearerFormat)
 def jm_f_134(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#SecurityScheme'.bearerFormat
     result = isinstance(value, str)
     return result
 
-# define "json_model_55_may_implicit" ($.'$#openapi#OAuthFlows'.implicit)
+# define "json_model_56_may_implicit" ($.'$#openapi#OAuthFlows'.implicit)
 def jm_f_135(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlows'.implicit
-    result = json_model_56(value, path)
+    result = json_model_57(value, path)
     return result
 
-# define "json_model_55_may_password" ($.'$#openapi#OAuthFlows'.password)
+# define "json_model_56_may_password" ($.'$#openapi#OAuthFlows'.password)
 def jm_f_136(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlows'.password
-    result = json_model_56(value, path)
+    result = json_model_57(value, path)
     return result
 
-# define "json_model_55_may_clientCredentials" ($.'$#openapi#OAuthFlows'.clientCredentials)
+# define "json_model_56_may_clientCredentials" ($.'$#openapi#OAuthFlows'.clientCredentials)
 def jm_f_137(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlows'.clientCredentials
-    result = json_model_56(value, path)
+    result = json_model_57(value, path)
     return result
 
-# define "json_model_55_may_authorizationCode" ($.'$#openapi#OAuthFlows'.authorizationCode)
+# define "json_model_56_may_authorizationCode" ($.'$#openapi#OAuthFlows'.authorizationCode)
 def jm_f_138(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlows'.authorizationCode
-    result = json_model_56(value, path)
+    result = json_model_57(value, path)
     return result
 
-# define "json_model_56_must_authorizationUrl" ($.'$#openapi#OAuthFlow'.authorizationUrl)
+# define "json_model_57_must_authorizationUrl" ($.'$#openapi#OAuthFlow'.authorizationUrl)
 def jm_f_139(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlow'.authorizationUrl
     result = isinstance(value, str)
     return result
 
-# define "json_model_56_must_tokenUrl" ($.'$#openapi#OAuthFlow'.tokenUrl)
+# define "json_model_57_must_tokenUrl" ($.'$#openapi#OAuthFlow'.tokenUrl)
 def jm_f_140(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlow'.tokenUrl
     result = isinstance(value, str)
@@ -858,7 +858,7 @@ def jm_f_140(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_56_may_refreshUrl" ($.'$#openapi#OAuthFlow'.refreshUrl)
+# define "json_model_57_may_refreshUrl" ($.'$#openapi#OAuthFlow'.refreshUrl)
 def jm_f_142(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#OAuthFlow'.refreshUrl
     result = isinstance(value, str)
@@ -867,7 +867,7 @@ def jm_f_142(value: Jsonable, path: str) -> bool:
 # define "jm_obj_4_must_@" ($.'$#openapi#model#Elem'.'|'.0.'@')
 def jm_f_143(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'.'|'.0.'@'
-    result = json_model_138(value, path)
+    result = json_model_141(value, path)
     return result
 
 # define "jm_obj_4_may_#" ($.'$#openapi#model#Elem'.'|'.0.'#')
@@ -890,7 +890,7 @@ def jm_f_146(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_8_idx, array_8_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.1.'|'.0
-            result = json_model_138(array_8_item, path)
+            result = json_model_141(array_8_item, path)
             if not result: break
     return result
 
@@ -908,7 +908,7 @@ def jm_f_148(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_9_idx, array_9_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.2.'&'.0
-            result = json_model_138(array_9_item, path)
+            result = json_model_141(array_9_item, path)
             if not result: break
     return result
 
@@ -926,7 +926,7 @@ def jm_f_150(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_10_idx, array_10_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.3.'^'.0
-            result = json_model_138(array_10_item, path)
+            result = json_model_141(array_10_item, path)
             if not result: break
     return result
 
@@ -944,7 +944,7 @@ def jm_f_152(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_11_idx, array_11_item in enumerate(value):
             # $.'$#openapi#model#Elem'.'|'.4.'+'.0
-            result = json_model_138(array_11_item, path)
+            result = json_model_141(array_11_item, path)
             if not result: break
     return result
 
@@ -964,13 +964,13 @@ def jm_f_154(value: Jsonable, path: str) -> bool:
 # define "$openapi" ($.openapi)
 def json_model_1(value: Jsonable, path: str) -> bool:
     # $.openapi
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "$#openapi" ($.'$#openapi')
-def json_model_24(value: Jsonable, path: str) -> bool:
+def json_model_25(value: Jsonable, path: str) -> bool:
     # $.'$#openapi'
-    result = json_model_25(value, path)
+    result = json_model_26(value, path)
     return result
 
 
@@ -982,40 +982,15 @@ def jm_f_5(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#OpenAPI'.webhooks.''
         # $.'$#openapi#OpenAPI'.webhooks.''.'|'.0
-        result = json_model_33(model, path)
+        result = json_model_34(model, path)
         if not result:
             # $.'$#openapi#OpenAPI'.webhooks.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#OpenAPI'
-def json_model_25(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    must_count = 0
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if prop in json_model_25_must:  # must
-            must_count += 1
-            if not json_model_25_must[prop](model, f"{path}.{prop}"):
-                return False
-        elif prop in json_model_25_may:  # may
-            if not json_model_25_may[prop](model, f"{path}.{prop}"):
-                return False
-        elif jm_re_0(prop) is not None:  # /^x\-.*$/
-            # $.'$#openapi#OpenAPI'.'/^x\-.*$/'
-            result = True
-            if not result: return False
-        else:  # no catch all
-            return False
-    return must_count == 2
-
-
-
-
-# object $.'$#openapi#Info'
 def json_model_26(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1030,6 +1005,31 @@ def json_model_26(value: Jsonable, path: str) -> bool:
             if not json_model_26_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
+            # $.'$#openapi#OpenAPI'.'/^x\-.*$/'
+            result = True
+            if not result: return False
+        else:  # no catch all
+            return False
+    return must_count == 2
+
+
+
+
+# object $.'$#openapi#Info'
+def json_model_27(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    must_count = 0
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_27_must:  # must
+            must_count += 1
+            if not json_model_27_must[prop](model, f"{path}.{prop}"):
+                return False
+        elif prop in json_model_27_may:  # may
+            if not json_model_27_may[prop](model, f"{path}.{prop}"):
+                return False
+        elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Info'.'/^x\-.*$/'
             result = True
             if not result: return False
@@ -1041,13 +1041,13 @@ def json_model_26(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Contact'
-def json_model_27(value: Jsonable, path: str) -> bool:
+def json_model_28(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_27_may:  # may
-            if not json_model_27_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_28_may:  # may
+            if not json_model_28_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Contact'.'/^x\-.*$/'
@@ -1100,7 +1100,7 @@ def jm_obj_1(value: Jsonable, path: str) -> bool:
     return must_count == 2
 
 # define "$#openapi#License" ($.'$#openapi#License')
-def json_model_28(value: Jsonable, path: str) -> bool:
+def json_model_29(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#License'
     result = isinstance(value, dict)
     if result:
@@ -1119,24 +1119,24 @@ def jm_f_26(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#Server'.variables.''
-        result = json_model_30(model, path)
+        result = json_model_31(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Server'
-def json_model_29(value: Jsonable, path: str) -> bool:
+def json_model_30(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_29_must:  # must
+        if prop in json_model_30_must:  # must
             must_count += 1
-            if not json_model_29_must[prop](model, f"{path}.{prop}"):
+            if not json_model_30_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_29_may:  # may
-            if not json_model_29_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_30_may:  # may
+            if not json_model_30_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Server'.'/^x\-.*$/'
@@ -1150,18 +1150,18 @@ def json_model_29(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#ServerVariable'
-def json_model_30(value: Jsonable, path: str) -> bool:
+def json_model_31(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_30_must:  # must
+        if prop in json_model_31_must:  # must
             must_count += 1
-            if not json_model_30_must[prop](model, f"{path}.{prop}"):
+            if not json_model_31_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_30_may:  # may
-            if not json_model_30_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_31_may:  # may
+            if not json_model_31_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#ServerVariable'.'/^x\-.*$/'
@@ -1182,10 +1182,10 @@ def jm_f_30(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.responses.''
         # $.'$#openapi#Components'.responses.''.'|'.0
-        result = json_model_42(model, path)
+        result = json_model_43(model, path)
         if not result:
             # $.'$#openapi#Components'.responses.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1198,10 +1198,10 @@ def jm_f_31(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.parameters.''
         # $.'$#openapi#Components'.parameters.''.'|'.0
-        result = json_model_37(model, path)
+        result = json_model_38(model, path)
         if not result:
             # $.'$#openapi#Components'.parameters.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1214,10 +1214,10 @@ def jm_f_32(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.examples.''
         # $.'$#openapi#Components'.examples.''.'|'.0
-        result = json_model_44(model, path)
+        result = json_model_45(model, path)
         if not result:
             # $.'$#openapi#Components'.examples.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1230,10 +1230,10 @@ def jm_f_33(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.requestBodies.''
         # $.'$#openapi#Components'.requestBodies.''.'|'.0
-        result = json_model_38(model, path)
+        result = json_model_39(model, path)
         if not result:
             # $.'$#openapi#Components'.requestBodies.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1246,10 +1246,10 @@ def jm_f_34(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.headers.''
         # $.'$#openapi#Components'.headers.''.'|'.0
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result:
             # $.'$#openapi#Components'.headers.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1262,10 +1262,10 @@ def jm_f_35(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.securitySchemes.''
         # $.'$#openapi#Components'.securitySchemes.''.'|'.0
-        result = json_model_54(model, path)
+        result = json_model_55(model, path)
         if not result:
             # $.'$#openapi#Components'.securitySchemes.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1278,10 +1278,10 @@ def jm_f_36(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.links.''
         # $.'$#openapi#Components'.links.''.'|'.0
-        result = json_model_46(model, path)
+        result = json_model_47(model, path)
         if not result:
             # $.'$#openapi#Components'.links.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1294,10 +1294,10 @@ def jm_f_37(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.callbacks.''
         # $.'$#openapi#Components'.callbacks.''.'|'.0
-        result = json_model_43(model, path)
+        result = json_model_44(model, path)
         if not result:
             # $.'$#openapi#Components'.callbacks.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1310,10 +1310,10 @@ def jm_f_38(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.pathItems.''
         # $.'$#openapi#Components'.pathItems.''.'|'.0
-        result = json_model_33(model, path)
+        result = json_model_34(model, path)
         if not result:
             # $.'$#openapi#Components'.pathItems.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1325,19 +1325,19 @@ def jm_f_39(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#Components'.models.''
-        result = json_model_121(model, path)
+        result = json_model_124(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Components'
-def json_model_31(value: Jsonable, path: str) -> bool:
+def json_model_32(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_31_may:  # may
-            if not json_model_31_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_32_may:  # may
+            if not json_model_32_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Components'.'/^x\-.*$/'
@@ -1351,14 +1351,14 @@ def json_model_31(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Paths'
-def json_model_32(value: Jsonable, path: str) -> bool:
+def json_model_33(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
         if jm_re_1(prop) is not None:  # /^//
             # $.'$#openapi#Paths'.'/^//'
-            result = json_model_33(model, path)
+            result = json_model_34(model, path)
             if not result: return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Paths'.'/^x\-.*$/'
@@ -1379,22 +1379,22 @@ def jm_f_51(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#PathItem'.parameters.''
         # $.'$#openapi#PathItem'.parameters.''.'|'.0
-        result = json_model_37(model, path)
+        result = json_model_38(model, path)
         if not result:
             # $.'$#openapi#PathItem'.parameters.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#PathItem'
-def json_model_33(value: Jsonable, path: str) -> bool:
+def json_model_34(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_33_may:  # may
-            if not json_model_33_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_34_may:  # may
+            if not json_model_34_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#PathItem'.'/^x\-.*$/'
@@ -1415,10 +1415,10 @@ def jm_f_57(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Operation'.parameters.''
         # $.'$#openapi#Operation'.parameters.''.'|'.0
-        result = json_model_37(model, path)
+        result = json_model_38(model, path)
         if not result:
             # $.'$#openapi#Operation'.parameters.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1431,10 +1431,10 @@ def jm_f_58(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Operation'.requestBody.''
         # $.'$#openapi#Operation'.requestBody.''.'|'.0
-        result = json_model_38(model, path)
+        result = json_model_39(model, path)
         if not result:
             # $.'$#openapi#Operation'.requestBody.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1447,22 +1447,22 @@ def jm_f_60(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Operation'.callbacks.''
         # $.'$#openapi#Operation'.callbacks.''.'|'.0
-        result = json_model_43(model, path)
+        result = json_model_44(model, path)
         if not result:
             # $.'$#openapi#Operation'.callbacks.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Operation'
-def json_model_34(value: Jsonable, path: str) -> bool:
+def json_model_35(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_34_may:  # may
-            if not json_model_34_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_35_may:  # may
+            if not json_model_35_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Operation'.'/^x\-.*$/'
@@ -1476,18 +1476,18 @@ def json_model_34(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#ExternalDocumentation'
-def json_model_35(value: Jsonable, path: str) -> bool:
+def json_model_36(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_35_must:  # must
+        if prop in json_model_36_must:  # must
             must_count += 1
-            if not json_model_35_must[prop](model, f"{path}.{prop}"):
+            if not json_model_36_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_35_may:  # may
-            if not json_model_35_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_36_may:  # may
+            if not json_model_36_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#ExternalDocumentation'.'/^x\-.*$/'
@@ -1508,10 +1508,10 @@ def jm_f_76(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Parameter'.examples.''
         # $.'$#openapi#Parameter'.examples.''.'|'.0
-        result = json_model_44(model, path)
+        result = json_model_45(model, path)
         if not result:
             # $.'$#openapi#Parameter'.examples.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1523,24 +1523,24 @@ def jm_f_77(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#Parameter'.content.''
-        result = json_model_39(model, path)
+        result = json_model_40(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Parameter'
-def json_model_37(value: Jsonable, path: str) -> bool:
+def json_model_38(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_37_must:  # must
+        if prop in json_model_38_must:  # must
             must_count += 1
-            if not json_model_37_must[prop](model, f"{path}.{prop}"):
+            if not json_model_38_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_37_may:  # may
-            if not json_model_37_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_38_may:  # may
+            if not json_model_38_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Parameter'.'/^x\-.*$/'
@@ -1560,19 +1560,19 @@ def jm_f_80(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#RequestBody'.content.''
-        result = json_model_39(model, path)
+        result = json_model_40(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#RequestBody'
-def json_model_38(value: Jsonable, path: str) -> bool:
+def json_model_39(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_38_may:  # may
-            if not json_model_38_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_39_may:  # may
+            if not json_model_39_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#RequestBody'.'/^x\-.*$/'
@@ -1593,10 +1593,10 @@ def jm_f_83(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#MediaType'.examples.''
         # $.'$#openapi#MediaType'.examples.''.'|'.0
-        result = json_model_44(model, path)
+        result = json_model_45(model, path)
         if not result:
             # $.'$#openapi#MediaType'.examples.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1608,19 +1608,19 @@ def jm_f_84(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#MediaType'.encoding.''
-        result = json_model_40(model, path)
+        result = json_model_41(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#MediaType'
-def json_model_39(value: Jsonable, path: str) -> bool:
+def json_model_40(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_39_may:  # may
-            if not json_model_39_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_40_may:  # may
+            if not json_model_40_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#MediaType'.'/^x\-.*$/'
@@ -1641,22 +1641,22 @@ def jm_f_87(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Encoding'.headers.''
         # $.'$#openapi#Encoding'.headers.''.'|'.0
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result:
             # $.'$#openapi#Encoding'.headers.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Encoding'
-def json_model_40(value: Jsonable, path: str) -> bool:
+def json_model_41(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_40_may:  # may
-            if not json_model_40_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_41_may:  # may
+            if not json_model_41_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Encoding'.'/^x\-.*$/'
@@ -1670,21 +1670,21 @@ def json_model_40(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Responses'
-def json_model_41(value: Jsonable, path: str) -> bool:
+def json_model_42(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_41_may:  # may
-            if not json_model_41_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_42_may:  # may
+            if not json_model_42_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_2(prop) is not None:  # /^[1-5](\d\d|XX)$/
             # $.'$#openapi#Responses'.'/^[1-5](\d\d|XX)$/'
             # $.'$#openapi#Responses'.'/^[1-5](\d\d|XX)$/'.'|'.0
-            result = json_model_42(model, path)
+            result = json_model_43(model, path)
             if not result:
                 # $.'$#openapi#Responses'.'/^[1-5](\d\d|XX)$/'.'|'.1
-                result = json_model_49(model, path)
+                result = json_model_50(model, path)
             if not result: return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Responses'.'/^x\-.*$/'
@@ -1705,10 +1705,10 @@ def jm_f_93(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Response'.headers.''
         # $.'$#openapi#Response'.headers.''.'|'.0
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result:
             # $.'$#openapi#Response'.headers.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1720,7 +1720,7 @@ def jm_f_94(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#Response'.content.''
-        result = json_model_39(model, path)
+        result = json_model_40(model, path)
         if not result: return False
     return True
 
@@ -1733,22 +1733,22 @@ def jm_f_95(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#Response'.links.''
         # $.'$#openapi#Response'.links.''.'|'.0
-        result = json_model_46(model, path)
+        result = json_model_47(model, path)
         if not result:
             # $.'$#openapi#Response'.links.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#Response'
-def json_model_42(value: Jsonable, path: str) -> bool:
+def json_model_43(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_42_may:  # may
-            if not json_model_42_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_43_may:  # may
+            if not json_model_43_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Response'.'/^x\-.*$/'
@@ -1762,18 +1762,18 @@ def json_model_42(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Callback'
-def json_model_43(value: Jsonable, path: str) -> bool:
+def json_model_44(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if json_model_45(prop, path):  # $Expression
+        if json_model_46(prop, path):  # $Expression
             # $.'$#openapi#Callback'.Expression
             # $.'$#openapi#Callback'.Expression.'|'.0
-            result = json_model_33(model, path)
+            result = json_model_34(model, path)
             if not result:
                 # $.'$#openapi#Callback'.Expression.'|'.1
-                result = json_model_49(model, path)
+                result = json_model_50(model, path)
             if not result: return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Callback'.'/^x\-.*$/'
@@ -1787,13 +1787,13 @@ def json_model_43(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Example'
-def json_model_44(value: Jsonable, path: str) -> bool:
+def json_model_45(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_44_may:  # may
-            if not json_model_44_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_45_may:  # may
+            if not json_model_45_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#Example'.'/^x\-.*$/'
@@ -1806,7 +1806,7 @@ def json_model_44(value: Jsonable, path: str) -> bool:
 
 
 # define "$#openapi#Expression" ($.'$#openapi#Expression')
-def json_model_45(value: Jsonable, path: str) -> bool:
+def json_model_46(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Expression'
     # "/\\{.*\\}/"
     result = isinstance(value, str) and jm_re_3(value) is not None
@@ -1883,7 +1883,7 @@ def jm_obj_3(value: Jsonable, path: str) -> bool:
     return must_count == 1
 
 # define "$#openapi#Link" ($.'$#openapi#Link')
-def json_model_46(value: Jsonable, path: str) -> bool:
+def json_model_47(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Link'
     result = isinstance(value, dict)
     if result:
@@ -1895,9 +1895,9 @@ def json_model_46(value: Jsonable, path: str) -> bool:
     return result
 
 # define "$#openapi#Header" ($.'$#openapi#Header')
-def json_model_47(value: Jsonable, path: str) -> bool:
+def json_model_48(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Header'
-    result = json_model_36(value, path)
+    result = json_model_37(value, path)
     return result
 
 
@@ -1909,10 +1909,10 @@ def jm_f_118(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#openapi#parameterShare'.examples.''
         # $.'$#openapi#parameterShare'.examples.''.'|'.0
-        result = json_model_44(model, path)
+        result = json_model_45(model, path)
         if not result:
             # $.'$#openapi#parameterShare'.examples.''.'|'.1
-            result = json_model_49(model, path)
+            result = json_model_50(model, path)
         if not result: return False
     return True
 
@@ -1924,19 +1924,19 @@ def jm_f_119(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#openapi#parameterShare'.content.''
-        result = json_model_39(model, path)
+        result = json_model_40(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#openapi#parameterShare'
-def json_model_36(value: Jsonable, path: str) -> bool:
+def json_model_37(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_36_may:  # may
-            if not json_model_36_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_37_may:  # may
+            if not json_model_37_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#parameterShare'.'/^x\-.*$/'
@@ -1950,31 +1950,6 @@ def json_model_36(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#Tag'
-def json_model_48(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    must_count = 0
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if prop in json_model_48_must:  # must
-            must_count += 1
-            if not json_model_48_must[prop](model, f"{path}.{prop}"):
-                return False
-        elif prop in json_model_48_may:  # may
-            if not json_model_48_may[prop](model, f"{path}.{prop}"):
-                return False
-        elif jm_re_0(prop) is not None:  # /^x\-.*$/
-            # $.'$#openapi#Tag'.'/^x\-.*$/'
-            result = True
-            if not result: return False
-        else:  # no catch all
-            return False
-    return must_count == 1
-
-
-
-
-# object $.'$#openapi#Reference'
 def json_model_49(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1988,6 +1963,31 @@ def json_model_49(value: Jsonable, path: str) -> bool:
         elif prop in json_model_49_may:  # may
             if not json_model_49_may[prop](model, f"{path}.{prop}"):
                 return False
+        elif jm_re_0(prop) is not None:  # /^x\-.*$/
+            # $.'$#openapi#Tag'.'/^x\-.*$/'
+            result = True
+            if not result: return False
+        else:  # no catch all
+            return False
+    return must_count == 1
+
+
+
+
+# object $.'$#openapi#Reference'
+def json_model_50(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    must_count = 0
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_50_must:  # must
+            must_count += 1
+            if not json_model_50_must[prop](model, f"{path}.{prop}"):
+                return False
+        elif prop in json_model_50_may:  # may
+            if not json_model_50_may[prop](model, f"{path}.{prop}"):
+                return False
         else:  # no catch all
             return False
     return must_count == 1
@@ -1996,18 +1996,18 @@ def json_model_49(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#SecurityScheme'
-def json_model_54(value: Jsonable, path: str) -> bool:
+def json_model_55(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_54_must:  # must
+        if prop in json_model_55_must:  # must
             must_count += 1
-            if not json_model_54_must[prop](model, f"{path}.{prop}"):
+            if not json_model_55_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_54_may:  # may
-            if not json_model_54_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_55_may:  # may
+            if not json_model_55_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#SecurityScheme'.'/^x\-.*$/'
@@ -2021,13 +2021,13 @@ def json_model_54(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#OAuthFlows'
-def json_model_55(value: Jsonable, path: str) -> bool:
+def json_model_56(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_55_may:  # may
-            if not json_model_55_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_56_may:  # may
+            if not json_model_56_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#OAuthFlows'.'/^x\-.*$/'
@@ -2053,18 +2053,18 @@ def jm_f_141(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#OAuthFlow'
-def json_model_56(value: Jsonable, path: str) -> bool:
+def json_model_57(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_56_must:  # must
+        if prop in json_model_57_must:  # must
             must_count += 1
-            if not json_model_56_must[prop](model, f"{path}.{prop}"):
+            if not json_model_57_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_56_may:  # may
-            if not json_model_56_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_57_may:  # may
+            if not json_model_57_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_0(prop) is not None:  # /^x\-.*$/
             # $.'$#openapi#OAuthFlow'.'/^x\-.*$/'
@@ -2078,7 +2078,7 @@ def json_model_56(value: Jsonable, path: str) -> bool:
 
 
 # object $.'$#openapi#SecurityRequirement'
-def json_model_57(value: Jsonable, path: str) -> bool:
+def json_model_58(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
@@ -2097,33 +2097,33 @@ def json_model_57(value: Jsonable, path: str) -> bool:
 
 
 # define "$#openapi#Model" ($.'$#openapi#Model')
-def json_model_121(value: Jsonable, path: str) -> bool:
+def json_model_124(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#Model'
-    result = json_model_138(value, path)
+    result = json_model_141(value, path)
     return result
 
 # define "$#openapi#model#Model" ($.'$#openapi#model#Model')
-def json_model_138(value: Jsonable, path: str) -> bool:
+def json_model_141(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Model'
     # $.'$#openapi#model#Model'.'|'.0
-    result = json_model_137(value, path)
+    result = json_model_140(value, path)
     if not result:
         # $.'$#openapi#model#Model'.'|'.1
-        result = json_model_128(value, path)
+        result = json_model_131(value, path)
         if not result:
             # $.'$#openapi#model#Model'.'|'.2
-            result = json_model_135(value, path)
+            result = json_model_138(value, path)
     return result
 
 # define "$#openapi#model#Array" ($.'$#openapi#model#Array')
-def json_model_128(value: Jsonable, path: str) -> bool:
+def json_model_131(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Array'
     result = isinstance(value, list)
     if result:
         assert isinstance(value, list)  # pyright helper
         for array_7_idx, array_7_item in enumerate(value):
             # $.'$#openapi#model#Array'.0
-            result = json_model_138(array_7_item, path)
+            result = json_model_141(array_7_item, path)
             if not result: break
     return result
 
@@ -2155,7 +2155,7 @@ def jm_obj_4(value: Jsonable, path: str) -> bool:
             if not result: return False
         elif jm_re_5(prop) is not None:  # /^(=|!=|≠)$/
             # $.'$#openapi#model#Elem'.'|'.0.'/^(=|!=|≠)$/'
-            result = json_model_124(model, path)
+            result = json_model_127(model, path)
             if not result: return False
         else:  # no catch all
             return False
@@ -2253,12 +2253,12 @@ def jm_obj_9(value: Jsonable, path: str) -> bool:
             if not result: return False
         else:  # catch all
             # $.'$#openapi#model#Elem'.'|'.5.''
-            result = json_model_138(model, path)
+            result = json_model_141(model, path)
             if not result: return False
     return True
 
 # define "$#openapi#model#Elem" ($.'$#openapi#model#Elem')
-def json_model_135(value: Jsonable, path: str) -> bool:
+def json_model_138(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Elem'
     result = isinstance(value, dict)
     if result:
@@ -2282,7 +2282,7 @@ def json_model_135(value: Jsonable, path: str) -> bool:
     return result
 
 # define "$#openapi#model#Val" ($.'$#openapi#model#Val')
-def json_model_124(value: Jsonable, path: str) -> bool:
+def json_model_127(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Val'
     # $.'$#openapi#model#Val'.'|'.0
     result = value is None
@@ -2301,7 +2301,7 @@ def json_model_124(value: Jsonable, path: str) -> bool:
     return result
 
 # define "$#openapi#model#Scalar" ($.'$#openapi#model#Scalar')
-def json_model_137(value: Jsonable, path: str) -> bool:
+def json_model_140(value: Jsonable, path: str) -> bool:
     # $.'$#openapi#model#Scalar'
     # $.'$#openapi#model#Scalar'.'|'.0
     result = value is None
@@ -2334,7 +2334,7 @@ def json_model_137(value: Jsonable, path: str) -> bool:
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 # entry function check_model
@@ -2343,11 +2343,11 @@ def check_model(value: Jsonable, path: str = "$") -> bool:
 
 
 # object properties maps
-json_model_25_must = {
+json_model_26_must = {
     "openapi": jm_f_0,
     "info": jm_f_1,
 }
-json_model_25_may = {
+json_model_26_may = {
     "jsonSchemaDialect": jm_f_2,
     "servers": jm_f_3,
     "paths": jm_f_4,
@@ -2357,18 +2357,18 @@ json_model_25_may = {
     "tags": jm_f_8,
     "externalDocs": jm_f_9,
 }
-json_model_26_must = {
+json_model_27_must = {
     "title": jm_f_10,
     "version": jm_f_11,
 }
-json_model_26_may = {
+json_model_27_may = {
     "summary": jm_f_12,
     "description": jm_f_13,
     "termsOfService": jm_f_14,
     "contact": jm_f_15,
     "license": jm_f_16,
 }
-json_model_27_may = {
+json_model_28_may = {
     "name": jm_f_17,
     "url": jm_f_18,
     "email": jm_f_19,
@@ -2381,21 +2381,21 @@ jm_obj_1_must = {
     "name": jm_f_22,
     "url": jm_f_23,
 }
-json_model_29_must = {
+json_model_30_must = {
     "url": jm_f_24,
 }
-json_model_29_may = {
+json_model_30_may = {
     "description": jm_f_25,
     "variables": jm_f_26,
 }
-json_model_30_must = {
+json_model_31_must = {
     "default": jm_f_27,
 }
-json_model_30_may = {
+json_model_31_may = {
     "enum": jm_f_28,
     "description": jm_f_29,
 }
-json_model_31_may = {
+json_model_32_may = {
     "responses": jm_f_30,
     "parameters": jm_f_31,
     "examples": jm_f_32,
@@ -2407,7 +2407,7 @@ json_model_31_may = {
     "pathItems": jm_f_38,
     "models": jm_f_39,
 }
-json_model_33_may = {
+json_model_34_may = {
     "$ref": jm_f_40,
     "summary": jm_f_41,
     "description": jm_f_42,
@@ -2421,7 +2421,7 @@ json_model_33_may = {
     "servers": jm_f_50,
     "parameters": jm_f_51,
 }
-json_model_34_may = {
+json_model_35_may = {
     "tags": jm_f_52,
     "summary": jm_f_53,
     "description": jm_f_54,
@@ -2435,17 +2435,17 @@ json_model_34_may = {
     "security": jm_f_62,
     "servers": jm_f_63,
 }
-json_model_35_must = {
+json_model_36_must = {
     "url": jm_f_64,
 }
-json_model_35_may = {
+json_model_36_may = {
     "description": jm_f_65,
 }
-json_model_37_must = {
+json_model_38_must = {
     "name": jm_f_66,
     "in": jm_f_67,
 }
-json_model_37_may = {
+json_model_38_may = {
     "description": jm_f_68,
     "required": jm_f_69,
     "deprecated": jm_f_70,
@@ -2458,34 +2458,34 @@ json_model_37_may = {
     "content": jm_f_77,
     "model": jm_f_78,
 }
-json_model_38_may = {
+json_model_39_may = {
     "description": jm_f_79,
     "content": jm_f_80,
     "required": jm_f_81,
 }
-json_model_39_may = {
+json_model_40_may = {
     "example": jm_f_82,
     "examples": jm_f_83,
     "encoding": jm_f_84,
     "model": jm_f_85,
 }
-json_model_40_may = {
+json_model_41_may = {
     "contentType": jm_f_86,
     "headers": jm_f_87,
     "style": jm_f_88,
     "explode": jm_f_89,
     "allowReserved": jm_f_90,
 }
-json_model_41_may = {
+json_model_42_may = {
     "default": jm_f_91,
 }
-json_model_42_may = {
+json_model_43_may = {
     "description": jm_f_92,
     "headers": jm_f_93,
     "content": jm_f_94,
     "links": jm_f_95,
 }
-json_model_44_may = {
+json_model_45_may = {
     "summary": jm_f_96,
     "description": jm_f_97,
     "value": jm_f_98,
@@ -2509,7 +2509,7 @@ jm_obj_3_may = {
     "description": jm_f_108,
     "server": jm_f_109,
 }
-json_model_36_may = {
+json_model_37_may = {
     "description": jm_f_110,
     "required": jm_f_111,
     "deprecated": jm_f_112,
@@ -2522,21 +2522,21 @@ json_model_36_may = {
     "content": jm_f_119,
     "model": jm_f_120,
 }
-json_model_48_must = {
+json_model_49_must = {
     "name": jm_f_121,
 }
-json_model_48_may = {
+json_model_49_may = {
     "description": jm_f_122,
     "externalDocs": jm_f_123,
 }
-json_model_49_must = {
+json_model_50_must = {
     "$ref": jm_f_124,
 }
-json_model_49_may = {
+json_model_50_may = {
     "summary": jm_f_125,
     "description": jm_f_126,
 }
-json_model_54_must = {
+json_model_55_must = {
     "type": jm_f_127,
     "name": jm_f_128,
     "in": jm_f_129,
@@ -2544,22 +2544,22 @@ json_model_54_must = {
     "flows": jm_f_131,
     "openIdConnectUrl": jm_f_132,
 }
-json_model_54_may = {
+json_model_55_may = {
     "description": jm_f_133,
     "bearerFormat": jm_f_134,
 }
-json_model_55_may = {
+json_model_56_may = {
     "implicit": jm_f_135,
     "password": jm_f_136,
     "clientCredentials": jm_f_137,
     "authorizationCode": jm_f_138,
 }
-json_model_56_must = {
+json_model_57_must = {
     "authorizationUrl": jm_f_139,
     "tokenUrl": jm_f_140,
     "scopes": jm_f_141,
 }
-json_model_56_may = {
+json_model_57_may = {
     "refreshUrl": jm_f_142,
 }
 jm_obj_4_must = {

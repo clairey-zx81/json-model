@@ -13,144 +13,144 @@ type CheckFun = Callable[[Jsonable, str], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
-json_model_24_may: PropMap
+json_model_25_may: PropMap
 
-# define "json_model_24_may_id" ($.'$#schema'.id)
+# define "json_model_25_may_id" ($.'$#schema'.id)
 def jm_f_0(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_$schema" ($.'$#schema'.'$schema')
+# define "json_model_25_may_$schema" ($.'$#schema'.'$schema')
 def jm_f_1(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_title" ($.'$#schema'.title)
+# define "json_model_25_may_title" ($.'$#schema'.title)
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_description" ($.'$#schema'.description)
+# define "json_model_25_may_description" ($.'$#schema'.description)
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.description
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_default" ($.'$#schema'.default)
+# define "json_model_25_may_default" ($.'$#schema'.default)
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.default
     result = True
     return result
 
-# define "json_model_24_may_multipleOf" ($.'$#schema'.multipleOf)
+# define "json_model_25_may_multipleOf" ($.'$#schema'.multipleOf)
 def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.multipleOf
     result = isinstance(value, float) and value > 0.0
     return result
 
-# define "json_model_24_may_maximum" ($.'$#schema'.maximum)
+# define "json_model_25_may_maximum" ($.'$#schema'.maximum)
 def jm_f_6(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.maximum
     result = isinstance(value, float)
     return result
 
-# define "json_model_24_may_exclusiveMaximum" ($.'$#schema'.exclusiveMaximum)
+# define "json_model_25_may_exclusiveMaximum" ($.'$#schema'.exclusiveMaximum)
 def jm_f_7(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.exclusiveMaximum
     result = isinstance(value, bool)
     return result
 
-# define "json_model_24_may_minimum" ($.'$#schema'.minimum)
+# define "json_model_25_may_minimum" ($.'$#schema'.minimum)
 def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.minimum
     result = isinstance(value, float)
     return result
 
-# define "json_model_24_may_exclusiveMinimum" ($.'$#schema'.exclusiveMinimum)
+# define "json_model_25_may_exclusiveMinimum" ($.'$#schema'.exclusiveMinimum)
 def jm_f_9(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.exclusiveMinimum
     result = isinstance(value, bool)
     return result
 
-# define "json_model_24_may_maxLength" ($.'$#schema'.maxLength)
+# define "json_model_25_may_maxLength" ($.'$#schema'.maxLength)
 def jm_f_10(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.maxLength
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_minLength" ($.'$#schema'.minLength)
+# define "json_model_25_may_minLength" ($.'$#schema'.minLength)
 def jm_f_11(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.minLength
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_additionalItems" ($.'$#schema'.additionalItems)
+# define "json_model_25_may_additionalItems" ($.'$#schema'.additionalItems)
 def jm_f_12(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.additionalItems
     # $.'$#schema'.additionalItems.'|'.0
     result = isinstance(value, bool)
     if not result:
         # $.'$#schema'.additionalItems.'|'.1
-        result = json_model_24(value, path)
+        result = json_model_25(value, path)
     return result
 
-# define "json_model_24_may_items" ($.'$#schema'.items)
+# define "json_model_25_may_items" ($.'$#schema'.items)
 def jm_f_13(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.items
     # $.'$#schema'.items.'|'.0
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     if not result:
         # $.'$#schema'.items.'|'.1
-        result = json_model_26(value, path)
+        result = json_model_27(value, path)
     return result
 
-# define "json_model_24_may_maxItems" ($.'$#schema'.maxItems)
+# define "json_model_25_may_maxItems" ($.'$#schema'.maxItems)
 def jm_f_14(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.maxItems
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_minItems" ($.'$#schema'.minItems)
+# define "json_model_25_may_minItems" ($.'$#schema'.minItems)
 def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.minItems
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_uniqueItems" ($.'$#schema'.uniqueItems)
+# define "json_model_25_may_uniqueItems" ($.'$#schema'.uniqueItems)
 def jm_f_16(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.uniqueItems
     result = isinstance(value, bool)
     return result
 
-# define "json_model_24_may_maxProperties" ($.'$#schema'.maxProperties)
+# define "json_model_25_may_maxProperties" ($.'$#schema'.maxProperties)
 def jm_f_17(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.maxProperties
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_minProperties" ($.'$#schema'.minProperties)
+# define "json_model_25_may_minProperties" ($.'$#schema'.minProperties)
 def jm_f_18(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.minProperties
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_24_may_required" ($.'$#schema'.required)
+# define "json_model_25_may_required" ($.'$#schema'.required)
 def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.required
-    result = json_model_28(value, path)
+    result = json_model_29(value, path)
     return result
 
-# define "json_model_24_may_additionalProperties" ($.'$#schema'.additionalProperties)
+# define "json_model_25_may_additionalProperties" ($.'$#schema'.additionalProperties)
 def jm_f_20(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.additionalProperties
     # $.'$#schema'.additionalProperties.'|'.0
     result = isinstance(value, bool)
     if not result:
         # $.'$#schema'.additionalProperties.'|'.1
-        result = json_model_24(value, path)
+        result = json_model_25(value, path)
     return result
 
 
@@ -161,7 +161,7 @@ def jm_f_20(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_24_may_enum" ($.'$#schema'.enum)
+# define "json_model_25_may_enum" ($.'$#schema'.enum)
 def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.enum
     # $.'$#schema'.enum.'@'
@@ -176,53 +176,53 @@ def jm_f_25(value: Jsonable, path: str) -> bool:
     result &= len(value) >= 1
     return result
 
-# define "json_model_24_may_type" ($.'$#schema'.type)
+# define "json_model_25_may_type" ($.'$#schema'.type)
 def jm_f_26(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.type
     # $.'$#schema'.type.'|'.0
-    result = json_model_27(value, path)
+    result = json_model_28(value, path)
     if not result:
         # $.'$#schema'.type.'|'.1
-        result = json_model_29(value, path)
+        result = json_model_30(value, path)
     return result
 
-# define "json_model_24_may_format" ($.'$#schema'.format)
+# define "json_model_25_may_format" ($.'$#schema'.format)
 def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.format
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_allOf" ($.'$#schema'.allOf)
+# define "json_model_25_may_allOf" ($.'$#schema'.allOf)
 def jm_f_28(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.allOf
-    result = json_model_26(value, path)
+    result = json_model_27(value, path)
     return result
 
-# define "json_model_24_may_anyOf" ($.'$#schema'.anyOf)
+# define "json_model_25_may_anyOf" ($.'$#schema'.anyOf)
 def jm_f_29(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.anyOf
-    result = json_model_26(value, path)
+    result = json_model_27(value, path)
     return result
 
-# define "json_model_24_may_oneOf" ($.'$#schema'.oneOf)
+# define "json_model_25_may_oneOf" ($.'$#schema'.oneOf)
 def jm_f_30(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.oneOf
-    result = json_model_26(value, path)
+    result = json_model_27(value, path)
     return result
 
-# define "json_model_24_may_not" ($.'$#schema'.not)
+# define "json_model_25_may_not" ($.'$#schema'.not)
 def jm_f_31(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.not
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
-# define "json_model_24_may_pattern" ($.'$#schema'.pattern)
+# define "json_model_25_may_pattern" ($.'$#schema'.pattern)
 def jm_f_32(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.pattern
     result = isinstance(value, str)
     return result
 
-# define "json_model_24_may_$ref" ($.'$#schema'.'$ref')
+# define "json_model_25_may_$ref" ($.'$#schema'.'$ref')
 def jm_f_33(value: Jsonable, path: str) -> bool:
     # $.'$#schema'.'$ref'
     result = isinstance(value, str)
@@ -232,7 +232,7 @@ def jm_f_33(value: Jsonable, path: str) -> bool:
 # define "$schema" ($.schema)
 def json_model_1(value: Jsonable, path: str) -> bool:
     # $.schema
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 
@@ -243,7 +243,7 @@ def jm_f_21(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#schema'.definitions.''
-        result = json_model_24(model, path)
+        result = json_model_25(model, path)
         if not result: return False
     return True
 
@@ -255,7 +255,7 @@ def jm_f_22(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#schema'.properties.''
-        result = json_model_24(model, path)
+        result = json_model_25(model, path)
         if not result: return False
     return True
 
@@ -267,7 +267,7 @@ def jm_f_23(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#schema'.patternProperties.''
-        result = json_model_24(model, path)
+        result = json_model_25(model, path)
         if not result: return False
     return True
 
@@ -280,22 +280,22 @@ def jm_f_24(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         # $.'$#schema'.dependencies.''
         # $.'$#schema'.dependencies.''.'|'.0
-        result = json_model_24(model, path)
+        result = json_model_25(model, path)
         if not result:
             # $.'$#schema'.dependencies.''.'|'.1
-            result = json_model_28(model, path)
+            result = json_model_29(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#schema'
-def json_model_24(value: Jsonable, path: str) -> bool:
+def json_model_25(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_24_may:  # may
-            if not json_model_24_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_25_may:  # may
+            if not json_model_25_may[prop](model, f"{path}.{prop}"):
                 return False
         else:  # catch all
             # $.'$#schema'.''
@@ -306,7 +306,7 @@ def json_model_24(value: Jsonable, path: str) -> bool:
 
 
 # define "$#schema#schemaArray" ($.'$#schema#schemaArray')
-def json_model_26(value: Jsonable, path: str) -> bool:
+def json_model_27(value: Jsonable, path: str) -> bool:
     # $.'$#schema#schemaArray'
     # $.'$#schema#schemaArray'.'@'
     result = isinstance(value, list)
@@ -314,19 +314,19 @@ def json_model_26(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_1_idx, array_1_item in enumerate(value):
             # $.'$#schema#schemaArray'.'@'.0
-            result = json_model_24(array_1_item, path)
+            result = json_model_25(array_1_item, path)
             if not result: break
     result &= len(value) >= 1
     return result
 
 # define "$#schema#simpleTypes" ($.'$#schema#simpleTypes')
-def json_model_27(value: Jsonable, path: str) -> bool:
+def json_model_28(value: Jsonable, path: str) -> bool:
     # $.'$#schema#simpleTypes'
     result = not isinstance(value, (list, dict)) and value in {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
     return result
 
 # define "$#schema#stringArray" ($.'$#schema#stringArray')
-def json_model_28(value: Jsonable, path: str) -> bool:
+def json_model_29(value: Jsonable, path: str) -> bool:
     # $.'$#schema#stringArray'
     # $.'$#schema#stringArray'.'@'
     result = isinstance(value, list)
@@ -341,7 +341,7 @@ def json_model_28(value: Jsonable, path: str) -> bool:
     return result
 
 # define "$#schema#typeArray" ($.'$#schema#typeArray')
-def json_model_29(value: Jsonable, path: str) -> bool:
+def json_model_30(value: Jsonable, path: str) -> bool:
     # $.'$#schema#typeArray'
     # $.'$#schema#typeArray'.'@'
     result = isinstance(value, list)
@@ -349,7 +349,7 @@ def json_model_29(value: Jsonable, path: str) -> bool:
         assert isinstance(value, list)  # pyright helper
         for array_3_idx, array_3_item in enumerate(value):
             # $.'$#schema#typeArray'.'@'.0
-            result = json_model_27(array_3_item, path)
+            result = json_model_28(array_3_item, path)
             if not result: break
     result &= len(set(value)) == len(value)
     result &= len(value) >= 1
@@ -358,7 +358,7 @@ def json_model_29(value: Jsonable, path: str) -> bool:
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 # entry function check_model
@@ -367,7 +367,7 @@ def check_model(value: Jsonable, path: str = "$") -> bool:
 
 
 # object properties maps
-json_model_24_may = {
+json_model_25_may = {
     "id": jm_f_0,
     "$schema": jm_f_1,
     "title": jm_f_2,

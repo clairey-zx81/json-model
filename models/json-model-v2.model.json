@@ -52,20 +52,15 @@
     },
     "Scalar": { "|": [ "=null", "=true", "=0", "=1", "=-1", "=0.0", "=1.0", "=-1.0", "" ] },
     "Model": { "|": [ "$Scalar", "$Array", "$Elem" ] },
-    "Defs": { "/.+/": "$Model" },
+    "Defs": { "?": "$Url", "/.+/": "$Model" },
     "Rename": { "/^\\..*$/": "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/" },
     "Rewrite": { "/^\\$.*$/": "$Trafo" },
-    "Root": {
-      "+": [
-        {
-          "#": "Special keywords only at the root of a model",
-          "?~": "$Url",
-          "?$": { "+": [ "$Common", { "?": "$Url" }, "$Defs" ] },
-          "?%": { "+": [ "$Common", "$Rename", "$Rewrite" ] }
-        },
-        "$Elem"
-      ]
+    "RootOnly": {
+      "?~": "$Url",
+      "?$": { "+": [ "$Common", "$Defs" ] },
+      "?%": { "+": [ "$Common", "$Rename", "$Rewrite" ] }
     },
+    "Root": { "+": [ "$RootOnly", "$Elem" ] },
     "RootModel": { "|": [ "$Scalar", "$Array", "$Root" ] }
   },
   "@": "$RootModel"

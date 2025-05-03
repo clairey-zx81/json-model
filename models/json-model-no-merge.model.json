@@ -1,38 +1,14 @@
 {
-  "#": "Self-Validating JSON Model",
-  "$": "Model",
-  "%": {
-    "val": { "|":  [ null, true, -1, -1.0, "" ] },
-    "any": { "|": [ "$val", [ "$any" ], { "": "$any" } ] },
-    "none": { "|": [ ] },
-    "meta": { "|": [ "", { "": "$any" } ] },
-    "Ref": "/^\\$.+$/",
-    "Array": [ "$Model" ],
-    "Constraint": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_@": "$Model",
-      "/^(<=|>=|<|>)$/": { "|": [ -1, -1.0, "" ] },
-      "/^(=|!=)$/": "$val",
-      "?!": true
-    },
-    "Disjunction": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_|": ["$Model"]
-    },
-    "Conjunction": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_&": ["$Model"]
-    },
-    "Exclusive": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_^": ["$Model"]
-    },
-    "Addition": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "_+": ["$Model"]
-    },
-    "Object": {
-      "?$": "", "?#": "$meta", "?%": {"": "$Model"}, "": "$Model",
-      "/^[|@&^+]$/": "$none"
-    }
+  "#": "Preprocessed Self-Validating JSON Model (no % +)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-model-no-merge",
+    "model": "$https://json-model.org/models/json-model"
   },
-  "|": [
-    "$Ref", "$val", "$Constraint", "$Array", "$Object",
-    "$Disjunction", "$Conjunction", "$Exclusive", "$Addition"
-  ]
+  "%": {
+    "$model#Add": "$None",
+    "$model#Elem.+.1.|": { "/": "$Add" },
+    "$model#RootOnly": { "/": "?%" }
+  },
+  "@": "$model"
 }

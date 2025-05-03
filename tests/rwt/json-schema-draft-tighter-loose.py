@@ -14,8 +14,6 @@ type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
 jm_obj_0_must: PropMap
-json_model_32_may: PropMap
-json_model_33_must: PropMap
 json_model_33_may: PropMap
 json_model_34_must: PropMap
 json_model_34_may: PropMap
@@ -41,10 +39,8 @@ json_model_44_must: PropMap
 json_model_44_may: PropMap
 json_model_45_must: PropMap
 json_model_45_may: PropMap
-json_model_71_must: PropMap
-json_model_71_may: PropMap
-json_model_72_must: PropMap
-json_model_72_may: PropMap
+json_model_46_must: PropMap
+json_model_46_may: PropMap
 json_model_73_must: PropMap
 json_model_73_may: PropMap
 json_model_74_must: PropMap
@@ -55,6 +51,10 @@ json_model_76_must: PropMap
 json_model_76_may: PropMap
 json_model_77_must: PropMap
 json_model_77_may: PropMap
+json_model_78_must: PropMap
+json_model_78_may: PropMap
+json_model_79_must: PropMap
+json_model_79_may: PropMap
 
 def is_valid_re(value: Jsonable, path: str) -> bool:
     if isinstance(value, str):
@@ -80,43 +80,43 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_$schema" ($.'$#tight#metas'.'$schema')
+# define "json_model_33_may_$schema" ($.'$#tight#metas'.'$schema')
 def jm_f_1(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_$id" ($.'$#tight#metas'.'$id')
+# define "json_model_33_may_$id" ($.'$#tight#metas'.'$id')
 def jm_f_2(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_id" ($.'$#tight#metas'.id)
+# define "json_model_33_may_id" ($.'$#tight#metas'.id)
 def jm_f_3(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_$comment" ($.'$#tight#metas'.'$comment')
+# define "json_model_33_may_$comment" ($.'$#tight#metas'.'$comment')
 def jm_f_4(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_title" ($.'$#tight#metas'.title)
+# define "json_model_33_may_title" ($.'$#tight#metas'.title)
 def jm_f_5(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_32_may_default" ($.'$#tight#metas'.default)
+# define "json_model_33_may_default" ($.'$#tight#metas'.default)
 def jm_f_6(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.default
     result = True
     return result
 
-# define "json_model_32_may_examples" ($.'$#tight#metas'.examples)
+# define "json_model_33_may_examples" ($.'$#tight#metas'.examples)
 def jm_f_7(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.examples
     result = isinstance(value, list)
@@ -128,7 +128,7 @@ def jm_f_7(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_32_may_description" ($.'$#tight#metas'.description)
+# define "json_model_33_may_description" ($.'$#tight#metas'.description)
 def jm_f_8(value: Jsonable, path: str) -> bool:
     # $.'$#tight#metas'.description
     result = isinstance(value, str)
@@ -138,49 +138,49 @@ def jm_f_8(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_33_must_type" ($.'$#tight#String'.type)
+# define "json_model_34_must_type" ($.'$#tight#String'.type)
 def jm_f_11(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.type
     result = isinstance(value, str) and value == "string"
     return result
 
-# define "json_model_33_may_$schema" ($.'$#tight#String'.'$schema')
+# define "json_model_34_may_$schema" ($.'$#tight#String'.'$schema')
 def jm_f_12(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_$id" ($.'$#tight#String'.'$id')
+# define "json_model_34_may_$id" ($.'$#tight#String'.'$id')
 def jm_f_13(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_id" ($.'$#tight#String'.id)
+# define "json_model_34_may_id" ($.'$#tight#String'.id)
 def jm_f_14(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_$comment" ($.'$#tight#String'.'$comment')
+# define "json_model_34_may_$comment" ($.'$#tight#String'.'$comment')
 def jm_f_15(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_title" ($.'$#tight#String'.title)
+# define "json_model_34_may_title" ($.'$#tight#String'.title)
 def jm_f_16(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_33_may_default" ($.'$#tight#String'.default)
+# define "json_model_34_may_default" ($.'$#tight#String'.default)
 def jm_f_17(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.default
     result = True
     return result
 
-# define "json_model_33_may_examples" ($.'$#tight#String'.examples)
+# define "json_model_34_may_examples" ($.'$#tight#String'.examples)
 def jm_f_18(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.examples
     result = isinstance(value, list)
@@ -192,7 +192,7 @@ def jm_f_18(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_33_may_description" ($.'$#tight#String'.description)
+# define "json_model_34_may_description" ($.'$#tight#String'.description)
 def jm_f_19(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.description
     result = isinstance(value, str)
@@ -202,73 +202,73 @@ def jm_f_19(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_33_may_pattern" ($.'$#tight#String'.pattern)
+# define "json_model_34_may_pattern" ($.'$#tight#String'.pattern)
 def jm_f_22(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.pattern
     result = is_valid_re(value, path)
     return result
 
-# define "json_model_33_may_minLength" ($.'$#tight#String'.minLength)
+# define "json_model_34_may_minLength" ($.'$#tight#String'.minLength)
 def jm_f_23(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.minLength
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_33_may_maxLength" ($.'$#tight#String'.maxLength)
+# define "json_model_34_may_maxLength" ($.'$#tight#String'.maxLength)
 def jm_f_24(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.maxLength
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_33_may_format" ($.'$#tight#String'.format)
+# define "json_model_34_may_format" ($.'$#tight#String'.format)
 def jm_f_25(value: Jsonable, path: str) -> bool:
     # $.'$#tight#String'.format
     result = not isinstance(value, (list, dict)) and value in {'byte', 'date', 'date-time', 'double', 'duration', 'email', 'hostname', 'idn-email', 'idn-hostname', 'int', 'int32', 'int64', 'ipv4', 'ipv6', 'iri', 'iri-reference', 'json-pointer', 'mime-type', 'regex', 'relative-json-pointer', 'time', 'uint', 'uint32', 'uint64', 'uri', 'uri-reference', 'uuid'}
     return result
 
-# define "json_model_34_must_type" ($.'$#tight#Array'.type)
+# define "json_model_35_must_type" ($.'$#tight#Array'.type)
 def jm_f_26(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.type
     result = isinstance(value, str) and value == "array"
     return result
 
-# define "json_model_34_may_$schema" ($.'$#tight#Array'.'$schema')
+# define "json_model_35_may_$schema" ($.'$#tight#Array'.'$schema')
 def jm_f_27(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_$id" ($.'$#tight#Array'.'$id')
+# define "json_model_35_may_$id" ($.'$#tight#Array'.'$id')
 def jm_f_28(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_id" ($.'$#tight#Array'.id)
+# define "json_model_35_may_id" ($.'$#tight#Array'.id)
 def jm_f_29(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_$comment" ($.'$#tight#Array'.'$comment')
+# define "json_model_35_may_$comment" ($.'$#tight#Array'.'$comment')
 def jm_f_30(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_title" ($.'$#tight#Array'.title)
+# define "json_model_35_may_title" ($.'$#tight#Array'.title)
 def jm_f_31(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_34_may_default" ($.'$#tight#Array'.default)
+# define "json_model_35_may_default" ($.'$#tight#Array'.default)
 def jm_f_32(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.default
     result = True
     return result
 
-# define "json_model_34_may_examples" ($.'$#tight#Array'.examples)
+# define "json_model_35_may_examples" ($.'$#tight#Array'.examples)
 def jm_f_33(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.examples
     result = isinstance(value, list)
@@ -280,7 +280,7 @@ def jm_f_33(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_34_may_description" ($.'$#tight#Array'.description)
+# define "json_model_35_may_description" ($.'$#tight#Array'.description)
 def jm_f_34(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.description
     result = isinstance(value, str)
@@ -290,89 +290,89 @@ def jm_f_34(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_34_may_prefixItems" ($.'$#tight#Array'.prefixItems)
+# define "json_model_35_may_prefixItems" ($.'$#tight#Array'.prefixItems)
 def jm_f_37(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.prefixItems
-    result = json_model_27(value, path)
+    result = json_model_28(value, path)
     return result
 
-# define "json_model_34_may_items" ($.'$#tight#Array'.items)
+# define "json_model_35_may_items" ($.'$#tight#Array'.items)
 def jm_f_38(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.items
     # $.'$#tight#Array'.items.'|'.0
-    result = json_model_47(value, path)
+    result = json_model_48(value, path)
     if not result:
         # $.'$#tight#Array'.items.'|'.1
-        result = json_model_27(value, path)
+        result = json_model_28(value, path)
     return result
 
-# define "json_model_34_may_additionalItems" ($.'$#tight#Array'.additionalItems)
+# define "json_model_35_may_additionalItems" ($.'$#tight#Array'.additionalItems)
 def jm_f_39(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.additionalItems
-    result = json_model_47(value, path)
+    result = json_model_48(value, path)
     return result
 
-# define "json_model_34_may_minItems" ($.'$#tight#Array'.minItems)
+# define "json_model_35_may_minItems" ($.'$#tight#Array'.minItems)
 def jm_f_40(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.minItems
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_34_may_maxItems" ($.'$#tight#Array'.maxItems)
+# define "json_model_35_may_maxItems" ($.'$#tight#Array'.maxItems)
 def jm_f_41(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.maxItems
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
-# define "json_model_34_may_uniqueItems" ($.'$#tight#Array'.uniqueItems)
+# define "json_model_35_may_uniqueItems" ($.'$#tight#Array'.uniqueItems)
 def jm_f_42(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Array'.uniqueItems
     result = isinstance(value, bool)
     return result
 
-# define "json_model_35_must_type" ($.'$#tight#Object'.type)
+# define "json_model_36_must_type" ($.'$#tight#Object'.type)
 def jm_f_43(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.type
     result = isinstance(value, str) and value == "object"
     return result
 
-# define "json_model_35_may_$schema" ($.'$#tight#Object'.'$schema')
+# define "json_model_36_may_$schema" ($.'$#tight#Object'.'$schema')
 def jm_f_44(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_35_may_$id" ($.'$#tight#Object'.'$id')
+# define "json_model_36_may_$id" ($.'$#tight#Object'.'$id')
 def jm_f_45(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_35_may_id" ($.'$#tight#Object'.id)
+# define "json_model_36_may_id" ($.'$#tight#Object'.id)
 def jm_f_46(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_35_may_$comment" ($.'$#tight#Object'.'$comment')
+# define "json_model_36_may_$comment" ($.'$#tight#Object'.'$comment')
 def jm_f_47(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_35_may_title" ($.'$#tight#Object'.title)
+# define "json_model_36_may_title" ($.'$#tight#Object'.title)
 def jm_f_48(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_35_may_default" ($.'$#tight#Object'.default)
+# define "json_model_36_may_default" ($.'$#tight#Object'.default)
 def jm_f_49(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.default
     result = True
     return result
 
-# define "json_model_35_may_examples" ($.'$#tight#Object'.examples)
+# define "json_model_36_may_examples" ($.'$#tight#Object'.examples)
 def jm_f_50(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.examples
     result = isinstance(value, list)
@@ -384,7 +384,7 @@ def jm_f_50(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_35_may_description" ($.'$#tight#Object'.description)
+# define "json_model_36_may_description" ($.'$#tight#Object'.description)
 def jm_f_51(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.description
     result = isinstance(value, str)
@@ -396,7 +396,7 @@ def jm_f_51(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_35_may_required" ($.'$#tight#Object'.required)
+# define "json_model_36_may_required" ($.'$#tight#Object'.required)
 def jm_f_55(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.required
     result = isinstance(value, list)
@@ -408,57 +408,57 @@ def jm_f_55(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_35_may_additionalProperties" ($.'$#tight#Object'.additionalProperties)
+# define "json_model_36_may_additionalProperties" ($.'$#tight#Object'.additionalProperties)
 def jm_f_56(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Object'.additionalProperties
-    result = json_model_47(value, path)
+    result = json_model_48(value, path)
     return result
 
 
 
-# define "json_model_36_must_type" ($.'$#tight#Integer'.type)
+# define "json_model_37_must_type" ($.'$#tight#Integer'.type)
 def jm_f_58(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.type
     result = isinstance(value, str) and value == "integer"
     return result
 
-# define "json_model_36_may_$schema" ($.'$#tight#Integer'.'$schema')
+# define "json_model_37_may_$schema" ($.'$#tight#Integer'.'$schema')
 def jm_f_59(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_$id" ($.'$#tight#Integer'.'$id')
+# define "json_model_37_may_$id" ($.'$#tight#Integer'.'$id')
 def jm_f_60(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_id" ($.'$#tight#Integer'.id)
+# define "json_model_37_may_id" ($.'$#tight#Integer'.id)
 def jm_f_61(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_$comment" ($.'$#tight#Integer'.'$comment')
+# define "json_model_37_may_$comment" ($.'$#tight#Integer'.'$comment')
 def jm_f_62(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_title" ($.'$#tight#Integer'.title)
+# define "json_model_37_may_title" ($.'$#tight#Integer'.title)
 def jm_f_63(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_36_may_default" ($.'$#tight#Integer'.default)
+# define "json_model_37_may_default" ($.'$#tight#Integer'.default)
 def jm_f_64(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.default
     result = True
     return result
 
-# define "json_model_36_may_examples" ($.'$#tight#Integer'.examples)
+# define "json_model_37_may_examples" ($.'$#tight#Integer'.examples)
 def jm_f_65(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.examples
     result = isinstance(value, list)
@@ -470,7 +470,7 @@ def jm_f_65(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_36_may_description" ($.'$#tight#Integer'.description)
+# define "json_model_37_may_description" ($.'$#tight#Integer'.description)
 def jm_f_66(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.description
     result = isinstance(value, str)
@@ -480,61 +480,61 @@ def jm_f_66(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_36_may_minimum" ($.'$#tight#Integer'.minimum)
+# define "json_model_37_may_minimum" ($.'$#tight#Integer'.minimum)
 def jm_f_69(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.minimum
     result = isinstance(value, float)
     return result
 
-# define "json_model_36_may_maximum" ($.'$#tight#Integer'.maximum)
+# define "json_model_37_may_maximum" ($.'$#tight#Integer'.maximum)
 def jm_f_70(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Integer'.maximum
     result = isinstance(value, float)
     return result
 
-# define "json_model_37_must_type" ($.'$#tight#Number'.type)
+# define "json_model_38_must_type" ($.'$#tight#Number'.type)
 def jm_f_71(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.type
     result = isinstance(value, str) and value == "number"
     return result
 
-# define "json_model_37_may_$schema" ($.'$#tight#Number'.'$schema')
+# define "json_model_38_may_$schema" ($.'$#tight#Number'.'$schema')
 def jm_f_72(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_$id" ($.'$#tight#Number'.'$id')
+# define "json_model_38_may_$id" ($.'$#tight#Number'.'$id')
 def jm_f_73(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_id" ($.'$#tight#Number'.id)
+# define "json_model_38_may_id" ($.'$#tight#Number'.id)
 def jm_f_74(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_$comment" ($.'$#tight#Number'.'$comment')
+# define "json_model_38_may_$comment" ($.'$#tight#Number'.'$comment')
 def jm_f_75(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_title" ($.'$#tight#Number'.title)
+# define "json_model_38_may_title" ($.'$#tight#Number'.title)
 def jm_f_76(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_37_may_default" ($.'$#tight#Number'.default)
+# define "json_model_38_may_default" ($.'$#tight#Number'.default)
 def jm_f_77(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.default
     result = True
     return result
 
-# define "json_model_37_may_examples" ($.'$#tight#Number'.examples)
+# define "json_model_38_may_examples" ($.'$#tight#Number'.examples)
 def jm_f_78(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.examples
     result = isinstance(value, list)
@@ -546,7 +546,7 @@ def jm_f_78(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_37_may_description" ($.'$#tight#Number'.description)
+# define "json_model_38_may_description" ($.'$#tight#Number'.description)
 def jm_f_79(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.description
     result = isinstance(value, str)
@@ -556,61 +556,61 @@ def jm_f_79(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_37_may_minimum" ($.'$#tight#Number'.minimum)
+# define "json_model_38_may_minimum" ($.'$#tight#Number'.minimum)
 def jm_f_82(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.minimum
     result = isinstance(value, float)
     return result
 
-# define "json_model_37_may_maximum" ($.'$#tight#Number'.maximum)
+# define "json_model_38_may_maximum" ($.'$#tight#Number'.maximum)
 def jm_f_83(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Number'.maximum
     result = isinstance(value, float)
     return result
 
-# define "json_model_38_must_type" ($.'$#tight#Bool'.type)
+# define "json_model_39_must_type" ($.'$#tight#Bool'.type)
 def jm_f_84(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.type
     result = isinstance(value, str) and value == "boolean"
     return result
 
-# define "json_model_38_may_$schema" ($.'$#tight#Bool'.'$schema')
+# define "json_model_39_may_$schema" ($.'$#tight#Bool'.'$schema')
 def jm_f_85(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_38_may_$id" ($.'$#tight#Bool'.'$id')
+# define "json_model_39_may_$id" ($.'$#tight#Bool'.'$id')
 def jm_f_86(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_38_may_id" ($.'$#tight#Bool'.id)
+# define "json_model_39_may_id" ($.'$#tight#Bool'.id)
 def jm_f_87(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_38_may_$comment" ($.'$#tight#Bool'.'$comment')
+# define "json_model_39_may_$comment" ($.'$#tight#Bool'.'$comment')
 def jm_f_88(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_38_may_title" ($.'$#tight#Bool'.title)
+# define "json_model_39_may_title" ($.'$#tight#Bool'.title)
 def jm_f_89(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_38_may_default" ($.'$#tight#Bool'.default)
+# define "json_model_39_may_default" ($.'$#tight#Bool'.default)
 def jm_f_90(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.default
     result = True
     return result
 
-# define "json_model_38_may_examples" ($.'$#tight#Bool'.examples)
+# define "json_model_39_may_examples" ($.'$#tight#Bool'.examples)
 def jm_f_91(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.examples
     result = isinstance(value, list)
@@ -622,7 +622,7 @@ def jm_f_91(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_38_may_description" ($.'$#tight#Bool'.description)
+# define "json_model_39_may_description" ($.'$#tight#Bool'.description)
 def jm_f_92(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Bool'.description
     result = isinstance(value, str)
@@ -632,49 +632,49 @@ def jm_f_92(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_39_must_type" ($.'$#tight#Null'.type)
+# define "json_model_40_must_type" ($.'$#tight#Null'.type)
 def jm_f_95(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.type
     result = isinstance(value, str) and value == "null"
     return result
 
-# define "json_model_39_may_$schema" ($.'$#tight#Null'.'$schema')
+# define "json_model_40_may_$schema" ($.'$#tight#Null'.'$schema')
 def jm_f_96(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_39_may_$id" ($.'$#tight#Null'.'$id')
+# define "json_model_40_may_$id" ($.'$#tight#Null'.'$id')
 def jm_f_97(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_39_may_id" ($.'$#tight#Null'.id)
+# define "json_model_40_may_id" ($.'$#tight#Null'.id)
 def jm_f_98(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_39_may_$comment" ($.'$#tight#Null'.'$comment')
+# define "json_model_40_may_$comment" ($.'$#tight#Null'.'$comment')
 def jm_f_99(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_39_may_title" ($.'$#tight#Null'.title)
+# define "json_model_40_may_title" ($.'$#tight#Null'.title)
 def jm_f_100(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_39_may_default" ($.'$#tight#Null'.default)
+# define "json_model_40_may_default" ($.'$#tight#Null'.default)
 def jm_f_101(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.default
     result = True
     return result
 
-# define "json_model_39_may_examples" ($.'$#tight#Null'.examples)
+# define "json_model_40_may_examples" ($.'$#tight#Null'.examples)
 def jm_f_102(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.examples
     result = isinstance(value, list)
@@ -686,7 +686,7 @@ def jm_f_102(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_39_may_description" ($.'$#tight#Null'.description)
+# define "json_model_40_may_description" ($.'$#tight#Null'.description)
 def jm_f_103(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Null'.description
     result = isinstance(value, str)
@@ -696,49 +696,49 @@ def jm_f_103(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_40_must_allOf" ($.'$#tight#AllOf'.allOf)
+# define "json_model_41_must_allOf" ($.'$#tight#AllOf'.allOf)
 def jm_f_106(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.allOf
-    result = json_model_27(value, path)
+    result = json_model_28(value, path)
     return result
 
-# define "json_model_40_may_$schema" ($.'$#tight#AllOf'.'$schema')
+# define "json_model_41_may_$schema" ($.'$#tight#AllOf'.'$schema')
 def jm_f_107(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_$id" ($.'$#tight#AllOf'.'$id')
+# define "json_model_41_may_$id" ($.'$#tight#AllOf'.'$id')
 def jm_f_108(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_id" ($.'$#tight#AllOf'.id)
+# define "json_model_41_may_id" ($.'$#tight#AllOf'.id)
 def jm_f_109(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_$comment" ($.'$#tight#AllOf'.'$comment')
+# define "json_model_41_may_$comment" ($.'$#tight#AllOf'.'$comment')
 def jm_f_110(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_title" ($.'$#tight#AllOf'.title)
+# define "json_model_41_may_title" ($.'$#tight#AllOf'.title)
 def jm_f_111(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_40_may_default" ($.'$#tight#AllOf'.default)
+# define "json_model_41_may_default" ($.'$#tight#AllOf'.default)
 def jm_f_112(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.default
     result = True
     return result
 
-# define "json_model_40_may_examples" ($.'$#tight#AllOf'.examples)
+# define "json_model_41_may_examples" ($.'$#tight#AllOf'.examples)
 def jm_f_113(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.examples
     result = isinstance(value, list)
@@ -750,7 +750,7 @@ def jm_f_113(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_40_may_description" ($.'$#tight#AllOf'.description)
+# define "json_model_41_may_description" ($.'$#tight#AllOf'.description)
 def jm_f_114(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AllOf'.description
     result = isinstance(value, str)
@@ -760,49 +760,49 @@ def jm_f_114(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_41_must_anyOf" ($.'$#tight#AnyOf'.anyOf)
+# define "json_model_42_must_anyOf" ($.'$#tight#AnyOf'.anyOf)
 def jm_f_117(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.anyOf
-    result = json_model_27(value, path)
+    result = json_model_28(value, path)
     return result
 
-# define "json_model_41_may_$schema" ($.'$#tight#AnyOf'.'$schema')
+# define "json_model_42_may_$schema" ($.'$#tight#AnyOf'.'$schema')
 def jm_f_118(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_41_may_$id" ($.'$#tight#AnyOf'.'$id')
+# define "json_model_42_may_$id" ($.'$#tight#AnyOf'.'$id')
 def jm_f_119(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_41_may_id" ($.'$#tight#AnyOf'.id)
+# define "json_model_42_may_id" ($.'$#tight#AnyOf'.id)
 def jm_f_120(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_41_may_$comment" ($.'$#tight#AnyOf'.'$comment')
+# define "json_model_42_may_$comment" ($.'$#tight#AnyOf'.'$comment')
 def jm_f_121(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_41_may_title" ($.'$#tight#AnyOf'.title)
+# define "json_model_42_may_title" ($.'$#tight#AnyOf'.title)
 def jm_f_122(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_41_may_default" ($.'$#tight#AnyOf'.default)
+# define "json_model_42_may_default" ($.'$#tight#AnyOf'.default)
 def jm_f_123(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.default
     result = True
     return result
 
-# define "json_model_41_may_examples" ($.'$#tight#AnyOf'.examples)
+# define "json_model_42_may_examples" ($.'$#tight#AnyOf'.examples)
 def jm_f_124(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.examples
     result = isinstance(value, list)
@@ -814,7 +814,7 @@ def jm_f_124(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_41_may_description" ($.'$#tight#AnyOf'.description)
+# define "json_model_42_may_description" ($.'$#tight#AnyOf'.description)
 def jm_f_125(value: Jsonable, path: str) -> bool:
     # $.'$#tight#AnyOf'.description
     result = isinstance(value, str)
@@ -824,49 +824,49 @@ def jm_f_125(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_42_must_oneOf" ($.'$#tight#OneOf'.oneOf)
+# define "json_model_43_must_oneOf" ($.'$#tight#OneOf'.oneOf)
 def jm_f_128(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.oneOf
-    result = json_model_27(value, path)
+    result = json_model_28(value, path)
     return result
 
-# define "json_model_42_may_$schema" ($.'$#tight#OneOf'.'$schema')
+# define "json_model_43_may_$schema" ($.'$#tight#OneOf'.'$schema')
 def jm_f_129(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_42_may_$id" ($.'$#tight#OneOf'.'$id')
+# define "json_model_43_may_$id" ($.'$#tight#OneOf'.'$id')
 def jm_f_130(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_42_may_id" ($.'$#tight#OneOf'.id)
+# define "json_model_43_may_id" ($.'$#tight#OneOf'.id)
 def jm_f_131(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_42_may_$comment" ($.'$#tight#OneOf'.'$comment')
+# define "json_model_43_may_$comment" ($.'$#tight#OneOf'.'$comment')
 def jm_f_132(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_42_may_title" ($.'$#tight#OneOf'.title)
+# define "json_model_43_may_title" ($.'$#tight#OneOf'.title)
 def jm_f_133(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_42_may_default" ($.'$#tight#OneOf'.default)
+# define "json_model_43_may_default" ($.'$#tight#OneOf'.default)
 def jm_f_134(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.default
     result = True
     return result
 
-# define "json_model_42_may_examples" ($.'$#tight#OneOf'.examples)
+# define "json_model_43_may_examples" ($.'$#tight#OneOf'.examples)
 def jm_f_135(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.examples
     result = isinstance(value, list)
@@ -878,7 +878,7 @@ def jm_f_135(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_42_may_description" ($.'$#tight#OneOf'.description)
+# define "json_model_43_may_description" ($.'$#tight#OneOf'.description)
 def jm_f_136(value: Jsonable, path: str) -> bool:
     # $.'$#tight#OneOf'.description
     result = isinstance(value, str)
@@ -888,49 +888,49 @@ def jm_f_136(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_43_must_enum" ($.'$#tight#Enum'.enum)
+# define "json_model_44_must_enum" ($.'$#tight#Enum'.enum)
 def jm_f_139(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.enum
-    result = json_model_26(value, path)
+    result = json_model_27(value, path)
     return result
 
-# define "json_model_43_may_$schema" ($.'$#tight#Enum'.'$schema')
+# define "json_model_44_may_$schema" ($.'$#tight#Enum'.'$schema')
 def jm_f_140(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_43_may_$id" ($.'$#tight#Enum'.'$id')
+# define "json_model_44_may_$id" ($.'$#tight#Enum'.'$id')
 def jm_f_141(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_43_may_id" ($.'$#tight#Enum'.id)
+# define "json_model_44_may_id" ($.'$#tight#Enum'.id)
 def jm_f_142(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_43_may_$comment" ($.'$#tight#Enum'.'$comment')
+# define "json_model_44_may_$comment" ($.'$#tight#Enum'.'$comment')
 def jm_f_143(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_43_may_title" ($.'$#tight#Enum'.title)
+# define "json_model_44_may_title" ($.'$#tight#Enum'.title)
 def jm_f_144(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_43_may_default" ($.'$#tight#Enum'.default)
+# define "json_model_44_may_default" ($.'$#tight#Enum'.default)
 def jm_f_145(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.default
     result = True
     return result
 
-# define "json_model_43_may_examples" ($.'$#tight#Enum'.examples)
+# define "json_model_44_may_examples" ($.'$#tight#Enum'.examples)
 def jm_f_146(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.examples
     result = isinstance(value, list)
@@ -942,7 +942,7 @@ def jm_f_146(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_43_may_description" ($.'$#tight#Enum'.description)
+# define "json_model_44_may_description" ($.'$#tight#Enum'.description)
 def jm_f_147(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Enum'.description
     result = isinstance(value, str)
@@ -952,49 +952,49 @@ def jm_f_147(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_44_must_const" ($.'$#tight#Const'.const)
+# define "json_model_45_must_const" ($.'$#tight#Const'.const)
 def jm_f_150(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.const
-    result = json_model_25(value, path)
+    result = json_model_26(value, path)
     return result
 
-# define "json_model_44_may_$schema" ($.'$#tight#Const'.'$schema')
+# define "json_model_45_may_$schema" ($.'$#tight#Const'.'$schema')
 def jm_f_151(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_$id" ($.'$#tight#Const'.'$id')
+# define "json_model_45_may_$id" ($.'$#tight#Const'.'$id')
 def jm_f_152(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_id" ($.'$#tight#Const'.id)
+# define "json_model_45_may_id" ($.'$#tight#Const'.id)
 def jm_f_153(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_$comment" ($.'$#tight#Const'.'$comment')
+# define "json_model_45_may_$comment" ($.'$#tight#Const'.'$comment')
 def jm_f_154(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_title" ($.'$#tight#Const'.title)
+# define "json_model_45_may_title" ($.'$#tight#Const'.title)
 def jm_f_155(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_44_may_default" ($.'$#tight#Const'.default)
+# define "json_model_45_may_default" ($.'$#tight#Const'.default)
 def jm_f_156(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.default
     result = True
     return result
 
-# define "json_model_44_may_examples" ($.'$#tight#Const'.examples)
+# define "json_model_45_may_examples" ($.'$#tight#Const'.examples)
 def jm_f_157(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.examples
     result = isinstance(value, list)
@@ -1006,7 +1006,7 @@ def jm_f_157(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_44_may_description" ($.'$#tight#Const'.description)
+# define "json_model_45_may_description" ($.'$#tight#Const'.description)
 def jm_f_158(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Const'.description
     result = isinstance(value, str)
@@ -1016,49 +1016,49 @@ def jm_f_158(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_45_must_$ref" ($.'$#tight#Ref'.'$ref')
+# define "json_model_46_must_$ref" ($.'$#tight#Ref'.'$ref')
 def jm_f_161(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.'$ref'
     result = is_valid_url(value, path)
     return result
 
-# define "json_model_45_may_$schema" ($.'$#tight#Ref'.'$schema')
+# define "json_model_46_may_$schema" ($.'$#tight#Ref'.'$schema')
 def jm_f_162(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_45_may_$id" ($.'$#tight#Ref'.'$id')
+# define "json_model_46_may_$id" ($.'$#tight#Ref'.'$id')
 def jm_f_163(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_45_may_id" ($.'$#tight#Ref'.id)
+# define "json_model_46_may_id" ($.'$#tight#Ref'.id)
 def jm_f_164(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_45_may_$comment" ($.'$#tight#Ref'.'$comment')
+# define "json_model_46_may_$comment" ($.'$#tight#Ref'.'$comment')
 def jm_f_165(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_45_may_title" ($.'$#tight#Ref'.title)
+# define "json_model_46_may_title" ($.'$#tight#Ref'.title)
 def jm_f_166(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_45_may_default" ($.'$#tight#Ref'.default)
+# define "json_model_46_may_default" ($.'$#tight#Ref'.default)
 def jm_f_167(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.default
     result = True
     return result
 
-# define "json_model_45_may_examples" ($.'$#tight#Ref'.examples)
+# define "json_model_46_may_examples" ($.'$#tight#Ref'.examples)
 def jm_f_168(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.examples
     result = isinstance(value, list)
@@ -1070,7 +1070,7 @@ def jm_f_168(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_45_may_description" ($.'$#tight#Ref'.description)
+# define "json_model_46_may_description" ($.'$#tight#Ref'.description)
 def jm_f_169(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Ref'.description
     result = isinstance(value, str)
@@ -1080,7 +1080,7 @@ def jm_f_169(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_71_must_enum" ($.'$#tight#EnumString'.enum)
+# define "json_model_73_must_enum" ($.'$#tight#EnumString'.enum)
 def jm_f_172(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.enum
     result = isinstance(value, list)
@@ -1092,49 +1092,49 @@ def jm_f_172(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_71_must_type" ($.'$#tight#EnumString'.type)
+# define "json_model_73_must_type" ($.'$#tight#EnumString'.type)
 def jm_f_173(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.type
     result = isinstance(value, str) and value == "string"
     return result
 
-# define "json_model_71_may_$schema" ($.'$#tight#EnumString'.'$schema')
+# define "json_model_73_may_$schema" ($.'$#tight#EnumString'.'$schema')
 def jm_f_174(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_71_may_$id" ($.'$#tight#EnumString'.'$id')
+# define "json_model_73_may_$id" ($.'$#tight#EnumString'.'$id')
 def jm_f_175(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_71_may_id" ($.'$#tight#EnumString'.id)
+# define "json_model_73_may_id" ($.'$#tight#EnumString'.id)
 def jm_f_176(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_71_may_$comment" ($.'$#tight#EnumString'.'$comment')
+# define "json_model_73_may_$comment" ($.'$#tight#EnumString'.'$comment')
 def jm_f_177(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_71_may_title" ($.'$#tight#EnumString'.title)
+# define "json_model_73_may_title" ($.'$#tight#EnumString'.title)
 def jm_f_178(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_71_may_default" ($.'$#tight#EnumString'.default)
+# define "json_model_73_may_default" ($.'$#tight#EnumString'.default)
 def jm_f_179(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.default
     result = True
     return result
 
-# define "json_model_71_may_examples" ($.'$#tight#EnumString'.examples)
+# define "json_model_73_may_examples" ($.'$#tight#EnumString'.examples)
 def jm_f_180(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.examples
     result = isinstance(value, list)
@@ -1146,7 +1146,7 @@ def jm_f_180(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_71_may_description" ($.'$#tight#EnumString'.description)
+# define "json_model_73_may_description" ($.'$#tight#EnumString'.description)
 def jm_f_181(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumString'.description
     result = isinstance(value, str)
@@ -1156,7 +1156,7 @@ def jm_f_181(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_72_must_enum" ($.'$#tight#EnumNum'.enum)
+# define "json_model_74_must_enum" ($.'$#tight#EnumNum'.enum)
 def jm_f_184(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.enum
     result = isinstance(value, list)
@@ -1168,49 +1168,49 @@ def jm_f_184(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_72_must_type" ($.'$#tight#EnumNum'.type)
+# define "json_model_74_must_type" ($.'$#tight#EnumNum'.type)
 def jm_f_185(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.type
     result = isinstance(value, str) and value == "number"
     return result
 
-# define "json_model_72_may_$schema" ($.'$#tight#EnumNum'.'$schema')
+# define "json_model_74_may_$schema" ($.'$#tight#EnumNum'.'$schema')
 def jm_f_186(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_72_may_$id" ($.'$#tight#EnumNum'.'$id')
+# define "json_model_74_may_$id" ($.'$#tight#EnumNum'.'$id')
 def jm_f_187(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_72_may_id" ($.'$#tight#EnumNum'.id)
+# define "json_model_74_may_id" ($.'$#tight#EnumNum'.id)
 def jm_f_188(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_72_may_$comment" ($.'$#tight#EnumNum'.'$comment')
+# define "json_model_74_may_$comment" ($.'$#tight#EnumNum'.'$comment')
 def jm_f_189(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_72_may_title" ($.'$#tight#EnumNum'.title)
+# define "json_model_74_may_title" ($.'$#tight#EnumNum'.title)
 def jm_f_190(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_72_may_default" ($.'$#tight#EnumNum'.default)
+# define "json_model_74_may_default" ($.'$#tight#EnumNum'.default)
 def jm_f_191(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.default
     result = True
     return result
 
-# define "json_model_72_may_examples" ($.'$#tight#EnumNum'.examples)
+# define "json_model_74_may_examples" ($.'$#tight#EnumNum'.examples)
 def jm_f_192(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.examples
     result = isinstance(value, list)
@@ -1222,7 +1222,7 @@ def jm_f_192(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_72_may_description" ($.'$#tight#EnumNum'.description)
+# define "json_model_74_may_description" ($.'$#tight#EnumNum'.description)
 def jm_f_193(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumNum'.description
     result = isinstance(value, str)
@@ -1232,7 +1232,7 @@ def jm_f_193(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_73_must_enum" ($.'$#tight#EnumInt'.enum)
+# define "json_model_75_must_enum" ($.'$#tight#EnumInt'.enum)
 def jm_f_196(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.enum
     result = isinstance(value, list)
@@ -1244,49 +1244,49 @@ def jm_f_196(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_73_must_type" ($.'$#tight#EnumInt'.type)
+# define "json_model_75_must_type" ($.'$#tight#EnumInt'.type)
 def jm_f_197(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.type
     result = isinstance(value, str) and value == "integer"
     return result
 
-# define "json_model_73_may_$schema" ($.'$#tight#EnumInt'.'$schema')
+# define "json_model_75_may_$schema" ($.'$#tight#EnumInt'.'$schema')
 def jm_f_198(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_73_may_$id" ($.'$#tight#EnumInt'.'$id')
+# define "json_model_75_may_$id" ($.'$#tight#EnumInt'.'$id')
 def jm_f_199(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_73_may_id" ($.'$#tight#EnumInt'.id)
+# define "json_model_75_may_id" ($.'$#tight#EnumInt'.id)
 def jm_f_200(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_73_may_$comment" ($.'$#tight#EnumInt'.'$comment')
+# define "json_model_75_may_$comment" ($.'$#tight#EnumInt'.'$comment')
 def jm_f_201(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_73_may_title" ($.'$#tight#EnumInt'.title)
+# define "json_model_75_may_title" ($.'$#tight#EnumInt'.title)
 def jm_f_202(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_73_may_default" ($.'$#tight#EnumInt'.default)
+# define "json_model_75_may_default" ($.'$#tight#EnumInt'.default)
 def jm_f_203(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.default
     result = True
     return result
 
-# define "json_model_73_may_examples" ($.'$#tight#EnumInt'.examples)
+# define "json_model_75_may_examples" ($.'$#tight#EnumInt'.examples)
 def jm_f_204(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.examples
     result = isinstance(value, list)
@@ -1298,7 +1298,7 @@ def jm_f_204(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_73_may_description" ($.'$#tight#EnumInt'.description)
+# define "json_model_75_may_description" ($.'$#tight#EnumInt'.description)
 def jm_f_205(value: Jsonable, path: str) -> bool:
     # $.'$#tight#EnumInt'.description
     result = isinstance(value, str)
@@ -1308,55 +1308,55 @@ def jm_f_205(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_74_must_const" ($.'$#tight#ConstString'.const)
+# define "json_model_76_must_const" ($.'$#tight#ConstString'.const)
 def jm_f_208(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.const
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_must_type" ($.'$#tight#ConstString'.type)
+# define "json_model_76_must_type" ($.'$#tight#ConstString'.type)
 def jm_f_209(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.type
     result = isinstance(value, str) and value == "string"
     return result
 
-# define "json_model_74_may_$schema" ($.'$#tight#ConstString'.'$schema')
+# define "json_model_76_may_$schema" ($.'$#tight#ConstString'.'$schema')
 def jm_f_210(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_may_$id" ($.'$#tight#ConstString'.'$id')
+# define "json_model_76_may_$id" ($.'$#tight#ConstString'.'$id')
 def jm_f_211(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_may_id" ($.'$#tight#ConstString'.id)
+# define "json_model_76_may_id" ($.'$#tight#ConstString'.id)
 def jm_f_212(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_may_$comment" ($.'$#tight#ConstString'.'$comment')
+# define "json_model_76_may_$comment" ($.'$#tight#ConstString'.'$comment')
 def jm_f_213(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_may_title" ($.'$#tight#ConstString'.title)
+# define "json_model_76_may_title" ($.'$#tight#ConstString'.title)
 def jm_f_214(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_74_may_default" ($.'$#tight#ConstString'.default)
+# define "json_model_76_may_default" ($.'$#tight#ConstString'.default)
 def jm_f_215(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.default
     result = True
     return result
 
-# define "json_model_74_may_examples" ($.'$#tight#ConstString'.examples)
+# define "json_model_76_may_examples" ($.'$#tight#ConstString'.examples)
 def jm_f_216(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.examples
     result = isinstance(value, list)
@@ -1368,7 +1368,7 @@ def jm_f_216(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_74_may_description" ($.'$#tight#ConstString'.description)
+# define "json_model_76_may_description" ($.'$#tight#ConstString'.description)
 def jm_f_217(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstString'.description
     result = isinstance(value, str)
@@ -1378,55 +1378,55 @@ def jm_f_217(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_75_must_const" ($.'$#tight#ConstNum'.const)
+# define "json_model_77_must_const" ($.'$#tight#ConstNum'.const)
 def jm_f_220(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.const
     result = isinstance(value, float)
     return result
 
-# define "json_model_75_must_type" ($.'$#tight#ConstNum'.type)
+# define "json_model_77_must_type" ($.'$#tight#ConstNum'.type)
 def jm_f_221(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.type
     result = isinstance(value, str) and value == "number"
     return result
 
-# define "json_model_75_may_$schema" ($.'$#tight#ConstNum'.'$schema')
+# define "json_model_77_may_$schema" ($.'$#tight#ConstNum'.'$schema')
 def jm_f_222(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_75_may_$id" ($.'$#tight#ConstNum'.'$id')
+# define "json_model_77_may_$id" ($.'$#tight#ConstNum'.'$id')
 def jm_f_223(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_75_may_id" ($.'$#tight#ConstNum'.id)
+# define "json_model_77_may_id" ($.'$#tight#ConstNum'.id)
 def jm_f_224(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_75_may_$comment" ($.'$#tight#ConstNum'.'$comment')
+# define "json_model_77_may_$comment" ($.'$#tight#ConstNum'.'$comment')
 def jm_f_225(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_75_may_title" ($.'$#tight#ConstNum'.title)
+# define "json_model_77_may_title" ($.'$#tight#ConstNum'.title)
 def jm_f_226(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_75_may_default" ($.'$#tight#ConstNum'.default)
+# define "json_model_77_may_default" ($.'$#tight#ConstNum'.default)
 def jm_f_227(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.default
     result = True
     return result
 
-# define "json_model_75_may_examples" ($.'$#tight#ConstNum'.examples)
+# define "json_model_77_may_examples" ($.'$#tight#ConstNum'.examples)
 def jm_f_228(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.examples
     result = isinstance(value, list)
@@ -1438,7 +1438,7 @@ def jm_f_228(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_75_may_description" ($.'$#tight#ConstNum'.description)
+# define "json_model_77_may_description" ($.'$#tight#ConstNum'.description)
 def jm_f_229(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstNum'.description
     result = isinstance(value, str)
@@ -1448,55 +1448,55 @@ def jm_f_229(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_76_must_const" ($.'$#tight#ConstInt'.const)
+# define "json_model_78_must_const" ($.'$#tight#ConstInt'.const)
 def jm_f_232(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.const
     result = isinstance(value, int) and not isinstance(value, bool)
     return result
 
-# define "json_model_76_must_type" ($.'$#tight#ConstInt'.type)
+# define "json_model_78_must_type" ($.'$#tight#ConstInt'.type)
 def jm_f_233(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.type
     result = isinstance(value, str) and value == "integer"
     return result
 
-# define "json_model_76_may_$schema" ($.'$#tight#ConstInt'.'$schema')
+# define "json_model_78_may_$schema" ($.'$#tight#ConstInt'.'$schema')
 def jm_f_234(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_76_may_$id" ($.'$#tight#ConstInt'.'$id')
+# define "json_model_78_may_$id" ($.'$#tight#ConstInt'.'$id')
 def jm_f_235(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_76_may_id" ($.'$#tight#ConstInt'.id)
+# define "json_model_78_may_id" ($.'$#tight#ConstInt'.id)
 def jm_f_236(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_76_may_$comment" ($.'$#tight#ConstInt'.'$comment')
+# define "json_model_78_may_$comment" ($.'$#tight#ConstInt'.'$comment')
 def jm_f_237(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_76_may_title" ($.'$#tight#ConstInt'.title)
+# define "json_model_78_may_title" ($.'$#tight#ConstInt'.title)
 def jm_f_238(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_76_may_default" ($.'$#tight#ConstInt'.default)
+# define "json_model_78_may_default" ($.'$#tight#ConstInt'.default)
 def jm_f_239(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.default
     result = True
     return result
 
-# define "json_model_76_may_examples" ($.'$#tight#ConstInt'.examples)
+# define "json_model_78_may_examples" ($.'$#tight#ConstInt'.examples)
 def jm_f_240(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.examples
     result = isinstance(value, list)
@@ -1508,7 +1508,7 @@ def jm_f_240(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_76_may_description" ($.'$#tight#ConstInt'.description)
+# define "json_model_78_may_description" ($.'$#tight#ConstInt'.description)
 def jm_f_241(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstInt'.description
     result = isinstance(value, str)
@@ -1518,55 +1518,55 @@ def jm_f_241(value: Jsonable, path: str) -> bool:
 
 
 
-# define "json_model_77_must_const" ($.'$#tight#ConstBool'.const)
+# define "json_model_79_must_const" ($.'$#tight#ConstBool'.const)
 def jm_f_244(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.const
     result = isinstance(value, bool)
     return result
 
-# define "json_model_77_must_type" ($.'$#tight#ConstBool'.type)
+# define "json_model_79_must_type" ($.'$#tight#ConstBool'.type)
 def jm_f_245(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.type
     result = isinstance(value, str) and value == "boolean"
     return result
 
-# define "json_model_77_may_$schema" ($.'$#tight#ConstBool'.'$schema')
+# define "json_model_79_may_$schema" ($.'$#tight#ConstBool'.'$schema')
 def jm_f_246(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.'$schema'
     result = isinstance(value, str)
     return result
 
-# define "json_model_77_may_$id" ($.'$#tight#ConstBool'.'$id')
+# define "json_model_79_may_$id" ($.'$#tight#ConstBool'.'$id')
 def jm_f_247(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.'$id'
     result = isinstance(value, str)
     return result
 
-# define "json_model_77_may_id" ($.'$#tight#ConstBool'.id)
+# define "json_model_79_may_id" ($.'$#tight#ConstBool'.id)
 def jm_f_248(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.id
     result = isinstance(value, str)
     return result
 
-# define "json_model_77_may_$comment" ($.'$#tight#ConstBool'.'$comment')
+# define "json_model_79_may_$comment" ($.'$#tight#ConstBool'.'$comment')
 def jm_f_249(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.'$comment'
     result = isinstance(value, str)
     return result
 
-# define "json_model_77_may_title" ($.'$#tight#ConstBool'.title)
+# define "json_model_79_may_title" ($.'$#tight#ConstBool'.title)
 def jm_f_250(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.title
     result = isinstance(value, str)
     return result
 
-# define "json_model_77_may_default" ($.'$#tight#ConstBool'.default)
+# define "json_model_79_may_default" ($.'$#tight#ConstBool'.default)
 def jm_f_251(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.default
     result = True
     return result
 
-# define "json_model_77_may_examples" ($.'$#tight#ConstBool'.examples)
+# define "json_model_79_may_examples" ($.'$#tight#ConstBool'.examples)
 def jm_f_252(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.examples
     result = isinstance(value, list)
@@ -1578,7 +1578,7 @@ def jm_f_252(value: Jsonable, path: str) -> bool:
             if not result: break
     return result
 
-# define "json_model_77_may_description" ($.'$#tight#ConstBool'.description)
+# define "json_model_79_may_description" ($.'$#tight#ConstBool'.description)
 def jm_f_253(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ConstBool'.description
     result = isinstance(value, str)
@@ -1592,13 +1592,13 @@ def jm_f_253(value: Jsonable, path: str) -> bool:
 # define "$tight" ($.tight)
 def json_model_1(value: Jsonable, path: str) -> bool:
     # $.tight
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "$https://json-model.org/models/json-schema-draft-tighter" ($.'$https://json-model.org/models/json-schema-draft-tighter')
-def json_model_24(value: Jsonable, path: str) -> bool:
+def json_model_25(value: Jsonable, path: str) -> bool:
     # $.'$https://json-model.org/models/json-schema-draft-tighter'
-    result = json_model_48(value, path)
+    result = json_model_49(value, path)
     return result
 
 
@@ -1620,80 +1620,80 @@ def jm_obj_0(value: Jsonable, path: str) -> bool:
     return must_count == 1
 
 # define "$#tight#RootSchema" ($.'$#tight#RootSchema')
-def json_model_48(value: Jsonable, path: str) -> bool:
+def json_model_49(value: Jsonable, path: str) -> bool:
     # $.'$#tight#RootSchema'
     # $.'$#tight#RootSchema'.'&'.0
     result = jm_obj_0(value, path)
     if result:
         # $.'$#tight#RootSchema'.'&'.1
-        result = json_model_46(value, path)
+        result = json_model_47(value, path)
     return result
 
 # define "$#tight#ObjectSchema" ($.'$#tight#ObjectSchema')
-def json_model_46(value: Jsonable, path: str) -> bool:
+def json_model_47(value: Jsonable, path: str) -> bool:
     # $.'$#tight#ObjectSchema'
     # $.'$#tight#ObjectSchema'.'|'.0
-    result = json_model_39(value, path)
+    result = json_model_40(value, path)
     if not result:
         # $.'$#tight#ObjectSchema'.'|'.1
-        result = json_model_38(value, path)
+        result = json_model_39(value, path)
         if not result:
             # $.'$#tight#ObjectSchema'.'|'.2
-            result = json_model_44(value, path)
+            result = json_model_45(value, path)
             if not result:
                 # $.'$#tight#ObjectSchema'.'|'.3
-                result = json_model_43(value, path)
+                result = json_model_44(value, path)
                 if not result:
                     # $.'$#tight#ObjectSchema'.'|'.4
-                    result = json_model_36(value, path)
+                    result = json_model_37(value, path)
                     if not result:
                         # $.'$#tight#ObjectSchema'.'|'.5
-                        result = json_model_37(value, path)
+                        result = json_model_38(value, path)
                         if not result:
                             # $.'$#tight#ObjectSchema'.'|'.6
-                            result = json_model_33(value, path)
+                            result = json_model_34(value, path)
                             if not result:
                                 # $.'$#tight#ObjectSchema'.'|'.7
-                                result = json_model_34(value, path)
+                                result = json_model_35(value, path)
                                 if not result:
                                     # $.'$#tight#ObjectSchema'.'|'.8
-                                    result = json_model_35(value, path)
+                                    result = json_model_36(value, path)
                                     if not result:
                                         # $.'$#tight#ObjectSchema'.'|'.9
-                                        result = json_model_40(value, path)
+                                        result = json_model_41(value, path)
                                         if not result:
                                             # $.'$#tight#ObjectSchema'.'|'.10
-                                            result = json_model_41(value, path)
+                                            result = json_model_42(value, path)
                                             if not result:
                                                 # $.'$#tight#ObjectSchema'.'|'.11
-                                                result = json_model_42(value, path)
+                                                result = json_model_43(value, path)
                                                 if not result:
                                                     # $.'$#tight#ObjectSchema'.'|'.12
-                                                    result = json_model_45(value, path)
+                                                    result = json_model_46(value, path)
                                                     if not result:
                                                         # $.'$#tight#ObjectSchema'.'|'.13
-                                                        result = json_model_32(value, path)
+                                                        result = json_model_33(value, path)
                                                         if not result:
                                                             # $.'$#tight#ObjectSchema'.'|'.14
-                                                            result = json_model_71(value, path)
+                                                            result = json_model_73(value, path)
                                                             if not result:
                                                                 # $.'$#tight#ObjectSchema'.'|'.15
-                                                                result = json_model_72(value, path)
+                                                                result = json_model_74(value, path)
                                                                 if not result:
                                                                     # $.'$#tight#ObjectSchema'.'|'.16
-                                                                    result = json_model_73(value, path)
+                                                                    result = json_model_75(value, path)
                                                                     if not result:
                                                                         # $.'$#tight#ObjectSchema'.'|'.17
-                                                                        result = json_model_74(value, path)
+                                                                        result = json_model_76(value, path)
                                                                         if not result:
                                                                             # $.'$#tight#ObjectSchema'.'|'.18
-                                                                            result = json_model_75(value, path)
+                                                                            result = json_model_77(value, path)
                                                                             if not result:
                                                                                 # $.'$#tight#ObjectSchema'.'|'.19
-                                                                                result = json_model_76(value, path)
+                                                                                result = json_model_78(value, path)
                                                                                 if not result:
                                                                                     # $.'$#tight#ObjectSchema'.'|'.20
-                                                                                    result = json_model_77(value, path)
+                                                                                    result = json_model_79(value, path)
     return result
 
 
@@ -1704,7 +1704,7 @@ def jm_f_9(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#metas'.'$defs'.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
@@ -1716,19 +1716,19 @@ def jm_f_10(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#metas'.definitions.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#tight#metas'
-def json_model_32(value: Jsonable, path: str) -> bool:
+def json_model_33(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_32_may:  # may
-            if not json_model_32_may[prop](model, f"{path}.{prop}"):
+        if prop in json_model_33_may:  # may
+            if not json_model_33_may[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -1744,7 +1744,7 @@ def jm_f_20(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#String'.'$defs'.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
@@ -1756,57 +1756,12 @@ def jm_f_21(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#String'.definitions.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#tight#String'
-def json_model_33(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    must_count = 0
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if prop in json_model_33_must:  # must
-            must_count += 1
-            if not json_model_33_must[prop](model, f"{path}.{prop}"):
-                return False
-        elif prop in json_model_33_may:  # may
-            if not json_model_33_may[prop](model, f"{path}.{prop}"):
-                return False
-        else:  # no catch all
-            return False
-    return must_count == 1
-
-
-
-
-# object $.'$#tight#Array'.'$defs'
-def jm_f_35(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#Array'.'$defs'.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#Array'.definitions
-def jm_f_36(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#Array'.definitions.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#Array'
 def json_model_34(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1826,71 +1781,32 @@ def json_model_34(value: Jsonable, path: str) -> bool:
 
 
 
-# define "$#tight#schemaArray" ($.'$#tight#schemaArray')
-def json_model_27(value: Jsonable, path: str) -> bool:
-    # $.'$#tight#schemaArray'
-    result = isinstance(value, list)
-    if result:
-        assert isinstance(value, list)  # pyright helper
-        for array_3_idx, array_3_item in enumerate(value):
-            # $.'$#tight#schemaArray'.0
-            result = json_model_47(array_3_item, path)
-            if not result: break
-    return result
 
-
-# object $.'$#tight#Object'.'$defs'
-def jm_f_52(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Array'.'$defs'
+def jm_f_35(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Object'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Array'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Object'.definitions
-def jm_f_53(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Array'.definitions
+def jm_f_36(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Object'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Array'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Object'.properties
-def jm_f_54(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#Object'.properties.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#Object'.patternProperties
-def jm_f_57(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if is_valid_re(prop, path):  # $REGEX
-            # $.'$#tight#Object'.patternProperties.REGEX
-            result = json_model_47(model, path)
-            if not result: return False
-        else:  # no catch all
-            return False
-    return True
-
-
-# object $.'$#tight#Object'
+# object $.'$#tight#Array'
 def json_model_35(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1910,32 +1826,71 @@ def json_model_35(value: Jsonable, path: str) -> bool:
 
 
 
+# define "$#tight#schemaArray" ($.'$#tight#schemaArray')
+def json_model_28(value: Jsonable, path: str) -> bool:
+    # $.'$#tight#schemaArray'
+    result = isinstance(value, list)
+    if result:
+        assert isinstance(value, list)  # pyright helper
+        for array_3_idx, array_3_item in enumerate(value):
+            # $.'$#tight#schemaArray'.0
+            result = json_model_48(array_3_item, path)
+            if not result: break
+    return result
 
-# object $.'$#tight#Integer'.'$defs'
-def jm_f_67(value: Jsonable, path: str) -> bool:
+
+# object $.'$#tight#Object'.'$defs'
+def jm_f_52(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Integer'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Object'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Integer'.definitions
-def jm_f_68(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Object'.definitions
+def jm_f_53(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Integer'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Object'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Integer'
+# object $.'$#tight#Object'.properties
+def jm_f_54(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#Object'.properties.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#Object'.patternProperties
+def jm_f_57(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if is_valid_re(prop, path):  # $REGEX
+            # $.'$#tight#Object'.patternProperties.REGEX
+            result = json_model_48(model, path)
+            if not result: return False
+        else:  # no catch all
+            return False
+    return True
+
+
+# object $.'$#tight#Object'
 def json_model_36(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1956,31 +1911,31 @@ def json_model_36(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#Number'.'$defs'
-def jm_f_80(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Integer'.'$defs'
+def jm_f_67(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Number'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Integer'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Number'.definitions
-def jm_f_81(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Integer'.definitions
+def jm_f_68(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Number'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Integer'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Number'
+# object $.'$#tight#Integer'
 def json_model_37(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2001,31 +1956,31 @@ def json_model_37(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#Bool'.'$defs'
-def jm_f_93(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Number'.'$defs'
+def jm_f_80(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Bool'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Number'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Bool'.definitions
-def jm_f_94(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Number'.definitions
+def jm_f_81(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Bool'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Number'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Bool'
+# object $.'$#tight#Number'
 def json_model_38(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2046,31 +2001,31 @@ def json_model_38(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#Null'.'$defs'
-def jm_f_104(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Bool'.'$defs'
+def jm_f_93(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Null'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Bool'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Null'.definitions
-def jm_f_105(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Bool'.definitions
+def jm_f_94(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Null'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Bool'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Null'
+# object $.'$#tight#Bool'
 def json_model_39(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2091,31 +2046,31 @@ def json_model_39(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#AllOf'.'$defs'
-def jm_f_115(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Null'.'$defs'
+def jm_f_104(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#AllOf'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Null'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#AllOf'.definitions
-def jm_f_116(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#Null'.definitions
+def jm_f_105(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#AllOf'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#Null'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#AllOf'
+# object $.'$#tight#Null'
 def json_model_40(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2136,31 +2091,31 @@ def json_model_40(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#AnyOf'.'$defs'
-def jm_f_126(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#AllOf'.'$defs'
+def jm_f_115(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#AnyOf'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#AllOf'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#AnyOf'.definitions
-def jm_f_127(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#AllOf'.definitions
+def jm_f_116(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#AnyOf'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#AllOf'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#AnyOf'
+# object $.'$#tight#AllOf'
 def json_model_41(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2181,31 +2136,31 @@ def json_model_41(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#OneOf'.'$defs'
-def jm_f_137(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#AnyOf'.'$defs'
+def jm_f_126(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#OneOf'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#AnyOf'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#OneOf'.definitions
-def jm_f_138(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#AnyOf'.definitions
+def jm_f_127(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#OneOf'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#AnyOf'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#OneOf'
+# object $.'$#tight#AnyOf'
 def json_model_42(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2226,31 +2181,31 @@ def json_model_42(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#Enum'.'$defs'
-def jm_f_148(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#OneOf'.'$defs'
+def jm_f_137(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Enum'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#OneOf'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Enum'.definitions
-def jm_f_149(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#OneOf'.definitions
+def jm_f_138(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#Enum'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#OneOf'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#Enum'
+# object $.'$#tight#OneOf'
 def json_model_43(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2270,8 +2225,53 @@ def json_model_43(value: Jsonable, path: str) -> bool:
 
 
 
+
+# object $.'$#tight#Enum'.'$defs'
+def jm_f_148(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#Enum'.'$defs'.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#Enum'.definitions
+def jm_f_149(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#Enum'.definitions.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#Enum'
+def json_model_44(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    must_count = 0
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_44_must:  # must
+            must_count += 1
+            if not json_model_44_must[prop](model, f"{path}.{prop}"):
+                return False
+        elif prop in json_model_44_may:  # may
+            if not json_model_44_may[prop](model, f"{path}.{prop}"):
+                return False
+        else:  # no catch all
+            return False
+    return must_count == 1
+
+
+
 # define "$#tight#enum" ($.'$#tight#enum')
-def json_model_26(value: Jsonable, path: str) -> bool:
+def json_model_27(value: Jsonable, path: str) -> bool:
     # $.'$#tight#enum'
     result = isinstance(value, list)
     if result:
@@ -2308,7 +2308,7 @@ def jm_f_159(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#Const'.'$defs'.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
@@ -2320,24 +2320,24 @@ def jm_f_160(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#Const'.definitions.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#tight#Const'
-def json_model_44(value: Jsonable, path: str) -> bool:
+def json_model_45(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_44_must:  # must
+        if prop in json_model_45_must:  # must
             must_count += 1
-            if not json_model_44_must[prop](model, f"{path}.{prop}"):
+            if not json_model_45_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_44_may:  # may
-            if not json_model_44_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_45_may:  # may
+            if not json_model_45_may[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -2346,7 +2346,7 @@ def json_model_44(value: Jsonable, path: str) -> bool:
 
 
 # define "$#tight#const" ($.'$#tight#const')
-def json_model_25(value: Jsonable, path: str) -> bool:
+def json_model_26(value: Jsonable, path: str) -> bool:
     # $.'$#tight#const'
     # $.'$#tight#const'.'|'.0
     result = value is None
@@ -2372,7 +2372,7 @@ def jm_f_170(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#Ref'.'$defs'.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
@@ -2384,24 +2384,24 @@ def jm_f_171(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#Ref'.definitions.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#tight#Ref'
-def json_model_45(value: Jsonable, path: str) -> bool:
+def json_model_46(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in json_model_45_must:  # must
+        if prop in json_model_46_must:  # must
             must_count += 1
-            if not json_model_45_must[prop](model, f"{path}.{prop}"):
+            if not json_model_46_must[prop](model, f"{path}.{prop}"):
                 return False
-        elif prop in json_model_45_may:  # may
-            if not json_model_45_may[prop](model, f"{path}.{prop}"):
+        elif prop in json_model_46_may:  # may
+            if not json_model_46_may[prop](model, f"{path}.{prop}"):
                 return False
         else:  # no catch all
             return False
@@ -2410,13 +2410,13 @@ def json_model_45(value: Jsonable, path: str) -> bool:
 
 
 # define "$#tight#Schema" ($.'$#tight#Schema')
-def json_model_47(value: Jsonable, path: str) -> bool:
+def json_model_48(value: Jsonable, path: str) -> bool:
     # $.'$#tight#Schema'
     # $.'$#tight#Schema'.'|'.0
     result = isinstance(value, bool)
     if not result:
         # $.'$#tight#Schema'.'|'.1
-        result = json_model_46(value, path)
+        result = json_model_47(value, path)
     return result
 
 
@@ -2427,7 +2427,7 @@ def jm_f_182(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#EnumString'.'$defs'.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
@@ -2439,102 +2439,12 @@ def jm_f_183(value: Jsonable, path: str) -> bool:
     for prop, model in value.items():
         assert isinstance(prop, str)
         # $.'$#tight#EnumString'.definitions.''
-        result = json_model_47(model, path)
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
 # object $.'$#tight#EnumString'
-def json_model_71(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    must_count = 0
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if prop in json_model_71_must:  # must
-            must_count += 1
-            if not json_model_71_must[prop](model, f"{path}.{prop}"):
-                return False
-        elif prop in json_model_71_may:  # may
-            if not json_model_71_may[prop](model, f"{path}.{prop}"):
-                return False
-        else:  # no catch all
-            return False
-    return must_count == 2
-
-
-
-
-# object $.'$#tight#EnumNum'.'$defs'
-def jm_f_194(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#EnumNum'.'$defs'.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#EnumNum'.definitions
-def jm_f_195(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#EnumNum'.definitions.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#EnumNum'
-def json_model_72(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    must_count = 0
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        if prop in json_model_72_must:  # must
-            must_count += 1
-            if not json_model_72_must[prop](model, f"{path}.{prop}"):
-                return False
-        elif prop in json_model_72_may:  # may
-            if not json_model_72_may[prop](model, f"{path}.{prop}"):
-                return False
-        else:  # no catch all
-            return False
-    return must_count == 2
-
-
-
-
-# object $.'$#tight#EnumInt'.'$defs'
-def jm_f_206(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#EnumInt'.'$defs'.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#EnumInt'.definitions
-def jm_f_207(value: Jsonable, path: str) -> bool:
-    if not isinstance(value, dict):
-        return False
-    for prop, model in value.items():
-        assert isinstance(prop, str)
-        # $.'$#tight#EnumInt'.definitions.''
-        result = json_model_47(model, path)
-        if not result: return False
-    return True
-
-
-# object $.'$#tight#EnumInt'
 def json_model_73(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2555,31 +2465,31 @@ def json_model_73(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#ConstString'.'$defs'
-def jm_f_218(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#EnumNum'.'$defs'
+def jm_f_194(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstString'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#EnumNum'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstString'.definitions
-def jm_f_219(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#EnumNum'.definitions
+def jm_f_195(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstString'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#EnumNum'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstString'
+# object $.'$#tight#EnumNum'
 def json_model_74(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2600,31 +2510,31 @@ def json_model_74(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#ConstNum'.'$defs'
-def jm_f_230(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#EnumInt'.'$defs'
+def jm_f_206(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstNum'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#EnumInt'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstNum'.definitions
-def jm_f_231(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#EnumInt'.definitions
+def jm_f_207(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstNum'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#EnumInt'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstNum'
+# object $.'$#tight#EnumInt'
 def json_model_75(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2645,31 +2555,31 @@ def json_model_75(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#ConstInt'.'$defs'
-def jm_f_242(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#ConstString'.'$defs'
+def jm_f_218(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstInt'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#ConstString'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstInt'.definitions
-def jm_f_243(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#ConstString'.definitions
+def jm_f_219(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstInt'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#ConstString'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstInt'
+# object $.'$#tight#ConstString'
 def json_model_76(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2690,31 +2600,31 @@ def json_model_76(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.'$#tight#ConstBool'.'$defs'
-def jm_f_254(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#ConstNum'.'$defs'
+def jm_f_230(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstBool'.'$defs'.''
-        result = json_model_47(model, path)
+        # $.'$#tight#ConstNum'.'$defs'.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstBool'.definitions
-def jm_f_255(value: Jsonable, path: str) -> bool:
+# object $.'$#tight#ConstNum'.definitions
+def jm_f_231(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        # $.'$#tight#ConstBool'.definitions.''
-        result = json_model_47(model, path)
+        # $.'$#tight#ConstNum'.definitions.''
+        result = json_model_48(model, path)
         if not result: return False
     return True
 
 
-# object $.'$#tight#ConstBool'
+# object $.'$#tight#ConstNum'
 def json_model_77(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -2734,10 +2644,100 @@ def json_model_77(value: Jsonable, path: str) -> bool:
 
 
 
+
+# object $.'$#tight#ConstInt'.'$defs'
+def jm_f_242(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#ConstInt'.'$defs'.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#ConstInt'.definitions
+def jm_f_243(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#ConstInt'.definitions.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#ConstInt'
+def json_model_78(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    must_count = 0
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_78_must:  # must
+            must_count += 1
+            if not json_model_78_must[prop](model, f"{path}.{prop}"):
+                return False
+        elif prop in json_model_78_may:  # may
+            if not json_model_78_may[prop](model, f"{path}.{prop}"):
+                return False
+        else:  # no catch all
+            return False
+    return must_count == 2
+
+
+
+
+# object $.'$#tight#ConstBool'.'$defs'
+def jm_f_254(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#ConstBool'.'$defs'.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#ConstBool'.definitions
+def jm_f_255(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        # $.'$#tight#ConstBool'.definitions.''
+        result = json_model_48(model, path)
+        if not result: return False
+    return True
+
+
+# object $.'$#tight#ConstBool'
+def json_model_79(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    must_count = 0
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_79_must:  # must
+            must_count += 1
+            if not json_model_79_must[prop](model, f"{path}.{prop}"):
+                return False
+        elif prop in json_model_79_may:  # may
+            if not json_model_79_may[prop](model, f"{path}.{prop}"):
+                return False
+        else:  # no catch all
+            return False
+    return must_count == 2
+
+
+
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
-    result = json_model_48(value, path)
+    result = json_model_49(value, path)
     return result
 
 # entry function check_model
@@ -2749,7 +2749,7 @@ def check_model(value: Jsonable, path: str = "$") -> bool:
 jm_obj_0_must = {
     "$schema": jm_f_0,
 }
-json_model_32_may = {
+json_model_33_may = {
     "$schema": jm_f_1,
     "$id": jm_f_2,
     "id": jm_f_3,
@@ -2761,10 +2761,10 @@ json_model_32_may = {
     "$defs": jm_f_9,
     "definitions": jm_f_10,
 }
-json_model_33_must = {
+json_model_34_must = {
     "type": jm_f_11,
 }
-json_model_33_may = {
+json_model_34_may = {
     "$schema": jm_f_12,
     "$id": jm_f_13,
     "id": jm_f_14,
@@ -2780,10 +2780,10 @@ json_model_33_may = {
     "maxLength": jm_f_24,
     "format": jm_f_25,
 }
-json_model_34_must = {
+json_model_35_must = {
     "type": jm_f_26,
 }
-json_model_34_may = {
+json_model_35_may = {
     "$schema": jm_f_27,
     "$id": jm_f_28,
     "id": jm_f_29,
@@ -2801,10 +2801,10 @@ json_model_34_may = {
     "maxItems": jm_f_41,
     "uniqueItems": jm_f_42,
 }
-json_model_35_must = {
+json_model_36_must = {
     "type": jm_f_43,
 }
-json_model_35_may = {
+json_model_36_may = {
     "$schema": jm_f_44,
     "$id": jm_f_45,
     "id": jm_f_46,
@@ -2820,10 +2820,10 @@ json_model_35_may = {
     "additionalProperties": jm_f_56,
     "patternProperties": jm_f_57,
 }
-json_model_36_must = {
+json_model_37_must = {
     "type": jm_f_58,
 }
-json_model_36_may = {
+json_model_37_may = {
     "$schema": jm_f_59,
     "$id": jm_f_60,
     "id": jm_f_61,
@@ -2837,10 +2837,10 @@ json_model_36_may = {
     "minimum": jm_f_69,
     "maximum": jm_f_70,
 }
-json_model_37_must = {
+json_model_38_must = {
     "type": jm_f_71,
 }
-json_model_37_may = {
+json_model_38_may = {
     "$schema": jm_f_72,
     "$id": jm_f_73,
     "id": jm_f_74,
@@ -2854,10 +2854,10 @@ json_model_37_may = {
     "minimum": jm_f_82,
     "maximum": jm_f_83,
 }
-json_model_38_must = {
+json_model_39_must = {
     "type": jm_f_84,
 }
-json_model_38_may = {
+json_model_39_may = {
     "$schema": jm_f_85,
     "$id": jm_f_86,
     "id": jm_f_87,
@@ -2869,10 +2869,10 @@ json_model_38_may = {
     "$defs": jm_f_93,
     "definitions": jm_f_94,
 }
-json_model_39_must = {
+json_model_40_must = {
     "type": jm_f_95,
 }
-json_model_39_may = {
+json_model_40_may = {
     "$schema": jm_f_96,
     "$id": jm_f_97,
     "id": jm_f_98,
@@ -2884,10 +2884,10 @@ json_model_39_may = {
     "$defs": jm_f_104,
     "definitions": jm_f_105,
 }
-json_model_40_must = {
+json_model_41_must = {
     "allOf": jm_f_106,
 }
-json_model_40_may = {
+json_model_41_may = {
     "$schema": jm_f_107,
     "$id": jm_f_108,
     "id": jm_f_109,
@@ -2899,10 +2899,10 @@ json_model_40_may = {
     "$defs": jm_f_115,
     "definitions": jm_f_116,
 }
-json_model_41_must = {
+json_model_42_must = {
     "anyOf": jm_f_117,
 }
-json_model_41_may = {
+json_model_42_may = {
     "$schema": jm_f_118,
     "$id": jm_f_119,
     "id": jm_f_120,
@@ -2914,10 +2914,10 @@ json_model_41_may = {
     "$defs": jm_f_126,
     "definitions": jm_f_127,
 }
-json_model_42_must = {
+json_model_43_must = {
     "oneOf": jm_f_128,
 }
-json_model_42_may = {
+json_model_43_may = {
     "$schema": jm_f_129,
     "$id": jm_f_130,
     "id": jm_f_131,
@@ -2929,10 +2929,10 @@ json_model_42_may = {
     "$defs": jm_f_137,
     "definitions": jm_f_138,
 }
-json_model_43_must = {
+json_model_44_must = {
     "enum": jm_f_139,
 }
-json_model_43_may = {
+json_model_44_may = {
     "$schema": jm_f_140,
     "$id": jm_f_141,
     "id": jm_f_142,
@@ -2944,10 +2944,10 @@ json_model_43_may = {
     "$defs": jm_f_148,
     "definitions": jm_f_149,
 }
-json_model_44_must = {
+json_model_45_must = {
     "const": jm_f_150,
 }
-json_model_44_may = {
+json_model_45_may = {
     "$schema": jm_f_151,
     "$id": jm_f_152,
     "id": jm_f_153,
@@ -2959,10 +2959,10 @@ json_model_44_may = {
     "$defs": jm_f_159,
     "definitions": jm_f_160,
 }
-json_model_45_must = {
+json_model_46_must = {
     "$ref": jm_f_161,
 }
-json_model_45_may = {
+json_model_46_may = {
     "$schema": jm_f_162,
     "$id": jm_f_163,
     "id": jm_f_164,
@@ -2974,11 +2974,11 @@ json_model_45_may = {
     "$defs": jm_f_170,
     "definitions": jm_f_171,
 }
-json_model_71_must = {
+json_model_73_must = {
     "enum": jm_f_172,
     "type": jm_f_173,
 }
-json_model_71_may = {
+json_model_73_may = {
     "$schema": jm_f_174,
     "$id": jm_f_175,
     "id": jm_f_176,
@@ -2990,11 +2990,11 @@ json_model_71_may = {
     "$defs": jm_f_182,
     "definitions": jm_f_183,
 }
-json_model_72_must = {
+json_model_74_must = {
     "enum": jm_f_184,
     "type": jm_f_185,
 }
-json_model_72_may = {
+json_model_74_may = {
     "$schema": jm_f_186,
     "$id": jm_f_187,
     "id": jm_f_188,
@@ -3006,11 +3006,11 @@ json_model_72_may = {
     "$defs": jm_f_194,
     "definitions": jm_f_195,
 }
-json_model_73_must = {
+json_model_75_must = {
     "enum": jm_f_196,
     "type": jm_f_197,
 }
-json_model_73_may = {
+json_model_75_may = {
     "$schema": jm_f_198,
     "$id": jm_f_199,
     "id": jm_f_200,
@@ -3022,11 +3022,11 @@ json_model_73_may = {
     "$defs": jm_f_206,
     "definitions": jm_f_207,
 }
-json_model_74_must = {
+json_model_76_must = {
     "const": jm_f_208,
     "type": jm_f_209,
 }
-json_model_74_may = {
+json_model_76_may = {
     "$schema": jm_f_210,
     "$id": jm_f_211,
     "id": jm_f_212,
@@ -3038,11 +3038,11 @@ json_model_74_may = {
     "$defs": jm_f_218,
     "definitions": jm_f_219,
 }
-json_model_75_must = {
+json_model_77_must = {
     "const": jm_f_220,
     "type": jm_f_221,
 }
-json_model_75_may = {
+json_model_77_may = {
     "$schema": jm_f_222,
     "$id": jm_f_223,
     "id": jm_f_224,
@@ -3054,11 +3054,11 @@ json_model_75_may = {
     "$defs": jm_f_230,
     "definitions": jm_f_231,
 }
-json_model_76_must = {
+json_model_78_must = {
     "const": jm_f_232,
     "type": jm_f_233,
 }
-json_model_76_may = {
+json_model_78_may = {
     "$schema": jm_f_234,
     "$id": jm_f_235,
     "id": jm_f_236,
@@ -3070,11 +3070,11 @@ json_model_76_may = {
     "$defs": jm_f_242,
     "definitions": jm_f_243,
 }
-json_model_77_must = {
+json_model_79_must = {
     "const": jm_f_244,
     "type": jm_f_245,
 }
-json_model_77_may = {
+json_model_79_may = {
     "$schema": jm_f_246,
     "$id": jm_f_247,
     "id": jm_f_248,

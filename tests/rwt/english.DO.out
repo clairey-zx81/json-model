@@ -324,7 +324,7 @@
         >>   90 RETURN_VALUE
 
 #
-# json model 23
+# json model 24
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)
@@ -355,7 +355,7 @@
         >>   90 RETURN_VALUE
 
 #
-# json model 24
+# json model 25
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)

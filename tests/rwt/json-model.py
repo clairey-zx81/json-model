@@ -43,6 +43,7 @@ jm_obj_6_must: PropMap
 jm_obj_6_may: PropMap
 jm_obj_8_must: PropMap
 jm_obj_8_may: PropMap
+json_model_17_may: PropMap
 # regex "/.+/"
 jm_re_4 = re.compile(".+").search
 # regex "/^\\..*$/"
@@ -51,29 +52,32 @@ jm_re_5 = re.compile("^\\..*$").search
 jm_re_6 = re.compile("^([#|&^+/*@~<>=!$%]|<=|>=|!=)$").search
 # regex "/^\\$.*$/"
 jm_re_7 = re.compile("^\\$.*$").search
-jm_obj_10_must: PropMap
-jm_obj_10_may: PropMap
+json_model_20_may: PropMap
 jm_f_27_may: PropMap
 jm_f_30_may: PropMap
+jm_obj_10_must: PropMap
+jm_obj_10_may: PropMap
+jm_f_34_may: PropMap
+jm_f_37_may: PropMap
 jm_obj_11_must: PropMap
 jm_obj_11_may: PropMap
-jm_f_36_may: PropMap
-jm_f_39_may: PropMap
+jm_f_43_may: PropMap
+jm_f_46_may: PropMap
 jm_obj_12_must: PropMap
 jm_obj_12_may: PropMap
-jm_f_44_may: PropMap
-jm_f_47_may: PropMap
+jm_f_51_may: PropMap
+jm_f_54_may: PropMap
 jm_obj_13_must: PropMap
 jm_obj_13_may: PropMap
-jm_f_52_may: PropMap
-jm_f_55_may: PropMap
+jm_f_59_may: PropMap
+jm_f_62_may: PropMap
 jm_obj_14_must: PropMap
 jm_obj_14_may: PropMap
-jm_f_60_may: PropMap
-jm_f_63_may: PropMap
-jm_obj_15_may: PropMap
 jm_f_67_may: PropMap
 jm_f_70_may: PropMap
+jm_obj_15_may: PropMap
+jm_f_74_may: PropMap
+jm_f_77_may: PropMap
 
 # define "json_model_5_may_#" ($.Common.'#')
 def jm_f_0(value: Jsonable, path: str) -> bool:
@@ -293,34 +297,68 @@ def jm_f_24(value: Jsonable, path: str) -> bool:
     result = True
     return result
 
-# define "jm_obj_10_must_@" ($.Root.'|'.0.'@')
+# define "json_model_17_may_" ($.Defs.'')
 def jm_f_25(value: Jsonable, path: str) -> bool:
+    # $.Defs.''
+    result = json_model_1(value, path)
+    return result
+
+# define "json_model_20_may_~" ($.RootOnly.'~')
+def jm_f_26(value: Jsonable, path: str) -> bool:
+    # $.RootOnly.'~'
+    result = json_model_1(value, path)
+    return result
+
+# define "jm_f_27_may_#" ($.RootOnly.'$'.'#')
+def jm_f_28(value: Jsonable, path: str) -> bool:
+    # $.RootOnly.'$'.'#'
+    result = isinstance(value, str)
+    return result
+
+# define "jm_f_27_may_" ($.RootOnly.'$'.'')
+def jm_f_29(value: Jsonable, path: str) -> bool:
+    # $.RootOnly.'$'.''
+    result = json_model_1(value, path)
+    return result
+
+
+
+# define "jm_f_30_may_#" ($.RootOnly.'%'.'#')
+def jm_f_31(value: Jsonable, path: str) -> bool:
+    # $.RootOnly.'%'.'#'
+    result = isinstance(value, str)
+    return result
+
+
+
+# define "jm_obj_10_must_@" ($.Root.'|'.0.'@')
+def jm_f_32(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'@'
     result = json_model_16(value, path)
     return result
 
 # define "jm_obj_10_may_~" ($.Root.'|'.0.'~')
-def jm_f_26(value: Jsonable, path: str) -> bool:
+def jm_f_33(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_27_may_#" ($.Root.'|'.0.'$'.'#')
-def jm_f_28(value: Jsonable, path: str) -> bool:
+# define "jm_f_34_may_#" ($.Root.'|'.0.'$'.'#')
+def jm_f_35(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_27_may_" ($.Root.'|'.0.'$'.'')
-def jm_f_29(value: Jsonable, path: str) -> bool:
+# define "jm_f_34_may_" ($.Root.'|'.0.'$'.'')
+def jm_f_36(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_30_may_#" ($.Root.'|'.0.'%'.'#')
-def jm_f_31(value: Jsonable, path: str) -> bool:
+# define "jm_f_37_may_#" ($.Root.'|'.0.'%'.'#')
+def jm_f_38(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -328,19 +366,19 @@ def jm_f_31(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_10_may_#" ($.Root.'|'.0.'#')
-def jm_f_32(value: Jsonable, path: str) -> bool:
+def jm_f_39(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'#'
     result = isinstance(value, str)
     return result
 
 # define "jm_obj_10_may_!" ($.Root.'|'.0.'!')
-def jm_f_33(value: Jsonable, path: str) -> bool:
+def jm_f_40(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.0.'!'
     result = isinstance(value, bool)
     return result
 
 # define "jm_obj_11_must_|" ($.Root.'|'.1.'|')
-def jm_f_34(value: Jsonable, path: str) -> bool:
+def jm_f_41(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'|'
     result = isinstance(value, list)
     if result:
@@ -352,27 +390,27 @@ def jm_f_34(value: Jsonable, path: str) -> bool:
     return result
 
 # define "jm_obj_11_may_~" ($.Root.'|'.1.'~')
-def jm_f_35(value: Jsonable, path: str) -> bool:
+def jm_f_42(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_36_may_#" ($.Root.'|'.1.'$'.'#')
-def jm_f_37(value: Jsonable, path: str) -> bool:
+# define "jm_f_43_may_#" ($.Root.'|'.1.'$'.'#')
+def jm_f_44(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_36_may_" ($.Root.'|'.1.'$'.'')
-def jm_f_38(value: Jsonable, path: str) -> bool:
+# define "jm_f_43_may_" ($.Root.'|'.1.'$'.'')
+def jm_f_45(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_39_may_#" ($.Root.'|'.1.'%'.'#')
-def jm_f_40(value: Jsonable, path: str) -> bool:
+# define "jm_f_46_may_#" ($.Root.'|'.1.'%'.'#')
+def jm_f_47(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -380,13 +418,13 @@ def jm_f_40(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_11_may_#" ($.Root.'|'.1.'#')
-def jm_f_41(value: Jsonable, path: str) -> bool:
+def jm_f_48(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.1.'#'
     result = isinstance(value, str)
     return result
 
 # define "jm_obj_12_must_&" ($.Root.'|'.2.'&')
-def jm_f_42(value: Jsonable, path: str) -> bool:
+def jm_f_49(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'&'
     result = isinstance(value, list)
     if result:
@@ -398,27 +436,27 @@ def jm_f_42(value: Jsonable, path: str) -> bool:
     return result
 
 # define "jm_obj_12_may_~" ($.Root.'|'.2.'~')
-def jm_f_43(value: Jsonable, path: str) -> bool:
+def jm_f_50(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_44_may_#" ($.Root.'|'.2.'$'.'#')
-def jm_f_45(value: Jsonable, path: str) -> bool:
+# define "jm_f_51_may_#" ($.Root.'|'.2.'$'.'#')
+def jm_f_52(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_44_may_" ($.Root.'|'.2.'$'.'')
-def jm_f_46(value: Jsonable, path: str) -> bool:
+# define "jm_f_51_may_" ($.Root.'|'.2.'$'.'')
+def jm_f_53(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_47_may_#" ($.Root.'|'.2.'%'.'#')
-def jm_f_48(value: Jsonable, path: str) -> bool:
+# define "jm_f_54_may_#" ($.Root.'|'.2.'%'.'#')
+def jm_f_55(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -426,13 +464,13 @@ def jm_f_48(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_12_may_#" ($.Root.'|'.2.'#')
-def jm_f_49(value: Jsonable, path: str) -> bool:
+def jm_f_56(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.2.'#'
     result = isinstance(value, str)
     return result
 
 # define "jm_obj_13_must_^" ($.Root.'|'.3.'^')
-def jm_f_50(value: Jsonable, path: str) -> bool:
+def jm_f_57(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'^'
     result = isinstance(value, list)
     if result:
@@ -444,27 +482,27 @@ def jm_f_50(value: Jsonable, path: str) -> bool:
     return result
 
 # define "jm_obj_13_may_~" ($.Root.'|'.3.'~')
-def jm_f_51(value: Jsonable, path: str) -> bool:
+def jm_f_58(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_52_may_#" ($.Root.'|'.3.'$'.'#')
-def jm_f_53(value: Jsonable, path: str) -> bool:
+# define "jm_f_59_may_#" ($.Root.'|'.3.'$'.'#')
+def jm_f_60(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_52_may_" ($.Root.'|'.3.'$'.'')
-def jm_f_54(value: Jsonable, path: str) -> bool:
+# define "jm_f_59_may_" ($.Root.'|'.3.'$'.'')
+def jm_f_61(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_55_may_#" ($.Root.'|'.3.'%'.'#')
-def jm_f_56(value: Jsonable, path: str) -> bool:
+# define "jm_f_62_may_#" ($.Root.'|'.3.'%'.'#')
+def jm_f_63(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -472,13 +510,13 @@ def jm_f_56(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_13_may_#" ($.Root.'|'.3.'#')
-def jm_f_57(value: Jsonable, path: str) -> bool:
+def jm_f_64(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.3.'#'
     result = isinstance(value, str)
     return result
 
 # define "jm_obj_14_must_+" ($.Root.'|'.4.'+')
-def jm_f_58(value: Jsonable, path: str) -> bool:
+def jm_f_65(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'+'
     result = isinstance(value, list)
     if result:
@@ -490,27 +528,27 @@ def jm_f_58(value: Jsonable, path: str) -> bool:
     return result
 
 # define "jm_obj_14_may_~" ($.Root.'|'.4.'~')
-def jm_f_59(value: Jsonable, path: str) -> bool:
+def jm_f_66(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_60_may_#" ($.Root.'|'.4.'$'.'#')
-def jm_f_61(value: Jsonable, path: str) -> bool:
+# define "jm_f_67_may_#" ($.Root.'|'.4.'$'.'#')
+def jm_f_68(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_60_may_" ($.Root.'|'.4.'$'.'')
-def jm_f_62(value: Jsonable, path: str) -> bool:
+# define "jm_f_67_may_" ($.Root.'|'.4.'$'.'')
+def jm_f_69(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_63_may_#" ($.Root.'|'.4.'%'.'#')
-def jm_f_64(value: Jsonable, path: str) -> bool:
+# define "jm_f_70_may_#" ($.Root.'|'.4.'%'.'#')
+def jm_f_71(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -518,33 +556,33 @@ def jm_f_64(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_14_may_#" ($.Root.'|'.4.'#')
-def jm_f_65(value: Jsonable, path: str) -> bool:
+def jm_f_72(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.4.'#'
     result = isinstance(value, str)
     return result
 
 # define "jm_obj_15_may_~" ($.Root.'|'.5.'~')
-def jm_f_66(value: Jsonable, path: str) -> bool:
+def jm_f_73(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.5.'~'
     result = json_model_1(value, path)
     return result
 
-# define "jm_f_67_may_#" ($.Root.'|'.5.'$'.'#')
-def jm_f_68(value: Jsonable, path: str) -> bool:
+# define "jm_f_74_may_#" ($.Root.'|'.5.'$'.'#')
+def jm_f_75(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.5.'$'.'#'
     result = isinstance(value, str)
     return result
 
-# define "jm_f_67_may_" ($.Root.'|'.5.'$'.'')
-def jm_f_69(value: Jsonable, path: str) -> bool:
+# define "jm_f_74_may_" ($.Root.'|'.5.'$'.'')
+def jm_f_76(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.5.'$'.''
     result = json_model_1(value, path)
     return result
 
 
 
-# define "jm_f_70_may_#" ($.Root.'|'.5.'%'.'#')
-def jm_f_71(value: Jsonable, path: str) -> bool:
+# define "jm_f_77_may_#" ($.Root.'|'.5.'%'.'#')
+def jm_f_78(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.5.'%'.'#'
     result = isinstance(value, str)
     return result
@@ -552,7 +590,7 @@ def jm_f_71(value: Jsonable, path: str) -> bool:
 
 
 # define "jm_obj_15_may_#" ($.Root.'|'.5.'#')
-def jm_f_72(value: Jsonable, path: str) -> bool:
+def jm_f_79(value: Jsonable, path: str) -> bool:
     # $.Root.'|'.5.'#'
     result = isinstance(value, str)
     return result
@@ -1031,7 +1069,10 @@ def json_model_17(value: Jsonable, path: str) -> bool:
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if jm_re_4(prop) is not None:  # /.+/
+        if prop in json_model_17_may:  # may
+            if not json_model_17_may[prop](model, f"{path}.{prop}"):
+                return False
+        elif jm_re_4(prop) is not None:  # /.+/
             # $.Defs.'/.+/'
             result = json_model_16(model, path)
             if not result: return False
@@ -1077,7 +1118,7 @@ def json_model_19(value: Jsonable, path: str) -> bool:
 
 
 
-# object $.Root.'|'.0.'$'
+# object $.RootOnly.'$'
 def jm_f_27(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
@@ -1085,6 +1126,63 @@ def jm_f_27(value: Jsonable, path: str) -> bool:
         assert isinstance(prop, str)
         if prop in jm_f_27_may:  # may
             if not jm_f_27_may[prop](model, f"{path}.{prop}"):
+                return False
+        elif jm_re_4(prop) is not None:  # /.+/
+            # $.RootOnly.'$'.'/.+/'
+            result = json_model_16(model, path)
+            if not result: return False
+        else:  # no catch all
+            return False
+    return True
+
+
+# object $.RootOnly.'%'
+def jm_f_30(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in jm_f_30_may:  # may
+            if not jm_f_30_may[prop](model, f"{path}.{prop}"):
+                return False
+        elif jm_re_5(prop) is not None:  # /^\..*$/
+            # $.RootOnly.'%'.'/^\..*$/'
+            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+            result = isinstance(model, str) and jm_re_6(model) is not None
+            if not result: return False
+        elif jm_re_7(prop) is not None:  # /^\$.*$/
+            # $.RootOnly.'%'.'/^\$.*$/'
+            result = json_model_14(model, path)
+            if not result: return False
+        else:  # no catch all
+            return False
+    return True
+
+
+# object $.RootOnly
+def json_model_20(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in json_model_20_may:  # may
+            if not json_model_20_may[prop](model, f"{path}.{prop}"):
+                return False
+        else:  # no catch all
+            return False
+    return True
+
+
+
+
+# object $.Root.'|'.0.'$'
+def jm_f_34(value: Jsonable, path: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    for prop, model in value.items():
+        assert isinstance(prop, str)
+        if prop in jm_f_34_may:  # may
+            if not jm_f_34_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.0.'$'.'/.+/'
@@ -1096,13 +1194,13 @@ def jm_f_27(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.0.'%'
-def jm_f_30(value: Jsonable, path: str) -> bool:
+def jm_f_37(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_30_may:  # may
-            if not jm_f_30_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_37_may:  # may
+            if not jm_f_37_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.0.'%'.'/^\..*$/'
@@ -1153,13 +1251,13 @@ def jm_obj_10(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.1.'$'
-def jm_f_36(value: Jsonable, path: str) -> bool:
+def jm_f_43(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_36_may:  # may
-            if not jm_f_36_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_43_may:  # may
+            if not jm_f_43_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.1.'$'.'/.+/'
@@ -1171,13 +1269,13 @@ def jm_f_36(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.1.'%'
-def jm_f_39(value: Jsonable, path: str) -> bool:
+def jm_f_46(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_39_may:  # may
-            if not jm_f_39_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_46_may:  # may
+            if not jm_f_46_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.1.'%'.'/^\..*$/'
@@ -1213,13 +1311,13 @@ def jm_obj_11(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.2.'$'
-def jm_f_44(value: Jsonable, path: str) -> bool:
+def jm_f_51(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_44_may:  # may
-            if not jm_f_44_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_51_may:  # may
+            if not jm_f_51_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.2.'$'.'/.+/'
@@ -1231,13 +1329,13 @@ def jm_f_44(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.2.'%'
-def jm_f_47(value: Jsonable, path: str) -> bool:
+def jm_f_54(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_47_may:  # may
-            if not jm_f_47_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_54_may:  # may
+            if not jm_f_54_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.2.'%'.'/^\..*$/'
@@ -1273,13 +1371,13 @@ def jm_obj_12(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.3.'$'
-def jm_f_52(value: Jsonable, path: str) -> bool:
+def jm_f_59(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_52_may:  # may
-            if not jm_f_52_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_59_may:  # may
+            if not jm_f_59_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.3.'$'.'/.+/'
@@ -1291,13 +1389,13 @@ def jm_f_52(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.3.'%'
-def jm_f_55(value: Jsonable, path: str) -> bool:
+def jm_f_62(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_55_may:  # may
-            if not jm_f_55_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_62_may:  # may
+            if not jm_f_62_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.3.'%'.'/^\..*$/'
@@ -1333,13 +1431,13 @@ def jm_obj_13(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.4.'$'
-def jm_f_60(value: Jsonable, path: str) -> bool:
+def jm_f_67(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_60_may:  # may
-            if not jm_f_60_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_67_may:  # may
+            if not jm_f_67_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.4.'$'.'/.+/'
@@ -1351,13 +1449,13 @@ def jm_f_60(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.4.'%'
-def jm_f_63(value: Jsonable, path: str) -> bool:
+def jm_f_70(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_63_may:  # may
-            if not jm_f_63_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_70_may:  # may
+            if not jm_f_70_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.4.'%'.'/^\..*$/'
@@ -1393,13 +1491,13 @@ def jm_obj_14(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.5.'$'
-def jm_f_67(value: Jsonable, path: str) -> bool:
+def jm_f_74(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_67_may:  # may
-            if not jm_f_67_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_74_may:  # may
+            if not jm_f_74_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_4(prop) is not None:  # /.+/
             # $.Root.'|'.5.'$'.'/.+/'
@@ -1411,13 +1509,13 @@ def jm_f_67(value: Jsonable, path: str) -> bool:
 
 
 # object $.Root.'|'.5.'%'
-def jm_f_70(value: Jsonable, path: str) -> bool:
+def jm_f_77(value: Jsonable, path: str) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, model in value.items():
         assert isinstance(prop, str)
-        if prop in jm_f_70_may:  # may
-            if not jm_f_70_may[prop](model, f"{path}.{prop}"):
+        if prop in jm_f_77_may:  # may
+            if not jm_f_77_may[prop](model, f"{path}.{prop}"):
                 return False
         elif jm_re_5(prop) is not None:  # /^\..*$/
             # $.Root.'|'.5.'%'.'/^\..*$/'
@@ -1453,7 +1551,7 @@ def jm_obj_15(value: Jsonable, path: str) -> bool:
     return True
 
 # define "$Root" ($.Root)
-def json_model_20(value: Jsonable, path: str) -> bool:
+def json_model_21(value: Jsonable, path: str) -> bool:
     # $.Root
     result = isinstance(value, dict)
     if result:
@@ -1477,7 +1575,7 @@ def json_model_20(value: Jsonable, path: str) -> bool:
     return result
 
 # define "$RootModel" ($.RootModel)
-def json_model_21(value: Jsonable, path: str) -> bool:
+def json_model_22(value: Jsonable, path: str) -> bool:
     # $.RootModel
     # $.RootModel.'|'.0
     result = json_model_15(value, path)
@@ -1486,13 +1584,13 @@ def json_model_21(value: Jsonable, path: str) -> bool:
         result = json_model_6(value, path)
         if not result:
             # $.RootModel.'|'.2
-            result = json_model_20(value, path)
+            result = json_model_21(value, path)
     return result
 
 # define "$" ($)
 def json_model_0(value: Jsonable, path: str) -> bool:
     # $
-    result = json_model_21(value, path)
+    result = json_model_22(value, path)
     return result
 
 # entry function check_model
@@ -1570,15 +1668,13 @@ jm_obj_8_may = {
     "#": jm_f_23,
     "/": jm_f_24,
 }
-jm_obj_10_must = {
-    "@": jm_f_25,
+json_model_17_may = {
+    "": jm_f_25,
 }
-jm_obj_10_may = {
+json_model_20_may = {
     "~": jm_f_26,
     "$": jm_f_27,
     "%": jm_f_30,
-    "#": jm_f_32,
-    "!": jm_f_33,
 }
 jm_f_27_may = {
     "#": jm_f_28,
@@ -1587,71 +1683,75 @@ jm_f_27_may = {
 jm_f_30_may = {
     "#": jm_f_31,
 }
+jm_obj_10_must = {
+    "@": jm_f_32,
+}
+jm_obj_10_may = {
+    "~": jm_f_33,
+    "$": jm_f_34,
+    "%": jm_f_37,
+    "#": jm_f_39,
+    "!": jm_f_40,
+}
+jm_f_34_may = {
+    "#": jm_f_35,
+    "": jm_f_36,
+}
+jm_f_37_may = {
+    "#": jm_f_38,
+}
 jm_obj_11_must = {
-    "|": jm_f_34,
+    "|": jm_f_41,
 }
 jm_obj_11_may = {
-    "~": jm_f_35,
-    "$": jm_f_36,
-    "%": jm_f_39,
-    "#": jm_f_41,
-}
-jm_f_36_may = {
-    "#": jm_f_37,
-    "": jm_f_38,
-}
-jm_f_39_may = {
-    "#": jm_f_40,
-}
-jm_obj_12_must = {
-    "&": jm_f_42,
-}
-jm_obj_12_may = {
-    "~": jm_f_43,
-    "$": jm_f_44,
-    "%": jm_f_47,
-    "#": jm_f_49,
-}
-jm_f_44_may = {
-    "#": jm_f_45,
-    "": jm_f_46,
-}
-jm_f_47_may = {
+    "~": jm_f_42,
+    "$": jm_f_43,
+    "%": jm_f_46,
     "#": jm_f_48,
 }
-jm_obj_13_must = {
-    "^": jm_f_50,
+jm_f_43_may = {
+    "#": jm_f_44,
+    "": jm_f_45,
 }
-jm_obj_13_may = {
-    "~": jm_f_51,
-    "$": jm_f_52,
-    "%": jm_f_55,
-    "#": jm_f_57,
+jm_f_46_may = {
+    "#": jm_f_47,
 }
-jm_f_52_may = {
-    "#": jm_f_53,
-    "": jm_f_54,
+jm_obj_12_must = {
+    "&": jm_f_49,
 }
-jm_f_55_may = {
+jm_obj_12_may = {
+    "~": jm_f_50,
+    "$": jm_f_51,
+    "%": jm_f_54,
     "#": jm_f_56,
 }
-jm_obj_14_must = {
-    "+": jm_f_58,
+jm_f_51_may = {
+    "#": jm_f_52,
+    "": jm_f_53,
 }
-jm_obj_14_may = {
-    "~": jm_f_59,
-    "$": jm_f_60,
-    "%": jm_f_63,
-    "#": jm_f_65,
+jm_f_54_may = {
+    "#": jm_f_55,
 }
-jm_f_60_may = {
-    "#": jm_f_61,
-    "": jm_f_62,
+jm_obj_13_must = {
+    "^": jm_f_57,
 }
-jm_f_63_may = {
+jm_obj_13_may = {
+    "~": jm_f_58,
+    "$": jm_f_59,
+    "%": jm_f_62,
     "#": jm_f_64,
 }
-jm_obj_15_may = {
+jm_f_59_may = {
+    "#": jm_f_60,
+    "": jm_f_61,
+}
+jm_f_62_may = {
+    "#": jm_f_63,
+}
+jm_obj_14_must = {
+    "+": jm_f_65,
+}
+jm_obj_14_may = {
     "~": jm_f_66,
     "$": jm_f_67,
     "%": jm_f_70,
@@ -1663,6 +1763,19 @@ jm_f_67_may = {
 }
 jm_f_70_may = {
     "#": jm_f_71,
+}
+jm_obj_15_may = {
+    "~": jm_f_73,
+    "$": jm_f_74,
+    "%": jm_f_77,
+    "#": jm_f_79,
+}
+jm_f_74_may = {
+    "#": jm_f_75,
+    "": jm_f_76,
+}
+jm_f_77_may = {
+    "#": jm_f_78,
 }
 
 

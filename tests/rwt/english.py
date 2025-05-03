@@ -494,11 +494,11 @@ def json_model_1(value: Jsonable, path: str) -> bool:
 # define "$#Model" ($.'$#Model')
 def json_model_3(value: Jsonable, path: str) -> bool:
     # $.'$#Model'
-    result = json_model_24(value, path)
+    result = json_model_25(value, path)
     return result
 
 # define "$#Model#RootModel" ($.'$#Model#RootModel')
-def json_model_24(value: Jsonable, path: str) -> bool:
+def json_model_25(value: Jsonable, path: str) -> bool:
     # $.'$#Model#RootModel'
     # $.'$#Model#RootModel'.'|'.0
     result = json_model_18(value, path)
@@ -507,7 +507,7 @@ def json_model_24(value: Jsonable, path: str) -> bool:
         result = json_model_9(value, path)
         if not result:
             # $.'$#Model#RootModel'.'|'.2
-            result = json_model_23(value, path)
+            result = json_model_24(value, path)
     return result
 
 # define "$#Model#Array" ($.'$#Model#Array')
@@ -1116,7 +1116,7 @@ def jm_obj_11(value: Jsonable, path: str) -> bool:
     return True
 
 # define "$#Model#Root" ($.'$#Model#Root')
-def json_model_23(value: Jsonable, path: str) -> bool:
+def json_model_24(value: Jsonable, path: str) -> bool:
     # $.'$#Model#Root'
     result = isinstance(value, dict)
     if result:

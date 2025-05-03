@@ -49,7 +49,7 @@
         >>   68 RETURN_VALUE
 
 #
-# json model 24
+# json model 25
 #
               0 COPY_FREE_VARS           7
 
@@ -272,7 +272,7 @@
         >>  710 RETURN_CONST             6 (True)
 
 #
-# json model 26
+# json model 27
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)
@@ -303,7 +303,7 @@
         >>   90 RETURN_VALUE
 
 #
-# json model 27
+# json model 28
 #
               0 COPY_FREE_VARS           2
 

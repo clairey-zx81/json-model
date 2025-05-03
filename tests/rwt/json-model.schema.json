@@ -382,6 +382,11 @@
           "$ref": "#/$defs/Model"
         }
       },
+      "properties": {
+        "": {
+          "$ref": "#/$defs/Url"
+        }
+      },
       "additionalProperties": false
     },
     "Rename": {
@@ -399,6 +404,50 @@
       "patternProperties": {
         "^\\$.*$": {
           "$ref": "#/$defs/Trafo"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RootOnly": {
+      "type": "object",
+      "properties": {
+        "~": {
+          "$ref": "#/$defs/Url"
+        },
+        "$": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "$ref": "#/$defs/Model"
+            }
+          },
+          "properties": {
+            "#": {
+              "type": "string"
+            },
+            "": {
+              "$ref": "#/$defs/Url"
+            }
+          },
+          "additionalProperties": false
+        },
+        "%": {
+          "type": "object",
+          "patternProperties": {
+            "^\\..*$": {
+              "type": "string",
+              "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+            },
+            "^\\$.*$": {
+              "$ref": "#/$defs/Trafo"
+            }
+          },
+          "properties": {
+            "#": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
