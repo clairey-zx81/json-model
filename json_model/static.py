@@ -110,11 +110,16 @@ def value_len(value: Jsonable, path: str) -> None|bool|int|float:
 
 
 class SourceCode(Validator):
-    """Source code for compiling JSON Models."""
+    """Source code for compiling JSON Models.
+
+    - globs: global map of symbols.
+    - prefix: use this prefix for function name generation.
+    - debug: verbose debug mode.
+    - remod: regular expression module, "re" or "re2".
+    """
 
     def __init__(self, globs: Symbols, prefix: str = "", debug: bool = False, remod: str = _RE):
 
-        # No actual compiler
         super().__init__()
 
         self._prefix = prefix
