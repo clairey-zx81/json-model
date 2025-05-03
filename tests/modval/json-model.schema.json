@@ -25,25 +25,7 @@
         }
       ]
     },
-    "Any": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/Val"
-        },
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Any"
-          }
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/Any"
-          }
-        }
-      ]
-    },
+    "Any": true,
     "None": false,
     "Common": {
       "type": "object",
@@ -296,19 +278,7 @@
         {
           "type": "object",
           "properties": {
-            "/": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/Any"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/Any"
-                  }
-                }
-              ]
-            },
+            "/": true,
             "#": {
               "type": "string"
             },
@@ -316,9 +286,7 @@
               "anyOf": [
                 {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/Any"
-                  }
+                  "items": true
                 },
                 {
                   "type": "object",
@@ -341,9 +309,7 @@
               "anyOf": [
                 {
                   "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/Any"
-                  }
+                  "items": true
                 },
                 {
                   "type": "object",
@@ -356,19 +322,7 @@
             "#": {
               "type": "string"
             },
-            "/": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/Any"
-                },
-                {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/Any"
-                  }
-                }
-              ]
-            }
+            "/": true
           },
           "required": [
             "*"

@@ -1,5 +1,5 @@
 {
-  "%": {
+  "$": {
     "person": "$https://www.cri.minesparis.psl.eu/~/coelho/person.model.json"
   },
   "@": "$person"
