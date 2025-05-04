@@ -47,6 +47,7 @@ m06.model.json: PASS
 m07.model.json: PASS
 m08.model.json: PASS
 ../../models/geo.model.json: PASS
+../../models/json-mode-latest.model.json: PASS
 ../../models/json-model.model.json: PASS
 ../../models/json-model-no-merge.model.json: PASS
 ../../models/json-model-v1.model.json: FAIL

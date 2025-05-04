@@ -1,0 +1,9 @@
+{
+  "#": "Latest JSON Model meta-model",
+  "~": "https://json-model.org/models/json-model-latest",
+  "$": {
+    "": "https://json-model.org/models/json-model-latest",
+    "model": "$https://json-model.org/models/json-model-v2"
+  },
+  "@": "$model"
+}
