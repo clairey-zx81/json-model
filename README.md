@@ -202,13 +202,14 @@ additionalProperties: false
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? CGO (end of may)?
 - [ ] schema: handle includes? inline?!
-- [ ] static: abstract imperative language code generation with intermediate code?
-      see JSON Schema C++ Blaze, RUST boon?
+- [ ] static: abstract imperative language code generation with intermediate code? IR?
+      see [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
+- [ ] go-backend: encoding/json vs various faster replacements…
 - [ ] feature: add model predef for URI-REF and the like
 - [ ] models: improve meta model with predefs
 
