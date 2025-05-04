@@ -1,1 +1,1 @@
-xor02.0.false.json: FAIL
+xor02.0.false.json: FAIL ["not one model match at $ [$.'^']"]

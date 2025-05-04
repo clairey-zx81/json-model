@@ -1,3 +1,3 @@
 xor00.0.true.json: PASS
-xor00.1.false.json: FAIL
-xor00.2.false.json: FAIL
+xor00.1.false.json: FAIL ["not one model match at $ [$.'^']"]
+xor00.2.false.json: FAIL ["not one model match at $ [$.'^']"]

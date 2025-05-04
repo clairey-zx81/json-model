@@ -9,31 +9,48 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-# define "$false" ($.false)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.false
-    result = False
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+# define "$false" ($.'$false')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$false'
+    result = False or _rep(f"invalid $NONE at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $NONE at {path} [$.'$false']")
     return result
 
-# define "$true" ($.true)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.true
-    result = True
+# define "$true" ($.'$true')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$true'
+    result = True or _rep(f"invalid $ANY at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $ANY at {path} [$.'$true']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = True
+    result = True or _rep(f"invalid $ANY at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $ANY at {path} [$]")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

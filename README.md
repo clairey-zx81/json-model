@@ -44,7 +44,7 @@ Command `jmc` options include:
   - `-P`: preprocess model.
   - `-D`: dynamic python model compiler.
   - `-S`: static python model compiler.
-  - `-E`: export model to JSON Schema version draft 2020-12
+  - `-E`: export model to JSON Schema version draft 2020-12, if possible.
   - `-U`: dump model.
   - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
@@ -101,9 +101,9 @@ Command `jmc` options include:
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
 - [x] schema: warn when generating schema with strict options
+- [x] static: fast vs slow with path and reasons
+- [x] static: update path
 - [ ] static: add a `_` to the default prefix to separate exports
-- [ ] static: update path
-- [ ] static: fast vs slow with path and reasons?
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: add option to report where it fails (aka reasons)
 - [ ] static: generate pyright compatible code…
@@ -141,6 +141,7 @@ Command `jmc` options include:
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?
+- [ ] tests: skip url cache while testing
 - [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator

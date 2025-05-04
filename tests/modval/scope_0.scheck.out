@@ -1,2 +1,2 @@
 scope_0.0.true.json: PASS
-scope_0.1.false.json: FAIL
+scope_0.1.false.json: FAIL ['not array or unexpected array at $ [$]']

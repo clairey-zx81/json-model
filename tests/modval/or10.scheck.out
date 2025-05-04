@@ -1,4 +1,4 @@
 or10.0.true.json: PASS
 or10.1.true.json: PASS
-or10.2.false.json: FAIL
-or10.3.false.json: FAIL
+or10.2.false.json: FAIL []
+or10.3.false.json: FAIL ["no other prop expected at $ [$.'|'.0]", "not an expected object at $ [$.'|'.0]", "no other prop expected at $ [$.'|'.1]", "not an expected object at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

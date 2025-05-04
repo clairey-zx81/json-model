@@ -9,41 +9,66 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 
-# object $.rec.'|'.1
-def jm_obj_0(value: Jsonable, path: str) -> bool:
+
+# object $.'$rec'.'|'.1
+def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$rec'.'|'.1]")
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
-        # $.rec.'|'.1.''
-        result = json_model_1(model, path)
-        if not result: return False
+        lpath = path + "." + prop
+        # $.'$rec'.'|'.1.''
+        result = json_model_1(val, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected $rec at {lpath} [$.'$rec'.'|'.1.'']")
+        if not result:
+            rep is None or rep.append(f"unexpected other value at {lpath} [$.'$rec'.'|'.1.'']")
+            return False
     return True
 
-# define "$rec" ($.rec)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.rec
-    # $.rec.'|'.0
+# define "$rec" ($.'$rec')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$rec'
+    # $.'$rec'.'|'.0
     result = isinstance(value, bool)
     if not result:
-        # $.rec.'|'.1
-        result = jm_obj_0(value, path)
+        rep is None or rep.append(f"not a bool at {path} [$.'$rec'.'|'.0]")
+    if not result:
+        # $.'$rec'.'|'.1
+        result = jm_obj_0(value, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected object at {path} [$.'$rec'.'|'.1]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'$rec'.'|']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = json_model_1(value, path)
+    result = json_model_1(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $rec at {path} [$]")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

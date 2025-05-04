@@ -9,31 +9,48 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-# define "$bla" ($.bla)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.bla
-    result = json_model_2(value, path)
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+# define "$bla" ($.'$bla')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$bla'
+    result = json_model_2(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $./obj_00.model at {path} [$.'$bla']")
     return result
 
 # define "$#bla" ($.'$#bla')
-def json_model_2(value: Jsonable, path: str) -> bool:
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$#bla'
-    result = isinstance(value, bool)
+    result = isinstance(value, bool) or _rep(f"invalid $BOOLEAN at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $BOOLEAN at {path} [$.'$#bla']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = json_model_2(value, path)
+    result = json_model_2(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $bla at {path} [$]")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

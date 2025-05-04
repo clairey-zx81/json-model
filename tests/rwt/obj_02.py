@@ -9,82 +9,129 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-def is_valid_url(value: Jsonable, path: str) -> bool:
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
             return True
-        except:
+        except Exception as e:
+            rep is None or re.append(f"invalid url at {path}: {value} ({e})")
             return False
+    rep is None or rep.append(f"incompatible type for url at {path}: {tname(value)}")
     return False
 
-# define "$li0" ($.li0)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.li0
+# define "$li0" ($.'$li0')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$li0'
     result = isinstance(value, list)
     if result:
         for array_0_idx, array_0_item in enumerate(value):
-            # $.li0.0
+            lpath = path + '.' + str(array_0_idx)
+            # $.'$li0'.0
             result = isinstance(array_0_item, int) and not isinstance(array_0_item, bool) and array_0_item >= 0
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a 0 int at {lpath} [$.'$li0'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$li0']")
     return result
 
-# define "$ls0" ($.ls0)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.ls0
+# define "$ls0" ($.'$ls0')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$ls0'
     result = isinstance(value, list)
     if result:
         for array_1_idx, array_1_item in enumerate(value):
-            # $.ls0.0
-            result = is_valid_url(array_1_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_1_idx)
+            # $.'$ls0'.0
+            result = is_valid_url(array_1_item, path, rep) or _rep(f"invalid $URL at {path}", rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $URL at {lpath} [$.'$ls0'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$ls0']")
     return result
 
-# define "$lb0" ($.lb0)
-def json_model_3(value: Jsonable, path: str) -> bool:
-    # $.lb0
+# define "$lb0" ($.'$lb0')
+def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$lb0'
     result = isinstance(value, list)
     if result:
         for array_2_idx, array_2_item in enumerate(value):
-            # $.lb0.0
-            result = isinstance(array_2_item, bool)
-            if not result: break
+            lpath = path + '.' + str(array_2_idx)
+            # $.'$lb0'.0
+            result = isinstance(array_2_item, bool) or _rep(f"invalid $BOOL at {path}", rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $BOOL at {lpath} [$.'$lb0'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$lb0']")
     return result
 
-# define "$lf0" ($.lf0)
-def json_model_4(value: Jsonable, path: str) -> bool:
-    # $.lf0
+# define "$lf0" ($.'$lf0')
+def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$lf0'
     result = isinstance(value, list)
     if result:
         for array_3_idx, array_3_item in enumerate(value):
-            # $.lf0.0
+            lpath = path + '.' + str(array_3_idx)
+            # $.'$lf0'.0
             result = isinstance(array_3_item, float) and array_3_item >= 0.0
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a 0.0 float at {lpath} [$.'$lf0'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$lf0']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     # $.'|'.0
-    result = json_model_1(value, path)
+    result = json_model_1(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $li0 at {path} [$.'|'.0]")
     if not result:
         # $.'|'.1
-        result = json_model_2(value, path)
+        result = json_model_2(value, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected $ls0 at {path} [$.'|'.1]")
         if not result:
             # $.'|'.2
-            result = json_model_3(value, path)
+            result = json_model_3(value, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $lb0 at {path} [$.'|'.2]")
             if not result:
                 # $.'|'.3
-                result = json_model_4(value, path)
+                result = json_model_4(value, path, rep)
+                if not result:
+                    rep is None or rep.append(f"not an expected $lf0 at {path} [$.'|'.3]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'|']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

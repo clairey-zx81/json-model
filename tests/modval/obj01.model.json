@@ -1,0 +1,11 @@
+{
+  "#": "object with must/may/regex/ref/others",
+  "$": {
+    "XXX": {"|": [ "X", "XX", "XXX" ]}
+  },
+  "!foo": "$DATE",
+  "?bla": true,
+  "$XXX": 0.0,
+  "/^\\d+$/": 0,
+  "": null
+}

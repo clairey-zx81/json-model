@@ -1,1 +1,1 @@
-andstr01.0.false.json: FAIL
+andstr01.0.false.json: FAIL ["not an expected =2 at $ [$.'&'.0]", "not all model match at $ [$.'&']"]

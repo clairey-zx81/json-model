@@ -9,9 +9,20 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 json_model_0_must: PropMap
 jm_obj_0_must: PropMap
@@ -20,43 +31,55 @@ jm_obj_2_must: PropMap
 jm_map_0: TagMap
 
 # define "jm_obj_0_must_t" ($.movie.'|'.0.t)
-def jm_f_1(value: Jsonable, path: str) -> bool:
+def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.0.t
     result = isinstance(value, str) and value == "fr"
+    if not result:
+        rep is None or rep.append(f"not an expected fr at {path} [$.movie.'|'.0.t]")
     return result
 
 # define "jm_obj_0_must_titre" ($.movie.'|'.0.titre)
-def jm_f_2(value: Jsonable, path: str) -> bool:
+def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.0.titre
     result = isinstance(value, str)
+    if not result:
+        rep is None or rep.append(f"not an expected string at {path} [$.movie.'|'.0.titre]")
     return result
 
 # define "jm_obj_1_must_t" ($.movie.'|'.1.t)
-def jm_f_3(value: Jsonable, path: str) -> bool:
+def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.1.t
     result = isinstance(value, str) and value == "en"
+    if not result:
+        rep is None or rep.append(f"not an expected en at {path} [$.movie.'|'.1.t]")
     return result
 
 # define "jm_obj_1_must_title" ($.movie.'|'.1.title)
-def jm_f_4(value: Jsonable, path: str) -> bool:
+def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.1.title
     result = isinstance(value, str)
+    if not result:
+        rep is None or rep.append(f"not an expected string at {path} [$.movie.'|'.1.title]")
     return result
 
 # define "jm_obj_2_must_t" ($.movie.'|'.2.t)
-def jm_f_5(value: Jsonable, path: str) -> bool:
+def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.2.t
     result = isinstance(value, str) and value == "ru"
+    if not result:
+        rep is None or rep.append(f"not an expected ru at {path} [$.movie.'|'.2.t]")
     return result
 
 # define "jm_obj_2_must_suti" ($.movie.'|'.2.suti)
-def jm_f_6(value: Jsonable, path: str) -> bool:
+def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.2.suti
     result = isinstance(value, str)
+    if not result:
+        rep is None or rep.append(f"not an expected string at {path} [$.movie.'|'.2.suti]")
     return result
 
 # define "json_model_0_must_movie" ($.movie)
-def jm_f_0(value: Jsonable, path: str) -> bool:
+def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie
     result = isinstance(value, dict)
     if result:
@@ -66,79 +89,112 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
             if tag_0 in jm_map_0:
                 result = jm_map_0[tag_0](value, path)
             else:
+                rep is None or rep.append(f"tag t value not found at {path} [$.movie.'|'.'|']")
                 result = False
+        else:
+            rep is None or rep.append(f"missing tag prop t at {path} [$.movie.'|'.'|']")
+    else:  # not a dict
+        rep is None or rep.append(f"not an object at {path} [$.movie.'|'.'|']")
     return result
 
 
 
 # object $.movie.'|'.0
-def jm_obj_0(value: Jsonable, path: str) -> bool:
+def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.movie.'|'.0]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](model, f"{path}.{prop}"):
+            if not jm_obj_0_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.movie.'|'.0.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.movie.'|'.0]")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.movie.'|'.0]")
+    return result
 
 
 # object $.movie.'|'.1
-def jm_obj_1(value: Jsonable, path: str) -> bool:
+def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.movie.'|'.1]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](model, f"{path}.{prop}"):
+            if not jm_obj_1_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.movie.'|'.1.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.movie.'|'.1]")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.movie.'|'.1]")
+    return result
 
 
 # object $.movie.'|'.2
-def jm_obj_2(value: Jsonable, path: str) -> bool:
+def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.movie.'|'.2]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_2_must:  # must
             must_count += 1
-            if not jm_obj_2_must[prop](model, f"{path}.{prop}"):
+            if not jm_obj_2_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.movie.'|'.2.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.movie.'|'.2]")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.movie.'|'.2]")
+    return result
 
 
 # object $
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_0_must:  # must
             must_count += 1
-            if not json_model_0_must[prop](model, f"{path}.{prop}"):
+            if not json_model_0_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$]")
             return False
-    return must_count == 1
+    result = must_count == 1
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$]")
+    return result
 
 
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
 # object properties maps

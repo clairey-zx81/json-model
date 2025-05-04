@@ -1,0 +1,7 @@
+obj01.0.true.json: PASS
+obj01.1.true.json: PASS
+obj01.2.false.json: FAIL ['not a bool at $.bla [$.bla]', 'invalid may prop value at $.bla [$.bla]']
+obj01.3.false.json: FAIL ["not a 0.0 float at $.X [$.'$XXX']"]
+obj01.4.false.json: FAIL ["value not in enum at $ [$.'$XXX'.'|']", 'prop 418 does not match $XXX at $', "not a 0 int at $.418 [$.'/^\\d+$/']"]
+obj01.5.false.json: FAIL ["value not in enum at $ [$.'$XXX'.'|']", 'prop whatever does not match $XXX at $', 'prop whatever does not match FESC at $', "not null at $.whatever [$.'']", "unexpected other value at $.whatever [$.'']"]
+obj01.6.false.json: FAIL ['missing must prop at $ [$]']

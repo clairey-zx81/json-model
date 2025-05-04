@@ -1,5 +1,5 @@
 rec02.0.true.json: PASS
 rec02.1.true.json: PASS
 rec02.2.true.json: PASS
-rec02.3.false.json: FAIL
-rec02.4.false.json: FAIL
+rec02.3.false.json: FAIL ['no other prop expected at $ [$]']
+rec02.4.false.json: FAIL ['not an object at $.foo [$]', 'not an expected $foo at $.foo [$.foo]', 'invalid may prop value at $.foo [$.foo]']

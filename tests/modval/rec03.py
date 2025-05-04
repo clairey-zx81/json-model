@@ -9,53 +9,80 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 json_model_0_may: PropMap
 
 # define "json_model_0_may_foo" ($.foo)
-def jm_f_0(value: Jsonable, path: str) -> bool:
+def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.foo
     # $.foo.'|'.0
-    result = json_model_0(value, path)
+    result = json_model_0(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $root at {path} [$.foo.'|'.0]")
     if not result:
         # $.foo.'|'.1
         result = isinstance(value, list)
         if result:
             for array_0_idx, array_0_item in enumerate(value):
+                lpath = path + '.' + str(array_0_idx)
                 # $.foo.'|'.1.0
-                result = json_model_0(array_0_item, path)
-                if not result: break
+                result = json_model_0(array_0_item, path, rep)
+                if not result:
+                    rep is None or rep.append(f"not an expected $root at {lpath} [$.foo.'|'.1.0]")
+                if not result:
+                    break
+        if not result:
+            rep is None or rep.append(f"not array or unexpected array at {path} [$.foo.'|'.1]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.foo.'|']")
     return result
 
 
-# define "$root" ($.root)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.root
-    result = json_model_0(value, path)
+# define "$root" ($.'$root')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$root'
+    result = json_model_0(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $# at {path} [$.'$root']")
     return result
 
 
 # object $
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$]")
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_0_may:  # may
-            if not json_model_0_may[prop](model, f"{path}.{prop}"):
+            if not json_model_0_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$]")
             return False
     return True
 
 
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
 # object properties maps

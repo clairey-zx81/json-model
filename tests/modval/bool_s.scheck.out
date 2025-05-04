@@ -1,7 +1,7 @@
 bool_s.0.true.json: PASS
 bool_s.1.true.json: PASS
-bool_s.0.false.json: FAIL
-bool_s.1.false.json: FAIL
-bool_s.2.false.json: FAIL
-bool_s.3.false.json: FAIL
-bool_s.4.false.json: FAIL
+bool_s.0.false.json: FAIL ['invalid $BOOL at $', 'not an expected $BOOL at $ [$]']
+bool_s.1.false.json: FAIL ['invalid $BOOL at $', 'not an expected $BOOL at $ [$]']
+bool_s.2.false.json: FAIL ['invalid $BOOL at $', 'not an expected $BOOL at $ [$]']
+bool_s.3.false.json: FAIL ['invalid $BOOL at $', 'not an expected $BOOL at $ [$]']
+bool_s.4.false.json: FAIL ['invalid $BOOL at $', 'not an expected $BOOL at $ [$]']

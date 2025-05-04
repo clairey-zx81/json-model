@@ -9,37 +9,64 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     result = not isinstance(value, (list, dict)) and value in {'Calvin', 'Susie'}
+    if not result:
+        rep is None or rep.append(f"value not in enum at {path} [$.'|']")
     if not result:
         # $.'|'.0
         result = value is None
         if not result:
+            rep is None or rep.append(f"not null at {path} [$.'|'.0]")
+        if not result:
             # $.'|'.1
             result = value is None
+            if not result:
+                rep is None or rep.append(f"not an expected =null at {path} [$.'|'.1]")
             if not result:
                 # $.'|'.2
                 result = isinstance(value, bool) and value == False
                 if not result:
+                    rep is None or rep.append(f"not an expected =false at {path} [$.'|'.2]")
+                if not result:
                     # $.'|'.3
                     result = isinstance(value, int) and not isinstance(value, bool) and value == 42
+                    if not result:
+                        rep is None or rep.append(f"not an expected =42 at {path} [$.'|'.3]")
                     if not result:
                         # $.'|'.4
                         result = isinstance(value, float) and value == 3.14159
                         if not result:
+                            rep is None or rep.append(f"not an expected =3.14159 at {path} [$.'|'.4]")
+                        if not result:
                             # $.'|'.5
                             result = isinstance(value, float) and value == 1e+101
+                            if not result:
+                                rep is None or rep.append(f"not an expected =10E100 at {path} [$.'|'.5]")
+        if not result:
+            rep is None or rep.append(f"not any model match at {path} [$.'|']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

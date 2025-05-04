@@ -1,4 +1,4 @@
 opt_is.0.true.json: PASS
 opt_is.1.true.json: PASS
-opt_is.2.false.json: FAIL
-opt_is.3.false.json: FAIL
+opt_is.2.false.json: FAIL ["not a -1 int at $ [$.'@']", 'invalid type or constraints at $ [$]']
+opt_is.3.false.json: FAIL ["not a -1 int at $ [$.'@']", 'invalid type or constraints at $ [$]']

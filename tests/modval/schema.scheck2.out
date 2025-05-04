@@ -45,6 +45,7 @@ none.schema.json: PASS
 null.schema.json: PASS
 number.schema.json: PASS
 obj00.schema.json: PASS
+obj01.schema.json: FAIL
 opt_00.schema.json: PASS
 opt_01.schema.json: PASS
 opt_02.schema.json: PASS

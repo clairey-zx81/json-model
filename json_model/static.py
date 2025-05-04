@@ -14,6 +14,7 @@
 #   - { True, 1, 1.0 } == { True }
 #   as a consequence, some generated code may not provide the hoped answer
 
+from typing import Callable
 import re
 import json
 
@@ -30,6 +31,9 @@ _RES = "result"
 _VAL = "value"
 _PATH = "path"
 _RE = "re2"
+
+def _rep(msg: str) -> str:
+    return f"rep is None or rep.append(f\"{msg}\")"
 
 
 class Code():
@@ -60,41 +64,58 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 """
 
 PY_VALID_REGEX = """
-def is_valid_re(value: Jsonable, path: str) -> bool:
+def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
             return True
-        except:
+        except Exception as e:
+            rep is None or rep.append(f"regex compile error at {path}: {value} ({e})")
             return False
+    rep is None or rep.append(f"incompatible type for regex at {path}: {tname(value)}")
     return False
 """
 
 PY_VALID_DATE = """
-def is_valid_date(value: Jsonable, path: str) -> bool:
+def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
             return True
-        except:
+        except Exception as e:
+            rep is None or rep.append(f"invalid date at {path}: {value} ({e})")
             return False
+    rep is None or rep.append(f"incompatible type for date at {path}: {tname(value)}")
     return False
 """
 
 PY_VALID_URL = """
-def is_valid_url(value: Jsonable, path: str) -> bool:
+def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
             return True
-        except:
+        except Exception as e:
+            rep is None or re.append(f"invalid url at {path}: {value} ({e})")
             return False
+    rep is None or rep.append(f"incompatible type for url at {path}: {tname(value)}")
     return False
 """
 
@@ -118,11 +139,13 @@ class SourceCode(Validator):
     - remod: regular expression module, "re" or "re2".
     - loose_int: whether "42.0" is considered an int.
     - loose_float: whether "42" is considered a float.
+    - report: whether to report rejection reasons.
     """
 
     def __init__(self, globs: Symbols, *, prefix: str = "",
                  debug: bool = False, remod: str = _RE,
-                 loose_int: bool = False, loose_float: bool = False):
+                 loose_int: bool = False, loose_float: bool = False,
+                 report: bool = True):
 
         super().__init__()
 
@@ -132,32 +155,33 @@ class SourceCode(Validator):
         self._re = remod
         self._loose_int = loose_int
         self._loose_float = loose_float
+        self._report = report
 
-        def used(att: str) -> bool:
+        def used(att: str, val: str) -> str:
             setattr(self, f"_{att}_used", True)
-            return True
+            return val
 
-        # inlined predefs
-        self._PREDEFS = {
-            "$ANY": lambda _v: "True",
-            "$NONE": lambda _v: "False",
-            "$NULL": lambda v: f"{v} is None",
-            "$BOOL": lambda v: f"isinstance({v}, bool)",
-            "$BOOLEAN": lambda v: f"isinstance({v}, bool)",
+        # inlined predefs with variable name, return a conjunction
+        self._PREDEFS: dict[str, Callable[[str, str], str]] = {
+            "$ANY": lambda _v, _p: "True",
+            "$NONE": lambda _v, _p: "False",
+            "$NULL": lambda v, _p: f"{v} is None",
+            "$BOOL": lambda v, _p: f"isinstance({v}, bool)",
+            "$BOOLEAN": lambda v, _p: f"isinstance({v}, bool)",
             "$INTEGER": self._in_is_int,
             "$INT": self._in_is_int,
             "$I32": self._in_is_int,
             "$I64": self._in_is_int,
-            "$U32": lambda v: self._in_is_int(v) + f" and {v} >= 0",
-            "$U64": lambda v: self._in_is_int(v) + f" and {v} >= 0",
+            "$U32": lambda v, p: self._in_is_int(v, p) + f" and {v} >= 0",
+            "$U64": lambda v, p: self._in_is_int(v, p) + f" and {v} >= 0",
             "$FLOAT": self._in_is_float,
             "$F32": self._in_is_float,
             "$F64": self._in_is_float,
-            "$NUMBER": lambda v: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
-            "$STRING": lambda v: f"isinstance({v}, str)",
-            "$URL": lambda v: used("url") and f"is_valid_url({v}, path)",
-            "$DATE": lambda v: used("date") and f"is_valid_date({v}, path)",
-            "$REGEX": lambda v: used("regex") and f"is_valid_re({v}, path)",
+            "$NUMBER": lambda v, _p: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
+            "$STRING": lambda v, _p: f"isinstance({v}, str)",
+            "$URL": lambda v, p: used("url", f"is_valid_url({v}, {p}, rep)"),
+            "$DATE": lambda v, p: used("date", f"is_valid_date({v}, {p}, rep)"),
+            "$REGEX": lambda v, p: used("regex", f"is_valid_re({v}, {p}, rep)"),
             # TODO more, /re/ ?
         }
 
@@ -252,19 +276,23 @@ class SourceCode(Validator):
 
     # code generation
 
-    def _in_is_int(self, v: str) -> str:
+    def _in_is_int(self, v: str, p: str) -> str:
         if self._loose_int:
             return (f"((isinstance({v}, int) and not isinstance({v}, bool)) or"
                     f" (isinstance({v}, float) and int({v}) == {v}))")
+            # (" or _rep(\"not a loose int at {{p}}\", rep)" if self._report else ""))
         else:
             return f"isinstance({v}, int) and not isinstance({v}, bool)"
+            # (" or _rep(\"not an int at {{p}}\", rep)" if self._report else ""))
 
-    def _in_is_float(self, v: str) -> str:
+    def _in_is_float(self, v: str, p: str) -> str:
         if self._loose_float:
             return (f"(isinstance({v}, float) or"
                     f" isinstance({v}, int) and not isinstance({v}, bool))")
+            # (" or _rep(\"not a loose float at {{p}}\", rep)" if self._report else ""))
         else:
             return f"isinstance({v}, float)"
+            # (" or _rep(\"not a float at {{p}}\", rep)" if self._report else ""))
 
     def _ident(self, prefix: str, local: bool = False) -> str:
         """Generate a new identifier using a prefix and a counter."""
@@ -277,50 +305,65 @@ class SourceCode(Validator):
     def _regex(self, regex: str) -> str:
         """Compile are regular expression, with memoization."""
         if regex not in self._regs:
-            self.define(f"# regex {self._esc(regex)}")
+            # extract actual pattern
             if regex[-1] == "/":
                 pattern = regex[1:-1]
-                fun = self._ident("re_")
-                self._regs[regex] = fun
-                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
             elif regex.endswith("/i"):
-                pattern = regex[1:-2]
-                fun = self._ident("re_")
-                self._regs[regex] = fun
-                if _RE == "re2":
-                    pattern = "(?i)" + pattern
-                    self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
-                else:
-                    self.define(f"{fun} = re.compile({self._esc(pattern)}, re.IGNORECASE).search")
+                pattern = "(?i)" + regex[1:-2]
             else:
                 raise NotImplementedError("model = {regex}")
+            # statically check re validity
+            try:
+                if self._re == "re2":
+                    import re2 as rex
+                else:
+                    import re as rex
+                rex.compile(pattern)
+            except Exception as e:
+                raise ModelError(f"invalid regex: {pattern} ({e})")
+            # ok, generate code
+            fun = self._ident("re_")
+            self.define(f"# regex {self._esc(regex)}")
+            self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+            self._regs[regex] = fun
         return self._regs[regex]
 
-    def _regExpr(self, regex: str, val: str):
-        """Generate re check expression on a value."""
-        return f"{self._regex(regex)}({val}) is not None"
+    def _regExpr(self, regex: str, val: str, path: str):
+        """Generate re check inlined expression on a value."""
+        fun = self._regex(regex)
+        return (f"{fun}({val}) is not None" +
+                # FIXME self._fesc(regex)
+                (f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
+                 if self._report else ""))
 
-    def _esc(self, val: Jsonable):
+    def _esc(self, val: Jsonable) -> str:
         """Escape value as necessary."""
         # return '"' + string.translate({"\"": "\\\"", "\\": "\\\\"}) + '"'
         return json.dumps(val) if isinstance(val, str) else str(val)
 
+    def _fesc(self, val: str) -> str:
+        """Escape string for an f-string."""
+        # FIXME return val.translate({"{": "{{", "\\": "\\\\", "\"": "\\\""})
+        return "FESC"
+
     def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str):
         assert ref and ref[0] == "$"
-        if ref in self._PREDEFS:
-            return self._PREDEFS[ref](val)
+        if ref in self._PREDEFS:  # inline predefs
+            return (self._PREDEFS[ref](val, vpath) +
+                    (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
-            return f"{fun}({val}, {vpath})"
+            return f"{fun}({val}, {vpath}, rep)"
 
     def _compileConstraint(self, code: Code, indent: int,
                            jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
         assert isinstance(model, dict) and "@" in model
+        smpath = json_path(mpath)
         self._compileModel(code, indent, jm, model["@"], mpath + ["@"], res, val, vpath)
         tmodel = self._ultimate_type(jm, model["@"])  # pyright: ignore
         # NOTE UnknownModel should raise an error on any constraint
-        # FIXME None? multiple types?! see _untype00.model.json
+        # FIXME see _untype00.model.json for multiple types
         assert tmodel in (int, float, str, list, dict, UnknownModel, None), f"simple {tmodel}"
         checks = []
         what = f"len({val})" if tmodel in (list, dict) else val
@@ -344,13 +387,15 @@ class SourceCode(Validator):
         if "!" in model:
             if not isinstance(model["!"], bool):
                 raise ModelError(f"! constraint expects a boolean {mpath}")
-            # FIXME partial implementation
             if model["!"]:
+                log.warning("FIXME: ! generated code is not reliable")
                 code.add(indent, f"{res} &= len(set({val})) == len({val})")
             # else defaut is nothing to check
-            # raise NotImplementedError("! is not yet implemented")
         if checks:
             code.add(indent, f"{res} &= {' and '.join(checks)}")
+        if self._report:
+            code.add(indent, f"if not {res}:")
+            code.add(indent + 1, _rep(f"invalid type or constraints at {{{vpath}}} [{smpath}]"))
 
     def _disjunction(self, code: Code, indent: int,
                      jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -364,6 +409,7 @@ class SourceCode(Validator):
         if dis is None:
             return False
         tag_name, tag_type, models, all_const_props = dis
+        smpath = json_path(mpath)
 
         # Compile all object models in the list if needed
         assert isinstance(model, dict)
@@ -414,7 +460,15 @@ class SourceCode(Validator):
         code.add(indent, f"        if {tag} in {disid}:")
         code.add(indent, f"            {res} = {disid}[{tag}]({val}, {vpath})")
         code.add(indent, r"        else:")
+        if self._report:
+            code.add(indent + 3,
+                     _rep(f"tag {tag_name} value not found at {{{vpath}}} [{smpath}.'|']"))
         code.add(indent, f"            {res} = False")
+        if self._report:
+            code.add(indent, r"    else:")
+            code.add(indent + 2, _rep(f"missing tag prop {tag_name} at {{{vpath}}} [{smpath}.'|']"))
+            code.add(indent, r"else:  # not a dict")
+            code.add(indent + 1, _rep(f"not an object at {{{vpath}}} [{smpath}.'|']"))
 
         return True
 
@@ -424,9 +478,12 @@ class SourceCode(Validator):
         # separate properties
         assert isinstance(model, dict)
         must, may, defs, regs, oth = split_object(model, mpath)
+        smpath = json_path(mpath)
         # TODO optimize must only case?
         code.add(indent, f"if not isinstance({val}, dict):")
-        code.add(indent + 1, "return False")
+        if self._report:
+            code.add(indent + 1, _rep(f"not an object at {{{vpath}}} [{smpath}]"))
+        code.add(indent, "    return False")
         prop_must = f"{oname}_must"
         if must:
             prop_must_map: dict[str, str] = {}
@@ -445,64 +502,101 @@ class SourceCode(Validator):
                 pid = f"{prop_may}_{p}"
                 self.help(self._compileName(jm, pid, m, mpath + [p]))
                 prop_may_map[p] = self._getName(jm, pid)
-        prop, value, must_c = "prop", "model", "must_count"
+        prop, value, must_c = "prop", "val", "must_count"
         if must:
             code.add(indent, f"{must_c} = 0")
         code.add(indent, f"for {prop}, {value} in {val}.items():")
         code.add(indent, f"    assert isinstance({prop}, str)")
+        code.add(indent, f"    lpath = {vpath} + \".\" + {prop}")
         cond = "if"
         if must:
             code.add(indent, f"    {cond} {prop} in {prop_must}:  # must")
             code.add(indent, f"        {must_c} += 1")
-            code.add(indent, f"        if not {prop_must}[{prop}]({value}, "
-                     f"f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent, f"        if not {prop_must}[{prop}]({value}, lpath, rep):")
+            if self._report:
+                code.add(indent + 3, _rep(
+                         f"invalid must prop value at {{lpath}} [{smpath}.{{{prop}}}]"))
             code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         if may:
             code.add(indent, f"    {cond} {prop} in {prop_may}:  # may")
-            code.add(indent, f"        if not {prop_may}[{prop}]({value}, "
-                     f"f\"{{path}}.{{{prop}}}\"):")
+            code.add(indent, f"        if not {prop_may}[{prop}]({value}, lpath, rep):")
+            if self._report:
+                code.add(indent + 3, _rep(
+                         f"invalid may prop value at {{lpath}} [{smpath}.{{{prop}}}]"))
             code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
-        # $* is inlined expr
+        # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, v in defs.items():
-            code.add(indent, f"    {cond} {self._dollarExpr(jm, '$' + d, prop, 'path')}:  # ${d}")
-            self._compileModel(code, indent + 2, jm, v, mpath + [d], res, value, vpath)
-            code.add(indent, f"        if not {res}: return False")
+            dexpr = self._dollarExpr(jm, '$' + d, prop, 'path')
+            if self._report:
+                dexpr += f" or _rep(f\"prop {{prop}} does not match ${d} at {{{vpath}}}\", rep)"
+            code.add(indent, f"    {cond} {dexpr}:  # ${d}")
+            self._compileModel(code, indent + 2, jm, v, mpath + ["$" + d], res, value, "lpath")
+            code.add(indent, f"        if not {res}:")
+            # if self._report:
+            #     code.add(indent + 3, _rep(
+            #              f"invalid $ prop {{{vpath}}}.{{{prop}}} value [{smpath}.${d}]"))
+            code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # // is inlined
         for r, v in regs.items():
             regex = f"/{r}/"
-            code.add(indent, f"    {cond} {self._regex(regex)}({prop}) is not None:  # {regex}")
-            self._compileModel(code, indent + 2, jm, v, mpath + [regex], res, value, vpath)
-            code.add(indent, f"        if not {res}: return False")
+            rexpr = f"{self._regex(regex)}({prop}) is not None"
+            if self._report:
+                rexpr += (f" or _rep(f\"prop {{prop}} does not match "
+                          f"{self._fesc(regex)} at {{{vpath}}}\", rep)")
+            code.add(indent, f"    {cond} {rexpr}:  # {regex}")
+            self._compileModel(code, indent + 2, jm, v, mpath + [regex], res, value, "lpath")
+            code.add(indent, f"        if not {res}:")
+            # if self._report:  # FIXME escape re
+            #     code.add(indent + 3, _rep(
+            #              f"invalid re prop {{{vpath}}}.{{{prop}}}/ value [{smpath}./{{r}}/]"))
+            code.add(indent, r"            return False")
             # code.add(indent+3, f"continue")
             cond = "elif"
         # catchall is inlined
         if oth:
             omodel = oth[""]
+            smpath = json_path(mpath + [""])
             if cond == "if":  # direct
-                self._compileModel(code, indent + 1, jm, omodel, mpath + [""], res, value, vpath)
-                code.add(indent, f"    if not {res}: return False")
+                self._compileModel(code, indent + 1, jm, omodel, mpath + [""], res, value, "lpath")
+                code.add(indent, f"    if not {res}:")
+                if self._report:
+                    code.add(indent + 2, _rep(f"unexpected other value at {{lpath}} [{smpath}]"))
+                code.add(indent, r"        return False")
             else:
                 code.add(indent, r"    else:  # catch all")
-                self._compileModel(code, indent + 2, jm, omodel, mpath + [""], res, value, vpath)
-                code.add(indent, f"        if not {res}: return False")
+                self._compileModel(code, indent + 2, jm, omodel, mpath + [""], res, value, "lpath")
+                code.add(indent, f"        if not {res}:")
+                if self._report:
+                    code.add(indent + 3, _rep(f"unexpected other value at {{lpath}} [{smpath}]"))
+                code.add(indent, r"            return False")
                 # code.add(indent+3, f"continue")
-        else:
+        else:  # no catch all
+            smpath = json_path(mpath)
             if cond == "if":
                 # we are expecting an empty object
                 code.add(indent, "    # no catch all")
+                if self._report:
+                    code.add(indent + 1, _rep(f"no other prop expected at {{{vpath}}} [{smpath}]"))
                 code.add(indent, "    return False")
             else:
                 code.add(indent, "    else:  # no catch all")
+                if self._report:
+                    code.add(indent + 2, _rep(f"no other prop expected at {{{vpath}}} [{smpath}]"))
                 code.add(indent, "        return False")
-        # check that all must were seen
+        # check that all must were seen, although we do not know which ones
         if must:
-            code.add(indent, f"return {must_c} == {len(must)}")
+            code.add(indent, f"{res} = {must_c} == {len(must)}")
+            if self._report:
+                smpath = json_path(mpath)
+                code.add(indent, f"if not {res}:")
+                code.add(indent + 1, _rep(f"missing must prop at {{{vpath}}} [{smpath}]"))
+            code.add(indent, f"return {res}")
         else:
             code.add(indent, "return True")
 
@@ -512,14 +606,21 @@ class SourceCode(Validator):
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath} indent={indent}")
         assert isinstance(mpath, list)
+        smpath = json_path(mpath)
         code.add(indent, f"# {json_path(mpath)}")
         match model:
             case None:
                 code.add(indent, f"{res} = {val} is None")
+                if self._report:
+                    code.add(indent, f"if not {res}:")
+                    code.add(indent + 1, _rep(f"not null at {{{vpath}}} [{smpath}]"))
             case bool():
                 code.add(indent, f"{res} = isinstance({val}, bool)")
+                if self._report:
+                    code.add(indent, f"if not {res}:")
+                    code.add(indent + 1, _rep(f"not a bool at {{{vpath}}} [{smpath}]"))
             case int():
-                expr = self._in_is_int(val)
+                expr = self._in_is_int(val, vpath)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -540,11 +641,14 @@ class SourceCode(Validator):
                     else:
                         expr = f"{val} >= 1"
                 else:
-                    raise ModelError(f"unexpected int value {model} at {mpath}")
+                    raise ModelError(f"unexpected int value {model} at {smpath}")
                 if expr:
                     code.add(indent, res + " = " + expr)
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1, _rep(f"not a {model} int at {{{vpath}}} [{smpath}]"))
             case float():
-                expr = self._in_is_float(val)
+                expr = self._in_is_float(val, vpath)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -568,6 +672,9 @@ class SourceCode(Validator):
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
                     code.add(indent, res + " = " + expr)
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1, _rep(f"not a {model} float at {{{vpath}}} [{smpath}]"))
             case str():
                 expr = f"isinstance({val}, str)"
                 if known is not None:
@@ -617,16 +724,24 @@ class SourceCode(Validator):
                 elif model[0] == "/":
                     code.add(indent, f"# {self._esc(model)}")
                     if expr:
-                        code.add(indent, f"{res} = {expr} and {self._regExpr(model, val)}")
+                        code.add(indent, f"{res} = {expr} and {self._regExpr(model, val, vpath)}")
                     else:
-                        code.add(indent, f"{res} = {self._regExpr(model, val)}")
+                        code.add(indent, f"{res} = {self._regExpr(model, val, vpath)}")
                 else:  # simple string
                     if expr:
                         code.add(indent, f"{res} = {expr} and {val} == {self._esc(model)}")
                     else:
                         code.add(indent, f"{res} = {val} == {self._esc(model)}")
+                if self._report:
+                    code.add(indent, f"if not {res}:")
+                    smodel = model if model else "string"
+                    if model and model[0] == "/":  # FIXME workaround
+                        smodel = "REGEX"
+                    code.add(indent + 1,
+                             _rep(f"not an expected {smodel} at {{{vpath}}} [{smpath}]"))
             case list():
                 expr = f"isinstance({val}, list)"
+                smpath = json_path(mpath)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -648,9 +763,15 @@ class SourceCode(Validator):
                         code.add(indent, "if True:")
                     # code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
                     code.add(indent + 1, f"for {idx}, {item} in enumerate({val}):")
+                    code.add(indent + 1, f"    lpath = {vpath} + '.' + str({idx})")
                     self._compileModel(code, indent + 2, jm, model[0], mpath + [0],
-                                       res, item, f"f\"{{{vpath}}}[{{{idx}}}]\"")
-                    code.add(indent + 2, f"if not {res}: break")
+                                       res, item, "lpath")
+                    # shortcut
+                    code.add(indent + 2, f"if not {res}:")
+                    # if self._report:
+                    #     code.add(indent + 3,
+                    #              _rep(f"unexpected array value at {{lpath}} [{smpath}]"))
+                    code.add(indent + 2, r"    break")
                 else:
                     if expr:
                         code.add(indent, f"{res} = {expr} and len({val}) == {len(model)}")
@@ -661,13 +782,19 @@ class SourceCode(Validator):
                         # FIXME vpath
                         self._compileModel(code, indent + i + 1, jm, model[i], mpath + [i],
                                            res, f"{val}[{i}]", f"{vpath}[{i}]")
+                if self._report:
+                    code.add(indent, f"if not {res}:")
+                    code.add(indent + 1,
+                             _rep(f"not array or unexpected array at {{{vpath}}} [{smpath}]"))
             case dict():
+                # TODO report
                 assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
                 if "@" in model:
                     self._compileConstraint(code, indent, jm, model, mpath, res, val, vpath)
                 elif "|" in model:
                     lpath = mpath + ["|"]
+                    slpath = json_path(lpath)
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
                     # partial list of constants optimization
@@ -688,6 +815,10 @@ class SourceCode(Validator):
                             code.add(indent,
                                      f"{res} = not isinstance({val}, (list, dict)) and "
                                      f"{val} in {sconst}")
+                            if self._report:
+                                code.add(indent, f"if not {res}:")
+                                code.add(indent + 1,
+                                         _rep(f"value not in enum at {{{vpath}}} [{slpath}]"))
                             if not n_models:
                                 return
                             code.add(indent, f"if not {res}:")
@@ -695,6 +826,8 @@ class SourceCode(Validator):
                             models = n_models
                     # empty list
                     if not models:
+                        if self._report:
+                            code.add(indent, _rep(f"empty or at {{{vpath}}} [{slpath}]"))
                         code.add(indent, f"{res} = False")
                         return
                     # discriminant optimization
@@ -718,9 +851,13 @@ class SourceCode(Validator):
                             code.add(indent + i - 1, f"if not {res}:")
                         self._compileModel(code, indent + i, jm, m, lpath + [i],
                                            res, val, vpath, or_known)
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1, _rep(f"not any model match at {{{vpath}}} [{slpath}]"))
                 elif "&" in model:
                     and_known = set(known or [])
                     lpath = mpath + ["&"]
+                    slpath = json_path(lpath)
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint
                     if not models:
@@ -743,8 +880,12 @@ class SourceCode(Validator):
                             code.add(indent + i - 1, f"if {res}:")
                         self._compileModel(code, indent + i, jm, m, lpath + [i],
                                            res, val, vpath, and_known)
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1, _rep(f"not all model match at {{{vpath}}} [{slpath}]"))
                 elif "^" in model:
                     lpath = mpath + ["^"]
+                    slpath = json_path(lpath)
                     models = model["^"]
                     assert isinstance(models, list)  # pyright hint
 
@@ -807,8 +948,10 @@ class SourceCode(Validator):
                                                    test, val, vpath)
                                 code.add(indent + depth + 1, f"if {test}: {count} += 1")
                             code.add(indent + depth, f"{res} = {count} == 1")
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1, _rep(f"not one model match at {{{vpath}}} [{slpath}]"))
                 else:
-                    # TODO check for non-root %
                     # TODO optimize empty model?
                     # generate separate functions for objects?
                     hpath = tuple(mpath)
@@ -822,12 +965,17 @@ class SourceCode(Validator):
                         ocode.nl()
                         ocode.add(0, f"# object {json_path(mpath)}")
                         path_init = " = \"$\"" if mpath == ["$"] else ""
-                        ocode.add(0, f"def {objid}(value: Jsonable, path: str{path_init}) -> bool:")
+                        ocode.add(0, f"def {objid}(value: Jsonable, path: str{path_init}, "
+                                  f"rep: Report = None) -> bool:")
                         self._compileObject(ocode, 1, jm, model, mpath, objid, _RES, _VAL, _PATH)
                         self.subs(ocode)
                         self._generated.add(hpath)
                     del hpath
-                    code.add(indent, f"{res} = {objid}({val}, {vpath})")
+                    code.add(indent, f"{res} = {objid}({val}, {vpath}, rep)")
+                    if self._report:
+                        code.add(indent, f"if not {res}:")
+                        code.add(indent + 1,
+                                 _rep(f"not an expected object at {{{vpath}}} [{smpath}]"))
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
 
@@ -880,7 +1028,7 @@ class SourceCode(Validator):
         # generate code
         # code.nl()
         code.add(0, f"# define {self._esc(name)} ({json_path(mpath)})")
-        code.add(0, f"def {fun}(value: Jsonable, path: str) -> bool:")
+        code.add(0, f"def {fun}(value: Jsonable, path: str, rep: Report = None) -> bool:")
         self._compileModel(code, 1, jm, model, mpath, _RES, _VAL, _PATH, None)
         code.add(1, f"return {_RES}")
         if fun2 and fun2 != fun:
@@ -913,6 +1061,7 @@ def static_compile(
         debug: bool = False,
         loose_int: bool = False,
         loose_float: bool = False,
+        report: bool = True,
     ) -> SourceCode:
     """Generate the check source code for a model.
 
@@ -923,6 +1072,7 @@ def static_compile(
     - `debug`: debugging mode generates more traces
     - `loose_int`: whether 42.0 is an integer
     - `loose_float`: whether 42 is a float
+    - `report`: whether to generate code to report rejection reasons
     """
     # TODO move to compileOneJsonModel
     # options
@@ -936,10 +1086,10 @@ def static_compile(
                        False if "JSON_MODEL_STRICT_FLOAT" in comment else
                        loose_float)
     sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod,  # pyright: ignore
-                    loose_int=loose_int, loose_float=loose_float)
+                    loose_int=loose_int, loose_float=loose_float, report=report)
     # compile definitions
     for n, jm in model._defs.items():
-        sc.subs(sc.compileOneJsonModel(jm, "$" + n, [n]))
+        sc.subs(sc.compileOneJsonModel(jm, "$" + n, ["$" + n]))
     # compile main
     root = sc.compileOneJsonModel(model, "$", [])
     # compile other encountered references
@@ -951,7 +1101,7 @@ def static_compile(
     # create main
     main = Code()
     main.add(0, f"# entry function {name}")
-    main.add(0, f"def {name}(value: Jsonable, path: str = \"$\") -> bool:")
-    main.add(1, f"return json_model_{model._id}(value, path)")
+    main.add(0, f"def {name}(value: Jsonable, path: str = \"$\", rep: Report = None) -> bool:")
+    main.add(1, f"return json_model_{model._id}(value, path, rep)")
     sc.subs(main)
     return sc

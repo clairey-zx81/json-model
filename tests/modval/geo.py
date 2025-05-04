@@ -9,9 +9,20 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 json_model_4_must: PropMap
 json_model_4_may: PropMap
@@ -33,444 +44,652 @@ json_model_12_may: PropMap
 json_model_13_must: PropMap
 json_model_13_may: PropMap
 
-# define "json_model_4_must_type" ($.Point.type)
-def jm_f_0(value: Jsonable, path: str) -> bool:
-    # $.Point.type
+# define "json_model_4_must_type" ($.'$Point'.type)
+def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Point'.type
     result = isinstance(value, str) and value == "Point"
+    if not result:
+        rep is None or rep.append(f"not an expected Point at {path} [$.'$Point'.type]")
     return result
 
-# define "json_model_4_must_coordinates" ($.Point.coordinates)
-def jm_f_1(value: Jsonable, path: str) -> bool:
-    # $.Point.coordinates
-    result = json_model_1(value, path)
+# define "json_model_4_must_coordinates" ($.'$Point'.coordinates)
+def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Point'.coordinates
+    result = json_model_1(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $position at {path} [$.'$Point'.coordinates]")
     return result
 
-# define "json_model_4_may_bbox" ($.Point.bbox)
-def jm_f_2(value: Jsonable, path: str) -> bool:
-    # $.Point.bbox
+# define "json_model_4_may_bbox" ($.'$Point'.bbox)
+def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Point'.bbox
     result = isinstance(value, list)
     if result:
         for array_3_idx, array_3_item in enumerate(value):
-            # $.Point.bbox.0
+            lpath = path + '.' + str(array_3_idx)
+            # $.'$Point'.bbox.0
             result = isinstance(array_3_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$Point'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$Point'.bbox]")
     return result
 
-# define "json_model_5_must_type" ($.MultiPoint.type)
-def jm_f_3(value: Jsonable, path: str) -> bool:
-    # $.MultiPoint.type
+# define "json_model_5_must_type" ($.'$MultiPoint'.type)
+def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPoint'.type
     result = isinstance(value, str) and value == "MultiPoint"
+    if not result:
+        rep is None or rep.append(f"not an expected MultiPoint at {path} [$.'$MultiPoint'.type]")
     return result
 
-# define "json_model_5_must_coordinates" ($.MultiPoint.coordinates)
-def jm_f_4(value: Jsonable, path: str) -> bool:
-    # $.MultiPoint.coordinates
+# define "json_model_5_must_coordinates" ($.'$MultiPoint'.coordinates)
+def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPoint'.coordinates
     result = isinstance(value, list)
     if result:
         for array_4_idx, array_4_item in enumerate(value):
-            # $.MultiPoint.coordinates.0
-            result = json_model_1(array_4_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_4_idx)
+            # $.'$MultiPoint'.coordinates.0
+            result = json_model_1(array_4_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $position at {lpath} [$.'$MultiPoint'.coordinates.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiPoint'.coordinates]")
     return result
 
-# define "json_model_5_may_bbox" ($.MultiPoint.bbox)
-def jm_f_5(value: Jsonable, path: str) -> bool:
-    # $.MultiPoint.bbox
+# define "json_model_5_may_bbox" ($.'$MultiPoint'.bbox)
+def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPoint'.bbox
     result = isinstance(value, list)
     if result:
         for array_5_idx, array_5_item in enumerate(value):
-            # $.MultiPoint.bbox.0
+            lpath = path + '.' + str(array_5_idx)
+            # $.'$MultiPoint'.bbox.0
             result = isinstance(array_5_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$MultiPoint'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiPoint'.bbox]")
     return result
 
-# define "json_model_6_must_type" ($.LineString.type)
-def jm_f_6(value: Jsonable, path: str) -> bool:
-    # $.LineString.type
+# define "json_model_6_must_type" ($.'$LineString'.type)
+def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$LineString'.type
     result = isinstance(value, str) and value == "LineString"
+    if not result:
+        rep is None or rep.append(f"not an expected LineString at {path} [$.'$LineString'.type]")
     return result
 
-# define "json_model_6_must_coordinates" ($.LineString.coordinates)
-def jm_f_7(value: Jsonable, path: str) -> bool:
-    # $.LineString.coordinates
-    result = json_model_2(value, path)
+# define "json_model_6_must_coordinates" ($.'$LineString'.coordinates)
+def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$LineString'.coordinates
+    result = json_model_2(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $coord_array at {path} [$.'$LineString'.coordinates]")
     return result
 
-# define "json_model_6_may_bbox" ($.LineString.bbox)
-def jm_f_8(value: Jsonable, path: str) -> bool:
-    # $.LineString.bbox
+# define "json_model_6_may_bbox" ($.'$LineString'.bbox)
+def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$LineString'.bbox
     result = isinstance(value, list)
     if result:
         for array_6_idx, array_6_item in enumerate(value):
-            # $.LineString.bbox.0
+            lpath = path + '.' + str(array_6_idx)
+            # $.'$LineString'.bbox.0
             result = isinstance(array_6_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$LineString'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$LineString'.bbox]")
     return result
 
-# define "json_model_7_must_type" ($.MultiLineString.type)
-def jm_f_9(value: Jsonable, path: str) -> bool:
-    # $.MultiLineString.type
+# define "json_model_7_must_type" ($.'$MultiLineString'.type)
+def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiLineString'.type
     result = isinstance(value, str) and value == "MultiLineString"
+    if not result:
+        rep is None or rep.append(f"not an expected MultiLineString at {path} [$.'$MultiLineString'.type]")
     return result
 
-# define "json_model_7_must_coordinates" ($.MultiLineString.coordinates)
-def jm_f_10(value: Jsonable, path: str) -> bool:
-    # $.MultiLineString.coordinates
+# define "json_model_7_must_coordinates" ($.'$MultiLineString'.coordinates)
+def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiLineString'.coordinates
     result = isinstance(value, list)
     if result:
         for array_7_idx, array_7_item in enumerate(value):
-            # $.MultiLineString.coordinates.0
-            result = json_model_2(array_7_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_7_idx)
+            # $.'$MultiLineString'.coordinates.0
+            result = json_model_2(array_7_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $coord_array at {lpath} [$.'$MultiLineString'.coordinates.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiLineString'.coordinates]")
     return result
 
-# define "json_model_7_may_bbox" ($.MultiLineString.bbox)
-def jm_f_11(value: Jsonable, path: str) -> bool:
-    # $.MultiLineString.bbox
+# define "json_model_7_may_bbox" ($.'$MultiLineString'.bbox)
+def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiLineString'.bbox
     result = isinstance(value, list)
     if result:
         for array_8_idx, array_8_item in enumerate(value):
-            # $.MultiLineString.bbox.0
+            lpath = path + '.' + str(array_8_idx)
+            # $.'$MultiLineString'.bbox.0
             result = isinstance(array_8_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$MultiLineString'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiLineString'.bbox]")
     return result
 
-# define "json_model_8_must_type" ($.Polygon.type)
-def jm_f_12(value: Jsonable, path: str) -> bool:
-    # $.Polygon.type
+# define "json_model_8_must_type" ($.'$Polygon'.type)
+def jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Polygon'.type
     result = isinstance(value, str) and value == "Polygon"
+    if not result:
+        rep is None or rep.append(f"not an expected Polygon at {path} [$.'$Polygon'.type]")
     return result
 
-# define "json_model_8_must_coordinates" ($.Polygon.coordinates)
-def jm_f_13(value: Jsonable, path: str) -> bool:
-    # $.Polygon.coordinates
+# define "json_model_8_must_coordinates" ($.'$Polygon'.coordinates)
+def jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Polygon'.coordinates
     result = isinstance(value, list)
     if result:
         for array_9_idx, array_9_item in enumerate(value):
-            # $.Polygon.coordinates.0
-            result = json_model_3(array_9_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_9_idx)
+            # $.'$Polygon'.coordinates.0
+            result = json_model_3(array_9_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $linear_ring at {lpath} [$.'$Polygon'.coordinates.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$Polygon'.coordinates]")
     return result
 
-# define "json_model_8_may_bbox" ($.Polygon.bbox)
-def jm_f_14(value: Jsonable, path: str) -> bool:
-    # $.Polygon.bbox
+# define "json_model_8_may_bbox" ($.'$Polygon'.bbox)
+def jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Polygon'.bbox
     result = isinstance(value, list)
     if result:
         for array_10_idx, array_10_item in enumerate(value):
-            # $.Polygon.bbox.0
+            lpath = path + '.' + str(array_10_idx)
+            # $.'$Polygon'.bbox.0
             result = isinstance(array_10_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$Polygon'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$Polygon'.bbox]")
     return result
 
-# define "json_model_9_must_type" ($.MultiPolygon.type)
-def jm_f_15(value: Jsonable, path: str) -> bool:
-    # $.MultiPolygon.type
+# define "json_model_9_must_type" ($.'$MultiPolygon'.type)
+def jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPolygon'.type
     result = isinstance(value, str) and value == "MultiPolygon"
+    if not result:
+        rep is None or rep.append(f"not an expected MultiPolygon at {path} [$.'$MultiPolygon'.type]")
     return result
 
-# define "json_model_9_must_coordinates" ($.MultiPolygon.coordinates)
-def jm_f_16(value: Jsonable, path: str) -> bool:
-    # $.MultiPolygon.coordinates
+# define "json_model_9_must_coordinates" ($.'$MultiPolygon'.coordinates)
+def jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPolygon'.coordinates
     result = isinstance(value, list)
     if result:
         for array_11_idx, array_11_item in enumerate(value):
-            # $.MultiPolygon.coordinates.0
+            lpath = path + '.' + str(array_11_idx)
+            # $.'$MultiPolygon'.coordinates.0
             result = isinstance(array_11_item, list)
             if result:
                 for array_12_idx, array_12_item in enumerate(array_11_item):
-                    # $.MultiPolygon.coordinates.0.0
-                    result = json_model_3(array_12_item, path)
-                    if not result: break
-            if not result: break
+                    lpath = lpath + '.' + str(array_12_idx)
+                    # $.'$MultiPolygon'.coordinates.0.0
+                    result = json_model_3(array_12_item, path, rep)
+                    if not result:
+                        rep is None or rep.append(f"not an expected $linear_ring at {lpath} [$.'$MultiPolygon'.coordinates.0.0]")
+                    if not result:
+                        break
+            if not result:
+                rep is None or rep.append(f"not array or unexpected array at {lpath} [$.'$MultiPolygon'.coordinates.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiPolygon'.coordinates]")
     return result
 
-# define "json_model_9_may_bbox" ($.MultiPolygon.bbox)
-def jm_f_17(value: Jsonable, path: str) -> bool:
-    # $.MultiPolygon.bbox
+# define "json_model_9_may_bbox" ($.'$MultiPolygon'.bbox)
+def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$MultiPolygon'.bbox
     result = isinstance(value, list)
     if result:
         for array_13_idx, array_13_item in enumerate(value):
-            # $.MultiPolygon.bbox.0
+            lpath = path + '.' + str(array_13_idx)
+            # $.'$MultiPolygon'.bbox.0
             result = isinstance(array_13_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$MultiPolygon'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$MultiPolygon'.bbox]")
     return result
 
-# define "json_model_11_must_type" ($.GeometryCollection.type)
-def jm_f_18(value: Jsonable, path: str) -> bool:
-    # $.GeometryCollection.type
+# define "json_model_11_must_type" ($.'$GeometryCollection'.type)
+def jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$GeometryCollection'.type
     result = isinstance(value, str) and value == "GeometryCollection"
+    if not result:
+        rep is None or rep.append(f"not an expected GeometryCollection at {path} [$.'$GeometryCollection'.type]")
     return result
 
-# define "json_model_11_must_geometries" ($.GeometryCollection.geometries)
-def jm_f_19(value: Jsonable, path: str) -> bool:
-    # $.GeometryCollection.geometries
+# define "json_model_11_must_geometries" ($.'$GeometryCollection'.geometries)
+def jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$GeometryCollection'.geometries
     result = isinstance(value, list)
     if result:
         for array_14_idx, array_14_item in enumerate(value):
-            # $.GeometryCollection.geometries.0
-            result = json_model_10(array_14_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_14_idx)
+            # $.'$GeometryCollection'.geometries.0
+            result = json_model_10(array_14_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $geometry at {lpath} [$.'$GeometryCollection'.geometries.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$GeometryCollection'.geometries]")
     return result
 
-# define "json_model_11_may_bbox" ($.GeometryCollection.bbox)
-def jm_f_20(value: Jsonable, path: str) -> bool:
-    # $.GeometryCollection.bbox
+# define "json_model_11_may_bbox" ($.'$GeometryCollection'.bbox)
+def jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$GeometryCollection'.bbox
     result = isinstance(value, list)
     if result:
         for array_15_idx, array_15_item in enumerate(value):
-            # $.GeometryCollection.bbox.0
+            lpath = path + '.' + str(array_15_idx)
+            # $.'$GeometryCollection'.bbox.0
             result = isinstance(array_15_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$GeometryCollection'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$GeometryCollection'.bbox]")
     return result
 
-# define "json_model_12_must_type" ($.Feature.type)
-def jm_f_21(value: Jsonable, path: str) -> bool:
-    # $.Feature.type
+# define "json_model_12_must_type" ($.'$Feature'.type)
+def jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Feature'.type
     result = isinstance(value, str) and value == "Feature"
+    if not result:
+        rep is None or rep.append(f"not an expected Feature at {path} [$.'$Feature'.type]")
     return result
 
-# define "json_model_12_must_geometry" ($.Feature.geometry)
-def jm_f_22(value: Jsonable, path: str) -> bool:
-    # $.Feature.geometry
-    # $.Feature.geometry.'|'.0
+# define "json_model_12_must_geometry" ($.'$Feature'.geometry)
+def jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Feature'.geometry
+    # $.'$Feature'.geometry.'|'.0
     result = value is None
     if not result:
-        # $.Feature.geometry.'|'.1
-        result = json_model_10(value, path)
+        rep is None or rep.append(f"not null at {path} [$.'$Feature'.geometry.'|'.0]")
+    if not result:
+        # $.'$Feature'.geometry.'|'.1
+        result = json_model_10(value, path, rep)
         if not result:
-            # $.Feature.geometry.'|'.2
-            result = json_model_11(value, path)
+            rep is None or rep.append(f"not an expected $geometry at {path} [$.'$Feature'.geometry.'|'.1]")
+        if not result:
+            # $.'$Feature'.geometry.'|'.2
+            result = json_model_11(value, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $GeometryCollection at {path} [$.'$Feature'.geometry.'|'.2]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'$Feature'.geometry.'|']")
     return result
 
-# define "json_model_12_must_properties" ($.Feature.properties)
-def jm_f_23(value: Jsonable, path: str) -> bool:
-    # $.Feature.properties
-    # $.Feature.properties.'|'.0
+# define "json_model_12_must_properties" ($.'$Feature'.properties)
+def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Feature'.properties
+    # $.'$Feature'.properties.'|'.0
     result = value is None
     if not result:
-        # $.Feature.properties.'|'.1
-        result = jm_obj_0(value, path)
+        rep is None or rep.append(f"not null at {path} [$.'$Feature'.properties.'|'.0]")
+    if not result:
+        # $.'$Feature'.properties.'|'.1
+        result = jm_obj_0(value, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected object at {path} [$.'$Feature'.properties.'|'.1]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'$Feature'.properties.'|']")
     return result
 
-# define "json_model_12_may_id" ($.Feature.id)
-def jm_f_24(value: Jsonable, path: str) -> bool:
-    # $.Feature.id
-    # $.Feature.id.'|'.0
+# define "json_model_12_may_id" ($.'$Feature'.id)
+def jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Feature'.id
+    # $.'$Feature'.id.'|'.0
     result = isinstance(value, str)
     if not result:
-        # $.Feature.id.'|'.1
+        rep is None or rep.append(f"not an expected string at {path} [$.'$Feature'.id.'|'.0]")
+    if not result:
+        # $.'$Feature'.id.'|'.1
         result = isinstance(value, float)
+        if not result:
+            rep is None or rep.append(f"not a -1.0 float at {path} [$.'$Feature'.id.'|'.1]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'$Feature'.id.'|']")
     return result
 
-# define "json_model_12_may_bbox" ($.Feature.bbox)
-def jm_f_25(value: Jsonable, path: str) -> bool:
-    # $.Feature.bbox
+# define "json_model_12_may_bbox" ($.'$Feature'.bbox)
+def jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Feature'.bbox
     result = isinstance(value, list)
     if result:
         for array_16_idx, array_16_item in enumerate(value):
-            # $.Feature.bbox.0
+            lpath = path + '.' + str(array_16_idx)
+            # $.'$Feature'.bbox.0
             result = isinstance(array_16_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$Feature'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$Feature'.bbox]")
     return result
 
-# define "json_model_13_must_type" ($.FeatureCollection.type)
-def jm_f_26(value: Jsonable, path: str) -> bool:
-    # $.FeatureCollection.type
+# define "json_model_13_must_type" ($.'$FeatureCollection'.type)
+def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$FeatureCollection'.type
     result = isinstance(value, str) and value == "FeatureCollection"
+    if not result:
+        rep is None or rep.append(f"not an expected FeatureCollection at {path} [$.'$FeatureCollection'.type]")
     return result
 
-# define "json_model_13_must_features" ($.FeatureCollection.features)
-def jm_f_27(value: Jsonable, path: str) -> bool:
-    # $.FeatureCollection.features
+# define "json_model_13_must_features" ($.'$FeatureCollection'.features)
+def jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$FeatureCollection'.features
     result = isinstance(value, list)
     if result:
         for array_17_idx, array_17_item in enumerate(value):
-            # $.FeatureCollection.features.0
-            result = json_model_12(array_17_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_17_idx)
+            # $.'$FeatureCollection'.features.0
+            result = json_model_12(array_17_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $Feature at {lpath} [$.'$FeatureCollection'.features.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$FeatureCollection'.features]")
     return result
 
-# define "json_model_13_may_bbox" ($.FeatureCollection.bbox)
-def jm_f_28(value: Jsonable, path: str) -> bool:
-    # $.FeatureCollection.bbox
+# define "json_model_13_may_bbox" ($.'$FeatureCollection'.bbox)
+def jm_f_28(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$FeatureCollection'.bbox
     result = isinstance(value, list)
     if result:
         for array_18_idx, array_18_item in enumerate(value):
-            # $.FeatureCollection.bbox.0
+            lpath = path + '.' + str(array_18_idx)
+            # $.'$FeatureCollection'.bbox.0
             result = isinstance(array_18_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$FeatureCollection'.bbox.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$FeatureCollection'.bbox]")
     return result
 
 
-# define "$position" ($.position)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.position
-    # $.position.'@'
+# define "$position" ($.'$position')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$position'
+    # $.'$position'.'@'
     result = isinstance(value, list)
     if result:
         for array_0_idx, array_0_item in enumerate(value):
-            # $.position.'@'.0
+            lpath = path + '.' + str(array_0_idx)
+            # $.'$position'.'@'.0
             result = isinstance(array_0_item, float)
-            if not result: break
+            if not result:
+                rep is None or rep.append(f"not a -1.0 float at {lpath} [$.'$position'.'@'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$position'.'@']")
     result &= len(value) <= 3 and len(value) >= 2
+    if not result:
+        rep is None or rep.append(f"invalid type or constraints at {path} [$.'$position']")
     return result
 
-# define "$coord_array" ($.coord_array)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.coord_array
-    # $.coord_array.'@'
+# define "$coord_array" ($.'$coord_array')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$coord_array'
+    # $.'$coord_array'.'@'
     result = isinstance(value, list)
     if result:
         for array_1_idx, array_1_item in enumerate(value):
-            # $.coord_array.'@'.0
-            result = json_model_1(array_1_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_1_idx)
+            # $.'$coord_array'.'@'.0
+            result = json_model_1(array_1_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $position at {lpath} [$.'$coord_array'.'@'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$coord_array'.'@']")
     result &= len(value) >= 2
+    if not result:
+        rep is None or rep.append(f"invalid type or constraints at {path} [$.'$coord_array']")
     return result
 
-# define "$linear_ring" ($.linear_ring)
-def json_model_3(value: Jsonable, path: str) -> bool:
-    # $.linear_ring
-    # $.linear_ring.'@'
+# define "$linear_ring" ($.'$linear_ring')
+def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$linear_ring'
+    # $.'$linear_ring'.'@'
     result = isinstance(value, list)
     if result:
         for array_2_idx, array_2_item in enumerate(value):
-            # $.linear_ring.'@'.0
-            result = json_model_1(array_2_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_2_idx)
+            # $.'$linear_ring'.'@'.0
+            result = json_model_1(array_2_item, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $position at {lpath} [$.'$linear_ring'.'@'.0]")
+            if not result:
+                break
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$linear_ring'.'@']")
     result &= len(value) >= 4
+    if not result:
+        rep is None or rep.append(f"invalid type or constraints at {path} [$.'$linear_ring']")
     return result
 
 
-# object $.Point
-def json_model_4(value: Jsonable, path: str) -> bool:
+# object $.'$Point'
+def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$Point']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_4_must:  # must
             must_count += 1
-            if not json_model_4_must[prop](model, f"{path}.{prop}"):
+            if not json_model_4_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$Point'.{prop}]")
                 return False
         elif prop in json_model_4_may:  # may
-            if not json_model_4_may[prop](model, f"{path}.{prop}"):
+            if not json_model_4_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$Point'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$Point']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$Point']")
+    return result
 
 
 
 
-# object $.MultiPoint
-def json_model_5(value: Jsonable, path: str) -> bool:
+# object $.'$MultiPoint'
+def json_model_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$MultiPoint']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_5_must:  # must
             must_count += 1
-            if not json_model_5_must[prop](model, f"{path}.{prop}"):
+            if not json_model_5_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$MultiPoint'.{prop}]")
                 return False
         elif prop in json_model_5_may:  # may
-            if not json_model_5_may[prop](model, f"{path}.{prop}"):
+            if not json_model_5_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$MultiPoint'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$MultiPoint']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$MultiPoint']")
+    return result
 
 
 
 
-# object $.LineString
-def json_model_6(value: Jsonable, path: str) -> bool:
+# object $.'$LineString'
+def json_model_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$LineString']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_6_must:  # must
             must_count += 1
-            if not json_model_6_must[prop](model, f"{path}.{prop}"):
+            if not json_model_6_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$LineString'.{prop}]")
                 return False
         elif prop in json_model_6_may:  # may
-            if not json_model_6_may[prop](model, f"{path}.{prop}"):
+            if not json_model_6_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$LineString'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$LineString']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$LineString']")
+    return result
 
 
 
 
-# object $.MultiLineString
-def json_model_7(value: Jsonable, path: str) -> bool:
+# object $.'$MultiLineString'
+def json_model_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$MultiLineString']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_7_must:  # must
             must_count += 1
-            if not json_model_7_must[prop](model, f"{path}.{prop}"):
+            if not json_model_7_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$MultiLineString'.{prop}]")
                 return False
         elif prop in json_model_7_may:  # may
-            if not json_model_7_may[prop](model, f"{path}.{prop}"):
+            if not json_model_7_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$MultiLineString'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$MultiLineString']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$MultiLineString']")
+    return result
 
 
 
 
-# object $.Polygon
-def json_model_8(value: Jsonable, path: str) -> bool:
+# object $.'$Polygon'
+def json_model_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$Polygon']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_8_must:  # must
             must_count += 1
-            if not json_model_8_must[prop](model, f"{path}.{prop}"):
+            if not json_model_8_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$Polygon'.{prop}]")
                 return False
         elif prop in json_model_8_may:  # may
-            if not json_model_8_may[prop](model, f"{path}.{prop}"):
+            if not json_model_8_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$Polygon'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$Polygon']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$Polygon']")
+    return result
 
 
 
 
-# object $.MultiPolygon
-def json_model_9(value: Jsonable, path: str) -> bool:
+# object $.'$MultiPolygon'
+def json_model_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$MultiPolygon']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_9_must:  # must
             must_count += 1
-            if not json_model_9_must[prop](model, f"{path}.{prop}"):
+            if not json_model_9_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$MultiPolygon'.{prop}]")
                 return False
         elif prop in json_model_9_may:  # may
-            if not json_model_9_may[prop](model, f"{path}.{prop}"):
+            if not json_model_9_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$MultiPolygon'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$MultiPolygon']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$MultiPolygon']")
+    return result
 
 
 
-# define "$geometry" ($.geometry)
-def json_model_10(value: Jsonable, path: str) -> bool:
-    # $.geometry
+# define "$geometry" ($.'$geometry')
+def json_model_10(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$geometry'
     result = isinstance(value, dict)
     if result:
         result = "type" in value
@@ -479,110 +698,155 @@ def json_model_10(value: Jsonable, path: str) -> bool:
             if tag_0 in jm_map_0:
                 result = jm_map_0[tag_0](value, path)
             else:
+                rep is None or rep.append(f"tag type value not found at {path} [$.'$geometry'.'|'.'|']")
                 result = False
+        else:
+            rep is None or rep.append(f"missing tag prop type at {path} [$.'$geometry'.'|'.'|']")
+    else:  # not a dict
+        rep is None or rep.append(f"not an object at {path} [$.'$geometry'.'|'.'|']")
     return result
 
 
-# object $.GeometryCollection
-def json_model_11(value: Jsonable, path: str) -> bool:
+# object $.'$GeometryCollection'
+def json_model_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$GeometryCollection']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_11_must:  # must
             must_count += 1
-            if not json_model_11_must[prop](model, f"{path}.{prop}"):
+            if not json_model_11_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$GeometryCollection'.{prop}]")
                 return False
         elif prop in json_model_11_may:  # may
-            if not json_model_11_may[prop](model, f"{path}.{prop}"):
+            if not json_model_11_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$GeometryCollection'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$GeometryCollection']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$GeometryCollection']")
+    return result
 
 
 
 
-# object $.Feature.properties.'|'.1
-def jm_obj_0(value: Jsonable, path: str) -> bool:
+# object $.'$Feature'.properties.'|'.1
+def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$Feature'.properties.'|'.1]")
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
-        # $.Feature.properties.'|'.1.''
-        result = True
-        if not result: return False
+        lpath = path + "." + prop
+        # $.'$Feature'.properties.'|'.1.''
+        result = True or _rep(f"invalid $ANY at {path}", rep)
+        if not result:
+            rep is None or rep.append(f"not an expected $ANY at {lpath} [$.'$Feature'.properties.'|'.1.'']")
+        if not result:
+            rep is None or rep.append(f"unexpected other value at {lpath} [$.'$Feature'.properties.'|'.1.'']")
+            return False
     return True
 
 
-# object $.Feature
-def json_model_12(value: Jsonable, path: str) -> bool:
+# object $.'$Feature'
+def json_model_12(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$Feature']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_12_must:  # must
             must_count += 1
-            if not json_model_12_must[prop](model, f"{path}.{prop}"):
+            if not json_model_12_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$Feature'.{prop}]")
                 return False
         elif prop in json_model_12_may:  # may
-            if not json_model_12_may[prop](model, f"{path}.{prop}"):
+            if not json_model_12_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$Feature'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$Feature']")
             return False
-    return must_count == 3
+    result = must_count == 3
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$Feature']")
+    return result
 
 
 
 
-# object $.FeatureCollection
-def json_model_13(value: Jsonable, path: str) -> bool:
+# object $.'$FeatureCollection'
+def json_model_13(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'$FeatureCollection']")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in json_model_13_must:  # must
             must_count += 1
-            if not json_model_13_must[prop](model, f"{path}.{prop}"):
+            if not json_model_13_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$FeatureCollection'.{prop}]")
                 return False
         elif prop in json_model_13_may:  # may
-            if not json_model_13_may[prop](model, f"{path}.{prop}"):
+            if not json_model_13_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$FeatureCollection'.{prop}]")
                 return False
         else:  # no catch all
+            rep is None or rep.append(f"no other prop expected at {path} [$.'$FeatureCollection']")
             return False
-    return must_count == 2
+    result = must_count == 2
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'$FeatureCollection']")
+    return result
 
 
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = json_model_10(value, path)
+        xr_0 = json_model_10(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $geometry at {path} [$.'^'.0]")
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
-        xr_0 = json_model_11(value, path)
+        xr_0 = json_model_11(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $GeometryCollection at {path} [$.'^'.1]")
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.2
-        xr_0 = json_model_12(value, path)
+        xr_0 = json_model_12(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $Feature at {path} [$.'^'.2]")
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.3
-        xr_0 = json_model_13(value, path)
+        xr_0 = json_model_13(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $FeatureCollection at {path} [$.'^'.3]")
         if xr_0: xc_0 += 1
     result = xc_0 == 1
+    if not result:
+        rep is None or rep.append(f"not one model match at {path} [$.'^']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
 # object properties maps

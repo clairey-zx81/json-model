@@ -2,4 +2,4 @@ opt_ll.0.true.json: PASS
 opt_ll.1.true.json: PASS
 opt_ll.2.true.json: PASS
 opt_ll.3.true.json: PASS
-opt_ll.4.false.json: FAIL
+opt_ll.4.false.json: FAIL ['not a -1 int at $.i [$.i]', 'invalid must prop value at $.i [$.i]']

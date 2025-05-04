@@ -9,40 +9,61 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-# define "$p1" ($.p1)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.p1
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+# define "$p1" ($.'$p1')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$p1'
     result = not isinstance(value, (list, dict)) and value in {'Calvin', 'Hobbes', 'Moe', 'Susie'}
+    if not result:
+        rep is None or rep.append(f"value not in enum at {path} [$.'$p1'.'|']")
     return result
 
-# define "$p2" ($.p2)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.p2
+# define "$p2" ($.'$p2')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$p2'
     result = not isinstance(value, (list, dict)) and value in {'Castafiore', 'Haddock', 'Milou', 'Tintin'}
+    if not result:
+        rep is None or rep.append(f"value not in enum at {path} [$.'$p2'.'|']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = json_model_1(value, path)
+        xr_0 = json_model_1(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $p1 at {path} [$.'^'.0]")
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
-        xr_0 = json_model_2(value, path)
+        xr_0 = json_model_2(value, path, rep)
+        if not xr_0:
+            rep is None or rep.append(f"not an expected $p2 at {path} [$.'^'.1]")
         if xr_0: xc_0 += 1
     result = xc_0 == 1
+    if not result:
+        rep is None or rep.append(f"not one model match at {path} [$.'^']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

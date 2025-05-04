@@ -94,6 +94,7 @@ none.model.json: PASS
 null.model.json: PASS
 number.model.json: PASS
 obj00.model.json: PASS
+obj01.model.json: PASS
 opt_00.model.json: PASS
 opt_01.model.json: PASS
 opt_02.model.json: PASS

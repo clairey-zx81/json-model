@@ -24,7 +24,7 @@ model.scheck.out: $(OK.model) $(KO.model)
 model.schema.json: $(MODEL)
 	$(JMC.cmd) -v -EO $(MODEL) > $@
 
-# special cases
+# this is very slow…
 model.jcheck.out: model.schema.json $(OK.model)
 	shopt -s nullglob
 	$(JSC) model.schema.json $(OK.model) | sort > $@

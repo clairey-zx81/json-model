@@ -1,4 +1,4 @@
 fourty-two.00.true.json: PASS
-fourty-two.01.false.json: FAIL
-fourty-two.02.false.json: FAIL
-fourty-two.03.false.json: FAIL
+fourty-two.01.false.json: FAIL ['not an expected =42 at $ [$]']
+fourty-two.02.false.json: FAIL ['not an expected =42 at $ [$]']
+fourty-two.03.false.json: FAIL ['not an expected =42 at $ [$]']

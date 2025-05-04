@@ -339,7 +339,8 @@ def json_path(path: ModelPath) -> str:
         if isinstance(item, int):
             return str(item)
         elif not item.isidentifier():
-            return "'" + "\\'".join(item.split("'")) + "'"
+            items = item.split("'")
+            return "'" + "\\'".join(i.replace("\\", "\\\\") for i in items) + "'"
         else:
             return item
 

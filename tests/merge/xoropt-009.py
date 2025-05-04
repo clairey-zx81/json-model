@@ -9,16 +9,27 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 # regex "/a/"
 jm_re_0 = re.compile("a").search
 jm_obj_1_may: PropMap
 
 # define "jm_obj_1_may_a" ($.'^'.1.a)
-def jm_f_0(value: Jsonable, path: str) -> bool:
+def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'^'.1.a
     result = value is None
     return result
@@ -26,51 +37,54 @@ def jm_f_0(value: Jsonable, path: str) -> bool:
 
 
 # object $.'^'.0
-def jm_obj_0(value: Jsonable, path: str) -> bool:
+def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if jm_re_0(prop) is not None:  # /a/
             # $.'^'.0.'/a/'
-            result = isinstance(model, str)
-            if not result: return False
+            result = isinstance(val, str)
+            if not result:
+                return False
         else:  # no catch all
             return False
     return True
 
 
 # object $.'^'.1
-def jm_obj_1(value: Jsonable, path: str) -> bool:
+def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_1_may:  # may
-            if not jm_obj_1_may[prop](model, f"{path}.{prop}"):
+            if not jm_obj_1_may[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
     return True
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = jm_obj_0(value, path)
+        xr_0 = jm_obj_0(value, path, rep)
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
-        xr_0 = jm_obj_1(value, path)
+        xr_0 = jm_obj_1(value, path, rep)
         if xr_0: xc_0 += 1
     result = xc_0 == 1
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
 # object properties maps

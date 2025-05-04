@@ -1,4 +1,4 @@
 str_1.0.true.json: PASS
-str_1.1.false.json: FAIL
-str_1.2.false.json: FAIL
-str_1.3.false.json: FAIL
+str_1.1.false.json: FAIL ['invalid $STRING at $', 'not an expected $STRING at $ [$]']
+str_1.2.false.json: FAIL ['invalid $STRING at $', 'not an expected $STRING at $ [$]']
+str_1.3.false.json: FAIL ['invalid $STRING at $', 'not an expected $STRING at $ [$]']

@@ -9,59 +9,88 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 # regex "/[a-z]/"
 jm_re_0 = re.compile("[a-z]").search
 # regex "/[0-9]/"
 jm_re_1 = re.compile("[0-9]").search
 
-# define "$R" ($.R)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.R
-    result = json_model_3(value, path)
+# define "$R" ($.'$R')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$R'
+    result = json_model_3(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $./scope_0 at {path} [$.'$R']")
     return result
 
-# define "$S" ($.S)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.S
+# define "$S" ($.'$S')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$S'
     # "/[a-z]/"
-    result = isinstance(value, str) and jm_re_0(value) is not None
+    result = isinstance(value, str) and jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected REGEX at {path} [$.'$S']")
     return result
 
 # define "$./scope_0" ($.'$./scope_0')
-def json_model_3(value: Jsonable, path: str) -> bool:
+def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$./scope_0'
     result = isinstance(value, list) and len(value) == 2
     if result:
         # $.'$./scope_0'.0
-        result = json_model_4(value[0], path)
+        result = json_model_4(value[0], path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected $S at {path[0]} [$.'$./scope_0'.0]")
         if result:
             # $.'$./scope_0'.1
-            result = json_model_4(value[1], path)
+            result = json_model_4(value[1], path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected $S at {path[1]} [$.'$./scope_0'.1]")
+    if not result:
+        rep is None or rep.append(f"not array or unexpected array at {path} [$.'$./scope_0']")
     return result
 
 # define "$#R#S" ($.'$#R#S')
-def json_model_4(value: Jsonable, path: str) -> bool:
+def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$#R#S'
     # "/[0-9]/"
-    result = isinstance(value, str) and jm_re_1(value) is not None
+    result = isinstance(value, str) and jm_re_1(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected REGEX at {path} [$.'$#R#S']")
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     # $.'|'.0
-    result = json_model_2(value, path)
+    result = json_model_2(value, path, rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $S at {path} [$.'|'.0]")
     if not result:
         # $.'|'.1
-        result = json_model_4(value, path)
+        result = json_model_4(value, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected $R#S at {path} [$.'|'.1]")
+    if not result:
+        rep is None or rep.append(f"not any model match at {path} [$.'|']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

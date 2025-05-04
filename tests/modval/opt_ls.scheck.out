@@ -1,5 +1,5 @@
 opt_ls.0.true.json: PASS
 opt_ls.1.true.json: PASS
-opt_ls.2.false.json: FAIL
-opt_ls.3.false.json: FAIL
-opt_ls.4.false.json: FAIL
+opt_ls.2.false.json: FAIL ['not a -1.0 float at $.f [$.f]', 'invalid must prop value at $.f [$.f]']
+opt_ls.3.false.json: FAIL ['not a -1.0 float at $.f [$.f]', 'invalid must prop value at $.f [$.f]']
+opt_ls.4.false.json: FAIL ['not a -1 int at $.i [$.i]', 'invalid must prop value at $.i [$.i]']

@@ -1,0 +1,7 @@
+obj01.0.true.json: PASS
+obj01.1.true.json: PASS
+obj01.2.false.json: FAIL [('.bla', '$.bla', 'expecting a boolean')]
+obj01.3.false.json: FAIL [('.$XXX', '$', 'expecting a number')]
+obj01.4.false.json: FAIL [('.XXX.|[0]', '$', 'expecting string X'), ('.XXX.|[1]', '$', 'expecting string XX'), ('.XXX.|[2]', '$', 'expecting string XXX'), ('.XXX.|', '$', 'no any matched'), ('.^\\d+$', '$', 'expecting an integer')]
+obj01.5.false.json: FAIL [('.XXX.|[0]', '$', 'expecting string X'), ('.XXX.|[1]', '$', 'expecting string XX'), ('.XXX.|[2]', '$', 'expecting string XXX'), ('.XXX.|', '$', 'no any matched'), (".''", '$.whatever', 'expecting null'), (".''", '$.whatever', 'bad property whatever')]
+obj01.6.false.json: FAIL [('', '$', 'missing mandatory key: foo')]

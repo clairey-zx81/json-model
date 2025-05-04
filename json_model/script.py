@@ -115,15 +115,15 @@ def jmc_script():
     ope("--nope", "-N", dest="op", action="store_const", const="N",
         help="dump (retrieved) json input")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
-            help="preprocess model")
+        help="preprocess model")
     ope("--static", "-S", dest="op", action="store_const", const="S",
-            help="static compile model for Python")
+        help="static compile model for Python")
     ope("--dynamic", "-D", dest="op", action="store_const", const="D",
-            help="dynamic compile model for Python")
+        help="dynamic compile model for Python")
     ope("--validate", "-V", dest="op", action="store_const", const="V",
-            help="interpreted model validation")
+        help="interpreted model validation")
     ope("--export", "-E", dest="op", action="store_const", const="E",
-            help="export as JSON Schema")
+        help="export as JSON Schema")
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -210,7 +210,7 @@ def jmc_script():
                 print(f"#\n# json model {jmid}\n#", file=output)
                 print(asm, file=output)
     elif args.op == "S":
-        code = static_compile(model, "check_model", debug=args.debug)
+        code = static_compile(model, "check_model", debug=args.debug, report=args.verbose)
         source_code = f"# Generated for model: {args.model}\n" + str(code)
         if args.debug or args.code:
             print(source_code, file=output)
@@ -242,12 +242,16 @@ def jmc_script():
         with open(fn) as fh:
             try:
                 value = json.load(fh)
-                okay = checker(value)
+                reasons = [[]] if args.verbose and args.op == "S" else []
+                okay = checker(value, "$", *reasons)
                 sokay = "PASS" if okay else "FAIL"
                 if args.expect is None or args.verbose:
                     msg = f"{fn}: {sokay}"
-                    if not okay and args.verbose and args.op == "D":
-                        msg += " " + str(checker._reasons)
+                    if not okay and args.verbose:
+                        if args.op == "D":
+                            msg += " " + str(checker._reasons)
+                        elif args.op == "S":
+                            msg += " " + str(reasons[0])
                     print(msg, file=output)
                 if args.expect is not None:
                     if okay == args.expect:

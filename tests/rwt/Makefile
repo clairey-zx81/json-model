@@ -86,14 +86,14 @@ DO: $(F.DO)
 .PHONY: py
 py: $(F.SO)
 %.py: %.model.json
-	$(JMC.cmd) -SO --code ./$< > $@
+	$(JMC.cmd) -SO -v --code ./$< > $@
 
 #
 # Dynamic value checks
 #
 .PHONY: dcheck
 dcheck: $(F.dc)
-	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n|schema)'
+	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n|schema|model)'
 	exit 0
 
 %.dcheck.out: %.model.json
@@ -105,7 +105,7 @@ dcheck: $(F.dc)
 #
 .PHONY: scheck
 scheck: $(F.sc)
-	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n|schema)'
+	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n|schema|model)'
 	exit 0
 
 %.scheck.out: %.model.json
@@ -158,7 +158,7 @@ schema.scheck2.out: $(F.schema)
 
 .PHONY: jcheck
 jcheck: $(F.js)
-	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n|schema)'
+	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n|schema|model)'
 	exit 0
 
 # default case

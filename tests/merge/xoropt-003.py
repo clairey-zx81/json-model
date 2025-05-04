@@ -9,38 +9,49 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 # regex "/[a-z]/"
 jm_re_0 = re.compile("[a-z]").search
 
-# define "$A" ($.A)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.A
-    # $.A.'|'.0
+# define "$A" ($.'$A')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$A'
+    # $.'$A'.'|'.0
     result = isinstance(value, bool)
     if not result:
-        # $.A.'|'.1
+        # $.'$A'.'|'.1
         result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
         if not result:
-            # $.A.'|'.2
+            # $.'$A'.'|'.2
             result = isinstance(value, float) and value > 0.0
             if not result:
-                # $.A.'|'.3
+                # $.'$A'.'|'.3
                 # "/[a-z]/"
                 result = isinstance(value, str) and jm_re_0(value) is not None
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = json_model_1(value, path)
+    result = json_model_1(value, path, rep)
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

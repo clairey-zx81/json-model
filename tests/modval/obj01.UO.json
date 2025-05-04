@@ -1,0 +1,30 @@
+[
+  {
+    "": null,
+    "!foo": "$DATE",
+    "#": "JsonModel 0",
+    "$": {
+      "": "./obj01.model.json",
+      "#": "Symbol 1",
+      "XXX": {
+        "#": "JsonModel 1",
+        "|": [
+          "X",
+          "XX",
+          "XXX"
+        ]
+      }
+    },
+    "$XXX": 0.0,
+    "/^\\d+$/": 0,
+    "?bla": true
+  },
+  {
+    "#": "JsonModel 1",
+    "|": [
+      "X",
+      "XX",
+      "XXX"
+    ]
+  }
+]

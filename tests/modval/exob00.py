@@ -9,9 +9,20 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
+
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
+
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
 
 jm_obj_0_must: PropMap
 jm_obj_0_may: PropMap
@@ -19,87 +30,123 @@ jm_obj_1_must: PropMap
 jm_obj_1_may: PropMap
 
 # define "jm_obj_0_must_a" ($.'|'.0.a)
-def jm_f_0(value: Jsonable, path: str) -> bool:
+def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    if not result:
+        rep is None or rep.append(f"not a 0 int at {path} [$.'|'.0.a]")
     return result
 
 # define "jm_obj_0_may_b" ($.'|'.0.b)
-def jm_f_1(value: Jsonable, path: str) -> bool:
+def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.b
-    result = False
+    result = False or _rep(f"invalid $NONE at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $NONE at {path} [$.'|'.0.b]")
     return result
 
 # define "jm_obj_1_must_b" ($.'|'.1.b)
-def jm_f_2(value: Jsonable, path: str) -> bool:
+def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    if not result:
+        rep is None or rep.append(f"not a 0 int at {path} [$.'|'.1.b]")
     return result
 
 # define "jm_obj_1_may_a" ($.'|'.1.a)
-def jm_f_3(value: Jsonable, path: str) -> bool:
+def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.a
-    result = False
+    result = False or _rep(f"invalid $NONE at {path}", rep)
+    if not result:
+        rep is None or rep.append(f"not an expected $NONE at {path} [$.'|'.1.a]")
     return result
 
 
 
 # object $.'|'.0
-def jm_obj_0(value: Jsonable, path: str) -> bool:
+def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'|'.0]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](model, f"{path}.{prop}"):
+            if not jm_obj_0_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.0.{prop}]")
                 return False
         elif prop in jm_obj_0_may:  # may
-            if not jm_obj_0_may[prop](model, f"{path}.{prop}"):
+            if not jm_obj_0_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'|'.0.{prop}]")
                 return False
         else:  # catch all
             # $.'|'.0.''
-            result = isinstance(model, int) and not isinstance(model, bool) and model >= 0
-            if not result: return False
-    return must_count == 1
+            result = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+            if not result:
+                rep is None or rep.append(f"not a 0 int at {lpath} [$.'|'.0.'']")
+            if not result:
+                rep is None or rep.append(f"unexpected other value at {lpath} [$.'|'.0.'']")
+                return False
+    result = must_count == 1
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'|'.0]")
+    return result
 
 
 # object $.'|'.1
-def jm_obj_1(value: Jsonable, path: str) -> bool:
+def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
+        rep is None or rep.append(f"not an object at {path} [$.'|'.1]")
         return False
     must_count = 0
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
+        lpath = path + "." + prop
         if prop in jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](model, f"{path}.{prop}"):
+            if not jm_obj_1_must[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.1.{prop}]")
                 return False
         elif prop in jm_obj_1_may:  # may
-            if not jm_obj_1_may[prop](model, f"{path}.{prop}"):
+            if not jm_obj_1_may[prop](val, lpath, rep):
+                rep is None or rep.append(f"invalid may prop value at {lpath} [$.'|'.1.{prop}]")
                 return False
         else:  # catch all
             # $.'|'.1.''
-            result = isinstance(model, int) and not isinstance(model, bool) and model >= 0
-            if not result: return False
-    return must_count == 1
+            result = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+            if not result:
+                rep is None or rep.append(f"not a 0 int at {lpath} [$.'|'.1.'']")
+            if not result:
+                rep is None or rep.append(f"unexpected other value at {lpath} [$.'|'.1.'']")
+                return False
+    result = must_count == 1
+    if not result:
+        rep is None or rep.append(f"missing must prop at {path} [$.'|'.1]")
+    return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     result = isinstance(value, dict)
     if result:
         # $.'|'.0
-        result = jm_obj_0(value, path)
+        result = jm_obj_0(value, path, rep)
+        if not result:
+            rep is None or rep.append(f"not an expected object at {path} [$.'|'.0]")
         if not result:
             # $.'|'.1
-            result = jm_obj_1(value, path)
+            result = jm_obj_1(value, path, rep)
+            if not result:
+                rep is None or rep.append(f"not an expected object at {path} [$.'|'.1]")
+        if not result:
+            rep is None or rep.append(f"not any model match at {path} [$.'|']")
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
 # object properties maps

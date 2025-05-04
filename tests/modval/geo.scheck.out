@@ -1,2 +1,2 @@
 geo.0.true.json: PASS
-geo.1.false.json: FAIL
+geo.1.false.json: FAIL ["tag type value not found at $ [$.'$geometry'.'|'.'|']", "not an expected $geometry at $ [$.'^'.0]", "not an expected GeometryCollection at $.type [$.'$GeometryCollection'.type]", "invalid must prop value at $.type [$.'$GeometryCollection'.type]", "not an expected $GeometryCollection at $ [$.'^'.1]", "not an expected Feature at $.type [$.'$Feature'.type]", "invalid must prop value at $.type [$.'$Feature'.type]", "not an expected $Feature at $ [$.'^'.2]", "not an expected FeatureCollection at $.type [$.'$FeatureCollection'.type]", "invalid must prop value at $.type [$.'$FeatureCollection'.type]", "not an expected $FeatureCollection at $ [$.'^'.3]", "not one model match at $ [$.'^']"]

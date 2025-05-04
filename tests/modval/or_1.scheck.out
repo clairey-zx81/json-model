@@ -1,5 +1,5 @@
 or_1.0.true.json: PASS
 or_1.1.true.json: PASS
 or_1.2.true.json: PASS
-or_1.3.false.json: FAIL
-or_1.4.false.json: FAIL
+or_1.3.false.json: FAIL ["value not in enum at $ [$.'|']", "not null at $ [$.'|'.0]", "not an expected =null at $ [$.'|'.1]", "not an expected =false at $ [$.'|'.2]", "not an expected =42 at $ [$.'|'.3]", "not an expected =3.14159 at $ [$.'|'.4]", "not an expected =10E100 at $ [$.'|'.5]", "not any model match at $ [$.'|']"]
+or_1.4.false.json: FAIL ["value not in enum at $ [$.'|']", "not null at $ [$.'|'.0]", "not an expected =null at $ [$.'|'.1]", "not an expected =false at $ [$.'|'.2]", "not an expected =42 at $ [$.'|'.3]", "not an expected =3.14159 at $ [$.'|'.4]", "not an expected =10E100 at $ [$.'|'.5]", "not any model match at $ [$.'|']"]

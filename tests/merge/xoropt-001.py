@@ -9,99 +9,114 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-# define "$N" ($.N)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.N
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+# define "$N" ($.'$N')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$N'
     result = value is None
     return result
 
-# define "$B" ($.B)
-def json_model_2(value: Jsonable, path: str) -> bool:
-    # $.B
+# define "$B" ($.'$B')
+def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$B'
     result = isinstance(value, bool)
     return result
 
-# define "$I" ($.I)
-def json_model_3(value: Jsonable, path: str) -> bool:
-    # $.I
+# define "$I" ($.'$I')
+def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$I'
     result = isinstance(value, int) and not isinstance(value, bool)
     return result
 
-# define "$F" ($.F)
-def json_model_4(value: Jsonable, path: str) -> bool:
-    # $.F
+# define "$F" ($.'$F')
+def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$F'
     result = isinstance(value, float)
     return result
 
-# define "$S" ($.S)
-def json_model_5(value: Jsonable, path: str) -> bool:
-    # $.S
+# define "$S" ($.'$S')
+def json_model_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$S'
     result = isinstance(value, str)
     return result
 
-# define "$A" ($.A)
-def json_model_6(value: Jsonable, path: str) -> bool:
-    # $.A
+# define "$A" ($.'$A')
+def json_model_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$A'
     result = isinstance(value, list)
     if result:
         for array_0_idx, array_0_item in enumerate(value):
-            # $.A.0
-            result = json_model_8(array_0_item, path)
-            if not result: break
+            lpath = path + '.' + str(array_0_idx)
+            # $.'$A'.0
+            result = json_model_8(array_0_item, path, rep)
+            if not result:
+                break
     return result
 
 
-# object $.O
-def json_model_7(value: Jsonable, path: str) -> bool:
+# object $.'$O'
+def json_model_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
-    for prop, model in value.items():
+    for prop, val in value.items():
         assert isinstance(prop, str)
-        # $.O.''
-        result = json_model_8(model, path)
-        if not result: return False
+        lpath = path + "." + prop
+        # $.'$O'.''
+        result = json_model_8(val, path, rep)
+        if not result:
+            return False
     return True
 
 
 
-# define "$Any" ($.Any)
-def json_model_8(value: Jsonable, path: str) -> bool:
-    # $.Any
-    # $.Any.'|'.0
+# define "$Any" ($.'$Any')
+def json_model_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$Any'
+    # $.'$Any'.'|'.0
     result = value is None
     if not result:
-        # $.Any.'|'.1
-        result = json_model_2(value, path)
+        # $.'$Any'.'|'.1
+        result = json_model_2(value, path, rep)
         if not result:
-            # $.Any.'|'.2
-            result = json_model_3(value, path)
+            # $.'$Any'.'|'.2
+            result = json_model_3(value, path, rep)
             if not result:
-                # $.Any.'|'.3
-                result = json_model_4(value, path)
+                # $.'$Any'.'|'.3
+                result = json_model_4(value, path, rep)
                 if not result:
-                    # $.Any.'|'.4
-                    result = json_model_5(value, path)
+                    # $.'$Any'.'|'.4
+                    result = json_model_5(value, path, rep)
                     if not result:
-                        # $.Any.'|'.5
-                        result = json_model_6(value, path)
+                        # $.'$Any'.'|'.5
+                        result = json_model_6(value, path, rep)
                         if not result:
-                            # $.Any.'|'.6
-                            result = json_model_7(value, path)
+                            # $.'$Any'.'|'.6
+                            result = json_model_7(value, path, rep)
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = json_model_8(value, path)
+    result = json_model_8(value, path, rep)
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 

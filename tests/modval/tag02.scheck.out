@@ -1,7 +1,7 @@
 tag02.0.true.json: PASS
 tag02.1.true.json: PASS
-tag02.2.false.json: FAIL
-tag02.3.false.json: FAIL
-tag02.4.false.json: FAIL
-tag02.5.false.json: FAIL
-tag02.6.false.json: FAIL
+tag02.2.false.json: FAIL ["tag t value not found at $ [$.'|'.'|']"]
+tag02.3.false.json: FAIL []
+tag02.4.false.json: FAIL ["missing tag prop t at $ [$.'|'.'|']"]
+tag02.5.false.json: FAIL ["not an object at $ [$.'|'.'|']"]
+tag02.6.false.json: FAIL ["tag t value not found at $ [$.'|'.'|']"]

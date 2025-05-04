@@ -1,4 +1,4 @@
 or05.0.true.json: PASS
-or05.1.false.json: FAIL
-or05.2.false.json: FAIL
-or05.3.false.json: FAIL
+or05.1.false.json: FAIL ['does not match FESC at $', "not an expected REGEX at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'|'.1]", 'does not match FESC at $', "not an expected REGEX at $ [$.'|'.2]", "not any model match at $ [$.'|']"]
+or05.2.false.json: FAIL []
+or05.3.false.json: FAIL []

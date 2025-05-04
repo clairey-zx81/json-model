@@ -9,49 +9,62 @@ import datetime
 import urllib.parse
 
 type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-type CheckFun = Callable[[Jsonable, str], bool]
+type Path = list[str]
+type Report = list[str]|None
+type CheckFun = Callable[[Jsonable, str, Report], bool]
 type PropMap = dict[str, CheckFun]
 type TagMap = dict[None|bool|float|int|str, CheckFun]
 
+# extract type name
+def _tname(value: Jsonable) -> str:
+    return type(value).__name__
 
-# define "$X" ($.X)
-def json_model_1(value: Jsonable, path: str) -> bool:
-    # $.X
-    # $.X.'|'.0
+# maybe add message to report
+def _rep(msg: str, rep: Report) -> bool:
+    rep is None or rep.append(msg)
+    return False
+
+
+# define "$X" ($.'$X')
+def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+    # $.'$X'
+    # $.'$X'.'|'.0
     result = value is None
     if not result:
-        # $.X.'|'.1
+        # $.'$X'.'|'.1
         result = isinstance(value, bool)
         if not result:
-            # $.X.'|'.2
+            # $.'$X'.'|'.2
             result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
             if not result:
-                # $.X.'|'.3
+                # $.'$X'.'|'.3
                 result = isinstance(value, float) and value > 0.0
     return result
 
 # define "$" ($)
-def json_model_0(value: Jsonable, path: str) -> bool:
+def json_model_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = json_model_1(value, path)
+        xr_0 = json_model_1(value, path, rep)
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
         xr_0 = isinstance(value, list)
         if xr_0:
             for array_0_idx, array_0_item in enumerate(value):
+                lpath = path + '.' + str(array_0_idx)
                 # $.'^'.1.0
-                xr_0 = json_model_1(array_0_item, path)
-                if not xr_0: break
+                xr_0 = json_model_1(array_0_item, path, rep)
+                if not xr_0:
+                    break
         if xr_0: xc_0 += 1
     result = xc_0 == 1
     return result
 
 # entry function check_model
-def check_model(value: Jsonable, path: str = "$") -> bool:
-    return json_model_0(value, path)
+def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+    return json_model_0(value, path, rep)
 
 
