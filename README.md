@@ -55,7 +55,7 @@ Command `jmc` options include:
 - [x] refactor: move schema to model conversion to json-schema-utils.
 - [x] design: change `%` to `$` and remove `$` intra-model naming shortcut.
 - [x] design: name space decision, there is only one name space per file. trafo path are exceptions?
-- [~] design: readability and style: `:verbose` version of single char keywords!? (see extensions)
+- [x] ~design: readability and style: `:verbose` version of single char keywords!? (see extensions)~
 - [x] design: clarify stuff inside the root `#`? or use `%` for specific purpose?
 - [x] design: extension for preprocessed (merged and trafo).
 - [x] dynamic: python compiler
@@ -88,7 +88,7 @@ Command `jmc` options include:
 - [x] python: rename `types.py` which is a pain
 - [x] feature: yaml url input
 - [x] tests: True/False -> PASS/FAIL
-- [~] feature: how to remove a definition? nope, must be nullified (eg `$NONE`) because refs
+- [x] ~feature: how to remove a definition? nope, must be nullified (eg `$NONE`) because refs~
 - [x] tests: upgrade all models in `models/` and check them as well
 - [x] tests: add expected "$schema" value to schema models
 - [x] static: do not inline unused support function (`is_valid_*` and possibly others)
