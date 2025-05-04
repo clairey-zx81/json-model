@@ -1,6 +1,7 @@
 import sys
 import re
 import json
+import yaml
 import logging
 from importlib.metadata import version as pkg_version
 
@@ -97,6 +98,7 @@ def jmc_script():
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
+    arg("--format", "-F", default="json", choices=["json", "yaml"], help="output format")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
         help="no test expectations")
@@ -184,7 +186,10 @@ def jmc_script():
 
     # convert json to a string using prettyprint options
     def json2str(j: Jsonable) -> str:
-        return json.dumps(j, sort_keys=args.sort, indent=args.indent)
+        if args.format == "json":
+            return json.dumps(j, sort_keys=args.sort, indent=args.indent)
+        else:
+            return yaml.dump(j)
 
     # actual output
     if args.op == "U":  # test output
@@ -218,13 +223,10 @@ def jmc_script():
         exec(source_code, env)
         checker = env["check_model"]
     elif args.op == "E":
-        warn = True
-        if isinstance(model._model, dict) and "#" in model._model:
-            comment = model._model["#"]
-            assert isinstance(comment, str), "root # is a string"
-            warn = not ("JSON_MODEL_LOOSE_INT" in comment and "JSON_MODEL_LOOSE_FLOAT" in comment)
-        if warn:
-            log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
+        mm = model._init_md
+        if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):
+            if not ("JSON_MODEL_LOOSE_INT" in comment and "JSON_MODEL_LOOSE_FLOAT" in comment):
+                log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
         schema: JsonSchema
         try:
             schema = model.toSchema()

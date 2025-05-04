@@ -103,6 +103,7 @@ Command `jmc` options include:
 - [x] schema: warn when generating schema with strict options
 - [x] static: fast vs slow with path and reasons
 - [x] static: update path
+- [x] feature: --format yaml to show yaml instead of json
 - [ ] static: add a `_` to the default prefix to separate exports
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: add option to report where it fails (aka reasons)
@@ -149,7 +150,6 @@ Command `jmc` options include:
 - [ ] feature: static/dynamic js/ts compiler?
 - [ ] feature: (limited) pydantic export?
 - [ ] feature: integrate or remove `stats`?
-- [ ] feature: --yaml show yaml instead of json
 - [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] design: (online) extension register?
 - [ ] design: official (meta) model url:
