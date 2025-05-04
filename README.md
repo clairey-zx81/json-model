@@ -105,11 +105,12 @@ Command `jmc` options include:
 - [x] static: fast vs slow with path and reasons (if rep is _None_)
 - [x] static: update path
 - [x] feature: --format yaml to show yaml instead of json
+- [x] design: official (meta) model url: ~`https://models.json-model.org/...`~ vs `https://json-model.org/models/...`
 - [ ] static: add a `_` to the default prefix to separate exports
+- [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: generate pyright compatible code…
 - [ ] tests: remove unstable DO output? remove empty lines?
-- [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: use mandatory keyword parameters where appropriate
@@ -152,8 +153,6 @@ Command `jmc` options include:
 - [ ] feature: integrate or remove `stats`?
 - [ ] feature: think about code integration in a realistic project? usability? doc?
 - [ ] design: (online) extension register?
-- [ ] design: official (meta) model url:
-      `https://models.json-model.org/...` vs `https://json-model.org/models/...`?
 - [ ] doc: check and document API entry points
 - [ ] extend: direct forms for instance, eg types, constraints, layout? see [FormBuilder](https://formbuilder.online/).
 - [ ] extend: direct relational mapping? (eg foreign key/primary key/unique)
