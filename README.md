@@ -131,7 +131,7 @@ additionalProperties: false
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
 - [x] schema: warn when generating schema with strict options
-- [x] pr: submit as JSON Schema tool (export).
+- [x] pr: submit with _JSU_ as JSON Schema tool (export feature) (_PR 1636_)
 - [x] static: add option to report where it fails (aka reasons)
 - [x] static: fast vs slow with path and reasons (if rep is _None_)
 - [x] static: update path
