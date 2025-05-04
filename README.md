@@ -72,8 +72,8 @@ properties:
   name:
     type: string
   age:
-    minimum: 0
     type: integer
+    minimum: 0
 required:
 - name
 - age
