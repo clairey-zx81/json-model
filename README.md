@@ -54,7 +54,7 @@ Command `jmc` options include:
 ## Example
 
 ```sh
-jmc -EO -ns -
+jmc -EO -F yaml -ns -
 ```
 ```js
 // input JSON Model
@@ -63,25 +63,19 @@ jmc -EO -ns -
   "age": 0
 }
 ```
-```js
-// output JSON Schema
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "age": {
-      "type": "integer",
-      "minimum": 0
-    }
-  },
-  "required": [
-    "name",
-    "age"
-  ],
-  "additionalProperties": false
-}
+```yaml
+// output JSON Schema shown in yaml (reorderd)
+type: object
+properties:
+  age:
+    minimum: 0
+    type: integer
+  name:
+    type: string
+required:
+- name
+- age
+additionalProperties: false
 ```
 
 ## Backlog v2
