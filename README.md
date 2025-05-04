@@ -142,6 +142,7 @@ Command `jmc` options include:
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?
 - [ ] tests: skip url cache while testing
+- [ ] tests: move Makefile tasks as `pytest` items with target content as reference
 - [ ] output: improve `-P` to have a re-intrant model (see also: inline)
 - [ ] output: prettyprint rejection reasons?
 - [ ] feature: direct validator
