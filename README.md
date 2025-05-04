@@ -53,6 +53,8 @@ Command `jmc` options include:
 
 ## Example
 
+Export a JSON model as a schema using a yaml format:
+
 ```sh
 jmc -EO -F yaml -ns -
 ```
@@ -64,14 +66,14 @@ jmc -EO -F yaml -ns -
 }
 ```
 ```yaml
-// output JSON Schema shown in yaml (reorderd)
+// output JSON Schema, shown in yaml (reordered)
 type: object
 properties:
+  name:
+    type: string
   age:
     minimum: 0
     type: integer
-  name:
-    type: string
 required:
 - name
 - age
