@@ -328,7 +328,7 @@ def test_json_model_static_compilation():
 #             compiled = False
 #         assert compiled == compiles, f"bad model compilation: {model} ({compiles})"
 
-# TODO cs
+# TODO static
 
 def json_schema_test_suite(version, fmodel):
     # load model
@@ -348,24 +348,24 @@ def json_schema_test_suite(version, fmodel):
 def test_draft3_fuzzy():
     # strict: fail on "definitions"
     # nesting: fail on "definitions"
-    json_schema_test_suite("draft3", "../models/draft-03-fuzzy.model.json")
+    json_schema_test_suite("draft3", "../models/json-schema-draft-03-fuzzy.model.json")
 
 def test_draft4_fuzzy():
     # strict: errors on "$comment"
-    json_schema_test_suite("draft4", "../models/draft-04-fuzzy.model.json")
+    json_schema_test_suite("draft4", "../models/json-schema-draft-04-fuzzy.model.json")
 
 def test_draft6_fuzzy():
-    json_schema_test_suite("draft6", "../models/draft-06-fuzzy.model.json")
+    json_schema_test_suite("draft6", "../models/json-schema-draft-06-fuzzy.model.json")
 
 def test_draft7_fuzzy():
-    json_schema_test_suite("draft7", "../models/draft-07-fuzzy.model.json")
+    json_schema_test_suite("draft7", "../models/json-schema-draft-07-fuzzy.model.json")
 
 def test_draft8_fuzzy():
-    json_schema_test_suite("draft2019-09", "../models/draft-2019-09-fuzzy.model.json")
+    json_schema_test_suite("draft2019-09", "../models/json-schema-draft-2019-09-fuzzy.model.json")
 
 def test_draft9_fuzzy():
     # strict: error on maxContains with number instead of integer
-    json_schema_test_suite("draft2020-12", "../models/draft-2020-12-fuzzy.model.json")
+    json_schema_test_suite("draft2020-12", "../models/json-schema-draft-2020-12-fuzzy.model.json")
 
 def test_draft_next_fuzzy():
-    json_schema_test_suite("draft-next", "../models/draft-next-fuzzy.model.json")
+    json_schema_test_suite("draft-next", "../models/json-schema-draft-next-fuzzy.model.json")
