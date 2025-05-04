@@ -101,12 +101,12 @@ Command `jmc` options include:
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
 - [x] schema: warn when generating schema with strict options
-- [x] static: fast vs slow with path and reasons
+- [x] static: add option to report where it fails (aka reasons)
+- [x] static: fast vs slow with path and reasons (if rep is _None_)
 - [x] static: update path
 - [x] feature: --format yaml to show yaml instead of json
 - [ ] static: add a `_` to the default prefix to separate exports
 - [ ] static: detect and remove duplicate functions!
-- [ ] static: add option to report where it fails (aka reasons)
 - [ ] static: generate pyright compatible code…
 - [ ] tests: remove unstable DO output? remove empty lines?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
