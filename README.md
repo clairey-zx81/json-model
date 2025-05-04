@@ -12,22 +12,23 @@ It is presented in:
 
 - An Analysis of Defects in Public JSON Schemas.
   Claire Yannou-Medrala and Fabien Coelho.  
-  In BDA 2023, 39eme conférence sur la gestion de données - Principes, technologies et applications.
+  In BDA 2023, 39ème conférence sur la gestion de données - Principes, technologies et applications.
   Also TR [A/794/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf),
   Mines Paris - PSL, October 2023
 
-  Very brief introduction to version 0 at the end of the paper.
+  Brief introduction to version 0 at the end of the paper.
 
 - JSON Model: a Lightweight Featureful Description Language for JSON Data Structures.
   Fabien Coelho and Claire Yannou-Medrala.  
   Technical Report [A/795/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf),
   Mines Paris - PSL, May 2023
 
-  JSON Model version 0 (work in progress).
+  JSON Model version 0.
 
 ## Tool Installation
 
-Proof-of-concept compiler to test JSON Model is available as Python a command:
+Proof-of-concept compiler to test JSON Model is available as Python a command
+which can be installed with `pip` directly from GitHub:
 
 ```shell
 python -m venv venv
@@ -35,12 +36,17 @@ source venv/bin/activate
 pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
-## Command
+## JSON Model Compiler
 
-Command `jmc` (JSON Model Compiler) options:
+Command `jmc` options include:
 
-- `--optimize` or `-O`: optimize (const prop, partial eval, xor to or, flatten)
-- `-P -D -S -E -U`: operation (preprocess, dynamic and static compile, JSON Schema export, dump)
+- main operations:
+  - `-P`: preprocess model.
+  - `-D`: dynamic python model compiler.
+  - `-S`: static python model compiler.
+  - `-E`: export model to JSON Schema version draft 2020-12
+  - `-U`: dump model.
+  - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
 - …
 
@@ -171,7 +177,8 @@ Command `jmc` (JSON Model Compiler) options:
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
-- [ ] feature: add model predef for URI-REF
+- [ ] feature: add model predef for URI-REF and the like
+- [ ] models: improve meta model with predefs
 
 ## WIP
 
