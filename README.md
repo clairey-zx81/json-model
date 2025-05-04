@@ -45,10 +45,44 @@ Command `jmc` options include:
   - `-D`: dynamic python model compiler.
   - `-S`: static python model compiler.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
-  - `-U`: dump model.
+  - `-U`: dump internal models.
   - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
+- `-F format`: select `json` or `yaml` for output
 - …
+
+## Example
+
+```sh
+jmc -EO -ns -
+```
+```js
+// input JSON Model
+{
+  "name": "",
+  "age": 0
+}
+```
+```js
+// output JSON Schema
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "name",
+    "age"
+  ],
+  "additionalProperties": false
+}
+```
 
 ## Backlog v2
 
@@ -101,6 +135,7 @@ Command `jmc` options include:
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
 - [x] schema: warn when generating schema with strict options
+- [x] pr: submit as JSON Schema tool (export).
 - [x] static: add option to report where it fails (aka reasons)
 - [x] static: fast vs slow with path and reasons (if rep is _None_)
 - [x] static: update path
