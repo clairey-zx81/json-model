@@ -7,7 +7,8 @@
 # TODO check for some obviously empty types?
 
 from typing import Callable
-import re  # re2?
+# import re2 as re
+import re
 
 from . import utils
 from .mtypes import ModelError, ModelType, ModelArray, ModelObject
@@ -789,18 +790,22 @@ class DynamicCompiler(Validator):
         elif char == "_":
             return lambda v, p: (isinstance(v, str) and v == name or
                                  self._no(mpath, p, f"expecting string {name}"))
-        elif char == "/":  # regular expression /.../i?
-            if model.endswith("/i"):
-                option = re.IGNORECASE
-                regex = model[1:-2]
-            elif model.endswith("/"):
-                option = 0
-                regex = model[1:-1]
+        elif char == "/":  # regular expression
+            try:
+                pattern, ropts = name.rsplit("/", 1)
+                assert ropts == "" or ropts.isalpha(), f"invalid re options: {ropts}"
+                pattern = f"(?{ropts}){pattern}" if ropts else pattern
+            except Exception as e:
+                raise ModelError(f"invalid regex {model}: {e} [{mpath}]")
+            if pattern in ("^.*$", "^.*", ".*$", ".*") or len(pattern) == 2 and pattern[-1] == "*":
+                return lambda v, p: isinstance(v, str) or self._no(mpath, p, "expecting a string")
+            elif pattern in ("/./s", "/.+/s"):
+                return lambda v, p: (isinstance(v, str) and len(v) > 0 or
+                                     self._no(mpath, p, f"expecting regex {model}"))
             else:
-                raise ModelError(f"invalid regex: {model} [{mpath}]")
-            check_re = re.compile(regex, option).search
-            return lambda v, p: (isinstance(v, str) and check_re(v) is not None or
-                                 self._no(mpath, p, f"expecting regex {model}"))
+                check_re = re.compile(pattern).search
+                return lambda v, p: (isinstance(v, str) and check_re(v) is not None or
+                                     self._no(mpath, p, f"expecting regex {model}"))
         else:
             return lambda v, p: (isinstance(v, str) and v == model or
                                  self._no(mpath, p, f"expecting string {model}"))

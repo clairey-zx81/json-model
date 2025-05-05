@@ -389,7 +389,7 @@ class JsonModel:
                         is_valid &= re.match(r"=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$",
                                              model) is not None
                     elif model[0] == "/":
-                        is_valid &= model.endswith("/") or model.endswith("/i")
+                        is_valid &= model[-1] == "/" or model[-2:] in ("/s", "/i")
                         # TODO check re validity: is_regex
                     elif model[0] == "$":
                         pass

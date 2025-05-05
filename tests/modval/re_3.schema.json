@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "all": {
+      "type": "string",
+      "pattern": ".*"
+    },
+    "nz": {
+      "type": "string",
+      "pattern": "(?s)."
+    },
+    "some": {
+      "type": "string",
+      "pattern": "."
+    }
+  },
+  "additionalProperties": false
+}

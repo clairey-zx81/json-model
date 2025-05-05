@@ -80,6 +80,7 @@ orob00.schema.json: PASS
 re_0.schema.json: PASS
 re_1.schema.json: PASS
 re_2.schema.json: PASS
+re_3.schema.json: PASS
 rec00.schema.json: PASS
 rec01.schema.json: PASS
 rec02.schema.json: PASS

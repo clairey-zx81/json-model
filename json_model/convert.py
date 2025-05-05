@@ -74,11 +74,12 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     schema["$ref"] = "#/$defs/" + model[1:]
             elif model[0] == "/":
                 schema["type"] = "string"
-                assert model.endswith("/") or model.endswith("/i")
-                if model.endswith("/i"):
-                    pattern = "(?i)" + model[1:-2]
-                else:
-                    pattern = model[1:-1]
+                try:
+                    pattern, ropts = model[1:].rsplit("/", 1)
+                    assert ropts == "" or ropts.isalpha(), f"invalid regex options: {ropts}"
+                    pattern = f"(?{ropts}){pattern}" if ropts else pattern
+                except Exception as e:
+                    raise Exception(f"invalid regex {model}: {e}")
                 schema["pattern"] = pattern
             else:  # _ = …
                 schema["const"] = cst(model)
@@ -207,16 +208,16 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     elif prop[0] == "?":
                         properties[prop[1:]] = model2schema(val, lpath)
                     elif prop[0] == "/":
-                        if prop.endswith("/"):
-                            regex = prop[1:-1]
-                        elif prop.endswith("/i"):
-                            regex = "(?i)" + prop[1:-2]
-                        else:
-                            raise Exception(f"invalid model regex: {prop}")
+                        try:
+                            pattern, ropts = prop[1:].rsplit("/", 1)
+                            assert ropts == "" or ropts.isalpha(), f"invalid regex: {prop}"
+                            pattern = f"(?{ropts}){pattern}" if ropts else pattern
+                        except Exception as e:
+                            raise Exception(f"invalid prop regex {prop}: {e}")
                         if "patternProperties" not in schema:
                             schema["patternProperties"] = {}
                         assert isinstance(schema["patternProperties"], dict)
-                        schema["patternProperties"][regex] = model2schema(val, lpath)
+                        schema["patternProperties"][pattern] = model2schema(val, lpath)
                         if addProp is None:
                             addProp = False
                     elif prop[0] == "$":

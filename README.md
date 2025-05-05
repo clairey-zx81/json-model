@@ -137,6 +137,7 @@ additionalProperties: false
 - [x] static: update path
 - [x] feature: --format yaml to show yaml instead of json
 - [x] design: official (meta) model url: ~`https://models.json-model.org/...`~ vs `https://json-model.org/models/...`
+- [x] static: optimize simple regex cases (from Blaze paper)
 - [ ] static: add a `_` to the default prefix to separate exports
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!

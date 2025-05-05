@@ -305,26 +305,28 @@ class SourceCode(Validator):
     def _regex(self, regex: str) -> str:
         """Compile are regular expression, with memoization."""
         if regex not in self._regs:
-            # extract actual pattern
-            if regex[-1] == "/":
-                pattern = regex[1:-1]
-            elif regex.endswith("/i"):
-                pattern = "(?i)" + regex[1:-2]
-            else:
-                raise NotImplementedError("model = {regex}")
-            # statically check re validity
             try:
+                # extract actual pattern
+                pattern, ropts = regex[1:].rsplit("/", 1)
+                assert ropts == "" or ropts.isalpha(), r"invalid regex options: {ropts}"
+                pattern = f"(?{ropts}){pattern}" if ropts else pattern
+                # statically check re validity
                 if self._re == "re2":
                     import re2 as rex
                 else:
                     import re as rex
                 rex.compile(pattern)
             except Exception as e:
-                raise ModelError(f"invalid regex: {pattern} ({e})")
-            # ok, generate code
+                raise ModelError(f"invalid regex: {regex} ({e})")
+            # ok, generate code for pattern
             fun = self._ident("re_")
             self.define(f"# regex {self._esc(regex)}")
-            self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+            if pattern in (".*", "^.*", "^.*$", ".*$") or len(pattern) == 2 and pattern[-1] == "*":
+                self.define(f"{fun} = lambda _s: True")
+            elif pattern in ("(?s).+", "(?s)."):  # s option is required!
+                self.define(f"{fun} = lambda s: len(s) > 0 or None")
+            else:
+                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
             self._regs[regex] = fun
         return self._regs[regex]
 
