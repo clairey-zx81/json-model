@@ -146,7 +146,8 @@ additionalProperties: false
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: use mandatory keyword parameters where appropriate
-- [ ] python: extract optimizations in another file
+- [ ] python: refactor in preproc optim tools…
+- [ ] feature: `--extension openapi` to activate an extension ? default `none`, `moschin`…
 - [ ] design: convention for local vs exported definitions? capital?
 - [ ] optim: remove unused local (not exported) definitions
 - [ ] feature: make (static/dynamic) compiled exported defs accessible… which implies fname control
