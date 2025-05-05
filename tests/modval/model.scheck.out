@@ -9,6 +9,8 @@ arr_2.model.json: PASS
 ../bads/_dup_prop_1.model.json: PASS
 ../bads/_dup_prop_2.model.json: PASS
 ../bads/_infinite_recursion.model.json: PASS
+../bads/_re_ko2.model.json: PASS
+../bads/_re_ko.model.json: PASS
 ../bads/_xx_0.model.json: PASS
 ../bads/_xx_1.model.json: PASS
 ../bads/_xx_2.model.json: PASS

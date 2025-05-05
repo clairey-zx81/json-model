@@ -47,10 +47,10 @@ jm_f_14_may: PropMap
 # regex "/.+/"
 jm_re_3 = re.compile(".+").search
 jm_f_17_may: PropMap
-# regex "/^\\..*$/"
-jm_re_4 = re.compile("^\\..*$").search
-# regex "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
-jm_re_5 = re.compile("^([#|&^+/*@~<>=!$%]|<=|>=|!=)$").search
+# regex "/^\\..+$/"
+jm_re_4 = re.compile("^\\..+$").search
+# regex "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
+jm_re_5 = re.compile("^([#|&^+/*@~=$%]|[<>!]=?)$").search
 # regex "/^\\$.*$/"
 jm_re_6 = re.compile("^\\$.*$").search
 jm_obj_7_must: PropMap
@@ -1067,12 +1067,12 @@ def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_17_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.0.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.0.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.0.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.0.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.0.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/
@@ -1179,12 +1179,12 @@ def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_26_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.1.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.1.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.1.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.1.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.1.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/
@@ -1264,12 +1264,12 @@ def jm_f_34(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_34_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.2.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.2.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.2.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.2.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.2.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/
@@ -1349,12 +1349,12 @@ def jm_f_42(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_42_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.3.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.3.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.3.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.3.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.3.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/
@@ -1434,12 +1434,12 @@ def jm_f_50(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_50_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.4.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.4.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.4.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.4.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.4.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/
@@ -1519,12 +1519,12 @@ def jm_f_57(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not jm_f_57_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$#Model#Root'.'|'.5.'%'.{prop}]")
                 return False
-        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..*$/
-            # $.'$#Model#Root'.'|'.5.'%'.'/^\\..*$/'
-            # "/^([#|&^+/*@~<>=!$%]|<=|>=|!=)$/"
+        elif jm_re_4(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'$#Model#Root'.'|'.5.'%'.'/^\\..+$/'
+            # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_5(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.5.'%'.'/^\\..*$/']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'$#Model#Root'.'|'.5.'%'.'/^\\..+$/']")
             if not result:
                 return False
         elif jm_re_6(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\$.*$/

@@ -71,6 +71,8 @@ ERROR:json-model:% expects an object
 ERROR:json-model:invalid model pc_4.model.json
 ERROR:json-model:| is a list ['|']
 ERROR:json-model:invalid model pipe_list.model.json
+ERROR:json-model:invalid initial model _re_ko2.model.json[0]
+ERROR:json-model:invalid initial model _re_ko.model.json[0]
 ERROR:json-model:# is a string ['#']
 ERROR:json-model:invalid model sharp_0.model.json
 ERROR:json-model:# is a string ['#']

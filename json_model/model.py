@@ -7,7 +7,7 @@ import threading
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
 from .utils import log, tname, is_cst, _structurally_distinct_models, merge_objects
-from .utils import WEAK_DATE_RE
+from .utils import WEAK_DATE_RE, CONST_RE, is_regex
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .resolver import Resolver
 
@@ -18,6 +18,7 @@ JsonModel = typing.NewType("JsonModel", None)  # pyright: ignore
 type SymTable = dict[str, JsonModel]
 type Globals = dict[str, str]
 type ModelRef = list[str]  # $stuff#name#inside
+
 
 class Symbols(MutableMapping[str, JsonModel]):
     """JSON Model Symbol Table."""
@@ -386,11 +387,13 @@ class JsonModel:
                     if model == "":
                         pass
                     elif model[0] == "=":
-                        is_valid &= re.match(r"=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$",
-                                             model) is not None
+                        is_valid &= re.match(CONST_RE, model) is not None
                     elif model[0] == "/":
-                        is_valid &= model[-1] == "/" or model[-2:] in ("/s", "/i")
-                        # TODO check re validity: is_regex
+                        try:
+                            pattern, ropts = model[1:].rsplit("/", 1)
+                            is_valid &= (ropts == "" or ropts.isalpha()) and is_regex(pattern)
+                        except Exception:
+                            is_valid = False
                     elif model[0] == "$":
                         pass
                     else:  # TODO more checks

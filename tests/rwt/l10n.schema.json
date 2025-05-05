@@ -28,9 +28,9 @@
       "description": "dot-prefixed arbitrary key, one or two char keyword values",
       "type": "object",
       "patternProperties": {
-        "^\\.": {
+        "^\\..+$": {
           "type": "string",
-          "pattern": "^([#~$%@|&+^/*=!]|[<>!]=)$"
+          "pattern": "^([#~$%@|&+^/*=]|[<>!]=?)$"
         }
       },
       "additionalProperties": false

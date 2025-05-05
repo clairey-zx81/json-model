@@ -308,7 +308,7 @@ class SourceCode(Validator):
             try:
                 # extract actual pattern
                 pattern, ropts = regex[1:].rsplit("/", 1)
-                assert ropts == "" or ropts.isalpha(), r"invalid regex options: {ropts}"
+                assert ropts == "" or ropts.isalpha(), f"invalid options: {ropts}"
                 pattern = f"(?{ropts}){pattern}" if ropts else pattern
                 # statically check re validity
                 if self._re == "re2":

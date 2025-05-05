@@ -11,6 +11,8 @@ log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
 WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
+CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
+JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"
 
 def tname(m) -> str:
     return type(m).__name__ if m is not None else "null"
@@ -21,6 +23,7 @@ def is_regex(s: ValueType, p: str = "") -> bool:
             re.compile(s)
             return True
         except Exception as e:
+            # probably only "simple" re should be accepted, see JSON Schema approach
             # \c ControlLetter (ECMA 262 v13 - 22.2.1 p. 552)
             # \p{UnicodePropertyValueExpression} (same p. 553)
             good_anyway = re.search(r"\\[Pp]\{", s) or re.search(r"\\c[a-zA-Z]", s)

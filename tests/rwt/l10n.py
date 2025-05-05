@@ -27,10 +27,10 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_0_must: PropMap
 jm_f_0_must: PropMap
 jm_f_0_may: PropMap
-# regex "/^\\./"
-jm_re_0 = re.compile("^\\.").search
-# regex "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
-jm_re_1 = re.compile("^([#~$%@|&+^/*=!]|[<>!]=)$").search
+# regex "/^\\..+$/"
+jm_re_0 = re.compile("^\\..+$").search
+# regex "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
+jm_re_1 = re.compile("^([#~$%@|&+^/*=]|[<>!]=?)$").search
 json_model_0_may: PropMap
 
 def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
@@ -125,12 +125,12 @@ def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\./
-            # $.'%'.'/^\\./'
-            # "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
+        if jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+            # $.'%'.'/^\\..+$/'
+            # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             result = isinstance(val, str) and jm_re_1(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
-                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'%'.'/^\\./']")
+                rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'%'.'/^\\..+$/']")
             if not result:
                 return False
         else:  # no catch all

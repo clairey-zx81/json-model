@@ -392,9 +392,9 @@
     "Rename": {
       "type": "object",
       "patternProperties": {
-        "^\\..*$": {
+        "^\\..+$": {
           "type": "string",
-          "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+          "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
         }
       },
       "additionalProperties": false
@@ -434,9 +434,9 @@
         "%": {
           "type": "object",
           "patternProperties": {
-            "^\\..*$": {
+            "^\\..+$": {
               "type": "string",
-              "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+              "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
             },
             "^\\$.*$": {
               "$ref": "#/$defs/Trafo"
@@ -501,9 +501,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"
@@ -560,9 +560,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"
@@ -616,9 +616,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"
@@ -672,9 +672,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"
@@ -728,9 +728,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"
@@ -781,9 +781,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^\\..*$": {
+                "^\\..+$": {
                   "type": "string",
-                  "pattern": "^([#|&^+/*@~<>=!$%]|<=|>=|!=)$"
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
                   "$ref": "#/$defs/Trafo"

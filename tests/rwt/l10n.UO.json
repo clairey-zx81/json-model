@@ -8,7 +8,7 @@
     },
     "_%": {
       "#": "dot-prefixed arbitrary key, one or two char keyword values",
-      "/^\\./": "/^([#~$%@|&+^/*=!]|[<>!]=)$/"
+      "/^\\..+$/": "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
     },
     "_@": "_$Model",
     "_~": "_https://json-model.org/models/l10n"
