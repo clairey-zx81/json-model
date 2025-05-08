@@ -41,7 +41,7 @@ def process_model(model: JsonModel, *,
                   optimize: bool = True, debug: bool = False):
 
     # initial sanity check
-    assert model._is_head and model._is_root
+    assert model._is_head and model._is_root and model._models
 
     all_model_ids = list(sorted(model._models.keys()))
 
@@ -77,7 +77,7 @@ def process_model(model: JsonModel, *,
     # check after merge & optimize
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for m in all_model_ids:
+        for mid in all_model_ids:
             if not model._models[mid].valid():
                 raise ModelError(f"invalid merged model {mid}")
 
@@ -207,7 +207,8 @@ def jmc_script():
         #             for mid in sorted(model._models.keys()) ]
         print(json2str(show), file=output)
     elif args.op == "U":  # model dump
-        show, symbols = [], set()
+        assert model._models
+        show = []
         for mid in sorted(model._models.keys()):
             m = model._models[mid]
             j = m.toModel(m._is_root)
