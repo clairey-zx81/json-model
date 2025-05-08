@@ -11,6 +11,7 @@ from .resolver import Resolver
 from .model import JsonModel
 from .dynamic import DynamicCompiler
 from .static import static_compile
+from . import optim
 
 def create_model(murl: str, resolver: Resolver,
                  auto: bool = False, debug: bool = False) -> JsonModel:
@@ -43,43 +44,41 @@ def process_model(model: JsonModel, *,
     # initial sanity check
     assert model._is_head and model._is_root and model._models
 
-    all_model_ids = list(sorted(model._models.keys()))
+    all_models = list(sorted(model._models.values(), key=lambda m: m._id))
 
     if debug or check:
-        for mid in all_model_ids:
-            if not model._models[mid].valid():
-                raise ModelError(f"invalid initial model {mid}")
+        for m in all_models:
+            if not m.valid():
+                raise ModelError(f"invalid initial model {m._id}")
 
     # simplify before merging
     if optimize:
-        for mid in all_model_ids:
-            model._models[mid].optimize()
+        for m in all_models:
+            optim.optimize(m)
 
     # check after initial optimize
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for mid in all_model_ids:
-            if not model._models[mid].valid():
-                raise ModelError(f"invalid optimized model {mid}")
+        for m in all_models:
+            if not m.valid():
+                raise ModelError(f"invalid optimized model {m._id}")
 
     # merge in reverse order to move alts up before inlining?!
     if merge:
-        for mid in reversed(all_model_ids):
-            m = model._models[mid]
-            log.debug(f"merging model {mid} {m._url}")
+        for m in reversed(all_models):
+            log.debug(f"merging model {m._id} {m._url}")
             m.merge()
 
     # optimize again?
     if optimize:
-        for mid in all_model_ids:
-            model._models[mid].optimize()
+        for m in all_models:
+            optim.optimize(m)
 
     # check after merge & optimize
     if debug or check:
-        # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for mid in all_model_ids:
-            if not model._models[mid].valid():
-                raise ModelError(f"invalid merged model {mid}")
+        for m in all_models:
+            if not m.valid():
+                raise ModelError(f"invalid merged model {m._id}")
 
 def jmc_script():
 

@@ -147,9 +147,12 @@ additionalProperties: false
 - [x] command: also use prettyprint options for yaml generation
 - [x] static: add a `_` to the default prefix to separate exports
 - [x] static: rename all internal stuff with a `_` prefix
+- [x] python: refactor in optim…
+- [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
 - [ ] optim: remove unused names at depth 1 and more?
+- [ ] optim: remove unused local (not exported) definitions?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: generate pyright compatible code…
@@ -157,10 +160,8 @@ additionalProperties: false
 - [ ] design: handle `.` and `/` references as relative url
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: use mandatory keyword parameters where appropriate
-- [ ] python: refactor in preproc optim tools…
 - [ ] feature: `--extension openapi` to activate an extension ? default `none`, `moschin`…
 - [ ] design: convention for local vs exported definitions? capital?
-- [ ] optim: remove unused local (not exported) definitions
 - [ ] feature: make (static/dynamic) compiled exported defs accessible… which implies fname control
 - [ ] static: separate compilation of included models
 - [ ] command: add option to control name of generated function
