@@ -149,6 +149,7 @@ additionalProperties: false
 - [x] static: rename all internal stuff with a `_` prefix
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
+- [ ] optim: remove unused names at depth 1 and more?
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: generate pyright compatible code…
