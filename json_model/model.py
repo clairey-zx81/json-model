@@ -2,7 +2,6 @@ import copy
 import re
 import typing
 from collections.abc import MutableMapping
-import threading
 import json
 
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
@@ -184,6 +183,7 @@ class JsonModel:
             self._nmodels = None
             self._models = None
             # with head._lock:
+            assert isinstance(head._nmodels, int) and isinstance(head._models, dict)
             head._nmodels += 1
             self._id = head._nmodels
             head._models[self._id] = self
@@ -313,7 +313,7 @@ class JsonModel:
             # NOTE externals are loaded as a side effect?!
             # self._debug and log.debug("BEFORE SCOPING:\n" + json_dump(self.toJSON()))
             self.scope(self._globs, [], set(), {})
-            self._debug and log.debug(f"globs = {self._globs}")
+            _ = self._debug and log.debug(f"globs = {self._globs}")
             # self._debug and log.debug("AFTER SCOPING:\n" + json_dump(self.toJSON()))
             # cleanup unreachable models
             self.unload()
@@ -336,14 +336,16 @@ class JsonModel:
         # follow a simple URL model till the end of the world
         def follow(model: str, path: ModelPath) -> JsonModel:
             assert isinstance(model, str) and self._isUrlRef(model)
-            followed = set()
-            while self._isUrlRef(model):
-                log.debug(f"{self._id}: following {model} at {path}")
+            followed, jm = set(), None
+            current: Jsonable = model
+            while self._isUrlRef(current):
+                assert isinstance(current, str)  # pyright hint
+                log.debug(f"{self._id}: following {current} at {path}")
                 # NOTE the first url does not have a fragment, but subsequent urls may have
                 if "#" in model:
-                    url, frag = model[1:].split("#", 1)
+                    url, frag = current[1:].split("#", 1)
                 else:
-                    url, frag = model[1:], None
+                    url, frag = current[1:], None
                 if url in followed:
                     raise ModelError(f"infinite recursion when loading {url} at {path}")
                 followed.add(url)
@@ -355,13 +357,15 @@ class JsonModel:
                     else:
                         name, frag = frag, None
                     jm = jm._defs[name]
-                model = jm._model
+                current = jm._model
+            assert jm is not None  # pyright hint
             return jm
 
         # substitute $<URL>#... with $__external_X#...
         def ldRwt(model: ModelType, path: ModelPath) -> ModelType:
             if isinstance(model, str) and self._isUrlRef(model):
                 log.debug(f"{self._id}: ldRwt at {path} with {model}")
+                assert self._externs is not None  # pyright hint
                 if "#" in model:
                     model, frag = model.split("#", 1)
                 else:
@@ -377,7 +381,7 @@ class JsonModel:
         # log.debug(f"{self._id}: root url")
         if self._isUrlRef(self._model):
             # if the root schema is a string, there was no definitions nor rewrites!
-            assert len(self._defs) == 0
+            assert len(self._defs) == 0 and isinstance(self._model, str)
             self.override(follow(self._model, []))
 
         names = list(self._defs.keys())
@@ -385,6 +389,7 @@ class JsonModel:
             # log.debug(f"{self._id}: {name} url")
             model = self._defs[name]._model
             if self._isUrlRef(model):
+                assert isinstance(model, str)  # pyright hint
                 self._defs[name] = follow(model, [name])
             # log.debug(f"{self._id}: {name} model")
             _recModel(self._defs[name]._model, [name], allFlt, ldRwt, True, False)
@@ -408,7 +413,7 @@ class JsonModel:
 
     def unload(self):
         """Delete unused models."""
-        assert self._is_head
+        assert self._is_head and isinstance(self._models, dict)
         todo, keep = {self._id}, set()
         # transitive closure
         while todo:
@@ -807,6 +812,7 @@ class JsonModel:
         if verbose:
             data["init"] = self._init_md
         if self._is_head:
+            assert isinstance(self._models, dict)  # pyright hint
             data["dependents"] = len(self._models)
             if recurse:
                 data["globals"] = {
