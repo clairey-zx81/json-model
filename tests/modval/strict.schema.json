@@ -1,0 +1,14 @@
+{
+  "description": "JSON_MODEL_STRICT_INT",
+  "type": "object",
+  "properties": {
+    "si": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "si"
+  ],
+  "additionalProperties": false
+}

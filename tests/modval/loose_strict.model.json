@@ -1,0 +1,9 @@
+{
+  "#": "combine loose and strict int",
+  "$": {
+    "loose": "$./loose",
+    "strict": "$./strict",
+    "combined": { "+": [ "$loose", "$strict" ] }
+  },
+  "@": "$combined"
+}

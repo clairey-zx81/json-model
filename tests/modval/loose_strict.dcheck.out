@@ -1,0 +1,2 @@
+loose_strict.0.true.json: PASS
+loose_strict.1.false.json: FAIL [('.combined.si', '$.si', 'expecting an integer'), ('', '$', '$combined failed')]

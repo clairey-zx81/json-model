@@ -148,6 +148,7 @@ additionalProperties: false
 - [x] static: add a `_` to the default prefix to separate exports
 - [x] static: rename all internal stuff with a `_` prefix
 - [x] python: refactor in optim analyze merge…
+- [x] feature: warn when mixing loose/strict int/float
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`

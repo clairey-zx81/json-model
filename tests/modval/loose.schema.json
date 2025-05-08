@@ -1,0 +1,14 @@
+{
+  "description": "JSON_MODEL_LOOSE_INT",
+  "type": "object",
+  "properties": {
+    "li": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "li"
+  ],
+  "additionalProperties": false
+}

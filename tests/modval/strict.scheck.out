@@ -1,0 +1,3 @@
+strict.0.true.json: PASS
+strict.1.false.json: FAIL ['not a 0 int at $.si [$.si]', 'invalid must prop value at $.si [$.si]']
+strict.2.false.json: FAIL ['not a 0 int at $.si [$.si]', 'invalid must prop value at $.si [$.si]']

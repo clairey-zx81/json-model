@@ -1,0 +1,36 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "loose": {
+        "li": 0,
+        "#": "JsonModel 5"
+      },
+      "strict": {
+        "si": 0,
+        "#": "JsonModel 6"
+      },
+      "combined": {
+        "li": 0,
+        "si": 0,
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./loose_strict.model.json"
+    },
+    "@": "$combined"
+  },
+  {
+    "li": 0,
+    "si": 0,
+    "#": "JsonModel 4"
+  },
+  {
+    "li": 0,
+    "#": "JsonModel 5"
+  },
+  {
+    "si": 0,
+    "#": "JsonModel 6"
+  }
+]
