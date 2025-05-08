@@ -28,35 +28,35 @@ def _rep(msg: str, rep: Report) -> bool:
 
 json_model_1_may: PropMap
 # regex "/.*/"
-jm_re_0 = lambda _s: True
+_jm_re_0 = lambda _s: True
 # regex "/./s"
-jm_re_1 = lambda s: len(s) > 0 or None
+_jm_re_1 = lambda s: len(s) > 0 or None
 # regex "/./"
-jm_re_2 = re.compile(".").search
+_jm_re_2 = re.compile(".").search
 
 # define "json_model_1_may_all" ($.all)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.all
     # "/.*/"
-    result = isinstance(value, str) and jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    result = isinstance(value, str) and _jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected REGEX at {path} [$.all]")
     return result
 
 # define "json_model_1_may_nz" ($.nz)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.nz
     # "/./s"
-    result = isinstance(value, str) and jm_re_1(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    result = isinstance(value, str) and _jm_re_1(value) is not None or _rep(f"does not match FESC at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected REGEX at {path} [$.nz]")
     return result
 
 # define "json_model_1_may_some" ($.some)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.some
     # "/./"
-    result = isinstance(value, str) and jm_re_2(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    result = isinstance(value, str) and _jm_re_2(value) is not None or _rep(f"does not match FESC at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected REGEX at {path} [$.some]")
     return result
@@ -89,9 +89,9 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_may = {
-    "all": jm_f_0,
-    "nz": jm_f_1,
-    "some": jm_f_2,
+    "all": _jm_f_0,
+    "nz": _jm_f_1,
+    "some": _jm_f_2,
 }
 
 

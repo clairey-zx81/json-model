@@ -26,36 +26,36 @@ def _rep(msg: str, rep: Report) -> bool:
     rep is None or rep.append(msg)
     return False
 
-jm_obj_0_must: PropMap
-jm_obj_1_must: PropMap
-jm_map_0: TagMap
+_jm_obj_0_must: PropMap
+_jm_obj_1_must: PropMap
+_jm_map_0: TagMap
 
-# define "jm_obj_0_must_t" ($.'|'.0.t)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_t" ($.'|'.0.t)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.t
     result = isinstance(value, int) and not isinstance(value, bool) and value == 1
     if not result:
         rep is None or rep.append(f"not an expected =1 at {path} [$.'|'.0.t]")
     return result
 
-# define "jm_obj_0_must_a" ($.'|'.0.a)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_a" ($.'|'.0.a)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.0.a]")
     return result
 
-# define "jm_obj_1_must_t" ($.'|'.1.t)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_t" ($.'|'.1.t)
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.t
     result = isinstance(value, int) and not isinstance(value, bool) and value == 2
     if not result:
         rep is None or rep.append(f"not an expected =2 at {path} [$.'|'.1.t]")
     return result
 
-# define "jm_obj_1_must_b" ($.'|'.1.b)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_b" ($.'|'.1.b)
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -65,7 +65,7 @@ def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.0]")
         return False
@@ -73,9 +73,9 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.0.{prop}]")
                 return False
         else:  # no catch all
@@ -88,7 +88,7 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.1]")
         return False
@@ -96,9 +96,9 @@ def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.1.{prop}]")
                 return False
         else:  # no catch all
@@ -117,8 +117,8 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
         result = "t" in value
         if result:
             tag_0 = value["t"]
-            if tag_0 in jm_map_0:
-                result = jm_map_0[tag_0](value, path)
+            if tag_0 in _jm_map_0:
+                result = _jm_map_0[tag_0](value, path)
             else:
                 rep is None or rep.append(f"tag t value not found at {path} [$.'|'.'|']")
                 result = False
@@ -134,17 +134,17 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_0_must = {
-    "t": jm_f_0,
-    "a": jm_f_1,
+_jm_obj_0_must = {
+    "t": _jm_f_0,
+    "a": _jm_f_1,
 }
-jm_obj_1_must = {
-    "t": jm_f_2,
-    "b": jm_f_3,
+_jm_obj_1_must = {
+    "t": _jm_f_2,
+    "b": _jm_f_3,
 }
-jm_map_0 = {
-    1: jm_obj_0,
-    2: jm_obj_1,
+_jm_map_0 = {
+    1: _jm_obj_0,
+    2: _jm_obj_1,
 }
 
 

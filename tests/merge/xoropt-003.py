@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 # regex "/[a-z]/"
-jm_re_0 = re.compile("[a-z]").search
+_jm_re_0 = re.compile("[a-z]").search
 
 # define "$A" ($.'$A')
 def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
@@ -43,7 +43,7 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not result:
                 # $.'$A'.'|'.3
                 # "/[a-z]/"
-                result = isinstance(value, str) and jm_re_0(value) is not None
+                result = isinstance(value, str) and _jm_re_0(value) is not None
     return result
 
 # define "$" ($)

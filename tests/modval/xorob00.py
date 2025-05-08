@@ -26,105 +26,105 @@ def _rep(msg: str, rep: Report) -> bool:
     rep is None or rep.append(msg)
     return False
 
-jm_obj_0_must: PropMap
-jm_obj_1_must: PropMap
-jm_obj_2_must: PropMap
-jm_obj_3_must: PropMap
-jm_obj_4_must: PropMap
-jm_obj_5_must: PropMap
-jm_obj_6_must: PropMap
-jm_obj_7_must: PropMap
+_jm_obj_0_must: PropMap
+_jm_obj_1_must: PropMap
+_jm_obj_2_must: PropMap
+_jm_obj_3_must: PropMap
+_jm_obj_4_must: PropMap
+_jm_obj_5_must: PropMap
+_jm_obj_6_must: PropMap
+_jm_obj_7_must: PropMap
 
-# define "jm_obj_0_must_a" ($.'$A'.'|'.0.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_a" ($.'$A'.'|'.0.a)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.'|'.0.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'$A'.'|'.0.a]")
     return result
 
-# define "jm_obj_1_must_b" ($.'$A'.'|'.1.b)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_b" ($.'$A'.'|'.1.b)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.'|'.1.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'$A'.'|'.1.b]")
     return result
 
-# define "jm_obj_2_must_c" ($.'$B'.'|'.0.c)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_2_must_c" ($.'$B'.'|'.0.c)
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.'|'.0.c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'$B'.'|'.0.c]")
     return result
 
-# define "jm_obj_3_must_d" ($.'$B'.'|'.1.d)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_3_must_d" ($.'$B'.'|'.1.d)
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.'|'.1.d
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'$B'.'|'.1.d]")
     return result
 
-# define "jm_obj_4_must_a" ($.'|'.0.a)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_4_must_a" ($.'|'.0.a)
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.0.a]")
     return result
 
-# define "jm_obj_4_must_c" ($.'|'.0.c)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_4_must_c" ($.'|'.0.c)
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.0.c]")
     return result
 
-# define "jm_obj_5_must_a" ($.'|'.1.a)
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_5_must_a" ($.'|'.1.a)
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.1.a]")
     return result
 
-# define "jm_obj_5_must_d" ($.'|'.1.d)
-def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_5_must_d" ($.'|'.1.d)
+def _jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.d
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.1.d]")
     return result
 
-# define "jm_obj_6_must_b" ($.'|'.2.b)
-def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_6_must_b" ($.'|'.2.b)
+def _jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.2.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.2.b]")
     return result
 
-# define "jm_obj_6_must_c" ($.'|'.2.c)
-def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_6_must_c" ($.'|'.2.c)
+def _jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.2.c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.2.c]")
     return result
 
-# define "jm_obj_7_must_b" ($.'|'.3.b)
-def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_7_must_b" ($.'|'.3.b)
+def _jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.3.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
         rep is None or rep.append(f"not a 0 int at {path} [$.'|'.3.b]")
     return result
 
-# define "jm_obj_7_must_d" ($.'|'.3.d)
-def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_7_must_d" ($.'|'.3.d)
+def _jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.3.d
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -134,7 +134,7 @@ def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$A'.'|'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$A'.'|'.0]")
         return False
@@ -142,9 +142,9 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$A'.'|'.0.{prop}]")
                 return False
         else:  # no catch all
@@ -157,7 +157,7 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$A'.'|'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$A'.'|'.1]")
         return False
@@ -165,9 +165,9 @@ def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$A'.'|'.1.{prop}]")
                 return False
         else:  # no catch all
@@ -184,12 +184,12 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     result = isinstance(value, dict)
     if result:
         # $.'$A'.'|'.0
-        result = jm_obj_0(value, path, rep)
+        result = _jm_obj_0(value, path, rep)
         if not result:
             rep is None or rep.append(f"not an expected object at {path} [$.'$A'.'|'.0]")
         if not result:
             # $.'$A'.'|'.1
-            result = jm_obj_1(value, path, rep)
+            result = _jm_obj_1(value, path, rep)
             if not result:
                 rep is None or rep.append(f"not an expected object at {path} [$.'$A'.'|'.1]")
         if not result:
@@ -198,7 +198,7 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$B'.'|'.0
-def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$B'.'|'.0]")
         return False
@@ -206,9 +206,9 @@ def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_2_must:  # must
+        if prop in _jm_obj_2_must:  # must
             must_count += 1
-            if not jm_obj_2_must[prop](val, lpath, rep):
+            if not _jm_obj_2_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$B'.'|'.0.{prop}]")
                 return False
         else:  # no catch all
@@ -221,7 +221,7 @@ def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$B'.'|'.1
-def jm_obj_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$B'.'|'.1]")
         return False
@@ -229,9 +229,9 @@ def jm_obj_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_3_must:  # must
+        if prop in _jm_obj_3_must:  # must
             must_count += 1
-            if not jm_obj_3_must[prop](val, lpath, rep):
+            if not _jm_obj_3_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$B'.'|'.1.{prop}]")
                 return False
         else:  # no catch all
@@ -248,12 +248,12 @@ def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     result = isinstance(value, dict)
     if result:
         # $.'$B'.'|'.0
-        result = jm_obj_2(value, path, rep)
+        result = _jm_obj_2(value, path, rep)
         if not result:
             rep is None or rep.append(f"not an expected object at {path} [$.'$B'.'|'.0]")
         if not result:
             # $.'$B'.'|'.1
-            result = jm_obj_3(value, path, rep)
+            result = _jm_obj_3(value, path, rep)
             if not result:
                 rep is None or rep.append(f"not an expected object at {path} [$.'$B'.'|'.1]")
         if not result:
@@ -262,7 +262,7 @@ def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.0
-def jm_obj_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.0]")
         return False
@@ -270,9 +270,9 @@ def jm_obj_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_4_must:  # must
+        if prop in _jm_obj_4_must:  # must
             must_count += 1
-            if not jm_obj_4_must[prop](val, lpath, rep):
+            if not _jm_obj_4_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.0.{prop}]")
                 return False
         else:  # no catch all
@@ -285,7 +285,7 @@ def jm_obj_4(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.1
-def jm_obj_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.1]")
         return False
@@ -293,9 +293,9 @@ def jm_obj_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_5_must:  # must
+        if prop in _jm_obj_5_must:  # must
             must_count += 1
-            if not jm_obj_5_must[prop](val, lpath, rep):
+            if not _jm_obj_5_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.1.{prop}]")
                 return False
         else:  # no catch all
@@ -308,7 +308,7 @@ def jm_obj_5(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.2
-def jm_obj_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.2]")
         return False
@@ -316,9 +316,9 @@ def jm_obj_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_6_must:  # must
+        if prop in _jm_obj_6_must:  # must
             must_count += 1
-            if not jm_obj_6_must[prop](val, lpath, rep):
+            if not _jm_obj_6_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.2.{prop}]")
                 return False
         else:  # no catch all
@@ -331,7 +331,7 @@ def jm_obj_6(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.3
-def jm_obj_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'|'.3]")
         return False
@@ -339,9 +339,9 @@ def jm_obj_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_7_must:  # must
+        if prop in _jm_obj_7_must:  # must
             must_count += 1
-            if not jm_obj_7_must[prop](val, lpath, rep):
+            if not _jm_obj_7_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'|'.3.{prop}]")
                 return False
         else:  # no catch all
@@ -358,22 +358,22 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     result = isinstance(value, dict)
     if result:
         # $.'|'.0
-        result = jm_obj_4(value, path, rep)
+        result = _jm_obj_4(value, path, rep)
         if not result:
             rep is None or rep.append(f"not an expected object at {path} [$.'|'.0]")
         if not result:
             # $.'|'.1
-            result = jm_obj_5(value, path, rep)
+            result = _jm_obj_5(value, path, rep)
             if not result:
                 rep is None or rep.append(f"not an expected object at {path} [$.'|'.1]")
             if not result:
                 # $.'|'.2
-                result = jm_obj_6(value, path, rep)
+                result = _jm_obj_6(value, path, rep)
                 if not result:
                     rep is None or rep.append(f"not an expected object at {path} [$.'|'.2]")
                 if not result:
                     # $.'|'.3
-                    result = jm_obj_7(value, path, rep)
+                    result = _jm_obj_7(value, path, rep)
                     if not result:
                         rep is None or rep.append(f"not an expected object at {path} [$.'|'.3]")
         if not result:
@@ -386,33 +386,33 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_0_must = {
-    "a": jm_f_0,
+_jm_obj_0_must = {
+    "a": _jm_f_0,
 }
-jm_obj_1_must = {
-    "b": jm_f_1,
+_jm_obj_1_must = {
+    "b": _jm_f_1,
 }
-jm_obj_2_must = {
-    "c": jm_f_2,
+_jm_obj_2_must = {
+    "c": _jm_f_2,
 }
-jm_obj_3_must = {
-    "d": jm_f_3,
+_jm_obj_3_must = {
+    "d": _jm_f_3,
 }
-jm_obj_4_must = {
-    "a": jm_f_4,
-    "c": jm_f_5,
+_jm_obj_4_must = {
+    "a": _jm_f_4,
+    "c": _jm_f_5,
 }
-jm_obj_5_must = {
-    "a": jm_f_6,
-    "d": jm_f_7,
+_jm_obj_5_must = {
+    "a": _jm_f_6,
+    "d": _jm_f_7,
 }
-jm_obj_6_must = {
-    "b": jm_f_8,
-    "c": jm_f_9,
+_jm_obj_6_must = {
+    "b": _jm_f_8,
+    "c": _jm_f_9,
 }
-jm_obj_7_must = {
-    "b": jm_f_10,
-    "d": jm_f_11,
+_jm_obj_7_must = {
+    "b": _jm_f_10,
+    "d": _jm_f_11,
 }
 
 

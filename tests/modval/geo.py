@@ -38,7 +38,7 @@ json_model_9_must: PropMap
 json_model_9_may: PropMap
 json_model_10_must: PropMap
 json_model_10_may: PropMap
-jm_map_0: TagMap
+_jm_map_0: TagMap
 json_model_12_must: PropMap
 json_model_12_may: PropMap
 json_model_13_must: PropMap
@@ -47,7 +47,7 @@ json_model_14_must: PropMap
 json_model_14_may: PropMap
 
 # define "json_model_5_must_type" ($.'$Point'.type)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Point'.type
     result = isinstance(value, str) and value == "Point"
     if not result:
@@ -55,7 +55,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_5_must_coordinates" ($.'$Point'.coordinates)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Point'.coordinates
     result = json_model_2(value, path, rep)
     if not result:
@@ -63,7 +63,7 @@ def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_5_may_bbox" ($.'$Point'.bbox)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Point'.bbox
     result = isinstance(value, list)
     if result:
@@ -80,7 +80,7 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_6_must_type" ($.'$MultiPoint'.type)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPoint'.type
     result = isinstance(value, str) and value == "MultiPoint"
     if not result:
@@ -88,7 +88,7 @@ def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_6_must_coordinates" ($.'$MultiPoint'.coordinates)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPoint'.coordinates
     result = isinstance(value, list)
     if result:
@@ -105,7 +105,7 @@ def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_6_may_bbox" ($.'$MultiPoint'.bbox)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPoint'.bbox
     result = isinstance(value, list)
     if result:
@@ -122,7 +122,7 @@ def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_7_must_type" ($.'$LineString'.type)
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$LineString'.type
     result = isinstance(value, str) and value == "LineString"
     if not result:
@@ -130,7 +130,7 @@ def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_7_must_coordinates" ($.'$LineString'.coordinates)
-def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$LineString'.coordinates
     result = json_model_3(value, path, rep)
     if not result:
@@ -138,7 +138,7 @@ def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_7_may_bbox" ($.'$LineString'.bbox)
-def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$LineString'.bbox
     result = isinstance(value, list)
     if result:
@@ -155,7 +155,7 @@ def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_must_type" ($.'$MultiLineString'.type)
-def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiLineString'.type
     result = isinstance(value, str) and value == "MultiLineString"
     if not result:
@@ -163,7 +163,7 @@ def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_must_coordinates" ($.'$MultiLineString'.coordinates)
-def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiLineString'.coordinates
     result = isinstance(value, list)
     if result:
@@ -180,7 +180,7 @@ def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_bbox" ($.'$MultiLineString'.bbox)
-def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiLineString'.bbox
     result = isinstance(value, list)
     if result:
@@ -197,7 +197,7 @@ def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_9_must_type" ($.'$Polygon'.type)
-def jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Polygon'.type
     result = isinstance(value, str) and value == "Polygon"
     if not result:
@@ -205,7 +205,7 @@ def jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_9_must_coordinates" ($.'$Polygon'.coordinates)
-def jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Polygon'.coordinates
     result = isinstance(value, list)
     if result:
@@ -222,7 +222,7 @@ def jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_9_may_bbox" ($.'$Polygon'.bbox)
-def jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Polygon'.bbox
     result = isinstance(value, list)
     if result:
@@ -239,7 +239,7 @@ def jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_10_must_type" ($.'$MultiPolygon'.type)
-def jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPolygon'.type
     result = isinstance(value, str) and value == "MultiPolygon"
     if not result:
@@ -247,7 +247,7 @@ def jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_10_must_coordinates" ($.'$MultiPolygon'.coordinates)
-def jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPolygon'.coordinates
     result = isinstance(value, list)
     if result:
@@ -273,7 +273,7 @@ def jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_10_may_bbox" ($.'$MultiPolygon'.bbox)
-def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$MultiPolygon'.bbox
     result = isinstance(value, list)
     if result:
@@ -290,7 +290,7 @@ def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_12_must_type" ($.'$GeometryCollection'.type)
-def jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$GeometryCollection'.type
     result = isinstance(value, str) and value == "GeometryCollection"
     if not result:
@@ -298,7 +298,7 @@ def jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_12_must_geometries" ($.'$GeometryCollection'.geometries)
-def jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$GeometryCollection'.geometries
     result = isinstance(value, list)
     if result:
@@ -315,7 +315,7 @@ def jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_12_may_bbox" ($.'$GeometryCollection'.bbox)
-def jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$GeometryCollection'.bbox
     result = isinstance(value, list)
     if result:
@@ -332,7 +332,7 @@ def jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_13_must_type" ($.'$Feature'.type)
-def jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Feature'.type
     result = isinstance(value, str) and value == "Feature"
     if not result:
@@ -340,7 +340,7 @@ def jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_13_must_geometry" ($.'$Feature'.geometry)
-def jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Feature'.geometry
     # $.'$Feature'.geometry.'|'.0
     result = value is None
@@ -361,7 +361,7 @@ def jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_13_must_properties" ($.'$Feature'.properties)
-def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Feature'.properties
     # $.'$Feature'.properties.'|'.0
     result = value is None
@@ -369,7 +369,7 @@ def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
         rep is None or rep.append(f"not null at {path} [$.'$Feature'.properties.'|'.0]")
     if not result:
         # $.'$Feature'.properties.'|'.1
-        result = jm_obj_0(value, path, rep)
+        result = _jm_obj_0(value, path, rep)
         if not result:
             rep is None or rep.append(f"not an expected object at {path} [$.'$Feature'.properties.'|'.1]")
     if not result:
@@ -377,7 +377,7 @@ def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_13_may_id" ($.'$Feature'.id)
-def jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Feature'.id
     # $.'$Feature'.id.'|'.0
     result = isinstance(value, str)
@@ -393,7 +393,7 @@ def jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_13_may_bbox" ($.'$Feature'.bbox)
-def jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Feature'.bbox
     result = isinstance(value, list)
     if result:
@@ -410,7 +410,7 @@ def jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_14_must_type" ($.'$FeatureCollection'.type)
-def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$FeatureCollection'.type
     result = isinstance(value, str) and value == "FeatureCollection"
     if not result:
@@ -418,7 +418,7 @@ def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_14_must_features" ($.'$FeatureCollection'.features)
-def jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$FeatureCollection'.features
     result = isinstance(value, list)
     if result:
@@ -435,7 +435,7 @@ def jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_14_may_bbox" ($.'$FeatureCollection'.bbox)
-def jm_f_28(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_28(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$FeatureCollection'.bbox
     result = isinstance(value, list)
     if result:
@@ -697,8 +697,8 @@ def json_model_11(value: Jsonable, path: str, rep: Report = None) -> bool:
         result = "type" in value
         if result:
             tag_0 = value["type"]
-            if tag_0 in jm_map_0:
-                result = jm_map_0[tag_0](value, path)
+            if tag_0 in _jm_map_0:
+                result = _jm_map_0[tag_0](value, path)
             else:
                 rep is None or rep.append(f"tag type value not found at {path} [$.'$geometry'.'|'.'|']")
                 result = False
@@ -739,7 +739,7 @@ def json_model_12(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$Feature'.properties.'|'.1
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$Feature'.properties.'|'.1]")
         return False
@@ -853,48 +853,48 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_5_must = {
-    "type": jm_f_0,
-    "coordinates": jm_f_1,
+    "type": _jm_f_0,
+    "coordinates": _jm_f_1,
 }
 json_model_5_may = {
-    "bbox": jm_f_2,
+    "bbox": _jm_f_2,
 }
 json_model_6_must = {
-    "type": jm_f_3,
-    "coordinates": jm_f_4,
+    "type": _jm_f_3,
+    "coordinates": _jm_f_4,
 }
 json_model_6_may = {
-    "bbox": jm_f_5,
+    "bbox": _jm_f_5,
 }
 json_model_7_must = {
-    "type": jm_f_6,
-    "coordinates": jm_f_7,
+    "type": _jm_f_6,
+    "coordinates": _jm_f_7,
 }
 json_model_7_may = {
-    "bbox": jm_f_8,
+    "bbox": _jm_f_8,
 }
 json_model_8_must = {
-    "type": jm_f_9,
-    "coordinates": jm_f_10,
+    "type": _jm_f_9,
+    "coordinates": _jm_f_10,
 }
 json_model_8_may = {
-    "bbox": jm_f_11,
+    "bbox": _jm_f_11,
 }
 json_model_9_must = {
-    "type": jm_f_12,
-    "coordinates": jm_f_13,
+    "type": _jm_f_12,
+    "coordinates": _jm_f_13,
 }
 json_model_9_may = {
-    "bbox": jm_f_14,
+    "bbox": _jm_f_14,
 }
 json_model_10_must = {
-    "type": jm_f_15,
-    "coordinates": jm_f_16,
+    "type": _jm_f_15,
+    "coordinates": _jm_f_16,
 }
 json_model_10_may = {
-    "bbox": jm_f_17,
+    "bbox": _jm_f_17,
 }
-jm_map_0 = {
+_jm_map_0 = {
     "Point": json_model_5,
     "MultiPoint": json_model_6,
     "LineString": json_model_7,
@@ -903,27 +903,27 @@ jm_map_0 = {
     "MultiPolygon": json_model_10,
 }
 json_model_12_must = {
-    "type": jm_f_18,
-    "geometries": jm_f_19,
+    "type": _jm_f_18,
+    "geometries": _jm_f_19,
 }
 json_model_12_may = {
-    "bbox": jm_f_20,
+    "bbox": _jm_f_20,
 }
 json_model_13_must = {
-    "type": jm_f_21,
-    "geometry": jm_f_22,
-    "properties": jm_f_23,
+    "type": _jm_f_21,
+    "geometry": _jm_f_22,
+    "properties": _jm_f_23,
 }
 json_model_13_may = {
-    "id": jm_f_24,
-    "bbox": jm_f_25,
+    "id": _jm_f_24,
+    "bbox": _jm_f_25,
 }
 json_model_14_must = {
-    "type": jm_f_26,
-    "features": jm_f_27,
+    "type": _jm_f_26,
+    "features": _jm_f_27,
 }
 json_model_14_may = {
-    "bbox": jm_f_28,
+    "bbox": _jm_f_28,
 }
 
 

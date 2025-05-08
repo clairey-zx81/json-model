@@ -29,7 +29,7 @@ def _rep(msg: str, rep: Report) -> bool:
 
 
 # object $.'$rec'.'|'.1
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$rec'.'|'.1]")
         return False
@@ -54,7 +54,7 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
         rep is None or rep.append(f"not a bool at {path} [$.'$rec'.'|'.0]")
     if not result:
         # $.'$rec'.'|'.1
-        result = jm_obj_0(value, path, rep)
+        result = _jm_obj_0(value, path, rep)
         if not result:
             rep is None or rep.append(f"not an expected object at {path} [$.'$rec'.'|'.1]")
     if not result:

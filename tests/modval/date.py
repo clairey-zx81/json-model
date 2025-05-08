@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 
-def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
@@ -41,7 +41,7 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
 # define "$" ($)
 def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = is_valid_date(value, path, rep) or _rep(f"invalid $DATE at {path}", rep)
+    result = _is_valid_date(value, path, rep) or _rep(f"invalid $DATE at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $DATE at {path} [$]")
     return result

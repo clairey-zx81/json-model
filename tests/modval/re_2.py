@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 
-def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
@@ -41,7 +41,7 @@ def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
 # define "$" ($)
 def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    result = is_valid_re(value, path, rep) or _rep(f"invalid $REGEX at {path}", rep)
+    result = _is_valid_re(value, path, rep) or _rep(f"invalid $REGEX at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $REGEX at {path} [$]")
     return result

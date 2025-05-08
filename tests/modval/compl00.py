@@ -27,14 +27,14 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 # regex "/^[a-z]+$/i"
-jm_re_0 = re.compile("(?i)^[a-z]+$").search
+_jm_re_0 = re.compile("(?i)^[a-z]+$").search
 
 # define "$" ($)
 def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     # $.'^'.'?'
     # "/^[a-z]+$/i"
-    is_m_0 = isinstance(value, str) and jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    is_m_0 = isinstance(value, str) and _jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
     if not is_m_0:
         rep is None or rep.append(f"not an expected REGEX at {path} [$.'^'.'?']")
     result = not is_m_0

@@ -28,7 +28,7 @@ def _rep(msg: str, rep: Report) -> bool:
 
 json_model_8_may: PropMap
 
-def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
@@ -39,7 +39,7 @@ def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
     rep is None or rep.append(f"incompatible type for regex at {path}: {_tname(value)}")
     return False
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -51,7 +51,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     return False
 
 # define "json_model_8_may_$id" ($.'$ObjectSchema'.'$id')
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.'$id'
     result = json_model_2(value, path, rep)
     if not result:
@@ -59,15 +59,15 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_$schema" ($.'$ObjectSchema'.'$schema')
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.'$schema'
-    result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+    result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $URL at {path} [$.'$ObjectSchema'.'$schema']")
     return result
 
 # define "json_model_8_may_title" ($.'$ObjectSchema'.title)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.title
     result = isinstance(value, str)
     if not result:
@@ -75,7 +75,7 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_description" ($.'$ObjectSchema'.description)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.description
     result = isinstance(value, str)
     if not result:
@@ -83,7 +83,7 @@ def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_default" ($.'$ObjectSchema'.default)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.default
     result = True or _rep(f"invalid $ANY at {path}", rep)
     if not result:
@@ -91,7 +91,7 @@ def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_examples" ($.'$ObjectSchema'.examples)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.examples
     result = isinstance(value, list)
     if result:
@@ -108,7 +108,7 @@ def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_multipleOf" ($.'$ObjectSchema'.multipleOf)
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.multipleOf
     result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool)) and value > 0.0
     if not result:
@@ -116,7 +116,7 @@ def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_maximum" ($.'$ObjectSchema'.maximum)
-def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.maximum
     result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     if not result:
@@ -124,7 +124,7 @@ def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_exclusiveMaximum" ($.'$ObjectSchema'.exclusiveMaximum)
-def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.exclusiveMaximum
     result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     if not result:
@@ -132,7 +132,7 @@ def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_minimum" ($.'$ObjectSchema'.minimum)
-def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.minimum
     result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     if not result:
@@ -140,7 +140,7 @@ def jm_f_9(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_exclusiveMinimum" ($.'$ObjectSchema'.exclusiveMinimum)
-def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.exclusiveMinimum
     result = (isinstance(value, float) or isinstance(value, int) and not isinstance(value, bool))
     if not result:
@@ -148,7 +148,7 @@ def jm_f_10(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_maxLength" ($.'$ObjectSchema'.maxLength)
-def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.maxLength
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -156,7 +156,7 @@ def jm_f_11(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_minLength" ($.'$ObjectSchema'.minLength)
-def jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.minLength
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -164,15 +164,15 @@ def jm_f_12(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_pattern" ($.'$ObjectSchema'.pattern)
-def jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_13(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.pattern
-    result = is_valid_re(value, path, rep) or _rep(f"invalid $REGEX at {path}", rep)
+    result = _is_valid_re(value, path, rep) or _rep(f"invalid $REGEX at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $REGEX at {path} [$.'$ObjectSchema'.pattern]")
     return result
 
 # define "json_model_8_may_additionalItems" ($.'$ObjectSchema'.additionalItems)
-def jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.additionalItems
     result = json_model_9(value, path, rep)
     if not result:
@@ -180,7 +180,7 @@ def jm_f_14(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_items" ($.'$ObjectSchema'.items)
-def jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.items
     # $.'$ObjectSchema'.items.'|'.0
     result = json_model_9(value, path, rep)
@@ -196,7 +196,7 @@ def jm_f_15(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_maxItems" ($.'$ObjectSchema'.maxItems)
-def jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.maxItems
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -204,7 +204,7 @@ def jm_f_16(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_minItems" ($.'$ObjectSchema'.minItems)
-def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.minItems
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -212,7 +212,7 @@ def jm_f_17(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_uniqueItems" ($.'$ObjectSchema'.uniqueItems)
-def jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.uniqueItems
     result = isinstance(value, bool)
     if not result:
@@ -220,7 +220,7 @@ def jm_f_18(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_contains" ($.'$ObjectSchema'.contains)
-def jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.contains
     result = json_model_9(value, path, rep)
     if not result:
@@ -228,7 +228,7 @@ def jm_f_19(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_maxProperties" ($.'$ObjectSchema'.maxProperties)
-def jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.maxProperties
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -236,7 +236,7 @@ def jm_f_20(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_minProperties" ($.'$ObjectSchema'.minProperties)
-def jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.minProperties
     result = ((isinstance(value, int) and not isinstance(value, bool)) or (isinstance(value, float) and int(value) == value)) and value >= 0
     if not result:
@@ -244,7 +244,7 @@ def jm_f_21(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_required" ($.'$ObjectSchema'.required)
-def jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.required
     result = json_model_7(value, path, rep)
     if not result:
@@ -252,7 +252,7 @@ def jm_f_22(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_additionalProperties" ($.'$ObjectSchema'.additionalProperties)
-def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.additionalProperties
     result = json_model_9(value, path, rep)
     if not result:
@@ -264,7 +264,7 @@ def jm_f_23(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # define "json_model_8_may_propertyNames" ($.'$ObjectSchema'.propertyNames)
-def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.propertyNames
     result = json_model_9(value, path, rep)
     if not result:
@@ -276,7 +276,7 @@ def jm_f_26(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # define "json_model_8_may_enum" ($.'$ObjectSchema'.enum)
-def jm_f_29(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_29(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.enum
     # $.'$ObjectSchema'.enum.'@'
     result = isinstance(value, list)
@@ -298,7 +298,7 @@ def jm_f_29(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_const" ($.'$ObjectSchema'.const)
-def jm_f_30(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_30(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.const
     result = True or _rep(f"invalid $ANY at {path}", rep)
     if not result:
@@ -306,7 +306,7 @@ def jm_f_30(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_type" ($.'$ObjectSchema'.type)
-def jm_f_31(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_31(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.type
     # $.'$ObjectSchema'.type.'|'.0
     result = json_model_5(value, path, rep)
@@ -322,7 +322,7 @@ def jm_f_31(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_format" ($.'$ObjectSchema'.format)
-def jm_f_32(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_32(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.format
     result = isinstance(value, str)
     if not result:
@@ -330,7 +330,7 @@ def jm_f_32(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_allOf" ($.'$ObjectSchema'.allOf)
-def jm_f_33(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_33(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.allOf
     result = json_model_4(value, path, rep)
     if not result:
@@ -338,7 +338,7 @@ def jm_f_33(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_anyOf" ($.'$ObjectSchema'.anyOf)
-def jm_f_34(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_34(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.anyOf
     result = json_model_4(value, path, rep)
     if not result:
@@ -346,7 +346,7 @@ def jm_f_34(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_oneOf" ($.'$ObjectSchema'.oneOf)
-def jm_f_35(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_35(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.oneOf
     result = json_model_4(value, path, rep)
     if not result:
@@ -354,7 +354,7 @@ def jm_f_35(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_not" ($.'$ObjectSchema'.not)
-def jm_f_36(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_36(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.not
     result = json_model_9(value, path, rep)
     if not result:
@@ -362,7 +362,7 @@ def jm_f_36(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_8_may_$ref" ($.'$ObjectSchema'.'$ref')
-def jm_f_37(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_37(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$ObjectSchema'.'$ref'
     result = json_model_2(value, path, rep)
     if not result:
@@ -381,7 +381,7 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 # define "$URI" ($.'$URI')
 def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$URI'
-    result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+    result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $URL at {path} [$.'$URI']")
     return result
@@ -455,7 +455,7 @@ def json_model_7(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$ObjectSchema'.definitions
-def jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$ObjectSchema'.definitions]")
         return False
@@ -473,7 +473,7 @@ def jm_f_24(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$ObjectSchema'.properties
-def jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$ObjectSchema'.properties]")
         return False
@@ -491,14 +491,14 @@ def jm_f_25(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$ObjectSchema'.patternProperties
-def jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$ObjectSchema'.patternProperties]")
         return False
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if is_valid_re(prop, path, rep) or _rep(f"invalid $REGEX at {path}", rep) or _rep(f"prop {prop} does not match $REGEX at {path}", rep):  # $REGEX
+        if _is_valid_re(prop, path, rep) or _rep(f"invalid $REGEX at {path}", rep) or _rep(f"prop {prop} does not match $REGEX at {path}", rep):  # $REGEX
             # $.'$ObjectSchema'.patternProperties.'$REGEX'
             result = json_model_9(val, path, rep)
             if not result:
@@ -512,7 +512,7 @@ def jm_f_27(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$ObjectSchema'.dependencies
-def jm_f_28(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_28(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$ObjectSchema'.dependencies]")
         return False
@@ -590,44 +590,44 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_8_may = {
-    "$id": jm_f_0,
-    "$schema": jm_f_1,
-    "title": jm_f_2,
-    "description": jm_f_3,
-    "default": jm_f_4,
-    "examples": jm_f_5,
-    "multipleOf": jm_f_6,
-    "maximum": jm_f_7,
-    "exclusiveMaximum": jm_f_8,
-    "minimum": jm_f_9,
-    "exclusiveMinimum": jm_f_10,
-    "maxLength": jm_f_11,
-    "minLength": jm_f_12,
-    "pattern": jm_f_13,
-    "additionalItems": jm_f_14,
-    "items": jm_f_15,
-    "maxItems": jm_f_16,
-    "minItems": jm_f_17,
-    "uniqueItems": jm_f_18,
-    "contains": jm_f_19,
-    "maxProperties": jm_f_20,
-    "minProperties": jm_f_21,
-    "required": jm_f_22,
-    "additionalProperties": jm_f_23,
-    "definitions": jm_f_24,
-    "properties": jm_f_25,
-    "propertyNames": jm_f_26,
-    "patternProperties": jm_f_27,
-    "dependencies": jm_f_28,
-    "enum": jm_f_29,
-    "const": jm_f_30,
-    "type": jm_f_31,
-    "format": jm_f_32,
-    "allOf": jm_f_33,
-    "anyOf": jm_f_34,
-    "oneOf": jm_f_35,
-    "not": jm_f_36,
-    "$ref": jm_f_37,
+    "$id": _jm_f_0,
+    "$schema": _jm_f_1,
+    "title": _jm_f_2,
+    "description": _jm_f_3,
+    "default": _jm_f_4,
+    "examples": _jm_f_5,
+    "multipleOf": _jm_f_6,
+    "maximum": _jm_f_7,
+    "exclusiveMaximum": _jm_f_8,
+    "minimum": _jm_f_9,
+    "exclusiveMinimum": _jm_f_10,
+    "maxLength": _jm_f_11,
+    "minLength": _jm_f_12,
+    "pattern": _jm_f_13,
+    "additionalItems": _jm_f_14,
+    "items": _jm_f_15,
+    "maxItems": _jm_f_16,
+    "minItems": _jm_f_17,
+    "uniqueItems": _jm_f_18,
+    "contains": _jm_f_19,
+    "maxProperties": _jm_f_20,
+    "minProperties": _jm_f_21,
+    "required": _jm_f_22,
+    "additionalProperties": _jm_f_23,
+    "definitions": _jm_f_24,
+    "properties": _jm_f_25,
+    "propertyNames": _jm_f_26,
+    "patternProperties": _jm_f_27,
+    "dependencies": _jm_f_28,
+    "enum": _jm_f_29,
+    "const": _jm_f_30,
+    "type": _jm_f_31,
+    "format": _jm_f_32,
+    "allOf": _jm_f_33,
+    "anyOf": _jm_f_34,
+    "oneOf": _jm_f_35,
+    "not": _jm_f_36,
+    "$ref": _jm_f_37,
 }
 
 

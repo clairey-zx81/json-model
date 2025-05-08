@@ -27,11 +27,11 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 # regex "/a/"
-jm_re_0 = re.compile("a").search
-jm_obj_1_may: PropMap
+_jm_re_0 = re.compile("a").search
+_jm_obj_1_may: PropMap
 
-# define "jm_obj_1_may_a" ($.'^'.1.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_may_a" ($.'^'.1.a)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'^'.1.a
     result = value is None
     return result
@@ -39,13 +39,13 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'^'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if jm_re_0(prop) is not None:  # /a/
+        if _jm_re_0(prop) is not None:  # /a/
             # $.'^'.0.'/a/'
             result = isinstance(val, str)
             if not result:
@@ -56,14 +56,14 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'^'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_may:  # may
-            if not jm_obj_1_may[prop](val, lpath, rep):
+        if prop in _jm_obj_1_may:  # may
+            if not _jm_obj_1_may[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -75,11 +75,11 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = jm_obj_0(value, path, rep)
+        xr_0 = _jm_obj_0(value, path, rep)
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
-        xr_0 = jm_obj_1(value, path, rep)
+        xr_0 = _jm_obj_1(value, path, rep)
         if xr_0: xc_0 += 1
     result = xc_0 == 1
     return result
@@ -90,8 +90,8 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_1_may = {
-    "a": jm_f_0,
+_jm_obj_1_may = {
+    "a": _jm_f_0,
 }
 
 

@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 # regex "/[a-z]/"
-jm_re_0 = re.compile("[a-z]").search
+_jm_re_0 = re.compile("[a-z]").search
 
 # define "$ex5" ($.'$ex5')
 def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
@@ -49,7 +49,7 @@ def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
 def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$EX07'
     # "/[a-z]/"
-    result = isinstance(value, str) and jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
+    result = isinstance(value, str) and _jm_re_0(value) is not None or _rep(f"does not match FESC at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected REGEX at {path} [$.'$EX07']")
     return result

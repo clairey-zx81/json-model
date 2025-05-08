@@ -26,10 +26,10 @@ def _rep(msg: str, rep: Report) -> bool:
     rep is None or rep.append(msg)
     return False
 
-jm_obj_0_must: PropMap
+_jm_obj_0_must: PropMap
 
-# define "jm_obj_0_must_a" ($.'^'.1.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_a" ($.'^'.1.a)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'^'.1.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -39,7 +39,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'^'.1
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'^'.1]")
         return False
@@ -47,9 +47,9 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'^'.1.{prop}]")
                 return False
         else:  # no catch all
@@ -64,7 +64,7 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
     # $.'^'.1
-    isin = jm_obj_0(value, path, rep)
+    isin = _jm_obj_0(value, path, rep)
     if not isin:
         rep is None or rep.append(f"not an expected object at {path} [$.'^'.1]")
     result = not isin
@@ -80,8 +80,8 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_0_must = {
-    "a": jm_f_0,
+_jm_obj_0_must = {
+    "a": _jm_f_0,
 }
 
 

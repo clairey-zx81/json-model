@@ -26,19 +26,19 @@ def _rep(msg: str, rep: Report) -> bool:
     rep is None or rep.append(msg)
     return False
 
-jm_obj_0_must: PropMap
+_jm_obj_0_must: PropMap
 # regex "/.../"
-jm_re_0 = re.compile("...").search
-jm_obj_1_must: PropMap
+_jm_re_0 = re.compile("...").search
+_jm_obj_1_must: PropMap
 
-# define "jm_obj_0_must_a" ($.'^'.0.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_a" ($.'^'.0.a)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'^'.0.a
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_1_must_b" ($.'^'.1.b)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_b" ($.'^'.1.b)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'^'.1.b
     result = isinstance(value, str)
     return result
@@ -46,21 +46,21 @@ def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'^'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 return False
         else:  # catch all
             # $.'^'.0.''
             # "/.../"
-            result = isinstance(val, str) and jm_re_0(val) is not None
+            result = isinstance(val, str) and _jm_re_0(val) is not None
             if not result:
                 return False
     result = must_count == 1
@@ -68,21 +68,21 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'^'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 return False
         else:  # catch all
             # $.'^'.1.''
             # "/.../"
-            result = isinstance(val, str) and jm_re_0(val) is not None
+            result = isinstance(val, str) and _jm_re_0(val) is not None
             if not result:
                 return False
     result = must_count == 1
@@ -94,11 +94,11 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     xc_0 = 0
     if xc_0 <= 1:
         # $.'^'.0
-        xr_0 = jm_obj_0(value, path, rep)
+        xr_0 = _jm_obj_0(value, path, rep)
         if xr_0: xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.1
-        xr_0 = jm_obj_1(value, path, rep)
+        xr_0 = _jm_obj_1(value, path, rep)
         if xr_0: xc_0 += 1
     result = xc_0 == 1
     return result
@@ -109,11 +109,11 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_0_must = {
-    "a": jm_f_0,
+_jm_obj_0_must = {
+    "a": _jm_f_0,
 }
-jm_obj_1_must = {
-    "b": jm_f_1,
+_jm_obj_1_must = {
+    "b": _jm_f_1,
 }
 
 

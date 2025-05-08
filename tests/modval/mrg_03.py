@@ -29,7 +29,7 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_1_must: PropMap
 
 # define "json_model_1_must_a" ($.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 1
     if not result:
@@ -37,7 +37,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_b" ($.b)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.b
     result = isinstance(value, str)
     if not result:
@@ -45,7 +45,7 @@ def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_c" ($.c)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.c
     result = isinstance(value, float) and value > 0.0
     if not result:
@@ -85,9 +85,9 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_must = {
-    "a": jm_f_0,
-    "b": jm_f_1,
-    "c": jm_f_2,
+    "a": _jm_f_0,
+    "b": _jm_f_1,
+    "c": _jm_f_2,
 }
 
 

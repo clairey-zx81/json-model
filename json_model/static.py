@@ -81,7 +81,7 @@ def _rep(msg: str, rep: Report) -> bool:
 """
 
 PY_VALID_REGEX = """
-def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
@@ -94,7 +94,7 @@ def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
 """
 
 PY_VALID_DATE = """
-def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
@@ -107,7 +107,7 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
 """
 
 PY_VALID_URL = """
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -120,7 +120,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
 """
 
 PY_VALUE_LEN = """
-def value_len(value: Jsonable, path: str) -> None|bool|int|float:
+def _value_len(value: Jsonable, path: str) -> None|bool|int|float:
     match value:
         case str()|list()|dict():
             return len(value)
@@ -197,9 +197,9 @@ class SourceCode(Validator):
             "$F64": self._in_is_float,
             "$NUMBER": lambda v, _p: f"isinstance({v}, (float, int)) and not isinstance({v}, bool)",
             "$STRING": lambda v, _p: f"isinstance({v}, str)",
-            "$URL": lambda v, p: used("url", f"is_valid_url({v}, {p}, rep)"),
-            "$DATE": lambda v, p: used("date", f"is_valid_date({v}, {p}, rep)"),
-            "$REGEX": lambda v, p: used("regex", f"is_valid_re({v}, {p}, rep)"),
+            "$URL": lambda v, p: used("url", f"_is_valid_url({v}, {p}, rep)"),
+            "$DATE": lambda v, p: used("date", f"_is_valid_date({v}, {p}, rep)"),
+            "$REGEX": lambda v, p: used("regex", f"_is_valid_re({v}, {p}, rep)"),
             # TODO more, /re/ ?
         }
 
@@ -737,7 +737,7 @@ class SourceCode(Validator):
                         elif isinstance(value, str):
                             code.add(indent, f"{res} = isinstance({val}, str) and {val} == {value}")
                         else:
-                            raise ModelError(f"unexpected constant type: {_tname(value)}")
+                            raise ModelError(f"unexpected constant type: {tname(value)}")
                     else:
                         raise ModelError(f"unexpected constant: {model}")
                 elif model[0] == "$":
@@ -1085,7 +1085,7 @@ def static_compile(
         model: JsonModel,
         name: str = "check_model",
         *,
-        prefix: str = "jm_",
+        prefix: str = "_jm_",
         remod: str = "re",
         debug: bool = False,
         loose_int: bool = False,

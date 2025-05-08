@@ -145,9 +145,9 @@ additionalProperties: false
 - [x] command: add option `-J` to show json IR, set default to `-P` (preprocessed)
 - [x] command: change default to `-ns` (unsorted json properties)
 - [x] command: also use prettyprint options for yaml generation
+- [x] static: add a `_` to the default prefix to separate exports
+- [x] static: rename all internal stuff with a `_` prefix
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
-- [ ] static: add a `_` to the default prefix to separate exports
-- [ ] static: rename all internal stuff with a `_` prefix
 - [ ] optim: remove unused introduced names `__external_...`
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!

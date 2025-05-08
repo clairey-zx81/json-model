@@ -26,25 +26,25 @@ def _rep(msg: str, rep: Report) -> bool:
     rep is None or rep.append(msg)
     return False
 
-jm_obj_0_must: PropMap
-jm_obj_1_must: PropMap
-jm_obj_2_must: PropMap
-jm_map_0: TagMap
+_jm_obj_0_must: PropMap
+_jm_obj_1_must: PropMap
+_jm_obj_2_must: PropMap
+_jm_map_0: TagMap
 
-# define "jm_obj_0_must_a" ($.'|'.0.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_a" ($.'|'.0.a)
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.0.a
     result = isinstance(value, int) and not isinstance(value, bool) and value == 10
     return result
 
-# define "jm_obj_1_must_a" ($.'|'.1.a)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_a" ($.'|'.1.a)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.1.a
     result = isinstance(value, int) and not isinstance(value, bool) and value == 1
     return result
 
-# define "jm_obj_2_must_a" ($.'|'.2.a)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_2_must_a" ($.'|'.2.a)
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'|'.2.a
     result = isinstance(value, int) and not isinstance(value, bool) and value == 0
     return result
@@ -52,16 +52,16 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -70,16 +70,16 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -88,16 +88,16 @@ def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'|'.2
-def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_2_must:  # must
+        if prop in _jm_obj_2_must:  # must
             must_count += 1
-            if not jm_obj_2_must[prop](val, lpath, rep):
+            if not _jm_obj_2_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -112,8 +112,8 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
         result = "a" in value
         if result:
             tag_0 = value["a"]
-            if tag_0 in jm_map_0:
-                result = jm_map_0[tag_0](value, path)
+            if tag_0 in _jm_map_0:
+                result = _jm_map_0[tag_0](value, path)
             else:
                 result = False
     return result
@@ -124,19 +124,19 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object properties maps
-jm_obj_0_must = {
-    "a": jm_f_0,
+_jm_obj_0_must = {
+    "a": _jm_f_0,
 }
-jm_obj_1_must = {
-    "a": jm_f_1,
+_jm_obj_1_must = {
+    "a": _jm_f_1,
 }
-jm_obj_2_must = {
-    "a": jm_f_2,
+_jm_obj_2_must = {
+    "a": _jm_f_2,
 }
-jm_map_0 = {
-    10: jm_obj_0,
-    1: jm_obj_1,
-    0: jm_obj_2,
+_jm_map_0 = {
+    10: _jm_obj_0,
+    1: _jm_obj_1,
+    0: _jm_obj_2,
 }
 
 

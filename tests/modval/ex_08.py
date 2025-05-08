@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -49,7 +49,7 @@ def json_model_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 # define "$KEY" ($.'$KEY')
 def json_model_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$KEY'
-    result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+    result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $URL at {path} [$.'$KEY']")
     return result
@@ -63,7 +63,7 @@ def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
+        if _is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
             # $.'$map'.'$URL'
             result = json_model_2(val, path, rep)
             if not result:
@@ -86,7 +86,7 @@ def json_model_5(value: Jsonable, path: str, rep: Report = None) -> bool:
         rep is None or rep.append(f"not an expected $map at {path} [$.'$EX08'.'|'.0]")
     if not result:
         # $.'$EX08'.'|'.1
-        result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+        result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
         if not result:
             rep is None or rep.append(f"not an expected $URL at {path} [$.'$EX08'.'|'.1]")
         if not result:

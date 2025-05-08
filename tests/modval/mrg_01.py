@@ -31,7 +31,7 @@ json_model_4_must: PropMap
 json_model_1_must: PropMap
 
 # define "json_model_3_must_a" ($.'$X'.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$X'.a
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -39,7 +39,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_3_must_b" ($.'$X'.b)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$X'.b
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -47,7 +47,7 @@ def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_4_must_c" ($.'$Y'.c)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Y'.c
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -55,7 +55,7 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_4_must_d" ($.'$Y'.d)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Y'.d
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -63,7 +63,7 @@ def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_a" ($.a)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.a
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -71,7 +71,7 @@ def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_b" ($.b)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.b
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -79,7 +79,7 @@ def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_c" ($.c)
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.c
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -87,7 +87,7 @@ def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_d" ($.d)
-def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.d
     result = isinstance(value, str) and value == "cst_01"
     if not result:
@@ -185,18 +185,18 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_3_must = {
-    "a": jm_f_0,
-    "b": jm_f_1,
+    "a": _jm_f_0,
+    "b": _jm_f_1,
 }
 json_model_4_must = {
-    "c": jm_f_2,
-    "d": jm_f_3,
+    "c": _jm_f_2,
+    "d": _jm_f_3,
 }
 json_model_1_must = {
-    "a": jm_f_4,
-    "b": jm_f_5,
-    "c": jm_f_6,
-    "d": jm_f_7,
+    "a": _jm_f_4,
+    "b": _jm_f_5,
+    "c": _jm_f_6,
+    "d": _jm_f_7,
 }
 
 

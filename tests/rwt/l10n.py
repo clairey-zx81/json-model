@@ -27,15 +27,15 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 json_model_1_must: PropMap
-jm_f_0_must: PropMap
-jm_f_0_may: PropMap
+_jm_f_0_must: PropMap
+_jm_f_0_may: PropMap
 # regex "/^\\..+$/"
-jm_re_0 = re.compile("^\\..+$").search
+_jm_re_0 = re.compile("^\\..+$").search
 # regex "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-jm_re_1 = re.compile("^([#~$%@|&+^/*=]|[<>!]=?)$").search
+_jm_re_1 = re.compile("^([#~$%@|&+^/*=]|[<>!]=?)$").search
 json_model_1_may: PropMap
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -46,18 +46,18 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     rep is None or rep.append(f"incompatible type for url at {path}: {_tname(value)}")
     return False
 
-# define "jm_f_0_must_Model" ($.'$'.Model)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_f_0_must_Model" ($.'$'.Model)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$'.Model
     result = isinstance(value, str) and value == "$https://json-model.org/models/json-model"
     if not result:
         rep is None or rep.append(f"not an expected _$https://json-model.org/models/json-model at {path} [$.'$'.Model]")
     return result
 
-# define "jm_f_0_may_" ($.'$'.'')
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_f_0_may_" ($.'$'.'')
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$'.''
-    result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+    result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $URL at {path} [$.'$'.'']")
     return result
@@ -65,7 +65,7 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # define "json_model_1_must_~" ($.'~')
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'~'
     result = isinstance(value, str) and value == "https://json-model.org/models/l10n"
     if not result:
@@ -75,7 +75,7 @@ def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # define "json_model_1_must_@" ($.'@')
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'@'
     result = isinstance(value, str) and value == "$Model"
     if not result:
@@ -83,7 +83,7 @@ def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_may_#" ($.'#')
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'#'
     result = isinstance(value, str)
     if not result:
@@ -93,7 +93,7 @@ def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$'
-def jm_f_0(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'$']")
         return False
@@ -101,13 +101,13 @@ def jm_f_0(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_f_0_must:  # must
+        if prop in _jm_f_0_must:  # must
             must_count += 1
-            if not jm_f_0_must[prop](val, lpath, rep):
+            if not _jm_f_0_must[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid must prop value at {lpath} [$.'$'.{prop}]")
                 return False
-        elif prop in jm_f_0_may:  # may
-            if not jm_f_0_may[prop](val, lpath, rep):
+        elif prop in _jm_f_0_may:  # may
+            if not _jm_f_0_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$'.{prop}]")
                 return False
         else:  # no catch all
@@ -120,17 +120,17 @@ def jm_f_0(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 
 # object $.'%'
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         rep is None or rep.append(f"not an object at {path} [$.'%']")
         return False
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
+        if _jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\..+$/
             # $.'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-            result = isinstance(val, str) and jm_re_1(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
+            result = isinstance(val, str) and _jm_re_1(val) is not None or _rep(f"does not match FESC at {lpath}", rep)
             if not result:
                 rep is None or rep.append(f"not an expected REGEX at {lpath} [$.'%'.'/^\\..+$/']")
             if not result:
@@ -176,19 +176,19 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_must = {
-    "$": jm_f_0,
-    "~": jm_f_3,
-    "%": jm_f_4,
-    "@": jm_f_5,
+    "$": _jm_f_0,
+    "~": _jm_f_3,
+    "%": _jm_f_4,
+    "@": _jm_f_5,
 }
-jm_f_0_must = {
-    "Model": jm_f_1,
+_jm_f_0_must = {
+    "Model": _jm_f_1,
 }
-jm_f_0_may = {
-    "": jm_f_2,
+_jm_f_0_may = {
+    "": _jm_f_2,
 }
 json_model_1_may = {
-    "#": jm_f_6,
+    "#": _jm_f_6,
 }
 
 

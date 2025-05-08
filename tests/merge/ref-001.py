@@ -30,31 +30,31 @@ json_model_2_must: PropMap
 json_model_3_must: PropMap
 
 # define "json_model_2_must_a" ($.'$A'.a)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "json_model_2_must_b" ($.'$A'.b)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "json_model_3_must_a" ($.'$B'.a)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "json_model_3_must_b" ($.'$B'.b)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
 
 # define "json_model_3_must_c" ($.'$B'.c)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.c
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     return result
@@ -121,13 +121,13 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_2_must = {
-    "a": jm_f_0,
-    "b": jm_f_1,
+    "a": _jm_f_0,
+    "b": _jm_f_1,
 }
 json_model_3_must = {
-    "a": jm_f_2,
-    "b": jm_f_3,
-    "c": jm_f_4,
+    "a": _jm_f_2,
+    "b": _jm_f_3,
+    "c": _jm_f_4,
 }
 
 

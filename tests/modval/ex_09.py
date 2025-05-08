@@ -28,7 +28,7 @@ def _rep(msg: str, rep: Report) -> bool:
 
 json_model_4_may: PropMap
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -40,7 +40,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     return False
 
 # define "json_model_4_may_#" ($.'$EX09'.'#')
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$EX09'.'#'
     result = isinstance(value, str)
     if not result:
@@ -77,7 +77,7 @@ def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
             if not json_model_4_may[prop](val, lpath, rep):
                 rep is None or rep.append(f"invalid may prop value at {lpath} [$.'$EX09'.{prop}]")
                 return False
-        elif is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
+        elif _is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
             # $.'$EX09'.'$URL'
             result = json_model_6(val, path, rep)
             if not result:
@@ -108,7 +108,7 @@ def json_model_9(value: Jsonable, path: str, rep: Report = None) -> bool:
         rep is None or rep.append(f"not an expected $map at {path} [$.'$ex08#EX08'.'|'.0]")
     if not result:
         # $.'$ex08#EX08'.'|'.1
-        result = is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
+        result = _is_valid_url(value, path, rep) or _rep(f"invalid $URL at {path}", rep)
         if not result:
             rep is None or rep.append(f"not an expected $URL at {path} [$.'$ex08#EX08'.'|'.1]")
         if not result:
@@ -129,7 +129,7 @@ def json_model_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
+        if _is_valid_url(prop, path, rep) or _rep(f"invalid $URL at {path}", rep) or _rep(f"prop {prop} does not match $URL at {path}", rep):  # $URL
             # $.'$ex08#map'.'$URL'
             result = json_model_6(val, path, rep)
             if not result:
@@ -158,7 +158,7 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_4_may = {
-    "#": jm_f_0,
+    "#": _jm_f_0,
 }
 
 

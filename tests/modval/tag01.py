@@ -28,10 +28,10 @@ def _rep(msg: str, rep: Report) -> bool:
 
 json_model_2_must: PropMap
 json_model_3_must: PropMap
-jm_map_0: TagMap
+_jm_map_0: TagMap
 
 # define "json_model_2_must_t" ($.'$A'.t)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.t
     result = isinstance(value, bool) and value == True
     if not result:
@@ -39,7 +39,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_2_must_a" ($.'$A'.a)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$A'.a
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -47,7 +47,7 @@ def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_3_must_t" ($.'$B'.t)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.t
     result = isinstance(value, bool) and value == False
     if not result:
@@ -55,7 +55,7 @@ def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_3_must_b" ($.'$B'.b)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$B'.b
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -121,8 +121,8 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
         result = "t" in value
         if result:
             tag_0 = value["t"]
-            if tag_0 in jm_map_0:
-                result = jm_map_0[tag_0](value, path)
+            if tag_0 in _jm_map_0:
+                result = _jm_map_0[tag_0](value, path)
             else:
                 rep is None or rep.append(f"tag t value not found at {path} [$.'|'.'|']")
                 result = False
@@ -139,14 +139,14 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_2_must = {
-    "t": jm_f_0,
-    "a": jm_f_1,
+    "t": _jm_f_0,
+    "a": _jm_f_1,
 }
 json_model_3_must = {
-    "t": jm_f_2,
-    "b": jm_f_3,
+    "t": _jm_f_2,
+    "b": _jm_f_3,
 }
-jm_map_0 = {
+_jm_map_0 = {
     True: json_model_2,
     False: json_model_3,
 }

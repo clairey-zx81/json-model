@@ -29,7 +29,7 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_1_may: PropMap
 
 # define "json_model_1_may_foo" ($.foo)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.foo
     # $.foo.'|'.0
     result = json_model_2(value, path, rep)
@@ -89,7 +89,7 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_may = {
-    "foo": jm_f_0,
+    "foo": _jm_f_0,
 }
 
 

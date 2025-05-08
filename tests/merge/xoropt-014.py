@@ -27,70 +27,70 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 json_model_1_must: PropMap
-jm_obj_0_must: PropMap
-jm_obj_1_must: PropMap
-jm_obj_2_must: PropMap
-jm_obj_3_must: PropMap
-jm_map_0: TagMap
+_jm_obj_0_must: PropMap
+_jm_obj_1_must: PropMap
+_jm_obj_2_must: PropMap
+_jm_obj_3_must: PropMap
+_jm_map_0: TagMap
 
-# define "jm_obj_0_must_t" ($.movie.'|'.0.t)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_t" ($.movie.'|'.0.t)
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.0.t
     result = isinstance(value, str) and value == "fr"
     return result
 
-# define "jm_obj_0_must_titre" ($.movie.'|'.0.titre)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_titre" ($.movie.'|'.0.titre)
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.0.titre
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_1_must_t" ($.movie.'|'.1.t)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_t" ($.movie.'|'.1.t)
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.1.t
     result = isinstance(value, str) and value == "en"
     return result
 
-# define "jm_obj_1_must_title" ($.movie.'|'.1.title)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_title" ($.movie.'|'.1.title)
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.1.title
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_2_must_t" ($.movie.'|'.2.t)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_2_must_t" ($.movie.'|'.2.t)
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.2.t
     result = isinstance(value, str) and value == "de"
     return result
 
-# define "jm_obj_2_must_Title" ($.movie.'|'.2.Title)
-def jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_2_must_Title" ($.movie.'|'.2.Title)
+def _jm_f_6(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.2.Title
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_3_must_t" ($.movie.'|'.3.t)
-def jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_3_must_t" ($.movie.'|'.3.t)
+def _jm_f_7(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.3.t
     result = isinstance(value, str) and value == "ru"
     return result
 
-# define "jm_obj_3_must_suti" ($.movie.'|'.3.suti)
-def jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_3_must_suti" ($.movie.'|'.3.suti)
+def _jm_f_8(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie.'|'.3.suti
     result = isinstance(value, str)
     return result
 
 # define "json_model_1_must_movie" ($.movie)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.movie
     result = isinstance(value, dict)
     if result:
         result = "t" in value
         if result:
             tag_0 = value["t"]
-            if tag_0 in jm_map_0:
-                result = jm_map_0[tag_0](value, path)
+            if tag_0 in _jm_map_0:
+                result = _jm_map_0[tag_0](value, path)
             else:
                 result = False
     return result
@@ -98,16 +98,16 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.movie.'|'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -116,16 +116,16 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.movie.'|'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -134,16 +134,16 @@ def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.movie.'|'.2
-def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_2_must:  # must
+        if prop in _jm_obj_2_must:  # must
             must_count += 1
-            if not jm_obj_2_must[prop](val, lpath, rep):
+            if not _jm_obj_2_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -152,16 +152,16 @@ def jm_obj_2(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.movie.'|'.3
-def jm_obj_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_3_must:  # must
+        if prop in _jm_obj_3_must:  # must
             must_count += 1
-            if not jm_obj_3_must[prop](val, lpath, rep):
+            if not _jm_obj_3_must[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -195,29 +195,29 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_must = {
-    "movie": jm_f_0,
+    "movie": _jm_f_0,
 }
-jm_obj_0_must = {
-    "t": jm_f_1,
-    "titre": jm_f_2,
+_jm_obj_0_must = {
+    "t": _jm_f_1,
+    "titre": _jm_f_2,
 }
-jm_obj_1_must = {
-    "t": jm_f_3,
-    "title": jm_f_4,
+_jm_obj_1_must = {
+    "t": _jm_f_3,
+    "title": _jm_f_4,
 }
-jm_obj_2_must = {
-    "t": jm_f_5,
-    "Title": jm_f_6,
+_jm_obj_2_must = {
+    "t": _jm_f_5,
+    "Title": _jm_f_6,
 }
-jm_obj_3_must = {
-    "t": jm_f_7,
-    "suti": jm_f_8,
+_jm_obj_3_must = {
+    "t": _jm_f_7,
+    "suti": _jm_f_8,
 }
-jm_map_0 = {
-    "fr": jm_obj_0,
-    "en": jm_obj_1,
-    "de": jm_obj_2,
-    "ru": jm_obj_3,
+_jm_map_0 = {
+    "fr": _jm_obj_0,
+    "en": _jm_obj_1,
+    "de": _jm_obj_2,
+    "ru": _jm_obj_3,
 }
 
 

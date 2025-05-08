@@ -29,7 +29,7 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_2_must: PropMap
 
 # define "json_model_2_must_hello" ($.hello)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.hello
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -37,7 +37,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_2_must_world" ($.world)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.world
     result = isinstance(value, bool)
     if not result:
@@ -77,8 +77,8 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_2_must = {
-    "hello": jm_f_0,
-    "world": jm_f_1,
+    "hello": _jm_f_0,
+    "world": _jm_f_1,
 }
 
 

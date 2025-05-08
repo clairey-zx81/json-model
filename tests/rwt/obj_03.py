@@ -27,7 +27,7 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             urllib.parse.urlparse(value)
@@ -89,7 +89,7 @@ def json_model_10(value: Jsonable, path: str, rep: Report = None) -> bool:
         for array_1_idx, array_1_item in enumerate(value):
             lpath = path + '.' + str(array_1_idx)
             # $.'$foo#ls0'.0
-            result = is_valid_url(array_1_item, path, rep) or _rep(f"invalid $URL at {path}", rep)
+            result = _is_valid_url(array_1_item, path, rep) or _rep(f"invalid $URL at {path}", rep)
             if not result:
                 rep is None or rep.append(f"not an expected $URL at {lpath} [$.'$foo#ls0'.0]")
             if not result:

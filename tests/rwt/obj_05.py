@@ -29,7 +29,7 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_1_must: PropMap
 
 # define "json_model_1_must_name" ($.name)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.name
     result = isinstance(value, str)
     if not result:
@@ -37,7 +37,7 @@ def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     return result
 
 # define "json_model_1_must_age" ($.age)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.age
     result = isinstance(value, int) and not isinstance(value, bool) and value >= 0
     if not result:
@@ -77,8 +77,8 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_must = {
-    "name": jm_f_0,
-    "age": jm_f_1,
+    "name": _jm_f_0,
+    "age": _jm_f_1,
 }
 
 

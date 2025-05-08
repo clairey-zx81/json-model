@@ -28,43 +28,43 @@ def _rep(msg: str, rep: Report) -> bool:
 
 json_model_3_must: PropMap
 json_model_4_must: PropMap
-jm_obj_0_must: PropMap
-jm_obj_0_may: PropMap
-jm_obj_1_must: PropMap
-jm_obj_1_may: PropMap
+_jm_obj_0_must: PropMap
+_jm_obj_0_may: PropMap
+_jm_obj_1_must: PropMap
+_jm_obj_1_may: PropMap
 
 # define "json_model_3_must_X" ($.'$X'.X)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$X'.X
     result = isinstance(value, str)
     return result
 
 # define "json_model_4_must_Y" ($.'$Y'.Y)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$Y'.Y
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_0_must_X" ($.'$E'.'|'.0.X)
-def jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_must_X" ($.'$E'.'|'.0.X)
+def _jm_f_2(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$E'.'|'.0.X
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_0_may_Z" ($.'$E'.'|'.0.Z)
-def jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_0_may_Z" ($.'$E'.'|'.0.Z)
+def _jm_f_3(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$E'.'|'.0.Z
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_1_must_Y" ($.'$E'.'|'.1.Y)
-def jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_must_Y" ($.'$E'.'|'.1.Y)
+def _jm_f_4(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$E'.'|'.1.Y
     result = isinstance(value, str)
     return result
 
-# define "jm_obj_1_may_Z" ($.'$E'.'|'.1.Z)
-def jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
+# define "_jm_obj_1_may_Z" ($.'$E'.'|'.1.Z)
+def _jm_f_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.'$E'.'|'.1.Z
     result = isinstance(value, str)
     return result
@@ -122,19 +122,19 @@ def json_model_4(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$E'.'|'.0
-def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_0_must:  # must
+        if prop in _jm_obj_0_must:  # must
             must_count += 1
-            if not jm_obj_0_must[prop](val, lpath, rep):
+            if not _jm_obj_0_must[prop](val, lpath, rep):
                 return False
-        elif prop in jm_obj_0_may:  # may
-            if not jm_obj_0_may[prop](val, lpath, rep):
+        elif prop in _jm_obj_0_may:  # may
+            if not _jm_obj_0_may[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -143,19 +143,19 @@ def jm_obj_0(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 # object $.'$E'.'|'.1
-def jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_obj_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     if not isinstance(value, dict):
         return False
     must_count = 0
     for prop, val in value.items():
         assert isinstance(prop, str)
         lpath = path + "." + prop
-        if prop in jm_obj_1_must:  # must
+        if prop in _jm_obj_1_must:  # must
             must_count += 1
-            if not jm_obj_1_must[prop](val, lpath, rep):
+            if not _jm_obj_1_must[prop](val, lpath, rep):
                 return False
-        elif prop in jm_obj_1_may:  # may
-            if not jm_obj_1_may[prop](val, lpath, rep):
+        elif prop in _jm_obj_1_may:  # may
+            if not _jm_obj_1_may[prop](val, lpath, rep):
                 return False
         else:  # no catch all
             return False
@@ -168,10 +168,10 @@ def json_model_5(value: Jsonable, path: str, rep: Report = None) -> bool:
     result = isinstance(value, dict)
     if result:
         # $.'$E'.'|'.0
-        result = jm_obj_0(value, path, rep)
+        result = _jm_obj_0(value, path, rep)
         if not result:
             # $.'$E'.'|'.1
-            result = jm_obj_1(value, path, rep)
+            result = _jm_obj_1(value, path, rep)
     return result
 
 # define "$M" ($.'$M')
@@ -202,22 +202,22 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_3_must = {
-    "X": jm_f_0,
+    "X": _jm_f_0,
 }
 json_model_4_must = {
-    "Y": jm_f_1,
+    "Y": _jm_f_1,
 }
-jm_obj_0_must = {
-    "X": jm_f_2,
+_jm_obj_0_must = {
+    "X": _jm_f_2,
 }
-jm_obj_0_may = {
-    "Z": jm_f_3,
+_jm_obj_0_may = {
+    "Z": _jm_f_3,
 }
-jm_obj_1_must = {
-    "Y": jm_f_4,
+_jm_obj_1_must = {
+    "Y": _jm_f_4,
 }
-jm_obj_1_may = {
-    "Z": jm_f_5,
+_jm_obj_1_may = {
+    "Z": _jm_f_5,
 }
 
 

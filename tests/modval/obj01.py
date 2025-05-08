@@ -29,9 +29,9 @@ def _rep(msg: str, rep: Report) -> bool:
 json_model_1_must: PropMap
 json_model_1_may: PropMap
 # regex "/^\\d+$/"
-jm_re_0 = re.compile("^\\d+$").search
+_jm_re_0 = re.compile("^\\d+$").search
 
-def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
@@ -43,15 +43,15 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     return False
 
 # define "json_model_1_must_foo" ($.foo)
-def jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_0(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.foo
-    result = is_valid_date(value, path, rep) or _rep(f"invalid $DATE at {path}", rep)
+    result = _is_valid_date(value, path, rep) or _rep(f"invalid $DATE at {path}", rep)
     if not result:
         rep is None or rep.append(f"not an expected $DATE at {path} [$.foo]")
     return result
 
 # define "json_model_1_may_bla" ($.bla)
-def jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
+def _jm_f_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $.bla
     result = isinstance(value, bool)
     if not result:
@@ -93,7 +93,7 @@ def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
                 rep is None or rep.append(f"not a 0.0 float at {lpath} [$.'$XXX']")
             if not result:
                 return False
-        elif jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\d+$/
+        elif _jm_re_0(prop) is not None or _rep(f"prop {prop} does not match FESC at {path}", rep):  # /^\d+$/
             # $.'/^\\d+$/'
             result = isinstance(val, int) and not isinstance(val, bool) and val >= 0
             if not result:
@@ -122,10 +122,10 @@ def check_model(value: Jsonable, path: str = "$", rep: Report = None) -> bool:
 
 # object properties maps
 json_model_1_must = {
-    "foo": jm_f_0,
+    "foo": _jm_f_0,
 }
 json_model_1_may = {
-    "bla": jm_f_1,
+    "bla": _jm_f_1,
 }
 
 
