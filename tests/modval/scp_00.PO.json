@@ -1,10 +1,10 @@
 {
-  "#": "JsonModel 0",
+  "_a": "$A",
+  "#": "JsonModel 1",
   "$": {
-    "": "./scp_00.model.json",
-    "#": "Symbol 1",
+    "a": "_a",
     "A": "",
-    "a": "_a"
-  },
-  "_a": "$A"
+    "#": "Symbol 1",
+    "": "./scp_00.model.json"
+  }
 }

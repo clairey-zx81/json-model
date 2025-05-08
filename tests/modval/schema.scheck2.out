@@ -20,6 +20,16 @@ enum01.schema.json: PASS
 enum02.schema.json: PASS
 eval_00.schema.json: PASS
 eval_01.schema.json: PASS
+ex_00.schema.json: PASS
+ex_01.schema.json: PASS
+ex_02.schema.json: PASS
+ex_03.schema.json: PASS
+ex_04.schema.json: PASS
+ex_05.schema.json: PASS
+ex_06.schema.json: PASS
+ex_07.schema.json: PASS
+ex_08.schema.json: PASS
+ex_09.schema.json: PASS
 exob00.schema.json: PASS
 float_0.schema.json: PASS
 float_1.schema.json: PASS

@@ -1,0 +1,19 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "ex08": {
+      "#": "JsonModel 5 with defs",
+      "$": "Symbol 5",
+      "@": "$EX08"
+    },
+    "EX08": "$ex08#EX08",
+    "EX09": {
+      "?#": "",
+      "$URL": "$ex08#VAL",
+      "#": "JsonModel 4"
+    },
+    "#": "Symbol 1",
+    "": "./ex_09.model.json"
+  },
+  "@": "$EX09"
+}

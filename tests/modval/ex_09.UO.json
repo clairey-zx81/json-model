@@ -1,0 +1,63 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "ex08": {
+        "#": "JsonModel 5 with defs",
+        "$": "Symbol 5",
+        "@": "$EX08"
+      },
+      "EX08": "$ex08#EX08",
+      "EX09": {
+        "?#": "",
+        "$URL": "$ex08#VAL",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./ex_09.model.json"
+    },
+    "@": "$EX09"
+  },
+  "$ex08#EX08",
+  {
+    "?#": "",
+    "$URL": "$ex08#VAL",
+    "#": "JsonModel 4"
+  },
+  {
+    "#": "JsonModel 5 with defs",
+    "$": {
+      "VAL": true,
+      "KEY": "$URL",
+      "map": {
+        "$URL": "$VAL",
+        "#": "JsonModel 8"
+      },
+      "EX08": {
+        "|": [
+          "$map",
+          "$URL",
+          "$VAL"
+        ],
+        "#": "JsonModel 9"
+      },
+      "#": "Symbol 5",
+      "": "./ex_08"
+    },
+    "@": "$EX08"
+  },
+  true,
+  "$URL",
+  {
+    "$URL": "$VAL",
+    "#": "JsonModel 8"
+  },
+  {
+    "|": [
+      "$map",
+      "$URL",
+      "$VAL"
+    ],
+    "#": "JsonModel 9"
+  }
+]

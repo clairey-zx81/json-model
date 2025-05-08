@@ -15,14 +15,14 @@ from .static import static_compile
 def create_model(murl: str, resolver: Resolver,
                  auto: bool = False, debug: bool = False) -> JsonModel:
 
-    # load JSON
+    # load raw JSON
     j = resolver(murl, [])
 
     # handle automatic URL mapping
     if auto and (isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
         url = j["$"][""]
         assert isinstance(url, str), f"$ expects a string: {tname(url)}"
-        fn = re.sub(r"(\.model)?(\.js(on))?$", "", murl)  # drop suffix
+        fn = re.sub(r"(\.model)?(\.js(on)?)?$", "", murl)  # drop suffix
         log.debug(f"url={url} fn={fn}")
         file = fn if "/" in fn else ("./" + fn)
         if fn != url and file != url and "/" in url:
@@ -33,47 +33,53 @@ def create_model(murl: str, resolver: Resolver,
                 log.info(f"auto adding url map: {upref} -> {fpref}")
                 resolver._maps[upref] = fpref
 
-    # build model
-    return JsonModel(j, resolver, None, None, murl, True, debug)
+    # build a head model
+    return JsonModel(j, resolver, murl, debug=debug)
 
-def process_model(model: JsonModel, check: bool = True,
-                  merge: bool = True, optimize: bool = True, debug: bool = False):
+def process_model(model: JsonModel, *,
+                  check: bool = True, merge: bool = True,
+                  optimize: bool = True, debug: bool = False):
 
     # initial sanity check
+    assert model._is_head and model._is_root
+
+    all_model_ids = list(sorted(model._models.keys()))
+
     if debug or check:
-        for m in JsonModel.MODELS:
-            if not m.valid():
-                raise ModelError(f"invalid initial model {model._url}[{model._id}]")
+        for mid in all_model_ids:
+            if not model._models[mid].valid():
+                raise ModelError(f"invalid initial model {mid}")
 
     # simplify before merging
     if optimize:
-        for m in JsonModel.MODELS:
-            m.optimize()
+        for mid in all_model_ids:
+            model._models[mid].optimize()
 
     # check after initial optimize
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for m in JsonModel.MODELS:
-            if not m.valid():
-                raise ModelError(f"invalid optimized model {model._url}[{model._id}]")
+        for mid in all_model_ids:
+            if not model._models[mid].valid():
+                raise ModelError(f"invalid optimized model {mid}")
 
     # merge in reverse order to move alts up before inlining?!
     if merge:
-        for m in reversed(JsonModel.MODELS):
+        for mid in reversed(all_model_ids):
+            m = model._models[mid]
+            log.debug(f"merging model {mid} {m._url}")
             m.merge()
 
     # optimize again?
     if optimize:
-        for m in JsonModel.MODELS:
-            m.optimize()
+        for mid in all_model_ids:
+            model._models[mid].optimize()
 
     # check after merge & optimize
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
-        for m in JsonModel.MODELS:
-            # assert m.valid()
-            if not m.valid():
-                raise ModelError(f"invalid merged model {model._url}[{model._id}]")
+        for m in all_model_ids:
+            if not model._models[mid].valid():
+                raise ModelError(f"invalid merged model {mid}")
 
 def jmc_script():
 
@@ -93,7 +99,7 @@ def jmc_script():
     arg("--auto", "-a", action="store_true", help="automatic mapping")
     # output options
     arg("--output", "-o", default="-", help="output file")
-    arg("--sort", "-s", action="store_true", default=True, help="sorted JSON keys")
+    arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
@@ -112,10 +118,12 @@ def jmc_script():
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--dump", "-U", dest="op", action="store_const", const="U", default="U",
-        help="dump model")
+    ope("--dump", "-U", dest="op", action="store_const", const="U", default="P",
+        help="dump all models")
+    ope("--jdump", "-J", dest="op", action="store_const", const="J",
+        help="dump json IR")
     ope("--nope", "-N", dest="op", action="store_const", const="N",
-        help="dump (retrieved) json input")
+        help="dump (retrieved) seldom processed json model input")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
     ope("--static", "-S", dest="op", action="store_const", const="S",
@@ -163,7 +171,6 @@ def jmc_script():
     # CREATE FROM FILE OR URL
     try:
         model = create_model(args.model, resolver, args.auto, args.debug)
-        assert model._isolated
     except BaseException as e:
         log.error(e)
         if args.debug:
@@ -174,7 +181,8 @@ def jmc_script():
 
     # PREPROCESSING
     try:
-        process_model(model, args.check, args.op != "N", args.optimize, args.debug)
+        process_model(model, check=args.check, merge=args.op != "N",
+                      optimize=args.optimize, debug=args.debug)
     except BaseException as e:
         log.error(e, exc_info=args.debug)
         sys.exit(3)
@@ -189,15 +197,21 @@ def jmc_script():
         if args.format == "json":
             return json.dumps(j, sort_keys=args.sort, indent=args.indent)
         else:
-            return yaml.dump(j)
+            return yaml.dump(j, sort_keys=args.sort, indent=args.indent)
 
     # actual output
-    if args.op == "U":  # test output
+    if args.op == "J":  # json dump
+        verbose = True if args.verbose is None else args.verbose
+        show = model.toJSON(verbose=verbose, recurse=verbose)
+        # show = [ model._models[mid].toJSON(verbose=args.verbose)
+        #             for mid in sorted(model._models.keys()) ]
+        print(json2str(show), file=output)
+    elif args.op == "U":  # model dump
         show, symbols = [], set()
-        for m in JsonModel.MODELS:
-            j = m.toModel(m._defs._id not in symbols)
-            symbols.add(m._defs._id)
-            if isinstance(j, dict) or model._isolated:
+        for mid in sorted(model._models.keys()):
+            m = model._models[mid]
+            j = m.toModel(m._is_root)
+            if isinstance(j, dict) or model._is_root:
                 show.append(j)
         print(json2str(show), file=output)
     elif args.op == "N":  # no operation
@@ -216,8 +230,8 @@ def jmc_script():
                 print(asm, file=output)
     elif args.op == "S":
         code = static_compile(model, "check_model", debug=args.debug, report=args.verbose)
-        source_code = f"# Generated for model: {args.model}\n" + str(code)
-        if args.debug or args.code:
+        source_code = f"#! /bin/env python\n#\n# Model: {args.model}\n" + str(code)
+        if args.code:
             print(source_code, file=output)
         env = {}
         exec(source_code, env)

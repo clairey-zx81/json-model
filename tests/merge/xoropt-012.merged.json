@@ -1,12 +1,4 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "xoropt-012.model.json",
-    "#": "Symbol 1",
-    "f": "=false",
-    "n": "=null",
-    "x": "=10.0"
-  },
   "|": [
     {
       "a": "=null"
@@ -23,5 +15,13 @@
     {
       "a": "=false"
     }
-  ]
+  ],
+  "#": "JsonModel 1",
+  "$": {
+    "n": "=null",
+    "x": "=10.0",
+    "f": "=false",
+    "#": "Symbol 1",
+    "": "xoropt-012.model.json"
+  }
 }

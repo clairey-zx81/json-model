@@ -1,0 +1,23 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "x1": "_Susie",
+      "x2": "_Susie",
+      "x3": "_Susie",
+      "__external_0": "_Susie",
+      "#": "Symbol 1",
+      "": "./ex_02.model.json"
+    },
+    "@": [
+      "_Susie",
+      "_Susie",
+      "_Susie",
+      "_Susie"
+    ]
+  },
+  "_Susie",
+  "_Susie",
+  "_Susie",
+  "_Susie"
+]

@@ -1,43 +1,43 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "xoropt-015.model.json",
-    "#": "Symbol 1",
-    "E": {
-      "#": "JsonModel 4",
-      "|": [
-        {
-          "?Z": "",
-          "X": ""
-        },
-        {
-          "?Z": "",
-          "Y": ""
-        }
-      ]
-    },
-    "M": {
-      "#": "JsonModel 5",
-      "^": [
-        "$V",
-        "$E"
-      ]
-    },
     "V": {
-      "#": "JsonModel 1",
       "|": [
         -1,
         ""
-      ]
+      ],
+      "#": "JsonModel 2"
     },
     "X": {
-      "#": "JsonModel 2",
-      "_X": ""
+      "_X": "",
+      "#": "JsonModel 3"
     },
     "Y": {
-      "#": "JsonModel 3",
-      "_Y": ""
-    }
+      "_Y": "",
+      "#": "JsonModel 4"
+    },
+    "E": {
+      "|": [
+        {
+          "X": "",
+          "?Z": ""
+        },
+        {
+          "Y": "",
+          "?Z": ""
+        }
+      ],
+      "#": "JsonModel 5"
+    },
+    "M": {
+      "^": [
+        "$V",
+        "$E"
+      ],
+      "#": "JsonModel 6"
+    },
+    "#": "Symbol 1",
+    "": "xoropt-015.model.json"
   },
   "@": "$M"
 }

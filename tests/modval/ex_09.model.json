@@ -1,0 +1,11 @@
+{
+  "$": {
+    "ex08": "$./ex_08",
+    "EX08": "$ex08#EX08",
+    "EX09": {
+      "#": "merge an external reference with key and value references",
+      "+": [ "$ex08#map", { "?#": "" } ]
+    }
+  },
+  "@": "$EX09"
+}

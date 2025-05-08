@@ -1,20 +1,10 @@
 [
   {
-    "#": "JsonModel 0 with defs",
+    "#": "JsonModel 1 with defs",
     "$": {
-      "": "./obj_01.model.json",
+      "bla": "$BOOLEAN",
       "#": "Symbol 1",
-      "bla": "$BOOLEAN"
-    },
-    "@": "$BOOLEAN"
-  },
-  "$BOOLEAN",
-  {
-    "#": "JsonModel 2 with defs",
-    "$": {
-      "": "./obj_00",
-      "#": "Symbol 2",
-      "foo": "$BOOLEAN"
+      "": "./obj_01.model.json"
     },
     "@": "$BOOLEAN"
   },

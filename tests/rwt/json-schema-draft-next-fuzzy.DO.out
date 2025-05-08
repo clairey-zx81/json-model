@@ -1,29 +1,4 @@
 #
-# json model 0
-#
-              0 COPY_FREE_VARS           4
-
-              2 RESUME                   0
-              4 PUSH_NULL
-              6 LOAD_DEREF               2 (fun)
-              8 LOAD_FAST                0 (v)
-             10 LOAD_FAST                1 (p)
-             12 CALL                     2
-             20 COPY                     1
-             22 POP_JUMP_IF_TRUE        22 (to 68)
-             24 POP_TOP
-             26 LOAD_DEREF               5 (self)
-             28 LOAD_ATTR                1 (NULL|self + _no)
-             48 LOAD_DEREF               4 (mpath)
-             50 LOAD_FAST                1 (p)
-             52 LOAD_DEREF               3 (model)
-             54 FORMAT_VALUE             0
-             56 LOAD_CONST               1 (' failed')
-             58 BUILD_STRING             2
-             60 CALL                     3
-        >>   68 RETURN_VALUE
-
-#
 # json model 1
 #
               0 COPY_FREE_VARS           4
@@ -49,7 +24,7 @@
         >>   68 RETURN_VALUE
 
 #
-# json model 25
+# json model 90
 #
               0 COPY_FREE_VARS           4
 
@@ -74,7 +49,7 @@
         >>   68 RETURN_VALUE
 
 #
-# json model 33
+# json model 98
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)
@@ -105,7 +80,7 @@
         >>   90 RETURN_VALUE
 
 #
-# json model 34
+# json model 99
 #
               0 COPY_FREE_VARS           2
 
@@ -126,7 +101,7 @@
         >>   42 RETURN_VALUE
 
 #
-# json model 35
+# json model 100
 #
               0 COPY_FREE_VARS           2
 
@@ -147,7 +122,7 @@
         >>   42 RETURN_VALUE
 
 #
-# json model 36
+# json model 101
 #
               0 COPY_FREE_VARS           3
 
@@ -178,7 +153,7 @@
         >>   76 RETURN_VALUE
 
 #
-# json model 38
+# json model 103
 #
               0 COPY_FREE_VARS           2
 
@@ -199,7 +174,7 @@
         >>   42 RETURN_VALUE
 
 #
-# json model 40
+# json model 105
 #
               0 COPY_FREE_VARS           7
 
@@ -422,7 +397,7 @@
         >>  710 RETURN_CONST             6 (True)
 
 #
-# json model 41
+# json model 106
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)

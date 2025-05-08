@@ -1,10 +1,7 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "dis-004.model.json",
-    "#": "Symbol 1",
     "A": {
-      "#": "JsonModel 1",
       "|": [
         {
           "a": 0
@@ -12,17 +9,20 @@
         {
           "b": 1
         }
-      ]
+      ],
+      "#": "JsonModel 2"
     },
     "B": {
-      "#": "JsonModel 2",
       "|": [
         {
           "c": 0
         },
         "$A"
-      ]
-    }
+      ],
+      "#": "JsonModel 3"
+    },
+    "#": "Symbol 1",
+    "": "dis-004.model.json"
   },
   "@": "$B"
 }

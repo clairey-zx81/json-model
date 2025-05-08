@@ -1,0 +1,39 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "ex5": {
+      "|": [
+        "$EX05a",
+        "$EX05b"
+      ],
+      "#": "JsonModel 4",
+      "$": {
+        "EX05a": 0,
+        "EX05b": "",
+        "#": "Symbol 4",
+        "": "./ex_05"
+      }
+    },
+    "EX07": "/[a-z]/",
+    "__external_0": {
+      "|": [
+        "$EX05a",
+        "$EX05b"
+      ],
+      "#": "JsonModel 7",
+      "$": {
+        "EX05a": 0,
+        "EX05b": "",
+        "#": "Symbol 7",
+        "": "./ex_05"
+      }
+    },
+    "#": "Symbol 1",
+    "": "./ex_07.model.json"
+  },
+  "@": [
+    "$ex5#EX05a",
+    "$__external_0#EX05b",
+    "$EX07"
+  ]
+}

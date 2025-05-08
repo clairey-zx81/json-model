@@ -1,9 +1,9 @@
 [
   {
-    "#": "JsonModel 0",
     "|": [
       "_Susie",
       "/^[a-z]+$/"
-    ]
+    ],
+    "#": "JsonModel 1"
   }
 ]

@@ -5,6 +5,7 @@
 # TODO allow extending the parameterization
 #
 from .mtypes import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
+from .utils import log
 
 ROOT_KEYWORDS = {"~", "$", "%"}
 # .mo and .in are extensions
@@ -84,7 +85,9 @@ def _recModel(
                 model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             if keys:  # possibly rewrite key references
                 if prop != "" and prop[0] == "$":
+                    log.debug(f"### considering key ref {prop}")
                     nprop = _recModel(prop, lpath, flt, rwt, keys, False)
+                    log.debug(f"nprop={nprop}")
                     assert isinstance(nprop, str)
                     if nprop != prop:
                         if nprop in model:

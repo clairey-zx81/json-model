@@ -1,9 +1,104 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-01-nesting",
+    "schema": {
+      "?type": {
+        "|": [
+          "$allTypes",
+          [
+            {
+              "|": [
+                "",
+                "$Schema"
+              ]
+            }
+          ]
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?optional": true,
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?requires": {
+        "|": [
+          "",
+          "$Schema"
+        ]
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "?minimumCanEqual": true,
+      "?maximumCanEqual": true,
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1
+      },
+      "?title": "",
+      "?description": "",
+      "?format": "",
+      "?contentEncoding": "",
+      "?default": "$ANY",
+      "?maxDecimal": 0,
+      "?disallow": {
+        "|": [
+          "",
+          [
+            ""
+          ]
+        ]
+      },
+      "?extends": {
+        "|": [
+          "$Schema",
+          [
+            "$Schema"
+          ]
+        ]
+      },
+      "?id": "",
+      "?$schema": "",
+      "#": "JsonModel 6",
+      "$": {
+        "": "https://json-model.org/models/json-schema-draft-01",
+        "allTypes": {
+          "|": [
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object",
+            "any"
+          ]
+        },
+        "Schema": "$#"
+      },
+      "~": "https://json-model.org/models/json-model"
+    },
     "#": "Symbol 1",
-    "schema": "$https://json-model.org/models/json-schema-draft-01"
+    "": "https://json-model.org/models/json-schema-draft-01-nesting"
   },
   "@": "$schema",
   "~": "https://json-model.org/models/json-model"

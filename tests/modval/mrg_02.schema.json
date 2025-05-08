@@ -6,7 +6,28 @@
       "const": "cst_02"
     },
     "R": {
-      "$ref": "./mrg_01"
+      "type": "object",
+      "properties": {
+        "a": {
+          "const": "cst_01"
+        },
+        "b": {
+          "const": "cst_01"
+        },
+        "c": {
+          "const": "cst_01"
+        },
+        "d": {
+          "const": "cst_01"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "additionalProperties": false
     },
     "Z": {
       "type": "object",

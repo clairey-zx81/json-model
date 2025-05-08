@@ -1,224 +1,224 @@
 [
   {
-    "#": "JsonModel 0 with defs",
+    "#": "JsonModel 1 with defs",
     "$": {
-      "": "https://json-model.org/models/json-schema-draft-tighter",
-      "#": "Symbol 1",
-      "AllOf": {
-        "#": "JsonModel 16",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
+      "const": {
+        "|": [
+          null,
+          true,
+          -1,
+          -1.0,
+          ""
         ],
-        "?id": "",
-        "?title": "",
-        "allOf": "$schemaArray"
+        "#": "JsonModel 2"
       },
-      "AnyOf": {
-        "#": "JsonModel 17",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
+      "enum": {
+        "|": [
+          [
+            ""
+          ],
+          [
+            -1
+          ],
+          [
+            true
+          ]
         ],
-        "?id": "",
-        "?title": "",
-        "anyOf": "$schemaArray"
+        "#": "JsonModel 3"
       },
-      "Array": {
-        "#": "JsonModel 10",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
+      "schemaArray": [
+        "$Schema"
+      ],
+      "stringKeywords": {
+        "?pattern": "$REGEX",
+        "?minLength": 0,
+        "?maxLength": 0,
+        "?format": {
+          "|": [
+            "uri",
+            "uri-reference",
+            "iri",
+            "iri-reference",
+            "date",
+            "time",
+            "date-time",
+            "ipv4",
+            "ipv6",
+            "regex",
+            "uuid",
+            "hostname",
+            "email",
+            "idn-hostname",
+            "idn-email",
+            "duration",
+            "int32",
+            "int64",
+            "uint",
+            "uint32",
+            "uint64",
+            "json-pointer",
+            "relative-json-pointer",
+            "byte",
+            "double",
+            "int",
+            "mime-type"
+          ]
         },
-        "?$id": "",
-        "?$schema": "",
-        "?additionalItems": "$Schema",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
+        "#": "JsonModel 5"
+      },
+      "arrayKeywords": {
+        "?prefixItems": "$schemaArray",
         "?items": {
           "|": [
             "$Schema",
             "$schemaArray"
           ]
         },
-        "?maxItems": 0,
+        "?additionalItems": "$Schema",
         "?minItems": 0,
-        "?prefixItems": "$schemaArray",
-        "?title": "",
+        "?maxItems": 0,
         "?uniqueItems": true,
-        "type": "array"
+        "#": "JsonModel 6"
       },
-      "Bool": {
-        "#": "JsonModel 14",
-        "?$comment": "",
-        "?$defs": {
+      "objectKeywords": {
+        "?properties": {
           "": "$Schema"
         },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
+        "?required": [
+          ""
         ],
-        "?id": "",
-        "?title": "",
-        "type": "boolean"
-      },
-      "Const": {
-        "#": "JsonModel 20",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?title": "",
-        "const": "$const"
-      },
-      "Enum": {
-        "#": "JsonModel 19",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?title": "",
-        "enum": "$enum"
-      },
-      "Integer": {
-        "#": "JsonModel 12",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?maximum": -1.0,
-        "?minimum": -1.0,
-        "?title": "",
-        "type": "integer"
-      },
-      "Null": {
-        "#": "JsonModel 15",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?title": "",
-        "type": "null"
-      },
-      "Number": {
-        "#": "JsonModel 13",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?maximum": -1.0,
-        "?minimum": -1.0,
-        "?title": "",
-        "type": "number"
-      },
-      "Object": {
-        "#": "JsonModel 11",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
         "?additionalProperties": "$Schema",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
         "?patternProperties": {
           "$REGEX": "$Schema"
+        },
+        "#": "JsonModel 7"
+      },
+      "numberKeywords": {
+        "?minimum": -1.0,
+        "?maximum": -1.0,
+        "#": "JsonModel 8"
+      },
+      "metas": {
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 9"
+      },
+      "String": {
+        "type": "string",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "?pattern": "$REGEX",
+        "?minLength": 0,
+        "?maxLength": 0,
+        "?format": {
+          "|": [
+            "uri",
+            "uri-reference",
+            "iri",
+            "iri-reference",
+            "date",
+            "time",
+            "date-time",
+            "ipv4",
+            "ipv6",
+            "regex",
+            "uuid",
+            "hostname",
+            "email",
+            "idn-hostname",
+            "idn-email",
+            "duration",
+            "int32",
+            "int64",
+            "uint",
+            "uint32",
+            "uint64",
+            "json-pointer",
+            "relative-json-pointer",
+            "byte",
+            "double",
+            "int",
+            "mime-type"
+          ]
+        },
+        "#": "JsonModel 10"
+      },
+      "Array": {
+        "type": "array",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "?prefixItems": "$schemaArray",
+        "?items": {
+          "|": [
+            "$Schema",
+            "$schemaArray"
+          ]
+        },
+        "?additionalItems": "$Schema",
+        "?minItems": 0,
+        "?maxItems": 0,
+        "?uniqueItems": true,
+        "#": "JsonModel 11"
+      },
+      "Object": {
+        "type": "object",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
         },
         "?properties": {
           "": "$Schema"
@@ -226,11 +226,217 @@
         "?required": [
           ""
         ],
+        "?additionalProperties": "$Schema",
+        "?patternProperties": {
+          "$REGEX": "$Schema"
+        },
+        "#": "JsonModel 12"
+      },
+      "Integer": {
+        "type": "integer",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
         "?title": "",
-        "type": "object"
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "?minimum": -1.0,
+        "?maximum": -1.0,
+        "#": "JsonModel 13"
+      },
+      "Number": {
+        "type": "number",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "?minimum": -1.0,
+        "?maximum": -1.0,
+        "#": "JsonModel 14"
+      },
+      "Bool": {
+        "type": "boolean",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 15"
+      },
+      "Null": {
+        "type": "null",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 16"
+      },
+      "AllOf": {
+        "allOf": "$schemaArray",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 17"
+      },
+      "AnyOf": {
+        "anyOf": "$schemaArray",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 18"
+      },
+      "OneOf": {
+        "oneOf": "$schemaArray",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 19"
+      },
+      "Enum": {
+        "enum": "$enum",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 20"
+      },
+      "Const": {
+        "const": "$const",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 21"
+      },
+      "Ref": {
+        "!$ref": "$URL",
+        "?$schema": "",
+        "?$id": "",
+        "?id": "",
+        "?$comment": "",
+        "?title": "",
+        "?default": "$ANY",
+        "?examples": [
+          "$ANY"
+        ],
+        "?description": "",
+        "?$defs": {
+          "": "$Schema"
+        },
+        "?definitions": {
+          "": "$Schema"
+        },
+        "#": "JsonModel 22"
       },
       "ObjectSchema": {
-        "#": "JsonModel 22",
         "|": [
           "$Null",
           "$Bool",
@@ -246,250 +452,43 @@
           "$OneOf",
           "$Ref",
           "$metas"
-        ]
-      },
-      "OneOf": {
-        "#": "JsonModel 18",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
         ],
-        "?id": "",
-        "?title": "",
-        "oneOf": "$schemaArray"
-      },
-      "Ref": {
-        "!$ref": "$URL",
-        "#": "JsonModel 21",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
-        ],
-        "?id": "",
-        "?title": ""
-      },
-      "RootSchema": {
-        "#": "JsonModel 24",
-        "&": [
-          {
-            "": "$ANY",
-            "_$schema": ""
-          },
-          "$ObjectSchema"
-        ]
+        "#": "JsonModel 23"
       },
       "Schema": {
-        "#": "JsonModel 23",
         "|": [
           true,
           "$ObjectSchema"
-        ]
-      },
-      "String": {
-        "#": "JsonModel 9",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
         ],
-        "?format": {
-          "|": [
-            "uri",
-            "uri-reference",
-            "iri",
-            "iri-reference",
-            "date",
-            "time",
-            "date-time",
-            "ipv4",
-            "ipv6",
-            "regex",
-            "uuid",
-            "hostname",
-            "email",
-            "idn-hostname",
-            "idn-email",
-            "duration",
-            "int32",
-            "int64",
-            "uint",
-            "uint32",
-            "uint64",
-            "json-pointer",
-            "relative-json-pointer",
-            "byte",
-            "double",
-            "int",
-            "mime-type"
-          ]
-        },
-        "?id": "",
-        "?maxLength": 0,
-        "?minLength": 0,
-        "?pattern": "$REGEX",
-        "?title": "",
-        "type": "string"
+        "#": "JsonModel 24"
       },
-      "arrayKeywords": {
-        "#": "JsonModel 5",
-        "?additionalItems": "$Schema",
-        "?items": {
-          "|": [
-            "$Schema",
-            "$schemaArray"
-          ]
-        },
-        "?maxItems": 0,
-        "?minItems": 0,
-        "?prefixItems": "$schemaArray",
-        "?uniqueItems": true
-      },
-      "const": {
-        "#": "JsonModel 1",
-        "|": [
-          null,
-          true,
-          -1,
-          -1.0,
-          ""
-        ]
-      },
-      "enum": {
-        "#": "JsonModel 2",
-        "|": [
-          [
-            ""
-          ],
-          [
-            -1
-          ],
-          [
-            true
-          ]
-        ]
-      },
-      "metas": {
-        "#": "JsonModel 8",
-        "?$comment": "",
-        "?$defs": {
-          "": "$Schema"
-        },
-        "?$id": "",
-        "?$schema": "",
-        "?default": "$ANY",
-        "?definitions": {
-          "": "$Schema"
-        },
-        "?description": "",
-        "?examples": [
-          "$ANY"
+      "RootSchema": {
+        "&": [
+          {
+            "_$schema": "",
+            "": "$ANY"
+          },
+          "$ObjectSchema"
         ],
-        "?id": "",
-        "?title": ""
+        "#": "JsonModel 25"
       },
-      "numberKeywords": {
-        "#": "JsonModel 7",
-        "?maximum": -1.0,
-        "?minimum": -1.0
-      },
-      "objectKeywords": {
-        "#": "JsonModel 6",
-        "?additionalProperties": "$Schema",
-        "?patternProperties": {
-          "$REGEX": "$Schema"
-        },
-        "?properties": {
-          "": "$Schema"
-        },
-        "?required": [
-          ""
-        ]
-      },
-      "schemaArray": [
-        "$Schema"
-      ],
-      "stringKeywords": {
-        "#": "JsonModel 4",
-        "?format": {
-          "|": [
-            "uri",
-            "uri-reference",
-            "iri",
-            "iri-reference",
-            "date",
-            "time",
-            "date-time",
-            "ipv4",
-            "ipv6",
-            "regex",
-            "uuid",
-            "hostname",
-            "email",
-            "idn-hostname",
-            "idn-email",
-            "duration",
-            "int32",
-            "int64",
-            "uint",
-            "uint32",
-            "uint64",
-            "json-pointer",
-            "relative-json-pointer",
-            "byte",
-            "double",
-            "int",
-            "mime-type"
-          ]
-        },
-        "?maxLength": 0,
-        "?minLength": 0,
-        "?pattern": "$REGEX"
-      }
+      "#": "Symbol 1",
+      "": "https://json-model.org/models/json-schema-draft-tighter"
     },
     "@": "$RootSchema",
     "~": "https://json-model.org/models/json-model"
   },
   {
-    "#": "JsonModel 1",
     "|": [
       null,
       true,
       -1,
       -1.0,
       ""
-    ]
+    ],
+    "#": "JsonModel 2"
   },
   {
-    "#": "JsonModel 2",
     "|": [
       [
         ""
@@ -500,204 +499,202 @@
       [
         true
       ]
-    ]
+    ],
+    "#": "JsonModel 3"
   },
   [
     "$Schema"
   ],
   {
-    "#": "JsonModel 4",
-    "?format": {
-      "|": [
-        "uri",
-        "uri-reference",
-        "iri",
-        "iri-reference",
-        "date",
-        "time",
-        "date-time",
-        "ipv4",
-        "ipv6",
-        "regex",
-        "uuid",
-        "hostname",
-        "email",
-        "idn-hostname",
-        "idn-email",
-        "duration",
-        "int32",
-        "int64",
-        "uint",
-        "uint32",
-        "uint64",
-        "json-pointer",
-        "relative-json-pointer",
-        "byte",
-        "double",
-        "int",
-        "mime-type"
-      ]
-    },
-    "?maxLength": 0,
-    "?minLength": 0,
-    "?pattern": "$REGEX"
-  },
-  {
-    "#": "JsonModel 5",
-    "?additionalItems": "$Schema",
-    "?items": {
-      "|": [
-        "$Schema",
-        "$schemaArray"
-      ]
-    },
-    "?maxItems": 0,
-    "?minItems": 0,
-    "?prefixItems": "$schemaArray",
-    "?uniqueItems": true
-  },
-  {
-    "#": "JsonModel 6",
-    "?additionalProperties": "$Schema",
-    "?patternProperties": {
-      "$REGEX": "$Schema"
-    },
-    "?properties": {
-      "": "$Schema"
-    },
-    "?required": [
-      ""
-    ]
-  },
-  {
-    "#": "JsonModel 7",
-    "?maximum": -1.0,
-    "?minimum": -1.0
-  },
-  {
-    "#": "JsonModel 8",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
-    "?examples": [
-      "$ANY"
-    ],
-    "?id": "",
-    "?title": ""
-  },
-  {
-    "#": "JsonModel 9",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
-    "?examples": [
-      "$ANY"
-    ],
-    "?format": {
-      "|": [
-        "uri",
-        "uri-reference",
-        "iri",
-        "iri-reference",
-        "date",
-        "time",
-        "date-time",
-        "ipv4",
-        "ipv6",
-        "regex",
-        "uuid",
-        "hostname",
-        "email",
-        "idn-hostname",
-        "idn-email",
-        "duration",
-        "int32",
-        "int64",
-        "uint",
-        "uint32",
-        "uint64",
-        "json-pointer",
-        "relative-json-pointer",
-        "byte",
-        "double",
-        "int",
-        "mime-type"
-      ]
-    },
-    "?id": "",
-    "?maxLength": 0,
-    "?minLength": 0,
     "?pattern": "$REGEX",
-    "?title": "",
-    "type": "string"
+    "?minLength": 0,
+    "?maxLength": 0,
+    "?format": {
+      "|": [
+        "uri",
+        "uri-reference",
+        "iri",
+        "iri-reference",
+        "date",
+        "time",
+        "date-time",
+        "ipv4",
+        "ipv6",
+        "regex",
+        "uuid",
+        "hostname",
+        "email",
+        "idn-hostname",
+        "idn-email",
+        "duration",
+        "int32",
+        "int64",
+        "uint",
+        "uint32",
+        "uint64",
+        "json-pointer",
+        "relative-json-pointer",
+        "byte",
+        "double",
+        "int",
+        "mime-type"
+      ]
+    },
+    "#": "JsonModel 5"
   },
   {
-    "#": "JsonModel 10",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
-    "?$schema": "",
-    "?additionalItems": "$Schema",
-    "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
-    "?examples": [
-      "$ANY"
-    ],
-    "?id": "",
+    "?prefixItems": "$schemaArray",
     "?items": {
       "|": [
         "$Schema",
         "$schemaArray"
       ]
     },
-    "?maxItems": 0,
+    "?additionalItems": "$Schema",
     "?minItems": 0,
-    "?prefixItems": "$schemaArray",
-    "?title": "",
+    "?maxItems": 0,
     "?uniqueItems": true,
-    "type": "array"
+    "#": "JsonModel 6"
   },
   {
-    "#": "JsonModel 11",
-    "?$comment": "",
-    "?$defs": {
+    "?properties": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
+    "?required": [
+      ""
+    ],
     "?additionalProperties": "$Schema",
-    "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
+    "?patternProperties": {
+      "$REGEX": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 7"
+  },
+  {
+    "?minimum": -1.0,
+    "?maximum": -1.0,
+    "#": "JsonModel 8"
+  },
+  {
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
+    "#": "JsonModel 9"
+  },
+  {
+    "type": "string",
+    "?$schema": "",
+    "?$id": "",
     "?id": "",
-    "?patternProperties": {
-      "$REGEX": "$Schema"
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
+    "?examples": [
+      "$ANY"
+    ],
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
+    "?pattern": "$REGEX",
+    "?minLength": 0,
+    "?maxLength": 0,
+    "?format": {
+      "|": [
+        "uri",
+        "uri-reference",
+        "iri",
+        "iri-reference",
+        "date",
+        "time",
+        "date-time",
+        "ipv4",
+        "ipv6",
+        "regex",
+        "uuid",
+        "hostname",
+        "email",
+        "idn-hostname",
+        "idn-email",
+        "duration",
+        "int32",
+        "int64",
+        "uint",
+        "uint32",
+        "uint64",
+        "json-pointer",
+        "relative-json-pointer",
+        "byte",
+        "double",
+        "int",
+        "mime-type"
+      ]
+    },
+    "#": "JsonModel 10"
+  },
+  {
+    "type": "array",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
+    "?examples": [
+      "$ANY"
+    ],
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
+    "?prefixItems": "$schemaArray",
+    "?items": {
+      "|": [
+        "$Schema",
+        "$schemaArray"
+      ]
+    },
+    "?additionalItems": "$Schema",
+    "?minItems": 0,
+    "?maxItems": 0,
+    "?uniqueItems": true,
+    "#": "JsonModel 11"
+  },
+  {
+    "type": "object",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
+    "?examples": [
+      "$ANY"
+    ],
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
     },
     "?properties": {
       "": "$Schema"
@@ -705,215 +702,217 @@
     "?required": [
       ""
     ],
-    "?title": "",
-    "type": "object"
+    "?additionalProperties": "$Schema",
+    "?patternProperties": {
+      "$REGEX": "$Schema"
+    },
+    "#": "JsonModel 12"
   },
   {
-    "#": "JsonModel 12",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
+    "type": "integer",
     "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
     "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?maximum": -1.0,
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
     "?minimum": -1.0,
-    "?title": "",
-    "type": "integer"
-  },
-  {
-    "#": "JsonModel 13",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
-    "?examples": [
-      "$ANY"
-    ],
-    "?id": "",
     "?maximum": -1.0,
+    "#": "JsonModel 13"
+  },
+  {
+    "type": "number",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
+    "?examples": [
+      "$ANY"
+    ],
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
     "?minimum": -1.0,
-    "?title": "",
-    "type": "number"
+    "?maximum": -1.0,
+    "#": "JsonModel 14"
   },
   {
-    "#": "JsonModel 14",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
+    "type": "boolean",
     "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
     "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "type": "boolean"
-  },
-  {
-    "#": "JsonModel 15",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 15"
+  },
+  {
+    "type": "null",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "type": "null"
-  },
-  {
-    "#": "JsonModel 16",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 16"
+  },
+  {
+    "allOf": "$schemaArray",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "allOf": "$schemaArray"
-  },
-  {
-    "#": "JsonModel 17",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 17"
+  },
+  {
+    "anyOf": "$schemaArray",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "anyOf": "$schemaArray"
-  },
-  {
-    "#": "JsonModel 18",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 18"
+  },
+  {
+    "oneOf": "$schemaArray",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "oneOf": "$schemaArray"
-  },
-  {
-    "#": "JsonModel 19",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 19"
+  },
+  {
+    "enum": "$enum",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "enum": "$enum"
-  },
-  {
-    "#": "JsonModel 20",
-    "?$comment": "",
+    "?description": "",
     "?$defs": {
       "": "$Schema"
     },
-    "?$id": "",
-    "?$schema": "",
-    "?default": "$ANY",
     "?definitions": {
       "": "$Schema"
     },
-    "?description": "",
+    "#": "JsonModel 20"
+  },
+  {
+    "const": "$const",
+    "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
+    "?default": "$ANY",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": "",
-    "const": "$const"
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
+    "#": "JsonModel 21"
   },
   {
     "!$ref": "$URL",
-    "#": "JsonModel 21",
-    "?$comment": "",
-    "?$defs": {
-      "": "$Schema"
-    },
-    "?$id": "",
     "?$schema": "",
+    "?$id": "",
+    "?id": "",
+    "?$comment": "",
+    "?title": "",
     "?default": "$ANY",
-    "?definitions": {
-      "": "$Schema"
-    },
-    "?description": "",
     "?examples": [
       "$ANY"
     ],
-    "?id": "",
-    "?title": ""
+    "?description": "",
+    "?$defs": {
+      "": "$Schema"
+    },
+    "?definitions": {
+      "": "$Schema"
+    },
+    "#": "JsonModel 22"
   },
   {
-    "#": "JsonModel 22",
     "|": [
       "$Null",
       "$Bool",
@@ -929,658 +928,24 @@
       "$OneOf",
       "$Ref",
       "$metas"
-    ]
+    ],
+    "#": "JsonModel 23"
   },
   {
-    "#": "JsonModel 23",
     "|": [
       true,
       "$ObjectSchema"
-    ]
+    ],
+    "#": "JsonModel 24"
   },
   {
-    "#": "JsonModel 24",
     "&": [
       {
-        "": "$ANY",
-        "_$schema": ""
+        "_$schema": "",
+        "": "$ANY"
       },
       "$ObjectSchema"
-    ]
-  },
-  {
-    "#": "JsonModel 25 with defs",
-    "$": {
-      "": "https://json-model.org/models/json-model",
-      "#": "Symbol 3",
-      "Add": {
-        "#": "JsonModel 36",
-        "_+": [
-          "$Model"
-        ]
-      },
-      "And": {
-        "#": "JsonModel 34",
-        "_&": [
-          "$Model"
-        ]
-      },
-      "Any": "$ANY",
-      "Array": [
-        "$Model"
-      ],
-      "Common": {
-        "#": "JsonModel 30",
-        "?#": ""
-      },
-      "Constraint": {
-        "#": "JsonModel 32",
-        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-          "|": [
-            -1,
-            -1.0,
-            ""
-          ]
-        },
-        "/^(=|!=|\u2260)$/": "$Val",
-        "?!": true,
-        "_@": "$Model"
-      },
-      "Defs": {
-        "#": "JsonModel 42",
-        "/.+/": "$Model",
-        "?": "$Url"
-      },
-      "Elem": {
-        "#": "JsonModel 38",
-        "|": [
-          {
-            "!@": "$Model",
-            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-              "|": [
-                -1,
-                -1.0,
-                ""
-              ]
-            },
-            "/^(=|!=|\u2260)$/": "$Val",
-            "?!": true,
-            "?#": ""
-          },
-          {
-            "!|": [
-              "$Model"
-            ],
-            "?#": ""
-          },
-          {
-            "!&": [
-              "$Model"
-            ],
-            "?#": ""
-          },
-          {
-            "!^": [
-              "$Model"
-            ],
-            "?#": ""
-          },
-          {
-            "!+": [
-              "$Model"
-            ],
-            "?#": ""
-          },
-          {
-            "": "$Model",
-            "/^[@|&^+/*]$/": "$NONE",
-            "?#": ""
-          }
-        ]
-      },
-      "Model": {
-        "#": "JsonModel 41",
-        "|": [
-          "$Scalar",
-          "$Array",
-          "$Elem"
-        ]
-      },
-      "None": "$NONE",
-      "Obj": {
-        "": "$Model",
-        "#": "JsonModel 37",
-        "/^[@|&^+/*]$/": "$NONE"
-      },
-      "Or": {
-        "#": "JsonModel 33",
-        "_|": [
-          "$Model"
-        ]
-      },
-      "Rename": {
-        "#": "JsonModel 43",
-        "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      },
-      "Rewrite": {
-        "#": "JsonModel 44",
-        "/^\\$.*$/": "$Trafo"
-      },
-      "Root": {
-        "#": "JsonModel 46",
-        "|": [
-          {
-            "!@": "$Model",
-            "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-              "|": [
-                -1,
-                -1.0,
-                ""
-              ]
-            },
-            "/^(=|!=|\u2260)$/": "$Val",
-            "?!": true,
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          },
-          {
-            "!|": [
-              "$Model"
-            ],
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          },
-          {
-            "!&": [
-              "$Model"
-            ],
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          },
-          {
-            "!^": [
-              "$Model"
-            ],
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          },
-          {
-            "!+": [
-              "$Model"
-            ],
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          },
-          {
-            "": "$Model",
-            "/^[@|&^+/*]$/": "$NONE",
-            "?#": "",
-            "?$": {
-              "/.+/": "$Model",
-              "?": "$Url",
-              "?#": ""
-            },
-            "?%": {
-              "/^\\$.*$/": "$Trafo",
-              "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-              "?#": ""
-            },
-            "?~": "$Url"
-          }
-        ]
-      },
-      "RootModel": {
-        "#": "JsonModel 47",
-        "|": [
-          "$Scalar",
-          "$Array",
-          "$Root"
-        ]
-      },
-      "RootOnly": {
-        "#": "JsonModel 45",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      "Scalar": {
-        "#": "JsonModel 40",
-        "|": [
-          "=null",
-          "=true",
-          "=0",
-          "=1",
-          "=-1",
-          "=0.0",
-          "=1.0",
-          "=-1.0",
-          ""
-        ]
-      },
-      "Trafo": {
-        "#": "JsonModel 39",
-        "|": [
-          "$Model",
-          {
-            "!/": "$ANY",
-            "?#": "",
-            "?*": {
-              "|": [
-                [
-                  "$ANY"
-                ],
-                {
-                  "": "$Model"
-                }
-              ]
-            }
-          },
-          {
-            "!*": {
-              "|": [
-                [
-                  "$ANY"
-                ],
-                {
-                  "": "$Model"
-                }
-              ]
-            },
-            "?#": "",
-            "?/": "$ANY"
-          }
-        ]
-      },
-      "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
-      "Val": {
-        "#": "JsonModel 27",
-        "|": [
-          null,
-          true,
-          -1,
-          -1.0,
-          ""
-        ]
-      },
-      "Xor": {
-        "#": "JsonModel 35",
-        "_^": [
-          "$Model"
-        ]
-      }
-    },
-    "@": "$RootModel",
-    "~": "https://json-model.org/models/json-model"
-  },
-  "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
-  {
-    "#": "JsonModel 27",
-    "|": [
-      null,
-      true,
-      -1,
-      -1.0,
-      ""
-    ]
-  },
-  "$ANY",
-  "$NONE",
-  {
-    "#": "JsonModel 30",
-    "?#": ""
-  },
-  [
-    "$Model"
-  ],
-  {
-    "#": "JsonModel 32",
-    "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-      "|": [
-        -1,
-        -1.0,
-        ""
-      ]
-    },
-    "/^(=|!=|\u2260)$/": "$Val",
-    "?!": true,
-    "_@": "$Model"
-  },
-  {
-    "#": "JsonModel 33",
-    "_|": [
-      "$Model"
-    ]
-  },
-  {
-    "#": "JsonModel 34",
-    "_&": [
-      "$Model"
-    ]
-  },
-  {
-    "#": "JsonModel 35",
-    "_^": [
-      "$Model"
-    ]
-  },
-  {
-    "#": "JsonModel 36",
-    "_+": [
-      "$Model"
-    ]
-  },
-  {
-    "": "$Model",
-    "#": "JsonModel 37",
-    "/^[@|&^+/*]$/": "$NONE"
-  },
-  {
-    "#": "JsonModel 38",
-    "|": [
-      {
-        "!@": "$Model",
-        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-          "|": [
-            -1,
-            -1.0,
-            ""
-          ]
-        },
-        "/^(=|!=|\u2260)$/": "$Val",
-        "?!": true,
-        "?#": ""
-      },
-      {
-        "!|": [
-          "$Model"
-        ],
-        "?#": ""
-      },
-      {
-        "!&": [
-          "$Model"
-        ],
-        "?#": ""
-      },
-      {
-        "!^": [
-          "$Model"
-        ],
-        "?#": ""
-      },
-      {
-        "!+": [
-          "$Model"
-        ],
-        "?#": ""
-      },
-      {
-        "": "$Model",
-        "/^[@|&^+/*]$/": "$NONE",
-        "?#": ""
-      }
-    ]
-  },
-  {
-    "#": "JsonModel 39",
-    "|": [
-      "$Model",
-      {
-        "!/": "$ANY",
-        "?#": "",
-        "?*": {
-          "|": [
-            [
-              "$ANY"
-            ],
-            {
-              "": "$Model"
-            }
-          ]
-        }
-      },
-      {
-        "!*": {
-          "|": [
-            [
-              "$ANY"
-            ],
-            {
-              "": "$Model"
-            }
-          ]
-        },
-        "?#": "",
-        "?/": "$ANY"
-      }
-    ]
-  },
-  {
-    "#": "JsonModel 40",
-    "|": [
-      "=null",
-      "=true",
-      "=0",
-      "=1",
-      "=-1",
-      "=0.0",
-      "=1.0",
-      "=-1.0",
-      ""
-    ]
-  },
-  {
-    "#": "JsonModel 41",
-    "|": [
-      "$Scalar",
-      "$Array",
-      "$Elem"
-    ]
-  },
-  {
-    "#": "JsonModel 42",
-    "/.+/": "$Model",
-    "?": "$Url"
-  },
-  {
-    "#": "JsonModel 43",
-    "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-  },
-  {
-    "#": "JsonModel 44",
-    "/^\\$.*$/": "$Trafo"
-  },
-  {
-    "#": "JsonModel 45",
-    "?$": {
-      "/.+/": "$Model",
-      "?": "$Url",
-      "?#": ""
-    },
-    "?%": {
-      "/^\\$.*$/": "$Trafo",
-      "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-      "?#": ""
-    },
-    "?~": "$Url"
-  },
-  {
-    "#": "JsonModel 46",
-    "|": [
-      {
-        "!@": "$Model",
-        "/^(<=|>=|<|>|\u2265|\u2264)$/": {
-          "|": [
-            -1,
-            -1.0,
-            ""
-          ]
-        },
-        "/^(=|!=|\u2260)$/": "$Val",
-        "?!": true,
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      {
-        "!|": [
-          "$Model"
-        ],
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      {
-        "!&": [
-          "$Model"
-        ],
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      {
-        "!^": [
-          "$Model"
-        ],
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      {
-        "!+": [
-          "$Model"
-        ],
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      },
-      {
-        "": "$Model",
-        "/^[@|&^+/*]$/": "$NONE",
-        "?#": "",
-        "?$": {
-          "/.+/": "$Model",
-          "?": "$Url",
-          "?#": ""
-        },
-        "?%": {
-          "/^\\$.*$/": "$Trafo",
-          "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-          "?#": ""
-        },
-        "?~": "$Url"
-      }
-    ]
-  },
-  {
-    "#": "JsonModel 47",
-    "|": [
-      "$Scalar",
-      "$Array",
-      "$Root"
-    ]
+    ],
+    "#": "JsonModel 25"
   }
 ]

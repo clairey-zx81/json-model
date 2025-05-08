@@ -1,9 +1,9 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "./scope_0.model.json",
+    "S": "/[0-9]/",
     "#": "Symbol 1",
-    "S": "/[0-9]/"
+    "": "./scope_0.model.json"
   },
   "@": [
     "$S",

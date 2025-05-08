@@ -1,86 +1,4 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "https://json-model.org/models/json-schema-draft-01",
-    "#": "Symbol 1",
-    "Schema": "$#",
-    "allTypes": {
-      "#": "JsonModel 1",
-      "|": [
-        "null",
-        "boolean",
-        "integer",
-        "number",
-        "string",
-        "array",
-        "object",
-        "any"
-      ]
-    }
-  },
-  "?$schema": "",
-  "?additionalProperties": {
-    "|": [
-      true,
-      "$Schema"
-    ]
-  },
-  "?contentEncoding": "",
-  "?default": "$ANY",
-  "?description": "",
-  "?disallow": {
-    "|": [
-      "",
-      [
-        ""
-      ]
-    ]
-  },
-  "?enum": {
-    ">=": 1,
-    "@": [
-      "$ANY"
-    ]
-  },
-  "?extends": {
-    "|": [
-      "$Schema",
-      [
-        "$Schema"
-      ]
-    ]
-  },
-  "?format": "",
-  "?id": "",
-  "?items": {
-    "|": [
-      "$Schema",
-      [
-        "$Schema"
-      ]
-    ]
-  },
-  "?maxDecimal": 0,
-  "?maxItems": 0,
-  "?maxLength": 0,
-  "?maximum": -1.0,
-  "?maximumCanEqual": true,
-  "?minItems": 0,
-  "?minLength": 0,
-  "?minimum": -1.0,
-  "?minimumCanEqual": true,
-  "?optional": true,
-  "?pattern": "$REGEX",
-  "?properties": {
-    "": "$Schema"
-  },
-  "?requires": {
-    "|": [
-      "",
-      "$Schema"
-    ]
-  },
-  "?title": "",
   "?type": {
     "|": [
       "$allTypes",
@@ -93,6 +11,88 @@
         }
       ]
     ]
+  },
+  "?properties": {
+    "": "$Schema"
+  },
+  "?items": {
+    "|": [
+      "$Schema",
+      [
+        "$Schema"
+      ]
+    ]
+  },
+  "?optional": true,
+  "?additionalProperties": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
+  "?requires": {
+    "|": [
+      "",
+      "$Schema"
+    ]
+  },
+  "?minimum": -1.0,
+  "?maximum": -1.0,
+  "?minimumCanEqual": true,
+  "?maximumCanEqual": true,
+  "?minItems": 0,
+  "?maxItems": 0,
+  "?pattern": "$REGEX",
+  "?minLength": 0,
+  "?maxLength": 0,
+  "?enum": {
+    "@": [
+      "$ANY"
+    ],
+    ">=": 1
+  },
+  "?title": "",
+  "?description": "",
+  "?format": "",
+  "?contentEncoding": "",
+  "?default": "$ANY",
+  "?maxDecimal": 0,
+  "?disallow": {
+    "|": [
+      "",
+      [
+        ""
+      ]
+    ]
+  },
+  "?extends": {
+    "|": [
+      "$Schema",
+      [
+        "$Schema"
+      ]
+    ]
+  },
+  "?id": "",
+  "?$schema": "",
+  "#": "JsonModel 1",
+  "$": {
+    "allTypes": {
+      "|": [
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
+        "any"
+      ],
+      "#": "JsonModel 2"
+    },
+    "Schema": "$#",
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-01"
   },
   "~": "https://json-model.org/models/json-model"
 }

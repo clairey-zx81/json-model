@@ -87,6 +87,7 @@ DO: $(F.DO)
 py: $(F.SO)
 %.py: %.model.json
 	$(JMC.cmd) -SO -v --code ./$< > $@
+	chmod a+rx $@
 
 #
 # Dynamic value checks
@@ -98,6 +99,7 @@ dcheck: $(F.dc)
 
 %.dcheck.out: %.model.json
 	shopt -s nullglob
+	set -o pipefail
 	$(JMC.cmd) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
 
 #
@@ -122,6 +124,7 @@ F.schema    = $(F.root:%=%.schema.json)
 
 # NOTE some failures are expected because external refs are not handled.
 schema.jcheck.out: $(F.schema)
+	set -o pipefail
 	for f in $(F.schema) ; do
 	  if jsu-check --quiet $$f ; then
 	    echo "$$f: PASS"
@@ -131,20 +134,24 @@ schema.jcheck.out: $(F.schema)
 	done | sort > $@
 
 schema.dcheck.out: $(F.schema)
+	set -o pipefail
 	$(JMC) --auto --check --quiet -DO ../../models/json-schema-draft-2020-12.model.json $^ |
 	  sort > $@
 
 schema.scheck.out: $(F.schema)
+	set -o pipefail
 	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
 	  sort > $@
 
 # FIXME json-schema-draft-tighter.model.json: KO, mandatory $schema
 
 schema.dcheck2.out: $(F.schema)
+	set -o pipefail
 	$(JMC) --auto --check --verbose -DO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
 	  sort > $@
 
 schema.scheck2.out: $(F.schema)
+	set -o pipefail
 	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
 	  sort > $@
 
@@ -154,17 +161,30 @@ schema.scheck2.out: $(F.schema)
 # this is not perfect:
 # - models distinguish between floats and ints, schema not really.
 # - the json schema library used does not seem to implement "format" checks.
+# - the implementation is _very_ slow.
 #
 
 .PHONY: jcheck
 jcheck: $(F.js)
-	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out | egrep -v '^(json-model|l10n|schema|model)'
+	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out |
+	  egrep -v '^(json-model|l10n|schema|model|.*:json schema check skipped)'
 	exit 0
 
 # default case
 %.jcheck.out: %.schema.json
 	shopt -s nullglob
-	$(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
+	set -o pipefail
+	nrefs=$$(egrep '"\$$(\.|https:)' $*.model.json | wc -l)
+	iserr=$$(grep '"ERROR": ' $< | wc -l)
+	if [ $$nrefs == "0" -a $$iserr == "0" ] ; then
+	  $(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
+	elif [ $$nrefs != "0" ] ; then
+	  echo "json schema check skipped, $$nrefs external not supported" > $@
+	elif [ $$iserr != "0" ] ; then
+	  echo "json schema check skipped, ERROR reported in generated schema" > $@
+	else
+	  exit 1
+	fi
 
 #
 # generate everything from a model

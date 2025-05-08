@@ -1,9 +1,14 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-tighter-loose",
+    "tight": {
+      "#": "JsonModel 210 with defs",
+      "$": "Symbol 210",
+      "@": "$RootSchema",
+      "~": "https://json-model.org/models/json-model"
+    },
     "#": "Symbol 1",
-    "tight": "$https://json-model.org/models/json-schema-draft-tighter"
+    "": "https://json-model.org/models/json-schema-draft-tighter-loose"
   },
   "@": "$tight#RootSchema",
   "~": "https://json-model.org/models/json-model"

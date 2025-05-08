@@ -1,7 +1,7 @@
 {
-  "!": true,
-  "#": "JsonModel 0",
   "@": [
     1
-  ]
+  ],
+  "!": true,
+  "#": "JsonModel 1"
 }

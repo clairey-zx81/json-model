@@ -1,24 +1,25 @@
 [
   {
-    "#": "JsonModel 0 with defs",
+    "#": "JsonModel 1 with defs",
     "$": {
-      "": "./obj_04.model.json",
+      "bla": {
+        "#": "JsonModel 8 with defs",
+        "$": "Symbol 8",
+        "@": "$BOOLEAN"
+      },
       "#": "Symbol 1",
-      "bla": "$./obj_00.model"
-    },
-    "@": "$bla"
-  },
-  "$./obj_00.model",
-  {
-    "#": "JsonModel 2 with defs",
-    "$": {
-      "": "./obj_00.model",
-      "#": "Symbol 2",
-      "foo": "$BOOLEAN",
-      "fun": "$BOOLEAN"
+      "": "./obj_04.model.json"
     },
     "@": "$BOOLEAN"
   },
-  "$BOOLEAN",
+  {
+    "#": "JsonModel 8 with defs",
+    "$": {
+      "foo": "$BOOLEAN",
+      "#": "Symbol 8",
+      "": "./obj_00.model"
+    },
+    "@": "$BOOLEAN"
+  },
   "$BOOLEAN"
 ]

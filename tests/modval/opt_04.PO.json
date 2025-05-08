@@ -1,5 +1,5 @@
 {
-  "#": "JsonModel 0",
   "a": 1,
-  "b": 1
+  "b": 1,
+  "#": "JsonModel 1"
 }

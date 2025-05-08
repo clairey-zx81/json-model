@@ -1,25 +1,82 @@
 {
-  "#": "JsonModel 0",
+  "@": "$Schema",
+  "#": "JsonModel 1",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-07",
-    "#": "Symbol 1",
+    "URI": "$URL",
+    "URI-REFERENCE": "",
+    "schemaArray": {
+      "@": [
+        "$Schema"
+      ],
+      ">=": 1,
+      "#": "JsonModel 4"
+    },
+    "simpleTypes": {
+      "|": [
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object"
+      ],
+      "#": "JsonModel 5"
+    },
+    "arrayTypes": {
+      "@": [
+        "$simpleTypes"
+      ],
+      ">=": 1,
+      "!": true,
+      "#": "JsonModel 6"
+    },
     "ObjectSchema": {
-      "#": "JsonModel 6",
-      "?$comment": "",
       "?$id": "$URI-REFERENCE",
-      "?$ref": "$URI-REFERENCE",
       "?$schema": "$URL",
-      "?additionalItems": "$Schema",
-      "?additionalProperties": "$Schema",
-      "?allOf": "$schemaArray",
-      "?anyOf": "$schemaArray",
-      "?const": "$ANY",
-      "?contains": "$Schema",
-      "?contentEncoding": "",
-      "?contentMediaType": "",
+      "?$comment": "",
+      "?title": "",
+      "?description": "",
       "?default": "$ANY",
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": [
+        "$ANY"
+      ],
+      "?multipleOf": 1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": -1.0,
+      "?minimum": -1.0,
+      "?exclusiveMinimum": -1.0,
+      "?maxLength": 0,
+      "?minLength": 0,
+      "?pattern": "$REGEX",
+      "?additionalItems": "$Schema",
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?maxItems": 0,
+      "?minItems": 0,
+      "?uniqueItems": true,
+      "?contains": "$Schema",
+      "?maxProperties": 0,
+      "?minProperties": 0,
+      "?required": [
+        ""
+      ],
+      "?additionalProperties": "$Schema",
       "?definitions": {
         "": "$Schema"
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?propertyNames": "$Schema",
+      "?patternProperties": {
+        "$REGEX": "$Schema"
       },
       "?dependencies": {
         "": {
@@ -31,99 +88,42 @@
           ]
         }
       },
-      "?description": "",
-      "?else": "$Schema",
       "?enum": {
-        "!": true,
-        ">=": 1,
         "@": [
           "$ANY"
-        ]
+        ],
+        ">=": 1,
+        "!": true
       },
-      "?examples": [
-        "$ANY"
-      ],
-      "?exclusiveMaximum": -1.0,
-      "?exclusiveMinimum": -1.0,
-      "?format": "",
-      "?if": "$Schema",
-      "?items": {
-        "|": [
-          "$Schema",
-          "$schemaArray"
-        ]
-      },
-      "?maxItems": 0,
-      "?maxLength": 0,
-      "?maxProperties": 0,
-      "?maximum": -1.0,
-      "?minItems": 0,
-      "?minLength": 0,
-      "?minProperties": 0,
-      "?minimum": -1.0,
-      "?multipleOf": 1.0,
-      "?not": "$Schema",
-      "?oneOf": "$schemaArray",
-      "?pattern": "$REGEX",
-      "?patternProperties": {
-        "$REGEX": "$Schema"
-      },
-      "?properties": {
-        "": "$Schema"
-      },
-      "?propertyNames": "$Schema",
-      "?readOnly": true,
-      "?required": [
-        ""
-      ],
-      "?then": "$Schema",
-      "?title": "",
+      "?const": "$ANY",
       "?type": {
         "|": [
           "$simpleTypes",
           "$arrayTypes"
         ]
       },
-      "?uniqueItems": true,
-      "?writeOnly": true
+      "?format": "",
+      "?contentMediaType": "",
+      "?contentEncoding": "",
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "?not": "$Schema",
+      "?$ref": "$URI-REFERENCE",
+      "#": "JsonModel 7"
     },
     "Schema": {
-      "#": "JsonModel 7",
       "|": [
         true,
         "$ObjectSchema"
-      ]
+      ],
+      "#": "JsonModel 8"
     },
-    "URI": "$URL",
-    "URI-REFERENCE": "",
-    "arrayTypes": {
-      "!": true,
-      "#": "JsonModel 5",
-      ">=": 1,
-      "@": [
-        "$simpleTypes"
-      ]
-    },
-    "schemaArray": {
-      "#": "JsonModel 3",
-      ">=": 1,
-      "@": [
-        "$Schema"
-      ]
-    },
-    "simpleTypes": {
-      "#": "JsonModel 4",
-      "|": [
-        "null",
-        "boolean",
-        "integer",
-        "number",
-        "string",
-        "array",
-        "object"
-      ]
-    }
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-07"
   },
-  "@": "$Schema",
   "~": "https://json-model.org/models/json-model"
 }

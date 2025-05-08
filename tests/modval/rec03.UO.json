@@ -1,11 +1,5 @@
 [
   {
-    "#": "JsonModel 0",
-    "$": {
-      "": "./rec03.model.json",
-      "#": "Symbol 1",
-      "root": "$#"
-    },
     "?foo": {
       "|": [
         "$root",
@@ -13,6 +7,12 @@
           "$root"
         ]
       ]
+    },
+    "#": "JsonModel 1",
+    "$": {
+      "root": "$#",
+      "#": "Symbol 1",
+      "": "./rec03.model.json"
     }
   },
   "$#"

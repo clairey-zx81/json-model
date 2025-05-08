@@ -1,9 +1,14 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "./json-model-v2-en.model.json",
+    "Model": {
+      "#": "JsonModel 3 with defs",
+      "$": "Symbol 3",
+      "@": "$RootModel",
+      "~": "https://json-model.org/models/json-model"
+    },
     "#": "Symbol 1",
-    "Model": "$https://json-model.org/models/json-model"
+    "": "./json-model-v2-en.model.json"
   },
   "@": "$Model",
   "~": "https://json-model.org/models/json-model"

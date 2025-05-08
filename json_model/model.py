@@ -3,12 +3,13 @@ import re
 import typing
 from collections.abc import MutableMapping
 import threading
+import json
 
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
 from .utils import log, tname, is_cst, _structurally_distinct_models, merge_objects
 from .utils import WEAK_DATE_RE, CONST_RE, is_regex
-from .recurse import recModel, allFlt, builtFlt, noRwt
+from .recurse import recModel, allFlt, builtFlt, noRwt, _recModel
 from .resolver import Resolver
 
 # FIXME
@@ -19,21 +20,22 @@ type SymTable = dict[str, JsonModel]
 type Globals = dict[str, str]
 type ModelRef = list[str]  # $stuff#name#inside
 
+def json_dump(j: Jsonable):
+    return json.dumps(j, indent=2, sort_keys=False)
+
 
 class Symbols(MutableMapping[str, JsonModel]):
-    """JSON Model Symbol Table."""
+    """JSON Model Symbol Table.
 
-    # debug identification helper
-    lock = threading.RLock()
-    NSYMBOLS = 0
+    This associate models to names, which may be global or local.
+    """
 
-    def __init__(self):
+    def __init__(self, mid):
 
-        with Symbols.lock:
-            self._id = Symbols.NSYMBOLS
-            Symbols.NSYMBOLS += 1
-
+        self._id = mid
+        # symbol definitions
         self._syms: SymTable = {}
+        # local names to global names
         self._gmap: Globals = {}
 
     def toJSON(self, rec: bool = False):
@@ -41,8 +43,8 @@ class Symbols(MutableMapping[str, JsonModel]):
         if rec:
             data = {}
             data["#"] = f"Symbols {self._id}"
-            data["~"] = self._gmap
-            data.update({n: jm.toJSON(False) for n, jm in self.items()})
+            data["__gmap__"] = self._gmap
+            data.update({n: jm.toJSON(rec) for n, jm in self.items()})
         else:
             data = f"Symbols {self._id}"
         return data
@@ -78,7 +80,21 @@ class Symbols(MutableMapping[str, JsonModel]):
 
 
 class JsonModel:
-    """JSON Model v2."""
+    """Represent a JSON Model v2.
+
+    There are 3 kinds of JSON Models:
+
+    1. The head json model with all its dependent models, which is the first
+       root model, holds the global symbol table and a list of all
+       its related models from internal definitions or external references.
+    2. Root models which represent distinct loaded files,
+       and define an associated naming scope possibly shared with local defs.
+    3. Local models created for the internal definitions of a root model,
+       and share their naming scope with their parent.
+
+    When providing a master model with ~, these models are loaded independently,
+    i.e. they are considered a head model.
+    """
 
     # keyword characters
     LIST_KW = ["|", "&", "^", "+"]
@@ -139,44 +155,53 @@ class JsonModel:
         "https://json-model.org/models/json-model-v2",
     }
 
-    # TODO move to instances
-    # store models
-    lock = threading.RLock()
-    MODELS: list[JsonModel] = []
-
     def __init__(self,
                  model: ModelType,
                  resolver: Resolver,
-                 globs: Symbols|None = None,
-                 scope: Symbols|None = None,
                  url: str = "",
-                 root: bool = True,
+                 head: JsonModel|None = None,
+                 scope: Symbols|None = None,
                  debug: bool = False):
 
-        with JsonModel.lock:
-            self._id = len(JsonModel.MODELS)
-            JsonModel.MODELS.append(self)
+        # the root model cannot share a scope
+        assert head is not None or head is None and scope is None
+
+        if head is None:  # this is a (new) root model
+            # self._lock = threading.RLock()
+            self._is_head = True
+            self._head = self
+            self._id = 1
+            self._models = {1: self}
+            self._nmodels = 1
+            self._globs = Symbols(0)
+            self._is_root = True
+            self._defs = Symbols(1)
+            self._externs = []
+        else:  # set root model this model belongs to
+            # self._lock = None
+            self._is_head = False
+            self._head = head
+            self._nmodels = None
+            self._models = None
+            # with head._lock:
+            head._nmodels += 1
+            self._id = head._nmodels
+            head._models[self._id] = self
+            self._globs = head._globs
+            if scope is None:
+                self._is_root = True
+                self._defs = Symbols(self._id)
+                self._externs = []
+            else:
+                self._is_root = False
+                self._defs = scope
+                self._externs = None
 
         # unmodified parameters
         self._init_md = model
         self._resolver = resolver
-        self._isolated = globs is None
-        self._globs = Symbols() if globs is None else globs
         self._url = url
-        self._root = root
         self._debug = debug
-
-        # processing (is it useful?)
-        self._self_renamed = False
-        self._renamed = False
-        self._rewritten = False
-        self._preprocessed = False
-        # validation?
-        self._static_compiled = False
-        self._dynamic_compiled = False
-
-        # ???
-        self._cache: dict[str, JsonModel] = {}
 
         # copy parameter which may be modified
         model = copy.deepcopy(model)
@@ -186,8 +211,13 @@ class JsonModel:
         self._name: ModelRename = {}
         self._rewrite: dict[str, ModelTrafo] = {}
 
-        if isinstance(model, dict) and "%" in model:
+        if debug:
+            log.debug(f"{self._id}: model for {url} "
+                      f"{head._id if head else '-'} {scope._id if scope else '-'}")
 
+        # root models can have % $ ~ keywords
+        if isinstance(model, dict) and "%" in model:
+            assert self._is_root
             lpath = ["%"]
             model_pc = model["%"]
             del model["%"]
@@ -212,7 +242,6 @@ class JsonModel:
             # FIXME what is the scope of renamings, eg wrt references?
             model = self.rename(model, [], True)
             assert isinstance(model, dict)
-            self._self_renamed = True
 
             # extract rewrites
             # TODO check name syntax? $Path#To#Def.path.to.prop
@@ -225,19 +254,10 @@ class JsonModel:
             # save initial definition
             self._init_pc = model_pc
 
-        # definitions, possibly shared
-        assert root and scope is None or not root and scope is not None
-        self._init_dl: dict[str, ModelType] = {}
-        self._defs: Symbols
-        if root:
-            self._defs = Symbols()
-        else:
-            assert scope is not None
-            self._defs = scope
-
         if isinstance(model, dict) and "$" in model:
-            assert root  # $ only at root
+            assert self._is_root, f"{self._id}: {self._is_head}/{self._is_root} with $"
             dollar = model["$"]
+            del model["$"]
             assert isinstance(dollar, dict), "$ expects an object"
             # check that keys are str
             assert all(map(lambda k: isinstance(k, str), dollar.keys())), "$ keys must be str"
@@ -252,44 +272,163 @@ class JsonModel:
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._globs, self._defs,
-                             self._url + "#" + n, False, debug)
+                n: JsonModel(m, resolver, self._url + "#" + n, self._head, self._defs, debug)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
             # keep initial definitions
             self._init_dl = dollar
-            del model["$"]
+        else:
+            self._init_dl = None
 
         if isinstance(model, dict) and "~" in model:
+            assert self._is_root
             version = model["~"]
             del model["~"]
             # FIXME should accept a *model*, not just a URL? or not?
             if not isinstance(version, str):
                 raise ModelError(f"invalid model version type: {tname(version)}")
             log.debug(f"url={url} version={version}")
-            # FIXME prevent all recursions!
+            # FIXME prevent all recursion cycles!?
             if version != self._url:  # prevent direct recursion
-                self._spec = self.get(version, ["~"], True)
+                # FIXME ~ should be a head model
+                self._spec = self.load(version, ["~"], True)
             else:
                 self._spec = self
+            log.info(f"renaming {self._id} from ~")
+            model = self._spec.rename(model, [], True)
         else:
             # FIXME add a default?
             self._spec = None
 
-        if self._spec:
-            log.info(f"renaming {self._id} from ~")
-            model = self._spec.rename(model, [], True)
-
         self._model = model
-        self.set(self._url, self)
 
-        # NOTE references are loaded as a side effect
-        self.rewrite()
+        if self._is_root:
+            # FIXME loading before seems too early, after seems too late?
+            # the rewriting may add a new external
+            self.rewrite()
+            self.allLoads()
 
-        if globs is None:
-            self.scope(self._globs, [""], set(), {})
-            log.debug(f"globs = {self._globs}")
+        if self._is_head:
+            # NOTE externals are loaded as a side effect?!
+            # self._debug and log.debug("BEFORE SCOPING:\n" + json_dump(self.toJSON()))
+            self.scope(self._globs, [], set(), {})
+            self._debug and log.debug(f"globs = {self._globs}")
+            # self._debug and log.debug("AFTER SCOPING:\n" + json_dump(self.toJSON()))
+            # cleanup unreachable models
+            self.unload()
+
+    def load(self, url: str, path: ModelPath, is_head: bool = False) -> JsonModel:
+        """Retrieve external JSON Model for a URL."""
+        log.debug(f"{self._id}: getting {url} at {path}")
+        # get raw json, may be cached
+        j = self._resolver(url, path)
+        # build a *new* model: distinct refs to the same url are treated independently
+        # because each may be rewritten independently.
+        # If you want to share, add an explicit definition to a url and use it afterwards.
+        return JsonModel(j, self._resolver, url, None if is_head else self._head, None, self._debug)
+
+    def allLoads(self):
+        """Load externals, Switch un-named externals to local definitions."""
+        assert self._is_root
+        log.debug(f"{self._id}: allLoads on {self._url}")
+
+        # follow a simple URL model till the end of the world
+        def follow(model: str, path: ModelPath) -> JsonModel:
+            assert isinstance(model, str) and self._isUrlRef(model)
+            followed = set()
+            while self._isUrlRef(model):
+                log.debug(f"{self._id}: following {model} at {path}")
+                # NOTE the first url does not have a fragment, but subsequent urls may have
+                if "#" in model:
+                    url, frag = model[1:].split("#", 1)
+                else:
+                    url, frag = model[1:], None
+                if url in followed:
+                    raise ModelError(f"infinite recursion when loading {url} at {path}")
+                followed.add(url)
+                jm = self.load(url, path)
+                # handle sequence of fragments
+                while frag:
+                    if "#" in frag:
+                        name, frag = frag.split("#", 1)
+                    else:
+                        name, frag = frag, None
+                    jm = jm._defs[name]
+                model = jm._model
+            return jm
+
+        # substitute $<URL>#... with $__external_X#...
+        def ldRwt(model: ModelType, path: ModelPath) -> ModelType:
+            if isinstance(model, str) and self._isUrlRef(model):
+                log.debug(f"{self._id}: ldRwt at {path} with {model}")
+                if "#" in model:
+                    model, frag = model.split("#", 1)
+                else:
+                    frag = None
+                ext = follow(model, path)
+                name = f"__external_{len(self._externs)}"
+                self._defs[name] = ext
+                self._externs.append(ext)
+                log.debug(f"swith: {name} {model}")
+                return "$" + name + (("#" + frag) if frag else "")
+            return model
+
+        # log.debug(f"{self._id}: root url")
+        if self._isUrlRef(self._model):
+            # if the root schema is a string, there was no definitions nor rewrites!
+            assert len(self._defs) == 0
+            self.override(follow(self._model, []))
+
+        names = list(self._defs.keys())
+        for name in names:
+            # log.debug(f"{self._id}: {name} url")
+            model = self._defs[name]._model
+            if self._isUrlRef(model):
+                self._defs[name] = follow(model, [name])
+            # log.debug(f"{self._id}: {name} model")
+            _recModel(self._defs[name]._model, [name], allFlt, ldRwt, True, False)
+
+        # log.debug(f"{self._id}: root model")
+        _recModel(self._model, [], allFlt, ldRwt, True, True)
+        # log.debug(f"{self._id}: done")
+
+    def override(self, jm: JsonModel):
+        """Self replace model with another model, for handling $<url>."""
+        # NO _is_root, init_*
+        log.debug(f"overriding {self._id} with {jm._id}")
+        assert self._is_root and jm._is_root
+        assert self._globs._id == jm._globs._id
+        self._id = jm._id
+        self._defs = jm._defs
+        self._name = jm._name
+        self._rewrite = jm._rewrite
+        self._externs = jm._externs
+        self._model = jm._model
+
+    def unload(self):
+        """Delete unused models."""
+        assert self._is_head
+        todo, keep = {self._id}, set()
+        # transitive closure
+        while todo:
+            ntodo = set()
+            keep.update(todo)
+            for mid in sorted(todo):
+                model = self._models[mid]
+                if not model._is_root:
+                    continue
+                for _, jm in model._defs.items():
+                    if jm._id not in keep:
+                        ntodo.add(jm._id)
+            todo = ntodo
+        # cleanup
+        total = len(self._models)
+        for mid in list(self._models.keys()):
+            if mid not in keep:
+                del self._models[mid]
+        # debug summary
+        log.debug(f"unload: keeping {len(self._models)}/{total} models")
 
     #
     # Analyses
@@ -362,14 +501,15 @@ class JsonModel:
         is_valid = True
 
         def finiteRef(model: str) -> bool:
-            ref, rec, jm = model, [], self
-            while isinstance(ref, str) and self._isRef(ref) and ref not in rec:
-                jm = jm.resolveRef(ref, path + rec)
-                rec.append(ref)
+            ref, recref, recid, jm = model, [], [], self
+            while isinstance(ref, str) and self._isRef(ref) and ref not in recref:
+                jm = jm.resolveRef(ref, path + recref)
+                recref.append(ref)
+                recid.append(jm._id)
                 ref = jm._model
-            finite = not self._isRef(ref)
+            finite = not self._isRef(ref) or ref == "$#"  # Hmmm…
             if not finite:
-                log.debug(f"infinite recursion on {model}: {rec}")
+                log.debug(f"infinite recursion on {model}: {recref} ({recid})")
             return finite
 
         def validFlt(model: ModelType, path: ModelPath) -> bool:
@@ -431,34 +571,6 @@ class JsonModel:
                 case _:
                     is_valid = False
             return True
-
-        # check root-specific keywords
-        if root and isinstance(self._model, dict):
-            if "~" in self._model:
-                is_valid &= isinstance(self._model["~"], str)  # and url
-            if "$" in self._model:
-                is_valid &= isinstance(defs := self._model["$"], dict)
-                if is_valid:
-                    assert isinstance(defs, dict)  # redundant pyright hint
-                    for p, m in defs.items():
-                        is_valid &= isinstance(p, str)
-                        if p in ("", "#"):
-                            is_valid &= isinstance(m, str)
-                            # TODO "" expects an URL
-                        else:  # recursion!
-                            jm = self._defs[p]
-                            is_valid &= jm.valid(["$", p], False)
-            if "%" in self._model:
-                is_valid &= isinstance(trafo := self._model["%"], dict)
-                if is_valid:
-                    assert isinstance(trafo, dict)  # redundant pyright hint
-                    for p, t in trafo.items():
-                        is_valid &= isinstance(p, str)
-                        if p == "#":
-                            is_valid &= isinstance(t, str)
-                        else:
-                            is_valid &= isinstance(t, dict)
-                            # TODO more checks on t
 
         if is_valid and self._defs:
             for name, jm in self._defs.items():
@@ -684,28 +796,37 @@ class JsonModel:
     #
     # Display
     #
-    def toJSON(self, recurse: bool = True) -> Jsonable:
+    def toJSON(self, recurse: bool = True, verbose: bool = False) -> Jsonable:
         """Convenient JsonModel debug display."""
         data = {
+            "type": "head" if self._is_head else "root" if self._is_root else "local",
             "id": self._id,
             "url": self._url,
             "model": self._model,
-            "init": self._init_md,
-            "rename": self._name,
-            "rewrite": self._rewrite,
-            "cached": sorted(self._cache.keys()),
-            "defs": self._defs.toJSON(recurse),
         }
-        if isinstance(self._model, str) and self.isUrlRef():
-            data["external"] = self.get(self._model[1:], []).toJSON()
-        if self._isolated:
-            log.debug(f"len(globals) = {len(self._globs)}")
-            data["globals"] = {
-                name: f"Symbol {jm._id}" for name, jm in self._globs.items()
-            }
+        if verbose:
+            data["init"] = self._init_md
+        if self._is_head:
+            data["dependents"] = len(self._models)
+            if recurse:
+                data["globals"] = {
+                    name: jm._id  # f"Model {jm._id}"
+                        for name, jm in self._globs.items()
+                }
+            else:
+                data["globals"] = f"Symbols {self._globs._id}"
+            # externals?
+        if self._is_root and recurse:
+            data.update({
+                "defs": self._defs.toJSON(recurse),  # False?
+                "rename": self._name,
+                "rewrite": self._rewrite,
+            })
+        if "defs" not in data:
+            data["defs"] = f"Symbols {self._defs._id}"
         return data
 
-    # FIXME this is **not** very clean, should be a valid model?!
+    # FIXME this is **not** very clean YET, should be a valid model?!
     def toModel(self, deep: bool = False) -> Jsonable:
         """Return JSON Model (more or less) for display."""
         model = copy.deepcopy(self._model)
@@ -872,8 +993,8 @@ class JsonModel:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            self._defs[name] = JsonModel(None, self._resolver, self._globs, self._defs,
-                                         self._url + "#" + name, False, self._debug)
+            self._defs[name] = JsonModel(None, self._resolver, self._url + "#" + name,
+                                         self._head, self._defs, self._debug)
             return self._defs[name]
 
     def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
@@ -893,6 +1014,12 @@ class JsonModel:
                 log.debug(f"{self._id}: globs = {self._globs}")
             return self._globs[self._defs.gget(model)]
 
+        # NOTE after a merge, some references may be global
+        if isinstance(model, str) and self._isRef(model) and model in self._globs:
+            if self._debug:
+                log.debug("{self._id}: direct globs shortcut for {model}")
+            return self._globs[model]
+
         # actual resolution
         while jm._isRef(model):
             assert isinstance(model, str)  # pyright hint
@@ -908,7 +1035,7 @@ class JsonModel:
                     model = "$" + model
                 else:
                     url, model = model[1:], None  # will stop resolution loop
-                jm = jm.get(url, path)
+                jm = jm.load(url, path)
             else:
                 jm = jm.resolveDef(model, path, create)
                 # special case for "$#"
@@ -930,7 +1057,7 @@ class JsonModel:
     def scope(self, symbols: Symbols, root: ModelRef,
               visited: set[tuple[str, int]], references: dict[int, str]):
         """Move all local references to the root scope."""
-        log.debug(f"{self._id}: scoping {self._defs._id} at {root} ({visited} / {references})")
+        log.debug(f"{self._id}: scoping {root} ({visited} / {references})")
         log.debug(f" - symbols: {symbols}")
 
         # prevent infinite recursion
@@ -951,7 +1078,7 @@ class JsonModel:
         if self._id not in references:
             references[self._id] = root_ref
 
-        # override URLs with their target
+        # override URLs with their target?!
         if self.isUrlRef():
             jm = self.resolveRef(self._model, [])
             symbols[root_ref] = jm
@@ -962,6 +1089,7 @@ class JsonModel:
         if sid not in visited:
             visited.add(sid)
             # two phase ensure that maps are okay for resolveRef
+            # names = list(self._defs.keys())
             for name, jm in self._defs.items():
                 if jm._id not in references:
                     gref = "$" + "#".join(root + [name])
@@ -979,22 +1107,22 @@ class JsonModel:
                 jm.scope(symbols, root + [name], visited, references)
 
         # update map of local references to global references
-        def rootRwt(m: ModelType, p: ModelPath) -> ModelType:
+        def globRwt(m: ModelType, p: ModelPath) -> ModelType:
             if isinstance(m, str):
                 if self._isSimpleRef(m):
                     jm = self.resolveRef(m, p + [m])
                     if jm._id in references:
                         gref = references[jm._id]
                     else:
-                        assert False
+                        # assert False  # FIXME ?!
                         gref = root_ref + "#" + m[1:]
                         if gref not in symbols:
                             symbols[gref] = jm
                             jm.scope(symbols, root + [m[1:]], visited, references)
                         references[jm._id] = gref
-                    log.debug(f"### {self._id}: m={m} jm={jm._id} gref={gref}")
+                    # log.debug(f"{self._id}: glob rwt m={m} jm={jm._id} gref={gref}")
                     if not self._defs.ghas(m):
-                        log.debug(f"{self._id}: gmap {m} -> {gref} for {self._defs._id}")
+                        # log.debug(f"{self._id}: glob rwt gmap {m} -> {gref} for {self._defs._id}")
                         self._defs.gset(m, gref)
                     # if not jm._defs.ghas(gref):  # also accept global references?
                     #     jm._defs.gset(gref, gref)
@@ -1005,29 +1133,7 @@ class JsonModel:
                         self._defs.gset(m, m)
             return m
 
-        self._model = recModel(self._model, allFlt, rootRwt, True)
-
-    #
-    # URL Model Memoization (??)
-    #
-    def set(self, url: str, jm: JsonModel):
-        """Store JSON Model for URL in cache."""
-        log.debug(f"{self._id}: setting {url}")
-        if url in self._cache:
-            raise ModelError(f"cannot override cached model for: {url}")
-        self._cache[url] = jm
-
-    def get(self, url: str, path: ModelPath, isolated: bool = False) -> JsonModel:
-        """Retrieve JSON Model for a URL."""
-        log.debug(f"{self._id}: getting {url}")
-        if self._debug and not self._isUrlRef("$" + url):
-            log.debug(f"loading non explicit url: {url}")
-        if url not in self._cache:
-            j = self._resolver(url, path)
-            jm = JsonModel(j, self._resolver, None if isolated else self._globs,
-                           None, url, True, self._debug)
-            self.set(url, jm)
-        return self._cache[url]
+        self._model = recModel(self._model, allFlt, globRwt, True)
 
     #
     # Merging
@@ -1038,24 +1144,25 @@ class JsonModel:
     #
     def mergeInlining(self):
 
-        updated = False
+        changes = 0
 
         def miFlt(model: ModelType, path: ModelPath) -> bool:
 
             def inline(m: ModelType, p: ModelPath):
-                nonlocal updated
+                nonlocal changes
                 if isinstance(m, str):  # actual inlining
                     assert m and m[0] == "$"
                     if self._isPredef(m):
                         return m
-                    updated = True
+                    changes += 1
                     jm = self.resolveRef(m, p)
                     mo = copy.deepcopy(jm._model)
+                    log.debug(f"{self._id} inline from {jm._id}")
                     if self._defs._id != jm._defs._id:  # if not in same name space
                         # substitute local references
                         def subRefRwt(m, p):
                             return jm._defs.gget(m) if jm._isRef(m) else m
-                        return recModel(mo, allFlt, subRefRwt)
+                        return recModel(mo, allFlt, subRefRwt, True)
                     else:  # keep as is
                         return mo
                 else:
@@ -1069,20 +1176,22 @@ class JsonModel:
 
             return True
 
-        self._model = recModel(self._model, miFlt, noRwt)
+        self._model = recModel(self._model, miFlt, noRwt, True)
 
-        return updated
+        log.debug(f"{self._id}: merge inline {changes}")
+
+        return changes > 0
 
     def mergeDistribute(self):
 
-        updated = False
+        changes = 0
 
         def isAlt(m: ModelType) -> bool:
             return isinstance(m, dict) and ("|" in m or "^" in m)
 
         def mdFlt(model: ModelType, path: ModelPath) -> bool:
             # +( |(A B) C ) -> |( +(A C) +(B C) )
-            nonlocal updated
+            nonlocal changes
 
             dive = builtFlt(model, path)
 
@@ -1096,7 +1205,7 @@ class JsonModel:
                 return dive
 
             # actual distribution
-            updated = True
+            changes += 1
 
             lmodels: list[list[ModelType]] = [[]]
             for m in plus:
@@ -1122,18 +1231,20 @@ class JsonModel:
 
         self._model = recModel(self._model, mdFlt, noRwt)
 
-        return updated
+        log.debug(f"{self._id}: merge distribute {changes}")
+
+        return changes > 0
 
     def mergeObjects(self):
         """Actually compute and remove operator "+"."""
 
-        updated = False
+        changes = 0
 
         def moRwt(model: ModelType, path: ModelPath) -> ModelType:
-            nonlocal updated
+            nonlocal changes
             if not isinstance(model, dict) or "+" not in model:
                 return model
-            updated = True
+            changes += 1
             plus = model["+"]
             assert isinstance(plus, list)  # pyright hint
             merged = merge_objects(plus, path + ["+"])  # pyright: ignore
@@ -1147,7 +1258,9 @@ class JsonModel:
 
         self._model = recModel(self._model, builtFlt, moRwt)
 
-        return updated
+        log.debug(f"{self._id} merge objects {changes}")
+
+        return changes > 0
 
     def merge(self):
 
@@ -1326,4 +1439,3 @@ class JsonModel:
             # typing issue, cannot assign list[str] to list[str|int] !?
             jm, path = self._parsePath(tpath, lpath)  # type: ignore
             self._applyTrafoAtPath(jm, path, trafo, lpath)  # type: ignore
-        self._rewritten = True

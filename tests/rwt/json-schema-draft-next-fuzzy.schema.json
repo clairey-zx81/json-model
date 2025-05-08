@@ -3,7 +3,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "schema": {
-      "$ref": "https://json-model.org/models/json-schema-draft-next"
+      "description": "JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]",
+      "$ref": "#/$defs/Schema"
     }
   },
   "$ref": "#/$defs/schema"

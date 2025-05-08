@@ -3,7 +3,20 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "foo": {
-      "$ref": "./obj_02"
+      "anyOf": [
+        {
+          "$ref": "#/$defs/li0"
+        },
+        {
+          "$ref": "#/$defs/ls0"
+        },
+        {
+          "$ref": "#/$defs/lb0"
+        },
+        {
+          "$ref": "#/$defs/lf0"
+        }
+      ]
     }
   },
   "$ref": "#/$defs/foo#ls0"

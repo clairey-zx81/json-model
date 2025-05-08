@@ -1,0 +1,22 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "VAL": true,
+    "KEY": "$URL",
+    "map": {
+      "$URL": "$VAL",
+      "#": "JsonModel 4"
+    },
+    "EX08": {
+      "|": [
+        "$map",
+        "$URL",
+        "$VAL"
+      ],
+      "#": "JsonModel 5"
+    },
+    "#": "Symbol 1",
+    "": "./ex_08.model.json"
+  },
+  "@": "$EX08"
+}

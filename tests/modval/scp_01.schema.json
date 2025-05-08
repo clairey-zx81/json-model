@@ -9,7 +9,16 @@
       "type": "string"
     },
     "R": {
-      "$ref": "./scp_00"
+      "type": "object",
+      "properties": {
+        "a": {
+          "$ref": "#/$defs/A"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": false
     }
   },
   "type": "object",

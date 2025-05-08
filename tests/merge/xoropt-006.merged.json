@@ -1,10 +1,4 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "xoropt-006.model.json",
-    "#": "Symbol 1",
-    "None": "$NONE"
-  },
   "|": [
     {
       "a": 0
@@ -13,8 +7,14 @@
       "b": 0
     },
     {
-      "": 0,
-      "/^[ab]$/": "$NONE"
+      "/^[ab]$/": "$NONE",
+      "": 0
     }
-  ]
+  ],
+  "#": "JsonModel 1",
+  "$": {
+    "None": "$NONE",
+    "#": "Symbol 1",
+    "": "xoropt-006.model.json"
+  }
 }

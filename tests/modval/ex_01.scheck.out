@@ -1,0 +1,4 @@
+ex_01.0.true.json: PASS
+ex_01.1.false.json: FAIL ['not an expected _Susie at $.a [$.a]', 'invalid must prop value at $.a [$.a]']
+ex_01.2.false.json: FAIL ['missing must prop at $ [$]']
+ex_01.3.false.json: FAIL ['not an object at $ [$]']

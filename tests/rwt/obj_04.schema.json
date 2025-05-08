@@ -3,8 +3,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "bla": {
-      "$ref": "./obj_00.model"
+      "type": "boolean"
     }
   },
-  "$ref": "#/$defs/bla"
+  "type": "boolean"
 }

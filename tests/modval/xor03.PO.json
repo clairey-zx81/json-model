@@ -1,7 +1,7 @@
 {
-  "#": "JsonModel 0",
   "^": [
     "$ANY",
     0
-  ]
+  ],
+  "#": "JsonModel 1"
 }

@@ -1,5 +1,5 @@
 #
-# json model 0
+# json model 1
 #
               0 COPY_FREE_VARS           7
 
@@ -222,7 +222,7 @@
         >>  710 RETURN_CONST             6 (True)
 
 #
-# json model 1
+# json model 2
 #
               0 COPY_FREE_VARS           3
               2 MAKE_CELL                0 (v)
@@ -253,7 +253,7 @@
         >>   90 RETURN_VALUE
 
 #
-# json model 2
+# json model 3
 #
               0 COPY_FREE_VARS           4
 

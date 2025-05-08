@@ -1,0 +1,6 @@
+ex_09.0.true.json: PASS
+ex_09.1.true.json: PASS
+ex_09.2.true.json: PASS
+ex_09.4.true.json: PASS
+ex_09.5.false.json: FAIL ["not an object at $ [$.'$EX09']", 'not an expected $EX09 at $ [$]']
+ex_09.6.false.json: FAIL ["not an object at $ [$.'$EX09']", 'not an expected $EX09 at $ [$]']

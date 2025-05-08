@@ -1,28 +1,28 @@
 [
   {
-    "#": "JsonModel 0 with defs",
+    "#": "JsonModel 1 with defs",
     "$": {
-      "": "./dollar00.model.json",
-      "#": "Symbol 1",
       "rec": {
-        "#": "JsonModel 1",
         "|": [
           true,
           {
             "": "$rec"
           }
-        ]
-      }
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./dollar00.model.json"
     },
     "@": "$rec"
   },
   {
-    "#": "JsonModel 1",
     "|": [
       true,
       {
         "": "$rec"
       }
-    ]
+    ],
+    "#": "JsonModel 2"
   }
 ]

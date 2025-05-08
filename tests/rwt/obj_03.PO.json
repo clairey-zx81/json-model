@@ -1,9 +1,33 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "./obj_03.model.json",
+    "foo": {
+      "|": [
+        "$li0",
+        "$ls0",
+        "$lb0",
+        "$lf0"
+      ],
+      "#": "JsonModel 8",
+      "$": {
+        "#": "",
+        "": "https://json-model.org/tests/obj_02",
+        "li0": [
+          1
+        ],
+        "ls0": [
+          ""
+        ],
+        "lb0": [
+          true
+        ],
+        "lf0": [
+          1.0
+        ]
+      }
+    },
     "#": "Symbol 1",
-    "foo": "$./obj_02"
+    "": "./obj_03.model.json"
   },
   "@": "$foo#ls0"
 }

@@ -1,0 +1,5 @@
+ex_02.0.true.json: PASS
+ex_02.1.false.json: FAIL ['not an expected _Susie at $.1 [$.1]', 'not array or unexpected array at $ [$]']
+ex_02.2.false.json: FAIL ['not array or bad array length at $ [$]', 'not array or unexpected array at $ [$]']
+ex_02.3.false.json: FAIL ['not array or bad array length at $ [$]', 'not array or unexpected array at $ [$]']
+ex_02.4.false.json: FAIL ['not array or bad array length at $ [$]', 'not array or unexpected array at $ [$]']

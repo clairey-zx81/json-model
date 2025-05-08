@@ -1,22 +1,22 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "xorxor-000.model.json",
-    "#": "Symbol 1",
-    "X": {
-      "#": "JsonModel 1",
-      "|": [
-        null,
-        true,
-        1,
-        1.0
-      ]
-    }
-  },
   "^": [
     "$X",
     [
       "$X"
     ]
-  ]
+  ],
+  "#": "JsonModel 1",
+  "$": {
+    "X": {
+      "|": [
+        null,
+        true,
+        1,
+        1.0
+      ],
+      "#": "JsonModel 2"
+    },
+    "#": "Symbol 1",
+    "": "xorxor-000.model.json"
+  }
 }

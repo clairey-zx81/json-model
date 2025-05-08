@@ -3,7 +3,160 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "schema": {
-      "$ref": "https://json-model.org/models/json-schema-draft-02"
+      "description": "JSON Model for JSON Schema Draft 02 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]",
+      "type": "object",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/allTypes"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/Schema"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Schema"
+          }
+        },
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Schema"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          ]
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/Schema"
+            }
+          ]
+        },
+        "requires": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/Schema"
+            }
+          ]
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "minimumCanEqual": {
+          "type": "boolean"
+        },
+        "maximumCanEqual": {
+          "type": "boolean"
+        },
+        "minItems": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxItems": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pattern": {
+          "type": "string",
+          "format": "regex"
+        },
+        "minLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "enum": {
+          "type": "array",
+          "items": true,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "uniqueItems": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "contentEncoding": {
+          "type": "string"
+        },
+        "default": true,
+        "divisibleBy": {
+          "type": "number",
+          "exclusiveMinimum": 0.0
+        },
+        "disallow": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/distinctStringArray"
+            }
+          ]
+        },
+        "extends": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Schema"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Schema"
+              }
+            }
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "$ref": "#/$defs/schema"

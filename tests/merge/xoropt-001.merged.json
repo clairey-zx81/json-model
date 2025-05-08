@@ -1,13 +1,19 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "xoropt-001.model.json",
-    "#": "Symbol 1",
+    "N": null,
+    "B": true,
+    "I": -1,
+    "F": -1.0,
+    "S": "",
     "A": [
       "$Any"
     ],
+    "O": {
+      "": "$Any",
+      "#": "JsonModel 8"
+    },
     "Any": {
-      "#": "JsonModel 8",
       "|": [
         null,
         "$B",
@@ -16,17 +22,11 @@
         "$S",
         "$A",
         "$O"
-      ]
+      ],
+      "#": "JsonModel 9"
     },
-    "B": true,
-    "F": -1.0,
-    "I": -1,
-    "N": null,
-    "O": {
-      "": "$Any",
-      "#": "JsonModel 7"
-    },
-    "S": ""
+    "#": "Symbol 1",
+    "": "xoropt-001.model.json"
   },
   "@": "$Any"
 }

@@ -111,6 +111,7 @@ _UTYPE = {
     "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
     "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,
+    "$URL": str, "$REGEX": str, "$DATE": str, "$UUID": str,
 }
 
 # model predef to standard model

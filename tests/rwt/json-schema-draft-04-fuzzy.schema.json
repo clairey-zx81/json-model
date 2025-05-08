@@ -3,7 +3,170 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "schema": {
-      "$ref": "https://json-model.org/models/json-schema-draft-04"
+      "description": "JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "default": true,
+        "multipleOf": {
+          "type": "number",
+          "exclusiveMinimum": 0.0
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "exclusiveMaximum": {
+          "type": "boolean"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "exclusiveMinimum": {
+          "type": "boolean"
+        },
+        "maxLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pattern": {
+          "type": "string",
+          "format": "regex"
+        },
+        "additionalItems": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/Schema"
+            }
+          ]
+        },
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Schema"
+            },
+            {
+              "$ref": "#/$defs/schemaArray"
+            }
+          ]
+        },
+        "maxItems": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minItems": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "uniqueItems": {
+          "type": "boolean"
+        },
+        "maxProperties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "minProperties": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "required": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/Schema"
+            }
+          ]
+        },
+        "definitions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Schema"
+          }
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Schema"
+          }
+        },
+        "patternProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Schema"
+          }
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Schema"
+              },
+              {
+                "$ref": "#/$defs/stringArray"
+              }
+            ]
+          }
+        },
+        "enum": {
+          "type": "array",
+          "items": true,
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/simpleTypes"
+            },
+            {
+              "$ref": "#/$defs/typeArray"
+            }
+          ]
+        },
+        "format": {
+          "type": "string"
+        },
+        "allOf": {
+          "$ref": "#/$defs/schemaArray"
+        },
+        "anyOf": {
+          "$ref": "#/$defs/schemaArray"
+        },
+        "oneOf": {
+          "$ref": "#/$defs/schemaArray"
+        },
+        "not": {
+          "$ref": "#/$defs/Schema"
+        },
+        "$ref": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "$ref": "#/$defs/schema"

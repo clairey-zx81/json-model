@@ -1,10 +1,10 @@
 [
   {
-    "#": "JsonModel 0",
     "|": [
       "Hobbes",
       "Susie",
       "Calvin"
-    ]
+    ],
+    "#": "JsonModel 1"
   }
 ]

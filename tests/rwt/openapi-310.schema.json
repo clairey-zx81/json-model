@@ -942,28 +942,29 @@
       "additionalProperties": false
     },
     "schema": {
-      "$ref": "https://json-model.org/models/json-schema-draft-2020-12"
+      "description": "JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]",
+      "$ref": "#/$defs/Schema"
     },
     "Schema": {
       "type": "object",
       "properties": {
         "$id": {
-          "$ref": "#/$defs/#schema#URI-REFERENCE"
+          "$ref": "#/$defs/schema#URI-REFERENCE"
         },
         "$schema": {
           "const": "https://json-schema.org/draft/2020-12/schema"
         },
         "$ref": {
-          "$ref": "#/$defs/#schema#URI-REFERENCE"
+          "$ref": "#/$defs/schema#URI-REFERENCE"
         },
         "$anchor": {
-          "$ref": "#/$defs/#schema#URI-REFERENCE"
+          "$ref": "#/$defs/schema#URI-REFERENCE"
         },
         "$dynamicRef": {
-          "$ref": "#/$defs/#schema#URI-REFERENCE"
+          "$ref": "#/$defs/schema#URI-REFERENCE"
         },
         "$dynamicAnchor": {
-          "$ref": "#/$defs/#schema#URI-REFERENCE"
+          "$ref": "#/$defs/schema#URI-REFERENCE"
         },
         "$vocabulary": {
           "type": "object",
@@ -980,76 +981,76 @@
         "$defs": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/#schema#Schema"
+            "$ref": "#/$defs/schema#Schema"
           }
         },
         "prefixItems": {
-          "$ref": "#/$defs/#schema#schemaArray"
+          "$ref": "#/$defs/schema#schemaArray"
         },
         "items": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "contains": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "additionalProperties": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "properties": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/#schema#Schema"
+            "$ref": "#/$defs/schema#Schema"
           }
         },
         "patternProperties": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/#schema#Schema"
+            "$ref": "#/$defs/schema#Schema"
           }
         },
         "dependentSchemas": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/#schema#Schema"
+            "$ref": "#/$defs/schema#Schema"
           }
         },
         "propertyNames": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "if": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "then": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "else": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "not": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "allOf": {
-          "$ref": "#/$defs/#schema#schemaArray"
+          "$ref": "#/$defs/schema#schemaArray"
         },
         "anyOf": {
-          "$ref": "#/$defs/#schema#schemaArray"
+          "$ref": "#/$defs/schema#schemaArray"
         },
         "oneOf": {
-          "$ref": "#/$defs/#schema#schemaArray"
+          "$ref": "#/$defs/schema#schemaArray"
         },
         "unevaluatedItems": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "unevaluatedProperties": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/#schema#simpleTypes"
+              "$ref": "#/$defs/schema#simpleTypes"
             },
             {
-              "$ref": "#/$defs/#schema#simpleTypesArray"
+              "$ref": "#/$defs/schema#simpleTypesArray"
             }
           ]
         },
@@ -1075,43 +1076,43 @@
           "type": "number"
         },
         "maxLength": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "minLength": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "pattern": {
           "type": "string",
           "format": "regex"
         },
         "maxItems": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "minItems": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "uniqueItems": {
           "type": "boolean"
         },
         "maxContains": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "minContains": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "maxProperties": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "minProperties": {
-          "$ref": "#/$defs/#schema#nonNegativeInteger"
+          "$ref": "#/$defs/schema#nonNegativeInteger"
         },
         "required": {
-          "$ref": "#/$defs/#schema#stringArray"
+          "$ref": "#/$defs/schema#stringArray"
         },
         "dependentRequired": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/$defs/#schema#stringArray"
+            "$ref": "#/$defs/schema#stringArray"
           }
         },
         "title": {
@@ -1144,7 +1145,7 @@
           "type": "string"
         },
         "contentSchema": {
-          "$ref": "#/$defs/#schema#Schema"
+          "$ref": "#/$defs/schema#Schema"
         },
         "discriminator": {
           "$ref": "#/$defs/Discriminator"

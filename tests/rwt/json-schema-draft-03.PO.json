@@ -1,27 +1,8 @@
 {
-  "#": "JsonModel 0",
-  "$": {
-    "": "https://json-model.org/models/json-schema-draft-03",
-    "#": "Symbol 1",
-    "Schema": "$#",
-    "URI": "$URL",
-    "allTypes": {
-      "#": "JsonModel 2",
-      "|": [
-        "null",
-        "boolean",
-        "integer",
-        "number",
-        "string",
-        "array",
-        "object",
-        "any"
-      ]
-    },
-    "distinctSchemaArray": {
-      "!": true,
-      "#": "JsonModel 3",
-      "@": [
+  "?type": {
+    "|": [
+      "$allTypes",
+      [
         {
           "|": [
             "",
@@ -29,15 +10,13 @@
           ]
         }
       ]
-    }
-  },
-  "?$ref": "$URL",
-  "?$schema": "",
-  "?additionalItems": {
-    "|": [
-      true,
-      "$Schema"
     ]
+  },
+  "?properties": {
+    "": "$Schema"
+  },
+  "?patternProperties": {
+    "": "$Schema"
   },
   "?additionalProperties": {
     "|": [
@@ -45,7 +24,20 @@
       "$Schema"
     ]
   },
-  "?default": "$ANY",
+  "?items": {
+    "|": [
+      "$Schema",
+      [
+        "$Schema"
+      ]
+    ]
+  },
+  "?additionalItems": {
+    "|": [
+      true,
+      "$Schema"
+    ]
+  },
   "?dependencies": {
     "": {
       "|": [
@@ -57,31 +49,26 @@
       ]
     }
   },
-  "?description": "",
-  "?disallow": {
-    "|": [
-      "",
-      "$distinctSchemaArray"
-    ]
-  },
-  "?divisibleBy": 1.0,
-  "?enum": {
-    "!": true,
-    ">=": 1,
-    "@": [
-      "$ANY"
-    ]
-  },
+  "?required": true,
+  "?minimum": -1.0,
+  "?maximum": -1.0,
   "?exclusiveMaximum": true,
   "?exclusiveMinimum": true,
-  "?extends": {
-    "|": [
-      "$Schema",
-      [
-        "$Schema"
-      ]
-    ]
+  "?minItems": 0,
+  "?maxItems": 0,
+  "?pattern": "$REGEX",
+  "?minLength": 0,
+  "?maxLength": 0,
+  "?enum": {
+    "@": [
+      "$ANY"
+    ],
+    ">=": 1,
+    "!": true
   },
+  "?uniqueItems": true,
+  "?title": "",
+  "?description": "",
   "?format": {
     "|": [
       "date-time",
@@ -99,8 +86,15 @@
       "host-name"
     ]
   },
-  "?id": "",
-  "?items": {
+  "?default": "$ANY",
+  "?divisibleBy": 1.0,
+  "?disallow": {
+    "|": [
+      "",
+      "$distinctSchemaArray"
+    ]
+  },
+  "?extends": {
     "|": [
       "$Schema",
       [
@@ -108,34 +102,40 @@
       ]
     ]
   },
-  "?maxItems": 0,
-  "?maxLength": 0,
-  "?maximum": -1.0,
-  "?minItems": 0,
-  "?minLength": 0,
-  "?minimum": -1.0,
-  "?pattern": "$REGEX",
-  "?patternProperties": {
-    "": "$Schema"
-  },
-  "?properties": {
-    "": "$Schema"
-  },
-  "?required": true,
-  "?title": "",
-  "?type": {
-    "|": [
-      "$allTypes",
-      [
+  "?id": "",
+  "?$schema": "",
+  "?$ref": "$URL",
+  "#": "JsonModel 1",
+  "$": {
+    "URI": "$URL",
+    "allTypes": {
+      "|": [
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
+        "any"
+      ],
+      "#": "JsonModel 3"
+    },
+    "distinctSchemaArray": {
+      "@": [
         {
           "|": [
             "",
             "$Schema"
           ]
         }
-      ]
-    ]
+      ],
+      "!": true,
+      "#": "JsonModel 4"
+    },
+    "Schema": "$#",
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-03"
   },
-  "?uniqueItems": true,
   "~": "https://json-model.org/models/json-model"
 }

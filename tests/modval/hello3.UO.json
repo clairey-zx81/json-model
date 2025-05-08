@@ -1,8 +1,7 @@
 [
-  "$https://github.com/clairey-zx81/json-model/raw/refs/heads/main/tests/modval/hello.model.yaml",
   {
-    "#": "JsonModel 1",
     "hello": 0,
-    "world": true
+    "world": true,
+    "#": "JsonModel 2"
   }
 ]

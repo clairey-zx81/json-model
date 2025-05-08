@@ -19,7 +19,7 @@ gen: $(F.gen)
 .PHONY: schema
 schema: $(F.schema)
 %.schema.json: %.model.json
-	jmc -EO -ns $< > $@
+	jmc -EO $< > $@
 
 .PHONY: check.schema
 check.schema: $(F.sXc)

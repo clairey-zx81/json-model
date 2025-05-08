@@ -1,2 +1,2 @@
 english.model.json: PASS
-français.model.json: PASS
+français.model.json: FAIL

@@ -1,62 +1,80 @@
 [
   {
-    "#": "JsonModel 0",
+    "a": "_cst_01",
+    "b": "_cst_01",
+    "e": "_cst_02",
+    "f": "_cst_02",
+    "c": "_cst_01",
+    "d": "_cst_01",
+    "#": "JsonModel 1",
     "$": {
-      "": "./mrg_02.model.json",
-      "#": "Symbol 1",
-      "R": "$./mrg_01",
       "T": "_cst_02",
+      "R": {
+        "a": "_cst_01",
+        "b": "_cst_01",
+        "c": "_cst_01",
+        "d": "_cst_01",
+        "#": "JsonModel 5",
+        "$": {
+          "T": "_cst_01",
+          "X": {
+            "a": "$T",
+            "b": "$T"
+          },
+          "Y": {
+            "c": "$T",
+            "d": "$T"
+          },
+          "#": "Symbol 5",
+          "": "./mrg_01"
+        }
+      },
       "Z": {
-        "#": "JsonModel 3",
         "e": "_cst_02",
-        "f": "_cst_02"
-      }
-    },
+        "f": "_cst_02",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./mrg_02.model.json"
+    }
+  },
+  "_cst_02",
+  {
+    "e": "_cst_02",
+    "f": "_cst_02",
+    "#": "JsonModel 4"
+  },
+  {
     "a": "_cst_01",
     "b": "_cst_01",
     "c": "_cst_01",
     "d": "_cst_01",
-    "e": "_cst_02",
-    "f": "_cst_02"
-  },
-  "_cst_02",
-  "$./mrg_01",
-  {
-    "#": "JsonModel 3",
-    "e": "_cst_02",
-    "f": "_cst_02"
-  },
-  {
-    "#": "JsonModel 4",
+    "#": "JsonModel 5",
     "$": {
-      "": "./mrg_01",
-      "#": "Symbol 2",
       "T": "_cst_01",
       "X": {
-        "#": "JsonModel 6",
         "a": "_cst_01",
-        "b": "_cst_01"
+        "b": "_cst_01",
+        "#": "JsonModel 7"
       },
       "Y": {
-        "#": "JsonModel 7",
         "c": "_cst_01",
-        "d": "_cst_01"
-      }
-    },
-    "a": "_cst_01",
-    "b": "_cst_01",
-    "c": "_cst_01",
-    "d": "_cst_01"
+        "d": "_cst_01",
+        "#": "JsonModel 8"
+      },
+      "#": "Symbol 5",
+      "": "./mrg_01"
+    }
   },
   "_cst_01",
   {
-    "#": "JsonModel 6",
     "a": "_cst_01",
-    "b": "_cst_01"
+    "b": "_cst_01",
+    "#": "JsonModel 7"
   },
   {
-    "#": "JsonModel 7",
     "c": "_cst_01",
-    "d": "_cst_01"
+    "d": "_cst_01",
+    "#": "JsonModel 8"
   }
 ]

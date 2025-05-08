@@ -1,0 +1,5 @@
+ex_05.0.true.json: PASS
+ex_05.1.true.json: PASS
+ex_05.2.false.json: FAIL [('.EX05a', '$', 'expecting an integer'), ('.|[0]', '$', '$EX05a failed'), ('.EX05b', '$', 'expecting a string'), ('.|[1]', '$', '$EX05b failed'), ('.|', '$', 'no any matched')]
+ex_05.3.false.json: FAIL [('.EX05a', '$', 'expecting an integer'), ('.|[0]', '$', '$EX05a failed'), ('.EX05b', '$', 'expecting a string'), ('.|[1]', '$', '$EX05b failed'), ('.|', '$', 'no any matched')]
+ex_05.4.false.json: FAIL [('.EX05a', '$', 'expecting an integer'), ('.|[0]', '$', '$EX05a failed'), ('.EX05b', '$', 'expecting a string'), ('.|[1]', '$', '$EX05b failed'), ('.|', '$', 'no any matched')]

@@ -1,6 +1,6 @@
 {
-  "#": "JsonModel 0",
   "?all": "/.*/",
   "?nz": "/./s",
-  "?some": "/./"
+  "?some": "/./",
+  "#": "JsonModel 1"
 }

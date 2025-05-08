@@ -1,348 +1,592 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-tight",
-    "#": "Symbol 1",
-    "AllOf": {
-      "#": "JsonModel 17",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
+    "URI": "",
+    "const": {
+      "|": [
+        null,
+        true,
+        -1,
+        -1.0,
+        ""
       ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "allOf": "$schemaArray"
+      "#": "JsonModel 3"
     },
-    "AnyOf": {
-      "#": "JsonModel 18",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
+    "enum": {
+      "|": [
+        [
+          ""
+        ],
+        [
+          -1
+        ],
+        [
+          true
+        ]
       ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "anyOf": "$schemaArray"
+      "#": "JsonModel 4"
     },
-    "Array": {
-      "#": "JsonModel 11",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
+    "schemaArray": [
+      "$Schema"
+    ],
+    "stringKeywords": {
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?format": {
+        "|": [
+          "uri",
+          "uri-reference",
+          "iri",
+          "iri-reference",
+          "date",
+          "time",
+          "date-time",
+          "ipv4",
+          "ipv6",
+          "regex",
+          "uuid",
+          "hostname",
+          "email",
+          "idn-hostname",
+          "idn-email",
+          "duration",
+          "int32",
+          "int64",
+          "uint",
+          "uint32",
+          "uint64",
+          "json-pointer",
+          "relative-json-pointer",
+          "byte",
+          "double",
+          "int",
+          "mime-type"
+        ]
       },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?additionalItems": "$Schema",
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
+      "#": "JsonModel 6"
+    },
+    "arrayKeywords": {
+      "?prefixItems": "$schemaArray",
       "?items": {
         "|": [
           "$Schema",
           "$schemaArray"
         ]
       },
-      "?maxItems": 0,
-      "?minItems": 0,
-      "?prefixItems": "$schemaArray",
-      "?readOnly": true,
-      "?title": "",
+      "?additionalItems": "$Schema",
       "?unevaluatedItems": "$Schema",
+      "?minItems": 0,
+      "?maxItems": 0,
       "?uniqueItems": true,
-      "?writeOnly": true,
-      "type": "array"
+      "#": "JsonModel 7"
     },
-    "Bool": {
-      "#": "JsonModel 15",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
+    "objectKeywords": {
+      "?properties": {
         "": "$Schema"
       },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
+      "?required": [
+        ""
       ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "type": "boolean"
-    },
-    "Const": {
-      "#": "JsonModel 21",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "const": "$const"
-    },
-    "DynRef": {
-      "!$dynamicRef": "$URI",
-      "#": "JsonModel 23",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true
-    },
-    "Enum": {
-      "#": "JsonModel 20",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "enum": "$enum"
-    },
-    "Integer": {
-      "#": "JsonModel 13",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?maximum": -1.0,
-      "?minimum": -1.0,
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "type": "integer"
-    },
-    "Null": {
-      "#": "JsonModel 16",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "type": "null"
-    },
-    "Number": {
-      "#": "JsonModel 14",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?maximum": -1.0,
-      "?minimum": -1.0,
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "type": "number"
-    },
-    "Object": {
-      "#": "JsonModel 12",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
       "?additionalProperties": "$Schema",
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?maxProperties": 0,
+      "?unevaluatedProperties": "$Schema",
       "?minProperties": 0,
+      "?maxProperties": 0,
       "?patternProperties": {
         "$REGEX": "$Schema"
+      },
+      "?propertyNames": "$ObjectSchema",
+      "#": "JsonModel 8"
+    },
+    "numberKeywords": {
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "#": "JsonModel 9"
+    },
+    "metas": {
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 10"
+    },
+    "String": {
+      "type": "string",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?pattern": "$REGEX",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?format": {
+        "|": [
+          "uri",
+          "uri-reference",
+          "iri",
+          "iri-reference",
+          "date",
+          "time",
+          "date-time",
+          "ipv4",
+          "ipv6",
+          "regex",
+          "uuid",
+          "hostname",
+          "email",
+          "idn-hostname",
+          "idn-email",
+          "duration",
+          "int32",
+          "int64",
+          "uint",
+          "uint32",
+          "uint64",
+          "json-pointer",
+          "relative-json-pointer",
+          "byte",
+          "double",
+          "int",
+          "mime-type"
+        ]
+      },
+      "#": "JsonModel 11"
+    },
+    "Array": {
+      "type": "array",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?prefixItems": "$schemaArray",
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?additionalItems": "$Schema",
+      "?unevaluatedItems": "$Schema",
+      "?minItems": 0,
+      "?maxItems": 0,
+      "?uniqueItems": true,
+      "#": "JsonModel 12"
+    },
+    "Object": {
+      "type": "object",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
       },
       "?properties": {
         "": "$Schema"
       },
-      "?propertyNames": "$ObjectSchema",
-      "?readOnly": true,
       "?required": [
         ""
       ],
-      "?title": "",
+      "?additionalProperties": "$Schema",
       "?unevaluatedProperties": "$Schema",
+      "?minProperties": 0,
+      "?maxProperties": 0,
+      "?patternProperties": {
+        "$REGEX": "$Schema"
+      },
+      "?propertyNames": "$ObjectSchema",
+      "#": "JsonModel 13"
+    },
+    "Integer": {
+      "type": "integer",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
       "?writeOnly": true,
-      "type": "object"
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "#": "JsonModel 14"
+    },
+    "Number": {
+      "type": "number",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?minimum": -1.0,
+      "?maximum": -1.0,
+      "#": "JsonModel 15"
+    },
+    "Bool": {
+      "type": "boolean",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 16"
+    },
+    "Null": {
+      "type": "null",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 17"
+    },
+    "AllOf": {
+      "allOf": "$schemaArray",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 18"
+    },
+    "AnyOf": {
+      "anyOf": "$schemaArray",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 19"
+    },
+    "OneOf": {
+      "oneOf": "$schemaArray",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 20"
+    },
+    "Enum": {
+      "enum": "$enum",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 21"
+    },
+    "Const": {
+      "const": "$const",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 22"
+    },
+    "Ref": {
+      "!$ref": "$URI",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 23"
+    },
+    "DynRef": {
+      "!$dynamicRef": "$URI",
+      "?$schema": "",
+      "?$id": "",
+      "?$comment": "",
+      "?$vocabulary": {
+        "$URI": true
+      },
+      "?title": "",
+      "?default": "$ANY",
+      "?examples": [
+        "$ANY"
+      ],
+      "?description": "",
+      "?$anchor": "",
+      "?$dynamicAnchor": "",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?id": "",
+      "?definitions": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 24"
     },
     "ObjectSchema": {
-      "#": "JsonModel 24",
       "|": [
         "$Null",
         "$Bool",
@@ -359,272 +603,28 @@
         "$Ref",
         "$DynRef",
         "$metas"
-      ]
-    },
-    "OneOf": {
-      "#": "JsonModel 19",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
       ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "oneOf": "$schemaArray"
-    },
-    "Ref": {
-      "!$ref": "$URI",
-      "#": "JsonModel 22",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true
-    },
-    "RootSchema": {
-      "#": "JsonModel 26",
-      "&": [
-        {
-          "": "$ANY",
-          "_$schema": ""
-        },
-        "$ObjectSchema"
-      ]
+      "#": "JsonModel 25"
     },
     "Schema": {
-      "#": "JsonModel 25",
       "|": [
         true,
         "$ObjectSchema"
-      ]
-    },
-    "String": {
-      "#": "JsonModel 10",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
       ],
-      "?format": {
-        "|": [
-          "uri",
-          "uri-reference",
-          "iri",
-          "iri-reference",
-          "date",
-          "time",
-          "date-time",
-          "ipv4",
-          "ipv6",
-          "regex",
-          "uuid",
-          "hostname",
-          "email",
-          "idn-hostname",
-          "idn-email",
-          "duration",
-          "int32",
-          "int64",
-          "uint",
-          "uint32",
-          "uint64",
-          "json-pointer",
-          "relative-json-pointer",
-          "byte",
-          "double",
-          "int",
-          "mime-type"
-        ]
-      },
-      "?id": "",
-      "?maxLength": 0,
-      "?minLength": 0,
-      "?pattern": "$REGEX",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true,
-      "type": "string"
+      "#": "JsonModel 26"
     },
-    "URI": "",
-    "arrayKeywords": {
-      "#": "JsonModel 6",
-      "?additionalItems": "$Schema",
-      "?items": {
-        "|": [
-          "$Schema",
-          "$schemaArray"
-        ]
-      },
-      "?maxItems": 0,
-      "?minItems": 0,
-      "?prefixItems": "$schemaArray",
-      "?unevaluatedItems": "$Schema",
-      "?uniqueItems": true
-    },
-    "const": {
-      "#": "JsonModel 2",
-      "|": [
-        null,
-        true,
-        -1,
-        -1.0,
-        ""
-      ]
-    },
-    "enum": {
-      "#": "JsonModel 3",
-      "|": [
-        [
-          ""
-        ],
-        [
-          -1
-        ],
-        [
-          true
-        ]
-      ]
-    },
-    "metas": {
-      "#": "JsonModel 9",
-      "?$anchor": "",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "",
-      "?$id": "",
-      "?$schema": "",
-      "?$vocabulary": {
-        "$URI": true
-      },
-      "?default": "$ANY",
-      "?definitions": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
+    "RootSchema": {
+      "&": [
+        {
+          "_$schema": "",
+          "": "$ANY"
+        },
+        "$ObjectSchema"
       ],
-      "?id": "",
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true
+      "#": "JsonModel 27"
     },
-    "numberKeywords": {
-      "#": "JsonModel 8",
-      "?maximum": -1.0,
-      "?minimum": -1.0
-    },
-    "objectKeywords": {
-      "#": "JsonModel 7",
-      "?additionalProperties": "$Schema",
-      "?maxProperties": 0,
-      "?minProperties": 0,
-      "?patternProperties": {
-        "$REGEX": "$Schema"
-      },
-      "?properties": {
-        "": "$Schema"
-      },
-      "?propertyNames": "$ObjectSchema",
-      "?required": [
-        ""
-      ],
-      "?unevaluatedProperties": "$Schema"
-    },
-    "schemaArray": [
-      "$Schema"
-    ],
-    "stringKeywords": {
-      "#": "JsonModel 5",
-      "?format": {
-        "|": [
-          "uri",
-          "uri-reference",
-          "iri",
-          "iri-reference",
-          "date",
-          "time",
-          "date-time",
-          "ipv4",
-          "ipv6",
-          "regex",
-          "uuid",
-          "hostname",
-          "email",
-          "idn-hostname",
-          "idn-email",
-          "duration",
-          "int32",
-          "int64",
-          "uint",
-          "uint32",
-          "uint64",
-          "json-pointer",
-          "relative-json-pointer",
-          "byte",
-          "double",
-          "int",
-          "mime-type"
-        ]
-      },
-      "?maxLength": 0,
-      "?minLength": 0,
-      "?pattern": "$REGEX"
-    }
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-tight"
   },
   "@": "$RootSchema",
   "~": "https://json-model.org/models/json-model"

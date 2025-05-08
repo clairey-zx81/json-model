@@ -1,25 +1,31 @@
 [
   {
-    "#": "JsonModel 0",
-    "$": {
-      "": "./scope_1.model.json",
-      "#": "Symbol 1",
-      "R": "$./scope_0",
-      "S": "/[a-z]/"
-    },
     "|": [
       "$S",
       "$R#S"
-    ]
+    ],
+    "#": "JsonModel 1",
+    "$": {
+      "R": {
+        "#": "JsonModel 4 with defs",
+        "$": "Symbol 4",
+        "@": [
+          "$S",
+          "$S"
+        ]
+      },
+      "S": "/[a-z]/",
+      "#": "Symbol 1",
+      "": "./scope_1.model.json"
+    }
   },
-  "$./scope_0",
   "/[a-z]/",
   {
-    "#": "JsonModel 3 with defs",
+    "#": "JsonModel 4 with defs",
     "$": {
-      "": "./scope_0",
-      "#": "Symbol 2",
-      "S": "/[0-9]/"
+      "S": "/[0-9]/",
+      "#": "Symbol 4",
+      "": "./scope_0"
     },
     "@": [
       "$S",

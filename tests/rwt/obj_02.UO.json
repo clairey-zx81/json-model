@@ -1,28 +1,28 @@
 [
   {
-    "#": "JsonModel 0",
+    "|": [
+      "$li0",
+      "$ls0",
+      "$lb0",
+      "$lf0"
+    ],
+    "#": "JsonModel 1",
     "$": {
-      "": "https://json-model.org/tests/obj_02",
-      "#": "Symbol 1",
+      "li0": [
+        0
+      ],
+      "ls0": [
+        "$URL"
+      ],
       "lb0": [
         "$BOOL"
       ],
       "lf0": [
         0.0
       ],
-      "li0": [
-        0
-      ],
-      "ls0": [
-        "$URL"
-      ]
-    },
-    "|": [
-      "$li0",
-      "$ls0",
-      "$lb0",
-      "$lf0"
-    ]
+      "#": "Symbol 1",
+      "": "https://json-model.org/tests/obj_02"
+    }
   },
   [
     0

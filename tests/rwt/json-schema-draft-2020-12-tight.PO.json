@@ -1,67 +1,59 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-2020-12-tight",
-    "#": "Symbol 1",
-    "Array": {
-      "#": "JsonModel 12",
-      "?contains": "$Schema",
-      "?items": "$Schema",
-      "?maxContains": 0,
-      "?maxItems": 0,
-      "?minContains": 0,
-      "?minItems": 0,
-      "?prefixItems": "$schemaArray",
-      "?unevaluatedItems": "$Schema",
-      "?uniqueItems": true,
-      "type": "_array"
+    "URI": "$URL",
+    "URI-REFERENCE": "",
+    "core": {
+      "?$id": "$URI-REFERENCE",
+      "?$schema": "$URL",
+      "?$ref": "$URI-REFERENCE",
+      "?$anchor": "$URI-REFERENCE",
+      "?$dynamicRef": "$URI-REFERENCE",
+      "?$dynamicAnchor": "$URI-REFERENCE",
+      "?$vocabulary": {
+        "$URL": true
+      },
+      "?$comment": "",
+      "?$defs": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 4"
     },
-    "Boolean": {
-      "#": "JsonModel 6",
-      "type": "_boolean"
-    },
-    "Integer": {
-      "#": "JsonModel 8",
-      "?exclusiveMaximum": -1,
-      "?exclusiveMinimum": -1,
-      "?maximum": -1,
-      "?minimum": -1,
-      "?multipleOf": 1,
-      "type": "_integer"
-    },
-    "Misc": {
-      "#": "JsonModel 14",
-      "?allOf": "$schemaArray",
-      "?anyOf": "$schemaArray",
-      "?const": "$ANY",
-      "?else": "$Schema",
-      "?enum": [
+    "meta": {
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": [
         "$ANY"
       ],
-      "?if": "$Schema",
-      "?not": "$Schema",
-      "?oneOf": "$schemaArray",
-      "?then": "$Schema"
+      "#": "JsonModel 5"
     },
     "Null": {
-      "#": "JsonModel 5",
-      "type": "_null"
+      "type": "_null",
+      "#": "JsonModel 6"
+    },
+    "Boolean": {
+      "type": "_boolean",
+      "#": "JsonModel 7"
     },
     "Number": {
-      "#": "JsonModel 7",
-      "?exclusiveMaximum": {
+      "type": "_number",
+      "?multipleOf": {
         "|": [
-          -1,
-          -1.0
-        ]
-      },
-      "?exclusiveMinimum": {
-        "|": [
-          -1,
-          -1.0
+          1,
+          1.0
         ]
       },
       "?maximum": {
+        "|": [
+          -1,
+          -1.0
+        ]
+      },
+      "?exclusiveMaximum": {
         "|": [
           -1,
           -1.0
@@ -73,45 +65,25 @@
           -1.0
         ]
       },
-      "?multipleOf": {
+      "?exclusiveMinimum": {
         "|": [
-          1,
-          1.0
+          -1,
+          -1.0
         ]
       },
-      "type": "_number"
+      "#": "JsonModel 8"
     },
-    "Object": {
-      "#": "JsonModel 13",
-      "?additionalProperties": "$Schema",
-      "?dependentRequired": {
-        "": "$stringArray"
-      },
-      "?dependentSchemas": {
-        "": "$Schema"
-      },
-      "?maxProperties": 0,
-      "?minProperties": 0,
-      "?patternProperties": {
-        "$REGEX": "$Schema"
-      },
-      "?properties": {
-        "": "$Schema"
-      },
-      "?propertyNames": "$Schema",
-      "?required": "$stringArray",
-      "?unevaluatedProperties": "$Schema",
-      "type": "_object"
-    },
-    "Schema": {
-      "#": "JsonModel 16",
-      "|": [
-        true,
-        "$TightSchema"
-      ]
+    "Integer": {
+      "type": "_integer",
+      "?multipleOf": 1,
+      "?maximum": -1,
+      "?exclusiveMaximum": -1,
+      "?minimum": -1,
+      "?exclusiveMinimum": -1,
+      "#": "JsonModel 9"
     },
     "String": {
-      "#": "JsonModel 9",
+      "type": "_string",
       "?contentEncoding": "",
       "?contentMediaType": "",
       "?contentSchema": "$Schema",
@@ -119,94 +91,160 @@
       "?maxLength": 0,
       "?minLength": 0,
       "?pattern": "$REGEX",
-      "type": "_string"
+      "#": "JsonModel 10"
+    },
+    "stringArray": {
+      "@": [
+        ""
+      ],
+      ">=": 1,
+      "#": "JsonModel 11"
+    },
+    "schemaArray": {
+      "@": [
+        "$Schema"
+      ],
+      ">=": 1,
+      "#": "JsonModel 12"
+    },
+    "Array": {
+      "type": "_array",
+      "?maxItems": 0,
+      "?minItems": 0,
+      "?uniqueItems": true,
+      "?contains": "$Schema",
+      "?maxContains": 0,
+      "?minContains": 0,
+      "?prefixItems": "$schemaArray",
+      "?items": "$Schema",
+      "?unevaluatedItems": "$Schema",
+      "#": "JsonModel 13"
+    },
+    "Object": {
+      "type": "_object",
+      "?properties": {
+        "": "$Schema"
+      },
+      "?required": "$stringArray",
+      "?additionalProperties": "$Schema",
+      "?maxProperties": 0,
+      "?minProperties": 0,
+      "?dependentRequired": {
+        "": "$stringArray"
+      },
+      "?unevaluatedProperties": "$Schema",
+      "?patternProperties": {
+        "$REGEX": "$Schema"
+      },
+      "?propertyNames": "$Schema",
+      "?dependentSchemas": {
+        "": "$Schema"
+      },
+      "#": "JsonModel 14"
+    },
+    "Misc": {
+      "?const": "$ANY",
+      "?enum": [
+        "$ANY"
+      ],
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?not": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "#": "JsonModel 15"
     },
     "TightSchema": {
-      "#": "JsonModel 15",
       "|": [
         {
+          "type": "_null",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
-          ],
-          "?readOnly": true,
-          "?title": "",
-          "?writeOnly": true,
-          "type": "_null"
+          ]
         },
         {
+          "type": "_boolean",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
-          ],
-          "?readOnly": true,
-          "?title": "",
-          "?writeOnly": true,
-          "type": "_boolean"
+          ]
         },
         {
+          "type": "_number",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
           ],
-          "?exclusiveMaximum": {
+          "?multipleOf": {
             "|": [
-              -1,
-              -1.0
-            ]
-          },
-          "?exclusiveMinimum": {
-            "|": [
-              -1,
-              -1.0
+              1,
+              1.0
             ]
           },
           "?maximum": {
+            "|": [
+              -1,
+              -1.0
+            ]
+          },
+          "?exclusiveMaximum": {
             "|": [
               -1,
               -1.0
@@ -218,237 +256,199 @@
               -1.0
             ]
           },
-          "?multipleOf": {
+          "?exclusiveMinimum": {
             "|": [
-              1,
-              1.0
+              -1,
+              -1.0
             ]
-          },
-          "?readOnly": true,
-          "?title": "",
-          "?writeOnly": true,
-          "type": "_number"
+          }
         },
         {
+          "type": "_integer",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
           ],
-          "?exclusiveMaximum": -1,
-          "?exclusiveMinimum": -1,
-          "?maximum": -1,
-          "?minimum": -1,
           "?multipleOf": 1,
-          "?readOnly": true,
-          "?title": "",
-          "?writeOnly": true,
-          "type": "_integer"
+          "?maximum": -1,
+          "?exclusiveMaximum": -1,
+          "?minimum": -1,
+          "?exclusiveMinimum": -1
         },
         {
+          "type": "_string",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
           "?contentEncoding": "",
           "?contentMediaType": "",
           "?contentSchema": "$Schema",
-          "?default": "$ANY",
-          "?deprecated": true,
-          "?description": "",
-          "?examples": [
-            "$ANY"
-          ],
           "?format": "",
           "?maxLength": 0,
           "?minLength": 0,
-          "?pattern": "$REGEX",
-          "?readOnly": true,
-          "?title": "",
-          "?writeOnly": true,
-          "type": "_string"
+          "?pattern": "$REGEX"
         },
         {
+          "type": "_array",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
-          "?contains": "$Schema",
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
           ],
-          "?items": "$Schema",
-          "?maxContains": 0,
           "?maxItems": 0,
-          "?minContains": 0,
           "?minItems": 0,
-          "?prefixItems": "$schemaArray",
-          "?readOnly": true,
-          "?title": "",
-          "?unevaluatedItems": "$Schema",
           "?uniqueItems": true,
-          "?writeOnly": true,
-          "type": "_array"
+          "?contains": "$Schema",
+          "?maxContains": 0,
+          "?minContains": 0,
+          "?prefixItems": "$schemaArray",
+          "?items": "$Schema",
+          "?unevaluatedItems": "$Schema"
         },
         {
+          "type": "_object",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
-          "?additionalProperties": "$Schema",
-          "?default": "$ANY",
-          "?dependentRequired": {
-            "": "$stringArray"
-          },
-          "?dependentSchemas": {
-            "": "$Schema"
-          },
-          "?deprecated": true,
+          "?title": "",
           "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
           ],
-          "?maxProperties": 0,
-          "?minProperties": 0,
-          "?patternProperties": {
-            "$REGEX": "$Schema"
-          },
           "?properties": {
             "": "$Schema"
           },
-          "?propertyNames": "$Schema",
-          "?readOnly": true,
           "?required": "$stringArray",
-          "?title": "",
+          "?additionalProperties": "$Schema",
+          "?maxProperties": 0,
+          "?minProperties": 0,
+          "?dependentRequired": {
+            "": "$stringArray"
+          },
           "?unevaluatedProperties": "$Schema",
-          "?writeOnly": true,
-          "type": "_object"
+          "?patternProperties": {
+            "$REGEX": "$Schema"
+          },
+          "?propertyNames": "$Schema",
+          "?dependentSchemas": {
+            "": "$Schema"
+          }
         },
         {
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URL",
+          "?$ref": "$URI-REFERENCE",
           "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URL": true
+          },
           "?$comment": "",
           "?$defs": {
             "": "$Schema"
           },
-          "?$dynamicAnchor": "$URI-REFERENCE",
-          "?$dynamicRef": "$URI-REFERENCE",
-          "?$id": "$URI-REFERENCE",
-          "?$ref": "$URI-REFERENCE",
-          "?$schema": "$URL",
-          "?$vocabulary": {
-            "$URL": true
-          },
-          "?allOf": "$schemaArray",
-          "?anyOf": "$schemaArray",
-          "?const": "$ANY",
+          "?title": "",
+          "?description": "",
           "?default": "$ANY",
           "?deprecated": true,
-          "?description": "",
-          "?else": "$Schema",
-          "?enum": [
-            "$ANY"
-          ],
+          "?readOnly": true,
+          "?writeOnly": true,
           "?examples": [
             "$ANY"
           ],
+          "?const": "$ANY",
+          "?enum": [
+            "$ANY"
+          ],
           "?if": "$Schema",
-          "?not": "$Schema",
-          "?oneOf": "$schemaArray",
-          "?readOnly": true,
           "?then": "$Schema",
-          "?title": "",
-          "?writeOnly": true
+          "?else": "$Schema",
+          "?not": "$Schema",
+          "?allOf": "$schemaArray",
+          "?anyOf": "$schemaArray",
+          "?oneOf": "$schemaArray"
         }
-      ]
-    },
-    "URI": "$URL",
-    "URI-REFERENCE": "",
-    "core": {
-      "#": "JsonModel 3",
-      "?$anchor": "$URI-REFERENCE",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$dynamicAnchor": "$URI-REFERENCE",
-      "?$dynamicRef": "$URI-REFERENCE",
-      "?$id": "$URI-REFERENCE",
-      "?$ref": "$URI-REFERENCE",
-      "?$schema": "$URL",
-      "?$vocabulary": {
-        "$URL": true
-      }
-    },
-    "meta": {
-      "#": "JsonModel 4",
-      "?default": "$ANY",
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
       ],
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true
+      "#": "JsonModel 16"
     },
-    "schemaArray": {
-      "#": "JsonModel 11",
-      ">=": 1,
-      "@": [
-        "$Schema"
-      ]
+    "Schema": {
+      "|": [
+        true,
+        "$TightSchema"
+      ],
+      "#": "JsonModel 17"
     },
-    "stringArray": {
-      "#": "JsonModel 10",
-      ">=": 1,
-      "@": [
-        ""
-      ]
-    }
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-2020-12-tight"
   },
   "@": "$Schema",
   "~": "https://json-model.org/models/json-model"

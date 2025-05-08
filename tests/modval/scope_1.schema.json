@@ -3,7 +3,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$defs": {
     "R": {
-      "$ref": "./scope_0"
+      "type": "array",
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/S"
+        },
+        {
+          "$ref": "#/$defs/S"
+        }
+      ],
+      "items": false,
+      "minItems": 2
     },
     "S": {
       "type": "string",

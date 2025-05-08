@@ -1,0 +1,7 @@
+ex_08.0.true.json: PASS
+ex_08.1.true.json: PASS
+ex_08.2.true.json: PASS
+ex_08.3.true.json: PASS
+ex_08.4.false.json: FAIL ["not an object at $ [$.'$map']", "not an expected $map at $ [$.'$EX08'.'|'.0]", 'incompatible type for url at $: list', 'invalid $URL at $', "not an expected $URL at $ [$.'$EX08'.'|'.1]", "not a bool at $ [$.'$VAL']", "not an expected $VAL at $ [$.'$EX08'.'|'.2]", "not any model match at $ [$.'$EX08'.'|']", 'not an expected $EX08 at $ [$]']
+ex_08.5.false.json: FAIL ["not an object at $ [$.'$map']", "not an expected $map at $ [$.'$EX08'.'|'.0]", 'incompatible type for url at $: float', 'invalid $URL at $', "not an expected $URL at $ [$.'$EX08'.'|'.1]", "not a bool at $ [$.'$VAL']", "not an expected $VAL at $ [$.'$EX08'.'|'.2]", "not any model match at $ [$.'$EX08'.'|']", 'not an expected $EX08 at $ [$]']
+ex_08.6.false.json: FAIL ["not a bool at $ [$.'$VAL']", "not an expected $VAL at $.foo [$.'$map'.'$URL']", "not an expected $map at $ [$.'$EX08'.'|'.0]", 'incompatible type for url at $: dict', 'invalid $URL at $', "not an expected $URL at $ [$.'$EX08'.'|'.1]", "not a bool at $ [$.'$VAL']", "not an expected $VAL at $ [$.'$EX08'.'|'.2]", "not any model match at $ [$.'$EX08'.'|']", 'not an expected $EX08 at $ [$]']

@@ -5,6 +5,7 @@ any.model.json: PASS
 arr_0.model.json: PASS
 arr_1.model.json: PASS
 arr_2.model.json: PASS
+../bads/_bad_ext.model.json: PASS
 ../bads/_bad_tref.model.json: PASS
 ../bads/_dup_prop_1.model.json: PASS
 ../bads/_dup_prop_2.model.json: PASS
@@ -31,6 +32,16 @@ enum01.model.json: PASS
 enum02.model.json: PASS
 eval_00.model.json: PASS
 eval_01.model.json: PASS
+ex_00.model.json: PASS
+ex_01.model.json: PASS
+ex_02.model.json: PASS
+ex_03.model.json: PASS
+ex_04.model.json: PASS
+ex_05.model.json: PASS
+ex_06.model.json: PASS
+ex_07.model.json: PASS
+ex_08.model.json: PASS
+ex_09.model.json: PASS
 exob00.model.json: PASS
 float_0.model.json: PASS
 float_1.model.json: PASS

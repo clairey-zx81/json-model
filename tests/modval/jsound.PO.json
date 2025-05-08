@@ -1,105 +1,30 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "./jsound.model.json",
-    "#": "Symbol 1",
-    "Array": {
-      "#": "JsonModel 8",
-      "?baseType": "",
-      "?content": "$type-or-ref",
-      "?maxLength": 0,
-      "?minLength": 0,
-      "?name": "",
-      "kind": "array"
-    },
-    "Atomic": {
-      "#": "JsonModel 5",
-      "?enumeration": [
-        "$atomic"
-      ],
-      "?explicitTypeZone": {
-        "|": [
-          "required",
-          "prohibited",
-          "optional"
-        ]
-      },
-      "?fractionDigits": 0,
-      "?length": 0,
-      "?maxExclusive": "$atomic",
-      "?maxInclusive": "$atomic",
-      "?maxLength": 0,
-      "?minExclusive": "$atomic",
-      "?minInclusive": "$atomic",
-      "?minLength": 0,
-      "?name": "",
-      "?pattern": "",
-      "?totalDigits": 0,
-      "baseType": "$atomic-types",
-      "kind": "atomic"
-    },
-    "Fields": {
-      "#": "JsonModel 7",
-      "?default": "$ANY",
-      "?required": true,
-      "?unique": true,
-      "name": "",
-      "type": "$type-or-ref"
-    },
-    "Object": {
-      "#": "JsonModel 6",
-      "?baseType": "",
-      "?closed": true,
-      "?content": [
-        "$Fields"
-      ],
-      "?name": "",
-      "kind": "object"
-    },
     "Schema": {
-      "#": "JsonModel 1",
       "?metadata": {
+        "?name": "",
+        "?previous": "",
+        "?date": "",
         "?authors": [
           ""
-        ],
-        "?date": "",
-        "?name": "",
-        "?previous": ""
+        ]
       },
       "types": [
         "$Type"
-      ]
+      ],
+      "#": "JsonModel 2"
     },
     "Type": {
-      "#": "JsonModel 2",
       "|": [
         "$Atomic",
         "$Object",
         "$Array",
         "$Union"
-      ]
-    },
-    "Union": {
-      "#": "JsonModel 9",
-      "?baseType": "",
-      "content": [
-        "$type-or-ref"
       ],
-      "kind": "union",
-      "name": ""
-    },
-    "atomic": {
-      "#": "JsonModel 4",
-      "|": [
-        null,
-        true,
-        -1,
-        -1.0,
-        ""
-      ]
+      "#": "JsonModel 3"
     },
     "atomic-types": {
-      "#": "JsonModel 3",
       "|": [
         "string",
         "decimal",
@@ -115,15 +40,90 @@
         "dateTimeStamp",
         "duration",
         "null"
-      ]
+      ],
+      "#": "JsonModel 4"
+    },
+    "atomic": {
+      "|": [
+        null,
+        true,
+        -1,
+        -1.0,
+        ""
+      ],
+      "#": "JsonModel 5"
+    },
+    "Atomic": {
+      "?name": "",
+      "kind": "atomic",
+      "baseType": "$atomic-types",
+      "?pattern": "",
+      "?length": 0,
+      "?minLength": 0,
+      "?maxLength": 0,
+      "?totalDigits": 0,
+      "?fractionDigits": 0,
+      "?maxInclusive": "$atomic",
+      "?maxExclusive": "$atomic",
+      "?minInclusive": "$atomic",
+      "?minExclusive": "$atomic",
+      "?enumeration": [
+        "$atomic"
+      ],
+      "?explicitTypeZone": {
+        "|": [
+          "required",
+          "prohibited",
+          "optional"
+        ]
+      },
+      "#": "JsonModel 6"
+    },
+    "Object": {
+      "?name": "",
+      "kind": "object",
+      "?baseType": "",
+      "?content": [
+        "$Fields"
+      ],
+      "?closed": true,
+      "#": "JsonModel 7"
+    },
+    "Fields": {
+      "name": "",
+      "type": "$type-or-ref",
+      "?required": true,
+      "?default": "$ANY",
+      "?unique": true,
+      "#": "JsonModel 8"
+    },
+    "Array": {
+      "?name": "",
+      "kind": "array",
+      "?baseType": "",
+      "?content": "$type-or-ref",
+      "?minLength": 0,
+      "?maxLength": 0,
+      "#": "JsonModel 9"
+    },
+    "Union": {
+      "name": "",
+      "kind": "union",
+      "?baseType": "",
+      "content": [
+        "$type-or-ref"
+      ],
+      "#": "JsonModel 10"
     },
     "type-or-ref": {
-      "#": "JsonModel 10",
       "|": [
         "",
         "$Type"
-      ]
-    }
+      ],
+      "#": "JsonModel 11"
+    },
+    "#": "Symbol 1",
+    "": "./jsound.model.json"
   },
   "@": "$Schema"
 }

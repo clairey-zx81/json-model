@@ -1,3 +1,17 @@
 {
-  "$ref": "https://github.com/clairey-zx81/json-model/raw/refs/heads/main/tests/modval/hello.model.json"
+  "type": "object",
+  "properties": {
+    "hello": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "world": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "hello",
+    "world"
+  ],
+  "additionalProperties": false
 }

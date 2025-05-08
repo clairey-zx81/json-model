@@ -11,6 +11,10 @@ JSON_SUFFIX = ["", ".json", ".model", ".model.json"]
 YAML_SUFFIX = [".yaml", ".model.yaml", ".yml", "model.yml"]
 JS_SUFFIX = [".js", ".model.js"]
 
+# guess type based on file contents
+JS_RE = r"(?m)^\s*//\s"
+JSON_RE = r"(?s)\s*(\[.*\]|\{.*\}|\".*\"|-?\d+(\.\d*)?([eE]-?\d+)?|null|true|false)\s*$"
+
 class Resolver:
     """Resolve external references to jsonable data.
 
@@ -23,15 +27,10 @@ class Resolver:
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
 
-    def __call__(self, ref: str, path: ModelPath):
+    def __call__(self, url: str, path: ModelPath):
         """Resolve an external reference."""
 
-        # separate fragment
-        # FIXME remove fragment support?
-        if "#" in ref:
-            url, _fragment = ref.split("#", 1)
-        else:
-            url, _fragment = ref, None
+        assert "#" not in url, f"no fragment in {url}"
 
         if url == "-":  # no caching, cannot read same input twice?
             log.info("reading: stdin")
@@ -47,7 +46,7 @@ class Resolver:
                     changes += 1
 
         if changes > len(self._maps):
-            raise ModelError(f"URL mapping cycle detected, cannot resolve at {path}: {ref}")
+            raise ModelError(f"URL mapping cycle detected, cannot resolve at {path}: {url}")
 
         if url in self._jsons:
             return self._jsons[url]
@@ -55,10 +54,10 @@ class Resolver:
         # handle local files
         if url.startswith("./") or url.startswith("../") or url.startswith("/"):
             file = url
-        elif ref.startswith("file://"):
+        elif url.startswith("file://"):
             file = url[7:]
-        elif ":" not in ref:
-            file = "./" + ref
+        elif ":" not in url:
+            file = "./" + url
         else:
             file = None
 
@@ -69,13 +68,12 @@ class Resolver:
                     with open(fn) as f:
                         log.info(f"loading: {fn}")
                         content = f.read()
-                        if fn.endswith(".js") or re.match(r"(?m)^\s*//\s", content):
+                        if fn.endswith(".js") or re.match(JS_RE, content):
                             # possibly remove js comments
                             content = re.sub(r"(?s)/\*.*?\*/", "", content)
                             content = re.sub(r"\s*//\s.*", "", content)
                         # guess content type
-                        if fn.endswith(".json") or \
-                            re.match(r"\s*(\[|\{|\"|\d).*$|(null|true|false)\s*$", content):
+                        if fn.endswith(".json") or re.match(JSON_RE, content):
                             # try JSON
                             self._jsons[url] = j = json.loads(content)
                         else:  # try yaml

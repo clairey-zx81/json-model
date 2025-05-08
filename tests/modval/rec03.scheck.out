@@ -3,4 +3,4 @@ rec03.1.true.json: PASS
 rec03.2.true.json: PASS
 rec03.3.true.json: PASS
 rec03.4.true.json: PASS
-rec03.5.false.json: FAIL ['not an object at $.foo [$]', "not an expected $root at $.foo [$.foo.'|'.0]", 'not an object at $.foo [$]', "not an expected $root at $.foo.0 [$.foo.'|'.1.0]", "not array or unexpected array at $.foo [$.foo.'|'.1]", "not any model match at $.foo [$.foo.'|']", 'invalid may prop value at $.foo [$.foo]']
+rec03.5.false.json: FAIL ['not an object at $.foo [$]', "not an expected $# at $.foo [$.'$root']", "not an expected $root at $.foo [$.foo.'|'.0]", 'not an object at $.foo [$]', "not an expected $# at $.foo [$.'$root']", "not an expected $root at $.foo.0 [$.foo.'|'.1.0]", "not array or unexpected array at $.foo [$.foo.'|'.1]", "not any model match at $.foo [$.foo.'|']", 'invalid may prop value at $.foo [$.foo]']

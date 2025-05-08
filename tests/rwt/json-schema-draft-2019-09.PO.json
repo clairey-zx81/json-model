@@ -1,183 +1,49 @@
 {
-  "#": "JsonModel 0",
+  "@": "$Schema",
+  "#": "JsonModel 1",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-2019-09",
-    "#": "Symbol 1",
-    "ObjectSchema": {
-      "#": "JsonModel 15",
+    "URI": "$URL",
+    "URI-REFERENCE": "",
+    "id": "$URI-REFERENCE",
+    "core": {
+      "?$id": "$id",
+      "?$schema": "_https://json-schema.org/draft/2019-09/schema",
+      "?$ref": "$URI-REFERENCE",
       "?$anchor": "$URI-REFERENCE",
+      "?$recursiveRef": "$URI-REFERENCE",
+      "?$recursiveAnchor": true,
+      "?$vocabulary": {
+        "$URL": true
+      },
       "?$comment": "",
       "?$defs": {
         "": "$Schema"
       },
-      "?$id": "$id",
-      "?$recursiveAnchor": true,
-      "?$recursiveRef": "$URI-REFERENCE",
-      "?$ref": "$URI-REFERENCE",
-      "?$schema": "_https://json-schema.org/draft/2019-09/schema",
-      "?$vocabulary": {
-        "$URL": true
-      },
-      "?additionalItems": "$Schema",
-      "?additionalProperties": "$Schema",
-      "?allOf": "$schemaArray",
-      "?anyOf": "$schemaArray",
-      "?const": "$ANY",
-      "?contains": "$Schema",
+      "#": "JsonModel 5"
+    },
+    "meta": {
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": [
+        "$ANY"
+      ],
+      "#": "JsonModel 6"
+    },
+    "content": {
       "?contentEncoding": "",
       "?contentMediaType": "",
       "?contentSchema": "$Schema",
-      "?default": "$ANY",
-      "?dependentRequired": {
-        "": "$stringArray"
-      },
-      "?dependentSchemas": {
-        "": "$Schema"
-      },
-      "?deprecated": true,
-      "?description": "",
-      "?else": "$Schema",
-      "?enum": [
-        "$ANY"
-      ],
-      "?examples": [
-        "$ANY"
-      ],
-      "?exclusiveMaximum": -1.0,
-      "?exclusiveMinimum": -1.0,
-      "?format": "",
-      "?if": "$Schema",
-      "?items": {
-        "|": [
-          "$Schema",
-          "$schemaArray"
-        ]
-      },
-      "?maxContains": "$nonNegativeInteger",
-      "?maxItems": "$nonNegativeInteger",
-      "?maxLength": "$nonNegativeInteger",
-      "?maxProperties": "$nonNegativeInteger",
-      "?maximum": -1.0,
-      "?minContains": "$nonNegativeInteger",
-      "?minItems": "$nonNegativeInteger",
-      "?minLength": "$nonNegativeInteger",
-      "?minProperties": "$nonNegativeInteger",
-      "?minimum": -1.0,
-      "?multipleOf": 1.0,
-      "?not": "$Schema",
-      "?oneOf": "$schemaArray",
-      "?pattern": "$REGEX",
-      "?patternProperties": {
-        "$REGEX": "$Schema"
-      },
-      "?properties": {
-        "": "$Schema"
-      },
-      "?propertyNames": "$Schema",
-      "?readOnly": true,
-      "?required": "$stringArray",
-      "?then": "$Schema",
-      "?title": "",
-      "?type": {
-        "|": [
-          "$simpleTypes",
-          "$simpleTypesArray"
-        ]
-      },
-      "?unevaluatedItems": "$Schema",
-      "?unevaluatedProperties": "$Schema",
-      "?uniqueItems": true,
-      "?writeOnly": true
-    },
-    "Schema": {
-      "#": "JsonModel 16",
-      "|": [
-        true,
-        "$ObjectSchema"
-      ]
-    },
-    "URI": "$URL",
-    "URI-REFERENCE": "",
-    "applicator": {
-      "#": "JsonModel 14",
-      "?additionalItems": "$Schema",
-      "?additionalProperties": "$Schema",
-      "?allOf": "$schemaArray",
-      "?anyOf": "$schemaArray",
-      "?contains": "$Schema",
-      "?dependentSchemas": {
-        "": "$Schema"
-      },
-      "?else": "$Schema",
-      "?if": "$Schema",
-      "?items": {
-        "|": [
-          "$Schema",
-          "$schemaArray"
-        ]
-      },
-      "?not": "$Schema",
-      "?oneOf": "$schemaArray",
-      "?patternProperties": {
-        "$REGEX": "$Schema"
-      },
-      "?properties": {
-        "": "$Schema"
-      },
-      "?propertyNames": "$Schema",
-      "?then": "$Schema",
-      "?unevaluatedItems": "$Schema",
-      "?unevaluatedProperties": "$Schema"
-    },
-    "content": {
-      "#": "JsonModel 6",
-      "?contentEncoding": "",
-      "?contentMediaType": "",
-      "?contentSchema": "$Schema"
-    },
-    "core": {
-      "#": "JsonModel 4",
-      "?$anchor": "$URI-REFERENCE",
-      "?$comment": "",
-      "?$defs": {
-        "": "$Schema"
-      },
-      "?$id": "$id",
-      "?$recursiveAnchor": true,
-      "?$recursiveRef": "$URI-REFERENCE",
-      "?$ref": "$URI-REFERENCE",
-      "?$schema": "_https://json-schema.org/draft/2019-09/schema",
-      "?$vocabulary": {
-        "$URL": true
-      }
+      "#": "JsonModel 7"
     },
     "format": {
-      "#": "JsonModel 7",
-      "?format": ""
-    },
-    "id": "$URI-REFERENCE",
-    "meta": {
-      "#": "JsonModel 5",
-      "?default": "$ANY",
-      "?deprecated": true,
-      "?description": "",
-      "?examples": [
-        "$ANY"
-      ],
-      "?readOnly": true,
-      "?title": "",
-      "?writeOnly": true
-    },
-    "nonNegativeInteger": 0,
-    "schemaArray": {
-      "#": "JsonModel 13",
-      ">=": 1,
-      "@": [
-        "$Schema"
-      ]
+      "?format": "",
+      "#": "JsonModel 8"
     },
     "simpleTypes": {
-      "#": "JsonModel 8",
       "|": [
         "array",
         "boolean",
@@ -186,56 +52,190 @@
         "number",
         "object",
         "string"
-      ]
+      ],
+      "#": "JsonModel 9"
     },
     "simpleTypesArray": {
-      "!": true,
-      "#": "JsonModel 9",
-      ">=": 1,
       "@": [
         "$simpleTypes"
-      ]
+      ],
+      ">=": 1,
+      "!": true,
+      "#": "JsonModel 10"
     },
     "stringArray": {
-      "!": true,
-      "#": "JsonModel 10",
       "@": [
         ""
-      ]
-    },
-    "validation": {
-      "#": "JsonModel 12",
-      "?const": "$ANY",
-      "?dependentRequired": {
-        "": "$stringArray"
-      },
-      "?enum": [
-        "$ANY"
       ],
-      "?exclusiveMaximum": -1.0,
-      "?exclusiveMinimum": -1.0,
-      "?maxContains": "$nonNegativeInteger",
-      "?maxItems": "$nonNegativeInteger",
-      "?maxLength": "$nonNegativeInteger",
-      "?maxProperties": "$nonNegativeInteger",
-      "?maximum": -1.0,
-      "?minContains": "$nonNegativeInteger",
-      "?minItems": "$nonNegativeInteger",
-      "?minLength": "$nonNegativeInteger",
-      "?minProperties": "$nonNegativeInteger",
-      "?minimum": -1.0,
-      "?multipleOf": 1.0,
-      "?pattern": "$REGEX",
-      "?required": "$stringArray",
+      "!": true,
+      "#": "JsonModel 11"
+    },
+    "nonNegativeInteger": 0,
+    "validation": {
       "?type": {
         "|": [
           "$simpleTypes",
           "$simpleTypesArray"
         ]
       },
-      "?uniqueItems": true
-    }
+      "?const": "$ANY",
+      "?enum": [
+        "$ANY"
+      ],
+      "?multipleOf": 1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": -1.0,
+      "?minimum": -1.0,
+      "?exclusiveMinimum": -1.0,
+      "?maxLength": "$nonNegativeInteger",
+      "?minLength": "$nonNegativeInteger",
+      "?pattern": "$REGEX",
+      "?maxItems": "$nonNegativeInteger",
+      "?minItems": "$nonNegativeInteger",
+      "?uniqueItems": true,
+      "?maxContains": "$nonNegativeInteger",
+      "?minContains": "$nonNegativeInteger",
+      "?maxProperties": "$nonNegativeInteger",
+      "?minProperties": "$nonNegativeInteger",
+      "?required": "$stringArray",
+      "?dependentRequired": {
+        "": "$stringArray"
+      },
+      "#": "JsonModel 13"
+    },
+    "schemaArray": {
+      "@": [
+        "$Schema"
+      ],
+      ">=": 1,
+      "#": "JsonModel 14"
+    },
+    "applicator": {
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?contains": "$Schema",
+      "?additionalItems": "$Schema",
+      "?additionalProperties": "$Schema",
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "$REGEX": "$Schema"
+      },
+      "?dependentSchemas": {
+        "": "$Schema"
+      },
+      "?propertyNames": "$Schema",
+      "?unevaluatedItems": "$Schema",
+      "?unevaluatedProperties": "$Schema",
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?not": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "#": "JsonModel 15"
+    },
+    "ObjectSchema": {
+      "?$id": "$id",
+      "?$schema": "_https://json-schema.org/draft/2019-09/schema",
+      "?$ref": "$URI-REFERENCE",
+      "?$anchor": "$URI-REFERENCE",
+      "?$recursiveRef": "$URI-REFERENCE",
+      "?$recursiveAnchor": true,
+      "?$vocabulary": {
+        "$URL": true
+      },
+      "?$comment": "",
+      "?$defs": {
+        "": "$Schema"
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?contains": "$Schema",
+      "?additionalItems": "$Schema",
+      "?additionalProperties": "$Schema",
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "$REGEX": "$Schema"
+      },
+      "?dependentSchemas": {
+        "": "$Schema"
+      },
+      "?propertyNames": "$Schema",
+      "?unevaluatedItems": "$Schema",
+      "?unevaluatedProperties": "$Schema",
+      "?if": "$Schema",
+      "?then": "$Schema",
+      "?else": "$Schema",
+      "?not": "$Schema",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "?type": {
+        "|": [
+          "$simpleTypes",
+          "$simpleTypesArray"
+        ]
+      },
+      "?const": "$ANY",
+      "?enum": [
+        "$ANY"
+      ],
+      "?multipleOf": 1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": -1.0,
+      "?minimum": -1.0,
+      "?exclusiveMinimum": -1.0,
+      "?maxLength": "$nonNegativeInteger",
+      "?minLength": "$nonNegativeInteger",
+      "?pattern": "$REGEX",
+      "?maxItems": "$nonNegativeInteger",
+      "?minItems": "$nonNegativeInteger",
+      "?uniqueItems": true,
+      "?maxContains": "$nonNegativeInteger",
+      "?minContains": "$nonNegativeInteger",
+      "?maxProperties": "$nonNegativeInteger",
+      "?minProperties": "$nonNegativeInteger",
+      "?required": "$stringArray",
+      "?dependentRequired": {
+        "": "$stringArray"
+      },
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?deprecated": true,
+      "?readOnly": true,
+      "?writeOnly": true,
+      "?examples": [
+        "$ANY"
+      ],
+      "?format": "",
+      "?contentEncoding": "",
+      "?contentMediaType": "",
+      "?contentSchema": "$Schema",
+      "#": "JsonModel 16"
+    },
+    "Schema": {
+      "|": [
+        true,
+        "$ObjectSchema"
+      ],
+      "#": "JsonModel 17"
+    },
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-2019-09"
   },
-  "@": "$Schema",
   "~": "https://json-model.org/models/json-model"
 }

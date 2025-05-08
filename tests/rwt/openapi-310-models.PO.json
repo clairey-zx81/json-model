@@ -1,9 +1,14 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/openapi-310-models",
+    "openapi": {
+      "#": "JsonModel 369 with defs",
+      "$": "Symbol 369",
+      "@": "$OpenAPI",
+      "~": "https://json-model.org/models/json-model"
+    },
     "#": "Symbol 1",
-    "openapi": "$https://json-model.org/models/openapi-310"
+    "": "https://json-model.org/models/openapi-310-models"
   },
   "@": "$openapi",
   "~": "https://json-model.org/models/json-model"

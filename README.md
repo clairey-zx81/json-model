@@ -45,7 +45,8 @@ Command `jmc` options include:
   - `-D`: dynamic python model compiler.
   - `-S`: static python model compiler.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
-  - `-U`: dump internal models.
+  - `-U`: dump all models.
+  - `-J`: dump json IR.
   - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
 - `-F format`: select `json` or `yaml` for output
@@ -53,10 +54,10 @@ Command `jmc` options include:
 
 ## Example
 
-Export a JSON model as a schema using a yaml format:
+Export a JSON model as a JSON schema using the yaml format:
 
 ```sh
-jmc -EO -F yaml -ns -
+jmc -EO -F yaml -
 ```
 ```js
 // input JSON Model
@@ -66,7 +67,7 @@ jmc -EO -F yaml -ns -
 }
 ```
 ```yaml
-// output JSON Schema, shown in yaml (reordered)
+// output JSON Schema (in yaml)
 type: object
 properties:
   name:
@@ -138,7 +139,16 @@ additionalProperties: false
 - [x] feature: --format yaml to show yaml instead of json
 - [x] design: official (meta) model url: ~`https://models.json-model.org/...`~ vs `https://json-model.org/models/...`
 - [x] static: optimize simple regex cases (from Blaze paper)
+- [x] python: remove global list in JsonModel
+- [x] python: remove all globals in Symbols and JsonModel
+- [x] static: generate executable script with minimal main
+- [x] command: add option `-J` to show json IR, set default to `-P` (preprocessed)
+- [x] command: change default to `-ns` (unsorted json properties)
+- [x] command: also use prettyprint options for yaml generation
+- [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] static: add a `_` to the default prefix to separate exports
+- [ ] static: rename all internal stuff with a `_` prefix
+- [ ] optim: remove unused introduced names `__external_...`
 - [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: generate pyright compatible code…
@@ -160,10 +170,7 @@ additionalProperties: false
 - [ ] feature: restrict definitions as proper identifiers
 - [ ] tests: re-check some results of json schema analysis paper
 - [ ] feature: self trafo example, eg create a variant between local defs
-- [ ] python: remove global list in JsonModel
-- [ ] python: remove all globals in Symbols?
-- [ ] python: remove all globals in JsonModel?
-- [ ] python: measure coverage
+- [ ] tests: measure coverage
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
 - [ ] feature: check/forbid/allow url references with an anchor

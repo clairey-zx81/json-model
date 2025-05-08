@@ -1,9 +1,121 @@
 {
-  "#": "JsonModel 0 with defs",
+  "#": "JsonModel 1 with defs",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-04-fuzzy",
+    "schema": {
+      "?id": "",
+      "?$schema": "",
+      "?title": "",
+      "?description": "",
+      "?default": "$ANY",
+      "?multipleOf": 1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": true,
+      "?minimum": -1.0,
+      "?exclusiveMinimum": true,
+      "?maxLength": 0,
+      "?minLength": 0,
+      "?pattern": "$REGEX",
+      "?additionalItems": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?maxItems": 0,
+      "?minItems": 0,
+      "?uniqueItems": true,
+      "?maxProperties": 0,
+      "?minProperties": 0,
+      "?required": "$stringArray",
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?definitions": {
+        "": "$Schema"
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "": "$Schema"
+      },
+      "?dependencies": {
+        "": {
+          "|": [
+            "$Schema",
+            "$stringArray"
+          ]
+        }
+      },
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?type": {
+        "|": [
+          "$simpleTypes",
+          "$typeArray"
+        ]
+      },
+      "?format": "",
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "?not": "$Schema",
+      "?$ref": "$URL",
+      "#": "JsonModel 10",
+      "$": {
+        "": "https://json-model.org/models/json-schema-draft-04",
+        "URI": "$URL",
+        "schemaArray": {
+          "@": [
+            "$Schema"
+          ],
+          ">=": 1
+        },
+        "simpleTypes": {
+          "|": [
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object"
+          ]
+        },
+        "stringArray": {
+          "@": [
+            ""
+          ],
+          ">=": 1,
+          "!": true
+        },
+        "typeArray": {
+          "@": [
+            "$simpleTypes"
+          ],
+          ">=": 1,
+          "!": true
+        },
+        "Schema": "$#"
+      },
+      "~": "https://json-model.org/models/json-model"
+    },
     "#": "Symbol 1",
-    "schema": "$https://json-model.org/models/json-schema-draft-04"
+    "": "https://json-model.org/models/json-schema-draft-04-fuzzy"
   },
   "@": "$schema",
   "~": "https://json-model.org/models/json-model"

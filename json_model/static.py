@@ -89,7 +89,7 @@ def is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
         except Exception as e:
             rep is None or rep.append(f"regex compile error at {path}: {value} ({e})")
             return False
-    rep is None or rep.append(f"incompatible type for regex at {path}: {tname(value)}")
+    rep is None or rep.append(f"incompatible type for regex at {path}: {_tname(value)}")
     return False
 """
 
@@ -102,7 +102,7 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
         except Exception as e:
             rep is None or rep.append(f"invalid date at {path}: {value} ({e})")
             return False
-    rep is None or rep.append(f"incompatible type for date at {path}: {tname(value)}")
+    rep is None or rep.append(f"incompatible type for date at {path}: {_tname(value)}")
     return False
 """
 
@@ -115,7 +115,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
         except Exception as e:
             rep is None or re.append(f"invalid url at {path}: {value} ({e})")
             return False
-    rep is None or rep.append(f"incompatible type for url at {path}: {tname(value)}")
+    rep is None or rep.append(f"incompatible type for url at {path}: {_tname(value)}")
     return False
 """
 
@@ -129,33 +129,51 @@ def value_len(value: Jsonable, path: str) -> None|bool|int|float:
             return value
 """
 
+PY_MAIN = """
+# possibly run as a script: $0 values...
+if __name__ == "__main__":
+    import json
+    import sys
+    for fn in sys.argv[1:]:
+        try:
+            with open(fn) as f:
+                value = json.load(f)
+            reasons = []
+            if check_model(value, "", reasons):
+                print(f"{fn}: PASS")
+            else:
+                print(f"{fn}: FAIL {reasons}")
+        except Exception as e:
+            print(f"{fn}: ERROR ({e})")
+"""
+
 
 class SourceCode(Validator):
     """Source code for compiling JSON Models.
 
     - globs: global map of symbols.
     - prefix: use this prefix for function name generation.
-    - debug: verbose debug mode.
     - remod: regular expression module, "re" or "re2".
     - loose_int: whether "42.0" is considered an int.
     - loose_float: whether "42" is considered a float.
     - report: whether to report rejection reasons.
+    - debug: verbose debug mode.
     """
 
-    def __init__(self, globs: Symbols, *, prefix: str = "",
-                 debug: bool = False, remod: str = _RE,
+    def __init__(self, globs: Symbols, *,
+                 prefix: str = "", remod: str = _RE,
                  loose_int: bool = False, loose_float: bool = False,
-                 report: bool = True):
+                 report: bool = True, debug: bool = False):
 
         super().__init__()
 
         self._prefix = prefix
         self._globs = globs
-        self._debug = debug
         self._re = remod
         self._loose_int = loose_int
         self._loose_float = loose_float
         self._report = report
+        self._debug = debug
 
         def used(att: str, val: str) -> str:
             setattr(self, f"_{att}_used", True)
@@ -271,6 +289,8 @@ class SourceCode(Validator):
             res += ("\n" if res else "") + subs
         if maps and re.search(r"\S", maps):
             res += ("\n" if res else "") + "# object properties maps\n" + maps + "\n"
+
+        res += PY_MAIN
 
         return res
 
@@ -717,7 +737,7 @@ class SourceCode(Validator):
                         elif isinstance(value, str):
                             code.add(indent, f"{res} = isinstance({val}, str) and {val} == {value}")
                         else:
-                            raise ModelError(f"unexpected constant type: {tname(value)}")
+                            raise ModelError(f"unexpected constant type: {_tname(value)}")
                     else:
                         raise ModelError(f"unexpected constant: {model}")
                 elif model[0] == "$":
@@ -781,9 +801,12 @@ class SourceCode(Validator):
                         code.add(indent, f"{res} = len({val}) == {len(model)}")
                     for i, m in enumerate(model):
                         code.add(indent + i, f"if {res}:")
-                        # FIXME vpath
                         self._compileModel(code, indent + i + 1, jm, model[i], mpath + [i],
-                                           res, f"{val}[{i}]", f"{vpath}[{i}]")
+                                           res, f"{val}[{i}]", f"{vpath} + '.{i}'")
+                    if self._report:
+                        code.add(indent, r"else:")
+                        code.add(indent + 1,
+                                 _rep(f"not array or bad array length at {{{vpath}}} [{smpath}]"))
                 if self._report:
                     code.add(indent, f"if not {res}:")
                     code.add(indent + 1,
@@ -990,21 +1013,25 @@ class SourceCode(Validator):
         return self._names[name]
 
     def _getNameRef(self, jm: JsonModel, ref: str, path: ModelPath) -> str:
-        assert jm._isRef(ref), f"reference: {ref}"
+        assert jm._isRef(ref), f"must be a reference: {ref}"
+        # FIXME shortcut hack
+        if ref == "$#" and ref in self._names:
+            return self._names[ref]
         try:
             gref = jm._defs.gget(ref)
         except KeyError:
             if self._debug:
                 log.debug(f"_getNameRef[{jm._id},{jm._defs._id}]({ref}) at {path}")
-                log.debug(f"XXX gmap={jm._defs._gmap}")
+                log.debug(f" with gmap={jm._defs._gmap}")
             # FIXME maybe we already have a global reference?
             gref = ref
-        # log.debug(f"ref={ref} gref={gref} at {path}")
+        # log.debug(f"name ref: gref={gref} globs={self._globs} names={self._names}")
         if gref not in self._names:
             jm = self._globs[gref]  # pyright: ignore
             if jm._id not in self._compiled:
                 self._to_compile[jm._id] = (jm, gref)
             self._names[gref] = f"json_model_{jm._id}"
+        # log.debug(f"name ref: ref={ref} gref={gref} at {path}: {self._names[gref]}")
         return self._names[gref]
 
     def _compileName(self, jm: JsonModel, name: str, model: ModelType, mpath: ModelPath) -> Code:
@@ -1089,6 +1116,8 @@ def static_compile(
                        loose_float)
     sc = SourceCode(model._globs, prefix=prefix, debug=debug, remod=remod,  # pyright: ignore
                     loose_int=loose_int, loose_float=loose_float, report=report)
+    # $# special handing
+    sc._names["$#"] = f"json_model_{model._head._id}"
     # compile definitions
     for n, jm in model._defs.items():
         sc.subs(sc.compileOneJsonModel(jm, "$" + n, ["$" + n]))
