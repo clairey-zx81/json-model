@@ -147,7 +147,7 @@ additionalProperties: false
 - [x] command: also use prettyprint options for yaml generation
 - [x] static: add a `_` to the default prefix to separate exports
 - [x] static: rename all internal stuff with a `_` prefix
-- [x] python: refactor in optim…
+- [x] python: refactor in optim analyze merge…
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
@@ -223,6 +223,7 @@ additionalProperties: false
 - [ ] go-backend: encoding/json vs various faster replacements…
 - [ ] feature: add model predef for URI-REF and the like
 - [ ] models: improve meta model with predefs
+- [ ] design: URI vs URL
 
 ## WIP
 

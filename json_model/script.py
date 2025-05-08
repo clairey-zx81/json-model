@@ -11,7 +11,7 @@ from .resolver import Resolver
 from .model import JsonModel
 from .dynamic import DynamicCompiler
 from .static import static_compile
-from . import optim
+from . import optim, analyze, objmerge
 
 def create_model(murl: str, resolver: Resolver,
                  auto: bool = False, debug: bool = False) -> JsonModel:
@@ -48,7 +48,7 @@ def process_model(model: JsonModel, *,
 
     if debug or check:
         for m in all_models:
-            if not m.valid():
+            if not analyze.valid(m):
                 raise ModelError(f"invalid initial model {m._id}")
 
     # simplify before merging
@@ -60,14 +60,13 @@ def process_model(model: JsonModel, *,
     if debug or check:
         # log.debug(json.dumps(model.toJSON(), sort_keys=True, indent=2))
         for m in all_models:
-            if not m.valid():
+            if not analyze.valid(m):
                 raise ModelError(f"invalid optimized model {m._id}")
 
     # merge in reverse order to move alts up before inlining?!
     if merge:
         for m in reversed(all_models):
-            log.debug(f"merging model {m._id} {m._url}")
-            m.merge()
+            objmerge.merge(m)
 
     # optimize again?
     if optimize:
@@ -77,7 +76,7 @@ def process_model(model: JsonModel, *,
     # check after merge & optimize
     if debug or check:
         for m in all_models:
-            if not m.valid():
+            if not analyze.valid(m):
                 raise ModelError(f"invalid merged model {m._id}")
 
 def jmc_script():

@@ -4,11 +4,11 @@ import typing
 from collections.abc import MutableMapping
 import json
 
-from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType, ModelFilter
+from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
-from .utils import log, tname, merge_objects
-from .utils import WEAK_DATE_RE, CONST_RE, is_regex
-from .recurse import recModel, allFlt, builtFlt, noRwt, _recModel
+from .utils import log, tname
+from .utils import WEAK_DATE_RE
+from .recurse import recModel, allFlt, noRwt, _recModel
 from .resolver import Resolver
 
 # FIXME
@@ -310,12 +310,8 @@ class JsonModel:
             self.allLoads()
 
         if self._is_head:
-            # NOTE externals are loaded as a side effect?!
-            # self._debug and log.debug("BEFORE SCOPING:\n" + json_dump(self.toJSON()))
             self.scope(self._globs, [], set(), {})
-            _ = self._debug and log.debug(f"globs = {self._globs}")
-            # self._debug and log.debug("AFTER SCOPING:\n" + json_dump(self.toJSON()))
-            # cleanup unreachable models
+            # _ = self._debug and log.debug(f"globs = {self._globs}")
             self.unload()
 
     def load(self, url: str, path: ModelPath, is_head: bool = False) -> JsonModel:
@@ -434,165 +430,6 @@ class JsonModel:
                 del self._models[mid]
         # debug summary
         log.debug(f"unload: keeping {len(self._models)}/{total} models")
-
-    #
-    # Analyses
-    #
-    def references(self) -> dict[str, set[str]]:
-        """Get direct references."""
-
-        def directRefs(model: ModelType) -> set[str]:
-
-            refs: set[str] = set()
-
-            def drRwt(m: ModelType, p: ModelPath) -> ModelType:
-                if isinstance(m, str) and m != "" and m[0] == "$":
-                    refs.add(m)
-                return m
-
-            recModel(model, allFlt, drRwt, True)
-
-            return refs
-
-        contains = {}
-
-        for name, model in self._defs.items():
-            # FIXME model._url or name?
-            contains["$" + name] = directRefs(model._model)
-
-        contains[""] = directRefs(self._model)
-
-        return contains
-
-    def reachable(self):
-        """Build reachable defs."""
-
-        # should consider **all** loaded models!?
-        contains = self.references()
-        reached = copy.deepcopy(contains)
-
-        # simplistic transitive closure computation
-        changed = True
-        while changed:
-            changed = False
-            for ref, refs in reached.items():
-                for r in refs:
-                    if r in reached and not reached[r].issubset(refs):
-                        changed = True
-                        refs.update(reached[r])
-
-        return reached
-
-    def check(self, assertion: ModelFilter, what: str = "?", short: bool = False) -> bool:
-        """Check an arbitrary local assertion on a model."""
-
-        okay = True
-
-        def checkFlt(model: ModelType, path: ModelPath) -> bool:
-            nonlocal okay
-            if not assertion(model, path):
-                log.info(f"{self._id}: check {what} failed at {path}")
-                okay = False
-            return okay if short else True
-
-        recModel(self._model, checkFlt, noRwt, True)
-
-        return okay
-
-    # FIXME must tell why it is unhappy!
-    def valid(self, path: ModelPath = [], root: bool = True) -> bool:
-        """Check JSON Model structural (and slightly more) validity."""
-
-        is_valid = True
-
-        def finiteRef(model: str) -> bool:
-            ref, recref, recid, jm = model, [], [], self
-            while isinstance(ref, str) and self._isRef(ref) and ref not in recref:
-                jm = jm.resolveRef(ref, path + recref)
-                recref.append(ref)
-                recid.append(jm._id)
-                ref = jm._model
-            finite = not self._isRef(ref) or ref == "$#"  # Hmmm…
-            if not finite:
-                log.debug(f"infinite recursion on {model}: {recref} ({recid})")
-            return finite
-
-        def validFlt(model: ModelType, path: ModelPath) -> bool:
-            nonlocal is_valid
-            match model:
-                case None:
-                    pass
-                case bool():
-                    is_valid &= model
-                case int():
-                    is_valid &= model in (-1, 0, 1)
-                case float():
-                    is_valid &= model in (-1.0, 0.0, 1.0)
-                case str():
-                    if model == "":
-                        pass
-                    elif model[0] == "=":
-                        is_valid &= re.match(CONST_RE, model) is not None
-                    elif model[0] == "/":
-                        try:
-                            pattern, ropts = model[1:].rsplit("/", 1)
-                            is_valid &= (ropts == "" or ropts.isalpha()) and is_regex(pattern)
-                        except Exception:
-                            is_valid = False
-                    elif model[0] == "$":
-                        pass
-                    else:  # TODO more checks
-                        pass
-                case list():
-                    pass
-                case dict():
-                    if "#" in model:
-                        is_valid &= isinstance(model["#"], str)
-                    if "@" in model:
-                        pass  # contraint keys in recurse
-                    elif "|" in model:
-                        is_valid &= isinstance(model["|"], list)
-                        # no other keys in recurse
-                    elif "^" in model:
-                        is_valid &= isinstance(model["^"], list)
-                        # no other keys in recurse
-                    elif "&" in model:
-                        is_valid &= isinstance(model["&"], list)
-                        # no other keys in recurse
-                    elif "+" in model:
-                        is_valid &= isinstance(model["+"], list)
-                        # no other keys in recurse
-                    else:  # check object
-                        props = set()
-                        for p, m in model.items():
-                            if p == "#":
-                                continue
-                            is_valid &= isinstance(p, str)
-                            if p and p[0] not in ("$", "/"):
-                                name = p[1:] if p[0] in ("?", "_", "!") else p
-                                is_valid &= name not in props
-                                props.add(name)
-                            # more checks on p if p[0] == "$"
-                case _:
-                    is_valid = False
-            return True
-
-        if is_valid and self._defs:
-            for name, jm in self._defs.items():
-                is_valid &= finiteRef("$" + name)
-
-        if is_valid:
-            try:
-                self.check(validFlt, "JSON Model Structural Validity")
-            except AssertionError as e:
-                log.error(e)
-                is_valid = False
-                if self._debug:
-                    raise
-
-        # TODO also check other instances?!
-
-        return is_valid
 
     #
     # Display
@@ -938,164 +775,11 @@ class JsonModel:
         self._model = recModel(self._model, allFlt, globRwt, True)
 
     #
-    # Merging
-    #
-    # - inline defs inside +
-    # - distribute + over | and ^
-    # - merge objects, removing all +
-    #
-    def mergeInlining(self):
-
-        changes = 0
-
-        def miFlt(model: ModelType, path: ModelPath) -> bool:
-
-            def inline(m: ModelType, p: ModelPath):
-                nonlocal changes
-                if isinstance(m, str):  # actual inlining
-                    assert m and m[0] == "$"
-                    if self._isPredef(m):
-                        return m
-                    changes += 1
-                    jm = self.resolveRef(m, p)
-                    mo = copy.deepcopy(jm._model)
-                    log.debug(f"{self._id} inline from {jm._id}")
-                    if self._defs._id != jm._defs._id:  # if not in same name space
-                        # substitute local references
-                        def subRefRwt(m, p):
-                            return jm._defs.gget(m) if jm._isRef(m) else m
-                        return recModel(mo, allFlt, subRefRwt, True)
-                    else:  # keep as is
-                        return mo
-                else:
-                    assert isinstance(m, dict)
-                return m
-
-            if isinstance(model, dict) and "+" in model:
-                plus = model["+"]
-                assert isinstance(plus, list)  # pyright hint
-                model["+"] = [inline(n, path + ["+", i]) for i, n in enumerate(plus)]
-
-            return True
-
-        self._model = recModel(self._model, miFlt, noRwt, True)
-
-        log.debug(f"{self._id}: merge inline {changes}")
-
-        return changes > 0
-
-    def mergeDistribute(self):
-
-        changes = 0
-
-        def isAlt(m: ModelType) -> bool:
-            return isinstance(m, dict) and ("|" in m or "^" in m)
-
-        def mdFlt(model: ModelType, path: ModelPath) -> bool:
-            # +( |(A B) C ) -> |( +(A C) +(B C) )
-            nonlocal changes
-
-            dive = builtFlt(model, path)
-
-            if not isinstance(model, dict) or "+" not in model:  # no merge here
-                return dive
-
-            plus, is_xor = model["+"], False
-            assert isinstance(plus, list), f"+ type: {tname(plus)}"
-
-            if not any(map(isAlt, plus)):  # nothing to distribute
-                return dive
-
-            # actual distribution
-            changes += 1
-
-            lmodels: list[list[ModelType]] = [[]]
-            for m in plus:
-                assert isinstance(m, dict)  # pyright hint
-                if isAlt(m):
-                    alts = m["|"] if "|" in m else m["^"]
-                    is_xor |= "^" in m
-                    assert isinstance(alts, list)
-                    lmodels = [
-                        copy.deepcopy(lm) + [n]
-                            for lm in lmodels
-                                for n in alts
-                    ]
-                else:
-                    for lm in lmodels:
-                        lm.append(m)
-
-            # substitute + by ^ or | in place
-            model["^" if is_xor else "|"] = [{"+": lo} for lo in lmodels]
-            del model["+"]
-
-            return dive
-
-        self._model = recModel(self._model, mdFlt, noRwt)
-
-        log.debug(f"{self._id}: merge distribute {changes}")
-
-        return changes > 0
-
-    def mergeObjects(self):
-        """Actually compute and remove operator "+"."""
-
-        changes = 0
-
-        def moRwt(model: ModelType, path: ModelPath) -> ModelType:
-            nonlocal changes
-            if not isinstance(model, dict) or "+" not in model:
-                return model
-            changes += 1
-            plus = model["+"]
-            assert isinstance(plus, list)  # pyright hint
-            merged = merge_objects(plus, path + ["+"])  # pyright: ignore
-            del model["+"]
-            if len(model) > 0:
-                model["@"] = merged
-            else:
-                assert isinstance(merged, dict)  # pyright hint
-                model.update(merged)
-            return model
-
-        self._model = recModel(self._model, builtFlt, moRwt)
-
-        log.debug(f"{self._id} merge objects {changes}")
-
-        return changes > 0
-
-    def merge(self):
-
-        # NOTE after distribution, more inlining may be required
-        # +( |( $A, {.1.} ), {.2.} ) -> |( +( $A, {.2.} ), +( {.1.}, {.2.} ) )
-        updated = True
-        while updated:
-            self.mergeInlining()
-            updated = self.mergeDistribute()
-
-        if self._debug:  # check merge precondition
-
-            def is_object(m: ModelType) -> bool:  # NOTE "+" is allowed
-                return isinstance(m, dict) and not ("@" in m or "|" in m or "^" in m or "&" in m)
-
-            def merge_on_objects(model: ModelType, path: ModelPath) -> bool:
-                if isinstance(model, dict) and "+" in model:
-                    assert isinstance(plus := model["+"], list)  # sanity
-                    return all(map(is_object, plus))
-                return True
-
-            assert self.check(merge_on_objects, "only objects under +")
-
-        self.mergeObjects()
-
-        if self._debug:
-            assert self.check(lambda m, _: not isinstance(m, dict) or "+" not in m)
-
-    #
     # Rename and Rewrite Transformations
     #
     def rename(self, model: ModelType, path: ModelPath = [], root: bool = False) -> ModelType:
         """Apply keyword renaming."""
+
         # FIXME should check that all are ".…" are replaced?!
         if root and not self._name:
             return model
