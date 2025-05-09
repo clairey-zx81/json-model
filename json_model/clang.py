@@ -8,11 +8,14 @@ class CLangJansson(Language):
         super().__init__("C", not_op="!", and_op="&&", or_op="||", relib=relib,
                          lcom="//", eoi=";", indent="  ", debug=debug)
 
+        self._with_re: bool = False
+
     #
     # file
     #
     def file_header(self) -> Block:
-        return [ f"#include <{self._relib}.h>" ] + self.load_data("clang_header.c")
+        reinc = [ f"#include <{self._relib}.h>" ] if self._with_re else []
+        return reinc + self.load_data("clang_header.c")
 
     def file_footer(self) -> Block:
         return []

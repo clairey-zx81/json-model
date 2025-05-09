@@ -30,6 +30,8 @@ F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
+F.c     = $(F.root:%=%.c)
+F.exe   = $(F.root)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
@@ -88,6 +90,12 @@ py: $(F.SO)
 %.py: %.model.json
 	$(JMC.cmd) -SO -v --code ./$< > $@
 	chmod a+rx $@
+
+.PHONY: clang
+clang: $(F.c)
+# TODO -v (report)
+%.c: %.model.json
+	$(JMC.cmd) -XO --format c ./$< > $@
 
 #
 # Dynamic value checks
