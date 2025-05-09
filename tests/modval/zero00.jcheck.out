@@ -1,6 +1,0 @@
-zero00.0.true.json: PASS
-zero00.1.true.json: PASS
-zero00.2.false.json: FAIL
-zero00.3.false.json: PASS
-zero00.4.false.json: FAIL
-zero00.5.false.json: FAIL
