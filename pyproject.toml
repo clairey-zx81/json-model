@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["json_model"]
+include-package-data = true
 
 [project]
 name = "json_model"

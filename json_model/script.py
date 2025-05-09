@@ -11,6 +11,7 @@ from .resolver import Resolver
 from .model import JsonModel
 from .dynamic import DynamicCompiler
 from .static import static_compile
+from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
 
 def create_model(murl: str, resolver: Resolver,
@@ -102,7 +103,7 @@ def jmc_script():
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
-    arg("--format", "-F", default="json", choices=["json", "yaml"], help="output format")
+    arg("--format", "-F", choices=["json", "yaml", "py", "c"], help="output format")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
         help="no test expectations")
@@ -116,14 +117,16 @@ def jmc_script():
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--dump", "-U", dest="op", action="store_const", const="U", default="P",
+    ope("--op", default="P", choices=["P", "U", "J", "N", "S", "D", "V", "E", "X"],
+        help="select operation")
+    ope("--preproc", "-P", dest="op", action="store_const", const="P",
+        help="preprocess model")
+    ope("--dump", "-U", dest="op", action="store_const", const="U",
         help="dump all models")
     ope("--jdump", "-J", dest="op", action="store_const", const="J",
         help="dump json IR")
     ope("--nope", "-N", dest="op", action="store_const", const="N",
         help="dump (retrieved) seldom processed json model input")
-    ope("--preproc", "-P", dest="op", action="store_const", const="P",
-        help="preprocess model")
     ope("--static", "-S", dest="op", action="store_const", const="S",
         help="static compile model for Python")
     ope("--dynamic", "-D", dest="op", action="store_const", const="D",
@@ -132,6 +135,8 @@ def jmc_script():
         help="interpreted model validation")
     ope("--export", "-E", dest="op", action="store_const", const="E",
         help="export as JSON Schema")
+    ope("--experimental", "-X", dest="op", action="store_const", const="X",
+        help="experimental code generation")
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -143,14 +148,35 @@ def jmc_script():
 
     # update op-dependent default
     if args.code is None:
-        args.code = args.op in ("D", "S") and not args.values
+        args.code = args.op in "DSX" and not args.values
 
-    # option/parameter consistency
-    if args.values and args.op not in ("S", "D", "V"):
+    # option/parameter consistency and defaults
+    if args.values and args.op not in "SDV":
         log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
         sys.exit(1)
-    if args.code and args.op not in ("D", "S"):
-        log.error(f"Showing code requires -S or -D: {args.op}")
+    if args.code and args.op not in "DSX":
+        log.error(f"Showing code requires -S, -D or -X: {args.op}")
+        sys.exit(1)
+    if args.op in "PUJNE":
+        if args.format is None:
+            args.format = "json"
+        elif args.format not in ("json", "yaml"):
+            log.error(f"unexpected format {args.format} for operation {args.op}")
+            sys.exit(1)
+    elif args.op in "DS":
+        if args.format is None:
+            args.format = "py"
+        elif args.format != "py":
+            log.error(f"unexpected format {args.format} for operation {args.op}")
+            sys.exit(1)
+    elif args.op == "X":
+        if args.format is None:
+            args.format = "py"
+        elif args.format not in ("py", "c"):
+            log.error(f"unexpected format {args.format} for operation {args.op}")
+            sys.exit(1)
+    else:  # pragma: no cover
+        log.error(f"unexpected operation {args.op}")
         sys.exit(1)
 
     # debug
@@ -229,12 +255,20 @@ def jmc_script():
                 print(asm, file=output)
     elif args.op == "S":
         code = static_compile(model, "check_model", debug=args.debug, report=args.verbose)
-        source_code = f"#! /bin/env python\n#\n# Model: {args.model}\n" + str(code)
+        source = f"#! /bin/env python\n#\n# Model: {args.model}\n" + str(code)
         if args.code:
-            print(source_code, file=output)
+            print(source, file=output)
         env = {}
-        exec(source_code, env)
+        exec(source, env)
         checker = env["check_model"]
+    elif args.op == "X":
+        assert args.format in ("py", "c"), f"valid output language {args.format}"
+        code = xstatic_compile(model, "check_model",
+                               lang=args.format, debug=args.debug, report=args.verbose)
+        header = f"#! /bin/env python\n#\n# Model: {args.model}\n" if args.format == "py" else \
+                 f"/*\n * Model: {args.model}\n */\n"
+        if args.code:
+            print(header + str(code), file=output)
     elif args.op == "E":
         mm = model._init_md
         if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):

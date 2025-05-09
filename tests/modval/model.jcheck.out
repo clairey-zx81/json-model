@@ -56,6 +56,8 @@ int_0.model.json: PASS
 int_1.model.json: PASS
 int_m1.model.json: PASS
 jsound.model.json: PASS
+loose.model.json: PASS
+loose_strict.model.json: PASS
 m06.model.json: PASS
 m07.model.json: PASS
 m08.model.json: PASS
@@ -154,6 +156,7 @@ scp_01.model.json: PASS
 str_0.model.json: PASS
 str_1.model.json: PASS
 str_2.model.json: PASS
+strict.model.json: PASS
 tag00.model.json: PASS
 tag01.model.json: PASS
 tag02.model.json: PASS

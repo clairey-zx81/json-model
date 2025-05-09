@@ -44,6 +44,8 @@ int_0.schema.json: PASS
 int_1.schema.json: PASS
 int_m1.schema.json: PASS
 jsound.schema.json: PASS
+loose.schema.json: PASS
+loose_strict.schema.json: PASS
 m06.schema.json: PASS
 m07.schema.json: PASS
 m08.schema.json: PASS
@@ -103,6 +105,7 @@ scp_01.schema.json: PASS
 str_0.schema.json: PASS
 str_1.schema.json: PASS
 str_2.schema.json: PASS
+strict.schema.json: PASS
 tag00.schema.json: PASS
 tag01.schema.json: PASS
 tag02.schema.json: PASS

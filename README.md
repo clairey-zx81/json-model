@@ -149,6 +149,8 @@ additionalProperties: false
 - [x] static: rename all internal stuff with a `_` prefix
 - [x] python: refactor in optim analyze merge…
 - [x] feature: warn when mixing loose/strict int/float
+- [ ] static: abstract imperative language code generation with
+- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
@@ -214,10 +216,8 @@ additionalProperties: false
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? CGO (end of may)?
 - [ ] schema: handle includes? inline?!
-- [ ] static: abstract imperative language code generation with intermediate code? IR?
-      see [Blaze](https://arxiv.org/abs/2503.02770)?
+- [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
-- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
