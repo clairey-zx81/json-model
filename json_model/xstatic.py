@@ -396,7 +396,7 @@ class SourceCode(Validator):
     def _gen_report(self, res: str, msg: str, params: list[str]) -> Block:
         if self._report:
             gen = self._lang
-            return [ gen.if_stmt(gen.not_op(res), [gen.report(msg, params)]) ]
+            return gen.if_stmt(gen.not_op(res), [gen.report(msg, params)])
         else:
             return []
         
