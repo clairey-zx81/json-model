@@ -1,8 +1,0 @@
-number.0.true.json: PASS
-number.1.true.json: PASS
-number.2.true.json: PASS
-number.3.true.json: PASS
-number.4.false.json: FAIL [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
-number.5.false.json: FAIL [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
-number.6.false.json: FAIL [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]
-number.7.false.json: FAIL [('<NUMBER>', '$', 'invalid number'), ('', '$', '$NUMBER failed')]

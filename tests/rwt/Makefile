@@ -42,7 +42,9 @@ F.sXc   = schema.jcheck.out \
 
 # all generated
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
-          $(F.json) $(F.js) $(F.sXc) $(F.c) $(F.exe) $(F.cc)
+          $(F.json) $(F.js) $(F.sXc)
+
+# $(F.c) $(F.exe) $(F.cc)
 
 -include local.mk
 

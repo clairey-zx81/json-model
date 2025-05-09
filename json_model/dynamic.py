@@ -82,6 +82,7 @@ class DynamicCompiler(Validator):
         # FIXME compile some predefs?
         self._defs.set("$ANY", self._ANY, "<ANY>", "accept anything")
         self._defs.set("$NONE", self._NONE, "<NONE>", "refuse everything")
+        self._defs.set("$NULL", lambda v, p: v is None, "<NULL>", "null")
         # FIXME /.../ vs ...?
         self._defs.set("$REGEX",
                        lambda v, p: (utils.is_regex(v, p) or

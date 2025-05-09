@@ -1,0 +1,3 @@
+eq_42.0.true.json: PASS
+eq_42.1.false.json: FAIL [('', '$', 'expecting integer 42')]
+eq_42.2.false.json: FAIL [('', '$', 'expecting integer 42')]

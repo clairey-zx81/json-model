@@ -219,6 +219,7 @@ additionalProperties: false
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
+- [ ] cpp-backend: see [json](https://github.com/nlohmann/json).
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…

@@ -11,6 +11,13 @@ from .defines import Validator
 from .model import JsonModel
 from .language import Language, Code, Block
 
+_PREDEFS = {
+    "$ANY", "$NONE", "$NULL", "$BOOL",
+    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
+    "$FLOAT", "$F32", "$F64", "$NUMBER",
+    "$STRING", "$DATE", "$URL", "$REGEX",
+}
+
 
 class SourceCode(Validator):
     """Source code for compiling JSON Models.
@@ -68,24 +75,6 @@ class SourceCode(Validator):
 
     # code generation
 
-    def _in_is_int(self, v: str, p: str) -> str:
-        if self._loose_int:
-            return (f"((isinstance({v}, int) and not isinstance({v}, bool)) or"
-                    f" (isinstance({v}, float) and int({v}) == {v}))")
-            # (" or _rep(\"not a loose int at {{p}}\", rep)" if self._report else ""))
-        else:
-            return f"isinstance({v}, int) and not isinstance({v}, bool)"
-            # (" or _rep(\"not an int at {{p}}\", rep)" if self._report else ""))
-
-    def _in_is_float(self, v: str, p: str) -> str:
-        if self._loose_float:
-            return (f"(isinstance({v}, float) or"
-                    f" isinstance({v}, int) and not isinstance({v}, bool))")
-            # (" or _rep(\"not a loose float at {{p}}\", rep)" if self._report else ""))
-        else:
-            return f"isinstance({v}, float)"
-            # (" or _rep(\"not a float at {{p}}\", rep)" if self._report else ""))
-
     def _ident(self, prefix: str, local: bool = False) -> str:
         """Generate a new identifier using a prefix and a counter."""
         if prefix not in self._nvars:
@@ -142,9 +131,11 @@ class SourceCode(Validator):
 
     def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str):
         assert ref and ref[0] == "$"
-        if ref in self._PREDEFS:  # inline predefs
-            return (self._PREDEFS[ref](val, vpath) +
-                    (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
+        if ref in _PREDEFS:  # inline predefs
+            # TODO improve
+            return self._lang.predef(val, ref)
+            # return (self._PREDEFS[ref](val, vpath) +
+            #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
             return f"{fun}({val}, {vpath}, rep)"

@@ -1,0 +1,4 @@
+eq_null.0.true.json: PASS
+eq_null.1.false.json: FAIL [('', '$', 'expecting null')]
+eq_null.2.false.json: FAIL [('', '$', 'expecting null')]
+eq_null.3.false.json: FAIL [('', '$', 'expecting null')]

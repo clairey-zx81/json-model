@@ -1,0 +1,7 @@
+pNULL.0.true.json: PASS
+pNULL.1.false.json: FAIL [('', '$', '$NULL failed')]
+pNULL.2.false.json: FAIL [('', '$', '$NULL failed')]
+pNULL.3.false.json: FAIL [('', '$', '$NULL failed')]
+pNULL.4.false.json: FAIL [('', '$', '$NULL failed')]
+pNULL.5.false.json: FAIL [('', '$', '$NULL failed')]
+pNULL.6.false.json: FAIL [('', '$', '$NULL failed')]

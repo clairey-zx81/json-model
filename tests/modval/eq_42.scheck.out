@@ -1,0 +1,3 @@
+eq_42.0.true.json: PASS
+eq_42.1.false.json: FAIL ['not an expected =42 at $ [$]']
+eq_42.2.false.json: FAIL ['not an expected =42 at $ [$]']

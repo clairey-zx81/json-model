@@ -1,0 +1,7 @@
+pNULL.0.true.json: PASS
+pNULL.1.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']
+pNULL.2.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']
+pNULL.3.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']
+pNULL.4.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']
+pNULL.5.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']
+pNULL.6.false.json: FAIL ['invalid $NULL at $', 'not an expected $NULL at $ [$]']

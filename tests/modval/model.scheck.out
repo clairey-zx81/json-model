@@ -30,6 +30,11 @@ dst_03.model.json: PASS
 enum00.model.json: PASS
 enum01.model.json: PASS
 enum02.model.json: PASS
+eq_3p14.model.json: PASS
+eq_42.model.json: PASS
+eq_false.model.json: PASS
+eq_null.model.json: PASS
+eq_true.model.json: PASS
 eval_00.model.json: PASS
 eval_01.model.json: PASS
 ex_00.model.json: PASS
@@ -107,7 +112,6 @@ mrg_02.model.json: PASS
 mrg_03.model.json: PASS
 none.model.json: PASS
 null.model.json: PASS
-number.model.json: PASS
 obj00.model.json: PASS
 obj01.model.json: PASS
 opt_00.model.json: PASS
@@ -141,6 +145,9 @@ or_0.model.json: PASS
 or10.model.json: PASS
 or_1.model.json: PASS
 orob00.model.json: PASS
+pNULL.model.json: PASS
+pNUMBER.model.json: PASS
+pU64.model.json: PASS
 re_0.model.json: PASS
 re_1.model.json: PASS
 re_2.model.json: PASS
@@ -171,7 +178,6 @@ xorob00.model.json: PASS
 xorob01.model.json: PASS
 xorob02.model.json: PASS
 xorob03.model.json: PASS
-zero00.model.json: PASS
 ../bads/bad_arr.model.json: ERROR
 ../bads/bad_char.model.json: ERROR
 ../bads/bad_colon.model.json: ERROR

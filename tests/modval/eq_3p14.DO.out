@@ -1,0 +1,35 @@
+#
+# json model 1
+#
+              0 COPY_FREE_VARS           3
+
+              2 RESUME                   0
+              4 LOAD_GLOBAL              1 (NULL + type)
+             14 LOAD_FAST                0 (v)
+             16 CALL                     1
+             24 LOAD_GLOBAL              2 (int)
+             34 LOAD_GLOBAL              4 (float)
+             44 BUILD_TUPLE              2
+             46 CONTAINS_OP              0
+             48 COPY                     1
+             50 POP_JUMP_IF_FALSE        5 (to 62)
+             52 POP_TOP
+             54 LOAD_FAST                0 (v)
+             56 LOAD_DEREF               4 (val)
+             58 COMPARE_OP              40 (==)
+        >>   62 COPY                     1
+             64 POP_JUMP_IF_TRUE        22 (to 110)
+             66 POP_TOP
+
+             68 LOAD_DEREF               3 (self)
+             70 LOAD_ATTR                7 (NULL|self + _no)
+             90 LOAD_DEREF               2 (mpath)
+             92 LOAD_FAST                1 (p)
+             94 LOAD_CONST               1 ('expecting number ')
+             96 LOAD_DEREF               4 (val)
+             98 FORMAT_VALUE             0
+            100 BUILD_STRING             2
+            102 CALL                     3
+
+        >>  110 RETURN_VALUE
+

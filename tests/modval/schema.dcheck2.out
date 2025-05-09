@@ -18,6 +18,11 @@ dst_03.schema.json: PASS
 enum00.schema.json: PASS
 enum01.schema.json: PASS
 enum02.schema.json: PASS
+eq_3p14.schema.json: PASS
+eq_42.schema.json: PASS
+eq_false.schema.json: PASS
+eq_null.schema.json: PASS
+eq_true.schema.json: PASS
 eval_00.schema.json: PASS
 eval_01.schema.json: PASS
 ex_00.schema.json: PASS
@@ -55,7 +60,6 @@ mrg_02.schema.json: PASS
 mrg_03.schema.json: PASS
 none.schema.json: PASS
 null.schema.json: PASS
-number.schema.json: PASS
 obj00.schema.json: PASS
 obj01.schema.json: FAIL [('$Schema.|[0]', '$', 'expecting a boolean'), ('$TightSchema.|[0]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[1]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[2]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[3]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[4]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[5]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[6]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[7]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|', '$', 'no any matched'), ('$Schema.|[1]', '$', '$TightSchema failed'), ('$Schema.|', '$', 'no any matched'), ('', '$', '$Schema failed')]
 opt_00.schema.json: PASS
@@ -89,6 +93,9 @@ or_0.schema.json: PASS
 or10.schema.json: PASS
 or_1.schema.json: PASS
 orob00.schema.json: PASS
+pNULL.schema.json: PASS
+pNUMBER.schema.json: PASS
+pU64.schema.json: PASS
 re_0.schema.json: PASS
 re_1.schema.json: PASS
 re_2.schema.json: PASS
@@ -119,4 +126,3 @@ xorob00.schema.json: PASS
 xorob01.schema.json: PASS
 xorob02.schema.json: PASS
 xorob03.schema.json: PASS
-zero00.schema.json: PASS

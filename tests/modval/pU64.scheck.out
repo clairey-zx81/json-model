@@ -1,0 +1,6 @@
+pU64.0.true.json: PASS
+pU64.1.true.json: PASS
+pU64.2.false.json: FAIL ['invalid $U64 at $', 'not an expected $U64 at $ [$]']
+pU64.3.false.json: FAIL ['invalid $U64 at $', 'not an expected $U64 at $ [$]']
+pU64.4.false.json: FAIL ['invalid $U64 at $', 'not an expected $U64 at $ [$]']
+pU64.5.false.json: FAIL ['invalid $U64 at $', 'not an expected $U64 at $ [$]']
