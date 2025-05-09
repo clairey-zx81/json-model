@@ -18,7 +18,7 @@ class CLangJansson(Language):
         return reinc + self.load_data("clang_header.c")
 
     def file_footer(self) -> Block:
-        return []
+        return [""] + self.load_data("clang_main.c")
 
     #
     # inlined type test expressions about JSON data
@@ -35,11 +35,19 @@ class CLangJansson(Language):
     def is_num(self, var: Var) -> BoolExpr:
         return f"json_is_number({var})"
 
-    def is_flt(self, var: Var) -> BoolExpr:
-        return f"json_is_real({var})"
+    def is_flt(self, var: Var, loose: bool = False) -> BoolExpr:
+        if loose:
+            return self.is_num(var)
+        else:
+            return f"json_is_real({var})"
 
-    def is_int(self, var: Var) -> BoolExpr:
-        return f"json_is_integer({var})"
+    def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
+        is_an_int = f"json_is_integer({var})"
+        if loose:
+            is_an_int = ("(" + is_an_int + " || " +
+                               f"json_is_real({var}) && "
+                               f"json_real_value({var}) == ((int) json_real_value({var})))")
+        return is_an_int
 
     def is_bool(self, var: Var) -> BoolExpr:
         return f"json_is_boolean({var})"

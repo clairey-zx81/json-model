@@ -416,7 +416,7 @@ class SourceCode(Validator):
                 code += [ gen.bool_var_val(res, gen.is_bool(val)) ] + \
                     self._gen_report(res, "not a bool at %s [{smpath}]", [vpath])
             case int():
-                expr = gen._is_int(val, vpath, jm._loose_int)
+                expr = gen.is_int(val, jm._loose_int)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -824,7 +824,7 @@ class SourceCode(Validator):
             self._paths[hpath] = fun
 
         body = self._compileModel(jm, model, mpath, "res", "val", "path", None)
-        body.append(self._lang.ret("res"))
+        body = [ self._lang.decl_bool_var("res") ] + body + [ self._lang.ret("res") ]
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})", local=local)
         

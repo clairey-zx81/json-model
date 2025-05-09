@@ -97,6 +97,11 @@ clang: $(F.c)
 %.c: %.model.json
 	$(JMC.cmd) -XO --format c ./$< > $@
 
+CC  = gcc
+
+%: %.c
+	$(CC) -Wall -O2 $< -ljansson -o $@
+
 #
 # Dynamic value checks
 #
