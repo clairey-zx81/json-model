@@ -1,5 +1,9 @@
+import json
 from .language import Language, Block, Var, Inst, Block
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, Expr
+from .mtypes import Jsonable
+
+_ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson."""
@@ -9,6 +13,7 @@ class CLangJansson(Language):
                          lcom="//", eoi=";", indent="  ", debug=debug)
 
         self._with_re: bool = False
+        self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
     # file
@@ -57,6 +62,12 @@ class CLangJansson(Language):
 
     def bool_cst(self, b: bool) -> BoolExpr:
         return "true" if b else "false"
+
+    def _json_str(self, j) -> str:
+        j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
+
+    def json_cst(self, j: Jsonable) -> JsonExpr:
+        return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
     
     def bool_val(self, var: Var) -> BoolExpr:
         return f"json_boolean_value({var})"
@@ -75,6 +86,7 @@ class CLangJansson(Language):
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
         return f"json_object_get({obj}, {prop})"
+
 
     #
     # inlined length computation

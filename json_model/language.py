@@ -155,7 +155,7 @@ class Language:
     def str_cst(self, s: str) -> StrExpr:
         return self.esc(s)
 
-    def json_cst(self, j: Jsonable) -> StrExpr:
+    def json_cst(self, j: Jsonable) -> JsonExpr:
         return str(j)
 
     #
