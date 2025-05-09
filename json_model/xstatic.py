@@ -438,7 +438,7 @@ class SourceCode(Validator):
                     code += [ gen.bool_var_val(res, expr) ] + \
                         self._gen_report(res, "not a {model} int at %s [{smpath}]", [vpath])
             case float():
-                expr = gen.is_float(val, vpath, jm.loose_float)
+                expr = gen.is_flt(val, jm._loose_float)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -493,14 +493,14 @@ class SourceCode(Validator):
                     elif isinstance(value, int):
                         code += [
                             gen.bool_var_val(res,
-                                gen.and_op(gen.is_int(val, jm.loose_int),
+                                gen.and_op(gen.is_int(val, jm._loose_int),
                                            # FIXME cast depends on type?
                                            gen.num_eq(gen.int_val(val), gen.int_cst(value))))
                         ]
                     elif isinstance(value, float):
                         code += [
                             gen.bool_var_val(res,
-                                gen.and_op(gen.is_flt(val, jm.loose_float),
+                                gen.and_op(gen.is_flt(val, jm._loose_float),
                                            # FIXME cast depends on type?
                                            gen.num_eq(gen.flt_val(val), gen.flt_cst(value))))
                         ]

@@ -8,14 +8,18 @@ int main(int argc, char * argv[])
   for (int i = 1; i < argc; i++)
   {
     json_error_t error;
+
+    // read and parse JSON file
     json_t *value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
     if (value == NULL)
     {
       errors++;
-      fprintf(stdout, "%s: FILE READ ERROR (%s at %d:%d)\n",
+      fprintf(stdout, "%s: ERROR (%s at %d:%d)\n",
               argv[i], error.text, error.line, error.column);
       continue;
     }
+
+    // check value against model, fast (no path nor reasons)
     if (check_model(value, NULL, NULL))
       fprintf(stdout, "%s: PASS\n", argv[i]);
     else

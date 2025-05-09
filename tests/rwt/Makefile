@@ -31,16 +31,18 @@ F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
 F.c     = $(F.root:%=%.c)
-F.exe   = $(F.root)
+F.exe   = $(F.root:%=%.exe)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
+F.cc    = $(F.root:%=%.ccheck.out)
 F.sXc   = schema.jcheck.out \
     schema.dcheck.out schema.scheck.out \
     schema.dcheck2.out schema.scheck2.out
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) $(F.json) $(F.js) $(F.sXc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
+          $(F.json) $(F.js) $(F.sXc) $(F.c) $(F.exe) $(F.cc)
 
 -include local.mk
 
@@ -55,6 +57,10 @@ check:
 .PHONY: clean
 clean:
 	$(RM) $(F.gen)
+
+.PHONY: clean.exe
+clean.exe:
+	$(RM) $(F.exe) $(F.c) $(F.cc)
 
 .PHONY: json
 json: $(F.json)
@@ -99,8 +105,13 @@ clang: $(F.c)
 
 CC  = gcc
 
-%: %.c
+%.exe: %.c
 	$(CC) -Wall -O2 $< -ljansson -o $@
+
+%.ccheck.out: %.exe
+	shopt -s nullglob
+	set -o pipefail
+	$< $*.*.{true,false}.json | sort > $@
 
 #
 # Dynamic value checks
