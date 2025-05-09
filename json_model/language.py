@@ -1,4 +1,5 @@
 from importlib.resources import files as data_files
+from .mtypes import Jsonable
 
 type Var = str
 type JsonExpr = str
@@ -154,6 +155,9 @@ class Language:
     def str_cst(self, s: str) -> StrExpr:
         return self.esc(s)
 
+    def json_cst(self, j: Jsonable) -> StrExpr:
+        return str(j)
+
     #
     # inline json scalar value extraction
     #
@@ -255,6 +259,15 @@ class Language:
 
     def str_lt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
         return f"{e1} {self._lt} {e2}"
+
+    #
+    # for JSON values
+    #
+    def json_eq(self, e1: Expr, e2: Expr) -> BoolExpr:
+        return f"e1 {self._eq} {e2}"
+
+    def json_ne(self, e1: Expr, e2: Expr) -> BoolExpr:
+        return f"e1 {self._ne} {e2}"
 
     #
     # simple instructions
