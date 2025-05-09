@@ -1,0 +1,5 @@
+def00.0.true.json: PASS
+def00.1.true.json: PASS
+def00.2.false.json: FAIL [('.pos', '$', 'expecting a positive number'), ('', '$', '$pos failed')]
+def00.3.false.json: FAIL [('.pos', '$', 'expecting a number'), ('', '$', '$pos failed')]
+def00.4.false.json: FAIL [('.pos', '$', 'expecting a number'), ('', '$', '$pos failed')]

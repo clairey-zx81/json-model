@@ -1,0 +1,5 @@
+{
+  "#": "simple reference",
+  "$": { "pos": 0.0 },
+  "@": "$pos"
+}

@@ -1,0 +1,5 @@
+def00.0.true.json: PASS
+def00.1.true.json: PASS
+def00.2.false.json: FAIL
+def00.3.false.json: FAIL
+def00.4.false.json: FAIL
