@@ -24,6 +24,8 @@ int main(int argc, char * argv[])
       fprintf(stdout, "%s: PASS\n", argv[i]);
     else
       fprintf(stdout, "%s: FAIL\n", argv[i]);
+
+    json_decref(value);
   }
 
   return errors? 1: 0;
