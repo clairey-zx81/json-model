@@ -1,3 +1,4 @@
+#ifdef WITH_MAIN
 #include <stdio.h>
 
 int main(int argc, char * argv[])
@@ -32,3 +33,4 @@ int main(int argc, char * argv[])
 
   return errors? 1: 0;
 }
+#endif  // WITH_MAIN
