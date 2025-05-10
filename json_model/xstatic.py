@@ -275,10 +275,10 @@ class SourceCode(Validator):
         gen = self._lang
         return self._gen_report(msg) + [ gen.ret(gen.bool_cst(False)) ]
 
-    def _gen_short_res(self, res: str) -> Block:
-        """Generate a shortcut return if result is false."""
+    def _gen_short_expr(self, expr: BoolExpr) -> Block:
+        """Return immediately if expression is false."""
         gen = self._lang
-        return gen.if_stmt(gen.not_op(res), [ gen.ret(gen.bool_cst(False)) ])
+        return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.bool_cst(False)) ])
 
     def _compileObject(self, code: Code, indent: int,
                        jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -366,7 +366,7 @@ class SourceCode(Validator):
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, vpath)
             dl_code = self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
-                self._gen_short_res(res)
+                self._gen_short_expr(res)
             multi_if += (dl_expr, dl_code)
 
         # // is inlined
@@ -375,7 +375,7 @@ class SourceCode(Validator):
             regex = f"/{r}/"
             rg_expr = self._regExpr(regex, prop, "lpath")
             rg_code = self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
-                self._gen_short_res(res)
+                self._gen_short_expr(res)
             multi_if += (rg_expr, rg_code)
 
         # catchall is inlined?
@@ -413,6 +413,7 @@ class SourceCode(Validator):
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+        # TODO break each level into a separate function and let the compiler inline
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
         assert isinstance(mpath, list)
@@ -425,7 +426,7 @@ class SourceCode(Validator):
                     self._gen_report(res, f"not null at {{{vpath}}} [{smpath}]")
             case bool():
                 code += [ gen.bool_var_val(res, gen.is_bool(val)) ] + \
-                    self._gen_report(res, f"not a bool at {{{vpath}}}[{smpath}]")
+                    self._gen_report(res, f"not a bool at {{{vpath}}} [{smpath}]")
             case int():
                 expr = gen.is_int(val, jm._loose_int)
                 if known is not None:
@@ -538,7 +539,7 @@ class SourceCode(Validator):
                         smodel = "REGEX"
                     code += self._gen_report(res, f"unexpected {smodel} at {{{vpath}}} [{smpath}]")
             case list():
-                expr = f"isinstance({val}, list)"
+                expr = gen.is_arr(val)
                 smpath = json_path(mpath)
                 if known is not None:
                     if expr in known:
@@ -546,49 +547,36 @@ class SourceCode(Validator):
                     if expr is not None:
                         known.add(expr)
                 if len(model) == 0:
-                    if expr:
-                        expr += f" and len({val}) == 0"
-                    else:
-                        expr = f"len({val}) == 0"
-                    code.add(indent, f"{res} = {expr}")
+                    length = gen.num_eq(gen.arr_len(val), gen.int_cst(0))
+                    expr = gen.and_op(expr, length) if expr else length
+                    code += [ gen.bool_var_val(res, expr) ]
+                    # SHORT RES?
                 elif len(model) == 1:
-                    arrayid = self._ident("array_", True)
+                    arrayid = gen.new_ident("arr")
                     idx, item = f"{arrayid}_idx", f"{arrayid}_item"
-                    if expr:
-                        code.add(indent, f"{res} = {expr}")
-                        code.add(indent, f"if {res}:")
-                    else:
-                        code.add(indent, "if True:")
-                    # code.add(indent + 1, f"assert isinstance({val}, list)  # pyright helper")
-                    code.add(indent + 1, f"for {idx}, {item} in enumerate({val}):")
-                    code.add(indent + 1, f"    lpath = {vpath} + '.' + str({idx})")
-                    # i+1
-                    self._compileModel(jm, model[0], mpath + [0],
-                                       res, item, "lpath")
-                    # shortcut
-                    code.add(indent + 2, f"if not {res}:")
-                    # if self._report:
-                    #     code.add(indent + 3,
-                    #              _rep(f"unexpected array value at {{lpath}} [{smpath}]"))
-                    code.add(indent + 2, r"    break")
+
+                    loop = gen.arr_loop(val, idx, item, [
+                        gen.lcom("TODO lpath = vpath + idx")
+                        # lpath?
+                    ] + self._compileModel(jm, model[0], mpath + [0], res, item, "None") + \
+                        gen.if_stmt(gen.not_op(res), [ gen.brk() ])
+                    )
+
+                    code += [ gen.bool_var_val(res, expr if expr else gen.bool_cst(True)) ] + \
+                        gen.if_stmt(res, loop)
                 else:
-                    if expr:
-                        code.add(indent, f"{res} = {expr} and len({val}) == {len(model)}")
-                    else:
-                        code.add(indent, f"{res} = len({val}) == {len(model)}")
-                    for i, m in enumerate(model):
-                        code.add(indent + i, f"if {res}:")
-                        # i+1
-                        self._compileModel(jm, model[i], mpath + [i],
-                                           res, f"{val}[{i}]", f"{vpath} + '.{i}'")
-                    if self._report:
-                        code.add(indent, r"else:")
-                        code.add(indent + 1,
-                                 _rep(f"not array or bad array length at {{{vpath}}} [{smpath}]"))
-                if self._report:
-                    code.add(indent, f"if not {res}:")
-                    code.add(indent + 1,
-                             _rep(f"not array or unexpected array at {{{vpath}}} [{smpath}]"))
+                    length = gen.num_eq(gen.arr_len(val), gen.int_cst(len(model)))
+                    expr = gen.and_op(expr, length) if expr else length
+                    code += [ gen.bool_var_val(res, expr) ]
+                    body = []
+                    for i, m in reversed(list(enumerate(model))):
+                        body = gen.if_stmt(res,
+                            self._compileModel(jm, model[i], mpath + [i],
+                                               res, gen.arr_item_val(val, i), f"{vpath}+'.{i}'") +
+                            body)
+                    code += body
+                code += self._gen_report(res,
+                    f"not array or unexpected array at {{{vpath}}} [{smpath}]")
             case dict():
                 # TODO report
                 assert isinstance(model, dict)  # pyright hint

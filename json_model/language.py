@@ -324,6 +324,9 @@ class Language:
     def ret(self, res: BoolExpr) -> Inst:
         return f"return {res}{self._eoi}"
 
+    def brk(self) -> Inst:
+        return f"break{self._eoi}"
+
     def esc(self, s: str) -> str:
         return '"' + s.replace('"', r'\"') + '"'
 
