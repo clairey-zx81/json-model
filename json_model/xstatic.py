@@ -270,18 +270,25 @@ class SourceCode(Validator):
 
         return True
 
+    def _gen_report(self, res: str, msg: str) -> Block:
+        """Maybe enerate a report."""
+        if self._report:
+            gen = self._lang
+            return gen.if_stmt(gen.not_op(res), gen.report(msg))
+        else:
+            return []
+
     def _gen_fail(self, msg: str) -> Block:
         """Generate a report and return false."""
         gen = self._lang
-        return self._gen_report(msg) + [ gen.ret(gen.bool_cst(False)) ]
+        return gen.report(msg) + [ gen.ret(gen.bool_cst(False)) ]
 
     def _gen_short_expr(self, expr: BoolExpr) -> Block:
         """Return immediately if expression is false."""
         gen = self._lang
         return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.bool_cst(False)) ])
 
-    def _compileObject(self, code: Code, indent: int,
-                       jm: JsonModel, model: ModelType, mpath: ModelPath,
+    def _compileObject(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                        oname: str, res: str, val: str, vpath: str) -> Block:
         """Generate the body of a function which checks an actual object."""
 
@@ -295,13 +302,11 @@ class SourceCode(Validator):
         # generated code helpers
         code: Block = []
         multi_if: list[tuple[BoolExpr, Block]] = []
-        prop, pval, must_c = "prop", "pval", "must_count"
+        prop, pval, must_c, pfun = "prop", "pval", "must_count", "pfun"
 
         # should be an object
-        code += [
-            gen.if_stmt(gen.not_op(gen.is_obj(val)),
-                        self._gen_fail(f"not an object at {{{vpath}}} [{smpath}]"))
-        ]
+        code += gen.if_stmt(gen.not_op(gen.is_obj(val)),
+                            self._gen_fail(f"not an object at {{{vpath}}} [{smpath}]"))
 
         # shorcut for empty object
         if not must and not may and not defs and not regs and not oth:
@@ -311,15 +316,15 @@ class SourceCode(Validator):
                             self._gen_fail(f"expecting empty object at {{{vpath}}} [{smpath}]"))
             return code
 
-        code += [ gen.decl_fun_var("fun") ]
+        code += [ gen.decl_fun_var(pfun) ]
 
         # build multi-if structure to put in prop/val loop
         if must:
             prop_must = f"{oname}_must"
-            self._code.decl_map(prop_must)
+            self._code.defs(gen.decl_map(prop_must, len(must)))
 
             # must prop counter to check at the end if all were seen
-            code += [ gen.decl_int_var_val(musc_c, gen.int_cst(0)) ]
+            code += [ gen.decl_int_var_val(must_c, gen.int_cst(0)) ]
 
             prop_must_map: dict[str, str] = {}
             for p in sorted(must.keys()):
@@ -328,21 +333,21 @@ class SourceCode(Validator):
                 self._compileName(jm, pid, m, mpath + [p], True)
                 prop_must_map[p] = self._getName(jm, pid)
 
-            self._code.init_map(prop_must, prop_must_map)
+            self._code.init(gen.init_map(prop_must, prop_must_map))
             # self._maps[prop_must] = prop_must_map
 
-            mu_expr = gen.prop_fun("fun", prop, prop_must_map)
+            mu_expr = gen.prop_fun(pfun, prop, prop_must, len(must))
             mu_code = gen.if_stmt(
-                gen.is_def("fun"), [
+                gen.is_def(pfun), [
                     gen.inc_var(must_c)
-                ] + gen.if_stmt(gen.not_op(gen.check_call("fun", pval)),
+                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval)),
                         self._gen_fail(f"invalid must property {{{prop}}} value at {{{vpath}}} [{smpath}]"))
             )
-            multi_if += (mu_expr, mu_code)
+            multi_if += [(mu_expr, mu_code)]
 
         if may:
             prop_may = f"{oname}_may"
-            self._code.decl_map(prop_may)
+            self._code.decl_map(prop_may, len(may))
 
             prop_may_map: dict[str, str] = {}
             for p in sorted(may.keys()):
@@ -354,12 +359,12 @@ class SourceCode(Validator):
             self._code.init_map(prop_may, prop_may_map)
             # self._maps[prop_may] = prop_may_map
 
-            ma_expr = gen.prop_fun("fun", prop, prop_must_map)
+            ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))
             ma_code = gen.if_stmt(
-                gen.and_op(gen.is_def("fun"), gen.not_op(gen.check_call("fun", pval))),
+                gen.and_op(gen.is_def(pfun), gen.not_op(gen.check_call(pfun, pval))),
                 self._gen_fail(f"invalid may property {{{prop}}} value at {{{vpath}}} [{smpath}]")
             )
-            multi_if += (ma_expr, ma_code)
+            multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.keys():
@@ -367,7 +372,7 @@ class SourceCode(Validator):
             dl_expr = self._dollarExpr(jm, ref, prop, vpath)
             dl_code = self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
                 self._gen_short_expr(res)
-            multi_if += (dl_expr, dl_code)
+            multi_if += [(dl_expr, dl_code)]
 
         # // is inlined
         for r, v in regs.items():
@@ -376,7 +381,7 @@ class SourceCode(Validator):
             rg_expr = self._regExpr(regex, prop, "lpath")
             rg_code = self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
                 self._gen_short_expr(res)
-            multi_if += (rg_expr, rg_code)
+            multi_if += [(rg_expr, rg_code)]
 
         # catchall is inlined?
         ot_code: Block
@@ -402,14 +407,9 @@ class SourceCode(Validator):
                 self._gen_fail(f"missing must prop at {{{vpath}}} [{smpath}]"))
 
         # early returns so no need to look at res
-        code += gen.ret(gen.bool_cst(True))
+        code += [ gen.ret(gen.bool_cst(True)) ]
 
-    def _gen_report(self, res: str, msg: str) -> Block:
-        if self._report:
-            gen = self._lang
-            return gen.if_stmt(gen.not_op(res), gen.report(msg))
-        else:
-            return []
+        return code
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
@@ -743,39 +743,27 @@ class SourceCode(Validator):
                         code.add(indent, f"if not {res}:")
                         code.add(indent + 1, _rep(f"not one model match at {{{vpath}}} [{slpath}]"))
                 else:
-                    # TODO optimize empty model?
-                    # generate separate functions for objects?
-                    hpath = tuple(mpath)
-                    if hpath not in self._paths:
-                        objid = self._ident("obj_")
-                        self._paths[hpath] = objid
-                    else:
-                        objid = self._paths[hpath]
-                    if hpath not in self._generated:
-                        ocode = Code()
-                        ocode.nl()
-                        ocode.add(0, f"# object {json_path(mpath)}")
-                        path_init = " = \"$\"" if mpath == ["$"] else ""
-                        ocode.add(0, f"def {objid}(value: Jsonable, path: str{path_init}, "
-                                  f"rep: Report = None) -> bool:")
-                        self._compileObject(ocode, 1, jm, model, mpath, objid, _RES, _VAL, _PATH)
-                        self.subs(ocode)
-                        self._generated.add(hpath)
-                    del hpath
-                    code.add(indent, f"{res} = {objid}({val}, {vpath}, rep)")
-                    if self._report:
-                        code.add(indent, f"if not {res}:")
-                        code.add(indent + 1,
-                                 _rep(f"not an expected object at {{{vpath}}} [{smpath}]"))
+                    # new function to check the object
+                    objid = gen.new_ident(self._prefix + "obj")
+                    ocode: Block = [ gen.lcom(f"object {json_path(mpath)}") ] + \
+                        gen.gen_fun(objid,
+                        self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
+                        True)
+                    self._code.subs(ocode)
+
+                    # call object check and possibly report
+                    code += [ gen.bool_var_val(res, gen.check_call(objid, "val")) ]
+                    code += self._gen_report(res, f"not an expected object at {{{vpath}}} [{smpath}]")
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
+
         return code
 
     def _getName(self, jm: JsonModel, name: str) -> str:
         """Ensure global unique names for internal functions."""
         # FIXME global name space! prefix with jm._id ?
         if name not in self._names:
-            self._names[name] = self._ident("f_")
+            self._names[name] = self._lang.new_ident(self._prefix + "f")
         log.debug(f"{name} -> {self._names[name]}")
         return self._names[name]
 
@@ -839,7 +827,7 @@ class SourceCode(Validator):
             # on a named root, two names for the same path
             self._generated.add(hpath)
         else:
-            raise Exception("should not get there?!")
+            log.warning("should not get there?!")
 
     def compileOneJsonModel(self, jm: JsonModel, name: str, path: ModelPath, local: bool = False):
         if jm._id not in self._compiled:

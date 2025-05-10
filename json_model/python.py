@@ -41,7 +41,9 @@ class Python(Language):
 
     def file_header(self) -> Block:
         code: Block = super().file_header()
-        code += [ f"import {self._relib} as re" ] + self.load_data("python_header.py")
+        if self._re_used:
+            code += [ f"import {self._relib} as re" ]
+        code += self.load_data("python_header.py")
         if self._url_used:
             code += [""] + self.load_data("python_url.py")
         if self._date_used:

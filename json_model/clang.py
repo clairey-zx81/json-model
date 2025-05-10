@@ -1,5 +1,5 @@
 import json
-from .language import Language, Block, Var, Inst, Block
+from .language import Language, Block, Var, Inst, Block, PropMap
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, Expr
 from .mtypes import Jsonable
 
@@ -15,7 +15,6 @@ class CLangJansson(Language):
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
-        self._with_re: bool = False
         self._with_props: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
@@ -24,14 +23,14 @@ class CLangJansson(Language):
     #
     def file_header(self) -> Block:
         header = []
-        if self._with_re:
+        if self._re_used:
             if self._relib == "pcre2":
                 # FIXME what should it be for UTF-8?
                 header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
             header += [ f"#include <{self._relib}.h>" ]
         header += self.load_data("clang_header.c")
         if self._with_props:
-            header += [""] + self._load_data("clang_props.c")
+            header += [""] + self.load_data("clang_props.c")
         return header
 
     def file_footer(self) -> Block:
@@ -123,6 +122,9 @@ class CLangJansson(Language):
     def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
         return f"(({cond}) ? ({true}) : ({false}))"
 
+    def prop_fun(self, fun: str, prop: str, mapname: str, nprops: int) -> Expr:
+        return f"({fun} = check_prop_find({prop}, {mapname}, {nprops}))"
+
     #
     # inline comparison expressions for strings
     # this is locale-unaware
@@ -149,7 +151,7 @@ class CLangJansson(Language):
     # simple instructions
     #
     def decl_fun_var(self, var: Var) -> Inst:
-        return "check_fun_t *{var};"
+        return f"check_fun_t {var};"
 
     def decl_json_var(self, var: Var) -> Inst:
         return f"json_t *{var};"
@@ -186,7 +188,7 @@ class CLangJansson(Language):
         return [
             f"const char *{key};",
             f"json_t *{val};",
-            f"json_object_foreach({obj}, {key}, {val})"
+            f"json_object_foreach((json_t *) {obj}, {key}, {val})"
         ] + self.indent(body)
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
@@ -223,11 +225,11 @@ class CLangJansson(Language):
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def init_re(self, name: str, regex: str) -> Block:
-        code = [] if self._with_re else [
+        code = [] if self._re_used else [
             "int err_code;",
             "PCRE2_SIZE err_offset;"
         ]
-        self._with_re = True
+        self._re_used = True
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)}, PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF,"
              " &err_code, &err_offset, NULL);",
@@ -235,8 +237,20 @@ class CLangJansson(Language):
         ]
         return code
 
+    def decl_map(self, name: str, size: int) -> Block:
+        self._with_props = True
+        return [ f"static check_prop_t {name}[{size}];" ]
+
+    def init_map(self, name: str, pmap: PropMap) -> Block:
+        self._with_props = True
+        init = []
+        for i, pf in enumerate(pmap.items()):
+            p, f = pf
+            init += [ f"{name}[{i}] = (check_prop_t) {{ {self.esc(p)}, {f} }};" ]
+        return init
+
     def _fun(self, name: str, local: bool = False) -> str:
-        return  f"{'static ' if local else ''}bool {name}(json_t *val, Path *path, Report *rep)"
+        return  f"{'static ' if local else ''}bool {name}(const json_t *val, Path *path, Report *rep)"
 
     def decl_fun(self, name: str, local: bool = False) -> Block:
         return [ self._fun(name, local) + ";" ]
