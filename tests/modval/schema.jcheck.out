@@ -10,6 +10,7 @@ bool.schema.json: PASS
 bool_s.schema.json: PASS
 compl00.schema.json: PASS
 date.schema.json: PASS
+def00.schema.json: PASS
 dollar00.schema.json: PASS
 dst_00.schema.json: PASS
 dst_01.schema.json: PASS

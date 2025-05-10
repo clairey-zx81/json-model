@@ -122,6 +122,9 @@ class Language:
     def is_null(self, var: Var) -> BoolExpr:
         return f"{var} is None"
 
+    def is_def(self, var: Var) -> BoolExpr:
+        return f"{var} is not None"
+
     #
     # predefs
     #
@@ -207,8 +210,11 @@ class Language:
     #
     # boolean expression
     #
-    def check_call(self, name) -> BoolExpr:
-        return f"{name}(val, path, rep)"
+    def str_check_call(self, name, val) -> BoolExpr:
+        return f"{name}({val})"
+
+    def check_call(self, name, val) -> BoolExpr:
+        return f"{name}({val}, path, rep)"
         
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
         return f"{true} if {cond} else {false}"
@@ -270,6 +276,9 @@ class Language:
     def str_lt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
         return f"{e1} {self._lt} {e2}"
 
+    def prop_fun(self, fun: str, prop: str, mapping: str) -> BoolExpr:
+        return [ "{fun} := {mapping}.get({prop})" ]
+
     #
     # for JSON values
     #
@@ -291,17 +300,26 @@ class Language:
     def decl_bool_var(self, var: Var) -> Inst:
         return f"{var}: bool{self._eoi}"
 
+    def decl_fun_var(self, var: Var) -> Inst:
+        return f"{fun}: CheckFun"
+
     def json_var_val(self, var: Var, expr: Expr) -> Inst:
         return f"{var} = {expr}{self._eoi}"
 
     def bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
         return f"{var} = {expr}{self._eoi}"
 
-    def decl_json_var_val(self, var: Var, expr: Expr) -> Inst:
+    def decl_json_var_val(self, var: Var, expr: JsonExpr) -> Inst:
         return f"{var}: Jsonable = {expr}{self._eoi}"
+
+    def decl_int_var_val(self, var: Var, expr: IntExpr) -> Inst:
+        return f"{var}: int = {expr}{self._eoi}"
 
     def decl_bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
         return f"{var}: bool = {expr}{self._eoi}"
+
+    def inc_var(self, var: Var) -> Inst:
+        return f"{var} += 1{self._eoi}"
 
     def ret(self, res: BoolExpr) -> Inst:
         return f"return {res}{self._eoi}"
@@ -322,7 +340,8 @@ class Language:
         return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        return [ f"for {key}, {val} in {obj}.items():" ] + self.indent(body)
+        return [ f"for {key}, {val} in {obj}.items():" ] + \
+            self.indent([ "assert isinstance({key}, str)" ] + body)
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         if true and false:
@@ -332,7 +351,7 @@ class Language:
         else:
             return [ f"if not ({cond}):" ] + self.indent(false)
 
-    def mif(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
         code, op = [], "if"
         for cond, true in cond_true:
             code += [ f"{op} {cond}:" ]
@@ -360,8 +379,9 @@ class Language:
     def decl_re(self, name: str, regex: str) -> Block:
         sregex = self.esc(regex)
         return [
-            f"_{name}_search = {self._relib}.compile(r{sregex}).search",
-            f"{name}: RegexFun = lambda s: _{name}_search(s) is not None"
+            # NOTE re2 imported as re
+            f"{name}_search = re.compile(r{sregex}).search",
+            f"{name}: RegexFun = lambda s: {name}_search(s) is not None"
         ]
 
     def gen_re(self, name: str, regex: str) -> Block:
@@ -435,6 +455,11 @@ class Code:
         self.init(self._lang.init_map(name, mapping))
 
     def __str__(self):
-        code = (self._lang.file_header() + self._head + self._help + self._defs +
-            self._subs + self._lang.gen_init(self._init) + self._lang.file_footer())
+        # reduce
+        code: Block = []
+        for b in (self._lang.file_header(), self._head, self._help, self._defs,
+            self._subs, self._lang.gen_init(self._init) + self._lang.file_footer()):
+            if code and b:
+                code += [""]
+            code += b
         return self._lang._isep.join(code)

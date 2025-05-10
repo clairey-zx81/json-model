@@ -9,8 +9,9 @@ class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson."""
 
     def __init__(self, *, debug: bool = False, relib: str = "pcre2"):
-        super().__init__("C", not_op="!", and_op="&&", or_op="||", relib=relib,
-                         lcom="//", eoi=";", indent="  ", debug=debug)
+
+        super().__init__("C", not_op="!", and_op="&&", or_op="||", lcom="//",
+                         eoi=";", indent="  ", relib=relib, debug=debug)
 
         self._with_re: bool = False
         self._with_props: bool = False
@@ -22,6 +23,9 @@ class CLangJansson(Language):
     def file_header(self) -> Block:
         header = []
         if self._with_re:
+            if self._relib == "pcre2":
+                # FIXME what should it be for UTF-8?
+                header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
             header += [ f"#include <{self._relib}.h>" ]
         header += self.load_data("clang_header.c")
         if self._with_props:
@@ -66,6 +70,9 @@ class CLangJansson(Language):
     def is_null(self, var: Var) -> BoolExpr:
         return f"json_is_null({var})"
 
+    def is_def(self, var: Var) -> BoolExpr:
+        return f"{var} != NULL"
+
     def bool_cst(self, b: bool) -> BoolExpr:
         return "true" if b else "false"
 
@@ -92,7 +99,6 @@ class CLangJansson(Language):
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
         return f"json_object_get({obj}, {prop})"
-
 
     #
     # inlined length computation
@@ -140,6 +146,9 @@ class CLangJansson(Language):
     #
     # simple instructions
     #
+    def decl_fun_var(self, var: Var) -> Inst:
+        return "check_fun_t *{var};"
+
     def decl_json_var(self, var: Var) -> Inst:
         return f"json_t *{var};"
 
@@ -148,6 +157,9 @@ class CLangJansson(Language):
 
     def decl_json_var_val(self, var: Var, expr: Expr) -> Inst:
         return f"json_t *{var} = {expr};"
+
+    def decl_int_var_val(self, var: Var, expr: IntExpr) -> Inst:
+        return f"int {var} = {expr};"
 
     def decl_bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
         return f"bool {var} = {expr};"
@@ -195,6 +207,30 @@ class CLangJansson(Language):
                 code += self.indent(false)
             else:
                 code += false
+        return code
+
+    def decl_re(self, name: str, regex: str) -> Block:
+        return [
+            f"static pcre2_code *{name}_code = NULL;",
+            f"static pcre2_match_data *{name}_data = NULL;",
+            f"static bool {name}(const char *s);"
+        ]
+
+    def gen_re(self, name: str, regex: str) -> Block:
+        code = self.load_data("clang_pcre2_fun.c")
+        return [ c.replace("FUNCTION_NAME", name) for c in code ]
+
+    def init_re(self, name: str, regex: str) -> Block:
+        code = [] if self._with_re else [
+            "int err_code;",
+            "PCRE2_SIZE err_offset;"
+        ]
+        self._with_re = True
+        code += [
+            f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)}, PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF,"
+             " &err_code, &err_offset, NULL);",
+            f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
+        ]
         return code
 
     def _fun(self, name: str, local: bool = False) -> str:

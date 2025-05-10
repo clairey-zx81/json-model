@@ -22,6 +22,7 @@ bool.model.json: PASS
 bool_s.model.json: PASS
 compl00.model.json: PASS
 date.model.json: PASS
+def00.model.json: PASS
 dollar00.model.json: PASS
 dst_00.model.json: PASS
 dst_01.model.json: PASS

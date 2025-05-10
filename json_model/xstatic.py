@@ -9,7 +9,7 @@ from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
 from .defines import Validator
 from .model import JsonModel
-from .language import Language, Code, Block
+from .language import Language, Code, Block, BoolExpr
 
 _PREDEFS = {
     "$ANY", "$NONE", "$NULL", "$BOOL",
@@ -25,20 +25,24 @@ class SourceCode(Validator):
     - globs: global map of symbols.
     - prefix: use this prefix for function name generation.
     - report: whether to report rejection reasons.
+    - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
     """
 
     def __init__(self, globs: Symbols, language: Language, *,
-                 prefix: str = "", report: bool = True, debug: bool = False):
+                 prefix: str = "",
+                 report: bool = True, path: bool = True, debug: bool = False):
 
         super().__init__()
 
         self._globs = globs
         self._lang = language
-        self._code = Code(language)
         self._prefix = prefix
         self._report = report
+        self._path = path
         self._debug = debug
+
+        self._code = Code(language)
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
@@ -84,40 +88,50 @@ class SourceCode(Validator):
         return ident
 
     def _regex(self, regex: str) -> str:
-        """Compile are regular expression, with memoization."""
+        """Compile a regular expression, with memoization, return function name."""
+
         if regex not in self._regs:
+
+            # extract and check actual pattern
             try:
-                # extract actual pattern
                 pattern, ropts = regex[1:].rsplit("/", 1)
                 assert ropts == "" or ropts.isalpha(), f"invalid options: {ropts}"
                 pattern = f"(?{ropts}){pattern}" if ropts else pattern
                 # statically check re validity
-                if self._re == "re2":
+                if self._lang._relib == "re2":
                     import re2 as rex
                 else:
                     import re as rex
                 rex.compile(pattern)
             except Exception as e:
                 raise ModelError(f"invalid regex: {regex} ({e})")
+
             # ok, generate code for pattern
-            fun = self._ident("re_")
-            self.define(f"# regex {self._esc(regex)}")
-            if pattern in (".*", "^.*", "^.*$", ".*$") or len(pattern) == 2 and pattern[-1] == "*":
-                self.define(f"{fun} = lambda _s: True")
-            elif pattern in ("(?s).+", "(?s)."):  # s option is required!
-                self.define(f"{fun} = lambda s: len(s) > 0 or None")
-            else:
-                self.define(f"{fun} = re.compile({self._esc(pattern)}).search")
+            gen = self._lang
+            fun = gen.new_ident(self._prefix + "re")
+            self._code.defs(gen.decl_re(fun, pattern))
+            self._code.subs(gen.gen_re(fun, pattern))
+            self._code.init(gen.init_re(fun, pattern))
+
+            # memoize
             self._regs[regex] = fun
+
         return self._regs[regex]
 
-    def _regExpr(self, regex: str, val: str, path: str):
-        """Generate re check inlined expression on a value."""
-        fun = self._regex(regex)
-        return (f"{fun}({val}) is not None" +
-                # FIXME self._fesc(regex)
-                (f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
-                 if self._report else ""))
+    def _regExpr(self, regex: str, val: str, path: str) -> BoolExpr:
+        """Generate an inlined regex check expression on a value."""
+        gen = self._lang
+
+        # optimized versions
+        if re.match(r"^/\^?.\*\$?/[mis]?$", regex):
+            return gen.bool_cst(True)
+        elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
+            return gen.num_gt(gen.str_len(gen.str_val(val)), gen.int_cst(0))
+        else:
+            fun = self._regex(regex)
+            # TODO inline the internal function if possible?
+            return gen.str_check_call(fun, gen.str_val(val))
+        # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
 
     def _esc(self, val: Jsonable) -> str:
         """Escape value as necessary."""
@@ -138,7 +152,7 @@ class SourceCode(Validator):
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
-            return f"{fun}({val}, {vpath}, rep)"
+            return self._lang.check_call(fun, val)  # FIXME vpath?
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
@@ -256,133 +270,139 @@ class SourceCode(Validator):
 
         return True
 
+    def _gen_fail(self, msg: str) -> Block:
+        """Generate a report and return false."""
+        gen = self._lang
+        return self._gen_report(msg) + [ gen.ret(gen.bool_cst(False)) ]
+
+    def _gen_short_res(self, res: str) -> Block:
+        """Generate a shortcut return if result is false."""
+        gen = self._lang
+        return gen.if_stmt(gen.not_op(res), [ gen.ret(gen.bool_cst(False)) ])
+
     def _compileObject(self, code: Code, indent: int,
                        jm: JsonModel, model: ModelType, mpath: ModelPath,
-                       oname: str, res: str, val: str, vpath: str):
-        # separate properties
+                       oname: str, res: str, val: str, vpath: str) -> Block:
+        """Generate the body of a function which checks an actual object."""
+
         assert isinstance(model, dict)
+        gen = self._lang
+
+        # separate properties
         must, may, defs, regs, oth = split_object(model, mpath)
         smpath = json_path(mpath)
-        # TODO optimize must only case?
-        code.add(indent, f"if not isinstance({val}, dict):")
-        if self._report:
-            code.add(indent + 1, _rep(f"not an object at {{{vpath}}} [{smpath}]"))
-        code.add(indent, "    return False")
-        prop_must = f"{oname}_must"
+
+        # generated code helpers
+        code: Block = []
+        multi_if: list[tuple[BoolExpr, Block]] = []
+        prop, pval, must_c = "prop", "pval", "must_count"
+
+        # should be an object
+        code += [
+            gen.if_stmt(gen.not_op(gen.is_obj(val)),
+                        self._gen_fail(f"not an object at {{{vpath}}} [{smpath}]"))
+        ]
+
+        # shorcut for empty object
+        if not must and not may and not defs and not regs and not oth:
+            code += \
+                gen.if_stmt(gen.num_eq(gen.obj_len(val), gen.int_cst(0)),
+                            [ gen.ret(bool_cst(True)) ],
+                            self._gen_fail(f"expecting empty object at {{{vpath}}} [{smpath}]"))
+            return code
+
+        code += [ gen.decl_fun_var("fun") ]
+
+        # build multi-if structure to put in prop/val loop
         if must:
+            prop_must = f"{oname}_must"
+            self._code.decl_map(prop_must)
+
+            # must prop counter to check at the end if all were seen
+            code += [ gen.decl_int_var_val(musc_c, gen.int_cst(0)) ]
+
             prop_must_map: dict[str, str] = {}
-            self.define(f"{prop_must}: PropMap")
-            self._maps[prop_must] = prop_must_map
-            for p, m in must.items():
+            for p in sorted(must.keys()):
+                m = must[p]
                 pid = f"{prop_must}_{p}"  # tmp unique identifier
-                self.help(self._compileName(jm, pid, m, mpath + [p]))
+                self._compileName(jm, pid, m, mpath + [p], True)
                 prop_must_map[p] = self._getName(jm, pid)
-        prop_may = f"{oname}_may"
+
+            self._code.init_map(prop_must, prop_must_map)
+            # self._maps[prop_must] = prop_must_map
+
+            mu_expr = gen.prop_fun("fun", prop, prop_must_map)
+            mu_code = gen.if_stmt(
+                gen.is_def("fun"), [
+                    gen.inc_var(must_c)
+                ] + gen.if_stmt(gen.not_op(gen.check_call("fun", pval)),
+                        self._gen_fail(f"invalid must property {{{prop}}} value at {{{vpath}}} [{smpath}]"))
+            )
+            multi_if += (mu_expr, mu_code)
+
         if may:
+            prop_may = f"{oname}_may"
+            self._code.decl_map(prop_may)
+
             prop_may_map: dict[str, str] = {}
-            self.define(f"{prop_may}: PropMap")
-            self._maps[prop_may] = prop_may_map
-            for p, m in may.items():
+            for p in sorted(may.keys()):
+                m = may[p]
                 pid = f"{prop_may}_{p}"
-                self.help(self._compileName(jm, pid, m, mpath + [p]))
+                self._compileName(jm, pid, m, mpath + [p])
                 prop_may_map[p] = self._getName(jm, pid)
-        prop, value, must_c = "prop", "val", "must_count"
-        if must:
-            code.add(indent, f"{must_c} = 0")
-        code.add(indent, f"for {prop}, {value} in {val}.items():")
-        code.add(indent, f"    assert isinstance({prop}, str)")
-        code.add(indent, f"    lpath = {vpath} + \".\" + {prop}")
-        cond = "if"
-        if must:
-            code.add(indent, f"    {cond} {prop} in {prop_must}:  # must")
-            code.add(indent, f"        {must_c} += 1")
-            code.add(indent, f"        if not {prop_must}[{prop}]({value}, lpath, rep):")
-            if self._report:
-                code.add(indent + 3, _rep(
-                         f"invalid must prop value at {{lpath}} [{smpath}.{{{prop}}}]"))
-            code.add(indent, r"            return False")
-            # code.add(indent+3, f"continue")
-            cond = "elif"
-        if may:
-            code.add(indent, f"    {cond} {prop} in {prop_may}:  # may")
-            code.add(indent, f"        if not {prop_may}[{prop}]({value}, lpath, rep):")
-            if self._report:
-                code.add(indent + 3, _rep(
-                         f"invalid may prop value at {{lpath}} [{smpath}.{{{prop}}}]"))
-            code.add(indent, r"            return False")
-            # code.add(indent+3, f"continue")
-            cond = "elif"
+
+            self._code.init_map(prop_may, prop_may_map)
+            # self._maps[prop_may] = prop_may_map
+
+            ma_expr = gen.prop_fun("fun", prop, prop_must_map)
+            ma_code = gen.if_stmt(
+                gen.and_op(gen.is_def("fun"), gen.not_op(gen.check_call("fun", pval))),
+                self._gen_fail(f"invalid may property {{{prop}}} value at {{{vpath}}} [{smpath}]")
+            )
+            multi_if += (ma_expr, ma_code)
+
         # $* is inlined expr (FIXME inlining does not work with vpath)
-        for d, v in defs.items():
-            dexpr = self._dollarExpr(jm, '$' + d, prop, 'path')
-            if self._report:
-                dexpr += f" or _rep(f\"prop {{prop}} does not match ${d} at {{{vpath}}}\", rep)"
-            code.add(indent, f"    {cond} {dexpr}:  # ${d}")
-            self._compileModel(jm, v, mpath + ["$" + d], res, value, "lpath")
-            code.add(indent, f"        if not {res}:")
-            # if self._report:
-            #     code.add(indent + 3, _rep(
-            #              f"invalid $ prop {{{vpath}}}.{{{prop}}} value [{smpath}.${d}]"))
-            code.add(indent, r"            return False")
-            # code.add(indent+3, f"continue")
-            cond = "elif"
+        for d, m in defs.keys():
+            ref = "$" + d
+            dl_expr = self._dollarExpr(jm, ref, prop, vpath)
+            dl_code = self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
+                self._gen_short_res(res)
+            multi_if += (dl_expr, dl_code)
+
         # // is inlined
         for r, v in regs.items():
+            # FIXME options?!
             regex = f"/{r}/"
-            rexpr = f"{self._regex(regex)}({prop}) is not None"
-            if self._report:
-                rexpr += (f" or _rep(f\"prop {{prop}} does not match "
-                          f"{self._fesc(regex)} at {{{vpath}}}\", rep)")
-            code.add(indent, f"    {cond} {rexpr}:  # {regex}")
-            self._compileModel(jm, v, mpath + [regex], res, value, "lpath")
-            code.add(indent, f"        if not {res}:")
-            # if self._report:  # FIXME escape re
-            #     code.add(indent + 3, _rep(
-            #              f"invalid re prop {{{vpath}}}.{{{prop}}}/ value [{smpath}./{{r}}/]"))
-            code.add(indent, r"            return False")
-            # code.add(indent+3, f"continue")
-            cond = "elif"
-        # catchall is inlined
+            rg_expr = self._regExpr(regex, prop, "lpath")
+            rg_code = self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
+                self._gen_short_res(res)
+            multi_if += (rg_expr, rg_code)
+
+        # catchall is inlined?
+        ot_code: Block
         if oth:
             omodel = oth[""]
             smpath = json_path(mpath + [""])
-            if cond == "if":  # direct
-                self._compileModel(jm, omodel, mpath + [""], res, value, "lpath")
-                code.add(indent, f"    if not {res}:")
-                if self._report:
-                    code.add(indent + 2, _rep(f"unexpected other value at {{lpath}} [{smpath}]"))
-                code.add(indent, r"        return False")
-            else:
-                code.add(indent, r"    else:  # catch all")
-                self._compileModel(jm, omodel, mpath + [""], res, value, "lpath")
-                code.add(indent, f"        if not {res}:")
-                if self._report:
-                    code.add(indent + 3, _rep(f"unexpected other value at {{lpath}} [{smpath}]"))
-                code.add(indent, r"            return False")
-                # code.add(indent+3, f"continue")
+            if omodel != "$ANY":
+                ot_code = self._compileModel(jm, omodel, mpath + [""], res, pval, "lpath") + \
+                    self._gen_fail(f"unexpected other value at {{lpath}} [{smpath}]")
+            else:  # optimized "": "$ANY" case
+                ot_code = []
         else:  # no catch all
             smpath = json_path(mpath)
-            if cond == "if":
-                # we are expecting an empty object
-                code.add(indent, "    # no catch all")
-                if self._report:
-                    code.add(indent + 1, _rep(f"no other prop expected at {{{vpath}}} [{smpath}]"))
-                code.add(indent, "    return False")
-            else:
-                code.add(indent, "    else:  # no catch all")
-                if self._report:
-                    code.add(indent + 2, _rep(f"no other prop expected at {{{vpath}}} [{smpath}]"))
-                code.add(indent, "        return False")
+            ot_code = self._gen_fail(f"no other prop expected at {{{vpath}}} [{smpath}]")
+
+        code += gen.obj_loop(val, prop, pval,
+            [ gen.lcom(f"TODO lpath = {vpath} + '.' + {prop}") ] +
+            gen.mif_stmt(multi_if, ot_code))
+
         # check that all must were seen, although we do not know which ones
         if must:
-            code.add(indent, f"{res} = {must_c} == {len(must)}")
-            if self._report:
-                smpath = json_path(mpath)
-                code.add(indent, f"if not {res}:")
-                code.add(indent + 1, _rep(f"missing must prop at {{{vpath}}} [{smpath}]"))
-            code.add(indent, f"return {res}")
-        else:
-            code.add(indent, "return True")
+            code += gen.if_stmt(gen.num_ne(must_c, gen.int_cst(len(must))),
+                self._gen_fail(f"missing must prop at {{{vpath}}} [{smpath}]"))
+
+        # early returns so no need to look at res
+        code += gen.ret(gen.bool_cst(True))
 
     def _gen_report(self, res: str, msg: str) -> Block:
         if self._report:
@@ -390,7 +410,7 @@ class SourceCode(Validator):
             return gen.if_stmt(gen.not_op(res), gen.report(msg))
         else:
             return []
-        
+
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
         # known = expression already verified
@@ -507,7 +527,7 @@ class SourceCode(Validator):
                 elif model[0] == "/":
                     code += [ gen.lcom(f"{self._esc(model)}") ]
                     call = self._regExpr(model, val, vpath)
-                    code += [ gen.bool_var_val(res, gen.and_op(expr, call) if expr else call) ] 
+                    code += [ gen.bool_var_val(res, gen.and_op(expr, call) if expr else call) ]
                 else:  # simple string
                     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     expr = gen.and_op(expr, compare) if expr else compare
@@ -818,7 +838,7 @@ class SourceCode(Validator):
         body = [ self._lang.decl_bool_var("res") ] + body + [ self._lang.ret("res") ]
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})", local=local)
-        
+
         if fun2 and fun2 != fun:
             raise NotImplementedError("2 functions for one?!")
             # code.add(0, "# named root")
@@ -857,7 +877,7 @@ class SourceCode(Validator):
 
         # create entry_point
         self._code.sub(name, [
-            self._lang.ret(self._lang.check_call(f"json_model_{model._id}"))
+            self._lang.ret(self._lang.check_call(f"json_model_{model._id}", "val"))
         ], comment=f"entry function {name}"),
 
         return self._code

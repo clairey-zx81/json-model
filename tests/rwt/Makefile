@@ -117,7 +117,7 @@ xc: $(F.xc)
 
 CC  = gcc
 %.exe: %.x.c
-	$(CC) -Wall -O2 $< -ljansson -o $@
+	$(CC) -Wall -O2 $< -ljansson -lpcre2-8 -o $@
 
 %.ccheck.out: %.exe
 	shopt -s nullglob

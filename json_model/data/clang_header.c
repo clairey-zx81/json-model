@@ -3,7 +3,7 @@
 #include <jansson.h>
 
 typedef enum { false, true } bool;
-typedef char *string;
+typedef char * string;
 typedef void Path;
 typedef void Report;
 typedef bool (*check_fun_t)(const json_t *, Path *, Report *);
