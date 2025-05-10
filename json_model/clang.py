@@ -13,6 +13,8 @@ class CLangJansson(Language):
         super().__init__("C", not_op="!", and_op="&&", or_op="||", lcom="//",
                          eoi=";", indent="  ", relib=relib, debug=debug)
 
+        assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
+
         self._with_re: bool = False
         self._with_props: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)

@@ -12,6 +12,8 @@ class Python(Language):
 
         super().__init__("Python", debug=debug, relib=relib)
 
+        assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
+
         # locally defined predefs
         self._len_used = False
         self._url_used = False
