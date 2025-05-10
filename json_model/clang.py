@@ -13,14 +13,20 @@ class CLangJansson(Language):
                          lcom="//", eoi=";", indent="  ", debug=debug)
 
         self._with_re: bool = False
+        self._with_props: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
     # file
     #
     def file_header(self) -> Block:
-        reinc = [ f"#include <{self._relib}.h>" ] if self._with_re else []
-        return reinc + self.load_data("clang_header.c")
+        header = []
+        if self._with_re:
+            header += [ f"#include <{self._relib}.h>" ]
+        header += self.load_data("clang_header.c")
+        if self._with_props:
+            header += [""] + self._load_data("clang_props.c")
+        return header
 
     def file_footer(self) -> Block:
         return [""] + self.load_data("clang_main.c")
@@ -146,6 +152,9 @@ class CLangJansson(Language):
     def decl_bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
         return f"bool {var} = {expr};"
 
+    def report(self, msg: str) -> Block:
+        return [ f"if (rep) /* {msg} */;" ]
+
     #
     # blocks
     #
@@ -174,7 +183,7 @@ class CLangJansson(Language):
         else:
             return [ f"if (!({cond}))" ] + self.indent(false)
 
-    def mif(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
         code, op = [], "if"
         for cond, true in cond_true:
             code += [ f"{op} ({cond})" ]
@@ -192,7 +201,13 @@ class CLangJansson(Language):
         return  f"{'static ' if local else ''}bool {name}(json_t *val, Path *path, Report *rep)"
 
     def decl_fun(self, name: str, local: bool = False) -> Block:
-        return [ self._fun(name, local) + self._eoi ]
+        return [ self._fun(name, local) + ";" ]
 
     def gen_fun(self, name: str, body: Block, local: bool = False) -> Block:
+        if not local:  # entry points must check for module initialization
+            body = [ "initialize();" ] + body
         return [ self._fun(name, local) ] + self.indent(body)
+
+    def gen_init(self, init: Block) -> Block:
+        body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init))
+        return [ "static void initialize(void)" ] + body

@@ -384,10 +384,10 @@ class SourceCode(Validator):
         else:
             code.add(indent, "return True")
 
-    def _gen_report(self, res: str, msg: str, params: list[str]) -> Block:
+    def _gen_report(self, res: str, msg: str) -> Block:
         if self._report:
             gen = self._lang
-            return gen.if_stmt(gen.not_op(res), [gen.report(msg, params)])
+            return gen.if_stmt(gen.not_op(res), gen.report(msg))
         else:
             return []
         
@@ -402,10 +402,10 @@ class SourceCode(Validator):
         match model:
             case None:
                 code += [ gen.bool_var_val(res, gen.is_null(val)) ] + \
-                    self._gen_report(res, "not null at %s [{smpath}]", [vpath])
+                    self._gen_report(res, f"not null at {{{vpath}}} [{smpath}]")
             case bool():
                 code += [ gen.bool_var_val(res, gen.is_bool(val)) ] + \
-                    self._gen_report(res, "not a bool at %s [{smpath}]", [vpath])
+                    self._gen_report(res, f"not a bool at {{{vpath}}}[{smpath}]")
             case int():
                 expr = gen.is_int(val, jm._loose_int)
                 if known is not None:
@@ -427,7 +427,7 @@ class SourceCode(Validator):
                     raise ModelError(f"unexpected int value {model} at {smpath}")
                 if expr:
                     code += [ gen.bool_var_val(res, expr) ] + \
-                        self._gen_report(res, "not a {model} int at %s [{smpath}]", [vpath])
+                        self._gen_report(res, f"not a {model} int at {{{vpath}}} [{smpath}]")
             case float():
                 expr = gen.is_flt(val, jm._loose_float)
                 if known is not None:
@@ -449,7 +449,7 @@ class SourceCode(Validator):
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
                     code += [ gen.bool_var_val(res, expr) ] + \
-                        self._gen_report(res, "not a {model} float at %s [{smpath}]", [vpath])
+                        self._gen_report(res, f"not a {model} float at {{{vpath}}} [{smpath}]")
             case str():
                 expr = gen.is_str(val)
                 if known is not None:
@@ -516,7 +516,7 @@ class SourceCode(Validator):
                     smodel = model if model else "string"
                     if model and model[0] == "/":  # FIXME workaround
                         smodel = "REGEX"
-                    code += self._gen_report(res, "not a expected {smodel} at %s [{smpath}]", [vpath])
+                    code += self._gen_report(res, f"unexpected {smodel} at {{{vpath}}} [{smpath}]")
             case list():
                 expr = f"isinstance({val}, list)"
                 smpath = json_path(mpath)

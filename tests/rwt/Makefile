@@ -30,21 +30,26 @@ F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
 F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
-F.c     = $(F.root:%=%.c)
-F.exe   = $(F.root:%=%.exe)
 F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
+F.sXc   = \
+    schema.jcheck.out \
+    schema.dcheck.out schema.dcheck2.out \
+    schema.scheck.out schema.scheck2.out
+
+# expermimental C and Python generation
+F.xc    = $(F.root:%=%.x.c)
+F.xpy   = $(F.root:%=%.x.py)
+F.exe   = $(F.root:%=%.exe)
 F.cc    = $(F.root:%=%.ccheck.out)
-F.sXc   = schema.jcheck.out \
-    schema.dcheck.out schema.scheck.out \
-    schema.dcheck2.out schema.scheck2.out
+F.pc    = $(F.root:%=%.pcheck.out)
 
 # all generated
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
           $(F.json) $(F.js) $(F.sXc)
 
-# $(F.c) $(F.exe) $(F.cc)
+# $(F.c) $(F.exe) $(F.cc) $(F.
 
 -include local.mk
 
@@ -59,10 +64,6 @@ check:
 .PHONY: clean
 clean:
 	$(RM) $(F.gen)
-
-.PHONY: clean.exe
-clean.exe:
-	$(RM) $(F.exe) $(F.c) $(F.cc)
 
 .PHONY: json
 json: $(F.json)
@@ -99,21 +100,47 @@ py: $(F.SO)
 	$(JMC.cmd) -SO -v --code ./$< > $@
 	chmod a+rx $@
 
-.PHONY: clang
-clang: $(F.c)
-# TODO -v (report)
-%.c: %.model.json
-	$(JMC.cmd) -XO --format c ./$< > $@
+#
+# Experimental section
+#
+.PHONY: clean.x
+clean.x:
+	$(RM) $(F.exe) $(F.xc) $(F.cc) $(F.xpy) $(F.pc)
+
+clean: clean.x
+
+.PHONY: xc
+xc: $(F.xc)
+
+%.x.c: %.model.json
+	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC  = gcc
-
-%.exe: %.c
+%.exe: %.x.c
 	$(CC) -Wall -O2 $< -ljansson -o $@
 
 %.ccheck.out: %.exe
 	shopt -s nullglob
 	set -o pipefail
 	$< $*.*.{true,false}.json | sort > $@
+
+.PHONY: xpy
+xpy: $(F.xpy)
+
+%.x.py: %.model.json
+	$(JMC.cmd) -XO -v --format py ./$< > $@
+	chmod a+rx $@
+
+%.pcheck.out: %.x.py
+	shopt -s nullglob
+	set -o pipefail
+	./$< $*.*.{true,false}.json | sort > $@
+
+.PHONY: %.XALL
+%.XALL: %.model.json
+	shopt -s nullglob
+	$(RM) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
+	$(MAKE) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
 
 #
 # Dynamic value checks

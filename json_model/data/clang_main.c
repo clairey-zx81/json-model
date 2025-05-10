@@ -2,6 +2,8 @@
 
 int main(int argc, char * argv[])
 {
+  initialize();
+
   int errors = 0;
   // fprintf(stderr, "version %s\n", JANSSON_VERSION);
 

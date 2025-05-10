@@ -52,3 +52,11 @@ class Python(Language):
 
     def file_footer(self) -> Block:
         return [""] + self.load_data("python_main.py")
+
+    def gen_init(self, init: Block) -> Block:
+        code: Block = self.load_data("python_init.py")
+        body = self.indent(self.indent(init))
+        bidx = code.index("INIT_BLOCK")
+        assert bidx >= 0, "INIT_BLOCK marker found in file"
+        code = [""] + code[:bidx] + body + code[bidx+1:]
+        return code

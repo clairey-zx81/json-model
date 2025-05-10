@@ -1,7 +1,11 @@
 from importlib.resources import files as data_files
 from .mtypes import Jsonable
+from .utils import log
 
+# name
 type Var = str
+
+# typed expressions
 type JsonExpr = str
 type BoolExpr = str
 type IntExpr = str
@@ -9,13 +13,17 @@ type FloatExpr = str
 type NumExpr = str
 type StrExpr = str
 type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
+
+# actual code
 type Inst = str
 type Block = list[Inst]
+
+# must or may property name -> corresponding check function
 type PropMap = dict[str, str]
 
 
 class Language:
-    """Basic abstraction of an imperative language to manipulate JSON data.
+    """Dumb abstraction of an imperative language to manipulate JSON data.
 
     Some reasonable defaults are provided base on operators and assuming Python,
     but the child must be instanciated to get meaningful code.
@@ -54,9 +62,6 @@ class Language:
         # per prefix identifier count
         self._idcounts: dict[str, int] = {}
 
-    def load_data(self, fn: str) -> Block:
-        return data_files("json_model.data").joinpath(fn).read_text().split("\n")
-
     #
     # variables
     #
@@ -71,6 +76,11 @@ class Language:
     #
     # file
     #
+    def load_data(self, fn: str) -> Block:
+        code = data_files("json_model.data").joinpath(fn).read_text().split("\n")
+        assert code[-1] == "", f"newline-terminated source file {fn}"
+        return code[:-1]
+
     def file_header(self) -> Block:
         return [
             self.lcom(),
@@ -299,15 +309,12 @@ class Language:
     def esc(self, s: str) -> str:
         return '"' + s.replace('"', r'\"') + '"'
 
-    def report(self, msg: str, params: list[str] = []) -> Inst:
-        if params:
-            return f"rep is None or rep.append({self.esc(msg)} % ({', '.join(params)})){self._eoi}"
-        else:
-            return f"rep is None or rep.append({self.esc(msg)}){self._eoi}"
-
     #
     # blocks
     #
+    def report(self, msg: str) -> Block:
+        return [ f"rep is None or rep.append(f{self.esc(msg)})" ]
+
     def indent(self, block: Block) -> Block:
         return [ (self._indent + line) for line in block ]
 
@@ -340,7 +347,7 @@ class Language:
         return code
 
     #
-    # new stuff
+    # stuff
     #
     def decl_fun(self, name: str, local: bool = False) -> Block:
         return []
@@ -350,11 +357,27 @@ class Language:
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)
 
-    def decl_map(self, name: str) -> Block:
+    def decl_re(self, name: str, regex: str) -> Block:
+        sregex = self.esc(regex)
+        return [
+            f"_{name}_search = {self._relib}.compile(r{sregex}).search",
+            f"{name}: RegexFun = lambda s: _{name}_search(s) is not None"
+        ]
+
+    def gen_re(self, name: str, regex: str) -> Block:
         return []
 
-    def gen_map(self, name: str, pmap: PropMap) -> Block:
-        return [ f"{name}: PropMap = {pmap}" ]
+    def init_re(self, name: str, regex: str) -> Block:
+        return []
+
+    def decl_map(self, name: str) -> Block:
+        return [ f"{name}: PropMap" ]
+
+    def init_map(self, name: str, pmap: PropMap) -> Block:
+        return [ f"global {name}", f"{name} = {pmap}" ]
+
+    def gen_init(self, init: Block) -> Block:
+        raise NotImplementedError("gen_init")
 
 
 class Code:
@@ -368,7 +391,7 @@ class Code:
         self._head: Block = []  # headers
         self._defs: Block = []  # definitions/declarations
         self._help: Block = []  # helper functions
-        self._maps: Block = []  # mappings of helper functions
+        self._init: Block = []  # constant initialization code
         self._subs: Block = []  # object and model functions
 
     def clear(self):
@@ -376,8 +399,8 @@ class Code:
         self._head.clear()
         self._defs.clear()
         self._help.clear()
-        self._maps.clear()
         self._subs.clear()
+        self._init.clear()
     
     def head(self, b: Block = [""]):
         """Add lines to headers."""
@@ -391,13 +414,13 @@ class Code:
         """Add lines to helpers."""
         self._help += b
 
-    def maps(self, b: Block = [""]):
-        """Add lines to property mappings."""
-        self._maps += b
-
     def subs(self, b: Block = [""]):
         """Add lines to subroutines."""
         self._subs += b
+
+    def init(self, b: Block = [""]):
+        """Add lines to initialization code."""
+        self._init += b
 
     def sub(self, name: str, body: Block, *, comment: str = "", local: bool = False):
         """Add a function definition with a comment."""
@@ -407,17 +430,11 @@ class Code:
         self.subs(([""] if self._subs else []) + fun)
 
     def pmap(self, name: str, mapping, PropMap):
-        """Add an object property mappingi definition."""
+        """Add an object property mapping definition."""
         self.defs(self._lang.decl_map(name))
-        self.maps(self._lang.gen_map(name, mapping))
+        self.init(self._lang.init_map(name, mapping))
 
     def __str__(self):
-        return self._lang._isep.join(
-            self._lang.file_header() +
-            self._head +
-            self._help +
-            self._defs +
-            self._subs +
-            self._maps +  # after subs to avoid forward declaration issue with python
-            self._lang.file_footer()
-        )
+        code = (self._lang.file_header() + self._head + self._help + self._defs +
+            self._subs + self._lang.gen_init(self._init) + self._lang.file_footer())
+        return self._lang._isep.join(code)
