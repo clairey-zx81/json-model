@@ -279,7 +279,7 @@ class Language:
     def str_lt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
         return f"{e1} {self._lt} {e2}"
 
-    def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+    def prop_fun(self, fun: str, prop: str, mapname: str, nbprops: int) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
 
     #
@@ -410,9 +410,6 @@ class Language:
         self._re_used = True
         return []
 
-    def decl_map(self, name: str) -> Block:
-        return [ f"{name}: PropMap" ]
-
     def gen_init(self, init: Block) -> Block:
         raise NotImplementedError("gen_init")
 
@@ -449,10 +446,14 @@ class Code:
     
     def help(self, b: Block = [""]):
         """Add lines to helpers."""
+        if self._help:
+            self._help.append("")
         self._help += b
 
     def subs(self, b: Block = [""]):
         """Add lines to subroutines."""
+        if self._subs:
+            self._subs.append("")
         self._subs += b
 
     def init(self, b: Block = [""]):
@@ -464,7 +465,7 @@ class Code:
         self.defs(self._lang.decl_fun(name, local))
         fun = [ self._lang.lcom(comment) ] if comment else []
         fun += self._lang.gen_fun(name, body, local)
-        self.subs(([""] if self._subs else []) + fun)
+        self.subs(fun)
 
     def pmap(self, name: str, mapping, PropMap):
         """Add an object property mapping definition."""

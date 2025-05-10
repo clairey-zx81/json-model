@@ -347,7 +347,7 @@ class SourceCode(Validator):
 
         if may:
             prop_may = f"{oname}_may"
-            self._code.decl_map(prop_may, len(may))
+            self._code.defs(gen.decl_map(prop_may, len(may)))
 
             prop_may_map: dict[str, str] = {}
             for p in sorted(may.keys()):
@@ -356,7 +356,7 @@ class SourceCode(Validator):
                 self._compileName(jm, pid, m, mpath + [p])
                 prop_may_map[p] = self._getName(jm, pid)
 
-            self._code.init_map(prop_may, prop_may_map)
+            self._code.init(gen.init_map(prop_may, prop_may_map))
             # self._maps[prop_may] = prop_may_map
 
             ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))

@@ -111,7 +111,7 @@ class CLangJansson(Language):
         return f"json_array_size({var})"
 
     def str_len(self, var: Var) -> IntExpr:
-        return f"mbstowcs({var}, NULL, 0)"
+        return f"mbstowcs(NULL, {var}, 0)"
 
     def any_len(self, var: Var) -> IntExpr:
         return f"FIXME len({var})"
