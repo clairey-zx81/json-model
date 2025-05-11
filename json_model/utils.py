@@ -13,6 +13,7 @@ log = logging.getLogger("json-model")
 WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
 CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
 JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"
+UUID_RE = r"(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
 
 def tname(m) -> str:
     return type(m).__name__ if m is not None else "null"

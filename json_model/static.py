@@ -20,7 +20,7 @@ import json
 
 from .mtypes import ModelType, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
 from .utils import split_object, model_in_models, all_model_type, constant_value
-from .utils import log, tname, json_path
+from .utils import log, tname, json_path, UUID_RE
 from .defines import Validator
 from .model import JsonModel
 
@@ -200,6 +200,7 @@ class SourceCode(Validator):
             "$URL": lambda v, p: used("url", f"_is_valid_url({v}, {p}, rep)"),
             "$DATE": lambda v, p: used("date", f"_is_valid_date({v}, {p}, rep)"),
             "$REGEX": lambda v, p: used("regex", f"_is_valid_re({v}, {p}, rep)"),
+            "$UUID": lambda v, p: f"isinstance({v}, str) and re.search(\"{UUID_RE}\", {v}) is not None",
             # TODO more, /re/ ?
         }
 

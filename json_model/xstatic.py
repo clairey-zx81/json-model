@@ -15,7 +15,7 @@ _PREDEFS = {
     "$ANY", "$NONE", "$NULL", "$BOOL",
     "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
     "$FLOAT", "$F32", "$F64", "$NUMBER",
-    "$STRING", "$DATE", "$URL", "$REGEX",
+    "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
 }
 
 
@@ -147,7 +147,7 @@ class SourceCode(Validator):
         assert ref and ref[0] == "$"
         if ref in _PREDEFS:  # inline predefs
             # TODO improve
-            return self._lang.predef(val, ref)
+            return self._lang.predef(val, ref, vpath)
             # return (self._PREDEFS[ref](val, vpath) +
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:

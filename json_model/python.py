@@ -19,25 +19,24 @@ class Python(Language):
         self._url_used = False
         self._date_used = False
         self._regex_used = False
+        self._uuid_used = False
 
-    def reset(self):
-        self._len_used = False
-        self._url_used = False
-        self._date_used = False
-        self._regex_used = False
-
-    def predef(self, var: Var, name: str) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
         if name == "$URL":
             self._url_used = True
-            return f"_is_valid_url({var}, path, rep)"
+            return f"_is_valid_url({var}, {path}, rep)"
         elif name == "$DATE":
             self._date_used = True
-            return f"_is_valid_date({var}, path, rep)"
+            return f"_is_valid_date({var}, {path}, rep)"
         elif name == "$REGEX":
             self._regex_used = True
-            return f"_is_valid_regex({var}, path, rep)"
+            return f"_is_valid_regex({var}, {path}, rep)"
+        elif name == "$UUID":
+            self._uuid_used = True
+            self._re_used = True
+            return f"_is_valid_uuid({var}, {path}, rep)"
         else:
-            return super().predef(var, name)
+            return super().predef(var, name, path)
 
     def file_header(self) -> Block:
         code: Block = super().file_header()
@@ -50,6 +49,8 @@ class Python(Language):
             code += [""] + self.load_data("python_date.py")
         if self._regex_used:
             code += [""] + self.load_data("python_regex.py")
+        if self._uuid_used:
+            code += [""] + self.load_data("python_uuid.py")
         if self._len_used:
             code += [""] + self.load_data("python_len.py")
         return code

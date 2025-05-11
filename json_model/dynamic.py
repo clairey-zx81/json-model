@@ -13,7 +13,7 @@ import re
 from . import utils
 from .mtypes import ModelError, ModelType, ModelArray, ModelObject
 from .mtypes import ValueType, CheckFun, KeyCheckFun, Jsonable
-from .utils import distinct_values, model_in_models, tname, log, WEAK_DATE_RE
+from .utils import distinct_values, model_in_models, tname, log, WEAK_DATE_RE, UUID_RE
 from .model import JsonModel
 
 # FIXME move to validator? change name?!
@@ -126,6 +126,9 @@ class DynamicCompiler(Validator):
                        lambda v, p: (isinstance(v, str) and  # type: ignore
                                      re.match(r"(https?|file)://.*|\.|/", v) or
                                      self._no("<URL>", p, "invalid URL")))
+        self._defs.set("$UUID",
+                       lambda v, p: (isinstance(v, str) and re.match(UUID_RE, v) or
+                                     self._no("<UUID>", p, "invalid UUID")))
 
         # actually compile the model
         # FIXME make path JsonPath?!

@@ -138,7 +138,7 @@ class Language:
     #
     # predefs
     #
-    def predef(self, var: Var, name: str) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
         if name == "$ANY":
             return self.bool_cst(True)
         elif name == "$NONE":
@@ -158,7 +158,7 @@ class Language:
             return self.is_num(var)
         elif name == "$STRING":
             return self.is_str(var)
-        elif name in ("$DATE", "$URL", "$REGEX"):
+        elif name in ("$DATE", "$URL", "$REGEX", "$UUID"):
             raise NotImplementedError(f"TODO predef {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")
@@ -519,10 +519,12 @@ class Code:
         self.init(self._lang.init_map(name, mapping))
 
     def __str__(self):
+        # compute init first as predefs may trigger more imports
+        init = self._lang.gen_init(self._init)
         # reduce
         code: Block = []
         for b in (self._lang.file_header(), self._head, self._help, self._defs,
-            self._subs, self._lang.gen_init(self._init) + self._lang.file_footer()):
+            self._subs, init + self._lang.file_footer()):
             if code and b:
                 code += [""]
             code += b

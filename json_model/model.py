@@ -7,7 +7,7 @@ import json
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
 from .utils import log, tname
-from .utils import WEAK_DATE_RE
+from .utils import WEAK_DATE_RE, UUID_RE
 from .recurse import recModel, allFlt, noRwt, _recModel
 from .resolver import Resolver
 
@@ -134,6 +134,7 @@ class JsonModel:
         "STRING": "",
         "URL": r"/^\w+://.*/",  # FIXME relative URL?
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
+        "UUID": UUID_RE,
         "REGEX": "",  # FIXME
         # to be continued…
         # o = optional
@@ -144,6 +145,7 @@ class JsonModel:
         "oSTRING": {"|": [None, "$STRING"]},
         "oURL": {"|": [None, "$URL"]},
         "oDATE": {"|": [None, "$DATE"]},
+        "oUUID": {"|": [None, "$UUID"]},
         "oREGEX": {"|": [None, "$REGEX"]},
         # to be continued…
     }

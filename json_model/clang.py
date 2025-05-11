@@ -2,6 +2,7 @@ import json
 from .language import Language, Block, Var, Inst, Block, PropMap
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable
+from .utils import UUID_RE
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -16,6 +17,7 @@ class CLangJansson(Language):
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
         self._int: str = int_t
+        self._uuid_used: bool = False
         self._props_used: bool = False
         self._anylen_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
@@ -32,9 +34,11 @@ class CLangJansson(Language):
             header += [ f"#include <{self._relib}.h>" ]
         header += self.load_data("clang_header.c")
         if self._props_used:
-            header += [""] + self.load_data("clang_props.c")
+            header += self.load_data("clang_props.c")
+        if self._uuid_used:
+            header += self.load_data("clang_uuid.c")
         if self._anylen_used:
-            header += [""] + self.load_data("clang_anylen.c")
+            header += self.load_data("clang_anylen.c")
         return header
 
     def file_footer(self) -> Block:
@@ -80,6 +84,15 @@ class CLangJansson(Language):
 
     def bool_cst(self, b: bool) -> BoolExpr:
         return "true" if b else "false"
+
+    # FIXME path
+    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
+        if name == "$UUID":
+            self._uuid_used = True
+            return f"_is_valid_uuid(json_string_value({var}))"
+        # TODO $REGEX $DATE $URL
+        else:
+            return super().predef(name, path)
 
     def _json_str(self, j) -> str:
         j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
@@ -280,5 +293,7 @@ class CLangJansson(Language):
         return [ self._fun(name, local) ] + self.indent(body)
 
     def gen_init(self, init: Block) -> Block:
+        if self._uuid_used:
+            init += self.init_re("_is_valid_uuid", UUID_RE)
         body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init))
         return [ "static void initialize(void)" ] + body
