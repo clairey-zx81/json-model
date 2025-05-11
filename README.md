@@ -217,7 +217,7 @@ additionalProperties: false
 - [ ] research: paper themes? extensions, compilation (CGO), ...?
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
-- [ ] pr: article submission about data structure trafo? validation performance?
+- [ ] pr: article submission about data structure trafo? validation performance? high-level IR?
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
