@@ -149,8 +149,10 @@ additionalProperties: false
 - [x] static: rename all internal stuff with a `_` prefix
 - [x] python: refactor in optim analyze merge…
 - [x] feature: warn when mixing loose/strict int/float
-- [ ] static: abstract imperative language code generation with
+- [ ] static: abstract imperative language code generation
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
+- [ ] backend: minimize language abstraction
+- [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
@@ -214,7 +216,7 @@ additionalProperties: false
 - [ ] research: paper themes? extensions, compilation (CGO), ...?
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
-- [ ] pr: article submission about data structure trafo? CGO (end of may)?
+- [ ] pr: article submission about data structure trafo? validation performance?
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
@@ -226,6 +228,7 @@ additionalProperties: false
 - [ ] feature: add model predef for URI-REF and the like
 - [ ] models: improve meta model with predefs
 - [ ] design: URI vs URL
+- [ ] tests: move modval tests in subdirectories?
 
 ## WIP
 
