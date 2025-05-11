@@ -1,0 +1,3 @@
+or_03.0.true.json: PASS
+or_03.1.false.json: FAIL [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]
+or_03.2.false.json: FAIL [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting string Calvin'), ('.|[2]', '$', 'expecting string Hobbes'), ('.|', '$', 'no any matched')]

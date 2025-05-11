@@ -1,0 +1,5 @@
+xor_04.0.true.json: PASS
+xor_04.1.true.json: PASS
+xor_04.2.true.json: PASS
+xor_04.3.false.json: FAIL ["not a 0.0 float at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
+xor_04.4.false.json: FAIL ["not a 0.0 float at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

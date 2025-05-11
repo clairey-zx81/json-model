@@ -1,9 +1,0 @@
-{
-  "?foo": "$foo",
-  "#": "JsonModel 1",
-  "$": {
-    "foo": "$#",
-    "#": "Symbol 1",
-    "": "./rec02.model.json"
-  }
-}

@@ -1,0 +1,5 @@
+or_07.0.true.json: PASS
+or_07.1.true.json: PASS
+or_07.2.true.json: PASS
+or_07.3.false.json: FAIL ["not null at $ [$.'|'.0]", "not a -1 int at $ [$.'|'.1]", "not an expected string at $ [$.'|'.2]", "not any model match at $ [$.'|']"]
+or_07.4.false.json: FAIL ["not null at $ [$.'|'.0]", "not a -1 int at $ [$.'|'.1]", "not an expected string at $ [$.'|'.2]", "not any model match at $ [$.'|']"]

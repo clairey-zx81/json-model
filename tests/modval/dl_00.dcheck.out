@@ -1,0 +1,4 @@
+dl_00.00.true.json: PASS
+dl_00.01.true.json: PASS
+dl_00.02.false.json: FAIL [('.rec.|[0]', '$', 'expecting a boolean'), ('.rec.|[1]', '$', 'not an object (null)'), ('.rec.|', '$', 'no any matched'), ('', '$', '$rec failed')]
+dl_00.03.true.json: PASS

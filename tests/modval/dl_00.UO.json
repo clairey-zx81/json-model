@@ -1,0 +1,28 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "rec": {
+        "|": [
+          true,
+          {
+            "": "$rec"
+          }
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./dl_00.model.json"
+    },
+    "@": "$rec"
+  },
+  {
+    "|": [
+      true,
+      {
+        "": "$rec"
+      }
+    ],
+    "#": "JsonModel 2"
+  }
+]

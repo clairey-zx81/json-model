@@ -1,0 +1,2 @@
+or_09.0.true.json: PASS
+or_09.1.false.json: FAIL [('.|[0]', '$', 'expecting a number'), ('.|[1]', '$', 'expecting a number'), ('.|[2]', '$', 'expecting a number'), ('.|', '$', 'no any matched')]

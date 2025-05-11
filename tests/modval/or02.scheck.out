@@ -1,3 +1,0 @@
-or02.0.true.json: PASS
-or02.1.false.json: FAIL ["not an expected =10 at $ [$.'|'.0]", "not an expected =42 at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
-or02.2.false.json: FAIL []

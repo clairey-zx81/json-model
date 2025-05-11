@@ -1,0 +1,5 @@
+or_07.0.true.json: PASS
+or_07.1.true.json: PASS
+or_07.2.true.json: PASS
+or_07.3.false.json: FAIL [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting an integer'), ('.|[2]', '$', 'expecting a string'), ('.|', '$', 'no any matched')]
+or_07.4.false.json: FAIL [('.|[0]', '$', 'expecting null'), ('.|[1]', '$', 'expecting an integer'), ('.|[2]', '$', 'expecting a string'), ('.|', '$', 'no any matched')]

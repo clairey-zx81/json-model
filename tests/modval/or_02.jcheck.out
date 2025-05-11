@@ -1,0 +1,3 @@
+or_02.0.true.json: PASS
+or_02.1.false.json: FAIL
+or_02.2.false.json: FAIL

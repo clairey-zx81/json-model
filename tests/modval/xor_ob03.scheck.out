@@ -1,0 +1,2 @@
+xor_ob03.0.true.json: PASS
+xor_ob03.1.false.json: FAIL ["tag t value not found at $.movie [$.movie.'|'.'|']", 'invalid must prop value at $.movie [$.movie]']

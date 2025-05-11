@@ -1,9 +1,0 @@
-rec01.0.true.json: PASS
-rec01.1.true.json: PASS
-rec01.2.true.json: PASS
-rec01.3.false.json: FAIL [('', '$', 'not an object (str)')]
-rec01.4.false.json: FAIL [('', '$', 'not an object (list)')]
-rec01.5.false.json: FAIL [('', '$.Susie', 'not an object (str)'), (".''", '$.Susie', '$# failed'), (".''", '$.Susie', 'bad property Susie')]
-rec01.6.false.json: FAIL [('', '$', 'not an object (null)')]
-rec01.7.false.json: FAIL [('', '$', 'not an object (bool)')]
-rec01.8.false.json: FAIL [('', '$', 'not an object (int)')]

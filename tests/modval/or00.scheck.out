@@ -1,4 +1,0 @@
-or00.0.true.json: PASS
-or00.1.true.json: PASS
-or00.2.false.json: FAIL ['not a 0 int at $ [$]']
-or00.3.false.json: FAIL ['not a 0 int at $ [$]']

@@ -1,3 +1,0 @@
-xorob00.0.true.json: PASS
-xorob00.1.false.json: FAIL [('.|[0]', '$.z', 'unexpected property z'), ('.|[1]', '$.z', 'unexpected property z'), ('.|[2]', '$.a', 'unexpected property a'), ('.|[3]', '$.a', 'unexpected property a'), ('.|', '$', 'no any matched')]
-xorob00.2.false.json: FAIL [('.|[0]', '$.b', 'unexpected property b'), ('.|[1]', '$.b', 'unexpected property b'), ('.|[2]', '$.a', 'unexpected property a'), ('.|[3]', '$.a', 'unexpected property a'), ('.|', '$', 'no any matched')]

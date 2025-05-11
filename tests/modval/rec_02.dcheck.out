@@ -1,0 +1,5 @@
+rec_02.0.true.json: PASS
+rec_02.1.true.json: PASS
+rec_02.2.true.json: PASS
+rec_02.3.false.json: FAIL [('$#', '$.bla', 'unexpected property bla')]
+rec_02.4.false.json: FAIL [('$#', '$.foo', 'not an object (str)'), ('$#.foo', '$.foo', '$foo failed')]

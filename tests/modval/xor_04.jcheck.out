@@ -1,0 +1,5 @@
+xor_04.0.true.json: PASS
+xor_04.1.true.json: PASS
+xor_04.2.true.json: PASS
+xor_04.3.false.json: FAIL
+xor_04.4.false.json: FAIL

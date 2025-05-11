@@ -1,0 +1,5 @@
+orob_00.0.true.json: PASS
+orob_00.1.true.json: PASS
+orob_00.2.false.json: FAIL ["no other prop expected at $ [$.'|'.0]", "not an expected object at $ [$.'|'.0]", "no other prop expected at $ [$.'|'.1]", "not an expected object at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
+orob_00.3.false.json: FAIL []
+orob_00.4.false.json: FAIL ["missing must prop at $ [$.'|'.0]", "not an expected object at $ [$.'|'.0]", "missing must prop at $ [$.'|'.1]", "not an expected object at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

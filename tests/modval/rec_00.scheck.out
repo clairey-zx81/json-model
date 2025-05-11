@@ -1,0 +1,3 @@
+rec_00.00.true.json: PASS
+rec_00.01.true.json: PASS
+rec_00.02.false.json: FAIL ["not a bool at $ [$.'$rec'.'|'.0]", "not an object at $ [$.'$obj']", "not an expected $obj at $ [$.'$rec'.'|'.1]", "not any model match at $ [$.'$rec'.'|']", 'not an expected $rec at $ [$]']

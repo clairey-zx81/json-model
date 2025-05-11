@@ -1,5 +1,0 @@
-xor04.0.true.json: PASS
-xor04.1.true.json: PASS
-xor04.2.true.json: PASS
-xor04.3.false.json: FAIL [('.|[0]', '$', 'expecting a number'), ('.|[1]', '$', 'expecting regex /^[a-z]+$/i'), ('.|', '$', 'no any matched')]
-xor04.4.false.json: FAIL [('.|[0]', '$', 'expecting a number'), ('.|[1]', '$', 'expecting regex /^[a-z]+$/i'), ('.|', '$', 'no any matched')]

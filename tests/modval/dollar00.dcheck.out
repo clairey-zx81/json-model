@@ -1,4 +1,0 @@
-dollar00.00.true.json: PASS
-dollar00.01.true.json: PASS
-dollar00.02.false.json: FAIL [('.rec.|[0]', '$', 'expecting a boolean'), ('.rec.|[1]', '$', 'not an object (null)'), ('.rec.|', '$', 'no any matched'), ('', '$', '$rec failed')]
-dollar00.03.true.json: PASS

@@ -1,0 +1,6 @@
+xor_03.00.true.json: PASS
+xor_03.01.true.json: PASS
+xor_03.02.true.json: PASS
+xor_03.03.true.json: PASS
+xor_03.04.false.json: FAIL [('.^[?]', '$', 'model inversion (not with $ANY)')]
+xor_03.05.false.json: FAIL [('.^[?]', '$', 'model inversion (not with $ANY)')]

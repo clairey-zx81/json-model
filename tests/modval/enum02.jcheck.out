@@ -1,4 +1,0 @@
-enum02.0.true.json: PASS
-enum02.1.false.json: FAIL
-enum02.2.true.json: PASS
-enum02.3.false.json: FAIL

@@ -1,0 +1,9 @@
+{
+  "?foo": "$foo",
+  "#": "JsonModel 1",
+  "$": {
+    "foo": "$#",
+    "#": "Symbol 1",
+    "": "./rec_02.model.json"
+  }
+}

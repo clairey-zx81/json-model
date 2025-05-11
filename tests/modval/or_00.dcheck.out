@@ -1,0 +1,4 @@
+or_00.0.true.json: PASS
+or_00.1.true.json: PASS
+or_00.2.false.json: FAIL [('', '$', 'int must be positive')]
+or_00.3.false.json: FAIL [('', '$', 'expecting an integer')]

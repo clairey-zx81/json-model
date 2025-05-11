@@ -1,2 +1,0 @@
-or06.0.true.json: PASS
-or06.1.false.json: FAIL ["not an expected _Susie at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

@@ -1,2 +1,0 @@
-or06.0.true.json: PASS
-or06.1.false.json: FAIL [('.|[0]', '$', 'expecting string Susie'), ('.|[1]', '$', 'expecting regex /^[a-z]+$/'), ('.|', '$', 'no any matched')]

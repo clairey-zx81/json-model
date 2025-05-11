@@ -1,4 +1,0 @@
-enum00.0.true.json: PASS
-enum00.2.true.json: PASS
-enum00.1.false.json: FAIL ["value not in enum at $ [$.'$p1'.'|']", "not an expected $p1 at $ [$.'^'.0]", "value not in enum at $ [$.'$p2'.'|']", "not an expected $p2 at $ [$.'^'.1]", "not one model match at $ [$.'^']"]
-enum00.3.false.json: FAIL ["value not in enum at $ [$.'$p1'.'|']", "not an expected $p1 at $ [$.'^'.0]", "value not in enum at $ [$.'$p2'.'|']", "not an expected $p2 at $ [$.'^'.1]", "not one model match at $ [$.'^']"]
