@@ -151,9 +151,10 @@ additionalProperties: false
 - [x] feature: warn when mixing loose/strict int/float
 - [ ] static: abstract imperative language code generation
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
-- [ ] backend: remove all `decl_` variants.
-- [ ] backend: do not generate intermediate empty functions for direct objects.
+- [ ] backend: remove all `decl_` variants
+- [ ] backend: do not generate intermediate empty functions for direct objects
 - [ ] backend: minimize language abstraction
+- [ ] c-backend: add support for `re2` wrapper
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
@@ -224,8 +225,10 @@ additionalProperties: false
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
+- [ ] js/ts-backend: look at JSON Schema implementations?
+- [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
-- [ ] cpp-backend: see [json](https://github.com/nlohmann/json).
+- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
