@@ -219,6 +219,7 @@ additionalProperties: false
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? validation performance? high-level IR?
       perf is important because value validation is pure (useless) in-depth overhead in practice.
+- [ ] perf: no reasons/path collection and run with collection only when bad.
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
