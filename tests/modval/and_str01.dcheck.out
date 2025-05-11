@@ -1,1 +1,2 @@
-andstr01.0.false.json: FAIL [('.&[0]', '$', 'expecting integer 2'), ('.&', '$', 'all failures 1/2: [0]')]
+and_str01.0.false.json: FAIL [('.&[0]', '$', 'expecting integer 2'), ('.&', '$', 'all failures 1/2: [0]')]
+and_str01.1.false.json: FAIL [('.&[1]', '$', 'expecting a string'), ('.&', '$', 'all failures 1/2: [1]')]

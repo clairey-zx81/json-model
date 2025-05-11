@@ -1,1 +1,2 @@
-andstr00.0.true.json: PASS
+and_str00.0.true.json: PASS
+and_str00.1.false.json: FAIL [('.&[0]', '$', 'expecting regex /[a-z]/'), ('.&[1]', '$', 'expecting regex /[0-9]/'), ('.&', '$', 'all failures 2/2: [0, 1]')]

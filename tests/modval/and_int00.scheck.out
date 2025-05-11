@@ -1,4 +1,4 @@
-andint00.0.true.json: PASS
-andint00.1.false.json: FAIL []
-andint00.2.false.json: FAIL ["not a 1 int at $ [$.'&'.2]", "not all model match at $ [$.'&']"]
-andint00.3.false.json: FAIL ["not a 0 int at $ [$.'&'.1]", "not all model match at $ [$.'&']"]
+and_int00.0.true.json: PASS
+and_int00.1.false.json: FAIL []
+and_int00.2.false.json: FAIL ["not a 1 int at $ [$.'&'.2]", "not all model match at $ [$.'&']"]
+and_int00.3.false.json: FAIL ["not a 0 int at $ [$.'&'.1]", "not all model match at $ [$.'&']"]

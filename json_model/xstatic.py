@@ -693,7 +693,7 @@ class SourceCode(Validator):
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint
 
-                    if not models:
+                    if not models:  # empty & list
                         code += [ gen.bool_val(res, gen.bool_cst(True)) ]
                         return
 
@@ -719,6 +719,8 @@ class SourceCode(Validator):
                             raise Exception("unexpected type list: {expected.__name__}")
                         code += [ gen.bool_var(res, type_test) ]
                         and_known.add(type_test)
+                    else:
+                        code += [ gen.bool_var(res, gen.bool_cst(True)) ]
 
                     lpvar = gen.new_ident("lpath")
                     code += [ gen.path_var(lpvar, declare=True) ]
