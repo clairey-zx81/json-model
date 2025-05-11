@@ -193,6 +193,7 @@
     },
     "schema": "$https://json-model.org/models/json-schema-draft-2020-12",
     "Schema": {
+      "#": "OpenAPI Schema is only described with an object and adds 3 keywords",
       "+": [
         "$schema#ObjectSchema",
         {
