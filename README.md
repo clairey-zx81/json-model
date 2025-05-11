@@ -151,6 +151,7 @@ additionalProperties: false
 - [x] feature: warn when mixing loose/strict int/float
 - [ ] static: abstract imperative language code generation
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
+- [ ] backend: remove all `decl_` variants.
 - [ ] backend: do not generate intermediate empty functions for direct objects.
 - [ ] backend: minimize language abstraction
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
