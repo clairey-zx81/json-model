@@ -22,7 +22,7 @@ clean:
 
 .PHONY: clean.dev
 clean.dev: clean
-	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build
+	$(RM) -r venv $(MODULE).egg-info $(MODULE)/__pycache__ build dist
 	find tests -type d -name __pycache__ | xargs $(RM) -r
 
 .PHONY: check.src

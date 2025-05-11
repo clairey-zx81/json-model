@@ -1,10 +1,16 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools", "setuptools-scm", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tools.setuptools]
+include-package-data = true
+
+[tools.setuptools.package-data]
+json_model = ["data/*"]
 
 [tool.setuptools.packages.find]
 include = ["json_model"]
-include-package-data = true
+exclude = ["tests/*", "models/*"]
 
 [project]
 name = "json_model"
@@ -23,6 +29,7 @@ dev = [
   "flake8", "ruff", "pyright",
   "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
 ]
+dist = [ "build", "wheel", "twine" ]
 
 [project.scripts]
 jmc = "json_model:jmc_script"
