@@ -15,7 +15,8 @@ class CLangJansson(Language):
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
-        self._with_props: bool = False
+        self._props_used: bool = False
+        self._anylen_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
@@ -29,8 +30,10 @@ class CLangJansson(Language):
                 header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
             header += [ f"#include <{self._relib}.h>" ]
         header += self.load_data("clang_header.c")
-        if self._with_props:
+        if self._props_used:
             header += [""] + self.load_data("clang_props.c")
+        if self._anylen_used:
+            header += [""] + self.load_data("clang_anylen.c")
         return header
 
     def file_footer(self) -> Block:
@@ -114,7 +117,8 @@ class CLangJansson(Language):
         return f"mbstowcs(NULL, {var}, 0)"
 
     def any_len(self, var: Var) -> IntExpr:
-        return f"FIXME len({var})"
+        self._anylen_used = True
+        return f"_any_len({var})"
 
     #
     # ternary expression
@@ -238,11 +242,11 @@ class CLangJansson(Language):
         return code
 
     def decl_map(self, name: str, size: int) -> Block:
-        self._with_props = True
+        self._props_used = True
         return [ f"static check_prop_t {name}[{size}];" ]
 
     def init_map(self, name: str, pmap: PropMap) -> Block:
-        self._with_props = True
+        self._props_used = True
         init = []
         for i, pf in enumerate(pmap.items()):
             p, f = pf
