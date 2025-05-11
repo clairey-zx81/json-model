@@ -218,7 +218,7 @@ additionalProperties: false
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? validation performance? high-level IR?
-      perf is important because value validation is pure (useless) overhead in practice.
+      perf is important because value validation is pure (useless) in-depth overhead in practice.
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] static: prioritize ts/js for usability, c for speed.
