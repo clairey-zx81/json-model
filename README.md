@@ -149,8 +149,9 @@ additionalProperties: false
 - [x] static: rename all internal stuff with a `_` prefix
 - [x] python: refactor in optim analyze merge…
 - [x] feature: warn when mixing loose/strict int/float
-- [ ] static: abstract imperative language code generation
-- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON.
+- [x] feature: implement `$UUID` predef
+- [ ] static: abstract imperative language code generation (wip)
+- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
 - [ ] backend: remove all `decl_` variants
 - [ ] backend: do not generate intermediate empty functions for direct objects
 - [ ] backend: minimize language abstraction
@@ -232,7 +233,7 @@ additionalProperties: false
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
-- [ ] feature: add model predef for URI-REF and the like
+- [ ] feature: add model predef for URI, URI-REF and the like
 - [ ] models: improve meta model with predefs
 - [ ] design: URI vs URL
 - [ ] tests: move modval tests in subdirectories?

@@ -150,6 +150,7 @@ orob_00.model.json: PASS
 pNULL.model.json: PASS
 pNUMBER.model.json: PASS
 pU64.model.json: PASS
+pUUID.model.json: PASS
 re_0.model.json: PASS
 re_1.model.json: PASS
 re_2.model.json: PASS

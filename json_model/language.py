@@ -311,33 +311,27 @@ class Language:
         else:
             return None
 
-    def decl_json_var(self, var: Var, val: JsonExpr|None = None) -> Inst:
+    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+        """Declare and/or assign a variable."""
+        assign = f" = {val}" if val else ""
+        decl = f": {tname}" if tname else ""
+        return f"{var}{decl}{assign}{self._eoi}"
+
+    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
         """Declare a JSON variable."""
-        assign = f" = {val}" if val else ""
-        return f"{var}: Jsonable{assign}{self._eoi}"
+        return self._var(var, val, "Jsonable" if declare else None)
 
-    def decl_bool_var(self, var: Var, val: BoolExpr|None = None) -> Inst:
+    def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
         """Declare a boolean variable."""
-        assign = f" = {val}" if val else ""
-        return f"{var}: bool{assign}{self._eoi}"
+        return self._var(var, val, "bool" if declare else None)
 
-    def decl_int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
+    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         """Declare and assign to int variable."""
-        assign = f" = {val}" if val else ""
-        return f"{var}: int{assign}{self._eoi}"
+        return self._var(var, val, "int" if declare else None)
 
-    def decl_fun_var(self, fun: Var) -> Inst:
+    def fun_var(self, fun: Var, val: Expr|None = None, declare: bool = False) -> Inst:
         """Declare a check function variable pointer."""
-        return f"{fun}: CheckFun{self._eoi}"
-
-    def json_var(self, var: Var, expr: JsonExpr) -> Inst:
-        """Assign a JSON expression to a JSON variable."""
-        return f"{var} = {expr}{self._eoi}"
-
-    def bool_var(self, var: Var, expr: BoolExpr) -> Inst:
-        """Assign a boolean expression to a boolean variable."""
-        return f"{var} = {expr}{self._eoi}"
-        return f"{var}: int = {assign}{self._eoi}"
+        return self._var(var, val, "CheckFun" if declare else None)
 
     def iand_op(self, res: Var, e: BoolExpr) -> Inst:
         """And-update boolean variable."""

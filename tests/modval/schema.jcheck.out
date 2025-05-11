@@ -99,6 +99,7 @@ orob_00.schema.json: PASS
 pNULL.schema.json: PASS
 pNUMBER.schema.json: PASS
 pU64.schema.json: PASS
+pUUID.schema.json: PASS
 re_0.schema.json: PASS
 re_1.schema.json: PASS
 re_2.schema.json: PASS

@@ -171,20 +171,19 @@ class CLangJansson(Language):
     def nope(self) -> Inst:
         return None
 
-    def decl_fun_var(self, var: Var) -> Inst:
-        return f"check_fun_t {var};"
+    def  _var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+        assign = f"= {val}" if val else ""
+        decl = f"{tname} " if tname else ""
+        return f"{decl}{var}{assign}{self._eoi}"
 
-    def decl_json_var(self, var: Var, val: JsonExpr|None = None) -> Inst:
-        assign = f" = {val}" if val else ""
-        return f"json_t *{var}{assign};"
+    def fun_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
+        return self._var(var, val, "check_fun_t" if declare else None)
 
-    def decl_bool_var(self, var: Var, val: BoolExpr|None = None) -> Inst:
-        assign = f" = {val}" if val else ""
-        return f"bool {var}{assign};"
+    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
+        return self._var(var, val, "json_t *" if declare else None)
 
-    def decl_int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
-        assign = f" = {val}" if val else ""
-        return f"{self._int} {var}{assign};"
+    def int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
+        return self._var(var, val, self._int if declare else None)
 
     def report(self, msg: str) -> Block:
         return [ f"if (rep) /* {msg} */;" ]

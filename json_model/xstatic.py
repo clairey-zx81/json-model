@@ -344,7 +344,7 @@ class SourceCode(Validator):
             # else cannot optimize early
 
         # else we have some work to do!
-        code += [ gen.decl_fun_var(pfun) ]
+        code += [ gen.fun_var(pfun) ]
 
         # build multi-if structure to put in prop/val loop
         if must:
@@ -352,7 +352,7 @@ class SourceCode(Validator):
             self._code.defs(gen.decl_map(prop_must, len(must)))
 
             # must prop counter to check at the end if all were seen
-            code += [ gen.decl_int_var(must_c, gen.int_cst(0)) ]
+            code += [ gen.int_var(must_c, gen.int_cst(0), True) ]
 
             prop_must_map: dict[str, str] = {}
             for p in sorted(must.keys()):
@@ -873,7 +873,7 @@ class SourceCode(Validator):
             self._paths[hpath] = fun
 
         body = self._compileModel(jm, model, mpath, "res", "val", "path", None)
-        body = [ self._lang.decl_bool_var("res") ] + body + [ self._lang.ret("res") ]
+        body = [ self._lang.bool_var("res", declare=True) ] + body + [ self._lang.ret("res") ]
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})", local=local)
 
