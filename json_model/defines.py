@@ -114,6 +114,58 @@ _UTYPE = {
     "$URL": str, "$REGEX": str, "$DATE": str, "$UUID": str,
 }
 
+
+# FIXME should distinguis not feasible from unknown
+def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
+    """Get the utimate type by following definitions."""
+    match model:
+        case str():
+            if model == "" or model[0] not in ("$", "="):
+                return type(model)
+            elif model[0] == "=":  # constants
+                return (type(None) if model == "=null" else
+                        bool if model in ("=true", "=false") else
+                        float if "." in model else
+                        int)
+            elif model in _UTYPE:
+                return _UTYPE[model]
+            # elif model in self._defs:
+            #    m = self._defs.model[model]  # pyright: ignore
+            #    return ultimate_type(jm, m) if m != UnknownModel else m  # type: ignore
+            else:
+                m = jm.resolveRef(model, ["<?>"])  # type: ignore
+                return ultimate_type(m, m._model)
+        case dict():
+            if "@" in model:
+                return ultimate_type(jm, model["@"])
+            elif "|" in model:
+                assert isinstance(models := model["|"], list)
+                types = set(ultimate_type(jm, m) for m in models)
+                if len(types) == 1:
+                    return types.pop()
+                else:
+                    return None
+            elif "^" in model:
+                assert isinstance(models := model["^"], list)
+                types = set(ultimate_type(jm, m) for m in models)
+                if len(types) == 1:
+                    return types.pop()
+                else:
+                    return None
+            elif "&" in model:
+                assert isinstance(models := model["&"], list)
+                types = set(ultimate_type(jm, m) for m in models)
+                if len(types) == 1:
+                    return types.pop()
+                else:
+                    # possibly not feasible
+                    return None
+            else:
+                return type(model)  # dict
+        case _:
+            return type(model)
+
+
 # model predef to standard model
 _UMODEL = {
     "$BOOL": True, "$NULL": None,
@@ -135,38 +187,7 @@ class Validator:
         self._defs = ModelDefs()
 
     def _ultimate_type(self, jm: JsonModel, model: ModelType) -> type|None:
-        """Get the utimate type by following definitions."""
-        match model:
-            case str():
-                if model == "" or model[0] not in ("$", "="):
-                    return type(model)
-                elif model[0] == "=":  # constants
-                    return (type(None) if model == "=null" else
-                            bool if model in ("=true", "=false") else
-                            float if "." in model else
-                            int)
-                elif model in _UTYPE:
-                    return _UTYPE[model]
-                elif model in self._defs:
-                    m = self._defs.model[model]  # pyright: ignore
-                    return self._ultimate_type(jm, m) if m != UnknownModel else m  # type: ignore
-                else:
-                    m = jm.resolveRef(model, ["<?>"])  # type: ignore
-                    return self._ultimate_type(m, m._model)
-            case dict():
-                if "@" in model:
-                    return self._ultimate_type(jm, model["@"])
-                elif "|" in model:
-                    assert isinstance(models := model["|"], list)
-                    types = set(self._ultimate_type(jm, i) for i in models)
-                    if len(types) == 1:
-                        return types.pop()
-                    else:
-                        return None
-                else:
-                    return type(model)
-            case _:
-                return type(model)
+        return ultimate_type(jm, model)
 
     def _ultimate_model(self, jm: JsonModel,
                         model: ModelType, constrained=True, strict=False) -> ModelType:

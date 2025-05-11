@@ -1,6 +1,6 @@
-andint00.schema.json: PASS
-andstr00.schema.json: PASS
-andstr01.schema.json: PASS
+and_int00.schema.json: PASS
+and_str00.schema.json: PASS
+and_str01.schema.json: PASS
 any.schema.json: PASS
 arr_0.schema.json: PASS
 arr_1.schema.json: PASS

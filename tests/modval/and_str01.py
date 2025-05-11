@@ -30,17 +30,9 @@ def _rep(msg: str, rep: Report) -> bool:
 # define "$" ($)
 def json_model_1(value: Jsonable, path: str, rep: Report = None) -> bool:
     # $
-    # $.'&'.0
-    result = isinstance(value, int) and not isinstance(value, bool) and value == 2
+    result = False or _rep(f"invalid $NONE at {path}", rep)
     if not result:
-        rep is None or rep.append(f"not an expected =2 at {path} [$.'&'.0]")
-    if result:
-        # $.'&'.1
-        result = isinstance(value, str)
-        if not result:
-            rep is None or rep.append(f"not an expected string at {path} [$.'&'.1]")
-    if not result:
-        rep is None or rep.append(f"not all model match at {path} [$.'&']")
+        rep is None or rep.append(f"not an expected $NONE at {path} [$]")
     return result
 
 # entry function check_model

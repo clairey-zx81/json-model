@@ -5,6 +5,7 @@ from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models
 from .recurse import recModel, allFlt, builtFlt
 from .model import JsonModel
+from .defines import ultimate_type
 
 def xor_to_or(jm: JsonModel):
     """Change xor to less coslty or if possible."""
@@ -148,6 +149,10 @@ def partial_eval(jm: JsonModel):
                 if len(land) == 1:
                     changes += 1
                     return land[0]
+                # if ultimates types are distinct, no value can match
+                utypes = set(ultimate_type(jm, m) for m in land)
+                if None not in utypes and len(utypes) > 1 or None in utypes and len(utypes) > 2:
+                    return "$NONE"
             elif "^" in model:
                 lxor = model["^"]
                 assert isinstance(lxor, list)

@@ -1,6 +1,6 @@
-andint00.model.json: PASS
-andstr00.model.json: PASS
-andstr01.model.json: PASS
+and_int00.model.json: PASS
+and_str00.model.json: PASS
+and_str01.model.json: PASS
 any.model.json: PASS
 arr_0.model.json: PASS
 arr_1.model.json: PASS

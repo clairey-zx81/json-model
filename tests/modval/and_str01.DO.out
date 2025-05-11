@@ -1,23 +1,25 @@
 #
 # json model 1
 #
-              0 COPY_FREE_VARS           3
-              2 MAKE_CELL                0 (v)
-              4 MAKE_CELL                1 (p)
+              0 COPY_FREE_VARS           4
 
-              6 RESUME                   0
-              8 LOAD_DEREF               3 (self)
-             10 LOAD_ATTR                1 (NULL|self + _all)
-             30 LOAD_GLOBAL              3 (NULL + map)
-             40 LOAD_CLOSURE             1 (p)
-             42 LOAD_CLOSURE             0 (v)
-             44 BUILD_TUPLE              2
-             46 LOAD_CONST               1 (<*>)
-             48 MAKE_FUNCTION            8 (closure)
-             50 LOAD_DEREF               4 (subs)
-             52 CALL                     2
-             60 LOAD_DEREF               2 (mp)
-             62 LOAD_DEREF               1 (p)
-             64 CALL                     3
-             72 RETURN_VALUE
+              2 RESUME                   0
+              4 PUSH_NULL
+              6 LOAD_DEREF               2 (fun)
+              8 LOAD_FAST                0 (v)
+             10 LOAD_FAST                1 (p)
+             12 CALL                     2
+             20 COPY                     1
+             22 POP_JUMP_IF_TRUE        22 (to 68)
+             24 POP_TOP
+             26 LOAD_DEREF               5 (self)
+             28 LOAD_ATTR                1 (NULL|self + _no)
+             48 LOAD_DEREF               4 (mpath)
+             50 LOAD_FAST                1 (p)
+             52 LOAD_DEREF               3 (model)
+             54 FORMAT_VALUE             0
+             56 LOAD_CONST               1 (' failed')
+             58 BUILD_STRING             2
+             60 CALL                     3
+        >>   68 RETURN_VALUE
 
