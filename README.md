@@ -151,11 +151,14 @@ additionalProperties: false
 - [x] feature: warn when mixing loose/strict int/float
 - [x] feature: implement `$UUID` predef
 - [ ] static: abstract imperative language code generation (wip)
+- [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
+- [ ] c-backend: predefs for $DATE, $URL, $REGEX
 - [ ] backend: remove all `decl_` variants
-- [ ] backend: do not generate intermediate empty functions for direct objects
-- [ ] backend: minimize language abstraction
-- [ ] c-backend: add support for `re2` wrapper
+- [ ] backend: do not generate intermediate empty functions for direct objects?
+- [ ] backend: reduce/minimize language abstraction?
+- [ ] backend: rethink function boundaries?
+- [ ] c-backend: add support for `re2` wrapper?
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
