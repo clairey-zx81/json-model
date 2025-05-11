@@ -49,8 +49,6 @@ F.pc    = $(F.root:%=%.pcheck.out)
 F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
           $(F.json) $(F.js) $(F.sXc)
 
-# $(F.c) $(F.exe) $(F.cc) $(F.
-
 -include local.mk
 
 .PHONY: gen
@@ -103,19 +101,24 @@ py: $(F.SO)
 #
 # Experimental section
 #
+
+F.x     = $(F.xc) $(F.exe) $(F.cc) $(F.xpy) $(F.pc)
+
 .PHONY: clean.x
 clean.x:
-	$(RM) $(F.exe) $(F.xc) $(F.cc) $(F.xpy) $(F.pc)
+	$(RM) $(F.x)
+
+.PHONY: check.x
+check.x: clean.x
+	$(MAKE) $(F.x)
 
 clean: clean.x
-
-.PHONY: xc
-xc: $(F.xc)
 
 %.x.c: %.model.json
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC  = gcc
+
 %.exe: %.x.c
 	$(CC) -DWITH_MAIN -Wall -O2 $< -ljansson -lpcre2-8 -o $@
 
@@ -123,9 +126,6 @@ CC  = gcc
 	shopt -s nullglob
 	set -o pipefail
 	$< $*.*.{true,false}.json | sort > $@
-
-.PHONY: xpy
-xpy: $(F.xpy)
 
 %.x.py: %.model.json
 	$(JMC.cmd) -XO -v --format py ./$< > $@
@@ -136,8 +136,8 @@ xpy: $(F.xpy)
 	set -o pipefail
 	./$< $*.*.{true,false}.json | sort > $@
 
-.PHONY: %.XALL
-%.XALL: %.model.json
+.PHONY: %.x
+%.x: %.model.json
 	shopt -s nullglob
 	$(RM) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
 	$(MAKE) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
