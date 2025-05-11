@@ -218,17 +218,21 @@ class JsonModel:
         # set loose/strict int/float
         if isinstance(model, dict) and "#" in model:
             meta = model["#"]
-            if "JSON_MODEL_LOOSE_INT" in meta:
-                self._loose_int = True
-            elif "JSON_MODEL_STRICT_INT" in meta:
-                self._loose_int = False
+            if isinstance(meta, str):
+                if "JSON_MODEL_LOOSE_INT" in meta:
+                    self._loose_int = True
+                elif "JSON_MODEL_STRICT_INT" in meta:
+                    self._loose_int = False
+                else:
+                    self._loose_int = False
+                if "JSON_MODEL_LOOSE_FLOAT" in meta:
+                    self._loose_float = True
+                elif "JSON_MODEL_STRICT_FLOAT" in meta:
+                    self._loose_float = False
+                else:
+                    self._loose_float = False
             else:
                 self._loose_int = False
-            if "JSON_MODEL_LOOSE_FLOAT" in meta:
-                self._loose_float = True
-            elif "JSON_MODEL_STRICT_FLOAT" in meta:
-                self._loose_float = False
-            else:
                 self._loose_float = False
         else:
             self._loose_int = False
