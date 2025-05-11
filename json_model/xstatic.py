@@ -213,7 +213,7 @@ class SourceCode(Validator):
             # else defaut is nothing to check
 
         if checks:
-            code.add(indent, f"{res} &= {' and '.join(checks)}")
+            code += gen.iand_op(res, gen.and_op(checks))
 
         code += self._gen_report(res, f"invalid type or constraints at {{{vpath}}} [{smpath}]")
 
@@ -429,7 +429,7 @@ class SourceCode(Validator):
             ot_code = self._gen_fail(f"no other prop expected at {{{vpath}}} [{smpath}]")
 
         code += gen.obj_loop(val, prop, pval,
-            [ gen.decl_path("lpath", gen.path(vpath, prop)) ] +
+            [ gen.path_var("lpath", gen.path(vpath, prop), True) ] +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, although we do not know which ones
@@ -468,7 +468,7 @@ class SourceCode(Validator):
                         if expr is not None:
                             known.add(expr)
                     if not expr:
-                        expr = "True"
+                        expr = gen.bool_cst(True)
                 elif model == 0:
                     compare = gen.num_ge(gen.int_val(val), gen.int_cst(0))
                     expr = gen.and_op(expr, compare) if expr else compare
@@ -622,6 +622,7 @@ class SourceCode(Validator):
                     slpath = json_path(lpath)
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
+
                     # partial list of constants optimization
                     l_const = list(map(lambda m: constant_value(m, lpath), models))
                     if len(list(filter(lambda t: t[0], l_const))) >= 2:
@@ -649,12 +650,14 @@ class SourceCode(Validator):
                             code.add(indent, f"if not {res}:")
                             indent += 1
                             models = n_models
+
                     # empty list
                     if not models:
                         if self._report:
-                            code.add(indent, _rep(f"empty or at {{{vpath}}} [{slpath}]"))
-                        code.add(indent, f"{res} = False")
+                            code += [ gen.report(f"empty or at {{{vpath}}} [{slpath}]") ]
+                        code += [ gen.bool_val(res, gen.bool_cst(False)) ]
                         return
+
                     # discriminant optimization
                     if self._disjunction(code, indent, jm, model, lpath, res, val, vpath):
                         return
@@ -671,43 +674,66 @@ class SourceCode(Validator):
                         code.add(indent, f"if {res}:")
                         indent += 1
                         or_known.add(type_test)
+
                     for i, m in enumerate(models):
                         if i:
                             code.add(indent + i - 1, f"if not {res}:")
                         # i
                         self._compileModel(jm, m, lpath + [i], res, val, vpath, or_known)
+
                     if self._report:
                         code.add(indent, f"if not {res}:")
                         code.add(indent + 1, _rep(f"not any model match at {{{vpath}}} [{slpath}]"))
+
                 elif "&" in model:
+
                     and_known = set(known or [])
                     lpath = mpath + ["&"]
                     slpath = json_path(lpath)
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint
+
                     if not models:
-                        code.add(indent, f"{res} = True")
+                        code += [ gen.bool_val(res, gen.bool_cst(True)) ]
                         return
+
                     # homogeneous typed list
                     same, expected = all_model_type(models, lpath)
                     if same:
-                        # all models have the same ultimate type
-                        if expected is int:
-                            type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
+                        # all models have the same ultimate type, use a type shortcut
+                        if expected is None:  # is this possible ???
+                            type_test = gen.is_null(val, False)
+                        elif expected is int:
+                            type_test = gen.is_int(val, False)
+                        elif expected is float:
+                            type_test = gen.is_flt(val, False)
+                        elif expected is bool:
+                            type_test = gen.is_bool(val)
+                        elif expected is str:
+                            type_test = gen.is_str(val)
+                        elif expected is list:
+                            type_test = gen.is_arr(val)
+                        elif expected is dict:
+                            type_test = gen.is_obj(val)
                         else:
-                            type_test = f"isinstance({val}, {expected.__name__})"  # type: ignore
-                        code.add(indent, f"{res} = {type_test}")
-                        code.add(indent, f"if {res}:")
-                        indent += 1
+                            raise Exception("unexpected type list: {expected.__name__}")
+                        code += [ gen.bool_var(res, type_test) ]
                         and_known.add(type_test)
-                    for i, m in enumerate(models):
-                        if i:
-                            code.add(indent + i - 1, f"if {res}:")
-                        # i
-                        self._compileModel(jm, m, lpath + [i], res, val, vpath, and_known)
-                    if self._report:
-                        code.add(indent, f"if not {res}:")
-                        code.add(indent + 1, _rep(f"not all model match at {{{vpath}}} [{slpath}]"))
+
+                    lpvar = gen.new_ident("lpath")
+                    code += [ gen.path_var(lpvar, declare=True) ]
+
+                    # build in reverse order the if structure
+                    acode: Block = []
+                    for i, m in reversed(list(enumerate(models))):
+                        acode = gen.if_stmt(res,
+                            [ gen.path_var(lpvar, gen.path_val(vpath, i)) ] +
+                            self._compileModel(jm, m, lpath + [i], res, val, lpvar, and_known) +
+                            acode
+                        )
+                    code += acode
+                    code += self._gen_report(res, f"not all model match at {{{vpath}}} [{slpath}]")
+
                 elif "^" in model:
                     lpath = mpath + ["^"]
                     slpath = json_path(lpath)

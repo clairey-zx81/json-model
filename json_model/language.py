@@ -1,3 +1,5 @@
+# TODO remove decl_* variants
+
 from importlib.resources import files as data_files
 from .mtypes import Jsonable
 from .utils import log
@@ -369,12 +371,13 @@ class Language:
     def path_val(self, pvar: Var, segment: str|int) -> PathExpr:
         """Append a raw segment to path."""
         val = str(segment) if isinstance(segment, int) else self.esc(segment)
-        return self.path_var(self, pvar, val)
+        return self.path(pvar, val)
 
-    def decl_path(self, pvar: Var, val: PathExpr|None = None) -> Inst:
-        """Declare a path variable with a value."""
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
+        """Assign and possibly declare a value to a path variable."""
         assign = f" = {val}" if val else ""
-        return f"{pvar}: Path{assign}"
+        decl = ": Path" if declare else ""
+        return f"{pvar}{decl}{assign}"
 
     #
     # blocks

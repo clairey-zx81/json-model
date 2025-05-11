@@ -185,9 +185,10 @@ class CLangJansson(Language):
     def path_val(self, pvar: Var, segment: str|int) -> PathExpr:
         return "NULL"
 
-    def decl_path(self, pvar: Var, val: PathExpr|None = None) -> Inst:
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
         assign = f" = {val}" if val else ""
-        return f"Path *{pvar} = NULL;"
+        decl = "Path *" if declare else ""
+        return f"{decl}{pvar} = NULL;"
 
     #
     # blocks
