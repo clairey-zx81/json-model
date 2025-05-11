@@ -121,7 +121,7 @@ class Language:
     def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
         is_an_int = f"isinstance({var}, int) and not isinstance({var}, bool)"
         if loose:
-            is_an_int = f"({is_an_int} or isinstance({var}, float) and var == int({var}))"
+            is_an_int = f"({is_an_int} or isinstance({var}, float) and {var} == int({var}))"
         return is_an_int
 
     def is_bool(self, var: Var) -> BoolExpr:
