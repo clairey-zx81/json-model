@@ -5,6 +5,7 @@ any.schema.json: PASS
 arr_0.schema.json: PASS
 arr_1.schema.json: PASS
 arr_2.schema.json: PASS
+arr_any.schema.json: PASS
 bool_a.schema.json: PASS
 bool.schema.json: PASS
 bool_s.schema.json: PASS
@@ -64,6 +65,7 @@ null.schema.json: PASS
 obj00.schema.json: PASS
 obj01.schema.json: FAIL
 obj01.schema.json: SCHEMA ERROR - not a schema, use --force to proceed anyway
+obj_any.schema.json: PASS
 opt_00.schema.json: PASS
 opt_01.schema.json: PASS
 opt_02.schema.json: PASS

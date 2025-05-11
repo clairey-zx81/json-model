@@ -152,20 +152,41 @@ class SourceCode(Validator):
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
-            return self._lang.check_call(fun, val)  # FIXME vpath?
+            return self._lang.check_call(fun, val, vpath)
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
+
+        # TODO make it a function?
         assert isinstance(model, dict) and "@" in model
         smpath = json_path(mpath)
-        self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
+        gen = self._lang
+
+        # initial model check
+        code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
+
+        # add constraints
         tmodel = self._ultimate_type(jm, model["@"])  # pyright: ignore
+
         # NOTE UnknownModel should raise an error on any constraint
         # FIXME see _untype00.model.json for multiple types
+
         assert tmodel in (int, float, str, list, dict, UnknownModel, None), f"simple {tmodel}"
+
         checks = []
-        what = f"len({val})" if tmodel in (list, dict) else val
+        if tmodel == list:
+            what = gen.arr_len(val)
+        elif tmodel == dict:
+            what = gen.obj_len(val)
+        else:
+            what = val
+
+        # FIXME why None ?!
         twhat = int if tmodel in (list, dict, None) else tmodel
+
+        # FIXME we must decide the type to do comparisons… or generate dynamic code.
+        # TODO precise spec!
+
         for constraint in ("=", "!=", "<", "<=", ">", ">="):
             if constraint in model:
                 op = "==" if constraint == "=" else constraint
@@ -186,14 +207,15 @@ class SourceCode(Validator):
             if not isinstance(model["!"], bool):
                 raise ModelError(f"! constraint expects a boolean {mpath}")
             if model["!"]:
+                # TODO must be a list!
                 log.warning("FIXME: ! generated code is not reliable")
                 code.add(indent, f"{res} &= len(set({val})) == len({val})")
             # else defaut is nothing to check
+
         if checks:
             code.add(indent, f"{res} &= {' and '.join(checks)}")
-        if self._report:
-            code.add(indent, f"if not {res}:")
-            code.add(indent + 1, _rep(f"invalid type or constraints at {{{vpath}}} [{smpath}]"))
+
+        code += self._gen_report(res, f"invalid type or constraints at {{{vpath}}} [{smpath}]")
 
     def _disjunction(self, code: Code, indent: int,
                      jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -308,14 +330,20 @@ class SourceCode(Validator):
         code += gen.if_stmt(gen.not_op(gen.is_obj(val)),
                             self._gen_fail(f"not an object at {{{vpath}}} [{smpath}]"))
 
-        # shorcut for empty object
-        if not must and not may and not defs and not regs and not oth:
-            code += \
-                gen.if_stmt(gen.num_eq(gen.obj_len(val), gen.int_cst(0)),
-                            [ gen.ret(bool_cst(True)) ],
-                            self._gen_fail(f"expecting empty object at {{{vpath}}} [{smpath}]"))
-            return code
+        # shorcut for empty/any object
+        if not must and not may and not defs and not regs:
+            if not oth:  # empty object
+                code += \
+                    gen.if_stmt(gen.num_eq(gen.obj_len(val), gen.int_cst(0)),
+                                [ gen.ret(bool_cst(True)) ],
+                                self._gen_fail(f"expecting empty object at {{{vpath}}} [{smpath}]"))
+                return code
+            elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
+                code += [ gen.lcom("accept any object"), gen.ret(gen.bool_cst(True)) ]
+                return code
+            # else cannot optimize early
 
+        # else we have some work to do!
         code += [ gen.decl_fun_var(pfun) ]
 
         # build multi-if structure to put in prop/val loop
@@ -324,7 +352,7 @@ class SourceCode(Validator):
             self._code.defs(gen.decl_map(prop_must, len(must)))
 
             # must prop counter to check at the end if all were seen
-            code += [ gen.decl_int_var_val(must_c, gen.int_cst(0)) ]
+            code += [ gen.decl_int_var(must_c, gen.int_cst(0)) ]
 
             prop_must_map: dict[str, str] = {}
             for p in sorted(must.keys()):
@@ -337,10 +365,10 @@ class SourceCode(Validator):
             # self._maps[prop_must] = prop_must_map
 
             mu_expr = gen.prop_fun(pfun, prop, prop_must, len(must))
-            mu_code = gen.if_stmt(
+            mu_code = [ gen.lcom(f"handle {len(must)} must props") ] + gen.if_stmt(
                 gen.is_def(pfun), [
                     gen.inc_var(must_c)
-                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval)),
+                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, "lpath")),
                         self._gen_fail(f"invalid must property {{{prop}}} value at {{{vpath}}} [{smpath}]"))
             )
             multi_if += [(mu_expr, mu_code)]
@@ -360,8 +388,8 @@ class SourceCode(Validator):
             # self._maps[prop_may] = prop_may_map
 
             ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))
-            ma_code = gen.if_stmt(
-                gen.and_op(gen.is_def(pfun), gen.not_op(gen.check_call(pfun, pval))),
+            ma_code = [ gen.lcom("handle {len(may)} may props") ] + gen.if_stmt(
+                gen.and_op(gen.is_def(pfun), gen.not_op(gen.check_call(pfun, pval, "lpath"))),
                 self._gen_fail(f"invalid may property {{{prop}}} value at {{{vpath}}} [{smpath}]")
             )
             multi_if += [(ma_expr, ma_code)]
@@ -369,8 +397,9 @@ class SourceCode(Validator):
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.keys():
             ref = "$" + d
-            dl_expr = self._dollarExpr(jm, ref, prop, vpath)
-            dl_code = self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
+            dl_expr = self._dollarExpr(jm, ref, prop, "lpath")
+            dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
+                self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
                 self._gen_short_expr(res)
             multi_if += [(dl_expr, dl_code)]
 
@@ -379,7 +408,8 @@ class SourceCode(Validator):
             # FIXME options?!
             regex = f"/{r}/"
             rg_expr = self._regExpr(regex, prop, "lpath")
-            rg_code = self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
+            rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
+                self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, rg_code)]
 
@@ -389,16 +419,17 @@ class SourceCode(Validator):
             omodel = oth[""]
             smpath = json_path(mpath + [""])
             if omodel != "$ANY":
-                ot_code = self._compileModel(jm, omodel, mpath + [""], res, pval, "lpath") + \
+                ot_code = [ gen.lcom("handle other props") ] + \
+                    self._compileModel(jm, omodel, mpath + [""], res, pval, "lpath") + \
                     self._gen_fail(f"unexpected other value at {{lpath}} [{smpath}]")
             else:  # optimized "": "$ANY" case
-                ot_code = []
+                ot_code = [ gen.lcom("accept any other props") ]
         else:  # no catch all
             smpath = json_path(mpath)
             ot_code = self._gen_fail(f"no other prop expected at {{{vpath}}} [{smpath}]")
 
         code += gen.obj_loop(val, prop, pval,
-            [ gen.lcom(f"TODO lpath = {vpath} + '.' + {prop}") ] +
+            [ gen.decl_path("lpath", gen.path(vpath, prop)) ] +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, although we do not know which ones
@@ -422,10 +453,10 @@ class SourceCode(Validator):
         code = [ gen.lcom(f"{json_path(mpath)}") ]
         match model:
             case None:
-                code += [ gen.bool_var_val(res, gen.is_null(val)) ] + \
+                code += [ gen.bool_var(res, gen.is_null(val)) ] + \
                     self._gen_report(res, f"not null at {{{vpath}}} [{smpath}]")
             case bool():
-                code += [ gen.bool_var_val(res, gen.is_bool(val)) ] + \
+                code += [ gen.bool_var(res, gen.is_bool(val)) ] + \
                     self._gen_report(res, f"not a bool at {{{vpath}}} [{smpath}]")
             case int():
                 expr = gen.is_int(val, jm._loose_int)
@@ -447,7 +478,7 @@ class SourceCode(Validator):
                 else:
                     raise ModelError(f"unexpected int value {model} at {smpath}")
                 if expr:
-                    code += [ gen.bool_var_val(res, expr) ] + \
+                    code += [ gen.bool_var(res, expr) ] + \
                         self._gen_report(res, f"not a {model} int at {{{vpath}}} [{smpath}]")
             case float():
                 expr = gen.is_flt(val, jm._loose_float)
@@ -469,7 +500,7 @@ class SourceCode(Validator):
                 else:
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
-                    code += [ gen.bool_var_val(res, expr) ] + \
+                    code += [ gen.bool_var(res, expr) ] + \
                         self._gen_report(res, f"not a {model} float at {{{vpath}}} [{smpath}]")
             case str():
                 expr = gen.is_str(val)
@@ -483,11 +514,11 @@ class SourceCode(Validator):
                     if known is not None:
                         if expr is not None:
                             known.add(expr)
-                    code += [ gen.bool_var_val(res, expr if expr else gen.bool_cst(True)) ]
+                    code += [ gen.bool_var(res, expr if expr else gen.bool_cst(True)) ]
                 elif model[0] == "_":
                     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     expr = gen.and_op(expr, compare) if expr else compare
-                    code += [ gen.bool_var_val(res, expr) ]
+                    code += [ gen.bool_var(res, expr) ]
                 elif model[0] == "=":
                     # TODO FIXME known
                     # NOTE expr is ignore here
@@ -495,23 +526,23 @@ class SourceCode(Validator):
                     if not a_cst:
                         raise ModelError(f"unexpected constant: {model}")
                     if value is None:
-                        code += [ gen.bool_var_val(res, gen.is_null(val)) ]
+                        code += [ gen.bool_var(res, gen.is_null(val)) ]
                     elif isinstance(value, bool):
                         code += [
-                            gen.bool_var_val(res,
+                            gen.bool_var(res,
                                 gen.and_op(gen.is_bool(val),
                                            gen.num_eq(gen.bool_val(val), gen.bool_cst(value))))
                         ]
                     elif isinstance(value, int):
                         code += [
-                            gen.bool_var_val(res,
+                            gen.bool_var(res,
                                 gen.and_op(gen.is_int(val, jm._loose_int),
                                            # FIXME cast depends on type?
                                            gen.num_eq(gen.int_val(val), gen.int_cst(value))))
                         ]
                     elif isinstance(value, float):
                         code += [
-                            gen.bool_var_val(res,
+                            gen.bool_var(res,
                                 gen.and_op(gen.is_flt(val, jm._loose_float),
                                            # FIXME cast depends on type?
                                            gen.num_eq(gen.flt_val(val), gen.flt_cst(value))))
@@ -519,20 +550,20 @@ class SourceCode(Validator):
                     # elif isinstance(value, str):
                     #     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     #     expr = gen.and_op(expr, compare) if expr else compare
-                    #     code += [ gen.bool_var_val(res, expr) ]
+                    #     code += [ gen.bool_var(res, expr) ]
                     else:
                         raise ModelError(f"unexpected constant type: {tname(value)}")
                 elif model[0] == "$":
                     call = self._dollarExpr(jm, model, val, "path")
-                    code += [ gen.bool_var_val(res, call) ]
+                    code += [ gen.bool_var(res, call) ]
                 elif model[0] == "/":
                     code += [ gen.lcom(f"{self._esc(model)}") ]
                     call = self._regExpr(model, val, vpath)
-                    code += [ gen.bool_var_val(res, gen.and_op(expr, call) if expr else call) ]
+                    code += [ gen.bool_var(res, gen.and_op(expr, call) if expr else call) ]
                 else:  # simple string
                     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     expr = gen.and_op(expr, compare) if expr else compare
-                    code += [ gen.bool_var_val(res, expr) ]
+                    code += [ gen.bool_var(res, expr) ]
                 if self._report:
                     smodel = model if model else "string"
                     if model and model[0] == "/":  # FIXME workaround
@@ -549,25 +580,28 @@ class SourceCode(Validator):
                 if len(model) == 0:
                     length = gen.num_eq(gen.arr_len(val), gen.int_cst(0))
                     expr = gen.and_op(expr, length) if expr else length
-                    code += [ gen.bool_var_val(res, expr) ]
+                    code += [ gen.bool_var(res, expr) ]
                     # SHORT RES?
                 elif len(model) == 1:
-                    arrayid = gen.new_ident("arr")
-                    idx, item = f"{arrayid}_idx", f"{arrayid}_item"
+                    if model[0] == "$ANY":
+                        loop = [ gen.lcom("accept any array"), gen.nope() ]
+                    else:
+                        arrayid = gen.new_ident("arr")
+                        idx, item = f"{arrayid}_idx", f"{arrayid}_item"
 
-                    loop = gen.arr_loop(val, idx, item, [
-                        gen.lcom("TODO lpath = vpath + idx")
-                        # lpath?
-                    ] + self._compileModel(jm, model[0], mpath + [0], res, item, "None") + \
-                        gen.if_stmt(gen.not_op(res), [ gen.brk() ])
-                    )
+                        loop = gen.arr_loop(val, idx, item, [
+                            gen.lcom("TODO lpath = vpath + idx")
+                            # lpath?
+                        ] + self._compileModel(jm, model[0], mpath + [0], res, item, "None") + \
+                            gen.if_stmt(gen.not_op(res), [ gen.brk() ])
+                        )
 
-                    code += [ gen.bool_var_val(res, expr if expr else gen.bool_cst(True)) ] + \
+                    code += [ gen.bool_var(res, expr if expr else gen.bool_cst(True)) ] + \
                         gen.if_stmt(res, loop)
                 else:
                     length = gen.num_eq(gen.arr_len(val), gen.int_cst(len(model)))
                     expr = gen.and_op(expr, length) if expr else length
-                    code += [ gen.bool_var_val(res, expr) ]
+                    code += [ gen.bool_var(res, expr) ]
                     body = []
                     for i, m in reversed(list(enumerate(model))):
                         body = gen.if_stmt(res,
@@ -752,7 +786,7 @@ class SourceCode(Validator):
                     self._code.subs(ocode)
 
                     # call object check and possibly report
-                    code += [ gen.bool_var_val(res, gen.check_call(objid, "val")) ]
+                    code += [ gen.bool_var(res, gen.check_call(objid, "val", vpath)) ]
                     code += self._gen_report(res, f"not an expected object at {{{vpath}}} [{smpath}]")
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
@@ -853,7 +887,7 @@ class SourceCode(Validator):
 
         # create entry_point
         self._code.sub(name, [
-            self._lang.ret(self._lang.check_call(f"json_model_{model._id}", "val"))
+            self._lang.ret(self._lang.check_call(f"json_model_{model._id}", "val", "path"))
         ], comment=f"entry function {name}"),
 
         return self._code

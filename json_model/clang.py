@@ -1,6 +1,6 @@
 import json
 from .language import Language, Block, Var, Inst, Block, PropMap
-from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, Expr
+from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -8,13 +8,14 @@ _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson."""
 
-    def __init__(self, *, debug: bool = False, relib: str = "pcre2"):
+    def __init__(self, *, debug: bool = False, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__("C", not_op="!", and_op="&&", or_op="||", lcom="//",
                          eoi=";", indent="  ", relib=relib, debug=debug)
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
+        self._int: str = int_t
         self._props_used: bool = False
         self._anylen_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
@@ -154,26 +155,39 @@ class CLangJansson(Language):
     #
     # simple instructions
     #
+    def nope(self) -> Inst:
+        return None
+
     def decl_fun_var(self, var: Var) -> Inst:
         return f"check_fun_t {var};"
 
-    def decl_json_var(self, var: Var) -> Inst:
-        return f"json_t *{var};"
+    def decl_json_var(self, var: Var, val: JsonExpr|None = None) -> Inst:
+        assign = f" = {val}" if val else ""
+        return f"json_t *{var}{assign};"
 
-    def decl_bool_var(self, var: Var) -> Inst:
-        return f"bool {var};"
+    def decl_bool_var(self, var: Var, val: BoolExpr|None = None) -> Inst:
+        assign = f" = {val}" if val else ""
+        return f"bool {var}{assign};"
 
-    def decl_json_var_val(self, var: Var, expr: Expr) -> Inst:
-        return f"json_t *{var} = {expr};"
-
-    def decl_int_var_val(self, var: Var, expr: IntExpr) -> Inst:
-        return f"int {var} = {expr};"
-
-    def decl_bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
-        return f"bool {var} = {expr};"
+    def decl_int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
+        assign = f" = {val}" if val else ""
+        return f"{self._int} {var}{assign};"
 
     def report(self, msg: str) -> Block:
         return [ f"if (rep) /* {msg} */;" ]
+
+    #
+    # path management is not implemented yet.
+    #
+    def path(self, pvar: Var, segment: str) -> PathExpr:
+        return "NULL"
+
+    def path_val(self, pvar: Var, segment: str|int) -> PathExpr:
+        return "NULL"
+
+    def decl_path(self, pvar: Var, val: PathExpr|None = None) -> Inst:
+        assign = f" = {val}" if val else ""
+        return f"Path *{pvar} = NULL;"
 
     #
     # blocks

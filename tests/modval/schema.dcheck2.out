@@ -5,6 +5,7 @@ any.schema.json: PASS
 arr_0.schema.json: PASS
 arr_1.schema.json: PASS
 arr_2.schema.json: PASS
+arr_any.schema.json: PASS
 bool_a.schema.json: PASS
 bool.schema.json: PASS
 bool_s.schema.json: PASS
@@ -63,6 +64,7 @@ none.schema.json: PASS
 null.schema.json: PASS
 obj00.schema.json: PASS
 obj01.schema.json: FAIL [('$Schema.|[0]', '$', 'expecting a boolean'), ('$TightSchema.|[0]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[1]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[2]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[3]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[4]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[5]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[6]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|[7]', '$.ERROR', 'unexpected property ERROR'), ('$TightSchema.|', '$', 'no any matched'), ('$Schema.|[1]', '$', '$TightSchema failed'), ('$Schema.|', '$', 'no any matched'), ('', '$', '$Schema failed')]
+obj_any.schema.json: PASS
 opt_00.schema.json: PASS
 opt_01.schema.json: PASS
 opt_02.schema.json: PASS

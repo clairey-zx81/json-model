@@ -5,6 +5,7 @@ any.model.json: PASS
 arr_0.model.json: PASS
 arr_1.model.json: PASS
 arr_2.model.json: PASS
+arr_any.model.json: PASS
 ../bads/_bad_ext.model.json: PASS
 ../bads/_bad_tref.model.json: PASS
 ../bads/_dup_prop_1.model.json: PASS
@@ -115,6 +116,7 @@ none.model.json: PASS
 null.model.json: PASS
 obj00.model.json: PASS
 obj01.model.json: PASS
+obj_any.model.json: PASS
 opt_00.model.json: PASS
 opt_01.model.json: PASS
 opt_02.model.json: PASS

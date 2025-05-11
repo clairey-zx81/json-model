@@ -12,10 +12,13 @@ type IntExpr = str
 type FloatExpr = str
 type NumExpr = str
 type StrExpr = str
+# all value expressions
 type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
 
+type PathExpr = str
+
 # actual code
-type Inst = str
+type Inst = str|None
 type Block = list[Inst]
 
 # must or may property name -> corresponding check function
@@ -37,6 +40,7 @@ class Language:
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#",
             relib: str = "re2",
+            comment: bool = True,
             debug: bool = False,
         ):
         # keep parameters
@@ -59,6 +63,7 @@ class Language:
         self._indent = indent
         self._lcom = lcom
         self._relib = relib
+        self._comment = comment
 
         # per prefix identifier count
         self._idcounts: dict[str, int] = {}
@@ -116,7 +121,7 @@ class Language:
     def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
         is_an_int = f"isinstance({var}, int) and not isinstance({var}, bool)"
         if loose:
-            is_an_int = f"({is_an_int} or isinstance({var}, float) and var == int({var}))" 
+            is_an_int = f"({is_an_int} or isinstance({var}, float) and var == int({var}))"
         return is_an_int
 
     def is_bool(self, var: Var) -> BoolExpr:
@@ -155,7 +160,7 @@ class Language:
             raise NotImplementedError(f"TODO predef {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")
- 
+
     #
     # constants
     #
@@ -213,12 +218,12 @@ class Language:
     #
     # boolean expression
     #
-    def str_check_call(self, name, val) -> BoolExpr:
+    def str_check_call(self, name: str, val: StrExpr) -> BoolExpr:
         return f"{name}({val})"
 
-    def check_call(self, name, val) -> BoolExpr:
-        return f"{name}({val}, path, rep)"
-        
+    def check_call(self, name: Var, val: JsonExpr, path: Var) -> BoolExpr:
+        return f"{name}({val}, {path}, rep)"
+
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
         return f"{true} if {cond} else {false}"
 
@@ -228,11 +233,11 @@ class Language:
     def not_op(self, e: BoolExpr) -> BoolExpr:
         return f"{self._not} {e}"
 
-    def and_op(self, e1: BoolExpr, e2: BoolExpr) -> BoolExpr:
-        return f"{e1} {self._and} {e2}"
+    def and_op(self, *exprs: BoolExpr) -> BoolExpr:
+        return f" {self._and} ".join(exprs)
 
-    def or_op(self, e1: BoolExpr, e2: BoolExpr) -> BoolExpr:
-        return f"{e1} {self._or} {e2}"
+    def or_op(self, *exprs: BoolExpr) -> BoolExpr:
+        return f" {self._or} ".join(exprs)
 
     def paren(self, e: Expr) -> Expr:
         return f"({e})"
@@ -294,44 +299,82 @@ class Language:
     #
     # simple instructions
     #
+    def nope(self) -> Inst:
+        return "pass"
+
     def lcom(self, text: str = "") -> Inst:
-        return f"{self._lcom} {text}" if text else self._lcom
+        """Generate a line comment."""
+        if self._comment:
+            return f"{self._lcom} {text}" if text else self._lcom
+        else:
+            return None
 
-    def decl_json_var(self, var: Var) -> Inst:
-        return f"{var}: Jsonable{self._eoi}"
+    def decl_json_var(self, var: Var, val: JsonExpr|None = None) -> Inst:
+        """Declare a JSON variable."""
+        assign = f" = {val}" if val else ""
+        return f"{var}: Jsonable{assign}{self._eoi}"
 
-    def decl_bool_var(self, var: Var) -> Inst:
-        return f"{var}: bool{self._eoi}"
+    def decl_bool_var(self, var: Var, val: BoolExpr|None = None) -> Inst:
+        """Declare a boolean variable."""
+        assign = f" = {val}" if val else ""
+        return f"{var}: bool{assign}{self._eoi}"
+
+    def decl_int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
+        """Declare and assign to int variable."""
+        assign = f" = {val}" if val else ""
+        return f"{var}: int{assign}{self._eoi}"
 
     def decl_fun_var(self, fun: Var) -> Inst:
-        return f"{fun}: CheckFun"
+        """Declare a check function variable pointer."""
+        return f"{fun}: CheckFun{self._eoi}"
 
-    def json_var_val(self, var: Var, expr: Expr) -> Inst:
+    def json_var(self, var: Var, expr: JsonExpr) -> Inst:
+        """Assign a JSON expression to a JSON variable."""
         return f"{var} = {expr}{self._eoi}"
 
-    def bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
+    def bool_var(self, var: Var, expr: BoolExpr) -> Inst:
+        """Assign a boolean expression to a boolean variable."""
         return f"{var} = {expr}{self._eoi}"
+        return f"{var}: int = {assign}{self._eoi}"
 
-    def decl_json_var_val(self, var: Var, expr: JsonExpr) -> Inst:
-        return f"{var}: Jsonable = {expr}{self._eoi}"
-
-    def decl_int_var_val(self, var: Var, expr: IntExpr) -> Inst:
-        return f"{var}: int = {expr}{self._eoi}"
-
-    def decl_bool_var_val(self, var: Var, expr: BoolExpr) -> Inst:
-        return f"{var}: bool = {expr}{self._eoi}"
+    def iand_op(self, res: Var, e: BoolExpr) -> Inst:
+        """And-update boolean variable."""
+        return "{var} &= {e}{self.eoi}"
 
     def inc_var(self, var: Var) -> Inst:
+        """Increment integer variable."""
         return f"{var} += 1{self._eoi}"
 
     def ret(self, res: BoolExpr) -> Inst:
+        """Return boolean result."""
         return f"return {res}{self._eoi}"
 
     def brk(self) -> Inst:
+        """Break from surrounding loop."""
         return f"break{self._eoi}"
 
-    def esc(self, s: str) -> str:
-        return '"' + s.replace('"', r'\"') + '"'
+    def esc(self, s: str) -> StrExpr:
+        """Escape string."""
+        return '"' + s.replace("\\", "\\\\").replace('"', r'\"') + '"'
+
+    #
+    # paths
+    #
+    # TODO on-stack push/pop for efficiency
+    #
+    def path(self, pvar: Var, segment: str) -> PathExpr:
+        """Append an expression segment to path."""
+        return f"({pvar} + [ {segment} ]) if {pvar} else None"
+
+    def path_val(self, pvar: Var, segment: str|int) -> PathExpr:
+        """Append a raw segment to path."""
+        val = str(segment) if isinstance(segment, int) else self.esc(segment)
+        return self.path_var(self, pvar, val)
+
+    def decl_path(self, pvar: Var, val: PathExpr|None = None) -> Inst:
+        """Declare a path variable with a value."""
+        assign = f" = {val}" if val else ""
+        return f"{pvar}: Path{assign}"
 
     #
     # blocks
@@ -340,7 +383,7 @@ class Language:
         return [ f"rep is None or rep.append(f{self.esc(msg)})" ]
 
     def indent(self, block: Block) -> Block:
-        return [ (self._indent + line) for line in block ]
+        return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
@@ -435,7 +478,7 @@ class Code:
         self._help.clear()
         self._subs.clear()
         self._init.clear()
-    
+
     def head(self, b: Block = [""]):
         """Add lines to headers."""
         self._head += b
@@ -443,7 +486,7 @@ class Code:
     def defs(self, b: Block = [""]):
         """Add lines to definitions."""
         self._defs += b
-    
+
     def help(self, b: Block = [""]):
         """Add lines to helpers."""
         if self._help:
@@ -480,4 +523,5 @@ class Code:
             if code and b:
                 code += [""]
             code += b
-        return self._lang._isep.join(code)
+        # generate source code, skipping none instructions
+        return self._lang._isep.join(filter(lambda s: s is not None, code))
