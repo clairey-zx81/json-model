@@ -150,17 +150,19 @@ additionalProperties: false
 - [x] python: refactor in optim analyze merge…
 - [x] feature: warn when mixing loose/strict int/float
 - [x] feature: implement `$UUID` predef
+- [x] backend: remove `decl_` variants
+- [x] feature: make static compiled exported defs accessible…
+- [x] frontend: select named model with `--name name`
+- [x] frontend: use `--list` to show available models
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
 - [ ] c-backend: predefs for $DATE, $URL, $REGEX
-- [ ] backend: remove all `decl_` variants
 - [ ] backend: do not generate intermediate empty functions for direct objects?
 - [ ] backend: reduce/minimize language abstraction?
 - [ ] backend: rethink function boundaries?
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
-- [ ] frontend: `--name name`
 - [ ] backend: report errors
 - [ ] backend: add free
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
@@ -177,8 +179,7 @@ additionalProperties: false
 - [ ] design: namespace, only some defs exported, and cannot have multi-level refs `$r#N#xxx`?
 - [ ] python: use mandatory keyword parameters where appropriate
 - [ ] feature: `--extension openapi` to activate an extension ? default `none`, `moschin`…
-- [ ] design: convention for local vs exported definitions? capital?
-- [ ] feature: make (static/dynamic) compiled exported defs accessible… which implies fname control
+- [ ] design: add convention for local vs exported definitions? capital?
 - [ ] static: separate compilation of included models
 - [ ] command: add option to control name of generated function
 - [ ] command: add option to do/skip check of `~` model
@@ -197,7 +198,8 @@ additionalProperties: false
 - [ ] tests: move/add more tests to rwt, modval, bads
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?
-- [ ] tests: refactor all tests, keep or drop `pytest`
+- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
+- [ ] tests: parallelism with `pytest`?
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?
@@ -224,11 +226,12 @@ additionalProperties: false
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: setup mkdocs
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
-- [ ] research: paper themes? extensions, compilation (CGO), ...?
+- [ ] research: paper themes? extensions, compilation (CGO tools), ...?
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? validation performance? high-level IR?
       perf is important because value validation is pure (useless) in-depth overhead in practice.
+- [ ] perf: two phase check, without collection and with collection if needed.
 - [ ] perf: no reasons/path collection and run with collection only when bad.
 - [ ] schema: handle includes? inline?!
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
@@ -241,8 +244,8 @@ additionalProperties: false
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
 - [ ] feature: add model predef for URI, URI-REF and the like
-- [ ] models: improve meta model with predefs
-- [ ] design: URI vs URL
+- [ ] models: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
+- [ ] design: URI vs URL?
 - [ ] tests: move modval tests in subdirectories?
 
 ## WIP

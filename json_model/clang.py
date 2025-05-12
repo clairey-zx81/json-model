@@ -7,34 +7,31 @@ from .utils import UUID_RE
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
 class CLangJansson(Language):
-    """Generate JSON value checker in C with Jansson."""
+    """Generate JSON value checker in C with Jansson and PCRE2."""
 
     def __init__(self, *, debug: bool = False, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__("C", not_op="!", and_op="&&", or_op="||", lcom="//",
-                         eoi=";", indent="  ", relib=relib, debug=debug)
+                         eoi=";", relib=relib, debug=debug)
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
         self._int: str = int_t
         self._uuid_used: bool = False
-        self._props_used: bool = False
         self._anylen_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
     # file
     #
-    def file_header(self) -> Block:
+    def file_header(self: str) -> Block:
         header = []
         if self._re_used:
             if self._relib == "pcre2":
-                # FIXME what should it be for UTF-8?
                 header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
             header += [ f"#include <{self._relib}.h>" ]
+        header += [ f"#define JSON_MODEL_VERSION {self.esc(self._version)}" ]
         header += self.load_data("clang_header.c")
-        if self._props_used:
-            header += self.load_data("clang_props.c")
         if self._uuid_used:
             header += self.load_data("clang_uuid.c")
         if self._anylen_used:
@@ -42,7 +39,7 @@ class CLangJansson(Language):
         return header
 
     def file_footer(self) -> Block:
-        return [""] + self.load_data("clang_main.c")
+        return [""] + self.load_data("clang_entry.c") + [""] + self.load_data("clang_main.c")
 
     #
     # inlined type test expressions about JSON data
@@ -182,7 +179,7 @@ class CLangJansson(Language):
     def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, "json_t *" if declare else None)
 
-    def int_var(self, var: Var, val: IntExpr|None = None) -> Inst:
+    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, self._int if declare else None)
 
     def report(self, msg: str) -> Block:
@@ -191,16 +188,18 @@ class CLangJansson(Language):
     #
     # path management is not implemented yet.
     #
-    def path(self, pvar: Var, segment: str) -> PathExpr:
-        return "NULL"
-
-    def path_val(self, pvar: Var, segment: str|int) -> PathExpr:
-        return "NULL"
+    def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
+        # note: segment is a variable name for a prop or an integer
+        return (f"(Path) {{ {pseg}, 0, {pvar} }}" if is_prop else
+                f"(Path) {{ NULL, {pseg}, {pvar} }}")
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
         assign = f" = {val}" if val else ""
-        decl = "Path *" if declare else ""
-        return f"{decl}{pvar} = NULL;"
+        decl = "Path " if declare else ""
+        return f"{decl}{pvar}{assign};"
+
+    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+        return f"({rvar} ? &{lvar} : NULL)"
 
     #
     # blocks
@@ -269,30 +268,26 @@ class CLangJansson(Language):
         return code
 
     def decl_map(self, name: str, size: int) -> Block:
-        self._props_used = True
         return [ f"static check_prop_t {name}[{size}];" ]
 
     def init_map(self, name: str, pmap: PropMap) -> Block:
-        self._props_used = True
         init = []
         for i, pf in enumerate(pmap.items()):
             p, f = pf
             init += [ f"{name}[{i}] = (check_prop_t) {{ {self.esc(p)}, {f} }};" ]
         return init
 
-    def _fun(self, name: str, local: bool = False) -> str:
-        return  f"{'static ' if local else ''}bool {name}(const json_t *val, Path *path, Report *rep)"
+    def _fun(self, name: str) -> str:
+        return  f"static bool {name}(const json_t* val, Path* path, Report* rep)"
 
-    def decl_fun(self, name: str, local: bool = False) -> Block:
-        return [ self._fun(name, local) + ";" ]
+    def decl_fun(self, name: str) -> Block:
+        return [ self._fun(name) + ";" ]
 
-    def gen_fun(self, name: str, body: Block, local: bool = False) -> Block:
-        if not local:  # entry points must check for module initialization
-            body = [ "initialize();" ] + body
-        return [ self._fun(name, local) ] + self.indent(body)
+    def gen_fun(self, name: str, body: Block) -> Block:
+        return [ self._fun(name) ] + self.indent(body)
 
     def gen_init(self, init: Block) -> Block:
         if self._uuid_used:
             init += self.init_re("_is_valid_uuid", UUID_RE)
         body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init))
-        return [ "static void initialize(void)" ] + body
+        return [ "static void CHECK_FUNCTION_NAME_init(void)" ] + body

@@ -3,9 +3,12 @@
 #
 import sys
 import re
+from importlib.metadata import version as pkg_version
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType, Symbols
+
+__version__ = pkg_version("json_model")
 
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)

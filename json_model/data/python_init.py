@@ -1,9 +1,6 @@
 # differed module initializations
-def initialize():
+def CHECK_FUNCTION_NAME_init():
     global initialized
     if not initialized:
         initialized = True
 INIT_BLOCK
-
-# only actual call
-initialize()

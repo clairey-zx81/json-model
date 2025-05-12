@@ -23,13 +23,15 @@ class SourceCode(Validator):
     """Source code for compiling JSON Models.
 
     - globs: global map of symbols.
-    - prefix: use this prefix for function name generation.
+    - language: target language abstraction.
+    - fname: entry function name.
+    - prefix: use this prefix for internal function name generation.
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
     """
 
-    def __init__(self, globs: Symbols, language: Language, *,
+    def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "",
                  report: bool = True, path: bool = True, debug: bool = False):
 
@@ -42,7 +44,7 @@ class SourceCode(Validator):
         self._path = path
         self._debug = debug
 
-        self._code = Code(language)
+        self._code = Code(language, fname)
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
@@ -343,8 +345,11 @@ class SourceCode(Validator):
                 return code
             # else cannot optimize early
 
+        # path + [ prop ]
+        lpath = gen.new_ident("lpath")
+
         # else we have some work to do!
-        code += [ gen.fun_var(pfun) ]
+        code += [ gen.fun_var(pfun, declare=True) ]
 
         # build multi-if structure to put in prop/val loop
         if must:
@@ -368,7 +373,7 @@ class SourceCode(Validator):
             mu_code = [ gen.lcom(f"handle {len(must)} must props") ] + gen.if_stmt(
                 gen.is_def(pfun), [
                     gen.inc_var(must_c)
-                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, "lpath")),
+                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, gen.path_lvar(lpath, vpath))),
                         self._gen_fail(f"invalid must property {{{prop}}} value at {{{vpath}}} [{smpath}]"))
             )
             multi_if += [(mu_expr, mu_code)]
@@ -389,7 +394,8 @@ class SourceCode(Validator):
 
             ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))
             ma_code = [ gen.lcom("handle {len(may)} may props") ] + gen.if_stmt(
-                gen.and_op(gen.is_def(pfun), gen.not_op(gen.check_call(pfun, pval, "lpath"))),
+                gen.and_op(gen.is_def(pfun),
+                           gen.not_op(gen.check_call(pfun, pval, gen.path_lvar(lpath, vpath)))),
                 self._gen_fail(f"invalid may property {{{prop}}} value at {{{vpath}}} [{smpath}]")
             )
             multi_if += [(ma_expr, ma_code)]
@@ -399,7 +405,7 @@ class SourceCode(Validator):
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, "lpath")
             dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
-                self._compileModel(jm, m, mpath + [ref], res, pval, "lpath") + \
+                self._compileModel(jm, m, mpath + [ref], res, pval, gen.path_lvar(lpath, vpath)) + \
                 self._gen_short_expr(res)
             multi_if += [(dl_expr, dl_code)]
 
@@ -407,9 +413,10 @@ class SourceCode(Validator):
         for r, v in regs.items():
             # FIXME options?!
             regex = f"/{r}/"
-            rg_expr = self._regExpr(regex, prop, "lpath")
+            rg_expr = self._regExpr(regex, prop, lpath, vpath)
             rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
-                self._compileModel(jm, v, mpath + [regex], res, pval, "lpath") + \
+                self._compileModel(jm, v, mpath + [regex],
+                                   res, pval, gen.path_lvar(lpath, vpath)) + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, rg_code)]
 
@@ -420,7 +427,8 @@ class SourceCode(Validator):
             smpath = json_path(mpath + [""])
             if omodel != "$ANY":
                 ot_code = [ gen.lcom("handle other props") ] + \
-                    self._compileModel(jm, omodel, mpath + [""], res, pval, "lpath") + \
+                    self._compileModel(jm, omodel, mpath + [""],
+                                       res, pval, gen.path_lvar(lpath, vpath)) + \
                     self._gen_fail(f"unexpected other value at {{lpath}} [{smpath}]")
             else:  # optimized "": "$ANY" case
                 ot_code = [ gen.lcom("accept any other props") ]
@@ -429,7 +437,7 @@ class SourceCode(Validator):
             ot_code = self._gen_fail(f"no other prop expected at {{{vpath}}} [{smpath}]")
 
         code += gen.obj_loop(val, prop, pval,
-            [ gen.path_var("lpath", gen.path(vpath, prop), True) ] +
+            [ gen.path_var(lpath, gen.path_val(vpath, prop, True), True) ] +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, although we do not know which ones
@@ -587,12 +595,12 @@ class SourceCode(Validator):
                         loop = [ gen.lcom("accept any array"), gen.nope() ]
                     else:
                         arrayid = gen.new_ident("arr")
-                        idx, item = f"{arrayid}_idx", f"{arrayid}_item"
+                        idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
 
                         loop = gen.arr_loop(val, idx, item, [
-                            gen.lcom("TODO lpath = vpath + idx")
-                            # lpath?
-                        ] + self._compileModel(jm, model[0], mpath + [0], res, item, "None") + \
+                            gen.path_var(lpath, gen.path_val(vpath, idx, False), True)
+                        ] + self._compileModel(jm, model[0], mpath + [0],
+                                               res, item, gen.path_lvar(lpath, vpath)) + \
                             gen.if_stmt(gen.not_op(res), [ gen.brk() ])
                         )
 
@@ -729,8 +737,9 @@ class SourceCode(Validator):
                     acode: Block = []
                     for i, m in reversed(list(enumerate(models))):
                         acode = gen.if_stmt(res,
-                            [ gen.path_var(lpvar, gen.path_val(vpath, i)) ] +
-                            self._compileModel(jm, m, lpath + [i], res, val, lpvar, and_known) +
+                            [ gen.path_var(lpvar, gen.path_val(vpath, i, False)) ] +
+                            self._compileModel(jm, m, lpath + [i],
+                                               res, val, gen.path_lvar(lpvar, vpath), and_known) +
                             acode
                         )
                     code += acode
@@ -809,8 +818,7 @@ class SourceCode(Validator):
                     objid = gen.new_ident(self._prefix + "obj")
                     ocode: Block = [ gen.lcom(f"object {json_path(mpath)}") ] + \
                         gen.gen_fun(objid,
-                        self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
-                        True)
+                        self._compileObject(jm, model, mpath, objid, "res", "val", "path"))
                     self._code.subs(ocode)
 
                     # call object check and possibly report
@@ -875,7 +883,7 @@ class SourceCode(Validator):
         body = self._compileModel(jm, model, mpath, "res", "val", "path", None)
         body = [ self._lang.bool_var("res", declare=True) ] + body + [ self._lang.ret("res") ]
 
-        self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})", local=local)
+        self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})")
 
         if fun2 and fun2 != fun:
             raise NotImplementedError("2 functions for one?!")
@@ -898,12 +906,22 @@ class SourceCode(Validator):
                 self._names[name] = "json_model_" + str(jm._id)
             self._compileName(jm, name, jm._model, path, local)
 
-    def compileJsonModelHead(self, name: str, model: JsonModel):
+    def compileJsonModelHead(self, model: JsonModel):
         # $# special handing
-        self._names["$#"] = f"json_model_{model._head._id}"
+        head_model_fun = f"json_model_{model._head._id}"
+        self._names["$#"] = head_model_fun
+        self._names[""] = head_model_fun
 
-        # compile definitions
+        nentries = len(model._defs) + 1
+        self._code.defs(self._lang.decl_map("_check_model_map", nentries))
+
+        entries: PropMap = {
+            "": head_model_fun,
+        }
+
+        # compile direct definitions
         for n, jm in model._defs.items():
+            entries[n] = f"json_model_{jm._id}"
             self.compileOneJsonModel(jm, "$" + n, ["$" + n], False)
         # compile root
         self.compileOneJsonModel(model, "$", [], False)
@@ -913,17 +931,16 @@ class SourceCode(Validator):
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
-        # create entry_point
-        self._code.sub(name, [
-            self._lang.ret(self._lang.check_call(f"json_model_{model._id}", "val", "path"))
-        ], comment=f"entry function {name}"),
+        # generate mapping, name must be consistent with data/clang_*.c
+        assert len(entries) == nentries
+        self._code.init(self._lang.init_map("_check_model_map", entries))
 
         return self._code
 
 
 def xstatic_compile(
         model: JsonModel,
-        name: str = "check_model",
+        fname: str = "check_model",
         *,
         lang: str = "py",
         prefix: str = "_jm_",
@@ -932,23 +949,13 @@ def xstatic_compile(
     ) -> SourceCode:
     """Generate the check source code for a model.
 
-    - `model`: JSON Model root to compile.
-    - `name`: target function name.
-    - `lang`: name of target language.
-    - `prefix`: prefix for generated functions
-    - `report`: whether to generate code to report rejection reasons
-    - `debug`: debugging mode generates more traces
+    - model: JSON Model root to compile.
+    - fname: target function name.
+    - lang: name of target language.
+    - prefix: prefix for generated functions
+    - report: whether to generate code to report rejection reasons
+    - debug: debugging mode generates more traces
     """
-    # options
-    if isinstance(model._model, dict) and "#" in model._model:
-        comment = model._model["#"]
-        assert isinstance(comment, str)
-        loose_int = (True if "JSON_MODEL_LOOSE_INT" in comment else
-                     False if "JSON_MODEL_STRICT_INT" in comment else
-                     False)
-        loose_float = (True if "JSON_MODEL_LOOSE_FLOAT" in comment else
-                       False if "JSON_MODEL_STRICT_FLOAT" in comment else
-                       False)
     # target language
     if lang == "py":
         from .python import Python
@@ -960,10 +967,10 @@ def xstatic_compile(
         raise NotImplementedError(f"no support yet for language: {lang}")
 
     # cource code generator
-    sc = SourceCode(model._globs, language, prefix=prefix, debug=debug, report=report)
+    sc = SourceCode(model._globs, language, fname, prefix=prefix, debug=debug, report=report)
 
     # generate
-    code = sc.compileJsonModelHead(name, model)
+    code = sc.compileJsonModelHead(model)
 
     # debug and log.debug(f"code = {code}")
     return code
