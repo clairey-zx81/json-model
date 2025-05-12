@@ -3,4 +3,4 @@ def CHECK_FUNCTION_NAME_init():
     global initialized
     if not initialized:
         initialized = True
-INIT_BLOCK
+CODE_BLOCK

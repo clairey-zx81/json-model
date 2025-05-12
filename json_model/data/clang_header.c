@@ -11,6 +11,7 @@ typedef void Report;
 typedef struct Path {
     const char* name;
     int64_t index;
+    struct Path* prev;
     struct Path* next;
 } Path;
 
@@ -29,6 +30,7 @@ static bool initialized = false;
 static void CHECK_FUNCTION_NAME_init(void);
 check_fun_t CHECK_FUNCTION_NAME_fun(const char* name);
 bool CHECK_FUNCTION_NAME(json_t* val, const char* name, Report* rep, bool* error);
+static void CHECK_FUNCTION_NAME_free(void);
 
 static int prop_cmp(const check_prop_t *e1, const check_prop_t *e2)
 {

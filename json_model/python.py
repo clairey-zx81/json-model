@@ -40,6 +40,7 @@ class Python(Language):
 
     def file_header(self) -> Block:
         code: Block = super().file_header()
+        code += [ f"__version__ = {self.esc(self._version)}" ]
         if self._re_used:
             code += [ f"import {self._relib} as re" ]
         code += self.load_data("python_header.py")
@@ -58,13 +59,16 @@ class Python(Language):
     def file_footer(self) -> Block:
         return [""] + self.load_data("python_main.py")
 
+    def _gen(self, fname: str, block: Block) -> Block:
+        code: Block = self.load_data(fname)
+        body = self.indent(self.indent(block))
+        bidx = code.index("CODE_BLOCK")
+        assert bidx >= 0, "CODE_BLOCK marker found in file"
+        code = code[:bidx] + body + code[bidx+1:]
+        return code
+
     def gen_init(self, init: Block) -> Block:
-        if init:
-            code: Block = self.load_data("python_init.py")
-            body = self.indent(self.indent(init))
-            bidx = code.index("INIT_BLOCK")
-            assert bidx >= 0, "INIT_BLOCK marker found in file"
-            code = code[:bidx] + body + code[bidx+1:]
-            return code
-        else:
-            return [ "# empty initializations", "initialized = True"]
+        return self._gen("python_init.py", init)
+
+    def gen_free(self, free: Block) -> Block:
+        return self._gen("python_free.py", free)

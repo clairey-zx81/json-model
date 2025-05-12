@@ -1,3 +1,4 @@
+import re
 from importlib.resources import files as data_files
 from .mtypes import Jsonable
 from .utils import log, __version__
@@ -34,21 +35,30 @@ class Language:
 
     def __init__(self,
             name: str, *,
+            debug: bool = False,
+            # operators and separators
             eq: str = "==", ne: str = "!=",
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
             not_op: str = "not", and_op: str = "and", or_op: str = "or",
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#",
             relib: str = "re2",
-            comment: bool = True,
-            debug: bool = False,
+            # options
+            with_path: bool = True, with_report: bool = True,
+            with_comment: bool = True,
         ):
 
-        self._version = __version__
+        # parameter consistency
+        if with_path and not with_report:
+            log.warning(f"path collection but no reporting")
 
         # keep parameters
         self._name = name  # language name
         self._debug = debug
+        self._with_path = with_path
+        self._with_report = with_report
+        self._with_comment = with_comment
+
         # comparison operators
         self._eq = eq
         self._ne = ne
@@ -66,15 +76,16 @@ class Language:
         self._indent = indent
         self._lcom = lcom
         self._relib = relib
-        self._comment = comment
 
+        # other stuff
+        self._version = __version__
         self._idcounts: dict[str, int] = {}  # per-prefix ident count for unicity
         self._re_used: bool = False          # whether regular expressions are used
 
     #
     # variables
     #
-    def new_ident(self, prefix: str) -> Var:
+    def ident(self, prefix: str) -> Var:
         """Return a new identifier using prefix."""
         if prefix not in self._idcounts:
             self._idcounts[prefix] = 0
@@ -87,8 +98,10 @@ class Language:
     #
     def load_data(self, fn: str) -> Block:
         code = data_files("json_model.data").joinpath(fn).read_text().split("\n")
-        assert code[-1] == "", f"newline-terminated source file {fn}"
-        return code[:-1]
+        # remove empty trailing lines
+        while code and re.match(r"^\s*$", code[-1]):
+            code = code[:-1]
+        return code
 
     def file_header(self) -> Block:
         return [
@@ -306,7 +319,7 @@ class Language:
 
     def lcom(self, text: str = "") -> Inst:
         """Generate a line comment."""
-        if self._comment:
+        if self._with_comment:
             return f"{self._lcom} {text}" if text else self._lcom
         else:
             return None
@@ -364,36 +377,44 @@ class Language:
     # Path lpath = (Path) { ..., path }
     # checker(val, path ? &lpath : NULL, ...)
     #
+    # TODO consider merging path_var and path_val?
+    #
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         """Append a segment variable/value to path."""
-        return f"({pvar} + [ {pseg} ]) if {pvar} else None"
+        return f"({pvar} + [ {pseg} ]) if {pvar} else None" if self._with_path else "None"
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
         """Assign and possibly declare a value to a path variable."""
         assign = f" = {val}" if val else ""
         decl = ": Path" if declare else ""
-        return f"{pvar}{decl}{assign}"
+        return f"{pvar}{decl}{assign}" if self._with_path else None
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
-        return f"{lvar} if {rvar} else None"
+        return f"{lvar} if {rvar} else None" if self._with_path else "None"
 
     #
     # blocks
     #
-    def report(self, msg: str) -> Block:
-        return [ f"rep is None or rep.append(f{self.esc(msg)})" ]
+    def report(self, msg: str, path: str) -> Block:
+        """Add a a report entry."""
+        return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
+            if self._with_report else []
 
     def indent(self, block: Block) -> Block:
+        """Indent a block."""
         return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
+        """Loop over all items of an array."""
         return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
+        """Loop over all property-values pairs of an object."""
         return [ f"for {key}, {val} in {obj}.items():" ] + \
             self.indent([ f"assert isinstance({key}, str)" ] + body)
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+        """Generate a if-then[-else] statement."""
         if true and false:
             return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)
         elif true:
@@ -402,6 +423,7 @@ class Language:
             return [ f"if not ({cond}):" ] + self.indent(false)
 
     def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+        """Generate a multi-if[-else] statement."""
         code, op = [], "if"
         for cond, true in cond_true:
             code += [ f"{op} {cond}:" ]
@@ -418,10 +440,12 @@ class Language:
     #
     # stuff
     #
-    def decl_map(self, name: str, size: int) -> Block:
+    def def_map(self, name: str, size: int) -> Block:
+        """Define a new (property) map."""
         return [f"{name}: PropMap"]
 
-    def init_map(self, name: str, pmap: PropMap) -> Block:
+    def ini_map(self, name: str, pmap: PropMap) -> Block:
+        """Initialize a map."""
         return [
             f"global {name}",
             f"{name} = {{" ] + [
@@ -429,32 +453,56 @@ class Language:
                     for p, f in pmap.items()
                 ] + [ "}" ]
 
-    def decl_fun(self, name: str) -> Block:
+    def def_fun(self, name: str) -> Block:
+        """Define a function."""
         return []
 
     def gen_fun(self, name: str, body: Block) -> Block:
+        """Generate a function."""
         return [
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)
 
-    def decl_re(self, name: str, regex: str) -> Block:
+    def def_re(self, name: str, regex: str) -> Block:
+        """Define a new (static) regex."""
+        self._re_used = True
+        return [
+            # NOTE re2 imported as re
+            f"{name}_search: Callable",
+            f"{name}: RegexFun"
+        ]
+
+    # FIXME: remove?
+    def gen_re(self, name: str, regex: str) -> Block:
+        """Generate a regex check function."""
+        self._re_used = True
+        return []
+
+    def ini_re(self, name: str, regex: str) -> Block:
+        """Initialize a regex."""
         self._re_used = True
         sregex = self.esc(regex)
         return [
-            # NOTE re2 imported as re
+            f"global {name}_search, {name}",
+            # rex engine imported as re; may raise an exception
             f"{name}_search = re.compile(r{sregex}).search",
-            f"{name}: RegexFun = lambda s: {name}_search(s) is not None"
+            f"{name} = lambda s: {name}_search(s) is not None"
         ]
 
-    def gen_re(self, name: str, regex: str) -> Block:
-        self._re_used = True
-        return []
-
-    def init_re(self, name: str, regex: str) -> Block:
-        self._re_used = True
-        return []
+    def del_re(self, name: str, regex: str) -> Block:
+        """Free a regex."""
+        return [
+            f"global {name}_search, {name}",
+            f"{name}_search = None",
+            f"{name} = None"
+        ]
 
     def gen_init(self, init: Block) -> Block:
+        """Generate the initialization function."""
+        raise NotImplementedError("gen_init")
+
+    def gen_free(self, free: Block) -> Block:
+        """Generate the deallocation function."""
         raise NotImplementedError("gen_init")
 
 
@@ -468,33 +516,17 @@ class Code:
     def __init__(self, lang: Language, entry: str = "check_model"):
         self._lang = lang       # generated language abstraction
         self._entry = entry     # entry function name/prefix
-        self._head: Block = []  # headers
-        self._defs: Block = []  # definitions/declarations
-        self._help: Block = []  # helper functions
-        self._init: Block = []  # constant initialization code
-        self._subs: Block = []  # object and model functions
+        self._defs: Block = []  # definitions, declarations
+        self._subs: Block = []  # subroutines
+        self._init: Block = []  # initialization code
+        self._free: Block = []  # deallocation code
 
-    def clear(self):
-        """Clear all contents."""
-        self._head.clear()
-        self._defs.clear()
-        self._help.clear()
-        self._subs.clear()
-        self._init.clear()
-
-    def head(self, b: Block = [""]):
-        """Add lines to headers."""
-        self._head += b
-
+    #
+    # add blocks
+    #
     def defs(self, b: Block = [""]):
         """Add lines to definitions."""
         self._defs += b
-
-    def help(self, b: Block = [""]):
-        """Add lines to helpers."""
-        if self._help:
-            self._help.append("")
-        self._help += b
 
     def subs(self, b: Block = [""]):
         """Add lines to subroutines."""
@@ -506,25 +538,39 @@ class Code:
         """Add lines to initialization code."""
         self._init += b
 
+    def free(self, b: Block = [""]):
+        """Add lines to cleanup code."""
+        self._free += b
+
+    # TODO rename!
     def sub(self, name: str, body: Block, *, comment: str = ""):
         """Add a function definition with a comment."""
-        self.defs(self._lang.decl_fun(name))
+        self.defs(self._lang.def_fun(name))
         fun = [ self._lang.lcom(comment) ] if comment else []
         fun += self._lang.gen_fun(name, body)
         self.subs(fun)
 
     def pmap(self, name: str, mapping, PropMap):
-        """Add an object property mapping definition."""
-        self.defs(self._lang.decl_map(name))
-        self.init(self._lang.init_map(name, mapping))
+        """Add an mapping."""
+        self.defs(self._lang.def_map(name))
+        self.init(self._lang.ini_map(name, mapping))
+
+    def regex(self, name: str, regex: str):
+        """Add a regex."""
+        self.defs(self._lang.def_re(name, regex))
+        self.subs(self._lang.gen_re(name, regex))
+        self.init(self._lang.ini_re(name, regex))
+        self.free(self._lang.del_re(name, regex))
 
     def __str__(self):
+        """Gather everything to generate the full source code."""
         # compute init first as predefs may trigger more imports
         init = self._lang.gen_init(self._init)
+        free = self._lang.gen_free(self._free)
         # reduce with empty lines between parts
         code: Block = []
-        for block in (self._lang.file_header(), self._head, self._help,
-                      self._defs, self._subs, init, self._lang.file_footer()):
+        for block in (self._lang.file_header(), self._defs,
+                self._subs, init, free, self._lang.file_footer()):
             if code and block:
                 code += [""]
             code += [ line.replace("CHECK_FUNCTION_NAME", self._entry)

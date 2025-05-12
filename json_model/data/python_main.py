@@ -12,6 +12,7 @@ if __name__ == "__main__":
     ap.add_argument("--debug", "-d", action="store_true", help="set verbose mode")
     ap.add_argument("--name", "-n", default="", help="select model by name")
     ap.add_argument("--list", "-l", action="store_true", help="show available model names and exit")
+    ap.add_argument("--version", "-v", action="store_true", help="show JSON Model compiler version")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -21,6 +22,9 @@ if __name__ == "__main__":
 
     if args.list:
         print(f"JSON Models (empty for root):{' '.join(sorted(_json_model_map.keys()))}")
+        sys.exit(0)
+    if args.version:
+        print(f"Python from JSON Model compiler version {__version__}")
         sys.exit(0)
 
     try:
@@ -42,3 +46,5 @@ if __name__ == "__main__":
         except Exception as e:
             log.debug(e, exc_info=args.debug)
             print(f"{fn}: ERROR ({e})")
+
+    CHECK_FUNCTION_NAME_free()

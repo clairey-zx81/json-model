@@ -155,13 +155,19 @@ additionalProperties: false
 - [x] frontend: select named model with `--name name`
 - [x] frontend: use `--list` to show available models
 - [x] command: add option `--name` to control name of generated function
-- [ ] backend: add free
+- [x] frontend: add `--version` or `-v` to show jmc version
+- [x] backend: add free
+- [x] backend: no path option generation in `Language`
+- [ ] input: accept raw js, not just json with comments
+- [ ] optim: ultimate type on loose should yield `float`
+- [ ] c-backend: path previous and next, and back and force scan
+- [ ] frontend: report init errors.
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
 - [ ] c-backend: predefs for $DATE, $URL, $REGEX
 - [ ] backend: do not generate intermediate empty functions for direct objects?
-- [ ] backend: reduce/minimize language abstraction?
+- [ ] backend: reduce/minimize language abstraction? `T_var_val`?
 - [ ] backend: rethink function boundaries?
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
