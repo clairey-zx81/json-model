@@ -159,6 +159,10 @@ additionalProperties: false
 - [ ] backend: reduce/minimize language abstraction?
 - [ ] backend: rethink function boundaries?
 - [ ] c-backend: add support for `re2` wrapper?
+- [ ] backend: name-based selector optimized for root.
+- [ ] frontend: `--name name`
+- [ ] backend: report errors
+- [ ] backend: add free
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
