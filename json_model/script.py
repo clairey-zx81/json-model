@@ -97,13 +97,14 @@ def jmc_script():
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic mapping")
     # output options
+    arg("--name", default="check_model", help="name of generated function")
     arg("--output", "-o", default="-", help="output file")
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "cpp", "js"],
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "cpp", "js", "ts", "rs", "go"],
         help="output format")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
@@ -173,7 +174,7 @@ def jmc_script():
     elif args.op == "X":
         if args.format is None:
             args.format = "py"
-        elif args.format not in ("py", "c", "cpp", "js"):
+        elif args.format not in ("py", "c", "cpp", "js", "ts", "rs", "go"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
@@ -263,13 +264,15 @@ def jmc_script():
         exec(source, env)
         checker = env["check_model"]
     elif args.op == "X":
-        assert args.format in ("py", "c", "cpp", "js"), f"valid output language {args.format}"
-        code = xstatic_compile(model, "check_model",
+        assert args.format in ("py", "c", "cpp", "js", "ts", "rs", "go"), \
+            f"valid output language {args.format}"
+        code = xstatic_compile(model, args.name,
                                lang=args.format, debug=args.debug, report=args.verbose)
         header = f"#! /bin/env python\n#\n# Model: {args.model}\n" if args.format == "py" else \
                  f"/*\n * Model: {args.model}\n */\n"
         if args.code:
             print(header + str(code), file=output)
+        # TODO checking values
     elif args.op == "E":
         mm = model._init_md
         if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):

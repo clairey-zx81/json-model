@@ -154,6 +154,8 @@ additionalProperties: false
 - [x] feature: make static compiled exported defs accessible…
 - [x] frontend: select named model with `--name name`
 - [x] frontend: use `--list` to show available models
+- [x] command: add option `--name` to control name of generated function
+- [ ] backend: add free
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
@@ -164,7 +166,6 @@ additionalProperties: false
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
 - [ ] backend: report errors
-- [ ] backend: add free
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff
@@ -181,7 +182,6 @@ additionalProperties: false
 - [ ] feature: `--extension openapi` to activate an extension ? default `none`, `moschin`…
 - [ ] design: add convention for local vs exported definitions? capital?
 - [ ] static: separate compilation of included models
-- [ ] command: add option to control name of generated function
 - [ ] command: add option to do/skip check of `~` model
 - [ ] feature: control url caching, change dir location or disable
 - [ ] feature: cache expiration?
