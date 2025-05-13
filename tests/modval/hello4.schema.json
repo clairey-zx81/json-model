@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "hello": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "world": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "hello",
+    "world"
+  ],
+  "additionalProperties": false
+}

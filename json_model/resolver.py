@@ -15,6 +15,20 @@ JS_SUFFIX = [".js", ".model.js"]
 JS_RE = r"(?m)^\s*//\s"
 JSON_RE = r"(?s)\s*(\[.*\]|\{.*\}|\".*\"|-?\d+(\.\d*)?([eE]-?\d+)?|null|true|false)\s*$"
 
+# numbers, identifiers, "quoted", 'quoted', blanks, whatever (1 char, including separators)
+JS_TOKEN = r"(?s)(-?\d+(\.\d*)?([eE]-?\d+)?|\w+|\"([^\"]*[\\\"]?)*\"|'([^']*(\\')?)*'|\s+|\W)"
+
+def jsob2json(string: str) -> str:
+    tokens: list[str] = []
+    for mtoken in re.finditer(JS_TOKEN, string):
+        token = mtoken.group(0)
+        if (re.match(r"\w", token) and token[0] not in "0123456789" and
+                token not in ("null", "false", "true")):
+            tokens.append(f"\"{token}\"")
+        else:
+            tokens.append(token)
+    return "".join(tokens)
+
 class Resolver:
     """Resolve external references to jsonable data.
 
@@ -72,6 +86,8 @@ class Resolver:
                             # possibly remove js comments
                             content = re.sub(r"(?s)/\*.*?\*/", "", content)
                             content = re.sub(r"\s*//\s.*", "", content)
+                            # quote bare identifiers
+                            content = jsob2json(content)
                         # guess content type
                         if fn.endswith(".json") or re.match(JSON_RE, content):
                             # try JSON

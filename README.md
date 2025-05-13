@@ -161,7 +161,7 @@ additionalProperties: false
 - [x] c-backend: path previous and next, and back and forth scan
 - [x] c-backend: add report collection with path
 - [x] frontend: add option `-r` to collect report.
-- [ ] input: accept raw js, not just json with comments
+- [x] input: accept raw js, not just json with comments
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] frontend: report init errors.
 - [ ] static: abstract imperative language code generation (wip)

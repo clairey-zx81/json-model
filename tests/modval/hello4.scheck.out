@@ -1,0 +1,3 @@
+hello4.0.true.json: PASS
+hello4.1.true.json: PASS
+hello4.2.false.json: FAIL ['not a bool at $.world [$.world]', 'invalid must prop value at $.world [$.world]']
