@@ -45,6 +45,7 @@ fourty-two.schema.json: PASS
 geo.schema.json: PASS
 hello2.schema.json: PASS
 hello3.schema.json: PASS
+hello4.schema.json: PASS
 hello.schema.json: PASS
 int_0.schema.json: PASS
 int_1.schema.json: PASS

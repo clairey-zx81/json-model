@@ -57,6 +57,7 @@ fourty-two.model.json: PASS
 geo.model.json: PASS
 hello2.model.json: PASS
 hello3.model.json: PASS
+hello4.model.json: PASS
 hello.model.json: PASS
 int_0.model.json: PASS
 int_1.model.json: PASS
