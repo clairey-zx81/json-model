@@ -324,6 +324,7 @@ class SourceCode(Validator):
 
         # path + [ prop ]
         lpath = gen.ident("lpath")
+        lpath_ref = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
         code += [ gen.fun_var(pfun, declare=True) ]
@@ -350,8 +351,8 @@ class SourceCode(Validator):
             mu_code = [ gen.lcom(f"handle {len(must)} must props") ] + gen.if_stmt(
                 gen.is_def(pfun), [
                     gen.inc_var(must_c)
-                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, gen.path_lvar(lpath, vpath))),
-                        self._gen_fail(f"invalid must property value [{smpath}]", lpath))
+                ] + gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
+                        self._gen_fail(f"invalid must property value [{smpath}]", lpath_ref))
             )
             multi_if += [(mu_expr, mu_code)]
 
@@ -372,17 +373,17 @@ class SourceCode(Validator):
             ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))
             ma_code = [ gen.lcom("handle {len(may)} may props") ] + gen.if_stmt(
                 gen.and_op(gen.is_def(pfun),
-                           gen.not_op(gen.check_call(pfun, pval, gen.path_lvar(lpath, vpath)))),
-                self._gen_fail(f"invalid may property value [{smpath}]", lpath)
+                           gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
+                self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref)
             )
             multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.keys():
             ref = "$" + d
-            dl_expr = self._dollarExpr(jm, ref, prop, "lpath")
+            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref)  # FIXME lpath &lpath?
             dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
-                self._compileModel(jm, m, mpath + [ref], res, pval, gen.path_lvar(lpath, vpath)) + \
+                self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(dl_expr, dl_code)]
 
@@ -390,10 +391,9 @@ class SourceCode(Validator):
         for r, v in regs.items():
             # FIXME options?!
             regex = f"/{r}/"
-            rg_expr = self._regExpr(regex, prop, lpath, vpath)
+            rg_expr = self._regExpr(regex, prop, lpath, vpath)  # FIXME lpath &lpath?
             rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
-                self._compileModel(jm, v, mpath + [regex],
-                                   res, pval, gen.path_lvar(lpath, vpath)) + \
+                self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, rg_code)]
 
@@ -404,14 +404,13 @@ class SourceCode(Validator):
             smpath = json_path(mpath + [""])
             if omodel != "$ANY":
                 ot_code = [ gen.lcom("handle other props") ] + \
-                    self._compileModel(jm, omodel, mpath + [""],
-                                       res, pval, gen.path_lvar(lpath, vpath)) + \
-                    self._gen_fail(f"unexpected other value [{smpath}]", lpath)
+                    self._compileModel(jm, omodel, mpath + [""], res, pval, lpath_ref) + \
+                    self._gen_fail(f"unexpected other value [{smpath}]", lpath_ref)
             else:  # optimized "": "$ANY" case
                 ot_code = [ gen.lcom("accept any other props") ]
         else:  # no catch all
             smpath = json_path(mpath)
-            ot_code = self._gen_fail(f"no other prop expected [{smpath}]", lpath)
+            ot_code = self._gen_fail(f"no other prop expected [{smpath}]", lpath_ref)
 
         code += gen.obj_loop(val, prop, pval,
             [ gen.path_var(lpath, gen.path_val(vpath, prop, True), True) ] +
@@ -587,11 +586,17 @@ class SourceCode(Validator):
                     length = gen.num_eq(gen.arr_len(val), gen.int_cst(len(model)))
                     expr = gen.and_op(expr, length) if expr else length
                     code += [ gen.bool_var(res, expr) ]
-                    body = []
+                    lpath = gen.ident("lpath")
+                    lpath_ref = gen.path_lvar(lpath, vpath)
+                    body = [ gen.path_var(lvar, declare=True) ]
                     for i, m in reversed(list(enumerate(model))):
-                        body = gen.if_stmt(res,
-                            self._compileModel(jm, model[i], mpath + [i],
-                                               res, gen.arr_item_val(val, i), f"{vpath}+'.{i}'") +
+                        body = gen.if_stmt(
+                            res,
+                            [ gen.path_var(lpath, gen.path_val(vpath, i)) ] +
+                            # FIXME generated variable reference…
+                            self._compileModel(
+                                jm, model[i], mpath + [i],
+                                res, gen.arr_item_val(val, i), lpath_ref) +
                             body)
                     code += body
                 code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)

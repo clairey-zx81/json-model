@@ -1,6 +1,7 @@
 #ifdef WITH_MAIN
 #include <stdio.h>
 #include <unistd.h>
+#include <assert.h>
 
 int main(int argc, char* argv[])
 {
@@ -8,8 +9,9 @@ int main(int argc, char* argv[])
 
     // get options
     int opt;
-    char* name = "";
-    while ((opt = getopt(argc, argv, "hvln:")) != -1)
+    char *name = "";
+    bool report = false;
+    while ((opt = getopt(argc, argv, "hvln:r")) != -1)
     {
         switch (opt) {
             case 'h':
@@ -32,6 +34,9 @@ int main(int argc, char* argv[])
             case 'n':
                 name = optarg;
                 break;
+            case 'r':
+                report = true;
+                break;
             case '?':
                 fprintf(stdout, "unexpected option: %c\n", opt);
                 return 1;
@@ -53,7 +58,7 @@ int main(int argc, char* argv[])
         json_error_t error;
 
         // read and parse JSON file
-        json_t* value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
+        json_t *value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
         if (value == NULL)
         {
             errors++;
@@ -63,11 +68,24 @@ int main(int argc, char* argv[])
         }
 
         // check value against model, fast (no path nor reasons)
-        if (checker(value, NULL, NULL))
-            fprintf(stdout, "%s: PASS\n", argv[i]);
-        else
-            // TODO on failure check again to collect why
-            fprintf(stdout, "%s: FAIL\n", argv[i]);
+        bool valid = checker(value, NULL, NULL);
+
+        fprintf(stdout, "%s: %s\n", argv[i], valid ? "PASS" : "FAIL");
+
+        // re-execute with report collection
+        if (report)
+        {
+            Path path = (Path) { "", 0, NULL, NULL };
+            Report report = (Report) { NULL };
+
+            bool valid2 = checker(value, &path, &report);
+            assert(valid == valid2);
+
+            for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+                fprintf(stdout, "- %s: %s\n", entry->path, entry->message);
+
+            report_free_entries(&report);
+        }
 
         // free json value
         json_decref(value);

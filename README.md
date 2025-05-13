@@ -158,6 +158,7 @@ additionalProperties: false
 - [x] frontend: add `--version` or `-v` to show jmc version
 - [x] backend: add free
 - [x] backend: no path option generation in `Language`
+- [x] c-backend: add report collection with path
 - [ ] input: accept raw js, not just json with comments
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] c-backend: path previous and next, and back and force scan

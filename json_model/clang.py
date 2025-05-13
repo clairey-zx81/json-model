@@ -189,7 +189,8 @@ class CLangJansson(Language):
         return self._var(var, val, self._int if declare else None)
 
     def report(self, msg: str, path: str) -> Block:
-        return [ f"if (rep) /* {msg} at {path} */;" ]
+        return ([ f"if (rep) report_add_entry(rep, {self.esc(msg)}, {path});" ]
+                if self._with_report else [])
 
     #
     # path management
@@ -309,8 +310,8 @@ class CLangJansson(Language):
         if self._uuid_used:
             init += self.init_re("_is_valid_uuid", UUID_RE)
         body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init))
-        return [ "static void CHECK_FUNCTION_NAME_init(void)" ] + body
+        return [ "void CHECK_FUNCTION_NAME_init(void)" ] + body
 
     def gen_free(self, free: Block) -> Block:
         body = self.indent(self.if_stmt("initialized", [ "initialized = false;" ] + free))
-        return [ "static void CHECK_FUNCTION_NAME_free(void)" ] + body
+        return [ "void CHECK_FUNCTION_NAME_free(void)" ] + body
