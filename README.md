@@ -163,9 +163,9 @@ additionalProperties: false
 - [x] frontend: add option `-r` to collect report.
 - [x] input: accept raw js, not just json with comments
 - [x] c-backend: main API does not need to know about internal structs.
-- [ ] optim: ultimate type on loose should yield `float`
-- [ ] frontend: report init errors.
+- [x] frontend: report init errors.
 - [ ] backend: report errors
+- [ ] optim: ultimate type on loose should yield `float`
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON

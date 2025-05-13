@@ -5,8 +5,6 @@
 
 int main(int argc, char* argv[])
 {
-    CHECK_FUNCTION_NAME_init();
-
     // get options
     int opt;
     char *name = "";
@@ -43,12 +41,21 @@ int main(int argc, char* argv[])
         }
     }
 
+    // initialization
+    char *error;
+    if ((error = CHECK_FUNCTION_NAME_init()) != NULL)
+    {
+        fprintf(stderr, "CHECK_FUNCTION_NAME initialization error: %s\n", error);
+        return 2;
+    }
+
+
     // check checker function
     const check_fun_t checker = CHECK_FUNCTION_NAME_fun(name);
     if (checker == NULL)
     {
         fprintf(stderr, "check function not found\n");
-        return 2;
+        return 3;
     }
 
     int errors = 0;
@@ -95,6 +102,6 @@ int main(int argc, char* argv[])
 
     CHECK_FUNCTION_NAME_free();
 
-    return errors? 3: 0;
+    return errors? 4: 0;
 }
 #endif  // WITH_MAIN

@@ -276,6 +276,8 @@ class CLangJansson(Language):
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
+            f"if ({name}_code == NULL)"
+            f"    return pcre2_get_error_message(err_code);"
             f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
         ]
         return code
@@ -309,8 +311,9 @@ class CLangJansson(Language):
     def gen_init(self, init: Block) -> Block:
         if self._uuid_used:
             init += self.init_re("_is_valid_uuid", UUID_RE)
-        body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init))
-        return [ "void CHECK_FUNCTION_NAME_init(void)" ] + body
+        body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init) +
+                           [ "return NULL;" ])
+        return [ "char *CHECK_FUNCTION_NAME_init(void)" ] + body
 
     def gen_free(self, free: Block) -> Block:
         body = self.indent(self.if_stmt("initialized", [ "initialized = false;" ] + free))
