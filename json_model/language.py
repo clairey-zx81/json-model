@@ -381,7 +381,7 @@ class Language:
     #
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         """Append a segment variable/value to path."""
-        return f"({pvar} + [ {pseg} ]) if {pvar} else None" if self._with_path else "None"
+        return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
         """Assign and possibly declare a value to a path variable."""
@@ -390,7 +390,7 @@ class Language:
         return f"{pvar}{decl}{assign}" if self._with_path else None
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
-        return f"{lvar} if {rvar} else None" if self._with_path else "None"
+        return f"{lvar} if {rvar} is not None else None" if self._with_path else "None"
 
     #
     # blocks

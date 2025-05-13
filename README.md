@@ -158,10 +158,11 @@ additionalProperties: false
 - [x] frontend: add `--version` or `-v` to show jmc version
 - [x] backend: add free
 - [x] backend: no path option generation in `Language`
+- [x] c-backend: path previous and next, and back and forth scan
 - [x] c-backend: add report collection with path
+- [x] frontend: add option `-r` to collect report.
 - [ ] input: accept raw js, not just json with comments
 - [ ] optim: ultimate type on loose should yield `float`
-- [ ] c-backend: path previous and next, and back and force scan
 - [ ] frontend: report init errors.
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
@@ -170,6 +171,7 @@ additionalProperties: false
 - [ ] backend: do not generate intermediate empty functions for direct objects?
 - [ ] backend: reduce/minimize language abstraction? `T_var_val`?
 - [ ] backend: rethink function boundaries?
+- [ ] backend: rethink `with_report` and `with_path`, keep the former only?
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
 - [ ] backend: report errors

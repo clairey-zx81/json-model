@@ -125,7 +125,7 @@ CC  = gcc
 %.ccheck.out: %.exe
 	shopt -s nullglob
 	set -o pipefail
-	$< $*.*.{true,false}.json | sort > $@
+	$< -r $*.*.{true,false}.json | sort > $@
 
 %.x.py: %.model.json
 	$(JMC.cmd) -XO -v --format py ./$< > $@
@@ -134,7 +134,7 @@ CC  = gcc
 %.pcheck.out: %.x.py
 	shopt -s nullglob
 	set -o pipefail
-	./$< $*.*.{true,false}.json | sort > $@
+	./$< -r $*.*.{true,false}.json | sort > $@
 
 .PHONY: %.x
 %.x: %.model.json

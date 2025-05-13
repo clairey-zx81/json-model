@@ -13,6 +13,7 @@ if __name__ == "__main__":
     ap.add_argument("--name", "-n", default="", help="select model by name")
     ap.add_argument("--list", "-l", action="store_true", help="show available model names and exit")
     ap.add_argument("--version", "-v", action="store_true", help="show JSON Model compiler version")
+    ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -38,11 +39,14 @@ if __name__ == "__main__":
         try:
             with open(fn) as f:
                 value = json.load(f)
-            reasons = []
-            if checker(value, "", reasons):
+            reasons = [] if args.report else None
+            path = [] if args.report else None
+            if checker(value, path, reasons):
                 print(f"{fn}: PASS")
-            else:
+            elif reasons:
                 print(f"{fn}: FAIL {reasons}")
+            else:
+                print(f"{fn}: FAIL")
         except Exception as e:
             log.debug(e, exc_info=args.debug)
             print(f"{fn}: ERROR ({e})")
