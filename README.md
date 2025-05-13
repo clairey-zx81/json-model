@@ -162,8 +162,10 @@ additionalProperties: false
 - [x] c-backend: add report collection with path
 - [x] frontend: add option `-r` to collect report.
 - [x] input: accept raw js, not just json with comments
+- [x] c-backend: main API does not need to know about internal structs.
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] frontend: report init errors.
+- [ ] backend: report errors
 - [ ] static: abstract imperative language code generation (wip)
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
@@ -174,7 +176,6 @@ additionalProperties: false
 - [ ] backend: rethink `with_report` and `with_path`, keep the former only?
 - [ ] c-backend: add support for `re2` wrapper?
 - [ ] backend: name-based selector optimized for root.
-- [ ] backend: report errors
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
 - [ ] tests: optimized openapi-310-models should have fully removed schema stuff

@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    // get checker function
+    // check checker function
     const check_fun_t checker = CHECK_FUNCTION_NAME_fun(name);
     if (checker == NULL)
     {
@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
         // check value against model, fast (no path nor reasons)
         bool valid = checker(value, NULL, NULL);
 
-        fprintf(stdout, "%s: %s\n", argv[i], valid ? "PASS" : "FAIL");
+        fprintf(stdout, "%s: %s", argv[i], valid ? "PASS" : "FAIL");
 
         // re-execute with report collection
         if (report)
@@ -82,10 +82,12 @@ int main(int argc, char* argv[])
             assert(valid == valid2);
 
             for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
-                fprintf(stdout, "- %s: %s\n", entry->path, entry->message);
+                fprintf(stdout, " (%s: %s)", entry->path, entry->message);
 
             report_free_entries(&report);
         }
+
+        fprintf(stdout, "\n");
 
         // free json value
         json_decref(value);

@@ -36,10 +36,10 @@ typedef struct {
 
 static bool initialized = false;
 
-/* module API */
+/* module API: FIXME, report free is missing? hide function retrieval? */
 void CHECK_FUNCTION_NAME_init(void);
 check_fun_t CHECK_FUNCTION_NAME_fun(const char *name);
-bool CHECK_FUNCTION_NAME(json_t* val, const char *name, Report *rep, bool *error);
+bool CHECK_FUNCTION_NAME(json_t* val, const char *name, bool *error, char **reasons);
 void CHECK_FUNCTION_NAME_free(void);
 
 /* helper functions */
