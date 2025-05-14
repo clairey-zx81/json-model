@@ -164,6 +164,7 @@ additionalProperties: false
 - [x] input: accept raw js, not just json with comments
 - [x] c-backend: main API does not need to know about internal structs.
 - [x] frontend: report init errors.
+- [x] py-backend: fix nested if in inlined code generation.
 - [ ] backend: report errors
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] static: abstract imperative language code generation (wip)

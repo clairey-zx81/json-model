@@ -175,7 +175,7 @@ class CLangJansson(Language):
         return None
 
     def  _var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
-        assign = f"= {val}" if val else ""
+        assign = f" = {val}" if val else ""
         decl = f"{tname} " if tname else ""
         return f"{decl}{var}{assign}{self._eoi}"
 

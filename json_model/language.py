@@ -381,6 +381,8 @@ class Language:
     #
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         """Append a segment variable/value to path."""
+        # avoid nested if expressions
+        pvar = f"({pvar})" if " if " in pvar else pvar
         return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
@@ -390,6 +392,9 @@ class Language:
         return f"{pvar}{decl}{assign}" if self._with_path else None
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+        # avoid nested if expressions
+        rvar = f"({rvar})" if " if " in rvar else rvar
+        lvar = f"({lvar})" if " if " in lvar else lvar
         return f"{lvar} if {rvar} is not None else None" if self._with_path else "None"
 
     #
