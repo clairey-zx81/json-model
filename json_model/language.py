@@ -24,6 +24,7 @@ type Block = list[Inst]
 
 # must or may property name -> corresponding check function
 type PropMap = dict[str, str]
+type ConstList = list[None|bool|int|float|str]
 
 
 class Language:
@@ -45,7 +46,7 @@ class Language:
             relib: str = "re2",
             # options
             with_path: bool = True, with_report: bool = True,
-            with_comment: bool = True,
+            with_comment: bool = True, set_caps: list[type|None] = (str,),
         ):
 
         # parameter consistency
@@ -81,6 +82,7 @@ class Language:
         self._version = __version__
         self._idcounts: dict[str, int] = {}  # per-prefix ident count for unicity
         self._re_used: bool = False          # whether regular expressions are used
+        self.set_caps = tuple(set_caps)      # constant types in a set
 
     #
     # variables
@@ -147,6 +149,23 @@ class Language:
 
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} is not None"
+
+    def is_scalar(self, var: Var) -> BoolExpr:
+        return f"({var} is None or isinstance({var}, (bool, int, float, str)))"
+
+    def is_this_type(self, var: Var, tval: type|None) -> BoolExpr:
+        if tval is None or tval == type(None):
+            return self.is_null(var)
+        elif tval is bool:
+            return self.is_bool(var)
+        elif tval is int:
+            return self.is_int(var)
+        elif tval is float:
+            return self.is_flt(var)
+        elif tval is str:
+            return self.is_str(var)
+        else:
+            raise NotImplementedError("unexpected type {tval}")
 
     #
     # predefs
@@ -458,6 +477,15 @@ class Language:
                     for p, f in pmap.items()
                 ] + [ "}" ]
 
+    def def_cset(self, name: str, constants: ConstList) -> Block:
+        return [ f"{name}: set[str]" ]
+
+    def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        return f"{var} in {name}"
+
+    def ini_cset(self, name: str, constants: ConstList) -> Block:
+        return [ f"global {name}", f"{name} = {set(constants)}" ]
+
     def def_fun(self, name: str) -> Block:
         """Define a function."""
         return []
@@ -555,10 +583,15 @@ class Code:
         fun += self._lang.gen_fun(name, body)
         self.subs(fun)
 
-    def pmap(self, name: str, mapping, PropMap):
+    def pmap(self, name: str, mapping: PropMap):
         """Add an mapping."""
         self.defs(self._lang.def_map(name))
         self.init(self._lang.ini_map(name, mapping))
+
+    def cset(self, name: str, constants: ConstList):
+        """Add an mapping."""
+        self.defs(self._lang.def_cset(name, constants))
+        self.init(self._lang.ini_cset(name, constants))
 
     def regex(self, name: str, regex: str):
         """Add a regex."""

@@ -1,7 +1,7 @@
 import json
-from .language import Language, Block, Var, Inst, Block, PropMap
+from .language import Language, Block, Var, Inst, Block, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
-from .mtypes import Jsonable
+from .mtypes import Jsonable, JsonScalar
 from .utils import UUID_RE
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -17,7 +17,8 @@ class CLangJansson(Language):
         super().__init__("C",
                          with_path=with_path, with_report=with_report, with_comment=with_comment,
                          not_op="!", and_op="&&", or_op="||", lcom="//",
-                         eoi=";", relib=relib, debug=debug)
+                         eoi=";", relib=relib, debug=debug,
+                         set_caps=[type(None), bool, int, float, str])
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
@@ -81,6 +82,9 @@ class CLangJansson(Language):
 
     def is_null(self, var: Var) -> BoolExpr:
         return f"json_is_null({var})"
+
+    def is_scalar(self, var: Var) -> BoolExpr:
+        return f"_json_is_scalar({var})"
 
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} != NULL"
@@ -256,6 +260,9 @@ class CLangJansson(Language):
                 code += false
         return code
 
+    #
+    # per-section/concept code generation
+    #
     def def_re(self, name: str, regex: str) -> Block:
         return [
             f"static pcre2_code *{name}_code = NULL;",
@@ -297,6 +304,54 @@ class CLangJansson(Language):
             p, f = pf
             init += [ f"{name}[{i}] = (check_prop_t) {{ {self.esc(p)}, {f} }};" ]
         return init
+
+    def def_cset(self, name: str, constants: ConstList) -> Block:
+        return [ f"static constant_t {name}[{len(constants)}];" ]
+
+    def _var_cst(self, var: Var, vtype: type|None) -> Expr:
+        if vtype is None or vtype == type(None):
+            return "(constant_t) { cst_is_null, { .s = NULL } }"
+        elif vtype is bool:
+            return f"(constant_t) {{ cst_is_bool, {{ .b = {self.bool_val(var)} }} }}"
+        elif vtype is int:
+            return f"(constant_t) {{ cst_is_integer, {{ .i = {self.int_val(var)} }} }}"
+        elif vtype is float:
+            return f"(constant_t) {{ cst_is_float, {{ .f = {self.flt_val(var)} }} }}"
+        elif vtype is str:
+            return f"(constant_t) {{ cst_is_string, {{ .s = {self.str_val(var)} }} }}"
+        else:
+            raise NotImplementedError(f"type {vtype}")
+
+    def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        """Tell whether JSON variable var value of potential types is in set name."""
+        types = set(type(c) for c in constants)
+        if len(types) != 1:
+            raise NotImplementedError("multi type test")
+        tcs = types.pop()
+        val = self._var_cst(var, tcs)
+        return f"{self.is_this_type(var, tcs)} && search_cst(&{val}, {name}, {len(constants)});"
+
+    def _cst(self, value: Jsonable) -> str:
+        match value:
+            case None:
+                return "(constant_t) { cst_is_null, { .s = NULL } }"
+            case bool(b):
+                return f"(constant_t) {{ cst_is_bool, {{ .b = {self.bool_cst(b)} }} }}"
+            case int(i):
+                return f"(constant_t) {{ cst_is_integer, {{ .i = {i} }} }}"
+            case float(f):
+                return f"(constant_t) {{ cst_is_float, {{ .f = {f} }} }}"
+            case str(s):
+                return f"(constant_t) {{ cst_is_string, {{ .s = {self.esc(s)} }} }}"
+            case _:
+                raise Exception(f"unexpected constant value: {value}")
+
+    def ini_cset(self, name: str, constants: ConstList) -> Block:
+        code = [ self.lcom("initialize sorted set {name}") ]
+        for i, cst in enumerate(constants):
+            code.append(f"{name}[{i}] = {self._cst(cst)};")
+        code.append(f"sort_cst({name}, {len(constants)});")
+        return code
 
     def _fun(self, name: str) -> str:
         return  f"static bool {name}(const json_t* val, Path* path, Report* rep)"

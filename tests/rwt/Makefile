@@ -118,9 +118,10 @@ clean: clean.x
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC  = gcc
+COPT    = -O2
 
 %.exe: %.x.c
-	$(CC) -DWITH_MAIN -Wall -O2 $< -ljansson -lpcre2-8 -o $@
+	$(CC) -DWITH_MAIN -Wall $(COPT) $< -ljansson -lpcre2-8 -o $@
 
 %.ccheck.out: %.exe
 	shopt -s nullglob

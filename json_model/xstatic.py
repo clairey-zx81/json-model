@@ -4,7 +4,7 @@ from typing import Callable
 import re
 import json
 
-from .mtypes import ModelType, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
+from .mtypes import ModelType, ModelArray, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
 from .defines import Validator
@@ -25,7 +25,7 @@ class SourceCode(Validator):
     - globs: global map of symbols.
     - language: target language abstraction.
     - fname: entry function name.
-    - prefix: use this prefix for internal function name generation.
+    - prefix: use this prefix for file-level identifiers.
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
@@ -426,6 +426,86 @@ class SourceCode(Validator):
 
         return code
 
+    def _compileOr(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                   res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+        """Compile a or-list of models."""
+
+        code = []
+        gen = self._lang
+        smpath = json_path(mpath)
+
+        # partial or full list of constants optimization
+        l_const = list(map(lambda m: constant_value(m, mpath), models))
+
+        if len(list(filter(lambda t: t[0], l_const))) >= 2:
+
+            # NOTE we use lists to avoid to squash 1, 1.0 and True…
+            constants, n_models = [], []
+            for i in range(len(models)):
+                # NOTE python equality is a pain, True == 1 == 1.0, False == 0 == 0.0
+                # NOTE python typing is a pain, isinstance(True, int) == True
+                # thus we only keep strings…
+                # TODO also consider int? at least if loose_int/float is false?
+                if l_const[i][0] and isinstance(l_const[i][1], self._lang.set_caps):
+                    cst = l_const[i][1]
+                    constants.append(cst)
+                else:
+                    n_models.append(models[i])
+
+            if constants:
+                sname = gen.ident(self._prefix + "cst")
+                self._code.cset(sname, constants)
+                code += [
+                    gen.bool_var(res,
+                                 gen.and_op(gen.is_scalar(val),
+                                            gen.in_cset(sname, val, constants)))
+                ]
+                if self._report:
+                    code += self._gen_report(res, f"value not in enum [{smpath}]", vpath)
+                    pass
+                if not n_models:
+                    return code
+                # code.add(indent, f"if not {res}:")
+                # indent += 1
+                models = n_models
+
+        # TODO if not res... if necessary
+        # empty list
+        if not models:
+            if self._report:
+                code += [ gen.report(f"empty or [{slpath}]", vpath) ]
+            code += [ gen.bool_val(res, gen.bool_cst(False)) ]
+            return
+
+        sys.exit(123)
+        # discriminant optimization for list of objects
+        if self._disjunction(code, indent, jm, model, lpath, res, val, vpath):
+            return
+        # homogeneous typed list
+        same, expected = all_model_type(models, lpath)
+        or_known = set()
+        if same:
+            # all models have the same ultimate type
+            if expected is int:
+                type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
+            else:
+                type_test = f"isinstance({val}, {expected.__name__})"  # type: ignore
+            code.add(indent, f"{res} = {type_test}")
+            code.add(indent, f"if {res}:")
+            indent += 1
+            or_known.add(type_test)
+
+        for i, m in enumerate(models):
+            if i:
+                code.add(indent + i - 1, f"if not {res}:")
+            # i
+            self._compileModel(jm, m, lpath + [i], res, val, vpath, or_known)
+
+        if self._report:
+            code.add(indent, f"if not {res}:")
+            code.add(indent + 1, _rep(f"not any model match at {{{vpath}}} [{slpath}]"))
+        ...
+
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
         # TODO break each level into a separate function and let the compiler inline
@@ -605,75 +685,11 @@ class SourceCode(Validator):
                 assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
                 if "@" in model:
-                    self._compileConstraint(code, indent, jm, model, mpath, res, val, vpath)
+                    code += self._compileConstraint(jm, model, mpath, res, val, vpath)
                 elif "|" in model:
-                    lpath = mpath + ["|"]
-                    slpath = json_path(lpath)
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
-
-                    # partial list of constants optimization
-                    l_const = list(map(lambda m: constant_value(m, lpath), models))
-                    if len(list(filter(lambda t: t[0], l_const))) >= 2:
-                        constants, n_models = set(), []
-                        for i in range(len(models)):
-                            # NOTE python equality is a pain, True == 1 == 1.0, False == 0 == 0.0
-                            # NOTE python typing is a pain, isinstance(True, int) == True
-                            # thus we only keep strings…
-                            if l_const[i][0] and isinstance(l_const[i][1], str):
-                                constants.add(l_const[i][1])
-                            else:
-                                n_models.append(models[i])
-                        if constants:
-                            # ensure a deterministic output
-                            sconst = "{" + str(sorted(constants))[1:-1] + "}"
-                            code.add(indent,
-                                     f"{res} = not isinstance({val}, (list, dict)) and "
-                                     f"{val} in {sconst}")
-                            if self._report:
-                                code.add(indent, f"if not {res}:")
-                                code.add(indent + 1,
-                                         _rep(f"value not in enum at {{{vpath}}} [{slpath}]"))
-                            if not n_models:
-                                return
-                            code.add(indent, f"if not {res}:")
-                            indent += 1
-                            models = n_models
-
-                    # empty list
-                    if not models:
-                        if self._report:
-                            code += [ gen.report(f"empty or [{slpath}]", vpath) ]
-                        code += [ gen.bool_val(res, gen.bool_cst(False)) ]
-                        return
-
-                    # discriminant optimization
-                    if self._disjunction(code, indent, jm, model, lpath, res, val, vpath):
-                        return
-                    # homogeneous typed list
-                    same, expected = all_model_type(models, lpath)
-                    or_known = set()
-                    if same:
-                        # all models have the same ultimate type
-                        if expected is int:
-                            type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
-                        else:
-                            type_test = f"isinstance({val}, {expected.__name__})"  # type: ignore
-                        code.add(indent, f"{res} = {type_test}")
-                        code.add(indent, f"if {res}:")
-                        indent += 1
-                        or_known.add(type_test)
-
-                    for i, m in enumerate(models):
-                        if i:
-                            code.add(indent + i - 1, f"if not {res}:")
-                        # i
-                        self._compileModel(jm, m, lpath + [i], res, val, vpath, or_known)
-
-                    if self._report:
-                        code.add(indent, f"if not {res}:")
-                        code.add(indent + 1, _rep(f"not any model match at {{{vpath}}} [{slpath}]"))
-
+                    code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath)
                 elif "&" in model:
 
                     and_known = set(known or [])

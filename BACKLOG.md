@@ -2,19 +2,25 @@
 
 ## Current Tasks
 
+- [x] c-backend: unique shortcut while sorting
+- [x] c-backend: json anything comparison for sorting and searching
+- [x] static: constant string enum
+- [x] c-backend: unique for any
+- [ ] c-backend: unique for scalars using `constant_t`
+- [ ] py-backend: unique for any
+- [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] project: establish priority
 
 ## To Do
 
-- [ ] project: improve backlog management
+- [ ] project: improve backlog management with thematic sections
 - [ ] static: support or constants, aka enum.
 - [ ] static: if loose, cast all int constants to double?
 - [ ] static: keep model comments in generated code
-- [ ] c-static: add arr and obj to cst management
-- [ ] c-static: unique shortcut while sorting
-- [ ] c-static: json anything comparison for sorting and searching
-- [ ] c-static: unique for scalars
-- [ ] c-static: unique for any
+- [ ] c-backend: add arr and obj to cst management
+- [ ] c-backend: separate headers to allow compiling a support library.
+- [ ] c-backend: more separate headers to avoid unused warnings.
+- [ ] c-backend: add a common prefix to all internal functions.
 - [ ] design: allow regular extension to use references `/...($XXX).../SOME-OPTION`
 - [ ] dynamic: JSON IR to lambda?!
 - [ ] backend: add JSON IR
@@ -91,7 +97,7 @@
 - [ ] extend: pg storage, extension
 - [ ] extend: mongodb storage ?
 - [ ] tests: parallelize pytest runs ?!
-- [ ] perf: schema validation on yac data 
+- [ ] perf: schema validation on yac data
 - [ ] perf: open data, eg RNCP and FRESQ
 - [ ] frontend: loop load/valid for perf
 - [ ] perf: reuse blaze data set where possible (implies schema to model)
