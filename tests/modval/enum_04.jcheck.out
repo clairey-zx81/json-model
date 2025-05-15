@@ -1,0 +1,4 @@
+enum_04.0.true.json: PASS
+enum_04.1.false.json: FAIL
+enum_04.2.false.json: FAIL
+enum_04.3.false.json: FAIL
