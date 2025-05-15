@@ -10,6 +10,7 @@
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] project: establish priority
+- [ ] frontend: accept raw sequence of values? list of values?
 
 ## To Do
 
