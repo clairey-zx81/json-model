@@ -1,3 +1,0 @@
-or_02.0.true.json: PASS
-or_02.1.false.json: FAIL [('.|[0]', '$', 'expecting integer 10'), ('.|[1]', '$', 'expecting integer 42'), ('.|', '$', 'no any matched')]
-or_02.2.false.json: FAIL [('.|[0]', '$', 'expecting integer 10'), ('.|[1]', '$', 'expecting integer 42'), ('.|', '$', 'no any matched')]

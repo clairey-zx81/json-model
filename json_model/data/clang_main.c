@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
         fprintf(stdout, "%s: %s", argv[i], valid ? "PASS" : "FAIL");
 
         // re-execute with report collection
-        if (report)
+        if (!valid && report)
         {
             Path path = (Path) { "", 0, NULL, NULL };
             Report report = (Report) { NULL };

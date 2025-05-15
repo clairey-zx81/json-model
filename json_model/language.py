@@ -153,6 +153,7 @@ class Language:
     def is_scalar(self, var: Var) -> BoolExpr:
         return f"({var} is None or isinstance({var}, (bool, int, float, str)))"
 
+    # FIXME number looseness is lost!
     def is_this_type(self, var: Var, tval: type|None) -> BoolExpr:
         if tval is None or tval == type(None):
             return self.is_null(var)

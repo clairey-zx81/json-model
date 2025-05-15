@@ -1,2 +1,7 @@
 or_01.0.true.json: PASS
 or_01.1.true.json: PASS
+or_01.2.false.json: FAIL
+or_01.3.false.json: FAIL
+or_01.4.false.json: FAIL
+or_01.5.false.json: FAIL
+or_01.6.false.json: FAIL

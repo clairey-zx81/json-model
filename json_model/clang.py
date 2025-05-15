@@ -277,14 +277,15 @@ class CLangJansson(Language):
     def ini_re(self, name: str, regex: str) -> Block:
         code = [] if self._re_used else [
             "int err_code;",
-            "PCRE2_SIZE err_offset;"
+            "PCRE2_SIZE err_offset;",
+            "PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
-            f"if ({name}_code == NULL)"
-            f"    return pcre2_get_error_message(err_code);"
+            f"if ({name}_code == NULL)",
+            f"    return pcre2_get_error_message(err_code, err_message, 1024);",
             f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
         ]
         return code

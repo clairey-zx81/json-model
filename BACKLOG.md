@@ -4,8 +4,9 @@
 
 - [x] c-backend: unique shortcut while sorting
 - [x] c-backend: json anything comparison for sorting and searching
-- [x] static: constant string enum
+- [x] static: constant string and int enum
 - [x] c-backend: unique for any
+- [x] static: or implementation
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)

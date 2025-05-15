@@ -196,13 +196,15 @@ class SourceCode(Validator):
 
         code += self._gen_report(res, f"invalid type or constraints [{smpath}]", vpath)
 
-    def _disjunction(self, code: Code, indent: int,
-                     jm: JsonModel, model: ModelType, mpath: ModelPath,
-                     res: str, val: str, vpath: str) -> bool:
+    def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
+                     res: str, val: str, vpath: str) -> Block|None:
         """Generate optimized disjunction check.
 
         model: `{"|": [ o1, o2, ... ] }`
         """
+
+        # TODO implement!
+        return None
 
         dis = self._disjunct_analyse(jm, model, mpath)  # pyright: ignore
         if dis is None:
@@ -434,8 +436,17 @@ class SourceCode(Validator):
         gen = self._lang
         smpath = json_path(mpath)
 
-        # partial or full list of constants optimization
+        # direct empty list
+        # NOTE in practice this case is optimized out so should not come here
+        if not models:
+            if self._report:
+                code += [ gen.report(f"empty or [{smpath}]", vpath) ]
+            code += [ gen.bool_val(res, gen.bool_cst(False)) ]
+            return code
+
+        # partial/full list of constants optimization
         l_const = list(map(lambda m: constant_value(m, mpath), models))
+        need_if = False
 
         if len(list(filter(lambda t: t[0], l_const))) >= 2:
 
@@ -465,46 +476,56 @@ class SourceCode(Validator):
                     pass
                 if not n_models:
                     return code
-                # code.add(indent, f"if not {res}:")
-                # indent += 1
                 models = n_models
+                if not models:
+                    # all constants were tested, we are done
+                    return
+                need_if = True
 
         # TODO if not res... if necessary
-        # empty list
-        if not models:
-            if self._report:
-                code += [ gen.report(f"empty or [{slpath}]", vpath) ]
-            code += [ gen.bool_val(res, gen.bool_cst(False)) ]
-            return
-
-        sys.exit(123)
-        # discriminant optimization for list of objects
-        if self._disjunction(code, indent, jm, model, lpath, res, val, vpath):
-            return
-        # homogeneous typed list
-        same, expected = all_model_type(models, lpath)
-        or_known = set()
-        if same:
-            # all models have the same ultimate type
-            if expected is int:
-                type_test = f"isinstance({val}, int) and not isinstance({val}, bool)"
+        # discriminant optimization for list of objects, None if fails
+        tmp = {"|": models}
+        if dcode := self._disjunction(jm, tmp, mpath, res, val, vpath):
+            if need_if:
+                return code + gen.if_stmt(gen.not_op(res), dcode)
             else:
-                type_test = f"isinstance({val}, {expected.__name__})"  # type: ignore
-            code.add(indent, f"{res} = {type_test}")
-            code.add(indent, f"if {res}:")
-            indent += 1
-            or_known.add(type_test)
+                return code + dcode
+            return
 
-        for i, m in enumerate(models):
-            if i:
-                code.add(indent + i - 1, f"if not {res}:")
-            # i
-            self._compileModel(jm, m, lpath + [i], res, val, vpath, or_known)
+        # homogeneous typed list
+        same, expected = all_model_type(models, mpath)
+        or_known = set()
+        or_code = []
+        if same:
+            # all models have the same ultimate type, type check shortcut
+            type_test = gen.is_this_type(val, expected)
+            or_known.add(type_test)
+            or_code += [ gen.bool_var(res, type_test) ]
+            if self._report:
+                or_code += self._gen_report(res, f"unexpected type at [{smpath}]", vpath)
+
+        icode = []
+        for i, m in reversed(list(enumerate(models))):
+            body = self._compileModel(jm, m, mpath + [i], res, val, vpath, or_known) + icode
+            if i > 0:
+                icode = gen.if_stmt(gen.not_op(res), body)
+            else:
+                icode =  body
 
         if self._report:
-            code.add(indent, f"if not {res}:")
-            code.add(indent + 1, _rep(f"not any model match at {{{vpath}}} [{slpath}]"))
-        ...
+            icode += self._gen_report(res, f"no model matched [{smpath}]", vpath)
+
+        if or_code:
+            or_code += gen.if_stmt(res, icode)
+        else:
+            or_code += icode
+
+        if need_if:
+            code += gen.if_stmt(gen.not_op(res), or_code)
+        else:
+            code += or_code
+
+        return code
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
@@ -592,25 +613,25 @@ class SourceCode(Validator):
                     if value is None:
                         code += [ gen.bool_var(res, gen.is_null(val)) ]
                     elif isinstance(value, bool):
-                        code += [
-                            gen.bool_var(res,
-                                gen.and_op(gen.is_bool(val),
-                                           gen.num_eq(gen.bool_val(val), gen.bool_cst(value))))
-                        ]
+                        ttest = gen.is_bool(val)
+                        expr = gen.num_eq(gen.bool_val(val), gen.bool_cst(value))
+                        if ttest not in known:
+                            expr = gen.and_op(ttest, expr)
+                        code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, int):
-                        code += [
-                            gen.bool_var(res,
-                                gen.and_op(gen.is_int(val, jm._loose_int),
-                                           # FIXME cast depends on type?
-                                           gen.num_eq(gen.int_val(val), gen.int_cst(value))))
-                        ]
+                        ttest = gen.is_int(val, jm._loose_int)
+                        # FIXME cast depends on type?
+                        expr = gen.num_eq(gen.int_val(val), gen.int_cst(value))
+                        if ttest not in known:
+                            expr = gen.and_op(ttest, expr)
+                        code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, float):
-                        code += [
-                            gen.bool_var(res,
-                                gen.and_op(gen.is_flt(val, jm._loose_float),
-                                           # FIXME cast depends on type?
-                                           gen.num_eq(gen.flt_val(val), gen.flt_cst(value))))
-                        ]
+                        ttest = gen.is_flt(val, jm._loose_float)
+                        # FIXME cast depends on type? add loose parameter?
+                        expr = gen.num_eq(gen.flt_val(val), gen.flt_cst(value))
+                        if ttest not in known:
+                            expr = gen.and_op(ttest, expr)
+                        code += [ gen.bool_var(res, expr) ]
                     # elif isinstance(value, str):
                     #     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     #     expr = gen.and_op(expr, compare) if expr else compare
