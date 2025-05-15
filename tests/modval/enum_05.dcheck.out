@@ -1,0 +1,8 @@
+enum_05.0.true.json: PASS
+enum_05.1.true.json: PASS
+enum_05.2.true.json: PASS
+enum_05.3.true.json: PASS
+enum_05.4.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting string Susie'), ('.|[2]', '$', 'expecting null'), ('.|[3]', '$', 'expecting number 3.1415927'), ('.|', '$', 'no any matched')]
+enum_05.5.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting string Susie'), ('.|[2]', '$', 'expecting null'), ('.|[3]', '$', 'expecting number 3.1415927'), ('.|', '$', 'no any matched')]
+enum_05.6.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting string Susie'), ('.|[2]', '$', 'expecting null'), ('.|[3]', '$', 'expecting number 3.1415927'), ('.|', '$', 'no any matched')]
+enum_05.7.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting string Susie'), ('.|[2]', '$', 'expecting null'), ('.|[3]', '$', 'expecting number 3.1415927'), ('.|', '$', 'no any matched')]
