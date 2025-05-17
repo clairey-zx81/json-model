@@ -4,7 +4,7 @@
     "false": "$NONE",
     "true": "$ANY",
     "#": "Symbol 1",
-    "": "./eval_00.model.json"
+    "": "./eval_00"
   },
   "@": "$ANY"
 }

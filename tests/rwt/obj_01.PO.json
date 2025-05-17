@@ -3,7 +3,7 @@
   "$": {
     "bla": "$BOOLEAN",
     "#": "Symbol 1",
-    "": "./obj_01.model.json"
+    "": "./obj_01"
   },
   "@": "$BOOLEAN"
 }

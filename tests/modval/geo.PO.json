@@ -147,7 +147,7 @@
       "#": "JsonModel 14"
     },
     "#": "Symbol 1",
-    "": "./geo.model.json"
+    "": "./geo"
   },
   "~": "https://json-model.org/models/json-model"
 }

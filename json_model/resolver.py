@@ -16,7 +16,8 @@ JS_RE = r"(?m)^\s*//\s"
 JSON_RE = r"(?s)\s*(\[.*\]|\{.*\}|\".*\"|-?\d+(\.\d*)?([eE]-?\d+)?|null|true|false)\s*$"
 
 # numbers, identifiers, "quoted", 'quoted', blanks, whatever (1 char, including separators)
-JS_TOKEN = r"(?s)(-?\d+(\.\d*)?([eE]-?\d+)?|\w+|\"([^\"]*[\\\"]?)*\"|'([^']*(\\')?)*'|\s+|\W)"
+JS_TOKEN = r"(?s)(-?\d+(\.\d*)?([eE]-?\d+)?|\w+|" + \
+           r'"([^"]*(\\")?)*"|' + r"'([^']*(\\')?)*'|\s+|\W)"
 
 def jsob2json(string: str) -> str:
     tokens: list[str] = []
@@ -41,7 +42,7 @@ class Resolver:
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
 
-    def __call__(self, url: str, path: ModelPath):
+    def __call__(self, url: str, path: ModelPath = [], follow: bool = True):
         """Resolve an external reference."""
 
         assert "#" not in url, f"no fragment in {url}"
@@ -50,17 +51,16 @@ class Resolver:
             log.info("reading: stdin")
             return json.load(sys.stdin)
 
-        # follow mappings
-        changes, previous = 0, -1
-        while changes != previous and changes <= len(self._maps):
-            previous = changes
-            for s, d in self._maps.items():
-                if url.startswith(s):
-                    url = d + url[len(s):]
-                    changes += 1
-
-        if changes > len(self._maps):
-            raise ModelError(f"URL mapping cycle detected, cannot resolve at {path}: {url}")
+        # possibly follow mappings
+        if follow:
+            changes, previous, skip = 0, -1, set()
+            while changes != previous:
+                previous = changes
+                for s, d in self._maps.items():
+                    if s not in skip and url.startswith(s):
+                        url = d + url[len(s):]
+                        skip.add(s)  # do not apply same rule twice
+                        changes += 1
 
         if url in self._jsons:
             return self._jsons[url]

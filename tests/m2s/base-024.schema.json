@@ -1,11 +1,1 @@
-{
-  "allOf": [
-    {
-      "type": "string"
-    },
-    {
-      "type": "number",
-      "minimum": 0.0
-    }
-  ]
-}
+false

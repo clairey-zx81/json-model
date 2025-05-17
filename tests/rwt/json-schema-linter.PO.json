@@ -486,7 +486,7 @@
       "#": "JsonModel 25"
     },
     "#": "Symbol 1",
-    "": "./json-schema-linter.model.json"
+    "": "./json-schema-linter"
   },
   "@": "$RootSchema",
   "~": "https://json-model.org/models/json-model"

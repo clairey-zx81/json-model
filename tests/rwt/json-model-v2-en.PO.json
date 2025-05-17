@@ -8,7 +8,7 @@
       "~": "https://json-model.org/models/json-model"
     },
     "#": "Symbol 1",
-    "": "./json-model-v2-en.model.json"
+    "": "./json-model-v2-en"
   },
   "@": "$Model",
   "~": "https://json-model.org/models/json-model"

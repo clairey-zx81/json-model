@@ -15,7 +15,7 @@
       "#": "JsonModel 4"
     },
     "#": "Symbol 1",
-    "": "./loose_strict.model.json"
+    "": "./loose_strict"
   },
   "@": "$combined"
 }

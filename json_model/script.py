@@ -14,11 +14,11 @@ from .static import static_compile
 from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
 
-def create_model(murl: str, resolver: Resolver,
-                 auto: bool = False, debug: bool = False) -> JsonModel:
+def create_model(murl: str, resolver: Resolver, *,
+                 auto: bool = False, follow: bool = True, debug: bool = False) -> JsonModel:
 
     # load raw JSON
-    j = resolver(murl, [])
+    j = resolver(murl, [], follow)
 
     # handle automatic URL mapping
     if auto and (isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
@@ -196,7 +196,7 @@ def jmc_script():
 
     # CREATE FROM FILE OR URL
     try:
-        model = create_model(args.model, resolver, args.auto, args.debug)
+        model = create_model(args.model, resolver, auto=args.auto, debug=args.debug, follow=False)
     except BaseException as e:
         log.error(e)
         if args.debug:

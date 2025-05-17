@@ -80,7 +80,7 @@ UO: $(F.UO)
 .PHONY: PO
 PO: $(F.PO)
 %.PO.json: %.model.json
-	$(JMC.cmd) -PO ./$< > $@
+	$(JMC.cmd) -PO ./$* > $@
 
 .PHONY: schema
 schema: $(F.EO)

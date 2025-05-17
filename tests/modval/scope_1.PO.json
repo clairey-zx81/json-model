@@ -15,6 +15,6 @@
     },
     "S": "/[a-z]/",
     "#": "Symbol 1",
-    "": "./scope_1.model.json"
+    "": "./scope_1"
   }
 }

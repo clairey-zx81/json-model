@@ -24,9 +24,8 @@ version = "2.0-alpha"
 dependencies = [ "requests", "google-re2", "pyyaml" ]
 
 [project.optional-dependencies]
-# dev = [ "pytest", "pyyaml", "flake8", "ruff", "pyright" ]
 dev = [
-  "flake8", "ruff", "pyright",
+  "flake8", "ruff", "pyright", "pytest",
   "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
 ]
 dist = [ "build", "wheel", "twine" ]

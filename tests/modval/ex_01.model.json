@@ -1,6 +1,7 @@
 {
   "#": "several external references…",
   "$": {
+    "": "./ex_01",
     "x1": "$./ex_00",
     "x2": "$./ex_00"
   },
