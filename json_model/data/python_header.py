@@ -5,6 +5,9 @@ import urllib.parse
 # call initialize only once
 initialized: bool = False
 
+# special undefined value
+UNDEFINED: object = object()
+
 # map model names to check functions
 _check_model_map_size: int
 _check_model_map: PropMap

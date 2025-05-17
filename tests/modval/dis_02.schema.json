@@ -1,0 +1,53 @@
+{
+  "description": "disjunction on float",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 3.1415927
+        },
+        "pi": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "pi"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 1.0
+        },
+        "one": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "one"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 0.5
+        },
+        "half": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "half"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "|": [
+      {
+        "discriminator": "=true",
+        "x": ""
+      },
+      {
+        "discriminator": "=false",
+        "y": ""
+      }
+    ],
+    "#": "JsonModel 1"
+  }
+]

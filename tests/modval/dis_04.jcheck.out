@@ -1,0 +1,10 @@
+dis_04.0.true.json: PASS
+dis_04.1.true.json: PASS
+dis_04.2.true.json: PASS
+dis_04.3.true.json: PASS
+dis_04.4.true.json: PASS
+dis_04.5.true.json: PASS
+dis_04.6.false.json: FAIL
+dis_04.7.false.json: FAIL
+dis_04.8.false.json: FAIL
+dis_04.9.false.json: FAIL

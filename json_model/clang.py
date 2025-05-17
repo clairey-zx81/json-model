@@ -231,8 +231,9 @@ class CLangJansson(Language):
     #
     # blocks
     #
-    def indent(self, block: Block) -> Block:
-        return [ "{" ] + super().indent(block) + [ "}" ]
+    def indent(self, block: Block, sep: bool = True) -> Block:
+        indented = super().indent(block, sep)
+        return ([ "{" ] + indented + [ "}" ]) if sep else indented
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         return [

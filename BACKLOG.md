@@ -9,20 +9,21 @@
 - [x] static: or implementation
 - [x] static: object disjunction on str
 - [x] static: support or constants, aka enum.
+- [x] static: object disjunction on int, bool, float, null
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] static: object disjunction on int, bool, float, null
+- [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
-- [ ] project: establish priority
+- [ ] py-backend: non-str enum with `ConstSet`
 - [ ] frontend: accept raw sequence of values? list of values?
+- [ ] project: establish priority
 
 ## To Do
 
 - [ ] project: improve backlog management with thematic sections
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
 - [ ] project: move all code's TODO here
-- [ ] py-backend: non-str enum with `ConstSet`
 - [ ] py-backend: multi-type enum `enum_05`
 - [ ] static: if loose, cast all int constants to double?
 - [ ] static: keep model comments in generated code
@@ -32,6 +33,7 @@
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
 - [ ] design: allow regular extension to use references `/...($XXX).../SOME-OPTION`
+- [ ] design: should it allow unexpected ints as constants?
 - [ ] dynamic: JSON IR to lambda?!
 - [ ] backend: add JSON IR
 - [ ] backend: direct code for blaze?

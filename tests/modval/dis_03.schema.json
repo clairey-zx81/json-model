@@ -1,0 +1,37 @@
+{
+  "description": "boolean tag",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "discriminator": {
+          "const": true
+        },
+        "x": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "discriminator",
+        "x"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "discriminator": {
+          "const": false
+        },
+        "y": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "discriminator",
+        "y"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

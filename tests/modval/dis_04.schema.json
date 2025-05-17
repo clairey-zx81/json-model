@@ -1,0 +1,104 @@
+{
+  "description": "multi-type discriminator",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": null
+        },
+        "v": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": true
+        },
+        "v": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 0
+        },
+        "v": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 0.0
+        },
+        "v": {
+          "type": "number",
+          "minimum": 0.0
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": "s"
+        },
+        "v": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": "t"
+        },
+        "v": {
+          "type": "string",
+          "pattern": "(?s)."
+        }
+      },
+      "required": [
+        "t",
+        "v"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

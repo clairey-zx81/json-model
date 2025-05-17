@@ -109,7 +109,7 @@ class Language:
     def file_subs(self, fname: str, block: Block) -> Block:
         """Load a file with a code block substitution."""
         code: Block = self.file_load(fname)
-        body = self.indent(self.indent(block))
+        body = self.indent(self.indent(block, False), False)
         bidx = code.index("CODE_BLOCK")
         assert bidx >= 0, "CODE_BLOCK marker found in file"
         code = code[:bidx] + body + code[bidx+1:]
@@ -161,7 +161,7 @@ class Language:
         return f"{var} is None"
 
     def is_def(self, var: Var) -> BoolExpr:
-        return f"{var} is not None"
+        return f"{var} != UNDEFINED"
 
     def is_scalar(self, var: Var) -> BoolExpr:
         return f"({var} is None or isinstance({var}, (bool, int, float, str)))"
@@ -178,8 +178,12 @@ class Language:
             return self.is_flt(var)
         elif tval is str:
             return self.is_str(var)
+        elif tval is list:
+            return self.is_arr(var)
+        elif tval is dict:
+            return self.is_obj(var)
         else:
-            raise NotImplementedError("unexpected type {tval}")
+            raise NotImplementedError(f"unexpected type {tval}")
 
     #
     # predefs
@@ -263,7 +267,7 @@ class Language:
         return f"{arr}[{idx}]"
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
-        return f"{obj}[{prop}]"
+        return f"{obj}.get({prop}, UNDEFINED)"
 
     def scal_val(self, var: Var, tvar: type|None) -> Expr:
         if tvar is bool:
@@ -414,6 +418,7 @@ class Language:
 
     def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Inst:
         """Declare a check function variable pointer."""
+        # FIXME should guard for scalar?
         return self._var(var, val, "CheckFun" if declare else None)
 
     def iand_op(self, res: Var, e: BoolExpr) -> Inst:
@@ -475,7 +480,7 @@ class Language:
         return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
             if self._with_report else []
 
-    def indent(self, block: Block) -> Block:
+    def indent(self, block: Block, sep: bool = True) -> Block:
         """Indent a block."""
         return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
 
@@ -608,24 +613,34 @@ class Language:
     #
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         """Return the function associated to the tag value if any."""
-        return f"{name}.get({self.scal_val(tag, ttag)}, None)"
+        return f"{name}.get({self.scal_val(tag, ttag)}, UNDEFINED)"
+
+    def _str_map(self, mapping: dict[JsonScalar, str]) -> bool:
+        return all(isinstance(k, str) for k in mapping.keys())
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Declare a new constant map."""
-        return [ f"{name}: ConstMap" ]
+        if self._str_map(mapping):
+            return [ f"{name}: dict[str, str]" ]
+        else:
+            return [ f"{name}: ConstMap = ConstMap()" ]
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return []
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Initialize constant mapping."""
-        return [
-            f"global {name}",
-            f"{name} = {{",
-        ] + [
-            f"    {self.any_cst(v)}: {fun},"
-                for v, fun in mapping.items()
-        ] + [ r"}" ]
+        icode = [ f"global {name}" ]
+        if self._str_map(mapping):
+            icode += [
+                f"{name} = {{", ] + [
+                f"    {self.any_cst(v)}: {fun},"
+                    for v, fun in mapping.items()
+            ] + [ r"}" ]
+        else:
+            for v, fun in mapping.items():
+                icode += [ f"{name}[{self.any_cst(v)}] = {fun}" ]
+        return icode
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return []

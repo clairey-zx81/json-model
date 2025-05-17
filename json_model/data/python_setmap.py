@@ -15,7 +15,11 @@ class Const:
         return hash(self._val)
 
     def __eq__(self, val):
-        return type(self._val) is type(val) and self._val == val
+        return (
+            isinstance(val, Const) and
+            type(self._val) is type(val._val) and
+            self._val == val._val
+        )
 
 
 class ConstSet(MutableSet[JsonScalar]):
@@ -53,7 +57,10 @@ class ConstMap(MutableMapping[JsonScalar, CheckFun]):
         self._map[Const(key)] = val
 
     def __getitem__(self, key):
-        return self._map[Const(key)]
+        if isinstance(key, (list, dict)):
+            return UNDEFINED
+        else:
+            return self._map[Const(key)]
 
     def __delitem__(self, key):
         del self._map[Const(key)]

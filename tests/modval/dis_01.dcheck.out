@@ -1,0 +1,6 @@
+dis_01.0.true.json: PASS
+dis_01.1.true.json: PASS
+dis_01.2.true.json: PASS
+dis_01.3.false.json: FAIL [('.|[*].tag', '$.tag', 'unexpected tag tag value 0')]
+dis_01.4.false.json: FAIL [('.|[*]', '$', 'missing tag tag')]
+dis_01.5.false.json: FAIL [('.|[*]', '$', 'not an object')]

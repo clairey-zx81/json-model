@@ -249,6 +249,7 @@ class SourceCode(Validator):
 
         code += [ gen.bool_var(res, gen.is_obj(val)) ]
 
+        # FIXME None tag value?!
         tag = self._lang.ident("tag")
         itag = gen.json_var(tag, gen.obj_prop_val(val, self._esc(tag_name)), True)
 
@@ -520,7 +521,7 @@ class SourceCode(Validator):
         return code
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                      res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+                      res: str, val: str, vpath: str, known: set[str] = set()) -> Block:
         # TODO break each level into a separate function and let the compiler inline
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
@@ -895,7 +896,7 @@ class SourceCode(Validator):
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
 
-        body = self._compileModel(jm, model, mpath, "res", "val", "path", None)
+        body = self._compileModel(jm, model, mpath, "res", "val", "path", set())
         body = [ self._lang.bool_var("res", declare=True) ] + body + [ self._lang.ret("res") ]
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})")

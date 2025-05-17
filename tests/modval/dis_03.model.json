@@ -1,0 +1,7 @@
+{
+  "#": "boolean tag",
+  "|": [
+    { "discriminator": "=true", "x": "" },
+    { "discriminator": "=false", "y": "" }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "description": "disjunction on an integer",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": 18
+        },
+        "a": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": 42
+        },
+        "b": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": 1024
+        },
+        "c": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "c"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
