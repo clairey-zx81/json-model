@@ -153,8 +153,8 @@ def jmc_script():
         args.code = args.op in "DSX" and not args.values
 
     # option/parameter consistency and defaults
-    if args.values and args.op not in "SDV":
-        log.error(f"Testing JSON values requires -S, -D or -V: {args.op}")
+    if args.values and args.op not in "SDX":  # V?
+        log.error(f"Testing JSON values requires -S, -D or -X: {args.op}")
         sys.exit(1)
     if args.code and args.op not in "DSX":
         log.error(f"Showing code requires -S, -D or -X: {args.op}")
@@ -270,9 +270,15 @@ def jmc_script():
                                lang=args.format, debug=args.debug, report=args.verbose)
         header = f"#! /bin/env python\n#\n# Model: {args.model}\n" if args.format == "py" else \
                  f"/*\n * Model: {args.model}\n */\n"
+        source = str(code)
         if args.code:
-            print(header + str(code), file=output)
-        # TODO checking values
+            print(header + source, file=output)
+        if args.format == "py" and args.values:
+            env = {}
+            exec(source, env)
+            env[args.name + "_init"]()
+            def checker(v: Jsonable, s: str, rep: list[tuple[str, str]]|None):
+                return env[args.name](v, "", rep)
     elif args.op == "E":
         mm = model._init_md
         if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):
@@ -295,7 +301,7 @@ def jmc_script():
         with open(fn) as fh:
             try:
                 value = json.load(fh)
-                reasons = [[]] if args.verbose and args.op == "S" else []
+                reasons = [[]] if args.verbose and args.op in "SX" else []
                 okay = checker(value, "$", *reasons)
                 sokay = "PASS" if okay else "FAIL"
                 if args.expect is None or args.verbose:
@@ -303,7 +309,7 @@ def jmc_script():
                     if not okay and args.verbose:
                         if args.op == "D":
                             msg += " " + str(checker._reasons)
-                        elif args.op == "S":
+                        elif args.op in ("S", "X"):
                             msg += " " + str(reasons[0])
                     print(msg, file=output)
                 if args.expect is not None:

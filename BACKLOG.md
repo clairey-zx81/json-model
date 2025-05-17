@@ -10,6 +10,7 @@
 - [x] static: object disjunction on str
 - [x] static: support or constants, aka enum.
 - [x] static: object disjunction on int, bool, float, null
+- [x] command: allow value checking under `-X -F py`
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
