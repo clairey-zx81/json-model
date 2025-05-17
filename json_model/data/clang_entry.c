@@ -1,8 +1,9 @@
-/* entry function name is expected to be substituted */
-
+/*
+ * return check function from identifier.
+ */
 check_fun_t CHECK_FUNCTION_NAME_fun(const char *name)
 {
-    return check_prop_find(name, _check_model_map, array_length(_check_model_map));
+    return _check_model_map(name);
 }
 
 /*
@@ -14,26 +15,35 @@ check_fun_t CHECK_FUNCTION_NAME_fun(const char *name)
  * - message is provided if a non NULL pointer is passed, and must be freed by the caller.
  *
  *
- * if the model is not found, error
- *
+ * if the model is not found, report error and reasons if required, else coldly exit.
  */
 bool CHECK_FUNCTION_NAME(json_t *val, const char *name, bool *error, char **reasons)
 {
     CHECK_FUNCTION_NAME_init();  // lazy
     check_fun_t checker = CHECK_FUNCTION_NAME_fun(name);
 
-    *error = checker == NULL;
+    bool not_found = checker == NULL;
+    if (error)
+        *error = not_found;
 
-    if (*error)
+    if (not_found)
     {
+        const char *format = "JSON Model check function not found for <%s>\n";
+
+        if (!error)
+        {
+            fprintf(stderr, format, name);
+            exit(1);
+        }
+
         if (reasons)
         {
-            const char *format = "model checking function not found for <%s>\n";
             size_t size = strlen(format) + strlen(name);
             char *message = malloc(size);
             sprintf(message, format, name);
             *reasons = message;
         }
+
         return false;
     }
 
@@ -57,8 +67,7 @@ bool CHECK_FUNCTION_NAME(json_t *val, const char *name, bool *error, char **reas
             message += sprintf("%s: %s\n", entry->path, entry->message);
     }
 
-    if (reasons)
-        report_free_entries(&report);
+    report_free_entries(&report);
 
     return valid;
 }

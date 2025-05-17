@@ -7,24 +7,30 @@ from .utils import UUID_RE
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
 class CLangJansson(Language):
-    """Generate JSON value checker in C with Jansson and PCRE2."""
+    """Generate JSON value checker in C with Jansson and PCRE2.
+
+    This implemebtation relies on inheritance for many methods, thanks to the root
+    class heavy parameterization about operators, end-of-instruction and the like.
+    """
 
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
                  relib: str = "pcre2", int_t: str = "int64_t"):
 
-        super().__init__("C",
-                         with_path=with_path, with_report=with_report, with_comment=with_comment,
-                         not_op="!", and_op="&&", or_op="||", lcom="//",
-                         eoi=";", relib=relib, debug=debug,
-                         set_caps=[type(None), bool, int, float, str])
+        super().__init__(
+            "C",
+             with_path=with_path, with_report=with_report, with_comment=with_comment,
+             not_op="!", and_op="&&", or_op="||", lcom="//",
+             eoi=";", relib=relib, debug=debug,
+             set_caps=[type(None), bool, int, float, str])
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
         self._int: str = int_t
         self._uuid_used: bool = False
         self._anylen_used: bool = False
+        self._unique_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
@@ -37,16 +43,16 @@ class CLangJansson(Language):
                 header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
             header += [ f"#include <{self._relib}.h>" ]
         header += [ f"#define JSON_MODEL_VERSION {self.esc(self._version)}" ]
-        header += self.load_data("clang_header.c")
+        header += self.file_load("clang_header.c")
         if self._uuid_used:
-            header += self.load_data("clang_uuid.c")
+            header += self.file_load("clang_uuid.c")
         if self._anylen_used:
-            header += self.load_data("clang_anylen.c")
+            header += self.file_load("clang_anylen.c")
         return header
 
     def file_footer(self) -> Block:
-        return ([""] + self.load_data("clang_entry.c") +
-                [""] + self.load_data("clang_main.c"))
+        return ([""] + self.file_load("clang_entry.c") +
+                [""] + self.file_load("clang_main.c"))
 
     #
     # inlined type test expressions about JSON data
@@ -141,14 +147,18 @@ class CLangJansson(Language):
         self._anylen_used = True
         return f"_any_len({var})"
 
+    def unique_any(self, var: Var) -> BoolExpr:
+        self._anylen_used = True
+        return f"{self.is_arr(var)} && _json_array_unique({var})"
+
     #
     # ternary expression
     #
     def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
         return f"(({cond}) ? ({true}) : ({false}))"
 
-    def prop_fun(self, fun: str, prop: str, mapname: str, nprops: int) -> Expr:
-        return f"({fun} = check_prop_find({prop}, {mapname}, {nprops}))"
+    def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
+        return f"({fun} = {name}({prop}))"
 
     #
     # inline comparison expressions for strings
@@ -192,7 +202,7 @@ class CLangJansson(Language):
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, self._int if declare else None)
 
-    def report(self, msg: str, path: str) -> Block:
+    def report(self, msg: str, path: Var) -> Block:
         return ([ f"if (rep) report_add_entry(rep, {self.esc(msg)}, {path});" ]
                 if self._with_report else [])
 
@@ -270,22 +280,26 @@ class CLangJansson(Language):
             f"static bool {name}(const char *s);"
         ]
 
-    def gen_re(self, name: str, regex: str) -> Block:
-        code = self.load_data("clang_pcre2_fun.c")
+    def sub_re(self, name: str, regex: str) -> Block:
+        code = self.file_load("clang_pcre2_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str) -> Block:
         code = [] if self._re_used else [
             "int err_code;",
             "PCRE2_SIZE err_offset;",
-            "PCRE2_UCHAR err_message[1024];",
+            # FIXME strdup?
+            "static PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
             f"if ({name}_code == NULL)",
-            f"    return pcre2_get_error_message(err_code, err_message, 1024);",
+            r"{",
+            r"    (void) pcre2_get_error_message(err_code, err_message, 1024);",
+            r"    return (char *) err_message;",
+            r"}",
             f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
         ]
         return code
@@ -296,15 +310,24 @@ class CLangJansson(Language):
             f"pcre2_code_free({name}_code);",
         ]
 
-    def def_map(self, name: str, size: int) -> Block:
-        return [ f"static check_prop_t {name}[{size}];" ]
+    def def_pmap(self, name: str, pmap: PropMap) -> Block:
+        return [ f"static propmap_t {name}_tab[{len(pmap)}];" ]
 
-    def ini_map(self, name: str, pmap: PropMap) -> Block:
+    def ini_pmap(self, name: str, pmap: PropMap) -> Block:
         init = []
         for i, pf in enumerate(pmap.items()):
             p, f = pf
-            init += [ f"{name}[{i}] = (check_prop_t) {{ {self.esc(p)}, {f} }};" ]
+            init += [ f"{name}_tab[{i}] = (propmap_t) {{ {self.esc(p)}, {f} }};" ]
+        init += [ f"sort_propmap({name}_tab, {len(pmap)});" ]
         return init
+
+    def sub_pmap(self, name: str, pmap: PropMap) -> Block:
+        return [
+            f"static inline check_fun_t {name}(const char *pname)",
+            r"{",
+            f"    return search_propmap(pname, {name}_tab, {len(pmap)});",
+            r"}",
+        ]
 
     def def_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"static constant_t {name}[{len(constants)}];" ]
@@ -360,17 +383,36 @@ class CLangJansson(Language):
     def def_fun(self, name: str) -> Block:
         return [ self._fun(name) + ";" ]
 
-    def gen_fun(self, name: str, body: Block) -> Block:
+    def sub_fun(self, name: str, body: Block) -> Block:
         return [ self._fun(name) ] + self.indent(body)
 
-    # FIXME error reporting
+    def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return [ f"static constmap_t {name}_tab[{len(mapping)}];" ]
+
+    def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return [
+            f"static check_fun_t {name}(json_t *val)",
+            r"{",
+            r"    constant_t cst;",
+            r"    set_cst(&cst, val);",
+            f"    return search_constmap(&cst, {name}_tab, {len(mapping)});",
+            r"}",
+         ]
+
+    def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        code = []
+        for i, (k, v) in enumerate(list(mapping.items())):
+            code += [ f"{name}_tab[{i}] = (constmap_t) {{ {self._cst(k)}, {v} }};" ]
+        code += [ f"sort_constmap({name}_tab, {len(mapping)});" ]
+        return code
+
+    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+        return f"{name}({tag})"
+
     def gen_init(self, init: Block) -> Block:
         if self._uuid_used:
             init += self.init_re("_is_valid_uuid", UUID_RE)
-        body = self.indent(self.if_stmt("!initialized", [ "initialized = true;" ] + init) +
-                           [ "return NULL;" ])
-        return [ "char *CHECK_FUNCTION_NAME_init(void)" ] + body
+        return self.file_subs("clang_init.c", init)
 
     def gen_free(self, free: Block) -> Block:
-        body = self.indent(self.if_stmt("initialized", [ "initialized = false;" ] + free))
-        return [ "void CHECK_FUNCTION_NAME_free(void)" ] + body
+        return self.file_subs("clang_free.c", free)

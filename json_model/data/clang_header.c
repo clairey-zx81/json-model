@@ -1,3 +1,4 @@
+#define _GNU_SOURCE  // for qsort_r?
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -52,18 +53,19 @@ static int _json_propval_cmp(const json_propval_t *pv1, const json_propval_t *pv
     return strcmp(pv1->prop, pv2->prop);
 }
 
-// fast (size ln(size)) JSON object comparison for a total order
+// fast JSON object comparison for a total order
 static int _json_object_cmp(const json_t *v1, const json_t *v2)
 {
-    // try size
+    // first, try size
     size_t s1 = json_object_size(v1), s2 = json_object_size(v2);
     if (s1 != s2)
         return s2 - s1;
-    // else same size, try by sorted keys
+    // else same size, extract property/value pairs
     json_propval_t pv1[s1], pv2[2];
     const char *key;
     json_t *value;
     size_t index = 0;
+    // borrow properties and values from both objects
     json_object_foreach((json_t *) v1, key, value)
         pv1[index++] = (json_propval_t) { key, value };
     qsort(pv1, s1, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
@@ -71,15 +73,15 @@ static int _json_object_cmp(const json_t *v1, const json_t *v2)
     json_object_foreach((json_t *) v2, key, value)
         pv2[index++] = (json_propval_t) { key, value };
     qsort(pv2, s2, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
-    // first, lexicographic order of keys
-    for (int i = 0; i < s1; i++)
+    // second, try lexicographic order of keys
+    for (size_t i = 0; i < s1; i++)
     {
         int cmp = strcmp(pv1[i].prop, pv2[i].prop);
         if (cmp != 0)
             return cmp;
     }
-    // same keys, try lexicographic order of values
-    for (int i = 0; i < s1; i++)
+    // same keys, third, try lexicographic order of values
+    for (size_t i = 0; i < s1; i++)
     {
         int cmp = _json_cmp(pv1[i].val, pv2[i].val);
         if (cmp != 0)
@@ -101,6 +103,7 @@ static int _json_cmp(const json_t *v1, const json_t *v2)
         case JSON_NULL:
         case JSON_FALSE:
         case JSON_TRUE:
+            // only value is equal with itself
             return 0;
         case JSON_INTEGER:
             int64_t i1 = json_integer_value(v1), i2 = json_integer_value(v2);
@@ -121,6 +124,10 @@ static int _json_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
+typedef int(*cmp_r_fun_t)(const void *, const void *, void *);
+
+// NOTE this assumes ISO, and won't work on MacOS/BSD nor Windows
+// which have their own view of qsort_r, including different names and/or argument orders.
 // fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
 static int _json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
@@ -133,16 +140,21 @@ static int _json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
     return cmp;
 }
 
+// tell whether a JSON array holds distinct values.
 static bool _json_array_unique(const json_t *val)
 {
     assert(json_is_array(val));
     // extract as an actual array for sorting
     size_t size = json_array_size(val);
     const json_t *array[size];
+    // borrow array items
     for (size_t i = 0; i < size; i++)
         array[i] = json_array_get(val, i);
+    // relying only on qsort works because in the end
+    // all items have been compared to their neighbours
     bool duplicate = false;
-    qsort_r(array, size, sizeof(json_t *), (cmp_fun_t) _json_cmp_r, &duplicate);
+    // life is fun
+    qsort_r(array, size, sizeof(json_t *), (cmp_r_fun_t) _json_cmp_r, &duplicate);
     return !duplicate;
 }
 
@@ -192,20 +204,20 @@ static void report_add_entry(Report* rep, const char *msg, Path *path)
         // allocate path
         char *spath = malloc(size);
         char *spos = spath;
-        bool first = true;
+        bool dot = false;  // skip first
         // backtrack along path upward
         current = next;
         while (current != NULL)
         {
             // append "." and segment name/number unless first
-            if (!first || !current->next)
+            if (dot || !current->next)
                 *spos++ = '.';
             if (current->name)
                 spos = stpcpy(spos, current->name);
             else
                 spos += sprintf(spos, "%zu", current->index);
             current = current->next;
-            first = false;
+            dot = true;
         }
         *spos = '\0';
         entry->path = spath;
@@ -231,28 +243,34 @@ typedef bool (*check_fun_t)(const json_t *, Path *, Report *);
 /*
  * property mapping management
  */
-
 typedef struct {
     const char *name;
     check_fun_t val_check;
-} check_prop_t;
+} propmap_t;
 
-static int prop_cmp(const check_prop_t *e1, const check_prop_t *e2)
+static int
+cmp_propmap(const propmap_t *e1, const propmap_t *e2)
 {
     return strcmp(e1->name, e2->name);
 }
 
-static check_fun_t
-check_prop_find(const char *name, const check_prop_t *props, int nprops)
+static void
+sort_propmap(propmap_t *props, int nprops)
 {
-    check_prop_t searched = (check_prop_t) { name, NULL };
-    check_prop_t *entry = (check_prop_t *)
-        bsearch(&searched, props, nprops, sizeof(check_prop_t), (cmp_fun_t) prop_cmp);
+    qsort(props, nprops, sizeof(propmap_t), (cmp_fun_t) cmp_propmap);
+}
+
+static check_fun_t
+search_propmap(const char *name, const propmap_t *props, int nprops)
+{
+    propmap_t searched = (propmap_t) { name, NULL };
+    propmap_t *entry = (propmap_t *)
+        bsearch(&searched, props, nprops, sizeof(propmap_t), (cmp_fun_t) cmp_propmap);
     return entry ? entry->val_check : NULL;
 }
 
 /*
- * set of constants
+ * set of scalar constants
  */
 typedef enum {
     cst_is_null,
@@ -275,7 +293,37 @@ typedef struct
     } val;
 } constant_t;
 
-static void dbg_cst(const constant_t *c, const char *describe)
+static inline bool
+set_cst(constant_t *c, const json_t *val)
+{
+    switch (json_typeof(val))
+    {
+        case JSON_STRING:
+            *c = (constant_t) { cst_is_string, { .s = json_string_value(val) } };
+            break;
+        case JSON_INTEGER:
+            *c = (constant_t) { cst_is_integer, { .i = json_integer_value(val) } };
+            break;
+        case JSON_REAL:
+            *c = (constant_t) { cst_is_float, { .f = json_real_value(val) } };
+            break;
+        case JSON_TRUE:
+            *c = (constant_t) { cst_is_bool, { .b = true } };
+            break;
+        case JSON_FALSE:
+            *c = (constant_t) { cst_is_bool, { .b = false } };
+            break;
+        case JSON_NULL:
+            *c = (constant_t) { cst_is_null, { .s = NULL } };
+            break;
+        default:
+            return false;
+    }
+    return true;
+}
+
+static void
+dbg_cst(const constant_t *c, const char *describe)
 {
     fprintf(stderr, "%s (%s): %s\n",
             describe,
@@ -283,7 +331,8 @@ static void dbg_cst(const constant_t *c, const char *describe)
             c->tag == cst_is_string? c->val.s: "?");
 }
 
-static int cmp_cst(const constant_t *c1, const constant_t *c2)
+static int
+cmp_cst(const constant_t *c1, const constant_t *c2)
 {
     // sort by types: null < bool < int < float < string
     if (c1->tag != c2->tag)
@@ -308,14 +357,45 @@ static int cmp_cst(const constant_t *c1, const constant_t *c2)
     }
 }
 
-static void sort_cst(constant_t *array, size_t size)
+static void
+sort_cst(constant_t *array, size_t size)
 {
     qsort(array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst);
 }
 
-static bool search_cst(const constant_t *value, const constant_t *array, size_t size)
+static inline bool
+search_cst(const constant_t *value, const constant_t *array, size_t size)
 {
     return bsearch(value, array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst) != NULL;
+}
+
+/*
+ * constant mapping management for discriminant optimization
+ */
+typedef struct {
+    constant_t cst;
+    check_fun_t check_val;
+} constmap_t;
+
+static int
+cmp_constmap(const constmap_t *cm1, const constmap_t *cm2)
+{
+    return cmp_cst(&cm1->cst, &cm2->cst);
+}
+
+static void
+sort_constmap(constmap_t *array, size_t size)
+{
+    qsort(array, size, sizeof(constmap_t), (cmp_fun_t) cmp_constmap);
+}
+
+static check_fun_t
+search_constmap(const constant_t *val, const constmap_t *array, size_t size)
+{
+    constmap_t value = (constmap_t) { *val, NULL };
+    constmap_t *found = (constmap_t *)
+        bsearch(&value, array, size, sizeof(constmap_t), (cmp_fun_t) cmp_constmap);
+    return found ? found->check_val : NULL;
 }
 
 /*

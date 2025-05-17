@@ -143,6 +143,15 @@ COPT    = -O2
 	$(RM) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
 	$(MAKE) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
 
+.PHONY: %.xALL
+%.xALL:
+	$(MAKE) $*.x $*.ALL
+	$(MAKE) $*.jcheck.out
+	for f in $*.?check.out ; do
+	  echo "# $$f"
+	  cat $$f
+	done
+
 #
 # Dynamic value checks
 #

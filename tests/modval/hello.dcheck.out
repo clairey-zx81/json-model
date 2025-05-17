@@ -2,3 +2,4 @@ hello.0.true.json: PASS
 hello.1.true.json: PASS
 hello.2.false.json: FAIL [('.world', '$.world', 'expecting a boolean')]
 hello.3.false.json: FAIL [('.hello', '$.hello', 'expecting an integer')]
+hello.4.false.json: FAIL [('', '$', 'not an object (str)')]

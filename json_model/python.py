@@ -5,7 +5,8 @@ from .language import BoolExpr
 class Python(Language):
     """Python language support.
 
-    Most Python code generation is actually inherited from Language.
+    Most Python code generation is actually inherited from Language,
+    so this class in minimal.
     """
 
     def __init__(self, *, relib: str = "re2", debug: bool = False):
@@ -20,6 +21,8 @@ class Python(Language):
         self._date_used = False
         self._regex_used = False
         self._uuid_used = False
+        # TODO check actual use to desactivate
+        self._setmap_used = True
 
     def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
         if name == "$URL":
@@ -43,32 +46,27 @@ class Python(Language):
         code += [ f"__version__ = {self.esc(self._version)}" ]
         if self._re_used:
             code += [ f"import {self._relib} as re" ]
-        code += self.load_data("python_header.py")
+        code += self.file_load("python_types.py")
+        code += self.file_load("python_header.py")
+        if self._setmap_used:
+            code += [""] + self.file_load("python_setmap.py")
         if self._url_used:
-            code += [""] + self.load_data("python_url.py")
+            code += [""] + self.file_load("python_url.py")
         if self._date_used:
-            code += [""] + self.load_data("python_date.py")
+            code += [""] + self.file_load("python_date.py")
         if self._regex_used:
-            code += [""] + self.load_data("python_regex.py")
+            code += [""] + self.file_load("python_regex.py")
         if self._uuid_used:
-            code += [""] + self.load_data("python_uuid.py")
+            code += [""] + self.file_load("python_uuid.py")
         if self._len_used:
-            code += [""] + self.load_data("python_len.py")
+            code += [""] + self.file_load("python_len.py")
         return code
 
     def file_footer(self) -> Block:
-        return [""] + self.load_data("python_main.py")
-
-    def _gen(self, fname: str, block: Block) -> Block:
-        code: Block = self.load_data(fname)
-        body = self.indent(self.indent(block))
-        bidx = code.index("CODE_BLOCK")
-        assert bidx >= 0, "CODE_BLOCK marker found in file"
-        code = code[:bidx] + body + code[bidx+1:]
-        return code
+        return [""] + self.file_load("python_main.py")
 
     def gen_init(self, init: Block) -> Block:
-        return self._gen("python_init.py", init)
+        return self.file_subs("python_init.py", init)
 
     def gen_free(self, free: Block) -> Block:
-        return self._gen("python_free.py", free)
+        return self.file_subs("python_free.py", free)

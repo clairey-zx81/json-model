@@ -2,17 +2,6 @@ from typing import Callable
 import datetime
 import urllib.parse
 
-type Jsonable = None|bool|int|float|str|list[Jsonable]|dict[str, Jsonable]
-
-# NOTE path and report are None if no information is collected
-type Path = list[int|str]|None
-type Report = list[str]|None
-
-type CheckFun = Callable[[Jsonable, Path, Report], bool]
-type RegexFun = Callable[[str], bool]
-type PropMap = dict[str, CheckFun]
-type TagMap = dict[None|bool|float|int|str, CheckFun]
-
 # call initialize only once
 initialized: bool = False
 

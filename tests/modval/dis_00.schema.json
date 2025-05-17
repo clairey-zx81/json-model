@@ -1,0 +1,53 @@
+{
+  "description": "string discriminant",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "a"
+        },
+        "a": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "b"
+        },
+        "b": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "c"
+        },
+        "c": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag",
+        "c"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

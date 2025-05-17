@@ -2,3 +2,4 @@ hello.0.true.json: PASS
 hello.1.true.json: PASS
 hello.2.false.json: FAIL ['not a bool at $.world [$.world]', 'invalid must prop value at $.world [$.world]']
 hello.3.false.json: FAIL ['not a 0 int at $.hello [$.hello]', 'invalid must prop value at $.hello [$.hello]']
+hello.4.false.json: FAIL ['not an object at $ [$]']

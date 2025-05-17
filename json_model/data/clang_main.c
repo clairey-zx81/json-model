@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
                 return 0;
             case 'l':
                 fprintf(stdout, "JSON Model names (empty for default):");
-                for (int i = 0; i < array_length(_check_model_map); i++)
-                    fprintf(stdout, "%s ", _check_model_map[i].name);
+                for (int i = 0; i < array_length(_check_model_map_tab); i++)
+                    fprintf(stdout, "%s ", _check_model_map_tab[i].name);
                 fprintf(stdout, "\n");
                 return 0;
             case 'v':

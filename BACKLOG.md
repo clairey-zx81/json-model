@@ -7,6 +7,8 @@
 - [x] static: constant string and int enum
 - [x] c-backend: unique for any
 - [x] static: or implementation
+- [x] static: object disjunction on str
+- [x] static: support or constants, aka enum.
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
@@ -16,9 +18,13 @@
 ## To Do
 
 - [ ] project: improve backlog management with thematic sections
-- [ ] static: support or constants, aka enum.
+- [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
+- [ ] project: move all code's TODO here
+- [ ] py-backend: non-str enum with `ConstSet`
+- [ ] py-backend: multi-type enum `enum_05`
 - [ ] static: if loose, cast all int constants to double?
 - [ ] static: keep model comments in generated code
+- [ ] backend: move python-specifics to `python.py`
 - [ ] c-backend: add arr and obj to cst management
 - [ ] c-backend: separate headers to allow compiling a support library.
 - [ ] c-backend: more separate headers to avoid unused warnings.
