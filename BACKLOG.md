@@ -9,6 +9,8 @@
 - [x] static: or implementation
 - [x] static: object disjunction on str
 - [x] static: support or constants, aka enum.
+- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
+- [ ] static: object disjunction on int, bool, float, null
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
@@ -79,7 +81,6 @@
 - [ ] tests: move/add more tests to rwt, modval, bads
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?
-- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] tests: parallelism with `pytest`?
 - [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
