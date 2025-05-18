@@ -116,6 +116,26 @@ def test_lang(directory, language):
         assert str(code) == ref
     assert ntests == EXPECT[f"{directory}:lang-{language}"]
 
+@pytest.mark.skip(reason="not there yet…")
+def test_dypy(directory):
+    """Check generated python with test values."""
+    resolver = Resolver(None, dirmap(directory))
+    ntests = 0
+    for fpath in sorted(directory.glob("*.model.json")):
+        fname = f"./{fpath}"
+        bname = fname.replace(".model.json", "")
+        log.debug(f"dypy {str(directory)}: {fname} ({fpath})")
+        checker = model_checker_from_url(fname, resolver=resolver, follow=False)
+        for vpath in sorted(directory.glob(bname + ".*.*.json")):
+            ntests += 1
+            value = json.loads(vpath.read_text())
+            assert ".true.json" in vpath or ".false.json" in vpath
+            if ".true.json" in vpath:
+                assert checker(value)
+            else:
+                assert not checker(value)
+    assert ntests == EXPECT[f"{directory}:dypy"]
+
 # TODO no report option
 # TODO check wrt json model official schema
 # TODO check wrt json model generated schema

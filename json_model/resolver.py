@@ -43,7 +43,7 @@ class Resolver:
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
 
-    def __call__(self, url: str, path: ModelPath = [], follow: bool = True):
+    def __call__(self, url: str, *, path: ModelPath = [], follow: bool = True):
         """Resolve an external reference."""
 
         assert "#" not in url, f"no fragment in {url}"

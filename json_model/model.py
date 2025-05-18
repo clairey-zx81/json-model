@@ -349,7 +349,7 @@ class JsonModel:
         """Retrieve external JSON Model for a URL."""
         log.debug(f"{self._id}: getting {url} at {path}")
         # get raw json, may be cached
-        j = self._resolver(url, path)
+        j = self._resolver(url, path=path)
         # build a *new* model: distinct refs to the same url are treated independently
         # because each may be rewritten independently.
         # If you want to share, add an explicit definition to a url and use it afterwards.

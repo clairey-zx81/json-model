@@ -102,7 +102,7 @@ def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
     if resolver is None:
         resolver = Resolver()
 
-    mjson = resolver(murl, follow)
+    mjson = resolver(murl, follow=follow)
 
     return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver)
 
@@ -131,10 +131,12 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
     return next(_model_checker(jm, debug=debug))
 
 
-def model_checker_from_url(murl: str, *, auto: bool = False, debug: bool = False,
-                           resolver: Resolver|None = None) -> EntryCheckFun:
+def model_checker_from_url(
+            murl: str, *, auto: bool = False, debug: bool = False,
+            resolver: Resolver|None = None, follow: bool = True,
+        ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
-    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver)
+    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow)
     return model_checker(jm, debug=debug)
 
 

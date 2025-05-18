@@ -1,6 +1,7 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
+# TODO only pytest driven tests?
 D.subs  = bads rwt modval merge m2s
 D.check = $(D.subs:%=%.check)
 
@@ -11,10 +12,9 @@ clean:
 PYTEST  = pytest --log-level=debug --capture=tee-sys
 PYTOPT	= -vv
 
-# TODO reinstate some pytest tests
-# .PHONY: check.pytest
-# check.pytest:
-# 	$(PYTEST) $(PYTOPT) tests.py
+.PHONY: check.pytest
+check.pytest:
+	$(PYTEST) $(PYTOPT) tests.py
 
 .PHONY: check
 check: $(D.check)
