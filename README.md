@@ -103,9 +103,9 @@ checker = jm.model_checker_from_json(person_model)
 # test if JSON (Python) values validity
 good_person = { "name": "Hobbes", "born": "2020-07-29" }
 bad_person = { "name": "Unknown" }
-print(f"{good_person}: {checker(good_person)}")
-print(f"{bad_person}: {checker(bad_person)}")
+print(good_person, "->", checker(good_person))
+print(bad_person, "->", checker(bad_person))
 reasons: jm.Report = []
 assert not checker(bad_person, "", reasons)
-print(f"reasons: {reasons}")
+print("reasons:", reasons)
 ```
