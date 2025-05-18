@@ -520,6 +520,43 @@ class SourceCode(Validator):
 
         return code
 
+    def _compileAnd(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                    res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+        """Compile an and-list of models."""
+
+        assert isinstance(models, list)  # pyright hint
+
+        gen = self._lang
+        and_known = set(known or [])
+        smpath = json_path(mpath)
+        code = []
+
+        if not models:  # empty & list
+            code += [ gen.bool_val(res, gen.bool_cst(True)) ]
+            return
+
+        # homogeneous typed list
+        same, expected = all_model_type(models, mpath)
+        if same:
+            # all models have the same ultimate type, use a type shortcut
+            type_test = gen.is_this_type(val, expected)
+            code += [ gen.bool_var(res, type_test) ]
+            and_known.add(type_test)
+        else:
+            code += [ gen.bool_var(res, gen.bool_cst(True)) ]
+
+        # build in reverse order the if structure
+        acode: Block = []
+        for i, m in reversed(list(enumerate(models))):
+            acode = gen.if_stmt(res,
+                self._compileModel(jm, m, mpath + [i], res, val, vpath, and_known) +
+                acode
+            )
+        code += acode
+        code += self._gen_report(res, f"not all model match [{smpath}]", vpath)
+
+        return code
+
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                       res: str, val: str, vpath: str, known: set[str] = set()) -> Block:
         # TODO break each level into a separate function and let the compiler inline
@@ -705,57 +742,9 @@ class SourceCode(Validator):
                     assert isinstance(models, list)  # pyright hint
                     code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath)
                 elif "&" in model:
-
-                    and_known = set(known or [])
-                    lpath = mpath + ["&"]
-                    slpath = json_path(lpath)
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint
-
-                    if not models:  # empty & list
-                        code += [ gen.bool_val(res, gen.bool_cst(True)) ]
-                        return
-
-                    # homogeneous typed list
-                    same, expected = all_model_type(models, lpath)
-                    if same:
-                        # all models have the same ultimate type, use a type shortcut
-                        if expected is None:  # is this possible ???
-                            type_test = gen.is_null(val, False)
-                        elif expected is int:
-                            type_test = gen.is_int(val, False)
-                        elif expected is float:
-                            type_test = gen.is_flt(val, False)
-                        elif expected is bool:
-                            type_test = gen.is_bool(val)
-                        elif expected is str:
-                            type_test = gen.is_str(val)
-                        elif expected is list:
-                            type_test = gen.is_arr(val)
-                        elif expected is dict:
-                            type_test = gen.is_obj(val)
-                        else:
-                            raise Exception("unexpected type list: {expected.__name__}")
-                        code += [ gen.bool_var(res, type_test) ]
-                        and_known.add(type_test)
-                    else:
-                        code += [ gen.bool_var(res, gen.bool_cst(True)) ]
-
-                    lpvar = gen.ident("lpath")
-                    code += [ gen.path_var(lpvar, declare=True) ]
-
-                    # build in reverse order the if structure
-                    acode: Block = []
-                    for i, m in reversed(list(enumerate(models))):
-                        acode = gen.if_stmt(res,
-                            [ gen.path_var(lpvar, gen.path_val(vpath, i, False)) ] +
-                            self._compileModel(jm, m, lpath + [i],
-                                               res, val, gen.path_lvar(lpvar, vpath), and_known) +
-                            acode
-                        )
-                    code += acode
-                    code += self._gen_report(res, f"not all model match [{slpath}]", vpath)
-
+                    code += self._compileAnd(jm, models, mpath + ["&"], res, val, vpath)
                 elif "^" in model:
                     lpath = mpath + ["^"]
                     slpath = json_path(lpath)

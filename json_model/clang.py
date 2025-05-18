@@ -105,7 +105,7 @@ class CLangJansson(Language):
             return f"_is_valid_uuid(json_string_value({var}))"
         # TODO $REGEX $DATE $URL
         else:
-            return super().predef(name, path)
+            return super().predef(var, name, path)
 
     def _json_str(self, j) -> str:
         j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
