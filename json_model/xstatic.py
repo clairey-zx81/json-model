@@ -172,6 +172,8 @@ class SourceCode(Validator):
                 cst = model[constraint]
                 if not isinstance(cst, (twhat, int)):
                     raise ModelError(f"invalid constant: {cst} ({twhat.__name__}) {mpath}")
+                # TODO
+                raise NotImplementedError("constraint not implemented")
                 if isinstance(cst, int) and tmodel is str:
                     checks.append(f"len({val}) {op} {cst}")
                 elif isinstance(cst, int) and tmodel == UnknownModel:
@@ -182,10 +184,12 @@ class SourceCode(Validator):
                     checks.append(f"{what} {op} {self._esc(cst)}")
                 else:  # same type or list or dict
                     checks.append(f"{what} {op} {cst}")
+
         if "!" in model:
             if not isinstance(model["!"], bool):
                 raise ModelError(f"! constraint expects a boolean {mpath}")
             if model["!"]:
+                raise NotImplementedError("constraint not implemented")
                 # TODO must be a list!
                 log.warning("FIXME: ! generated code is not reliable")
                 code.add(indent, f"{res} &= len(set({val})) == len({val})")
