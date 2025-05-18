@@ -100,7 +100,7 @@ person_model: jm.Jsonable = {
 # create a dynamically compiled checker function for the model
 checker = jm.model_checker_from_json(person_model)
 
-# test if JSON (Python) values validity
+# test JSON (Python) values validity
 good_person = { "name": "Hobbes", "born": "2020-07-29" }
 bad_person = { "name": "Unknown" }
 print(good_person, "->", checker(good_person))
