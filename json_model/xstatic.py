@@ -369,7 +369,7 @@ class SourceCode(Validator):
 
             self._code.pmap(prop_may, prop_may_map)
 
-            ma_expr = gen.prop_fun(pfun, prop, prop_may, len(may))
+            ma_expr = gen.prop_fun(pfun, prop, prop_may)
             ma_code = (
                 [ gen.lcom("handle {len(may)} may props") ] +
                 gen.if_stmt(gen.and_op(gen.is_def(pfun),
@@ -391,7 +391,7 @@ class SourceCode(Validator):
         for r, v in regs.items():
             # FIXME options?!
             regex = f"/{r}/"
-            rg_expr = self._regExpr(regex, prop, lpath, vpath)  # FIXME lpath &lpath?
+            rg_expr = self._regExpr(regex, prop, vpath)  # FIXME lpath &lpath?
             rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)

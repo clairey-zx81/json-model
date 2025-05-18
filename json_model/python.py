@@ -42,7 +42,10 @@ class Python(Language):
             return super().predef(var, name, path)
 
     def file_header(self) -> Block:
-        code: Block = super().file_header()
+        code: Block = [
+            "#! /bin/env python",
+        ]
+        code += super().file_header()
         code += [ f"__version__ = {self.esc(self._version)}" ]
         if self._re_used:
             code += [ f"import {self._relib} as re" ]

@@ -1,9 +1,11 @@
-import pytest
+import json
 import pathlib
 import logging
+import pytest
 
-from json_model.script import create_model, process_model
+from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
+from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
@@ -14,22 +16,29 @@ log.setLevel(logging.DEBUG)
 def directory(request):
     return pathlib.Path(request.param)
 
-EXPECT: dict[tuple[str, str], int] = {
-    ("modval", "2json"): 13,
-    ("modval", "preproc"): 139,
-    ("modval", "schema"): 139,
-    ("m2s", "2json"): 0,
-    ("m2s", "preproc"): 0,
-    ("m2s", "schema"): 57,
-    ("rwt", "2json"): 0,
-    ("rwt", "preproc"): 44,
-    ("rwt", "schema"): 44,
+# test expectations
+EXPECT: dict[str, int] = {
+    "modval:2json": 13,
+    "modval:preproc": 139,
+    "modval:schema": 139,
+    "modval:lang-py": 1,
+    "modval:lang-c": 1,
+    "m2s:2json": 0,
+    "m2s:preproc": 0,
+    "m2s:schema": 57,
+    "m2s:lang-py": 0,
+    "m2s:lang-c": 0,
+    "rwt:2json": 0,
+    "rwt:preproc": 44,
+    "rwt:schema": 44,
+    "rwt:lang-py": 0,
+    "rwt:lang-c": 0,
 }
 
 def dirmap(dname) -> dict[str, str]:
     return {
-        "https://json-model.org/models": "../models",
-        "./": "./" + str(dname) + "/",
+        "https://json-model.org/models/": "../models/",
+        "./": f"./{dname}/",
     }
 
 def test_2json(directory):
@@ -44,7 +53,7 @@ def test_2json(directory):
             j = resolver(fname, follow=False)
             ref = resolver(fname.replace(suffix, ""), follow=False)
             assert j == ref
-    assert ntests == EXPECT[(str(directory), "2json")]
+    assert ntests == EXPECT[f"{directory}:2json"]
 
 def test_preproc(directory):
     """Preprocessing optimizations."""
@@ -56,11 +65,10 @@ def test_preproc(directory):
         log.debug(f"preproc: {fin}")
         ntests += 1
         ref = resolver(fname, follow=False)
-        jm = create_model(fin, resolver, auto=True, follow=True)
-        process_model(jm)
+        jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
         out = jm.toModel(True)
         assert out == ref
-    assert ntests == EXPECT[(str(directory), "preproc")]
+    assert ntests == EXPECT[f"{directory}:preproc"]
 
 def test_schema(directory):
     """Model to Schema conversion."""
@@ -79,11 +87,51 @@ def test_schema(directory):
             continue
         ntests += 1
         ref = resolver(fname, follow=False)
-        jm = create_model(fin, resolver, auto=True, follow=True)
-        process_model(jm)
+        jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
         try:
             out = jm.toSchema(True)
         except Exception as e:
             out = { "ERROR": str(e) }
         assert out == ref
-    assert ntests == EXPECT[(str(directory), "schema")]
+    assert ntests == EXPECT[f"{directory}:schema"]
+
+@pytest.fixture(params=["py", "c"])
+def language(request):
+    return request.param
+
+def test_lang(directory, language):
+    """Check compiled sources."""
+    resolver = Resolver(None, dirmap(directory))
+    suffix = f".x.{language}"
+    ntests = 0
+    for fpath in sorted(directory.glob(f"*{suffix}")):
+        fname = "./" + str(fpath)
+        fin = fname.replace(suffix, "").replace(f"./{str(directory)}/", "./")
+        log.debug(f"lang {str(directory)} {language}: {fin}")
+        ntests += 1
+        jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
+        code = xstatic_compile(jm, "check_model", lang=language)
+        with open(fname) as fl:
+            ref = fl.read()
+        assert str(code) == ref
+    assert ntests == EXPECT[f"{directory}:lang-{language}"]
+
+# TODO no report option
+# TODO check wrt json model official schema
+# TODO check wrt json model generated schema
+@pytest.mark.skip(reason="not there yet…")
+def test_models(directory):
+    """Check test model conformity to JSON Model meta model."""
+    resolver = Resolver(None, dirmap(directory))
+    checker = model_checker_from_url("https://json-model.org/models/json-model", resolver=resolver)
+    ntests = 0
+    for fpath in sorted(directory.glob(f"*.model.json")):
+        fname = "./" + str(fpath)
+        log.debug(f"models {str(directory)}: {fname}")
+        with open(fname) as f:
+            model = json.load(f)
+        report = []
+        ntests += 1
+        assert checker(model)  # no report
+        assert checker(model, "", report)  # with report
+    assert ntests == EXPECT[f"{directory}:models"]

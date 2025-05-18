@@ -11,6 +11,7 @@
 - [x] static: support or constants, aka enum.
 - [x] static: object disjunction on int, bool, float, null
 - [x] command: allow value checking under `-X -F py`
+- [x] api: load model from file, load model from string…
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
@@ -28,12 +29,12 @@
 - [ ] py-backend: multi-type enum `enum_05`
 - [ ] static: if loose, cast all int constants to double?
 - [ ] static: keep model comments in generated code
-- [ ] backend: move python-specifics to `python.py`
-- [ ] c-backend: add arr and obj to cst management
-- [ ] c-backend: separate headers to allow compiling a support library.
+- [ ] backend: move python-specifics from `language.py` to `python.py`
+- [ ] c-backend: add arr and obj to cst management?
+- [ ] c-backend: separate headers and functions to allow compiling a support library.
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
-- [ ] design: allow regular extension to use references `/...($XXX).../SOME-OPTION`
+- [ ] design: allow regular extension to use references `/...($XXX).../R`
 - [ ] design: should it allow unexpected ints as constants?
 - [ ] dynamic: JSON IR to lambda?!
 - [ ] backend: add JSON IR
@@ -47,6 +48,7 @@
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
 - [ ] c-backend: predefs for $DATE, $URL, $REGEX
 - [ ] backend: do not generate intermediate empty functions for direct objects?
+- [ ] backend: do not generate intermediate empty functions for property values when possible
 - [ ] backend: reduce/minimize language abstraction? `T_var_val`?
 - [ ] backend: rethink function boundaries?
 - [ ] backend: rethink `with_report` and `with_path`, keep the former only?
@@ -139,6 +141,7 @@
 - [ ] models: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
 - [ ] design: URI vs URL?
 - [ ] tests: move modval tests in subdirectories?
+- [ ] service: json to lang conversion API :-)
 
 ## Done
 

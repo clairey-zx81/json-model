@@ -36,7 +36,8 @@ int main(int argc, char* argv[])
                 report = true;
                 break;
             case '?':
-                fprintf(stdout, "unexpected option: %c\n", opt);
+            default:
+                fprintf(stdout, "unexpected option encountered\n");
                 return 1;
         }
     }
@@ -54,7 +55,7 @@ int main(int argc, char* argv[])
     const check_fun_t checker = CHECK_FUNCTION_NAME_fun(name);
     if (checker == NULL)
     {
-        fprintf(stderr, "check function not found\n");
+        fprintf(stderr, "check function not found for %s\n", name);
         return 3;
     }
 

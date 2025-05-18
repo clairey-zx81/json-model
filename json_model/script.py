@@ -13,34 +13,13 @@ from .dynamic import DynamicCompiler
 from .static import static_compile
 from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
+from .data.python_types import EntryCheckFun, Report
 
-def create_model(murl: str, resolver: Resolver, *,
-                 auto: bool = False, follow: bool = True, debug: bool = False) -> JsonModel:
-
-    # load raw JSON
-    j = resolver(murl, [], follow)
-
-    # handle automatic URL mapping
-    if auto and (isinstance(j, dict) and "$" in j and isinstance(j["$"], dict) and "" in j["$"]):
-        url = j["$"][""]
-        assert isinstance(url, str), f"$ expects a string: {tname(url)}"
-        fn = re.sub(r"(\.model)?(\.js(on)?)?$", "", murl)  # drop suffix
-        log.debug(f"url={url} fn={fn}")
-        file = fn if "/" in fn else ("./" + fn)
-        if fn != url and file != url and "/" in url:
-            upref, uend = url.rsplit("/", 1)
-            fpref, fend = file.rsplit("/", 1)
-            log.debug(f"upref={upref} fpref={fpref}")
-            if upref not in resolver._maps and uend == fend:
-                log.info(f"auto adding url map: {upref} -> {fpref}")
-                resolver._maps[upref] = fpref
-
-    # build a head model
-    return JsonModel(j, resolver, murl, debug=debug)
 
 def process_model(model: JsonModel, *,
-                  check: bool = True, merge: bool = True,
-                  optimize: bool = True, debug: bool = False):
+                  check: bool = True, merge: bool = True, optimize: bool = True,
+                  debug: bool = False):
+    """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
     assert model._is_head and model._is_root and model._models
@@ -79,6 +58,92 @@ def process_model(model: JsonModel, *,
         for m in all_models:
             if not analyze.valid(m):
                 raise ModelError(f"invalid merged model {m._id}")
+
+
+def model_from_json(
+        mjson: Jsonable, *, auto: bool = False,
+        debug: bool = False, murl: str|None = None,
+        check: bool = True, merge: bool = True, optimize: bool = True,
+        resolver: Resolver|None = None) -> JsonModel:
+    """JsonModel instanciation from JSON data."""
+
+    if resolver is None:
+        resolver = Resolver()
+
+    # possibly add resolver mapping rule
+    if auto and (isinstance(mjson, dict) and "$" in mjson and \
+            isinstance(mjson["$"], dict) and "" in mjson["$"]):
+        url = mjson["$"][""]
+        assert isinstance(url, str), f".\"$\"."" expects a string: {tname(url)}"
+        fn = re.sub(r"(\.model)?(\.js(on)?|\.yaml)?$", "", murl)  # drop suffix
+        if debug:
+            log.debug(f"url={url} fn={fn}")
+        file = fn if "/" in fn else ("./" + fn)
+        if fn != url and file != url and "/" in url:
+            upref, uend = url.rsplit("/", 1)
+            fpref, fend = file.rsplit("/", 1)
+            if upref not in resolver._maps and uend == fend:
+                log.info(f"auto adding url map: {upref} -> {fpref}")
+                resolver._maps[upref] = fpref
+
+    jm = JsonModel(mjson, resolver, murl, debug=debug)
+
+    if check or merge or optimize:
+        process_model(jm, check=check, merge=merge, optimize=optimize, debug=debug)
+
+    return jm
+
+
+def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
+                   check: bool = True, merge: bool = True, optimize: bool = True,
+                   resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
+    """JsonModel instanciation from a URL."""
+
+    if resolver is None:
+        resolver = Resolver()
+
+    mjson = resolver(murl, follow)
+
+    return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver)
+
+
+def model_from_str(mstring: str, *, auto: bool = False,
+                   check: bool = True, merge: bool = True, optimize: bool = True,
+                   debug: bool = False, murl: str|None = None) -> JsonModel:
+    """JsonModel instanciation from a string."""
+
+    return model_from_json(json.loads(mstring), auto=auto, debug=debug, murl=murl,
+                           check=check, merge=merge, optimize=optimize)
+
+
+# it is unclear if this tricks actually works
+def _model_checker(jm: JsonModel, *, debug: bool = False):
+    code = xstatic_compile(jm, lang="py", debug=debug)
+    env = {}
+    exec(str(code), env)
+    env["check_model_init"]()
+    yield env["check_model"]
+    env["check_model_free"]()
+
+
+def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
+    """Return an executable model checker from a JsonModel."""
+    return next(_model_checker(jm, debug=debug))
+
+
+def model_checker_from_url(murl: str, *, auto: bool = False, debug: bool = False,
+                           resolver: Resolver|None = None) -> EntryCheckFun:
+    """Return an executable model checker from a URL."""
+    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver)
+    return model_checker(jm, debug=debug)
+
+
+def create_model(murl: str, resolver: Resolver, *,
+                 auto: bool = False, follow: bool = True, debug: bool = False) -> JsonModel:
+    """JsonModel instanciation without preprocessing."""
+    return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
+                          check=False, merge=False, optimize=False)
+
 
 def jmc_script():
 
@@ -268,16 +333,14 @@ def jmc_script():
             f"valid output language {args.format}"
         code = xstatic_compile(model, args.name,
                                lang=args.format, debug=args.debug, report=args.verbose)
-        header = f"#! /bin/env python\n#\n# Model: {args.model}\n" if args.format == "py" else \
-                 f"/*\n * Model: {args.model}\n */\n"
         source = str(code)
         if args.code:
-            print(header + source, file=output)
+            print(source, file=output, end="")
         if args.format == "py" and args.values:
             env = {}
             exec(source, env)
             env[args.name + "_init"]()
-            def checker(v: Jsonable, s: str, rep: list[tuple[str, str]]|None):
+            def checker(v: Jsonable, s: str = "", rep: Report = None):
                 return env[args.name](v, "", rep)
     elif args.op == "E":
         mm = model._init_md

@@ -30,6 +30,7 @@ def jsob2json(string: str) -> str:
             tokens.append(token)
     return "".join(tokens)
 
+
 class Resolver:
     """Resolve external references to jsonable data.
 

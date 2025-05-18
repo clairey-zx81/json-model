@@ -1,7 +1,6 @@
+#
 # URL to JSON with 2 level caching
 #
-# TODO add specific environment variable for cache directory, for testing
-# TODO fix add url parameters? use provided url as is?
 
 import os
 import hashlib
@@ -12,8 +11,9 @@ import yaml
 
 from .utils import Jsonable, log
 
+
 class JsonURLCache:
-    """Cache JSON URL."""
+    """Cache JSON URL contents."""
 
     # FIXME should invalidate old cache entries?
 
@@ -21,14 +21,22 @@ class JsonURLCache:
 
         # loader
         self._requests = requests.Session()
+        self._cache_dir: str
 
-        # keep a local copy
-        self._cache_dir = cache_dir or (os.environ.get("HOME", ".") + "/.cache/json-model")
+        # cache retrieved url
+        if cache_dir is not None:
+            self._cache_dir = cache_dir
+        elif "JSON_MODEL_CACHEDIR" in os.environ:
+            self._cache_dir = os.environ.get("JSON_MODEL_CACHEDIR")
+        else:
+            self._cache_dir = os.environ.get("HOME", ".") + "/.cache/json-model"
+
+        # create cache dir if necessary
         if not os.path.exists(self._cache_dir):
             os.mkdir(self._cache_dir)
         assert os.path.isdir(self._cache_dir)
 
-        # class cache
+        # in-memory cache
         self._cache: dict[str, Jsonable] = {}
 
     def getJSON(self, url: str) -> Jsonable:
@@ -42,9 +50,11 @@ class JsonURLCache:
     def load(self, url: str):
         """Load JSON URL."""
 
+        # hmmm… basically remove fragment
         up = urllib.parse.urlparse(url)
-        # FIXME add query?
         u = up.scheme + "://" + up.netloc + up.path
+        if up.query:
+            u += "?" + up.query
 
         # first cache (memory)
         # log.error("skipping cache!")
