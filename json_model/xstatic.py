@@ -524,6 +524,81 @@ class SourceCode(Validator):
 
         return code
 
+    def _compileXor(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+                    res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+        """Compile a xor-list of models."""
+
+        assert isinstance(models, list)  # pyright hint
+        gen = self._lang
+        smpath = json_path(mpath)
+        code = []
+
+        raise NotImplementedError("TODO xor")
+
+        # optimize out repeated models
+        if len(models) >= 2:
+            seen, dups, kept = [], [], []
+            seen_i, dups_i, kept_i = [], [], []
+            for i, m in enumerate(models):
+                if model_in_models(m, seen):
+                    if not model_in_models(m, dups):
+                        dups.append(m)
+                        dups_i.append(i)
+                else:
+                    seen.append(m)
+                    seen_i.append(i)
+            for i, m in zip(seen_i, seen):
+                if not model_in_models(m, dups):
+                    kept.append(m)
+                    kept_i.append(i)
+
+            # false if in dups
+            for i, m in enumerate(dups):
+                idx = dups_i[i]
+                # i
+                self._compileModel(jm, m, lpath + [idx], "isin", val, vpath)
+                code.add(indent + i, f"{res} = not isin")
+                code.add(indent + i, f"if {res}:")
+
+            # update remaining models and identation
+            models = kept
+            models_i = kept_i
+            depth = len(dups)
+        else:
+            models_i = list(range(len(models)))
+            depth = 0
+
+        # standard case
+        if not models:
+            code.add(indent + depth, f"{res} = False")
+        elif len(models) == 1:
+            mod, idx = models[0], models_i[0]
+            # depth
+            self._compileModel(jm, mod, mpath + [idx], res, val, vpath)
+        else:  # several models are inlined
+            if len(models) == 2 and "$ANY" in models:
+                # get other model
+                m = models[1] if models[0] == "$ANY" else models[0]
+                is_m = self._lang.ident("is_m_", True)
+                # depth
+                self._compileModel(jm, m, mpath + ["?"], is_m, val, vpath)
+                code.add(indent + depth, f"{res} = not {is_m}")
+            else:
+                count = self._lang.ident("xc_")
+                test = self._lang.ident("xr_")
+                code.add(indent + depth, f"{count} = 0")
+                for i, m in enumerate(models):
+                    idx = models_i[i]
+                    code.add(indent + depth, f"if {count} <= 1:")
+                    # depth + 1
+                    self._compileModel(jm, m, mpath + [idx], test, val, vpath)
+                    code.add(indent + depth + 1, f"if {test}: {count} += 1")
+                code.add(indent + depth, f"{res} = {count} == 1")
+
+        code += self._gen_report(res, f"not one model match [{smpath}]", vpath)
+
+        return code
+
     def _compileAnd(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
                     res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
         """Compile an and-list of models."""
@@ -736,87 +811,22 @@ class SourceCode(Validator):
                     code += body
                 code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
             case dict():
-                # TODO report
                 assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
                 if "@" in model:
-                    code += self._compileConstraint(jm, model, mpath, res, val, vpath)
+                    code += self._compileConstraint(jm, model, mpath, res, val, vpath, known)
                 elif "|" in model:
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
-                    code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath)
+                    code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath, known)
                 elif "&" in model:
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint
-                    code += self._compileAnd(jm, models, mpath + ["&"], res, val, vpath)
+                    code += self._compileAnd(jm, models, mpath + ["&"], res, val, vpath, known)
                 elif "^" in model:
-                    lpath = mpath + ["^"]
-                    slpath = json_path(lpath)
                     models = model["^"]
                     assert isinstance(models, list)  # pyright hint
-
-                    # optimize out repeated models
-                    if len(models) >= 2:
-                        seen, dups, kept = [], [], []
-                        seen_i, dups_i, kept_i = [], [], []
-                        for i, m in enumerate(models):
-                            if model_in_models(m, seen):
-                                if not model_in_models(m, dups):
-                                    dups.append(m)
-                                    dups_i.append(i)
-                            else:
-                                seen.append(m)
-                                seen_i.append(i)
-                        for i, m in zip(seen_i, seen):
-                            if not model_in_models(m, dups):
-                                kept.append(m)
-                                kept_i.append(i)
-
-                        # false if in dups
-                        for i, m in enumerate(dups):
-                            idx = dups_i[i]
-                            # i
-                            self._compileModel(jm, m, lpath + [idx], "isin", val, vpath)
-                            code.add(indent + i, f"{res} = not isin")
-                            code.add(indent + i, f"if {res}:")
-
-                        # update remaining models and identation
-                        models = kept
-                        models_i = kept_i
-                        depth = len(dups)
-                    else:
-                        models_i = list(range(len(models)))
-                        depth = 0
-
-                    # standard case
-                    if not models:
-                        code.add(indent + depth, f"{res} = False")
-                    elif len(models) == 1:
-                        mod, idx = models[0], models_i[0]
-                        # depth
-                        self._compileModel(jm, mod, lpath + [idx], res, val, vpath)
-                    else:  # several models are inlined
-                        if len(models) == 2 and "$ANY" in models:
-                            # get other model
-                            m = models[1] if models[0] == "$ANY" else models[0]
-                            is_m = self._lang.ident("is_m_", True)
-                            # depth
-                            self._compileModel(jm, m, lpath + ["?"], is_m, val, vpath)
-                            code.add(indent + depth, f"{res} = not {is_m}")
-                        else:
-                            count = self._lang.ident("xc_")
-                            test = self._lang.ident("xr_")
-                            code.add(indent + depth, f"{count} = 0")
-                            for i, m in enumerate(models):
-                                idx = models_i[i]
-                                code.add(indent + depth, f"if {count} <= 1:")
-                                # depth + 1
-                                self._compileModel(jm, m, lpath + [idx], test, val, vpath)
-                                code.add(indent + depth + 1, f"if {test}: {count} += 1")
-                            code.add(indent + depth, f"{res} = {count} == 1")
-                    if self._report:
-                        code.add(indent, f"if not {res}:")
-                        code.add(indent + 1, _rep(f"not one model match [{slpath}]", vpath))
+                    code += self._compileXor(jm, models, mpath + ["^"], res, val, vpath, known)
                 else:
                     # new function to check the object
                     objid = gen.ident(self._prefix + "obj")
