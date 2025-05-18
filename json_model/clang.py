@@ -29,6 +29,7 @@ class CLangJansson(Language):
 
         self._int: str = int_t
         self._uuid_used: bool = False
+        self._date_used: bool = False
         self._anylen_used: bool = False
         self._unique_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
@@ -46,6 +47,8 @@ class CLangJansson(Language):
         header += self.file_load("clang_header.c")
         if self._uuid_used:
             header += self.file_load("clang_uuid.c")
+        if self._date_used:
+            header += self.file_load("clang_date.c")
         if self._anylen_used:
             header += self.file_load("clang_anylen.c")
         return header
@@ -103,7 +106,10 @@ class CLangJansson(Language):
         if name == "$UUID":
             self._uuid_used = True
             return f"_is_valid_uuid(json_string_value({var}))"
-        # TODO $REGEX $DATE $URL
+        elif name == "$DATE":
+            self._date_used = True
+            return f"_is_valid_date(json_string_value({var}))"
+            # TODO $REGEX $URL
         else:
             return super().predef(var, name, path)
 
