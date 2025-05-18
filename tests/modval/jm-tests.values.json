@@ -1,0 +1,11 @@
+[
+  [ true, [] ],
+  [ true, [[ true, "$ANY" ]] ],
+  [ true, [[ true, "$ANY" ], [ false, "$NONE" ]] ],
+  [ false, [ 1 ] ],
+  [ false, [ { "hello": "", "?world": "" } ] ],
+  [ false, null ],
+  [ false, 1 ],
+  [ false, "Hello World!" ],
+  [ false, {} ]
+]

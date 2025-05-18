@@ -1,0 +1,4 @@
+{
+  "#": "json model test vectors: expectation, value",
+  "@": [ [ true, "$ANY" ] ]
+}

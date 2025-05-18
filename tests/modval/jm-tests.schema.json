@@ -1,0 +1,14 @@
+{
+  "type": "array",
+  "items": {
+    "type": "array",
+    "prefixItems": [
+      {
+        "type": "boolean"
+      },
+      true
+    ],
+    "items": false,
+    "minItems": 2
+  }
+}

@@ -136,7 +136,7 @@ def test_dypy(directory):
     assert ntests == EXPECT.get(f"{directory}:dypy", 0)
 
 def test_stac(directory):
-    """Check generated C code with test values."""
+    """Check generated C code with test value files."""
     ntests, nvalues = 0, 0
     # compilation settings
     cc = os.environ.get("CC", "gcc")
@@ -172,7 +172,7 @@ def test_stac(directory):
     assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
 
 def test_stapy(directory):
-    """Check generated Python scripts with test values."""
+    """Check generated Python scripts with test value files."""
     ntests, nvalues = 0, 0
     # try all sources
     for fpath in sorted(directory.glob("*.x.py")):
