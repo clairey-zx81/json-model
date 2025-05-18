@@ -1,0 +1,4 @@
+and_int00.0.true.json: PASS
+and_int00.1.false.json: FAIL [("not all model match [$.'&']", [])]
+and_int00.2.false.json: FAIL [("not a 1 int [$.'&'.2]", []), ("not all model match [$.'&']", [])]
+and_int00.3.false.json: FAIL [("not a 0 int [$.'&'.1]", []), ("not all model match [$.'&']", [])]

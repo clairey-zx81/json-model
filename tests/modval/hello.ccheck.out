@@ -1,0 +1,5 @@
+hello.0.true.json: PASS
+hello.1.true.json: PASS
+hello.2.false.json: FAIL (.: not an expected object at [$]) (.world: invalid must property value [$]) (.world: not a bool [$.world])
+hello.3.false.json: FAIL (.: not an expected object at [$]) (.hello: invalid must property value [$]) (.hello: not a 0 int [$.hello])
+hello.4.false.json: FAIL (.: not an expected object at [$]) (.: not an object [$])

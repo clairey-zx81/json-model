@@ -150,15 +150,24 @@ def test_stac(directory):
         fexec = "/dev/shm/jm.out"
         log.debug(f"stac {directory}: {fname}")
         ntests += 1
+        # compile
         status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
         assert status == 0, f"{fname} compilation success"
+        # run on all validations
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
-        vfiles = sorted(str(f) for f in values)
-        for line in os.popen(f"{fexec} {' '.join(vfiles)}"):
+        vfiles = " ".join(sorted(str(f) for f in values))
+        for line in os.popen(f"{fexec} {vfiles}"):
             nvalues += 1
             assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
                 f"result as expected: {line}"
+        # run again with reporting
+        with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
+            out = p.read()
+        cfile = fname.replace(".x.c", ".ccheck.out")
+        with open(cfile) as r:
+            ref = r.read()
+        assert out == ref
     assert ntests == EXPECT.get(f"{directory}:stac:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
 
@@ -171,15 +180,24 @@ def test_stapy(directory):
         bname = fname.replace(".x.py", "").split("/", -1)[-1]
         log.debug(f"stac {directory}: {fname}")
         ntests += 1
+        # run on all validations
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
-        vfiles = sorted(str(f) for f in values)
-        for line in os.popen(f"{fname} {' '.join(vfiles)}"):
+        vfiles = " ".join(sorted(str(f) for f in values))
+        for line in os.popen(f"{fname} {vfiles}"):
             nvalues += 1
             assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
                 f"result as expected: {line}"
+        # run actual script with reporting
+        with os.popen(f"{fname} -r {vfiles} | cut -d/ -f2-") as p:
+            out = p.read()
+        pfile = fname.replace(".x.py", ".pcheck.out")
+        with open(pfile) as r:
+            ref = r.read()
+        assert out == ref
     assert ntests == EXPECT.get(f"{directory}:stapy:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stapy:values", 0)
+    
 
 # TODO no report option
 # TODO check wrt json model official schema

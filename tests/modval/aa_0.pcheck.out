@@ -1,0 +1,7 @@
+aa_0.0.true.json: PASS
+aa_0.1.true.json: PASS
+aa_0.2.true.json: PASS
+aa_0.3.true.json: PASS
+aa_0.4.false.json: FAIL [('unexpected string [$.0.0]', [0, 0]), ('not array or unexpected array [$.0]', [0]), ('not array or unexpected array [$]', [])]
+aa_0.5.false.json: FAIL [('not array or unexpected array [$.0]', [0]), ('not array or unexpected array [$]', [])]
+aa_0.6.false.json: FAIL [('unexpected string [$.0.0]', [3, 2]), ('not array or unexpected array [$.0]', [3]), ('not array or unexpected array [$]', [])]

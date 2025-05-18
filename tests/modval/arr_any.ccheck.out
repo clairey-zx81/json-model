@@ -1,0 +1,5 @@
+arr_any.0.true.json: PASS
+arr_any.1.true.json: PASS
+arr_any.2.false.json: FAIL (.: not array or unexpected array [$])
+arr_any.3.false.json: FAIL (.: not array or unexpected array [$])
+arr_any.4.false.json: FAIL (.: not array or unexpected array [$])

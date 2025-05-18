@@ -1,0 +1,8 @@
+dis_01.0.true.json: PASS
+dis_01.1.true.json: PASS
+dis_01.2.true.json: PASS
+dis_01.3.false.json: FAIL [("tag tag value not found [$.'|']", [])]
+dis_01.4.false.json: FAIL [("tag prop tag is missing [$.'|']", [])]
+dis_01.5.false.json: FAIL [("value is not an object [$.'|']", [])]
+dis_01.6.false.json: FAIL [("tag tag value not found [$.'|']", [])]
+dis_01.7.false.json: FAIL [("tag tag value not found [$.'|']", [])]

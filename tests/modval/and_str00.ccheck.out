@@ -1,0 +1,2 @@
+and_str00.0.true.json: PASS
+and_str00.1.false.json: FAIL (.: not all model match [$.'&']) (.: unexpected REGEX [$.'&'.0])

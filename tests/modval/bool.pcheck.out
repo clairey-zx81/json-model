@@ -1,0 +1,8 @@
+bool.0.true.json: PASS
+bool.1.true.json: PASS
+bool.2.false.json: FAIL [('not a bool [$]', [])]
+bool.3.false.json: FAIL [('not a bool [$]', [])]
+bool.4.false.json: FAIL [('not a bool [$]', [])]
+bool.5.false.json: FAIL [('not a bool [$]', [])]
+bool.6.false.json: FAIL [('not a bool [$]', [])]
+bool.7.false.json: FAIL [('not a bool [$]', [])]
