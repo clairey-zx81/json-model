@@ -1,3 +1,5 @@
+import os
+import re
 import json
 import pathlib
 import logging
@@ -21,18 +23,13 @@ EXPECT: dict[str, int] = {
     "modval:2json": 13,
     "modval:preproc": 139,
     "modval:schema": 139,
+    "modval:stac:tests": 1,
+    "modval:stac:values": 5,
     "modval:lang-py": 1,
     "modval:lang-c": 1,
-    "m2s:2json": 0,
-    "m2s:preproc": 0,
     "m2s:schema": 57,
-    "m2s:lang-py": 0,
-    "m2s:lang-c": 0,
-    "rwt:2json": 0,
     "rwt:preproc": 44,
     "rwt:schema": 44,
-    "rwt:lang-py": 0,
-    "rwt:lang-c": 0,
 }
 
 def dirmap(dname) -> dict[str, str]:
@@ -53,7 +50,7 @@ def test_2json(directory):
             j = resolver(fname, follow=False)
             ref = resolver(fname.replace(suffix, ""), follow=False)
             assert j == ref
-    assert ntests == EXPECT[f"{directory}:2json"]
+    assert ntests == EXPECT.get(f"{directory}:2json", 0)
 
 def test_preproc(directory):
     """Preprocessing optimizations."""
@@ -68,7 +65,7 @@ def test_preproc(directory):
         jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
         out = jm.toModel(True)
         assert out == ref
-    assert ntests == EXPECT[f"{directory}:preproc"]
+    assert ntests == EXPECT.get(f"{directory}:preproc", 0)
 
 def test_schema(directory):
     """Model to Schema conversion."""
@@ -93,7 +90,7 @@ def test_schema(directory):
         except Exception as e:
             out = { "ERROR": str(e) }
         assert out == ref
-    assert ntests == EXPECT[f"{directory}:schema"]
+    assert ntests == EXPECT.get(f"{directory}:schema", 0)
 
 @pytest.fixture(params=["py", "c"])
 def language(request):
@@ -107,14 +104,14 @@ def test_lang(directory, language):
     for fpath in sorted(directory.glob(f"*{suffix}")):
         fname = "./" + str(fpath)
         fin = fname.replace(suffix, "").replace(f"./{str(directory)}/", "./")
-        log.debug(f"lang {str(directory)} {language}: {fin}")
+        log.debug(f"lang {directory} {language}: {fin}")
         ntests += 1
         jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
         code = xstatic_compile(jm, "check_model", lang=language)
         with open(fname) as fl:
             ref = fl.read()
         assert str(code) == ref
-    assert ntests == EXPECT[f"{directory}:lang-{language}"]
+    assert ntests == EXPECT.get(f"{directory}:lang-{language}", 0)
 
 @pytest.mark.skip(reason="not there yet…")
 def test_dypy(directory):
@@ -124,7 +121,7 @@ def test_dypy(directory):
     for fpath in sorted(directory.glob("*.model.json")):
         fname = f"./{fpath}"
         bname = fname.replace(".model.json", "")
-        log.debug(f"dypy {str(directory)}: {fname} ({fpath})")
+        log.debug(f"dypy {directory}: {fname} ({fpath})")
         checker = model_checker_from_url(fname, resolver=resolver, follow=False)
         for vpath in sorted(directory.glob(bname + ".*.*.json")):
             ntests += 1
@@ -134,7 +131,31 @@ def test_dypy(directory):
                 assert checker(value)
             else:
                 assert not checker(value)
-    assert ntests == EXPECT[f"{directory}:dypy"]
+    assert ntests == EXPECT.get(f"{directory}:dypy", 0)
+
+def test_stac(directory):
+    """Check generated C code with test values."""
+    ntests, nvalues = 0, 0
+    # compilation settings
+    cc = os.environ.get("CC", "gcc")
+    cppflags = os.environ.get("CPPFLAGS", "-DWITH_MAIN")
+    cflags = os.environ.get("CFLAGS", "-Wall -O2")
+    ldflags = os.environ.get("LDFLAGS", "-ljansson -lpcre2-8")
+    # try all sources
+    for fpath in sorted(directory.glob("*.x.c")):
+        fname = f"./{fpath}"
+        bname = fname.replace(".x.c", "")
+        fexec = "/dev/shm/jm.out"
+        log.debug(f"stac {directory}: {fname}")
+        ntests += 1
+        status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
+        assert status == 0, f"{fname} compilation success"
+        for line in os.popen(f"{fexec} {bname}.*.true.json {bname}.*.false.json"):
+            nvalues += 1
+            assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
+                f"result as expected: {line}"
+    assert ntests == EXPECT.get(f"{directory}:stac:tests", 0)
+    assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
 
 # TODO no report option
 # TODO check wrt json model official schema
@@ -154,4 +175,4 @@ def test_models(directory):
         ntests += 1
         assert checker(model)  # no report
         assert checker(model, "", report)  # with report
-    assert ntests == EXPECT[f"{directory}:models"]
+    assert ntests == EXPECT.get(f"{directory}:models", 0)
