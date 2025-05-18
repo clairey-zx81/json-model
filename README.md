@@ -4,6 +4,8 @@ JSON Model is a compact and intuitive JSON syntax to describe JSON data structur
 
 Version 2 is work-in-progress design, implementation and tests.
 
+## References
+
 It is presented in:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
@@ -55,9 +57,7 @@ Command `jmc` options include:
 - `-F format`: select `json` or `yaml` for output
 - …
 
-## Example
-
-Export a JSON model as a JSON schema using the yaml format:
+For example, to export a JSON model as a JSON schema using the yaml format:
 
 ```sh
 jmc -EO -F yaml -
@@ -82,4 +82,30 @@ required:
 - name
 - age
 additionalProperties: false
+```
+
+## JSON Model Python API
+
+The package provides functions to load and check models from Python:
+
+```python
+import json_model as jm
+
+# direct model definition with 2 mandatory properties
+person_model: jm.Jsonable = {
+  "name": "/^[a-z]+$/i",
+  "born": "$DATE"
+}
+
+# create a dynamically compiled checker function for the model
+checker = jm.model_checker_from_json(person_model)
+
+# test if JSON (Python) values validity
+good_person = { "name": "Hobbes", "born": "2020-07-29" }
+bad_person = { "name": "Unknown" }
+print(f"{good_person}: {checker(good_person)}")
+print(f"{bad_person}: {checker(bad_person)}")
+reasons: jm.Report = []
+assert not checker(bad_person, "", reasons)
+print(f"reasons: {reasons}")
 ```

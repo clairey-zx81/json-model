@@ -131,6 +131,15 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
     return next(_model_checker(jm, debug=debug))
 
 
+def model_checker_from_json(
+            mjson: Jsonable, *, auto: bool = False, debug: bool = False,
+            resolver: Resolver|None = None,
+        ) -> EntryCheckFun:
+    """Return an executable model checker from a URL."""
+    jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver)
+    return model_checker(jm, debug=debug)
+
+
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: bool = False,
             resolver: Resolver|None = None, follow: bool = True,
