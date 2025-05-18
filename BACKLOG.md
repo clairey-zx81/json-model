@@ -12,14 +12,17 @@
 - [x] static: object disjunction on int, bool, float, null
 - [x] command: allow value checking under `-X -F py`
 - [x] api: load model from file, load model from string…
+- [x] py-frontend: handle test vector files
+- [ ] c-frontend: handle test vector files
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
+- [ ] tests: allow test vector files
 - [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] py-backend: non-str enum with `ConstSet`
-- [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: establish priority
+- [ ] frontend: accept raw sequence of values? list of values?
 
 ## To Do
 
@@ -87,7 +90,6 @@
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?
 - [ ] tests: parallelism with `pytest`?
-- [ ] tests: use ref instead of git?
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?
 - [ ] tests: skip url cache while testing
@@ -110,7 +112,6 @@
 - [ ] extend: variants, see `models/json-schema-*`
 - [ ] extend: pg storage, extension
 - [ ] extend: mongodb storage ?
-- [ ] tests: parallelize pytest runs ?!
 - [ ] perf: schema validation on yac data
 - [ ] perf: open data, eg RNCP and FRESQ
 - [ ] frontend: loop load/valid for perf
@@ -140,7 +141,6 @@
 - [ ] feature: add model predef for URI, URI-REF and the like
 - [ ] models: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
 - [ ] design: URI vs URL?
-- [ ] tests: move modval tests in subdirectories?
 - [ ] service: json to lang conversion API :-)
 
 ## Done
