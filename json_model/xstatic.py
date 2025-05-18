@@ -798,11 +798,12 @@ class SourceCode(Validator):
                     code += [ gen.bool_var(res, expr) ]
                     lpath = gen.ident("lpath")
                     lpath_ref = gen.path_lvar(lpath, vpath)
-                    body = [ gen.path_var(lvar, declare=True) ]
+                    # body = [ gen.path_var(lpath, declare=True) ]
+                    body = []
                     for i, m in reversed(list(enumerate(model))):
                         body = gen.if_stmt(
                             res,
-                            [ gen.path_var(lpath, gen.path_val(vpath, i)) ] +
+                            [ gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) ] +
                             # FIXME generated variable reference…
                             self._compileModel(
                                 jm, model[i], mpath + [i],

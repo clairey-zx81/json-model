@@ -23,10 +23,12 @@ EXPECT: dict[str, int] = {
     "modval:2json": 13,
     "modval:preproc": 139,
     "modval:schema": 139,
-    "modval:stac:tests": 1,
-    "modval:stac:values": 5,
-    "modval:lang-py": 1,
-    "modval:lang-c": 1,
+    "modval:lang-c": 9,
+    "modval:lang-py": 9,
+    "modval:stac:tests": 9,
+    "modval:stapy:tests": 9,
+    "modval:stac:values": 47,
+    "modval:stapy:values": 47,
     "m2s:schema": 57,
     "rwt:preproc": 44,
     "rwt:schema": 44,
@@ -144,18 +146,40 @@ def test_stac(directory):
     # try all sources
     for fpath in sorted(directory.glob("*.x.c")):
         fname = f"./{fpath}"
-        bname = fname.replace(".x.c", "")
+        bname = fname.replace(".x.c", "").split("/", -1)[-1]
         fexec = "/dev/shm/jm.out"
         log.debug(f"stac {directory}: {fname}")
         ntests += 1
         status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
         assert status == 0, f"{fname} compilation success"
-        for line in os.popen(f"{fexec} {bname}.*.true.json {bname}.*.false.json"):
+        values = list(directory.glob(f"{bname}.*.true.json")) + \
+                 list(directory.glob(f"{bname}.*.false.json"))
+        vfiles = sorted(str(f) for f in values)
+        for line in os.popen(f"{fexec} {' '.join(vfiles)}"):
             nvalues += 1
             assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
                 f"result as expected: {line}"
     assert ntests == EXPECT.get(f"{directory}:stac:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
+
+def test_stapy(directory):
+    """Check generated Python scripts with test values."""
+    ntests, nvalues = 0, 0
+    # try all sources
+    for fpath in sorted(directory.glob("*.x.py")):
+        fname = f"./{fpath}"
+        bname = fname.replace(".x.py", "").split("/", -1)[-1]
+        log.debug(f"stac {directory}: {fname}")
+        ntests += 1
+        values = list(directory.glob(f"{bname}.*.true.json")) + \
+                 list(directory.glob(f"{bname}.*.false.json"))
+        vfiles = sorted(str(f) for f in values)
+        for line in os.popen(f"{fname} {' '.join(vfiles)}"):
+            nvalues += 1
+            assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
+                f"result as expected: {line}"
+    assert ntests == EXPECT.get(f"{directory}:stapy:tests", 0)
+    assert nvalues == EXPECT.get(f"{directory}:stapy:values", 0)
 
 # TODO no report option
 # TODO check wrt json model official schema
