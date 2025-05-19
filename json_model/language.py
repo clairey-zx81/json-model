@@ -100,7 +100,7 @@ class Language:
     #
     def file_load(self, fn: str) -> Block:
         """Load a source file."""
-        code = data_files("json_model.runtime").joinpath(fn).read_text().split("\n")
+        code = data_files("json_model.data").joinpath(fn).read_text().split("\n")
         # remove empty trailing lines
         while code and re.match(r"^\s*$", code[-1]):
             code = code[:-1]

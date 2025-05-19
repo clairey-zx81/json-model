@@ -129,7 +129,7 @@ LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o
 json-model.o: ../../json_model/runtime/json-model.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
-main.o: ../../json_model/runtime/clang_main.c
+main.o: ../../json_model/runtime/main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
 $(F.exe): json-model.o main.o

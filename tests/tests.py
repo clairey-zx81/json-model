@@ -162,7 +162,7 @@ def test_stac(directory):
 
     src_dir = "../json_model/runtime"
     src_lib = f"{src_dir}/json-model.c"
-    src_main = f"{src_dir}/clang_main.c"
+    src_main = f"{src_dir}/main.c"
 
     # compilation settings
     cc = os.environ.get("CC", "gcc")
