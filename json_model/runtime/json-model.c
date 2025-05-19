@@ -25,6 +25,7 @@ _json_array_cmp(const json_t *v1, const json_t *v2)
     size_t s1 = json_array_size(v1), s2 = json_array_size(v2);
     if (s1 != s2)
         return s2 - s1;
+
     // else same size, use lexicographic order: first diff concludes the comparison
     size_t index;
     json_t *iv1;
@@ -35,6 +36,7 @@ _json_array_cmp(const json_t *v1, const json_t *v2)
         if (cmp != 0)
             return cmp;
     }
+
     // no difference found
     return 0;
 }
@@ -54,19 +56,23 @@ _json_object_cmp(const json_t *v1, const json_t *v2)
     size_t s1 = json_object_size(v1), s2 = json_object_size(v2);
     if (s1 != s2)
         return s2 - s1;
+
     // else same size, extract property/value pairs
-    json_propval_t pv1[s1], pv2[2];
+    json_propval_t pv1[s1], pv2[s2];
     const char *key;
     json_t *value;
-    size_t index = 0;
+
     // borrow properties and values from both objects
+    size_t index = 0;
     json_object_foreach((json_t *) v1, key, value)
         pv1[index++] = (json_propval_t) { key, value };
     qsort(pv1, s1, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
+
     index = 0;
     json_object_foreach((json_t *) v2, key, value)
         pv2[index++] = (json_propval_t) { key, value };
     qsort(pv2, s2, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
+
     // second, try lexicographic order of keys
     for (size_t i = 0; i < s1; i++)
     {
@@ -98,10 +104,11 @@ _json_cmp(const json_t *v1, const json_t *v2)
         case JSON_NULL:
         case JSON_FALSE:
         case JSON_TRUE:
-            // only value is equal with itself
+            // one only value is equal to itself
             return 0;
         case JSON_INTEGER:
             int64_t i1 = json_integer_value(v1), i2 = json_integer_value(v2);
+            // do not substract to avoid overflows
             return i1 < i2 ? -1 : i1 == i2 ? 0 : 1;
         case JSON_REAL:
             double r1 = json_real_value(v1), r2 = json_real_value(v2);
@@ -369,6 +376,7 @@ jm_is_valid_date(const char *value)
     struct tm ti = (struct tm) { .tm_year = year - 1900, .tm_mon = month - 1, .tm_mday = day};
     time_t t = mktime(&ti);
 
+    // checks no error *and* no "funny" normalization
     return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
 }
 
@@ -384,6 +392,7 @@ jm_is_valid_uuid(const char *s)
   return rc >= 0;
 }
 
+// check regex validity by attempting to compile it
 bool
 jm_is_valid_regex(const char *pattern)
 {
