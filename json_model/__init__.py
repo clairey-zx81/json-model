@@ -2,7 +2,7 @@
 # convenient types, classes and functions to process models
 #
 from .mtypes import Jsonable
-from .data.python_types import Report, EntryCheckFun
+from .runtime.python_types import Report, EntryCheckFun
 from .model import JsonModel
 from .script import (
     jmc_script,

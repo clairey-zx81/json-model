@@ -15,6 +15,8 @@
 - [x] py-frontend: handle test vector files
 - [x] c-frontend: handle test vector files
 - [x] c-backend: separate headers and functions to allow compiling a support library.
+- [x] backend: move runtime in a runtime directory.
+- [ ] py-backend: import runtime.
 - [ ] tests: check test vector files
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: generate separate lib

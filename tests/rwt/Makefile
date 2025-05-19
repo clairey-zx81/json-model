@@ -118,14 +118,14 @@ clean: clean.x
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC        = gcc
-CPPFLAGS  = -I../../json_model/data -DCHECK_FUNCTION_NAME=check_model
+CPPFLAGS  = -I../../json_model/runtime -DCHECK_FUNCTION_NAME=check_model
 CFLAGS    = -Wall -Wno-address -O2
 LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o
 
-json-model.o: ../../json_model/data/json-model.c
+json-model.o: ../../json_model/runtime/json-model.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
-main.o: ../../json_model/data/clang_main.c
+main.o: ../../json_model/runtime/clang_main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
 %.exe: json-model.o main.o
