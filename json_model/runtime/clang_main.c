@@ -43,7 +43,7 @@ process_value(check_fun_t checker, json_t * value,
 
     fprintf(stdout, "\n");
 
-    return unexpected;
+    return !unexpected;
 }
 
 int main(int argc, char* argv[])
@@ -118,9 +118,9 @@ int main(int argc, char* argv[])
         json_t *value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
         if (value == NULL)
         {
-            errors++;
             fprintf(stdout, "%s: ERROR (%s at %d:%d)\n",
                     argv[i], error.text, error.line, error.column);
+            errors++;
             continue;
         }
 

@@ -27,8 +27,8 @@ EXPECT: dict[str, int] = {
     "modval:lang-py": 23,
     "modval:stac:tests": 23,
     "modval:stapy:tests": 23,
-    "modval:stac:values": 125,
-    "modval:stapy:values": 125,
+    "modval:stac:values": 134,
+    "modval:stapy:values": 134,
     "m2s:schema": 57,
     "rwt:preproc": 44,
     "rwt:schema": 44,
@@ -124,7 +124,10 @@ def test_dypy(directory):
         fname = f"./{fpath}"
         bname = fname.replace(".model.json", "")
         log.debug(f"dypy {directory}: {fname} ({fpath})")
+
         checker = model_checker_from_url(fname, resolver=resolver, follow=False)
+
+        # true/false files
         for vpath in sorted(directory.glob(bname + ".*.*.json")):
             ntests += 1
             value = json.loads(vpath.read_text())
@@ -133,6 +136,20 @@ def test_dypy(directory):
                 assert checker(value)
             else:
                 assert not checker(value)
+
+        # values file
+        vfile = directory.joinpath(bname + ".values.json")
+        if vfile.exists():
+            values = json.loads(vfile.read_text())
+            assert isinstance(values, list)
+            for index, (expect, value) in enumerate(values):
+                ntests += 1
+                assert isinstance(expect, bool)
+                if expect:
+                    assert checker(value)
+                else:
+                    assert not checker(value)
+
     assert ntests == EXPECT.get(f"{directory}:dypy", 0)
 
 def test_stac(directory):
@@ -167,9 +184,11 @@ def test_stac(directory):
         fexec = "/dev/shm/jm.out"
         log.debug(f"stac {directory}: {fname}")
         ntests += 1
+
         # compile
         status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
         assert status == 0, f"{fname} compilation success"
+
         # run on all validations
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
@@ -178,13 +197,24 @@ def test_stac(directory):
             nvalues += 1
             assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
                 f"result as expected: {line}"
+
+        vfile = directory.joinpath(bname + ".values.json")
+        if vfile.exists():
+            for line in os.popen(f"{fexec} -t {vfile}"):
+                nvalues += 1
+                assert ": ERROR" not in line and (": PASS" in line or ": FAIL" in line)
+
         # run again with reporting
         with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
             out = p.read()
+        if vfile.exists():
+            with os.popen(f"{fexec} -tr {vfile} | cut -d/ -f2-") as p:
+                out += p.read()
         cfile = fname.replace(".x.c", ".ccheck.out")
         with open(cfile) as r:
             ref = r.read()
         assert out == ref
+
     # cleanup
     os.remove(jm_lib)
     os.remove(jm_main)
@@ -200,6 +230,7 @@ def test_stapy(directory):
         bname = fname.replace(".x.py", "").split("/", -1)[-1]
         log.debug(f"stac {directory}: {fname}")
         ntests += 1
+
         # run on all validations
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
@@ -208,13 +239,24 @@ def test_stapy(directory):
             nvalues += 1
             assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
                 f"result as expected: {line}"
-        # run actual script with reporting
+
+        vfile = directory.joinpath(bname + ".values.json")
+        if vfile.exists():
+            for line in os.popen(f"{fname} -t {vfile}"):
+                nvalues += 1
+                assert ": ERROR" not in line and (": PASS" in line or ": FAIL" in line)
+
+        # run script with reporting
         with os.popen(f"{fname} -r {vfiles} | cut -d/ -f2-") as p:
             out = p.read()
+        if vfile.exists():
+            with os.popen(f"{fname} -tr {vfile} | cut -d/ -f2-") as p:
+                out += p.read()
         pfile = fname.replace(".x.py", ".pcheck.out")
         with open(pfile) as r:
             ref = r.read()
         assert out == ref
+
     assert ntests == EXPECT.get(f"{directory}:stapy:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stapy:values", 0)
     

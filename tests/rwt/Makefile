@@ -143,6 +143,7 @@ $(F.exe): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
+	[ -f $*.values.json ] && $< -tr $*.values.json >> $@
 
 %.x.py: %.model.json
 	$(JMC.cmd) -XO -v --format py ./$< > $@
@@ -152,6 +153,7 @@ $(F.exe): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
+	[ -f $*.values.json ] && $< -tr $*.values.json >> $@
 
 .PHONY: %.x
 %.x: %.model.json
