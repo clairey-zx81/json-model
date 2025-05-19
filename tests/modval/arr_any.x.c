@@ -550,13 +550,56 @@ bool check_model(json_t *val, const char *name, bool *error, char **reasons)
 #include <unistd.h>
 #include <assert.h>
 
+typedef enum {
+    expect_nothing,
+    expect_fail,
+    expect_pass
+} process_mode_t;
+
+// check value and report if there was some error wrt expectations
+static bool
+process_value(check_fun_t checker, json_t * value,
+    const char *fname, size_t index, process_mode_t mode, bool report)
+{
+    // check value against model, fast (no path nor reasons)
+    bool valid = checker(value, NULL, NULL);
+    bool unexpected = (mode == expect_fail && valid) || (mode == expect_pass && !valid);
+
+    if (mode == expect_nothing)  // just show
+        fprintf(stdout, "%s: %s", fname, valid ? "PASS" : "FAIL");
+    else if (unexpected)
+        fprintf(stdout, "%s[%zu]: ERROR unexpected %s", fname, index, valid ? "PASS" : "FAIL");
+    else  // as expected
+        fprintf(stdout, "%s[%zu]: %s", fname, index, valid ? "PASS" : "FAIL");
+
+    // second pass with report collection
+    if (!valid && report)
+    {
+        Path path = (Path) { "", 0, NULL, NULL };
+        Report report = (Report) { NULL };
+
+        bool valid2 = checker(value, &path, &report);
+        assert(valid == valid2);
+
+        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+            fprintf(stdout, " (%s: %s)", entry->path, entry->message);
+
+        report_free_entries(&report);
+    }
+
+    fprintf(stdout, "\n");
+
+    return unexpected;
+}
+
 int main(int argc, char* argv[])
 {
     // get options
     int opt;
     char *name = "";
     bool report = false;
-    while ((opt = getopt(argc, argv, "hvln:r")) != -1)
+    bool test = false;
+    while ((opt = getopt(argc, argv, "hvln:rt")) != -1)
     {
         switch (opt) {
             case 'h':
@@ -581,6 +624,9 @@ int main(int argc, char* argv[])
                 break;
             case 'r':
                 report = true;
+                break;
+            case 't':
+                test = true;
                 break;
             case '?':
             default:
@@ -622,27 +668,38 @@ int main(int argc, char* argv[])
             continue;
         }
 
-        // check value against model, fast (no path nor reasons)
-        bool valid = checker(value, NULL, NULL);
-
-        fprintf(stdout, "%s: %s", argv[i], valid ? "PASS" : "FAIL");
-
-        // re-execute with report collection
-        if (!valid && report)
+        if (test)
         {
-            Path path = (Path) { "", 0, NULL, NULL };
-            Report report = (Report) { NULL };
+            if (!json_is_array(value))
+            {
+                fprintf(stdout, "%s: ERROR not a JSON array in test mode\n", argv[i]);
+                errors++;
+                continue;
+            }
 
-            bool valid2 = checker(value, &path, &report);
-            assert(valid == valid2);
+            size_t index;
+            json_t *val;
+            json_array_foreach(value, index, val)
+            {
+                if (!json_is_array(val) || json_array_size(val) != 2 ||
+                    !json_is_boolean(json_array_get(val, 0)))
+                {
+                    fprintf(stdout,
+                            "%s[%zu]: ERROR not an ordered pair with a boolean first element\n",
+                            argv[i], index);
+                    errors++;
+                    continue;
+                }
 
-            for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
-                fprintf(stdout, " (%s: %s)", entry->path, entry->message);
+                process_mode_t
+                    mode = json_is_true(json_array_get(val, 0)) ? expect_pass : expect_fail;
 
-            report_free_entries(&report);
+                if (!process_value(checker, json_array_get(val, 1), argv[i], index, mode, report))
+                    errors++;
+            }
         }
-
-        fprintf(stdout, "\n");
+        else
+            (void) process_value(checker, value, argv[i], 0, expect_nothing, report);
 
         // free json value
         json_decref(value);

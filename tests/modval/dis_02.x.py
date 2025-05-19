@@ -344,6 +344,7 @@ if __name__ == "__main__":
     ap.add_argument("--list", "-l", action="store_true", help="show available model names and exit")
     ap.add_argument("--version", "-v", action="store_true", help="show JSON Model compiler version")
     ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
+    ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -369,14 +370,20 @@ if __name__ == "__main__":
         try:
             with open(fn) as f:
                 value = json.load(f)
-            reasons = [] if args.report else None
-            path = [] if args.report else None
-            if checker(value, path, reasons):
-                print(f"{fn}: PASS")
-            elif reasons:
-                print(f"{fn}: FAIL {reasons}")
-            else:
-                print(f"{fn}: FAIL")
+            values = value if args.test else [ [ None, value ] ]
+            for i, (expect, val) in enumerate(values):
+                info = "" if expect is None else f"[{i}]"
+                reasons = [] if args.report else None
+                path = [] if args.report else None
+                valid = checker(val, path, reasons)
+                if expect is not None and valid != expect:
+                    print(f"{fn}{info}: ERROR unexpected {'PASS' if expect else 'FAIL'}")
+                elif valid:
+                    print(f"{fn}{info}: PASS")
+                elif reasons:
+                    print(f"{fn}{info}: FAIL {reasons}")
+                else:
+                    print(f"{fn}{info}: FAIL")
         except Exception as e:
             log.debug(e, exc_info=args.debug)
             print(f"{fn}: ERROR ({e})")

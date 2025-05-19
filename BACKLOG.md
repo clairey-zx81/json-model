@@ -13,9 +13,9 @@
 - [x] command: allow value checking under `-X -F py`
 - [x] api: load model from file, load model from string…
 - [x] py-frontend: handle test vector files
-- [ ] c-frontend: handle test vector files
+- [x] c-frontend: handle test vector files
+- [ ] tests: check test vector files
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] tests: allow test vector files
 - [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any

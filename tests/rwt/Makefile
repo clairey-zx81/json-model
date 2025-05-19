@@ -117,11 +117,13 @@ clean: clean.x
 %.x.c: %.model.json
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
-CC  = gcc
-CFLAGS    = -O2
+CC        = gcc
+CPPFLAGS  = -DWITH_MAIN
+CFLAGS    = -Wall -Wno-address -O2
+LDFLAGS   = -ljansson -lpcre2-8
 
 %.exe: %.x.c
-	$(CC) -DWITH_MAIN -Wall $(CFLAGS) $< -ljansson -lpcre2-8 -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 %.ccheck.out: %.exe
 	shopt -s nullglob
