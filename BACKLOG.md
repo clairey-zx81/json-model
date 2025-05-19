@@ -16,7 +16,9 @@
 - [x] c-frontend: handle test vector files
 - [x] c-backend: separate headers and functions to allow compiling a support library.
 - [x] backend: move runtime in a runtime directory.
+- [x] backend: working c and py "$REGEX".
 - [ ] py-backend: import runtime.
+- [ ] c-backend: fix `-l` implementation.
 - [ ] tests: check test vector files
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: generate separate lib

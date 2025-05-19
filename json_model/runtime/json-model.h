@@ -46,7 +46,7 @@ extern int _json_cmp(const json_t *, const json_t *);
 extern int _json_array_cmp(const json_t *, const json_t *);
 extern int _json_propval_cmp(const json_propval_t *, const json_propval_t *);
 extern int _json_object_cmp(const json_t *, const json_t *);
-extern bool _json_array_unique(const json_t *val);
+extern bool _json_array_unique(const json_t *);
 
 /*
  * reporting
@@ -83,8 +83,8 @@ typedef struct {
     check_fun_t val_check;
 } propmap_t;
 
-extern void jm_sort_propmap(propmap_t *props, int nprops);
-extern check_fun_t jm_search_propmap(const char *name, const propmap_t *props, int nprops);
+extern void jm_sort_propmap(propmap_t *, int);
+extern check_fun_t jm_search_propmap(const char *, const propmap_t *, int);
 
 /*
  * set of scalar constants
@@ -110,10 +110,10 @@ typedef struct
     } val;
 } constant_t;
 
-extern bool jm_set_cst(constant_t *c, const json_t *val);
-extern void jm_dbg_cst(const constant_t *c, const char *describe);
-extern void jm_sort_cst(constant_t *array, size_t size);
-extern bool jm_search_cst(const constant_t *value, const constant_t *array, size_t size);
+extern bool jm_set_cst(constant_t *, const json_t *);
+extern void jm_dbg_cst(const constant_t *, const char *);
+extern void jm_sort_cst(constant_t *, size_t);
+extern bool jm_search_cst(const constant_t *, const constant_t *, size_t);
 
 /*
  * constant mapping management for discriminant optimization
@@ -123,17 +123,18 @@ typedef struct {
     check_fun_t check_val;
 } constmap_t;
 
-extern void jm_sort_constmap(constmap_t *array, size_t size);
-extern check_fun_t jm_search_constmap(const constant_t *val, const constmap_t *array, size_t size);
+extern void jm_sort_constmap(constmap_t *, size_t);
+extern check_fun_t jm_search_constmap(const constant_t *, const constmap_t *, size_t);
 
 /*
  * Miscellaneous support functions and related data
  */
-extern bool jm_is_valid_date(const char *value);
+extern bool jm_is_valid_date(const char *);
 extern pcre2_code *jm_is_valid_uuid_code;                                                           
 extern pcre2_match_data *jm_is_valid_uuid_data;                                                     
-extern bool jm_is_valid_uuid(const char *s);
-extern size_t jm_any_len(json_t *val);
+extern bool jm_is_valid_uuid(const char *);
+extern size_t jm_any_len(json_t *);
+extern bool jm_is_valid_regex(const char *);
 
 /*
  * Generated stuff

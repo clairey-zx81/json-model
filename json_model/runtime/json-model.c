@@ -383,3 +383,17 @@ jm_is_valid_uuid(const char *s)
                        0, 0, jm_is_valid_uuid_data, NULL);
   return rc >= 0;
 }
+
+bool
+jm_is_valid_regex(const char *pattern)
+{
+    int err_code;
+    PCRE2_SIZE err_offset;
+    pcre2_code *code =
+        pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED,
+                      PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+    bool valid = code != NULL;
+    if (code)
+        pcre2_code_free(code);
+    return valid;
+}

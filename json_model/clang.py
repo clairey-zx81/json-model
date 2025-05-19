@@ -28,10 +28,6 @@ class CLangJansson(Language):
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
         self._int: str = int_t
-        self._uuid_used: bool = False
-        self._date_used: bool = False
-        self._anylen_used: bool = False
-        self._unique_used: bool = False
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
     #
@@ -93,13 +89,12 @@ class CLangJansson(Language):
     # FIXME path
     def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
         if name == "$UUID":
-            self._uuid_used = True
             return f"jm_is_valid_uuid(json_string_value({var}))"
         elif name == "$DATE":
-            self._date_used = True
             return f"jm_is_valid_date(json_string_value({var}))"
-            # TODO $REGEX $URL
-        else:
+        elif name == "$REGEX":
+            return f"jm_is_valid_regex(json_string_value({var}))"
+        else:  # TODO $URL
             return super().predef(var, name, path)
 
     def _json_str(self, j) -> str:
@@ -139,11 +134,9 @@ class CLangJansson(Language):
         return f"mbstowcs(NULL, {var}, 0)"
 
     def any_len(self, var: Var) -> IntExpr:
-        self._anylen_used = True
         return f"_any_len({var})"
 
     def unique_any(self, var: Var) -> BoolExpr:
-        self._anylen_used = True
         return f"{self.is_arr(var)} && _json_array_unique({var})"
 
     #

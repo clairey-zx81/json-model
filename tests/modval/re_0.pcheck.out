@@ -1,0 +1,2 @@
+re_0.0.true.json: PASS
+re_0.1.false.json: FAIL [('unexpected REGEX [$]', [])]

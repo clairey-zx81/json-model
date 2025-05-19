@@ -1,4 +1,6 @@
-def _is_valid_re(value: Jsonable, path: str, rep: Report = None) -> bool:
+import re
+
+def _is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
