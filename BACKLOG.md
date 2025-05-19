@@ -18,7 +18,7 @@
 - [x] backend: move runtime in a runtime directory.
 - [x] backend: working c and py "$REGEX".
 - [x] tests: check test vector files
-- [ ] py-backend: import runtime.
+- [x] py-backend: import runtime.
 - [ ] c-backend: fix `-l` implementation.
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: generate separate lib

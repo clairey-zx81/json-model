@@ -372,10 +372,10 @@ class Language:
     # for JSON values
     #
     def json_eq(self, e1: Expr, e2: Expr) -> BoolExpr:
-        return f"e1 {self._eq} {e2}"
+        return f"{e1} {self._eq} {e2}"
 
     def json_ne(self, e1: Expr, e2: Expr) -> BoolExpr:
-        return f"e1 {self._ne} {e2}"
+        return f"{e1} {self._ne} {e2}"
 
     #
     # simple instructions
@@ -565,7 +565,7 @@ class Language:
         return []
 
     def sub_fun(self, name: str, body: Block) -> Block:
-        """Generate a function."""
+        """Generate a check function."""
         return [
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)

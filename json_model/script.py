@@ -13,7 +13,7 @@ from .dynamic import DynamicCompiler
 from .static import static_compile
 from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
-from .runtime.python_types import EntryCheckFun, Report
+from .runtime.types import EntryCheckFun, Report
 
 
 def process_model(model: JsonModel, *,
