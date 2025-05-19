@@ -1,8 +1,16 @@
-dis_01.0.true.json: PASS
-dis_01.1.true.json: PASS
-dis_01.2.true.json: PASS
-dis_01.3.false.json: FAIL (.: tag tag value not found [$.'|'])
-dis_01.4.false.json: FAIL (.: tag prop tag is missing [$.'|'])
-dis_01.5.false.json: FAIL (.: value is not an object [$.'|'])
-dis_01.6.false.json: FAIL (.: tag tag value not found [$.'|'])
-dis_01.7.false.json: FAIL (.: tag tag value not found [$.'|'])
+dis_01.values.json[0]: PASS
+dis_01.values.json[1]: PASS
+dis_01.values.json[2]: PASS
+dis_01.values.json[3]: FAIL (.: tag tag value not found [$.'|'])
+dis_01.values.json[4]: FAIL (.: tag prop tag is missing [$.'|'])
+dis_01.values.json[5]: FAIL (.: tag tag value not found [$.'|'])
+dis_01.values.json[6]: FAIL (.: tag tag value not found [$.'|'])
+dis_01.values.json[7]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[8]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[9]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[10]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[11]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[12]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[13]: FAIL (.: tag prop tag is missing [$.'|'])
+dis_01.values.json[14]: FAIL (.: value is not an object [$.'|'])
+dis_01.values.json[15]: FAIL (.: tag prop tag is missing [$.'|'])

@@ -1,0 +1,16 @@
+[
+  [ true, {"t": 3.1415927, "pi": "Susie"} ],
+  [ true, {"t": 1.0, "one": "Calvin"} ],
+  [ true, {"t": 0.5, "half": "Hobbes"} ],
+  [ false, {"t": 42.1} ],
+  [ false, {"t": "half", "half": "unexpected tag type"} ],
+  [ false, {"t": [3.1415927, 1.0, 0.5], "hello": "world!"} ],
+  [ false, {"not": "even a tag"} ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 1024 ],
+  [ false, 3.1415927 ],
+  [ false, "Hello World!" ],
+  [ false, [3.1415927, 1.0, 0.5] ],
+  [ false, {} ]
+]

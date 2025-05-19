@@ -1,0 +1,18 @@
+[
+  [ true, { "tag": 18, "a": "dix-huit" } ],
+  [ true, { "tag": 42, "b": "forty-two" } ],
+  [ true, { "tag": 1024, "c": "2¹⁰" } ],
+  [ false, { "tag": 0, "x": "tag value is not allowed" } ],
+  [ false, { "hello": "world!" } ],
+  [ false, { "tag": null, "a": "unexpected tag value type" } ],
+  [ false, { "tag": {}, "a": "unexpected tag value type" } ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, -3.14159 ],
+  [ false, "not an obj" ],
+  [ false, [] ],
+  [ false, {} ],
+  [ false, ["tag", "a"] ],
+  [ false, {"t": 18, "a": "dix-huit" } ]
+]

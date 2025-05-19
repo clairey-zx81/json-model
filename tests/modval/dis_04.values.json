@@ -1,0 +1,20 @@
+[
+  [ true, {"t": null, "v": null} ],
+  [ true, {"t": true, "v": false} ],
+  [ true, {"t": 0, "v": 42} ],
+  [ true, {"t": 0.0, "v": 42.1} ],
+  [ true, {"t": "s", "v": ""} ],
+  [ true, {"t": "t", "v": "Susie"} ],
+  [ false, {"t": "t", "v": ""} ],
+  [ false, {"t": "s", "v": 3.14159} ],
+  [ false, {"t": false, "v": true} ],
+  [ false, {"t": [ "not", "expected" ], "v": "nope"} ],
+  [ false, {} ],
+  [ false, {"hello": "world!"} ],
+  [ false, ["t", "v"] ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.14159 ],
+  [ false, "tv" ]
+]
