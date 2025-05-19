@@ -51,17 +51,21 @@ F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
 
 -include local.mk
 
+.PHONY: clean.gen
+clean.gen:
+	$(RM) $(F.gen)
+
 .PHONY: gen
 gen: $(F.gen)
 
 .PHONY: check
 check:
-	$(MAKE) clean
+	$(MAKE) clean.gen
 	$(MAKE) gen
 
 .PHONY: clean
 clean:
-	$(RM) $(F.gen)
+	$(RM) *.o *.exe
 
 .PHONY: json
 json: $(F.json)
@@ -127,6 +131,8 @@ json-model.o: ../../json_model/runtime/json-model.c
 
 main.o: ../../json_model/runtime/clang_main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
+
+$(F.exe): json-model.o main.o
 
 %.exe: json-model.o main.o
 
