@@ -90,7 +90,7 @@ print("reasons:", reasons)
 
 ## References
 
-It is presented in:
+JSON Model design is presented in:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
   Fabien Coelho and Claire Yannou-Medrala.  
