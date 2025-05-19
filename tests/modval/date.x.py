@@ -29,8 +29,8 @@ initialized: bool = False
 UNDEFINED: object = object()
 
 # map model names to check functions
-_check_model_map_size: int
-_check_model_map: PropMap
+jm_check_model_map_size: int
+jm_check_model_map: PropMap
 
 # extract type name
 def _tname(value: Jsonable) -> str:
@@ -48,14 +48,14 @@ def _path(path: Path) -> str:
 
 def check_model_fun(name: str) -> CheckFun:
     """Return check function for JSON model name."""
-    return _check_model_map[name]
+    return jm_check_model_map[name]
 
 # entry point for generated checkers
 def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     """Check val validity agains JSON Model name."""
-    if name not in _check_model_map:
+    if name not in jm_check_model_map:
         raise Exception(f"unexpected model name: {name}")
-    checker = _check_model_map[name]
+    checker = jm_check_model_map[name]
     return checker(val, [], rep)
 
 # types: JsonScalar
@@ -142,7 +142,7 @@ def _is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
     rep is None or rep.append(f"incompatible type for date at {path}: {_tname(value)}")
     return False
 
-_check_model_map: PropMap
+jm_check_model_map: PropMap
 
 # check $ ($)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -159,8 +159,8 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _check_model_map
-        _check_model_map = {
+        global jm_check_model_map
+        jm_check_model_map = {
             "": json_model_1,
         }
 

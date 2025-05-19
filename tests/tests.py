@@ -23,8 +23,8 @@ EXPECT: dict[str, int] = {
     "modval:2json": 13,
     "modval:preproc": 140,
     "modval:schema": 140,
-    "modval:lang-c": 19,
-    "modval:lang-py": 19,
+    "modval:lang-c": 20,
+    "modval:lang-py": 20,
     "modval:stac:tests": 20,
     "modval:stapy:tests": 20,
     "modval:stac:values": 116,
@@ -138,11 +138,28 @@ def test_dypy(directory):
 def test_stac(directory):
     """Check generated C code with test value files."""
     ntests, nvalues = 0, 0
+
+    tmp_dir = "/dev/shm"
+    jm_lib = f"{tmp_dir}/json-model.o"
+    jm_main = f"{tmp_dir}/main.o"
+
+    src_dir = "../json_model/data"
+    src_lib = f"{src_dir}/json-model.c"
+    src_main = f"{src_dir}/clang_main.c"
+
     # compilation settings
     cc = os.environ.get("CC", "gcc")
-    cppflags = os.environ.get("CPPFLAGS", "-DWITH_MAIN")
+    cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
     cflags = os.environ.get("CFLAGS", "-Wall -O2")
-    ldflags = os.environ.get("LDFLAGS", "-ljansson -lpcre2-8")
+    ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
+
+    # compile library
+    status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
+    assert status == 0, f"support library compilation"
+
+    status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
+    assert status == 0, f"main frontend compilation"
+
     # try all sources
     for fpath in sorted(directory.glob("*.x.c")):
         fname = f"./{fpath}"
@@ -168,6 +185,9 @@ def test_stac(directory):
         with open(cfile) as r:
             ref = r.read()
         assert out == ref
+    # cleanup
+    os.remove(jm_lib)
+    os.remove(jm_main)
     assert ntests == EXPECT.get(f"{directory}:stac:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
 

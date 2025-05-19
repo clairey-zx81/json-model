@@ -106,7 +106,7 @@ F.x     = $(F.xc) $(F.exe) $(F.cc) $(F.xpy) $(F.pc)
 
 .PHONY: clean.x
 clean.x:
-	$(RM) $(F.x)
+	$(RM) $(F.x) json-model.o main.o
 
 .PHONY: check.x
 check.x: clean.x
@@ -118,9 +118,17 @@ clean: clean.x
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC        = gcc
-CPPFLAGS  = -DWITH_MAIN
+CPPFLAGS  = -I../../json_model/data -DCHECK_FUNCTION_NAME=check_model
 CFLAGS    = -Wall -Wno-address -O2
-LDFLAGS   = -ljansson -lpcre2-8
+LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o
+
+json-model.o: ../../json_model/data/json-model.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
+
+main.o: ../../json_model/data/clang_main.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
+
+%.exe: json-model.o main.o
 
 %.exe: %.x.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@

@@ -1,27 +1,25 @@
-#define _GNU_SOURCE  // for qsort_r?
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <jansson.h>
+#include <json-model.h>
 
-#define array_length(arr) (sizeof(arr) / sizeof((arr)[0]))
-typedef enum { false, true } bool;
-typedef int (*cmp_fun_t)(const void *, const void *);
+#include <stdio.h>
+#include <ctype.h>
+#include <time.h>
+
+char *jm_version_string = "<unknown>";
 
 /*
  * JSON API extensions
  */
-static bool _json_is_scalar(const json_t *val)
+bool
+_json_is_scalar(const json_t *val)
 {
     const json_type tval = json_typeof(val);
     return (tval == JSON_STRING || tval == JSON_INTEGER || tval == JSON_REAL ||
             tval == JSON_TRUE || tval == JSON_FALSE || tval == JSON_NULL);
 }
 
-static int _json_cmp(const json_t *, const json_t *);
-
 // fast JSON array comparison for a total order
-static int _json_array_cmp(const json_t *v1, const json_t *v2)
+int
+_json_array_cmp(const json_t *v1, const json_t *v2)
 {
     // try size
     size_t s1 = json_array_size(v1), s2 = json_array_size(v2);
@@ -41,20 +39,16 @@ static int _json_array_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
-// keep object prop/vals as an array for sorting and fast get.
-typedef struct {
-    const char *prop;
-    const json_t *val;
-} json_propval_t;
-
 // for sorting propvals by property names
-static int _json_propval_cmp(const json_propval_t *pv1, const json_propval_t *pv2)
+int
+_json_propval_cmp(const json_propval_t *pv1, const json_propval_t *pv2)
 {
     return strcmp(pv1->prop, pv2->prop);
 }
 
 // fast JSON object comparison for a total order
-static int _json_object_cmp(const json_t *v1, const json_t *v2)
+int
+_json_object_cmp(const json_t *v1, const json_t *v2)
 {
     // first, try size
     size_t s1 = json_object_size(v1), s2 = json_object_size(v2);
@@ -91,7 +85,8 @@ static int _json_object_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
-static int _json_cmp(const json_t *v1, const json_t *v2)
+int
+_json_cmp(const json_t *v1, const json_t *v2)
 {
     const json_type t1 = json_typeof(v1), t2 = json_typeof(v2);
     if (t1 != t2)
@@ -124,13 +119,14 @@ static int _json_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
-typedef int(*cmp_r_fun_t)(const void *, const void *, void *);
+// typedef int(*cmp_r_fun_t)(const void *, const void *, void *);
 
 // NOTE this assumes ISO, and won't work on MacOS/BSD nor Windows
 // which have their own view of qsort_r, including different names and/or argument orders.
 // fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
-static int _json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
+static int
+_json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
 {
     if (*((bool *) duplicate))
         return 0;
@@ -141,7 +137,8 @@ static int _json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
 }
 
 // tell whether a JSON array holds distinct values.
-static bool _json_array_unique(const json_t *val)
+bool
+_json_array_unique(const json_t *val)
 {
     assert(json_is_array(val));
     // extract as an actual array for sorting
@@ -161,26 +158,8 @@ static bool _json_array_unique(const json_t *val)
 /*
  * reporting
  */
-// linked list of report entries
-typedef struct ReportEntry {
-  const char *message;
-  char *path;
-  struct ReportEntry *prev;
-} ReportEntry;
-
-typedef struct Report {
-  ReportEntry *entry;
-} Report;
-
-// path segment, name == NULL means use index
-typedef struct Path {
-    const char *name;
-    size_t index;
-    struct Path *prev;  // link to previous (in stack) segment
-    struct Path *next;  // used for backtacking
-} Path;
-
-static void report_add_entry(Report* rep, const char *msg, Path *path)
+void
+jm_report_add_entry(Report* rep, const char *msg, Path *path)
 {
     ReportEntry *entry = malloc(sizeof(ReportEntry));
     *entry = (ReportEntry) { msg, NULL, rep->entry };
@@ -224,7 +203,8 @@ static void report_add_entry(Report* rep, const char *msg, Path *path)
     }
 }
 
-static void report_free_entries(Report *rep)
+void
+jm_report_free_entries(Report *rep)
 {
     ReportEntry *entry = rep->entry;
     rep->entry = NULL;
@@ -238,30 +218,23 @@ static void report_free_entries(Report *rep)
     }
 }
 
-typedef bool (*check_fun_t)(const json_t *, Path *, Report *);
-
 /*
  * property mapping management
  */
-typedef struct {
-    const char *name;
-    check_fun_t val_check;
-} propmap_t;
-
 static int
 cmp_propmap(const propmap_t *e1, const propmap_t *e2)
 {
     return strcmp(e1->name, e2->name);
 }
 
-static void
-sort_propmap(propmap_t *props, int nprops)
+void
+jm_sort_propmap(propmap_t *props, int nprops)
 {
     qsort(props, nprops, sizeof(propmap_t), (cmp_fun_t) cmp_propmap);
 }
 
-static check_fun_t
-search_propmap(const char *name, const propmap_t *props, int nprops)
+check_fun_t
+jm_search_propmap(const char *name, const propmap_t *props, int nprops)
 {
     propmap_t searched = (propmap_t) { name, NULL };
     propmap_t *entry = (propmap_t *)
@@ -272,29 +245,8 @@ search_propmap(const char *name, const propmap_t *props, int nprops)
 /*
  * set of scalar constants
  */
-typedef enum {
-    cst_is_null,
-    cst_is_bool,
-    cst_is_integer,
-    cst_is_float,
-    cst_is_string
-    // cst_is_array + const json_t * + free
-    // cst_is_object + const json_t * + free
-} constant_tag;
-
-typedef struct
-{
-    constant_tag tag;
-    union {
-        bool b;
-        int64_t i;
-        double f;
-        const char *s;
-    } val;
-} constant_t;
-
-static inline bool
-set_cst(constant_t *c, const json_t *val)
+bool
+jm_set_cst(constant_t *c, const json_t *val)
 {
     switch (json_typeof(val))
     {
@@ -322,8 +274,8 @@ set_cst(constant_t *c, const json_t *val)
     return true;
 }
 
-static void
-dbg_cst(const constant_t *c, const char *describe)
+void
+jm_dbg_cst(const constant_t *c, const char *describe)
 {
     fprintf(stderr, "%s (%s): %s\n",
             describe,
@@ -357,14 +309,14 @@ cmp_cst(const constant_t *c1, const constant_t *c2)
     }
 }
 
-static void
-sort_cst(constant_t *array, size_t size)
+void
+jm_sort_cst(constant_t *array, size_t size)
 {
     qsort(array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst);
 }
 
-static inline bool
-search_cst(const constant_t *value, const constant_t *array, size_t size)
+bool
+jm_search_cst(const constant_t *value, const constant_t *array, size_t size)
 {
     return bsearch(value, array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst) != NULL;
 }
@@ -372,25 +324,20 @@ search_cst(const constant_t *value, const constant_t *array, size_t size)
 /*
  * constant mapping management for discriminant optimization
  */
-typedef struct {
-    constant_t cst;
-    check_fun_t check_val;
-} constmap_t;
-
 static int
 cmp_constmap(const constmap_t *cm1, const constmap_t *cm2)
 {
     return cmp_cst(&cm1->cst, &cm2->cst);
 }
 
-static void
-sort_constmap(constmap_t *array, size_t size)
+void
+jm_sort_constmap(constmap_t *array, size_t size)
 {
     qsort(array, size, sizeof(constmap_t), (cmp_fun_t) cmp_constmap);
 }
 
-static check_fun_t
-search_constmap(const constant_t *val, const constmap_t *array, size_t size)
+check_fun_t
+jm_search_constmap(const constant_t *val, const constmap_t *array, size_t size)
 {
     constmap_t value = (constmap_t) { *val, NULL };
     constmap_t *found = (constmap_t *)
@@ -398,13 +345,41 @@ search_constmap(const constant_t *val, const constmap_t *array, size_t size)
     return found ? found->check_val : NULL;
 }
 
-/*
- * generated API
- */
-static bool initialized = false;
+size_t
+jm_any_len(json_t *val)
+{
+    if (json_is_object(val))
+        return json_object_size(val);
+    else if (json_is_array(val))
+        return json_array_size(val);
+    else if (json_is_string(val))
+        return mbstowcs(NULL, json_string_value(val), 0);
+    // panic
+    return 0;
+}
 
-/* module API: FIXME, report free is missing? hide function retrieval? */
-char *CHECK_FUNCTION_NAME_init(void);
-check_fun_t CHECK_FUNCTION_NAME_fun(const char *name);
-bool CHECK_FUNCTION_NAME(json_t* val, const char *name, bool *error, char **reasons);
-void CHECK_FUNCTION_NAME_free(void);
+bool
+jm_is_valid_date(const char *value)
+{
+    int year, month, day;
+
+    if (value == NULL || sscanf(value, "%4d-%2d-%2d", &year, &month, &day) != 3)
+        return false;
+
+    struct tm ti = (struct tm) { .tm_year = year - 1900, .tm_mon = month - 1, .tm_mday = day};
+    time_t t = mktime(&ti);
+
+    return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
+}
+
+// this must be initialized!
+pcre2_code *jm_is_valid_uuid_code = NULL;
+pcre2_match_data *jm_is_valid_uuid_data = NULL;
+
+bool
+jm_is_valid_uuid(const char *s)
+{
+  int rc = pcre2_match(jm_is_valid_uuid_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, jm_is_valid_uuid_data, NULL);
+  return rc >= 0;
+}

@@ -1,9 +1,7 @@
-/*
- * return check function from identifier.
- */
-check_fun_t CHECK_FUNCTION_NAME_fun(const char *name)
+check_fun_t
+CHECK_fun(const char *name)
 {
-    return _check_model_map(name);
+    return jm_check_model_map(name);
 }
 
 /*
@@ -17,10 +15,11 @@ check_fun_t CHECK_FUNCTION_NAME_fun(const char *name)
  *
  * if the model is not found, report error and reasons if required, else coldly exit.
  */
-bool CHECK_FUNCTION_NAME(json_t *val, const char *name, bool *error, char **reasons)
+bool
+CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
-    CHECK_FUNCTION_NAME_init();  // lazy
-    check_fun_t checker = CHECK_FUNCTION_NAME_fun(name);
+    CHECK_init();  // lazy
+    check_fun_t checker = jm_check_model_map(name);
 
     bool not_found = checker == NULL;
     if (error)
@@ -67,7 +66,7 @@ bool CHECK_FUNCTION_NAME(json_t *val, const char *name, bool *error, char **reas
             message += sprintf("%s: %s\n", entry->path, entry->message);
     }
 
-    report_free_entries(&report);
+    jm_report_free_entries(&report);
 
     return valid;
 }

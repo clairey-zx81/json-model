@@ -38,24 +38,13 @@ class CLangJansson(Language):
     # file
     #
     def file_header(self: str) -> Block:
-        header = []
-        if self._re_used:
-            if self._relib == "pcre2":
-                header += [ "#define PCRE2_CODE_UNIT_WIDTH 8" ]
-            header += [ f"#include <{self._relib}.h>" ]
-        header += [ f"#define JSON_MODEL_VERSION {self.esc(self._version)}" ]
-        header += self.file_load("clang_header.c")
-        if self._uuid_used:
-            header += self.file_load("clang_uuid.c")
-        if self._date_used:
-            header += self.file_load("clang_date.c")
-        if self._anylen_used:
-            header += self.file_load("clang_anylen.c")
-        return header
+        return [
+            r"#include <json-model.h>",
+            f"#define JSON_MODEL_VERSION {self.esc(self._version)}"
+        ]
 
     def file_footer(self) -> Block:
-        return ([""] + self.file_load("clang_entry.c") +
-                [""] + self.file_load("clang_main.c"))
+        return [""] + self.file_load("clang_entry.c")
 
     #
     # inlined type test expressions about JSON data
@@ -105,10 +94,10 @@ class CLangJansson(Language):
     def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
         if name == "$UUID":
             self._uuid_used = True
-            return f"_is_valid_uuid(json_string_value({var}))"
+            return f"jm_is_valid_uuid(json_string_value({var}))"
         elif name == "$DATE":
             self._date_used = True
-            return f"_is_valid_date(json_string_value({var}))"
+            return f"jm_is_valid_date(json_string_value({var}))"
             # TODO $REGEX $URL
         else:
             return super().predef(var, name, path)
@@ -209,7 +198,7 @@ class CLangJansson(Language):
         return self._var(var, val, self._int if declare else None)
 
     def report(self, msg: str, path: Var) -> Block:
-        return ([ f"if (rep) report_add_entry(rep, {self.esc(msg)}, {path});" ]
+        return ([ f"if (rep) jm_report_add_entry(rep, {self.esc(msg)}, {path});" ]
                 if self._with_report else [])
 
     #
@@ -325,14 +314,14 @@ class CLangJansson(Language):
         for i, pf in enumerate(pmap.items()):
             p, f = pf
             init += [ f"{name}_tab[{i}] = (propmap_t) {{ {self.esc(p)}, {f} }};" ]
-        init += [ f"sort_propmap({name}_tab, {len(pmap)});" ]
+        init += [ f"jm_sort_propmap({name}_tab, {len(pmap)});" ]
         return init
 
     def sub_pmap(self, name: str, pmap: PropMap) -> Block:
         return [
-            f"static inline check_fun_t {name}(const char *pname)",
+            f"static check_fun_t {name}(const char *pname)",
             r"{",
-            f"    return search_propmap(pname, {name}_tab, {len(pmap)});",
+            f"    return jm_search_propmap(pname, {name}_tab, {len(pmap)});",
             r"}",
         ]
 
@@ -360,7 +349,7 @@ class CLangJansson(Language):
             raise NotImplementedError("multi type test")
         tcs = types.pop()
         val = self._var_cst(var, tcs)
-        return f"{self.is_this_type(var, tcs)} && search_cst(&{val}, {name}, {len(constants)});"
+        return f"{self.is_this_type(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
 
     def _cst(self, value: Jsonable) -> str:
         match value:
@@ -381,7 +370,7 @@ class CLangJansson(Language):
         code = [ self.lcom("initialize sorted set {name}") ]
         for i, cst in enumerate(constants):
             code.append(f"{name}[{i}] = {self._cst(cst)};")
-        code.append(f"sort_cst({name}, {len(constants)});")
+        code.append(f"jm_sort_cst({name}, {len(constants)});")
         return code
 
     def _fun(self, name: str) -> str:
@@ -401,8 +390,8 @@ class CLangJansson(Language):
             f"static check_fun_t {name}(json_t *val)",
             r"{",
             r"    constant_t cst;",
-            r"    set_cst(&cst, val);",
-            f"    return search_constmap(&cst, {name}_tab, {len(mapping)});",
+            r"    jm_set_cst(&cst, val);",
+            f"    return jm_search_constmap(&cst, {name}_tab, {len(mapping)});",
             r"}",
          ]
 
@@ -410,16 +399,14 @@ class CLangJansson(Language):
         code = []
         for i, (k, v) in enumerate(list(mapping.items())):
             code += [ f"{name}_tab[{i}] = (constmap_t) {{ {self._cst(k)}, {v} }};" ]
-        code += [ f"sort_constmap({name}_tab, {len(mapping)});" ]
+        code += [ f"jm_sort_constmap({name}_tab, {len(mapping)});" ]
         return code
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         return f"{name}({tag})"
 
     def gen_init(self, init: Block) -> Block:
-        if self._uuid_used:
-            init += self.init_re("_is_valid_uuid", UUID_RE)
-        return self.file_subs("clang_init.c", init)
+        return self.file_subs("clang_init.c", ["jm_version_string = JSON_MODEL_VERSION;"] + init)
 
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("clang_free.c", free)

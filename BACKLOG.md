@@ -14,8 +14,10 @@
 - [x] api: load model from file, load model from string…
 - [x] py-frontend: handle test vector files
 - [x] c-frontend: handle test vector files
+- [x] c-backend: separate headers and functions to allow compiling a support library.
 - [ ] tests: check test vector files
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
+- [ ] static: generate separate lib
 - [ ] static: multi-type object disjunction
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
@@ -23,6 +25,7 @@
 - [ ] py-backend: non-str enum with `ConstSet`
 - [ ] project: establish priority
 - [ ] frontend: accept raw sequence of values? list of values?
+- [ ] command: allow direct compilation with cc-like options?
 
 ## To Do
 
@@ -34,7 +37,6 @@
 - [ ] static: keep model comments in generated code
 - [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] c-backend: add arr and obj to cst management?
-- [ ] c-backend: separate headers and functions to allow compiling a support library.
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
 - [ ] design: allow regular extension to use references `/...($XXX).../R`

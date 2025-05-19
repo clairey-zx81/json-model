@@ -9,8 +9,8 @@ initialized: bool = False
 UNDEFINED: object = object()
 
 # map model names to check functions
-_check_model_map_size: int
-_check_model_map: PropMap
+jm_check_model_map_size: int
+jm_check_model_map: PropMap
 
 # extract type name
 def _tname(value: Jsonable) -> str:
@@ -28,12 +28,12 @@ def _path(path: Path) -> str:
 
 def CHECK_FUNCTION_NAME_fun(name: str) -> CheckFun:
     """Return check function for JSON model name."""
-    return _check_model_map[name]
+    return jm_check_model_map[name]
 
 # entry point for generated checkers
 def CHECK_FUNCTION_NAME(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     """Check val validity agains JSON Model name."""
-    if name not in _check_model_map:
+    if name not in jm_check_model_map:
         raise Exception(f"unexpected model name: {name}")
-    checker = _check_model_map[name]
+    checker = jm_check_model_map[name]
     return checker(val, [], rep)

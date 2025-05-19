@@ -637,13 +637,15 @@ class SourceCode(Validator):
         return code
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                      res: str, val: str, vpath: str, known: set[str] = set()) -> Block:
+                      res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
         # TODO break each level into a separate function and let the compiler inline
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
         assert isinstance(mpath, list)
         smpath = json_path(mpath)
         gen = self._lang
+        known = known or set()
+
         code = [ gen.lcom(f"{json_path(mpath)}") ]
         match model:
             case None:
@@ -952,7 +954,7 @@ class SourceCode(Validator):
             self.compileOneJsonModel(jm, gref, [gref], True)
 
         # generate mapping, name must be consistent with data/clang_*.c
-        self._code.pmap("_check_model_map", entries)
+        self._code.pmap("jm_check_model_map", entries)
 
         return self._code
 
