@@ -10,7 +10,8 @@
         "Susie",
         "Calvin",
         "Hobbes",
-        "Moe"
+        "Moe",
+        "Bad"
       ],
       "#": "JsonModel 2"
     },
@@ -19,7 +20,8 @@
         "Castafiore",
         "Haddock",
         "Milou",
-        "Tintin"
+        "Tintin",
+        "Bad"
       ],
       "#": "JsonModel 3"
     },

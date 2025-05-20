@@ -1,0 +1,9 @@
+[
+  [ true, "Susie" ],
+  [ true, "Calvin" ],
+  [ false, "another string" ],
+  [ false, [ "another", "type" ] ],
+  [ false, null ],
+  [ false, 3.1415927 ],
+  [ false, "Calvin Hobbes Susie" ]
+]

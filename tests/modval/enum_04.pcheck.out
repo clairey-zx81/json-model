@@ -1,0 +1,4 @@
+enum_04.values.json[0]: PASS
+enum_04.values.json[1]: FAIL [("unexpected type at [$.'|']", [])]
+enum_04.values.json[2]: FAIL [("unexpected type at [$.'|']", [])]
+enum_04.values.json[3]: FAIL [("unexpected type at [$.'|']", [])]

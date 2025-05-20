@@ -1,0 +1,6 @@
+[
+  [ true, 204 ],
+  [ false, "200" ],
+  [ false, null ],
+  [ false, [ "400" ] ]
+]
