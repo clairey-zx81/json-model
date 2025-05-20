@@ -3,7 +3,8 @@
 
 static bool json_model_2(const json_t* val, Path* path, Report* rep);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
-static propmap_t jm_check_model_map_tab[2];
+propmap_t check_model_map_tab[2];
+const size_t check_model_map_size = 2;
 
 // check $pos ($.'$pos')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
@@ -31,9 +32,9 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t jm_check_model_map(const char *pname)
+check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, jm_check_model_map_tab, 2);
+    return jm_search_propmap(pname, check_model_map_tab, 2);
 }
 
 static bool initialized = false;
@@ -44,9 +45,9 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        jm_check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        jm_check_model_map_tab[1] = (propmap_t) { "pos", json_model_2 };
-        jm_sort_propmap(jm_check_model_map_tab, 2);
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (propmap_t) { "pos", json_model_2 };
+        jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;
 }
@@ -61,12 +62,6 @@ void CHECK_free(void)
     }
 }
 
-
-check_fun_t
-CHECK_fun(const char *name)
-{
-    return jm_check_model_map(name);
-}
 
 /*
  * API: bool check_model(json_t *, const char *, bool *, char **);
@@ -83,7 +78,7 @@ bool
 CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
     CHECK_init();  // lazy
-    check_fun_t checker = jm_check_model_map(name);
+    check_fun_t checker = CHECK_fun(name);
 
     bool not_found = checker == NULL;
     if (error)

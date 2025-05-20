@@ -954,7 +954,7 @@ class SourceCode(Validator):
             self.compileOneJsonModel(jm, gref, [gref], True)
 
         # generate mapping, name must be consistent with data/clang_*.c
-        self._code.pmap("jm_check_model_map", entries)
+        self._code.pmap(f"{self._code._entry}_map", entries, True)
 
         return self._code
 

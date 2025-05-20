@@ -40,6 +40,7 @@ class Python(Language):
             f"import {self._relib} as re",
             f"from json_model.runtime import *",
             f"__version__ = {self.esc(self._version)}",
+            "",
         ] + self.file_load("python_entry.py")
         return code
 

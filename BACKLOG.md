@@ -19,21 +19,22 @@
 - [x] backend: working c and py "$REGEX".
 - [x] tests: check test vector files
 - [x] py-backend: import runtime.
+- [x] static: generate separate lib
 - [x] backend: clarify runtime vs data.
-- [ ] c-backend: fix `-l` implementation.
+- [x] c-backend: fix `-l` implementation.
+- [ ] c-backend: prefix type name and extensions with `jm_`
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] static: generate separate lib
-- [ ] static: multi-type object disjunction
+- [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] py-backend: non-str enum with `ConstSet`
-- [ ] project: establish priority
-- [ ] frontend: accept raw sequence of values? list of values?
-- [ ] command: allow direct compilation with cc-like options?
+- [ ] c-backend: report missing must property names by reinvestigating.
 
 ## To Do
 
+- [ ] project: establish priority
+- [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: improve backlog management with thematic sections
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
 - [ ] project: move all code's TODO here
@@ -149,6 +150,7 @@
 - [ ] models: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
 - [ ] design: URI vs URL?
 - [ ] service: json to lang conversion API :-)
+- [ ] command: allow direct compilation with cc-like options?
 
 ## Done
 

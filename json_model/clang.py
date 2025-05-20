@@ -299,20 +299,23 @@ class CLangJansson(Language):
             f"pcre2_code_free({name}_code);",
         ]
 
-    def def_pmap(self, name: str, pmap: PropMap) -> Block:
-        return [ f"static propmap_t {name}_tab[{len(pmap)}];" ]
+    def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        code = [ f"{'' if public else 'static '}propmap_t {name}_tab[{len(pmap)}];" ]
+        if public:
+            # add size accessor to public maps
+            code += [ f"const size_t {name}_size = {len(pmap)};" ]
+        return code
 
-    def ini_pmap(self, name: str, pmap: PropMap) -> Block:
+    def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         init = []
-        for i, pf in enumerate(pmap.items()):
-            p, f = pf
+        for i, (p, f) in enumerate(pmap.items()):
             init += [ f"{name}_tab[{i}] = (propmap_t) {{ {self.esc(p)}, {f} }};" ]
         init += [ f"jm_sort_propmap({name}_tab, {len(pmap)});" ]
         return init
 
-    def sub_pmap(self, name: str, pmap: PropMap) -> Block:
+    def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [
-            f"static check_fun_t {name}(const char *pname)",
+            f"{'' if public else 'static '}check_fun_t {name}(const char *pname)",
             r"{",
             f"    return jm_search_propmap(pname, {name}_tab, {len(pmap)});",
             r"}",

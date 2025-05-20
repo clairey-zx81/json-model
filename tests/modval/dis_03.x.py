@@ -7,22 +7,23 @@ from typing import Callable
 import re2 as re
 from json_model.runtime import *
 __version__ = "2.0a0"
+
 def check_model_fun(name: str) -> CheckFun:
     """Return check function for JSON model name."""
-    return jm_check_model_map[name]
+    return check_model_map[name]
 
 # entry point for generated checkers
 def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     """Check val validity agains JSON Model name."""
-    if name not in jm_check_model_map:
+    if name not in check_model_map:
         raise Exception(f"unexpected model name: {name}")
-    checker = jm_check_model_map[name]
+    checker = check_model_map[name]
     return checker(val, [], rep)
 
 _jm_obj_0_must: PropMap
 _jm_obj_1_must: PropMap
 _jm_map_0: ConstMap = ConstMap()
-jm_check_model_map: PropMap
+check_model_map: PropMap
 
 # check _jm_obj_0_must_discriminator ($.'|'.0.discriminator)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -156,8 +157,8 @@ def check_model_init():
         global _jm_map_0
         _jm_map_0[True] = _jm_obj_0
         _jm_map_0[False] = _jm_obj_1
-        global jm_check_model_map
-        jm_check_model_map = {
+        global check_model_map
+        check_model_map = {
             "": json_model_1,
         }
 
@@ -170,5 +171,5 @@ def check_model_free():
 
 if __name__ == "__main__":
     check_model_init()
-    main(check_model_fun, jm_check_model_map, __version__)
+    main(check_model_fun, check_model_map, __version__)
     check_model_free()

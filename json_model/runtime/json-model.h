@@ -6,22 +6,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <jansson.h>
+
 #define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
+#include <jansson.h>
 
+/*
+ * build generated API names
+ */
 #ifndef CHECK_FUNCTION_NAME
 #warning defining CHECK_FUNCTION_NAME macro
 #define CHECK_FUNCTION_NAME check_model
-#else
-// #warning CHECK_FUNCTION_NAME already defined
 #endif  // !CHECK_FUNCTION_NAME
 
-// build generated API
-#define CHECK_init CHECK_FUNCTION_NAME ## _init
-#define CHECK_free CHECK_FUNCTION_NAME ## _free
-#define CHECK_fun CHECK_FUNCTION_NAME ## _fun
+#define concat(prefix, suffix) prefix ## suffix
+#define newname(prefix, suffix) concat(prefix, suffix)
+
+#define CHECK_map_size newname(CHECK_FUNCTION_NAME, _map_size)
+#define CHECK_map_tab newname(CHECK_FUNCTION_NAME, _map_tab)
+#define CHECK_fun newname(CHECK_FUNCTION_NAME, _map)
+#define CHECK_init newname(CHECK_FUNCTION_NAME, _init)
 #define CHECK CHECK_FUNCTION_NAME
+#define CHECK_free newname(CHECK_FUNCTION_NAME, _free)
 
 // set on init
 extern char * jm_version_string;
@@ -44,8 +50,8 @@ typedef struct {
 extern bool _json_is_scalar(const json_t *);
 extern int _json_cmp(const json_t *, const json_t *);
 extern int _json_array_cmp(const json_t *, const json_t *);
-extern int _json_propval_cmp(const json_propval_t *, const json_propval_t *);
 extern int _json_object_cmp(const json_t *, const json_t *);
+extern int _json_propval_cmp(const json_propval_t *, const json_propval_t *);
 extern bool _json_array_unique(const json_t *);
 
 /*
@@ -139,10 +145,12 @@ extern bool jm_is_valid_regex(const char *);
 /*
  * Generated stuff
  */
-// extern size_t CHECK_map_size;
-// extern propmap_t CHECK_map_tab[];
-extern char *CHECK_init(void);
+// low-level interface
+extern const size_t CHECK_map_size;
+extern propmap_t CHECK_map_tab[];
 extern check_fun_t CHECK_fun(const char *);
+// high-level interface
+extern char *CHECK_init(void);
 extern bool CHECK(json_t *, const char *, bool *, char **);
 extern void CHECK_free(void);
 

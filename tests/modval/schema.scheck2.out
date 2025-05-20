@@ -1,3 +1,4 @@
+aa_0.schema.json: PASS
 and_int00.schema.json: PASS
 and_str00.schema.json: PASS
 and_str01.schema.json: PASS
@@ -11,7 +12,12 @@ bool.schema.json: PASS
 bool_s.schema.json: PASS
 compl00.schema.json: PASS
 date.schema.json: PASS
-def00.schema.json: PASS
+def_00.schema.json: PASS
+dis_00.schema.json: PASS
+dis_01.schema.json: PASS
+dis_02.schema.json: PASS
+dis_03.schema.json: PASS
+dis_04.schema.json: PASS
 dl_00.schema.json: PASS
 dst_00.schema.json: PASS
 dst_01.schema.json: PASS
@@ -20,6 +26,9 @@ dst_03.schema.json: PASS
 enum_00.schema.json: PASS
 enum_01.schema.json: PASS
 enum_02.schema.json: PASS
+enum_03.schema.json: PASS
+enum_04.schema.json: PASS
+enum_05.schema.json: PASS
 eq_3p14.schema.json: PASS
 eq_42.schema.json: PASS
 eq_false.schema.json: PASS
@@ -50,6 +59,7 @@ hello.schema.json: PASS
 int_0.schema.json: PASS
 int_1.schema.json: PASS
 int_m1.schema.json: PASS
+jm-tests.schema.json: PASS
 jsound.schema.json: PASS
 loose.schema.json: PASS
 loose_strict.schema.json: PASS
@@ -62,8 +72,8 @@ mrg_02.schema.json: PASS
 mrg_03.schema.json: PASS
 none.schema.json: PASS
 null.schema.json: PASS
-obj00.schema.json: PASS
-obj01.schema.json: FAIL
+obj_00.schema.json: PASS
+obj_01.schema.json: FAIL
 obj_any.schema.json: PASS
 opt_00.schema.json: PASS
 opt_01.schema.json: PASS
@@ -84,8 +94,6 @@ opt_sl.schema.json: PASS
 opt_ss.schema.json: PASS
 or_00.schema.json: PASS
 or_01.schema.json: PASS
-or_02.schema.json: PASS
-or_03.schema.json: PASS
 or_04.schema.json: PASS
 or_05.schema.json: PASS
 or_06.schema.json: PASS
@@ -93,7 +101,7 @@ or_07.schema.json: PASS
 or_08.schema.json: PASS
 or_09.schema.json: PASS
 or_0.schema.json: PASS
-or10.schema.json: PASS
+or_10.schema.json: PASS
 or_1.schema.json: PASS
 orob_00.schema.json: PASS
 pNULL.schema.json: PASS

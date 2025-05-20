@@ -53,6 +53,7 @@ int main(int argc, char* argv[])
     char *name = "";
     bool report = false;
     bool test = false;
+    bool list = false;
     while ((opt = getopt(argc, argv, "hvln:rt")) != -1)
     {
         switch (opt) {
@@ -65,13 +66,8 @@ int main(int argc, char* argv[])
                         argv[0], jm_version_string);
                 return 0;
             case 'l':
-                /*
-                fprintf(stdout, "JSON Model names (empty for default):");
-                for (int i = 0; i < CHECK_map_size; i++)
-                    fprintf(stdout, "%s ", CHECK_map_tab[i].name);
-                fprintf(stdout, "\n");
-                */
-                return 0;
+                list = true;
+                break;
             case 'v':
                 fprintf(stdout, "C from JSON Model compiler version %s\n", jm_version_string);
                 return 0;
@@ -99,6 +95,15 @@ int main(int argc, char* argv[])
         return 2;
     }
 
+    // delayed after the initialization
+    if (list)
+    {
+        fprintf(stdout, "JSON Model names (empty for default):");
+        for (int i = 0; i < CHECK_map_size; i++)
+            fprintf(stdout, "%s ", CHECK_map_tab[i].name);
+        fprintf(stdout, "\n");
+        return 0;
+    }
 
     // check checker function
     const check_fun_t checker = CHECK_fun(name);

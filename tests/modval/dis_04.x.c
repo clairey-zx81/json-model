@@ -20,7 +20,8 @@ static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_11(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_5_must_tab[2];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
-static propmap_t jm_check_model_map_tab[1];
+propmap_t check_model_map_tab[1];
+const size_t check_model_map_size = 1;
 
 // check _jm_obj_0_must_t ($.'|'.5.t)
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
@@ -532,9 +533,9 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t jm_check_model_map(const char *pname)
+check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, jm_check_model_map_tab, 1);
+    return jm_search_propmap(pname, check_model_map_tab, 1);
 }
 
 static bool initialized = false;
@@ -563,8 +564,8 @@ char *CHECK_init(void)
         _jm_obj_5_must_tab[0] = (propmap_t) { "t", _jm_f_10 };
         _jm_obj_5_must_tab[1] = (propmap_t) { "v", _jm_f_11 };
         jm_sort_propmap(_jm_obj_5_must_tab, 2);
-        jm_check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        jm_sort_propmap(jm_check_model_map_tab, 1);
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;
 }
@@ -579,12 +580,6 @@ void CHECK_free(void)
     }
 }
 
-
-check_fun_t
-CHECK_fun(const char *name)
-{
-    return jm_check_model_map(name);
-}
 
 /*
  * API: bool check_model(json_t *, const char *, bool *, char **);
@@ -601,7 +596,7 @@ bool
 CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
     CHECK_init();  // lazy
-    check_fun_t checker = jm_check_model_map(name);
+    check_fun_t checker = CHECK_fun(name);
 
     bool not_found = checker == NULL;
     if (error)

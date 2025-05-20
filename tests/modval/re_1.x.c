@@ -5,7 +5,8 @@ static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
-static propmap_t jm_check_model_map_tab[1];
+propmap_t check_model_map_tab[1];
+const size_t check_model_map_size = 1;
 
 static bool _jm_re_0(const char *s)
 {
@@ -28,9 +29,9 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t jm_check_model_map(const char *pname)
+check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, jm_check_model_map_tab, 1);
+    return jm_search_propmap(pname, check_model_map_tab, 1);
 }
 
 static bool initialized = false;
@@ -51,8 +52,8 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
-        jm_check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        jm_sort_propmap(jm_check_model_map_tab, 1);
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;
 }
@@ -70,12 +71,6 @@ void CHECK_free(void)
 }
 
 
-check_fun_t
-CHECK_fun(const char *name)
-{
-    return jm_check_model_map(name);
-}
-
 /*
  * API: bool check_model(json_t *, const char *, bool *, char **);
  *
@@ -91,7 +86,7 @@ bool
 CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
     CHECK_init();  // lazy
-    check_fun_t checker = jm_check_model_map(name);
+    check_fun_t checker = CHECK_fun(name);
 
     bool not_found = checker == NULL;
     if (error)

@@ -520,14 +520,14 @@ class Language:
     #
     # PROPERTY MAPPING : property value (constant string) to check function
     #
-    def def_pmap(self, name: str, size: int) -> Block:
+    def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Define a new (property) map."""
         return [f"{name}: PropMap"]
 
-    def sub_pmap(self, name: str, pmap: PropMap) -> Block:
+    def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []
 
-    def ini_pmap(self, name: str, pmap: PropMap) -> Block:
+    def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Initialize a map."""
         return [
             f"global {name}",
@@ -536,7 +536,7 @@ class Language:
                     for p, f in pmap.items()
                 ] + [ "}" ]
 
-    def del_pmap(self, name: str, pmap: PropMap) -> Block:
+    def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []
 
     #
@@ -701,12 +701,12 @@ class Code:
         fun += self._lang.sub_fun(name, body)
         self.subs(fun)
 
-    def pmap(self, name: str, mapping: PropMap):
+    def pmap(self, name: str, mapping: PropMap, public: bool = False):
         """Add a (property/name) mapping."""
-        self.defs(self._lang.def_pmap(name, mapping))
-        self.inis(self._lang.ini_pmap(name, mapping))
-        self.dels(self._lang.del_pmap(name, mapping))
-        self.subs(self._lang.sub_pmap(name, mapping))
+        self.defs(self._lang.def_pmap(name, mapping, public))
+        self.inis(self._lang.ini_pmap(name, mapping, public))
+        self.dels(self._lang.del_pmap(name, mapping, public))
+        self.subs(self._lang.sub_pmap(name, mapping, public))
 
     def cset(self, name: str, constants: ConstList):
         """Add a constant set."""

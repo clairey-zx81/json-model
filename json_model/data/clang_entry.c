@@ -1,9 +1,3 @@
-check_fun_t
-CHECK_fun(const char *name)
-{
-    return jm_check_model_map(name);
-}
-
 /*
  * API: bool check_model(json_t *, const char *, bool *, char **);
  *
@@ -19,7 +13,7 @@ bool
 CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
     CHECK_init();  // lazy
-    check_fun_t checker = jm_check_model_map(name);
+    check_fun_t checker = CHECK_fun(name);
 
     bool not_found = checker == NULL;
     if (error)

@@ -122,7 +122,7 @@ clean: clean.x
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC        = gcc
-CPPFLAGS  = -I../../json_model/runtime -DCHECK_FUNCTION_NAME=check_model
+CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I../../json_model/runtime
 CFLAGS    = -Wall -Wno-address -O2
 LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o
 
@@ -143,7 +143,9 @@ $(F.exe): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
-	[ -f $*.values.json ] && $< -tr $*.values.json >> $@
+	if [ -f $*.values.json ] ; then
+	    $< -tr $*.values.json >> $@
+	fi
 
 %.x.py: %.model.json
 	$(JMC.cmd) -XO -v --format py ./$< > $@
@@ -153,7 +155,9 @@ $(F.exe): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
-	[ -f $*.values.json ] && $< -tr $*.values.json >> $@
+	if [ -f $*.values.json ] ; then
+	    $< -tr $*.values.json >> $@
+	fi
 
 .PHONY: %.x
 %.x: %.model.json
