@@ -1,0 +1,13 @@
+dl_00.values.json[0]: PASS
+dl_00.values.json[1]: PASS
+dl_00.values.json[2]: PASS
+dl_00.values.json[3]: PASS
+dl_00.values.json[4]: PASS
+dl_00.values.json[5]: PASS
+dl_00.values.json[6]: PASS
+dl_00.values.json[7]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]
+dl_00.values.json[8]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]
+dl_00.values.json[9]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]
+dl_00.values.json[10]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]
+dl_00.values.json[11]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]
+dl_00.values.json[12]: FAIL [("not a bool [$.'$rec'.'|'.0]", []), ("not a bool [$.'$rec'.'|'.0]", []), ("not an object [$.'$rec'.'|'.1]", []), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ("unexpected $rec [$.'$rec'.'|'.1.'']", ['invalid']), ("not an expected object at [$.'$rec'.'|'.1]", []), ("no model matched [$.'$rec'.'|']", []), ('unexpected $rec [$]', [])]

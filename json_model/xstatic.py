@@ -333,7 +333,11 @@ class SourceCode(Validator):
         lpath_ref = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
-        code += [ gen.fun_var(pfun, declare=True) ]
+        if defs or regs or oth:
+            code += [ gen.bool_var(res, declare=True) ]
+        if may or must:
+            # we need a function pointer for simple properties
+            code += [ gen.fun_var(pfun, declare=True) ]
 
         # build multi-if structure to put in prop/val loop
         if must:
@@ -409,7 +413,7 @@ class SourceCode(Validator):
             if omodel != "$ANY":
                 ot_code = [ gen.lcom("handle other props") ] + \
                     self._compileModel(jm, omodel, mpath + [""], res, pval, lpath_ref) + \
-                    self._gen_fail(f"unexpected other value [{smpath}]", lpath_ref)
+                    self._gen_short_expr(res)
             else:  # optimized "": "$ANY" case
                 ot_code = [ gen.lcom("accept any other props") ]
         else:  # no catch all
