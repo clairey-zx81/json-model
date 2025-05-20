@@ -1,0 +1,8 @@
+[
+  [ true, "Susie" ],
+  [ false, "Calvin" ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, [ "Susie", "Calvin" ] ],
+  [ false, { "friends": ["Susie", "Calvin", "Hobbes"] } ]
+]

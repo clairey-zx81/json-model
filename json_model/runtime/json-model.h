@@ -141,6 +141,7 @@ extern pcre2_match_data *jm_is_valid_uuid_data;
 extern bool jm_is_valid_uuid(const char *);
 extern size_t jm_any_len(json_t *);
 extern bool jm_is_valid_regex(const char *);
+extern bool jm_is_valid_url(const char *);
 
 /*
  * Generated stuff

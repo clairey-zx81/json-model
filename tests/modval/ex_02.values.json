@@ -1,0 +1,9 @@
+[
+  [ true, [ "Susie", "Susie", "Susie", "Susie" ] ],
+  [ false, [ "Susie", "Calvin", "Susie", "Hobbes" ] ],
+  [ false, [ "Susie", "Susie", "Susie" ] ],
+  [ false, [ "Susie", "Susie", "Susie", "Susie", "Susie" ] ],
+  [ false, [] ],
+  [ false, "Calvin" ],
+  [ false, "Susie" ]
+]

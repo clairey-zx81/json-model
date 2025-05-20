@@ -1,0 +1,7 @@
+ex_02.values.json[0]: PASS
+ex_02.values.json[1]: FAIL [('unexpected _Susie [$.1]', [1]), ('not array or unexpected array [$]', [])]
+ex_02.values.json[2]: FAIL [('not array or unexpected array [$]', [])]
+ex_02.values.json[3]: FAIL [('not array or unexpected array [$]', [])]
+ex_02.values.json[4]: FAIL [('not array or unexpected array [$]', [])]
+ex_02.values.json[5]: FAIL [('not array or unexpected array [$]', [])]
+ex_02.values.json[6]: FAIL [('not array or unexpected array [$]', [])]

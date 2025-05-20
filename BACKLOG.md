@@ -6,7 +6,10 @@
 - [x] tests: values with name field
 - [x] static: xor code generation
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] static: constraint
+- [ ] static: constraint implementation
+- [ ] c-backend: issue with "$xxx" properties, `char*` is not `json_t*`
+- [ ] py-backend: heterogeneous enum (`enum_05`)
+- [ ] c-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: prefix type name and extensions with `jm_`
 - [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`

@@ -1,0 +1,7 @@
+[
+  [ true, { "a": "Susie", "b": "Susie" } ],
+  [ false, { "a": "Calvin", "b": "Susie" } ],
+  [ false, { "a": "Susie" } ],
+  [ false, "Susie" ],
+  [ false, "Calvin" ]
+]

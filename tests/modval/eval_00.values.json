@@ -1,0 +1,8 @@
+[
+  [ true, null ],
+  [ true, true ],
+  [ true, 42 ],
+  [ true, "whatever" ],
+  [ true, {} ],
+  [ true, [1, 2, 3] ]
+]

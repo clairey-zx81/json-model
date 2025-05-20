@@ -1,0 +1,15 @@
+[
+  [ true, [ 0, "", true ] ],
+  [ true, [ 1, "one", false ] ],
+  [ true, [ 42, "fourty-two", true ] ],
+  [ true, "EX06", true ],
+  [ true, "EX06", false ],
+  [ true, "ex5", 42 ],
+  [ true, "ex5", "forty-two" ],
+  [ false, "EX06", null ],
+  [ false, "EX06", 0.0 ],
+  [ false, [] ],
+  [ false, [ 18 ] ],
+  [ false, [ 19, "dix-neuf" ] ],
+  [ false, [ 19, "dix-neuf", true, "oops" ] ]
+]

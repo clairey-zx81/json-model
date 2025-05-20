@@ -123,6 +123,7 @@ class SourceCode(Validator):
         return "FESC"
 
     def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str):
+        # FIXME C val is may be a char*, not a json_t*.
         assert ref and ref[0] == "$"
         if ref in _PREDEFS:  # inline predefs
             # TODO improve
@@ -199,6 +200,8 @@ class SourceCode(Validator):
             code += gen.iand_op(res, gen.and_op(checks))
 
         code += self._gen_report(res, f"invalid type or constraints [{smpath}]", vpath)
+
+        return code
 
     def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                      res: str, val: str, vpath: str) -> Block|None:
@@ -387,7 +390,7 @@ class SourceCode(Validator):
             multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
-        for d, m in defs.keys():
+        for d, m in defs.items():
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref)  # FIXME lpath &lpath?
             dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
@@ -864,8 +867,8 @@ class SourceCode(Validator):
             case dict():
                 assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
-                if "@" in model:
-                    code += self._compileConstraint(jm, model, mpath, res, val, vpath, known)
+                if "@" in model:  # TODO known?
+                    code += self._compileConstraint(jm, model, mpath, res, val, vpath)
                 elif "|" in model:
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint

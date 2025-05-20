@@ -392,7 +392,7 @@ jm_is_valid_uuid(const char *s)
   return rc >= 0;
 }
 
-// check regex validity by attempting to compile it
+// check regex validity by attempting to compile it, probably not very efficient
 bool
 jm_is_valid_regex(const char *pattern)
 {
@@ -405,4 +405,18 @@ jm_is_valid_regex(const char *pattern)
     if (code)
         pcre2_code_free(code);
     return valid;
+}
+
+// check url validity (hmmm, just check for strange characters)
+// FIXME is this UTF8 ok?
+bool
+jm_is_valid_url(const char *url)
+{
+    char *c = url;
+    while (*c) {
+        if (!(*c >= 33 && *c < 126 && *c != '"' && *c != '<' && *c != '>'))
+            return false;
+        c++;
+    }
+    return true;
 }

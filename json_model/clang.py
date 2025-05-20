@@ -94,6 +94,8 @@ class CLangJansson(Language):
             return f"jm_is_valid_date(json_string_value({var}))"
         elif name == "$REGEX":
             return f"jm_is_valid_regex(json_string_value({var}))"
+        elif name == "$URL":
+            return f"jm_is_valid_url(json_string_value({var}))"
         else:  # TODO $URL
             return super().predef(var, name, path)
 
