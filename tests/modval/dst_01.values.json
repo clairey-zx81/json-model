@@ -1,0 +1,10 @@
+[
+  [ true, { "a": 42, "b": 42, "d": "forty-two" } ],
+  [ false, [ "hello", "world!" ] ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, "not an object" ],
+  [ false, ["not", "an", "object" ] ],
+  [ false, {} ],
+  [ false, { "hello": "world!"} ]
+]

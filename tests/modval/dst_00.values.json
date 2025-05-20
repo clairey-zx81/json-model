@@ -1,0 +1,13 @@
+[
+  [ true, { "a": 42, "b": 42 } ],
+  [ true, { "a": 18, "c": "forty-two" } ],
+  [ false, { "a": 42 } ],
+  [ false, { "b": 18 } ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, 17.99 ],
+  [ false, "not an object" ],
+  [ false, [ "not", "an", "object" ] ],
+  [ false, {} ],
+  [ false, { "unexpected": "object" } ]
+]

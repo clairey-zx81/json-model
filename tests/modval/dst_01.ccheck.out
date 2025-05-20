@@ -1,0 +1,8 @@
+dst_01.values.json[0]: PASS
+dst_01.values.json[1]: FAIL (.: unexpected type at [$.'|'])
+dst_01.values.json[2]: FAIL (.: unexpected type at [$.'|'])
+dst_01.values.json[3]: FAIL (.: unexpected type at [$.'|'])
+dst_01.values.json[4]: FAIL (.: unexpected type at [$.'|'])
+dst_01.values.json[5]: FAIL (.: unexpected type at [$.'|'])
+dst_01.values.json[6]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.5]) (.: missing must prop [$.'|'.5]) (.: not an expected object at [$.'|'.4]) (.: missing must prop [$.'|'.4]) (.: not an expected object at [$.'|'.3]) (.: missing must prop [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.: missing must prop [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.: missing must prop [$.'|'.0])
+dst_01.values.json[7]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.5]) (.hello: no other prop expected [$.'|'.5]) (.: not an expected object at [$.'|'.4]) (.hello: no other prop expected [$.'|'.4]) (.: not an expected object at [$.'|'.3]) (.hello: no other prop expected [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.hello: no other prop expected [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.hello: no other prop expected [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.hello: no other prop expected [$.'|'.0])

@@ -1,0 +1,20 @@
+[
+  [ true, { "a": 42, "b": 42, "d": false } ],
+  [ true, { "a": 43, "b": 41, "e": false } ],
+  [ true, { "a": 44, "b": 40, "f": false } ],
+  [ true, { "a": 45, "c": 39, "d": true } ],
+  [ true, { "a": 46, "c": 38, "e": false } ],
+  [ true, { "a": 47, "c": 37, "f": true } ],
+  [ false, { "a": 42, "b": 42, "c": 42 } ],
+  [ false, { "a": 42, "d": true, "e": false } ],
+  [ false, { "b": 42, "c": 42, "d": true } ],
+  [ false, { "b": 42, "d": true } ],
+  [ false, { "a": 1, "b": 0 } ],
+  [ false, { "c": 42, "f": false } ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42.00001 ],
+  [ false, "abc" ],
+  [ false, [] ],
+  [ false, {} ]
+]

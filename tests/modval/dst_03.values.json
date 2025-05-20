@@ -1,0 +1,11 @@
+[
+  [ true, { "a": 42 } ],
+  [ true, { "a": 18, "c": "forty-two" } ],
+  [ false, { "a": 42, "b": "no b prop" } ],
+  [ false, { "c": "no prop a" } ],
+  [ false, { "a": "not an int" } ],
+  [ false, { "a": 0, "c": ["not", "a", "string"] } ],
+  [ false, [] ],
+  [ false, {} ],
+  [ false, null ]
+]
