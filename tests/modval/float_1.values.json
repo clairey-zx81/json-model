@@ -1,0 +1,8 @@
+[
+  [ true, 0.5 ],
+  [ false, -42.0 ],
+  [ false, -42 ],
+  [ false, null ],
+  [ false, "-42.1" ],
+  [ false, 0.0 ]
+]

@@ -7,7 +7,7 @@
 - [x] static: xor code generation
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: constraint implementation
-- [ ] c-backend: issue with "$xxx" properties, `char*` is not `json_t*`
+- [ ] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: prefix type name and extensions with `jm_`

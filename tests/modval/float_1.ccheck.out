@@ -1,0 +1,6 @@
+float_1.values.json[0]: PASS
+float_1.values.json[1]: FAIL (.: not a 1.0 float [$])
+float_1.values.json[2]: FAIL (.: not a 1.0 float [$])
+float_1.values.json[3]: FAIL (.: not a 1.0 float [$])
+float_1.values.json[4]: FAIL (.: not a 1.0 float [$])
+float_1.values.json[5]: FAIL (.: not a 1.0 float [$])

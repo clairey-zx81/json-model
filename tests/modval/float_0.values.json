@@ -1,0 +1,9 @@
+[
+  [ true, 0.0 ],
+  [ true, 42.1 ],
+  [ true, 31.4E-1 ],
+  [ true, 0.1 ],
+  [ false, -42.0 ],
+  [ false, 42 ],
+  [ false, "not a float" ]
+]
