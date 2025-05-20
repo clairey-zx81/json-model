@@ -2,34 +2,20 @@
 
 ## Current Tasks
 
-- [x] c-backend: unique shortcut while sorting
-- [x] c-backend: json anything comparison for sorting and searching
-- [x] static: constant string and int enum
-- [x] c-backend: unique for any
-- [x] static: or implementation
-- [x] static: object disjunction on str
-- [x] static: support or constants, aka enum.
-- [x] static: object disjunction on int, bool, float, null
-- [x] command: allow value checking under `-X -F py`
-- [x] api: load model from file, load model from string…
-- [x] py-frontend: handle test vector files
-- [x] c-frontend: handle test vector files
-- [x] c-backend: separate headers and functions to allow compiling a support library.
-- [x] backend: move runtime in a runtime directory.
-- [x] backend: working c and py "$REGEX".
-- [x] tests: check test vector files
-- [x] py-backend: import runtime.
-- [x] static: generate separate lib
-- [x] backend: clarify runtime vs data.
-- [x] c-backend: fix `-l` implementation.
-- [ ] c-backend: prefix type name and extensions with `jm_`
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
+- [ ] static: or, xor, disjunction
+- [ ] c-backend: prefix type name and extensions with `jm_`
 - [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] py-backend: non-str enum with `ConstSet`
 - [ ] c-backend: report missing must property names by reinvestigating.
+- [ ] backend: move python-specifics from `language.py` to `python.py`
+- [ ] tests: remove SO/DO stuff
+- [ ] python: remove `dynamic.o static.o`
+- [ ] command: remove `-S -D`
+- [ ] doc: remove about S/D
 
 ## To Do
 
@@ -40,8 +26,7 @@
 - [ ] project: move all code's TODO here
 - [ ] py-backend: multi-type enum `enum_05`
 - [ ] static: if loose, cast all int constants to double?
-- [ ] static: keep model comments in generated code
-- [ ] backend: move python-specifics from `language.py` to `python.py`
+- [ ] static: keep model comments in generated code?
 - [ ] c-backend: add arr and obj to cst management?
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
@@ -55,7 +40,6 @@
 - [ ] backend: report errors
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] static: abstract imperative language code generation (wip)
-- [ ] static: or, xor, disjunction
 - [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
 - [ ] c-backend: predefs for $DATE, $URL, $REGEX
 - [ ] backend: do not generate intermediate empty functions for direct objects?
@@ -236,3 +220,23 @@
 - [x] c-backend: main API does not need to know about internal structs.
 - [x] frontend: report init errors.
 - [x] py-backend: fix nested if in inlined code generation.
+- [x] c-backend: unique shortcut while sorting
+- [x] c-backend: json anything comparison for sorting and searching
+- [x] static: constant string and int enum
+- [x] c-backend: unique for any
+- [x] static: or implementation
+- [x] static: object disjunction on str
+- [x] static: support or constants, aka enum.
+- [x] static: object disjunction on int, bool, float, null
+- [x] command: allow value checking under `-X -F py`
+- [x] api: load model from file, load model from string…
+- [x] py-frontend: handle test vector files
+- [x] c-frontend: handle test vector files
+- [x] c-backend: separate headers and functions to allow compiling a support library.
+- [x] backend: move runtime in a runtime directory.
+- [x] backend: working c and py "$REGEX".
+- [x] tests: check test vector files
+- [x] py-backend: import runtime.
+- [x] static: generate separate lib
+- [x] backend: clarify runtime vs data.
+- [x] c-backend: fix `-l` implementation.
