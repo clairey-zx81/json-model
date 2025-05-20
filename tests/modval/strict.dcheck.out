@@ -1,3 +1,0 @@
-strict.0.true.json: PASS
-strict.1.false.json: FAIL [('.si', '$.si', 'expecting an integer')]
-strict.2.false.json: FAIL [('.si', '$.si', 'expecting an integer')]

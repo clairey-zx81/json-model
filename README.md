@@ -21,7 +21,6 @@ Command `jmc` options include:
 
 - main operations:
   - `-P`: preprocess model.
-  - `-D`: dynamic python model compiler.
   - `-S`: static python model compiler.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
   - `-U`: dump all models.

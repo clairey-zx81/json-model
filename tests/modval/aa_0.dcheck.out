@@ -1,7 +1,0 @@
-aa_0.0.true.json: PASS
-aa_0.1.true.json: PASS
-aa_0.2.true.json: PASS
-aa_0.3.true.json: PASS
-aa_0.4.false.json: FAIL [('', '$[0][0]', 'expecting a string'), ('', '$[0]', 'all failures 1/1: [0]'), ('', '$', 'all failures 1/1: [0]')]
-aa_0.5.false.json: FAIL [('', '$[0]', 'expecting an array'), ('', '$[1]', 'expecting an array'), ('', '$[2]', 'expecting an array'), ('', '$', 'all failures 3/3: [0, 1, 2]')]
-aa_0.6.false.json: FAIL [('', '$[3][0]', 'expecting a string'), ('', '$[3]', 'all failures 1/1: [0]'), ('', '$', 'all failures 1/4: [3]')]

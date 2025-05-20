@@ -1,6 +1,0 @@
-eq_false.0.true.json: PASS
-eq_false.1.false.json: FAIL [('', '$', 'expecting boolean false')]
-eq_false.2.false.json: FAIL [('', '$', 'expecting boolean false')]
-eq_false.3.false.json: FAIL [('', '$', 'expecting boolean false')]
-eq_false.4.false.json: FAIL [('', '$', 'expecting boolean false')]
-eq_false.5.false.json: FAIL [('', '$', 'expecting boolean false')]

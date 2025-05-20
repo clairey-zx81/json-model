@@ -1,5 +1,0 @@
-opt_sl.0.true.json: PASS
-opt_sl.1.false.json: FAIL [('.i', '$.i', 'expecting an integer')]
-opt_sl.2.true.json: PASS
-opt_sl.3.false.json: FAIL [('.i', '$.i', 'expecting an integer')]
-opt_sl.4.false.json: FAIL [('.i', '$.i', 'expecting an integer')]

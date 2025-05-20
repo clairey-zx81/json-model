@@ -1,4 +1,0 @@
-or_05.0.true.json: PASS
-or_05.1.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
-or_05.2.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]
-or_05.3.false.json: FAIL [('.|[0]', '$', 'expecting regex /[0-9]/'), ('.|[1]', '$', 'expecting regex /[a-z]/'), ('.|[2]', '$', 'expecting regex /[A-Z]/'), ('.|', '$', 'no any matched')]

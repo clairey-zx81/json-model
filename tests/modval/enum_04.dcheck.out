@@ -1,4 +1,0 @@
-enum_04.0.true.json: PASS
-enum_04.1.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 201'), ('.|[2]', '$', 'expecting integer 204'), ('.|', '$', 'no any matched')]
-enum_04.2.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 201'), ('.|[2]', '$', 'expecting integer 204'), ('.|', '$', 'no any matched')]
-enum_04.3.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 201'), ('.|[2]', '$', 'expecting integer 204'), ('.|', '$', 'no any matched')]

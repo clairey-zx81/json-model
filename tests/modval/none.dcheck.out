@@ -1,6 +1,0 @@
-none.0.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]
-none.1.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]
-none.2.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]
-none.3.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]
-none.4.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]
-none.5.false.json: FAIL [('<NONE>', '$', '$NONE'), ('', '$', '$NONE failed')]

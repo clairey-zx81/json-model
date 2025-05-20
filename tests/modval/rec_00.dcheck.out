@@ -1,3 +1,0 @@
-rec_00.00.true.json: PASS
-rec_00.01.true.json: PASS
-rec_00.02.false.json: FAIL [('$rec.|[0]', '$', 'expecting a boolean'), ('.obj', '$', 'not an object (int)'), ('$rec.|[1]', '$', '$obj failed'), ('$rec.|', '$', 'no any matched'), ('', '$', '$rec failed')]

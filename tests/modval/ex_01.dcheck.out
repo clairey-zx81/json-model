@@ -1,4 +1,0 @@
-ex_01.0.true.json: PASS
-ex_01.1.false.json: FAIL [('.a', '$.a', 'expecting string Susie')]
-ex_01.2.false.json: FAIL [('', '$', 'missing mandatory key: b')]
-ex_01.3.false.json: FAIL [('', '$', 'not an object (str)')]

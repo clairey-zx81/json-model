@@ -1,2 +1,0 @@
-mrg_03.0.false.json: FAIL [('.c', '$.c', 'expecting a strictly ositive number')]
-mrg_03.0.true.json: PASS

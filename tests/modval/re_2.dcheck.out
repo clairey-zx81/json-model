@@ -1,3 +1,0 @@
-re_2.0.true.json: PASS
-re_2.1.false.json: FAIL [('<REGEX>', '$', 'invalid regex'), ('', '$', '$REGEX failed')]
-re_2.2.false.json: FAIL [('<REGEX>', '$', 'invalid regex'), ('', '$', '$REGEX failed')]

@@ -1,7 +1,0 @@
-ex_08.0.true.json: PASS
-ex_08.1.true.json: PASS
-ex_08.2.true.json: PASS
-ex_08.3.true.json: PASS
-ex_08.4.false.json: FAIL [('.map', '$', 'not an object (list)'), ('.EX08.|[0]', '$', '$map failed'), ('<URL>', '$', 'invalid URL'), ('.EX08.|[1]', '$', '$URL failed'), ('.VAL', '$', 'expecting a boolean'), ('.EX08.|[2]', '$', '$VAL failed'), ('.EX08.|', '$', 'no any matched'), ('', '$', '$EX08 failed')]
-ex_08.5.false.json: FAIL [('.map', '$', 'not an object (float)'), ('.EX08.|[0]', '$', '$map failed'), ('<URL>', '$', 'invalid URL'), ('.EX08.|[1]', '$', '$URL failed'), ('.VAL', '$', 'expecting a boolean'), ('.EX08.|[2]', '$', '$VAL failed'), ('.EX08.|', '$', 'no any matched'), ('', '$', '$EX08 failed')]
-ex_08.6.false.json: FAIL [('<URL>', '$', 'invalid URL'), ('.map', '$.foo', 'unexpected property foo'), ('.EX08.|[0]', '$', '$map failed'), ('<URL>', '$', 'invalid URL'), ('.EX08.|[1]', '$', '$URL failed'), ('.VAL', '$', 'expecting a boolean'), ('.EX08.|[2]', '$', '$VAL failed'), ('.EX08.|', '$', 'no any matched'), ('', '$', '$EX08 failed')]

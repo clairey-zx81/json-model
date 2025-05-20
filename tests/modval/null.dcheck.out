@@ -1,7 +1,0 @@
-null.0.true.json: PASS
-null.1.false.json: FAIL [('', '$', 'expecting null')]
-null.2.false.json: FAIL [('', '$', 'expecting null')]
-null.3.false.json: FAIL [('', '$', 'expecting null')]
-null.4.false.json: FAIL [('', '$', 'expecting null')]
-null.5.false.json: FAIL [('', '$', 'expecting null')]
-null.6.false.json: FAIL [('', '$', 'expecting null')]

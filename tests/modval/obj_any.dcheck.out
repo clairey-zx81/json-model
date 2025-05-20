@@ -1,5 +1,0 @@
-obj_any.0.true.json: PASS
-obj_any.1.true.json: PASS
-obj_any.2.true.json: PASS
-obj_any.3.false.json: FAIL [('', '$', 'not an object (list)')]
-obj_any.4.false.json: FAIL [('', '$', 'not an object (int)')]

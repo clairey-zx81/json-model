@@ -167,7 +167,7 @@ def test_stac(directory):
     # compilation settings
     cc = os.environ.get("CC", "gcc")
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cflags = os.environ.get("CFLAGS", "-Wall -O2")
+    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -O2")
     ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
 
     # compile library

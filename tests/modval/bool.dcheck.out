@@ -1,8 +1,0 @@
-bool.0.true.json: PASS
-bool.1.true.json: PASS
-bool.2.false.json: FAIL [('', '$', 'expecting a boolean')]
-bool.3.false.json: FAIL [('', '$', 'expecting a boolean')]
-bool.4.false.json: FAIL [('', '$', 'expecting a boolean')]
-bool.5.false.json: FAIL [('', '$', 'expecting a boolean')]
-bool.6.false.json: FAIL [('', '$', 'expecting a boolean')]
-bool.7.false.json: FAIL [('', '$', 'expecting a boolean')]

@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] all: remove dynamic compiler code, tests and doc.
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: prefix type name and extensions with `jm_`
@@ -12,10 +13,10 @@
 - [ ] py-backend: non-str enum with `ConstSet`
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
-- [ ] tests: remove SO/DO stuff
-- [ ] python: remove `dynamic.o static.o`
-- [ ] command: remove `-S -D`
-- [ ] doc: remove about S/D
+- [ ] tests: remove SO stuff
+- [ ] python: remove `static.py`
+- [ ] command: remove `-S`
+- [ ] doc: remove about S
 
 ## To Do
 

@@ -1,3 +1,0 @@
-dst_03.0.true.json: PASS
-dst_03.1.true.json: PASS
-dst_03.2.false.json: FAIL [('.|[0]', '$.b', 'unexpected property b'), ('.|[1]', '$.b', 'unexpected property b'), ('.|', '$', 'no any matched')]

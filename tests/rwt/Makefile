@@ -28,9 +28,7 @@ F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
-F.DO    = $(F.root:%=%.DO.out)
 F.SO    = $(F.root:%=%.py)
-F.dc    = $(F.root:%=%.dcheck.out)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 F.sXc   = \
@@ -46,7 +44,7 @@ F.cc    = $(F.root:%=%.ccheck.out)
 F.pc    = $(F.root:%=%.pcheck.out)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.DO) $(F.dc) $(F.SO) $(F.sc) \
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.SO) $(F.sc) \
           $(F.json) $(F.js) $(F.sXc)
 
 -include local.mk
@@ -90,11 +88,6 @@ PO: $(F.PO)
 schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
-
-.PHONY: DO
-DO: $(F.DO)
-%.DO.out: %.model.json
-	$(JMC.cmd) -DO --code ./$< | sed -e 's/<code object .*>/<*>/' > $@
 
 .PHONY: py
 py: $(F.SO)
@@ -175,19 +168,6 @@ $(F.exe): json-model.o main.o
 	done
 
 #
-# Dynamic value checks
-#
-.PHONY: dcheck
-dcheck: $(F.dc)
-	egrep -v 'true.*PASS|false.*FAIL' *.dcheck.out | egrep -v '^(json-model|l10n|schema|model)'
-	exit 0
-
-%.dcheck.out: %.model.json
-	shopt -s nullglob
-	set -o pipefail
-	$(JMC.cmd) -v -DO -nc ./$< $*.*.true.json $*.*.false.json | sort > $@
-
-#
 # Static value checks
 #
 .PHONY: scheck
@@ -218,22 +198,12 @@ schema.jcheck.out: $(F.schema)
 	  fi
 	done | sort > $@
 
-schema.dcheck.out: $(F.schema)
-	set -o pipefail
-	$(JMC) --auto --check --quiet -DO ../../models/json-schema-draft-2020-12.model.json $^ |
-	  sort > $@
-
 schema.scheck.out: $(F.schema)
 	set -o pipefail
 	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
 	  sort > $@
 
 # FIXME json-schema-draft-tighter.model.json: KO, mandatory $schema
-
-schema.dcheck2.out: $(F.schema)
-	set -o pipefail
-	$(JMC) --auto --check --verbose -DO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
-	  sort > $@
 
 schema.scheck2.out: $(F.schema)
 	set -o pipefail
@@ -276,5 +246,5 @@ jcheck: $(F.js)
 #
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py $*.scheck.out
-	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.DO.out $*.dcheck.out $*.py $*.scheck.out
+	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.py $*.scheck.out
+	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.py $*.scheck.out

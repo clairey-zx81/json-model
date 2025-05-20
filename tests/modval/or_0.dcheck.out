@@ -1,4 +1,0 @@
-or_0.0.true.json: PASS
-or_0.1.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
-or_0.2.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]
-or_0.3.false.json: FAIL [('.|[0]', '$', 'expecting integer 200'), ('.|[1]', '$', 'expecting integer 300'), ('.|[2]', '$', 'expecting integer 400'), ('.|[3]', '$', 'expecting integer 500'), ('.|', '$', 'no any matched')]

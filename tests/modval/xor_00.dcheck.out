@@ -1,3 +1,0 @@
-xor_00.0.true.json: PASS
-xor_00.1.false.json: FAIL [('[*]', '$', 'duplicated match in ^')]
-xor_00.2.false.json: FAIL [('[*]', '$', 'duplicated match in ^')]

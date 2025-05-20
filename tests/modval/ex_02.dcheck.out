@@ -1,5 +1,0 @@
-ex_02.0.true.json: PASS
-ex_02.1.false.json: FAIL [('[1]', '$[1]', 'expecting string Susie'), ('[3]', '$[3]', 'expecting string Susie')]
-ex_02.2.false.json: FAIL [('', '$', 'bad array length')]
-ex_02.3.false.json: FAIL [('', '$', 'bad array length')]
-ex_02.4.false.json: FAIL [('', '$', 'expecting an array')]

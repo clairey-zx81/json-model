@@ -1,6 +1,0 @@
-pU64.0.true.json: PASS
-pU64.1.true.json: PASS
-pU64.2.false.json: FAIL [('<U64>', '$', 'invalid uint64'), ('', '$', '$U64 failed')]
-pU64.3.false.json: FAIL [('<U64>', '$', 'invalid uint64'), ('', '$', '$U64 failed')]
-pU64.4.false.json: FAIL [('<U64>', '$', 'invalid uint64'), ('', '$', '$U64 failed')]
-pU64.5.false.json: FAIL [('<U64>', '$', 'invalid uint64'), ('', '$', '$U64 failed')]

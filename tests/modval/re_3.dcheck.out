@@ -1,6 +1,0 @@
-re_3.0.true.json: PASS
-re_3.1.true.json: PASS
-re_3.2.false.json: FAIL [('.all', '$.all', 'expecting a string')]
-re_3.3.false.json: FAIL [('.nz', '$.nz', 'expecting regex /./s')]
-re_3.4.false.json: FAIL [('.nz', '$.nz', 'expecting regex /./s')]
-re_3.5.false.json: FAIL [('.some', '$.some', 'expecting regex /./')]
