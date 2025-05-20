@@ -1,6 +1,20 @@
 [
+  "p1 or p2 match",
+  [ true, "p1", "Calvin" ],
+  [ true, "p2", "Milou" ],
   [ true, "Susie" ],
   [ true, "Tintin" ],
+  "p1 and p2 match",
+  [ true, "p1", "Bad" ],
+  [ true, "p2", "Bad" ],
+  [ false, "Bad" ],
+  "no match",
   [ false, "Claire" ],
-  [ false, "Fabien" ]
+  [ false, "Fabien" ],
+  "miscellaneous values",
+  [ false, null ],
+  [ false, true ],
+  [ false, 18 ],
+  [ false, ["not", "a", "string" ] ],
+  [ false, { "unexpected": "object" } ]
 ]

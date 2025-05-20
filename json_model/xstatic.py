@@ -537,7 +537,18 @@ class SourceCode(Validator):
         smpath = json_path(mpath)
         code = []
 
-        raise NotImplementedError("TODO xor")
+        # NOTE optimized out under -O
+        if len(models) == 0:
+            code += [
+                gen.lcom("early empty xor list"),
+                gen.bool_var(res, gen.bool_cst(False))
+            ]
+            return code
+
+        # NOTE optimized out under -O
+        if len(models) == 1:
+            return [ gen.lcom("early singleton xor list") ] + \
+                self._compileModel(jm, models[0], mpath + [0], res, val, vpath, known)
 
         # optimize out repeated models
         if len(models) >= 2:
@@ -556,48 +567,81 @@ class SourceCode(Validator):
                     kept.append(m)
                     kept_i.append(i)
 
-            # false if in dups
-            for i, m in enumerate(dups):
-                idx = dups_i[i]
-                # i
-                self._compileModel(jm, m, lpath + [idx], "isin", val, vpath)
-                code.add(indent + i, f"{res} = not isin")
-                code.add(indent + i, f"if {res}:")
+            # direct false if in dups
+            if dups:
+                isin = gen.ident("is")
+                code += [
+                    gen.lcom("remove duplicate xor list"),
+                    gen.bool_var(isin, declare=True),
+                    gen.bool_var(res, gen.bool_cst(True))
+                ]
 
-            # update remaining models and identation
+                # generate flat if, no big deal?
+                for i, m in enumerate(dups):
+                    idx = dups_i[i]
+                    icode = self._compileModel(jm, m, mpath + [idx], isin, val, vpath) + \
+                        [ gen.bool_var(res, gen.not_op(isin)) ]
+                    if i == 0:
+                        code += icode
+                    else:
+                        code += gen.if_stmt(res, icode)
+
+            # update remaining models and their index
             models = kept
             models_i = kept_i
-            depth = len(dups)
         else:
             models_i = list(range(len(models)))
-            depth = 0
 
         # standard case
+        # TODO reporting
+        xcode = []
         if not models:
-            code.add(indent + depth, f"{res} = False")
+            xcode += [ gen.lcom("empty xor list"), gen.bool_var(res, gen.bool_cst(False)) ]
         elif len(models) == 1:
             mod, idx = models[0], models_i[0]
-            # depth
-            self._compileModel(jm, mod, mpath + [idx], res, val, vpath)
+            xcode += [ gen.lcom("singleton xor list") ] + \
+                self._compileModel(jm, mod, mpath + [idx], res, val, vpath)
         else:  # several models are inlined
             if len(models) == 2 and "$ANY" in models:
+                xcode += [ gen.lcom("not-case xor list") ]
                 # get other model
-                m = models[1] if models[0] == "$ANY" else models[0]
-                is_m = self._lang.ident("is_m_", True)
-                # depth
-                self._compileModel(jm, m, mpath + ["?"], is_m, val, vpath)
-                code.add(indent + depth, f"{res} = not {is_m}")
+                if models[0] == "$ANY":
+                    m = models[1]
+                    idx = models_i[1]
+                else:
+                    m = models[0]
+                    idx = models_i[0]
+                is_m = self._lang.ident("is")
+                xcode += \
+                    self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) + \
+                    [ gen.bool_var(res, gen.not_op(is_m)) ]
             else:
-                count = self._lang.ident("xc_")
-                test = self._lang.ident("xr_")
-                code.add(indent + depth, f"{count} = 0")
+                # TODO collect which model matched for reporting?
+                count = self._lang.ident("xc")
+                test = self._lang.ident("xr")
+                xcode += [
+                    gen.lcom("generic xor list"),
+                    gen.int_var(count, gen.int_cst(0), declare=True),
+                    gen.bool_var(test, declare=True)
+                ]
+
+                # flat if…
                 for i, m in enumerate(models):
                     idx = models_i[i]
-                    code.add(indent + depth, f"if {count} <= 1:")
-                    # depth + 1
-                    self._compileModel(jm, m, mpath + [idx], test, val, vpath)
-                    code.add(indent + depth + 1, f"if {test}: {count} += 1")
-                code.add(indent + depth, f"{res} = {count} == 1")
+                    icode = self._compileModel(jm, m, mpath + [idx], test, val, vpath) + \
+                        gen.if_stmt(test, [ gen.inc_var(count) ])
+                    if i < 2:
+                        xcode += icode
+                    else:  # maybe skip
+                        xcode += gen.if_stmt(gen.int_le(count, gen.int_cst(1)), icode)
+
+                # verify that only one matched
+                xcode += [ gen.bool_var(res, gen.num_eq(count, gen.int_cst(1))) ]
+
+        if dups:
+            code += gen.if_stmt(res, xcode)
+        else:
+            code += xcode
 
         code += self._gen_report(res, f"not one model match [{smpath}]", vpath)
 
@@ -950,7 +994,7 @@ class SourceCode(Validator):
         # compile root
         self.compileOneJsonModel(model, "$", [], False)
 
-        # TODO possibly add entries for referenced models? under an option? 
+        # TODO possibly add entries for referenced models? under an option?
 
         # compile other encountered references
         while todo := set(self._to_compile.keys()) - self._compiled:

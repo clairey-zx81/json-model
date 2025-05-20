@@ -4,8 +4,9 @@
 
 - [x] all: remove dynamic compiler code, tests and doc.
 - [x] tests: values with name field
+- [x] static: xor code generation
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] static: or, xor, disjunction
+- [ ] static: constraint
 - [ ] c-backend: prefix type name and extensions with `jm_`
 - [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`

@@ -546,7 +546,10 @@ class Language:
         return [ f"{name}: set[str]" ]
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        return [ f"global {name}", f"{name} = {set(constants)}" ]
+        # generate a deterministic initialization
+        dset = str(sorted(list(constants)))
+        dset = f"{{{dset[1:-1]}}}"
+        return [ f"global {name}", f"{name} = {dset}" ]
 
     def del_cset(self, name: str, constants: ConstList) -> Block:
         return []

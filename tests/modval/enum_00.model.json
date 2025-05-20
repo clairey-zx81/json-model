@@ -1,7 +1,8 @@
 {
+  "#": "p1 optimized to | and root xor should rejects 'Bad'",
   "$": {
-    "p1": { "^": [ "Susie", "Calvin", "Hobbes", "Moe" ] },
-    "p2": { "|": [ "Castafiore", "Haddock", "Milou", "Tintin" ] }
+    "p1": { "^": [ "Susie", "Calvin", "Hobbes", "Moe", "Bad" ] },
+    "p2": { "|": [ "Castafiore", "Haddock", "Milou", "Tintin", "Bad" ] }
   },
   "^": [ "$p1", "$p2" ]
 }
