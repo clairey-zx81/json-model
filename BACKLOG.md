@@ -3,7 +3,7 @@
 ## Current Tasks
 
 - [x] all: remove dynamic compiler code, tests and doc.
-- [ ] tests: values with name field
+- [x] tests: values with name field
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: or, xor, disjunction
 - [ ] c-backend: prefix type name and extensions with `jm_`

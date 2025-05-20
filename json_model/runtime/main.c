@@ -12,9 +12,17 @@ typedef enum {
 
 // check value and report if there was some error wrt expectations
 static bool
-process_value(check_fun_t checker, json_t * value,
+process_value(const char *name, const json_t * value,
     const char *fname, size_t index, process_mode_t mode, bool report)
 {
+    // get checker function
+    const check_fun_t checker = CHECK_fun(name);
+    if (checker == NULL)
+    {
+        fprintf(stderr, "check function not found for %s\n", name);
+        return true;
+    }
+
     // check value against model, fast (no path nor reasons)
     bool valid = checker(value, NULL, NULL);
     bool unexpected = (mode == expect_fail && valid) || (mode == expect_pass && !valid);
@@ -105,14 +113,6 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    // check checker function
-    const check_fun_t checker = CHECK_fun(name);
-    if (checker == NULL)
-    {
-        fprintf(stderr, "check function not found for %s\n", name);
-        return 3;
-    }
-
     int errors = 0;
 
     for (int i = optind; i < argc; i++)
@@ -142,25 +142,45 @@ int main(int argc, char* argv[])
             json_t *val;
             json_array_foreach(value, index, val)
             {
-                if (!json_is_array(val) || json_array_size(val) != 2 ||
-                    !json_is_boolean(json_array_get(val, 0)))
+                if (json_is_string(val))
+                    // skip string comments
+                    continue;
+
+                // else must be an array (size is 0 for non-arrays)
+                size_t size = json_array_size(val);
+                if (!(size == 2 || size == 3))
                 {
                     fprintf(stdout,
-                            "%s[%zu]: ERROR not an ordered pair with a boolean first element\n",
+                            "%s[%zu]: ERROR not a 2 or 3-tuple\n",
                             argv[i], index);
                     errors++;
                     continue;
                 }
 
-                process_mode_t
-                    mode = json_is_true(json_array_get(val, 0)) ? expect_pass : expect_fail;
+                const json_t
+                    *first = json_array_get(val, 0),
+                    *second = json_array_get(val, 1);
 
-                if (!process_value(checker, json_array_get(val, 1), argv[i], index, mode, report))
+                if (!json_is_boolean(first) || (size == 3 && !json_is_string(second)))
+                {
+                    fprintf(stdout,
+                            "%s[%zu]: ERROR first element not boolean or second not string\n",
+                            argv[i], index);
+                    errors++;
+                    continue;
+                }
+
+                const char *tname = size == 3 ? json_string_value(second) : name;
+                const json_t *value = size == 3 ? json_array_get(val, 2) : second;
+                process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
+
+                if (!process_value(tname, value, argv[i], index, mode, report))
                     errors++;
             }
         }
         else
-            (void) process_value(checker, value, argv[i], 0, expect_nothing, report);
+            if (!process_value(name, value, argv[i], 0, expect_nothing, report))
+                errors++;
 
         // free json value
         json_decref(value);

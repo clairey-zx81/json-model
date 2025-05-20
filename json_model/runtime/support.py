@@ -191,25 +191,48 @@ def main(jm_fun, jm_map, jmc_version):
         print(f"Python from JSON Model compiler version {jmc_version}")
         sys.exit(0)
 
-    try:
-        checker: CheckFun = jm_fun(args.name)
-    except Exception as e:
-        log.debug(e, exc_info=args.debug)
-        log.error(f"error on model for {args.name}: {e}")
-        sys.exit(1)
+    errors = 0
 
     for fn in args.values:
         try:
             with open(fn) as f:
                 value = json.load(f)
             values = value if args.test else [ [ None, value ] ]
-            for i, (expect, val) in enumerate(values):
+            for i, tvect in enumerate(values):
+
+                if isinstance(tvect, str):  # ignore strings as comments
+                    continue
+
+                if not isinstance(tvect, list) or len(tvect) not in (2, 3):
+                    log.error(f"unexpected test vector: {tvect}")
+                    print("{fn}[{i}]: ERROR bad test vector")
+                    errors += 1
+                    continue
+
+                if len(tvect) == 2:
+                    expect, val = tvect
+                    name = args.name
+                else:
+                    expect, name, val = tvect
+
                 info = "" if expect is None else f"[{i}]"
                 reasons = [] if args.report else None
                 path = [] if args.report else None
+
+                try:
+                    checker: CheckFun = jm_fun(name)
+                except Exception as e:
+                    log.debug(e, exc_info=args.debug)
+                    log.error(f"no such model \"{name}\": {e}")
+                    print(f"{fn}{info}: ERROR unexpected name {name}")
+                    errors += 1
+                    continue
+
                 valid = checker(val, path, reasons)
+
                 if expect is not None and valid != expect:
                     print(f"{fn}{info}: ERROR unexpected {'PASS' if expect else 'FAIL'}")
+                    errors += 1
                 elif valid:
                     print(f"{fn}{info}: PASS")
                 elif reasons:
@@ -219,3 +242,6 @@ def main(jm_fun, jm_map, jmc_version):
         except Exception as e:
             log.debug(e, exc_info=args.debug)
             print(f"{fn}: ERROR ({e})")
+            errors += 1
+
+    sys.exit(1 if errors else 0)

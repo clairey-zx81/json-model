@@ -1,4 +1,6 @@
 {
-  "#": "json model test vectors: expectation, value",
-  "@": [ [ true, "$ANY" ] ]
+  "#": "json model test vectors: expectation, [name,] value, or comment",
+  "@": [
+    { "|": [ "", [ true, "$ANY" ], [ true, "", "$ANY" ] ] }
+  ]
 }

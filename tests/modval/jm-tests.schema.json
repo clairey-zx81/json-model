@@ -1,14 +1,35 @@
 {
   "type": "array",
   "items": {
-    "type": "array",
-    "prefixItems": [
+    "anyOf": [
       {
-        "type": "boolean"
+        "type": "string"
       },
-      true
-    ],
-    "items": false,
-    "minItems": 2
+      {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "boolean"
+          },
+          true
+        ],
+        "items": false,
+        "minItems": 2
+      },
+      {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string"
+          },
+          true
+        ],
+        "items": false,
+        "minItems": 3
+      }
+    ]
   }
 }

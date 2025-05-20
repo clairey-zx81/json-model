@@ -27,8 +27,8 @@ EXPECT: dict[str, int] = {
     "modval:lang-py": 24,
     "modval:stac:tests": 24,
     "modval:stapy:tests": 24,
-    "modval:stac:values": 185,
-    "modval:stapy:values": 185,
+    "modval:stac:values": 194,
+    "modval:stapy:values": 194,
     "m2s:schema": 57,
     "rwt:preproc": 44,
     "rwt:schema": 44,
@@ -142,7 +142,9 @@ def test_dypy(directory):
         if vfile.exists():
             values = json.loads(vfile.read_text())
             assert isinstance(values, list)
-            for index, (expect, value) in enumerate(values):
+            for index, tvect in enumerate(values):
+                if isinstance(tvect, str):
+                    continue  # skip comments
                 ntests += 1
                 assert isinstance(expect, bool)
                 if expect:
