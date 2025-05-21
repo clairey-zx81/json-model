@@ -7,6 +7,7 @@
 - [x] static: xor code generation
 - [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
 - [x] py-backend: improve url validation
+- [x] frontent: add `-T 1000` to trigger measuring performance.
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: constraint implementation
 - [ ] py-backend: heterogeneous enum (`enum_05`)

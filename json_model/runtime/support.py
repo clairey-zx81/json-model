@@ -1,6 +1,7 @@
 from typing import Callable
 from collections.abc import MutableMapping, MutableSet
 import datetime
+import time
 import validators
 import re  # FIXME re2?
 
@@ -175,6 +176,7 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--version", "-v", action="store_true", help="show JSON Model compiler version")
     ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
+    ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -212,8 +214,6 @@ def main(jm_fun, jm_map, jmc_version):
                     expect, name, val = tvect
 
                 info = "" if expect is None else f"[{i}]"
-                reasons = [] if args.report else None
-                path = [] if args.report else None
 
                 try:
                     checker: CheckFun = jm_fun(name)
@@ -224,7 +224,22 @@ def main(jm_fun, jm_map, jmc_version):
                     errors += 1
                     continue
 
-                valid = checker(val, path, reasons)
+                # looping triggers timing
+                loop = args.time
+                start = time.clock_gettime(0)
+                if args.report:
+                    while loop := loop - 1:
+                        reasons, path = [], []
+                        valid = checker(val, path, reasons)
+                else:
+                    while loop := loop - 1:
+                        valid = checker(val, None, None)
+                end = time.clock_gettime(0)
+
+                if args.time > 1:
+                    print(f"{fn}{info}{' rep ' if args.report else ' nop '}"
+                          f"{(end-start) * 1000000.0 / args.time} µs/call",
+                          file=sys.stderr)
 
                 if expect is not None and valid != expect:
                     print(f"{fn}{info}: ERROR unexpected {'PASS' if expect else 'FAIL'}")

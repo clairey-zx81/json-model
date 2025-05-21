@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <assert.h>
+#include <time.h>
 
 #include <json-model.h>
 
@@ -13,7 +14,7 @@ typedef enum {
 // check value and report if there was some error wrt expectations
 static bool
 process_value(const char *name, const json_t * value,
-    const char *fname, size_t index, process_mode_t mode, bool report)
+    const char *fname, size_t index, process_mode_t mode, bool report, int loop)
 {
     // get checker function
     const check_fun_t checker = CHECK_fun(name);
@@ -24,7 +25,19 @@ process_value(const char *name, const json_t * value,
     }
 
     // check value against model, fast (no path nor reasons)
-    bool valid = checker(value, NULL, NULL);
+    bool valid = true;
+    clock_t start = clock();
+
+    for (int i = loop; i; i--)
+         valid = checker(value, NULL, NULL);
+
+    clock_t end = clock();
+
+    if (loop > 1)
+        fprintf(stderr, "%s.%s[%zu] nop %s %.06f µs/check\n", fname, name, index,
+                valid ? "PASS": "FAIL",
+                (end - start) * 1000000.0 / CLOCKS_PER_SEC / loop);
+
     bool unexpected = (mode == expect_fail && valid) || (mode == expect_pass && !valid);
 
     if (mode == expect_nothing)  // just show
@@ -34,13 +47,30 @@ process_value(const char *name, const json_t * value,
     else  // as expected
         fprintf(stdout, "%s[%zu]: %s", fname, index, valid ? "PASS" : "FAIL");
 
-    // second pass with report collection
-    if (!valid && report)
+    // maybe second pass with report collection
+    if ((loop > 1 || !valid) && report)
     {
         Path path = (Path) { "", 0, NULL, NULL };
         Report report = (Report) { NULL };
 
-        bool valid2 = checker(value, &path, &report);
+        bool valid2 = true;
+        start = clock();
+
+        for (int i = loop; i; i--)
+        {
+            path = (Path) { "", 0, NULL, NULL };
+            report = (Report) { NULL };
+            valid2 = checker(value, &path, &report);
+            if (i > 1) jm_report_free_entries(&report);
+        }
+
+        end = clock();
+
+        if (loop > 1)
+            fprintf(stderr, "%s.%s[%zu] rep %s %.06f µs/check\n", fname, name, index,
+                    valid ? "PASS": "FAIL",
+                    (end - start) * 1000000.0 / CLOCKS_PER_SEC / loop);
+
         assert(valid == valid2);
 
         for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
@@ -62,7 +92,8 @@ int main(int argc, char* argv[])
     bool report = false;
     bool test = false;
     bool list = false;
-    while ((opt = getopt(argc, argv, "hvln:rt")) != -1)
+    int loop = 1;
+    while ((opt = getopt(argc, argv, "hvln:rtT:")) != -1)
     {
         switch (opt) {
             case 'h':
@@ -87,6 +118,9 @@ int main(int argc, char* argv[])
                 break;
             case 't':
                 test = true;
+                break;
+            case 'T':
+                loop = atoi(optarg);
                 break;
             case '?':
             default:
@@ -174,12 +208,12 @@ int main(int argc, char* argv[])
                 const json_t *value = size == 3 ? json_array_get(val, 2) : second;
                 process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
 
-                if (!process_value(tname, value, argv[i], index, mode, report))
+                if (!process_value(tname, value, argv[i], index, mode, report, loop))
                     errors++;
             }
         }
         else
-            if (!process_value(name, value, argv[i], 0, expect_nothing, report))
+            if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop))
                 errors++;
 
         // free json value
