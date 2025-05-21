@@ -1,7 +1,7 @@
 from typing import Callable
 from collections.abc import MutableMapping, MutableSet
 import datetime
-import urllib.parse
+import validators
 import re  # FIXME re2?
 
 from json_model.runtime.types import Jsonable, JsonScalar, Report, Path, CheckFun
@@ -138,15 +138,11 @@ def is_valid_uuid(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 
 def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
-    if isinstance(value, str):
-        try:
-            urllib.parse.urlparse(value)
-            return True
-        except Exception as e:
-            rep is None or rep.append(f"invalid url at {path}: {value} ({e})")
-            return False
-    rep is None or rep.append(f"incompatible type for url at {path}: {_tname(value)}")
-    return False
+    # NOTE urllib.parse accepts any garbage…
+    valid = isinstance(value, str) and validators.url(value) is True
+    if not valid:
+        rep is None or rep.append(f"invalid url at {path}: {value}")
+    return valid
 
 
 def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:

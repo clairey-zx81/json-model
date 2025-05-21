@@ -21,11 +21,11 @@ requires-python = ">=3.12"  # for "type"
 license = "CC0-1.0"
 classifiers = [ "Topic :: Software Development" ]
 version = "2.0-alpha"
-dependencies = [ "requests", "google-re2", "pyyaml" ]
+dependencies = [ "requests", "google-re2", "pyyaml", "validators" ]
 
 [project.optional-dependencies]
 dev = [
-  "flake8", "ruff", "pyright", "pytest",
+  "flake8", "ruff", "pyright", "pytest", "ipython",
   "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
 ]
 dist = [ "build", "wheel", "twine" ]

@@ -1,0 +1,14 @@
+[
+  [ true, false ],
+  [ true, "https://json-model.org/models/json-model" ],
+  [ true, {} ],
+  [ true, {
+            "https://comics.net/Susie": true,
+            "https://comics.net/Calvin": true,
+            "https://comics.net/Hobbes": false
+          } ],
+  [ false, [ "nope" ] ],
+  [ false, 3.1415927 ],
+  [ false, { "foo": "bla" } ],
+  [ false, { "drôle d'url quand même !": false, "https://www.comics.et/": true } ]
+]

@@ -188,7 +188,15 @@ class Language:
     #
     # predefs
     #
-    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        # shortcut if the variable value is known to be a string
+        if is_str:
+            if name in { "$NULL", "$BOOL", "$INT", "$INTEGER", "$I32", "$I64",
+                         "$U32", "$U64", "$FLOAT", "$F32", "$F64", "$NUMBER" }:
+                name = "$NONE"
+            elif name == "$STRING":
+                name = "$ANY"
+        # else full type checks
         if name == "$ANY":
             return self.bool_cst(True)
         elif name == "$NONE":
@@ -302,7 +310,7 @@ class Language:
     def str_check_call(self, name: str, val: StrExpr) -> BoolExpr:
         return f"{name}({val})"
 
-    def check_call(self, name: Var, val: JsonExpr, path: Var) -> BoolExpr:
+    def check_call(self, name: Var, val: JsonExpr, path: Var, is_str: bool = False) -> BoolExpr:
         return f"{name}({val}, {path}, rep)"
 
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:

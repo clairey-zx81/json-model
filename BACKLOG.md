@@ -5,12 +5,13 @@
 - [x] all: remove dynamic compiler code, tests and doc.
 - [x] tests: values with name field
 - [x] static: xor code generation
+- [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
+- [x] py-backend: improve url validation
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
 - [ ] static: constraint implementation
-- [ ] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
-- [ ] c-backend: prefix type name and extensions with `jm_`
+- [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] py-backend: unique for any
@@ -26,6 +27,8 @@
 ## To Do
 
 - [ ] project: establish priority
+- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
+- [ ] design: more predefs: `"$EMAIL"`, `"$URI"`
 - [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: improve backlog management with thematic sections
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
@@ -137,7 +140,6 @@
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
 - [ ] feature: add model predef for URI, URI-REF and the like
-- [ ] models: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
 - [ ] design: URI vs URL?
 - [ ] service: json to lang conversion API :-)
 - [ ] command: allow direct compilation with cc-like options?

@@ -18,7 +18,7 @@ class Python(Language):
         # TODO check actual use to desactivate
         self._setmap_used = True
 
-    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if name == "$URL":
             return f"is_valid_url({var}, {path}, rep)"
         elif name == "$DATE":
@@ -28,7 +28,7 @@ class Python(Language):
         elif name == "$UUID":
             return f"is_valid_uuid({var}, {path}, rep)"
         else:
-            return super().predef(var, name, path)
+            return super().predef(var, name, path, is_str)
 
     def file_header(self) -> Block:
         code: Block = [

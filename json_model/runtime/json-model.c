@@ -366,11 +366,11 @@ jm_any_len(json_t *val)
 }
 
 bool
-jm_is_valid_date(const char *value)
+jm_is_valid_date(const char *date)
 {
     int year, month, day;
 
-    if (value == NULL || sscanf(value, "%4d-%2d-%2d", &year, &month, &day) != 3)
+    if (date == NULL || sscanf(date, "%4d-%2d-%2d", &year, &month, &day) != 3)
         return false;
 
     struct tm ti = (struct tm) { .tm_year = year - 1900, .tm_mon = month - 1, .tm_mday = day};
@@ -385,17 +385,21 @@ pcre2_code *jm_is_valid_uuid_code = NULL;
 pcre2_match_data *jm_is_valid_uuid_data = NULL;
 
 bool
-jm_is_valid_uuid(const char *s)
+jm_is_valid_uuid(const char *uuid)
 {
-  int rc = pcre2_match(jm_is_valid_uuid_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                       0, 0, jm_is_valid_uuid_data, NULL);
-  return rc >= 0;
+    if (!uuid)
+        return false;
+    int rc = pcre2_match(jm_is_valid_uuid_code, (PCRE2_SPTR) uuid, PCRE2_ZERO_TERMINATED,
+                         0, 0, jm_is_valid_uuid_data, NULL);
+    return rc >= 0;
 }
 
 // check regex validity by attempting to compile it, probably not very efficient
 bool
 jm_is_valid_regex(const char *pattern)
 {
+    if (!pattern)
+        return false;
     int err_code;
     PCRE2_SIZE err_offset;
     pcre2_code *code =
@@ -407,16 +411,27 @@ jm_is_valid_regex(const char *pattern)
     return valid;
 }
 
-// check url validity (hmmm, just check for strange characters)
 // FIXME is this UTF8 ok?
 bool
 jm_is_valid_url(const char *url)
 {
-    char *c = url;
+    if (!url)
+        return false;
+    char *c = (char *) url;
     while (*c) {
+        // check url validity (hmmm, just check for strange characters)
         if (!(*c >= 33 && *c < 126 && *c != '"' && *c != '<' && *c != '>'))
             return false;
         c++;
     }
     return true;
+}
+
+// call a check function with a string instead of a json objet.
+bool
+jm_check_fun_string(check_fun_t fun, const char *val, Path *path, Report *rep)
+{
+    json_t holder;
+    json_string_set(&holder, val);
+    return fun(&holder, path, rep);
 }

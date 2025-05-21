@@ -122,17 +122,17 @@ class SourceCode(Validator):
         # FIXME return val.translate({"{": "{{", "\\": "\\\\", "\"": "\\\""})
         return "FESC"
 
-    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str):
+    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, is_prop: bool = False):
         # FIXME C val is may be a char*, not a json_t*.
         assert ref and ref[0] == "$"
         if ref in _PREDEFS:  # inline predefs
             # TODO improve
-            return self._lang.predef(val, ref, vpath)
+            return self._lang.predef(val, ref, vpath, is_prop)
             # return (self._PREDEFS[ref](val, vpath) +
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
-            return self._lang.check_call(fun, val, vpath)
+            return self._lang.check_call(fun, val, vpath, is_prop)
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
@@ -392,7 +392,7 @@ class SourceCode(Validator):
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
             ref = "$" + d
-            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref)  # FIXME lpath &lpath?
+            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, True)  # FIXME lpath &lpath?
             dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)

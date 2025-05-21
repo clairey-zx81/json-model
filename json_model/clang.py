@@ -86,18 +86,19 @@ class CLangJansson(Language):
     def bool_cst(self, b: bool) -> BoolExpr:
         return "true" if b else "false"
 
-    # FIXME path
-    def predef(self, var: Var, name: str, path: Var) -> BoolExpr:
+    # FIXME path? reporting?
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        val = var if is_str else f"json_string_value({var})"
         if name == "$UUID":
-            return f"jm_is_valid_uuid(json_string_value({var}))"
+            return f"jm_is_valid_uuid({val})"
         elif name == "$DATE":
-            return f"jm_is_valid_date(json_string_value({var}))"
+            return f"jm_is_valid_date({val})"
         elif name == "$REGEX":
-            return f"jm_is_valid_regex(json_string_value({var}))"
+            return f"jm_is_valid_regex({val})"
         elif name == "$URL":
-            return f"jm_is_valid_url(json_string_value({var}))"
+            return f"jm_is_valid_url({val})"
         else:  # TODO $URL
-            return super().predef(var, name, path)
+            return super().predef(var, name, path, is_str)
 
     def _json_str(self, j) -> str:
         j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
@@ -142,13 +143,19 @@ class CLangJansson(Language):
         return f"{self.is_arr(var)} && _json_array_unique({var})"
 
     #
-    # ternary expression
+    # misc expressions
     #
     def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
         return f"(({cond}) ? ({true}) : ({false}))"
 
     def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
         return f"({fun} = {name}({prop}))"
+
+    def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
+        if is_str:
+            return f"jm_check_fun_string({fun}, {val}, {path}, rep)"
+        else:
+            return super().check_call(fun, val, path, is_str)
 
     #
     # inline comparison expressions for strings
