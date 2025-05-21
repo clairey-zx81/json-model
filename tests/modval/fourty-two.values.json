@@ -1,0 +1,7 @@
+[
+  [ true, 42 ],
+  [ false, 1 ],
+  [ false, "42" ],
+  [ false, { "not": "42" } ],
+  [ false, [ "not", 42 ] ]
+]
