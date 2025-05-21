@@ -411,7 +411,76 @@ jm_is_valid_regex(const char *pattern)
     return valid;
 }
 
-// FIXME is this UTF8 ok?
+// see https://github.com/google/re2/wiki/syntax
+bool
+jm_is_valid_regex_fast(const char *pattern)
+{
+    char *c = (char *) pattern;
+
+    int paren = 0;
+    bool start = false;
+    bool okay = false;
+
+    while (*c && okay)
+    {
+        if (start) {
+            // cannot start with a repeat
+            okay &= strchr("*+?{", *c) == NULL;
+            start = false;
+        }
+
+        switch (*c) {
+            case '\\':  // TODO \p{Greek}
+                c++;  // skip next, whatever
+                okay &= *c != '\0';
+                break;
+            case '[':  // TODO [[:...:]] [^[:...:]] [\p{Name}] [^\p{Name}]
+                // [C] [^C]
+                // simple char list, look for matching ]
+                // skip first char, which may be ]
+                c++;
+                if (*c == '^')
+                    c++;
+                while (*c && *c != ']')
+                    c++;
+                okay &= *c == ']';  // else ] not found!
+                // fixme what about -? ^ in corner cases?
+                break;
+            case '{':  // {123} or {12,34} or {12,}
+                c++;  // next char
+                okay &= '0' <= *c && *c <= '9';  // must be a number
+                while ('0' <= *c && *c <= 9)
+                    c++;
+                if (*c == ',') {  // second part, may be empty
+                    c++;  // first char
+                    while ('0' <= *c && *c <= 9)
+                        c++;
+                }
+                okay &= *c == '}';
+                break;
+            case '(':
+                paren++;
+                if (*(c+1) == '?')  // (?flag:re)
+                    c++;
+                    // what options are allowed? (?P<name>re) (?<name>re) (?:re)
+                else
+                    start = true;
+                break;
+            case ')':
+                paren--;
+                okay &= paren >= 0;
+                break;
+            default:
+        }
+        c++;
+    }
+
+    okay &= *c == '\0';
+
+    return okay;
+}
+
+// this is utf-8 compatible because multi-byte encoding uses chars over 128.
 bool
 jm_is_valid_url(const char *url)
 {
