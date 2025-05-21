@@ -224,15 +224,18 @@ def main(jm_fun, jm_map, jmc_version):
                     errors += 1
                     continue
 
+                valid: bool
                 # looping triggers timing
                 loop = args.time
                 start = time.clock_gettime(0)
                 if args.report:
-                    while loop := loop - 1:
+                    while loop:
+                        loop -= 1
                         reasons, path = [], []
                         valid = checker(val, path, reasons)
                 else:
-                    while loop := loop - 1:
+                    while loop:
+                        loop -= 1
                         valid = checker(val, None, None)
                 end = time.clock_gettime(0)
 
