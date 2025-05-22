@@ -109,8 +109,6 @@ clean.x:
 check.x: clean.x
 	$(MAKE) $(F.x)
 
-clean: clean.x
-
 %.x.c: %.model.json
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
