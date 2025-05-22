@@ -1,0 +1,12 @@
+[
+  [ true,  null ],
+  [ true,  true ],
+  [ true,  123 ],
+  [ true,  -3.1415927 ],
+  [ true,  {} ],
+  [ true,  {"all": "is ok"} ],
+  [ true,  [] ],
+  [ true,  ["any", "list", "is", "welcome", 123, true, null] ],
+  [ true,  "not a simple word" ],
+  [ false, "Susie" ]
+]

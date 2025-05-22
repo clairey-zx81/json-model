@@ -1,0 +1,13 @@
+[
+  [ true,  {} ],
+  [ true,  {"foo": {}} ],
+  [ true,  {"foo": []} ],
+  [ true,  {"foo": [{}]} ],
+  [ true,  {"foo": [{"foo": {}}, {"foo": []}, {}]} ],
+  [ false, {"foo": ["foo"]} ],
+  [ false, {"bla": {}} ],
+  [ false, null ],
+  [ false, "not an obj" ],
+  [ false, [] ],
+  [ false, ["not", "an", "obj"] ]
+]

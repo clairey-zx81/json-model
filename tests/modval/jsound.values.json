@@ -1,0 +1,5 @@
+[
+  [ true,  {"types": []} ],
+  [ true,  {"types": [{"kind": "atomic", "baseType": "string"}]} ],
+  [ false, {} ]
+]

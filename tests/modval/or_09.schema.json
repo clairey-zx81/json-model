@@ -1,4 +1,5 @@
 {
+  "description": "should be optimized to -1.0",
   "anyOf": [
     {
       "type": "number",

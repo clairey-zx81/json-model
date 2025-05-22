@@ -682,6 +682,7 @@ class SourceCode(Validator):
                     idx = models_i[0]
                 is_m = self._lang.ident("is")
                 xcode += \
+                    [ gen.bool_var(is_m, declare=True) ] + \
                     self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) + \
                     [ gen.bool_var(res, gen.not_op(is_m)) ]
             else:
@@ -807,7 +808,7 @@ class SourceCode(Validator):
                         if expr is not None:
                             known.add(expr)
                     if not expr:
-                        expr = "True"
+                        expr = gen.const(True)
                 elif model == 0.0:
                     compare = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
                                           ">=", gen.const(0.0))

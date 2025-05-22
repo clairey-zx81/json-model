@@ -1,0 +1,13 @@
+[
+  [ true,  {} ],
+  [ true,  {"foo": {}} ],
+  [ true,  {"foo": {"foo": {}}} ],
+  [ false, {"bla": 0} ],
+  [ false, {"foo": "foo"} ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, -0.314159E1 ],
+  [ false, "not an object" ],
+  [ false, [] ],
+  [ false, [{"foo": {}}] ]
+]

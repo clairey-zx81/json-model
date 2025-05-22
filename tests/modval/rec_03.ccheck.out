@@ -1,0 +1,11 @@
+rec_03.values.json[0]: PASS
+rec_03.values.json[1]: PASS
+rec_03.values.json[2]: PASS
+rec_03.values.json[3]: PASS
+rec_03.values.json[4]: PASS
+rec_03.values.json[5]: FAIL (.: not an expected object at [$]) (.foo: invalid may property value [$]) (.foo: no model matched [$.foo.'|']) (.foo: not array or unexpected array [$.foo.'|'.1]) (.foo.0: unexpected $root [$.foo.'|'.1.0]) (.foo: unexpected $# [$.'$root']) (.foo: not an expected object at [$]) (.foo: not an object [$]) (.foo: unexpected $root [$.foo.'|'.0]) (.foo: unexpected $# [$.'$root']) (.foo: not an expected object at [$]) (.foo: not an object [$])
+rec_03.values.json[6]: FAIL (.: not an expected object at [$]) (.bla: no other prop expected [$])
+rec_03.values.json[7]: FAIL (.: not an expected object at [$]) (.: not an object [$])
+rec_03.values.json[8]: FAIL (.: not an expected object at [$]) (.: not an object [$])
+rec_03.values.json[9]: FAIL (.: not an expected object at [$]) (.: not an object [$])
+rec_03.values.json[10]: FAIL (.: not an expected object at [$]) (.: not an object [$])

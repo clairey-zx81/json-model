@@ -1,0 +1,14 @@
+[
+  [ true,  {"t": 1, "a": 18} ],
+  [ true,  {"t": 2, "b": 42} ],
+  [ false, {"t": 3, "c": 666} ],
+  [ false, {"t": 1, "b": 42} ],
+  [ false, {"a": 18, "b": 42} ],
+  [ false, ["hello", "world!"] ],
+  [ false, {"t": "42", "a": 18} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, "oops!" ],
+  [ false, {} ]
+]

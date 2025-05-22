@@ -1,0 +1,11 @@
+[
+  [ true,  -42.0 ],
+  [ true,  10E100 ],
+  [ false, null ],
+  [ false, false ],
+  [ false, "Hello world" ],
+  [ false, -42 ],
+  [ false, true ],
+  [ false, [] ],
+  [ false, {} ]
+]

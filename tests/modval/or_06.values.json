@@ -1,0 +1,12 @@
+[
+  [ true,  "Susie" ],
+  [ true,  "calvin" ],
+  [ true,  "hobbes" ],
+  [ false, "HOBBES" ],
+  [ false, null ],
+  [ false, false ],
+  [ false, [] ],
+  [ false, {} ],
+  [ false, 42 ],
+  [ false, 3.1415927 ]
+]

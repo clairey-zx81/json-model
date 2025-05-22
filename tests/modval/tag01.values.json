@@ -1,0 +1,12 @@
+[
+  [ true,  {"t": true, "a": 18} ],
+  [ true,  {"t": false, "b": 18} ],
+  [ false, {"t": null} ],
+  [ false, {"t": "vrai"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, -42 ],
+  [ false, "not tagged obj" ],
+  [ false, [] ],
+  [ false, {"foo": "bla"} ]
+]

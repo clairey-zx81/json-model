@@ -1,0 +1,12 @@
+tag02.values.json[0]: PASS
+tag02.values.json[1]: PASS
+tag02.values.json[2]: FAIL (.: tag t value not found [$.'|'])
+tag02.values.json[3]: FAIL (.b: no other prop expected [$.'|'.0])
+tag02.values.json[4]: FAIL (.: tag prop t is missing [$.'|'])
+tag02.values.json[5]: FAIL (.: value is not an object [$.'|'])
+tag02.values.json[6]: FAIL (.: tag t value not found [$.'|'])
+tag02.values.json[7]: FAIL (.: value is not an object [$.'|'])
+tag02.values.json[8]: FAIL (.: value is not an object [$.'|'])
+tag02.values.json[9]: FAIL (.: value is not an object [$.'|'])
+tag02.values.json[10]: FAIL (.: value is not an object [$.'|'])
+tag02.values.json[11]: FAIL (.: tag prop t is missing [$.'|'])

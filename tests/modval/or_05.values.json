@@ -1,0 +1,9 @@
+[
+  [ true,  "42" ],
+  [ false, "__..--!!" ],
+  [ false, 42 ],
+  [ false, [ "hello", "world!" ] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, {} ]
+]

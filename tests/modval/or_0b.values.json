@@ -1,0 +1,9 @@
+[
+  [ true,  null ],
+  [ true,  42 ],
+  [ true,  3.14159 ],
+  [ true,  "Susie" ],
+  [ false, "Hobbes" ],
+  [ false, ["Hello", "World!"] ],
+  [ false, {"not": "expected"} ]
+]

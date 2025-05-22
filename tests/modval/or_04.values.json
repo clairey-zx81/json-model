@@ -1,0 +1,8 @@
+[
+  [ true,  "Susie" ],
+  [ true,  "5432" ],
+  [ false, "MOE" ],
+  [ false, null ],
+  [ false, [] ],
+  [ false, {} ]
+]

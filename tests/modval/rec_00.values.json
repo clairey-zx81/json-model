@@ -1,0 +1,14 @@
+[
+  [ true,  true ],
+  [ true,  {} ],
+  [ true,  {"a": false} ],
+  [ true,  {"a": {"b": true}} ],
+  [ true,  {"a": {"b": true}, "c": false} ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, 3.1414927 ],
+  [ false, "not a recursive object with boolean values" ],
+  [ false, [] ],
+  [ false, {"a": 42} ],
+  [ false, {"a": {"b": null}} ]
+]

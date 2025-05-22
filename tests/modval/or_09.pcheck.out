@@ -1,0 +1,9 @@
+or_09.values.json[0]: PASS
+or_09.values.json[1]: PASS
+or_09.values.json[2]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[3]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[4]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[5]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[6]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[7]: FAIL [("unexpected type at [$.'|']", [])]
+or_09.values.json[8]: FAIL [("unexpected type at [$.'|']", [])]

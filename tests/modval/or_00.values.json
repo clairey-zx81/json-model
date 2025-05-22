@@ -1,0 +1,9 @@
+[
+  [ true,  42 ],
+  [ true,  0 ],
+  [ false, -18 ],
+  [ false, {} ],
+  [ false, [] ],
+  [ false, null ],
+  [ false, 3.1415927 ]
+]

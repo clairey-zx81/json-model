@@ -1,0 +1,10 @@
+[
+  [ true,  "Susie" ],
+  [ true,  "Calvin" ],
+  [ true,  "doit contenir un chiffre tel 6" ],
+  [ false, "not an expected string" ],
+  [ false, 3.1415927 ],
+  [ false, true ],
+  [ false, { "unexpected": "object" } ],
+  [ false, [ "unexpected", "list" ] ]
+]

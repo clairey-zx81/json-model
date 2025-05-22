@@ -1,0 +1,13 @@
+[
+  [ true,  200 ],
+  [ true,  300 ],
+  [ true,  400 ],
+  [ true,  500 ],
+  [ false, false ],
+  [ false, 418 ],
+  [ false, true ],
+  [ false, null ],
+  [ false, "404" ],
+  [ false, ["400"] ],
+  [ false, {"status": 500}]
+]
