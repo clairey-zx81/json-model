@@ -16,6 +16,8 @@
 - [x] command: remove `-S`
 - [x] doc: remove about S
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [ ] tests: remove `.x.`
+- [ ] command: rething option usage for compilation.
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
