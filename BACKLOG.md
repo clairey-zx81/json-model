@@ -11,6 +11,10 @@
 - [x] static: unique constraint
 - [x] static: cmp constraint implementation
 - [x] python: use local loose settings if appropriate (but not with inlining!)
+- [x] tests: remove SO stuff
+- [x] python: remove `static.py`
+- [x] command: remove `-S`
+- [x] doc: remove about S
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
@@ -22,10 +26,6 @@
 - [ ] py-backend: non-str enum with `ConstSet`
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
-- [ ] tests: remove SO stuff
-- [ ] python: remove `static.py`
-- [ ] command: remove `-S`
-- [ ] doc: remove about S
 - [ ] python: drop `Validator` class
 - [ ] schema: add explicit `"$schema"` property if appropriate
 - [ ] static: fix double reports, eg constraint type and constraints

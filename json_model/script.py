@@ -9,7 +9,6 @@ from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname
 from .resolver import Resolver
 from .model import JsonModel
-from .static import static_compile
 from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
 from .runtime.types import EntryCheckFun, Report
@@ -194,7 +193,7 @@ def jmc_script():
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", default="P", choices=["P", "U", "J", "N", "S", "V", "E", "X"],
+    ope("--op", default="P", choices=["P", "U", "J", "N", "V", "E", "X"],
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -204,8 +203,6 @@ def jmc_script():
         help="dump json IR")
     ope("--nope", "-N", dest="op", action="store_const", const="N",
         help="dump (retrieved) seldom processed json model input")
-    ope("--static", "-S", dest="op", action="store_const", const="S",
-        help="static compile model for Python")
     ope("--validate", "-V", dest="op", action="store_const", const="V",
         help="interpreted model validation")
     ope("--export", "-E", dest="op", action="store_const", const="E",
@@ -223,25 +220,19 @@ def jmc_script():
 
     # update op-dependent default
     if args.code is None:
-        args.code = args.op in "SX" and not args.values
+        args.code = args.op in "X" and not args.values
 
     # option/parameter consistency and defaults
-    if args.values and args.op not in "SX":  # V?
-        log.error(f"Testing JSON values requires -S or -X: {args.op}")
+    if args.values and args.op not in "X":  # V?
+        log.error(f"Testing JSON values requires -X: {args.op}")
         sys.exit(1)
     if args.code and args.op not in "SX":
-        log.error(f"Showing code requires -S or -X: {args.op}")
+        log.error(f"Showing code requires -X: {args.op}")
         sys.exit(1)
     if args.op in "PUJNE":
         if args.format is None:
             args.format = "json"
         elif args.format not in ("json", "yaml"):
-            log.error(f"unexpected format {args.format} for operation {args.op}")
-            sys.exit(1)
-    elif args.op in "S":
-        if args.format is None:
-            args.format = "py"
-        elif args.format != "py":
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     elif args.op == "X":
@@ -319,14 +310,6 @@ def jmc_script():
     elif args.op == "P":  # preprocessed model
         show = model.toModel(True)
         print(json2str(show), file=output)
-    elif args.op == "S":
-        code = static_compile(model, "check_model", debug=args.debug, report=args.verbose)
-        source = f"#! /bin/env python\n#\n# Model: {args.model}\n" + str(code)
-        if args.code:
-            print(source, file=output)
-        env = {}
-        exec(source, env)
-        checker = env["check_model"]
     elif args.op == "X":
         assert args.format in ("py", "c", "cpp", "js", "ts", "rs", "go"), \
             f"valid output language {args.format}"
@@ -363,7 +346,7 @@ def jmc_script():
         with open(fn) as fh:
             try:
                 value = json.load(fh)
-                reasons = [[]] if args.verbose and args.op in "SX" else []
+                reasons = [[]] if args.verbose and args.op in "X" else []
                 okay = checker(value, "$", *reasons)
                 sokay = "PASS" if okay else "FAIL"
                 if args.expect is None or args.verbose:

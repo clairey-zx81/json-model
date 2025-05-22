@@ -28,7 +28,6 @@ F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
-F.SO    = $(F.root:%=%.py)
 F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
 F.sXc   = \
@@ -44,7 +43,7 @@ F.cc    = $(F.root:%=%.ccheck.out)
 F.pc    = $(F.root:%=%.pcheck.out)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.SO) $(F.sc) \
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.sc) \
           $(F.json) $(F.js) $(F.sXc)
 
 -include local.mk
@@ -88,12 +87,6 @@ PO: $(F.PO)
 schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
-
-.PHONY: py
-py: $(F.SO)
-%.py: %.model.json
-	$(JMC.cmd) -SO -v --code ./$< > $@
-	chmod a+rx $@
 
 #
 # Experimental section
@@ -166,18 +159,6 @@ $(F.exe): json-model.o main.o
 	done
 
 #
-# Static value checks
-#
-.PHONY: scheck
-scheck: $(F.sc)
-	egrep -v 'true.*PASS|false.*FAIL' *.scheck.out | egrep -v '^(json-model|l10n|schema|model)'
-	exit 0
-
-%.scheck.out: %.model.json
-	shopt -s nullglob
-	$(JMC.cmd) -v -SO -nc ./$< $*.*.true.json $*.*.false.json > $@
-
-#
 # Generated JSON Schema checks
 #
 .PHONY: check.schema
@@ -195,18 +176,6 @@ schema.jcheck.out: $(F.schema)
 	    echo "$$f: FAIL"
 	  fi
 	done | sort > $@
-
-schema.scheck.out: $(F.schema)
-	set -o pipefail
-	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12.model.json $^ |
-	  sort > $@
-
-# FIXME json-schema-draft-tighter.model.json: KO, mandatory $schema
-
-schema.scheck2.out: $(F.schema)
-	set -o pipefail
-	$(JMC) --auto --check --quiet -SO ../../models/json-schema-draft-2020-12-tight.model.json $^ |
-	  sort > $@
 
 #
 # JSON model value checks with generated JSON schemas
