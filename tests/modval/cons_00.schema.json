@@ -1,0 +1,5 @@
+{
+  "description": "non feasible constraints",
+  "type": "integer",
+  "minimum": 0
+}

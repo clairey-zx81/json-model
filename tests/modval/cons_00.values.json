@@ -1,0 +1,8 @@
+[
+  [false, null],
+  [false, 42],
+  [false, "Susie"],
+  [false, [] ],
+  [false, [2020, 7, 29] ],
+  [false, {} ]
+]
