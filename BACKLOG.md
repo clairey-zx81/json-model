@@ -27,6 +27,7 @@
 - [ ] command: remove `-S`
 - [ ] doc: remove about S
 - [ ] python: drop `Validator` class
+- [ ] schema: add explicit `"$schema"` property if appropriate
 
 ## To Do
 
