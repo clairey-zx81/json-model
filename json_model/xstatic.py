@@ -210,7 +210,7 @@ class SourceCode(Validator):
             if has_unique:
                 checks.append(gen.is_arr(val))
                 checks.append(gen.check_unique(val, vpath))
-            for op in cmp_props:
+            for op in sorted(cmp_props):
                 checks.append(gen.check_constraint(op, model[op], val, vpath))
         else:
             # optimized known-type-specific code
@@ -252,7 +252,7 @@ class SourceCode(Validator):
                 cvars += [
                     gen.str_var(sval, gen.value(val, str), declare=True) 
                 ]
-            for op in cmp_props:  # FIXME looseness?
+            for op in sorted(cmp_props):  # FIXME looseness?
                 vop = model[op]
                 if isinstance(vop, int):
                     if tmodel is float:
