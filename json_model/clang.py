@@ -139,9 +139,6 @@ class CLangJansson(Language):
     def any_len(self, var: Var) -> IntExpr:
         return f"_any_len({var})"
 
-    def unique_any(self, var: Var) -> BoolExpr:
-        return f"{self.is_arr(var)} && _json_array_unique({var})"
-
     #
     # misc expressions
     #
@@ -156,6 +153,12 @@ class CLangJansson(Language):
             return f"jm_check_fun_string({fun}, {val}, {path}, rep)"
         else:
             return super().check_call(fun, val, path, is_str)
+
+    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+        return f"jm_array_is_unique({val}, {path}, rep)"
+
+    def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
+        ...
 
     #
     # inline comparison expressions for strings

@@ -1,5 +1,5 @@
 from .language import Language, Code, Block, Inst, Var
-from .language import BoolExpr
+from .language import BoolExpr, JsonExpr
 
 
 class Python(Language):
@@ -29,6 +29,12 @@ class Python(Language):
             return f"is_valid_uuid({var}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
+
+    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+        return f"is_unique_array({val}, {path}, rep)"
+
+    def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
+        ...
 
     def file_header(self) -> Block:
         code: Block = [

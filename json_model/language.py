@@ -316,6 +316,12 @@ class Language:
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
         return f"{true} if {cond} else {false}"
 
+    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+        raise NotImplementedError("check_unique")
+
+    def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
+        raise NotImplementedError("check_constraint")
+
     #
     # logical expressions
     #
@@ -665,7 +671,7 @@ class Language:
 
     def gen_free(self, free: Block) -> Block:
         """Generate the deallocation function."""
-        raise NotImplementedError("gen_init")
+        raise NotImplementedError("gen_free")
 
 
 class Code:

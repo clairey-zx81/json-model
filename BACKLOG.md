@@ -8,13 +8,15 @@
 - [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
 - [x] py-backend: improve url validation
 - [x] frontent: add `-T 1000` to trigger measuring performance.
-- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles
-- [ ] static: constraint implementation
+- [x] static: unique constraint
+- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [ ] static: cmp constraint implementation
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`
+- [ ] c-backend: fast `$REGEX` implementation (wip)
 - [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] py-backend: non-str enum with `ConstSet`
@@ -24,6 +26,7 @@
 - [ ] python: remove `static.py`
 - [ ] command: remove `-S`
 - [ ] doc: remove about S
+- [ ] python: drop `Validator` class
 
 ## To Do
 

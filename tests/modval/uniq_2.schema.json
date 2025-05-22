@@ -1,0 +1,6 @@
+{
+  "description": "require generic unique implementation",
+  "type": "array",
+  "items": true,
+  "uniqueItems": true
+}

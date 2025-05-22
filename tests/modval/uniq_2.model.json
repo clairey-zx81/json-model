@@ -1,0 +1,5 @@
+{
+  "#": "require generic unique implementation",
+  "@": [ "$ANY" ],
+  "!": true
+}

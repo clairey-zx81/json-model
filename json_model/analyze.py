@@ -131,6 +131,10 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
                     for op in ("=", "!=", "<", "<=", ">", ">="):
                         if op in model:
                             is_valid &= isinstance(model[op], (int, float, str))
+                    # TODO reject any other props! TODO allow .mo and other extensions?
+                    for k in model.keys():
+                        is_valid &= \
+                            k in ("@", "!", "=", "!=", "<", "<=", ">=", ">", "#", "$", "%", "~")
                 elif "|" in model:
                     is_valid &= isinstance(model["|"], list)
                     # no other keys in recurse

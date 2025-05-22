@@ -3,6 +3,7 @@ from collections.abc import MutableMapping, MutableSet
 import datetime
 import time
 import validators
+import json
 import re  # FIXME re2?
 
 from json_model.runtime.types import Jsonable, JsonScalar, Report, Path, CheckFun
@@ -28,6 +29,22 @@ def _path(path: Path) -> str:
 #
 # TYPED VALUES MANAGEMENT
 #
+def typed_eq(v1: Jsonable, v2: Jsonable):
+    if type(v1) is not type(v2):
+        return False
+    if isinstance(v1, None):
+        return True
+    elif isinstance(v1, (bool, int, float, str)):
+        return v1 == v2
+    elif isinstance(v1, list):
+        return len(v1) == len(v2) and all(typed_eq(i1, i2) for i1, i2 in zip(v1, v2))
+    else:
+        assert isinstance(v1, dict)
+        if len(v1) != len(v2) or set(v1.keys()) != set(v2.keys()):
+            return False
+        # same props, compare values
+        return all(typed_eq(v1[p], v2[p]) for p in v1.keys())
+
 
 class Const:
     """A constant holder suitable for set/dict, with a stricly typed comparison.
@@ -146,6 +163,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     return valid
 
 
+# quite inefficient but safe
 def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
@@ -154,7 +172,20 @@ def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
         except Exception as e:
             rep is None or rep.append(f"regex compile error at {path}: {value} ({e})")
             return False
+    # other types cannot be valid regex
     rep is None or rep.append(f"incompatible type for regex at {path}: {_tname(value)}")
+    return False
+
+
+def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
+    if isinstance(value, list):
+        # that costs but works in all cases…
+        unique = len(set(json.dumps(i, sort_keys=True) for i in value)) == len(value)
+        if not unique:
+            rep is None or rep.append(f"non unique array at {path}")
+        return unique
+    # other types cannot be unique
+    rep is None or rep.append(f"non array for unique at {path}")
     return False
 
 
@@ -234,6 +265,7 @@ def main(jm_fun, jm_map, jmc_version):
                         reasons, path = [], []
                         valid = checker(val, path, reasons)
                 else:
+                    reasons, path = None, None
                     while loop:
                         loop -= 1
                         valid = checker(val, None, None)
@@ -245,7 +277,7 @@ def main(jm_fun, jm_map, jmc_version):
                           file=sys.stderr)
 
                 if expect is not None and valid != expect:
-                    print(f"{fn}{info}: ERROR unexpected {'PASS' if expect else 'FAIL'}")
+                    print(f"{fn}{info}: ERROR unexpected {'PASS' if valid else 'FAIL'}")
                     errors += 1
                 elif valid:
                     print(f"{fn}{info}: PASS")

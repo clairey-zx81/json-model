@@ -105,8 +105,9 @@ class ModelDefs(typing.MutableMapping[str, CheckFun|None]):
         return self._models.__len__()
 
 
+# ultimate type of predefs
 _UTYPE = {
-    "$NULL": None,
+    "$NULL": type(None),
     "$BOOL": bool,
     "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
     "$F32": float, "$F64": float, "$NUMBER": float,
@@ -115,9 +116,14 @@ _UTYPE = {
 }
 
 
-# FIXME should distinguis not feasible from unknown
 def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
-    """Get the utimate type by following definitions."""
+    """Get the utimate type by following definitions.
+
+    Return _None_ if unknown, eg several are possible.
+    Note: this is also return of the type system is not feasible, eg "&(int, str)"
+
+    FIXME recursion
+    """
     match model:
         case str():
             if model == "" or model[0] not in ("$", "="):
@@ -129,9 +135,6 @@ def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
                         int)
             elif model in _UTYPE:
                 return _UTYPE[model]
-            # elif model in self._defs:
-            #    m = self._defs.model[model]  # pyright: ignore
-            #    return ultimate_type(jm, m) if m != UnknownModel else m  # type: ignore
             else:
                 m = jm.resolveRef(model, ["<?>"])  # type: ignore
                 return ultimate_type(m, m._model)
@@ -162,7 +165,7 @@ def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
                     return None
             else:
                 return type(model)  # dict
-        case _:
+        case _:  # None, bool, int, float, list
             return type(model)
 
 

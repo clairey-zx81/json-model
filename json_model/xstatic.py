@@ -7,7 +7,7 @@ import json
 from .mtypes import ModelType, ModelArray, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
-from .defines import Validator
+from .defines import Validator, ultimate_type
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr
 
@@ -136,32 +136,124 @@ class SourceCode(Validator):
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
+        """Build constraint checking.
+
+        This is kind of a pain because operators X overloading X types,
+        plus the fact that the compiler may or may not know the value type statically.
+
+        Comparison values may build a non satisfiable constraint, eg v >= 3 and v < 1.
+        Type incompatibilities may also lead to rejections.
+        """
+
+        # S D @   op type WHAT
+        # x   boo *  *    ERROR (check a boolean value with "=true" or "=false"
+        # x   nul *  *    ERROR (check for null with null or "$NULL" or "=null"!)
+        #     obj *  i    number of properties
+        # x   obj *  fs   ERROR
+        #     arr *  i    number of items
+        # x   arr *  fs   ERROR
+        #     str *  i    length of string
+        #     str *  s    comparison (which one, locale aware?)
+        # x   str *  f    ERROR
+        #     int *  if   value comparison
+        # x   int *  s    ERROR
+        #     flt *  if   value comparison
+        # x   flt *  s    ERROR
+        #     arr !  b    distinct items
+        #     str !  b    ERROR; could allow distinct chars?
+        # x   as  !  !b   MODEL ERROR
+        # x   !as !  *    ERROR
 
         # TODO make it a function?
         assert isinstance(model, dict) and "@" in model
         smpath = json_path(mpath)
         gen = self._lang
 
+        tmodel = ultimate_type(jm, model["@"])  # pyright: ignore
+        assert tmodel in (bool, int, float, str, list, dict, type(None), None)
+
+        # get which props are set
+        cmp_props = set(filter(lambda k: k in {"<", ">", "=", "!=", ">=", "<="}, model.keys()))
+        has_unique = "!" in model
+        if has_unique and not isinstance(model["!"], bool):  # should not get there
+            raise ModelError("unique constraint value must be a boolean")
+        # TODO ensure that not bool
+        has_int = any(isinstance(model[k], int) for k in cmp_props)
+        has_flt = any(isinstance(model[k], float) for k in cmp_props)
+        has_str = any(isinstance(model[k], str) for k in cmp_props)
+
+        # TODO allow any constant for comparison
+        # has_any
+
+        # static type eliminations, no need to check anything!
+        # this is probably an unintended model error…
+        elim: Block = []
+
+        # per constraints
+        if has_str and has_flt:
+            elim += [ gen.lcom("cannot mix float and string constraints") ]
+
+        # per model type
+        if tmodel in (bool, type(None)) and (cmp_props or has_unique):
+            elim += [ gen.lcom("no constraint allowed on bool or null") ]
+            # else type check will be enough, standard case below
+        elif tmodel in (dict, list) and (has_flt or has_str):
+            elim += [ gen.lcom("no str/flt constraints on object or array") ]
+        elif tmodel is str and has_flt:
+            elim += [ gen.lcom("no float constraints on strings") ]
+        elif tmodel in (int, float) and has_str:
+            elim += [ gen.lcom("no string constraints on numbers") ]
+
+        # per unique
+        if has_unique and tmodel is not list:
+            elim += [ gen.lcom(f"no unique constraint on {tname(tmodel)}") ]
+
+        # TODO value-based elimination
+
+        # TODO add to "optimize.py"
+        if elim:
+            log.warning(f"unfeasible model at [{smpath}]")
+            return elim + [ gen.bool_var(res, gen.bool_cst(False)) ]
+
         # initial model check
         code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
 
-        # add constraints
-        tmodel = self._ultimate_type(jm, model["@"])  # pyright: ignore
+        # shortcut if nothing to check
+        if not cmp_props and not has_unique:
+            return code
 
-        # NOTE UnknownModel should raise an error on any constraint
-        # FIXME see _untype00.model.json for multiple types
+        checks: list[BoolExpr] = []
+        if tmodel is None:
+            # generic implementations if several model types, using runtime functions
+            if has_unique:
+                checks.append(gen.is_arr(val))
+                checks.append(gen.check_unique(val, vpath))
+            for op in cmp_props:
+                checks.append(gen.check_constraint(op, model[op], val, vpath))
+        else:
+            # optimized known-type-specific code
+            if has_unique:
+                assert tmodel is list
+                # TODO add const-based versions if more is known?
+                checks.append(gen.check_unique(val, vpath))
+            for op in cmp_props:
+                raise NotImplementedError(f"optimized {op} constraint")
 
-        assert tmodel in (int, float, str, list, dict, UnknownModel, None), f"simple {tmodel}"
+        assert checks
+        code += gen.if_stmt(res, [ gen.bool_var(res, gen.and_op(*checks)) ])
+        code += self._gen_report(res, f"constraints failed at [{smpath}]", vpath)
+        return code
 
-        checks = []
+
         if tmodel == list:
             what = gen.arr_len(val)
         elif tmodel == dict:
             what = gen.obj_len(val)
+        # on str, comparisons may appy on len (int) or value (str)
+        # on bool, comparisons are not allowed
         else:
             what = val
 
-        # FIXME why None ?!
         twhat = int if tmodel in (list, dict, None) else tmodel
 
         # FIXME we must decide the type to do comparisons… or generate dynamic code.

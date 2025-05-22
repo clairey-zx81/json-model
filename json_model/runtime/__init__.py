@@ -21,6 +21,7 @@ from .support import (
     is_valid_regex,
     is_valid_url,
     is_valid_uuid,
+    is_unique_array,
     value_len,
     main,
 )

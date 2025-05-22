@@ -96,7 +96,7 @@ _json_cmp(const json_t *v1, const json_t *v2)
 {
     const json_type t1 = json_typeof(v1), t2 = json_typeof(v2);
     if (t1 != t2)
-        return t1 - t2;  // intentionally inverted to have scalars ahead
+        return t2 - t1;
 
     // else same type
     switch (t1)
@@ -128,16 +128,16 @@ _json_cmp(const json_t *v1, const json_t *v2)
 
 // typedef int(*cmp_r_fun_t)(const void *, const void *, void *);
 
-// NOTE this assumes ISO, and won't work on MacOS/BSD nor Windows
+// FIXME this assumes ISO, and won't work on MacOS/BSD nor Windows
 // which have their own view of qsort_r, including different names and/or argument orders.
-// fast version which stops comparing once a duplicate has been seen:
+// NOTE fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
 static int
-_json_cmp_r(const json_t *v1, const json_t *v2, void *duplicate)
+_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 {
     if (*((bool *) duplicate))
         return 0;
-    int cmp = _json_cmp(v1, v2);
+    int cmp = _json_cmp(*v1, *v2);
     if (cmp == 0)
         *((bool *) duplicate) = true;
     return cmp;
@@ -160,6 +160,16 @@ _json_array_unique(const json_t *val)
     // life is fun
     qsort_r(array, size, sizeof(json_t *), (cmp_r_fun_t) _json_cmp_r, &duplicate);
     return !duplicate;
+}
+
+// idem with reporting
+bool
+jm_array_is_unique(const json_t *val, Path *path, Report *rep)
+{
+    bool unique = _json_array_unique(val);
+    if (!unique && rep)
+        jm_report_add_entry(rep, "non unique array", path);
+    return unique;
 }
 
 /*

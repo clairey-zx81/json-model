@@ -194,6 +194,7 @@ def partial_eval(jm: JsonModel):
                         if "JSON_MODEL_" in model["#"]:
                             return model
                     return model["@"]
+                # TODO detect infeasible constraints!
         return model
 
     jm._model = recModel(jm._model, allFlt, evalRwt)
