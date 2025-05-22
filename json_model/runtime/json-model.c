@@ -390,18 +390,36 @@ jm_is_valid_date(const char *date)
     return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
 }
 
-// this must be initialized!
-pcre2_code *jm_is_valid_uuid_code = NULL;
-pcre2_match_data *jm_is_valid_uuid_data = NULL;
-
 bool
 jm_is_valid_uuid(const char *uuid)
 {
     if (!uuid)
         return false;
-    int rc = pcre2_match(jm_is_valid_uuid_code, (PCRE2_SPTR) uuid, PCRE2_ZERO_TERMINATED,
-                         0, 0, jm_is_valid_uuid_data, NULL);
-    return rc >= 0;
+    // hardcoded version for ASCII and UTF-8
+    for (size_t i = 0; i < 8; i++)
+        if (!isxdigit(uuid[i]))
+            return false;
+    if (uuid[8] != '-')
+        return false;
+    for (size_t i = 9; i < 13; i++)
+        if (!isxdigit(uuid[i]))
+            return false;
+    if (uuid[13] != '-')
+        return false;
+    for (size_t i = 14; i < 18; i++)
+        if (!isxdigit(uuid[i]))
+            return false;
+    if (uuid[18] != '-')
+        return false;
+    for (size_t i = 19; i < 23; i++)
+        if (!isxdigit(uuid[i]))
+            return false;
+    if (uuid[23] != '-')
+        return false;
+    for (size_t i = 24; i < 36; i++)
+        if (!isxdigit(uuid[i]))
+            return false;
+    return uuid[36] == '\0';
 }
 
 // check regex validity by attempting to compile it, probably not very efficient

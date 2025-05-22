@@ -1,0 +1,12 @@
+[
+  [ true,  null ],
+  [ false, true ],
+  [ false, "Susie" ],
+  [ false, {} ],
+  [ false, {"not": "expected"} ],
+  [ false, [] ],
+  [ false, ["not", "expected"] ],
+  [ false, 42.0 ],
+  [ false, 18 ],
+  [ false, false ]
+]

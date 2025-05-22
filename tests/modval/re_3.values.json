@@ -1,0 +1,19 @@
+[
+  [ true,  {
+      "all": "Hello World!\n",
+      "nz": "\n\n",
+      "some": "\nx\n"
+    }
+  ],
+  "removed bs u 0000",
+  [ true,  {
+      "all": "",
+      "nz": " ",
+      "some": "x"
+    }
+  ],
+  [ false, { "all": null } ],
+  [ false, { "nz": "" } ],
+  [ false, { "nz": 1 } ],
+  [ false, { "some": "\n\n" } ]
+]

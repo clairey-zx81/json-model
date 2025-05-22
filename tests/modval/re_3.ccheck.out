@@ -1,0 +1,6 @@
+re_3.values.json[0]: PASS
+re_3.values.json[2]: PASS
+re_3.values.json[3]: FAIL (.: not an expected object at [$]) (.all: invalid may property value [$]) (.all: unexpected REGEX [$.all])
+re_3.values.json[4]: FAIL (.: not an expected object at [$]) (.nz: invalid may property value [$]) (.nz: unexpected REGEX [$.nz])
+re_3.values.json[5]: FAIL (.: not an expected object at [$]) (.nz: invalid may property value [$]) (.nz: unexpected REGEX [$.nz])
+re_3.values.json[6]: FAIL (.: not an expected object at [$]) (.some: invalid may property value [$]) (.some: unexpected REGEX [$.some])

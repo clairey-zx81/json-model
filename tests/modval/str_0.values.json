@@ -1,0 +1,13 @@
+[
+  [ true,  "" ],
+  [ true,  "Hello World!" ],
+  [ true,  "Une chaîne un peu plus longue avec quelques caractères UTF-8…" ],
+  [ false, false ],
+  [ false, 42.0 ],
+  [ false, 42 ],
+  [ false, [] ],
+  [ false, ["not", "expected"] ],
+  [ false, {} ],
+  [ false, {"not": "expected"} ],
+  [ false, null ]
+]

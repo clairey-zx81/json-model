@@ -211,7 +211,7 @@ class Language:
             return self.is_int(var)
         elif name in ("$U32", "$U64"):
             return self.and_op(self.is_int(var),
-                               self.num_ge(self.int_val(var), self.int_cst(0)))
+                               self.num_cmp(self.value(var, int), ">=", self.const(0)))
         elif name in ("$FLOAT", "$F32", "$F64"):
             return self.is_flt(var)
         elif name == "$NUMBER":
