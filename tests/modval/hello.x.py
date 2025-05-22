@@ -29,7 +29,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.hello
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.hello]", path))
+        rep is None or rep.append(("not a 0 strict int [$.hello]", path))
     return res
 
 # check _jm_obj_0_must_world ($.world)

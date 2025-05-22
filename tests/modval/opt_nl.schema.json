@@ -1,0 +1,17 @@
+{
+  "description": "JSON_MODEL_LOOSE_NUMBER",
+  "type": "object",
+  "properties": {
+    "i": {
+      "type": "integer"
+    },
+    "f": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "i",
+    "f"
+  ],
+  "additionalProperties": false
+}

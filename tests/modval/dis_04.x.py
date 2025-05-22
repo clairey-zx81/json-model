@@ -132,7 +132,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'|'.3.v
     res = isinstance(val, float) and val >= 0.0
     if not res:
-        rep is None or rep.append(("not a 0.0 float [$.'|'.3.v]", path))
+        rep is None or rep.append(("not a 0.0 strict float [$.'|'.3.v]", path))
     return res
 
 
@@ -176,7 +176,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'|'.2.v
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'|'.2.v]", path))
+        rep is None or rep.append(("not a 0 strict int [$.'|'.2.v]", path))
     return res
 
 

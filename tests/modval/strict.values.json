@@ -1,0 +1,12 @@
+[
+  [ true, {"si": 42} ],
+  [ false, {"si": 42.0} ],
+  [ false, {"si": 42.5} ],
+  [ false, {"si": true} ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.14159 ],
+  [ false, "not an int" ],
+  [ false, ["not", "int"] ]
+]

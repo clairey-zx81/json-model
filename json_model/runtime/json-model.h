@@ -138,12 +138,18 @@ extern check_fun_t jm_search_constmap(const constant_t *, const constmap_t *, si
  * Miscellaneous support functions and related data
  */
 extern bool jm_is_valid_date(const char *);
-extern pcre2_code *jm_is_valid_uuid_code;                                                           
-extern pcre2_match_data *jm_is_valid_uuid_data;                                                     
+extern pcre2_code *jm_is_valid_uuid_code;
+extern pcre2_match_data *jm_is_valid_uuid_data;
 extern bool jm_is_valid_uuid(const char *);
 extern size_t jm_any_len(json_t *);
 extern bool jm_is_valid_regex(const char *);
 extern bool jm_is_valid_url(const char *);
+
+/*
+ * Shared high-level entry point
+ */
+extern bool jm_generic_entry(char *(*)(void), check_fun_t (*)(const char *),
+                             json_t *, const char *, bool *, char **);
 
 /*
  * Generated stuff

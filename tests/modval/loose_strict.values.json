@@ -1,0 +1,8 @@
+[
+  "have both loose and strict ints…",
+  [ true, {"li": 42, "si": 42} ],
+  [ false, {"li": 42, "si": 42.0} ],
+  [ false, {"li": 42.0, "si": 42.0} ],
+  "FIXME ideally this one should be true",
+  [ false, {"li": 42.0, "si": 42} ]
+]

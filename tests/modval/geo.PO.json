@@ -5,7 +5,7 @@
     "$Feature",
     "$FeatureCollection"
   ],
-  "#": "JsonModel 1",
+  "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
   "$": {
     "position": {
       "@": [
@@ -13,21 +13,21 @@
       ],
       ">=": 2,
       "<=": 3,
-      "#": "JsonModel 2"
+      "#": "JsonModel 2 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "coord_array": {
       "@": [
         "$position"
       ],
       ">=": 2,
-      "#": "JsonModel 3"
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "linear_ring": {
       "@": [
         "$position"
       ],
       ">=": 4,
-      "#": "JsonModel 4"
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Point": {
       "type": "Point",
@@ -35,7 +35,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 5"
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "MultiPoint": {
       "type": "MultiPoint",
@@ -45,7 +45,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 6"
+      "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "LineString": {
       "type": "LineString",
@@ -53,7 +53,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 7"
+      "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "MultiLineString": {
       "type": "MultiLineString",
@@ -63,7 +63,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 8"
+      "#": "JsonModel 8 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Polygon": {
       "type": "Polygon",
@@ -73,7 +73,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 9"
+      "#": "JsonModel 9 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "MultiPolygon": {
       "type": "MultiPolygon",
@@ -85,7 +85,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 10"
+      "#": "JsonModel 10 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "geometry": {
       "|": [
@@ -96,7 +96,7 @@
         "$Polygon",
         "$MultiPolygon"
       ],
-      "#": "JsonModel 11"
+      "#": "JsonModel 11 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "GeometryCollection": {
       "type": "GeometryCollection",
@@ -106,7 +106,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 12"
+      "#": "JsonModel 12 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Feature": {
       "type": "Feature",
@@ -134,7 +134,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 13"
+      "#": "JsonModel 13 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "FeatureCollection": {
       "type": "FeatureCollection",
@@ -144,7 +144,7 @@
       "?bbox": [
         -1.0
       ],
-      "#": "JsonModel 14"
+      "#": "JsonModel 14 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "#": "Symbol 1",
     "": "./geo"

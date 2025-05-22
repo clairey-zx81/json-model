@@ -1,6 +1,6 @@
 ex_04.values.json[0]: PASS
-ex_04.values.json[1]: FAIL (.: invalid type or constraints [$]) (.: unexpected _Susie [$.'@'])
-ex_04.values.json[2]: FAIL (.: invalid type or constraints [$]) (.: unexpected _Susie [$.'@'])
-ex_04.values.json[3]: FAIL (.: invalid type or constraints [$]) (.: unexpected _Susie [$.'@'])
-ex_04.values.json[4]: FAIL (.: invalid type or constraints [$]) (.: unexpected _Susie [$.'@'])
-ex_04.values.json[5]: FAIL (.: invalid type or constraints [$]) (.: unexpected _Susie [$.'@'])
+ex_04.values.json[1]: FAIL (.: unexpected _Susie [$.'@'])
+ex_04.values.json[2]: FAIL (.: unexpected _Susie [$.'@'])
+ex_04.values.json[3]: FAIL (.: unexpected _Susie [$.'@'])
+ex_04.values.json[4]: FAIL (.: unexpected _Susie [$.'@'])
+ex_04.values.json[5]: FAIL (.: unexpected _Susie [$.'@'])

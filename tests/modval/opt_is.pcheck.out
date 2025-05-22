@@ -1,0 +1,8 @@
+opt_is.values.json[1]: PASS
+opt_is.values.json[2]: PASS
+opt_is.values.json[3]: FAIL [("not a -1 strict int [$.'@']", [])]
+opt_is.values.json[4]: FAIL [("not a -1 strict int [$.'@']", [])]
+opt_is.values.json[5]: FAIL [("not a -1 strict int [$.'@']", [])]
+opt_is.values.json[6]: FAIL [("not a -1 strict int [$.'@']", [])]
+opt_is.values.json[7]: FAIL [("not a -1 strict int [$.'@']", [])]
+opt_is.values.json[8]: FAIL [("not a -1 strict int [$.'@']", [])]

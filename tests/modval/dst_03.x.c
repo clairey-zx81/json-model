@@ -18,7 +18,7 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 int [$.'|'.1.a]", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.1.a]", path);
     }
     return res;
 }
@@ -91,7 +91,7 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 int [$.'|'.0.a]", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.0.a]", path);
     }
     return res;
 }
@@ -227,55 +227,5 @@ void CHECK_free(void)
 bool
 CHECK(json_t *val, const char *name, bool *error, char **reasons)
 {
-    CHECK_init();  // lazy
-    check_fun_t checker = CHECK_fun(name);
-
-    bool not_found = checker == NULL;
-    if (error)
-        *error = not_found;
-
-    if (not_found)
-    {
-        const char *format = "JSON Model check function not found for <%s>\n";
-
-        if (!error)
-        {
-            fprintf(stderr, format, name);
-            exit(1);
-        }
-
-        if (reasons)
-        {
-            size_t size = strlen(format) + strlen(name);
-            char *message = malloc(size);
-            sprintf(message, format, name);
-            *reasons = message;
-        }
-
-        return false;
-    }
-
-    Path root = (Path) { "$", 0, NULL, NULL };
-    Report report = (Report) { NULL };
-
-    bool valid = checker(val, reasons ? &root : NULL, reasons ? &report : NULL);
-
-    // generate explanations if a report is required and the value failed to validate
-    if  (reasons && report.entry && !valid)
-    {
-        size_t size = 1;
-
-        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
-            size += strlen(entry->message) + strlen(entry->path) + 3;
-
-        char *message = malloc(size);
-        *reasons = message;
-
-        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
-            message += sprintf("%s: %s\n", entry->path, entry->message);
-    }
-
-    jm_report_free_entries(&report);
-
-    return valid;
+    return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
 }

@@ -3,7 +3,7 @@
   "$": {
     "loose": {
       "li": 0,
-      "#": "JsonModel 5"
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT)"
     },
     "strict": {
       "si": 0,

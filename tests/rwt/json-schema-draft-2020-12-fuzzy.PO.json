@@ -3,7 +3,7 @@
   "$": {
     "schema": {
       "@": "$Schema",
-      "#": "JsonModel 107",
+      "#": "JsonModel 107 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
       "$": {
         "": "https://json-model.org/models/json-schema-draft-2020-12",
         "URI-REFERENCE": "",

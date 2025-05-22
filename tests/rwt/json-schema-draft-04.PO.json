@@ -72,7 +72,7 @@
   "?oneOf": "$schemaArray",
   "?not": "$Schema",
   "?$ref": "$URL",
-  "#": "JsonModel 1",
+  "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
   "$": {
     "URI": "$URL",
     "schemaArray": {
@@ -80,7 +80,7 @@
         "$Schema"
       ],
       ">=": 1,
-      "#": "JsonModel 3"
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "simpleTypes": {
       "|": [
@@ -92,7 +92,7 @@
         "array",
         "object"
       ],
-      "#": "JsonModel 4"
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "stringArray": {
       "@": [
@@ -100,7 +100,7 @@
       ],
       ">=": 1,
       "!": true,
-      "#": "JsonModel 5"
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "typeArray": {
       "@": [
@@ -108,7 +108,7 @@
       ],
       ">=": 1,
       "!": true,
-      "#": "JsonModel 6"
+      "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Schema": "$#",
     "#": "Symbol 1",

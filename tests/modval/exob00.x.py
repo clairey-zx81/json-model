@@ -32,7 +32,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'|'.1.b
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'|'.1.b]", path))
+        rep is None or rep.append(("not a 0 strict int [$.'|'.1.b]", path))
     return res
 
 
@@ -74,7 +74,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'|'.1.''
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 int [$.'|'.1.'']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [$.'|'.1.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
     if must_count != 1:
@@ -88,7 +88,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'|'.0.a
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'|'.0.a]", path))
+        rep is None or rep.append(("not a 0 strict int [$.'|'.0.a]", path))
     return res
 
 
@@ -130,7 +130,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'|'.0.''
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 int [$.'|'.0.'']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [$.'|'.0.'']", lpath_1 if path is not None else None))
             if not res:
                 return False
     if must_count != 1:

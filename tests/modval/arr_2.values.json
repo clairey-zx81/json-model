@@ -1,0 +1,10 @@
+[
+  [ true,  [false, 42] ],
+  [ false, [true] ],
+  [ false, [false, 42, "oops"] ],
+  [ false, "not an array" ],
+  [ false, null ],
+  [ false, [] ],
+  [ false, [42, 42] ],
+  [ false, [true, false] ]
+]

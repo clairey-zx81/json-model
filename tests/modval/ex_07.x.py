@@ -102,7 +102,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$ex5#EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'$ex5#EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [$.'$ex5#EX05a']", path))
     return res
 
 # check $ex5#EX05b ($.'$ex5#EX05b')
@@ -120,7 +120,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$__external_0#EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'$__external_0#EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [$.'$__external_0#EX05a']", path))
     return res
 
 # check $__external_0#EX05b ($.'$__external_0#EX05b')

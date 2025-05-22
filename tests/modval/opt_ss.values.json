@@ -1,0 +1,8 @@
+[
+  "strict ints, strict floats",
+  [ true, {"i": 42, "f": 42.1} ],
+  [ false, {"i": 42.0, "f": 18.5} ],
+  [ false, {"i": 42, "f": 42} ],
+  [ false, {"i": 42.0, "f": 42} ],
+  [ false, {"i": true, "f": 0.0} ]
+]

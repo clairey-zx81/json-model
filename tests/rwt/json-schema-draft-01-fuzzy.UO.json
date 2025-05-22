@@ -79,7 +79,7 @@
         },
         "?id": "",
         "?$schema": "",
-        "#": "JsonModel 6",
+        "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)",
         "$": {
           "": "https://json-model.org/models/json-schema-draft-01",
           "allTypes": {
@@ -181,7 +181,7 @@
     },
     "?id": "",
     "?$schema": "",
-    "#": "JsonModel 6",
+    "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)",
     "$": {
       "allTypes": {
         "|": [
@@ -194,7 +194,7 @@
           "object",
           "any"
         ],
-        "#": "JsonModel 7"
+        "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": "$#",
       "#": "Symbol 6",
@@ -213,7 +213,7 @@
       "object",
       "any"
     ],
-    "#": "JsonModel 7"
+    "#": "JsonModel 7 (JSON_MODEL_LOOSE_FLOAT)"
   },
   "$#"
 ]

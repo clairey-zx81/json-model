@@ -28,7 +28,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$pos'
     res = isinstance(val, float) and val >= 0.0
     if not res:
-        rep is None or rep.append(("not a 0.0 float [$.'$pos']", path))
+        rep is None or rep.append(("not a 0.0 strict float [$.'$pos']", path))
     return res
 
 # check $ ($)

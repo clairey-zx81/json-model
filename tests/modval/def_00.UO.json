@@ -4,7 +4,7 @@
     "$": {
       "pos": 0.0,
       "#": "Symbol 1",
-      "": "./def00.model.json"
+      "": "./def_00.model.json"
     },
     "@": "$pos"
   },

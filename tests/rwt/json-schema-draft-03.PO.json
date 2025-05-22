@@ -105,7 +105,7 @@
   "?id": "",
   "?$schema": "",
   "?$ref": "$URL",
-  "#": "JsonModel 1",
+  "#": "JsonModel 1 (JSON_MODEL_LOOSE_FLOAT)",
   "$": {
     "URI": "$URL",
     "allTypes": {
@@ -119,7 +119,7 @@
         "object",
         "any"
       ],
-      "#": "JsonModel 3"
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "distinctSchemaArray": {
       "@": [
@@ -131,7 +131,7 @@
         }
       ],
       "!": true,
-      "#": "JsonModel 4"
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Schema": "$#",
     "#": "Symbol 1",

@@ -1,6 +1,6 @@
 import re
 from importlib.resources import files as data_files
-from .mtypes import Jsonable, JsonScalar
+from .mtypes import Jsonable, JsonScalar, Number
 from .utils import log, __version__
 
 # name
@@ -188,6 +188,8 @@ class Language:
     #
     # predefs
     #
+    # FIXME loose vs strict
+    #
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         # shortcut if the variable value is known to be a string
         if is_str:
@@ -198,9 +200,9 @@ class Language:
                 name = "$ANY"
         # else full type checks
         if name == "$ANY":
-            return self.bool_cst(True)
+            return self.const(True)
         elif name == "$NONE":
-            return self.bool_cst(False)
+            return self.const(False)
         elif name == "$NULL":
             return self.is_null(var)
         elif name in ("$BOOL", "$BOOLEAN"):
@@ -224,70 +226,28 @@ class Language:
     #
     # constants
     #
-    def null_cst(self) -> Expr:
-        return "None"
-
-    def bool_cst(self, b: bool) -> BoolExpr:
-        return str(b)
-
-    def int_cst(self, i: int) -> IntExpr:
-        return str(i)
-
-    def flt_cst(self, f: float) -> FloatExpr:
-        return str(f)
-
-    def str_cst(self, s: str) -> StrExpr:
-        return self.esc(s)
-
-    def json_cst(self, j: Jsonable) -> JsonExpr:
-        return str(j)
-
-    def any_cst(self, val: Jsonable) -> Expr:
-        if val is None or isinstance(val, type(None)):
-            return self.null_cst()
-        elif isinstance(val, bool):
-            return self.bool_cst(val)
-        elif isinstance(val, int):
-            return self.int_cst(val)
-        elif isinstance(val, float):
-            return self.flt_cst(val)
-        elif isinstance(val, str):
-            return self.str_cst(val)
+    def const(self, c: Jsonable) -> Expr:
+        if c is None:
+            return "None"
+        elif isinstance(c, str):
+            return self.esc(c)
         else:
-            return json_cst(val)
+            return str(c)
 
     #
     # inline json scalar value extraction
     #
-    def bool_val(self, var: Var) -> BoolExpr:
-        return var
-
-    def int_val(self, var: Var) -> IntExpr:
-        return var
-
-    def flt_val(self, var: Var) -> FloatExpr:
-        return var
-
-    def str_val(self, var: Var) -> StrExpr:
-        return var
+    def value(self, var: Var, tvar: type) -> Expr:
+        if tvar in (bool, int, float, Number, str):
+            return var
+        else:
+            raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
         return f"{arr}[{idx}]"
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
         return f"{obj}.get({prop}, UNDEFINED)"
-
-    def scal_val(self, var: Var, tvar: type|None) -> Expr:
-        if tvar is bool:
-            return self.bool_var(var)
-        elif tvar is int:
-            return self.int_var(var)
-        elif tvar is float:
-            return self.flt_var(var)
-        elif tvar is str:
-            return self.str_var(var)
-        else:
-            raise NotImplementedError(f"unexpected type {tvar}")
 
     #
     # inlined length computation
@@ -303,6 +263,19 @@ class Language:
 
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
+
+    def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
+        """Known type int extraction for constraints."""
+        if tval is int:
+            return self.int_val(val)
+        elif tval is str:
+            return self.str_len(val)
+        elif tval is list:
+            return self.arr_len(val)
+        elif tval is dict:
+            return self.obj_len(val)
+        else:
+            raise Exception(f"unexpected type for any_int_val: {tval.__name__}")
 
     #
     # boolean expression
@@ -340,44 +313,28 @@ class Language:
     #
     # inline comparison expressions for numbers
     #
-    def num_eq(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._eq} {e2}"
-
-    def num_ne(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._ne} {e2}"
-
-    def num_ge(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._ge} {e2}"
-
-    def num_gt(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._gt} {e2}"
-
-    def num_le(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._le} {e2}"
-
-    def num_lt(self, e1: NumExpr, e2: NumExpr) -> BoolExpr:
-        return f"{e1} {self._lt} {e2}"
+    def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
+        assert op in ("=", "!=", "<", "<=", ">=", ">")
+        if op == "=":
+            return f"{e1} {self._eq} {e2}"
+        elif op == "!=":
+            return f"{e1} {self._ne} {e2}"
+        elif op == "<":
+            return f"{e1} {self._lt} {e2}"
+        elif op == "<=":
+            return f"{e1} {self._le} {e2}"
+        elif op == ">=":
+            return f"{e1} {self._ge} {e2}"
+        elif op == ">":
+            return f"{e1} {self._gt} {e2}"
+        else:
+            raise Exception(f"num_cmp unexpected op {op}")
 
     #
     # inline comparison expressions for strings
     #
-    def str_eq(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._eq} {e2}"
-
-    def str_ne(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._ne} {e2}"
-
-    def str_ge(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._ge} {e2}"
-
-    def str_gt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._gt} {e2}"
-
-    def str_le(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._le} {e2}"
-
-    def str_lt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"{e1} {self._lt} {e2}"
+    def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
+        return self.num_cmp(e1, op, e2)
 
     def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
@@ -630,7 +587,7 @@ class Language:
     #
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         """Return the function associated to the tag value if any."""
-        return f"{name}.get({self.scal_val(tag, ttag)}, UNDEFINED)"
+        return f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
 
     def _str_map(self, mapping: dict[JsonScalar, str]) -> bool:
         return all(isinstance(k, str) for k in mapping.keys())
@@ -651,12 +608,12 @@ class Language:
         if self._str_map(mapping):
             icode += [
                 f"{name} = {{", ] + [
-                f"    {self.any_cst(v)}: {fun},"
+                f"    {self.const(v)}: {fun},"
                     for v, fun in mapping.items()
             ] + [ r"}" ]
         else:
             for v, fun in mapping.items():
-                icode += [ f"{name}[{self.any_cst(v)}] = {fun}" ]
+                icode += [ f"{name}[{self.const(v)}] = {fun}" ]
         return icode
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:

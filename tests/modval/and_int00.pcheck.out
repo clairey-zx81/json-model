@@ -1,6 +1,6 @@
 and_int00.values.json[0]: PASS
-and_int00.values.json[1]: FAIL [("not a 1 int [$.'&'.2]", []), ("not all model match [$.'&']", [])]
-and_int00.values.json[2]: FAIL [("not a 0 int [$.'&'.1]", []), ("not all model match [$.'&']", [])]
+and_int00.values.json[1]: FAIL [("not a 1 strict int [$.'&'.2]", []), ("not all model match [$.'&']", [])]
+and_int00.values.json[2]: FAIL [("not a 0 strict int [$.'&'.1]", []), ("not all model match [$.'&']", [])]
 and_int00.values.json[3]: FAIL [("not all model match [$.'&']", [])]
 and_int00.values.json[4]: FAIL [("not all model match [$.'&']", [])]
 and_int00.values.json[5]: FAIL [("not all model match [$.'&']", [])]

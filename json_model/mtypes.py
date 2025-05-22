@@ -1,6 +1,7 @@
 import typing
 
 # JSON types
+type Number = int|float
 type JsonScalar = None|bool|int|float|str
 type Jsonable = JsonScalar|list[Jsonable]|dict[str, Jsonable]
 type JsonObject = dict[str, Jsonable]

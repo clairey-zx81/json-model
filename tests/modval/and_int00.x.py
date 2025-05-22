@@ -31,17 +31,17 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         # $.'&'.0
         res = True
         if not res:
-            rep is None or rep.append(("not a -1 int [$.'&'.0]", path))
+            rep is None or rep.append(("not a -1 strict int [$.'&'.0]", path))
         if res:
             # $.'&'.1
             res = val >= 0
             if not res:
-                rep is None or rep.append(("not a 0 int [$.'&'.1]", path))
+                rep is None or rep.append(("not a 0 strict int [$.'&'.1]", path))
             if res:
                 # $.'&'.2
                 res = val >= 1
                 if not res:
-                    rep is None or rep.append(("not a 1 int [$.'&'.2]", path))
+                    rep is None or rep.append(("not a 1 strict int [$.'&'.2]", path))
     if not res:
         rep is None or rep.append(("not all model match [$.'&']", path))
     return res

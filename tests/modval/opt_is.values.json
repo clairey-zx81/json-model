@@ -1,0 +1,11 @@
+[
+  "strict ints",
+  [ true, 42 ],
+  [ true, -1515 ],
+  [ false, 42.0 ],
+  [ false, -0.0 ],
+  [ false, "NaN" ],
+  [ false, false ],
+  [ false, null ],
+  [ false, true ]
+]

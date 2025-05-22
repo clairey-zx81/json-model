@@ -1,0 +1,8 @@
+loose.values.json[1]: PASS
+loose.values.json[2]: PASS
+loose.values.json[3]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])
+loose.values.json[4]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])
+loose.values.json[5]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])
+loose.values.json[6]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])
+loose.values.json[7]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])
+loose.values.json[8]: FAIL (.: not an expected object at [$]) (.li: invalid must property value [$]) (.li: not a 0 loose int [$.li])

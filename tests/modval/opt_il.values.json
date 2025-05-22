@@ -1,0 +1,7 @@
+[
+  "loose ints",
+  [ true, 42 ],
+  [ true, -42.0 ],
+  [ false, 42.5 ],
+  [ false, "not-a-number" ]
+]

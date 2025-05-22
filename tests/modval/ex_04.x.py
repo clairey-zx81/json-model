@@ -30,8 +30,6 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res = isinstance(val, str) and val == "Susie"
     if not res:
         rep is None or rep.append(("unexpected _Susie [$.'@']", path))
-    if not res:
-        rep is None or rep.append(("invalid type or constraints [$]", path))
     return res
 
 

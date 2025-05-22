@@ -162,7 +162,10 @@ class JsonModel:
                  url: str = "",
                  head: JsonModel|None = None,
                  scope: Symbols|None = None,
-                 debug: bool = False):
+                 debug: bool = False,
+                 loose_int: bool|None = None,
+                 loose_float: bool|None = None,
+            ):
 
         # the root model cannot share a scope
         assert head is not None or head is None and scope is None
@@ -221,30 +224,32 @@ class JsonModel:
         if isinstance(model, dict) and "#" in model:
             meta = model["#"]
             if isinstance(meta, str):
-                loose_int: bool|None = None
-                loose_flt: bool|None = None
+                # default value from parameters
+                li: bool|None = loose_int
+                lf: bool|None = loose_float
+                # local overrides
                 if "JSON_MODEL_LOOSE_NUMBER" in meta:
-                    loose_int = True
-                    loose_flt = True
+                    li = True
+                    lf = True
                 elif "JSON_MODEL_STRICT_NUMBER" in meta:
-                    loose_int = False
-                    loose_flt = False
+                    li = False
+                    lf = False
                 if "JSON_MODEL_LOOSE_INT" in meta:
-                    loose_int = True
+                    li = True
                 elif "JSON_MODEL_STRICT_INT" in meta:
-                    loose_int = False
+                    li = False
                 if "JSON_MODEL_LOOSE_FLOAT" in meta:
-                    loose_flt = True
+                    lf = True
                 elif "JSON_MODEL_STRICT_FLOAT" in meta:
-                    loose_flt = False
-                self._loose_int = False if loose_int is None else loose_int
-                self._loose_float = False if loose_flt is None else loose_flt
+                    lf = False
+                self._loose_int = False if li is None else li
+                self._loose_float = False if lf is None else lf
             else:
-                self._loose_int = False
-                self._loose_float = False
+                self._loose_int = loose_int if loose_int is not None else False
+                self._loose_float = loose_float if loose_float is not None else False
         else:
-            self._loose_int = False
-            self._loose_float = False
+            self._loose_int = loose_int if loose_int is not None else False
+            self._loose_float = loose_float if loose_float is not None else False
 
         # root models can have % $ ~ keywords
         if isinstance(model, dict) and "%" in model:
@@ -303,7 +308,8 @@ class JsonModel:
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._url + "#" + n, self._head, self._defs, debug)
+                n: JsonModel(m, resolver, self._url + "#" + n, self._head, self._defs, debug,
+                             loose_int=self._loose_int, loose_float=self._loose_float)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
@@ -437,6 +443,8 @@ class JsonModel:
         self._rewrite = jm._rewrite
         self._externs = jm._externs
         self._model = jm._model
+        self._loose_int = jm._loose_int
+        self._loose_float = jm._loose_float
 
     def unload(self):
         """Delete unused models."""
@@ -472,6 +480,8 @@ class JsonModel:
             "id": self._id,
             "url": self._url,
             "model": self._model,
+            "int": "loose" if self._loose_int else "strict",
+            "float": "loose" if self._loose_float else "strict",
         }
         if verbose:
             data["init"] = self._init_md
@@ -503,7 +513,11 @@ class JsonModel:
         if isinstance(model, dict):
             if "#" in model:
                 del model["#"]
-            model["#"] = f"JsonModel {self._id}"
+            li = "JSON_MODEL_LOOSE_INT" if self._loose_int else ""
+            lf = "JSON_MODEL_LOOSE_FLOAT" if self._loose_float else ""
+            loose = f" ({li} {lf})" if self._loose_float and self._loose_int else f" ({li}{lf})"
+            model["#"] = \
+                f"JsonModel {self._id}{loose if self._loose_float or self._loose_int else ''}"
         if len(self._defs):
             defs = {
                 n: jm.toModel() if isinstance(jm, JsonModel) else jm

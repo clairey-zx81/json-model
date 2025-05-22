@@ -28,7 +28,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 int [$.'$EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [$.'$EX05a']", path))
     return res
 
 # check $EX05b ($.'$EX05b')

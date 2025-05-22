@@ -9,12 +9,12 @@
 - [x] py-backend: improve url validation
 - [x] frontent: add `-T 1000` to trigger measuring performance.
 - [x] static: unique constraint
+- [x] static: cmp constraint implementation
+- [x] python: use local loose settings if appropriate (but not with inlining!)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
-- [ ] static: cmp constraint implementation
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
-- [ ] static: multi-type object disjunction?
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] c-backend: fast `$REGEX` implementation (wip)
 - [ ] py-backend: unique for any
@@ -28,6 +28,14 @@
 - [ ] doc: remove about S
 - [ ] python: drop `Validator` class
 - [ ] schema: add explicit `"$schema"` property if appropriate
+- [ ] static: fix double reports, eg constraint type and constraints
+- [ ] static: make loose/strict work locally, triggered by `$name` root comments
+- [ ] c-backend: simplify entry by moving parts to `json-model.c`
+- [ ] frontend: align python and C outputs
+- [ ] optim: root xor should be simplified in `geo.model.json`
+- [ ] optim: detect non feasible constraints
+- [ ] python: how to keep looseness after inlining?
+- [ ] static: multi-type object disjunction?
 
 ## To Do
 

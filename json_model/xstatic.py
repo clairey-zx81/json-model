@@ -4,7 +4,8 @@ from typing import Callable
 import re
 import json
 
-from .mtypes import ModelType, ModelArray, ModelError, ModelPath, UnknownModel, Symbols, Jsonable
+from .mtypes import ModelType, ModelArray, ModelError, ModelPath, Symbols
+from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
 from .defines import Validator, ultimate_type
@@ -103,13 +104,13 @@ class SourceCode(Validator):
 
         # optimized versions
         if re.match(r"^/\^?.\*\$?/[mis]?$", regex):
-            return gen.bool_cst(True)
+            return gen.const(True)
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
-            return gen.num_gt(gen.str_len(gen.str_val(val)), gen.int_cst(0))
+            return gen.num_cmp(gen.str_len(gen.value(val, str)), ">", gen.const(0))
         else:
             fun = self._regex(regex)
             # TODO inline the internal function if possible?
-            return gen.str_check_call(fun, gen.str_val(val))
+            return gen.str_check_call(fun, gen.value(val, str))
         # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
 
     def _esc(self, val: Jsonable) -> str:
@@ -145,25 +146,6 @@ class SourceCode(Validator):
         Type incompatibilities may also lead to rejections.
         """
 
-        # S D @   op type WHAT
-        # x   boo *  *    ERROR (check a boolean value with "=true" or "=false"
-        # x   nul *  *    ERROR (check for null with null or "$NULL" or "=null"!)
-        #     obj *  i    number of properties
-        # x   obj *  fs   ERROR
-        #     arr *  i    number of items
-        # x   arr *  fs   ERROR
-        #     str *  i    length of string
-        #     str *  s    comparison (which one, locale aware?)
-        # x   str *  f    ERROR
-        #     int *  if   value comparison
-        # x   int *  s    ERROR
-        #     flt *  if   value comparison
-        # x   flt *  s    ERROR
-        #     arr !  b    distinct items
-        #     str !  b    ERROR; could allow distinct chars?
-        # x   as  !  !b   MODEL ERROR
-        # x   !as !  *    ERROR
-
         # TODO make it a function?
         assert isinstance(model, dict) and "@" in model
         smpath = json_path(mpath)
@@ -182,8 +164,7 @@ class SourceCode(Validator):
         has_flt = any(isinstance(model[k], float) for k in cmp_props)
         has_str = any(isinstance(model[k], str) for k in cmp_props)
 
-        # TODO allow any constant for comparison
-        # has_any
+        # TODO allow any constant for comparisons?
 
         # static type eliminations, no need to check anything!
         # this is probably an unintended model error…
@@ -213,7 +194,7 @@ class SourceCode(Validator):
         # TODO add to "optimize.py"
         if elim:
             log.warning(f"unfeasible model at [{smpath}]")
-            return elim + [ gen.bool_var(res, gen.bool_cst(False)) ]
+            return elim + [ gen.bool_var(res, gen.const(False)) ]
 
         # initial model check
         code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
@@ -223,6 +204,7 @@ class SourceCode(Validator):
             return code
 
         checks: list[BoolExpr] = []
+        cvars: Block = []
         if tmodel is None:
             # generic implementations if several model types, using runtime functions
             if has_unique:
@@ -232,67 +214,59 @@ class SourceCode(Validator):
                 checks.append(gen.check_constraint(op, model[op], val, vpath))
         else:
             # optimized known-type-specific code
+            # NOTE we know that constraints make sense for the target type
             if has_unique:
                 assert tmodel is list
                 # TODO add const-based versions if more is known?
                 checks.append(gen.check_unique(val, vpath))
-            for op in cmp_props:
-                raise NotImplementedError(f"optimized {op} constraint")
+            if has_int:
+                if tmodel in (int, str, list, dict):
+                    # skip float
+                    ival = gen.ident("ival")
+                    cvars += [
+                        gen.int_var(ival, gen.any_int_val(val, tmodel), declare=True)
+                    ]
+                else:
+                    assert tmodel is float
+                    fval = gen.ident("fval")
+                    cvars += [
+                        gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),
+                                    declare=True)
+                    ]
+            if has_flt:
+                if tmodel is float and not has_int:
+                    fval = gen.ident("fval")
+                    cvars += [
+                        gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),
+                                    declare=True)
+                    ]
+                elif tmodel is int:
+                    fval = gen.ident("fval")
+                    cvars += [
+                        gen.flt_var(fval, gen.value(val, Number), declare=True)
+                    ]
+                # else cannot happen
+            if has_str:
+                assert tmodel is str  # redundant sanity check
+                sval = gen.ident("sval")
+                cvars += [
+                    gen.str_var(sval, gen.value(val, str), declare=True) 
+                ]
+            for op in cmp_props:  # FIXME looseness?
+                vop = model[op]
+                if isinstance(vop, int):
+                    if tmodel is float:
+                        checks.append(gen.num_cmp(fval, op, gen.const(vop)))
+                    else:
+                        checks.append(gen.num_cmp(ival, op, gen.const(vop)))
+                elif isinstance(vop, str):
+                    checks.append(gen.str_cmp(sval, op, gen.const(vop)))
+                elif isinstance(vop, float):
+                    checks.append(gen.num_cmp(fval, op, gen.const(vop)))
 
         assert checks
-        code += gen.if_stmt(res, [ gen.bool_var(res, gen.and_op(*checks)) ])
+        code += gen.if_stmt(res, cvars + [ gen.bool_var(res, gen.and_op(*checks)) ])
         code += self._gen_report(res, f"constraints failed at [{smpath}]", vpath)
-        return code
-
-
-        if tmodel == list:
-            what = gen.arr_len(val)
-        elif tmodel == dict:
-            what = gen.obj_len(val)
-        # on str, comparisons may appy on len (int) or value (str)
-        # on bool, comparisons are not allowed
-        else:
-            what = val
-
-        twhat = int if tmodel in (list, dict, None) else tmodel
-
-        # FIXME we must decide the type to do comparisons… or generate dynamic code.
-        # TODO precise spec!
-
-        for constraint in ("=", "!=", "<", "<=", ">", ">="):
-            if constraint in model:
-                op = "==" if constraint == "=" else constraint
-                cst = model[constraint]
-                if not isinstance(cst, (twhat, int)):
-                    raise ModelError(f"invalid constant: {cst} ({twhat.__name__}) {mpath}")
-                # TODO
-                raise NotImplementedError("constraint not implemented")
-                if isinstance(cst, int) and tmodel is str:
-                    checks.append(f"len({val}) {op} {cst}")
-                elif isinstance(cst, int) and tmodel == UnknownModel:
-                    checks.append(f"(len({val}) {op} {cst} if isinstance({val}, (str, list, dict))"
-                                  " else "
-                                  f"{val} {op} {self._esc(cst) if isinstance(cst, str) else cst})")
-                elif isinstance(cst, str):
-                    checks.append(f"{what} {op} {self._esc(cst)}")
-                else:  # same type or list or dict
-                    checks.append(f"{what} {op} {cst}")
-
-        if "!" in model:
-            if not isinstance(model["!"], bool):
-                raise ModelError(f"! constraint expects a boolean {mpath}")
-            if model["!"]:
-                raise NotImplementedError("constraint not implemented")
-                # TODO must be a list!
-                log.warning("FIXME: ! generated code is not reliable")
-                code.add(indent, f"{res} &= len(set({val})) == len({val})")
-            # else defaut is nothing to check
-
-        if checks:
-            code += gen.iand_op(res, gen.and_op(checks))
-
-        code += self._gen_report(res, f"invalid type or constraints [{smpath}]", vpath)
-
         return code
 
     def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -363,9 +337,9 @@ class SourceCode(Validator):
                     [ ifun ] +
                     gen.if_stmt(gen.is_def(fun),
                         [ icall ],
-                        [ gen.bool_var(res, gen.bool_cst(False)) ] +
+                        [ gen.bool_var(res, gen.const(False)) ] +
                         gen.report(f"tag {tag_name} value not found [{smpath}]", vpath)),
-                    [ gen.bool_var(res, gen.bool_cst(False)) ] +
+                    [ gen.bool_var(res, gen.const(False)) ] +
                     gen.report(f"tag prop {tag_name} is missing [{smpath}]", vpath)),
                 gen.report(f"value is not an object [{smpath}]", vpath))
         )
@@ -383,12 +357,12 @@ class SourceCode(Validator):
     def _gen_fail(self, msg: str, path: str) -> Block:
         """Generate a report and return false."""
         gen = self._lang
-        return gen.report(msg, path) + [ gen.ret(gen.bool_cst(False)) ]
+        return gen.report(msg, path) + [ gen.ret(gen.const(False)) ]
 
     def _gen_short_expr(self, expr: BoolExpr) -> Block:
         """Return immediately if expression is false."""
         gen = self._lang
-        return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.bool_cst(False)) ])
+        return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.const(False)) ])
 
     def _compileObject(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                        oname: str, res: str, val: str, vpath: str) -> Block:
@@ -414,12 +388,12 @@ class SourceCode(Validator):
         if not must and not may and not defs and not regs:
             if not oth:  # empty object
                 code += \
-                    gen.if_stmt(gen.num_eq(gen.obj_len(val), gen.int_cst(0)),
-                                [ gen.ret(bool_cst(True)) ],
+                    gen.if_stmt(gen.num_cmp(gen.obj_len(val), "=", gen.const(0)),
+                                [ gen.ret(gen.const(True)) ],
                                 self._gen_fail(f"expecting empty object [{smpath}]", vpath))
                 return code
             elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
-                code += [ gen.lcom("accept any object"), gen.ret(gen.bool_cst(True)) ]
+                code += [ gen.lcom("accept any object"), gen.ret(gen.const(True)) ]
                 return code
             # else cannot optimize early
 
@@ -439,7 +413,7 @@ class SourceCode(Validator):
             prop_must = f"{oname}_must"
 
             # must prop counter to check at the end if all were seen
-            code += [ gen.int_var(must_c, gen.int_cst(0), True) ]
+            code += [ gen.int_var(must_c, gen.const(0), True) ]
 
             prop_must_map: dict[str, str] = {}
             for p in sorted(must.keys()):
@@ -521,11 +495,11 @@ class SourceCode(Validator):
 
         # check that all must were seen, although we do not know which ones
         if must:
-            code += gen.if_stmt(gen.num_ne(must_c, gen.int_cst(len(must))),
+            code += gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
                 self._gen_fail(f"missing must prop [{smpath}]", vpath))
 
         # early returns so no need to look at res
-        code += [ gen.ret(gen.bool_cst(True)) ]
+        code += [ gen.ret(gen.const(True)) ]
 
         return code
 
@@ -542,7 +516,7 @@ class SourceCode(Validator):
         if not models:
             if self._report:
                 code += [ gen.report(f"empty or [{smpath}]", vpath) ]
-            code += [ gen.bool_val(res, gen.bool_cst(False)) ]
+            code += [ gen.bool_var(res, gen.const(False)) ]
             return code
 
         # partial/full list of constants optimization
@@ -636,7 +610,7 @@ class SourceCode(Validator):
         if len(models) == 0:
             code += [
                 gen.lcom("early empty xor list"),
-                gen.bool_var(res, gen.bool_cst(False))
+                gen.bool_var(res, gen.const(False))
             ]
             return code
 
@@ -668,7 +642,7 @@ class SourceCode(Validator):
                 code += [
                     gen.lcom("remove duplicate xor list"),
                     gen.bool_var(isin, declare=True),
-                    gen.bool_var(res, gen.bool_cst(True))
+                    gen.bool_var(res, gen.const(True))
                 ]
 
                 # generate flat if, no big deal?
@@ -691,7 +665,7 @@ class SourceCode(Validator):
         # TODO reporting
         xcode = []
         if not models:
-            xcode += [ gen.lcom("empty xor list"), gen.bool_var(res, gen.bool_cst(False)) ]
+            xcode += [ gen.lcom("empty xor list"), gen.bool_var(res, gen.const(False)) ]
         elif len(models) == 1:
             mod, idx = models[0], models_i[0]
             xcode += [ gen.lcom("singleton xor list") ] + \
@@ -716,7 +690,7 @@ class SourceCode(Validator):
                 test = self._lang.ident("xr")
                 xcode += [
                     gen.lcom("generic xor list"),
-                    gen.int_var(count, gen.int_cst(0), declare=True),
+                    gen.int_var(count, gen.const(0), declare=True),
                     gen.bool_var(test, declare=True)
                 ]
 
@@ -728,10 +702,10 @@ class SourceCode(Validator):
                     if i < 2:
                         xcode += icode
                     else:  # maybe skip
-                        xcode += gen.if_stmt(gen.int_le(count, gen.int_cst(1)), icode)
+                        xcode += gen.if_stmt(gen.num_cmp(count, "<=", gen.const(1)), icode)
 
                 # verify that only one matched
-                xcode += [ gen.bool_var(res, gen.num_eq(count, gen.int_cst(1))) ]
+                xcode += [ gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1))) ]
 
         if dups:
             code += gen.if_stmt(res, xcode)
@@ -754,7 +728,7 @@ class SourceCode(Validator):
         code = []
 
         if not models:  # empty & list
-            code += [ gen.bool_val(res, gen.bool_cst(True)) ]
+            code += [ gen.bool_var(res, gen.const(True)) ]
             return
 
         # homogeneous typed list
@@ -765,7 +739,7 @@ class SourceCode(Validator):
             code += [ gen.bool_var(res, type_test) ]
             and_known.add(type_test)
         else:
-            code += [ gen.bool_var(res, gen.bool_cst(True)) ]
+            code += [ gen.bool_var(res, gen.const(True)) ]
 
         # build in reverse order the if structure
         acode: Block = []
@@ -807,18 +781,22 @@ class SourceCode(Validator):
                         if expr is not None:
                             known.add(expr)
                     if not expr:
-                        expr = gen.bool_cst(True)
+                        expr = gen.const(True)
                 elif model == 0:
-                    compare = gen.num_ge(gen.int_val(val), gen.int_cst(0))
+                    compare = gen.num_cmp(gen.value(val, Number if jm._loose_int else int),
+                                          ">=", gen.const(0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1:
-                    compare = gen.num_ge(gen.int_val(val), gen.int_cst(1))
+                    compare = gen.num_cmp(gen.value(val, Number if jm._loose_int else int),
+                                          ">=", gen.const(1))
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
                     raise ModelError(f"unexpected int value {model} at {smpath}")
                 if expr:
+                    looseness = "loose" if jm._loose_int else "strict"
                     code += [ gen.bool_var(res, expr) ] + \
-                        self._gen_report(res, f"not a {model} int [{smpath}]", vpath)
+                        self._gen_report(res,
+                            f"not a {model} {looseness} int [{smpath}]", vpath)
             case float():
                 expr = gen.is_flt(val, jm._loose_float)
                 if known is not None:
@@ -831,16 +809,19 @@ class SourceCode(Validator):
                     if not expr:
                         expr = "True"
                 elif model == 0.0:
-                    compare = gen.num_ge(gen.flt_val(val), gen.flt_cst(0.0))
+                    compare = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
+                                          ">=", gen.const(0.0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1.0:
-                    compare = gen.num_gt(gen.flt_val(val), gen.flt_cst(0.0))
+                    compare = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
+                                          ">", gen.const(0.0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
+                    looseness = "loose" if jm._loose_float else "strict"
                     code += [ gen.bool_var(res, expr) ] + \
-                        self._gen_report(res, f"not a {model} float [{smpath}]", vpath)
+                        self._gen_report(res, f"not a {model} {looseness} float [{smpath}]", vpath)
             case str():
                 expr = gen.is_str(val)
                 if known is not None:
@@ -853,9 +834,9 @@ class SourceCode(Validator):
                     if known is not None:
                         if expr is not None:
                             known.add(expr)
-                    code += [ gen.bool_var(res, expr if expr else gen.bool_cst(True)) ]
+                    code += [ gen.bool_var(res, expr if expr else gen.const(True)) ]
                 elif model[0] == "_":
-                    compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
+                    compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model[1:]))
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += [ gen.bool_var(res, expr) ]
                 elif model[0] == "=":
@@ -868,21 +849,21 @@ class SourceCode(Validator):
                         code += [ gen.bool_var(res, gen.is_null(val)) ]
                     elif isinstance(value, bool):
                         ttest = gen.is_bool(val)
-                        expr = gen.num_eq(gen.bool_val(val), gen.bool_cst(value))
+                        expr = gen.num_cmp(gen.value(val, bool), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, int):
                         ttest = gen.is_int(val, jm._loose_int)
                         # FIXME cast depends on type?
-                        expr = gen.num_eq(gen.int_val(val), gen.int_cst(value))
+                        expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, float):
                         ttest = gen.is_flt(val, jm._loose_float)
-                        # FIXME cast depends on type? add loose parameter?
-                        expr = gen.num_eq(gen.flt_val(val), gen.flt_cst(value))
+                        expr = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
+                                           "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += [ gen.bool_var(res, expr) ]
@@ -900,7 +881,7 @@ class SourceCode(Validator):
                     call = self._regExpr(model, val, vpath)
                     code += [ gen.bool_var(res, gen.and_op(expr, call) if expr else call) ]
                 else:  # simple string
-                    compare = gen.str_eq(gen.str_val(val), gen.str_cst(model))
+                    compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model))
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += [ gen.bool_var(res, expr) ]
                 if self._report:
@@ -917,7 +898,7 @@ class SourceCode(Validator):
                     if expr is not None:
                         known.add(expr)
                 if len(model) == 0:
-                    length = gen.num_eq(gen.arr_len(val), gen.int_cst(0))
+                    length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0))
                     expr = gen.and_op(expr, length) if expr else length
                     code += [ gen.bool_var(res, expr) ]
                     # SHORT RES?
@@ -935,10 +916,10 @@ class SourceCode(Validator):
                             gen.if_stmt(gen.not_op(res), [ gen.brk() ])
                         )
 
-                    code += [ gen.bool_var(res, expr if expr else gen.bool_cst(True)) ] + \
+                    code += [ gen.bool_var(res, expr if expr else gen.const(True)) ] + \
                         gen.if_stmt(res, loop)
                 else:
-                    length = gen.num_eq(gen.arr_len(val), gen.int_cst(len(model)))
+                    length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
                     expr = gen.and_op(expr, length) if expr else length
                     code += [ gen.bool_var(res, expr) ]
                     lpath = gen.ident("lpath")

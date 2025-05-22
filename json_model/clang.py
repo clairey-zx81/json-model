@@ -1,7 +1,7 @@
 import json
 from .language import Language, Block, Var, Inst, Block, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
-from .mtypes import Jsonable, JsonScalar
+from .mtypes import Jsonable, JsonScalar, Number
 from .utils import UUID_RE
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
@@ -66,9 +66,10 @@ class CLangJansson(Language):
     def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
         is_an_int = f"json_is_integer({var})"
         if loose:
-            is_an_int = ("(" + is_an_int + " || " +
-                               f"json_is_real({var}) && "
-                               f"json_real_value({var}) == ((int) json_real_value({var})))")
+            is_an_int = (
+                "(" + is_an_int + " || " +
+                f"(json_is_real({var}) && "
+                    f"json_real_value({var}) == (({self._int}) json_real_value({var}))))")
         return is_an_int
 
     def is_bool(self, var: Var) -> BoolExpr:
@@ -83,8 +84,23 @@ class CLangJansson(Language):
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} != NULL"
 
-    def bool_cst(self, b: bool) -> BoolExpr:
-        return "true" if b else "false"
+    def _json_str(self, j) -> str:
+        j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
+
+    def json_cst(self, j: Jsonable) -> JsonExpr:
+        return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
+
+    def const(self, val: Jsonable) -> Expr:
+        if val is None:
+            return "NULL";
+        elif isinstance(val, bool):
+            return "true" if val else "false"
+        elif isinstance(val, (int, float)):
+            return str(val)
+        elif isinstance(val, str):
+            return self.esc(val)
+        else:
+            return self.json_cst(val)
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
@@ -99,24 +115,36 @@ class CLangJansson(Language):
             return f"jm_is_valid_url({val})"
         else:  # TODO $URL
             return super().predef(var, name, path, is_str)
-
-    def _json_str(self, j) -> str:
-        j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
-
-    def json_cst(self, j: Jsonable) -> JsonExpr:
-        return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
     
-    def bool_val(self, var: Var) -> BoolExpr:
-        return f"json_boolean_value({var})"
+    def value(self, var: Var, tvar: type) -> Expr:
+        """Known type value extraction."""
+        if tvar is type(None):
+            return "NULL"
+        elif tvar is bool:
+            return f"json_boolean_value({var})"
+        elif tvar is int:
+            return f"json_integer_value({var})"
+        elif tvar is float:
+            return f"json_real_value({var})"
+        elif tvar is Number:  # NOTE this cast from int if necessary
+            return f"json_number_value({var})"
+        elif tvar is str:
+            return f"json_string_value({var})"
+        else:
+            raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def int_val(self, var: Var) -> IntExpr:
-        return f"json_integer_value({var})"
-
-    def flt_val(self, var: Var) -> FloatExpr:
-        return f"json_real_value({var})"
-
-    def str_val(self, var: Var) -> StrExpr:
-        return f"json_string_value({var})"
+    def any_int_value(self, var: Var, tvar: type) -> IntExpr:
+        """Get an int from whatever, if possible, from a Json variable or value."""
+        if tvar is int:
+            return self.value(var, int)
+        elif tvar is list:
+            return self.arr_len(var)
+        elif tvar is dict:
+            return self.obj_len(var)
+        elif tvar is str:
+            return self.str_len(var)
+        else:
+            raise Exception(f"unexpected type for int extraction: {tvar.__name__}")
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
         return f"json_array_get({arr}, {idx})"
@@ -164,23 +192,22 @@ class CLangJansson(Language):
     # inline comparison expressions for strings
     # this is locale-unaware
     #
-    def str_eq(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) == 0"
-
-    def str_ne(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) != 0"
-
-    def str_ge(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) >= 0"
-
-    def str_gt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) > 0"
-
-    def str_le(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) <= 0"
-
-    def str_lt(self, e1: StrExpr, e2: StrExpr) -> BoolExpr:
-        return f"strcmp({e1}, {e2}) < 0"
+    def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
+        assert op in ("=", "!=", "<", "<=", ">=", ">")
+        if op == "=":
+            return f"strcmp({e1}, {e2}) == 0"
+        elif op == "!=":
+            return f"strcmp({e1}, {e2}) != 0"
+        elif op == ">=":
+            return f"strcmp({e1}, {e2}) >= 0"
+        elif op == ">":
+            return f"strcmp({e1}, {e2}) > 0"
+        elif op == "<=":
+            return f"strcmp({e1}, {e2}) <= 0"
+        elif op == "<":
+            return f"strcmp({e1}, {e2}) < 0"
+        else:
+            raise Exception(f"str_cmp unexpected operator {op}")
 
     #
     # simple instructions
@@ -340,13 +367,13 @@ class CLangJansson(Language):
         if vtype is None or vtype == type(None):
             return "(constant_t) { cst_is_null, { .s = NULL } }"
         elif vtype is bool:
-            return f"(constant_t) {{ cst_is_bool, {{ .b = {self.bool_val(var)} }} }}"
+            return f"(constant_t) {{ cst_is_bool, {{ .b = {self.value(var, bool)} }} }}"
         elif vtype is int:
-            return f"(constant_t) {{ cst_is_integer, {{ .i = {self.int_val(var)} }} }}"
+            return f"(constant_t) {{ cst_is_integer, {{ .i = {self.value(var, int)} }} }}"
         elif vtype is float:
-            return f"(constant_t) {{ cst_is_float, {{ .f = {self.flt_val(var)} }} }}"
+            return f"(constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
         elif vtype is str:
-            return f"(constant_t) {{ cst_is_string, {{ .s = {self.str_val(var)} }} }}"
+            return f"(constant_t) {{ cst_is_string, {{ .s = {self.value(var, str)} }} }}"
         else:
             raise NotImplementedError(f"type {vtype}")
 
@@ -364,7 +391,7 @@ class CLangJansson(Language):
             case None:
                 return "(constant_t) { cst_is_null, { .s = NULL } }"
             case bool(b):
-                return f"(constant_t) {{ cst_is_bool, {{ .b = {self.bool_cst(b)} }} }}"
+                return f"(constant_t) {{ cst_is_bool, {{ .b = {self.const(b)} }} }}"
             case int(i):
                 return f"(constant_t) {{ cst_is_integer, {{ .i = {i} }} }}"
             case float(f):

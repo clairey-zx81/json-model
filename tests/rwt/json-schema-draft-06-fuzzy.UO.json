@@ -4,7 +4,7 @@
     "$": {
       "schema": {
         "@": "$Schema",
-        "#": "JsonModel 12",
+        "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
         "$": {
           "": "https://json-model.org/models/json-schema-draft-06",
           "URI-REFERENCE": "",
@@ -123,7 +123,7 @@
   },
   {
     "@": "$Schema",
-    "#": "JsonModel 12",
+    "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
     "$": {
       "URI-REFERENCE": "",
       "URI": "$URL",
@@ -132,7 +132,7 @@
           "$Schema"
         ],
         ">=": 1,
-        "#": "JsonModel 15"
+        "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypes": {
         "|": [
@@ -144,14 +144,14 @@
           "array",
           "object"
         ],
-        "#": "JsonModel 16"
+        "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "typeArray": {
         "@": [
           "$simpleTypes"
         ],
         ">=": 1,
-        "#": "JsonModel 17"
+        "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "stringArray": [
         ""
@@ -226,14 +226,14 @@
         "?oneOf": "$schemaArray",
         "?not": "$Schema",
         "?$ref": "$URI-REFERENCE",
-        "#": "JsonModel 19"
+        "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": {
         "|": [
           true,
           "$ObjectSchema"
         ],
-        "#": "JsonModel 20"
+        "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "#": "Symbol 12",
       "": "https://json-model.org/models/json-schema-draft-06"
@@ -247,7 +247,7 @@
       "$Schema"
     ],
     ">=": 1,
-    "#": "JsonModel 15"
+    "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
@@ -259,14 +259,14 @@
       "array",
       "object"
     ],
-    "#": "JsonModel 16"
+    "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       "$simpleTypes"
     ],
     ">=": 1,
-    "#": "JsonModel 17"
+    "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   [
     ""
@@ -341,13 +341,13 @@
     "?oneOf": "$schemaArray",
     "?not": "$Schema",
     "?$ref": "$URI-REFERENCE",
-    "#": "JsonModel 19"
+    "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
       true,
       "$ObjectSchema"
     ],
-    "#": "JsonModel 20"
+    "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   }
 ]

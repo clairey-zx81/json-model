@@ -514,3 +514,63 @@ jm_check_fun_string(check_fun_t fun, const char *val, Path *path, Report *rep)
     json_string_set(&holder, val);
     return fun(&holder, path, rep);
 }
+
+bool
+jm_generic_entry(
+    char *(*model_init)(void),
+    check_fun_t (*model_fun)(const char *),
+    // void (*model_free)(void),
+    json_t *val, const char *name, bool *error, char **reasons)
+{
+    model_init();  // lazy
+    check_fun_t checker = model_fun(name);
+
+    bool not_found = checker == NULL;
+    if (error)
+        *error = not_found;
+
+    if (not_found)
+    {
+        const char *format = "JSON Model check function not found for <%s>\n";
+
+        if (!error)
+        {
+            fprintf(stderr, format, name);
+            exit(1);
+        }
+
+        if (reasons)
+        {
+            size_t size = strlen(format) + strlen(name);
+            char *message = malloc(size);
+            sprintf(message, format, name);
+            *reasons = message;
+        }
+
+        return false;
+    }
+
+    Path root = (Path) { "$", 0, NULL, NULL };
+    Report report = (Report) { NULL };
+
+    bool valid = checker(val, reasons ? &root : NULL, reasons ? &report : NULL);
+
+    // generate explanations if a report is required and the value failed to validate
+    if  (reasons && report.entry && !valid)
+    {
+        size_t size = 1;
+
+        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+            size += strlen(entry->message) + strlen(entry->path) + 3;
+
+        char *message = malloc(size);
+        *reasons = message;
+
+        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+            message += sprintf("%s: %s\n", entry->path, entry->message);
+    }
+
+    jm_report_free_entries(&report);
+
+    return valid;
+}
