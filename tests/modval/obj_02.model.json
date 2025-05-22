@@ -1,0 +1,4 @@
+{
+  "#": "minimal regex prop",
+  "/^[A-Z]$/": true
+}
