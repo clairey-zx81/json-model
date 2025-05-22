@@ -1,0 +1,12 @@
+[
+  [ true,  0 ],
+  [ true,  1 ],
+  [ true,  42 ],
+  [ true,  -42 ],
+  [ false, [] ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "-42" ]
+]
