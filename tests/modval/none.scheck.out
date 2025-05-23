@@ -1,6 +1,0 @@
-none.0.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-none.1.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-none.2.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-none.3.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-none.4.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-none.5.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']

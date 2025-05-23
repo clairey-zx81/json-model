@@ -1,4 +1,0 @@
-pUUID.0.true.json: PASS
-pUUID.1.true.json: PASS
-pUUID.2.false.json: FAIL ['invalid $UUID at $', 'not an expected $UUID at $ [$]']
-pUUID.4.false.json: FAIL ['invalid $UUID at $', 'not an expected $UUID at $ [$]']

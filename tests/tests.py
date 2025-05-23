@@ -23,12 +23,12 @@ EXPECT: dict[str, int] = {
     "modval:2json": 13,
     "modval:preproc": 147,
     "modval:schema": 147,
-    "modval:lang-c": 117,
-    "modval:lang-py": 117,
-    "modval:stac:tests": 117,
-    "modval:stapy:tests": 117,
-    "modval:stac:values": 993,
-    "modval:stapy:values": 993,
+    "modval:lang-c": 130,
+    "modval:lang-py": 130,
+    "modval:stac:tests": 130,
+    "modval:stapy:tests": 130,
+    "modval:stac:values": 1172,
+    "modval:stapy:values": 1172,
     "m2s:schema": 57,
     "rwt:preproc": 44,
     "rwt:schema": 44,
@@ -48,7 +48,7 @@ def test_2json(directory):
         for fpath in sorted(directory.glob("*" + suffix)):
             ntests += 1
             fname = str(fpath)
-            log.debug(f"2json: {fname}")
+            log.debug(f"2json[{directory}]: {fname}")
             j = resolver(fname, follow=False)
             ref = resolver(fname.replace(suffix, ""), follow=False)
             assert j == ref
@@ -61,7 +61,7 @@ def test_preproc(directory):
     for fpath in sorted(directory.glob("*.PO.json")):
         fname = "./" + str(fpath)
         fin = fname.replace(".PO.json", "").replace(f"./{str(directory)}/", "./")
-        log.debug(f"preproc: {fin}")
+        log.debug(f"preproc[{directory}]: {fin}")
         ntests += 1
         ref = resolver(fname, follow=False)
         jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
@@ -77,7 +77,7 @@ def test_schema(directory):
         fname = "./" + str(fpath)
         sname = fname.replace(".schema.json", ".model.json")
         fin = fname.replace(".schema.json", "").replace(f"./{str(directory)}/", "./")
-        log.debug(f"schema: {fin}")
+        log.debug(f"schema[{directory}]: {fin}")
         if not fpath.stat().st_size:
             log.warning(f"skipping empty schema file: {fname}")
             continue
@@ -106,7 +106,7 @@ def test_lang(directory, language):
     for fpath in sorted(directory.glob(f"*{suffix}")):
         fname = "./" + str(fpath)
         fin = fname.replace(suffix, "").replace(f"./{str(directory)}/", "./")
-        log.debug(f"lang {directory} {language}: {fin}")
+        log.debug(f"lang[{directory},{language}]: {fin}")
         ntests += 1
         jm = model_from_url(fin, resolver=resolver, auto=True, follow=True)
         code = xstatic_compile(jm, "check_model", lang=language)
@@ -123,7 +123,7 @@ def test_dypy(directory):
     for fpath in sorted(directory.glob("*.model.json")):
         fname = f"./{fpath}"
         bname = fname.replace(".model.json", "")
-        log.debug(f"dypy {directory}: {fname} ({fpath})")
+        log.debug(f"dypy[{directory}]: {fname} ({fpath})")
 
         checker = model_checker_from_url(fname, resolver=resolver, follow=False)
 
@@ -184,7 +184,7 @@ def test_stac(directory):
         fname = f"./{fpath}"
         bname = fname.replace(".x.c", "").split("/", -1)[-1]
         fexec = "/dev/shm/jm.out"
-        log.debug(f"stac {directory}: {fname}")
+        log.debug(f"stac[{directory}]: {fname}")
         ntests += 1
 
         # compile
@@ -230,7 +230,7 @@ def test_stapy(directory):
     for fpath in sorted(directory.glob("*.x.py")):
         fname = f"./{fpath}"
         bname = fname.replace(".x.py", "").split("/", -1)[-1]
-        log.debug(f"stac {directory}: {fname}")
+        log.debug(f"stac[{directory}]: {fname}")
         ntests += 1
 
         # run on all validations
@@ -274,7 +274,7 @@ def test_models(directory):
     ntests = 0
     for fpath in sorted(directory.glob(f"*.model.json")):
         fname = "./" + str(fpath)
-        log.debug(f"models {str(directory)}: {fname}")
+        log.debug(f"models[{directory}]: {fname}")
         with open(fname) as f:
             model = json.load(f)
         report = []

@@ -1,4 +1,4 @@
 {
   "#": "flatten and xor to or test",
-  "|": [ "Hobbes", { "^": [ "Susie", "Calvin" ] } ]
+  "^": [ "Hobbes", { "^": [ "Susie", "Calvin" ] } ]
 }

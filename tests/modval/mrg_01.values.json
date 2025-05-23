@@ -1,0 +1,13 @@
+[
+  [ true,  {"a": "cst_01", "b": "cst_01", "c": "cst_01", "d": "cst_01"} ],
+  [ false, {} ],
+  [ false, {"a": "cst_02", "b": "cst_03", "c": "cst_04", "d": "cst_05"} ],
+  [ false, {"not": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, "not an obj" ],
+  [ false, 42 ],
+  [ false, -3.1415927 ],
+  [ false, [] ],
+  [ false, ["not", "an", "obj"] ]
+]

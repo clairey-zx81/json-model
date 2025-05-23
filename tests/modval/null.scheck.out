@@ -1,7 +1,0 @@
-null.0.true.json: PASS
-null.1.false.json: FAIL ['not null at $ [$]']
-null.2.false.json: FAIL ['not null at $ [$]']
-null.3.false.json: FAIL ['not null at $ [$]']
-null.4.false.json: FAIL ['not null at $ [$]']
-null.5.false.json: FAIL ['not null at $ [$]']
-null.6.false.json: FAIL ['not null at $ [$]']

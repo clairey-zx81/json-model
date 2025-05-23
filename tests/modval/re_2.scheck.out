@@ -1,3 +1,0 @@
-re_2.0.true.json: PASS
-re_2.1.false.json: FAIL ['incompatible type for regex at $: int', 'invalid $REGEX at $', 'not an expected $REGEX at $ [$]']
-re_2.2.false.json: FAIL ['regex compile error at $: [ (unterminated character set at position 0)', 'invalid $REGEX at $', 'not an expected $REGEX at $ [$]']

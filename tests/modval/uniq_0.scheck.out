@@ -1,5 +1,0 @@
-uniq_0.0.true.json: PASS
-uniq_0.1.true.json: PASS
-uniq_0.2.true.json: PASS
-uniq_0.3.false.json: FAIL ['invalid type or constraints at $ [$]']
-uniq_0.4.false.json: FAIL ["not a 1 int at $.0 [$.'@'.0]", "not array or unexpected array at $ [$.'@']", 'invalid type or constraints at $ [$]']

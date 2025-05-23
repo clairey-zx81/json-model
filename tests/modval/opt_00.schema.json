@@ -1,18 +1,8 @@
 {
-  "description": "FIXME flatten and xor to or test",
-  "anyOf": [
-    {
-      "const": 1
-    },
-    {
-      "oneOf": [
-        {
-          "const": 2
-        },
-        {
-          "const": 3
-        }
-      ]
-    }
+  "description": "flatten and xor to or test",
+  "enum": [
+    1,
+    2,
+    3
   ]
 }

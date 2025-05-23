@@ -1,0 +1,18 @@
+[
+  [ true,  {"a": 42, "b": 42, "c": 42} ],
+  [ false, {"a": 42, "b": 42, "c": 42, "Z": 42} ],
+  [ false, {"a": "oops", "b": 42, "c": 42} ], 
+  [ false, {"a": 42, "b": false, "c": 42} ], 
+  [ false, {"a": 42, "b": 42, "c": null} ], 
+  [ false, {"b": 42, "c": 42} ], 
+  [ false, {"a": 42, "c": 42} ], 
+  [ false, {"a": 42, "b": 42} ], 
+  [ false, {} ], 
+  [ false, {"not": "expected"} ], 
+  [ false, null ], 
+  [ false, 42 ], 
+  [ false, 3.1415927 ], 
+  [ false, "not an obj" ], 
+  [ false, [] ], 
+  [ false, ["not", "an", "obj"] ]
+]

@@ -1,15 +1,4 @@
 {
-  "allOf": [
-    {
-      "type": "integer"
-    },
-    {
-      "type": "integer",
-      "minimum": 0
-    },
-    {
-      "type": "integer",
-      "minimum": 1
-    }
-  ]
+  "type": "integer",
+  "minimum": 1
 }

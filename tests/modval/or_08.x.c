@@ -13,38 +13,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     res = json_is_integer(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected type at [$.'|']", path);
-    }
-    if (res)
-    {
-        // $.'|'.0
-        res = json_integer_value(val) >= 0;
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // $.'|'.1
-            res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // $.'|'.2
-                res = json_integer_value(val) >= 1;
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'|'.2]", path);
-                }
-            }
-        }
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
-        }
+        if (rep) jm_report_add_entry(rep, "not a -1 strict int [$]", path);
     }
     return res;
 }

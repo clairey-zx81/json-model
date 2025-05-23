@@ -213,5 +213,5 @@ jcheck: $(F.js)
 #
 .PHONY: %.ALL
 %.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.schema.json $*.py $*.scheck.out
-	$(MAKE) $*.UO.json $*.PO.json $*.schema.json $*.py $*.scheck.out
+	$(RM) $*.UO.json $*.PO.json $*.schema.json
+	$(MAKE) $*.UO.json $*.PO.json $*.schema.json

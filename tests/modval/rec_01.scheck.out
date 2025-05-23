@@ -1,9 +1,0 @@
-rec_01.0.true.json: PASS
-rec_01.1.true.json: PASS
-rec_01.2.true.json: PASS
-rec_01.3.false.json: FAIL ['not an object at $ [$]']
-rec_01.4.false.json: FAIL ['not an object at $ [$]']
-rec_01.5.false.json: FAIL ['not an object at $ [$]', "not an expected $# at $.Susie [$.'']", "unexpected other value at $.Susie [$.'']"]
-rec_01.6.false.json: FAIL ['not an object at $ [$]']
-rec_01.7.false.json: FAIL ['not an object at $ [$]']
-rec_01.8.false.json: FAIL ['not an object at $ [$]']

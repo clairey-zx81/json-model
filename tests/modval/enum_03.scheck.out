@@ -1,7 +1,0 @@
-enum_03.0.true.json: PASS
-enum_03.1.true.json: PASS
-enum_03.2.false.json: FAIL ["value not in enum at $ [$.'|']"]
-enum_03.3.false.json: FAIL ["value not in enum at $ [$.'|']"]
-enum_03.4.false.json: FAIL ["value not in enum at $ [$.'|']"]
-enum_03.5.false.json: FAIL ["value not in enum at $ [$.'|']"]
-enum_03.6.false.json: FAIL ["value not in enum at $ [$.'|']"]

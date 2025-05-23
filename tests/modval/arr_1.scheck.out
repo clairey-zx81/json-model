@@ -1,3 +1,0 @@
-arr_1.0.true.json: PASS
-arr_1.1.false.json: FAIL ['not array or unexpected array at $ [$]']
-arr_1.2.false.json: FAIL ['not array or unexpected array at $ [$]']

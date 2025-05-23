@@ -3,6 +3,7 @@
     "|": [
       0,
       0.0,
+      null,
       true
     ],
     "#": "JsonModel 1"

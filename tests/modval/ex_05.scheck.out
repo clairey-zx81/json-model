@@ -1,5 +1,0 @@
-ex_05.0.true.json: PASS
-ex_05.1.true.json: PASS
-ex_05.2.false.json: FAIL ["not a 0 int at $ [$.'$EX05a']", "not an expected $EX05a at $ [$.'|'.0]", "not an expected string at $ [$.'$EX05b']", "not an expected $EX05b at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
-ex_05.3.false.json: FAIL ["not a 0 int at $ [$.'$EX05a']", "not an expected $EX05a at $ [$.'|'.0]", "not an expected string at $ [$.'$EX05b']", "not an expected $EX05b at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
-ex_05.4.false.json: FAIL ["not a 0 int at $ [$.'$EX05a']", "not an expected $EX05a at $ [$.'|'.0]", "not an expected string at $ [$.'$EX05b']", "not an expected $EX05b at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

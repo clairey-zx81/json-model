@@ -1,2 +1,0 @@
-loose_strict.0.true.json: PASS
-loose_strict.1.false.json: FAIL ["not a 0 int at $.si [$.'$combined'.si]", "invalid must prop value at $.si [$.'$combined'.si]", 'not an expected $combined at $ [$]']

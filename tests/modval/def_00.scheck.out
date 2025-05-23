@@ -1,5 +1,0 @@
-def00.0.true.json: PASS
-def00.1.true.json: PASS
-def00.2.false.json: FAIL ["not a 0.0 float at $ [$.'$pos']", 'not an expected $pos at $ [$]']
-def00.3.false.json: FAIL ["not a 0.0 float at $ [$.'$pos']", 'not an expected $pos at $ [$]']
-def00.4.false.json: FAIL ["not a 0.0 float at $ [$.'$pos']", 'not an expected $pos at $ [$]']

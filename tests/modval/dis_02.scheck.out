@@ -1,9 +1,0 @@
-dis_02.0.true.json: PASS
-dis_02.1.true.json: PASS
-dis_02.2.true.json: PASS
-dis_02.3.false.json: FAIL ["tag t value not found at $ [$.'|'.'|']"]
-dis_02.4.false.json: FAIL ["tag t value not found at $ [$.'|'.'|']"]
-dis_02.5.false.json: ERROR
-dis_02.6.false.json: FAIL ["missing tag prop t at $ [$.'|'.'|']"]
-dis_02.7.false.json: FAIL ["not an object at $ [$.'|'.'|']"]
-dis_02.8.false.json: FAIL ["not an object at $ [$.'|'.'|']"]

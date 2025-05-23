@@ -1,7 +1,0 @@
-aa_0.0.true.json: PASS
-aa_0.1.true.json: PASS
-aa_0.2.true.json: PASS
-aa_0.3.true.json: PASS
-aa_0.4.false.json: FAIL ['not an expected string at $.0.0 [$.0.0]', 'not array or unexpected array at $.0.0 [$.0]', 'not array or unexpected array at $ [$]']
-aa_0.5.false.json: FAIL ['not array or unexpected array at $.0 [$.0]', 'not array or unexpected array at $ [$]']
-aa_0.6.false.json: FAIL ['not an expected string at $.3.0 [$.0.0]', 'not array or unexpected array at $.3.0 [$.0]', 'not array or unexpected array at $ [$]']

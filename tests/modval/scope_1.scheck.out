@@ -1,4 +1,0 @@
-scope_1.0.true.json: PASS
-scope_1.1.true.json: PASS
-scope_1.2.false.json: FAIL ['does not match FESC at $', "not an expected REGEX at $ [$.'$S']", "not an expected $S at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'$R#S']", "not an expected $R#S at $ [$.'|'.1]", "not any model match at $ [$.'|']"]
-scope_1.3.false.json: FAIL ['does not match FESC at $', "not an expected REGEX at $ [$.'$S']", "not an expected $S at $ [$.'|'.0]", 'does not match FESC at $', "not an expected REGEX at $ [$.'$R#S']", "not an expected $R#S at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

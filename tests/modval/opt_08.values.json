@@ -1,0 +1,14 @@
+[
+  [ true,  1 ],
+  [ true, "", 1 ],
+  [ true, "one", 1 ],
+  [ false, null ],
+  [ false, true ],
+  [ false, "one" ],
+  [ false, 1.0 ],
+  [ false, 42 ],
+  [ false, [1] ],
+  [ false, [] ],
+  [ false, {"x": 1} ],
+  [ false, {} ]
+]

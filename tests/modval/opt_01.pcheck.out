@@ -1,0 +1,14 @@
+opt_01.values.json[0]: PASS
+opt_01.values.json[1]: PASS
+opt_01.values.json[2]: PASS
+opt_01.values.json[3]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[4]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[5]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[6]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[7]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[8]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[9]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[10]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[11]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[12]: FAIL [("value not in enum [$.'|']", [])]
+opt_01.values.json[13]: FAIL [("value not in enum [$.'|']", [])]

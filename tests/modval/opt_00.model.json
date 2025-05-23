@@ -1,4 +1,4 @@
 {
-  "#": "FIXME flatten and xor to or test",
-  "|": [ "=1", { "^": [ "=2", "=3" ] } ]
+  "#": "flatten and xor to or test",
+  "^": [ "=1", { "^": [ "=2", "=3" ] } ]
 }

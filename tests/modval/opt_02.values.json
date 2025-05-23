@@ -1,0 +1,11 @@
+[
+  [ true,  42 ],
+  [ true,  3.1415927 ],
+  [ true,  false ],
+  [ true,  null ],
+  [ false, "not allowed" ],
+  [ false, [] ],
+  [ false, ["not", "allowed"] ],
+  [ false, {} ],
+  [ false, {"not": "allowed"} ]
+]

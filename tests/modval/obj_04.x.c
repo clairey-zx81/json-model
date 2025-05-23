@@ -83,7 +83,7 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set {name}
+        // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (constant_t) { cst_is_string, { .s = "X" } };
         _jm_cst_0[1] = (constant_t) { cst_is_string, { .s = "XX" } };
         _jm_cst_0[2] = (constant_t) { cst_is_string, { .s = "XXX" } };

@@ -1,1 +1,0 @@
-xor_ob02.0.false.json: FAIL ["missing must prop at $ [$.'|'.0]", "not an expected object at $ [$.'|'.0]", "missing must prop at $ [$.'|'.1]", "not an expected object at $ [$.'|'.1]", "missing must prop at $ [$.'|'.2]", "not an expected object at $ [$.'|'.2]", "missing must prop at $ [$.'|'.3]", "not an expected object at $ [$.'|'.3]", "not any model match at $ [$.'|']"]

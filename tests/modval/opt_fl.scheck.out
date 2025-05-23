@@ -1,3 +1,0 @@
-opt_fl.0.true.json: PASS
-opt_fl.1.true.json: PASS
-opt_fl.2.false.json: FAIL ["not a -1.0 float at $ [$.'@']", 'invalid type or constraints at $ [$]']

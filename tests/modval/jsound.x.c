@@ -1356,7 +1356,7 @@ char *CHECK_init(void)
         jm_sort_propmap(_jm_obj_1_may_tab, 4);
         _jm_obj_0_may_tab[0] = (propmap_t) { "metadata", _jm_f_1 };
         jm_sort_propmap(_jm_obj_0_may_tab, 1);
-        // initialize sorted set {name}
+        // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (constant_t) { cst_is_string, { .s = "string" } };
         _jm_cst_0[1] = (constant_t) { cst_is_string, { .s = "decimal" } };
         _jm_cst_0[2] = (constant_t) { cst_is_string, { .s = "integer" } };
@@ -1375,7 +1375,7 @@ char *CHECK_init(void)
         _jm_obj_2_must_tab[0] = (propmap_t) { "baseType", _jm_f_6 };
         _jm_obj_2_must_tab[1] = (propmap_t) { "kind", _jm_f_7 };
         jm_sort_propmap(_jm_obj_2_must_tab, 2);
-        // initialize sorted set {name}
+        // initialize sorted set _jm_cst_1
         _jm_cst_1[0] = (constant_t) { cst_is_string, { .s = "required" } };
         _jm_cst_1[1] = (constant_t) { cst_is_string, { .s = "prohibited" } };
         _jm_cst_1[2] = (constant_t) { cst_is_string, { .s = "optional" } };

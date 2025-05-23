@@ -1,2 +1,0 @@
-uniq_1.0.true.json: PASS
-uniq_1.1.false.json: FAIL ['not an expected string at $.0 [$.0]', 'not array or unexpected array at $ [$]']

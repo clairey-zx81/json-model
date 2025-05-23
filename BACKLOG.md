@@ -15,6 +15,7 @@
 - [x] python: remove `static.py`
 - [x] command: remove `-S`
 - [x] doc: remove about S
+- [x] optim: predef normalization and or/and included type cleanups
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: remove `.x.`
 - [ ] command: rething option usage for compilation.
@@ -38,6 +39,7 @@
 - [ ] optim: detect non feasible constraints
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
+- [ ] c-python: improve `$REGEX` wrt re2 documentation
 
 ## To Do
 

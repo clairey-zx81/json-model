@@ -1,3 +1,0 @@
-ex_04.0.true.json: PASS
-ex_04.1.false.json: FAIL ["not an expected _Susie at $ [$.'@']", 'invalid type or constraints at $ [$]']
-ex_04.2.false.json: FAIL ["not an expected _Susie at $ [$.'@']", 'invalid type or constraints at $ [$]']

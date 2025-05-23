@@ -402,7 +402,7 @@ class CLangJansson(Language):
                 raise Exception(f"unexpected constant value: {value}")
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        code = [ self.lcom("initialize sorted set {name}") ]
+        code = [ self.lcom(f"initialize sorted set {name}") ]
         for i, cst in enumerate(constants):
             code.append(f"{name}[{i}] = {self._cst(cst)};")
         code.append(f"jm_sort_cst({name}, {len(constants)});")

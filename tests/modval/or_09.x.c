@@ -13,38 +13,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     res = json_is_real(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected type at [$.'|']", path);
-    }
-    if (res)
-    {
-        // $.'|'.0
-        res = json_real_value(val) >= 0.0;
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'|'.0]", path);
-        }
-        if (! res)
-        {
-            // $.'|'.1
-            res = true;
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [$.'|'.1]", path);
-            }
-            if (! res)
-            {
-                // $.'|'.2
-                res = json_real_value(val) > 0.0;
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "not a 1.0 strict float [$.'|'.2]", path);
-                }
-            }
-        }
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
-        }
+        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [$]", path);
     }
     return res;
 }

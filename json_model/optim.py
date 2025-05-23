@@ -2,10 +2,46 @@
 # Model Optimizations
 #
 from .mtypes import ModelPath, ModelType
-from .utils import log, is_cst, _structurally_distinct_models
+from .utils import log, is_cst, _structurally_distinct_models, constant_value
 from .recurse import recModel, allFlt, builtFlt
 from .model import JsonModel
 from .defines import ultimate_type
+from .runtime import ConstSet
+
+# work around True in [1]
+def minl(model: ModelType, models: list[ModelType]) -> bool:
+    return any(map(lambda m: type(m) is type(model) and m == model, models))
+ 
+# remove one occurence from list of models
+def mdell(model: ModelType, models: list[ModelType]) -> bool:
+    index = -1
+    for i, m in enumerate(models):
+        if type(m) is type(model) and m == model:
+            index = i
+    if index != -1:
+        del models[index]
+    return index != -1
+        
+def normalizeModels(models: list[ModelType]) -> int:
+    IGNORE = object()
+    changes = 0
+    for idx, model in enumerate(models):
+        nmodel = IGNORE
+        if isinstance(model, str):
+            if model == "$STRING":
+                nmodel = ""
+            elif model in ("$INT", "$INTEGER", "$I32", "$I64"):
+                nmodel = -1
+            elif model in ("$U32", "$U64"):
+                nmodel = 0
+            elif model in ("$FLOAT", "$F32", "$F64"):
+                nmodel = -1.0
+            elif model in ("$NULL", "=null"):
+                nmodel = None
+        if nmodel != IGNORE:
+            changes += 1
+            models[idx] = nmodel
+    return changes
 
 def xor_to_or(jm: JsonModel):
     """Change xor to less coslty or if possible."""
@@ -16,12 +52,23 @@ def xor_to_or(jm: JsonModel):
         nonlocal changes
         if isinstance(model, dict) and "^" in model:
             xor = model["^"]
+            lpath = path + ["^"]
             assert isinstance(xor, list) and "|" not in model
-            # TODO handle distinct constants, eg "=1", "=2"…
-            if _structurally_distinct_models(xor, jm._defs, path + ["^"]):  # pyright: ignore
+
+            consts = [constant_value(m, lpath + [i]) for i, m in enumerate(xor)]
+
+            # constant-only enum case
+            if all(consts[i][0] for i in range(len(xor))):
+                if len(ConstSet([consts[i][1] for i in range(len(xor))])) == len(xor):
+                    changes += 1
+                    del model["^"]
+                    model["|"] = xor
+                # else some constants are repeated thus excluded by "^"
+            elif _structurally_distinct_models(xor, jm._defs, lpath):  # pyright: ignore
                 changes += 1
                 del model["^"]
                 model["|"] = xor
+
         return model
 
     jm._model = recModel(jm._model, builtFlt, x2oRwt)
@@ -119,6 +166,25 @@ def partial_eval(jm: JsonModel):
             if "|" in model:
                 lor = model["|"]
                 assert isinstance(lor, list)
+                changes += normalizeModels(lor)
+                # int type inclusions
+                if minl(1, lor) and (minl(0, lor) or minl(-1, lor)):
+                    changes += 1
+                    mdell(1, lor)
+                if minl(0, lor) and minl(-1, lor):
+                    changes += 1
+                    mdell(0, lor)
+                # TODO $F*
+                if minl(1.0, lor) and (minl(0.0, lor) or minl(-1.0, lor)):
+                    changes += 1
+                    mdell(1.0, lor)
+                if minl(0.0, lor) and minl(-1.0, lor):
+                    changes += 1
+                    mdell(0.0, lor)
+                if minl("", lor) and minl("$STRING", lor):
+                    changes += 1
+                    mdell("$STRING", lor)
+                # others
                 if len(lor) == 0:
                     changes += 1
                     return "$NONE"
@@ -137,6 +203,18 @@ def partial_eval(jm: JsonModel):
             elif "&" in model:
                 land = model["&"]
                 assert isinstance(land, list)
+                changes += normalizeModels(land)
+                # manage simple type inclusions on ints
+                if minl(-1, land) and (minl(0, land) or minl(1, land)):
+                    mdell(-1, land)
+                if minl(0, land) and minl(1, land):
+                    mdell(0, land)
+                # idem on floats
+                if minl(-1.0, land) and (minl(0.0, land) or minl(1.0, land)):
+                    mdell(-1.0, land)
+                if minl(0.0, land) and minl(1.0, land):
+                    mdell(0.0, land)
+                # other optimizations
                 if len(land) == 0:
                     changes += 1
                     return "$ANY"
@@ -156,6 +234,7 @@ def partial_eval(jm: JsonModel):
             elif "^" in model:
                 lxor = model["^"]
                 assert isinstance(lxor, list)
+                changes += normalizeModels(lxor)
                 if len(lxor) == 0:
                     changes += 1
                     return "$NONE"

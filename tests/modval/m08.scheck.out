@@ -1,3 +1,0 @@
-m08.0.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-m08.1.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-m08.2.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']

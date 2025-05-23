@@ -334,7 +334,7 @@
     "Scalar": {
       "anyOf": [
         {
-          "const": null
+          "type": "null"
         },
         {
           "const": true

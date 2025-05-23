@@ -28,24 +28,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     res = isinstance(val, int) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("unexpected type at [$.'|']", path))
-    if res:
-        # $.'|'.0
-        res = val >= 0
-        if not res:
-            rep is None or rep.append(("not a 0 strict int [$.'|'.0]", path))
-        if not res:
-            # $.'|'.1
-            res = True
-            if not res:
-                rep is None or rep.append(("not a -1 strict int [$.'|'.1]", path))
-            if not res:
-                # $.'|'.2
-                res = val >= 1
-                if not res:
-                    rep is None or rep.append(("not a 1 strict int [$.'|'.2]", path))
-        if not res:
-            rep is None or rep.append(("no model matched [$.'|']", path))
+        rep is None or rep.append(("not a -1 strict int [$]", path))
     return res
 
 

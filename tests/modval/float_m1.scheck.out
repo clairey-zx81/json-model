@@ -1,4 +1,0 @@
-float_m1.0.true.json: PASS
-float_m1.1.true.json: PASS
-float_m1.2.false.json: FAIL ['not a -1.0 float at $ [$]']
-float_m1.3.false.json: FAIL ['not a -1.0 float at $ [$]']

@@ -1,2 +1,0 @@
-dst_02.0.true.json: PASS
-dst_02.1.false.json: FAIL ["no other prop expected at $ [$.'|'.0]", "not an expected object at $ [$.'|'.0]", "no other prop expected at $ [$.'|'.1]", "not an expected object at $ [$.'|'.1]", "no other prop expected at $ [$.'|'.2]", "not an expected object at $ [$.'|'.2]", "no other prop expected at $ [$.'|'.3]", "not an expected object at $ [$.'|'.3]", "no other prop expected at $ [$.'|'.4]", "not an expected object at $ [$.'|'.4]", "no other prop expected at $ [$.'|'.5]", "not an expected object at $ [$.'|'.5]", "not any model match at $ [$.'|']"]

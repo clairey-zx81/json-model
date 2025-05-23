@@ -1,3 +1,0 @@
-exob00.0.true.json: PASS
-exob00.1.true.json: PASS
-exob00.2.false.json: FAIL ['invalid $NONE at $.b', "not an expected $NONE at $.b [$.'|'.0.b]", "invalid may prop value at $.b [$.'|'.0.b]", "not an expected object at $ [$.'|'.0]", 'invalid $NONE at $.a', "not an expected $NONE at $.a [$.'|'.1.a]", "invalid may prop value at $.a [$.'|'.1.a]", "not an expected object at $ [$.'|'.1]", "not any model match at $ [$.'|']"]

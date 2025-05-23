@@ -85,14 +85,14 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        // initialize sorted set {name}
+        // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (constant_t) { cst_is_string, { .s = "Susie" } };
         _jm_cst_0[1] = (constant_t) { cst_is_string, { .s = "Calvin" } };
         _jm_cst_0[2] = (constant_t) { cst_is_string, { .s = "Hobbes" } };
         _jm_cst_0[3] = (constant_t) { cst_is_string, { .s = "Moe" } };
         _jm_cst_0[4] = (constant_t) { cst_is_string, { .s = "Bad" } };
         jm_sort_cst(_jm_cst_0, 5);
-        // initialize sorted set {name}
+        // initialize sorted set _jm_cst_1
         _jm_cst_1[0] = (constant_t) { cst_is_string, { .s = "Castafiore" } };
         _jm_cst_1[1] = (constant_t) { cst_is_string, { .s = "Haddock" } };
         _jm_cst_1[2] = (constant_t) { cst_is_string, { .s = "Milou" } };

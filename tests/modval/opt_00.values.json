@@ -1,0 +1,15 @@
+[
+  [ true,  1 ],
+  [ true,  2 ],
+  [ true,  3 ],
+  [ false, 0 ],
+  [ false, 4 ],
+  [ false, -1 ],
+  [ false, 3.1415927 ],
+  [ false, null ],
+  [ false, "not 1 2 or 3" ],
+  [ false, [] ],
+  [ false, [1, 2, 3] ],
+  [ false, {} ],
+  [ false, {"not": "expected"} ]
+]

@@ -1,0 +1,12 @@
+mrg_02.values.json[0]: PASS
+mrg_02.values.json[1]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[2]: FAIL [('unexpected _cst_01 [$.a]', ['a']), ('invalid must property value [$]', ['a']), ('not an expected object at [$]', [])]
+mrg_02.values.json[3]: FAIL [('unexpected _cst_02 [$.e]', ['e']), ('invalid must property value [$]', ['e']), ('not an expected object at [$]', [])]
+mrg_02.values.json[4]: FAIL [('no other prop expected [$]', ['not']), ('not an expected object at [$]', [])]
+mrg_02.values.json[5]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[6]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[7]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[8]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[9]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[10]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
+mrg_02.values.json[11]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]

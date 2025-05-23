@@ -1,3 +1,0 @@
-ex_00.0.true.json: PASS
-ex_00.1.false.json: FAIL ['not an expected _Susie at $ [$]']
-ex_00.2.false.json: FAIL ['not an expected _Susie at $ [$]']

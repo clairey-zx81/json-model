@@ -1,4 +1,0 @@
-or_0.0.true.json: PASS
-or_0.1.false.json: FAIL []
-or_0.2.false.json: FAIL ["not an expected =200 at $ [$.'|'.0]", "not an expected =300 at $ [$.'|'.1]", "not an expected =400 at $ [$.'|'.2]", "not an expected =500 at $ [$.'|'.3]", "not any model match at $ [$.'|']"]
-or_0.3.false.json: FAIL []

@@ -1,2 +1,0 @@
-and_str01.0.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']
-and_str01.1.false.json: FAIL ['invalid $NONE at $', 'not an expected $NONE at $ [$]']

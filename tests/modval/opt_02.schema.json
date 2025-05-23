@@ -1,5 +1,5 @@
 {
-  "description": "FIXME flatten and xor to or test",
+  "description": "flatten and xor to or test",
   "anyOf": [
     {
       "type": "integer",
@@ -8,6 +8,9 @@
     {
       "type": "number",
       "minimum": 0.0
+    },
+    {
+      "type": "null"
     },
     {
       "type": "boolean"
