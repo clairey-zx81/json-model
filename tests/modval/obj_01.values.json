@@ -1,0 +1,27 @@
+[
+  [ true,  {"foo": "2020-07-29"} ],
+  [ true,  {
+      "foo": "1970-10-14",
+      "bla": false,
+      "XX": 18.5,
+      "314": 314,
+      "whatever": null
+    }
+  ],
+  [ false, {
+      "foo": "2020-07-29",
+      "bla": 42
+    }
+  ],
+  [ false, {"foo": "2020-07-29", "X": "not-a-float"} ],
+  [ false, {"foo": "1970-03-20", "418": "not-an-int"} ],
+  [ false, {"foo": "1970-10-14", "whatever": "not-a-null"} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, -42 ],
+  [ false, -3.1415927 ],
+  [ false, "not an obj" ],
+  [ false, [] ],
+  [ false, ["not", "an", "obj"] ]
+]

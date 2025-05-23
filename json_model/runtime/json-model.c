@@ -96,7 +96,7 @@ _json_cmp(const json_t *v1, const json_t *v2)
 {
     const json_type t1 = json_typeof(v1), t2 = json_typeof(v2);
     if (t1 != t2)
-        return t2 - t1;
+        return t1 - t2;  // inverted to have simpler types ahead
 
     // else same type
     switch (t1)
@@ -524,13 +524,24 @@ jm_is_valid_url(const char *url)
     return true;
 }
 
+// MUST BE CONSISTENT WITH "jansson_private.h"
+typedef struct {
+    json_t  json;
+    char    *value;
+    size_t  length;
+} json_string_t;
+
 // call a check function with a string instead of a json objet.
 bool
 jm_check_fun_string(check_fun_t fun, const char *val, Path *path, Report *rep)
 {
-    json_t holder;
-    json_string_set(&holder, val);
-    return fun(&holder, path, rep);
+    // create a temporary non-malloced json head for the string
+    const json_string_t holder = (json_string_t) {
+        .json = { JSON_STRING, 1 },
+        .value = (char *) val,
+        .length = strlen(val)
+    };
+    return fun((const json_t *) &holder, path, rep);
 }
 
 bool

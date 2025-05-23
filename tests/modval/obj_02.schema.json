@@ -1,0 +1,10 @@
+{
+  "description": "minimal regex prop",
+  "type": "object",
+  "patternProperties": {
+    "^[A-Z]$": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,125 @@
+#include <json-model.h>
+#define JSON_MODEL_VERSION "2.0a0"
+
+static pcre2_code *_jm_re_0_code = NULL;
+static pcre2_match_data *_jm_re_0_data = NULL;
+static bool _jm_re_0(const char *s);
+static bool json_model_1(const json_t* val, Path* path, Report* rep);
+propmap_t check_model_map_tab[1];
+const size_t check_model_map_size = 1;
+
+static bool _jm_re_0(const char *s)
+{
+  int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, _jm_re_0_data, NULL);
+  return rc >= 0;
+}
+
+// object $
+static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [$]", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        if (_jm_re_0(prop))
+        {
+            // handle {len(regs)} re props
+            // $.'/^[A-Z]$/'
+            res = json_is_boolean(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [$.'/^[A-Z]$/']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no other prop expected [$]", (path ? &lpath_0 : NULL));
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $ ($)
+static bool json_model_1(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $
+    res = _jm_obj_0(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
+    }
+    return res;
+}
+
+check_fun_t check_model_map(const char *pname)
+{
+    return jm_search_propmap(pname, check_model_map_tab, 1);
+}
+
+static bool initialized = false;
+
+char *CHECK_init(void)
+{
+    if (!initialized)
+    {
+        initialized = true;
+        jm_version_string = JSON_MODEL_VERSION;
+        int err_code;
+        PCRE2_SIZE err_offset;
+        static PCRE2_UCHAR err_message[1024];
+        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^[A-Z]$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+        if (_jm_re_0_code == NULL)
+        {
+            (void) pcre2_get_error_message(err_code, err_message, 1024);
+            return (char *) err_message;
+        }
+        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        jm_sort_propmap(check_model_map_tab, 1);
+    }
+    return NULL;
+}
+
+void CHECK_free(void)
+{
+    if (initialized)
+    {
+        initialized = false;
+
+        // cleanup code
+        pcre2_match_data_free(_jm_re_0_data);
+        pcre2_code_free(_jm_re_0_code);
+    }
+}
+
+
+/*
+ * API: bool check_model(json_t *, const char *, bool *, char **);
+ *
+ * valid = check(value, "model-name", &error, &message);
+ *
+ * - error is set of there was an error during initialization or if the model does not exists.
+ * - message is provided if a non NULL pointer is passed, and must be freed by the caller.
+ *
+ *
+ * if the model is not found, report error and reasons if required, else coldly exit.
+ */
+bool
+CHECK(json_t *val, const char *name, bool *error, char **reasons)
+{
+    return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
+}

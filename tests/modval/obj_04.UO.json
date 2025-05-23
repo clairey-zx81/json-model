@@ -1,10 +1,6 @@
 [
   {
-    "!foo": "$DATE",
-    "?bla": true,
     "$XXX": 0.0,
-    "/^[0-9]+$/": 0,
-    "": null,
     "#": "JsonModel 1",
     "$": {
       "XXX": {
@@ -16,7 +12,7 @@
         "#": "JsonModel 2"
       },
       "#": "Symbol 1",
-      "": "./obj_01.model.json"
+      "": "./obj_04.model.json"
     }
   },
   {

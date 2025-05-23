@@ -1,0 +1,11 @@
+{
+  "description": "regex property\u2026 beware that \\d character class does not seem to be supported by re2",
+  "type": "object",
+  "patternProperties": {
+    "^[0-9]+$": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

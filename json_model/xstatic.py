@@ -98,19 +98,20 @@ class SourceCode(Validator):
 
         return self._regs[regex]
 
-    def _regExpr(self, regex: str, val: str, path: str) -> BoolExpr:
+    def _regExpr(self, regex: str, val: str, path: str, is_str: bool = False) -> BoolExpr:
         """Generate an inlined regex check expression on a value."""
         gen = self._lang
+        sval = val if is_str else gen.value(val, str)
 
         # optimized versions
         if re.match(r"^/\^?.\*\$?/[mis]?$", regex):
             return gen.const(True)
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
-            return gen.num_cmp(gen.str_len(gen.value(val, str)), ">", gen.const(0))
+            return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
         else:
             fun = self._regex(regex)
             # TODO inline the internal function if possible?
-            return gen.str_check_call(fun, gen.value(val, str))
+            return gen.str_check_call(fun, sval)
         # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
 
     def _esc(self, val: Jsonable) -> str:
@@ -468,7 +469,7 @@ class SourceCode(Validator):
         for r, v in regs.items():
             # FIXME options?!
             regex = f"/{r}/"
-            rg_expr = self._regExpr(regex, prop, vpath)  # FIXME lpath &lpath?
+            rg_expr = self._regExpr(regex, prop, vpath, True)  # FIXME lpath &lpath?
             rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)

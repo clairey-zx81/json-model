@@ -81,6 +81,7 @@ extern void jm_report_free_entries(Report *rep);
 
 typedef bool (*check_fun_t)(const json_t *, Path *, Report *);
 
+extern bool jm_check_fun_string(check_fun_t, const char *, Path *, Report *);
 extern bool jm_array_is_unique(const json_t *, Path *, Report *);
 
 /*

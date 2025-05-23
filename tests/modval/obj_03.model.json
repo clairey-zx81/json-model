@@ -1,0 +1,4 @@
+{
+  "#": "regex property… beware that \\d character class does not seem to be supported by re2",
+  "/^[0-9]+$/": 0
+}
