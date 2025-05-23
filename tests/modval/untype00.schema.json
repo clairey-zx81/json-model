@@ -1,0 +1,12 @@
+{
+  "description": "constraint is either on value or on length",
+  "anyOf": [
+    {
+      "type": "integer",
+      "minimum": 1
+    },
+    {
+      "type": "string"
+    }
+  ]
+}

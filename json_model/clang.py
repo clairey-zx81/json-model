@@ -186,7 +186,13 @@ class CLangJansson(Language):
         return f"jm_array_is_unique({val}, {path}, rep)"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        ...
+        """Call inefficient type-unaware constraint check."""
+        OPS = {
+            "!=": "op_ne", "=": "op_eq",
+            "<=": "op_le", "<": "op_lt",
+            ">=": "op_ge", ">": "op_gt"
+        }
+        return f"jm_check_constraint({val}, {OPS[op]}, &{self._cst(vop)}, {path}, rep)"
 
     #
     # inline comparison expressions for strings

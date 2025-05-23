@@ -18,18 +18,18 @@
 - [x] optim: predef normalization and or/and included type cleanups
 - [x] tests: parallelism with `pytest-xdist`
 - [x] c-backend: heterogeneous enum (`enum_05`)
+- [x] py-backend: unique for any
+- [x] backend: fix `untype00` issue (c, py)
+- [ ] backend: fix `untype00` schema
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: remove `.x.`
 - [ ] tests: split modval directory for better parallelization
 - [ ] command: rething option usage for compilation.
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
-- [ ] backend: fix `untype00` issue (c, py, schema)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
-- [ ] c-backend: unique for scalars using `constant_t`
+- [ ] c-backend: optimize unique for scalars using `constant_t`
 - [ ] c-backend: fast `$REGEX` implementation (wip)
-- [ ] py-backend: unique for any
 - [ ] py-backend: unique for scalars (`set` only works for str)
-- [ ] py-backend: non-str enum with `ConstSet`
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] python: drop `Validator` class

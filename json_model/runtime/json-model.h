@@ -146,6 +146,18 @@ extern size_t jm_any_len(json_t *);
 extern bool jm_is_valid_regex(const char *);
 extern bool jm_is_valid_url(const char *);
 
+typedef enum {
+    op_eq,
+    op_ne,
+    op_le,
+    op_lt,
+    op_ge,
+    op_gt
+} constraint_op_t;
+
+extern bool
+jm_check_constraint(const json_t *, constraint_op_t, const constant_t *, Path *, Report *);
+
 /*
  * Shared high-level entry point
  */

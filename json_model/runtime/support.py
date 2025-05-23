@@ -188,6 +188,51 @@ def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
     rep is None or rep.append(f"non array for unique at {path}")
     return False
 
+def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, rep: Report) -> bool:
+    if value is None or isinstance(value, bool):
+        rep is None or \
+            rep.append(f"unexpected type {_tname(value)} for {op} constraint at {path}")
+    # get comparison value depending on constant cst type
+    if isinstance(cst, int):
+        if isinstance(value, (str, list, dict)):
+            cval = len(value)
+        elif isinstance(value, (int, float)):
+            cval = value
+        # else nothing
+    elif isinstance(cst, float):
+        if isinstance(value, (int, float)):
+            cval = value
+        else:  # list, dict, str
+            rep is None or \
+                rep.append(f"unexpected type {_tname(value)} for {op} float constraint at {path}")
+            return False
+    else:
+        assert isinstance(cst, str)
+        if isinstance(value, str):
+            cval = value
+        else:  # dict, list, int, float
+            rep is None or \
+                rep.append(f"unexpected type {_tname(value)} for {op} str constraint at {path}")
+            return False
+    # actual comparison
+    if op == "=":
+        cmp = cval == cst
+    elif op == "!=":
+        cmp = cval != cst
+    elif op == "<=":
+        cmp = cval <= cst
+    elif op == "<":    
+        cmp = cval < cst
+    elif op == ">=":
+        cmp = cval >= cst
+    elif op == ">":    
+        cmp = cval > cst
+    else:
+        assert False, f"unexpected operator: {op}"
+    if not cmp and rep is not None:
+        rep.append(f"invalid {op} {cst} constraint at {path}")
+    return cmp
+
 
 def main(jm_fun, jm_map, jmc_version):
     """Possibly run as a script: $0 values..."""

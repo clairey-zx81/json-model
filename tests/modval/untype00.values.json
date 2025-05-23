@@ -2,5 +2,12 @@
   [ true,  18 ],
   [ true,  "calvin and hobbes" ],
   [ false, 9 ],
-  [ false, "short" ]
+  [ false, "short" ],
+  [ false, -12 ],
+  [ false, -3.1415927 ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, [] ],
+  [ false, {} ]
 ]

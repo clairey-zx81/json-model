@@ -524,6 +524,163 @@ jm_is_valid_url(const char *url)
     return true;
 }
 
+// generic constraint check.
+bool                                                                                         
+jm_check_constraint(const json_t * val, constraint_op_t op, const constant_t *cst,
+                    Path *path, Report *rep)
+{
+    bool res = false;
+
+    if (!val || json_is_null(val) || json_is_boolean(val))
+    {
+        if (rep)
+            jm_report_add_entry(rep, "unexpected null or bool type for any constraint", path);
+        return false; 
+    }
+
+    if (cst->tag == cst_is_integer)
+    {
+        int64_t icst = cst->val.i, ival = 0;
+        if (json_is_object(val))
+            ival = (int64_t) json_object_size(val);
+        else if (json_is_array(val))
+            ival = (int64_t) json_array_size(val);
+        else if (json_is_string(val))
+            ival = (int64_t) mbstowcs(NULL, json_string_value(val), 0);
+        else if (json_is_integer(val))
+            ival = json_integer_value(val);
+        else if (json_is_real(val)) {
+            // special case
+            double fval = json_real_value(val);
+            switch (op) {
+                case op_eq:
+                    res = fval == icst;
+                    break;
+                case op_ne:
+                    res = fval != icst;
+                    break;
+                case op_le:
+                    res = fval <= icst;
+                    break;
+                case op_lt:
+                    res = fval < icst;
+                    break;
+                case op_ge:
+                    res = fval >= icst;
+                    break;
+                case op_gt:
+                    res = fval > icst;
+                    break;
+            }
+            if (!res && rep)
+                jm_report_add_entry(rep, "invalid float/int constraint", path);
+            return res;
+        }
+        // else cannot happen
+
+        // ival / icst comparison
+        switch (op) {
+            case op_eq:
+                res = ival == icst;
+                break;
+            case op_ne:
+                res = ival != icst;
+                break;
+            case op_le:
+                res = ival <= icst;
+                break;
+            case op_lt:
+                res = ival < icst;
+                break;
+            case op_ge:
+                res = ival >= icst;
+                break;
+            case op_gt:
+                res = ival > icst;
+                break;
+        }
+        if (!res && rep)
+            jm_report_add_entry(rep, "invalid int constraint", path);
+        return res;
+    }
+    else if (cst->tag == cst_is_float)
+    {
+        double fcst = cst->val.f;
+        if (!json_is_number(val))
+        {
+            if (rep)
+                jm_report_add_entry(rep, "invalid type for float constraint", path);
+            return false;
+        }
+
+        double fval = json_number_value(val);
+        switch (op) {
+            case op_eq:
+                res = fval == fcst;
+                break;
+            case op_ne:
+                res = fval != fcst;
+                break;
+            case op_le:
+                res = fval <= fcst;
+                break;
+            case op_lt:
+                res = fval < fcst;
+                break;
+            case op_ge:
+                res = fval >= fcst;
+                break;
+            case op_gt:
+                res = fval > fcst;
+                break;
+        }
+        if (!res && rep)
+            jm_report_add_entry(rep, "invalid float constraint", path);
+        return res;
+    }
+    else if (cst->tag == cst_is_string)
+    {
+        const char *scst = cst->val.s;
+        if (!json_is_string(val))
+        {
+            if (rep)
+                jm_report_add_entry(rep, "invalid type for string constraint", path);
+            return false;
+        }
+
+        const char *sval = json_string_value(val);
+        switch (op) {
+            case op_eq:
+                res = strcmp(sval, scst) == 0;
+                break;
+            case op_ne:
+                res = strcmp(sval, scst) != 0;
+                break;
+            case op_le:
+                res = strcmp(sval, scst) <= 0;
+                break;
+            case op_lt:
+                res = strcmp(sval, scst) < 0;
+                break;
+            case op_ge:
+                res = strcmp(sval, scst) >= 0;
+                break;
+            case op_gt:
+                res = strcmp(sval, scst) > 0;
+                break;
+        }
+        if (!res && rep)
+            jm_report_add_entry(rep, "invalid string constraint", path);
+        return res;
+    }
+
+    // else cannot happen
+    if (rep)
+        jm_report_add_entry(rep, "invalid constant type in constraint", path);
+    return false;
+}
+
+
 // MUST BE CONSISTENT WITH "jansson_private.h"
 typedef struct {
     json_t  json;

@@ -266,6 +266,7 @@ class SourceCode(Validator):
                     checks.append(gen.num_cmp(fval, op, gen.const(vop)))
 
         assert checks
+        log.debug(f"checks={checks}")
         code += gen.if_stmt(res, cvars + [ gen.bool_var(res, gen.and_op(*checks)) ])
         code += self._gen_report(res, f"constraints failed at [{smpath}]", vpath)
         return code

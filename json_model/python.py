@@ -34,7 +34,7 @@ class Python(Language):
         return f"is_unique_array({val}, {path}, rep)"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        ...
+        return f"check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {path}, rep)"
 
     def file_header(self) -> Block:
         code: Block = [
