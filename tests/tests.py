@@ -14,21 +14,30 @@ log = logging.getLogger("test")
 log.setLevel(logging.DEBUG)
 # log.setLevel(logging.INFO)
 
-@pytest.fixture(params=["./modval", "./m2s", "./rwt"])
+@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics"])
 def directory(request):
     return pathlib.Path(request.param)
 
 # test expectations
 EXPECT: dict[str, int] = {
-    "modval:2json": 13,
-    "modval:preproc": 148,
-    "modval:schema": 148,
-    "modval:lang-c": 148,
-    "modval:lang-py": 148,
-    "modval:stac:tests": 148,
-    "modval:stapy:tests": 148,
-    "modval:stac:values": 1408,
-    "modval:stapy:values": 1408,
+    "modval:2json": 9,
+    "modval:preproc": 116,
+    "modval:schema": 116,
+    "modval:lang-c": 116,
+    "modval:lang-py": 116,
+    "modval:stac:tests": 116,
+    "modval:stapy:tests": 116,
+    "modval:stac:values": 1195,
+    "modval:stapy:values": 1195,
+    "basics:2json": 4,
+    "basics:preproc": 32,
+    "basics:schema": 32,
+    "basics:lang-c": 32,
+    "basics:lang-py": 32,
+    "basics:stac:tests": 32,
+    "basics:stapy:tests": 32,
+    "basics:stac:values": 229,
+    "basics:stapy:values": 229,
     "m2s:schema": 57,
     "rwt:preproc": 44,
     "rwt:schema": 44,

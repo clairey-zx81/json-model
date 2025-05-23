@@ -1,0 +1,16 @@
+[
+  [ true,  [] ],
+  [ true,  [ false ] ],
+  [ true,  [ true ] ],
+  [ true,  [ false, true ] ],
+  [ false, "[ true ]" ],
+  [ false, {} ],
+  [ false, [ true, false, null ] ],
+  [ false, [ null ] ],
+  [ false, [ "false" ] ],
+  [ false, null ],
+  [ false, false ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ]
+]

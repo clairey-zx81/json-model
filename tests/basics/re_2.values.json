@@ -1,0 +1,12 @@
+[
+  [ true,  "^Su" ],
+  [ false, "[abc" ],
+  [ false, "(Susie|Calvin" ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

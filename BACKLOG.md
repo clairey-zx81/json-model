@@ -20,10 +20,10 @@
 - [x] c-backend: heterogeneous enum (`enum_05`)
 - [x] py-backend: unique for any
 - [x] backend: fix `untype00` issue (c, py)
-- [ ] backend: fix `untype00` schema
+- [ ] tests: split modval directory for better parallelization (wip)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: remove `.x.`
-- [ ] tests: split modval directory for better parallelization
+- [ ] backend: fix `untype00` schema
 - [ ] command: rething option usage for compilation.
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
 - [ ] c-backend: also prefix type name and extensions with `jm_`

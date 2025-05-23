@@ -1,0 +1,10 @@
+re_1.values.json[0]: PASS
+re_1.values.json[1]: PASS
+re_1.values.json[2]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[3]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[4]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[5]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[6]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[7]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[8]: FAIL (.: unexpected REGEX [$])
+re_1.values.json[9]: FAIL (.: unexpected REGEX [$])
