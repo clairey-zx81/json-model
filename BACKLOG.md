@@ -17,11 +17,12 @@
 - [x] doc: remove about S
 - [x] optim: predef normalization and or/and included type cleanups
 - [x] tests: parallelism with `pytest-xdist`
+- [x] c-backend: heterogeneous enum (`enum_05`)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: remove `.x.`
+- [ ] tests: split modval directory for better parallelization
 - [ ] command: rething option usage for compilation.
-- [ ] py-backend: heterogeneous enum (`enum_05`)
-- [ ] c-backend: heterogeneous enum (`enum_05`)
+- [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
 - [ ] backend: fix `untype00` issue (c, py, schema)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: unique for scalars using `constant_t`

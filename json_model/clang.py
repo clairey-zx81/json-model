@@ -361,7 +361,25 @@ class CLangJansson(Language):
         ]
 
     def def_cset(self, name: str, constants: ConstList) -> Block:
-        return [ f"static constant_t {name}[{len(constants)}];" ]
+        types = set(type(c) for c in constants)
+        code = []
+        if len(types) > 1:
+            code += [ f"static bool {name}_test(const json_t *);" ]
+        return  code + [ f"static constant_t {name}[{len(constants)}];" ]
+
+    def sub_cset(self, name: str, constants: ConstList) -> Block:
+        types = set(type(c) for c in constants)
+        code = []
+        if len(types) > 1:
+            code += [
+                f"static bool {name}_test(const json_t *val)",
+                r"{",
+                r"  constant_t cst;",
+                r"  jm_set_cst(&cst, val);",
+                f"  return jm_search_cst(&cst, {name}, {len(constants)});",
+                r"}"
+            ]
+        return code
 
     def _var_cst(self, var: Var, vtype: type|None) -> Expr:
         if vtype is None or vtype == type(None):
@@ -380,11 +398,12 @@ class CLangJansson(Language):
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         """Tell whether JSON variable var value of potential types is in set name."""
         types = set(type(c) for c in constants)
-        if len(types) != 1:
-            raise NotImplementedError("multi type test")
-        tcs = types.pop()
-        val = self._var_cst(var, tcs)
-        return f"{self.is_this_type(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
+        if len(types) == 1:
+            tcs = types.pop()
+            val = self._var_cst(var, tcs)
+            return f"{self.is_this_type(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
+        else:  # multi type managed in a generated function
+            return f"{name}_test({var})"
 
     def _cst(self, value: Jsonable) -> str:
         match value:
