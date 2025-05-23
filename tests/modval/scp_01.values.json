@@ -1,0 +1,19 @@
+[
+  [ true,  {"RA": {}} ],
+  [ true,  {"RA": {"a": "Hobbes"}, "a": "*", "b": "*"} ],
+  [ true,  {"RA": {"a": "Susie"}, "b": "*"} ],
+  [ true,  {"RA": {"a": "Calvin"}, "a": "*"} ],
+  [ false, {} ],
+  [ false, {"RA": {"a": "Hobbes"}, "a": "*", "b": "*", "Z": "unexpected"} ],
+  [ false, {"a": "Susie"} ],
+  [ false, {"b": "Calvin"} ],
+  [ false, {"a": "Hobbes", "b": "Moe"} ],
+  [ false, {"not": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415926 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, ["not", "expected"] ]
+]

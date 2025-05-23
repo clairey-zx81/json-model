@@ -1,0 +1,17 @@
+[
+  [ false, [] ],
+  [ false, ["E1"] ],
+  [ true,  ["E2", "E4"] ],
+  [ false, ["XX", "YY"] ],
+  [ false, ["E2", "E4", "E6"] ],
+  [ false, ["E2", "E4", "E6", "E8"] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "not expected" ],
+  [ false, [42, 42] ],
+  [ false, ["E2", 18] ],
+  [ false, {} ],
+  [ false, {"not": "expected"} ]
+]

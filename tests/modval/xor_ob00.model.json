@@ -1,4 +1,5 @@
 {
+  "#": "4 property combinations: ac ad bc bd",
   "$": { 
     "A": { "^": [ {"a": 0}, {"b": 0} ] },
     "B": { "^": [ {"c": 0}, {"d": 0} ] }

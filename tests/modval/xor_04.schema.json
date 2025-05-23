@@ -1,4 +1,5 @@
 {
+  "description": "xor to or simplification, float vs string",
   "anyOf": [
     {
       "type": "number",

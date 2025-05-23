@@ -1,4 +1,5 @@
 {
+  "#": "an object with maybe prop a to any string",
   "$": {
     "a": "_a",
     "A": ""

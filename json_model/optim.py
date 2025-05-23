@@ -2,7 +2,7 @@
 # Model Optimizations
 #
 from .mtypes import ModelPath, ModelType
-from .utils import log, is_cst, _structurally_distinct_models, constant_value
+from .utils import log, is_cst, _structurally_distinct_models, constant_value, same_model
 from .recurse import recModel, allFlt, builtFlt
 from .model import JsonModel
 from .defines import ultimate_type
@@ -235,6 +235,9 @@ def partial_eval(jm: JsonModel):
                 lxor = model["^"]
                 assert isinstance(lxor, list)
                 changes += normalizeModels(lxor)
+                if len(lxor) == 2:
+                    if same_model(lxor[0], lxor[1]):
+                        return "$NONE"
                 if len(lxor) == 0:
                     changes += 1
                     return "$NONE"

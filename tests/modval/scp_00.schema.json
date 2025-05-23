@@ -15,8 +15,5 @@
       "$ref": "#/$defs/A"
     }
   },
-  "required": [
-    "a"
-  ],
   "additionalProperties": false
 }

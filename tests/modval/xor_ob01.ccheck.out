@@ -1,0 +1,15 @@
+xor_ob01.values.json[0]: PASS
+xor_ob01.values.json[1]: PASS
+xor_ob01.values.json[2]: PASS
+xor_ob01.values.json[3]: PASS
+xor_ob01.values.json[4]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.3]) (.a: no other prop expected [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.z: no other prop expected [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.z: no other prop expected [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.z: no other prop expected [$.'|'.0])
+xor_ob01.values.json[5]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.3]) (.: missing must prop [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.: missing must prop [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.b: no other prop expected [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.b: no other prop expected [$.'|'.0])
+xor_ob01.values.json[6]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.3]) (.: missing must prop [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.c: no other prop expected [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.c: no other prop expected [$.'|'.0])
+xor_ob01.values.json[7]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.3]) (.: missing must prop [$.'|'.3]) (.: not an expected object at [$.'|'.2]) (.: missing must prop [$.'|'.2]) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.: missing must prop [$.'|'.0])
+xor_ob01.values.json[8]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[9]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[10]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[11]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[12]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[13]: FAIL (.: unexpected type at [$.'|'])
+xor_ob01.values.json[14]: FAIL (.: unexpected type at [$.'|'])

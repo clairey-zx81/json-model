@@ -1,4 +1,0 @@
-or10.0.true.json: PASS
-or10.1.true.json: PASS
-or10.2.false.json: FAIL
-or10.3.false.json: FAIL

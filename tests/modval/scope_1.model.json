@@ -1,4 +1,5 @@
 {
+  "#": "a string with a lower case later or a digit",
   "$": {
     "R": "$./scope_0",
     "S": "/[a-z]/"

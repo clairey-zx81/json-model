@@ -1,1 +1,4 @@
-{ "^": [ 0.0, "/^[a-z]+$/i" ] }
+{
+  "#": "xor to or simplification, float vs string",
+  "^": [ 0.0, "/^[a-z]+$/i" ]
+}

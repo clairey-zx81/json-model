@@ -1,0 +1,13 @@
+[
+  [ true,  {} ],
+  [ true,  {"name": "Susie"} ],
+  [ false, {"name": "Calvin", "misc": "Hobbes"} ],
+  [ false, {"nom": "Susie"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "Hello world" ],
+  [ false, [] ],
+  [ false, ["not", "an", "obj"] ]
+]

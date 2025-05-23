@@ -1,0 +1,17 @@
+[
+  [ true,  {"a": 42} ],
+  [ true,  {"b": 17, "c": 18} ],
+  [ true,  {"b": 42, "a": 18} ],
+  [ true,  {"a": 18, "c": 42} ],
+  [ false, {"a": 42, "z": 0} ],
+  [ false, {"b": 42} ],
+  [ false, {"c": 42} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "not obj" ],
+  [ false, [] ],
+  [ false, ["not", "obj"] ]
+]

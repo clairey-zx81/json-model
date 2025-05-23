@@ -1,4 +1,5 @@
 {
+  "description": "exemple d'un rapport",
   "type": "object",
   "properties": {
     "movie": {

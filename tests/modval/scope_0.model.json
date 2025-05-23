@@ -1,4 +1,5 @@
 {
+  "#": "an ordered pair of strings with a digit",
   "$": {
     "S": "/[0-9]/"
   },

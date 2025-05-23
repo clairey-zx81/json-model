@@ -22,6 +22,7 @@
 - [ ] command: rething option usage for compilation.
 - [ ] py-backend: heterogeneous enum (`enum_05`)
 - [ ] c-backend: heterogeneous enum (`enum_05`)
+- [ ] backend: fix `untype00` issue (c, py, schema)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: unique for scalars using `constant_t`
 - [ ] c-backend: fast `$REGEX` implementation (wip)
@@ -40,7 +41,6 @@
 - [ ] optim: detect non feasible constraints
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
-- [ ] c-python: improve `$REGEX` wrt re2 documentation
 
 ## To Do
 

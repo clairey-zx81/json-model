@@ -89,6 +89,9 @@ def _recModel(
                     nprop = _recModel(prop, lpath, flt, rwt, keys, False)
                     log.debug(f"nprop={nprop}")
                     assert isinstance(nprop, str)
+                    # substitution to an optional string
+                    if nprop and nprop[0] not in ("$", "/", "="):
+                        nprop = "?" + (nprop[1:] if nprop[0] == "_" else nprop)
                     if nprop != prop:
                         if nprop in model:
                             raise ModelError(f"cannot override key {prop}: {nprop} {lpath}")
