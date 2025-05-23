@@ -1,0 +1,16 @@
+or_0b.values.json[1]: PASS
+or_0b.values.json[2]: PASS
+or_0b.values.json[3]: PASS
+or_0b.values.json[4]: PASS
+or_0b.values.json[5]: PASS
+or_0b.values.json[6]: PASS
+or_0b.values.json[7]: PASS
+or_0b.values.json[8]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[9]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[10]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[11]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[12]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[13]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[14]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[15]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]
+or_0b.values.json[16]: FAIL [("value not in enum [$.'|']", []), ("not null [$.'|'.0]", []), ("unexpected =false [$.'|'.1]", []), ("unexpected =42 [$.'|'.2]", []), ("unexpected =3.14159 [$.'|'.3]", []), ("unexpected =10E100 [$.'|'.4]", []), ("no model matched [$.'|']", [])]

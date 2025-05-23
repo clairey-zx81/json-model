@@ -1,9 +1,19 @@
 [
+  "7 actual values enum",
   [ true,  null ],
+  [ true,  false ],
   [ true,  42 ],
   [ true,  3.14159 ],
+  [ true,  100E99 ],
   [ true,  "Susie" ],
+  [ true,  "Calvin" ],
   [ false, "Hobbes" ],
   [ false, ["Hello", "World!"] ],
-  [ false, {"not": "expected"} ]
+  [ false, {"not": "expected"} ],
+  [ false, true ],
+  [ false, 18 ],
+  [ false, -3.14159 ],
+  [ false, {} ],
+  [ false, [] ],
+  [ false, 0.0 ]
 ]
