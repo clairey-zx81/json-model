@@ -10,7 +10,7 @@ clean:
 	$(RM) -r __pycache__
 
 PYTEST  = pytest --log-level=debug --capture=tee-sys
-PYTOPT	= -vv
+PYTOPT	= -vv -n auto
 
 .PHONY: check.pytest
 check.pytest:

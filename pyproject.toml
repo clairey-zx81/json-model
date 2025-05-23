@@ -25,7 +25,7 @@ dependencies = [ "requests", "google-re2", "pyyaml", "validators" ]
 
 [project.optional-dependencies]
 dev = [
-  "flake8", "ruff", "pyright", "pytest", "ipython",
+  "flake8", "ruff", "pyright", "pytest", "pytest-xdist[psutils]", "ipython",
   "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
 ]
 dist = [ "build", "wheel", "twine" ]

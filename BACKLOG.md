@@ -16,6 +16,7 @@
 - [x] command: remove `-S`
 - [x] doc: remove about S
 - [x] optim: predef normalization and or/and included type cleanups
+- [x] tests: parallelism with `pytest-xdist`
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: remove `.x.`
 - [ ] command: rething option usage for compilation.
@@ -107,7 +108,6 @@
 - [ ] tests: move/add more tests to rwt, modval, bads
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
 - [ ] tests: fix tests in `bads/wip`?
-- [ ] tests: parallelism with `pytest`?
 - [ ] tests: add github CI
 - [ ] tests: raise coverage, possibly to 100%?
 - [ ] tests: skip url cache while testing

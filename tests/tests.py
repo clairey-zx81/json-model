@@ -154,9 +154,11 @@ def test_dypy(directory):
 
     assert ntests == EXPECT.get(f"{directory}:dypy", 0)
 
-def test_stac(directory):
-    """Check generated C code with test value files."""
-    ntests, nvalues = 0, 0
+def path2file(fname: str) -> str:
+    return fname.replace("/", "_").replace(".", "_")
+
+@pytest.fixture
+def clibjm():
 
     tmp_dir = "/dev/shm"
     jm_lib = f"{tmp_dir}/json-model.o"
@@ -179,12 +181,39 @@ def test_stac(directory):
     status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
     assert status == 0, f"main frontend compilation"
 
+    yield {
+        "tmp": tmp_dir,
+        "lib": jm_lib,
+        "main": jm_main,
+        "cc": cc,
+        "cppflags": cppflags,
+        "cflags": cflags,
+        "ldflags": ldflags,
+    }
+
+    # os.remove(jm_lib)
+    # os.remove(jm_main)
+
+
+def test_stac(directory, clibjm):
+    """Check generated C code with test value files."""
+    ntests, nvalues = 0, 0
+
+    # compilation settings
+    cc, cppflags, cflags, ldflags = \
+        clibjm["cc"], clibjm["cppflags"], clibjm["cflags"], clibjm["ldflags"],
+    # files
+    tmp_dir, jm_lib, jm_main = clibjm["tmp"], clibjm["lib"], clibjm["main"]
+
+    assert os.path.isfile(jm_lib), "available support lib"
+    assert os.path.isfile(jm_main), "available support main"
+
     # try all sources
     for fpath in sorted(directory.glob("*.x.c")):
         fname = f"./{fpath}"
         bname = fname.replace(".x.c", "").split("/", -1)[-1]
-        fexec = "/dev/shm/jm.out"
-        log.debug(f"stac[{directory}]: {fname}")
+        fexec = f"{tmp_dir}/{path2file(fname)}.out"
+        log.debug(f"stac[{directory}]: {fname} ({fexec})")
         ntests += 1
 
         # compile
@@ -216,16 +245,16 @@ def test_stac(directory):
         with open(cfile) as r:
             ref = r.read()
         assert out == ref
+        # cleanup
+        os.remove(fexec)
 
-    # cleanup
-    os.remove(jm_lib)
-    os.remove(jm_main)
     assert ntests == EXPECT.get(f"{directory}:stac:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stac:values", 0)
 
 def test_stapy(directory):
     """Check generated Python scripts with test value files."""
     ntests, nvalues = 0, 0
+
     # try all sources
     for fpath in sorted(directory.glob("*.x.py")):
         fname = f"./{fpath}"
@@ -261,7 +290,7 @@ def test_stapy(directory):
 
     assert ntests == EXPECT.get(f"{directory}:stapy:tests", 0)
     assert nvalues == EXPECT.get(f"{directory}:stapy:values", 0)
-    
+
 
 # TODO no report option
 # TODO check wrt json model official schema
