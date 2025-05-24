@@ -11,14 +11,12 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-log.setLevel(logging.DEBUG)
-# log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
-@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics"])
-def directory(request):
-    return pathlib.Path(request.param)
-
-# test expectations
+#
+# PER-DIRECTORY TEST EXPECTATIONS
+#
 EXPECT: dict[str, int] = {
     "modval:js2json": 8,
     "modval:yaml2json": 1,
@@ -56,13 +54,99 @@ EXPECT: dict[str, int] = {
 }
 
 
+#
+# LOCAL TEST UTILS
+#
+def path2file(fname: str) -> str:
+    return fname.replace("/", "_").replace(".", "_")
+
+
 def dirmap(dname) -> dict[str, str]:
     return {
         "https://json-model.org/models/": "../models/",
         "./": f"./{dname}/",
     }
 
+#
+# LOCAL FIXTURES
+#
+@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics"])
+def directory(request):
+    return pathlib.Path(request.param)
 
+
+@pytest.fixture(params=["py", "c"])
+def language(request):
+    return request.param
+
+
+@pytest.fixture(scope="session")
+def clibjm():
+
+    tmp_dir = "/dev/shm"
+    jm_lib = f"{tmp_dir}/json-model.o"
+    jm_main = f"{tmp_dir}/main.o"
+
+    src_dir = "../json_model/runtime"
+    src_lib = f"{src_dir}/json-model.c"
+    src_main = f"{src_dir}/main.c"
+
+    # compilation settings
+    cc = os.environ.get("CC", "gcc")
+    cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
+    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -O2")
+    ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
+
+    # compile library
+    status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
+    assert status == 0, f"support library compilation"
+
+    status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
+    assert status == 0, f"main frontend compilation"
+
+    yield {
+        "tmp": tmp_dir,
+        "lib": jm_lib,
+        "main": jm_main,
+        "cc": cc,
+        "cppflags": cppflags,
+        "cflags": cflags,
+        "ldflags": ldflags,
+    }
+
+    # FIXME cleanup
+    # os.remove(jm_lib)
+    # os.remove(jm_main)
+
+
+@pytest.fixture(scope="session")
+def jmchecker(clibjm):
+
+    # compilation settings
+    cc, cppflags, cflags, ldflags = \
+        clibjm["cc"], clibjm["cppflags"], clibjm["cflags"], clibjm["ldflags"],
+    # files
+    tmp_dir, jm_lib, jm_main = clibjm["tmp"], clibjm["lib"], clibjm["main"]
+
+    assert os.path.isfile(jm_lib), "available support lib"
+    assert os.path.isfile(jm_main), "available support main"
+
+    model_c = "rwt/json-model.x.c"
+    fexec = f"{tmp_dir}/json_model_check"
+
+    # NOTE with parallel runs the file may be generated several time despite the session scope
+    if not os.path.exists(fexec):
+        status = os.system(f"{cc} {cppflags} {cflags} {model_c} {ldflags} -o {fexec}")
+        assert status == 0, f"{model_c} compilation success"
+
+    yield fexec
+
+    # FIXME cleanup
+    # os.remove(fexec)
+
+#
+# GENERATED STUFF
+#
 def check_generated(directory: pathlib.Path, name: str, suffix: str,
                     generate, srcsuff: str = ".model.json"):
 
@@ -133,14 +217,6 @@ def test_schema(directory):
     check_generated(directory, "schema", ".schema.json", generate_schema)
 
 
-#
-# target languages
-#
-@pytest.fixture(params=["py", "c"])
-def language(request):
-    return request.param
-
-
 def test_lang(directory, language):
     """Check compiled sources."""
     resolver = Resolver(None, dirmap(directory))
@@ -153,47 +229,9 @@ def test_lang(directory, language):
     check_generated(directory, f"lang-{language}", f".x.{language}", generate_language)
 
 
-
-def path2file(fname: str) -> str:
-    return fname.replace("/", "_").replace(".", "_")
-
-@pytest.fixture(scope="session")
-def clibjm():
-
-    tmp_dir = "/dev/shm"
-    jm_lib = f"{tmp_dir}/json-model.o"
-    jm_main = f"{tmp_dir}/main.o"
-
-    src_dir = "../json_model/runtime"
-    src_lib = f"{src_dir}/json-model.c"
-    src_main = f"{src_dir}/main.c"
-
-    # compilation settings
-    cc = os.environ.get("CC", "gcc")
-    cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -O2")
-    ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
-
-    # compile library
-    status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
-    assert status == 0, f"support library compilation"
-
-    status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
-    assert status == 0, f"main frontend compilation"
-
-    yield {
-        "tmp": tmp_dir,
-        "lib": jm_lib,
-        "main": jm_main,
-        "cc": cc,
-        "cppflags": cppflags,
-        "cflags": cflags,
-        "ldflags": ldflags,
-    }
-
-    # FIXME cleanup
-    # os.remove(jm_lib)
-    # os.remove(jm_main)
+#
+# CHECK MODELS AGAINST VALUES
+#
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, generate):
     """Generic value testing."""
@@ -313,9 +351,30 @@ def test_dyna_py(directory):
 
     assert ntests == EXPECT.get(f"{directory}:dyna-py", 0)
 
-# TODO no report option
-# TODO check wrt json model official schema
-# TODO check wrt json model generated schema
+#
+# CHECK MODELS AGAINST META MODEL(S)
+#
+
+def check_models(directory, jmchecker: str):
+    ntests = 0
+    models = " ".join(map(str, sorted(directory.glob(f"*.model.json"))))
+    for line in os.popen(f"{jmchecker} {models}"):
+        ntests += 1
+        assert ": PASS" in line
+    assert ntests == EXPECT.get(f"{directory}:models", 0)
+
+def test_models_c(directory, jmchecker):
+    check_models(directory, jmchecker)
+
+def test_models_py(directory):
+    check_models(directory, "./rwt/json-model.x.py")
+
+def test_models_jsm(directory):
+    check_models(directory, "jsu-check --quiet json-model.schema.json")
+
+def test_models_jsg(directory):
+    check_models(directory, "jsu-check --quiet ./rwt/json-model.schema.json")
+
 def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""
     resolver = Resolver(None, dirmap(directory))
@@ -334,44 +393,6 @@ def test_models_dpy(directory):
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
 
-@pytest.fixture(scope="session")
-def jmchecker(clibjm):
-
-    # compilation settings
-    cc, cppflags, cflags, ldflags = \
-        clibjm["cc"], clibjm["cppflags"], clibjm["cflags"], clibjm["ldflags"],
-    # files
-    tmp_dir, jm_lib, jm_main = clibjm["tmp"], clibjm["lib"], clibjm["main"]
-
-    assert os.path.isfile(jm_lib), "available support lib"
-    assert os.path.isfile(jm_main), "available support main"
-
-    model_c = "rwt/json-model.x.c"
-    fexec = f"{tmp_dir}/json_model_check"
-
-    # NOTE with parallel runs the file may be generated several time despite the session scope
-    if not os.path.exists(fexec):
-        status = os.system(f"{cc} {cppflags} {cflags} {model_c} {ldflags} -o {fexec}")
-        assert status == 0, f"{model_c} compilation success"
-
-    yield fexec
-
-    # FIXME cleanup
-    # os.remove(fexec)
-
-def check_models(directory, jmchecker: str):
-    ntests = 0
-    models = " ".join(map(str, sorted(directory.glob(f"*.model.json"))))
-    for line in os.popen(f"{jmchecker} {models}"):
-        ntests += 1
-        assert ": PASS" in line
-    assert ntests == EXPECT.get(f"{directory}:models", 0)
-
-def test_models_c(directory, jmchecker):
-    check_models(directory, jmchecker)
-
-def test_models_py(directory):
-    check_models(directory, "./rwt/json-model.x.py")
 
 #
 # BAD MODELS
@@ -399,3 +420,9 @@ def test_bads_c(jmchecker):
 
 def test_bads_py():
     check_bads("./rwt/json-model.x.py")
+
+def test_bads_jsm():
+    check_bads("jsu-check --quiet ./json-model.schema.json")
+
+def test_bads_jsg():
+    check_bads("jsu-check --quiet ./rwt/json-model.schema.json")

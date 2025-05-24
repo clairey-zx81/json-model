@@ -1,20 +1,27 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://json-model.org/schemas/json-model",
-  "title": "JSON Schema for JSON Model, written by hand",
+  "title": "JSON Schema for JSON Model, painfully written by hand",
   "$defs": {
     "common": {
-      "title": "Common Stuff",
+      "title": "Common Object Stuff",
       "type": "object",
       "properties": {
         "#": { "type": "string" }
       }
     },
     "simpleModel": {
+      "$comment": "restricted list of scalars which are models",
       "enum": [ null, true, -1, 0, 1, -1.0, 0.0, 1.0, "" ]
     },
-    "stringModel": { "type": "string", "minLength": 1 },
-    "cmpValue": { "type": [ "integer", "number", "string" ] },
+    "stringModel": {
+      "$comment": "TODO improve with regex?",
+      "type": "string",
+      "minLength": 1
+    },
+    "cmpValue": {
+      "type": [ "integer", "number", "string" ]
+    },
     "arrayModel": {
       "type": "array",
       "items": { "$ref": "#/$defs/Model" }
@@ -22,42 +29,52 @@
     "simpleObject": {
       "type": "object",
       "$ref": "#/$defs/common",
+      "$comment": "handle specials to ensure oneOf",
       "patternProperties": { "^[@|^&+]$": false },
+      "properties": { "$": true, "%": true, "~": true, "#": true },
       "additionalProperties": { "$ref": "#/$defs/Model" }
     },
     "andModel": {
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {
-        "&": { "$ref": "#/$defs/arrayModel" }
+        "&": { "$ref": "#/$defs/arrayModel" },
+        "$": true, "%": true, "~": true, "#": true
       },
+      "additionalProperties": false,
       "required": [ "&" ]
     },
     "orModel": {
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {
-        "|": { "$ref": "#/$defs/arrayModel" }
+        "|": { "$ref": "#/$defs/arrayModel" },
+        "$": true, "%": true, "~": true, "#": true
       },
+      "additionalProperties": false,
       "required": [ "|" ]
     },
     "xorModel": {
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {
-        "^": { "$ref": "#/$defs/arrayModel" }
+        "^": { "$ref": "#/$defs/arrayModel" },
+        "$": true, "%": true, "~": true, "#": true
       },
+      "additionalProperties": false,
       "required": [ "^" ]
     },
     "addModel": {
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {
-        "+": { "$ref": "#/$defs/arrayModel" }
+        "+": { "$ref": "#/$defs/arrayModel" },
+        "$": true, "%": true, "~": true, "#": true
       },
+      "additionalProperties": false,
       "required": [ "+" ]
     },
-    "constrainedModel": {
+    "constraintModel": {
       "type": "object",
       "$ref": "#/$defs/common",
       "properties": {
@@ -68,29 +85,33 @@
         ">=": { "$ref": "#/$defs/cmpValue" },
         "<": { "$ref": "#/$defs/cmpValue" },
         ">": { "$ref": "#/$defs/cmpValue" },
-        "!": { "type": "boolean" }
+        "!": { "type": "boolean" },
+        "$": true, "%": true, "~": true, "#": true
       },
+      "additionalProperties": false,
       "required": [ "@" ]
     },
     "objModel": {
       "description": "A model which uses an object representation",
+      "type": "object",
       "oneOf": [
         { "$ref": "#/$defs/simpleObject" },
         { "$ref": "#/$defs/andModel" },
         { "$ref": "#/$defs/orModel" },
         { "$ref": "#/$defs/xorModel" },
         { "$ref": "#/$defs/addModel" },
-        { "$ref": "#/$defs/constrainedModel" }
+        { "$ref": "#/$defs/constraintModel" }
       ]
     },
     "Model": {
+      "$comment": "a model which is NOT at the root, thus root-specific props are rejected",
       "oneOf": [
         { "$ref": "#/$defs/simpleModel" },
         { "$ref": "#/$defs/stringModel" },
         { "$ref": "#/$defs/arrayModel" },
         { "$ref": "#/$defs/objModel" }
       ],
-      "unevaluatedProperties": false
+      "properties": { "$": false, "%": false, "~": false }
     },
     "defsModel": {
       "description": "Keywords available only at the root",
@@ -120,10 +141,12 @@
           "patternProperties": {
             "^\\.": { "type": "string" }
           },
-          "additionalProperties": { "$ref": "#/$defs/Model" }
+          "additionalProperties": {
+            "$comment": "TODO probably not true, to be improved",
+            "$ref": "#/$defs/Model"
+          }
         }
-      },
-      "unevaluatedProperties": false
+      }
     },
     "rootModel": {
       "oneOf": [
