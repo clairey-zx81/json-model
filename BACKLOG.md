@@ -42,6 +42,7 @@
 - [ ] optim: detect non feasible constraints
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
+- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 
 ## To Do
 

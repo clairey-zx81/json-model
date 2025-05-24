@@ -1,0 +1,18 @@
+[
+  [ true,  "./ex_01" ],
+  [ true,  "../ex_01" ],
+  [ true,  "https://json-model.org/models/json-model" ],
+  [ true,  "http://comics.net/model" ],
+  [ true,  "file://./ex_01" ],
+  [ false, "foo" ],
+  [ false, "$bla" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["not", "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

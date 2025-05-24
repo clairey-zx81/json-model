@@ -95,7 +95,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile(r".").search
+        _jm_re_0_search = re.compile(".").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
         global _jm_obj_0_may
         _jm_obj_0_may = {

@@ -138,7 +138,7 @@ def check_model_init():
             "bla": _jm_f_1,
         }
         global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile(r"^[0-9]+$").search
+        _jm_re_0_search = re.compile("^[0-9]+$").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
         global check_model_map
         check_model_map = {

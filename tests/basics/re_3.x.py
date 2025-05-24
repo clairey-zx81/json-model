@@ -28,18 +28,10 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
-    # $.'|'.0
-    res = isinstance(val, float) and val >= 0.0
+    # "/^((file|https?)://.*|\\./.+|\\.\\./.+)$/"
+    res = isinstance(val, str) and _jm_re_0(val)
     if not res:
-        rep is None or rep.append(("not a 0.0 strict float [$.'|'.0]", path))
-    if not res:
-        # $.'|'.1
-        # "/^[a-z]+$/i"
-        res = isinstance(val, str) and _jm_re_0(val)
-        if not res:
-            rep is None or rep.append(("unexpected REGEX [$.'|'.1]", path))
-    if not res:
-        rep is None or rep.append(("no model matched [$.'|']", path))
+        rep is None or rep.append(("unexpected REGEX [$]", path))
     return res
 
 
@@ -52,7 +44,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("(?i)^[a-z]+$").search
+        _jm_re_0_search = re.compile("^((file|https?)://.*|\\./.+|\\.\\./.+)$").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
         global check_model_map
         check_model_map = {

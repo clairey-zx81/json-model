@@ -1,0 +1,28 @@
+json-model.values.json[1]: PASS
+json-model.values.json[2]: PASS
+json-model.values.json[3]: PASS
+json-model.values.json[4]: PASS
+json-model.values.json[5]: PASS
+json-model.values.json[6]: PASS
+json-model.values.json[7]: PASS
+json-model.values.json[8]: PASS
+json-model.values.json[9]: PASS
+json-model.values.json[10]: PASS
+json-model.values.json[11]: PASS
+json-model.values.json[12]: PASS
+json-model.values.json[13]: PASS
+json-model.values.json[14]: PASS
+json-model.values.json[15]: PASS
+json-model.values.json[16]: PASS
+json-model.values.json[17]: PASS
+json-model.values.json[18]: PASS
+json-model.values.json[19]: PASS
+json-model.values.json[20]: PASS
+json-model.values.json[21]: FAIL (.: unexpected $RootModel [$]) (.: no model matched [$.'$RootModel'.'|']) (.: unexpected $Root [$.'$RootModel'.'|'.2]) (.: unexpected type at [$.'$Root'.'|']) (.: unexpected $Array [$.'$RootModel'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$RootModel'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|'])
+json-model.values.json[22]: FAIL (.: unexpected $RootModel [$]) (.: no model matched [$.'$RootModel'.'|']) (.: unexpected $Root [$.'$RootModel'.'|'.2]) (.: unexpected type at [$.'$Root'.'|']) (.: unexpected $Array [$.'$RootModel'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$RootModel'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|'])
+json-model.values.json[23]: FAIL (.: unexpected $RootModel [$]) (.: no model matched [$.'$RootModel'.'|']) (.: unexpected $Root [$.'$RootModel'.'|'.2]) (.: unexpected type at [$.'$Root'.'|']) (.: unexpected $Array [$.'$RootModel'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$RootModel'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|'])
+json-model.values.json[24]: FAIL (.: unexpected $RootModel [$]) (.: no model matched [$.'$RootModel'.'|']) (.: unexpected $Root [$.'$RootModel'.'|'.2]) (.: unexpected type at [$.'$Root'.'|']) (.: unexpected $Array [$.'$RootModel'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.0: unexpected $Model [$.'$Array'.0]) (.: no model matched [$.'$Model'.'|']) (.: unexpected $Elem [$.'$Model'.'|'.2]) (.: unexpected type at [$.'$Elem'.'|']) (.: unexpected $Array [$.'$Model'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$Model'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|']) (.: unexpected $Scalar [$.'$RootModel'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|'])
+json-model.values.json[25]: FAIL (.: unexpected $RootModel [$]) (.: no model matched [$.'$RootModel'.'|']) (.: unexpected $Root [$.'$RootModel'.'|'.2]) (.: no model matched [$.'$Root'.'|']) (.: not an expected object at [$.'$Root'.'|'.5]) (.a: unexpected $Model [$.'$Root'.'|'.5.'']) (.: no model matched [$.'$Model'.'|']) (.: unexpected $Elem [$.'$Model'.'|'.2]) (.: unexpected type at [$.'$Elem'.'|']) (.: unexpected $Array [$.'$Model'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$Model'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|']) (.: not an expected object at [$.'$Root'.'|'.4]) (.a: no other prop expected [$.'$Root'.'|'.4]) (.: not an expected object at [$.'$Root'.'|'.3]) (.a: no other prop expected [$.'$Root'.'|'.3]) (.: not an expected object at [$.'$Root'.'|'.2]) (.a: no other prop expected [$.'$Root'.'|'.2]) (.: not an expected object at [$.'$Root'.'|'.1]) (.a: no other prop expected [$.'$Root'.'|'.1]) (.: not an expected object at [$.'$Root'.'|'.0]) (.a: no other prop expected [$.'$Root'.'|'.0]) (.: unexpected $Array [$.'$RootModel'.'|'.1]) (.: not array or unexpected array [$.'$Array']) (.: unexpected $Scalar [$.'$RootModel'.'|'.0]) (.: unexpected type at [$.'$Scalar'.'|']) (.: value not in enum [$.'$Scalar'.'|'])
+json-model.values.json[27]: PASS
+json-model.values.json[28]: PASS
+json-model.values.json[29]: PASS

@@ -8,7 +8,7 @@ from .url_cache import JsonURLCache
 from .utils import log
 
 JSON_SUFFIX = ["", ".json", ".model", ".model.json"]
-YAML_SUFFIX = [".yaml", ".model.yaml", ".yml", "model.yml"]
+YAML_SUFFIX = [".yaml", ".model.yaml", ".yml", ".model.yml"]
 JS_SUFFIX = [".js", ".model.js"]
 
 # guess type based on file contents

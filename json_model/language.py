@@ -569,7 +569,7 @@ class Language:
         return [
             f"global {name}_search, {name}",
             # rex engine imported as re; may raise an exception
-            f"{name}_search = re.compile(r{sregex}).search",
+            f"{name}_search = re.compile({sregex}).search",
             f"{name} = lambda s: {name}_search(s) is not None"
         ]
 
