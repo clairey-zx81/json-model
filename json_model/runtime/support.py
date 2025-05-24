@@ -157,7 +157,8 @@ def is_valid_uuid(value: Jsonable, path: str, rep: Report = None) -> bool:
 
 def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     # NOTE urllib.parse accepts any garbage…
-    valid = isinstance(value, str) and validators.url(value) is True
+    # NOTE simple_host required to accept "localhost"
+    valid = isinstance(value, str) and validators.url(value, simple_host=True) is True
     if not valid:
         rep is None or rep.append(f"invalid url at {path}: {value}")
     return valid

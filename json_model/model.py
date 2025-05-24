@@ -861,7 +861,7 @@ class JsonModel:
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
         else:
             name, xpath = tpath, []
-        log.debug(f"name={name} xpath={xpath}")
+        log.debug(f"parsePath name={name} xpath={xpath}")
         return (self.resolveRef(name, path, True), xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
@@ -874,7 +874,7 @@ class JsonModel:
         assert self._isTrafo(trafo)
         assert isinstance(trafo, dict)  # pyright hint
         if self._debug:
-            log.debug(f"trafo={trafo} on j={j}")
+            log.debug(f"applyTrafo trafo={trafo} on j={j}")
         if "/" in trafo:
             sub = trafo["/"]
             # handle scalars
@@ -952,8 +952,9 @@ class JsonModel:
                 if not 0 <= p < len(j):
                     raise ModelError(f"invalid index at {path}: {p} in {tpath}")
             if last:  # apply!
-                log.debug(f"applying on p={p} in j={j}")
+                log.debug(f"applying on p={p} in j={j} trafo={trafo}")
                 j[p] = self._applyTrafo(j[p], trafo, path)  # type: ignore
+                # log.debug(f"j[p] = {j[p]}")
             else:  # move forward
                 log.debug(f"moving forward on p={p}")
                 j = j[p]  # type: ignore

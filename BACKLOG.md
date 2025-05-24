@@ -162,6 +162,7 @@
 - [ ] design: URI vs URL?
 - [ ] service: json to lang conversion API :-)
 - [ ] command: allow direct compilation with cc-like options?
+- [ ] design: documentation use case, with added _markdown description_
 
 ## Done
 

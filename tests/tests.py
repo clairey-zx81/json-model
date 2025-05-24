@@ -11,8 +11,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-# log.setLevel(logging.DEBUG)
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
+# log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS
@@ -51,6 +51,8 @@ EXPECT: dict[str, int] = {
     "rwt:lang-c": 1,
     "rwt:lang-py": 1,
     "bads:models": 54,
+    "draft7:jsts": 254,
+    "draft-next:jsts": 365,
 }
 
 
@@ -426,3 +428,56 @@ def test_bads_jsm():
 
 def test_bads_jsg():
     check_bads("jsu-check --quiet ./rwt/json-model.schema.json")
+
+#
+# JSON SCHEMA DRAFT TESTS
+#
+def json_schema_test_suite(version, fmodel):
+    ntests = 0
+    # load model
+    checker = model_checker_from_url(fmodel, auto=True)
+    # run all tests
+    path = pathlib.Path(f"./JSON-Schema-Test-Suite/tests/{version}")
+    for jstest in path.glob("*.json"):
+        log.info(f"considering file {jstest}")
+        with open(jstest) as f:
+            tests = json.load(f)
+            assert isinstance(tests, list)
+            for idx, test in enumerate(tests):
+                description, schema = test["description"], test["schema"]
+                log.debug(f"checking {jstest}[{idx}] {description}")
+                ntests += 1
+                reasons = []
+                okay = checker(schema, "", reasons)
+                assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
+    assert ntests == EXPECT.get(f"{version}:jsts", 0)
+
+@pytest.mark.skip(reason="KO")
+def test_draft3_fuzzy():
+    # strict: fail on "definitions"
+    # nesting: fail on "definitions"
+    json_schema_test_suite("draft3", "../models/json-schema-draft-03-fuzzy.model.json")
+
+@pytest.mark.skip(reason="KO")
+def test_draft4_fuzzy():
+    # strict: errors on "$comment"
+    json_schema_test_suite("draft4", "../models/json-schema-draft-04-fuzzy.model.json")
+
+@pytest.mark.skip(reason="KO")
+def test_draft6_fuzzy():
+    json_schema_test_suite("draft6", "../models/json-schema-draft-06-fuzzy.model.json")
+
+def test_draft7_fuzzy():
+    json_schema_test_suite("draft7", "../models/json-schema-draft-07-fuzzy.model.json")
+
+@pytest.mark.skip(reason="KO")
+def test_draft8_fuzzy():
+    json_schema_test_suite("draft2019-09", "../models/json-schema-draft-2019-09-fuzzy.model.json")
+
+@pytest.mark.skip(reason="KO")
+def test_draft9_fuzzy():
+    # strict: error on maxContains with number instead of integer
+    json_schema_test_suite("draft2020-12", "../models/json-schema-draft-2020-12-fuzzy.model.json")
+
+def test_draft_next_fuzzy():
+    json_schema_test_suite("draft-next", "../models/json-schema-draft-next-fuzzy.model.json")

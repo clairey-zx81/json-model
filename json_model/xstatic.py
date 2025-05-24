@@ -968,7 +968,7 @@ class SourceCode(Validator):
                     self._code.subs(ocode)
 
                     # call object check and possibly report
-                    code += [ gen.bool_var(res, gen.check_call(objid, "val", vpath)) ]
+                    code += [ gen.bool_var(res, gen.check_call(objid, val, vpath)) ]
                     code += self._gen_report(res, f"not an expected object at [{smpath}]", vpath)
 
                     # record object function for path
