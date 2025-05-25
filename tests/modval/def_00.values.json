@@ -1,0 +1,7 @@
+[
+  [ true,  0.0 ],
+  [ true,  42E-18 ],
+  [ false, -1.0 ],
+  [ false, null ],
+  [ false, "not a pos!" ]
+]

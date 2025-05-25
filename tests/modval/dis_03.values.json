@@ -1,0 +1,6 @@
+[
+  [ true,  { "discriminator": true, "x": "Susie" } ],
+  [ true,  { "discriminator": false, "y": "Calvin" } ],
+  [ false, { "discriminator": null, "z": "unexpected discriminator value" } ],
+  [ false, { "discriminator": ["Calvin", "Hobbes"], "z": "unexpected discriminator type" } ]
+]

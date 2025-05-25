@@ -1,0 +1,7 @@
+[
+  [ true,  {"hello": 42, "world": false} ],
+  [ true,  {"world": true, "hello": 18} ],
+  [ false, {"world": 42, "hello": 18} ],
+  [ false, { "hello": "not-an-int", "world": "not-a-bool" } ],
+  [ false, "bonjour" ]
+]
