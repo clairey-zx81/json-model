@@ -147,7 +147,7 @@ def jmchecker(clibjm):
     assert os.path.isfile(jm_lib), "available support lib"
     assert os.path.isfile(jm_main), "available support main"
 
-    model_c = "rwt/json-model.x.c"
+    model_c = "rwt/json-model.c"
     fexec = f"{tmp_dir}/json_model_check"
 
     # NOTE with parallel runs the file may be generated several time despite the session scope
@@ -236,13 +236,13 @@ def test_schema(directory):
 def test_lang(directory, language):
     """Check compiled sources."""
     resolver = Resolver(None, dirmap(directory))
-    suffix = f".x.{language}"
+    suffix = f".{language}"
 
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
         return str(xstatic_compile(jm, "check_model", lang=language))
 
-    check_generated(directory, f"lang-{language}", f".x.{language}", generate_language)
+    check_generated(directory, f"lang-{language}", f".{language}", generate_language)
 
 
 #
@@ -318,12 +318,12 @@ def test_sta_c(directory, clibjm):
         assert status == 0, f"{fname} compilation success"
         return fexec
         
-    check_values(directory, "sta-c", ".x.c", ".ccheck.out", generate_exec)
+    check_values(directory, "sta-c", ".c", ".c-check.out", generate_exec)
 
 
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
-    check_values(directory, "sta-py", ".x.py", ".pcheck.out", lambda f: f)
+    check_values(directory, "sta-py", ".py", ".py-check.out", lambda f: f)
 
 
 # TODO use check_values?
@@ -383,7 +383,7 @@ def test_models_c(directory, jmchecker):
     check_models(directory, jmchecker)
 
 def test_models_py(directory):
-    check_models(directory, "./rwt/json-model.x.py")
+    check_models(directory, "./rwt/json-model.py")
 
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
@@ -435,7 +435,7 @@ def test_bads_c(jmchecker):
     check_bads(jmchecker)
 
 def test_bads_py():
-    check_bads("./rwt/json-model.x.py")
+    check_bads("./rwt/json-model.py")
 
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")

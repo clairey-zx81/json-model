@@ -31,15 +31,15 @@ F.EO    = $(F.root:%=%.schema.json)
 F.js    = $(F.root:%=%.jcheck.out)
 F.sXc   = schema.jcheck.out
 
-# expermimental C and Python generation
-F.xc    = $(F.root:%=%.x.c)
-F.xpy   = $(F.root:%=%.x.py)
+# C and Python generation
+F.c     = $(F.root:%=%.c)
+F.py    = $(F.root:%=%.py)
 F.exe   = $(F.root:%=%.exe)
-F.cc    = $(F.root:%=%.ccheck.out)
-F.pc    = $(F.root:%=%.pcheck.out)
+F.cc    = $(F.root:%=%.c-check.out)
+F.pyc   = $(F.root:%=%.py-check.out)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.js) $(F.sXc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.js) $(F.sXc) $(F.c) $(F.py) $(F.cc) $(F.pyc)
 
 -include local.mk
 
@@ -83,11 +83,8 @@ schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
 
-#
-# Experimental section
-#
-
-F.x     = $(F.xc) $(F.exe) $(F.cc) $(F.xpy) $(F.pc)
+# code execution
+F.x     = $(F.c) $(F.exe) $(F.cc) $(F.py) $(F.pyc)
 
 .PHONY: clean.x
 clean.x:
@@ -97,7 +94,7 @@ clean.x:
 check.x: clean.x
 	$(MAKE) $(F.x)
 
-%.x.c: %.model.json
+%.c: %.model.json
 	$(JMC.cmd) -XO -v --format c ./$< > $@
 
 CC        = gcc
@@ -115,10 +112,10 @@ $(F.exe): json-model.o main.o
 
 %.exe: json-model.o main.o
 
-%.exe: %.x.c
+%.exe: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@
 
-%.ccheck.out: %.exe
+%.c-check.out: %.exe
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
@@ -126,11 +123,11 @@ $(F.exe): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
-%.x.py: %.model.json
+%.py: %.model.json
 	$(JMC.cmd) -XO -v --format py ./$< > $@
 	chmod a+rx $@
 
-%.pcheck.out: %.x.py
+%.py-check.out: %.py
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
@@ -141,14 +138,14 @@ $(F.exe): json-model.o main.o
 .PHONY: %.x
 %.x: %.model.json
 	shopt -s nullglob
-	$(RM) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
-	$(MAKE) $*.x.c $*.exe $*.ccheck.out $*.x.py $*.pcheck.out
+	$(RM) $*.c $*.exe $*.c-check.out $*.py $*.py-check.out
+	$(MAKE) $*.c $*.exe $*.c-check.out $*.py $*.py-check.out
 
 .PHONY: %.xALL
 %.xALL:
 	$(MAKE) $*.x $*.ALL
 	$(MAKE) $*.jcheck.out
-	for f in $*.?check.out ; do
+	for f in $*.*check.out ; do
 	  echo "# $$f"
 	  cat $$f
 	done

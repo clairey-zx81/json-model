@@ -21,11 +21,11 @@
 - [x] py-backend: unique for any
 - [x] backend: fix `untype00` issue (c, py)
 - [x] c-backend: simplify entry by moving parts to `json-model.c`
+- [x] tests: remove `.x.`
 - [ ] tests: split modval directory for better parallelization (wip)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: fix `rwt/openapi-310-models`
 - [ ] tests: fix `rwt/obj_04`
-- [ ] tests: remove `.x.`
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
