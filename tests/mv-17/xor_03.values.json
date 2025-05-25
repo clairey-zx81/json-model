@@ -1,0 +1,14 @@
+[
+  "whetever is not a an int >= 0",
+  [ false, 0 ],
+  [ false, 18 ],
+  [ true,  -42 ],
+  [ true,  null ],
+  [ true,  true ],
+  [ true,  false ],
+  [ true,  "hello world!" ],
+  [ true,  {} ],
+  [ true,  {"x": "whatever"} ],
+  [ true,  [] ],
+  [ true,  ["any", "thing"] ]
+]

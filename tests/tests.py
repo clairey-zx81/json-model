@@ -100,22 +100,20 @@ EXPECT: dict[str, int] = {
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 136,
-    # various tests
-    # model 2 schema conversions
-    "m2s:models": 49,
-    "m2s:values": 108,
-    # merge +
-    "merge:js2json": 1,
-    "merge:models": 46,
-    "merge:values": 73,
-    # objects
-    "objs:js2json": 3,
-    "objs:yaml2json": 1,
-    "objs:models": 19,
-    "objs:values": 203,
-    # optimizations
-    "optims:models": 20,
-    "optims:values": 200,
+    # chunk 18
+    "mv-18:js2json": 3,
+    "mv-18:yaml2json": 1,
+    "mv-18:models": 10,
+    "mv-18:values": 93,
+    # chunk 19
+    "mv-19:models": 9,
+    "mv-19:values": 110,
+    # chunk 1A
+    "mv-1a:models": 10,
+    "mv-1a:values": 132,
+    # chunk 1B
+    "mv-1b:models": 10,
+    "mv-1b:values": 68,
     # miscellaneous tests
     "bads:models": 54,
     # tests json models of json schema versions
@@ -156,7 +154,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
         "./mv-10", "./mv-11", "./mv-12", "./mv-13",
         "./mv-14", "./mv-15", "./mv-16", "./mv-17",
-        "./objs",  "./optims"
+        "./mv-18", "./mv-19", "./mv-1a", "./mv-1b",
     ])
 def directory(request):
     return pathlib.Path(request.param)

@@ -1,0 +1,10 @@
+{
+  "#": "exemple d'un rapport",
+  "movie": {
+    "^": [
+      { "t": "fr", "titre": "" },
+      { "t": "en", "title": "" },
+      { "t": "ru", "suti": "" }
+    ]
+  }
+}

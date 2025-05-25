@@ -1,0 +1,12 @@
+[
+  [ false, {"a": 18} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "nope" ],
+  [ false, [] ],
+  [ false, ["no"] ],
+  [ false, {} ],
+  [ false, {"no": 0} ]
+]

@@ -1,0 +1,11 @@
+xor_03.values.json[1]: FAIL (.: not one model match [$.'^'])
+xor_03.values.json[2]: FAIL (.: not one model match [$.'^'])
+xor_03.values.json[3]: PASS
+xor_03.values.json[4]: PASS
+xor_03.values.json[5]: PASS
+xor_03.values.json[6]: PASS
+xor_03.values.json[7]: PASS
+xor_03.values.json[8]: PASS
+xor_03.values.json[9]: PASS
+xor_03.values.json[10]: PASS
+xor_03.values.json[11]: PASS
