@@ -1,0 +1,18 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "Foo": {
+        "?foo": "_initial foo",
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./over-00.model.json"
+    },
+    "@": "$Foo"
+  },
+  {
+    "?foo": "_initial foo",
+    "#": "JsonModel 2"
+  }
+]

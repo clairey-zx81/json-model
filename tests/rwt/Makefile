@@ -28,12 +28,8 @@ F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
-F.sc    = $(F.root:%=%.scheck.out)
 F.js    = $(F.root:%=%.jcheck.out)
-F.sXc   = \
-    schema.jcheck.out \
-    schema.dcheck.out schema.dcheck2.out \
-    schema.scheck.out schema.scheck2.out
+F.sXc   = schema.jcheck.out
 
 # expermimental C and Python generation
 F.xc    = $(F.root:%=%.x.c)
@@ -43,8 +39,7 @@ F.cc    = $(F.root:%=%.ccheck.out)
 F.pc    = $(F.root:%=%.pcheck.out)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.sc) \
-          $(F.json) $(F.js) $(F.sXc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.js) $(F.sXc)
 
 -include local.mk
 

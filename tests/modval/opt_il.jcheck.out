@@ -1,3 +1,0 @@
-opt_il.0.true.json: PASS
-opt_il.1.true.json: PASS
-opt_il.2.false.json: FAIL

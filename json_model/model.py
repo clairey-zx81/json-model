@@ -162,7 +162,7 @@ class JsonModel:
                  url: str = "",
                  head: JsonModel|None = None,
                  scope: Symbols|None = None,
-                 debug: bool = False,
+                 debug: int = 0,
                  loose_int: bool|None = None,
                  loose_float: bool|None = None,
             ):
@@ -343,6 +343,7 @@ class JsonModel:
         if self._is_root:
             # FIXME loading before seems too early, after seems too late?
             # the rewriting may add a new external
+            self.allLoads()
             self.rewrite()
             self.allLoads()
 
@@ -363,26 +364,35 @@ class JsonModel:
 
     def allLoads(self):
         """Load externals, Switch un-named externals to local definitions."""
-        assert self._is_root
-        log.debug(f"{self._id}: allLoads on {self._url}")
 
-        # follow a simple URL model till the end of the world
+        assert self._is_root
+        log.debug(f"{self._id}: IN allLoads on {self._url}")
+
         def follow(model: str, path: ModelPath) -> JsonModel:
+            """Follow a simple URL model till the end of the world."""
+
             assert isinstance(model, str) and self._isUrlRef(model)
             followed, jm = set(), None
             current: Jsonable = model
+
             while self._isUrlRef(current):
                 assert isinstance(current, str)  # pyright hint
-                log.debug(f"{self._id}: following {current} at {path}")
+                if self._debug >= 2:
+                    log.debug(f"{self._id}: following {current} at {path}")
+
                 # NOTE the first url does not have a fragment, but subsequent urls may have
                 if "#" in model:
                     url, frag = current[1:].split("#", 1)
                 else:
                     url, frag = current[1:], None
+
                 if url in followed:
                     raise ModelError(f"infinite recursion when loading {url} at {path}")
+
+                log.debug(f"{self._id}: loading {url}")
                 followed.add(url)
                 jm = self.load(url, path)
+
                 # handle sequence of fragments
                 while frag:
                     if "#" in frag:
@@ -390,12 +400,15 @@ class JsonModel:
                     else:
                         name, frag = frag, None
                     jm = jm._defs[name]
+
                 current = jm._model
+
             assert jm is not None  # pyright hint
             return jm
 
         # substitute $<URL>#... with $__external_X#...
         def ldRwt(model: ModelType, path: ModelPath) -> ModelType:
+
             if isinstance(model, str) and self._isUrlRef(model):
                 log.debug(f"{self._id}: ldRwt at {path} with {model}")
                 assert self._externs is not None  # pyright hint
@@ -409,6 +422,7 @@ class JsonModel:
                 self._externs.append(ext)
                 log.debug(f"swith: {name} {model}")
                 return "$" + name + (("#" + frag) if frag else "")
+
             return model
 
         # log.debug(f"{self._id}: root url")
@@ -424,12 +438,14 @@ class JsonModel:
             if self._isUrlRef(model):
                 assert isinstance(model, str)  # pyright hint
                 self._defs[name] = follow(model, [name])
+
             # log.debug(f"{self._id}: {name} model")
             _recModel(self._defs[name]._model, [name], allFlt, ldRwt, True, False)
 
         # log.debug(f"{self._id}: root model")
         _recModel(self._model, [], allFlt, ldRwt, True, True)
         # log.debug(f"{self._id}: done")
+        log.debug(f"{self._id}: OUT allLoads on {self._url}")
 
     def override(self, jm: JsonModel):
         """Self replace model with another model, for handling $<url>."""
@@ -450,6 +466,7 @@ class JsonModel:
         """Delete unused models."""
         assert self._is_head and isinstance(self._models, dict)
         todo, keep = {self._id}, set()
+
         # transitive closure
         while todo:
             ntodo = set()
@@ -462,13 +479,17 @@ class JsonModel:
                     if jm._id not in keep:
                         ntodo.add(jm._id)
             todo = ntodo
+
         # cleanup
         total = len(self._models)
         for mid in list(self._models.keys()):
             if mid not in keep:
                 del self._models[mid]
+
         # debug summary
-        log.debug(f"unload: keeping {len(self._models)}/{total} models")
+        if self._debug:
+            kept = " ".join(str(mid) for mid in sorted(keep))
+            log.debug(f"{self._id}: unload {len(self._models)}/{total} models kept ({kept})")
 
     #
     # Display
@@ -644,7 +665,7 @@ class JsonModel:
         format: /\\$($URL#)*name/
         """
 
-        if self._debug:
+        if self._debug >= 3:
             log.debug(f"{self._id}: RD {ref} at {path} (defs: {list(self._defs.keys())})")
 
         assert ref and ref[0] == "$" and len(ref) > 1
@@ -685,7 +706,7 @@ class JsonModel:
         """Resolve references up to an actual model, maybe."""
         jm, initial, followed = self, model, []
 
-        if self._debug:
+        if self._debug >= 2:
             log.debug(f"{self._id}: RR {model} at {path}")
 
         # no jm for predefs
@@ -693,21 +714,22 @@ class JsonModel:
 
         # shortcut with global scoping
         if isinstance(model, str) and self._isRef(model) and self._defs.ghas(model):
-            if self._debug:
+            if self._debug >= 3:
                 log.debug(f"{self._id}: gmap shortcut {self._defs._gmap}")
                 log.debug(f"{self._id}: globs = {self._globs}")
             return self._globs[self._defs.gget(model)]
 
         # NOTE after a merge, some references may be global
         if isinstance(model, str) and self._isRef(model) and model in self._globs:
-            if self._debug:
-                log.debug("{self._id}: direct globs shortcut for {model}")
+            if self._debug >= 3:
+                log.debug(f"{self._id}: direct globs shortcut for {model}")
             return self._globs[model]
 
         # actual resolution
         while jm._isRef(model):
             assert isinstance(model, str)  # pyright hint
-            log.debug(f"{self._id}: RR {model} in {jm._id}")
+            if self._debug >= 3:
+                log.debug(f"{self._id}: RR {model} in {jm._id}")
             if jm._isUrlRef(model):
                 # detect recursion
                 if model in followed:
@@ -729,9 +751,13 @@ class JsonModel:
                     else:
                         raise ModelError(f"resolution cycle on {model}")
                 model = jm._model
-            log.debug(f"{self._id}: RR next {model} in {jm._id}")
 
-        log.debug(f"{self._id}: RR resolved {initial} to {jm._id}")
+            if self._debug >= 3:
+                log.debug(f"{self._id}: RR next {model} in {jm._id}")
+
+        if self._debug >= 2:
+            log.debug(f"{self._id}: RR resolved {initial} to {jm._id}")
+
         return jm
 
     #
@@ -741,8 +767,9 @@ class JsonModel:
     def scope(self, symbols: Symbols, root: ModelRef,
               visited: set[tuple[str, int]], references: dict[int, str]):
         """Move all local references to the root scope."""
-        log.debug(f"{self._id}: scoping {root} ({visited} / {references})")
-        log.debug(f" - symbols: {symbols}")
+        if self._debug >= 2:
+            log.debug(f"{self._id}: scoping {root} ({visited} / {references})")
+            log.debug(f" - symbols: {symbols}")
 
         # prevent infinite recursion
         mid = ("m", self._id)
@@ -786,7 +813,8 @@ class JsonModel:
                         symbols[gref] = self
                     else:
                         symbols[gref] = jm
-            log.debug(f"{self._id}: gmap={self._defs._gmap}")
+            if self._debug >= 3:
+                log.debug(f"{self._id}: gmap={self._defs._gmap}")
             for name, jm in self._defs.items():
                 jm.scope(symbols, root + [name], visited, references)
 
@@ -952,14 +980,14 @@ class JsonModel:
                 if not 0 <= p < len(j):
                     raise ModelError(f"invalid index at {path}: {p} in {tpath}")
             if last:  # apply!
-                log.debug(f"applying on p={p} in j={j} trafo={trafo}")
+                log.debug(f"{jm._id}: applying on p={p} in j={j} trafo={trafo}")
                 j[p] = self._applyTrafo(j[p], trafo, path)  # type: ignore
                 # log.debug(f"j[p] = {j[p]}")
             else:  # move forward
-                log.debug(f"moving forward on p={p}")
+                log.debug(f"{jm._id}: moving forward on p={p}")
                 j = j[p]  # type: ignore
         if not tpath:
-            log.debug(f"empty tpath on {jm._model}")
+            log.debug(f"{jm._id}: empty tpath on {jm._model}")
             jm._model = self._applyTrafo(jm._model, trafo, path)
 
     def rewrite(self):

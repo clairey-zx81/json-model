@@ -1,10 +1,11 @@
 {
+  "#": "torteous definition of a simple boolean",
   "$": {
-    "#": "initialy define foo as a string",
+    "#": "initially define foo as a string",
     "foo": "$STRING"
   },
   "%": {
-    "#": "rename .target as @, rewrite foo definition",
+    "#": "rename .target as @, rewrite foo definition to bool",
     ".target": "@",
     "$foo": "$BOOLEAN"
   },

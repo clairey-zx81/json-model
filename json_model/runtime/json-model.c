@@ -706,7 +706,7 @@ jm_generic_entry(
     char *(*model_init)(void),
     check_fun_t (*model_fun)(const char *),
     // void (*model_free)(void),
-    json_t *val, const char *name, bool *error, char **reasons)
+    const json_t *val, const char *name, bool *error, char **reasons)
 {
     model_init();  // lazy
     check_fun_t checker = model_fun(name);

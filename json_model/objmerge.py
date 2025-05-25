@@ -131,7 +131,7 @@ def _mergeObjects(jm: JsonModel):
 
     jm._model = recModel(jm._model, builtFlt, moRwt)
 
-    log.debug(f"{jm._id} merge objects {changes}")
+    log.debug(f"{jm._id}: merge objects {changes}")
 
     return changes > 0
 

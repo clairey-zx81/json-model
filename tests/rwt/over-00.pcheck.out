@@ -1,0 +1,11 @@
+over-00.values.json[0]: PASS
+over-00.values.json[1]: PASS
+over-00.values.json[2]: FAIL [("unexpected _initial foo [$.'$Foo'.foo]", ['foo']), ("invalid may property value [$.'$Foo']", ['foo']), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[3]: FAIL [("no other prop expected [$.'$Foo']", ['un']), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[4]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[5]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[6]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[7]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[8]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[9]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]
+over-00.values.json[10]: FAIL [("not an object [$.'$Foo']", []), ("not an expected object at [$.'$Foo']", []), ('unexpected $Foo [$]', [])]

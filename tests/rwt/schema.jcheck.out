@@ -1,3 +1,4 @@
+dolsha.schema.json: PASS
 en_00.schema.json: PASS
 english.schema.json: PASS
 fr_00.schema.json: PASS
@@ -42,3 +43,5 @@ obj_04.schema.json: PASS
 obj_05.schema.json: PASS
 openapi-310-models.schema.json: PASS
 openapi-310.schema.json: PASS
+over-00.schema.json: PASS
+over-01.schema.json: PASS

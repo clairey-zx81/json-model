@@ -1,7 +1,0 @@
-ex_08.0.true.json: PASS
-ex_08.1.true.json: PASS
-ex_08.2.true.json: PASS
-ex_08.3.true.json: PASS
-ex_08.4.false.json: FAIL
-ex_08.5.false.json: FAIL
-ex_08.6.false.json: FAIL

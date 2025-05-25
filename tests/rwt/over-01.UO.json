@@ -1,0 +1,31 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "over": {
+        "#": "JsonModel 3 with defs",
+        "$": "Symbol 3",
+        "@": "$Foo"
+      },
+      "#": "Symbol 1",
+      "": "./over-01.model.json"
+    },
+    "@": "$over#Foo"
+  },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "Foo": {
+        "?foo": "_rewritten foo",
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 3",
+      "": "./over-00"
+    },
+    "@": "$Foo"
+  },
+  {
+    "?foo": "_rewritten foo",
+    "#": "JsonModel 4"
+  }
+]

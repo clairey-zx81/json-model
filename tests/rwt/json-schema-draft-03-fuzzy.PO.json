@@ -59,7 +59,6 @@
       "?exclusiveMinimum": true,
       "?minItems": 0,
       "?maxItems": 0,
-      "?pattern": "$REGEX",
       "?minLength": 0,
       "?maxLength": 0,
       "?enum": {
@@ -72,23 +71,6 @@
       "?uniqueItems": true,
       "?title": "",
       "?description": "",
-      "?format": {
-        "|": [
-          "date-time",
-          "date",
-          "time",
-          "utc-millisec",
-          "regex",
-          "color",
-          "style",
-          "phone",
-          "uri",
-          "email",
-          "ip-address",
-          "ipv6",
-          "host-name"
-        ]
-      },
       "?default": "$ANY",
       "?divisibleBy": 1.0,
       "?disallow": {
@@ -107,8 +89,11 @@
       },
       "?id": "",
       "?$schema": "",
-      "?$ref": "$URL",
-      "#": "JsonModel 8 (JSON_MODEL_LOOSE_FLOAT)",
+      "?$ref": "",
+      "": "$ANY",
+      "?pattern": "",
+      "?format": "",
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
       "$": {
         "": "https://json-model.org/models/json-schema-draft-03",
         "URI": "$URL",

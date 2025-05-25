@@ -1,0 +1,14 @@
+[
+  [ true,  { "name": "Susie", "age": 6 } ],
+  [ true,  { "name": "Hobbes", "age": 3 } ],
+  [ false, { "name": "Hobbes" } ],
+  [ false, { "nom": "Calvin", "âge": 6 } ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [{"name": "Calvin", "age": 6}] ]
+]

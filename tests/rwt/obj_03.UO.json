@@ -9,7 +9,7 @@
           "$lb0",
           "$lf0"
         ],
-        "#": "JsonModel 8",
+        "#": "JsonModel 3",
         "$": {
           "#": "",
           "": "https://json-model.org/tests/obj_02",
@@ -39,13 +39,13 @@
       "$lb0",
       "$lf0"
     ],
-    "#": "JsonModel 8",
+    "#": "JsonModel 3",
     "$": {
       "li0": [
         0
       ],
       "ls0": [
-        "$URL"
+        "$DATE"
       ],
       "lb0": [
         "$BOOL"
@@ -53,7 +53,7 @@
       "lf0": [
         0.0
       ],
-      "#": "Symbol 8",
+      "#": "Symbol 3",
       "": "https://json-model.org/tests/obj_02"
     }
   },
@@ -61,7 +61,7 @@
     0
   ],
   [
-    "$URL"
+    "$DATE"
   ],
   [
     "$BOOL"

@@ -2,8 +2,8 @@
   "#": "JsonModel 1 with defs",
   "$": {
     "openapi": {
-      "#": "JsonModel 369 with defs",
-      "$": "Symbol 369",
+      "#": "JsonModel 3 with defs",
+      "$": "Symbol 3",
       "@": "$OpenAPI",
       "~": "https://json-model.org/models/json-model"
     },

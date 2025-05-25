@@ -3,7 +3,7 @@ rec_03.values.json[1]: PASS
 rec_03.values.json[2]: PASS
 rec_03.values.json[3]: PASS
 rec_03.values.json[4]: PASS
-rec_03.values.json[5]: FAIL [('not an object [$]', ['foo']), ('not an expected object at [$]', ['foo']), ("unexpected $# [$.'$root']", ['foo']), ("unexpected $root [$.foo.'|'.0]", ['foo']), ('not an object [$]', ['foo']), ('not an expected object at [$]', ['foo']), ("unexpected $# [$.'$root']", ['foo']), ("unexpected $root [$.foo.'|'.1.0]", ['foo', 0]), ("not array or unexpected array [$.foo.'|'.1]", ['foo']), ("no model matched [$.foo.'|']", ['foo']), ('invalid may property value [$]', ['foo']), ('not an expected object at [$]', [])]
+rec_03.values.json[5]: FAIL [('not an object [$]', ['foo']), ('not an expected object at [$]', ['foo']), ("unexpected $root [$.foo.'|'.0]", ['foo']), ('not an object [$]', ['foo']), ('not an expected object at [$]', ['foo']), ("unexpected $root [$.foo.'|'.1.0]", ['foo', 0]), ("not array or unexpected array [$.foo.'|'.1]", ['foo']), ("no model matched [$.foo.'|']", ['foo']), ('invalid may property value [$]', ['foo']), ('not an expected object at [$]', [])]
 rec_03.values.json[6]: FAIL [('no other prop expected [$]', ['bla']), ('not an expected object at [$]', [])]
 rec_03.values.json[7]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
 rec_03.values.json[8]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]

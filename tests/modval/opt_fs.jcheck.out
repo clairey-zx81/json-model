@@ -1,3 +1,0 @@
-opt_fs.0.true.json: PASS
-opt_fs.1.false.json: PASS
-opt_fs.2.false.json: FAIL

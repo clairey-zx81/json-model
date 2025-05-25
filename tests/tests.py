@@ -41,17 +41,31 @@ EXPECT: dict[str, int] = {
     "basics:sta-py:values": 245,
     "m2s:schema": 57,
     "m2s:models": 57,
-    "rwt:preproc": 44,
-    "rwt:models": 44,
-    "rwt:schema": 44,
-    "rwt:sta-c:tests": 1,
-    "rwt:sta-py:tests": 1,
-    "rwt:sta-c:values": 28,
-    "rwt:sta-py:values": 28,
-    "rwt:lang-c": 1,
-    "rwt:lang-py": 1,
+    "rwt:preproc": 45,
+    "rwt:models": 46,
+    "rwt:schema": 45,
+    "rwt:lang-c": 44,
+    "rwt:lang-py": 44,
+    "rwt:sta-c:tests": 44,
+    "rwt:sta-py:tests": 44,
+    "rwt:sta-c:values": 136,
+    "rwt:sta-py:values": 136,
+    "objs:preproc": 1,
+    "objs:models": 1,
+    "objs:schema": 1,
+    "objs:lang-c": 1,
+    "objs:lang-py": 1,
+    "objs:sta-c:tests": 1,
+    "objs:sta-py:tests": 1,
+    "objs:sta-c:values": 12,
+    "objs:sta-py:values": 12,
     "bads:models": 54,
+    "draft3:jsts": 105,
+    "draft4:jsts": 159,
+    "draft6:jsts": 231,
     "draft7:jsts": 254,
+    "draft2019-09:jsts": 361,
+    "draft2020-12:jsts": 368,
     "draft-next:jsts": 365,
 }
 
@@ -72,7 +86,7 @@ def dirmap(dname) -> dict[str, str]:
 #
 # LOCAL FIXTURES
 #
-@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics"])
+@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics", "./objs"])
 def directory(request):
     return pathlib.Path(request.param)
 
@@ -452,29 +466,24 @@ def json_schema_test_suite(version, fmodel):
                 assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
     assert ntests == EXPECT.get(f"{version}:jsts", 0)
 
-@pytest.mark.skip(reason="KO")
 def test_draft3_fuzzy():
     # strict: fail on "definitions"
     # nesting: fail on "definitions"
     json_schema_test_suite("draft3", "../models/json-schema-draft-03-fuzzy.model.json")
 
-@pytest.mark.skip(reason="KO")
 def test_draft4_fuzzy():
     # strict: errors on "$comment"
     json_schema_test_suite("draft4", "../models/json-schema-draft-04-fuzzy.model.json")
 
-@pytest.mark.skip(reason="KO")
 def test_draft6_fuzzy():
     json_schema_test_suite("draft6", "../models/json-schema-draft-06-fuzzy.model.json")
 
 def test_draft7_fuzzy():
     json_schema_test_suite("draft7", "../models/json-schema-draft-07-fuzzy.model.json")
 
-@pytest.mark.skip(reason="KO")
 def test_draft8_fuzzy():
     json_schema_test_suite("draft2019-09", "../models/json-schema-draft-2019-09-fuzzy.model.json")
 
-@pytest.mark.skip(reason="KO")
 def test_draft9_fuzzy():
     # strict: error on maxContains with number instead of integer
     json_schema_test_suite("draft2020-12", "../models/json-schema-draft-2020-12-fuzzy.model.json")

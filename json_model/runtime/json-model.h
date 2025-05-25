@@ -162,7 +162,7 @@ jm_check_constraint(const json_t *, constraint_op_t, const constant_t *, Path *,
  * Shared high-level entry point
  */
 extern bool jm_generic_entry(char *(*)(void), check_fun_t (*)(const char *),
-                             json_t *, const char *, bool *, char **);
+                             const json_t *, const char *, bool *, char **);
 
 /*
  * Generated stuff
@@ -173,7 +173,7 @@ extern propmap_t CHECK_map_tab[];
 extern check_fun_t CHECK_fun(const char *);
 // high-level interface
 extern char *CHECK_init(void);
-extern bool CHECK(json_t *, const char *, bool *, char **);
+extern bool CHECK(const json_t *, const char *, bool *, char **);
 extern void CHECK_free(void);
 
 #endif  // JSON_MODEL_H_INCLUDED

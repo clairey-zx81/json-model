@@ -2,8 +2,8 @@
   "#": "JsonModel 1 with defs",
   "$": {
     "tight": {
-      "#": "JsonModel 210 with defs",
-      "$": "Symbol 210",
+      "#": "JsonModel 3 with defs",
+      "$": "Symbol 3",
       "@": "$RootSchema",
       "~": "https://json-model.org/models/json-model"
     },

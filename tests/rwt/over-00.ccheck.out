@@ -1,0 +1,11 @@
+over-00.values.json[0]: PASS
+over-00.values.json[1]: PASS
+over-00.values.json[2]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.foo: invalid may property value [$.'$Foo']) (.foo: unexpected _initial foo [$.'$Foo'.foo])
+over-00.values.json[3]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.un: no other prop expected [$.'$Foo'])
+over-00.values.json[4]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[5]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[6]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[7]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[8]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[9]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])
+over-00.values.json[10]: FAIL (.: unexpected $Foo [$]) (.: not an expected object at [$.'$Foo']) (.: not an object [$.'$Foo'])

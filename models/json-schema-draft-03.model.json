@@ -36,5 +36,5 @@
   "?extends": {"|": ["$Schema", ["$Schema"]]},
   "?id": "",
   "?$schema": "",
-  "?$ref": "$URI"
+  "?$ref": ""
 }

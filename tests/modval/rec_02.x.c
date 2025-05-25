@@ -1,32 +1,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_2(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_0_may_tab[1];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $foo ($.'$foo')
-static bool json_model_2(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$foo'
-    res = json_model_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $# [$.'$foo']", path);
-    }
-    return res;
-}
-
 // check _jm_obj_0_may_foo ($.foo)
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.foo
-    res = json_model_2(val, path, rep);
+    res = json_model_1(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $foo [$.foo]", path);
@@ -100,7 +86,7 @@ char *CHECK_init(void)
         _jm_obj_0_may_tab[0] = (propmap_t) { "foo", _jm_f_0 };
         jm_sort_propmap(_jm_obj_0_may_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (propmap_t) { "foo", json_model_2 };
+        check_model_map_tab[1] = (propmap_t) { "foo", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;
@@ -118,18 +104,23 @@ void CHECK_free(void)
 
 
 /*
- * API: bool check_model(json_t *, const char *, bool *, char **);
+ * # API
  *
- * valid = check(value, "model-name", &error, &message);
+ * ```c
+ * bool error;
+ * char *message;
  *
- * - error is set of there was an error during initialization or if the model does not exists.
- * - message is provided if a non NULL pointer is passed, and must be freed by the caller.
+ * bool valid = check(json_value, "model-name", &error, &message);
  *
+ * if (message)
+ *    free(message), message = NULL;
+ * ```
  *
- * if the model is not found, report error and reasons if required, else coldly exit.
+ * - `error` is set of there was an error during initialization or if the model does not exists.
+ * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
  */
 bool
-CHECK(json_t *val, const char *name, bool *error, char **reasons)
+CHECK(const json_t *val, const char *name, bool *error, char **reasons)
 {
     return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
 }

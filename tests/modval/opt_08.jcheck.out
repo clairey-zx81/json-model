@@ -1,4 +1,0 @@
-opt_08.0.true.json: PASS
-opt_08.1.false.json: PASS
-opt_08.2.false.json: FAIL
-opt_08.3.false.json: FAIL

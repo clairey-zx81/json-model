@@ -43,10 +43,6 @@
           "type": "integer",
           "minimum": 0
         },
-        "pattern": {
-          "type": "string",
-          "format": "regex"
-        },
         "additionalItems": {
           "anyOf": [
             {
@@ -161,12 +157,14 @@
         "not": {
           "$ref": "#/$defs/Schema"
         },
+        "pattern": {
+          "type": "string"
+        },
         "$ref": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     }
   },
   "$ref": "#/$defs/schema"

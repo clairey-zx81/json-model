@@ -166,7 +166,9 @@
           "format": "uri"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": {
+        "$ref": "#/$defs/Schema"
+      }
     }
   },
   "$ref": "#/$defs/schema"

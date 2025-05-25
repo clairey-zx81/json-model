@@ -20,11 +20,14 @@
 - [x] c-backend: heterogeneous enum (`enum_05`)
 - [x] py-backend: unique for any
 - [x] backend: fix `untype00` issue (c, py)
+- [x] c-backend: simplify entry by moving parts to `json-model.c`
 - [ ] tests: split modval directory for better parallelization (wip)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [ ] tests: fix `rwt/openapi-310-models`
+- [ ] tests: fix `rwt/obj_04`
 - [ ] tests: remove `.x.`
-- [ ] backend: fix `untype00` schema
 - [ ] command: rething option usage for compilation.
+- [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: optimize unique for scalars using `constant_t`
@@ -36,13 +39,15 @@
 - [ ] schema: add explicit `"$schema"` property if appropriate
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
-- [ ] c-backend: simplify entry by moving parts to `json-model.c`
 - [ ] frontend: align python and C outputs
 - [ ] optim: root xor should be simplified in `geo.model.json`
-- [ ] optim: detect non feasible constraints
+- [ ] optim: detect non feasible constraints wrt values
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
+- [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
+- [ ] static: optimize 1 must or may property case with a direct comparison?
+- [ ] static: disjunct could share identical may/must tabs between objects
 
 ## To Do
 

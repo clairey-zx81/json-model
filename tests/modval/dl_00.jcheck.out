@@ -1,4 +1,0 @@
-dl_00.00.true.json: PASS
-dl_00.01.true.json: PASS
-dl_00.02.false.json: FAIL
-dl_00.03.true.json: PASS

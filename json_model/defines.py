@@ -195,6 +195,7 @@ class Validator:
     def _ultimate_model(self, jm: JsonModel,
                         model: ModelType, constrained=True, strict=False) -> ModelType:
         """Look for the real model, beyond references."""
+        log.debug(f"ultimate_model on {model}")
         match model:
             case str():
                 if model == "" or model[0] not in ("$", "="):

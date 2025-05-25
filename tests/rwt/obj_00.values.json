@@ -1,0 +1,10 @@
+[
+  [ true,  true ],
+  [ true,  false ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "not expected" ],
+  [ false, [] ],
+  [ false, {} ]
+]

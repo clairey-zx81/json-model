@@ -1,6 +1,0 @@
-re_3.0.true.json: PASS
-re_3.1.true.json: PASS
-re_3.2.false.json: FAIL
-re_3.3.false.json: FAIL
-re_3.4.false.json: FAIL
-re_3.5.false.json: FAIL

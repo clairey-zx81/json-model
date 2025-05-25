@@ -13,7 +13,7 @@ from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr
 
 _PREDEFS = {
-    "$ANY", "$NONE", "$NULL", "$BOOL",
+    "$ANY", "$NONE", "$NULL", "$BOOL", "$BOOLEAN",
     "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
     "$FLOAT", "$F32", "$F64", "$NUMBER",
     "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
@@ -277,6 +277,7 @@ class SourceCode(Validator):
 
         assert "|" in model and isinstance(model["|"], list)
         dis = self._disjunct_analyse(jm, model, mpath)  # pyright: ignore
+        log.debug(f"disjunct at {mpath}: dis={dis}")
         if dis is None:
             return None
 
@@ -404,7 +405,7 @@ class SourceCode(Validator):
         lpath_ref = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
-        if defs or regs or oth:
+        if defs or regs or oth and oth[""] != "$ANY":
             code += [ gen.bool_var(res, declare=True) ]
         if may or must:
             # we need a function pointer for simple properties
@@ -486,7 +487,10 @@ class SourceCode(Validator):
                     self._compileModel(jm, omodel, mpath + [""], res, pval, lpath_ref) + \
                     self._gen_short_expr(res)
             else:  # optimized "": "$ANY" case
-                ot_code = [ gen.lcom("accept any other props") ]
+                ot_code = [
+                    gen.lcom("accept any other props"),
+                    gen.nope()
+                ]
         else:  # no catch all
             smpath = json_path(mpath)
             ot_code = self._gen_fail(f"no other prop expected [{smpath}]", lpath_ref)
@@ -988,9 +992,11 @@ class SourceCode(Validator):
 
     def _getNameRef(self, jm: JsonModel, ref: str, path: ModelPath) -> str:
         assert jm._isRef(ref), f"must be a reference: {ref}"
+
         # FIXME shortcut hack
         if ref == "$#" and ref in self._names:
             return self._names[ref]
+
         try:
             gref = jm._defs.gget(ref)
         except KeyError:
@@ -999,24 +1005,28 @@ class SourceCode(Validator):
                 log.debug(f" with gmap={jm._defs._gmap}")
             # FIXME maybe we already have a global reference?
             gref = ref
-        # log.debug(f"name ref: gref={gref} globs={self._globs} names={self._names}")
+
+        log.debug(f"name ref: gref={gref} globs={self._globs} names={self._names}")
         if gref not in self._names:
             jm = self._globs[gref]  # pyright: ignore
             if jm._id not in self._compiled:
                 self._to_compile[jm._id] = (jm, gref)
             self._names[gref] = f"json_model_{jm._id}"
+
         # log.debug(f"name ref: ref={ref} gref={gref} at {path}: {self._names[gref]}")
         return self._names[gref]
 
     def _compileName(self, jm: JsonModel,
                      name: str, model: ModelType, mpath: ModelPath, local: bool = False):
         """Compile a model under a given name in a given scope."""
-        log.debug(f"name: mpath={mpath} name={name} jm={jm._id}")
+        log.debug(f"compile name={name} jm={jm._id} mpath={mpath} names={self._names}")
 
-        # TODO simplify, clarify
+        # TODO simplify, clarify, remove
         # memoize the associated function name that can be retrieved if there is a recursion
+        # FIXME still used by ultimate model
         xname = name if not name or name[0] != "$" else name[1:]
         self._defs.set(xname, model)
+
         fun2 = None
         hpath = tuple(mpath)
         if hpath in self._paths:
@@ -1029,8 +1039,9 @@ class SourceCode(Validator):
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
 
-        body = self._compileModel(jm, model, mpath, "res", "val", "path", set())
-        body = [ self._lang.bool_var("res", declare=True) ] + body + [ self._lang.ret("res") ]
+        body = [ self._lang.bool_var("res", declare=True) ] + \
+            self._compileModel(jm, model, mpath, "res", "val", "path", set()) + \
+            [ self._lang.ret("res") ]
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})")
 
@@ -1067,8 +1078,17 @@ class SourceCode(Validator):
 
         # compile direct definitions
         for n, jm in model._defs.items():
-            entries[n] = f"json_model_{jm._id}"
-            self.compileOneJsonModel(jm, "$" + n, ["$" + n], False)
+            dn = f"${n}"
+            # special handling of the resolution gives another model
+            # eg "foo": "$bla"
+            if dn in self._globs and self._globs[dn]._id != jm._id:
+                # skip compilation and point to other function
+                entries[n] = f"json_model_{self._globs[dn]._id}"
+            else:
+                # actual compilation of a new function
+                entries[n] = f"json_model_{jm._id}"
+                self.compileOneJsonModel(jm, dn, ["$" + n], False)
+            log.debug(f"after {n} ({jm._id}): {self._names}")
 
         # compile root
         self.compileOneJsonModel(model, "$", [], False)

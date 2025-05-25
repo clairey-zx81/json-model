@@ -55,18 +55,23 @@ void CHECK_free(void)
 
 
 /*
- * API: bool check_model(json_t *, const char *, bool *, char **);
+ * # API
  *
- * valid = check(value, "model-name", &error, &message);
+ * ```c
+ * bool error;
+ * char *message;
  *
- * - error is set of there was an error during initialization or if the model does not exists.
- * - message is provided if a non NULL pointer is passed, and must be freed by the caller.
+ * bool valid = check(json_value, "model-name", &error, &message);
  *
+ * if (message)
+ *    free(message), message = NULL;
+ * ```
  *
- * if the model is not found, report error and reasons if required, else coldly exit.
+ * - `error` is set of there was an error during initialization or if the model does not exists.
+ * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
  */
 bool
-CHECK(json_t *val, const char *name, bool *error, char **reasons)
+CHECK(const json_t *val, const char *name, bool *error, char **reasons)
 {
     return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
 }

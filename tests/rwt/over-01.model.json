@@ -1,0 +1,10 @@
+{
+  "#": "rewrite ref",
+  "$": {
+    "over": "$./over-00"
+  },
+  "%": {
+    "$over#Foo.?foo": "_rewritten foo"
+  },
+  "@": "$over#Foo"
+}

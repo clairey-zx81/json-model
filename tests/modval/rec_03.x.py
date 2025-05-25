@@ -23,21 +23,12 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_obj_0_may: PropMap
 check_model_map: PropMap
 
-# check $root ($.'$root')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$root'
-    res = json_model_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $# [$.'$root']", path))
-    return res
-
 # check _jm_obj_0_may_foo ($.foo)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.foo
     # $.foo.'|'.0
-    res = json_model_2(val, path, rep)
+    res = json_model_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $root [$.foo.'|'.0]", path))
     if not res:
@@ -47,7 +38,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
             for arr_0_idx, arr_0_item in enumerate(val):
                 arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
                 # $.foo.'|'.1.0
-                res = json_model_2(arr_0_item, path, rep)
+                res = json_model_1(arr_0_item, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $root [$.foo.'|'.1.0]", arr_0_lpath if path is not None else None))
                 if not res:
@@ -103,7 +94,7 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "root": json_model_2,
+            "root": json_model_1,
         }
 
 # differed module cleanup

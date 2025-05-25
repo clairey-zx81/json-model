@@ -1,11 +1,12 @@
 {
   "#": "add a definition",
   "$": {
-    "bla": "$./obj_00.model"
+    "": "./obj_04",
+    "bla": "$./obj_00"
   },
   "%": {
     "#": "direct…",
-    "$bla#fun": "$BOOLEAN",
+    "$bla#fun": "$DATE",
     "$bla#foo": "$fun"
   },
   "@": "$bla"

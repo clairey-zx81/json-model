@@ -1,7 +1,0 @@
-tag00.0.true.json: PASS
-tag00.1.true.json: PASS
-tag00.2.false.json: FAIL
-tag00.3.false.json: FAIL
-tag00.4.false.json: FAIL
-tag00.5.false.json: FAIL
-tag00.6.false.json: FAIL

@@ -176,6 +176,8 @@ class Language:
             return self.is_int(var)
         elif tval is float:
             return self.is_flt(var)
+        elif tval is Number:
+            return self.is_num(var)
         elif tval is str:
             return self.is_str(var)
         elif tval is list:
@@ -193,8 +195,9 @@ class Language:
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         # shortcut if the variable value is known to be a string
         if is_str:
-            if name in { "$NULL", "$BOOL", "$INT", "$INTEGER", "$I32", "$I64",
-                         "$U32", "$U64", "$FLOAT", "$F32", "$F64", "$NUMBER" }:
+            if name in { "$NULL", "$BOOL", "$BOOLEAN",
+                         "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
+                         "$FLOAT", "$F32", "$F64", "$NUMBER" }:
                 name = "$NONE"
             elif name == "$STRING":
                 name = "$ANY"
@@ -204,20 +207,20 @@ class Language:
         elif name == "$NONE":
             return self.const(False)
         elif name == "$NULL":
-            return self.is_null(var)
+            return self.is_this_type(var, None)
         elif name in ("$BOOL", "$BOOLEAN"):
-            return self.is_bool(var)
+            return self.is_this_type(var, bool)
         elif name in ("$INT", "$INTEGER", "$I32", "$I64"):
-            return self.is_int(var)
+            return self.is_this_type(var, int)
         elif name in ("$U32", "$U64"):
-            return self.and_op(self.is_int(var),
+            return self.and_op(self.is_this_type(var, int),
                                self.num_cmp(self.value(var, int), ">=", self.const(0)))
         elif name in ("$FLOAT", "$F32", "$F64"):
-            return self.is_flt(var)
+            return self.is_this_type(var, float)
         elif name == "$NUMBER":
-            return self.is_num(var)
+            return self.is_this_type(var, Number)
         elif name == "$STRING":
-            return self.is_str(var)
+            return self.is_this_type(var, str)
         elif name in ("$DATE", "$URL", "$REGEX", "$UUID"):
             raise NotImplementedError(f"TODO predef {name}")
         else:

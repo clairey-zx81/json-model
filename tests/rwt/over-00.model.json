@@ -1,0 +1,9 @@
+{
+  "#": "initial definitions",
+  "$": {
+    "Foo": {
+     "?foo": "_initial foo"
+    }
+  },
+  "@": "$Foo"
+}

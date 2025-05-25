@@ -113,10 +113,6 @@
           "type": "integer",
           "minimum": 0
         },
-        "pattern": {
-          "type": "string",
-          "format": "regex"
-        },
         "minLength": {
           "type": "integer",
           "minimum": 0
@@ -139,23 +135,6 @@
         },
         "description": {
           "type": "string"
-        },
-        "format": {
-          "enum": [
-            "date-time",
-            "date",
-            "time",
-            "utc-millisec",
-            "regex",
-            "color",
-            "style",
-            "phone",
-            "uri",
-            "email",
-            "ip-address",
-            "ipv6",
-            "host-name"
-          ]
         },
         "default": true,
         "divisibleBy": {
@@ -192,11 +171,16 @@
           "type": "string"
         },
         "$ref": {
-          "type": "string",
-          "format": "uri"
+          "type": "string"
+        },
+        "pattern": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     }
   },
   "$ref": "#/$defs/schema"

@@ -1,0 +1,12 @@
+{
+  "?prop": "$self",
+  "#": "JsonModel 1",
+  "$": {
+    "array": [
+      "$self"
+    ],
+    "self": "$#",
+    "#": "Symbol 1",
+    "": "./dolsha"
+  }
+}
