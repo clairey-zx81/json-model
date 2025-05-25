@@ -16,147 +16,99 @@ log = logging.getLogger("test")
 log.setLevel(logging.INFO)
 
 #
-# PER-DIRECTORY TEST EXPECTATIONS
+# PER-DIRECTORY TEST EXPECTATIONS, IN SMALL CHUNKS FOR XDIST
 #
 EXPECT: dict[str, int] = {
-    # random possibly related chunks to please xdist
+    # reference
+    "ref:models": 9,
+    "ref:values": 31,
     # chunk 00
-    "mv-00:js2json": 0,
-    "mv-00:yaml2json": 0,
     "mv-00:models": 10,
-    "mv-00:preproc": 10,
-    "mv-00:schema": 10,
-    "mv-00:lang-c": 10,
-    "mv-00:lang-py": 10,
-    "mv-00:sta-c:tests": 10,
-    "mv-00:sta-py:tests": 10,
-    "mv-00:sta-c:values": 95,
-    "mv-00:sta-py:values": 95,
+    "mv-00:values": 95,
     # chunk 01
-    "mv-01:js2json": 0,
-    "mv-01:yaml2json": 0,
     "mv-01:models": 10,
-    "mv-01:preproc": 10,
-    "mv-01:schema": 10,
-    "mv-01:lang-c": 10,
-    "mv-01:lang-py": 10,
-    "mv-01:sta-c:tests": 10,
-    "mv-01:sta-py:tests": 10,
-    "mv-01:sta-c:values": 100,
-    "mv-01:sta-py:values": 100,
+    "mv-01:values": 100,
     # chunk 02
     "mv-02:js2json": 1,
-    "mv-02:yaml2json": 0,
     "mv-02:models": 10,
-    "mv-02:preproc": 10,
-    "mv-02:schema": 10,
-    "mv-02:lang-c": 10,
-    "mv-02:lang-py": 10,
-    "mv-02:sta-c:tests": 10,
-    "mv-02:sta-py:tests": 10,
-    "mv-02:sta-c:values": 122,
-    "mv-02:sta-py:values": 122,
+    "mv-02:values": 122,
     # chunk 03
     "mv-03:js2json": 1,
-    "mv-03:yaml2json": 0,
     "mv-03:models": 10,
-    "mv-03:preproc": 10,
-    "mv-03:schema": 10,
-    "mv-03:lang-c": 10,
-    "mv-03:lang-py": 10,
-    "mv-03:sta-c:tests": 10,
-    "mv-03:sta-py:tests": 10,
-    "mv-03:sta-c:values": 78,
-    "mv-03:sta-py:values": 78,
-    # chunck 04
+    "mv-03:values": 78,
+    # chunk 04
     "mv-04:js2json": 2,
-    "mv-04:yaml2json": 0,
     "mv-04:models": 8,
-    "mv-04:preproc": 8,
-    "mv-04:schema": 8,
-    "mv-04:lang-c": 8,
-    "mv-04:lang-py": 8,
-    "mv-04:sta-c:tests": 8,
-    "mv-04:sta-py:tests": 8,
-    "mv-04:sta-c:values": 98,
-    "mv-04:sta-py:values": 98,
+    "mv-04:values": 98,
+    # chunk 05
+    "mv-05:models": 9,
+    "mv-05:values": 0,
+    # chunk 06
+    "mv-06:models": 8,
+    "mv-06:values": 0,
+    # chunk 07
+    "mv-07:models": 10,
+    "mv-07:values": 0,
+    # chunk 08
+    "mv-08:models": 8,
+    "mv-08:values": 105,
+    # chunk 09
+    "mv-09:models": 10,
+    "mv-09:values": 45,
+    # chunk 0A
+    "mv-0a:models": 10,
+    "mv-0a:values": 74,
+    # chunk 0B
+    "mv-0b:models": 9,
+    "mv-0b:values": 0,
+    # chunk 0C
+    "mv-0c:models": 10,
+    "mv-0c:values": 0,
+    # chunk 0D
+    "mv-0d:models": 10,
+    "mv-0d:values": 0,
+    # chunk 0E
+    "mv-0e:models": 9,
+    "mv-0e:values": 20,
+    # chunk 0F
+    "mv-0f:models": 9,
+    "mv-0f:values": 0,
+    # chunk 10
+    "mv-10:js2json": 1,
+    "mv-10:models": 9,
+    "mv-10:values": 53,
+    # chunk 11
+    "mv-11:models": 9,
+    "mv-11:values": 0,
+    # chunk 12
+    "mv-12:models": 10,
+    "mv-12:values": 0,
     # basic models
     "basics:js2json": 4,
     "basics:models": 36,
-    "basics:preproc": 36,
-    "basics:schema": 36,
-    "basics:lang-c": 36,
-    "basics:lang-py": 36,
-    "basics:sta-c:tests": 36,
-    "basics:sta-py:tests": 36,
-    "basics:sta-c:values": 267,
-    "basics:sta-py:values": 267,
+    "basics:values": 267,
     # various tests
     # model 2 schema conversions
-    "m2s:preproc": 48,
-    "m2s:models": 48,
-    "m2s:schema": 48,
-    "m2s:lang-c": 48,
-    "m2s:lang-py": 48,
-    "m2s:sta-c:tests": 49,
-    "m2s:sta-py:tests": 49,
-    "m2s:sta-c:values": 108,
-    "m2s:sta-py:values": 108,
-    # rewrite
-    "rwt:preproc": 44,
-    "rwt:models": 44,
-    "rwt:schema": 44,
-    "rwt:lang-c": 44,
-    "rwt:lang-py": 44,
-    "rwt:sta-c:tests": 44,
-    "rwt:sta-py:tests": 44,
-    "rwt:sta-c:values": 136,
-    "rwt:sta-py:values": 136,
+    "m2s:models": 49,
+    "m2s:values": 108,
     # merge +
     "merge:js2json": 1,
-    "merge:preproc": 45,
     "merge:models": 46,
-    "merge:schema": 46,
-    "merge:lang-c": 46,
-    "merge:lang-py": 46,
-    "merge:sta-c:tests": 46,
-    "merge:sta-py:tests": 46,
-    "merge:sta-c:values": 73,
-    "merge:sta-py:values": 73,
+    "merge:values": 73,
     # objects
     "objs:js2json": 3,
     "objs:yaml2json": 1,
-    "objs:preproc": 19,
     "objs:models": 19,
-    "objs:schema": 19,
-    "objs:lang-c": 19,
-    "objs:lang-py": 19,
-    "objs:sta-c:tests": 19,
-    "objs:sta-py:tests": 19,
-    "objs:sta-c:values": 203,
-    "objs:sta-py:values": 203,
+    "objs:values": 203,
     # operations & | ^
-    "ops:preproc": 23,
     "ops:models": 23,
-    "ops:schema": 23,
-    "ops:lang-c": 23,
-    "ops:lang-py": 23,
-    "ops:sta-c:tests": 23,
-    "ops:sta-py:tests": 23,
-    "ops:sta-c:values": 236,
-    "ops:sta-py:values": 236,
+    "ops:values": 236,
     # optimizations
-    "optims:preproc": 20,
     "optims:models": 20,
-    "optims:schema": 20,
-    "optims:lang-c": 20,
-    "optims:lang-py": 20,
-    "optims:sta-c:tests": 20,
-    "optims:sta-py:tests": 20,
-    "optims:sta-c:values": 200,
-    "optims:sta-py:values": 200,
+    "optims:values": 200,
     # miscellaneous tests
     "bads:models": 54,
+    # tests json models of json schema versions
     "draft3:jsts": 105,
     "draft4:jsts": 159,
     "draft6:jsts": 231,
@@ -187,8 +139,13 @@ def file_is_newer(f1: str, f2: str) -> bool:
 # LOCAL FIXTURES
 #
 @pytest.fixture(params=[
-        "./mv-00", "./mv-01", "./mv-02", "mv-03", "./mv-04",
-        "./m2s", "./rwt", "./basics", "./objs", "./ops", "./merge", "./optims"
+        "./ref",
+        "./mv-00", "./mv-01", "./mv-02", "./mv-03",
+        "./mv-04", "./mv-05", "./mv-06", "./mv-07",
+        "./mv-08", "./mv-09", "./mv-0a", "./mv-0b",
+        "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
+        "./mv-10", "./mv-11", "./mv-12", # "./mv-0f",
+        "./basics", "./objs", "./ops", "./optims"
     ])
 def directory(request):
     return pathlib.Path(request.param)
@@ -271,7 +228,7 @@ def jmchecker(clibjm):
     assert os.path.isfile(jm_lib), "available support lib"
     assert os.path.isfile(jm_main), "available support main"
 
-    model_c = "rwt/json-model.c"
+    model_c = "ref/json-model.c"
     fexec = f"{tmp_dir}/json_model_check"
 
     with filelock.FileLock(lock_file):
@@ -288,7 +245,7 @@ def jmchecker(clibjm):
 # GENERATED STUFF
 #
 def check_generated(directory: pathlib.Path, name: str, suffix: str,
-                    generate, srcsuff: str = ".model.json"):
+                    generate, srcsuff: str = ".model.json", expect: int|None = None):
 
     """Generic test against generated stuff."""
 
@@ -318,7 +275,8 @@ def check_generated(directory: pathlib.Path, name: str, suffix: str,
             out = { "ERROR": str(e) }
         assert out == ref
 
-    assert ntests == EXPECT.get(f"{directory}:{name}", 0)
+    expected = expect if expect is not None else EXPECT.get(f"{directory}:models", 0)
+    assert ntests == expected 
 
 
 def test_2json(directory):
@@ -329,8 +287,10 @@ def test_2json(directory):
     def generate_json(fmodel: str):
         return resolver(fmodel, follow=True)
 
-    check_generated(directory, "js2json", ".model.json", generate_json, ".model.js")
-    check_generated(directory, "yaml2json", ".model.json", generate_json, ".model.yaml")
+    check_generated(directory, "js2json", ".model.json", generate_json, ".model.js",
+                    EXPECT.get(f"{directory}:js2json", 0))
+    check_generated(directory, "yaml2json", ".model.json", generate_json, ".model.yaml",
+                    EXPECT.get(f"{directory}:yaml2json", 0))
 
 
 def test_preproc(directory):
@@ -420,8 +380,8 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
         if suffix.endswith(".c"):
             os.remove(fexec)
 
-    assert ntests == EXPECT.get(f"{directory}:{name}:tests", 0)
-    assert nvalues == EXPECT.get(f"{directory}:{name}:values", 0)
+    assert ntests == EXPECT.get(f"{directory}:models", 0)
+    assert nvalues == EXPECT.get(f"{directory}:values", 0)
 
 
 def test_sta_c(directory, clibjm):
@@ -489,7 +449,7 @@ def test_dyna_py(directory):
                 else:
                     assert not checker(value)
 
-    assert ntests == EXPECT.get(f"{directory}:dyna-py", 0)
+    assert ntests == EXPECT.get(f"{directory}:values", 0)
 
 #
 # CHECK MODELS AGAINST META MODEL(S)
@@ -507,13 +467,13 @@ def test_models_c(directory, jmchecker):
     check_models(directory, jmchecker)
 
 def test_models_py(directory):
-    check_models(directory, "./rwt/json-model.py")
+    check_models(directory, "./ref/json-model.py")
 
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
 def test_models_jsg(directory):
-    check_models(directory, "jsu-check --quiet ./rwt/json-model.schema.json")
+    check_models(directory, "jsu-check --quiet ./ref/json-model.schema.json")
 
 def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""
@@ -559,13 +519,13 @@ def test_bads_c(jmchecker):
     check_bads(jmchecker)
 
 def test_bads_py():
-    check_bads("./rwt/json-model.py")
+    check_bads("./ref/json-model.py")
 
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
 
 def test_bads_jsg():
-    check_bads("jsu-check --quiet ./rwt/json-model.schema.json")
+    check_bads("jsu-check --quiet ./ref/json-model.schema.json")
 
 #
 # JSON SCHEMA DRAFT TESTS

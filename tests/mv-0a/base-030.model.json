@@ -1,0 +1,4 @@
+{
+  "#": "simple regex props",
+  "/^(foo|bla)$/": 0
+}

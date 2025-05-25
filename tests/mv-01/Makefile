@@ -1,1 +1,1 @@
-../rwt/Makefile
+../json-model-tests.mk

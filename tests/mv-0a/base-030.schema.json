@@ -1,4 +1,5 @@
 {
+  "description": "simple regex props",
   "type": "object",
   "patternProperties": {
     "^(foo|bla)$": {
