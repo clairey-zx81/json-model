@@ -270,7 +270,7 @@ class Language:
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
         """Known type int extraction for constraints."""
         if tval is int:
-            return self.int_val(val)
+            return self.value(val, int)
         elif tval is str:
             return self.str_len(val)
         elif tval is list:

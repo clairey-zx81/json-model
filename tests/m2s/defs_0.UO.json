@@ -1,0 +1,12 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "an_int": 0,
+      "#": "Symbol 1",
+      "": "./defs_0.model.json"
+    },
+    "@": "$an_int"
+  },
+  0
+]

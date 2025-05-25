@@ -1,0 +1,22 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "bibi": {
+        "bibi": [
+          "$bibi"
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./base-031.model.json"
+    },
+    "@": "$bibi"
+  },
+  {
+    "bibi": [
+      "$bibi"
+    ],
+    "#": "JsonModel 2"
+  }
+]

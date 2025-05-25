@@ -1,0 +1,15 @@
+[
+  [ true,  0.0 ],
+  [ true,  42.1 ],
+  [ true,  99.9999 ],
+  [ false,  99.99999999999999999 ],
+  [ false, -0.0000001 ],
+  [ false, 100.0 ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, {} ]
+]

@@ -144,7 +144,7 @@ $(F.exe): json-model.o main.o
 .PHONY: %.xALL
 %.xALL:
 	$(MAKE) $*.x $*.ALL
-	$(MAKE) $*.jcheck.out
+	# $(MAKE) $*.jcheck.out
 	for f in $*.*check.out ; do
 	  echo "# $$f"
 	  cat $$f

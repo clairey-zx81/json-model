@@ -133,7 +133,7 @@ class CLangJansson(Language):
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def any_int_value(self, var: Var, tvar: type) -> IntExpr:
+    def any_int_val(self, var: Var, tvar: type) -> IntExpr:
         """Get an int from whatever, if possible, from a Json variable or value."""
         if tvar is int:
             return self.value(var, int)
@@ -142,7 +142,7 @@ class CLangJansson(Language):
         elif tvar is dict:
             return self.obj_len(var)
         elif tvar is str:
-            return self.str_len(var)
+            return self.str_len(self.value(var, str))
         else:
             raise Exception(f"unexpected type for int extraction: {tvar.__name__}")
 

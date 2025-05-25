@@ -1,0 +1,13 @@
+[
+  [ true,  {} ],
+  [ true,  {"country": "South Africa"} ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ]
+]

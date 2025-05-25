@@ -1,0 +1,21 @@
+base-011.values.json[0]: PASS
+base-011.values.json[1]: PASS
+base-011.values.json[2]: PASS
+base-011.values.json[3]: PASS
+base-011.values.json[4]: PASS
+base-011.values.json[5]: PASS
+base-011.values.json[6]: PASS
+base-011.values.json[7]: PASS
+base-011.values.json[8]: PASS
+base-011.values.json[9]: PASS
+base-011.values.json[10]: FAIL [('constraints failed at [$]', [])]
+base-011.values.json[11]: FAIL [('constraints failed at [$]', [])]
+base-011.values.json[12]: FAIL [('constraints failed at [$]', [])]
+base-011.values.json[13]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[14]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[15]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[16]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[17]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[18]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[19]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
+base-011.values.json[20]: FAIL [("not a 0 strict int [$.'@']", []), ('constraints failed at [$]', [])]
