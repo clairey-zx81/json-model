@@ -2,46 +2,27 @@
 
 ## Current Tasks
 
-- [x] all: remove dynamic compiler code, tests and doc.
-- [x] tests: values with name field
-- [x] static: xor code generation
-- [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
-- [x] py-backend: improve url validation
-- [x] frontent: add `-T 1000` to trigger measuring performance.
-- [x] static: unique constraint
-- [x] static: cmp constraint implementation
-- [x] python: use local loose settings if appropriate (but not with inlining!)
-- [x] tests: remove SO stuff
-- [x] python: remove `static.py`
-- [x] command: remove `-S`
-- [x] doc: remove about S
-- [x] optim: predef normalization and or/and included type cleanups
-- [x] tests: parallelism with `pytest-xdist`
-- [x] c-backend: heterogeneous enum (`enum_05`)
-- [x] py-backend: unique for any
-- [x] backend: fix `untype00` issue (c, py)
-- [x] c-backend: simplify entry by moving parts to `json-model.c`
-- [x] tests: remove `.x.`
-- [x] tests: add `tmp_dir` fixture.
-- [x] tests: improve compilation locking for parallel pytest.
 - [x] tests: split modval directory for better parallelization (wip)
 - [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [ ] tests: drop `fuzzy` name, re-test for stricter versions
 - [ ] tests: fix `rwt/openapi-310-models`
 - [ ] tests: fix `rwt/obj_04`
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
+- [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: optimize unique for scalars using `constant_t`
 - [ ] c-backend: fast `$REGEX` implementation (wip)
-- [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
+- [ ] python: cleanup ultimate model reliance on local defs
 - [ ] python: drop `Validator` class
 - [ ] schema: add explicit `"$schema"` property if appropriate
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] frontend: align python and C outputs
+- [ ] c-frontend: use `getopt_long` instead of `getopt`
 - [ ] optim: root xor should be simplified in `geo.model.json`
 - [ ] optim: detect non feasible constraints wrt values
 - [ ] python: how to keep looseness after inlining?
@@ -50,7 +31,6 @@
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: optimize 1 must or may property case with a direct comparison?
 - [ ] static: disjunct could share identical may/must tabs between objects
-- [ ] tests: drop `fuzzy` name, re-test for stricter versions
 
 ## To Do
 
@@ -276,3 +256,25 @@
 - [x] static: generate separate lib
 - [x] backend: clarify runtime vs data.
 - [x] c-backend: fix `-l` implementation.
+- [x] all: remove dynamic compiler code, tests and doc.
+- [x] tests: values with name field
+- [x] static: xor code generation
+- [x] c-backend: issue with "$xxx" properties, `char*` is not `json_t*` (`ex_08 ex_09`)
+- [x] py-backend: improve url validation
+- [x] frontent: add `-T 1000` to trigger measuring performance.
+- [x] static: unique constraint
+- [x] static: cmp constraint implementation
+- [x] python: use local loose settings if appropriate (but not with inlining!)
+- [x] tests: remove SO stuff
+- [x] python: remove `static.py`
+- [x] command: remove `-S`
+- [x] doc: remove about S
+- [x] optim: predef normalization and or/and included type cleanups
+- [x] tests: parallelism with `pytest-xdist`
+- [x] c-backend: heterogeneous enum (`enum_05`)
+- [x] py-backend: unique for any
+- [x] backend: fix `untype00` issue (c, py)
+- [x] c-backend: simplify entry by moving parts to `json-model.c`
+- [x] tests: remove `.x.`
+- [x] tests: add `tmp_dir` fixture.
+- [x] tests: improve compilation locking for parallel pytest.
