@@ -91,15 +91,25 @@ def directory(request):
     return pathlib.Path(request.param)
 
 
+@pytest.fixture(scope="session")
+def tmp_dir():
+    tmp = os.environ.get("TMPDIR", "/dev/shm")
+    user = os.environ.get("USER", "hobbes")
+    tmp_dir = f"{tmp}/{user}"
+    if not os.path.exists(tmp_dir):
+        os.mkdir(tmp_dir)
+        os.chmod(tmp_dir, 0o700)
+    yield tmp_dir
+    # could cleanup
+
 @pytest.fixture(params=["py", "c"])
 def language(request):
     return request.param
 
 
 @pytest.fixture(scope="session")
-def clibjm():
+def clibjm(tmp_dir):
 
-    tmp_dir = "/dev/shm"
     jm_lib = f"{tmp_dir}/json-model.o"
     jm_main = f"{tmp_dir}/main.o"
 
@@ -114,11 +124,13 @@ def clibjm():
     ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
 
     # compile library
-    status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
-    assert status == 0, f"support library compilation"
+    if not os.path.exists(jm_lib):
+        status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
+        assert status == 0, f"support library compilation"
 
-    status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
-    assert status == 0, f"main frontend compilation"
+    if not os.path.exists(jm_main):
+        status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
+        assert status == 0, f"main frontend compilation"
 
     yield {
         "tmp": tmp_dir,
@@ -130,7 +142,7 @@ def clibjm():
         "ldflags": ldflags,
     }
 
-    # FIXME cleanup
+    # FIXME cleanup is broken because of parallel runs
     # os.remove(jm_lib)
     # os.remove(jm_main)
 

@@ -22,6 +22,7 @@
 - [x] backend: fix `untype00` issue (c, py)
 - [x] c-backend: simplify entry by moving parts to `json-model.c`
 - [x] tests: remove `.x.`
+- [x] tests: add `tmp_dir` fixture.
 - [ ] tests: split modval directory for better parallelization (wip)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: fix `rwt/openapi-310-models`
