@@ -20,6 +20,7 @@ log.setLevel(logging.INFO)
 #
 EXPECT: dict[str, int] = {
     # random possibly related chunks to please xdist
+    # chunk 00
     "mv-00:js2json": 0,
     "mv-00:yaml2json": 0,
     "mv-00:models": 10,
@@ -31,6 +32,54 @@ EXPECT: dict[str, int] = {
     "mv-00:sta-py:tests": 10,
     "mv-00:sta-c:values": 95,
     "mv-00:sta-py:values": 95,
+    # chunk 01
+    "mv-01:js2json": 0,
+    "mv-01:yaml2json": 0,
+    "mv-01:models": 10,
+    "mv-01:preproc": 10,
+    "mv-01:schema": 10,
+    "mv-01:lang-c": 10,
+    "mv-01:lang-py": 10,
+    "mv-01:sta-c:tests": 10,
+    "mv-01:sta-py:tests": 10,
+    "mv-01:sta-c:values": 100,
+    "mv-01:sta-py:values": 100,
+    # chunk 02
+    "mv-02:js2json": 1,
+    "mv-02:yaml2json": 0,
+    "mv-02:models": 10,
+    "mv-02:preproc": 10,
+    "mv-02:schema": 10,
+    "mv-02:lang-c": 10,
+    "mv-02:lang-py": 10,
+    "mv-02:sta-c:tests": 10,
+    "mv-02:sta-py:tests": 10,
+    "mv-02:sta-c:values": 122,
+    "mv-02:sta-py:values": 122,
+    # chunk 03
+    "mv-03:js2json": 1,
+    "mv-03:yaml2json": 0,
+    "mv-03:models": 10,
+    "mv-03:preproc": 10,
+    "mv-03:schema": 10,
+    "mv-03:lang-c": 10,
+    "mv-03:lang-py": 10,
+    "mv-03:sta-c:tests": 10,
+    "mv-03:sta-py:tests": 10,
+    "mv-03:sta-c:values": 78,
+    "mv-03:sta-py:values": 78,
+    # chunck 04
+    "mv-04:js2json": 2,
+    "mv-04:yaml2json": 0,
+    "mv-04:models": 8,
+    "mv-04:preproc": 8,
+    "mv-04:schema": 8,
+    "mv-04:lang-c": 8,
+    "mv-04:lang-py": 8,
+    "mv-04:sta-c:tests": 8,
+    "mv-04:sta-py:tests": 8,
+    "mv-04:sta-c:values": 98,
+    "mv-04:sta-py:values": 98,
     # basic models
     "basics:js2json": 4,
     "basics:models": 36,
@@ -43,17 +92,6 @@ EXPECT: dict[str, int] = {
     "basics:sta-c:values": 267,
     "basics:sta-py:values": 267,
     # various tests
-    "modval:js2json": 4,
-    "modval:yaml2json": 0,
-    "modval:models": 38,
-    "modval:preproc": 38,
-    "modval:schema": 38,
-    "modval:lang-c": 38,
-    "modval:lang-py": 38,
-    "modval:sta-c:tests": 38,
-    "modval:sta-py:tests": 38,
-    "modval:sta-c:values": 398,
-    "modval:sta-py:values": 398,
     # model 2 schema conversions
     "m2s:preproc": 48,
     "m2s:models": 48,
@@ -149,8 +187,8 @@ def file_is_newer(f1: str, f2: str) -> bool:
 # LOCAL FIXTURES
 #
 @pytest.fixture(params=[
-        "./mv-00",
-        "./modval", "./m2s", "./rwt", "./basics", "./objs", "./ops", "./merge", "./optims"
+        "./mv-00", "./mv-01", "./mv-02", "mv-03", "./mv-04",
+        "./m2s", "./rwt", "./basics", "./objs", "./ops", "./merge", "./optims"
     ])
 def directory(request):
     return pathlib.Path(request.param)
