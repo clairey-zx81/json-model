@@ -23,6 +23,7 @@
 - [x] c-backend: simplify entry by moving parts to `json-model.c`
 - [x] tests: remove `.x.`
 - [x] tests: add `tmp_dir` fixture.
+- [x] tests: improve compilation locking for parallel pytest.
 - [ ] tests: split modval directory for better parallelization (wip)
 - [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: fix `rwt/openapi-310-models`
@@ -49,6 +50,7 @@
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: optimize 1 must or may property case with a direct comparison?
 - [ ] static: disjunct could share identical may/must tabs between objects
+- [ ] tests: drop `fuzzy` name, re-test for stricter versions
 
 ## To Do
 

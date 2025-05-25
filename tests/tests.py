@@ -4,6 +4,7 @@ import json
 import pathlib
 import logging
 import pytest
+import filelock
 
 from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
@@ -11,8 +12,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-log.setLevel(logging.DEBUG)
-# log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS
@@ -83,6 +84,9 @@ def dirmap(dname) -> dict[str, str]:
         "./": f"./{dname}/",
     }
 
+def file_is_newer(f1: str, f2: str) -> bool:
+    return os.path.getmtime(f1) > os.path.getmtime(f2)
+
 #
 # LOCAL FIXTURES
 #
@@ -96,11 +100,16 @@ def tmp_dir():
     tmp = os.environ.get("TMPDIR", "/dev/shm")
     user = os.environ.get("USER", "hobbes")
     tmp_dir = f"{tmp}/{user}"
+    # if there is a little race it probably does not matter
     if not os.path.exists(tmp_dir):
-        os.mkdir(tmp_dir)
-        os.chmod(tmp_dir, 0o700)
+        try:
+            os.mkdir(tmp_dir)
+            os.chmod(tmp_dir, 0o700)
+        except Exception as e:
+            log.warning(f"tmp_dir: {e}")
     yield tmp_dir
     # could cleanup
+
 
 @pytest.fixture(params=["py", "c"])
 def language(request):
@@ -110,6 +119,7 @@ def language(request):
 @pytest.fixture(scope="session")
 def clibjm(tmp_dir):
 
+    jm_lock = f"{tmp_dir}/clibjm.lock"
     jm_lib = f"{tmp_dir}/json-model.o"
     jm_main = f"{tmp_dir}/main.o"
 
@@ -123,17 +133,19 @@ def clibjm(tmp_dir):
     cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -O2")
     ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
 
-    # compile library
-    if not os.path.exists(jm_lib):
-        status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
-        assert status == 0, f"support library compilation"
+    # compile library once
+    with filelock.FileLock(jm_lock):
+        if not os.path.exists(jm_lib) or file_is_newer(src_lib, jm_lib):
+            status = os.system(f"{cc} {cppflags} {cflags} {src_lib} -o {jm_lib} -c")
+            assert status == 0, f"support library compilation"
 
-    if not os.path.exists(jm_main):
-        status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
-        assert status == 0, f"main frontend compilation"
+        if not os.path.exists(jm_main) or file_is_newer(src_main, jm_main):
+            status = os.system(f"{cc} {cppflags} {cflags} {src_main} -o {jm_main} -c")
+            assert status == 0, f"main frontend compilation"
 
     yield {
         "tmp": tmp_dir,
+        "lock": jm_lock,
         "lib": jm_lib,
         "main": jm_main,
         "cc": cc,
@@ -154,7 +166,8 @@ def jmchecker(clibjm):
     cc, cppflags, cflags, ldflags = \
         clibjm["cc"], clibjm["cppflags"], clibjm["cflags"], clibjm["ldflags"],
     # files
-    tmp_dir, jm_lib, jm_main = clibjm["tmp"], clibjm["lib"], clibjm["main"]
+    tmp_dir, lock_file, jm_lib, jm_main = \
+        clibjm["tmp"], clibjm["lock"], clibjm["lib"], clibjm["main"]
 
     assert os.path.isfile(jm_lib), "available support lib"
     assert os.path.isfile(jm_main), "available support main"
@@ -162,10 +175,10 @@ def jmchecker(clibjm):
     model_c = "rwt/json-model.c"
     fexec = f"{tmp_dir}/json_model_check"
 
-    # NOTE with parallel runs the file may be generated several time despite the session scope
-    if not os.path.exists(fexec):
-        status = os.system(f"{cc} {cppflags} {cflags} {model_c} {ldflags} -o {fexec}")
-        assert status == 0, f"{model_c} compilation success"
+    with filelock.FileLock(lock_file):
+        if not os.path.exists(fexec) or file_is_newer(model_c, fexec):
+            status = os.system(f"{cc} {cppflags} {cflags} {model_c} {ldflags} -o {fexec}")
+            assert status == 0, f"{model_c} compilation success"
 
     yield fexec
 
