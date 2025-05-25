@@ -6,9 +6,9 @@
 - [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [x] project: switch version to beta.
 - [x] tests: drop `fuzzy` name, re-test for stricter versions
-- [ ] tests: chunk tests in smaller directories to please xdist (wip)
-- [ ] tests: fix `rwt/openapi-310-models`
-- [ ] tests: fix `rwt/obj_04`
+- [x] tests: chunk tests in smaller directories to please xdist
+- [ ] tests: fix `wip/openapi-310-models`
+- [ ] tests: fix `wip/obj_04`
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
