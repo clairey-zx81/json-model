@@ -1,0 +1,298 @@
+#include <json-model.h>
+#define JSON_MODEL_VERSION "2.0a0"
+
+static bool json_model_2(const json_t* val, Path* path, Report* rep);
+static bool json_model_3(const json_t* val, Path* path, Report* rep);
+static bool json_model_4(const json_t* val, Path* path, Report* rep);
+static bool json_model_5(const json_t* val, Path* path, Report* rep);
+static bool json_model_6(const json_t* val, Path* path, Report* rep);
+static bool json_model_7(const json_t* val, Path* path, Report* rep);
+static bool json_model_8(const json_t* val, Path* path, Report* rep);
+static bool json_model_9(const json_t* val, Path* path, Report* rep);
+static bool json_model_1(const json_t* val, Path* path, Report* rep);
+propmap_t check_model_map_tab[9];
+const size_t check_model_map_size = 9;
+
+// check $N ($.'$N')
+static bool json_model_2(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$N'
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [$.'$N']", path);
+    }
+    return res;
+}
+
+// check $B ($.'$B')
+static bool json_model_3(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$B'
+    res = json_is_boolean(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a bool [$.'$B']", path);
+    }
+    return res;
+}
+
+// check $I ($.'$I')
+static bool json_model_4(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$I'
+    res = json_is_integer(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'$I']", path);
+    }
+    return res;
+}
+
+// check $F ($.'$F')
+static bool json_model_5(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$F'
+    res = json_is_real(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [$.'$F']", path);
+    }
+    return res;
+}
+
+// check $S ($.'$S')
+static bool json_model_6(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$S'
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$S']", path);
+    }
+    return res;
+}
+
+// check $A ($.'$A')
+static bool json_model_7(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$A'
+    res = json_is_array(val);
+    if (res)
+    {
+        size_t arr_0_idx;
+        json_t *arr_0_item;
+        json_array_foreach(val, arr_0_idx, arr_0_item)
+        {
+            Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
+            // $.'$A'.0
+            res = json_model_9(arr_0_item, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$A'.0]", (path ? &arr_0_lpath : NULL));
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$A']", path);
+    }
+    return res;
+}
+
+// object $.'$O'
+static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [$.'$O']", path);
+        return false;
+    }
+    bool res;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        // handle other props
+        // $.'$O'.''
+        res = json_model_9(pval, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$O'.'']", (path ? &lpath_0 : NULL));
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $O ($.'$O')
+static bool json_model_8(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O'
+    res = _jm_obj_0(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$O']", path);
+    }
+    return res;
+}
+
+// check $Any ($.'$Any')
+static bool json_model_9(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$Any'
+    // $.'$Any'.'|'.0
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [$.'$Any'.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // $.'$Any'.'|'.1
+        res = json_model_3(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $B [$.'$Any'.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // $.'$Any'.'|'.2
+            res = json_model_4(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $I [$.'$Any'.'|'.2]", path);
+            }
+            if (! res)
+            {
+                // $.'$Any'.'|'.3
+                res = json_model_5(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $F [$.'$Any'.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // $.'$Any'.'|'.4
+                    res = json_model_6(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $S [$.'$Any'.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // $.'$Any'.'|'.5
+                        res = json_model_7(val, path, rep);
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $A [$.'$Any'.'|'.5]", path);
+                        }
+                        if (! res)
+                        {
+                            // $.'$Any'.'|'.6
+                            res = json_model_8(val, path, rep);
+                            if (! res)
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected $O [$.'$Any'.'|'.6]", path);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [$.'$Any'.'|']", path);
+    }
+    return res;
+}
+
+// check $ ($)
+static bool json_model_1(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $
+    res = json_model_9(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $Any [$]", path);
+    }
+    return res;
+}
+
+check_fun_t check_model_map(const char *pname)
+{
+    return jm_search_propmap(pname, check_model_map_tab, 9);
+}
+
+static bool initialized = false;
+
+char *CHECK_init(void)
+{
+    if (!initialized)
+    {
+        initialized = true;
+        jm_version_string = JSON_MODEL_VERSION;
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (propmap_t) { "N", json_model_2 };
+        check_model_map_tab[2] = (propmap_t) { "B", json_model_3 };
+        check_model_map_tab[3] = (propmap_t) { "I", json_model_4 };
+        check_model_map_tab[4] = (propmap_t) { "F", json_model_5 };
+        check_model_map_tab[5] = (propmap_t) { "S", json_model_6 };
+        check_model_map_tab[6] = (propmap_t) { "A", json_model_7 };
+        check_model_map_tab[7] = (propmap_t) { "O", json_model_8 };
+        check_model_map_tab[8] = (propmap_t) { "Any", json_model_9 };
+        jm_sort_propmap(check_model_map_tab, 9);
+    }
+    return NULL;
+}
+
+void CHECK_free(void)
+{
+    if (initialized)
+    {
+        initialized = false;
+
+        // cleanup code
+    }
+}
+
+
+/*
+ * # API
+ *
+ * ```c
+ * bool error;
+ * char *message;
+ *
+ * bool valid = check(json_value, "model-name", &error, &message);
+ *
+ * if (message)
+ *    free(message), message = NULL;
+ * ```
+ *
+ * - `error` is set of there was an error during initialization or if the model does not exists.
+ * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
+ */
+bool
+CHECK(const json_t *val, const char *name, bool *error, char **reasons)
+{
+    return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
+}

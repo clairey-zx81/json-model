@@ -107,6 +107,7 @@ class ModelDefs(typing.MutableMapping[str, CheckFun|None]):
 
 # ultimate type of predefs
 _UTYPE = {
+    "$ANY": None,
     "$NULL": type(None),
     "$BOOL": bool,
     "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,

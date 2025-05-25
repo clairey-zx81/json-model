@@ -19,17 +19,7 @@ log.setLevel(logging.INFO)
 # PER-DIRECTORY TEST EXPECTATIONS
 #
 EXPECT: dict[str, int] = {
-    "modval:js2json": 8,
-    "modval:yaml2json": 1,
-    "modval:models": 116,
-    "modval:preproc": 116,
-    "modval:schema": 116,
-    "modval:lang-c": 116,
-    "modval:lang-py": 116,
-    "modval:sta-c:tests": 116,
-    "modval:sta-py:tests": 116,
-    "modval:sta-c:values": 1195,
-    "modval:sta-py:values": 1195,
+    # basic models
     "basics:js2json": 4,
     "basics:models": 33,
     "basics:preproc": 33,
@@ -40,8 +30,22 @@ EXPECT: dict[str, int] = {
     "basics:sta-py:tests": 33,
     "basics:sta-c:values": 245,
     "basics:sta-py:values": 245,
+    # various tests
+    "modval:js2json": 7,
+    "modval:yaml2json": 1,
+    "modval:models": 63,
+    "modval:preproc": 63,
+    "modval:schema": 63,
+    "modval:lang-c": 63,
+    "modval:lang-py": 63,
+    "modval:sta-c:tests": 63,
+    "modval:sta-py:tests": 63,
+    "modval:sta-c:values": 630,
+    "modval:sta-py:values": 630,
+    # model 2 schema conversions
     "m2s:schema": 57,
     "m2s:models": 57,
+    # rewrite
     "rwt:preproc": 45,
     "rwt:models": 46,
     "rwt:schema": 45,
@@ -51,15 +55,48 @@ EXPECT: dict[str, int] = {
     "rwt:sta-py:tests": 44,
     "rwt:sta-c:values": 136,
     "rwt:sta-py:values": 136,
-    "objs:preproc": 1,
-    "objs:models": 1,
-    "objs:schema": 1,
-    "objs:lang-c": 1,
-    "objs:lang-py": 1,
-    "objs:sta-c:tests": 1,
-    "objs:sta-py:tests": 1,
-    "objs:sta-c:values": 12,
-    "objs:sta-py:values": 12,
+    # merge +
+    "merge:js2json": 1,
+    "merge:preproc": 45,
+    "merge:models": 46,
+    "merge:schema": 46,
+    "merge:lang-c": 46,
+    "merge:lang-py": 46,
+    "merge:sta-c:tests": 46,
+    "merge:sta-py:tests": 46,
+    "merge:sta-c:values": 73,
+    "merge:sta-py:values": 73,
+    # objects
+    "objs:preproc": 7,
+    "objs:models": 7,
+    "objs:schema": 7,
+    "objs:lang-c": 7,
+    "objs:lang-py": 7,
+    "objs:sta-c:tests": 7,
+    "objs:sta-py:tests": 7,
+    "objs:sta-c:values": 88,
+    "objs:sta-py:values": 88,
+    # operations & | ^
+    "ops:preproc": 23,
+    "ops:models": 23,
+    "ops:schema": 23,
+    "ops:lang-c": 23,
+    "ops:lang-py": 23,
+    "ops:sta-c:tests": 23,
+    "ops:sta-py:tests": 23,
+    "ops:sta-c:values": 236,
+    "ops:sta-py:values": 236,
+    # optimizations
+    "optims:preproc": 20,
+    "optims:models": 20,
+    "optims:schema": 20,
+    "optims:lang-c": 20,
+    "optims:lang-py": 20,
+    "optims:sta-c:tests": 20,
+    "optims:sta-py:tests": 20,
+    "optims:sta-c:values": 200,
+    "optims:sta-py:values": 200,
+    # miscellaneous tests
     "bads:models": 54,
     "draft3:jsts": 105,
     "draft4:jsts": 159,
@@ -90,7 +127,9 @@ def file_is_newer(f1: str, f2: str) -> bool:
 #
 # LOCAL FIXTURES
 #
-@pytest.fixture(params=["./modval", "./m2s", "./rwt", "./basics", "./objs"])
+@pytest.fixture(params=[
+        "./modval", "./m2s", "./rwt", "./basics", "./objs", "./ops", "./merge", "./optims"
+    ])
 def directory(request):
     return pathlib.Path(request.param)
 
@@ -342,7 +381,7 @@ def test_sta_c(directory, clibjm):
         status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
         assert status == 0, f"{fname} compilation success"
         return fexec
-        
+
     check_values(directory, "sta-c", ".c", ".c-check.out", generate_exec)
 
 

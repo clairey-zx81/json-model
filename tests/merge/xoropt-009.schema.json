@@ -1,0 +1,23 @@
+{
+  "description": "NOT ^ to | because both empty objects are ok",
+  "oneOf": [
+    {
+      "type": "object",
+      "patternProperties": {
+        "a": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "null"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

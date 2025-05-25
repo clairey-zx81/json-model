@@ -1,0 +1,41 @@
+{
+  "description": "^ to | on constants",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "const": 10
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "const": 1
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "const": 0
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

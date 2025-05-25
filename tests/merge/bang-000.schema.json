@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "!": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "_": {
+      "type": "boolean"
+    },
+    "a": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "?": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "/": {
+      "const": 17
+    },
+    "b": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "!",
+    "_",
+    "a",
+    "?",
+    "/"
+  ],
+  "additionalProperties": false
+}

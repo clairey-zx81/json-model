@@ -24,8 +24,8 @@
 - [x] tests: remove `.x.`
 - [x] tests: add `tmp_dir` fixture.
 - [x] tests: improve compilation locking for parallel pytest.
-- [ ] tests: split modval directory for better parallelization (wip)
-- [ ] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [x] tests: split modval directory for better parallelization (wip)
+- [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [ ] tests: fix `rwt/openapi-310-models`
 - [ ] tests: fix `rwt/obj_04`
 - [ ] command: rething option usage for compilation.

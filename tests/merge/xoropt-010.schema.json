@@ -1,0 +1,39 @@
+{
+  "description": "^ to |",
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "a": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "b",
+        "a"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "b": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "a": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "b"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

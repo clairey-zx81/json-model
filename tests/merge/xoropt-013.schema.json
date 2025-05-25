@@ -1,0 +1,35 @@
+{
+  "description": "NOT ^ to |",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "a"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "..."
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "b": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "b"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "..."
+      }
+    }
+  ]
+}
