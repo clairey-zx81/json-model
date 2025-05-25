@@ -94,10 +94,12 @@ EXPECT: dict[str, int] = {
     "mv-15:js2json": 2,
     "mv-15:models": 12,
     "mv-15:values": 102,
-    # basic models
-    "basics:js2json": 4,
-    "basics:models": 36,
-    "basics:values": 267,
+    # chunk 16
+    "mv-16:models": 11,
+    "mv-16:values": 100,
+    # chunk 17
+    "mv-17:models": 12,
+    "mv-17:values": 136,
     # various tests
     # model 2 schema conversions
     "m2s:models": 49,
@@ -111,9 +113,6 @@ EXPECT: dict[str, int] = {
     "objs:yaml2json": 1,
     "objs:models": 19,
     "objs:values": 203,
-    # operations & | ^
-    "ops:models": 23,
-    "ops:values": 236,
     # optimizations
     "optims:models": 20,
     "optims:values": 200,
@@ -156,8 +155,8 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-08", "./mv-09", "./mv-0a", "./mv-0b",
         "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
         "./mv-10", "./mv-11", "./mv-12", "./mv-13",
-        "./mv-14", "./mv-15", # "./mv-12", "./mv-13",
-        "./objs", "./ops", "./optims"
+        "./mv-14", "./mv-15", "./mv-16", "./mv-17",
+        "./objs",  "./optims"
     ])
 def directory(request):
     return pathlib.Path(request.param)
