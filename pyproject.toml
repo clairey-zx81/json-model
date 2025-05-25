@@ -20,7 +20,7 @@ readme = "README.md"
 requires-python = ">=3.12"  # for "type"
 license = "CC0-1.0"
 classifiers = [ "Topic :: Software Development" ]
-version = "2.0-alpha"
+version = "2.0-beta"
 dependencies = [ "requests", "google-re2", "pyyaml", "validators" ]
 
 [project.optional-dependencies]
