@@ -83,6 +83,17 @@ EXPECT: dict[str, int] = {
     # chunk 12
     "mv-12:models": 10,
     "mv-12:values": 0,
+    # chunk 13
+    "mv-13:js2json": 2,
+    "mv-13:models": 12,
+    "mv-13:values": 81,
+    # chunk 14
+    "mv-14:models": 12,
+    "mv-14:values": 84,
+    # chunk 15
+    "mv-15:js2json": 2,
+    "mv-15:models": 12,
+    "mv-15:values": 102,
     # basic models
     "basics:js2json": 4,
     "basics:models": 36,
@@ -144,8 +155,9 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-04", "./mv-05", "./mv-06", "./mv-07",
         "./mv-08", "./mv-09", "./mv-0a", "./mv-0b",
         "./mv-0c", "./mv-0d", "./mv-0e", "./mv-0f",
-        "./mv-10", "./mv-11", "./mv-12", # "./mv-0f",
-        "./basics", "./objs", "./ops", "./optims"
+        "./mv-10", "./mv-11", "./mv-12", "./mv-13",
+        "./mv-14", "./mv-15", # "./mv-12", "./mv-13",
+        "./objs", "./ops", "./optims"
     ])
 def directory(request):
     return pathlib.Path(request.param)
