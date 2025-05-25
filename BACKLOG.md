@@ -6,6 +6,7 @@
 - [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [x] project: switch version to beta.
 - [x] tests: drop `fuzzy` name, re-test for stricter versions
+- [ ] tests: chunk tests in smaller directories to please xdist (wip)
 - [ ] tests: fix `rwt/openapi-310-models`
 - [ ] tests: fix `rwt/obj_04`
 - [ ] command: rething option usage for compilation.

@@ -19,6 +19,18 @@ log.setLevel(logging.INFO)
 # PER-DIRECTORY TEST EXPECTATIONS
 #
 EXPECT: dict[str, int] = {
+    # random possibly related chunks to please xdist
+    "mv-00:js2json": 0,
+    "mv-00:yaml2json": 0,
+    "mv-00:models": 10,
+    "mv-00:preproc": 10,
+    "mv-00:schema": 10,
+    "mv-00:lang-c": 10,
+    "mv-00:lang-py": 10,
+    "mv-00:sta-c:tests": 10,
+    "mv-00:sta-py:tests": 10,
+    "mv-00:sta-c:values": 95,
+    "mv-00:sta-py:values": 95,
     # basic models
     "basics:js2json": 4,
     "basics:models": 36,
@@ -33,15 +45,15 @@ EXPECT: dict[str, int] = {
     # various tests
     "modval:js2json": 4,
     "modval:yaml2json": 0,
-    "modval:models": 48,
-    "modval:preproc": 48,
-    "modval:schema": 48,
-    "modval:lang-c": 48,
-    "modval:lang-py": 48,
-    "modval:sta-c:tests": 48,
-    "modval:sta-py:tests": 48,
-    "modval:sta-c:values": 493,
-    "modval:sta-py:values": 493,
+    "modval:models": 38,
+    "modval:preproc": 38,
+    "modval:schema": 38,
+    "modval:lang-c": 38,
+    "modval:lang-py": 38,
+    "modval:sta-c:tests": 38,
+    "modval:sta-py:tests": 38,
+    "modval:sta-c:values": 398,
+    "modval:sta-py:values": 398,
     # model 2 schema conversions
     "m2s:preproc": 48,
     "m2s:models": 48,
@@ -137,6 +149,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
 # LOCAL FIXTURES
 #
 @pytest.fixture(params=[
+        "./mv-00",
         "./modval", "./m2s", "./rwt", "./basics", "./objs", "./ops", "./merge", "./optims"
     ])
 def directory(request):
