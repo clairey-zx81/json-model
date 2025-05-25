@@ -39,9 +39,6 @@ obj_00.schema.json: PASS
 obj_01.schema.json: PASS
 obj_02.schema.json: PASS
 obj_03.schema.json: PASS
-obj_04.schema.json: PASS
-obj_05.schema.json: PASS
-openapi-310-models.schema.json: PASS
 openapi-310.schema.json: PASS
 over-00.schema.json: PASS
 over-01.schema.json: PASS

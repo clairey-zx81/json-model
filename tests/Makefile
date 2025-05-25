@@ -9,7 +9,7 @@ D.check = $(D.subs:%=%.check)
 clean:
 	$(RM) -r __pycache__
 
-PYTEST  = pytest --log-level=debug --capture=tee-sys
+PYTEST  = pytest --log-level=debug --capture=tee-sys --durations=5
 PYTOPT	= -v -n auto
 
 .PHONY: check.pytest

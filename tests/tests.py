@@ -53,9 +53,9 @@ EXPECT: dict[str, int] = {
     "m2s:sta-c:values": 108,
     "m2s:sta-py:values": 108,
     # rewrite
-    "rwt:preproc": 45,
-    "rwt:models": 46,
-    "rwt:schema": 45,
+    "rwt:preproc": 44,
+    "rwt:models": 44,
+    "rwt:schema": 44,
     "rwt:lang-c": 44,
     "rwt:lang-py": 44,
     "rwt:sta-c:tests": 44,
@@ -539,27 +539,29 @@ def json_schema_test_suite(version, fmodel):
                 assert okay, f"{jstest}[{idx}] is valid for {fmodel} ({reasons})"
     assert ntests == EXPECT.get(f"{version}:jsts", 0)
 
-def test_draft3_fuzzy():
-    # strict: fail on "definitions"
-    # nesting: fail on "definitions"
+def test_draft3():
+    # strict: fails on infinite-loop-detection.json[0]
+    # nesting: fails on ref.json[7]
     json_schema_test_suite("draft3", "../models/json-schema-draft-03-fuzzy.model.json")
 
-def test_draft4_fuzzy():
-    # strict: errors on "$comment"
+def test_draft4():
+    # strict/nesting: fails on infinite-loop-detection.json[0]
     json_schema_test_suite("draft4", "../models/json-schema-draft-04-fuzzy.model.json")
 
-def test_draft6_fuzzy():
+def test_draft6():
+    # strict: fails on ref.json[6]
     json_schema_test_suite("draft6", "../models/json-schema-draft-06-fuzzy.model.json")
 
-def test_draft7_fuzzy():
-    json_schema_test_suite("draft7", "../models/json-schema-draft-07-fuzzy.model.json")
+def test_draft7():
+    json_schema_test_suite("draft7", "../models/json-schema-draft-07.model.json")
 
-def test_draft8_fuzzy():
+def test_draft8():
+    # strict: fails on vocabulary.json[0] (meta schema url)
     json_schema_test_suite("draft2019-09", "../models/json-schema-draft-2019-09-fuzzy.model.json")
 
-def test_draft9_fuzzy():
-    # strict: error on maxContains with number instead of integer
+def test_draft9():
+    # strict: fails on vocabulary.json[0] (meta schema url)
     json_schema_test_suite("draft2020-12", "../models/json-schema-draft-2020-12-fuzzy.model.json")
 
-def test_draft_next_fuzzy():
-    json_schema_test_suite("draft-next", "../models/json-schema-draft-next-fuzzy.model.json")
+def test_draft_next():
+    json_schema_test_suite("draft-next", "../models/json-schema-draft-next.model.json")

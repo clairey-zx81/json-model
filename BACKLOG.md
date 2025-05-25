@@ -5,7 +5,7 @@
 - [x] tests: split modval directory for better parallelization (wip)
 - [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
 - [x] project: switch version to beta.
-- [ ] tests: drop `fuzzy` name, re-test for stricter versions
+- [x] tests: drop `fuzzy` name, re-test for stricter versions
 - [ ] tests: fix `rwt/openapi-310-models`
 - [ ] tests: fix `rwt/obj_04`
 - [ ] command: rething option usage for compilation.

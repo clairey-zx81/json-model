@@ -1,5 +1,5 @@
 {
-  "#": "JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]",
+  "#": "JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-2020-12",
