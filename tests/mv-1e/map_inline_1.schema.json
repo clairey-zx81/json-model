@@ -1,0 +1,33 @@
+{
+  "description": "inline up to 3 must/may properties",
+  "type": "object",
+  "properties": {
+    "mu1": {
+      "type": "null"
+    },
+    "mu2": {
+      "type": "boolean"
+    },
+    "mu3": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ma1": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "ma2": {
+      "type": "string"
+    },
+    "ma3": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "mu1",
+    "mu2",
+    "mu3"
+  ],
+  "additionalProperties": false
+}

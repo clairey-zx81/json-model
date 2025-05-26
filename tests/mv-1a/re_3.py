@@ -22,54 +22,46 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 _jm_re_0_search: Callable
 _jm_re_0: RegexFun
-_jm_obj_0_may: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_may_all ($.all)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.all
-    # "/.*/"
-    res = isinstance(val, str) and True
-    if not res:
-        rep is None or rep.append(("unexpected REGEX [$.all]", path))
-    return res
-
-# check _jm_obj_0_may_nz ($.nz)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.nz
-    # "/./s"
-    res = isinstance(val, str) and len(val) > 0
-    if not res:
-        rep is None or rep.append(("unexpected REGEX [$.nz]", path))
-    return res
-
-
-# check _jm_obj_0_may_some ($.some)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.some
-    # "/./"
-    res = isinstance(val, str) and _jm_re_0(val)
-    if not res:
-        rep is None or rep.append(("unexpected REGEX [$.some]", path))
-    return res
-
 
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$]", lpath_0 if path is not None else None))
+        if prop == "all":
+            # handle may all property
+            # $.all
+            # "/.*/"
+            res = isinstance(pval, str) and True
+            if not res:
+                rep is None or rep.append(("unexpected REGEX [$.all]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.all]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "nz":
+            # handle may nz property
+            # $.nz
+            # "/./s"
+            res = isinstance(pval, str) and len(pval) > 0
+            if not res:
+                rep is None or rep.append(("unexpected REGEX [$.nz]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.nz]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "some":
+            # handle may some property
+            # $.some
+            # "/./"
+            res = isinstance(pval, str) and _jm_re_0(pval)
+            if not res:
+                rep is None or rep.append(("unexpected REGEX [$.some]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.some]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
@@ -97,12 +89,6 @@ def check_model_init():
         global _jm_re_0_search, _jm_re_0
         _jm_re_0_search = re.compile(".").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "all": _jm_f_0,
-            "nz": _jm_f_1,
-            "some": _jm_f_2,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

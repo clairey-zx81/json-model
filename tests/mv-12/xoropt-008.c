@@ -22,7 +22,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "a") == 0)
         {
-            // handle one must property
+            // handle must a property
             must_count += 1;
             // $.'|'.2.a
             res = json_is_array(pval);
@@ -86,7 +86,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "a") == 0)
         {
-            // handle one must property
+            // handle must a property
             must_count += 1;
             // $.'|'.1.a
             res = json_is_string(pval);
@@ -131,7 +131,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         Path lpath_2 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "a") == 0)
         {
-            // handle one must property
+            // handle must a property
             must_count += 1;
             // $.'|'.0.a
             res = json_is_boolean(pval);

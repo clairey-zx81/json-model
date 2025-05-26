@@ -12,7 +12,8 @@
 - [x] tests: fix `wip/openapi-310-models`
 - [x] tests: optimized openapi-310-models should have fully removed schema stuff
 - [x] static: optimize 1 must or may property case with a direct comparison
-- [ ] static: choose threshold for switching between few/may must/may props
+- [x] static: choose threshold for switching between few/may must/may props
+- [ ] static: reuse already generated may/must maps when possible
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
@@ -37,7 +38,6 @@
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: disjunct could share identical may/must tabs between objects
-- [ ] optim: reuse already generated may/must maps when possible
 
 ## To Do
 

@@ -22,14 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 _jm_obj_1_may: PropMap
 _jm_cst_0: set[str]
-_jm_obj_2_must: PropMap
 _jm_cst_1: set[str]
 _jm_obj_2_may: PropMap
 _jm_obj_3_may: PropMap
-_jm_obj_4_must: PropMap
-_jm_obj_4_may: PropMap
 _jm_obj_5_may: PropMap
-_jm_obj_6_must: PropMap
 check_model_map: PropMap
 
 # check _jm_obj_1_may_authors ($.'$Schema'.metadata.authors)
@@ -108,7 +104,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "types":
-            # handle one must property
+            # handle must types property
             must_count += 1
             # $.'$Schema'.types
             res = isinstance(pval, list)
@@ -127,7 +123,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$Schema'.types]", lpath_0 if path is not None else None))
                 return False
         elif prop == "metadata":
-            # handle one may property
+            # handle may metadata property
             # $.'$Schema'.metadata
             res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
@@ -221,27 +217,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [$.'$atomic'.'|']", path))
     return res
 
-# check _jm_obj_2_must_baseType ($.'$Atomic'.baseType)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Atomic'.baseType
-    res = json_model_4(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $atomic-types [$.'$Atomic'.baseType]", path))
-    return res
-
-# check _jm_obj_2_must_kind ($.'$Atomic'.kind)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Atomic'.kind
-    res = isinstance(val, str) and val == "atomic"
-    if not res:
-        rep is None or rep.append(("unexpected atomic [$.'$Atomic'.kind]", path))
-    return res
-
-
 # check _jm_obj_2_may_enumeration ($.'$Atomic'.enumeration)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.enumeration
     res = isinstance(val, list)
@@ -260,7 +237,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_2_may_explicitTypeZone ($.'$Atomic'.explicitTypeZone)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.explicitTypeZone
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_1
@@ -269,7 +246,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_fractionDigits ($.'$Atomic'.fractionDigits)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.fractionDigits
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -278,7 +255,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_length ($.'$Atomic'.length)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.length
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -287,7 +264,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_maxExclusive ($.'$Atomic'.maxExclusive)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.maxExclusive
     res = json_model_5(val, path, rep)
@@ -296,7 +273,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_maxInclusive ($.'$Atomic'.maxInclusive)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.maxInclusive
     res = json_model_5(val, path, rep)
@@ -305,7 +282,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_maxLength ($.'$Atomic'.maxLength)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.maxLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -314,7 +291,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_minExclusive ($.'$Atomic'.minExclusive)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.minExclusive
     res = json_model_5(val, path, rep)
@@ -323,7 +300,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_minInclusive ($.'$Atomic'.minInclusive)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.minInclusive
     res = json_model_5(val, path, rep)
@@ -332,7 +309,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_minLength ($.'$Atomic'.minLength)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.minLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -341,7 +318,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_name ($.'$Atomic'.name)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.name
     res = isinstance(val, str)
@@ -350,7 +327,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_pattern ($.'$Atomic'.pattern)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.pattern
     res = isinstance(val, str)
@@ -359,7 +336,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_totalDigits ($.'$Atomic'.totalDigits)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Atomic'.totalDigits
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -373,18 +350,32 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$Atomic']", path))
         return False
+    res: bool
     pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Atomic']", lpath_2 if path is not None else None))
-                    return False
+        if prop == "kind":
+            # handle must kind property
+            must_count += 1
+            # $.'$Atomic'.kind
+            res = isinstance(pval, str) and pval == "atomic"
+            if not res:
+                rep is None or rep.append(("unexpected atomic [$.'$Atomic'.kind]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Atomic'.kind]", lpath_2 if path is not None else None))
+                return False
+        elif prop == "baseType":
+            # handle must baseType property
+            must_count += 1
+            # $.'$Atomic'.baseType
+            res = json_model_4(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $atomic-types [$.'$Atomic'.baseType]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Atomic'.baseType]", lpath_2 if path is not None else None))
+                return False
         elif pfun := _jm_obj_2_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_2 if path is not None else None, rep):
@@ -408,7 +399,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_may_baseType ($.'$Object'.baseType)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Object'.baseType
     res = isinstance(val, str)
@@ -417,7 +408,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_may_closed ($.'$Object'.closed)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Object'.closed
     res = isinstance(val, bool)
@@ -426,7 +417,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_may_content ($.'$Object'.content)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Object'.content
     res = isinstance(val, list)
@@ -444,7 +435,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_may_name ($.'$Object'.name)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Object'.name
     res = isinstance(val, str)
@@ -465,7 +456,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         if prop == "kind":
-            # handle one must property
+            # handle must kind property
             must_count += 1
             # $.'$Object'.kind
             res = isinstance(pval, str) and pval == "object"
@@ -496,74 +487,62 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Object']", path))
     return res
 
-# check _jm_obj_4_must_name ($.'$Fields'.name)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Fields'.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Fields'.name]", path))
-    return res
-
-# check _jm_obj_4_must_type ($.'$Fields'.type)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Fields'.type
-    res = json_model_11(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $type-or-ref [$.'$Fields'.type]", path))
-    return res
-
-
-# check _jm_obj_4_may_default ($.'$Fields'.default)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Fields'.default
-    res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [$.'$Fields'.default]", path))
-    return res
-
-# check _jm_obj_4_may_required ($.'$Fields'.required)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Fields'.required
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [$.'$Fields'.required]", path))
-    return res
-
-# check _jm_obj_4_may_unique ($.'$Fields'.unique)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Fields'.unique
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [$.'$Fields'.unique]", path))
-    return res
-
-
 # object $.'$Fields'
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$Fields']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_4_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_4 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Fields']", lpath_4 if path is not None else None))
-                    return False
-        elif pfun := _jm_obj_4_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_4 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$Fields']", lpath_4 if path is not None else None))
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # $.'$Fields'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Fields'.name]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Fields'.name]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "type":
+            # handle must type property
+            must_count += 1
+            # $.'$Fields'.type
+            res = json_model_11(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $type-or-ref [$.'$Fields'.type]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Fields'.type]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "required":
+            # handle may required property
+            # $.'$Fields'.required
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [$.'$Fields'.required]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$Fields'.required]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "default":
+            # handle may default property
+            # $.'$Fields'.default
+            res = True
+            if not res:
+                rep is None or rep.append(("unexpected $ANY [$.'$Fields'.default]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$Fields'.default]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "unique":
+            # handle may unique property
+            # $.'$Fields'.unique
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [$.'$Fields'.unique]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$Fields'.unique]", lpath_4 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$Fields']", lpath_4 if path is not None else None))
@@ -583,7 +562,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_5_may_baseType ($.'$Array'.baseType)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Array'.baseType
     res = isinstance(val, str)
@@ -592,7 +571,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_5_may_content ($.'$Array'.content)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Array'.content
     res = json_model_11(val, path, rep)
@@ -601,7 +580,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_5_may_maxLength ($.'$Array'.maxLength)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Array'.maxLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -610,7 +589,7 @@ def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_5_may_minLength ($.'$Array'.minLength)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Array'.minLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -619,7 +598,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_5_may_name ($.'$Array'.name)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Array'.name
     res = isinstance(val, str)
@@ -640,7 +619,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_5: Path = (path + [ prop ]) if path is not None else None
         if prop == "kind":
-            # handle one must property
+            # handle must kind property
             must_count += 1
             # $.'$Array'.kind
             res = isinstance(pval, str) and pval == "array"
@@ -671,63 +650,57 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Array']", path))
     return res
 
-# check _jm_obj_6_must_content ($.'$Union'.content)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Union'.content
-    res = isinstance(val, list)
-    if res:
-        for arr_4_idx, arr_4_item in enumerate(val):
-            arr_4_lpath: Path = (path + [ arr_4_idx ]) if path is not None else None
-            # $.'$Union'.content.0
-            res = json_model_11(arr_4_item, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $type-or-ref [$.'$Union'.content.0]", arr_4_lpath if path is not None else None))
-            if not res:
-                break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$Union'.content]", path))
-    return res
-
-# check _jm_obj_6_must_kind ($.'$Union'.kind)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Union'.kind
-    res = isinstance(val, str) and val == "union"
-    if not res:
-        rep is None or rep.append(("unexpected union [$.'$Union'.kind]", path))
-    return res
-
-# check _jm_obj_6_must_name ($.'$Union'.name)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Union'.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Union'.name]", path))
-    return res
-
-
 # object $.'$Union'
 def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$Union']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_6: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_6_must.get(prop):
-            # handle 3 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_6 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Union']", lpath_6 if path is not None else None))
-                    return False
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # $.'$Union'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Union'.name]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Union'.name]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "kind":
+            # handle must kind property
+            must_count += 1
+            # $.'$Union'.kind
+            res = isinstance(pval, str) and pval == "union"
+            if not res:
+                rep is None or rep.append(("unexpected union [$.'$Union'.kind]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Union'.kind]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "content":
+            # handle must content property
+            must_count += 1
+            # $.'$Union'.content
+            res = isinstance(pval, list)
+            if res:
+                for arr_4_idx, arr_4_item in enumerate(pval):
+                    arr_4_lpath: Path = ((lpath_6 if path is not None else None) + [ arr_4_idx ]) if (lpath_6 if path is not None else None) is not None else None
+                    # $.'$Union'.content.0
+                    res = json_model_11(arr_4_item, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $type-or-ref [$.'$Union'.content.0]", arr_4_lpath if (lpath_6 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [$.'$Union'.content]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Union'.content]", lpath_6 if path is not None else None))
+                return False
         elif prop == "baseType":
-            # handle one may property
+            # handle may baseType property
             # $.'$Union'.baseType
             res = isinstance(pval, str)
             if not res:
@@ -796,60 +769,38 @@ def check_model_init():
         }
         global _jm_cst_0
         _jm_cst_0 = {'anyURI', 'base64Binary', 'boolean', 'date', 'dateTime', 'dateTimeStamp', 'decimal', 'double', 'duration', 'hexBinary', 'integer', 'null', 'string', 'time'}
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
-            "baseType": _jm_f_4,
-            "kind": _jm_f_5,
-        }
         global _jm_cst_1
         _jm_cst_1 = {'optional', 'prohibited', 'required'}
         global _jm_obj_2_may
         _jm_obj_2_may = {
-            "enumeration": _jm_f_6,
-            "explicitTypeZone": _jm_f_7,
-            "fractionDigits": _jm_f_8,
-            "length": _jm_f_9,
-            "maxExclusive": _jm_f_10,
-            "maxInclusive": _jm_f_11,
-            "maxLength": _jm_f_12,
-            "minExclusive": _jm_f_13,
-            "minInclusive": _jm_f_14,
-            "minLength": _jm_f_15,
-            "name": _jm_f_16,
-            "pattern": _jm_f_17,
-            "totalDigits": _jm_f_18,
+            "enumeration": _jm_f_4,
+            "explicitTypeZone": _jm_f_5,
+            "fractionDigits": _jm_f_6,
+            "length": _jm_f_7,
+            "maxExclusive": _jm_f_8,
+            "maxInclusive": _jm_f_9,
+            "maxLength": _jm_f_10,
+            "minExclusive": _jm_f_11,
+            "minInclusive": _jm_f_12,
+            "minLength": _jm_f_13,
+            "name": _jm_f_14,
+            "pattern": _jm_f_15,
+            "totalDigits": _jm_f_16,
         }
         global _jm_obj_3_may
         _jm_obj_3_may = {
-            "baseType": _jm_f_19,
-            "closed": _jm_f_20,
-            "content": _jm_f_21,
-            "name": _jm_f_22,
-        }
-        global _jm_obj_4_must
-        _jm_obj_4_must = {
-            "name": _jm_f_23,
-            "type": _jm_f_24,
-        }
-        global _jm_obj_4_may
-        _jm_obj_4_may = {
-            "default": _jm_f_25,
-            "required": _jm_f_26,
-            "unique": _jm_f_27,
+            "baseType": _jm_f_17,
+            "closed": _jm_f_18,
+            "content": _jm_f_19,
+            "name": _jm_f_20,
         }
         global _jm_obj_5_may
         _jm_obj_5_may = {
-            "baseType": _jm_f_28,
-            "content": _jm_f_29,
-            "maxLength": _jm_f_30,
-            "minLength": _jm_f_31,
-            "name": _jm_f_32,
-        }
-        global _jm_obj_6_must
-        _jm_obj_6_must = {
-            "content": _jm_f_33,
-            "kind": _jm_f_34,
-            "name": _jm_f_35,
+            "baseType": _jm_f_21,
+            "content": _jm_f_22,
+            "maxLength": _jm_f_23,
+            "minLength": _jm_f_24,
+            "name": _jm_f_25,
         }
         global check_model_map
         check_model_map = {

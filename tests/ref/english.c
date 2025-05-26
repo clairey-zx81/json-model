@@ -12,9 +12,6 @@ static bool json_model_19(const json_t* val, Path* path, Report* rep);
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_5_may_tab[2];
 static pcre2_code *_jm_re_1_code = NULL;
 static pcre2_match_data *_jm_re_1_data = NULL;
 static bool _jm_re_1(const char *s);
@@ -23,14 +20,11 @@ static pcre2_match_data *_jm_re_2_data = NULL;
 static bool _jm_re_2(const char *s);
 static bool json_model_16(const json_t* val, Path* path, Report* rep);
 static bool json_model_5(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_7_may_tab[2];
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static pcre2_code *_jm_re_3_code = NULL;
 static pcre2_match_data *_jm_re_3_data = NULL;
 static bool _jm_re_3(const char *s);
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static pcre2_code *_jm_re_4_code = NULL;
 static pcre2_match_data *_jm_re_4_data = NULL;
 static bool _jm_re_4(const char *s);
@@ -40,61 +34,40 @@ static bool _jm_re_5(const char *s);
 static pcre2_code *_jm_re_6_code = NULL;
 static pcre2_match_data *_jm_re_6_data = NULL;
 static bool _jm_re_6(const char *s);
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_6_may_tab[4];
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_6_may_tab[4];
+static propmap_t _jm_obj_9_may_tab[4];
 static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_11(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_10_may_tab[2];
-static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_12_may_tab[4];
 static bool _jm_f_12(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_13(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_9_may_tab[4];
 static bool _jm_f_14(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_15(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_15_may_tab[4];
 static bool _jm_f_16(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_17(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_13_may_tab[2];
-static bool _jm_f_15(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_18(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_19(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_12_may_tab[4];
+static propmap_t _jm_obj_18_may_tab[4];
 static bool _jm_f_20(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_21(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_22(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_23(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_16_may_tab[2];
-static bool _jm_f_21(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_24(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_25(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_15_may_tab[4];
-static bool _jm_f_26(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_28(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_29(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_19_may_tab[2];
-static bool _jm_f_27(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_30(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_31(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_18_may_tab[4];
-static bool _jm_f_32(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_33(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_35(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_36(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_22_may_tab[2];
-static bool _jm_f_34(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_37(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_38(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_21_may_tab[5];
 static bool json_model_24(const json_t* val, Path* path, Report* rep);
 static pcre2_code *_jm_re_7_code = NULL;
 static pcre2_match_data *_jm_re_7_data = NULL;
 static bool _jm_re_7(const char *s);
 static bool json_model_4(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_39(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_40(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_24_may_tab[2];
-static bool _jm_f_41(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_42(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_26_may_tab[2];
 static bool json_model_17(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -293,7 +266,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Elem'.'|'.5.'#'
             res = json_is_string(pval);
             if (! res)
@@ -355,7 +328,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "+") == 0)
         {
-            // handle one must property
+            // handle must + property
             must_count += 1;
             // $.'$Model#Elem'.'|'.4.'+'
             res = json_is_array(pval);
@@ -390,7 +363,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Elem'.'|'.4.'#'
             res = json_is_string(pval);
             if (! res)
@@ -434,7 +407,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         Path lpath_2 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "^") == 0)
         {
-            // handle one must property
+            // handle must ^ property
             must_count += 1;
             // $.'$Model#Elem'.'|'.3.'^'
             res = json_is_array(pval);
@@ -469,7 +442,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Elem'.'|'.3.'#'
             res = json_is_string(pval);
             if (! res)
@@ -513,7 +486,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         Path lpath_3 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "&") == 0)
         {
-            // handle one must property
+            // handle must & property
             must_count += 1;
             // $.'$Model#Elem'.'|'.2.'&'
             res = json_is_array(pval);
@@ -548,7 +521,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Elem'.'|'.2.'#'
             res = json_is_string(pval);
             if (! res)
@@ -592,7 +565,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         Path lpath_4 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "|") == 0)
         {
-            // handle one must property
+            // handle must | property
             must_count += 1;
             // $.'$Model#Elem'.'|'.1.'|'
             res = json_is_array(pval);
@@ -627,7 +600,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Elem'.'|'.1.'#'
             res = json_is_string(pval);
             if (! res)
@@ -654,37 +627,6 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_5_may_! ($.'$Model#Elem'.'|'.0.'!')
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Elem'.'|'.0.'!'
-    res = json_is_boolean(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a bool [$.'$Model#Elem'.'|'.0.'!']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_5_may_# ($.'$Model#Elem'.'|'.0.'#')
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Elem'.'|'.0.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Elem'.'|'.0.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_5_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_5_may_tab, 2);
-}
-
 static bool _jm_re_1(const char *s)
 {
   int rc = pcre2_match(_jm_re_1_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
@@ -708,7 +650,6 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
@@ -717,7 +658,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         Path lpath_5 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "@") == 0)
         {
-            // handle one must property
+            // handle must @ property
             must_count += 1;
             // $.'$Model#Elem'.'|'.0.'@'
             res = json_model_19(pval, path, rep);
@@ -731,12 +672,33 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_5_may(prop)))
+        else if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_5 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Elem'.'|'.0.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Elem'.'|'.0]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Elem'.'|'.0.'#']", (path ? &lpath_5 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Elem'.'|'.0.#]", (path ? &lpath_5 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "!") == 0)
+        {
+            // handle may ! property
+            // $.'$Model#Elem'.'|'.0.'!'
+            res = json_is_boolean(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [$.'$Model#Elem'.'|'.0.'!']", (path ? &lpath_5 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Elem'.'|'.0.!]", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -931,7 +893,7 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_may_# ($.'$Model#Root'.'|'.5.'#')
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.5.'#'
@@ -941,37 +903,6 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.5.'#']", path);
     }
     return res;
-}
-
-// check _jm_obj_7_may_ ($.'$Model#Root'.'|'.5.'$'.'')
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.5.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.5.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_7_may_# ($.'$Model#Root'.'|'.5.'$'.'#')
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.5.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.5.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_7_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_7_may_tab, 2);
 }
 
 static bool _jm_re_3(const char *s)
@@ -990,18 +921,38 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_7 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_7_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_7 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.5.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.5.'$']", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.5.'$'.'#']", (path ? &lpath_7 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.5.'$'.#]", (path ? &lpath_7 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.5.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.5.'$'.'']", (path ? &lpath_7 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.5.'$'.]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -1029,7 +980,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_may_$ ($.'$Model#Root'.'|'.5.'$')
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.5.'$'
@@ -1078,7 +1029,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
         Path lpath_8 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.5.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -1130,7 +1081,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_may_% ($.'$Model#Root'.'|'.5.'%')
-static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.5.'%'
@@ -1143,7 +1094,7 @@ static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_may_~ ($.'$Model#Root'.'|'.5.'~')
-static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.5.'~'
@@ -1217,7 +1168,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_may_# ($.'$Model#Root'.'|'.4.'#')
-static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.4.'#'
@@ -1229,37 +1180,6 @@ static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_ ($.'$Model#Root'.'|'.4.'$'.'')
-static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.4.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.4.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_10_may_# ($.'$Model#Root'.'|'.4.'$'.'#')
-static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.4.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.4.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_10_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_10_may_tab, 2);
-}
-
 // object $.'$Model#Root'.'|'.4.'$'
 static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
 {
@@ -1269,18 +1189,38 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_10 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_10_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_10 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.4.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.4.'$']", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.4.'$'.'#']", (path ? &lpath_10 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.4.'$'.#]", (path ? &lpath_10 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.4.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_10 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.4.'$'.]", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1308,7 +1248,7 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_may_$ ($.'$Model#Root'.'|'.4.'$')
-static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.4.'$'
@@ -1336,7 +1276,7 @@ static bool _jm_obj_11(const json_t* val, Path* path, Report* rep)
         Path lpath_11 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.4.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -1388,7 +1328,7 @@ static bool _jm_obj_11(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_may_% ($.'$Model#Root'.'|'.4.'%')
-static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.4.'%'
@@ -1401,7 +1341,7 @@ static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_may_~ ($.'$Model#Root'.'|'.4.'~')
-static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.4.'~'
@@ -1436,7 +1376,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
         Path lpath_9 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "+") == 0)
         {
-            // handle one must property
+            // handle must + property
             must_count += 1;
             // $.'$Model#Root'.'|'.4.'+'
             res = json_is_array(pval);
@@ -1493,7 +1433,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_12_may_# ($.'$Model#Root'.'|'.3.'#')
-static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.3.'#'
@@ -1505,37 +1445,6 @@ static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_13_may_ ($.'$Model#Root'.'|'.3.'$'.'')
-static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.3.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.3.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_13_may_# ($.'$Model#Root'.'|'.3.'$'.'#')
-static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.3.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.3.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_13_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_13_may_tab, 2);
-}
-
 // object $.'$Model#Root'.'|'.3.'$'
 static bool _jm_obj_13(const json_t* val, Path* path, Report* rep)
 {
@@ -1545,18 +1454,38 @@ static bool _jm_obj_13(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_13 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_13_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_13 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.3.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.3.'$']", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.3.'$'.'#']", (path ? &lpath_13 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.3.'$'.#]", (path ? &lpath_13 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.3.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_13 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.3.'$'.]", (path ? &lpath_13 : NULL));
                 return false;
             }
         }
@@ -1584,7 +1513,7 @@ static bool _jm_obj_13(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_12_may_$ ($.'$Model#Root'.'|'.3.'$')
-static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.3.'$'
@@ -1612,7 +1541,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
         Path lpath_14 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.3.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -1664,7 +1593,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_12_may_% ($.'$Model#Root'.'|'.3.'%')
-static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.3.'%'
@@ -1677,7 +1606,7 @@ static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_12_may_~ ($.'$Model#Root'.'|'.3.'~')
-static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.3.'~'
@@ -1712,7 +1641,7 @@ static bool _jm_obj_12(const json_t* val, Path* path, Report* rep)
         Path lpath_12 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "^") == 0)
         {
-            // handle one must property
+            // handle must ^ property
             must_count += 1;
             // $.'$Model#Root'.'|'.3.'^'
             res = json_is_array(pval);
@@ -1769,7 +1698,7 @@ static bool _jm_obj_12(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_15_may_# ($.'$Model#Root'.'|'.2.'#')
-static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.2.'#'
@@ -1781,37 +1710,6 @@ static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_ ($.'$Model#Root'.'|'.2.'$'.'')
-static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.2.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.2.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_16_may_# ($.'$Model#Root'.'|'.2.'$'.'#')
-static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.2.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.2.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_16_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_16_may_tab, 2);
-}
-
 // object $.'$Model#Root'.'|'.2.'$'
 static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
 {
@@ -1821,18 +1719,38 @@ static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_16 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_16_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_16 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.2.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.2.'$']", (path ? &lpath_16 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.2.'$'.'#']", (path ? &lpath_16 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.2.'$'.#]", (path ? &lpath_16 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.2.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_16 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.2.'$'.]", (path ? &lpath_16 : NULL));
                 return false;
             }
         }
@@ -1860,7 +1778,7 @@ static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_15_may_$ ($.'$Model#Root'.'|'.2.'$')
-static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.2.'$'
@@ -1888,7 +1806,7 @@ static bool _jm_obj_17(const json_t* val, Path* path, Report* rep)
         Path lpath_17 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.2.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -1940,7 +1858,7 @@ static bool _jm_obj_17(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_15_may_% ($.'$Model#Root'.'|'.2.'%')
-static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.2.'%'
@@ -1953,7 +1871,7 @@ static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_15_may_~ ($.'$Model#Root'.'|'.2.'~')
-static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.2.'~'
@@ -1988,7 +1906,7 @@ static bool _jm_obj_15(const json_t* val, Path* path, Report* rep)
         Path lpath_15 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "&") == 0)
         {
-            // handle one must property
+            // handle must & property
             must_count += 1;
             // $.'$Model#Root'.'|'.2.'&'
             res = json_is_array(pval);
@@ -2045,7 +1963,7 @@ static bool _jm_obj_15(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_18_may_# ($.'$Model#Root'.'|'.1.'#')
-static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.1.'#'
@@ -2057,37 +1975,6 @@ static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_ ($.'$Model#Root'.'|'.1.'$'.'')
-static bool _jm_f_28(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.1.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.1.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_19_may_# ($.'$Model#Root'.'|'.1.'$'.'#')
-static bool _jm_f_29(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.1.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.1.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_19_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_19_may_tab, 2);
-}
-
 // object $.'$Model#Root'.'|'.1.'$'
 static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
 {
@@ -2097,18 +1984,38 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_19 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_19_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_19 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.1.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.1.'$']", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.1.'$'.'#']", (path ? &lpath_19 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.1.'$'.#]", (path ? &lpath_19 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.1.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_19 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.1.'$'.]", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
@@ -2136,7 +2043,7 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_18_may_$ ($.'$Model#Root'.'|'.1.'$')
-static bool _jm_f_27(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.1.'$'
@@ -2164,7 +2071,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
         Path lpath_20 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.1.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -2216,7 +2123,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_18_may_% ($.'$Model#Root'.'|'.1.'%')
-static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.1.'%'
@@ -2229,7 +2136,7 @@ static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_18_may_~ ($.'$Model#Root'.'|'.1.'~')
-static bool _jm_f_31(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.1.'~'
@@ -2264,7 +2171,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
         Path lpath_18 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "|") == 0)
         {
-            // handle one must property
+            // handle must | property
             must_count += 1;
             // $.'$Model#Root'.'|'.1.'|'
             res = json_is_array(pval);
@@ -2321,7 +2228,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_21_may_! ($.'$Model#Root'.'|'.0.'!')
-static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.0.'!'
@@ -2334,7 +2241,7 @@ static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_21_may_# ($.'$Model#Root'.'|'.0.'#')
-static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.0.'#'
@@ -2346,37 +2253,6 @@ static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_22_may_ ($.'$Model#Root'.'|'.0.'$'.'')
-static bool _jm_f_35(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.0.'$'.''
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.0.'$'.'']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_22_may_# ($.'$Model#Root'.'|'.0.'$'.'#')
-static bool _jm_f_36(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Root'.'|'.0.'$'.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.0.'$'.'#']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_22_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_22_may_tab, 2);
-}
-
 // object $.'$Model#Root'.'|'.0.'$'
 static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
 {
@@ -2386,18 +2262,38 @@ static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_22 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_22_may(prop)))
+        if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_22 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Root'.'|'.0.'$'.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.0.'$']", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Root'.'|'.0.'$'.'#']", (path ? &lpath_22 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.0.'$'.#]", (path ? &lpath_22 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "") == 0)
+        {
+            // handle may  property
+            // $.'$Model#Root'.'|'.0.'$'.''
+            res = json_model_4(pval, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Url [$.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_22 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Root'.'|'.0.'$'.]", (path ? &lpath_22 : NULL));
                 return false;
             }
         }
@@ -2425,7 +2321,7 @@ static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_21_may_$ ($.'$Model#Root'.'|'.0.'$')
-static bool _jm_f_34(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.0.'$'
@@ -2453,7 +2349,7 @@ static bool _jm_obj_23(const json_t* val, Path* path, Report* rep)
         Path lpath_23 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$Model#Root'.'|'.0.'%'.'#'
             res = json_is_string(pval);
             if (! res)
@@ -2505,7 +2401,7 @@ static bool _jm_obj_23(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_21_may_% ($.'$Model#Root'.'|'.0.'%')
-static bool _jm_f_37(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.0.'%'
@@ -2518,7 +2414,7 @@ static bool _jm_f_37(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_21_may_~ ($.'$Model#Root'.'|'.0.'~')
-static bool _jm_f_38(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Model#Root'.'|'.0.'~'
@@ -2553,7 +2449,7 @@ static bool _jm_obj_21(const json_t* val, Path* path, Report* rep)
         Path lpath_21 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "@") == 0)
         {
-            // handle one must property
+            // handle must @ property
             must_count += 1;
             // $.'$Model#Root'.'|'.0.'@'
             res = json_model_19(pval, path, rep);
@@ -2762,37 +2658,6 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_24_may_# ($.'$Model#Trafo'.'|'.2.'#')
-static bool _jm_f_39(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Trafo'.'|'.2.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Trafo'.'|'.2.'#']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_24_may_/ ($.'$Model#Trafo'.'|'.2.'/')
-static bool _jm_f_40(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Trafo'.'|'.2.'/'
-    res = true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [$.'$Model#Trafo'.'|'.2.'/']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_24_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_24_may_tab, 2);
-}
-
 // object $.'$Model#Trafo'.'|'.2
 static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
 {
@@ -2802,7 +2667,6 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
@@ -2811,7 +2675,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         Path lpath_24 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "*") == 0)
         {
-            // handle one must property
+            // handle must * property
             must_count += 1;
             // $.'$Model#Trafo'.'|'.2.'*'
             // $.'$Model#Trafo'.'|'.2.'*'.'|'.0
@@ -2843,12 +2707,33 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_24_may(prop)))
+        else if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_24 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Trafo'.'|'.2.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.2]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Trafo'.'|'.2.'#']", (path ? &lpath_24 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.2.#]", (path ? &lpath_24 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "/") == 0)
+        {
+            // handle may / property
+            // $.'$Model#Trafo'.'|'.2.'/'
+            res = true;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $ANY [$.'$Model#Trafo'.'|'.2.'/']", (path ? &lpath_24 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.2./]", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2864,19 +2749,6 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         return false;
     }
     return true;
-}
-
-// check _jm_obj_26_may_# ($.'$Model#Trafo'.'|'.1.'#')
-static bool _jm_f_41(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Trafo'.'|'.1.'#'
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Trafo'.'|'.1.'#']", path);
-    }
-    return res;
 }
 
 // object $.'$Model#Trafo'.'|'.1.'*'.'|'.1
@@ -2908,42 +2780,6 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_26_may_* ($.'$Model#Trafo'.'|'.1.'*')
-static bool _jm_f_42(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Model#Trafo'.'|'.1.'*'
-    // $.'$Model#Trafo'.'|'.1.'*'.'|'.0
-    res = json_is_array(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Model#Trafo'.'|'.1.'*'.'|'.0]", path);
-    }
-    if (! res)
-    {
-        // $.'$Model#Trafo'.'|'.1.'*'.'|'.1
-        res = _jm_obj_27(val, path, rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Model#Trafo'.'|'.1.'*'.'|'.1]", path);
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [$.'$Model#Trafo'.'|'.1.'*'.'|']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_26_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_26_may_tab, 2);
-}
-
 // object $.'$Model#Trafo'.'|'.1
 static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
 {
@@ -2953,7 +2789,6 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
@@ -2962,7 +2797,7 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
         Path lpath_26 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "/") == 0)
         {
-            // handle one must property
+            // handle must / property
             must_count += 1;
             // $.'$Model#Trafo'.'|'.1.'/'
             res = true;
@@ -2976,12 +2811,51 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_26_may(prop)))
+        else if (strcmp(prop, "#") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_26 : NULL), rep))
+            // handle may # property
+            // $.'$Model#Trafo'.'|'.1.'#'
+            res = json_is_string(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.1]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Model#Trafo'.'|'.1.'#']", (path ? &lpath_26 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.1.#]", (path ? &lpath_26 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "*") == 0)
+        {
+            // handle may * property
+            // $.'$Model#Trafo'.'|'.1.'*'
+            // $.'$Model#Trafo'.'|'.1.'*'.'|'.0
+            res = json_is_array(pval);
+            if (res)
+            {
+                // accept any array
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Model#Trafo'.'|'.1.'*'.'|'.0]", (path ? &lpath_26 : NULL));
+            }
+            if (! res)
+            {
+                // $.'$Model#Trafo'.'|'.1.'*'.'|'.1
+                res = _jm_obj_27(pval, (path ? &lpath_26 : NULL), rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Model#Trafo'.'|'.1.'*'.'|'.1]", (path ? &lpath_26 : NULL));
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "no model matched [$.'$Model#Trafo'.'|'.1.'*'.'|']", (path ? &lpath_26 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Model#Trafo'.'|'.1.*]", (path ? &lpath_26 : NULL));
                 return false;
             }
         }
@@ -3068,9 +2942,6 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
-        _jm_obj_5_may_tab[0] = (propmap_t) { "!", _jm_f_0 };
-        _jm_obj_5_may_tab[1] = (propmap_t) { "#", _jm_f_1 };
-        jm_sort_propmap(_jm_obj_5_may_tab, 2);
         _jm_re_1_code = pcre2_compile((PCRE2_SPTR) "^(<=|>=|<|>|≥|≤)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
         if (_jm_re_1_code == NULL)
         {
@@ -3085,9 +2956,6 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_2_data = pcre2_match_data_create_from_pattern(_jm_re_2_code, NULL);
-        _jm_obj_7_may_tab[0] = (propmap_t) { "", _jm_f_4 };
-        _jm_obj_7_may_tab[1] = (propmap_t) { "#", _jm_f_5 };
-        jm_sort_propmap(_jm_obj_7_may_tab, 2);
         _jm_re_3_code = pcre2_compile((PCRE2_SPTR) ".+", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
         if (_jm_re_3_code == NULL)
         {
@@ -3116,51 +2984,36 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_6_data = pcre2_match_data_create_from_pattern(_jm_re_6_code, NULL);
-        _jm_obj_6_may_tab[0] = (propmap_t) { "#", _jm_f_2 };
-        _jm_obj_6_may_tab[1] = (propmap_t) { "$", _jm_f_3 };
-        _jm_obj_6_may_tab[2] = (propmap_t) { "%", _jm_f_6 };
-        _jm_obj_6_may_tab[3] = (propmap_t) { "~", _jm_f_7 };
+        _jm_obj_6_may_tab[0] = (propmap_t) { "#", _jm_f_0 };
+        _jm_obj_6_may_tab[1] = (propmap_t) { "$", _jm_f_1 };
+        _jm_obj_6_may_tab[2] = (propmap_t) { "%", _jm_f_2 };
+        _jm_obj_6_may_tab[3] = (propmap_t) { "~", _jm_f_3 };
         jm_sort_propmap(_jm_obj_6_may_tab, 4);
-        _jm_obj_10_may_tab[0] = (propmap_t) { "", _jm_f_10 };
-        _jm_obj_10_may_tab[1] = (propmap_t) { "#", _jm_f_11 };
-        jm_sort_propmap(_jm_obj_10_may_tab, 2);
-        _jm_obj_9_may_tab[0] = (propmap_t) { "#", _jm_f_8 };
-        _jm_obj_9_may_tab[1] = (propmap_t) { "$", _jm_f_9 };
-        _jm_obj_9_may_tab[2] = (propmap_t) { "%", _jm_f_12 };
-        _jm_obj_9_may_tab[3] = (propmap_t) { "~", _jm_f_13 };
+        _jm_obj_9_may_tab[0] = (propmap_t) { "#", _jm_f_4 };
+        _jm_obj_9_may_tab[1] = (propmap_t) { "$", _jm_f_5 };
+        _jm_obj_9_may_tab[2] = (propmap_t) { "%", _jm_f_6 };
+        _jm_obj_9_may_tab[3] = (propmap_t) { "~", _jm_f_7 };
         jm_sort_propmap(_jm_obj_9_may_tab, 4);
-        _jm_obj_13_may_tab[0] = (propmap_t) { "", _jm_f_16 };
-        _jm_obj_13_may_tab[1] = (propmap_t) { "#", _jm_f_17 };
-        jm_sort_propmap(_jm_obj_13_may_tab, 2);
-        _jm_obj_12_may_tab[0] = (propmap_t) { "#", _jm_f_14 };
-        _jm_obj_12_may_tab[1] = (propmap_t) { "$", _jm_f_15 };
-        _jm_obj_12_may_tab[2] = (propmap_t) { "%", _jm_f_18 };
-        _jm_obj_12_may_tab[3] = (propmap_t) { "~", _jm_f_19 };
+        _jm_obj_12_may_tab[0] = (propmap_t) { "#", _jm_f_8 };
+        _jm_obj_12_may_tab[1] = (propmap_t) { "$", _jm_f_9 };
+        _jm_obj_12_may_tab[2] = (propmap_t) { "%", _jm_f_10 };
+        _jm_obj_12_may_tab[3] = (propmap_t) { "~", _jm_f_11 };
         jm_sort_propmap(_jm_obj_12_may_tab, 4);
-        _jm_obj_16_may_tab[0] = (propmap_t) { "", _jm_f_22 };
-        _jm_obj_16_may_tab[1] = (propmap_t) { "#", _jm_f_23 };
-        jm_sort_propmap(_jm_obj_16_may_tab, 2);
-        _jm_obj_15_may_tab[0] = (propmap_t) { "#", _jm_f_20 };
-        _jm_obj_15_may_tab[1] = (propmap_t) { "$", _jm_f_21 };
-        _jm_obj_15_may_tab[2] = (propmap_t) { "%", _jm_f_24 };
-        _jm_obj_15_may_tab[3] = (propmap_t) { "~", _jm_f_25 };
+        _jm_obj_15_may_tab[0] = (propmap_t) { "#", _jm_f_12 };
+        _jm_obj_15_may_tab[1] = (propmap_t) { "$", _jm_f_13 };
+        _jm_obj_15_may_tab[2] = (propmap_t) { "%", _jm_f_14 };
+        _jm_obj_15_may_tab[3] = (propmap_t) { "~", _jm_f_15 };
         jm_sort_propmap(_jm_obj_15_may_tab, 4);
-        _jm_obj_19_may_tab[0] = (propmap_t) { "", _jm_f_28 };
-        _jm_obj_19_may_tab[1] = (propmap_t) { "#", _jm_f_29 };
-        jm_sort_propmap(_jm_obj_19_may_tab, 2);
-        _jm_obj_18_may_tab[0] = (propmap_t) { "#", _jm_f_26 };
-        _jm_obj_18_may_tab[1] = (propmap_t) { "$", _jm_f_27 };
-        _jm_obj_18_may_tab[2] = (propmap_t) { "%", _jm_f_30 };
-        _jm_obj_18_may_tab[3] = (propmap_t) { "~", _jm_f_31 };
+        _jm_obj_18_may_tab[0] = (propmap_t) { "#", _jm_f_16 };
+        _jm_obj_18_may_tab[1] = (propmap_t) { "$", _jm_f_17 };
+        _jm_obj_18_may_tab[2] = (propmap_t) { "%", _jm_f_18 };
+        _jm_obj_18_may_tab[3] = (propmap_t) { "~", _jm_f_19 };
         jm_sort_propmap(_jm_obj_18_may_tab, 4);
-        _jm_obj_22_may_tab[0] = (propmap_t) { "", _jm_f_35 };
-        _jm_obj_22_may_tab[1] = (propmap_t) { "#", _jm_f_36 };
-        jm_sort_propmap(_jm_obj_22_may_tab, 2);
-        _jm_obj_21_may_tab[0] = (propmap_t) { "!", _jm_f_32 };
-        _jm_obj_21_may_tab[1] = (propmap_t) { "#", _jm_f_33 };
-        _jm_obj_21_may_tab[2] = (propmap_t) { "$", _jm_f_34 };
-        _jm_obj_21_may_tab[3] = (propmap_t) { "%", _jm_f_37 };
-        _jm_obj_21_may_tab[4] = (propmap_t) { "~", _jm_f_38 };
+        _jm_obj_21_may_tab[0] = (propmap_t) { "!", _jm_f_20 };
+        _jm_obj_21_may_tab[1] = (propmap_t) { "#", _jm_f_21 };
+        _jm_obj_21_may_tab[2] = (propmap_t) { "$", _jm_f_22 };
+        _jm_obj_21_may_tab[3] = (propmap_t) { "%", _jm_f_23 };
+        _jm_obj_21_may_tab[4] = (propmap_t) { "~", _jm_f_24 };
         jm_sort_propmap(_jm_obj_21_may_tab, 5);
         _jm_re_7_code = pcre2_compile((PCRE2_SPTR) "^((file|https?)://.+|\\./.*|\\.\\./.*)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
         if (_jm_re_7_code == NULL)
@@ -3169,12 +3022,6 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_7_data = pcre2_match_data_create_from_pattern(_jm_re_7_code, NULL);
-        _jm_obj_24_may_tab[0] = (propmap_t) { "#", _jm_f_39 };
-        _jm_obj_24_may_tab[1] = (propmap_t) { "/", _jm_f_40 };
-        jm_sort_propmap(_jm_obj_24_may_tab, 2);
-        _jm_obj_26_may_tab[0] = (propmap_t) { "#", _jm_f_41 };
-        _jm_obj_26_may_tab[1] = (propmap_t) { "*", _jm_f_42 };
-        jm_sort_propmap(_jm_obj_26_may_tab, 2);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "Model", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);

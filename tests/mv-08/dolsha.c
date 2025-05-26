@@ -54,7 +54,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "prop") == 0)
         {
-            // handle one may property
+            // handle may prop property
             // $.prop
             res = json_model_1(pval, path, rep);
             if (! res)

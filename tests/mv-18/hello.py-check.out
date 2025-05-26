@@ -1,5 +1,5 @@
 hello.values.json[0]: PASS
 hello.values.json[1]: PASS
-hello.values.json[2]: FAIL [('not a bool [$.world]', ['world']), ('invalid must property value [$]', ['world']), ('not an expected object at [$]', [])]
-hello.values.json[3]: FAIL [('not a 0 strict int [$.hello]', ['hello']), ('invalid must property value [$]', ['hello']), ('not an expected object at [$]', [])]
+hello.values.json[2]: FAIL [('not a bool [$.world]', ['world']), ('invalid must property value [$.world]', ['world']), ('not an expected object at [$]', [])]
+hello.values.json[3]: FAIL [('not a 0 strict int [$.hello]', ['hello']), ('invalid must property value [$.hello]', ['hello']), ('not an expected object at [$]', [])]
 hello.values.json[4]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]

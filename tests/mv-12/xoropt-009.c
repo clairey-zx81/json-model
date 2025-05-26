@@ -68,7 +68,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "a") == 0)
         {
-            // handle one may property
+            // handle may a property
             // $.'^'.1.a
             res = json_is_null(pval);
             if (! res)

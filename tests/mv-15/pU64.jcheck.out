@@ -1,6 +1,0 @@
-pU64.0.true.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})
-pU64.1.true.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})
-pU64.2.false.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})
-pU64.3.false.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})
-pU64.4.false.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})
-pU64.5.false.json: ERROR (PointerToNowhere: '/$defs/U64' does not exist within {'$ref': '#/$defs/U64', '$schema': 'https://json-schema.org/draft/2020-12/schema'})

@@ -20,49 +20,39 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_1_must: PropMap
-_jm_obj_2_must: PropMap
-_jm_obj_3_must: PropMap
-_jm_obj_4_must: PropMap
 _jm_map_0: dict[str, str]
 check_model_map: PropMap
-
-# check _jm_obj_1_must_t ($.movie.'|'.0.t)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.0.t
-    res = isinstance(val, str) and val == "fr"
-    if not res:
-        rep is None or rep.append(("unexpected fr [$.movie.'|'.0.t]", path))
-    return res
-
-# check _jm_obj_1_must_titre ($.movie.'|'.0.titre)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.0.titre
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.movie.'|'.0.titre]", path))
-    return res
-
 
 # object $.movie.'|'.0
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.movie.'|'.0]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_1_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_1 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.movie.'|'.0]", lpath_1 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.movie.'|'.0.t
+            res = isinstance(pval, str) and pval == "fr"
+            if not res:
+                rep is None or rep.append(("unexpected fr [$.movie.'|'.0.t]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.0.t]", lpath_1 if path is not None else None))
+                return False
+        elif prop == "titre":
+            # handle must titre property
+            must_count += 1
+            # $.movie.'|'.0.titre
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.movie.'|'.0.titre]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.0.titre]", lpath_1 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.movie.'|'.0]", lpath_1 if path is not None else None))
             return False
@@ -71,42 +61,36 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_2_must_t ($.movie.'|'.1.t)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.1.t
-    res = isinstance(val, str) and val == "en"
-    if not res:
-        rep is None or rep.append(("unexpected en [$.movie.'|'.1.t]", path))
-    return res
-
-# check _jm_obj_2_must_title ($.movie.'|'.1.title)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.1.title
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.movie.'|'.1.title]", path))
-    return res
-
-
 # object $.movie.'|'.1
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.movie.'|'.1]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.movie.'|'.1]", lpath_2 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.movie.'|'.1.t
+            res = isinstance(pval, str) and pval == "en"
+            if not res:
+                rep is None or rep.append(("unexpected en [$.movie.'|'.1.t]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.1.t]", lpath_2 if path is not None else None))
+                return False
+        elif prop == "title":
+            # handle must title property
+            must_count += 1
+            # $.movie.'|'.1.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.movie.'|'.1.title]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.1.title]", lpath_2 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.movie.'|'.1]", lpath_2 if path is not None else None))
             return False
@@ -115,42 +99,36 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_3_must_Title ($.movie.'|'.2.Title)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.2.Title
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.movie.'|'.2.Title]", path))
-    return res
-
-# check _jm_obj_3_must_t ($.movie.'|'.2.t)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.2.t
-    res = isinstance(val, str) and val == "de"
-    if not res:
-        rep is None or rep.append(("unexpected de [$.movie.'|'.2.t]", path))
-    return res
-
-
 # object $.movie.'|'.2
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.movie.'|'.2]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_3_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_3 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.movie.'|'.2]", lpath_3 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.movie.'|'.2.t
+            res = isinstance(pval, str) and pval == "de"
+            if not res:
+                rep is None or rep.append(("unexpected de [$.movie.'|'.2.t]", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.2.t]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "Title":
+            # handle must Title property
+            must_count += 1
+            # $.movie.'|'.2.Title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.movie.'|'.2.Title]", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.2.Title]", lpath_3 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.movie.'|'.2]", lpath_3 if path is not None else None))
             return False
@@ -159,42 +137,36 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_4_must_suti ($.movie.'|'.3.suti)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.3.suti
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.movie.'|'.3.suti]", path))
-    return res
-
-# check _jm_obj_4_must_t ($.movie.'|'.3.t)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie.'|'.3.t
-    res = isinstance(val, str) and val == "ru"
-    if not res:
-        rep is None or rep.append(("unexpected ru [$.movie.'|'.3.t]", path))
-    return res
-
-
 # object $.movie.'|'.3
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.movie.'|'.3]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_4_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_4 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.movie.'|'.3]", lpath_4 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.movie.'|'.3.t
+            res = isinstance(pval, str) and pval == "ru"
+            if not res:
+                rep is None or rep.append(("unexpected ru [$.movie.'|'.3.t]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.3.t]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "suti":
+            # handle must suti property
+            must_count += 1
+            # $.movie.'|'.3.suti
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.movie.'|'.3.suti]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie.'|'.3.suti]", lpath_4 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.movie.'|'.3]", lpath_4 if path is not None else None))
             return False
@@ -215,7 +187,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "movie":
-            # handle one must property
+            # handle must movie property
             must_count += 1
             # $.movie
             res = isinstance(pval, dict)
@@ -262,26 +234,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_1_must
-        _jm_obj_1_must = {
-            "t": _jm_f_0,
-            "titre": _jm_f_1,
-        }
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
-            "t": _jm_f_2,
-            "title": _jm_f_3,
-        }
-        global _jm_obj_3_must
-        _jm_obj_3_must = {
-            "Title": _jm_f_4,
-            "t": _jm_f_5,
-        }
-        global _jm_obj_4_must
-        _jm_obj_4_must = {
-            "suti": _jm_f_6,
-            "t": _jm_f_7,
-        }
         global _jm_map_0
         _jm_map_0 = {
             "fr": _jm_obj_1,

@@ -20,47 +20,39 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
-_jm_obj_1_must: PropMap
 _jm_map_0: ConstMap = ConstMap()
 check_model_map: PropMap
-
-# check _jm_obj_0_must_discriminator ($.'|'.0.discriminator)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.0.discriminator
-    res = isinstance(val, bool) and val == True
-    if not res:
-        rep is None or rep.append(("unexpected =true [$.'|'.0.discriminator]", path))
-    return res
-
-# check _jm_obj_0_must_x ($.'|'.0.x)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.0.x
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'|'.0.x]", path))
-    return res
-
 
 # object $.'|'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'|'.0]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'|'.0]", lpath_0 if path is not None else None))
-                    return False
+        if prop == "discriminator":
+            # handle must discriminator property
+            must_count += 1
+            # $.'|'.0.discriminator
+            res = isinstance(pval, bool) and pval == True
+            if not res:
+                rep is None or rep.append(("unexpected =true [$.'|'.0.discriminator]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'|'.0.discriminator]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "x":
+            # handle must x property
+            must_count += 1
+            # $.'|'.0.x
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'|'.0.x]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'|'.0.x]", lpath_0 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'|'.0]", lpath_0 if path is not None else None))
             return False
@@ -69,42 +61,36 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_1_must_discriminator ($.'|'.1.discriminator)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.1.discriminator
-    res = isinstance(val, bool) and val == False
-    if not res:
-        rep is None or rep.append(("unexpected =false [$.'|'.1.discriminator]", path))
-    return res
-
-# check _jm_obj_1_must_y ($.'|'.1.y)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.1.y
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'|'.1.y]", path))
-    return res
-
-
 # object $.'|'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'|'.1]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_1_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_1 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'|'.1]", lpath_1 if path is not None else None))
-                    return False
+        if prop == "discriminator":
+            # handle must discriminator property
+            must_count += 1
+            # $.'|'.1.discriminator
+            res = isinstance(pval, bool) and pval == False
+            if not res:
+                rep is None or rep.append(("unexpected =false [$.'|'.1.discriminator]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'|'.1.discriminator]", lpath_1 if path is not None else None))
+                return False
+        elif prop == "y":
+            # handle must y property
+            must_count += 1
+            # $.'|'.1.y
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'|'.1.y]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'|'.1.y]", lpath_1 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'|'.1]", lpath_1 if path is not None else None))
             return False
@@ -144,16 +130,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "discriminator": _jm_f_0,
-            "x": _jm_f_1,
-        }
-        global _jm_obj_1_must
-        _jm_obj_1_must = {
-            "discriminator": _jm_f_2,
-            "y": _jm_f_3,
-        }
         global _jm_map_0
         _jm_map_0[True] = _jm_obj_0
         _jm_map_0[False] = _jm_obj_1

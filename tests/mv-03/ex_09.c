@@ -53,7 +53,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'$EX09'.'#'
             res = json_is_string(pval);
             if (! res)

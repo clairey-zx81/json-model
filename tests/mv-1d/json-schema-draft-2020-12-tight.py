@@ -312,7 +312,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Null'.type
             res = isinstance(pval, str) and pval == "null"
@@ -349,7 +349,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_5: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Boolean'.type
             res = isinstance(pval, str) and pval == "boolean"
@@ -473,7 +473,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_6: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Number'.type
             res = isinstance(pval, str) and pval == "number"
@@ -562,7 +562,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_7: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Integer'.type
             res = isinstance(pval, str) and pval == "integer"
@@ -669,7 +669,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_8: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$String'.type
             res = isinstance(pval, str) and pval == "string"
@@ -842,7 +842,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_9: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Array'.type
             res = isinstance(pval, str) and pval == "array"
@@ -1052,7 +1052,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_10: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$Object'.type
             res = isinstance(pval, str) and pval == "object"
@@ -1853,7 +1853,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_19: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.6.type
             res = isinstance(pval, str) and pval == "object"
@@ -2156,7 +2156,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_26: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.5.type
             res = isinstance(pval, str) and pval == "array"
@@ -2441,7 +2441,7 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_29: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.4.type
             res = isinstance(pval, str) and pval == "string"
@@ -2708,7 +2708,7 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_32: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.3.type
             res = isinstance(pval, str) and pval == "integer"
@@ -3015,7 +3015,7 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_35: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.2.type
             res = isinstance(pval, str) and pval == "number"
@@ -3237,7 +3237,7 @@ def _jm_obj_38(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_38: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.1.type
             res = isinstance(pval, str) and pval == "boolean"
@@ -3459,7 +3459,7 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_41: Path = (path + [ prop ]) if path is not None else None
         if prop == "type":
-            # handle one must property
+            # handle must type property
             must_count += 1
             # $.'$TightSchema'.'|'.0.type
             res = isinstance(pval, str) and pval == "null"

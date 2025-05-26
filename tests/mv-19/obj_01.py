@@ -46,7 +46,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "foo":
-            # handle one must property
+            # handle must foo property
             must_count += 1
             # $.foo
             res = is_valid_date(pval, path, rep)
@@ -56,7 +56,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.foo]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bla":
-            # handle one may property
+            # handle may bla property
             # $.bla
             res = isinstance(pval, bool)
             if not res:

@@ -20,7 +20,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_2_must: PropMap
 check_model_map: PropMap
 
 # object $.'$loose'
@@ -34,7 +33,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "li":
-            # handle one must property
+            # handle must li property
             must_count += 1
             # $.'$loose'.li
             res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval)) and pval >= 0
@@ -71,7 +70,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "si":
-            # handle one must property
+            # handle must si property
             must_count += 1
             # $.'$strict'.si
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
@@ -97,42 +96,36 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$strict']", path))
     return res
 
-# check _jm_obj_2_must_li ($.'$combined'.li)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$combined'.li
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$combined'.li]", path))
-    return res
-
-# check _jm_obj_2_must_si ($.'$combined'.si)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$combined'.si
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$combined'.si]", path))
-    return res
-
-
 # object $.'$combined'
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$combined']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$combined']", lpath_2 if path is not None else None))
-                    return False
+        if prop == "li":
+            # handle must li property
+            must_count += 1
+            # $.'$combined'.li
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$combined'.li]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$combined'.li]", lpath_2 if path is not None else None))
+                return False
+        elif prop == "si":
+            # handle must si property
+            must_count += 1
+            # $.'$combined'.si
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$combined'.si]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$combined'.si]", lpath_2 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$combined']", lpath_2 if path is not None else None))
             return False
@@ -168,11 +161,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
-            "li": _jm_f_0,
-            "si": _jm_f_1,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

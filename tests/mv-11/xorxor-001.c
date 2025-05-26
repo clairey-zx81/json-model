@@ -54,7 +54,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "X") == 0)
         {
-            // handle one must property
+            // handle must X property
             must_count += 1;
             // $.'$X'.X
             res = json_is_string(pval);
@@ -112,7 +112,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "Y") == 0)
         {
-            // handle one must property
+            // handle must Y property
             must_count += 1;
             // $.'$Y'.Y
             res = json_is_string(pval);
@@ -170,7 +170,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         Path lpath_2 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "Y") == 0)
         {
-            // handle one must property
+            // handle must Y property
             must_count += 1;
             // $.'$E'.'|'.1.Y
             res = json_is_string(pval);
@@ -186,7 +186,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "Z") == 0)
         {
-            // handle one may property
+            // handle may Z property
             // $.'$E'.'|'.1.Z
             res = json_is_string(pval);
             if (! res)
@@ -230,7 +230,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         Path lpath_3 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "X") == 0)
         {
-            // handle one must property
+            // handle must X property
             must_count += 1;
             // $.'$E'.'|'.0.X
             res = json_is_string(pval);
@@ -246,7 +246,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "Z") == 0)
         {
-            // handle one may property
+            // handle may Z property
             // $.'$E'.'|'.0.Z
             res = json_is_string(pval);
             if (! res)

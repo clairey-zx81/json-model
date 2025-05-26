@@ -50,7 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "X":
-            # handle one must property
+            # handle must X property
             must_count += 1
             # $.'$X'.X
             res = isinstance(pval, str)
@@ -87,7 +87,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "Y":
-            # handle one must property
+            # handle must Y property
             must_count += 1
             # $.'$Y'.Y
             res = isinstance(pval, str)
@@ -124,7 +124,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if prop == "Y":
-            # handle one must property
+            # handle must Y property
             must_count += 1
             # $.'$E'.'|'.1.Y
             res = isinstance(pval, str)
@@ -134,7 +134,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
                 return False
         elif prop == "Z":
-            # handle one may property
+            # handle may Z property
             # $.'$E'.'|'.1.Z
             res = isinstance(pval, str)
             if not res:
@@ -161,7 +161,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         if prop == "X":
-            # handle one must property
+            # handle must X property
             must_count += 1
             # $.'$E'.'|'.0.X
             res = isinstance(pval, str)
@@ -171,7 +171,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
                 return False
         elif prop == "Z":
-            # handle one may property
+            # handle may Z property
             # $.'$E'.'|'.0.Z
             res = isinstance(pval, str)
             if not res:

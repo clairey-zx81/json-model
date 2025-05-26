@@ -1,50 +1,10 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_must_tab[2];
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_1_must_tab[2];
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_2_must_tab[2];
 static constmap_t _jm_map_0_tab[3];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
-
-// check _jm_obj_0_must_d ($.'|'.0.d)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.0.d
-    res = json_is_integer(val) && json_integer_value(val) == 1;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected =1 [$.'|'.0.d]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_0_must_val ($.'|'.0.val)
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.0.val
-    res = json_is_integer(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'|'.0.val]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_must_tab, 2);
-}
 
 // object $.'|'.0
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
@@ -54,24 +14,43 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'|'.0]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_must(prop)))
+        if (strcmp(prop, "d") == 0)
         {
-            // handle 2 must props
-            if (pfun != NULL)
+            // handle must d property
+            must_count += 1;
+            // $.'|'.0.d
+            res = json_is_integer(pval) && json_integer_value(pval) == 1;
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.0]", (path ? &lpath_0 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected =1 [$.'|'.0.d]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.0.d]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "val") == 0)
+        {
+            // handle must val property
+            must_count += 1;
+            // $.'|'.0.val
+            res = json_is_integer(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'|'.0.val]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.0.val]", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
         else
@@ -88,37 +67,6 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_1_must_d ($.'|'.1.d)
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.1.d
-    res = json_is_integer(val) && json_integer_value(val) == 2;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected =2 [$.'|'.1.d]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_1_must_val ($.'|'.1.val)
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.1.val
-    res = json_is_string(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.1.val]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_1_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_1_must_tab, 2);
-}
-
 // object $.'|'.1
 static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 {
@@ -127,24 +75,43 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'|'.1]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_1 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_1_must(prop)))
+        if (strcmp(prop, "d") == 0)
         {
-            // handle 2 must props
-            if (pfun != NULL)
+            // handle must d property
+            must_count += 1;
+            // $.'|'.1.d
+            res = json_is_integer(pval) && json_integer_value(pval) == 2;
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_1 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.1]", (path ? &lpath_1 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected =2 [$.'|'.1.d]", (path ? &lpath_1 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.1.d]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "val") == 0)
+        {
+            // handle must val property
+            must_count += 1;
+            // $.'|'.1.val
+            res = json_is_string(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.1.val]", (path ? &lpath_1 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.1.val]", (path ? &lpath_1 : NULL));
+                return false;
             }
         }
         else
@@ -161,37 +128,6 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_2_must_d ($.'|'.2.d)
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.2.d
-    res = json_is_integer(val) && json_integer_value(val) == 3;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected =3 [$.'|'.2.d]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_must_val ($.'|'.2.val)
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'|'.2.val
-    res = json_is_boolean(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a bool [$.'|'.2.val]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_2_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_2_must_tab, 2);
-}
-
 // object $.'|'.2
 static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 {
@@ -200,24 +136,43 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'|'.2]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_2 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_2_must(prop)))
+        if (strcmp(prop, "d") == 0)
         {
-            // handle 2 must props
-            if (pfun != NULL)
+            // handle must d property
+            must_count += 1;
+            // $.'|'.2.d
+            res = json_is_integer(pval) && json_integer_value(pval) == 3;
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_2 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.2]", (path ? &lpath_2 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected =3 [$.'|'.2.d]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.2.d]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "val") == 0)
+        {
+            // handle must val property
+            must_count += 1;
+            // $.'|'.2.val
+            res = json_is_boolean(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [$.'|'.2.val]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'|'.2.val]", (path ? &lpath_2 : NULL));
+                return false;
             }
         }
         else
@@ -289,15 +244,6 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_0_must_tab[0] = (propmap_t) { "d", _jm_f_0 };
-        _jm_obj_0_must_tab[1] = (propmap_t) { "val", _jm_f_1 };
-        jm_sort_propmap(_jm_obj_0_must_tab, 2);
-        _jm_obj_1_must_tab[0] = (propmap_t) { "d", _jm_f_2 };
-        _jm_obj_1_must_tab[1] = (propmap_t) { "val", _jm_f_3 };
-        jm_sort_propmap(_jm_obj_1_must_tab, 2);
-        _jm_obj_2_must_tab[0] = (propmap_t) { "d", _jm_f_4 };
-        _jm_obj_2_must_tab[1] = (propmap_t) { "val", _jm_f_5 };
-        jm_sort_propmap(_jm_obj_2_must_tab, 2);
         _jm_map_0_tab[0] = (constmap_t) { (constant_t) { cst_is_integer, { .i = 1 } }, _jm_obj_0 };
         _jm_map_0_tab[1] = (constmap_t) { (constant_t) { cst_is_integer, { .i = 2 } }, _jm_obj_1 };
         _jm_map_0_tab[2] = (constmap_t) { (constant_t) { cst_is_integer, { .i = 3 } }, _jm_obj_2 };

@@ -1,7 +1,0 @@
-str_0.0.true.json: PASS
-str_0.1.false.json: FAIL
-str_0.2.false.json: FAIL
-str_0.3.false.json: FAIL
-str_0.4.false.json: FAIL
-str_0.5.false.json: FAIL
-str_0.6.false.json: FAIL

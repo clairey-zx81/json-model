@@ -1,0 +1,9 @@
+{
+  "#": "inline up to 3 must/may properties",
+  "mu1": null,
+  "mu2": true,
+  "mu3": 0,
+  "?ma1": 0.0,
+  "?ma2": "",
+  "?ma3": "$DATE"
+}

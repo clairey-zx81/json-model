@@ -27,13 +27,14 @@ class SourceCode(Validator):
     - language: target language abstraction.
     - fname: entry function name.
     - prefix: use this prefix for file-level identifiers.
+    - map_threshold: whether to inline property name checks (up to threshold) or use a map.
     - report: whether to report rejection reasons.
     - path: whether to keep track of value path while checking.
     - debug: verbose debug mode.
     """
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
-                 prefix: str = "",
+                 prefix: str = "", map_threshold: int = 3,
                  report: bool = True, path: bool = True, debug: bool = False):
 
         super().__init__()
@@ -41,6 +42,7 @@ class SourceCode(Validator):
         self._globs = globs
         self._lang = language
         self._prefix = prefix
+        self._map_threshold = map_threshold
         self._report = report
         self._path = path
         self._debug = debug
@@ -60,6 +62,8 @@ class SourceCode(Validator):
         # compiled json models ids
         self._compiled: set[int] = set()
         self._to_compile: dict[int, tuple[JsonModel, str]] = {}
+        # already generated property maps: serialized to function name
+        self._generated_maps: dict[str, str] = {}
         self.reset()
 
     def reset(self):
@@ -68,6 +72,7 @@ class SourceCode(Validator):
         self._regs.clear()
         self._compiled.clear()
         self._to_compile.clear()
+        self._generated_maps.clear()
 
     def _regex(self, regex: str) -> str:
         """Compile a regular expression, with memoization, return function name."""
@@ -405,9 +410,12 @@ class SourceCode(Validator):
         lpath_ref = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
-        if defs or regs or oth and oth[""] != "$ANY" or len(must) == 1 or len(may) == 1:
+        if defs or regs or oth and oth[""] != "$ANY" or \
+                1 <= len(must) <= self._map_threshold or \
+                1 <= len(may) <= self._map_threshold:
             code += [ gen.bool_var(res, declare=True) ]
-        if may and len(may) > 1 or must and len(must) > 1:
+
+        if len(may) > self._map_threshold or len(must) > self._map_threshold:
             # we need a function pointer for simple properties
             code += [ gen.fun_var(pfun, declare=True) ]
 
@@ -417,18 +425,20 @@ class SourceCode(Validator):
             # must prop counter to check at the end if all were seen
             code += [ gen.int_var(must_c, gen.const(0), True) ]
 
-            if len(must) == 1:  # simple one-property code
-                p, m = list(must.items())[0]
-                mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
-                mu_code = (
-                    [ gen.lcom(f"handle one must property"),
-                      gen.inc_var(must_c) ] +
-                    self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
-                    gen.if_stmt(gen.not_op(res),
-                        self._gen_fail(f"invalid must property value [{smpath}.{p}]", lpath_ref)
+            if len(must) <= self._map_threshold:  # direct property checks
+                for p, m in must.items():
+                    mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                    mu_code = (
+                        [ gen.lcom(f"handle must {p} property"),
+                          gen.inc_var(must_c) ] +
+                        self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                        gen.if_stmt(gen.not_op(res),
+                            self._gen_fail(f"invalid must property value [{smpath}.{p}]", lpath_ref)
+                        )
                     )
-                )
-            else:  # generic code
+                    multi_if += [(mu_expr, mu_code)]
+
+            else:  # generic code above threshold
                 prop_must = f"{oname}_must"
                 prop_must_map: dict[str, str] = {}
                 for p in sorted(must.keys()):
@@ -448,19 +458,22 @@ class SourceCode(Validator):
                             self._gen_fail(f"invalid must property value [{smpath}]", lpath_ref)))
                 )
 
-            multi_if += [(mu_expr, mu_code)]
+                multi_if += [(mu_expr, mu_code)]
 
         if may:
-            if len(may) == 1:  # simple one-property code
-                p, m = list(may.items())[0]
-                ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
-                ma_code = (
-                    [ gen.lcom(f"handle one may property") ] +
-                    self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
-                    gen.if_stmt(gen.not_op(res),
-                        self._gen_fail(f"invalid may property value [{smpath}.{p}]", lpath_ref)
+            if len(may) <= self._map_threshold:  # simple one-property code
+                for p, m in may.items():
+                    ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                    ma_code = (
+                        [ gen.lcom(f"handle may {p} property") ] +
+                        self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                        gen.if_stmt(gen.not_op(res),
+                            self._gen_fail(f"invalid may property value [{smpath}.{p}]", lpath_ref)
+                        )
                     )
-                )
+
+                    multi_if += [(ma_expr, ma_code)]
+
             else:  # generic code
                 prop_may = f"{oname}_may"
                 prop_may_map: dict[str, str] = {}
@@ -480,7 +493,7 @@ class SourceCode(Validator):
                         self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref))
                 )
 
-            multi_if += [(ma_expr, ma_code)]
+                multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
@@ -1136,6 +1149,7 @@ def xstatic_compile(
         *,
         lang: str = "py",
         prefix: str = "_jm_",
+        map_threshold: int = 3,
         debug: bool = False,
         report: bool = True,
     ) -> SourceCode:
@@ -1144,9 +1158,10 @@ def xstatic_compile(
     - model: JSON Model root to compile.
     - fname: target function name.
     - lang: name of target language.
-    - prefix: prefix for generated functions
-    - report: whether to generate code to report rejection reasons
-    - debug: debugging mode generates more traces
+    - prefix: prefix for generated functions.
+    - map_threshold: inline property checks under this threshold.
+    - report: whether to generate code to report rejection reasons.
+    - debug: debugging mode generates more traces.
     """
     # target language
     if lang == "py":
@@ -1159,7 +1174,8 @@ def xstatic_compile(
         raise NotImplementedError(f"no support yet for language: {lang}")
 
     # cource code generator
-    sc = SourceCode(model._globs, language, fname, prefix=prefix, debug=debug, report=report)
+    sc = SourceCode(model._globs, language, fname, prefix=prefix,
+                    map_threshold=map_threshold, debug=debug, report=report)
 
     # generate
     code = sc.compileJsonModelHead(model)

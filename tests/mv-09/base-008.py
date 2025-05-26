@@ -20,27 +20,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_must_nom ($.nom)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.nom
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.nom]", path))
-    return res
-
-# check _jm_obj_0_must_prenom ($.prenom)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.prenom
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.prenom]", path))
-    return res
-
 
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -48,20 +28,32 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [$]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
-                    return False
+        if prop == "nom":
+            # handle must nom property
+            must_count += 1
+            # $.nom
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.nom]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.nom]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "prenom":
+            # handle must prenom property
+            must_count += 1
+            # $.prenom
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.prenom]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.prenom]", lpath_0 if path is not None else None))
+                return False
         elif prop == "age":
-            # handle one may property
+            # handle may age property
             # $.age
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
@@ -95,11 +87,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "nom": _jm_f_0,
-            "prenom": _jm_f_1,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

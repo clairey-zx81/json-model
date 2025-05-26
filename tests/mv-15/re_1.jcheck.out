@@ -1,4 +1,0 @@
-re_1.0.true.json: PASS
-re_1.1.true.json: PASS
-re_1.2.false.json: FAIL
-re_1.3.false.json: FAIL

@@ -1,7 +1,7 @@
 mrg_03.values.json[0]: PASS
-mrg_03.values.json[1]: FAIL [('not a 1.0 strict float [$.c]', ['c']), ('invalid must property value [$]', ['c']), ('not an expected object at [$]', [])]
-mrg_03.values.json[2]: FAIL [('not a 1 strict int [$.a]', ['a']), ('invalid must property value [$]', ['a']), ('not an expected object at [$]', [])]
-mrg_03.values.json[3]: FAIL [('unexpected string [$.b]', ['b']), ('invalid must property value [$]', ['b']), ('not an expected object at [$]', [])]
+mrg_03.values.json[1]: FAIL [('not a 1.0 strict float [$.c]', ['c']), ('invalid must property value [$.c]', ['c']), ('not an expected object at [$]', [])]
+mrg_03.values.json[2]: FAIL [('not a 1 strict int [$.a]', ['a']), ('invalid must property value [$.a]', ['a']), ('not an expected object at [$]', [])]
+mrg_03.values.json[3]: FAIL [('unexpected string [$.b]', ['b']), ('invalid must property value [$.b]', ['b']), ('not an expected object at [$]', [])]
 mrg_03.values.json[4]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
 mrg_03.values.json[5]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
 mrg_03.values.json[6]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]

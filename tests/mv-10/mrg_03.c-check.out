@@ -1,7 +1,7 @@
 mrg_03.values.json[0]: PASS
-mrg_03.values.json[1]: FAIL (.: not an expected object at [$]) (.c: invalid must property value [$]) (.c: not a 1.0 strict float [$.c])
-mrg_03.values.json[2]: FAIL (.: not an expected object at [$]) (.a: invalid must property value [$]) (.a: not a 1 strict int [$.a])
-mrg_03.values.json[3]: FAIL (.: not an expected object at [$]) (.b: invalid must property value [$]) (.b: unexpected string [$.b])
+mrg_03.values.json[1]: FAIL (.: not an expected object at [$]) (.c: invalid must property value [$.c]) (.c: not a 1.0 strict float [$.c])
+mrg_03.values.json[2]: FAIL (.: not an expected object at [$]) (.a: invalid must property value [$.a]) (.a: not a 1 strict int [$.a])
+mrg_03.values.json[3]: FAIL (.: not an expected object at [$]) (.b: invalid must property value [$.b]) (.b: unexpected string [$.b])
 mrg_03.values.json[4]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])
 mrg_03.values.json[5]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])
 mrg_03.values.json[6]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])

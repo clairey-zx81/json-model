@@ -33,7 +33,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "name":
-            # handle one must property
+            # handle must name property
             must_count += 1
             # $.'|'.1.name
             res = isinstance(pval, str)

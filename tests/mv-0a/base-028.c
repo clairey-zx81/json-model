@@ -21,7 +21,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "country") == 0)
         {
-            // handle one may property
+            // handle may country property
             // $.country
             res = json_is_string(pval) && strcmp(json_string_value(pval), "South Africa") == 0;
             if (! res)

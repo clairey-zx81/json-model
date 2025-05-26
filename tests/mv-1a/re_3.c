@@ -1,69 +1,18 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[3];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
-
-// check _jm_obj_0_may_all ($.all)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.all
-    // "/.*/"
-    res = json_is_string(val) && true;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.all]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_0_may_nz ($.nz)
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.nz
-    // "/./s"
-    res = json_is_string(val) && mbstowcs(NULL, json_string_value(val), 0) > 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.nz]", path);
-    }
-    return res;
-}
 
 static bool _jm_re_0(const char *s)
 {
   int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
                        0, 0, _jm_re_0_data, NULL);
   return rc >= 0;
-}
-
-// check _jm_obj_0_may_some ($.some)
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.some
-    // "/./"
-    res = json_is_string(val) && _jm_re_0(json_string_value(val));
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.some]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 3);
 }
 
 // object $
@@ -74,18 +23,57 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_may(prop)))
+        if (strcmp(prop, "all") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle may all property
+            // $.all
+            // "/.*/"
+            res = json_is_string(pval) && true;
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.all]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.all]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "nz") == 0)
+        {
+            // handle may nz property
+            // $.nz
+            // "/./s"
+            res = json_is_string(pval) && mbstowcs(NULL, json_string_value(pval), 0) > 0;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.nz]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.nz]", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "some") == 0)
+        {
+            // handle may some property
+            // $.some
+            // "/./"
+            res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.some]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.some]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -134,10 +122,6 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "all", _jm_f_0 };
-        _jm_obj_0_may_tab[1] = (propmap_t) { "nz", _jm_f_1 };
-        _jm_obj_0_may_tab[2] = (propmap_t) { "some", _jm_f_2 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 3);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

@@ -1,8 +1,8 @@
 opt_03.values.json[0]: PASS
 opt_03.values.json[1]: FAIL (.: not an expected object at [$]) (.Z: no other prop expected [$])
-opt_03.values.json[2]: FAIL (.: not an expected object at [$]) (.a: invalid must property value [$]) (.a: not a 0 strict int [$.a])
-opt_03.values.json[3]: FAIL (.: not an expected object at [$]) (.b: invalid must property value [$]) (.b: not a -1 strict int [$.b])
-opt_03.values.json[4]: FAIL (.: not an expected object at [$]) (.c: invalid must property value [$]) (.c: not a 1 strict int [$.c])
+opt_03.values.json[2]: FAIL (.: not an expected object at [$]) (.a: invalid must property value [$.a]) (.a: not a 0 strict int [$.a])
+opt_03.values.json[3]: FAIL (.: not an expected object at [$]) (.b: invalid must property value [$.b]) (.b: not a -1 strict int [$.b])
+opt_03.values.json[4]: FAIL (.: not an expected object at [$]) (.c: invalid must property value [$.c]) (.c: not a 1 strict int [$.c])
 opt_03.values.json[5]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])
 opt_03.values.json[6]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])
 opt_03.values.json[7]: FAIL (.: not an expected object at [$]) (.: missing must prop [$])

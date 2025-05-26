@@ -692,7 +692,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         Path lpath_4 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Null'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;
@@ -750,7 +750,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         Path lpath_5 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Boolean'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
@@ -949,7 +949,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
         Path lpath_6 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Number'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
@@ -1087,7 +1087,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
         Path lpath_7 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Integer'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
@@ -1251,7 +1251,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
         Path lpath_8 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$String'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
@@ -1525,7 +1525,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
         Path lpath_9 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Array'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "array") == 0;
@@ -1852,7 +1852,7 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
         Path lpath_10 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$Object'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "object") == 0;
@@ -3064,7 +3064,7 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
         Path lpath_19 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.6.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "object") == 0;
@@ -3519,7 +3519,7 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
         Path lpath_26 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.5.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "array") == 0;
@@ -3948,7 +3948,7 @@ static bool _jm_obj_29(const json_t* val, Path* path, Report* rep)
         Path lpath_29 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.4.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "string") == 0;
@@ -4351,7 +4351,7 @@ static bool _jm_obj_32(const json_t* val, Path* path, Report* rep)
         Path lpath_32 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.3.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "integer") == 0;
@@ -4824,7 +4824,7 @@ static bool _jm_obj_35(const json_t* val, Path* path, Report* rep)
         Path lpath_35 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.2.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "number") == 0;
@@ -5162,7 +5162,7 @@ static bool _jm_obj_38(const json_t* val, Path* path, Report* rep)
         Path lpath_38 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.1.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "boolean") == 0;
@@ -5500,7 +5500,7 @@ static bool _jm_obj_41(const json_t* val, Path* path, Report* rep)
         Path lpath_41 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
-            // handle one must property
+            // handle must type property
             must_count += 1;
             // $.'$TightSchema'.'|'.0.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "null") == 0;

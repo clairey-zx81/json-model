@@ -20,47 +20,39 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
-_jm_obj_1_must: PropMap
 _jm_map_0: ConstMap = ConstMap()
 check_model_map: PropMap
-
-# check _jm_obj_0_must_a ($.'$A'.a)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$A'.a
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$A'.a]", path))
-    return res
-
-# check _jm_obj_0_must_t ($.'$A'.t)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$A'.t
-    res = isinstance(val, int) and not isinstance(val, bool) and val == 1
-    if not res:
-        rep is None or rep.append(("unexpected =1 [$.'$A'.t]", path))
-    return res
-
 
 # object $.'$A'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$A']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$A']", lpath_0 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.'$A'.t
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
+            if not res:
+                rep is None or rep.append(("unexpected =1 [$.'$A'.t]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$A'.t]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "a":
+            # handle must a property
+            must_count += 1
+            # $.'$A'.a
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$A'.a]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$A'.a]", lpath_0 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$A']", lpath_0 if path is not None else None))
             return False
@@ -78,42 +70,36 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$A']", path))
     return res
 
-# check _jm_obj_1_must_b ($.'$B'.b)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$B'.b
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$B'.b]", path))
-    return res
-
-# check _jm_obj_1_must_t ($.'$B'.t)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$B'.t
-    res = isinstance(val, int) and not isinstance(val, bool) and val == 2
-    if not res:
-        rep is None or rep.append(("unexpected =2 [$.'$B'.t]", path))
-    return res
-
-
 # object $.'$B'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$B']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_1_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_1 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$B']", lpath_1 if path is not None else None))
-                    return False
+        if prop == "t":
+            # handle must t property
+            must_count += 1
+            # $.'$B'.t
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 2
+            if not res:
+                rep is None or rep.append(("unexpected =2 [$.'$B'.t]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$B'.t]", lpath_1 if path is not None else None))
+                return False
+        elif prop == "b":
+            # handle must b property
+            must_count += 1
+            # $.'$B'.b
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$B'.b]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$B'.b]", lpath_1 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$B']", lpath_1 if path is not None else None))
             return False
@@ -162,16 +148,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "a": _jm_f_0,
-            "t": _jm_f_1,
-        }
-        global _jm_obj_1_must
-        _jm_obj_1_must = {
-            "b": _jm_f_2,
-            "t": _jm_f_3,
-        }
         global _jm_map_0
         _jm_map_0[1] = json_model_2
         _jm_map_0[2] = json_model_3

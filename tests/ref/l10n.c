@@ -33,7 +33,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "Model") == 0)
         {
-            // handle one must property
+            // handle must Model property
             must_count += 1;
             // $.'$'.Model
             res = json_is_string(pval) && strcmp(json_string_value(pval), "$https://json-model.org/models/json-model") == 0;
@@ -49,7 +49,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "") == 0)
         {
-            // handle one may property
+            // handle may  property
             // $.'$'.''
             res = jm_is_valid_url(json_string_value(pval));
             if (! res)
@@ -216,7 +216,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "#") == 0)
         {
-            // handle one may property
+            // handle may # property
             // $.'#'
             res = json_is_string(pval);
             if (! res)

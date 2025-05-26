@@ -1,0 +1,19 @@
+[
+  [ true,  {"mu1": null, "mu2": false, "mu3": 42} ],
+  [ true,  {"mu1": null, "mu2": true, "mu3": 17, "ma1": 3.14} ],
+  [ true,  {"mu1": null, "mu2": false, "mu3": 42, "ma2": "hello"} ],
+  [ true,  {"mu1": null, "mu2": false, "mu3": 42, "ma3": "1970-10-14"} ],
+  [ false, {"mu1": null, "mu2": false} ],
+  [ false, {"mu1": null, "mu3": 42} ],
+  [ false, {"mu2": false, "mu3": 42} ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ],
+  [ false, {"mu1": null, "mu2": false, "mu3": 42, "no": "pe"} ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "UNexpected" ],
+  [ false, [] ],
+  [ false, ["not", 1, "obj"] ]
+]

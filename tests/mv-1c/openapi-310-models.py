@@ -20,27 +20,18 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
 _jm_obj_0_may: PropMap
 _jm_re_0_search: Callable
 _jm_re_0: RegexFun
-_jm_obj_2_must: PropMap
 _jm_obj_2_may: PropMap
-_jm_obj_3_may: PropMap
-_jm_obj_4_must: PropMap
-_jm_obj_5_must: PropMap
-_jm_obj_6_may: PropMap
-_jm_obj_8_may: PropMap
 _jm_obj_9_may: PropMap
 _jm_re_1_search: Callable
 _jm_re_1: RegexFun
 _jm_obj_21_may: PropMap
 _jm_obj_23_may: PropMap
 _jm_cst_0: set[str]
-_jm_obj_28_must: PropMap
 _jm_cst_1: set[str]
 _jm_obj_28_may: PropMap
-_jm_obj_31_may: PropMap
 _jm_obj_33_may: PropMap
 _jm_obj_36_may: PropMap
 _jm_re_2_search: Callable
@@ -53,15 +44,10 @@ _jm_obj_45_may: PropMap
 _jm_obj_47_may: PropMap
 _jm_cst_2: set[str]
 _jm_obj_49_may: PropMap
-_jm_obj_52_may: PropMap
-_jm_obj_53_may: PropMap
 _jm_obj_54_must: PropMap
-_jm_obj_54_may: PropMap
 _jm_obj_55_may: PropMap
-_jm_obj_56_must: PropMap
 _jm_re_4_search: Callable
 _jm_re_4: RegexFun
-_jm_obj_64_may: PropMap
 _jm_re_5_search: Callable
 _jm_re_5: RegexFun
 _jm_re_6_search: Callable
@@ -86,27 +72,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $openapi [$]", path))
     return res
 
-# check _jm_obj_0_must_info ($.'$openapi#OpenAPI'.info)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#OpenAPI'.info
-    res = json_model_5(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Info [$.'$openapi#OpenAPI'.info]", path))
-    return res
-
-# check _jm_obj_0_must_openapi ($.'$openapi#OpenAPI'.openapi)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#OpenAPI'.openapi
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#OpenAPI'.openapi]", path))
-    return res
-
-
 # check _jm_obj_0_may_component ($.'$openapi#OpenAPI'.component)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.component
     res = json_model_10(val, path, rep)
@@ -115,7 +82,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_externalDocs ($.'$openapi#OpenAPI'.externalDocs)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.externalDocs
     res = json_model_14(val, path, rep)
@@ -124,7 +91,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_jsonSchemaDialect ($.'$openapi#OpenAPI'.jsonSchemaDialect)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.jsonSchemaDialect
     res = isinstance(val, str)
@@ -133,7 +100,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_paths ($.'$openapi#OpenAPI'.paths)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.paths
     res = json_model_11(val, path, rep)
@@ -142,7 +109,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_security ($.'$openapi#OpenAPI'.security)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.security
     res = json_model_36(val, path, rep)
@@ -151,7 +118,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_servers ($.'$openapi#OpenAPI'.servers)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.servers
     res = isinstance(val, list)
@@ -169,7 +136,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_0_may_tags ($.'$openapi#OpenAPI'.tags)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.tags
     res = isinstance(val, list)
@@ -213,7 +180,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_0_may_webhooks ($.'$openapi#OpenAPI'.webhooks)
-def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OpenAPI'.webhooks
     res = _jm_obj_1(val, path, rep)
@@ -234,13 +201,26 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#OpenAPI']", lpath_0 if path is not None else None))
-                    return False
+        if prop == "openapi":
+            # handle must openapi property
+            must_count += 1
+            # $.'$openapi#OpenAPI'.openapi
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "info":
+            # handle must info property
+            must_count += 1
+            # $.'$openapi#OpenAPI'.info
+            res = json_model_5(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Info [$.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#OpenAPI'.info]", lpath_0 if path is not None else None))
+                return False
         elif pfun := _jm_obj_0_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
@@ -271,27 +251,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#OpenAPI']", path))
     return res
 
-# check _jm_obj_2_must_title ($.'$openapi#Info'.title)
-def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Info'.title
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Info'.title]", path))
-    return res
-
-# check _jm_obj_2_must_version ($.'$openapi#Info'.version)
-def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Info'.version
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Info'.version]", path))
-    return res
-
-
 # check _jm_obj_2_may_contact ($.'$openapi#Info'.contact)
-def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Info'.contact
     res = json_model_6(val, path, rep)
@@ -300,7 +261,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_description ($.'$openapi#Info'.description)
-def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Info'.description
     res = isinstance(val, str)
@@ -309,7 +270,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_license ($.'$openapi#Info'.license)
-def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Info'.license
     res = json_model_7(val, path, rep)
@@ -318,7 +279,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_summary ($.'$openapi#Info'.summary)
-def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Info'.summary
     res = isinstance(val, str)
@@ -327,7 +288,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_may_termsOfService ($.'$openapi#Info'.termsOfService)
-def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Info'.termsOfService
     res = isinstance(val, str)
@@ -347,13 +308,26 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#Info']", lpath_2 if path is not None else None))
-                    return False
+        if prop == "title":
+            # handle must title property
+            must_count += 1
+            # $.'$openapi#Info'.title
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Info'.title]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#Info'.title]", lpath_2 if path is not None else None))
+                return False
+        elif prop == "version":
+            # handle must version property
+            must_count += 1
+            # $.'$openapi#Info'.version
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Info'.version]", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#Info'.version]", lpath_2 if path is not None else None))
+                return False
         elif pfun := _jm_obj_2_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_2 if path is not None else None, rep):
@@ -384,48 +358,41 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#Info']", path))
     return res
 
-# check _jm_obj_3_may_email ($.'$openapi#Contact'.email)
-def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Contact'.email
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Contact'.email]", path))
-    return res
-
-# check _jm_obj_3_may_name ($.'$openapi#Contact'.name)
-def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Contact'.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Contact'.name]", path))
-    return res
-
-# check _jm_obj_3_may_url ($.'$openapi#Contact'.url)
-def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Contact'.url
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [$.'$openapi#Contact'.url]", path))
-    return res
-
-
 # object $.'$openapi#Contact'
 def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#Contact']", path))
         return False
     res: bool
-    pfun: CheckFun
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_3_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_3 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#Contact']", lpath_3 if path is not None else None))
+        if prop == "name":
+            # handle may name property
+            # $.'$openapi#Contact'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Contact'.name]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "url":
+            # handle may url property
+            # $.'$openapi#Contact'.url
+            res = is_valid_url(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [$.'$openapi#Contact'.url]", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Contact'.url]", lpath_3 if path is not None else None))
+                return False
+        elif prop == "email":
+            # handle may email property
+            # $.'$openapi#Contact'.email
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Contact'.email]", lpath_3 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Contact'.email]", lpath_3 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -449,43 +416,36 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#Contact']", path))
     return res
 
-# check _jm_obj_4_must_name ($.'$openapi#License'.'|'.1.name)
-def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#License'.'|'.1.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.1.name]", path))
-    return res
-
-# check _jm_obj_4_must_url ($.'$openapi#License'.'|'.1.url)
-def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#License'.'|'.1.url
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [$.'$openapi#License'.'|'.1.url]", path))
-    return res
-
-
 # object $.'$openapi#License'.'|'.1
 def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#License'.'|'.1]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_4_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_4 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.1]", lpath_4 if path is not None else None))
-                    return False
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # $.'$openapi#License'.'|'.1.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.1.name]", lpath_4 if path is not None else None))
+                return False
+        elif prop == "url":
+            # handle must url property
+            must_count += 1
+            # $.'$openapi#License'.'|'.1.url
+            res = is_valid_url(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [$.'$openapi#License'.'|'.1.url]", lpath_4 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.1.url]", lpath_4 if path is not None else None))
+                return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
             # $.'$openapi#License'.'|'.1.'/^x\\-.*$/'
@@ -502,43 +462,36 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_5_must_identifier ($.'$openapi#License'.'|'.0.identifier)
-def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#License'.'|'.0.identifier
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.0.identifier]", path))
-    return res
-
-# check _jm_obj_5_must_name ($.'$openapi#License'.'|'.0.name)
-def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#License'.'|'.0.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.0.name]", path))
-    return res
-
-
 # object $.'$openapi#License'.'|'.0
 def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#License'.'|'.0]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_5: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_5_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_5 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.0]", lpath_5 if path is not None else None))
-                    return False
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # $.'$openapi#License'.'|'.0.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.0.name]", lpath_5 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.0.name]", lpath_5 if path is not None else None))
+                return False
+        elif prop == "identifier":
+            # handle must identifier property
+            must_count += 1
+            # $.'$openapi#License'.'|'.0.identifier
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#License'.'|'.0.identifier]", lpath_5 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#License'.'|'.0.identifier]", lpath_5 if path is not None else None))
+                return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
             # $.'$openapi#License'.'|'.0.'/^x\\-.*$/'
@@ -576,15 +529,6 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("no model matched [$.'$openapi#License'.'|']", path))
     return res
 
-# check _jm_obj_6_may_description ($.'$openapi#Server'.description)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Server'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Server'.description]", path))
-    return res
-
 # object $.'$openapi#Server'.variables
 def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -603,29 +547,18 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_6_may_variables ($.'$openapi#Server'.variables)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Server'.variables
-    res = _jm_obj_7(val, path, rep)
-    if not res:
-        rep is None or rep.append(("not an expected object at [$.'$openapi#Server'.variables]", path))
-    return res
-
-
 # object $.'$openapi#Server'
 def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#Server']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_6: Path = (path + [ prop ]) if path is not None else None
         if prop == "url":
-            # handle one must property
+            # handle must url property
             must_count += 1
             # $.'$openapi#Server'.url
             res = is_valid_url(pval, path, rep)
@@ -634,10 +567,23 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#Server'.url]", lpath_6 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_6_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_6 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#Server']", lpath_6 if path is not None else None))
+        elif prop == "description":
+            # handle may description property
+            # $.'$openapi#Server'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Server'.description]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Server'.description]", lpath_6 if path is not None else None))
+                return False
+        elif prop == "variables":
+            # handle may variables property
+            # $.'$openapi#Server'.variables
+            res = _jm_obj_7(pval, lpath_6 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("not an expected object at [$.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -664,47 +610,18 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#Server']", path))
     return res
 
-# check _jm_obj_8_may_description ($.'$openapi#ServerVariable'.description)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#ServerVariable'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#ServerVariable'.description]", path))
-    return res
-
-# check _jm_obj_8_may_enum ($.'$openapi#ServerVariable'.enum)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#ServerVariable'.enum
-    res = isinstance(val, list)
-    if res:
-        for arr_2_idx, arr_2_item in enumerate(val):
-            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
-            # $.'$openapi#ServerVariable'.enum.0
-            res = isinstance(arr_2_item, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [$.'$openapi#ServerVariable'.enum.0]", arr_2_lpath if path is not None else None))
-            if not res:
-                break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$openapi#ServerVariable'.enum]", path))
-    return res
-
-
 # object $.'$openapi#ServerVariable'
 def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#ServerVariable']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_8: Path = (path + [ prop ]) if path is not None else None
         if prop == "default":
-            # handle one must property
+            # handle must default property
             must_count += 1
             # $.'$openapi#ServerVariable'.default
             res = isinstance(pval, str)
@@ -713,10 +630,32 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#ServerVariable'.default]", lpath_8 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_8_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_8 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#ServerVariable']", lpath_8 if path is not None else None))
+        elif prop == "enum":
+            # handle may enum property
+            # $.'$openapi#ServerVariable'.enum
+            res = isinstance(pval, list)
+            if res:
+                for arr_2_idx, arr_2_item in enumerate(pval):
+                    arr_2_lpath: Path = ((lpath_8 if path is not None else None) + [ arr_2_idx ]) if (lpath_8 if path is not None else None) is not None else None
+                    # $.'$openapi#ServerVariable'.enum.0
+                    res = isinstance(arr_2_item, str)
+                    if not res:
+                        rep is None or rep.append(("unexpected string [$.'$openapi#ServerVariable'.enum.0]", arr_2_lpath if (lpath_8 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [$.'$openapi#ServerVariable'.enum]", lpath_8 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#ServerVariable'.enum]", lpath_8 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # $.'$openapi#ServerVariable'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#ServerVariable'.description]", lpath_8 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#ServerVariable'.description]", lpath_8 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -770,7 +709,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_callbacks ($.'$openapi#Components'.callbacks)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.callbacks
     res = _jm_obj_10(val, path, rep)
@@ -805,7 +744,7 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_examples ($.'$openapi#Components'.examples)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.examples
     res = _jm_obj_11(val, path, rep)
@@ -840,7 +779,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_headers ($.'$openapi#Components'.headers)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.headers
     res = _jm_obj_12(val, path, rep)
@@ -875,7 +814,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_links ($.'$openapi#Components'.links)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.links
     res = _jm_obj_13(val, path, rep)
@@ -902,7 +841,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_models ($.'$openapi#Components'.models)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.models
     res = _jm_obj_14(val, path, rep)
@@ -937,7 +876,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_parameters ($.'$openapi#Components'.parameters)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.parameters
     res = _jm_obj_15(val, path, rep)
@@ -972,7 +911,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_pathItems ($.'$openapi#Components'.pathItems)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.pathItems
     res = _jm_obj_16(val, path, rep)
@@ -1007,7 +946,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_requestBodies ($.'$openapi#Components'.requestBodies)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.requestBodies
     res = _jm_obj_17(val, path, rep)
@@ -1042,7 +981,7 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_responses ($.'$openapi#Components'.responses)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.responses
     res = _jm_obj_18(val, path, rep)
@@ -1077,7 +1016,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_securitySchemes ($.'$openapi#Components'.securitySchemes)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Components'.securitySchemes
     res = _jm_obj_19(val, path, rep)
@@ -1164,7 +1103,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_$ref ($.'$openapi#PathItem'.'$ref')
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.'$ref'
     res = isinstance(val, str)
@@ -1173,7 +1112,7 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_description ($.'$openapi#PathItem'.description)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.description
     res = isinstance(val, str)
@@ -1182,7 +1121,7 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_get ($.'$openapi#PathItem'.get)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.get
     res = json_model_13(val, path, rep)
@@ -1191,7 +1130,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_head ($.'$openapi#PathItem'.head)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.head
     res = json_model_13(val, path, rep)
@@ -1200,7 +1139,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_options ($.'$openapi#PathItem'.options)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.options
     res = json_model_13(val, path, rep)
@@ -1235,7 +1174,7 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_21_may_parameters ($.'$openapi#PathItem'.parameters)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.parameters
     res = _jm_obj_22(val, path, rep)
@@ -1244,7 +1183,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_patch ($.'$openapi#PathItem'.patch)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.patch
     res = json_model_13(val, path, rep)
@@ -1253,7 +1192,7 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_post ($.'$openapi#PathItem'.post)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.post
     res = json_model_13(val, path, rep)
@@ -1262,7 +1201,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_put ($.'$openapi#PathItem'.put)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.put
     res = json_model_13(val, path, rep)
@@ -1271,7 +1210,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_servers ($.'$openapi#PathItem'.servers)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.servers
     res = json_model_13(val, path, rep)
@@ -1280,7 +1219,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_summary ($.'$openapi#PathItem'.summary)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.summary
     res = isinstance(val, str)
@@ -1289,7 +1228,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_trace ($.'$openapi#PathItem'.trace)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#PathItem'.trace
     res = json_model_13(val, path, rep)
@@ -1362,7 +1301,7 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_callbacks ($.'$openapi#Operation'.callbacks)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.callbacks
     res = _jm_obj_24(val, path, rep)
@@ -1371,7 +1310,7 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_deprecated ($.'$openapi#Operation'.deprecated)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.deprecated
     res = isinstance(val, bool)
@@ -1380,7 +1319,7 @@ def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_description ($.'$openapi#Operation'.description)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.description
     res = isinstance(val, str)
@@ -1389,7 +1328,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_externalDocs ($.'$openapi#Operation'.externalDocs)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.externalDocs
     res = json_model_14(val, path, rep)
@@ -1398,7 +1337,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_operationId ($.'$openapi#Operation'.operationId)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.operationId
     res = isinstance(val, str)
@@ -1433,7 +1372,7 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_parameters ($.'$openapi#Operation'.parameters)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.parameters
     res = _jm_obj_25(val, path, rep)
@@ -1468,7 +1407,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_requestBody ($.'$openapi#Operation'.requestBody)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.requestBody
     res = _jm_obj_26(val, path, rep)
@@ -1477,7 +1416,7 @@ def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_responses ($.'$openapi#Operation'.responses)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.responses
     res = json_model_20(val, path, rep)
@@ -1486,7 +1425,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_security ($.'$openapi#Operation'.security)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.security
     res = isinstance(val, list)
@@ -1504,7 +1443,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_servers ($.'$openapi#Operation'.servers)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.servers
     res = isinstance(val, list)
@@ -1522,7 +1461,7 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_summary ($.'$openapi#Operation'.summary)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.summary
     res = isinstance(val, str)
@@ -1531,7 +1470,7 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_tags ($.'$openapi#Operation'.tags)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Operation'.tags
     res = isinstance(val, list)
@@ -1597,7 +1536,7 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_27: Path = (path + [ prop ]) if path is not None else None
         if prop == "url":
-            # handle one must property
+            # handle must url property
             must_count += 1
             # $.'$openapi#ExternalDocumentation'.url
             res = is_valid_url(pval, path, rep)
@@ -1607,7 +1546,7 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#ExternalDocumentation'.url]", lpath_27 if path is not None else None))
                 return False
         elif prop == "description":
-            # handle one may property
+            # handle may description property
             # $.'$openapi#ExternalDocumentation'.description
             res = isinstance(pval, str)
             if not res:
@@ -1641,27 +1580,8 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_28_must_in ($.'$openapi#Parameter'.in)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Parameter'.in
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
-    if not res:
-        rep is None or rep.append(("value not in enum [$.'$openapi#Parameter'.in.'|']", path))
-    return res
-
-# check _jm_obj_28_must_name ($.'$openapi#Parameter'.name)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Parameter'.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Parameter'.name]", path))
-    return res
-
-
 # check _jm_obj_28_may_allowEmptyValue ($.'$openapi#Parameter'.allowEmptyValue)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.allowEmptyValue
     res = isinstance(val, bool)
@@ -1670,7 +1590,7 @@ def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_allowReserved ($.'$openapi#Parameter'.allowReserved)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.allowReserved
     res = isinstance(val, bool)
@@ -1697,7 +1617,7 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_28_may_content ($.'$openapi#Parameter'.content)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.content
     res = _jm_obj_29(val, path, rep)
@@ -1706,7 +1626,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_deprecated ($.'$openapi#Parameter'.deprecated)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.deprecated
     res = isinstance(val, bool)
@@ -1715,7 +1635,7 @@ def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_description ($.'$openapi#Parameter'.description)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.description
     res = isinstance(val, str)
@@ -1724,7 +1644,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_example ($.'$openapi#Parameter'.example)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.example
     res = True
@@ -1759,7 +1679,7 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_28_may_examples ($.'$openapi#Parameter'.examples)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.examples
     res = _jm_obj_30(val, path, rep)
@@ -1768,7 +1688,7 @@ def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_explode ($.'$openapi#Parameter'.explode)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.explode
     res = isinstance(val, bool)
@@ -1777,7 +1697,7 @@ def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_model ($.'$openapi#Parameter'.model)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.model
     res = json_model_56(val, path, rep)
@@ -1786,7 +1706,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_required ($.'$openapi#Parameter'.required)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.required
     res = isinstance(val, bool)
@@ -1796,7 +1716,7 @@ def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_28_may_style ($.'$openapi#Parameter'.style)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Parameter'.style
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_1
@@ -1816,13 +1736,26 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_28: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_28_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_28 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#Parameter']", lpath_28 if path is not None else None))
-                    return False
+        if prop == "name":
+            # handle must name property
+            must_count += 1
+            # $.'$openapi#Parameter'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Parameter'.name]", lpath_28 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#Parameter'.name]", lpath_28 if path is not None else None))
+                return False
+        elif prop == "in":
+            # handle must in property
+            must_count += 1
+            # $.'$openapi#Parameter'.in
+            res = (pval is None or isinstance(pval, (bool, int, float, str))) and pval in _jm_cst_0
+            if not res:
+                rep is None or rep.append(("value not in enum [$.'$openapi#Parameter'.in.'|']", lpath_28 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#Parameter'.in]", lpath_28 if path is not None else None))
+                return False
         elif pfun := _jm_obj_28_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_28 if path is not None else None, rep):
@@ -1871,48 +1804,41 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_31_may_content ($.'$openapi#RequestBody'.content)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#RequestBody'.content
-    res = _jm_obj_32(val, path, rep)
-    if not res:
-        rep is None or rep.append(("not an expected object at [$.'$openapi#RequestBody'.content]", path))
-    return res
-
-# check _jm_obj_31_may_description ($.'$openapi#RequestBody'.description)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#RequestBody'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#RequestBody'.description]", path))
-    return res
-
-# check _jm_obj_31_may_required ($.'$openapi#RequestBody'.required)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#RequestBody'.required
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [$.'$openapi#RequestBody'.required]", path))
-    return res
-
-
 # object $.'$openapi#RequestBody'
 def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#RequestBody']", path))
         return False
     res: bool
-    pfun: CheckFun
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_31: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_31_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_31 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#RequestBody']", lpath_31 if path is not None else None))
+        if prop == "description":
+            # handle may description property
+            # $.'$openapi#RequestBody'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#RequestBody'.description]", lpath_31 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#RequestBody'.description]", lpath_31 if path is not None else None))
+                return False
+        elif prop == "content":
+            # handle may content property
+            # $.'$openapi#RequestBody'.content
+            res = _jm_obj_32(pval, lpath_31 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("not an expected object at [$.'$openapi#RequestBody'.content]", lpath_31 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#RequestBody'.content]", lpath_31 if path is not None else None))
+                return False
+        elif prop == "required":
+            # handle may required property
+            # $.'$openapi#RequestBody'.required
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [$.'$openapi#RequestBody'.required]", lpath_31 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#RequestBody'.required]", lpath_31 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -1955,7 +1881,7 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_33_may_encoding ($.'$openapi#MediaType'.encoding)
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#MediaType'.encoding
     res = _jm_obj_34(val, path, rep)
@@ -1964,7 +1890,7 @@ def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_33_may_example ($.'$openapi#MediaType'.example)
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#MediaType'.example
     res = True
@@ -1999,7 +1925,7 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_33_may_examples ($.'$openapi#MediaType'.examples)
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#MediaType'.examples
     res = _jm_obj_35(val, path, rep)
@@ -2008,7 +1934,7 @@ def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_33_may_model ($.'$openapi#MediaType'.model)
-def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#MediaType'.model
     res = json_model_56(val, path, rep)
@@ -2055,7 +1981,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_allowReserved ($.'$openapi#Encoding'.allowReserved)
-def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Encoding'.allowReserved
     res = isinstance(val, bool)
@@ -2064,7 +1990,7 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_contentType ($.'$openapi#Encoding'.contentType)
-def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Encoding'.contentType
     res = isinstance(val, str)
@@ -2073,7 +1999,7 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_explode ($.'$openapi#Encoding'.explode)
-def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Encoding'.explode
     res = isinstance(val, bool)
@@ -2108,7 +2034,7 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_36_may_headers ($.'$openapi#Encoding'.headers)
-def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Encoding'.headers
     res = _jm_obj_37(val, path, rep)
@@ -2117,7 +2043,7 @@ def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_style ($.'$openapi#Encoding'.style)
-def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Encoding'.style
     res = isinstance(val, str)
@@ -2174,7 +2100,7 @@ def _jm_obj_38(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_38: Path = (path + [ prop ]) if path is not None else None
         if prop == "default":
-            # handle one may property
+            # handle may default property
             # $.'$openapi#Responses'.default
             # $.'$openapi#Responses'.default.'|'.0
             res = json_model_21(pval, path, rep)
@@ -2247,7 +2173,7 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_39_may_content ($.'$openapi#Response'.content)
-def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Response'.content
     res = _jm_obj_40(val, path, rep)
@@ -2256,7 +2182,7 @@ def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_39_may_description ($.'$openapi#Response'.description)
-def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Response'.description
     res = isinstance(val, str)
@@ -2291,7 +2217,7 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_39_may_headers ($.'$openapi#Response'.headers)
-def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Response'.headers
     res = _jm_obj_41(val, path, rep)
@@ -2326,7 +2252,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_39_may_links ($.'$openapi#Response'.links)
-def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Response'.links
     res = _jm_obj_42(val, path, rep)
@@ -2420,7 +2346,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_44_may_description ($.'$openapi#Example'.description)
-def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Example'.description
     res = isinstance(val, str)
@@ -2429,7 +2355,7 @@ def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_44_may_externalValue ($.'$openapi#Example'.externalValue)
-def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Example'.externalValue
     res = isinstance(val, str)
@@ -2438,7 +2364,7 @@ def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_44_may_summary ($.'$openapi#Example'.summary)
-def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Example'.summary
     res = isinstance(val, str)
@@ -2447,7 +2373,7 @@ def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_44_may_value ($.'$openapi#Example'.value)
-def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Example'.value
     res = True
@@ -2505,7 +2431,7 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_45_may_description ($.'$openapi#Link'.'|'.1.description)
-def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.1.description
     res = isinstance(val, str)
@@ -2522,7 +2448,7 @@ def _jm_obj_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_45_may_parameters ($.'$openapi#Link'.'|'.1.parameters)
-def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.1.parameters
     res = _jm_obj_46(val, path, rep)
@@ -2531,7 +2457,7 @@ def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_45_may_requestBody ($.'$openapi#Link'.'|'.1.requestBody)
-def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.1.requestBody
     res = True
@@ -2540,7 +2466,7 @@ def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_45_may_server ($.'$openapi#Link'.'|'.1.server)
-def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.1.server
     res = json_model_8(val, path, rep)
@@ -2561,7 +2487,7 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_45: Path = (path + [ prop ]) if path is not None else None
         if prop == "operationId":
-            # handle one must property
+            # handle must operationId property
             must_count += 1
             # $.'$openapi#Link'.'|'.1.operationId
             res = isinstance(pval, str)
@@ -2592,7 +2518,7 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_47_may_description ($.'$openapi#Link'.'|'.0.description)
-def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.0.description
     res = isinstance(val, str)
@@ -2609,7 +2535,7 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_47_may_parameters ($.'$openapi#Link'.'|'.0.parameters)
-def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.0.parameters
     res = _jm_obj_48(val, path, rep)
@@ -2618,7 +2544,7 @@ def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_requestBody ($.'$openapi#Link'.'|'.0.requestBody)
-def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.0.requestBody
     res = True
@@ -2627,7 +2553,7 @@ def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_server ($.'$openapi#Link'.'|'.0.server)
-def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#Link'.'|'.0.server
     res = json_model_8(val, path, rep)
@@ -2648,7 +2574,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_46: Path = (path + [ prop ]) if path is not None else None
         if prop == "operationRef":
-            # handle one must property
+            # handle must operationRef property
             must_count += 1
             # $.'$openapi#Link'.'|'.0.operationRef
             res = isinstance(pval, str)
@@ -2709,7 +2635,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_allowEmptyValue ($.'$openapi#parameterShare'.allowEmptyValue)
-def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.allowEmptyValue
     res = isinstance(val, bool)
@@ -2718,7 +2644,7 @@ def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_allowReserved ($.'$openapi#parameterShare'.allowReserved)
-def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.allowReserved
     res = isinstance(val, bool)
@@ -2745,7 +2671,7 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_49_may_content ($.'$openapi#parameterShare'.content)
-def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.content
     res = _jm_obj_50(val, path, rep)
@@ -2754,7 +2680,7 @@ def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_deprecated ($.'$openapi#parameterShare'.deprecated)
-def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.deprecated
     res = isinstance(val, bool)
@@ -2763,7 +2689,7 @@ def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_description ($.'$openapi#parameterShare'.description)
-def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.description
     res = isinstance(val, str)
@@ -2772,7 +2698,7 @@ def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_example ($.'$openapi#parameterShare'.example)
-def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.example
     res = True
@@ -2807,7 +2733,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_49_may_examples ($.'$openapi#parameterShare'.examples)
-def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.examples
     res = _jm_obj_51(val, path, rep)
@@ -2816,7 +2742,7 @@ def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_explode ($.'$openapi#parameterShare'.explode)
-def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.explode
     res = isinstance(val, bool)
@@ -2825,7 +2751,7 @@ def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_model ($.'$openapi#parameterShare'.model)
-def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.model
     res = json_model_56(val, path, rep)
@@ -2834,7 +2760,7 @@ def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_49_may_required ($.'$openapi#parameterShare'.required)
-def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.required
     res = isinstance(val, bool)
@@ -2844,7 +2770,7 @@ def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_49_may_style ($.'$openapi#parameterShare'.style)
-def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#parameterShare'.style
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_2
@@ -2890,38 +2816,18 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#parameterShare']", path))
     return res
 
-# check _jm_obj_52_may_description ($.'$openapi#Tag'.description)
-def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Tag'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Tag'.description]", path))
-    return res
-
-# check _jm_obj_52_may_externalDocs ($.'$openapi#Tag'.externalDocs)
-def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Tag'.externalDocs
-    res = json_model_14(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $ExternalDocumentation [$.'$openapi#Tag'.externalDocs]", path))
-    return res
-
-
 # object $.'$openapi#Tag'
 def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#Tag']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_50: Path = (path + [ prop ]) if path is not None else None
         if prop == "name":
-            # handle one must property
+            # handle must name property
             must_count += 1
             # $.'$openapi#Tag'.name
             res = isinstance(pval, str)
@@ -2930,10 +2836,23 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#Tag'.name]", lpath_50 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_52_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#Tag']", lpath_50 if path is not None else None))
+        elif prop == "description":
+            # handle may description property
+            # $.'$openapi#Tag'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Tag'.description]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Tag'.description]", lpath_50 if path is not None else None))
+                return False
+        elif prop == "externalDocs":
+            # handle may externalDocs property
+            # $.'$openapi#Tag'.externalDocs
+            res = json_model_14(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $ExternalDocumentation [$.'$openapi#Tag'.externalDocs]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Tag'.externalDocs]", lpath_50 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -2960,38 +2879,18 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#Tag']", path))
     return res
 
-# check _jm_obj_53_may_description ($.'$openapi#Reference'.description)
-def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Reference'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Reference'.description]", path))
-    return res
-
-# check _jm_obj_53_may_summary ($.'$openapi#Reference'.summary)
-def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#Reference'.summary
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#Reference'.summary]", path))
-    return res
-
-
 # object $.'$openapi#Reference'
 def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#Reference']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_51: Path = (path + [ prop ]) if path is not None else None
         if prop == "$ref":
-            # handle one must property
+            # handle must $ref property
             must_count += 1
             # $.'$openapi#Reference'.'$ref'
             res = isinstance(pval, str)
@@ -3000,10 +2899,23 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#Reference'.$ref]", lpath_51 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_53_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#Reference']", lpath_51 if path is not None else None))
+        elif prop == "summary":
+            # handle may summary property
+            # $.'$openapi#Reference'.summary
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Reference'.summary]", lpath_51 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Reference'.summary]", lpath_51 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle may description property
+            # $.'$openapi#Reference'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#Reference'.description]", lpath_51 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#Reference'.description]", lpath_51 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$openapi#Reference']", lpath_51 if path is not None else None))
@@ -3023,7 +2935,7 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_flows ($.'$openapi#SecurityScheme'.flows)
-def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.flows
     res = json_model_34(val, path, rep)
@@ -3032,7 +2944,7 @@ def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_in ($.'$openapi#SecurityScheme'.in)
-def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.in
     res = isinstance(val, str)
@@ -3041,7 +2953,7 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_name ($.'$openapi#SecurityScheme'.name)
-def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.name
     res = isinstance(val, str)
@@ -3050,7 +2962,7 @@ def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_openIdConnectUrl ($.'$openapi#SecurityScheme'.openIdConnectUrl)
-def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.openIdConnectUrl
     res = isinstance(val, str)
@@ -3059,7 +2971,7 @@ def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_scheme ($.'$openapi#SecurityScheme'.scheme)
-def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.scheme
     res = isinstance(val, str)
@@ -3068,31 +2980,12 @@ def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_must_type ($.'$openapi#SecurityScheme'.type)
-def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#SecurityScheme'.type
     res = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [$.'$openapi#SecurityScheme'.type]", path))
-    return res
-
-
-# check _jm_obj_54_may_bearerFormat ($.'$openapi#SecurityScheme'.bearerFormat)
-def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#SecurityScheme'.bearerFormat
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#SecurityScheme'.bearerFormat]", path))
-    return res
-
-# check _jm_obj_54_may_description ($.'$openapi#SecurityScheme'.description)
-def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#SecurityScheme'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#SecurityScheme'.description]", path))
     return res
 
 
@@ -3114,10 +3007,23 @@ def _jm_obj_54(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not pfun(pval, lpath_52 if path is not None else None, rep):
                     rep is None or rep.append(("invalid must property value [$.'$openapi#SecurityScheme']", lpath_52 if path is not None else None))
                     return False
-        elif pfun := _jm_obj_54_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_52 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#SecurityScheme']", lpath_52 if path is not None else None))
+        elif prop == "description":
+            # handle may description property
+            # $.'$openapi#SecurityScheme'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#SecurityScheme'.description]", lpath_52 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#SecurityScheme'.description]", lpath_52 if path is not None else None))
+                return False
+        elif prop == "bearerFormat":
+            # handle may bearerFormat property
+            # $.'$openapi#SecurityScheme'.bearerFormat
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#SecurityScheme'.bearerFormat]", lpath_52 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#SecurityScheme'.bearerFormat]", lpath_52 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -3145,7 +3051,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_55_may_authorizationCode ($.'$openapi#OAuthFlows'.authorizationCode)
-def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OAuthFlows'.authorizationCode
     res = json_model_35(val, path, rep)
@@ -3154,7 +3060,7 @@ def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_55_may_clientCredentials ($.'$openapi#OAuthFlows'.clientCredentials)
-def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OAuthFlows'.clientCredentials
     res = json_model_35(val, path, rep)
@@ -3163,7 +3069,7 @@ def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_55_may_implicit ($.'$openapi#OAuthFlows'.implicit)
-def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OAuthFlows'.implicit
     res = json_model_35(val, path, rep)
@@ -3172,7 +3078,7 @@ def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_55_may_password ($.'$openapi#OAuthFlows'.password)
-def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$openapi#OAuthFlows'.password
     res = json_model_35(val, path, rep)
@@ -3218,15 +3124,6 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$openapi#OAuthFlows']", path))
     return res
 
-# check _jm_obj_56_must_authorizationUrl ($.'$openapi#OAuthFlow'.authorizationUrl)
-def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#OAuthFlow'.authorizationUrl
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#OAuthFlow'.authorizationUrl]", path))
-    return res
-
 # object $.'$openapi#OAuthFlow'.scopes
 def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -3245,45 +3142,48 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_56_must_scopes ($.'$openapi#OAuthFlow'.scopes)
-def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#OAuthFlow'.scopes
-    res = _jm_obj_57(val, path, rep)
-    if not res:
-        rep is None or rep.append(("not an expected object at [$.'$openapi#OAuthFlow'.scopes]", path))
-    return res
-
-# check _jm_obj_56_must_tokenUrl ($.'$openapi#OAuthFlow'.tokenUrl)
-def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#OAuthFlow'.tokenUrl
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#OAuthFlow'.tokenUrl]", path))
-    return res
-
-
 # object $.'$openapi#OAuthFlow'
 def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$openapi#OAuthFlow']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_54: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_56_must.get(prop):
-            # handle 3 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_54 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$openapi#OAuthFlow']", lpath_54 if path is not None else None))
-                    return False
+        if prop == "authorizationUrl":
+            # handle must authorizationUrl property
+            must_count += 1
+            # $.'$openapi#OAuthFlow'.authorizationUrl
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#OAuthFlow'.authorizationUrl]", lpath_54 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#OAuthFlow'.authorizationUrl]", lpath_54 if path is not None else None))
+                return False
+        elif prop == "tokenUrl":
+            # handle must tokenUrl property
+            must_count += 1
+            # $.'$openapi#OAuthFlow'.tokenUrl
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#OAuthFlow'.tokenUrl]", lpath_54 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#OAuthFlow'.tokenUrl]", lpath_54 if path is not None else None))
+                return False
+        elif prop == "scopes":
+            # handle must scopes property
+            must_count += 1
+            # $.'$openapi#OAuthFlow'.scopes
+            res = _jm_obj_57(pval, lpath_54 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("not an expected object at [$.'$openapi#OAuthFlow'.scopes]", lpath_54 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$openapi#OAuthFlow'.scopes]", lpath_54 if path is not None else None))
+                return False
         elif prop == "refreshUrl":
-            # handle one may property
+            # handle may refreshUrl property
             # $.'$openapi#OAuthFlow'.refreshUrl
             res = isinstance(pval, str)
             if not res:
@@ -3412,7 +3312,7 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_57: Path = (path + [ prop ]) if path is not None else None
         if prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'$openapi#model#Elem'.'|'.5.'#'
             res = isinstance(pval, str)
             if not res:
@@ -3449,7 +3349,7 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_58: Path = (path + [ prop ]) if path is not None else None
         if prop == "+":
-            # handle one must property
+            # handle must + property
             must_count += 1
             # $.'$openapi#model#Elem'.'|'.4.'+'
             res = isinstance(pval, list)
@@ -3468,7 +3368,7 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#model#Elem'.'|'.4.+]", lpath_58 if path is not None else None))
                 return False
         elif prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'$openapi#model#Elem'.'|'.4.'#'
             res = isinstance(pval, str)
             if not res:
@@ -3495,7 +3395,7 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_59: Path = (path + [ prop ]) if path is not None else None
         if prop == "^":
-            # handle one must property
+            # handle must ^ property
             must_count += 1
             # $.'$openapi#model#Elem'.'|'.3.'^'
             res = isinstance(pval, list)
@@ -3514,7 +3414,7 @@ def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#model#Elem'.'|'.3.^]", lpath_59 if path is not None else None))
                 return False
         elif prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'$openapi#model#Elem'.'|'.3.'#'
             res = isinstance(pval, str)
             if not res:
@@ -3541,7 +3441,7 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_60: Path = (path + [ prop ]) if path is not None else None
         if prop == "&":
-            # handle one must property
+            # handle must & property
             must_count += 1
             # $.'$openapi#model#Elem'.'|'.2.'&'
             res = isinstance(pval, list)
@@ -3560,7 +3460,7 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#model#Elem'.'|'.2.&]", lpath_60 if path is not None else None))
                 return False
         elif prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'$openapi#model#Elem'.'|'.2.'#'
             res = isinstance(pval, str)
             if not res:
@@ -3587,7 +3487,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_61: Path = (path + [ prop ]) if path is not None else None
         if prop == "|":
-            # handle one must property
+            # handle must | property
             must_count += 1
             # $.'$openapi#model#Elem'.'|'.1.'|'
             res = isinstance(pval, list)
@@ -3606,7 +3506,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#model#Elem'.'|'.1.|]", lpath_61 if path is not None else None))
                 return False
         elif prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'$openapi#model#Elem'.'|'.1.'#'
             res = isinstance(pval, str)
             if not res:
@@ -3622,25 +3522,6 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_64_may_! ($.'$openapi#model#Elem'.'|'.0.'!')
-def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#model#Elem'.'|'.0.'!'
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [$.'$openapi#model#Elem'.'|'.0.'!']", path))
-    return res
-
-# check _jm_obj_64_may_# ($.'$openapi#model#Elem'.'|'.0.'#')
-def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$openapi#model#Elem'.'|'.0.'#'
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$openapi#model#Elem'.'|'.0.'#']", path))
-    return res
-
-
 
 
 # object $.'$openapi#model#Elem'.'|'.0
@@ -3649,13 +3530,12 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [$.'$openapi#model#Elem'.'|'.0]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_62: Path = (path + [ prop ]) if path is not None else None
         if prop == "@":
-            # handle one must property
+            # handle must @ property
             must_count += 1
             # $.'$openapi#model#Elem'.'|'.0.'@'
             res = json_model_73(pval, path, rep)
@@ -3664,10 +3544,23 @@ def _jm_obj_64(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$openapi#model#Elem'.'|'.0.@]", lpath_62 if path is not None else None))
                 return False
-        elif pfun := _jm_obj_64_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_62 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$openapi#model#Elem'.'|'.0]", lpath_62 if path is not None else None))
+        elif prop == "#":
+            # handle may # property
+            # $.'$openapi#model#Elem'.'|'.0.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$openapi#model#Elem'.'|'.0.'#']", lpath_62 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#model#Elem'.'|'.0.#]", lpath_62 if path is not None else None))
+                return False
+        elif prop == "!":
+            # handle may ! property
+            # $.'$openapi#model#Elem'.'|'.0.'!'
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [$.'$openapi#model#Elem'.'|'.0.'!']", lpath_62 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$openapi#model#Elem'.'|'.0.!]", lpath_62 if path is not None else None))
                 return False
         elif _jm_re_5(prop):
             # handle {len(regs)} re props
@@ -3840,249 +3733,176 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "info": _jm_f_0,
-            "openapi": _jm_f_1,
-        }
         global _jm_obj_0_may
         _jm_obj_0_may = {
-            "component": _jm_f_2,
-            "externalDocs": _jm_f_3,
-            "jsonSchemaDialect": _jm_f_4,
-            "paths": _jm_f_5,
-            "security": _jm_f_6,
-            "servers": _jm_f_7,
-            "tags": _jm_f_8,
-            "webhooks": _jm_f_9,
+            "component": _jm_f_0,
+            "externalDocs": _jm_f_1,
+            "jsonSchemaDialect": _jm_f_2,
+            "paths": _jm_f_3,
+            "security": _jm_f_4,
+            "servers": _jm_f_5,
+            "tags": _jm_f_6,
+            "webhooks": _jm_f_7,
         }
         global _jm_re_0_search, _jm_re_0
         _jm_re_0_search = re.compile("^x\\-.*$").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
-            "title": _jm_f_10,
-            "version": _jm_f_11,
-        }
         global _jm_obj_2_may
         _jm_obj_2_may = {
-            "contact": _jm_f_12,
-            "description": _jm_f_13,
-            "license": _jm_f_14,
-            "summary": _jm_f_15,
-            "termsOfService": _jm_f_16,
-        }
-        global _jm_obj_3_may
-        _jm_obj_3_may = {
-            "email": _jm_f_17,
-            "name": _jm_f_18,
-            "url": _jm_f_19,
-        }
-        global _jm_obj_4_must
-        _jm_obj_4_must = {
-            "name": _jm_f_20,
-            "url": _jm_f_21,
-        }
-        global _jm_obj_5_must
-        _jm_obj_5_must = {
-            "identifier": _jm_f_22,
-            "name": _jm_f_23,
-        }
-        global _jm_obj_6_may
-        _jm_obj_6_may = {
-            "description": _jm_f_24,
-            "variables": _jm_f_25,
-        }
-        global _jm_obj_8_may
-        _jm_obj_8_may = {
-            "description": _jm_f_26,
-            "enum": _jm_f_27,
+            "contact": _jm_f_8,
+            "description": _jm_f_9,
+            "license": _jm_f_10,
+            "summary": _jm_f_11,
+            "termsOfService": _jm_f_12,
         }
         global _jm_obj_9_may
         _jm_obj_9_may = {
-            "callbacks": _jm_f_28,
-            "examples": _jm_f_29,
-            "headers": _jm_f_30,
-            "links": _jm_f_31,
-            "models": _jm_f_32,
-            "parameters": _jm_f_33,
-            "pathItems": _jm_f_34,
-            "requestBodies": _jm_f_35,
-            "responses": _jm_f_36,
-            "securitySchemes": _jm_f_37,
+            "callbacks": _jm_f_13,
+            "examples": _jm_f_14,
+            "headers": _jm_f_15,
+            "links": _jm_f_16,
+            "models": _jm_f_17,
+            "parameters": _jm_f_18,
+            "pathItems": _jm_f_19,
+            "requestBodies": _jm_f_20,
+            "responses": _jm_f_21,
+            "securitySchemes": _jm_f_22,
         }
         global _jm_re_1_search, _jm_re_1
         _jm_re_1_search = re.compile("^/").search
         _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
         global _jm_obj_21_may
         _jm_obj_21_may = {
-            "$ref": _jm_f_38,
-            "description": _jm_f_39,
-            "get": _jm_f_40,
-            "head": _jm_f_41,
-            "options": _jm_f_42,
-            "parameters": _jm_f_43,
-            "patch": _jm_f_44,
-            "post": _jm_f_45,
-            "put": _jm_f_46,
-            "servers": _jm_f_47,
-            "summary": _jm_f_48,
-            "trace": _jm_f_49,
+            "$ref": _jm_f_23,
+            "description": _jm_f_24,
+            "get": _jm_f_25,
+            "head": _jm_f_26,
+            "options": _jm_f_27,
+            "parameters": _jm_f_28,
+            "patch": _jm_f_29,
+            "post": _jm_f_30,
+            "put": _jm_f_31,
+            "servers": _jm_f_32,
+            "summary": _jm_f_33,
+            "trace": _jm_f_34,
         }
         global _jm_obj_23_may
         _jm_obj_23_may = {
-            "callbacks": _jm_f_50,
-            "deprecated": _jm_f_51,
-            "description": _jm_f_52,
-            "externalDocs": _jm_f_53,
-            "operationId": _jm_f_54,
-            "parameters": _jm_f_55,
-            "requestBody": _jm_f_56,
-            "responses": _jm_f_57,
-            "security": _jm_f_58,
-            "servers": _jm_f_59,
-            "summary": _jm_f_60,
-            "tags": _jm_f_61,
+            "callbacks": _jm_f_35,
+            "deprecated": _jm_f_36,
+            "description": _jm_f_37,
+            "externalDocs": _jm_f_38,
+            "operationId": _jm_f_39,
+            "parameters": _jm_f_40,
+            "requestBody": _jm_f_41,
+            "responses": _jm_f_42,
+            "security": _jm_f_43,
+            "servers": _jm_f_44,
+            "summary": _jm_f_45,
+            "tags": _jm_f_46,
         }
         global _jm_cst_0
         _jm_cst_0 = {'cookie', 'header', 'path', 'query'}
-        global _jm_obj_28_must
-        _jm_obj_28_must = {
-            "in": _jm_f_62,
-            "name": _jm_f_63,
-        }
         global _jm_cst_1
         _jm_cst_1 = {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
         global _jm_obj_28_may
         _jm_obj_28_may = {
-            "allowEmptyValue": _jm_f_64,
-            "allowReserved": _jm_f_65,
-            "content": _jm_f_66,
-            "deprecated": _jm_f_67,
-            "description": _jm_f_68,
-            "example": _jm_f_69,
-            "examples": _jm_f_70,
-            "explode": _jm_f_71,
-            "model": _jm_f_72,
-            "required": _jm_f_73,
-            "style": _jm_f_74,
-        }
-        global _jm_obj_31_may
-        _jm_obj_31_may = {
-            "content": _jm_f_75,
-            "description": _jm_f_76,
-            "required": _jm_f_77,
+            "allowEmptyValue": _jm_f_47,
+            "allowReserved": _jm_f_48,
+            "content": _jm_f_49,
+            "deprecated": _jm_f_50,
+            "description": _jm_f_51,
+            "example": _jm_f_52,
+            "examples": _jm_f_53,
+            "explode": _jm_f_54,
+            "model": _jm_f_55,
+            "required": _jm_f_56,
+            "style": _jm_f_57,
         }
         global _jm_obj_33_may
         _jm_obj_33_may = {
-            "encoding": _jm_f_78,
-            "example": _jm_f_79,
-            "examples": _jm_f_80,
-            "model": _jm_f_81,
+            "encoding": _jm_f_58,
+            "example": _jm_f_59,
+            "examples": _jm_f_60,
+            "model": _jm_f_61,
         }
         global _jm_obj_36_may
         _jm_obj_36_may = {
-            "allowReserved": _jm_f_82,
-            "contentType": _jm_f_83,
-            "explode": _jm_f_84,
-            "headers": _jm_f_85,
-            "style": _jm_f_86,
+            "allowReserved": _jm_f_62,
+            "contentType": _jm_f_63,
+            "explode": _jm_f_64,
+            "headers": _jm_f_65,
+            "style": _jm_f_66,
         }
         global _jm_re_2_search, _jm_re_2
         _jm_re_2_search = re.compile("^[1-5](\\d\\d|XX)$").search
         _jm_re_2 = lambda s: _jm_re_2_search(s) is not None
         global _jm_obj_39_may
         _jm_obj_39_may = {
-            "content": _jm_f_87,
-            "description": _jm_f_88,
-            "headers": _jm_f_89,
-            "links": _jm_f_90,
+            "content": _jm_f_67,
+            "description": _jm_f_68,
+            "headers": _jm_f_69,
+            "links": _jm_f_70,
         }
         global _jm_obj_44_may
         _jm_obj_44_may = {
-            "description": _jm_f_91,
-            "externalValue": _jm_f_92,
-            "summary": _jm_f_93,
-            "value": _jm_f_94,
+            "description": _jm_f_71,
+            "externalValue": _jm_f_72,
+            "summary": _jm_f_73,
+            "value": _jm_f_74,
         }
         global _jm_re_3_search, _jm_re_3
         _jm_re_3_search = re.compile("\\{.*\\}").search
         _jm_re_3 = lambda s: _jm_re_3_search(s) is not None
         global _jm_obj_45_may
         _jm_obj_45_may = {
-            "description": _jm_f_95,
-            "parameters": _jm_f_96,
-            "requestBody": _jm_f_97,
-            "server": _jm_f_98,
+            "description": _jm_f_75,
+            "parameters": _jm_f_76,
+            "requestBody": _jm_f_77,
+            "server": _jm_f_78,
         }
         global _jm_obj_47_may
         _jm_obj_47_may = {
-            "description": _jm_f_99,
-            "parameters": _jm_f_100,
-            "requestBody": _jm_f_101,
-            "server": _jm_f_102,
+            "description": _jm_f_79,
+            "parameters": _jm_f_80,
+            "requestBody": _jm_f_81,
+            "server": _jm_f_82,
         }
         global _jm_cst_2
         _jm_cst_2 = {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
         global _jm_obj_49_may
         _jm_obj_49_may = {
-            "allowEmptyValue": _jm_f_103,
-            "allowReserved": _jm_f_104,
-            "content": _jm_f_105,
-            "deprecated": _jm_f_106,
-            "description": _jm_f_107,
-            "example": _jm_f_108,
-            "examples": _jm_f_109,
-            "explode": _jm_f_110,
-            "model": _jm_f_111,
-            "required": _jm_f_112,
-            "style": _jm_f_113,
-        }
-        global _jm_obj_52_may
-        _jm_obj_52_may = {
-            "description": _jm_f_114,
-            "externalDocs": _jm_f_115,
-        }
-        global _jm_obj_53_may
-        _jm_obj_53_may = {
-            "description": _jm_f_116,
-            "summary": _jm_f_117,
+            "allowEmptyValue": _jm_f_83,
+            "allowReserved": _jm_f_84,
+            "content": _jm_f_85,
+            "deprecated": _jm_f_86,
+            "description": _jm_f_87,
+            "example": _jm_f_88,
+            "examples": _jm_f_89,
+            "explode": _jm_f_90,
+            "model": _jm_f_91,
+            "required": _jm_f_92,
+            "style": _jm_f_93,
         }
         global _jm_obj_54_must
         _jm_obj_54_must = {
-            "flows": _jm_f_118,
-            "in": _jm_f_119,
-            "name": _jm_f_120,
-            "openIdConnectUrl": _jm_f_121,
-            "scheme": _jm_f_122,
-            "type": _jm_f_123,
-        }
-        global _jm_obj_54_may
-        _jm_obj_54_may = {
-            "bearerFormat": _jm_f_124,
-            "description": _jm_f_125,
+            "flows": _jm_f_94,
+            "in": _jm_f_95,
+            "name": _jm_f_96,
+            "openIdConnectUrl": _jm_f_97,
+            "scheme": _jm_f_98,
+            "type": _jm_f_99,
         }
         global _jm_obj_55_may
         _jm_obj_55_may = {
-            "authorizationCode": _jm_f_126,
-            "clientCredentials": _jm_f_127,
-            "implicit": _jm_f_128,
-            "password": _jm_f_129,
-        }
-        global _jm_obj_56_must
-        _jm_obj_56_must = {
-            "authorizationUrl": _jm_f_130,
-            "scopes": _jm_f_131,
-            "tokenUrl": _jm_f_132,
+            "authorizationCode": _jm_f_100,
+            "clientCredentials": _jm_f_101,
+            "implicit": _jm_f_102,
+            "password": _jm_f_103,
         }
         global _jm_re_4_search, _jm_re_4
         _jm_re_4_search = re.compile("^[@|&^+/*]$").search
         _jm_re_4 = lambda s: _jm_re_4_search(s) is not None
-        global _jm_obj_64_may
-        _jm_obj_64_may = {
-            "!": _jm_f_133,
-            "#": _jm_f_134,
-        }
         global _jm_re_5_search, _jm_re_5
         _jm_re_5_search = re.compile("^(<=|>=|<|>|≥|≤)$").search
         _jm_re_5 = lambda s: _jm_re_5_search(s) is not None

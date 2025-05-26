@@ -32,7 +32,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "foo":
-            # handle one may property
+            # handle may foo property
             # $.foo
             # $.foo.'|'.0
             res = json_model_1(pval, path, rep)

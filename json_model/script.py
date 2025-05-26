@@ -192,6 +192,7 @@ def jmc_script():
     # operations on model
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
+    arg("--map-threshold", "-mt", default=3, type=int, help="property map threshold")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
@@ -311,8 +312,9 @@ def jmc_script():
     elif args.op == "X":
         assert args.format in ("py", "c", "cpp", "js", "ts", "rs", "go"), \
             f"valid output language {args.format}"
-        code = xstatic_compile(model, args.name,
-                               lang=args.format, debug=args.debug, report=args.verbose)
+        code = xstatic_compile(model, args.name, lang=args.format,
+                               map_threshold=args.map_threshold,
+                               debug=args.debug, report=args.verbose)
         source = str(code)
         if args.code:
             print(source, file=output, end="")

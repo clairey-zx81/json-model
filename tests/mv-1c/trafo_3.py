@@ -20,7 +20,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
 check_model_map: PropMap
 
 # check $D ($.'$D')
@@ -68,42 +67,36 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $U#un [$.'$D#u']", path))
     return res
 
-# check _jm_obj_0_must_ua ($.'$D#U#un'.ua)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$D#U#un'.ua
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ua]", path))
-    return res
-
-# check _jm_obj_0_must_ub ($.'$D#U#un'.ub)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$D#U#un'.ub
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ub]", path))
-    return res
-
-
 # object $.'$D#U#un'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$D#U#un']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 2 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$D#U#un']", lpath_0 if path is not None else None))
-                    return False
+        if prop == "ua":
+            # handle must ua property
+            must_count += 1
+            # $.'$D#U#un'.ua
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ua]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$D#U#un'.ua]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "ub":
+            # handle must ub property
+            must_count += 1
+            # $.'$D#U#un'.ub
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ub]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$D#U#un'.ub]", lpath_0 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$D#U#un']", lpath_0 if path is not None else None))
             return False
@@ -130,11 +123,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "ua": _jm_f_0,
-            "ub": _jm_f_1,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

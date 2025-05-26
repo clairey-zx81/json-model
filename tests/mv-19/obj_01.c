@@ -47,7 +47,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "foo") == 0)
         {
-            // handle one must property
+            // handle must foo property
             must_count += 1;
             // $.foo
             res = jm_is_valid_date(json_string_value(pval));
@@ -63,7 +63,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "bla") == 0)
         {
-            // handle one may property
+            // handle may bla property
             // $.bla
             res = json_is_boolean(pval);
             if (! res)

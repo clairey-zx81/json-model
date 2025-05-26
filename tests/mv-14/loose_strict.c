@@ -3,9 +3,6 @@
 
 static bool json_model_5(const json_t* val, Path* path, Report* rep);
 static bool json_model_6(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_2_must_tab[2];
 static bool json_model_4(const json_t* val, Path* path, Report* rep);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[4];
@@ -28,7 +25,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "li") == 0)
         {
-            // handle one must property
+            // handle must li property
             must_count += 1;
             // $.'$loose'.li
             res = (json_is_integer(pval) || (json_is_real(pval) && json_real_value(pval) == ((int64_t) json_real_value(pval)))) && json_number_value(pval) >= 0;
@@ -86,7 +83,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "si") == 0)
         {
-            // handle one must property
+            // handle must si property
             must_count += 1;
             // $.'$strict'.si
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
@@ -127,37 +124,6 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_2_must_li ($.'$combined'.li)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$combined'.li
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$combined'.li]", path);
-    }
-    return res;
-}
-
-// check _jm_obj_2_must_si ($.'$combined'.si)
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$combined'.si
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$combined'.si]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_2_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_2_must_tab, 2);
-}
-
 // object $.'$combined'
 static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 {
@@ -166,24 +132,43 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$combined']", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_2 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_2_must(prop)))
+        if (strcmp(prop, "li") == 0)
         {
-            // handle 2 must props
-            if (pfun != NULL)
+            // handle must li property
+            must_count += 1;
+            // $.'$combined'.li
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_2 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$combined']", (path ? &lpath_2 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$combined'.li]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$combined'.li]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "si") == 0)
+        {
+            // handle must si property
+            must_count += 1;
+            // $.'$combined'.si
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$combined'.si]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$combined'.si]", (path ? &lpath_2 : NULL));
+                return false;
             }
         }
         else
@@ -239,9 +224,6 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_2_must_tab[0] = (propmap_t) { "li", _jm_f_0 };
-        _jm_obj_2_must_tab[1] = (propmap_t) { "si", _jm_f_1 };
-        jm_sort_propmap(_jm_obj_2_must_tab, 2);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "loose", json_model_5 };
         check_model_map_tab[2] = (propmap_t) { "strict", json_model_6 };

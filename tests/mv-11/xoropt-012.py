@@ -60,7 +60,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
-            # handle one must property
+            # handle must a property
             must_count += 1
             # $.'|'.4.a
             res = isinstance(pval, bool) and pval == False
@@ -88,7 +88,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
-            # handle one must property
+            # handle must a property
             must_count += 1
             # $.'|'.3.a
             res = isinstance(pval, bool) and pval == True
@@ -116,7 +116,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
-            # handle one must property
+            # handle must a property
             must_count += 1
             # $.'|'.2.a
             res = isinstance(pval, float) and pval == 1.0
@@ -144,7 +144,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
-            # handle one must property
+            # handle must a property
             must_count += 1
             # $.'|'.1.a
             res = isinstance(pval, float) and pval == 10.0
@@ -172,7 +172,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
-            # handle one must property
+            # handle must a property
             must_count += 1
             # $.'|'.0.a
             res = pval is None

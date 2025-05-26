@@ -32,7 +32,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if prop == "country":
-            # handle one may property
+            # handle may country property
             # $.country
             res = isinstance(pval, str) and pval == "South Africa"
             if not res:

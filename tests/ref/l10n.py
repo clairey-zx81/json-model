@@ -38,7 +38,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "Model":
-            # handle one must property
+            # handle must Model property
             must_count += 1
             # $.'$'.Model
             res = isinstance(pval, str) and pval == "$https://json-model.org/models/json-model"
@@ -48,7 +48,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid must property value [$.'$'.Model]", lpath_1 if path is not None else None))
                 return False
         elif prop == "":
-            # handle one may property
+            # handle may  property
             # $.'$'.''
             res = is_valid_url(pval, path, rep)
             if not res:
@@ -145,7 +145,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
                     return False
         elif prop == "#":
-            # handle one may property
+            # handle may # property
             # $.'#'
             res = isinstance(pval, str)
             if not res:

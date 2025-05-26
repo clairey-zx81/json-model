@@ -22,7 +22,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "must") == 0)
         {
-            // handle one must property
+            // handle must must property
             must_count += 1;
             // $.must
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
@@ -38,7 +38,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (strcmp(prop, "may") == 0)
         {
-            // handle one may property
+            // handle may may property
             // $.may
             res = json_is_boolean(pval);
             if (! res)

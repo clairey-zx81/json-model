@@ -22,7 +22,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (strcmp(prop, "si") == 0)
         {
-            // handle one must property
+            // handle must si property
             must_count += 1;
             // $.si
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;

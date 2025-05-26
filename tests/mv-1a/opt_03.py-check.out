@@ -1,8 +1,8 @@
 opt_03.values.json[0]: PASS
 opt_03.values.json[1]: FAIL [('no other prop expected [$]', ['Z']), ('not an expected object at [$]', [])]
-opt_03.values.json[2]: FAIL [('not a 0 strict int [$.a]', ['a']), ('invalid must property value [$]', ['a']), ('not an expected object at [$]', [])]
-opt_03.values.json[3]: FAIL [('not a -1 strict int [$.b]', ['b']), ('invalid must property value [$]', ['b']), ('not an expected object at [$]', [])]
-opt_03.values.json[4]: FAIL [('not a 1 strict int [$.c]', ['c']), ('invalid must property value [$]', ['c']), ('not an expected object at [$]', [])]
+opt_03.values.json[2]: FAIL [('not a 0 strict int [$.a]', ['a']), ('invalid must property value [$.a]', ['a']), ('not an expected object at [$]', [])]
+opt_03.values.json[3]: FAIL [('not a -1 strict int [$.b]', ['b']), ('invalid must property value [$.b]', ['b']), ('not an expected object at [$]', [])]
+opt_03.values.json[4]: FAIL [('not a 1 strict int [$.c]', ['c']), ('invalid must property value [$.c]', ['c']), ('not an expected object at [$]', [])]
 opt_03.values.json[5]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
 opt_03.values.json[6]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
 opt_03.values.json[7]: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
