@@ -187,6 +187,8 @@ def jmc_script():
         help="test values for true")
     arg("--false", "-f", dest="expect", action="store_const", const=False,
         help="test values for false")
+    arg("--test-vector", "-tv", action="store_true", default=False,
+        help="read values from a test vector file")
     # operations on model
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
@@ -322,8 +324,10 @@ def jmc_script():
             env = {}
             exec(source, env)
             env[args.name + "_init"]()
-            def checker(v: Jsonable, s: str = "", rep: Report = None):
-                return env[args.name](v, "", rep)
+
+            def checker(v: Jsonable, model: str, rep: Report = None):
+                return env[args.name](v, model, rep)
+
     elif args.op == "E":
         mm = model._init_md
         if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):
@@ -339,6 +343,25 @@ def jmc_script():
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
 
+    def _process(checker, model: str, value: Jsonable, fid: str, expect: bool|None, output) -> bool:
+        """Process a value and report to output depending on args, return if as expected."""
+        collect = args.verbose and args.op in "X"
+        reasons = [] if collect else None
+        okay = checker(value, model, reasons)
+        sokay = "PASS" if okay else "FAIL"
+        if expect is None or args.verbose or fid[-1] == "]":
+            msg = f"{fid}: {sokay}"
+            if not okay and args.verbose:
+                msg += " " + str(reasons)
+            print(msg, file=output)
+        if expect is not None:
+            if okay == expect:
+                log.info(f"check value {fid}: {okay}")
+            elif okay != expect:
+                log.error(f"check value {fid}: {okay}")
+                return False
+        return True
+
     # values
     nerrors = 0
     for fn in args.values:
@@ -346,21 +369,28 @@ def jmc_script():
         with open(fn) as fh:
             try:
                 value = json.load(fh)
-                reasons = [[]] if args.verbose and args.op in "X" else []
-                okay = checker(value, "$", *reasons)
-                sokay = "PASS" if okay else "FAIL"
-                if args.expect is None or args.verbose:
-                    msg = f"{fn}: {sokay}"
-                    if not okay and args.verbose:
-                        msg += " " + str(reasons[0])
-                    print(msg, file=output)
-                if args.expect is not None:
-                    if okay == args.expect:
-                        log.info(f"check value {fn}: {okay}")
-                    elif okay != args.expect:
+                if args.test_vector:
+                    assert isinstance(value, list), "array test vector"
+                    for idx, test in enumerate(value):
+
+                        assert isinstance(test, list) and len(test) in (2, 3), "2 or 3 tuple test"
+
+                        if len(test) == 2:
+                            expect, val = test
+                            model = ""
+                        else:
+                            assert len(test) == 3
+                            expect, model, val = test
+                        assert isinstance(expect, bool) and isinstance(model, str), "test format"
+
+                        if not _process(checker, model, val, f"{fn}[{idx}]", expect, output):
+                            nerrors += 1
+
+                else:  # direct value testing
+                    if not _process(checker, "", value, fn, args.expect, output):
                         nerrors += 1
-                        log.error(f"check value {fn}: {okay}")
             except Exception as e:
+                nerrors += 1
                 log.debug(e, exc_info=args.verbose)
                 print(f"{fn}: ERROR")
 
