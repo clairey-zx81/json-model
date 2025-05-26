@@ -2,7 +2,7 @@ scp_00.values.json[0]: PASS
 scp_00.values.json[1]: PASS
 scp_00.values.json[2]: FAIL [('no other prop expected [$]', ['Z']), ('not an expected object at [$]', [])]
 scp_00.values.json[3]: FAIL [('no other prop expected [$]', ['A']), ('not an expected object at [$]', [])]
-scp_00.values.json[4]: FAIL [("unexpected string [$.'$A']", ['a']), ('unexpected $A [$.a]', ['a']), ('invalid may property value [$]', ['a']), ('not an expected object at [$]', [])]
+scp_00.values.json[4]: FAIL [("unexpected string [$.'$A']", []), ('unexpected $A [$.a]', ['a']), ('invalid may property value [$.a]', ['a']), ('not an expected object at [$]', [])]
 scp_00.values.json[5]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
 scp_00.values.json[6]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
 scp_00.values.json[7]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]

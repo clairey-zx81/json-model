@@ -21,7 +21,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_obj_0_must: PropMap
-_jm_obj_0_may: PropMap
 check_model_map: PropMap
 
 # check _jm_obj_0_must_! ($.'!')
@@ -70,21 +69,12 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_0_may_b ($.b)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.b
-    res = val is None
-    if not res:
-        rep is None or rep.append(("not null [$.b]", path))
-    return res
-
-
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$]", path))
         return False
+    res: bool
     pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
@@ -97,10 +87,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not pfun(pval, lpath_0 if path is not None else None, rep):
                     rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
                     return False
-        elif pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$]", lpath_0 if path is not None else None))
+        elif prop == "b":
+            # handle one may property
+            # $.b
+            res = pval is None
+            if not res:
+                rep is None or rep.append(("not null [$.b]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.b]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
@@ -135,10 +129,6 @@ def check_model_init():
             "?": _jm_f_2,
             "_": _jm_f_3,
             "a": _jm_f_4,
-        }
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "b": _jm_f_5,
         }
         global check_model_map
         check_model_map = {

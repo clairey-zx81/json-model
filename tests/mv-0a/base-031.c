@@ -1,49 +1,10 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_must_tab[1];
 static bool json_model_2(const json_t* val, Path* path, Report* rep);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
-
-// check _jm_obj_0_must_bibi ($.'$bibi'.bibi)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$bibi'.bibi
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_0_idx;
-        json_t *arr_0_item;
-        json_array_foreach(val, arr_0_idx, arr_0_item)
-        {
-            Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
-            // $.'$bibi'.bibi.0
-            res = json_model_2(arr_0_item, path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $bibi [$.'$bibi'.bibi.0]", (path ? &arr_0_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$bibi'.bibi]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_must_tab, 1);
-}
 
 // object $.'$bibi'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
@@ -53,24 +14,46 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$bibi']", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_must(prop)))
+        if (strcmp(prop, "bibi") == 0)
         {
-            // handle 1 must props
-            if (pfun != NULL)
+            // handle one must property
+            must_count += 1;
+            // $.'$bibi'.bibi
+            res = json_is_array(pval);
+            if (res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
+                size_t arr_0_idx;
+                json_t *arr_0_item;
+                json_array_foreach(pval, arr_0_idx, arr_0_item)
                 {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$bibi']", (path ? &lpath_0 : NULL));
-                    return false;
+                    Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
+                    // $.'$bibi'.bibi.0
+                    res = json_model_2(arr_0_item, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $bibi [$.'$bibi'.bibi.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
                 }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
         else
@@ -126,8 +109,6 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_0_must_tab[0] = (propmap_t) { "bibi", _jm_f_0 };
-        jm_sort_propmap(_jm_obj_0_must_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "bibi", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);

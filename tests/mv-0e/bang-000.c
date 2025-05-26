@@ -7,8 +7,6 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_0_must_tab[5];
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[1];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
@@ -83,24 +81,6 @@ static check_fun_t _jm_obj_0_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_0_must_tab, 5);
 }
 
-// check _jm_obj_0_may_b ($.b)
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.b
-    res = json_is_null(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not null [$.b]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 1);
-}
-
 // object $
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
@@ -109,6 +89,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$]", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -129,12 +110,18 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_0_may(prop)))
+        else if (strcmp(prop, "b") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle one may property
+            // $.b
+            res = json_is_null(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not null [$.b]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.b]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -184,8 +171,6 @@ char *CHECK_init(void)
         _jm_obj_0_must_tab[3] = (propmap_t) { "_", _jm_f_3 };
         _jm_obj_0_must_tab[4] = (propmap_t) { "a", _jm_f_4 };
         jm_sort_propmap(_jm_obj_0_must_tab, 5);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "b", _jm_f_5 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

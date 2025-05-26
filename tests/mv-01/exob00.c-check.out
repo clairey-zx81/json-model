@@ -1,4 +1,4 @@
 exob00.values.json[0]: PASS
 exob00.values.json[1]: PASS
-exob00.values.json[2]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.a: invalid may property value [$.'|'.1]) (.a: unexpected $NONE [$.'|'.1.a]) (.: not an expected object at [$.'|'.0]) (.b: invalid may property value [$.'|'.0]) (.b: unexpected $NONE [$.'|'.0.b])
+exob00.values.json[2]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.a: invalid may property value [$.'|'.1.a]) (.a: unexpected $NONE [$.'|'.1.a]) (.: not an expected object at [$.'|'.0]) (.b: invalid may property value [$.'|'.0.b]) (.b: unexpected $NONE [$.'|'.0.b])
 exob00.values.json[3]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1.'']) (.: not an expected object at [$.'|'.0]) (.: missing must prop [$.'|'.0.''])

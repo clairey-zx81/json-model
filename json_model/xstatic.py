@@ -405,57 +405,81 @@ class SourceCode(Validator):
         lpath_ref = gen.path_lvar(lpath, vpath)
 
         # else we have some work to do!
-        if defs or regs or oth and oth[""] != "$ANY":
+        if defs or regs or oth and oth[""] != "$ANY" or len(must) == 1 or len(may) == 1:
             code += [ gen.bool_var(res, declare=True) ]
-        if may or must:
+        if may and len(may) > 1 or must and len(must) > 1:
             # we need a function pointer for simple properties
             code += [ gen.fun_var(pfun, declare=True) ]
 
         # build multi-if structure to put in prop/val loop
         if must:
-            prop_must = f"{oname}_must"
 
             # must prop counter to check at the end if all were seen
             code += [ gen.int_var(must_c, gen.const(0), True) ]
 
-            prop_must_map: dict[str, str] = {}
-            for p in sorted(must.keys()):
-                m = must[p]
-                pid = f"{prop_must}_{p}"  # tmp unique identifier
-                self._compileName(jm, pid, m, mpath + [p], True)
-                prop_must_map[p] = self._getName(jm, pid)
+            if len(must) == 1:  # simple one-property code
+                p, m = list(must.items())[0]
+                mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                mu_code = (
+                    [ gen.lcom(f"handle one must property"),
+                      gen.inc_var(must_c) ] +
+                    self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                    gen.if_stmt(gen.not_op(res),
+                        self._gen_fail(f"invalid must property value [{smpath}.{p}]", lpath_ref)
+                    )
+                )
+            else:  # generic code
+                prop_must = f"{oname}_must"
+                prop_must_map: dict[str, str] = {}
+                for p in sorted(must.keys()):
+                    m = must[p]
+                    pid = f"{prop_must}_{p}"  # tmp unique identifier
+                    self._compileName(jm, pid, m, mpath + [p], True)
+                    prop_must_map[p] = self._getName(jm, pid)
 
-            self._code.pmap(prop_must, prop_must_map)
+                self._code.pmap(prop_must, prop_must_map)
 
-            mu_expr = gen.prop_fun(pfun, prop, prop_must)
-            mu_code = (
-                [ gen.lcom(f"handle {len(must)} must props") ] +
-                gen.if_stmt(gen.is_def(pfun),
-                    [ gen.inc_var(must_c) ] +
-                    gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
-                        self._gen_fail(f"invalid must property value [{smpath}]", lpath_ref)))
-            )
+                mu_expr = gen.prop_fun(pfun, prop, prop_must)
+                mu_code = (
+                    [ gen.lcom(f"handle {len(must)} must props") ] +
+                    gen.if_stmt(gen.is_def(pfun),
+                        [ gen.inc_var(must_c) ] +
+                        gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
+                            self._gen_fail(f"invalid must property value [{smpath}]", lpath_ref)))
+                )
+
             multi_if += [(mu_expr, mu_code)]
 
         if may:
-            prop_may = f"{oname}_may"
+            if len(may) == 1:  # simple one-property code
+                p, m = list(may.items())[0]
+                ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
+                ma_code = (
+                    [ gen.lcom(f"handle one may property") ] +
+                    self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
+                    gen.if_stmt(gen.not_op(res),
+                        self._gen_fail(f"invalid may property value [{smpath}.{p}]", lpath_ref)
+                    )
+                )
+            else:  # generic code
+                prop_may = f"{oname}_may"
+                prop_may_map: dict[str, str] = {}
+                for p in sorted(may.keys()):
+                    m = may[p]
+                    pid = f"{prop_may}_{p}"
+                    self._compileName(jm, pid, m, mpath + [p])
+                    prop_may_map[p] = self._getName(jm, pid)
 
-            prop_may_map: dict[str, str] = {}
-            for p in sorted(may.keys()):
-                m = may[p]
-                pid = f"{prop_may}_{p}"
-                self._compileName(jm, pid, m, mpath + [p])
-                prop_may_map[p] = self._getName(jm, pid)
+                self._code.pmap(prop_may, prop_may_map)
 
-            self._code.pmap(prop_may, prop_may_map)
+                ma_expr = gen.prop_fun(pfun, prop, prop_may)
+                ma_code = (
+                    [ gen.lcom("handle {len(may)} may props") ] +
+                    gen.if_stmt(gen.and_op(gen.is_def(pfun),
+                                           gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
+                        self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref))
+                )
 
-            ma_expr = gen.prop_fun(pfun, prop, prop_may)
-            ma_code = (
-                [ gen.lcom("handle {len(may)} may props") ] +
-                gen.if_stmt(gen.and_op(gen.is_def(pfun),
-                                       gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
-                    self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref))
-            )
             multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)

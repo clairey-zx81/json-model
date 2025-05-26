@@ -1,24 +1,22 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_1_must_tab[2];
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_2_must_tab[2];
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_3_must_tab[2];
 static constmap_t _jm_map_0_tab[3];
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_must_tab[1];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
 // check _jm_obj_1_must_t ($.movie.'|'.0.t)
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.0.t
@@ -31,7 +29,7 @@ static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_1_must_titre ($.movie.'|'.0.titre)
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.0.titre
@@ -91,7 +89,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_2_must_t ($.movie.'|'.1.t)
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.1.t
@@ -104,7 +102,7 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_2_must_title ($.movie.'|'.1.title)
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.1.title
@@ -164,7 +162,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_3_must_suti ($.movie.'|'.2.suti)
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.2.suti
@@ -177,7 +175,7 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_3_must_t ($.movie.'|'.2.t)
-static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.movie.'|'.2.t
@@ -243,46 +241,6 @@ static check_fun_t _jm_map_0(json_t *val)
     return jm_search_constmap(&cst, _jm_map_0_tab, 3);
 }
 
-// check _jm_obj_0_must_movie ($.movie)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.movie
-    res = json_is_object(val);
-    if (res)
-    {
-        json_t * tag_0 = json_object_get(val, "t");
-        if (tag_0 != NULL)
-        {
-            check_fun_t fun_0 = _jm_map_0(tag_0);
-            if (fun_0 != NULL)
-            {
-                res = fun_0(val, path, rep);
-            }
-            else
-            {
-                res = false;
-                if (rep) jm_report_add_entry(rep, "tag t value not found [$.movie.'|']", path);
-            }
-        }
-        else
-        {
-            res = false;
-            if (rep) jm_report_add_entry(rep, "tag prop t is missing [$.movie.'|']", path);
-        }
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "value is not an object [$.movie.'|']", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_must_tab, 1);
-}
-
 // object $
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
@@ -291,24 +249,49 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_must(prop)))
+        if (strcmp(prop, "movie") == 0)
         {
-            // handle 1 must props
-            if (pfun != NULL)
+            // handle one must property
+            must_count += 1;
+            // $.movie
+            res = json_is_object(pval);
+            if (res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
+                json_t * tag_0 = json_object_get(pval, "t");
+                if (tag_0 != NULL)
                 {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$]", (path ? &lpath_0 : NULL));
-                    return false;
+                    check_fun_t fun_0 = _jm_map_0(tag_0);
+                    if (fun_0 != NULL)
+                    {
+                        res = fun_0(pval, (path ? &lpath_0 : NULL), rep);
+                    }
+                    else
+                    {
+                        res = false;
+                        if (rep) jm_report_add_entry(rep, "tag t value not found [$.movie.'|']", (path ? &lpath_0 : NULL));
+                    }
                 }
+                else
+                {
+                    res = false;
+                    if (rep) jm_report_add_entry(rep, "tag prop t is missing [$.movie.'|']", (path ? &lpath_0 : NULL));
+                }
+            }
+            else
+            {
+                if (rep) jm_report_add_entry(rep, "value is not an object [$.movie.'|']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie]", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
         else
@@ -351,21 +334,19 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_1_must_tab[0] = (propmap_t) { "t", _jm_f_1 };
-        _jm_obj_1_must_tab[1] = (propmap_t) { "titre", _jm_f_2 };
+        _jm_obj_1_must_tab[0] = (propmap_t) { "t", _jm_f_0 };
+        _jm_obj_1_must_tab[1] = (propmap_t) { "titre", _jm_f_1 };
         jm_sort_propmap(_jm_obj_1_must_tab, 2);
-        _jm_obj_2_must_tab[0] = (propmap_t) { "t", _jm_f_3 };
-        _jm_obj_2_must_tab[1] = (propmap_t) { "title", _jm_f_4 };
+        _jm_obj_2_must_tab[0] = (propmap_t) { "t", _jm_f_2 };
+        _jm_obj_2_must_tab[1] = (propmap_t) { "title", _jm_f_3 };
         jm_sort_propmap(_jm_obj_2_must_tab, 2);
-        _jm_obj_3_must_tab[0] = (propmap_t) { "suti", _jm_f_5 };
-        _jm_obj_3_must_tab[1] = (propmap_t) { "t", _jm_f_6 };
+        _jm_obj_3_must_tab[0] = (propmap_t) { "suti", _jm_f_4 };
+        _jm_obj_3_must_tab[1] = (propmap_t) { "t", _jm_f_5 };
         jm_sort_propmap(_jm_obj_3_must_tab, 2);
         _jm_map_0_tab[0] = (constmap_t) { (constant_t) { cst_is_string, { .s = "fr" } }, _jm_obj_1 };
         _jm_map_0_tab[1] = (constmap_t) { (constant_t) { cst_is_string, { .s = "en" } }, _jm_obj_2 };
         _jm_map_0_tab[2] = (constmap_t) { (constant_t) { cst_is_string, { .s = "ru" } }, _jm_obj_3 };
         jm_sort_constmap(_jm_map_0_tab, 3);
-        _jm_obj_0_must_tab[0] = (propmap_t) { "movie", _jm_f_0 };
-        jm_sort_propmap(_jm_obj_0_must_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

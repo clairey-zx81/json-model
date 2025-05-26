@@ -7,60 +7,44 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_0_must_tab[2];
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[1];
 static bool json_model_5(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_1_must_tab[2];
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_1_may_tab[1];
 static bool json_model_6(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_2_must_tab[2];
+static bool json_model_7(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_2_must_tab[2];
-static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_2_may_tab[1];
-static bool json_model_7(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_3_must_tab[2];
-static bool _jm_f_11(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_3_may_tab[1];
 static bool json_model_8(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_12(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_13(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_4_must_tab[2];
-static bool _jm_f_14(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_4_may_tab[1];
 static bool json_model_9(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_15(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_16(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_11(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_5_must_tab[2];
-static bool _jm_f_17(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_5_may_tab[1];
 static bool json_model_10(const json_t* val, Path* path, Report* rep);
 static constmap_t _jm_map_0_tab[6];
 static bool json_model_11(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_18(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_19(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_12(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_13(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_6_must_tab[2];
-static bool _jm_f_20(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_6_may_tab[1];
 static bool json_model_12(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_21(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_22(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_23(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_14(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_15(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_16(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_7_must_tab[3];
-static bool _jm_f_24(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_25(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_17(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_18(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_7_may_tab[2];
 static bool json_model_13(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_26(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_27(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_19(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_20(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_9_must_tab[2];
-static bool _jm_f_28(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_9_may_tab[1];
 static bool json_model_14(const json_t* val, Path* path, Report* rep);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[14];
@@ -223,43 +207,6 @@ static check_fun_t _jm_obj_0_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_0_must_tab, 2);
 }
 
-// check _jm_obj_0_may_bbox ($.'$Point'.bbox)
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Point'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_3_idx;
-        json_t *arr_3_item;
-        json_array_foreach(val, arr_3_idx, arr_3_item)
-        {
-            Path arr_3_lpath = (Path) { NULL, arr_3_idx, path, NULL };
-            // $.'$Point'.bbox.0
-            res = json_is_number(arr_3_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Point'.bbox.0]", (path ? &arr_3_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Point'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 1);
-}
-
 // object $.'$Point'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
@@ -268,6 +215,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$Point']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -288,12 +236,37 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_0_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle one may property
+            // $.'$Point'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Point']", (path ? &lpath_0 : NULL));
+                size_t arr_3_idx;
+                json_t *arr_3_item;
+                json_array_foreach(pval, arr_3_idx, arr_3_item)
+                {
+                    Path arr_3_lpath = (Path) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
+                    // $.'$Point'.bbox.0
+                    res = json_is_number(arr_3_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Point'.bbox.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Point'.bbox]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Point'.bbox]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -325,7 +298,7 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_1_must_coordinates ($.'$MultiPoint'.coordinates)
-static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiPoint'.coordinates
@@ -357,7 +330,7 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_1_must_type ($.'$MultiPoint'.type)
-static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiPoint'.type
@@ -374,43 +347,6 @@ static check_fun_t _jm_obj_1_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_1_must_tab, 2);
 }
 
-// check _jm_obj_1_may_bbox ($.'$MultiPoint'.bbox)
-static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$MultiPoint'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_5_idx;
-        json_t *arr_5_item;
-        json_array_foreach(val, arr_5_idx, arr_5_item)
-        {
-            Path arr_5_lpath = (Path) { NULL, arr_5_idx, path, NULL };
-            // $.'$MultiPoint'.bbox.0
-            res = json_is_number(arr_5_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPoint'.bbox.0]", (path ? &arr_5_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPoint'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_1_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_1_may_tab, 1);
-}
-
 // object $.'$MultiPoint'
 static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 {
@@ -419,6 +355,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$MultiPoint']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -439,12 +376,37 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_1_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_1 : NULL), rep))
+            // handle one may property
+            // $.'$MultiPoint'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiPoint']", (path ? &lpath_1 : NULL));
+                size_t arr_5_idx;
+                json_t *arr_5_item;
+                json_array_foreach(pval, arr_5_idx, arr_5_item)
+                {
+                    Path arr_5_lpath = (Path) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
+                    // $.'$MultiPoint'.bbox.0
+                    res = json_is_number(arr_5_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPoint'.bbox.0]", ((path ? &lpath_1 : NULL) ? &arr_5_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPoint'.bbox]", (path ? &lpath_1 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiPoint'.bbox]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -476,7 +438,7 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_2_must_coordinates ($.'$LineString'.coordinates)
-static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$LineString'.coordinates
@@ -489,7 +451,7 @@ static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_2_must_type ($.'$LineString'.type)
-static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$LineString'.type
@@ -506,43 +468,6 @@ static check_fun_t _jm_obj_2_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_2_must_tab, 2);
 }
 
-// check _jm_obj_2_may_bbox ($.'$LineString'.bbox)
-static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$LineString'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_6_idx;
-        json_t *arr_6_item;
-        json_array_foreach(val, arr_6_idx, arr_6_item)
-        {
-            Path arr_6_lpath = (Path) { NULL, arr_6_idx, path, NULL };
-            // $.'$LineString'.bbox.0
-            res = json_is_number(arr_6_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$LineString'.bbox.0]", (path ? &arr_6_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$LineString'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_2_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_2_may_tab, 1);
-}
-
 // object $.'$LineString'
 static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 {
@@ -551,6 +476,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$LineString']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -571,12 +497,37 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_2_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_2 : NULL), rep))
+            // handle one may property
+            // $.'$LineString'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$LineString']", (path ? &lpath_2 : NULL));
+                size_t arr_6_idx;
+                json_t *arr_6_item;
+                json_array_foreach(pval, arr_6_idx, arr_6_item)
+                {
+                    Path arr_6_lpath = (Path) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
+                    // $.'$LineString'.bbox.0
+                    res = json_is_number(arr_6_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$LineString'.bbox.0]", ((path ? &lpath_2 : NULL) ? &arr_6_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$LineString'.bbox]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$LineString'.bbox]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -608,7 +559,7 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_3_must_coordinates ($.'$MultiLineString'.coordinates)
-static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiLineString'.coordinates
@@ -640,7 +591,7 @@ static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_3_must_type ($.'$MultiLineString'.type)
-static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiLineString'.type
@@ -657,43 +608,6 @@ static check_fun_t _jm_obj_3_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_3_must_tab, 2);
 }
 
-// check _jm_obj_3_may_bbox ($.'$MultiLineString'.bbox)
-static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$MultiLineString'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_8_idx;
-        json_t *arr_8_item;
-        json_array_foreach(val, arr_8_idx, arr_8_item)
-        {
-            Path arr_8_lpath = (Path) { NULL, arr_8_idx, path, NULL };
-            // $.'$MultiLineString'.bbox.0
-            res = json_is_number(arr_8_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiLineString'.bbox.0]", (path ? &arr_8_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiLineString'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_3_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_3_may_tab, 1);
-}
-
 // object $.'$MultiLineString'
 static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
 {
@@ -702,6 +616,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$MultiLineString']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -722,12 +637,37 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_3_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_3 : NULL), rep))
+            // handle one may property
+            // $.'$MultiLineString'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiLineString']", (path ? &lpath_3 : NULL));
+                size_t arr_8_idx;
+                json_t *arr_8_item;
+                json_array_foreach(pval, arr_8_idx, arr_8_item)
+                {
+                    Path arr_8_lpath = (Path) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
+                    // $.'$MultiLineString'.bbox.0
+                    res = json_is_number(arr_8_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiLineString'.bbox.0]", ((path ? &lpath_3 : NULL) ? &arr_8_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiLineString'.bbox]", (path ? &lpath_3 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiLineString'.bbox]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -759,7 +699,7 @@ static bool json_model_8(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_4_must_coordinates ($.'$Polygon'.coordinates)
-static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Polygon'.coordinates
@@ -791,7 +731,7 @@ static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_4_must_type ($.'$Polygon'.type)
-static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Polygon'.type
@@ -808,43 +748,6 @@ static check_fun_t _jm_obj_4_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_4_must_tab, 2);
 }
 
-// check _jm_obj_4_may_bbox ($.'$Polygon'.bbox)
-static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$Polygon'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_10_idx;
-        json_t *arr_10_item;
-        json_array_foreach(val, arr_10_idx, arr_10_item)
-        {
-            Path arr_10_lpath = (Path) { NULL, arr_10_idx, path, NULL };
-            // $.'$Polygon'.bbox.0
-            res = json_is_number(arr_10_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Polygon'.bbox.0]", (path ? &arr_10_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Polygon'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_4_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_4_may_tab, 1);
-}
-
 // object $.'$Polygon'
 static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
 {
@@ -853,6 +756,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$Polygon']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -873,12 +777,37 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_4_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_4 : NULL), rep))
+            // handle one may property
+            // $.'$Polygon'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Polygon']", (path ? &lpath_4 : NULL));
+                size_t arr_10_idx;
+                json_t *arr_10_item;
+                json_array_foreach(pval, arr_10_idx, arr_10_item)
+                {
+                    Path arr_10_lpath = (Path) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
+                    // $.'$Polygon'.bbox.0
+                    res = json_is_number(arr_10_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Polygon'.bbox.0]", ((path ? &lpath_4 : NULL) ? &arr_10_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Polygon'.bbox]", (path ? &lpath_4 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Polygon'.bbox]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -910,7 +839,7 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_5_must_coordinates ($.'$MultiPolygon'.coordinates)
-static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiPolygon'.coordinates
@@ -961,7 +890,7 @@ static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_5_must_type ($.'$MultiPolygon'.type)
-static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$MultiPolygon'.type
@@ -978,43 +907,6 @@ static check_fun_t _jm_obj_5_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_5_must_tab, 2);
 }
 
-// check _jm_obj_5_may_bbox ($.'$MultiPolygon'.bbox)
-static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$MultiPolygon'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_13_idx;
-        json_t *arr_13_item;
-        json_array_foreach(val, arr_13_idx, arr_13_item)
-        {
-            Path arr_13_lpath = (Path) { NULL, arr_13_idx, path, NULL };
-            // $.'$MultiPolygon'.bbox.0
-            res = json_is_number(arr_13_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPolygon'.bbox.0]", (path ? &arr_13_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPolygon'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_5_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_5_may_tab, 1);
-}
-
 // object $.'$MultiPolygon'
 static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
 {
@@ -1023,6 +915,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$MultiPolygon']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -1043,12 +936,37 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_5_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_5 : NULL), rep))
+            // handle one may property
+            // $.'$MultiPolygon'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiPolygon']", (path ? &lpath_5 : NULL));
+                size_t arr_13_idx;
+                json_t *arr_13_item;
+                json_array_foreach(pval, arr_13_idx, arr_13_item)
+                {
+                    Path arr_13_lpath = (Path) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
+                    // $.'$MultiPolygon'.bbox.0
+                    res = json_is_number(arr_13_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPolygon'.bbox.0]", ((path ? &lpath_5 : NULL) ? &arr_13_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPolygon'.bbox]", (path ? &lpath_5 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$MultiPolygon'.bbox]", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -1122,7 +1040,7 @@ static bool json_model_11(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_must_geometries ($.'$GeometryCollection'.geometries)
-static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$GeometryCollection'.geometries
@@ -1154,7 +1072,7 @@ static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_6_must_type ($.'$GeometryCollection'.type)
-static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$GeometryCollection'.type
@@ -1171,43 +1089,6 @@ static check_fun_t _jm_obj_6_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_6_must_tab, 2);
 }
 
-// check _jm_obj_6_may_bbox ($.'$GeometryCollection'.bbox)
-static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$GeometryCollection'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_15_idx;
-        json_t *arr_15_item;
-        json_array_foreach(val, arr_15_idx, arr_15_item)
-        {
-            Path arr_15_lpath = (Path) { NULL, arr_15_idx, path, NULL };
-            // $.'$GeometryCollection'.bbox.0
-            res = json_is_number(arr_15_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$GeometryCollection'.bbox.0]", (path ? &arr_15_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$GeometryCollection'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_6_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_6_may_tab, 1);
-}
-
 // object $.'$GeometryCollection'
 static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
 {
@@ -1216,6 +1097,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$GeometryCollection']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -1236,12 +1118,37 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_6_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_6 : NULL), rep))
+            // handle one may property
+            // $.'$GeometryCollection'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$GeometryCollection']", (path ? &lpath_6 : NULL));
+                size_t arr_15_idx;
+                json_t *arr_15_item;
+                json_array_foreach(pval, arr_15_idx, arr_15_item)
+                {
+                    Path arr_15_lpath = (Path) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
+                    // $.'$GeometryCollection'.bbox.0
+                    res = json_is_number(arr_15_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_15_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$GeometryCollection'.bbox]", (path ? &lpath_6 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$GeometryCollection'.bbox]", (path ? &lpath_6 : NULL));
                 return false;
             }
         }
@@ -1273,7 +1180,7 @@ static bool json_model_12(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_7_must_geometry ($.'$Feature'.geometry)
-static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Feature'.geometry
@@ -1321,7 +1228,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_7_must_properties ($.'$Feature'.properties)
-static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Feature'.properties
@@ -1348,7 +1255,7 @@ static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_7_must_type ($.'$Feature'.type)
-static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Feature'.type
@@ -1366,7 +1273,7 @@ static check_fun_t _jm_obj_7_must(const char *pname)
 }
 
 // check _jm_obj_7_may_bbox ($.'$Feature'.bbox)
-static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Feature'.bbox
@@ -1398,7 +1305,7 @@ static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_7_may_id ($.'$Feature'.id)
-static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$Feature'.id
@@ -1494,7 +1401,7 @@ static bool json_model_13(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_must_features ($.'$FeatureCollection'.features)
-static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$FeatureCollection'.features
@@ -1526,7 +1433,7 @@ static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
 }
 
 // check _jm_obj_9_must_type ($.'$FeatureCollection'.type)
-static bool _jm_f_27(const json_t* val, Path* path, Report* rep)
+static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // $.'$FeatureCollection'.type
@@ -1543,43 +1450,6 @@ static check_fun_t _jm_obj_9_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_9_must_tab, 2);
 }
 
-// check _jm_obj_9_may_bbox ($.'$FeatureCollection'.bbox)
-static bool _jm_f_28(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.'$FeatureCollection'.bbox
-    res = json_is_array(val);
-    if (res)
-    {
-        size_t arr_18_idx;
-        json_t *arr_18_item;
-        json_array_foreach(val, arr_18_idx, arr_18_item)
-        {
-            Path arr_18_lpath = (Path) { NULL, arr_18_idx, path, NULL };
-            // $.'$FeatureCollection'.bbox.0
-            res = json_is_number(arr_18_item);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$FeatureCollection'.bbox.0]", (path ? &arr_18_lpath : NULL));
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$FeatureCollection'.bbox]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_9_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_9_may_tab, 1);
-}
-
 // object $.'$FeatureCollection'
 static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
 {
@@ -1588,6 +1458,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$.'$FeatureCollection']", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -1608,12 +1479,37 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_9_may(prop)))
+        else if (strcmp(prop, "bbox") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_8 : NULL), rep))
+            // handle one may property
+            // $.'$FeatureCollection'.bbox
+            res = json_is_array(pval);
+            if (res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$FeatureCollection']", (path ? &lpath_8 : NULL));
+                size_t arr_18_idx;
+                json_t *arr_18_item;
+                json_array_foreach(pval, arr_18_idx, arr_18_item)
+                {
+                    Path arr_18_lpath = (Path) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
+                    // $.'$FeatureCollection'.bbox.0
+                    res = json_is_number(arr_18_item);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_18_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$FeatureCollection'.bbox]", (path ? &lpath_8 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$FeatureCollection'.bbox]", (path ? &lpath_8 : NULL));
                 return false;
             }
         }
@@ -1722,33 +1618,21 @@ char *CHECK_init(void)
         _jm_obj_0_must_tab[0] = (propmap_t) { "coordinates", _jm_f_0 };
         _jm_obj_0_must_tab[1] = (propmap_t) { "type", _jm_f_1 };
         jm_sort_propmap(_jm_obj_0_must_tab, 2);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "bbox", _jm_f_2 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 1);
-        _jm_obj_1_must_tab[0] = (propmap_t) { "coordinates", _jm_f_3 };
-        _jm_obj_1_must_tab[1] = (propmap_t) { "type", _jm_f_4 };
+        _jm_obj_1_must_tab[0] = (propmap_t) { "coordinates", _jm_f_2 };
+        _jm_obj_1_must_tab[1] = (propmap_t) { "type", _jm_f_3 };
         jm_sort_propmap(_jm_obj_1_must_tab, 2);
-        _jm_obj_1_may_tab[0] = (propmap_t) { "bbox", _jm_f_5 };
-        jm_sort_propmap(_jm_obj_1_may_tab, 1);
-        _jm_obj_2_must_tab[0] = (propmap_t) { "coordinates", _jm_f_6 };
-        _jm_obj_2_must_tab[1] = (propmap_t) { "type", _jm_f_7 };
+        _jm_obj_2_must_tab[0] = (propmap_t) { "coordinates", _jm_f_4 };
+        _jm_obj_2_must_tab[1] = (propmap_t) { "type", _jm_f_5 };
         jm_sort_propmap(_jm_obj_2_must_tab, 2);
-        _jm_obj_2_may_tab[0] = (propmap_t) { "bbox", _jm_f_8 };
-        jm_sort_propmap(_jm_obj_2_may_tab, 1);
-        _jm_obj_3_must_tab[0] = (propmap_t) { "coordinates", _jm_f_9 };
-        _jm_obj_3_must_tab[1] = (propmap_t) { "type", _jm_f_10 };
+        _jm_obj_3_must_tab[0] = (propmap_t) { "coordinates", _jm_f_6 };
+        _jm_obj_3_must_tab[1] = (propmap_t) { "type", _jm_f_7 };
         jm_sort_propmap(_jm_obj_3_must_tab, 2);
-        _jm_obj_3_may_tab[0] = (propmap_t) { "bbox", _jm_f_11 };
-        jm_sort_propmap(_jm_obj_3_may_tab, 1);
-        _jm_obj_4_must_tab[0] = (propmap_t) { "coordinates", _jm_f_12 };
-        _jm_obj_4_must_tab[1] = (propmap_t) { "type", _jm_f_13 };
+        _jm_obj_4_must_tab[0] = (propmap_t) { "coordinates", _jm_f_8 };
+        _jm_obj_4_must_tab[1] = (propmap_t) { "type", _jm_f_9 };
         jm_sort_propmap(_jm_obj_4_must_tab, 2);
-        _jm_obj_4_may_tab[0] = (propmap_t) { "bbox", _jm_f_14 };
-        jm_sort_propmap(_jm_obj_4_may_tab, 1);
-        _jm_obj_5_must_tab[0] = (propmap_t) { "coordinates", _jm_f_15 };
-        _jm_obj_5_must_tab[1] = (propmap_t) { "type", _jm_f_16 };
+        _jm_obj_5_must_tab[0] = (propmap_t) { "coordinates", _jm_f_10 };
+        _jm_obj_5_must_tab[1] = (propmap_t) { "type", _jm_f_11 };
         jm_sort_propmap(_jm_obj_5_must_tab, 2);
-        _jm_obj_5_may_tab[0] = (propmap_t) { "bbox", _jm_f_17 };
-        jm_sort_propmap(_jm_obj_5_may_tab, 1);
         _jm_map_0_tab[0] = (constmap_t) { (constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
         _jm_map_0_tab[1] = (constmap_t) { (constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
         _jm_map_0_tab[2] = (constmap_t) { (constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
@@ -1756,23 +1640,19 @@ char *CHECK_init(void)
         _jm_map_0_tab[4] = (constmap_t) { (constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
         _jm_map_0_tab[5] = (constmap_t) { (constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 6);
-        _jm_obj_6_must_tab[0] = (propmap_t) { "geometries", _jm_f_18 };
-        _jm_obj_6_must_tab[1] = (propmap_t) { "type", _jm_f_19 };
+        _jm_obj_6_must_tab[0] = (propmap_t) { "geometries", _jm_f_12 };
+        _jm_obj_6_must_tab[1] = (propmap_t) { "type", _jm_f_13 };
         jm_sort_propmap(_jm_obj_6_must_tab, 2);
-        _jm_obj_6_may_tab[0] = (propmap_t) { "bbox", _jm_f_20 };
-        jm_sort_propmap(_jm_obj_6_may_tab, 1);
-        _jm_obj_7_must_tab[0] = (propmap_t) { "geometry", _jm_f_21 };
-        _jm_obj_7_must_tab[1] = (propmap_t) { "properties", _jm_f_22 };
-        _jm_obj_7_must_tab[2] = (propmap_t) { "type", _jm_f_23 };
+        _jm_obj_7_must_tab[0] = (propmap_t) { "geometry", _jm_f_14 };
+        _jm_obj_7_must_tab[1] = (propmap_t) { "properties", _jm_f_15 };
+        _jm_obj_7_must_tab[2] = (propmap_t) { "type", _jm_f_16 };
         jm_sort_propmap(_jm_obj_7_must_tab, 3);
-        _jm_obj_7_may_tab[0] = (propmap_t) { "bbox", _jm_f_24 };
-        _jm_obj_7_may_tab[1] = (propmap_t) { "id", _jm_f_25 };
+        _jm_obj_7_may_tab[0] = (propmap_t) { "bbox", _jm_f_17 };
+        _jm_obj_7_may_tab[1] = (propmap_t) { "id", _jm_f_18 };
         jm_sort_propmap(_jm_obj_7_may_tab, 2);
-        _jm_obj_9_must_tab[0] = (propmap_t) { "features", _jm_f_26 };
-        _jm_obj_9_must_tab[1] = (propmap_t) { "type", _jm_f_27 };
+        _jm_obj_9_must_tab[0] = (propmap_t) { "features", _jm_f_19 };
+        _jm_obj_9_must_tab[1] = (propmap_t) { "type", _jm_f_20 };
         jm_sort_propmap(_jm_obj_9_must_tab, 2);
-        _jm_obj_9_may_tab[0] = (propmap_t) { "bbox", _jm_f_28 };
-        jm_sort_propmap(_jm_obj_9_may_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "position", json_model_2 };
         check_model_map_tab[2] = (propmap_t) { "coord_array", json_model_3 };

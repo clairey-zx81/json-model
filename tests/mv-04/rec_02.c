@@ -1,29 +1,9 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[1];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
-
-// check _jm_obj_0_may_foo ($.foo)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.foo
-    res = json_model_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $foo [$.foo]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 1);
-}
 
 // object $
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
@@ -33,18 +13,24 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$]", path);
         return false;
     }
-    check_fun_t pfun;
+    bool res;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_may(prop)))
+        if (strcmp(prop, "foo") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle one may property
+            // $.foo
+            res = json_model_1(pval, path, rep);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $foo [$.foo]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -83,8 +69,6 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_0_may_tab[0] = (propmap_t) { "foo", _jm_f_0 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "foo", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 2);

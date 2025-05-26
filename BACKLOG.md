@@ -10,6 +10,9 @@
 - [x] command: add test vector mode with `--test-vector`
 - [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
 - [x] tests: fix `wip/openapi-310-models`
+- [x] tests: optimized openapi-310-models should have fully removed schema stuff
+- [x] static: optimize 1 must or may property case with a direct comparison
+- [ ] static: choose threshold for switching between few/may must/may props
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
@@ -33,8 +36,8 @@
 - [ ] static: multi-type object disjunction?
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
-- [ ] static: optimize 1 must or may property case with a direct comparison?
 - [ ] static: disjunct could share identical may/must tabs between objects
+- [ ] optim: reuse already generated may/must maps when possible
 
 ## To Do
 
@@ -72,7 +75,6 @@
 - [ ] backend: name-based selector optimized for root.
 - [ ] perfs: measure performance against blaze benchmark for openapi at least
 - [ ] python: refactor in preproc tools…
-- [ ] tests: optimized openapi-310-models should have fully removed schema stuff
 - [ ] optim: remove unused introduced names `__external_...`
 - [ ] optim: remove unused names at depth 1 and more?
 - [ ] optim: remove unused local (not exported) definitions?

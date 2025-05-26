@@ -20,20 +20,8 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
-_jm_obj_0_may: PropMap
 _jm_obj_2_must: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_must_b ($.'|'.1.b)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.1.b
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'|'.1.b]", path))
-    return res
-
 
 # object $.'|'.1.a
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -46,37 +34,34 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("expecting empty object [$.'|'.1.a]", path))
         return False
 
-# check _jm_obj_0_may_a ($.'|'.1.a)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'|'.1.a
-    res = _jm_obj_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("not an expected object at [$.'|'.1.a]", path))
-    return res
-
-
 # object $.'|'.1
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'|'.1]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'|'.1]", lpath_0 if path is not None else None))
-                    return False
-        elif pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'|'.1]", lpath_0 if path is not None else None))
+        if prop == "b":
+            # handle one must property
+            must_count += 1
+            # $.'|'.1.b
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.'|'.1.b]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'|'.1.b]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "a":
+            # handle one may property
+            # $.'|'.1.a
+            res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("not an expected object at [$.'|'.1.a]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'|'.1.a]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$.'|'.1]", lpath_0 if path is not None else None))
@@ -87,7 +72,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_2_must_a ($.'|'.0.a)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'|'.0.a
     res = isinstance(val, str)
@@ -96,7 +81,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_must_b ($.'|'.0.b)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'|'.0.b
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
@@ -160,18 +145,10 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "b": _jm_f_0,
-        }
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "a": _jm_f_1,
-        }
         global _jm_obj_2_must
         _jm_obj_2_must = {
-            "a": _jm_f_2,
-            "b": _jm_f_3,
+            "a": _jm_f_0,
+            "b": _jm_f_1,
         }
         global check_model_map
         check_model_map = {

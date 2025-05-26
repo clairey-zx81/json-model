@@ -20,45 +20,37 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_must_bibi ($.'$bibi'.bibi)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$bibi'.bibi
-    res = isinstance(val, list)
-    if res:
-        for arr_0_idx, arr_0_item in enumerate(val):
-            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # $.'$bibi'.bibi.0
-            res = json_model_2(arr_0_item, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $bibi [$.'$bibi'.bibi.0]", arr_0_lpath if path is not None else None))
-            if not res:
-                break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$bibi'.bibi]", path))
-    return res
-
 
 # object $.'$bibi'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$bibi']", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$bibi']", lpath_0 if path is not None else None))
-                    return False
+        if prop == "bibi":
+            # handle one must property
+            must_count += 1
+            # $.'$bibi'.bibi
+            res = isinstance(pval, list)
+            if res:
+                for arr_0_idx, arr_0_item in enumerate(pval):
+                    arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
+                    # $.'$bibi'.bibi.0
+                    res = json_model_2(arr_0_item, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $bibi [$.'$bibi'.bibi.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [$.'$bibi'.bibi]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$bibi'.bibi]", lpath_0 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$.'$bibi']", lpath_0 if path is not None else None))
             return False
@@ -94,10 +86,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "bibi": _jm_f_0,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

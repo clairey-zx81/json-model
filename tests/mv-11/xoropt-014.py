@@ -25,11 +25,10 @@ _jm_obj_2_must: PropMap
 _jm_obj_3_must: PropMap
 _jm_obj_4_must: PropMap
 _jm_map_0: dict[str, str]
-_jm_obj_0_must: PropMap
 check_model_map: PropMap
 
 # check _jm_obj_1_must_t ($.movie.'|'.0.t)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.0.t
     res = isinstance(val, str) and val == "fr"
@@ -38,7 +37,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_1_must_titre ($.movie.'|'.0.titre)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.0.titre
     res = isinstance(val, str)
@@ -73,7 +72,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_2_must_t ($.movie.'|'.1.t)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.1.t
     res = isinstance(val, str) and val == "en"
@@ -82,7 +81,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_2_must_title ($.movie.'|'.1.title)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.1.title
     res = isinstance(val, str)
@@ -117,7 +116,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_3_must_Title ($.movie.'|'.2.Title)
-def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.2.Title
     res = isinstance(val, str)
@@ -126,7 +125,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_3_must_t ($.movie.'|'.2.t)
-def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.2.t
     res = isinstance(val, str) and val == "de"
@@ -161,7 +160,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_4_must_suti ($.movie.'|'.3.suti)
-def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.3.suti
     res = isinstance(val, str)
@@ -170,7 +169,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_4_must_t ($.movie.'|'.3.t)
-def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.movie.'|'.3.t
     res = isinstance(val, str) and val == "ru"
@@ -205,45 +204,38 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 
-# check _jm_obj_0_must_movie ($.movie)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.movie
-    res = isinstance(val, dict)
-    if res:
-        tag_0: Jsonable = val.get("t", UNDEFINED)
-        if tag_0 != UNDEFINED:
-            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
-            if fun_0 != UNDEFINED:
-                res = fun_0(val, path, rep)
-            else:
-                res = False
-                rep is None or rep.append(("tag t value not found [$.movie.'|']", path))
-        else:
-            res = False
-            rep is None or rep.append(("tag prop t is missing [$.movie.'|']", path))
-    else:
-        rep is None or rep.append(("value is not an object [$.movie.'|']", path))
-    return res
-
-
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$]", path))
         return False
-    pfun: CheckFun
+    res: bool
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
-                    return False
+        if prop == "movie":
+            # handle one must property
+            must_count += 1
+            # $.movie
+            res = isinstance(pval, dict)
+            if res:
+                tag_0: Jsonable = pval.get("t", UNDEFINED)
+                if tag_0 != UNDEFINED:
+                    fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+                    if fun_0 != UNDEFINED:
+                        res = fun_0(pval, lpath_0 if path is not None else None, rep)
+                    else:
+                        res = False
+                        rep is None or rep.append(("tag t value not found [$.movie.'|']", lpath_0 if path is not None else None))
+                else:
+                    res = False
+                    rep is None or rep.append(("tag prop t is missing [$.movie.'|']", lpath_0 if path is not None else None))
+            else:
+                rep is None or rep.append(("value is not an object [$.movie.'|']", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.movie]", lpath_0 if path is not None else None))
+                return False
         else:
             rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
             return False
@@ -272,23 +264,23 @@ def check_model_init():
         initialized = True
         global _jm_obj_1_must
         _jm_obj_1_must = {
-            "t": _jm_f_1,
-            "titre": _jm_f_2,
+            "t": _jm_f_0,
+            "titre": _jm_f_1,
         }
         global _jm_obj_2_must
         _jm_obj_2_must = {
-            "t": _jm_f_3,
-            "title": _jm_f_4,
+            "t": _jm_f_2,
+            "title": _jm_f_3,
         }
         global _jm_obj_3_must
         _jm_obj_3_must = {
-            "Title": _jm_f_5,
-            "t": _jm_f_6,
+            "Title": _jm_f_4,
+            "t": _jm_f_5,
         }
         global _jm_obj_4_must
         _jm_obj_4_must = {
-            "suti": _jm_f_7,
-            "t": _jm_f_8,
+            "suti": _jm_f_6,
+            "t": _jm_f_7,
         }
         global _jm_map_0
         _jm_map_0 = {
@@ -296,10 +288,6 @@ def check_model_init():
             "en": _jm_obj_2,
             "de": _jm_obj_3,
             "ru": _jm_obj_4,
-        }
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "movie": _jm_f_0,
         }
         global check_model_map
         check_model_map = {

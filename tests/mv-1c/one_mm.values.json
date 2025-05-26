@@ -1,0 +1,16 @@
+[
+  [ true,  {"must": 42} ],
+  [ true,  {"must": 42, "may": false} ],
+  [ false, {} ],
+  [ false, {"may": true} ],
+  [ false, {"must": "nope"} ],
+  [ false, {"must": 18, "not": "expected"} ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "UnExpected" ],
+  [ false, [] ],
+  [ false, ["not", 1, "obj"] ]
+]

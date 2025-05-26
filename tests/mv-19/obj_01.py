@@ -21,8 +21,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_cst_0: set[str]
-_jm_obj_0_must: PropMap
-_jm_obj_0_may: PropMap
 _jm_re_0_search: Callable
 _jm_re_0: RegexFun
 check_model_map: PropMap
@@ -36,26 +34,6 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("value not in enum [$.'$XXX'.'|']", path))
     return res
 
-# check _jm_obj_0_must_foo ($.foo)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.foo
-    res = is_valid_date(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $DATE [$.foo]", path))
-    return res
-
-
-# check _jm_obj_0_may_bla ($.bla)
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.bla
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [$.bla]", path))
-    return res
-
-
 
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -63,22 +41,28 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [$]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
-                    return False
-        elif pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$]", lpath_0 if path is not None else None))
+        if prop == "foo":
+            # handle one must property
+            must_count += 1
+            # $.foo
+            res = is_valid_date(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $DATE [$.foo]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.foo]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "bla":
+            # handle one may property
+            # $.bla
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [$.bla]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.bla]", lpath_0 if path is not None else None))
                 return False
         elif json_model_2(prop, lpath_0 if path is not None else None, rep):
             # handle {len(defs)} key props
@@ -129,14 +113,6 @@ def check_model_init():
         initialized = True
         global _jm_cst_0
         _jm_cst_0 = {'X', 'XX', 'XXX'}
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
-            "foo": _jm_f_0,
-        }
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "bla": _jm_f_1,
-        }
         global _jm_re_0_search, _jm_re_0
         _jm_re_0_search = re.compile("^[0-9]+$").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None

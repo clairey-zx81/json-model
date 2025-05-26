@@ -29,17 +29,13 @@ _jm_obj_2_may: PropMap
 _jm_obj_3_may: PropMap
 _jm_obj_4_must: PropMap
 _jm_obj_5_must: PropMap
-_jm_obj_6_must: PropMap
 _jm_obj_6_may: PropMap
-_jm_obj_8_must: PropMap
 _jm_obj_8_may: PropMap
 _jm_obj_9_may: PropMap
 _jm_re_1_search: Callable
 _jm_re_1: RegexFun
 _jm_obj_21_may: PropMap
 _jm_obj_23_may: PropMap
-_jm_obj_27_must: PropMap
-_jm_obj_27_may: PropMap
 _jm_cst_0: set[str]
 _jm_obj_28_may: PropMap
 _jm_cst_1: set[str]
@@ -49,30 +45,22 @@ _jm_obj_31_may: PropMap
 _jm_obj_34_may: PropMap
 _jm_obj_36_may: PropMap
 _jm_obj_39_may: PropMap
-_jm_obj_41_may: PropMap
 _jm_re_2_search: Callable
 _jm_re_2: RegexFun
 _jm_obj_42_may: PropMap
 _jm_obj_47_may: PropMap
 _jm_re_3_search: Callable
 _jm_re_3: RegexFun
-_jm_obj_48_must: PropMap
 _jm_obj_48_may: PropMap
-_jm_obj_50_must: PropMap
 _jm_obj_50_may: PropMap
-_jm_obj_52_must: PropMap
 _jm_obj_52_may: PropMap
-_jm_obj_53_must: PropMap
 _jm_obj_53_may: PropMap
 _jm_obj_54_may: PropMap
-_jm_obj_61_must: PropMap
-_jm_obj_61_may: PropMap
 _jm_obj_63_may: PropMap
 _jm_obj_64_must: PropMap
 _jm_obj_64_may: PropMap
 _jm_obj_65_may: PropMap
 _jm_obj_66_must: PropMap
-_jm_obj_66_may: PropMap
 _jm_cst_3: set[str]
 _jm_obj_70_may: PropMap
 check_model_map: PropMap
@@ -567,18 +555,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("no model matched [$.'$License'.'|']", path))
     return res
 
-# check _jm_obj_6_must_url ($.'$Server'.url)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Server'.url
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [$.'$Server'.url]", path))
-    return res
-
-
 # check _jm_obj_6_may_description ($.'$Server'.description)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Server'.description
     res = isinstance(val, str)
@@ -605,7 +583,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_6_may_variables ($.'$Server'.variables)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Server'.variables
     res = _jm_obj_7(val, path, rep)
@@ -625,13 +603,16 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_6: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_6_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_6 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Server']", lpath_6 if path is not None else None))
-                    return False
+        if prop == "url":
+            # handle one must property
+            must_count += 1
+            # $.'$Server'.url
+            res = is_valid_url(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [$.'$Server'.url]", lpath_6 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Server'.url]", lpath_6 if path is not None else None))
+                return False
         elif pfun := _jm_obj_6_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_6 if path is not None else None, rep):
@@ -662,18 +643,8 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Server']", path))
     return res
 
-# check _jm_obj_8_must_default ($.'$ServerVariable'.default)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$ServerVariable'.default
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$ServerVariable'.default]", path))
-    return res
-
-
 # check _jm_obj_8_may_description ($.'$ServerVariable'.description)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$ServerVariable'.description
     res = isinstance(val, str)
@@ -682,7 +653,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_8_may_enum ($.'$ServerVariable'.enum)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$ServerVariable'.enum
     res = isinstance(val, list)
@@ -711,13 +682,16 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_8: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_8_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_8 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$ServerVariable']", lpath_8 if path is not None else None))
-                    return False
+        if prop == "default":
+            # handle one must property
+            must_count += 1
+            # $.'$ServerVariable'.default
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$ServerVariable'.default]", lpath_8 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$ServerVariable'.default]", lpath_8 if path is not None else None))
+                return False
         elif pfun := _jm_obj_8_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_8 if path is not None else None, rep):
@@ -775,7 +749,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_callbacks ($.'$Components'.callbacks)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.callbacks
     res = _jm_obj_10(val, path, rep)
@@ -810,7 +784,7 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_examples ($.'$Components'.examples)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.examples
     res = _jm_obj_11(val, path, rep)
@@ -845,7 +819,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_headers ($.'$Components'.headers)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.headers
     res = _jm_obj_12(val, path, rep)
@@ -880,7 +854,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_links ($.'$Components'.links)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.links
     res = _jm_obj_13(val, path, rep)
@@ -915,7 +889,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_parameters ($.'$Components'.parameters)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.parameters
     res = _jm_obj_14(val, path, rep)
@@ -950,7 +924,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_pathItems ($.'$Components'.pathItems)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.pathItems
     res = _jm_obj_15(val, path, rep)
@@ -985,7 +959,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_requestBodies ($.'$Components'.requestBodies)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.requestBodies
     res = _jm_obj_16(val, path, rep)
@@ -1020,7 +994,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_responses ($.'$Components'.responses)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.responses
     res = _jm_obj_17(val, path, rep)
@@ -1047,7 +1021,7 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_schemas ($.'$Components'.schemas)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.schemas
     res = _jm_obj_18(val, path, rep)
@@ -1082,7 +1056,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_9_may_securitySchemes ($.'$Components'.securitySchemes)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Components'.securitySchemes
     res = _jm_obj_19(val, path, rep)
@@ -1169,7 +1143,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_$ref ($.'$PathItem'.'$ref')
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.'$ref'
     res = isinstance(val, str)
@@ -1178,7 +1152,7 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_description ($.'$PathItem'.description)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.description
     res = isinstance(val, str)
@@ -1187,7 +1161,7 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_get ($.'$PathItem'.get)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.get
     res = json_model_11(val, path, rep)
@@ -1196,7 +1170,7 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_head ($.'$PathItem'.head)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.head
     res = json_model_11(val, path, rep)
@@ -1205,7 +1179,7 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_options ($.'$PathItem'.options)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.options
     res = json_model_11(val, path, rep)
@@ -1240,7 +1214,7 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_21_may_parameters ($.'$PathItem'.parameters)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.parameters
     res = _jm_obj_22(val, path, rep)
@@ -1249,7 +1223,7 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_patch ($.'$PathItem'.patch)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.patch
     res = json_model_11(val, path, rep)
@@ -1258,7 +1232,7 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_post ($.'$PathItem'.post)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.post
     res = json_model_11(val, path, rep)
@@ -1267,7 +1241,7 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_put ($.'$PathItem'.put)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.put
     res = json_model_11(val, path, rep)
@@ -1276,7 +1250,7 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_servers ($.'$PathItem'.servers)
-def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.servers
     res = json_model_11(val, path, rep)
@@ -1285,7 +1259,7 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_summary ($.'$PathItem'.summary)
-def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.summary
     res = isinstance(val, str)
@@ -1294,7 +1268,7 @@ def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_21_may_trace ($.'$PathItem'.trace)
-def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$PathItem'.trace
     res = json_model_11(val, path, rep)
@@ -1367,7 +1341,7 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_callbacks ($.'$Operation'.callbacks)
-def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_50(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.callbacks
     res = _jm_obj_24(val, path, rep)
@@ -1376,7 +1350,7 @@ def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_deprecated ($.'$Operation'.deprecated)
-def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_51(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.deprecated
     res = isinstance(val, bool)
@@ -1385,7 +1359,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_description ($.'$Operation'.description)
-def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.description
     res = isinstance(val, str)
@@ -1394,7 +1368,7 @@ def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_externalDocs ($.'$Operation'.externalDocs)
-def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.externalDocs
     res = json_model_12(val, path, rep)
@@ -1403,7 +1377,7 @@ def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_operationId ($.'$Operation'.operationId)
-def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.operationId
     res = isinstance(val, str)
@@ -1438,7 +1412,7 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_parameters ($.'$Operation'.parameters)
-def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_55(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.parameters
     res = _jm_obj_25(val, path, rep)
@@ -1473,7 +1447,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_23_may_requestBody ($.'$Operation'.requestBody)
-def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_56(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.requestBody
     res = _jm_obj_26(val, path, rep)
@@ -1482,7 +1456,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_responses ($.'$Operation'.responses)
-def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.responses
     res = json_model_18(val, path, rep)
@@ -1491,7 +1465,7 @@ def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_security ($.'$Operation'.security)
-def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.security
     res = isinstance(val, list)
@@ -1509,7 +1483,7 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_servers ($.'$Operation'.servers)
-def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_59(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.servers
     res = isinstance(val, list)
@@ -1527,7 +1501,7 @@ def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_summary ($.'$Operation'.summary)
-def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.summary
     res = isinstance(val, str)
@@ -1536,7 +1510,7 @@ def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_23_may_tags ($.'$Operation'.tags)
-def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_61(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Operation'.tags
     res = isinstance(val, list)
@@ -1591,48 +1565,34 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Operation']", path))
     return res
 
-# check _jm_obj_27_must_url ($.'$ExternalDocumentation'.url)
-def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$ExternalDocumentation'.url
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [$.'$ExternalDocumentation'.url]", path))
-    return res
-
-
-# check _jm_obj_27_may_description ($.'$ExternalDocumentation'.description)
-def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$ExternalDocumentation'.description
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$ExternalDocumentation'.description]", path))
-    return res
-
-
 # object $.'$ExternalDocumentation'
 def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$ExternalDocumentation']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_27: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_27_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_27 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$ExternalDocumentation']", lpath_27 if path is not None else None))
-                    return False
-        elif pfun := _jm_obj_27_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_27 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$ExternalDocumentation']", lpath_27 if path is not None else None))
+        if prop == "url":
+            # handle one must property
+            must_count += 1
+            # $.'$ExternalDocumentation'.url
+            res = is_valid_url(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $URL [$.'$ExternalDocumentation'.url]", lpath_27 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$ExternalDocumentation'.url]", lpath_27 if path is not None else None))
+                return False
+        elif prop == "description":
+            # handle one may property
+            # $.'$ExternalDocumentation'.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$ExternalDocumentation'.description]", lpath_27 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$ExternalDocumentation'.description]", lpath_27 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -1660,7 +1620,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_allowEmptyValue ($.'$parameterShare'.allowEmptyValue)
-def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_62(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.allowEmptyValue
     res = isinstance(val, bool)
@@ -1669,7 +1629,7 @@ def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_allowReserved ($.'$parameterShare'.allowReserved)
-def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.allowReserved
     res = isinstance(val, bool)
@@ -1696,7 +1656,7 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_28_may_content ($.'$parameterShare'.content)
-def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_64(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.content
     res = _jm_obj_29(val, path, rep)
@@ -1705,7 +1665,7 @@ def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_deprecated ($.'$parameterShare'.deprecated)
-def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.deprecated
     res = isinstance(val, bool)
@@ -1714,7 +1674,7 @@ def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_description ($.'$parameterShare'.description)
-def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_66(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.description
     res = isinstance(val, str)
@@ -1723,7 +1683,7 @@ def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_example ($.'$parameterShare'.example)
-def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_67(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.example
     res = True
@@ -1758,7 +1718,7 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_28_may_examples ($.'$parameterShare'.examples)
-def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_68(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.examples
     res = _jm_obj_30(val, path, rep)
@@ -1767,7 +1727,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_explode ($.'$parameterShare'.explode)
-def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_69(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.explode
     res = isinstance(val, bool)
@@ -1776,7 +1736,7 @@ def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_required ($.'$parameterShare'.required)
-def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.required
     res = isinstance(val, bool)
@@ -1785,7 +1745,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_28_may_schema ($.'$parameterShare'.schema)
-def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_71(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.schema
     res = json_model_28(val, path, rep)
@@ -1795,7 +1755,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_28_may_style ($.'$parameterShare'.style)
-def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$parameterShare'.style
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
@@ -1843,7 +1803,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_31_must_in ($.'$Parameter'.in)
-def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_73(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.in
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_1
@@ -1852,7 +1812,7 @@ def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_must_name ($.'$Parameter'.name)
-def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.name
     res = isinstance(val, str)
@@ -1862,7 +1822,7 @@ def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_31_may_allowEmptyValue ($.'$Parameter'.allowEmptyValue)
-def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.allowEmptyValue
     res = isinstance(val, bool)
@@ -1871,7 +1831,7 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_allowReserved ($.'$Parameter'.allowReserved)
-def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.allowReserved
     res = isinstance(val, bool)
@@ -1898,7 +1858,7 @@ def _jm_obj_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_31_may_content ($.'$Parameter'.content)
-def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.content
     res = _jm_obj_32(val, path, rep)
@@ -1907,7 +1867,7 @@ def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_deprecated ($.'$Parameter'.deprecated)
-def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_78(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.deprecated
     res = isinstance(val, bool)
@@ -1916,7 +1876,7 @@ def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_description ($.'$Parameter'.description)
-def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.description
     res = isinstance(val, str)
@@ -1925,7 +1885,7 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_example ($.'$Parameter'.example)
-def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.example
     res = True
@@ -1960,7 +1920,7 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_31_may_examples ($.'$Parameter'.examples)
-def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.examples
     res = _jm_obj_33(val, path, rep)
@@ -1969,7 +1929,7 @@ def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_explode ($.'$Parameter'.explode)
-def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_82(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.explode
     res = isinstance(val, bool)
@@ -1978,7 +1938,7 @@ def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_required ($.'$Parameter'.required)
-def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.required
     res = isinstance(val, bool)
@@ -1987,7 +1947,7 @@ def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_31_may_schema ($.'$Parameter'.schema)
-def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.schema
     res = json_model_28(val, path, rep)
@@ -1997,7 +1957,7 @@ def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_31_may_style ($.'$Parameter'.style)
-def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Parameter'.style
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_2
@@ -2073,7 +2033,7 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_34_may_content ($.'$RequestBody'.content)
-def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$RequestBody'.content
     res = _jm_obj_35(val, path, rep)
@@ -2082,7 +2042,7 @@ def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_34_may_description ($.'$RequestBody'.description)
-def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_87(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$RequestBody'.description
     res = isinstance(val, str)
@@ -2091,7 +2051,7 @@ def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_34_may_required ($.'$RequestBody'.required)
-def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$RequestBody'.required
     res = isinstance(val, bool)
@@ -2156,7 +2116,7 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_36_may_encoding ($.'$MediaType'.encoding)
-def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MediaType'.encoding
     res = _jm_obj_37(val, path, rep)
@@ -2165,7 +2125,7 @@ def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_example ($.'$MediaType'.example)
-def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MediaType'.example
     res = True
@@ -2200,7 +2160,7 @@ def _jm_obj_38(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_36_may_examples ($.'$MediaType'.examples)
-def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MediaType'.examples
     res = _jm_obj_38(val, path, rep)
@@ -2209,7 +2169,7 @@ def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_36_may_schema ($.'$MediaType'.schema)
-def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_92(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MediaType'.schema
     res = json_model_28(val, path, rep)
@@ -2256,7 +2216,7 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_39_may_allowReserved ($.'$Encoding'.allowReserved)
-def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Encoding'.allowReserved
     res = isinstance(val, bool)
@@ -2265,7 +2225,7 @@ def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_39_may_contentType ($.'$Encoding'.contentType)
-def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_94(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Encoding'.contentType
     res = isinstance(val, str)
@@ -2274,7 +2234,7 @@ def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_39_may_explode ($.'$Encoding'.explode)
-def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Encoding'.explode
     res = isinstance(val, bool)
@@ -2309,7 +2269,7 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_39_may_headers ($.'$Encoding'.headers)
-def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_96(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Encoding'.headers
     res = _jm_obj_40(val, path, rep)
@@ -2318,7 +2278,7 @@ def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_39_may_style ($.'$Encoding'.style)
-def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_97(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Encoding'.style
     res = isinstance(val, str)
@@ -2364,24 +2324,6 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Encoding']", path))
     return res
 
-# check _jm_obj_41_may_default ($.'$Responses'.default)
-def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Responses'.default
-    # $.'$Responses'.default.'|'.0
-    res = json_model_19(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Response [$.'$Responses'.default.'|'.0]", path))
-    if not res:
-        # $.'$Responses'.default.'|'.1
-        res = json_model_26(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Reference [$.'$Responses'.default.'|'.1]", path))
-    if not res:
-        rep is None or rep.append(("no model matched [$.'$Responses'.default.'|']", path))
-    return res
-
-
 
 # object $.'$Responses'
 def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -2389,14 +2331,25 @@ def _jm_obj_41(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [$.'$Responses']", path))
         return False
     res: bool
-    pfun: CheckFun
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_41: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_41_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_41 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$Responses']", lpath_41 if path is not None else None))
+        if prop == "default":
+            # handle one may property
+            # $.'$Responses'.default
+            # $.'$Responses'.default.'|'.0
+            res = json_model_19(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Response [$.'$Responses'.default.'|'.0]", lpath_41 if path is not None else None))
+            if not res:
+                # $.'$Responses'.default.'|'.1
+                res = json_model_26(pval, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $Reference [$.'$Responses'.default.'|'.1]", lpath_41 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("no model matched [$.'$Responses'.default.'|']", lpath_41 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$Responses'.default]", lpath_41 if path is not None else None))
                 return False
         elif _jm_re_2(prop):
             # handle {len(regs)} re props
@@ -2455,7 +2408,7 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_42_may_content ($.'$Response'.content)
-def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Response'.content
     res = _jm_obj_43(val, path, rep)
@@ -2464,7 +2417,7 @@ def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_42_may_description ($.'$Response'.description)
-def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Response'.description
     res = isinstance(val, str)
@@ -2499,7 +2452,7 @@ def _jm_obj_44(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_42_may_headers ($.'$Response'.headers)
-def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Response'.headers
     res = _jm_obj_44(val, path, rep)
@@ -2534,7 +2487,7 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_42_may_links ($.'$Response'.links)
-def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_101(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Response'.links
     res = _jm_obj_45(val, path, rep)
@@ -2628,7 +2581,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_description ($.'$Example'.description)
-def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_102(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Example'.description
     res = isinstance(val, str)
@@ -2637,7 +2590,7 @@ def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_externalValue ($.'$Example'.externalValue)
-def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Example'.externalValue
     res = isinstance(val, str)
@@ -2646,7 +2599,7 @@ def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_summary ($.'$Example'.summary)
-def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Example'.summary
     res = isinstance(val, str)
@@ -2655,7 +2608,7 @@ def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_47_may_value ($.'$Example'.value)
-def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_105(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Example'.value
     res = True
@@ -2712,18 +2665,8 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected REGEX [$.'$Expression']", path))
     return res
 
-# check _jm_obj_48_must_operationId ($.'$Link'.'|'.1.operationId)
-def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Link'.'|'.1.operationId
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Link'.'|'.1.operationId]", path))
-    return res
-
-
 # check _jm_obj_48_may_description ($.'$Link'.'|'.1.description)
-def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.1.description
     res = isinstance(val, str)
@@ -2740,7 +2683,7 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_48_may_parameters ($.'$Link'.'|'.1.parameters)
-def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_107(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.1.parameters
     res = _jm_obj_49(val, path, rep)
@@ -2749,7 +2692,7 @@ def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_may_requestBody ($.'$Link'.'|'.1.requestBody)
-def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_108(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.1.requestBody
     res = True
@@ -2758,7 +2701,7 @@ def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_48_may_server ($.'$Link'.'|'.1.server)
-def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_109(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.1.server
     res = json_model_6(val, path, rep)
@@ -2778,13 +2721,16 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_48: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_48_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_48 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Link'.'|'.1]", lpath_48 if path is not None else None))
-                    return False
+        if prop == "operationId":
+            # handle one must property
+            must_count += 1
+            # $.'$Link'.'|'.1.operationId
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Link'.'|'.1.operationId]", lpath_48 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Link'.'|'.1.operationId]", lpath_48 if path is not None else None))
+                return False
         elif pfun := _jm_obj_48_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_48 if path is not None else None, rep):
@@ -2806,18 +2752,8 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_50_must_operationRef ($.'$Link'.'|'.0.operationRef)
-def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Link'.'|'.0.operationRef
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Link'.'|'.0.operationRef]", path))
-    return res
-
-
 # check _jm_obj_50_may_description ($.'$Link'.'|'.0.description)
-def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_110(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.0.description
     res = isinstance(val, str)
@@ -2834,7 +2770,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_50_may_parameters ($.'$Link'.'|'.0.parameters)
-def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_111(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.0.parameters
     res = _jm_obj_51(val, path, rep)
@@ -2843,7 +2779,7 @@ def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_50_may_requestBody ($.'$Link'.'|'.0.requestBody)
-def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.0.requestBody
     res = True
@@ -2852,7 +2788,7 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_50_may_server ($.'$Link'.'|'.0.server)
-def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_113(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Link'.'|'.0.server
     res = json_model_6(val, path, rep)
@@ -2872,13 +2808,16 @@ def _jm_obj_50(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_49: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_50_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_49 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Link'.'|'.0]", lpath_49 if path is not None else None))
-                    return False
+        if prop == "operationRef":
+            # handle one must property
+            must_count += 1
+            # $.'$Link'.'|'.0.operationRef
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Link'.'|'.0.operationRef]", lpath_49 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Link'.'|'.0.operationRef]", lpath_49 if path is not None else None))
+                return False
         elif pfun := _jm_obj_50_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_49 if path is not None else None, rep):
@@ -2930,18 +2869,8 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $parameterShare [$.'$Header']", path))
     return res
 
-# check _jm_obj_52_must_name ($.'$Tag'.name)
-def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Tag'.name
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Tag'.name]", path))
-    return res
-
-
 # check _jm_obj_52_may_description ($.'$Tag'.description)
-def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_114(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Tag'.description
     res = isinstance(val, str)
@@ -2950,7 +2879,7 @@ def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_52_may_externalDocs ($.'$Tag'.externalDocs)
-def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_115(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Tag'.externalDocs
     res = json_model_12(val, path, rep)
@@ -2970,13 +2899,16 @@ def _jm_obj_52(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_50: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_52_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_50 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Tag']", lpath_50 if path is not None else None))
-                    return False
+        if prop == "name":
+            # handle one must property
+            must_count += 1
+            # $.'$Tag'.name
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Tag'.name]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Tag'.name]", lpath_50 if path is not None else None))
+                return False
         elif pfun := _jm_obj_52_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
@@ -3007,18 +2939,8 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Tag']", path))
     return res
 
-# check _jm_obj_53_must_$ref ($.'$Reference'.'$ref')
-def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Reference'.'$ref'
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Reference'.'$ref']", path))
-    return res
-
-
 # check _jm_obj_53_may_description ($.'$Reference'.description)
-def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_116(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Reference'.description
     res = isinstance(val, str)
@@ -3027,7 +2949,7 @@ def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_53_may_summary ($.'$Reference'.summary)
-def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_117(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Reference'.summary
     res = isinstance(val, str)
@@ -3041,18 +2963,22 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$Reference']", path))
         return False
+    res: bool
     pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_51: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_53_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_51 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Reference']", lpath_51 if path is not None else None))
-                    return False
+        if prop == "$ref":
+            # handle one must property
+            must_count += 1
+            # $.'$Reference'.'$ref'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Reference'.'$ref']", lpath_51 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Reference'.$ref]", lpath_51 if path is not None else None))
+                return False
         elif pfun := _jm_obj_53_may.get(prop):
             # handle {len(may)} may props
             if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
@@ -3086,7 +3012,7 @@ def json_model_36(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$anchor ($.'$Schema'.'$anchor')
-def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$anchor'
     res = json_model_37(val, path, rep)
@@ -3095,7 +3021,7 @@ def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$comment ($.'$Schema'.'$comment')
-def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$comment'
     res = isinstance(val, str)
@@ -3122,7 +3048,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_$defs ($.'$Schema'.'$defs')
-def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_120(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$defs'
     res = _jm_obj_55(val, path, rep)
@@ -3131,7 +3057,7 @@ def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$dynamicAnchor ($.'$Schema'.'$dynamicAnchor')
-def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_121(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$dynamicAnchor'
     res = json_model_37(val, path, rep)
@@ -3140,7 +3066,7 @@ def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$dynamicRef ($.'$Schema'.'$dynamicRef')
-def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$dynamicRef'
     res = json_model_37(val, path, rep)
@@ -3149,7 +3075,7 @@ def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$id ($.'$Schema'.'$id')
-def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_123(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$id'
     res = json_model_37(val, path, rep)
@@ -3158,7 +3084,7 @@ def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$ref ($.'$Schema'.'$ref')
-def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$ref'
     res = json_model_37(val, path, rep)
@@ -3167,7 +3093,7 @@ def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_$schema ($.'$Schema'.'$schema')
-def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$schema'
     res = isinstance(val, str) and val == "https://json-schema.org/draft/2020-12/schema"
@@ -3198,7 +3124,7 @@ def _jm_obj_56(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_$vocabulary ($.'$Schema'.'$vocabulary')
-def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_126(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.'$vocabulary'
     res = _jm_obj_56(val, path, rep)
@@ -3207,7 +3133,7 @@ def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_additionalProperties ($.'$Schema'.additionalProperties)
-def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_127(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.additionalProperties
     res = json_model_52(val, path, rep)
@@ -3216,7 +3142,7 @@ def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_allOf ($.'$Schema'.allOf)
-def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_128(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.allOf
     res = json_model_49(val, path, rep)
@@ -3225,7 +3151,7 @@ def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_anyOf ($.'$Schema'.anyOf)
-def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_129(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.anyOf
     res = json_model_49(val, path, rep)
@@ -3234,7 +3160,7 @@ def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_const ($.'$Schema'.const)
-def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_130(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.const
     res = True
@@ -3243,7 +3169,7 @@ def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_contains ($.'$Schema'.contains)
-def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_131(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.contains
     res = json_model_52(val, path, rep)
@@ -3252,7 +3178,7 @@ def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_contentEncoding ($.'$Schema'.contentEncoding)
-def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_132(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.contentEncoding
     res = isinstance(val, str)
@@ -3261,7 +3187,7 @@ def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_contentMediaType ($.'$Schema'.contentMediaType)
-def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_133(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.contentMediaType
     res = isinstance(val, str)
@@ -3270,7 +3196,7 @@ def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_contentSchema ($.'$Schema'.contentSchema)
-def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_134(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.contentSchema
     res = json_model_52(val, path, rep)
@@ -3279,7 +3205,7 @@ def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_default ($.'$Schema'.default)
-def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.default
     res = True
@@ -3306,7 +3232,7 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_dependentRequired ($.'$Schema'.dependentRequired)
-def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.dependentRequired
     res = _jm_obj_57(val, path, rep)
@@ -3333,7 +3259,7 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_dependentSchemas ($.'$Schema'.dependentSchemas)
-def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_137(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.dependentSchemas
     res = _jm_obj_58(val, path, rep)
@@ -3342,7 +3268,7 @@ def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_deprecated ($.'$Schema'.deprecated)
-def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_138(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.deprecated
     res = isinstance(val, bool)
@@ -3351,7 +3277,7 @@ def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_description ($.'$Schema'.description)
-def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_139(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.description
     res = isinstance(val, str)
@@ -3360,7 +3286,7 @@ def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_discriminator ($.'$Schema'.discriminator)
-def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.discriminator
     res = json_model_29(val, path, rep)
@@ -3369,7 +3295,7 @@ def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_else ($.'$Schema'.else)
-def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_141(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.else
     res = json_model_52(val, path, rep)
@@ -3378,7 +3304,7 @@ def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_enum ($.'$Schema'.enum)
-def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.enum
     res = isinstance(val, list)
@@ -3390,7 +3316,7 @@ def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_examples ($.'$Schema'.examples)
-def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_143(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.examples
     res = isinstance(val, list)
@@ -3402,7 +3328,7 @@ def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_exclusiveMaximum ($.'$Schema'.exclusiveMaximum)
-def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_144(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.exclusiveMaximum
     res = isinstance(val, float)
@@ -3411,7 +3337,7 @@ def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_exclusiveMinimum ($.'$Schema'.exclusiveMinimum)
-def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_145(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.exclusiveMinimum
     res = isinstance(val, float)
@@ -3420,7 +3346,7 @@ def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_externalDocs ($.'$Schema'.externalDocs)
-def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_146(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.externalDocs
     res = json_model_12(val, path, rep)
@@ -3429,7 +3355,7 @@ def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_format ($.'$Schema'.format)
-def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_147(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.format
     res = isinstance(val, str)
@@ -3438,7 +3364,7 @@ def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_if ($.'$Schema'.if)
-def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_148(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.if
     res = json_model_52(val, path, rep)
@@ -3447,7 +3373,7 @@ def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_items ($.'$Schema'.items)
-def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_149(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.items
     res = json_model_52(val, path, rep)
@@ -3456,7 +3382,7 @@ def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_maxContains ($.'$Schema'.maxContains)
-def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_150(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.maxContains
     res = json_model_47(val, path, rep)
@@ -3465,7 +3391,7 @@ def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_maxItems ($.'$Schema'.maxItems)
-def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_151(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.maxItems
     res = json_model_47(val, path, rep)
@@ -3474,7 +3400,7 @@ def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_maxLength ($.'$Schema'.maxLength)
-def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.maxLength
     res = json_model_47(val, path, rep)
@@ -3483,7 +3409,7 @@ def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_maxProperties ($.'$Schema'.maxProperties)
-def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.maxProperties
     res = json_model_47(val, path, rep)
@@ -3492,7 +3418,7 @@ def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_maximum ($.'$Schema'.maximum)
-def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.maximum
     res = isinstance(val, float)
@@ -3501,7 +3427,7 @@ def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_minContains ($.'$Schema'.minContains)
-def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_155(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.minContains
     res = json_model_47(val, path, rep)
@@ -3510,7 +3436,7 @@ def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_minItems ($.'$Schema'.minItems)
-def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.minItems
     res = json_model_47(val, path, rep)
@@ -3519,7 +3445,7 @@ def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_minLength ($.'$Schema'.minLength)
-def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_157(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.minLength
     res = json_model_47(val, path, rep)
@@ -3528,7 +3454,7 @@ def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_minProperties ($.'$Schema'.minProperties)
-def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.minProperties
     res = json_model_47(val, path, rep)
@@ -3537,7 +3463,7 @@ def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_minimum ($.'$Schema'.minimum)
-def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_159(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.minimum
     res = isinstance(val, float)
@@ -3546,7 +3472,7 @@ def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_multipleOf ($.'$Schema'.multipleOf)
-def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_160(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.multipleOf
     res = isinstance(val, float) and val > 0.0
@@ -3555,7 +3481,7 @@ def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_not ($.'$Schema'.not)
-def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_161(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.not
     res = json_model_52(val, path, rep)
@@ -3564,7 +3490,7 @@ def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_oneOf ($.'$Schema'.oneOf)
-def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_162(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.oneOf
     res = json_model_49(val, path, rep)
@@ -3573,7 +3499,7 @@ def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_pattern ($.'$Schema'.pattern)
-def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_163(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.pattern
     res = is_valid_regex(val, path, rep)
@@ -3604,7 +3530,7 @@ def _jm_obj_59(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_patternProperties ($.'$Schema'.patternProperties)
-def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.patternProperties
     res = _jm_obj_59(val, path, rep)
@@ -3613,7 +3539,7 @@ def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_prefixItems ($.'$Schema'.prefixItems)
-def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_165(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.prefixItems
     res = json_model_49(val, path, rep)
@@ -3640,7 +3566,7 @@ def _jm_obj_60(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_54_may_properties ($.'$Schema'.properties)
-def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.properties
     res = _jm_obj_60(val, path, rep)
@@ -3649,7 +3575,7 @@ def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_propertyNames ($.'$Schema'.propertyNames)
-def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_167(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.propertyNames
     res = json_model_52(val, path, rep)
@@ -3658,7 +3584,7 @@ def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_readOnly ($.'$Schema'.readOnly)
-def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.readOnly
     res = isinstance(val, bool)
@@ -3667,7 +3593,7 @@ def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_required ($.'$Schema'.required)
-def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_169(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.required
     res = json_model_46(val, path, rep)
@@ -3676,7 +3602,7 @@ def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_then ($.'$Schema'.then)
-def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_170(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.then
     res = json_model_52(val, path, rep)
@@ -3685,7 +3611,7 @@ def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_title ($.'$Schema'.title)
-def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_171(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.title
     res = isinstance(val, str)
@@ -3694,7 +3620,7 @@ def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_type ($.'$Schema'.type)
-def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.type
     # $.'$Schema'.type.'|'.0
@@ -3711,7 +3637,7 @@ def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_unevaluatedItems ($.'$Schema'.unevaluatedItems)
-def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_173(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.unevaluatedItems
     res = json_model_52(val, path, rep)
@@ -3720,7 +3646,7 @@ def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_unevaluatedProperties ($.'$Schema'.unevaluatedProperties)
-def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.unevaluatedProperties
     res = json_model_52(val, path, rep)
@@ -3729,7 +3655,7 @@ def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_uniqueItems ($.'$Schema'.uniqueItems)
-def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_175(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.uniqueItems
     res = isinstance(val, bool)
@@ -3738,7 +3664,7 @@ def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_writeOnly ($.'$Schema'.writeOnly)
-def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_176(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.writeOnly
     res = isinstance(val, bool)
@@ -3747,7 +3673,7 @@ def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_54_may_xml ($.'$Schema'.xml)
-def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_177(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Schema'.xml
     res = json_model_30(val, path, rep)
@@ -3784,16 +3710,6 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Schema']", path))
     return res
 
-# check _jm_obj_61_must_propertyName ($.'$Discriminator'.propertyName)
-def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Discriminator'.propertyName
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$Discriminator'.propertyName]", path))
-    return res
-
-
 # object $.'$Discriminator'.mapping
 def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -3812,38 +3728,34 @@ def _jm_obj_62(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_61_may_mapping ($.'$Discriminator'.mapping)
-def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$Discriminator'.mapping
-    res = _jm_obj_62(val, path, rep)
-    if not res:
-        rep is None or rep.append(("not an expected object at [$.'$Discriminator'.mapping]", path))
-    return res
-
-
 # object $.'$Discriminator'
 def _jm_obj_61(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$Discriminator']", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_59: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_61_must.get(prop):
-            # handle 1 must props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_59 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$.'$Discriminator']", lpath_59 if path is not None else None))
-                    return False
-        elif pfun := _jm_obj_61_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_59 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$Discriminator']", lpath_59 if path is not None else None))
+        if prop == "propertyName":
+            # handle one must property
+            must_count += 1
+            # $.'$Discriminator'.propertyName
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$Discriminator'.propertyName]", lpath_59 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid must property value [$.'$Discriminator'.propertyName]", lpath_59 if path is not None else None))
+                return False
+        elif prop == "mapping":
+            # handle one may property
+            # $.'$Discriminator'.mapping
+            res = _jm_obj_62(pval, lpath_59 if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("not an expected object at [$.'$Discriminator'.mapping]", lpath_59 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$Discriminator'.mapping]", lpath_59 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -3871,7 +3783,7 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_63_may_attribute ($.'$XML'.attribute)
-def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_178(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XML'.attribute
     res = isinstance(val, bool)
@@ -3880,7 +3792,7 @@ def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_63_may_name ($.'$XML'.name)
-def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_179(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XML'.name
     res = isinstance(val, str)
@@ -3889,7 +3801,7 @@ def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_63_may_namespace ($.'$XML'.namespace)
-def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_180(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XML'.namespace
     res = isinstance(val, str)
@@ -3898,7 +3810,7 @@ def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_63_may_prefix ($.'$XML'.prefix)
-def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_181(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XML'.prefix
     res = isinstance(val, str)
@@ -3907,7 +3819,7 @@ def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_63_may_wrapped ($.'$XML'.wrapped)
-def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_182(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XML'.wrapped
     res = isinstance(val, bool)
@@ -3954,7 +3866,7 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_flows ($.'$SecurityScheme'.flows)
-def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_183(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.flows
     res = json_model_32(val, path, rep)
@@ -3963,7 +3875,7 @@ def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_in ($.'$SecurityScheme'.in)
-def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.in
     res = isinstance(val, str)
@@ -3972,7 +3884,7 @@ def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_name ($.'$SecurityScheme'.name)
-def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_185(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.name
     res = isinstance(val, str)
@@ -3981,7 +3893,7 @@ def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_openIdConnectUrl ($.'$SecurityScheme'.openIdConnectUrl)
-def _jm_f_197(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_186(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.openIdConnectUrl
     res = isinstance(val, str)
@@ -3990,7 +3902,7 @@ def _jm_f_197(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_scheme ($.'$SecurityScheme'.scheme)
-def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_187(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.scheme
     res = isinstance(val, str)
@@ -3999,7 +3911,7 @@ def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_must_type ($.'$SecurityScheme'.type)
-def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.type
     res = isinstance(val, str)
@@ -4009,7 +3921,7 @@ def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check _jm_obj_64_may_bearerFormat ($.'$SecurityScheme'.bearerFormat)
-def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_189(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.bearerFormat
     res = isinstance(val, str)
@@ -4018,7 +3930,7 @@ def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_64_may_description ($.'$SecurityScheme'.description)
-def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$SecurityScheme'.description
     res = isinstance(val, str)
@@ -4076,7 +3988,7 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_65_may_authorizationCode ($.'$OAuthFlows'.authorizationCode)
-def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_191(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlows'.authorizationCode
     res = json_model_33(val, path, rep)
@@ -4085,7 +3997,7 @@ def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_65_may_clientCredentials ($.'$OAuthFlows'.clientCredentials)
-def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_192(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlows'.clientCredentials
     res = json_model_33(val, path, rep)
@@ -4094,7 +4006,7 @@ def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_65_may_implicit ($.'$OAuthFlows'.implicit)
-def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_193(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlows'.implicit
     res = json_model_33(val, path, rep)
@@ -4103,7 +4015,7 @@ def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_65_may_password ($.'$OAuthFlows'.password)
-def _jm_f_205(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_194(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlows'.password
     res = json_model_33(val, path, rep)
@@ -4150,7 +4062,7 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_66_must_authorizationUrl ($.'$OAuthFlow'.authorizationUrl)
-def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlow'.authorizationUrl
     res = isinstance(val, str)
@@ -4177,7 +4089,7 @@ def _jm_obj_67(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_66_must_scopes ($.'$OAuthFlow'.scopes)
-def _jm_f_207(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_196(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlow'.scopes
     res = _jm_obj_67(val, path, rep)
@@ -4186,22 +4098,12 @@ def _jm_f_207(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_66_must_tokenUrl ($.'$OAuthFlow'.tokenUrl)
-def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_197(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$OAuthFlow'.tokenUrl
     res = isinstance(val, str)
     if not res:
         rep is None or rep.append(("unexpected string [$.'$OAuthFlow'.tokenUrl]", path))
-    return res
-
-
-# check _jm_obj_66_may_refreshUrl ($.'$OAuthFlow'.refreshUrl)
-def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$OAuthFlow'.refreshUrl
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$OAuthFlow'.refreshUrl]", path))
     return res
 
 
@@ -4223,10 +4125,14 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not pfun(pval, lpath_64 if path is not None else None, rep):
                     rep is None or rep.append(("invalid must property value [$.'$OAuthFlow']", lpath_64 if path is not None else None))
                     return False
-        elif pfun := _jm_obj_66_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_64 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$OAuthFlow']", lpath_64 if path is not None else None))
+        elif prop == "refreshUrl":
+            # handle one may property
+            # $.'$OAuthFlow'.refreshUrl
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$OAuthFlow'.refreshUrl]", lpath_64 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$OAuthFlow'.refreshUrl]", lpath_64 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle {len(regs)} re props
@@ -4446,7 +4352,7 @@ def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$anchor ($.'$schema#ObjectSchema'.'$anchor')
-def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_198(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$anchor'
     res = json_model_37(val, path, rep)
@@ -4455,7 +4361,7 @@ def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$comment ($.'$schema#ObjectSchema'.'$comment')
-def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_199(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$comment'
     res = isinstance(val, str)
@@ -4482,7 +4388,7 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_$defs ($.'$schema#ObjectSchema'.'$defs')
-def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$defs'
     res = _jm_obj_71(val, path, rep)
@@ -4491,7 +4397,7 @@ def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$dynamicAnchor ($.'$schema#ObjectSchema'.'$dynamicAnchor')
-def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$dynamicAnchor'
     res = json_model_37(val, path, rep)
@@ -4500,7 +4406,7 @@ def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$dynamicRef ($.'$schema#ObjectSchema'.'$dynamicRef')
-def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_202(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$dynamicRef'
     res = json_model_37(val, path, rep)
@@ -4509,7 +4415,7 @@ def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$id ($.'$schema#ObjectSchema'.'$id')
-def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_203(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$id'
     res = json_model_37(val, path, rep)
@@ -4518,7 +4424,7 @@ def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$ref ($.'$schema#ObjectSchema'.'$ref')
-def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$ref'
     res = json_model_37(val, path, rep)
@@ -4527,7 +4433,7 @@ def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_$schema ($.'$schema#ObjectSchema'.'$schema')
-def _jm_f_217(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_205(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$schema'
     res = isinstance(val, str) and val == "https://json-schema.org/draft/2020-12/schema"
@@ -4558,7 +4464,7 @@ def _jm_obj_72(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_$vocabulary ($.'$schema#ObjectSchema'.'$vocabulary')
-def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.'$vocabulary'
     res = _jm_obj_72(val, path, rep)
@@ -4567,7 +4473,7 @@ def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_additionalProperties ($.'$schema#ObjectSchema'.additionalProperties)
-def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_207(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.additionalProperties
     res = json_model_52(val, path, rep)
@@ -4576,7 +4482,7 @@ def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_allOf ($.'$schema#ObjectSchema'.allOf)
-def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_208(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.allOf
     res = json_model_49(val, path, rep)
@@ -4585,7 +4491,7 @@ def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_anyOf ($.'$schema#ObjectSchema'.anyOf)
-def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_209(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.anyOf
     res = json_model_49(val, path, rep)
@@ -4594,7 +4500,7 @@ def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_const ($.'$schema#ObjectSchema'.const)
-def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_210(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.const
     res = True
@@ -4603,7 +4509,7 @@ def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_contains ($.'$schema#ObjectSchema'.contains)
-def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.contains
     res = json_model_52(val, path, rep)
@@ -4612,7 +4518,7 @@ def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_contentEncoding ($.'$schema#ObjectSchema'.contentEncoding)
-def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.contentEncoding
     res = isinstance(val, str)
@@ -4621,7 +4527,7 @@ def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_contentMediaType ($.'$schema#ObjectSchema'.contentMediaType)
-def _jm_f_225(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_213(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.contentMediaType
     res = isinstance(val, str)
@@ -4630,7 +4536,7 @@ def _jm_f_225(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_contentSchema ($.'$schema#ObjectSchema'.contentSchema)
-def _jm_f_226(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_214(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.contentSchema
     res = json_model_52(val, path, rep)
@@ -4639,7 +4545,7 @@ def _jm_f_226(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_default ($.'$schema#ObjectSchema'.default)
-def _jm_f_227(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_215(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.default
     res = True
@@ -4666,7 +4572,7 @@ def _jm_obj_73(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_dependentRequired ($.'$schema#ObjectSchema'.dependentRequired)
-def _jm_f_228(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.dependentRequired
     res = _jm_obj_73(val, path, rep)
@@ -4693,7 +4599,7 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_dependentSchemas ($.'$schema#ObjectSchema'.dependentSchemas)
-def _jm_f_229(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_217(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.dependentSchemas
     res = _jm_obj_74(val, path, rep)
@@ -4702,7 +4608,7 @@ def _jm_f_229(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_deprecated ($.'$schema#ObjectSchema'.deprecated)
-def _jm_f_230(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_218(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.deprecated
     res = isinstance(val, bool)
@@ -4711,7 +4617,7 @@ def _jm_f_230(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_description ($.'$schema#ObjectSchema'.description)
-def _jm_f_231(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_219(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.description
     res = isinstance(val, str)
@@ -4720,7 +4626,7 @@ def _jm_f_231(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_else ($.'$schema#ObjectSchema'.else)
-def _jm_f_232(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.else
     res = json_model_52(val, path, rep)
@@ -4729,7 +4635,7 @@ def _jm_f_232(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_enum ($.'$schema#ObjectSchema'.enum)
-def _jm_f_233(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_221(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.enum
     res = isinstance(val, list)
@@ -4741,7 +4647,7 @@ def _jm_f_233(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_examples ($.'$schema#ObjectSchema'.examples)
-def _jm_f_234(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.examples
     res = isinstance(val, list)
@@ -4753,7 +4659,7 @@ def _jm_f_234(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_exclusiveMaximum ($.'$schema#ObjectSchema'.exclusiveMaximum)
-def _jm_f_235(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_223(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.exclusiveMaximum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
@@ -4762,7 +4668,7 @@ def _jm_f_235(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_exclusiveMinimum ($.'$schema#ObjectSchema'.exclusiveMinimum)
-def _jm_f_236(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_224(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.exclusiveMinimum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
@@ -4771,7 +4677,7 @@ def _jm_f_236(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_format ($.'$schema#ObjectSchema'.format)
-def _jm_f_237(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_225(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.format
     res = isinstance(val, str)
@@ -4780,7 +4686,7 @@ def _jm_f_237(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_if ($.'$schema#ObjectSchema'.if)
-def _jm_f_238(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_226(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.if
     res = json_model_52(val, path, rep)
@@ -4789,7 +4695,7 @@ def _jm_f_238(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_items ($.'$schema#ObjectSchema'.items)
-def _jm_f_239(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_227(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.items
     res = json_model_52(val, path, rep)
@@ -4798,7 +4704,7 @@ def _jm_f_239(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_maxContains ($.'$schema#ObjectSchema'.maxContains)
-def _jm_f_240(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_228(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.maxContains
     res = json_model_47(val, path, rep)
@@ -4807,7 +4713,7 @@ def _jm_f_240(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_maxItems ($.'$schema#ObjectSchema'.maxItems)
-def _jm_f_241(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_229(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.maxItems
     res = json_model_47(val, path, rep)
@@ -4816,7 +4722,7 @@ def _jm_f_241(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_maxLength ($.'$schema#ObjectSchema'.maxLength)
-def _jm_f_242(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_230(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.maxLength
     res = json_model_47(val, path, rep)
@@ -4825,7 +4731,7 @@ def _jm_f_242(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_maxProperties ($.'$schema#ObjectSchema'.maxProperties)
-def _jm_f_243(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_231(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.maxProperties
     res = json_model_47(val, path, rep)
@@ -4834,7 +4740,7 @@ def _jm_f_243(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_maximum ($.'$schema#ObjectSchema'.maximum)
-def _jm_f_244(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_232(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.maximum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
@@ -4843,7 +4749,7 @@ def _jm_f_244(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_minContains ($.'$schema#ObjectSchema'.minContains)
-def _jm_f_245(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_233(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.minContains
     res = json_model_47(val, path, rep)
@@ -4852,7 +4758,7 @@ def _jm_f_245(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_minItems ($.'$schema#ObjectSchema'.minItems)
-def _jm_f_246(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_234(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.minItems
     res = json_model_47(val, path, rep)
@@ -4861,7 +4767,7 @@ def _jm_f_246(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_minLength ($.'$schema#ObjectSchema'.minLength)
-def _jm_f_247(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_235(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.minLength
     res = json_model_47(val, path, rep)
@@ -4870,7 +4776,7 @@ def _jm_f_247(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_minProperties ($.'$schema#ObjectSchema'.minProperties)
-def _jm_f_248(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_236(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.minProperties
     res = json_model_47(val, path, rep)
@@ -4879,7 +4785,7 @@ def _jm_f_248(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_minimum ($.'$schema#ObjectSchema'.minimum)
-def _jm_f_249(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_237(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.minimum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
@@ -4888,7 +4794,7 @@ def _jm_f_249(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_multipleOf ($.'$schema#ObjectSchema'.multipleOf)
-def _jm_f_250(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_238(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.multipleOf
     res = isinstance(val, (int, float)) and not isinstance(val, bool) and val > 0.0
@@ -4897,7 +4803,7 @@ def _jm_f_250(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_not ($.'$schema#ObjectSchema'.not)
-def _jm_f_251(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_239(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.not
     res = json_model_52(val, path, rep)
@@ -4906,7 +4812,7 @@ def _jm_f_251(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_oneOf ($.'$schema#ObjectSchema'.oneOf)
-def _jm_f_252(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_240(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.oneOf
     res = json_model_49(val, path, rep)
@@ -4915,7 +4821,7 @@ def _jm_f_252(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_pattern ($.'$schema#ObjectSchema'.pattern)
-def _jm_f_253(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_241(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.pattern
     res = is_valid_regex(val, path, rep)
@@ -4946,7 +4852,7 @@ def _jm_obj_75(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_patternProperties ($.'$schema#ObjectSchema'.patternProperties)
-def _jm_f_254(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_242(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.patternProperties
     res = _jm_obj_75(val, path, rep)
@@ -4955,7 +4861,7 @@ def _jm_f_254(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_prefixItems ($.'$schema#ObjectSchema'.prefixItems)
-def _jm_f_255(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_243(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.prefixItems
     res = json_model_49(val, path, rep)
@@ -4982,7 +4888,7 @@ def _jm_obj_76(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check _jm_obj_70_may_properties ($.'$schema#ObjectSchema'.properties)
-def _jm_f_256(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_244(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.properties
     res = _jm_obj_76(val, path, rep)
@@ -4991,7 +4897,7 @@ def _jm_f_256(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_propertyNames ($.'$schema#ObjectSchema'.propertyNames)
-def _jm_f_257(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_245(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.propertyNames
     res = json_model_52(val, path, rep)
@@ -5000,7 +4906,7 @@ def _jm_f_257(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_readOnly ($.'$schema#ObjectSchema'.readOnly)
-def _jm_f_258(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_246(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.readOnly
     res = isinstance(val, bool)
@@ -5009,7 +4915,7 @@ def _jm_f_258(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_required ($.'$schema#ObjectSchema'.required)
-def _jm_f_259(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_247(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.required
     res = json_model_46(val, path, rep)
@@ -5018,7 +4924,7 @@ def _jm_f_259(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_then ($.'$schema#ObjectSchema'.then)
-def _jm_f_260(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_248(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.then
     res = json_model_52(val, path, rep)
@@ -5027,7 +4933,7 @@ def _jm_f_260(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_title ($.'$schema#ObjectSchema'.title)
-def _jm_f_261(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_249(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.title
     res = isinstance(val, str)
@@ -5036,7 +4942,7 @@ def _jm_f_261(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_type ($.'$schema#ObjectSchema'.type)
-def _jm_f_262(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_250(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.type
     # $.'$schema#ObjectSchema'.type.'|'.0
@@ -5053,7 +4959,7 @@ def _jm_f_262(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_unevaluatedItems ($.'$schema#ObjectSchema'.unevaluatedItems)
-def _jm_f_263(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_251(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.unevaluatedItems
     res = json_model_52(val, path, rep)
@@ -5062,7 +4968,7 @@ def _jm_f_263(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_unevaluatedProperties ($.'$schema#ObjectSchema'.unevaluatedProperties)
-def _jm_f_264(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_252(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.unevaluatedProperties
     res = json_model_52(val, path, rep)
@@ -5071,7 +4977,7 @@ def _jm_f_264(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_uniqueItems ($.'$schema#ObjectSchema'.uniqueItems)
-def _jm_f_265(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_253(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.uniqueItems
     res = isinstance(val, bool)
@@ -5080,7 +4986,7 @@ def _jm_f_265(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check _jm_obj_70_may_writeOnly ($.'$schema#ObjectSchema'.writeOnly)
-def _jm_f_266(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_f_254(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$schema#ObjectSchema'.writeOnly
     res = isinstance(val, bool)
@@ -5174,373 +5080,325 @@ def check_model_init():
             "identifier": _jm_f_22,
             "name": _jm_f_23,
         }
-        global _jm_obj_6_must
-        _jm_obj_6_must = {
-            "url": _jm_f_24,
-        }
         global _jm_obj_6_may
         _jm_obj_6_may = {
-            "description": _jm_f_25,
-            "variables": _jm_f_26,
-        }
-        global _jm_obj_8_must
-        _jm_obj_8_must = {
-            "default": _jm_f_27,
+            "description": _jm_f_24,
+            "variables": _jm_f_25,
         }
         global _jm_obj_8_may
         _jm_obj_8_may = {
-            "description": _jm_f_28,
-            "enum": _jm_f_29,
+            "description": _jm_f_26,
+            "enum": _jm_f_27,
         }
         global _jm_obj_9_may
         _jm_obj_9_may = {
-            "callbacks": _jm_f_30,
-            "examples": _jm_f_31,
-            "headers": _jm_f_32,
-            "links": _jm_f_33,
-            "parameters": _jm_f_34,
-            "pathItems": _jm_f_35,
-            "requestBodies": _jm_f_36,
-            "responses": _jm_f_37,
-            "schemas": _jm_f_38,
-            "securitySchemes": _jm_f_39,
+            "callbacks": _jm_f_28,
+            "examples": _jm_f_29,
+            "headers": _jm_f_30,
+            "links": _jm_f_31,
+            "parameters": _jm_f_32,
+            "pathItems": _jm_f_33,
+            "requestBodies": _jm_f_34,
+            "responses": _jm_f_35,
+            "schemas": _jm_f_36,
+            "securitySchemes": _jm_f_37,
         }
         global _jm_re_1_search, _jm_re_1
         _jm_re_1_search = re.compile("^/").search
         _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
         global _jm_obj_21_may
         _jm_obj_21_may = {
-            "$ref": _jm_f_40,
-            "description": _jm_f_41,
-            "get": _jm_f_42,
-            "head": _jm_f_43,
-            "options": _jm_f_44,
-            "parameters": _jm_f_45,
-            "patch": _jm_f_46,
-            "post": _jm_f_47,
-            "put": _jm_f_48,
-            "servers": _jm_f_49,
-            "summary": _jm_f_50,
-            "trace": _jm_f_51,
+            "$ref": _jm_f_38,
+            "description": _jm_f_39,
+            "get": _jm_f_40,
+            "head": _jm_f_41,
+            "options": _jm_f_42,
+            "parameters": _jm_f_43,
+            "patch": _jm_f_44,
+            "post": _jm_f_45,
+            "put": _jm_f_46,
+            "servers": _jm_f_47,
+            "summary": _jm_f_48,
+            "trace": _jm_f_49,
         }
         global _jm_obj_23_may
         _jm_obj_23_may = {
-            "callbacks": _jm_f_52,
-            "deprecated": _jm_f_53,
-            "description": _jm_f_54,
-            "externalDocs": _jm_f_55,
-            "operationId": _jm_f_56,
-            "parameters": _jm_f_57,
-            "requestBody": _jm_f_58,
-            "responses": _jm_f_59,
-            "security": _jm_f_60,
-            "servers": _jm_f_61,
-            "summary": _jm_f_62,
-            "tags": _jm_f_63,
-        }
-        global _jm_obj_27_must
-        _jm_obj_27_must = {
-            "url": _jm_f_64,
-        }
-        global _jm_obj_27_may
-        _jm_obj_27_may = {
-            "description": _jm_f_65,
+            "callbacks": _jm_f_50,
+            "deprecated": _jm_f_51,
+            "description": _jm_f_52,
+            "externalDocs": _jm_f_53,
+            "operationId": _jm_f_54,
+            "parameters": _jm_f_55,
+            "requestBody": _jm_f_56,
+            "responses": _jm_f_57,
+            "security": _jm_f_58,
+            "servers": _jm_f_59,
+            "summary": _jm_f_60,
+            "tags": _jm_f_61,
         }
         global _jm_cst_0
         _jm_cst_0 = {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
         global _jm_obj_28_may
         _jm_obj_28_may = {
-            "allowEmptyValue": _jm_f_66,
-            "allowReserved": _jm_f_67,
-            "content": _jm_f_68,
-            "deprecated": _jm_f_69,
-            "description": _jm_f_70,
-            "example": _jm_f_71,
-            "examples": _jm_f_72,
-            "explode": _jm_f_73,
-            "required": _jm_f_74,
-            "schema": _jm_f_75,
-            "style": _jm_f_76,
+            "allowEmptyValue": _jm_f_62,
+            "allowReserved": _jm_f_63,
+            "content": _jm_f_64,
+            "deprecated": _jm_f_65,
+            "description": _jm_f_66,
+            "example": _jm_f_67,
+            "examples": _jm_f_68,
+            "explode": _jm_f_69,
+            "required": _jm_f_70,
+            "schema": _jm_f_71,
+            "style": _jm_f_72,
         }
         global _jm_cst_1
         _jm_cst_1 = {'cookie', 'header', 'path', 'query'}
         global _jm_obj_31_must
         _jm_obj_31_must = {
-            "in": _jm_f_77,
-            "name": _jm_f_78,
+            "in": _jm_f_73,
+            "name": _jm_f_74,
         }
         global _jm_cst_2
         _jm_cst_2 = {'deepObject', 'form', 'label', 'matrix', 'pipeDelimited', 'simple', 'spaceDelimited'}
         global _jm_obj_31_may
         _jm_obj_31_may = {
-            "allowEmptyValue": _jm_f_79,
-            "allowReserved": _jm_f_80,
-            "content": _jm_f_81,
-            "deprecated": _jm_f_82,
-            "description": _jm_f_83,
-            "example": _jm_f_84,
-            "examples": _jm_f_85,
-            "explode": _jm_f_86,
-            "required": _jm_f_87,
-            "schema": _jm_f_88,
-            "style": _jm_f_89,
+            "allowEmptyValue": _jm_f_75,
+            "allowReserved": _jm_f_76,
+            "content": _jm_f_77,
+            "deprecated": _jm_f_78,
+            "description": _jm_f_79,
+            "example": _jm_f_80,
+            "examples": _jm_f_81,
+            "explode": _jm_f_82,
+            "required": _jm_f_83,
+            "schema": _jm_f_84,
+            "style": _jm_f_85,
         }
         global _jm_obj_34_may
         _jm_obj_34_may = {
-            "content": _jm_f_90,
-            "description": _jm_f_91,
-            "required": _jm_f_92,
+            "content": _jm_f_86,
+            "description": _jm_f_87,
+            "required": _jm_f_88,
         }
         global _jm_obj_36_may
         _jm_obj_36_may = {
-            "encoding": _jm_f_93,
-            "example": _jm_f_94,
-            "examples": _jm_f_95,
-            "schema": _jm_f_96,
+            "encoding": _jm_f_89,
+            "example": _jm_f_90,
+            "examples": _jm_f_91,
+            "schema": _jm_f_92,
         }
         global _jm_obj_39_may
         _jm_obj_39_may = {
-            "allowReserved": _jm_f_97,
-            "contentType": _jm_f_98,
-            "explode": _jm_f_99,
-            "headers": _jm_f_100,
-            "style": _jm_f_101,
-        }
-        global _jm_obj_41_may
-        _jm_obj_41_may = {
-            "default": _jm_f_102,
+            "allowReserved": _jm_f_93,
+            "contentType": _jm_f_94,
+            "explode": _jm_f_95,
+            "headers": _jm_f_96,
+            "style": _jm_f_97,
         }
         global _jm_re_2_search, _jm_re_2
         _jm_re_2_search = re.compile("^[1-5](\\d\\d|XX)$").search
         _jm_re_2 = lambda s: _jm_re_2_search(s) is not None
         global _jm_obj_42_may
         _jm_obj_42_may = {
-            "content": _jm_f_103,
-            "description": _jm_f_104,
-            "headers": _jm_f_105,
-            "links": _jm_f_106,
+            "content": _jm_f_98,
+            "description": _jm_f_99,
+            "headers": _jm_f_100,
+            "links": _jm_f_101,
         }
         global _jm_obj_47_may
         _jm_obj_47_may = {
-            "description": _jm_f_107,
-            "externalValue": _jm_f_108,
-            "summary": _jm_f_109,
-            "value": _jm_f_110,
+            "description": _jm_f_102,
+            "externalValue": _jm_f_103,
+            "summary": _jm_f_104,
+            "value": _jm_f_105,
         }
         global _jm_re_3_search, _jm_re_3
         _jm_re_3_search = re.compile("\\{.*\\}").search
         _jm_re_3 = lambda s: _jm_re_3_search(s) is not None
-        global _jm_obj_48_must
-        _jm_obj_48_must = {
-            "operationId": _jm_f_111,
-        }
         global _jm_obj_48_may
         _jm_obj_48_may = {
-            "description": _jm_f_112,
-            "parameters": _jm_f_113,
-            "requestBody": _jm_f_114,
-            "server": _jm_f_115,
-        }
-        global _jm_obj_50_must
-        _jm_obj_50_must = {
-            "operationRef": _jm_f_116,
+            "description": _jm_f_106,
+            "parameters": _jm_f_107,
+            "requestBody": _jm_f_108,
+            "server": _jm_f_109,
         }
         global _jm_obj_50_may
         _jm_obj_50_may = {
-            "description": _jm_f_117,
-            "parameters": _jm_f_118,
-            "requestBody": _jm_f_119,
-            "server": _jm_f_120,
-        }
-        global _jm_obj_52_must
-        _jm_obj_52_must = {
-            "name": _jm_f_121,
+            "description": _jm_f_110,
+            "parameters": _jm_f_111,
+            "requestBody": _jm_f_112,
+            "server": _jm_f_113,
         }
         global _jm_obj_52_may
         _jm_obj_52_may = {
-            "description": _jm_f_122,
-            "externalDocs": _jm_f_123,
-        }
-        global _jm_obj_53_must
-        _jm_obj_53_must = {
-            "$ref": _jm_f_124,
+            "description": _jm_f_114,
+            "externalDocs": _jm_f_115,
         }
         global _jm_obj_53_may
         _jm_obj_53_may = {
-            "description": _jm_f_125,
-            "summary": _jm_f_126,
+            "description": _jm_f_116,
+            "summary": _jm_f_117,
         }
         global _jm_obj_54_may
         _jm_obj_54_may = {
-            "$anchor": _jm_f_127,
-            "$comment": _jm_f_128,
-            "$defs": _jm_f_129,
-            "$dynamicAnchor": _jm_f_130,
-            "$dynamicRef": _jm_f_131,
-            "$id": _jm_f_132,
-            "$ref": _jm_f_133,
-            "$schema": _jm_f_134,
-            "$vocabulary": _jm_f_135,
-            "additionalProperties": _jm_f_136,
-            "allOf": _jm_f_137,
-            "anyOf": _jm_f_138,
-            "const": _jm_f_139,
-            "contains": _jm_f_140,
-            "contentEncoding": _jm_f_141,
-            "contentMediaType": _jm_f_142,
-            "contentSchema": _jm_f_143,
-            "default": _jm_f_144,
-            "dependentRequired": _jm_f_145,
-            "dependentSchemas": _jm_f_146,
-            "deprecated": _jm_f_147,
-            "description": _jm_f_148,
-            "discriminator": _jm_f_149,
-            "else": _jm_f_150,
-            "enum": _jm_f_151,
-            "examples": _jm_f_152,
-            "exclusiveMaximum": _jm_f_153,
-            "exclusiveMinimum": _jm_f_154,
-            "externalDocs": _jm_f_155,
-            "format": _jm_f_156,
-            "if": _jm_f_157,
-            "items": _jm_f_158,
-            "maxContains": _jm_f_159,
-            "maxItems": _jm_f_160,
-            "maxLength": _jm_f_161,
-            "maxProperties": _jm_f_162,
-            "maximum": _jm_f_163,
-            "minContains": _jm_f_164,
-            "minItems": _jm_f_165,
-            "minLength": _jm_f_166,
-            "minProperties": _jm_f_167,
-            "minimum": _jm_f_168,
-            "multipleOf": _jm_f_169,
-            "not": _jm_f_170,
-            "oneOf": _jm_f_171,
-            "pattern": _jm_f_172,
-            "patternProperties": _jm_f_173,
-            "prefixItems": _jm_f_174,
-            "properties": _jm_f_175,
-            "propertyNames": _jm_f_176,
-            "readOnly": _jm_f_177,
-            "required": _jm_f_178,
-            "then": _jm_f_179,
-            "title": _jm_f_180,
-            "type": _jm_f_181,
-            "unevaluatedItems": _jm_f_182,
-            "unevaluatedProperties": _jm_f_183,
-            "uniqueItems": _jm_f_184,
-            "writeOnly": _jm_f_185,
-            "xml": _jm_f_186,
-        }
-        global _jm_obj_61_must
-        _jm_obj_61_must = {
-            "propertyName": _jm_f_187,
-        }
-        global _jm_obj_61_may
-        _jm_obj_61_may = {
-            "mapping": _jm_f_188,
+            "$anchor": _jm_f_118,
+            "$comment": _jm_f_119,
+            "$defs": _jm_f_120,
+            "$dynamicAnchor": _jm_f_121,
+            "$dynamicRef": _jm_f_122,
+            "$id": _jm_f_123,
+            "$ref": _jm_f_124,
+            "$schema": _jm_f_125,
+            "$vocabulary": _jm_f_126,
+            "additionalProperties": _jm_f_127,
+            "allOf": _jm_f_128,
+            "anyOf": _jm_f_129,
+            "const": _jm_f_130,
+            "contains": _jm_f_131,
+            "contentEncoding": _jm_f_132,
+            "contentMediaType": _jm_f_133,
+            "contentSchema": _jm_f_134,
+            "default": _jm_f_135,
+            "dependentRequired": _jm_f_136,
+            "dependentSchemas": _jm_f_137,
+            "deprecated": _jm_f_138,
+            "description": _jm_f_139,
+            "discriminator": _jm_f_140,
+            "else": _jm_f_141,
+            "enum": _jm_f_142,
+            "examples": _jm_f_143,
+            "exclusiveMaximum": _jm_f_144,
+            "exclusiveMinimum": _jm_f_145,
+            "externalDocs": _jm_f_146,
+            "format": _jm_f_147,
+            "if": _jm_f_148,
+            "items": _jm_f_149,
+            "maxContains": _jm_f_150,
+            "maxItems": _jm_f_151,
+            "maxLength": _jm_f_152,
+            "maxProperties": _jm_f_153,
+            "maximum": _jm_f_154,
+            "minContains": _jm_f_155,
+            "minItems": _jm_f_156,
+            "minLength": _jm_f_157,
+            "minProperties": _jm_f_158,
+            "minimum": _jm_f_159,
+            "multipleOf": _jm_f_160,
+            "not": _jm_f_161,
+            "oneOf": _jm_f_162,
+            "pattern": _jm_f_163,
+            "patternProperties": _jm_f_164,
+            "prefixItems": _jm_f_165,
+            "properties": _jm_f_166,
+            "propertyNames": _jm_f_167,
+            "readOnly": _jm_f_168,
+            "required": _jm_f_169,
+            "then": _jm_f_170,
+            "title": _jm_f_171,
+            "type": _jm_f_172,
+            "unevaluatedItems": _jm_f_173,
+            "unevaluatedProperties": _jm_f_174,
+            "uniqueItems": _jm_f_175,
+            "writeOnly": _jm_f_176,
+            "xml": _jm_f_177,
         }
         global _jm_obj_63_may
         _jm_obj_63_may = {
-            "attribute": _jm_f_189,
-            "name": _jm_f_190,
-            "namespace": _jm_f_191,
-            "prefix": _jm_f_192,
-            "wrapped": _jm_f_193,
+            "attribute": _jm_f_178,
+            "name": _jm_f_179,
+            "namespace": _jm_f_180,
+            "prefix": _jm_f_181,
+            "wrapped": _jm_f_182,
         }
         global _jm_obj_64_must
         _jm_obj_64_must = {
-            "flows": _jm_f_194,
-            "in": _jm_f_195,
-            "name": _jm_f_196,
-            "openIdConnectUrl": _jm_f_197,
-            "scheme": _jm_f_198,
-            "type": _jm_f_199,
+            "flows": _jm_f_183,
+            "in": _jm_f_184,
+            "name": _jm_f_185,
+            "openIdConnectUrl": _jm_f_186,
+            "scheme": _jm_f_187,
+            "type": _jm_f_188,
         }
         global _jm_obj_64_may
         _jm_obj_64_may = {
-            "bearerFormat": _jm_f_200,
-            "description": _jm_f_201,
+            "bearerFormat": _jm_f_189,
+            "description": _jm_f_190,
         }
         global _jm_obj_65_may
         _jm_obj_65_may = {
-            "authorizationCode": _jm_f_202,
-            "clientCredentials": _jm_f_203,
-            "implicit": _jm_f_204,
-            "password": _jm_f_205,
+            "authorizationCode": _jm_f_191,
+            "clientCredentials": _jm_f_192,
+            "implicit": _jm_f_193,
+            "password": _jm_f_194,
         }
         global _jm_obj_66_must
         _jm_obj_66_must = {
-            "authorizationUrl": _jm_f_206,
-            "scopes": _jm_f_207,
-            "tokenUrl": _jm_f_208,
-        }
-        global _jm_obj_66_may
-        _jm_obj_66_may = {
-            "refreshUrl": _jm_f_209,
+            "authorizationUrl": _jm_f_195,
+            "scopes": _jm_f_196,
+            "tokenUrl": _jm_f_197,
         }
         global _jm_cst_3
         _jm_cst_3 = {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_obj_70_may
         _jm_obj_70_may = {
-            "$anchor": _jm_f_210,
-            "$comment": _jm_f_211,
-            "$defs": _jm_f_212,
-            "$dynamicAnchor": _jm_f_213,
-            "$dynamicRef": _jm_f_214,
-            "$id": _jm_f_215,
-            "$ref": _jm_f_216,
-            "$schema": _jm_f_217,
-            "$vocabulary": _jm_f_218,
-            "additionalProperties": _jm_f_219,
-            "allOf": _jm_f_220,
-            "anyOf": _jm_f_221,
-            "const": _jm_f_222,
-            "contains": _jm_f_223,
-            "contentEncoding": _jm_f_224,
-            "contentMediaType": _jm_f_225,
-            "contentSchema": _jm_f_226,
-            "default": _jm_f_227,
-            "dependentRequired": _jm_f_228,
-            "dependentSchemas": _jm_f_229,
-            "deprecated": _jm_f_230,
-            "description": _jm_f_231,
-            "else": _jm_f_232,
-            "enum": _jm_f_233,
-            "examples": _jm_f_234,
-            "exclusiveMaximum": _jm_f_235,
-            "exclusiveMinimum": _jm_f_236,
-            "format": _jm_f_237,
-            "if": _jm_f_238,
-            "items": _jm_f_239,
-            "maxContains": _jm_f_240,
-            "maxItems": _jm_f_241,
-            "maxLength": _jm_f_242,
-            "maxProperties": _jm_f_243,
-            "maximum": _jm_f_244,
-            "minContains": _jm_f_245,
-            "minItems": _jm_f_246,
-            "minLength": _jm_f_247,
-            "minProperties": _jm_f_248,
-            "minimum": _jm_f_249,
-            "multipleOf": _jm_f_250,
-            "not": _jm_f_251,
-            "oneOf": _jm_f_252,
-            "pattern": _jm_f_253,
-            "patternProperties": _jm_f_254,
-            "prefixItems": _jm_f_255,
-            "properties": _jm_f_256,
-            "propertyNames": _jm_f_257,
-            "readOnly": _jm_f_258,
-            "required": _jm_f_259,
-            "then": _jm_f_260,
-            "title": _jm_f_261,
-            "type": _jm_f_262,
-            "unevaluatedItems": _jm_f_263,
-            "unevaluatedProperties": _jm_f_264,
-            "uniqueItems": _jm_f_265,
-            "writeOnly": _jm_f_266,
+            "$anchor": _jm_f_198,
+            "$comment": _jm_f_199,
+            "$defs": _jm_f_200,
+            "$dynamicAnchor": _jm_f_201,
+            "$dynamicRef": _jm_f_202,
+            "$id": _jm_f_203,
+            "$ref": _jm_f_204,
+            "$schema": _jm_f_205,
+            "$vocabulary": _jm_f_206,
+            "additionalProperties": _jm_f_207,
+            "allOf": _jm_f_208,
+            "anyOf": _jm_f_209,
+            "const": _jm_f_210,
+            "contains": _jm_f_211,
+            "contentEncoding": _jm_f_212,
+            "contentMediaType": _jm_f_213,
+            "contentSchema": _jm_f_214,
+            "default": _jm_f_215,
+            "dependentRequired": _jm_f_216,
+            "dependentSchemas": _jm_f_217,
+            "deprecated": _jm_f_218,
+            "description": _jm_f_219,
+            "else": _jm_f_220,
+            "enum": _jm_f_221,
+            "examples": _jm_f_222,
+            "exclusiveMaximum": _jm_f_223,
+            "exclusiveMinimum": _jm_f_224,
+            "format": _jm_f_225,
+            "if": _jm_f_226,
+            "items": _jm_f_227,
+            "maxContains": _jm_f_228,
+            "maxItems": _jm_f_229,
+            "maxLength": _jm_f_230,
+            "maxProperties": _jm_f_231,
+            "maximum": _jm_f_232,
+            "minContains": _jm_f_233,
+            "minItems": _jm_f_234,
+            "minLength": _jm_f_235,
+            "minProperties": _jm_f_236,
+            "minimum": _jm_f_237,
+            "multipleOf": _jm_f_238,
+            "not": _jm_f_239,
+            "oneOf": _jm_f_240,
+            "pattern": _jm_f_241,
+            "patternProperties": _jm_f_242,
+            "prefixItems": _jm_f_243,
+            "properties": _jm_f_244,
+            "propertyNames": _jm_f_245,
+            "readOnly": _jm_f_246,
+            "required": _jm_f_247,
+            "then": _jm_f_248,
+            "title": _jm_f_249,
+            "type": _jm_f_250,
+            "unevaluatedItems": _jm_f_251,
+            "unevaluatedProperties": _jm_f_252,
+            "uniqueItems": _jm_f_253,
+            "writeOnly": _jm_f_254,
         }
         global check_model_map
         check_model_map = {

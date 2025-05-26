@@ -21,7 +21,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_obj_0_must: PropMap
-_jm_obj_0_may: PropMap
 check_model_map: PropMap
 
 # check _jm_obj_0_must_nom ($.nom)
@@ -43,21 +42,12 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# check _jm_obj_0_may_age ($.age)
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.age
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [$.age]", path))
-    return res
-
-
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$]", path))
         return False
+    res: bool
     pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
@@ -70,10 +60,14 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not pfun(pval, lpath_0 if path is not None else None, rep):
                     rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
                     return False
-        elif pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$]", lpath_0 if path is not None else None))
+        elif prop == "age":
+            # handle one may property
+            # $.age
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [$.age]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.age]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
@@ -105,10 +99,6 @@ def check_model_init():
         _jm_obj_0_must = {
             "nom": _jm_f_0,
             "prenom": _jm_f_1,
-        }
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "age": _jm_f_2,
         }
         global check_model_map
         check_model_map = {

@@ -1,6 +1,6 @@
 obj_01.values.json[0]: PASS
 obj_01.values.json[1]: PASS
-obj_01.values.json[2]: FAIL [('not a bool [$.bla]', ['bla']), ('invalid may property value [$]', ['bla']), ('not an expected object at [$]', [])]
+obj_01.values.json[2]: FAIL [('not a bool [$.bla]', ['bla']), ('invalid may property value [$.bla]', ['bla']), ('not an expected object at [$]', [])]
 obj_01.values.json[3]: FAIL [("not a 0.0 strict float [$.'$XXX']", ['X']), ('not an expected object at [$]', [])]
 obj_01.values.json[4]: FAIL [("value not in enum [$.'$XXX'.'|']", ['418']), ("not a 0 strict int [$.'/^[0-9]+$/']", ['418']), ('not an expected object at [$]', [])]
 obj_01.values.json[5]: FAIL [("value not in enum [$.'$XXX'.'|']", ['whatever']), ("not null [$.'']", ['whatever']), ('not an expected object at [$]', [])]

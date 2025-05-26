@@ -22,7 +22,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 _jm_re_0_search: Callable
 _jm_re_0: RegexFun
-_jm_obj_1_may: PropMap
 check_model_map: PropMap
 
 # object $.'^'.0
@@ -47,29 +46,23 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_1_may_a ($.'^'.1.a)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'^'.1.a
-    res = val is None
-    if not res:
-        rep is None or rep.append(("not null [$.'^'.1.a]", path))
-    return res
-
-
 # object $.'^'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'^'.1]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_1_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_1 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'^'.1]", lpath_1 if path is not None else None))
+        if prop == "a":
+            # handle one may property
+            # $.'^'.1.a
+            res = pval is None
+            if not res:
+                rep is None or rep.append(("not null [$.'^'.1.a]", lpath_1 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'^'.1.a]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$.'^'.1]", lpath_1 if path is not None else None))
@@ -112,10 +105,6 @@ def check_model_init():
         global _jm_re_0_search, _jm_re_0
         _jm_re_0_search = re.compile("a").search
         _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
-        global _jm_obj_1_may
-        _jm_obj_1_may = {
-            "a": _jm_f_0,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

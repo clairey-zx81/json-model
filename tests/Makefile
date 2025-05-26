@@ -2,7 +2,7 @@ SHELL   = /bin/bash
 .ONESHELL:
 
 # TODO only pytest driven tests?
-D.subs  = $(wildcard mv-*) bads
+D.subs  = $(wildcard mv-*) bads ref
 D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
 

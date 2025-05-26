@@ -1,7 +1,7 @@
 strict.values.json[0]: PASS
-strict.values.json[1]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$]) (.si: not a 0 strict int [$.si])
-strict.values.json[2]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$]) (.si: not a 0 strict int [$.si])
-strict.values.json[3]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$]) (.si: not a 0 strict int [$.si])
+strict.values.json[1]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$.si]) (.si: not a 0 strict int [$.si])
+strict.values.json[2]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$.si]) (.si: not a 0 strict int [$.si])
+strict.values.json[3]: FAIL (.: not an expected object at [$]) (.si: invalid must property value [$.si]) (.si: not a 0 strict int [$.si])
 strict.values.json[4]: FAIL (.: not an expected object at [$]) (.: not an object [$])
 strict.values.json[5]: FAIL (.: not an expected object at [$]) (.: not an object [$])
 strict.values.json[6]: FAIL (.: not an expected object at [$]) (.: not an object [$])

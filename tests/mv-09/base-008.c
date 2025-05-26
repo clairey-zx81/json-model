@@ -4,8 +4,6 @@
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_0_must_tab[2];
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[1];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
@@ -41,24 +39,6 @@ static check_fun_t _jm_obj_0_must(const char *pname)
     return jm_search_propmap(pname, _jm_obj_0_must_tab, 2);
 }
 
-// check _jm_obj_0_may_age ($.age)
-static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.age
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.age]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 1);
-}
-
 // object $
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
@@ -67,6 +47,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (rep) jm_report_add_entry(rep, "not an object [$]", path);
         return false;
     }
+    bool res;
     check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
@@ -87,12 +68,18 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 }
             }
         }
-        else if ((pfun = _jm_obj_0_may(prop)))
+        else if (strcmp(prop, "age") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle one may property
+            // $.age
+            res = json_is_integer(pval) && json_integer_value(pval) >= 0;
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.age]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.age]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -139,8 +126,6 @@ char *CHECK_init(void)
         _jm_obj_0_must_tab[0] = (propmap_t) { "nom", _jm_f_0 };
         _jm_obj_0_must_tab[1] = (propmap_t) { "prenom", _jm_f_1 };
         jm_sort_propmap(_jm_obj_0_must_tab, 2);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "age", _jm_f_2 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 1);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

@@ -20,32 +20,25 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_may: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_may_foo ($.foo)
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.foo
-    res = json_model_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $foo [$.foo]", path))
-    return res
-
 
 # object $
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$]", path))
         return False
-    pfun: CheckFun
+    res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$]", lpath_0 if path is not None else None))
+        if prop == "foo":
+            # handle one may property
+            # $.foo
+            res = json_model_1(pval, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $foo [$.foo]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.foo]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
@@ -70,10 +63,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "foo": _jm_f_0,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

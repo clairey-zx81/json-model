@@ -20,7 +20,6 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_may: PropMap
 check_model_map: PropMap
 
 # check $ex08 ($.'$ex08')
@@ -41,30 +40,23 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ex08#EX08 [$.'$EX08']", path))
     return res
 
-# check _jm_obj_0_may_# ($.'$EX09'.'#')
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # $.'$EX09'.'#'
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [$.'$EX09'.'#']", path))
-    return res
-
-
 # object $.'$EX09'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [$.'$EX09']", path))
         return False
     res: bool
-    pfun: CheckFun
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_may.get(prop):
-            # handle {len(may)} may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$EX09']", lpath_0 if path is not None else None))
+        if prop == "#":
+            # handle one may property
+            # $.'$EX09'.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [$.'$EX09'.'#']", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid may property value [$.'$EX09'.#]", lpath_0 if path is not None else None))
                 return False
         elif is_valid_url(prop, lpath_0 if path is not None else None, rep):
             # handle {len(defs)} key props
@@ -168,10 +160,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_may
-        _jm_obj_0_may = {
-            "#": _jm_f_0,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

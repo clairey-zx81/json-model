@@ -3,10 +3,6 @@
 
 static constant_t _jm_cst_0[3];
 static bool json_model_2(const json_t* val, Path* path, Report* rep);
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_must_tab[1];
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[1];
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
@@ -27,42 +23,6 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_must_foo ($.foo)
-static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.foo
-    res = jm_is_valid_date(json_string_value(val));
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $DATE [$.foo]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_must(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_must_tab, 1);
-}
-
-// check _jm_obj_0_may_bla ($.bla)
-static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
-{
-    bool res;
-    // $.bla
-    res = json_is_boolean(val);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "not a bool [$.bla]", path);
-    }
-    return res;
-}
-
-static check_fun_t _jm_obj_0_may(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 1);
-}
-
 static bool _jm_re_0(const char *s)
 {
   int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
@@ -79,32 +39,40 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         return false;
     }
     bool res;
-    check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_must(prop)))
+        if (strcmp(prop, "foo") == 0)
         {
-            // handle 1 must props
-            if (pfun != NULL)
+            // handle one must property
+            must_count += 1;
+            // $.foo
+            res = jm_is_valid_date(json_string_value(pval));
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [$]", (path ? &lpath_0 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected $DATE [$.foo]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.foo]", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
-        else if ((pfun = _jm_obj_0_may(prop)))
+        else if (strcmp(prop, "bla") == 0)
         {
-            // handle {len(may)} may props
-            if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
+            // handle one may property
+            // $.bla
+            res = json_is_boolean(pval);
+            if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a bool [$.bla]", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.bla]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -190,10 +158,6 @@ char *CHECK_init(void)
         _jm_cst_0[1] = (constant_t) { cst_is_string, { .s = "XX" } };
         _jm_cst_0[2] = (constant_t) { cst_is_string, { .s = "XXX" } };
         jm_sort_cst(_jm_cst_0, 3);
-        _jm_obj_0_must_tab[0] = (propmap_t) { "foo", _jm_f_0 };
-        jm_sort_propmap(_jm_obj_0_must_tab, 1);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "bla", _jm_f_1 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 1);
         int err_code;
         PCRE2_SIZE err_offset;
         static PCRE2_UCHAR err_message[1024];
