@@ -10,6 +10,7 @@
 - [x] command: add test vector mode with `--test-vector`
 - [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
 - [ ] tests: fix `wip/openapi-310-models`
+- [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
 - [ ] command: rething option usage for compilation.
 - [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
