@@ -8,23 +8,27 @@ from .model import JsonModel
 from .defines import ultimate_type
 from .runtime import ConstSet
 
-# work around True in [1]
+def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
+    return type(i) is type(j) and i == j
+
 def minl(model: ModelType, models: list[ModelType]) -> bool:
-    return any(map(lambda m: type(m) is type(model) and m == model, models))
+    return any(map(lambda m: real_equal(m, model), models))
  
 # remove one occurence from list of models
 def mdell(model: ModelType, models: list[ModelType]) -> bool:
     index = -1
     for i, m in enumerate(models):
-        if type(m) is type(model) and m == model:
+        if real_equal(m, model):
             index = i
     if index != -1:
         del models[index]
     return index != -1
         
 def normalizeModels(models: list[ModelType]) -> int:
+    """Replace model predefs in the list with their canonic form."""
     IGNORE = object()
     changes = 0
+
     for idx, model in enumerate(models):
         nmodel = IGNORE
         if isinstance(model, str):
@@ -36,11 +40,14 @@ def normalizeModels(models: list[ModelType]) -> int:
                 nmodel = 0
             elif model in ("$FLOAT", "$F32", "$F64"):
                 nmodel = -1.0
+            elif model in ("$BOOL", "$BOOLEAN"):
+                nmodel = True
             elif model in ("$NULL", "=null"):
                 nmodel = None
         if nmodel != IGNORE:
             changes += 1
             models[idx] = nmodel
+
     return changes
 
 def xor_to_or(jm: JsonModel):
@@ -144,11 +151,9 @@ def partial_eval(jm: JsonModel):
     def empty_obj(o):
         return isinstance(o, dict) and (len(o) == 0 or len(o) == 1 and "#" in o)
 
-    def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
-        return type(i) is type(j) and i == j
-
     def deduplicate(lv):
         # return list(set(l))  # too easy: {True, 1} == {True}
+        # TODO use an extended ConstSet?
         n = []
         for i in lv:
             if not any(map(lambda x: real_equal(x, i), n)):
@@ -162,11 +167,14 @@ def partial_eval(jm: JsonModel):
             if isinstance(jms._model, str) and jms._isPredef(jm._model):
                 changes += 1
                 return jms._model
+
         elif isinstance(model, dict):
-            if "|" in model:
+
+            if "|" in model:  # optimize OR
                 lor = model["|"]
                 assert isinstance(lor, list)
                 changes += normalizeModels(lor)
+
                 # int type inclusions
                 if minl(1, lor) and (minl(0, lor) or minl(-1, lor)):
                     changes += 1
@@ -174,7 +182,8 @@ def partial_eval(jm: JsonModel):
                 if minl(0, lor) and minl(-1, lor):
                     changes += 1
                     mdell(0, lor)
-                # TODO $F*
+
+                # float type inclusions
                 if minl(1.0, lor) and (minl(0.0, lor) or minl(-1.0, lor)):
                     changes += 1
                     mdell(1.0, lor)
@@ -184,6 +193,7 @@ def partial_eval(jm: JsonModel):
                 if minl("", lor) and minl("$STRING", lor):
                     changes += 1
                     mdell("$STRING", lor)
+
                 # others
                 if len(lor) == 0:
                     changes += 1
@@ -197,23 +207,28 @@ def partial_eval(jm: JsonModel):
                 elif len(lv := deduplicate(lor)) != len(lor):
                     changes += 1
                     model["|"] = lor = lv
+
                 if len(lor) == 1:
                     changes += 1
                     return lor[0]
-            elif "&" in model:
+
+            elif "&" in model:  # optimize AND
                 land = model["&"]
                 assert isinstance(land, list)
                 changes += normalizeModels(land)
+
                 # manage simple type inclusions on ints
                 if minl(-1, land) and (minl(0, land) or minl(1, land)):
                     mdell(-1, land)
                 if minl(0, land) and minl(1, land):
                     mdell(0, land)
+
                 # idem on floats
                 if minl(-1.0, land) and (minl(0.0, land) or minl(1.0, land)):
                     mdell(-1.0, land)
                 if minl(0.0, land) and minl(1.0, land):
                     mdell(0.0, land)
+
                 # other optimizations
                 if len(land) == 0:
                     changes += 1
@@ -231,7 +246,8 @@ def partial_eval(jm: JsonModel):
                 utypes = set(ultimate_type(jm, m) for m in land)
                 if None not in utypes and len(utypes) > 1 or None in utypes and len(utypes) > 2:
                     return "$NONE"
-            elif "^" in model:
+
+            elif "^" in model:  # optimize XOR
                 lxor = model["^"]
                 assert isinstance(lxor, list)
                 changes += normalizeModels(lxor)
@@ -252,7 +268,8 @@ def partial_eval(jm: JsonModel):
                     return "$NONE"
                 # TODO more cleanups
                 # ^(A A ...) = ^(...) ? not so, depends on inclusions?
-            elif "+" in model:
+
+            elif "+" in model:  # optimize MERGE
                 plus = model["+"]
                 assert isinstance(plus, list)
                 if len(plus) == 0:  # {"+": []} == {}
@@ -265,7 +282,9 @@ def partial_eval(jm: JsonModel):
                     changes += 1
                     model["+"] = list(filter(lambda o: not empty_obj(o), plus))
                 # TODO more cleanup? could I remove $NONE? $ANY?
+
             elif "@" in model:
+
                 # "!": false is the default, so is not needed
                 if "!" in model and not model["!"]:
                     del model["!"]

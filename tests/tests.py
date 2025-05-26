@@ -50,8 +50,8 @@ EXPECT: dict[str, int] = {
     "mv-07:models": 10,
     "mv-07:values": 0,
     # chunk 08
-    "mv-08:models": 8,
-    "mv-08:values": 105,
+    "mv-08:models": 9,
+    "mv-08:values": 116,
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 45,
@@ -417,6 +417,10 @@ def test_sta_c(directory, clibjm):
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py-check.out", lambda f: f)
+
+
+# def test_wip():
+#     test_lang(pathlib.Path("./wip"), "c")
 
 
 # TODO use check_values?

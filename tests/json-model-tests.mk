@@ -26,6 +26,7 @@ F.root  = $(F.model:%.model.json=%)
 # derived
 F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
+F.JO    = $(F.root:%=%.JO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
 
@@ -75,6 +76,10 @@ UO: $(F.UO)
 PO: $(F.PO)
 %.PO.json: %.model.json
 	$(JMC.cmd) -PO ./$* > $@
+
+# dump internal JSON IR
+%.JO.json: %.model.json
+	$(JMC.cmd) -JO ./$* > $@
 
 .PHONY: schema
 schema: $(F.EO)

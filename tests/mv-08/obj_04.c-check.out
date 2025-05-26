@@ -1,0 +1,11 @@
+obj_04.values.json[0]: PASS
+obj_04.values.json[1]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[2]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[3]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[4]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[5]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[6]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[7]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[8]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[9]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
+obj_04.values.json[10]: FAIL (.: unexpected $bla [$]) (.: unexpected $DATE [$.'$bla'])
