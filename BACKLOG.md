@@ -7,6 +7,7 @@
 - [x] project: switch version to beta.
 - [x] tests: drop `fuzzy` name, re-test for stricter versions
 - [x] tests: chunk tests in smaller directories to please xdist
+- [x] command: add test vector mode with `--test-vector`
 - [ ] tests: fix `wip/openapi-310-models`
 - [ ] tests: fix `wip/obj_04`
 - [ ] command: rething option usage for compilation.
