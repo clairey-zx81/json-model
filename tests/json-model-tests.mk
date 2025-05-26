@@ -28,8 +28,6 @@ F.json = $(F.mjs:%.model.js=%.model.json) $(F.myaml:%.model.yaml=%.model.json)
 F.UO    = $(F.root:%=%.UO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
-F.js    = $(F.root:%=%.jcheck.out)
-F.sXc   = schema.jcheck.out
 
 # C and Python generation
 F.c     = $(F.root:%=%.c)
@@ -144,7 +142,6 @@ $(F.exe): json-model.o main.o
 .PHONY: %.xALL
 %.xALL:
 	$(MAKE) $*.x $*.ALL
-	# $(MAKE) $*.jcheck.out
 	for f in $*.*check.out ; do
 	  echo "# $$f"
 	  cat $$f
@@ -158,17 +155,6 @@ check.schema: $(F.sXc)
 
 F.schema    = $(F.root:%=%.schema.json)
 
-# NOTE some failures are expected because external refs are not handled.
-schema.jcheck.out: $(F.schema)
-	set -o pipefail
-	for f in $(F.schema) ; do
-	  if jsu-check --quiet $$f ; then
-	    echo "$$f: PASS"
-	  else
-	    echo "$$f: FAIL"
-	  fi
-	done | sort > $@
-
 #
 # JSON model value checks with generated JSON schemas
 #
@@ -178,27 +164,21 @@ schema.jcheck.out: $(F.schema)
 # - the implementation is _very_ slow.
 #
 
-.PHONY: jcheck
-jcheck: $(F.js)
-	egrep -v 'true.*PASS|false.*FAIL' *.jcheck.out |
-	  egrep -v '^(json-model|l10n|schema|model|.*:json schema check skipped)'
-	exit 0
-
 # default case
-%.jcheck.out: %.schema.json
-	shopt -s nullglob
-	set -o pipefail
-	nrefs=$$(egrep '"\$$(\.|https:)' $*.model.json | wc -l)
-	iserr=$$(grep '"ERROR": ' $< | wc -l)
-	if [ $$nrefs == "0" -a $$iserr == "0" ] ; then
-	  $(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
-	elif [ $$nrefs != "0" ] ; then
-	  echo "json schema check skipped, $$nrefs external not supported" > $@
-	elif [ $$iserr != "0" ] ; then
-	  echo "json schema check skipped, ERROR reported in generated schema" > $@
-	else
-	  exit 1
-	fi
+# %.jcheck.out: %.schema.json
+# 	shopt -s nullglob
+# 	set -o pipefail
+# 	nrefs=$$(egrep '"\$$(\.|https:)' $*.model.json | wc -l)
+# 	iserr=$$(grep '"ERROR": ' $< | wc -l)
+# 	if [ $$nrefs == "0" -a $$iserr == "0" ] ; then
+# 	  $(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
+# 	elif [ $$nrefs != "0" ] ; then
+# 	  echo "json schema check skipped, $$nrefs external not supported" > $@
+# 	elif [ $$iserr != "0" ] ; then
+# 	  echo "json schema check skipped, ERROR reported in generated schema" > $@
+# 	else
+# 	  exit 1
+# 	fi
 
 #
 # generate everything from a model
