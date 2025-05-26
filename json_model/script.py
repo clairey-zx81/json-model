@@ -271,6 +271,10 @@ def jmc_script():
             log.error(f"invalid model {args.model}")
             sys.exit(2)
 
+    # NOTE preprocessing already done in create_model
+    # process_model(model, check=args.check, merge=args.op != "N",
+    #               optimize=args.optimize, debug=args.debug)
+
     # OUTPUT
     # TODO check overwrite?!
     output = open(args.output, "w") if args.output != "-" else sys.stdout

@@ -1,0 +1,41 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "Z": {
+        "#": "JsonModel 5 with defs",
+        "$": "Symbol 5",
+        "@": "$zero"
+      },
+      "z": "$Z#zero",
+      "l": [
+        "$z"
+      ],
+      "#": "Symbol 1",
+      "": "./trafo_2"
+    },
+    "@": "$l"
+  },
+  "$Z#zero",
+  [
+    "$z"
+  ],
+  {
+    "#": "JsonModel 5 with defs",
+    "$": {
+      "zero": {
+        "za": 0,
+        "zb": 0,
+        "#": "JsonModel 6"
+      },
+      "#": "Symbol 5",
+      "": "./trafo_0"
+    },
+    "@": "$zero"
+  },
+  {
+    "za": 0,
+    "zb": 0,
+    "#": "JsonModel 6"
+  }
+]

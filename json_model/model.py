@@ -341,13 +341,19 @@ class JsonModel:
         self._model = model
 
         if self._is_root:
-            # FIXME loading before seems too early, after seems too late?
-            # the rewriting may add a new external
+            # loading twice, rewriting may add references…
             self.allLoads()
             self.rewrite()
-            self.allLoads()
 
         if self._is_head:
+            # hmmm… the above rewriting may have changed external dependencies,
+            # probably it would be enough to rewrite only the changed externals,
+            # but which one were changed is not visible from here so we load again
+            # everything, just in case.
+            for mid in reversed(list(self._head._models.keys())):
+                jm = self._head._models[mid]
+                if jm._is_root:
+                    jm.allLoads()
             self.scope(self._globs, [], set(), {})
             # _ = self._debug and log.debug(f"globs = {self._globs}")
             self.unload()
@@ -363,7 +369,7 @@ class JsonModel:
         return JsonModel(j, self._resolver, url, None if is_head else self._head, None, self._debug)
 
     def allLoads(self):
-        """Load externals, Switch un-named externals to local definitions."""
+        """Load externals, switch un-named externals to local definitions."""
 
         assert self._is_root
         log.debug(f"{self._id}: IN allLoads on {self._url}")
@@ -392,6 +398,7 @@ class JsonModel:
                 log.debug(f"{self._id}: loading {url}")
                 followed.add(url)
                 jm = self.load(url, path)
+                log.debug(f"{self._id}: head models: {[mid for mid in sorted(self._head._models.keys())]}")
 
                 # handle sequence of fragments
                 while frag:
@@ -439,12 +446,12 @@ class JsonModel:
                 assert isinstance(model, str)  # pyright hint
                 self._defs[name] = follow(model, [name])
 
-            # log.debug(f"{self._id}: {name} model")
+            # look for other external references in the model definitions
             _recModel(self._defs[name]._model, [name], allFlt, ldRwt, True, False)
 
-        # log.debug(f"{self._id}: root model")
+        # look for external references in the main model
         _recModel(self._model, [], allFlt, ldRwt, True, True)
-        # log.debug(f"{self._id}: done")
+
         log.debug(f"{self._id}: OUT allLoads on {self._url}")
 
     def override(self, jm: JsonModel):
@@ -508,7 +515,10 @@ class JsonModel:
             data["init"] = self._init_md
         if self._is_head:
             assert isinstance(self._models, dict)  # pyright hint
-            data["dependents"] = len(self._models)
+            data["dependents"] = {
+                mid: self._head._models[mid]._url
+                    for mid in sorted(self._head._models.keys())
+            }
             if recurse:
                 data["globals"] = {
                     name: jm._id  # f"Model {jm._id}"

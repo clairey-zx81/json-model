@@ -1,0 +1,10 @@
+{
+  "#": "Model replacement test: initial model",
+  "$": {
+    "": "./trafo_0",
+    "zero": {
+      "+": [ {"za": 0}, {"zb": 0} ]
+    }
+  },
+  "@": "$zero"
+}

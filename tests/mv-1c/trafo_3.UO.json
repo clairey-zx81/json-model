@@ -1,0 +1,71 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "D": {
+        "#": "JsonModel 3 with defs",
+        "$": "Symbol 3",
+        "@": "$l"
+      },
+      "#": "Symbol 1",
+      "": "./trafo_3"
+    },
+    "@": "$D"
+  },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "Z": {
+        "#": "JsonModel 7 with defs",
+        "$": "Symbol 7",
+        "@": "$NONE"
+      },
+      "z": "$NONE",
+      "l": [
+        "$u"
+      ],
+      "U": {
+        "#": "JsonModel 11 with defs",
+        "$": "Symbol 11",
+        "@": "$un"
+      },
+      "u": "$U#un",
+      "#": "Symbol 3",
+      "": "./trafo_2"
+    },
+    "@": "$l"
+  },
+  "$NONE",
+  [
+    "$u"
+  ],
+  {
+    "#": "JsonModel 7 with defs",
+    "$": {
+      "zero": "$NONE",
+      "#": "Symbol 7",
+      "": "./trafo_0"
+    },
+    "@": "$NONE"
+  },
+  "$NONE",
+  "$U#un",
+  {
+    "#": "JsonModel 11 with defs",
+    "$": {
+      "un": {
+        "ua": 0,
+        "ub": 0,
+        "#": "JsonModel 12"
+      },
+      "#": "Symbol 11",
+      "": "./trafo_1"
+    },
+    "@": "$un"
+  },
+  {
+    "ua": 0,
+    "ub": 0,
+    "#": "JsonModel 12"
+  }
+]

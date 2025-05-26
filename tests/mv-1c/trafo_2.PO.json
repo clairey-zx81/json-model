@@ -1,0 +1,17 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "Z": {
+      "#": "JsonModel 5 with defs",
+      "$": "Symbol 5",
+      "@": "$zero"
+    },
+    "z": "$Z#zero",
+    "l": [
+      "$z"
+    ],
+    "#": "Symbol 1",
+    "": "./trafo_2"
+  },
+  "@": "$l"
+}

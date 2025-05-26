@@ -1,0 +1,10 @@
+{
+  "#": "Model replacement test: target model",
+  "$": {
+    "": "./trafo_1",
+    "un": {
+      "+": [ {"ua": 0}, {"ub": 0} ]
+    }
+  },
+  "@": "$un"
+}

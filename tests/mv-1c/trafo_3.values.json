@@ -1,0 +1,15 @@
+[
+  [ true,  [] ],
+  [ true,  [{"ua": 42, "ub": 18}] ],
+  [ true,  [{"ua": 42, "ub": 18}, {"ua": 18, "ub": 42}] ],
+  [ false, [{}] ],
+  [ false, [{"ua": 42}] ],
+  [ false, [{"ub": 18}] ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "UnExpected" ],
+  [ false, [1, "expected"] ]
+]

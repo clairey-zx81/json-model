@@ -1,0 +1,18 @@
+{
+  "#": "Model replacement test: transformation",
+  "$": {
+    "": "./trafo_3",
+    "D": "$./trafo_2"
+  },
+  "%": {
+    "$D#Z": "$NONE",
+    "$D#z": "$NONE",
+    "$D#U": "$./trafo_1",
+    "$D#u": "$U#un",
+    "$D#l": {
+      "/": "$z",
+      "*": ["$u"]
+    }
+  },
+  "@": "$D"
+}

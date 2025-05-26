@@ -1,0 +1,20 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "un": {
+        "ua": 0,
+        "ub": 0,
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./trafo_1"
+    },
+    "@": "$un"
+  },
+  {
+    "ua": 0,
+    "ub": 0,
+    "#": "JsonModel 2"
+  }
+]
