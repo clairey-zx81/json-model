@@ -47,7 +47,7 @@ EXPECT: dict[str, int] = {
     "mv-06:models": 8,
     "mv-06:values": 0,
     # chunk 07
-    "mv-07:models": 10,
+    "mv-07:models": 5,
     "mv-07:values": 0,
     # chunk 08
     "mv-08:models": 9,
@@ -117,6 +117,9 @@ EXPECT: dict[str, int] = {
     # chunk 1C
     "mv-1c:models": 5,
     "mv-1c:values": 50,
+    # chunk 1D
+    "mv-1d:models": 5,
+    "mv-1d:values": 0,
     # miscellaneous tests
     # miscellaneous tests
     "bads:models": 54,
@@ -159,7 +162,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-10", "./mv-11", "./mv-12", "./mv-13",
         "./mv-14", "./mv-15", "./mv-16", "./mv-17",
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b",
-        "./mv-1c", # "./mv-1d", "./mv-1e", "./mv-1f",
+        "./mv-1c", "./mv-1d", # "./mv-1e", "./mv-1f",
     ])
 def directory(request):
     return pathlib.Path(request.param)
