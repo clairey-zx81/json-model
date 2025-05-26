@@ -2,11 +2,12 @@ SHELL   = /bin/bash
 .ONESHELL:
 
 # TODO only pytest driven tests?
-D.subs  = bads rwt modval merge m2s
+D.subs  = $(wildcard mv-*) bads
 D.check = $(D.subs:%=%.check)
+D.clean = $(D.subs:%=%.clean)
 
 .PHONY: clean
-clean:
+clean: $(D.clean)
 	$(RM) -r __pycache__
 
 PYTEST  = pytest --log-level=debug --capture=tee-sys --durations=5
@@ -19,5 +20,10 @@ check.pytest:
 .PHONY: check
 check: $(D.check)
 
+.PHONY: %.check
 %.check:
 	$(MAKE) -C $* check
+
+.PHONY: %.clean
+%.clean:
+	$(MAKE) -C $* clean
