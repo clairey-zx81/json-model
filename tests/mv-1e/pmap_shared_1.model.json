@@ -1,0 +1,9 @@
+{
+  "#": "sharing of property maps",
+  "$": {
+    "O0": {"a": true, "b": 0, "c": null, "d": 0.0, "": "$DATE"},
+    "O1": {"z": true, "?a": true, "?b": 0, "?c": null, "?d": 0.0},
+    "O2": {"a": true, "b": 0, "c": null, "d": 0.0, "?y": true}
+  },
+  "@": {"|": ["$O0", "$O1", "$O2"]}
+}  

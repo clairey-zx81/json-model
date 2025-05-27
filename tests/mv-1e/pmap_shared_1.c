@@ -1,0 +1,505 @@
+#include <json-model.h>
+#define JSON_MODEL_VERSION "2.0a0"
+
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_0_mup_tab[4];
+static bool json_model_2(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_7(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_1_map_tab[4];
+static bool json_model_3(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
+static bool _jm_f_11(const json_t* val, Path* path, Report* rep);
+static propmap_t _jm_obj_2_mup_tab[4];
+static bool json_model_4(const json_t* val, Path* path, Report* rep);
+static bool json_model_1(const json_t* val, Path* path, Report* rep);
+propmap_t check_model_map_tab[4];
+const size_t check_model_map_size = 4;
+
+// check _jm_obj_0_mup_a ($.'$O0'.a)
+static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O0'.a
+    res = json_is_boolean(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a bool [$.'$O0'.a]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_0_mup_b ($.'$O0'.b)
+static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O0'.b
+    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$O0'.b]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_0_mup_c ($.'$O0'.c)
+static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O0'.c
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [$.'$O0'.c]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_0_mup_d ($.'$O0'.d)
+static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O0'.d
+    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$O0'.d]", path);
+    }
+    return res;
+}
+
+static check_fun_t _jm_obj_0_mup(const char *pname)
+{
+    return jm_search_propmap(pname, _jm_obj_0_mup_tab, 4);
+}
+
+// object $.'$O0'
+static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [$.'$O0']", path);
+        return false;
+    }
+    bool res;
+    check_fun_t pfun;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        if ((pfun = _jm_obj_0_mup(prop)))
+        {
+            // handle 4 must props
+            if (pfun != NULL)
+            {
+                must_count += 1;
+                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
+                {
+                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$O0']", (path ? &lpath_0 : NULL));
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            // handle other props
+            // $.'$O0'.''
+            res = jm_is_valid_date(json_string_value(pval));
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $DATE [$.'$O0'.'']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+    }
+    if (must_count != 4)
+    {
+        if (rep) jm_report_add_entry(rep, "missing must prop [$.'$O0'.'']", path);
+        return false;
+    }
+    return true;
+}
+
+// check $O0 ($.'$O0')
+static bool json_model_2(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O0'
+    res = _jm_obj_0(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$O0']", path);
+    }
+    return res;
+}
+
+// check _jm_obj_1_map_a ($.'$O1'.a)
+static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O1'.a
+    res = json_is_boolean(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a bool [$.'$O1'.a]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_1_map_b ($.'$O1'.b)
+static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O1'.b
+    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$O1'.b]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_1_map_c ($.'$O1'.c)
+static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O1'.c
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [$.'$O1'.c]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_1_map_d ($.'$O1'.d)
+static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O1'.d
+    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$O1'.d]", path);
+    }
+    return res;
+}
+
+static check_fun_t _jm_obj_1_map(const char *pname)
+{
+    return jm_search_propmap(pname, _jm_obj_1_map_tab, 4);
+}
+
+// object $.'$O1'
+static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [$.'$O1']", path);
+        return false;
+    }
+    bool res;
+    check_fun_t pfun;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        Path lpath_1 = (Path) { prop, 0, path, NULL };
+        if (strcmp(prop, "z") == 0)
+        {
+            // handle must z property
+            must_count += 1;
+            // $.'$O1'.z
+            res = json_is_boolean(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [$.'$O1'.z]", (path ? &lpath_1 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$O1'.z]", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_1_map(prop)))
+        {
+            // handle 4 may props
+            if (pfun != NULL && ! pfun(pval, (path ? &lpath_1 : NULL), rep))
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$O1']", (path ? &lpath_1 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$O1']", (path ? &lpath_1 : NULL));
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep) jm_report_add_entry(rep, "missing must prop [$.'$O1']", path);
+        return false;
+    }
+    return true;
+}
+
+// check $O1 ($.'$O1')
+static bool json_model_3(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O1'
+    res = _jm_obj_1(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$O1']", path);
+    }
+    return res;
+}
+
+// check _jm_obj_2_mup_a ($.'$O2'.a)
+static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O2'.a
+    res = json_is_boolean(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a bool [$.'$O2'.a]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_2_mup_b ($.'$O2'.b)
+static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O2'.b
+    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$O2'.b]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_2_mup_c ($.'$O2'.c)
+static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O2'.c
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [$.'$O2'.c]", path);
+    }
+    return res;
+}
+
+// check _jm_obj_2_mup_d ($.'$O2'.d)
+static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O2'.d
+    res = json_is_real(val) && json_real_value(val) >= 0.0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$O2'.d]", path);
+    }
+    return res;
+}
+
+static check_fun_t _jm_obj_2_mup(const char *pname)
+{
+    return jm_search_propmap(pname, _jm_obj_2_mup_tab, 4);
+}
+
+// object $.'$O2'
+static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
+{
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [$.'$O2']", path);
+        return false;
+    }
+    bool res;
+    check_fun_t pfun;
+    int64_t must_count = 0;
+    const char *prop;
+    json_t *pval;
+    json_object_foreach((json_t *) val, prop, pval)
+    {
+        Path lpath_2 = (Path) { prop, 0, path, NULL };
+        if ((pfun = _jm_obj_2_mup(prop)))
+        {
+            // handle 4 must props
+            if (pfun != NULL)
+            {
+                must_count += 1;
+                if (! pfun(pval, (path ? &lpath_2 : NULL), rep))
+                {
+                    if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$O2']", (path ? &lpath_2 : NULL));
+                    return false;
+                }
+            }
+        }
+        else if (strcmp(prop, "y") == 0)
+        {
+            // handle may y property
+            // $.'$O2'.y
+            res = json_is_boolean(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not a bool [$.'$O2'.y]", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$O2'.y]", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$O2']", (path ? &lpath_2 : NULL));
+            return false;
+        }
+    }
+    if (must_count != 4)
+    {
+        if (rep) jm_report_add_entry(rep, "missing must prop [$.'$O2']", path);
+        return false;
+    }
+    return true;
+}
+
+// check $O2 ($.'$O2')
+static bool json_model_4(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $.'$O2'
+    res = _jm_obj_2(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$O2']", path);
+    }
+    return res;
+}
+
+// check $ ($)
+static bool json_model_1(const json_t* val, Path* path, Report* rep)
+{
+    bool res;
+    // $
+    // $.'|'.0
+    res = json_model_2(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $O0 [$.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // $.'|'.1
+        res = json_model_3(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $O1 [$.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // $.'|'.2
+            res = json_model_4(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $O2 [$.'|'.2]", path);
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
+    }
+    return res;
+}
+
+check_fun_t check_model_map(const char *pname)
+{
+    return jm_search_propmap(pname, check_model_map_tab, 4);
+}
+
+static bool initialized = false;
+
+char *CHECK_init(void)
+{
+    if (!initialized)
+    {
+        initialized = true;
+        jm_version_string = JSON_MODEL_VERSION;
+        _jm_obj_0_mup_tab[0] = (propmap_t) { "a", _jm_f_0 };
+        _jm_obj_0_mup_tab[1] = (propmap_t) { "b", _jm_f_1 };
+        _jm_obj_0_mup_tab[2] = (propmap_t) { "c", _jm_f_2 };
+        _jm_obj_0_mup_tab[3] = (propmap_t) { "d", _jm_f_3 };
+        jm_sort_propmap(_jm_obj_0_mup_tab, 4);
+        _jm_obj_1_map_tab[0] = (propmap_t) { "a", _jm_f_4 };
+        _jm_obj_1_map_tab[1] = (propmap_t) { "b", _jm_f_5 };
+        _jm_obj_1_map_tab[2] = (propmap_t) { "c", _jm_f_6 };
+        _jm_obj_1_map_tab[3] = (propmap_t) { "d", _jm_f_7 };
+        jm_sort_propmap(_jm_obj_1_map_tab, 4);
+        _jm_obj_2_mup_tab[0] = (propmap_t) { "a", _jm_f_8 };
+        _jm_obj_2_mup_tab[1] = (propmap_t) { "b", _jm_f_9 };
+        _jm_obj_2_mup_tab[2] = (propmap_t) { "c", _jm_f_10 };
+        _jm_obj_2_mup_tab[3] = (propmap_t) { "d", _jm_f_11 };
+        jm_sort_propmap(_jm_obj_2_mup_tab, 4);
+        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (propmap_t) { "O0", json_model_2 };
+        check_model_map_tab[2] = (propmap_t) { "O1", json_model_3 };
+        check_model_map_tab[3] = (propmap_t) { "O2", json_model_4 };
+        jm_sort_propmap(check_model_map_tab, 4);
+    }
+    return NULL;
+}
+
+void CHECK_free(void)
+{
+    if (initialized)
+    {
+        initialized = false;
+
+        // cleanup code
+    }
+}
+
+
+/*
+ * # API
+ *
+ * ```c
+ * bool error;
+ * char *message;
+ *
+ * bool valid = check(json_value, "model-name", &error, &message);
+ *
+ * if (message)
+ *    free(message), message = NULL;
+ * ```
+ *
+ * - `error` is set of there was an error during initialization or if the model does not exists.
+ * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
+ */
+bool
+CHECK(const json_t *val, const char *name, bool *error, char **reasons)
+{
+    return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
+}

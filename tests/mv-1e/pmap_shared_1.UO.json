@@ -1,0 +1,62 @@
+[
+  {
+    "|": [
+      "$O0",
+      "$O1",
+      "$O2"
+    ],
+    "#": "JsonModel 1",
+    "$": {
+      "O0": {
+        "a": true,
+        "b": 0,
+        "c": null,
+        "d": 0.0,
+        "": "$DATE",
+        "#": "JsonModel 2"
+      },
+      "O1": {
+        "z": true,
+        "?a": true,
+        "?b": 0,
+        "?c": null,
+        "?d": 0.0,
+        "#": "JsonModel 3"
+      },
+      "O2": {
+        "a": true,
+        "b": 0,
+        "c": null,
+        "d": 0.0,
+        "?y": true,
+        "#": "JsonModel 4"
+      },
+      "#": "Symbol 1",
+      "": "./pmap_shared_1.model.json"
+    }
+  },
+  {
+    "a": true,
+    "b": 0,
+    "c": null,
+    "d": 0.0,
+    "": "$DATE",
+    "#": "JsonModel 2"
+  },
+  {
+    "z": true,
+    "?a": true,
+    "?b": 0,
+    "?c": null,
+    "?d": 0.0,
+    "#": "JsonModel 3"
+  },
+  {
+    "a": true,
+    "b": 0,
+    "c": null,
+    "d": 0.0,
+    "?y": true,
+    "#": "JsonModel 4"
+  }
+]

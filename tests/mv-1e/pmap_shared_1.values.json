@@ -1,0 +1,17 @@
+[
+  [ true,  {"a": false, "b": 42, "c": null, "d": 3.14} ],
+  [ true,  {"a": false, "b": 42, "c": null, "d": 3.14, "Susie": "1970-10-14"} ],
+  [ true,  {"a": false, "b": 42, "c": null, "d": 3.14, "z": false} ],
+  [ true,  {"z": false} ],
+  [ true,  {"a": false, "b": 42, "c": null, "d": 3.14, "y": true} ],
+  [ false, {"a": false, "b": 42, "c": null, "d": 3.14, "y": true, "z": "2020-07-29"} ],
+  [ false, {} ],
+  [ false, {"not": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "UNexpected" ],
+  [ false, [] ],
+  [ false, ["not", 1, "obj"] ]
+]
