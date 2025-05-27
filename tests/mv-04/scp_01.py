@@ -52,7 +52,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "a":
             # handle may a property
             # $.'$R'.a
-            res = json_model_7(pval, path, rep)
+            res = json_model_7(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $A [$.'$R'.a]", lpath_0 if path is not None else None))
             if not res:
@@ -86,7 +86,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must RA property
             must_count += 1
             # $.RA
-            res = json_model_5(pval, path, rep)
+            res = json_model_5(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $R [$.RA]", lpath_1 if path is not None else None))
             if not res:
@@ -95,7 +95,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "b":
             # handle may b property
             # $.b
-            res = json_model_3(pval, path, rep)
+            res = json_model_3(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $B [$.b]", lpath_1 if path is not None else None))
             if not res:
@@ -104,7 +104,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "a":
             # handle may a property
             # $.a
-            res = json_model_7(pval, path, rep)
+            res = json_model_7(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $R#A [$.a]", lpath_1 if path is not None else None))
             if not res:

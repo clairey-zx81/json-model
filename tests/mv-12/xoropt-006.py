@@ -44,7 +44,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if _jm_re_0(prop):
-            # handle {len(regs)} re props
+            # handle 1 re props
             # $.'|'.2.'/^[ab]$/'
             res = False
             if not res:

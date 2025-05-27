@@ -31,7 +31,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (_jm_re_0(prop))
         {
-            // handle {len(regs)} re props
+            // handle 1 re props
             // $.'^'.0.'/a/'
             res = json_is_string(pval);
             if (! res)

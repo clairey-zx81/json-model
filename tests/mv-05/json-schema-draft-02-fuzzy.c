@@ -206,7 +206,7 @@ static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
             {
                 Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
                 // $.'$schema'.extends.'|'.1.0
-                res = json_model_3(arr_0_item, path, rep);
+                res = json_model_3(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schema'.extends.'|'.1.0]", (path ? &arr_0_lpath : NULL));
@@ -278,7 +278,7 @@ static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
             {
                 Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
                 // $.'$schema'.items.'|'.1.0
-                res = json_model_3(arr_1_item, path, rep);
+                res = json_model_3(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schema'.items.'|'.1.0]", (path ? &arr_1_lpath : NULL));
@@ -447,7 +447,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$schema'.properties.''
-        res = json_model_3(pval, path, rep);
+        res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schema'.properties.'']", (path ? &lpath_1 : NULL));
@@ -545,7 +545,7 @@ static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
                 if (! res)
                 {
                     // $.'$schema'.type.'|'.1.0.'|'.1
-                    res = json_model_3(arr_2_item, path, rep);
+                    res = json_model_3(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schema'.type.'|'.1.0.'|'.1]", (path ? &arr_2_lpath : NULL));

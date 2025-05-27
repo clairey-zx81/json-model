@@ -34,13 +34,13 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # $.'$R'.0
-        res = json_model_5(val[0], path, rep)
+        res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $S [$.'$R'.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
             # $.'$R'.1
-            res = json_model_5(val[1], path, rep)
+            res = json_model_5(val[1], lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $S [$.'$R'.1]", lpath_0 if path is not None else None))
     if not res:

@@ -35,7 +35,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may foo property
             # $.foo
             # $.foo.'|'.0
-            res = json_model_1(pval, path, rep)
+            res = json_model_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $root [$.foo.'|'.0]", lpath_0 if path is not None else None))
             if not res:
@@ -45,7 +45,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     for arr_0_idx, arr_0_item in enumerate(pval):
                         arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
                         # $.foo.'|'.1.0
-                        res = json_model_1(arr_0_item, path, rep)
+                        res = json_model_1(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
                         if not res:
                             rep is None or rep.append(("unexpected $root [$.foo.'|'.1.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                         if not res:

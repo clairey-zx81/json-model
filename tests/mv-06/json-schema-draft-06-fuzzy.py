@@ -161,7 +161,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema#ObjectSchema'.definitions.''
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_1 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema#ObjectSchema'.definitions.'']", lpath_1 if path is not None else None))
         if not res:
@@ -189,12 +189,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # $.'$schema#ObjectSchema'.dependencies.''
         # $.'$schema#ObjectSchema'.dependencies.''.'|'.0
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_2 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema#ObjectSchema'.dependencies.''.'|'.0]", lpath_2 if path is not None else None))
         if not res:
             # $.'$schema#ObjectSchema'.dependencies.''.'|'.1
-            res = json_model_9(pval, path, rep)
+            res = json_model_9(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $stringArray [$.'$schema#ObjectSchema'.dependencies.''.'|'.1]", lpath_2 if path is not None else None))
         if not res:
@@ -414,7 +414,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema#ObjectSchema'.patternProperties.''
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_3 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema#ObjectSchema'.patternProperties.'']", lpath_3 if path is not None else None))
         if not res:
@@ -441,7 +441,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema#ObjectSchema'.properties.''
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_4 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema#ObjectSchema'.properties.'']", lpath_4 if path is not None else None))
         if not res:
@@ -558,7 +558,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$schema#schemaArray'.'@'.0
-            res = json_model_11(arr_0_item, path, rep)
+            res = json_model_11(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$schema#schemaArray'.'@'.0]", arr_0_lpath if path is not None else None))
             if not res:
@@ -592,7 +592,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$schema#typeArray'.'@'.0
-            res = json_model_7(arr_1_item, path, rep)
+            res = json_model_7(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $simpleTypes [$.'$schema#typeArray'.'@'.0]", arr_1_lpath if path is not None else None))
             if not res:

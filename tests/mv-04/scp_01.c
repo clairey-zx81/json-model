@@ -53,7 +53,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle may a property
             // $.'$R'.a
-            res = json_model_7(pval, path, rep);
+            res = json_model_7(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $A [$.'$R'.a]", (path ? &lpath_0 : NULL));
@@ -106,7 +106,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             // handle must RA property
             must_count += 1;
             // $.RA
-            res = json_model_5(pval, path, rep);
+            res = json_model_5(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $R [$.RA]", (path ? &lpath_1 : NULL));
@@ -121,7 +121,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             // handle may b property
             // $.b
-            res = json_model_3(pval, path, rep);
+            res = json_model_3(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $B [$.b]", (path ? &lpath_1 : NULL));
@@ -136,7 +136,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             // handle may a property
             // $.a
-            res = json_model_7(pval, path, rep);
+            res = json_model_7(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $R#A [$.a]", (path ? &lpath_1 : NULL));

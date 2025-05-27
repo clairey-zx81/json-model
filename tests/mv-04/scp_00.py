@@ -52,7 +52,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "a":
             # handle may a property
             # $.a
-            res = json_model_3(pval, path, rep)
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $A [$.a]", lpath_0 if path is not None else None))
             if not res:

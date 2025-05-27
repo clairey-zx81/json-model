@@ -92,7 +92,7 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'$A'.0
-            res = json_model_9(arr_0_item, path, rep);
+            res = json_model_9(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$A'.0]", (path ? &arr_0_lpath : NULL));
@@ -126,7 +126,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$O'.''
-        res = json_model_9(pval, path, rep);
+        res = json_model_9(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$O'.'']", (path ? &lpath_0 : NULL));

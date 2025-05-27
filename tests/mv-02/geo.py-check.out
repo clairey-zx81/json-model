@@ -42,5 +42,5 @@ geo.values.json[45]: PASS
 geo.values.json[46]: FAIL [("unexpected MultiPoint [$.'$MultiPoint'.type]", ['type']), ("invalid must property value [$.'$MultiPoint'.type]", ['type']), ("not an expected object at [$.'$MultiPoint']", [])]
 geo.values.json[47]: FAIL [("unexpected MultiPoint [$.'$MultiPoint'.type]", ['type']), ("invalid must property value [$.'$MultiPoint'.type]", ['type']), ("not an expected object at [$.'$MultiPoint']", [])]
 geo.values.json[49]: PASS
-geo.values.json[50]: FAIL [("constraints failed at [$.'$coord_array']", []), ("unexpected $coord_array [$.'$LineString'.coordinates]", ['coordinates']), ("invalid must property value [$.'$LineString'.coordinates]", ['coordinates']), ("not an expected object at [$.'$LineString']", [])]
+geo.values.json[50]: FAIL [("constraints failed at [$.'$coord_array']", ['coordinates']), ("unexpected $coord_array [$.'$LineString'.coordinates]", ['coordinates']), ("invalid must property value [$.'$LineString'.coordinates]", ['coordinates']), ("not an expected object at [$.'$LineString']", [])]
 geo.values.json[51]: FAIL [("unexpected LineString [$.'$LineString'.type]", ['type']), ("invalid must property value [$.'$LineString'.type]", ['type']), ("not an expected object at [$.'$LineString']", [])]

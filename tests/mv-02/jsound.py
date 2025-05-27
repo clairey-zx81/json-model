@@ -112,7 +112,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_0_idx, arr_0_item in enumerate(pval):
                     arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
                     # $.'$Schema'.types.0
-                    res = json_model_3(arr_0_item, path, rep)
+                    res = json_model_3(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Type [$.'$Schema'.types.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                     if not res:
@@ -226,7 +226,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # $.'$Atomic'.enumeration.0
-            res = json_model_5(arr_2_item, path, rep)
+            res = json_model_5(arr_2_item, arr_2_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $atomic [$.'$Atomic'.enumeration.0]", arr_2_lpath if path is not None else None))
             if not res:
@@ -370,7 +370,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must baseType property
             must_count += 1
             # $.'$Atomic'.baseType
-            res = json_model_4(pval, path, rep)
+            res = json_model_4(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $atomic-types [$.'$Atomic'.baseType]", lpath_2 if path is not None else None))
             if not res:
@@ -425,7 +425,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
             # $.'$Object'.content.0
-            res = json_model_8(arr_3_item, path, rep)
+            res = json_model_8(arr_3_item, arr_3_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Fields [$.'$Object'.content.0]", arr_3_lpath if path is not None else None))
             if not res:
@@ -511,7 +511,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must type property
             must_count += 1
             # $.'$Fields'.type
-            res = json_model_11(pval, path, rep)
+            res = json_model_11(pval, lpath_4 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $type-or-ref [$.'$Fields'.type]", lpath_4 if path is not None else None))
             if not res:
@@ -689,7 +689,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_4_idx, arr_4_item in enumerate(pval):
                     arr_4_lpath: Path = ((lpath_6 if path is not None else None) + [ arr_4_idx ]) if (lpath_6 if path is not None else None) is not None else None
                     # $.'$Union'.content.0
-                    res = json_model_11(arr_4_item, path, rep)
+                    res = json_model_11(arr_4_item, arr_4_lpath if (lpath_6 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $type-or-ref [$.'$Union'.content.0]", arr_4_lpath if (lpath_6 if path is not None else None) is not None else None))
                     if not res:

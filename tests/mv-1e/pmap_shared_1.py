@@ -83,7 +83,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         else:
             # handle other props
             # $.'$O0'.''
-            res = is_valid_date(pval, path, rep)
+            res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [$.'$O0'.'']", lpath_0 if path is not None else None))
             if not res:

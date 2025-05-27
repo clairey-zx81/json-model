@@ -525,7 +525,7 @@ class SourceCode(Validator):
         for d, m in defs.items():
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, True)  # FIXME lpath &lpath?
-            dl_code = [ gen.lcom("handle {len(defs)} key props") ] + \
+            dl_code = [ gen.lcom(f"handle {len(defs)} key props") ] + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(dl_expr, dl_code)]
@@ -535,7 +535,7 @@ class SourceCode(Validator):
             # FIXME options?!
             regex = f"/{r}/"
             rg_expr = self._regExpr(regex, prop, vpath, True)  # FIXME lpath &lpath?
-            rg_code = [ gen.lcom("handle {len(regs)} re props") ] + \
+            rg_code = [ gen.lcom(f"handle {len(regs)} re props") ] + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, rg_code)]
@@ -944,7 +944,7 @@ class SourceCode(Validator):
                     else:
                         raise ModelError(f"unexpected constant type: {tname(value)}")
                 elif model[0] == "$":
-                    call = self._dollarExpr(jm, model, val, "path")
+                    call = self._dollarExpr(jm, model, val, vpath)
                     code += [ gen.bool_var(res, call) ]
                 elif model[0] == "/":
                     code += [ gen.lcom(f"{self._esc(model)}") ]

@@ -49,7 +49,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'$l'.0
-            res = json_model_3(arr_0_item, path, rep);
+            res = json_model_3(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $z [$.'$l'.0]", (path ? &arr_0_lpath : NULL));

@@ -1,9 +1,9 @@
 {
-  "#": "OpenAPI 3.1.0 with JSON Models",
+  "#": "OpenAPI 3.1.1 with JSON Models",
   "~": "https://json-model.org/models/json-model",
   "$": {
-    "": "https://json-model.org/models/openapi-310-models",
-    "openapi": "$https://json-model.org/models/openapi-310"
+    "": "https://json-model.org/models/openapi-311-models",
+    "openapi": "$https://json-model.org/models/openapi-311"
   },
   "%": {
     "#": "Replace schema/schemas/Schema with model/models/Model",
@@ -15,7 +15,7 @@
       "/": "?schemas",
       "*": {"?models": {"": "$Model"}}
     },
-    "$openapi#parameterShare": {
+    "$openapi#parameterSchemaOnly": {
       "/": "?schema",
       "*": {"?model": "$Model"}
     },

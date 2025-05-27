@@ -49,7 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must foo property
             must_count += 1
             # $.foo
-            res = is_valid_date(pval, path, rep)
+            res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [$.foo]", lpath_0 if path is not None else None))
             if not res:
@@ -65,7 +65,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [$.bla]", lpath_0 if path is not None else None))
                 return False
         elif json_model_2(prop, lpath_0 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
@@ -73,7 +73,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         elif _jm_re_0(prop):
-            # handle {len(regs)} re props
+            # handle 1 re props
             # $.'/^[0-9]+$/'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:

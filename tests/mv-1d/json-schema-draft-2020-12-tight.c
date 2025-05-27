@@ -339,7 +339,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$core'.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_1 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$core'.'$defs'.'']", (path ? &lpath_1 : NULL));
@@ -446,7 +446,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         Path lpath_2 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$core'.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -1358,7 +1358,7 @@ static bool json_model_12(const json_t* val, Path* path, Report* rep)
         {
             Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
             // $.'$schemaArray'.'@'.0
-            res = json_model_17(arr_1_item, path, rep);
+            res = json_model_17(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schemaArray'.'@'.0]", (path ? &arr_1_lpath : NULL));
@@ -1604,7 +1604,7 @@ static bool _jm_obj_11(const json_t* val, Path* path, Report* rep)
         Path lpath_11 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$Object'.dependentRequired.''
-        res = json_model_11(pval, path, rep);
+        res = json_model_11(pval, (path ? &lpath_11 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $stringArray [$.'$Object'.dependentRequired.'']", (path ? &lpath_11 : NULL));
@@ -1646,7 +1646,7 @@ static bool _jm_obj_12(const json_t* val, Path* path, Report* rep)
         Path lpath_12 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$Object'.dependentSchemas.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_12 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$Object'.dependentSchemas.'']", (path ? &lpath_12 : NULL));
@@ -1714,9 +1714,9 @@ static bool _jm_obj_13(const json_t* val, Path* path, Report* rep)
         Path lpath_13 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_regex(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$Object'.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_13 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$Object'.patternProperties.'$REGEX']", (path ? &lpath_13 : NULL));
@@ -1764,7 +1764,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
         Path lpath_14 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$Object'.properties.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_14 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$Object'.properties.'']", (path ? &lpath_14 : NULL));
@@ -2115,7 +2115,7 @@ static bool _jm_obj_17(const json_t* val, Path* path, Report* rep)
         Path lpath_17 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.7.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_17 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.7.'$defs'.'']", (path ? &lpath_17 : NULL));
@@ -2222,7 +2222,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
         Path lpath_18 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.7.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -2551,7 +2551,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
         Path lpath_20 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.6.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_20 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.6.'$defs'.'']", (path ? &lpath_20 : NULL));
@@ -2658,7 +2658,7 @@ static bool _jm_obj_21(const json_t* val, Path* path, Report* rep)
         Path lpath_21 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.6.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -2734,7 +2734,7 @@ static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
         Path lpath_22 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.6.dependentRequired.''
-        res = json_model_11(pval, path, rep);
+        res = json_model_11(pval, (path ? &lpath_22 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $stringArray [$.'$TightSchema'.'|'.6.dependentRequired.'']", (path ? &lpath_22 : NULL));
@@ -2776,7 +2776,7 @@ static bool _jm_obj_23(const json_t* val, Path* path, Report* rep)
         Path lpath_23 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.6.dependentSchemas.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_23 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.6.dependentSchemas.'']", (path ? &lpath_23 : NULL));
@@ -2887,9 +2887,9 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         Path lpath_24 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_regex(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_24 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", (path ? &lpath_24 : NULL));
@@ -2937,7 +2937,7 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
         Path lpath_25 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.6.properties.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_25 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.6.properties.'']", (path ? &lpath_25 : NULL));
@@ -3143,7 +3143,7 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
         Path lpath_27 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.5.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_27 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.5.'$defs'.'']", (path ? &lpath_27 : NULL));
@@ -3250,7 +3250,7 @@ static bool _jm_obj_28(const json_t* val, Path* path, Report* rep)
         Path lpath_28 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.5.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -3598,7 +3598,7 @@ static bool _jm_obj_30(const json_t* val, Path* path, Report* rep)
         Path lpath_30 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.4.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_30 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.4.'$defs'.'']", (path ? &lpath_30 : NULL));
@@ -3705,7 +3705,7 @@ static bool _jm_obj_31(const json_t* val, Path* path, Report* rep)
         Path lpath_31 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.4.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -4027,7 +4027,7 @@ static bool _jm_obj_33(const json_t* val, Path* path, Report* rep)
         Path lpath_33 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.3.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_33 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.3.'$defs'.'']", (path ? &lpath_33 : NULL));
@@ -4134,7 +4134,7 @@ static bool _jm_obj_34(const json_t* val, Path* path, Report* rep)
         Path lpath_34 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.3.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -4430,7 +4430,7 @@ static bool _jm_obj_36(const json_t* val, Path* path, Report* rep)
         Path lpath_36 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.2.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_36 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.2.'$defs'.'']", (path ? &lpath_36 : NULL));
@@ -4537,7 +4537,7 @@ static bool _jm_obj_37(const json_t* val, Path* path, Report* rep)
         Path lpath_37 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.2.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -4903,7 +4903,7 @@ static bool _jm_obj_39(const json_t* val, Path* path, Report* rep)
         Path lpath_39 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.1.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_39 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.1.'$defs'.'']", (path ? &lpath_39 : NULL));
@@ -5010,7 +5010,7 @@ static bool _jm_obj_40(const json_t* val, Path* path, Report* rep)
         Path lpath_40 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.1.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -5241,7 +5241,7 @@ static bool _jm_obj_42(const json_t* val, Path* path, Report* rep)
         Path lpath_42 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$TightSchema'.'|'.0.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_42 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$TightSchema'.'|'.0.'$defs'.'']", (path ? &lpath_42 : NULL));
@@ -5348,7 +5348,7 @@ static bool _jm_obj_43(const json_t* val, Path* path, Report* rep)
         Path lpath_43 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$TightSchema'.'|'.0.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)

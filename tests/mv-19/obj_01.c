@@ -78,7 +78,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$XXX'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
             if (! res)
@@ -92,7 +92,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (_jm_re_0(prop))
         {
-            // handle {len(regs)} re props
+            // handle 1 re props
             // $.'/^[0-9]+$/'
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (! res)

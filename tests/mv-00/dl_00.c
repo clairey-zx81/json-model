@@ -22,7 +22,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$rec'.'|'.1.''
-        res = json_model_2(pval, path, rep);
+        res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $rec [$.'$rec'.'|'.1.'']", (path ? &lpath_0 : NULL));

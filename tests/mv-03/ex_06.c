@@ -59,7 +59,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         Path lpath_0 = (Path) { NULL, 0, path, NULL };
         // $.0
-        res = json_model_5(json_array_get(val, 0), path, rep);
+        res = json_model_5(json_array_get(val, 0), (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $ex5#EX05a [$.0]", (path ? &lpath_0 : NULL));
@@ -68,7 +68,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         {
             Path lpath_0 = (Path) { NULL, 1, path, NULL };
             // $.1
-            res = json_model_6(json_array_get(val, 1), path, rep);
+            res = json_model_6(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ex5#EX05b [$.1]", (path ? &lpath_0 : NULL));
@@ -77,7 +77,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             {
                 Path lpath_0 = (Path) { NULL, 2, path, NULL };
                 // $.2
-                res = json_model_3(json_array_get(val, 2), path, rep);
+                res = json_model_3(json_array_get(val, 2), (path ? &lpath_0 : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $EX06 [$.2]", (path ? &lpath_0 : NULL));

@@ -50,7 +50,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "":
             # handle may  property
             # $.'$'.''
-            res = is_valid_url(pval, path, rep)
+            res = is_valid_url(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $URL [$.'$'.'']", lpath_1 if path is not None else None))
             if not res:
@@ -85,7 +85,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if _jm_re_0(prop):
-            # handle {len(regs)} re props
+            # handle 1 re props
             # $.'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_1(pval)

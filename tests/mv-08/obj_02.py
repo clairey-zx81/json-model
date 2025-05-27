@@ -49,7 +49,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$ls0'.0
-            res = is_valid_url(arr_1_item, path, rep)
+            res = is_valid_url(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $URL [$.'$ls0'.0]", arr_1_lpath if path is not None else None))
             if not res:

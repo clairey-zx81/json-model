@@ -57,7 +57,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$coord_array'.'@'.0
-            res = json_model_2(arr_1_item, path, rep)
+            res = json_model_2(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $position [$.'$coord_array'.'@'.0]", arr_1_lpath if path is not None else None))
             if not res:
@@ -81,7 +81,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # $.'$linear_ring'.'@'.0
-            res = json_model_2(arr_2_item, path, rep)
+            res = json_model_2(arr_2_item, arr_2_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $position [$.'$linear_ring'.'@'.0]", arr_2_lpath if path is not None else None))
             if not res:
@@ -119,7 +119,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must coordinates property
             must_count += 1
             # $.'$Point'.coordinates
-            res = json_model_2(pval, path, rep)
+            res = json_model_2(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $position [$.'$Point'.coordinates]", lpath_0 if path is not None else None))
             if not res:
@@ -189,7 +189,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_4_idx, arr_4_item in enumerate(pval):
                     arr_4_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_4_idx ]) if (lpath_1 if path is not None else None) is not None else None
                     # $.'$MultiPoint'.coordinates.0
-                    res = json_model_2(arr_4_item, path, rep)
+                    res = json_model_2(arr_4_item, arr_4_lpath if (lpath_1 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $position [$.'$MultiPoint'.coordinates.0]", arr_4_lpath if (lpath_1 if path is not None else None) is not None else None))
                     if not res:
@@ -258,7 +258,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must coordinates property
             must_count += 1
             # $.'$LineString'.coordinates
-            res = json_model_3(pval, path, rep)
+            res = json_model_3(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $coord_array [$.'$LineString'.coordinates]", lpath_2 if path is not None else None))
             if not res:
@@ -328,7 +328,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_7_idx, arr_7_item in enumerate(pval):
                     arr_7_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_7_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # $.'$MultiLineString'.coordinates.0
-                    res = json_model_3(arr_7_item, path, rep)
+                    res = json_model_3(arr_7_item, arr_7_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $coord_array [$.'$MultiLineString'.coordinates.0]", arr_7_lpath if (lpath_3 if path is not None else None) is not None else None))
                     if not res:
@@ -402,7 +402,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_9_idx, arr_9_item in enumerate(pval):
                     arr_9_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_9_idx ]) if (lpath_4 if path is not None else None) is not None else None
                     # $.'$Polygon'.coordinates.0
-                    res = json_model_4(arr_9_item, path, rep)
+                    res = json_model_4(arr_9_item, arr_9_lpath if (lpath_4 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $linear_ring [$.'$Polygon'.coordinates.0]", arr_9_lpath if (lpath_4 if path is not None else None) is not None else None))
                     if not res:
@@ -481,7 +481,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                         for arr_12_idx, arr_12_item in enumerate(arr_11_item):
                             arr_12_lpath: Path = ((arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) + [ arr_12_idx ]) if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None
                             # $.'$MultiPolygon'.coordinates.0.0
-                            res = json_model_4(arr_12_item, path, rep)
+                            res = json_model_4(arr_12_item, arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None, rep)
                             if not res:
                                 rep is None or rep.append(("unexpected $linear_ring [$.'$MultiPolygon'.coordinates.0.0]", arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None))
                             if not res:
@@ -581,7 +581,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_14_idx, arr_14_item in enumerate(pval):
                     arr_14_lpath: Path = ((lpath_6 if path is not None else None) + [ arr_14_idx ]) if (lpath_6 if path is not None else None) is not None else None
                     # $.'$GeometryCollection'.geometries.0
-                    res = json_model_11(arr_14_item, path, rep)
+                    res = json_model_11(arr_14_item, arr_14_lpath if (lpath_6 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $geometry [$.'$GeometryCollection'.geometries.0]", arr_14_lpath if (lpath_6 if path is not None else None) is not None else None))
                     if not res:
@@ -664,12 +664,12 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("not null [$.'$Feature'.geometry.'|'.0]", lpath_7 if path is not None else None))
             if not res:
                 # $.'$Feature'.geometry.'|'.1
-                res = json_model_11(pval, path, rep)
+                res = json_model_11(pval, lpath_7 if path is not None else None, rep)
                 if not res:
                     rep is None or rep.append(("unexpected $geometry [$.'$Feature'.geometry.'|'.1]", lpath_7 if path is not None else None))
                 if not res:
                     # $.'$Feature'.geometry.'|'.2
-                    res = json_model_12(pval, path, rep)
+                    res = json_model_12(pval, lpath_7 if path is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $GeometryCollection [$.'$Feature'.geometry.'|'.2]", lpath_7 if path is not None else None))
             if not res:
@@ -776,7 +776,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 for arr_17_idx, arr_17_item in enumerate(pval):
                     arr_17_lpath: Path = ((lpath_8 if path is not None else None) + [ arr_17_idx ]) if (lpath_8 if path is not None else None) is not None else None
                     # $.'$FeatureCollection'.features.0
-                    res = json_model_13(arr_17_item, path, rep)
+                    res = json_model_13(arr_17_item, arr_17_lpath if (lpath_8 if path is not None else None) is not None else None, rep)
                     if not res:
                         rep is None or rep.append(("unexpected $Feature [$.'$FeatureCollection'.features.0]", arr_17_lpath if (lpath_8 if path is not None else None) is not None else None))
                     if not res:

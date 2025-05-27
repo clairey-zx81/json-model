@@ -76,7 +76,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
         {
             Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
             // $.'$coord_array'.'@'.0
-            res = json_model_2(arr_1_item, path, rep);
+            res = json_model_2(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$coord_array'.'@'.0]", (path ? &arr_1_lpath : NULL));
@@ -118,7 +118,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         {
             Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
             // $.'$linear_ring'.'@'.0
-            res = json_model_2(arr_2_item, path, rep);
+            res = json_model_2(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$linear_ring'.'@'.0]", (path ? &arr_2_lpath : NULL));
@@ -181,7 +181,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle must coordinates property
             must_count += 1;
             // $.'$Point'.coordinates
-            res = json_model_2(pval, path, rep);
+            res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$Point'.coordinates]", (path ? &lpath_0 : NULL));
@@ -298,7 +298,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_4_lpath = (Path) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
                     // $.'$MultiPoint'.coordinates.0
-                    res = json_model_2(arr_4_item, path, rep);
+                    res = json_model_2(arr_4_item, ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$MultiPoint'.coordinates.0]", ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL));
@@ -416,7 +416,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             // handle must coordinates property
             must_count += 1;
             // $.'$LineString'.coordinates
-            res = json_model_3(pval, path, rep);
+            res = json_model_3(pval, (path ? &lpath_2 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $coord_array [$.'$LineString'.coordinates]", (path ? &lpath_2 : NULL));
@@ -533,7 +533,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_7_lpath = (Path) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
                     // $.'$MultiLineString'.coordinates.0
-                    res = json_model_3(arr_7_item, path, rep);
+                    res = json_model_3(arr_7_item, ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $coord_array [$.'$MultiLineString'.coordinates.0]", ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL));
@@ -660,7 +660,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_9_lpath = (Path) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
                     // $.'$Polygon'.coordinates.0
-                    res = json_model_4(arr_9_item, path, rep);
+                    res = json_model_4(arr_9_item, ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [$.'$Polygon'.coordinates.0]", ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL));
@@ -796,7 +796,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                         {
                             Path arr_12_lpath = (Path) { NULL, arr_12_idx, ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL), NULL };
                             // $.'$MultiPolygon'.coordinates.0.0
-                            res = json_model_4(arr_12_item, path, rep);
+                            res = json_model_4(arr_12_item, (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL), rep);
                             if (! res)
                             {
                                 if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [$.'$MultiPolygon'.coordinates.0.0]", (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL));
@@ -975,7 +975,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_14_lpath = (Path) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
                     // $.'$GeometryCollection'.geometries.0
-                    res = json_model_11(arr_14_item, path, rep);
+                    res = json_model_11(arr_14_item, ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $geometry [$.'$GeometryCollection'.geometries.0]", ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL));
@@ -1114,7 +1114,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             if (! res)
             {
                 // $.'$Feature'.geometry.'|'.1
-                res = json_model_11(pval, path, rep);
+                res = json_model_11(pval, (path ? &lpath_7 : NULL), rep);
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $geometry [$.'$Feature'.geometry.'|'.1]", (path ? &lpath_7 : NULL));
@@ -1122,7 +1122,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                 if (! res)
                 {
                     // $.'$Feature'.geometry.'|'.2
-                    res = json_model_12(pval, path, rep);
+                    res = json_model_12(pval, (path ? &lpath_7 : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [$.'$Feature'.geometry.'|'.2]", (path ? &lpath_7 : NULL));
@@ -1304,7 +1304,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_17_lpath = (Path) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
                     // $.'$FeatureCollection'.features.0
-                    res = json_model_13(arr_17_item, path, rep);
+                    res = json_model_13(arr_17_item, ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Feature [$.'$FeatureCollection'.features.0]", ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL));

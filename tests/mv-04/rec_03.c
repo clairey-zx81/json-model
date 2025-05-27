@@ -24,7 +24,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may foo property
             // $.foo
             // $.foo.'|'.0
-            res = json_model_1(pval, path, rep);
+            res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $root [$.foo.'|'.0]", (path ? &lpath_0 : NULL));
@@ -41,7 +41,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     {
                         Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                         // $.foo.'|'.1.0
-                        res = json_model_1(arr_0_item, path, rep);
+                        res = json_model_1(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
                         if (! res)
                         {
                             if (rep) jm_report_add_entry(rep, "unexpected $root [$.foo.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));

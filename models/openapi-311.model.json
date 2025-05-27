@@ -1,15 +1,16 @@
 {
-  "#": "OpenAPI v3.1.0 (2021-02-15, https://spec.openapis.org/oas/v3.1.0)",
+  "#": "OpenAPI v3.1.1 (2024-10-24, https://spec.openapis.org/oas/v3.1.1)",
   "~": "https://json-model.org/models/json-model",
   "$": {
-    "": "https://json-model.org/models/openapi-310",
+    "": "https://json-model.org/models/openapi-311",
+    "URI": "",
     "OpenAPI": {
       "openapi": "",
       "info": "$Info",
-      "?jsonSchemaDialect": "",
+      "?jsonSchemaDialect": "$URL",
       "?servers": [ "$Server" ],
       "?paths": "$Paths",
-      "?webhooks": { "": { "|": [ "$PathItem", "$Reference" ] } },
+      "?webhooks": { "": "$PathItem" },
       "?component": "$Components",
       "?security": "$SecurityRequirement",
       "?tags": [ "$Tag" ],
@@ -68,18 +69,19 @@
       "/^x\\-.*$/": "$ANY"
     },
     "PathItem": { 
-      "?$ref": "",
+      "?$ref": "$URI",
       "?summary": "",
       "?description": "",
       "?get": "$Operation",
       "?put": "$Operation",
       "?post": "$Operation",
+      "?delete": "$Operation",
       "?options": "$Operation",
       "?head": "$Operation",
       "?patch": "$Operation",
       "?trace": "$Operation",
-      "?servers": "$Operation",
-      "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] }},
+      "?servers": [ "$Operation" ],
+      "?parameters": [ { "|": [ "$Parameter", "$Reference" ] } ],
       "/^x\\-.*$/": "$ANY"
     },
     "Operation": { 
@@ -88,8 +90,8 @@
       "?description": "",
       "?externalDocs": "$ExternalDocumentation",
       "?operationId": "",
-      "?parameters": { "": { "|": [ "$Parameter", "$Reference" ] } },
-      "?requestBody": { "": { "|": [ "$RequestBody", "$Reference" ] } },
+      "?parameters": [ { "|": [ "$Parameter", "$Reference" ] } ],
+      "?requestBody": { "|": [ "$RequestBody", "$Reference" ] },
       "?responses": "$Responses",
       "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] } },
       "?deprecated": true,
@@ -107,25 +109,42 @@
       "?required": true,
       "?deprecated": true,
       "?allowEmptyValue": true,
-      "?style": { "|": [ "matrix", "label", "form", "simple", "spaceDelimited", "pipeDelimited", "deepObject" ] },
+      "/^x\\-.*$/": "$ANY"
+    },
+    "commonParameter": {
+      "+": [
+        {
+          "name": "",
+          "in": { "|": [ "query", "header", "path", "cookie" ] }
+        },
+        "$parameterShare"
+      ]
+    },
+    "Style": {
+      "#": "serialization styles",
+      "|": [ "matrix", "label", "form", "simple", "spaceDelimited", "pipeDelimited", "deepObject" ]
+    },
+    "parameterSchemaOnly": {
+      "?style": "$Style",
       "?explode": true,
       "?allowReserved": true,
       "?schema": "$Schema",
       "?example": "$ANY",
-      "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
-      "?content": { "": "$MediaType" },
-      "/^x\\-.*$/": "$ANY"
+      "?examples": { "": { "|": [ "$Example", "$Reference" ] }}
+    },
+    "parameterContentOnly": {
+      "?content": { "": "$MediaType" }
     },
     "Parameter": {
       "+": [
-        { "name": "", "in": { "|": [ "query", "header", "path", "cookie" ] } },
-        "$parameterShare"
+        "$commonParameter",
+        { "|": [ "$parameterSchemaOnly", "$parameterContentOnly" ] }
       ]
     },
     "RequestBody": {
       "?description": "",
       "?content": { "": "$MediaType" },
-       "?required": true,
+      "?required": true,
       "/^x\\-.*$/": "$ANY"
     },
     "MediaType": {
@@ -138,7 +157,7 @@
     "Encoding": {
       "?contentType": "",
       "?headers": { "": { "|": [ "$Header", "$Reference" ] }},
-      "?style": "",
+      "?style": "$Style",
       "?explode": true,
       "?allowReserved": true,
       "/^x\\-.*$/": "$ANY"
@@ -166,7 +185,7 @@
       "?externalValue": "",
       "/^x\\-.*$/": "$ANY"
     },
-    "Expression": "/\\{.*\\}/",
+    "Expression": "",
     "Link": {
       "+": [
         { "|": [ { "operationRef": "" }, { "operationId": "" } ] },
@@ -179,7 +198,13 @@
         }
       ]
     },
-    "Header": "$parameterShare",
+    "Header": {
+      "#": "more or less a parameter but without name and in",
+      "+": [
+        "$parameterShare",
+        { "|": [ "$parameterSchemaOnly", "$parameterContentOnly" ] }
+      ]
+    },
     "Tag": {
       "name": "",
       "?description": "",
@@ -199,7 +224,8 @@
         {
           "?discriminator": "$Discriminator",
           "?externalDocs": "$ExternalDocumentation",
-          "?xml": "$XML"
+          "?xml": "$XML",
+          "?example": "$ANY"
         }
       ]
     },
@@ -220,7 +246,7 @@
       "type": "",
       "?description": "",
       "name": "",
-      "in": "",
+      "in": { "|": ["query", "header", "cookie"] },
       "scheme": "",
       "?bearerFormat": "",
       "flows": "$OAuthFlows",
@@ -235,9 +261,9 @@
       "/^x\\-.*$/": "$ANY"
     },
     "OAuthFlow": {
-      "authorizationUrl": "",
-      "tokenUrl": "",
-      "?refreshUrl": "",
+      "authorizationUrl": "$URL",
+      "tokenUrl": "$URL",
+      "?refreshUrl": "$URL",
       "scopes": { "": "" },
       "/^x\\-.*$/": "$ANY"
     },

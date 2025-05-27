@@ -5,6 +5,7 @@
 - [x] c-backend: fast `$REGEX` implementation based on re2 syntax
 - [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
 - [x] c-frontend: use `getopt_long` instead of `getopt`
+- [ ] static: reporting clean slate on or when one is found!
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -48,7 +49,7 @@
 - [ ] design: allow regular extension to use references `/...($XXX).../R`
 - [ ] design: should it allow unexpected ints as constants?
 - [ ] dynamic: JSON IR to lambda?!
-- [ ] backend: add JSON IR
+- [ ] backend: add JSON output?
 - [ ] backend: direct code for blaze?
 - [ ] dynamic: rely on static and eval
 - [ ] frontend: add multi-level naming option
@@ -148,6 +149,7 @@
 - [ ] service: json to lang conversion API :-)
 - [ ] command: allow direct compilation with cc-like options?
 - [ ] design: documentation use case, with added _markdown description_
+- [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 
 ## Done
 

@@ -42,7 +42,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if json_model_2(prop, lpath_0 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
             if not res:

@@ -36,7 +36,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$XXX'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
             if (! res)

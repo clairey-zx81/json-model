@@ -49,7 +49,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$l'.0
-            res = json_model_3(arr_0_item, path, rep)
+            res = json_model_3(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $z [$.'$l'.0]", arr_0_lpath if path is not None else None))
             if not res:

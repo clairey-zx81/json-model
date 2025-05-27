@@ -205,7 +205,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$core'.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_1 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$core'.'$defs'.'']", (path ? &lpath_1 : NULL));
@@ -312,7 +312,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         Path lpath_2 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$core'.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -589,7 +589,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         {
             // handle may contentSchema property
             // $.'$content'.contentSchema
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_4 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$content'.contentSchema]", (path ? &lpath_4 : NULL));
@@ -640,7 +640,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         {
             // handle may unevaluatedItems property
             // $.'$unevaluated'.unevaluatedItems
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_5 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$unevaluated'.unevaluatedItems]", (path ? &lpath_5 : NULL));
@@ -655,7 +655,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         {
             // handle may unevaluatedProperties property
             // $.'$unevaluated'.unevaluatedProperties
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_5 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$unevaluated'.unevaluatedProperties]", (path ? &lpath_5 : NULL));
@@ -768,7 +768,7 @@ static bool json_model_10(const json_t* val, Path* path, Report* rep)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'$simpleTypesArray'.'@'.0
-            res = json_model_9(arr_0_item, path, rep);
+            res = json_model_9(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [$.'$simpleTypesArray'.'@'.0]", (path ? &arr_0_lpath : NULL));
@@ -878,7 +878,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
         Path lpath_8 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$validation'.dependentRequired.''
-        res = json_model_11(pval, path, rep);
+        res = json_model_11(pval, (path ? &lpath_8 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $stringArray [$.'$validation'.dependentRequired.'']", (path ? &lpath_8 : NULL));
@@ -1221,7 +1221,7 @@ static bool json_model_14(const json_t* val, Path* path, Report* rep)
         {
             Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
             // $.'$schemaArray'.'@'.0
-            res = json_model_17(arr_2_item, path, rep);
+            res = json_model_17(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$schemaArray'.'@'.0]", (path ? &arr_2_lpath : NULL));
@@ -1316,7 +1316,7 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
         Path lpath_10 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$applicator'.dependentSchemas.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_10 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$applicator'.dependentSchemas.'']", (path ? &lpath_10 : NULL));
@@ -1423,9 +1423,9 @@ static bool _jm_obj_11(const json_t* val, Path* path, Report* rep)
         Path lpath_11 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_regex(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$applicator'.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_11 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$applicator'.patternProperties.'$REGEX']", (path ? &lpath_11 : NULL));
@@ -1486,7 +1486,7 @@ static bool _jm_obj_12(const json_t* val, Path* path, Report* rep)
         Path lpath_12 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$applicator'.properties.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_12 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$applicator'.properties.'']", (path ? &lpath_12 : NULL));
@@ -1528,7 +1528,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
         Path lpath_14 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$applicator'.propertyDependencies.''.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_14 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$applicator'.propertyDependencies.''.'']", (path ? &lpath_14 : NULL));
@@ -1701,7 +1701,7 @@ static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
         Path lpath_16 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$ObjectSchema'.'$defs'.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_16 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$ObjectSchema'.'$defs'.'']", (path ? &lpath_16 : NULL));
@@ -1808,7 +1808,7 @@ static bool _jm_obj_17(const json_t* val, Path* path, Report* rep)
         Path lpath_17 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$ObjectSchema'.'$vocabulary'.'$URL'
             res = json_is_boolean(pval);
             if (! res)
@@ -1975,7 +1975,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
         Path lpath_18 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$ObjectSchema'.dependentRequired.''
-        res = json_model_11(pval, path, rep);
+        res = json_model_11(pval, (path ? &lpath_18 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $stringArray [$.'$ObjectSchema'.dependentRequired.'']", (path ? &lpath_18 : NULL));
@@ -2017,7 +2017,7 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
         Path lpath_19 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$ObjectSchema'.dependentSchemas.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_19 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$ObjectSchema'.dependentSchemas.'']", (path ? &lpath_19 : NULL));
@@ -2379,9 +2379,9 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
         Path lpath_20 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_regex(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$ObjectSchema'.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep);
+            res = json_model_17(pval, (path ? &lpath_20 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$ObjectSchema'.patternProperties.'$REGEX']", (path ? &lpath_20 : NULL));
@@ -2442,7 +2442,7 @@ static bool _jm_obj_21(const json_t* val, Path* path, Report* rep)
         Path lpath_21 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$ObjectSchema'.properties.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_21 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$ObjectSchema'.properties.'']", (path ? &lpath_21 : NULL));
@@ -2484,7 +2484,7 @@ static bool _jm_obj_23(const json_t* val, Path* path, Report* rep)
         Path lpath_23 = (Path) { prop, 0, path, NULL };
         // handle other props
         // $.'$ObjectSchema'.propertyDependencies.''.''
-        res = json_model_17(pval, path, rep);
+        res = json_model_17(pval, (path ? &lpath_23 : NULL), rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Schema [$.'$ObjectSchema'.propertyDependencies.''.'']", (path ? &lpath_23 : NULL));

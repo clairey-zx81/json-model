@@ -83,7 +83,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "ma3":
             # handle may ma3 property
             # $.ma3
-            res = is_valid_date(pval, path, rep)
+            res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $DATE [$.ma3]", lpath_0 if path is not None else None))
             if not res:

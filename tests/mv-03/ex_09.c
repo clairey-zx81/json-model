@@ -68,9 +68,9 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$EX09'.'$URL'
-            res = json_model_6(pval, path, rep);
+            res = json_model_6(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ex08#VAL [$.'$EX09'.'$URL']", (path ? &lpath_0 : NULL));
@@ -180,9 +180,9 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         Path lpath_1 = (Path) { prop, 0, path, NULL };
         if (jm_is_valid_url(prop))
         {
-            // handle {len(defs)} key props
+            // handle 1 key props
             // $.'$ex08#map'.'$URL'
-            res = json_model_6(pval, path, rep);
+            res = json_model_6(pval, (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $VAL [$.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));

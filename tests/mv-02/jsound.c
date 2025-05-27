@@ -184,7 +184,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                     // $.'$Schema'.types.0
-                    res = json_model_3(arr_0_item, path, rep);
+                    res = json_model_3(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Type [$.'$Schema'.types.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
@@ -374,7 +374,7 @@ static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
         {
             Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
             // $.'$Atomic'.enumeration.0
-            res = json_model_5(arr_2_item, path, rep);
+            res = json_model_5(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $atomic [$.'$Atomic'.enumeration.0]", (path ? &arr_2_lpath : NULL));
@@ -591,7 +591,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             // handle must baseType property
             must_count += 1;
             // $.'$Atomic'.baseType
-            res = json_model_4(pval, path, rep);
+            res = json_model_4(pval, (path ? &lpath_2 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $atomic-types [$.'$Atomic'.baseType]", (path ? &lpath_2 : NULL));
@@ -678,7 +678,7 @@ static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
         {
             Path arr_3_lpath = (Path) { NULL, arr_3_idx, path, NULL };
             // $.'$Object'.content.0
-            res = json_model_8(arr_3_item, path, rep);
+            res = json_model_8(arr_3_item, (path ? &arr_3_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Fields [$.'$Object'.content.0]", (path ? &arr_3_lpath : NULL));
@@ -818,7 +818,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             // handle must type property
             must_count += 1;
             // $.'$Fields'.type
-            res = json_model_11(pval, path, rep);
+            res = json_model_11(pval, (path ? &lpath_4 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $type-or-ref [$.'$Fields'.type]", (path ? &lpath_4 : NULL));
@@ -1100,7 +1100,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 {
                     Path arr_4_lpath = (Path) { NULL, arr_4_idx, (path ? &lpath_6 : NULL), NULL };
                     // $.'$Union'.content.0
-                    res = json_model_11(arr_4_item, path, rep);
+                    res = json_model_11(arr_4_item, ((path ? &lpath_6 : NULL) ? &arr_4_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $type-or-ref [$.'$Union'.content.0]", ((path ? &lpath_6 : NULL) ? &arr_4_lpath : NULL));

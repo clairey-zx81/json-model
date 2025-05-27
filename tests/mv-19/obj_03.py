@@ -34,7 +34,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if _jm_re_0(prop):
-            # handle {len(regs)} re props
+            # handle 1 re props
             # $.'/^[0-9]+$/'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:

@@ -114,7 +114,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema'.definitions.''
-        res = json_model_3(pval, path, rep)
+        res = json_model_3(pval, lpath_1 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema'.definitions.'']", lpath_1 if path is not None else None))
         if not res:
@@ -142,12 +142,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # $.'$schema'.dependencies.''
         # $.'$schema'.dependencies.''.'|'.0
-        res = json_model_3(pval, path, rep)
+        res = json_model_3(pval, lpath_2 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema'.dependencies.''.'|'.0]", lpath_2 if path is not None else None))
         if not res:
             # $.'$schema'.dependencies.''.'|'.1
-            res = json_model_7(pval, path, rep)
+            res = json_model_7(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $stringArray [$.'$schema'.dependencies.''.'|'.1]", lpath_2 if path is not None else None))
         if not res:
@@ -364,7 +364,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_3: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema'.patternProperties.''
-        res = json_model_3(pval, path, rep)
+        res = json_model_3(pval, lpath_3 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema'.patternProperties.'']", lpath_3 if path is not None else None))
         if not res:
@@ -391,7 +391,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$schema'.properties.''
-        res = json_model_3(pval, path, rep)
+        res = json_model_3(pval, lpath_4 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$schema'.properties.'']", lpath_4 if path is not None else None))
         if not res:
@@ -470,7 +470,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         else:
             # handle other props
             # $.'$schema'.''
-            res = json_model_3(pval, path, rep)
+            res = json_model_3(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$schema'.'']", lpath_0 if path is not None else None))
             if not res:
@@ -505,7 +505,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$schema#schemaArray'.'@'.0
-            res = json_model_3(arr_0_item, path, rep)
+            res = json_model_3(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$schema#schemaArray'.'@'.0]", arr_0_lpath if path is not None else None))
             if not res:
@@ -563,7 +563,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # $.'$schema#typeArray'.'@'.0
-            res = json_model_6(arr_2_item, path, rep)
+            res = json_model_6(arr_2_item, arr_2_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $simpleTypes [$.'$schema#typeArray'.'@'.0]", arr_2_lpath if path is not None else None))
             if not res:

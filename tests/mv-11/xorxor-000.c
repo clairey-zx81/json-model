@@ -79,7 +79,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'^'.1.0
-            xr_0 = json_model_2(arr_0_item, path, rep);
+            xr_0 = json_model_2(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! xr_0)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $X [$.'^'.1.0]", (path ? &arr_0_lpath : NULL));

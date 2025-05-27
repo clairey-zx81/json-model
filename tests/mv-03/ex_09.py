@@ -59,9 +59,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [$.'$EX09'.#]", lpath_0 if path is not None else None))
                 return False
         elif is_valid_url(prop, lpath_0 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$EX09'.'$URL'
-            res = json_model_6(pval, path, rep)
+            res = json_model_6(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $ex08#VAL [$.'$EX09'.'$URL']", lpath_0 if path is not None else None))
             if not res:
@@ -130,9 +130,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_1 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$ex08#map'.'$URL'
-            res = json_model_6(pval, path, rep)
+            res = json_model_6(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $VAL [$.'$ex08#map'.'$URL']", lpath_1 if path is not None else None))
             if not res:

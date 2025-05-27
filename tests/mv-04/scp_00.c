@@ -51,7 +51,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle may a property
             // $.a
-            res = json_model_3(pval, path, rep);
+            res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $A [$.a]", (path ? &lpath_0 : NULL));

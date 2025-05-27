@@ -85,7 +85,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$core'.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_1 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$core'.'$defs'.'']", lpath_1 if path is not None else None))
         if not res:
@@ -156,7 +156,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_2 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$core'.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -734,7 +734,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$schemaArray'.'@'.0
-            res = json_model_17(arr_1_item, path, rep)
+            res = json_model_17(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$schemaArray'.'@'.0]", arr_1_lpath if path is not None else None))
             if not res:
@@ -893,7 +893,7 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_11: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$Object'.dependentRequired.''
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_11 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $stringArray [$.'$Object'.dependentRequired.'']", lpath_11 if path is not None else None))
         if not res:
@@ -920,7 +920,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_12: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$Object'.dependentSchemas.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_12 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$Object'.dependentSchemas.'']", lpath_12 if path is not None else None))
         if not res:
@@ -964,9 +964,9 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_13: Path = (path + [ prop ]) if path is not None else None
         if is_valid_regex(prop, lpath_13 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$Object'.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep)
+            res = json_model_17(pval, lpath_13 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$Object'.patternProperties.'$REGEX']", lpath_13 if path is not None else None))
             if not res:
@@ -996,7 +996,7 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_14: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$Object'.properties.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_14 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$Object'.properties.'']", lpath_14 if path is not None else None))
         if not res:
@@ -1225,7 +1225,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_17: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.7.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_17 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.7.'$defs'.'']", lpath_17 if path is not None else None))
         if not res:
@@ -1296,7 +1296,7 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_18: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_18 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.7.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -1516,7 +1516,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_20: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.6.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_20 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.6.'$defs'.'']", lpath_20 if path is not None else None))
         if not res:
@@ -1587,7 +1587,7 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_21: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_21 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.6.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -1637,7 +1637,7 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_22: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.6.dependentRequired.''
-        res = json_model_11(pval, path, rep)
+        res = json_model_11(pval, lpath_22 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $stringArray [$.'$TightSchema'.'|'.6.dependentRequired.'']", lpath_22 if path is not None else None))
         if not res:
@@ -1664,7 +1664,7 @@ def _jm_obj_23(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_23: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.6.dependentSchemas.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_23 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.6.dependentSchemas.'']", lpath_23 if path is not None else None))
         if not res:
@@ -1738,9 +1738,9 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_24: Path = (path + [ prop ]) if path is not None else None
         if is_valid_regex(prop, lpath_24 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.6.patternProperties.'$REGEX'
-            res = json_model_17(pval, path, rep)
+            res = json_model_17(pval, lpath_24 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.6.patternProperties.'$REGEX']", lpath_24 if path is not None else None))
             if not res:
@@ -1770,7 +1770,7 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_25: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.6.properties.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_25 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.6.properties.'']", lpath_25 if path is not None else None))
         if not res:
@@ -1904,7 +1904,7 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_27: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.5.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_27 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.5.'$defs'.'']", lpath_27 if path is not None else None))
         if not res:
@@ -1975,7 +1975,7 @@ def _jm_obj_28(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_28: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_28 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.5.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -2207,7 +2207,7 @@ def _jm_obj_30(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_30: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.4.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_30 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.4.'$defs'.'']", lpath_30 if path is not None else None))
         if not res:
@@ -2278,7 +2278,7 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_31: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_31 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.4.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -2492,7 +2492,7 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_33: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.3.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_33 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.3.'$defs'.'']", lpath_33 if path is not None else None))
         if not res:
@@ -2563,7 +2563,7 @@ def _jm_obj_34(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_34: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_34 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.3.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -2759,7 +2759,7 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_36: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.2.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_36 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.2.'$defs'.'']", lpath_36 if path is not None else None))
         if not res:
@@ -2830,7 +2830,7 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_37: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_37 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.2.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -3066,7 +3066,7 @@ def _jm_obj_39(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_39: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.1.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_39 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.1.'$defs'.'']", lpath_39 if path is not None else None))
         if not res:
@@ -3137,7 +3137,7 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_40: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_40 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.1.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
@@ -3288,7 +3288,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_42: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # $.'$TightSchema'.'|'.0.'$defs'.''
-        res = json_model_17(pval, path, rep)
+        res = json_model_17(pval, lpath_42 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [$.'$TightSchema'.'|'.0.'$defs'.'']", lpath_42 if path is not None else None))
         if not res:
@@ -3359,7 +3359,7 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_43: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_43 if path is not None else None, rep):
-            # handle {len(defs)} key props
+            # handle 1 key props
             # $.'$TightSchema'.'|'.0.'$vocabulary'.'$URL'
             res = isinstance(pval, bool)
             if not res:
