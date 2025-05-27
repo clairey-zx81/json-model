@@ -53,6 +53,9 @@ class Python(Language):
     def file_footer(self) -> Block:
         return [""] + self.file_load("python_main.py")
 
+    def clean_report(self) -> Block:
+        return [ "rep is None or rep.clear()" ]
+
     def gen_init(self, init: Block) -> Block:
         return self.file_subs("python_init.py", init)
 

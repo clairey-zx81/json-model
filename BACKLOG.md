@@ -5,7 +5,7 @@
 - [x] c-backend: fast `$REGEX` implementation based on re2 syntax
 - [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
 - [x] c-frontend: use `getopt_long` instead of `getopt`
-- [ ] static: reporting clean slate on or when one is found!
+- [x] static: reporting clean slate on or when one is found!
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -17,7 +17,6 @@
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
-- [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] python: cleanup ultimate model reliance on local defs
 - [ ] python: drop `Validator` class
@@ -32,6 +31,9 @@
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: disjunct could share identical may/must tabs between objects
+- [ ] backend: report missing must props
+- [ ] backend: report which and failed
+- [ ] backend: report which several xor succeeded
 
 ## To Do
 

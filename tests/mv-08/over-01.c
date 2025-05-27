@@ -13,7 +13,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$over'
     res = json_model_4(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Foo [$.'$over']", path);
     }
@@ -26,7 +30,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_model_4(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $over#Foo [$]", path);
     }
@@ -52,7 +60,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may foo property
             // $.'$over#Foo'.foo
             res = json_is_string(pval) && strcmp(json_string_value(pval), "rewritten foo") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _rewritten foo [$.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
             }
@@ -77,7 +89,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$over#Foo'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$over#Foo']", path);
     }

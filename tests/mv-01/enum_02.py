@@ -29,7 +29,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$p1'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("value not in enum [$.'$p1'.'|']", path))
     return res
 
@@ -39,7 +41,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$p2'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_1
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("value not in enum [$.'$p2'.'|']", path))
     return res
 
@@ -52,18 +56,24 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # $.'^'.0
     xr_0 = json_model_2(val, path, rep)
-    if not xr_0:
+    if xr_0:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $p1 [$.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # $.'^'.1
     xr_0 = json_model_3(val, path, rep)
-    if not xr_0:
+    if xr_0:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $p2 [$.'^'.1]", path))
     if xr_0:
         xc_0 += 1
     res = xc_0 == 1
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not one model match [$.'^']", path))
     return res
 

@@ -27,7 +27,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.t
             res = json_is_real(pval) && json_real_value(pval) == 3.1415927;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected =3.1415927 [$.'|'.0.t]", (path ? &lpath_0 : NULL));
             }
@@ -43,7 +47,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.pi
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.0.pi]", (path ? &lpath_0 : NULL));
             }
@@ -88,7 +96,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.t
             res = json_is_real(pval) && json_real_value(pval) == 1.0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected =1.0 [$.'|'.1.t]", (path ? &lpath_1 : NULL));
             }
@@ -104,7 +116,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.one
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.1.one]", (path ? &lpath_1 : NULL));
             }
@@ -149,7 +165,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.2.t
             res = json_is_real(pval) && json_real_value(pval) == 0.5;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected =0.5 [$.'|'.2.t]", (path ? &lpath_2 : NULL));
             }
@@ -165,7 +185,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.2.half
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.2.half]", (path ? &lpath_2 : NULL));
             }

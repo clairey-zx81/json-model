@@ -35,7 +35,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may country property
             # $.country
             res = isinstance(pval, str) and pval == "South Africa"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected _South Africa [$.country]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.country]", lpath_0 if path is not None else None))
@@ -50,7 +52,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

@@ -27,7 +27,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = is_valid_date(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $DATE [$]", path))
     return res
 

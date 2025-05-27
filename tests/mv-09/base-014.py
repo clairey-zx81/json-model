@@ -37,7 +37,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.nom
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.nom]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.nom]", lpath_0 if path is not None else None))
@@ -46,7 +48,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may age property
             # $.age
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 0 strict int [$.age]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.age]", lpath_0 if path is not None else None))
@@ -55,7 +59,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # $.''
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -69,7 +75,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

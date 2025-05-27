@@ -12,7 +12,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [$.'|']", path);
     }

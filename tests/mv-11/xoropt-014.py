@@ -38,7 +38,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.0.t
             res = isinstance(pval, str) and pval == "fr"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected fr [$.movie.'|'.0.t]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.0.t]", lpath_1 if path is not None else None))
@@ -48,7 +50,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.0.titre
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.movie.'|'.0.titre]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.0.titre]", lpath_1 if path is not None else None))
@@ -76,7 +80,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.1.t
             res = isinstance(pval, str) and pval == "en"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected en [$.movie.'|'.1.t]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.1.t]", lpath_2 if path is not None else None))
@@ -86,7 +92,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.1.title
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.movie.'|'.1.title]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.1.title]", lpath_2 if path is not None else None))
@@ -114,7 +122,9 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.2.t
             res = isinstance(pval, str) and pval == "de"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected de [$.movie.'|'.2.t]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.2.t]", lpath_3 if path is not None else None))
@@ -124,7 +134,9 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.2.Title
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.movie.'|'.2.Title]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.2.Title]", lpath_3 if path is not None else None))
@@ -152,7 +164,9 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.3.t
             res = isinstance(pval, str) and pval == "ru"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected ru [$.movie.'|'.3.t]", lpath_4 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.3.t]", lpath_4 if path is not None else None))
@@ -162,7 +176,9 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.movie.'|'.3.suti
             res = isinstance(pval, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.movie.'|'.3.suti]", lpath_4 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.movie.'|'.3.suti]", lpath_4 if path is not None else None))
@@ -221,7 +237,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

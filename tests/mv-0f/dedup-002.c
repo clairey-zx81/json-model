@@ -15,7 +15,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     res = true;
     // $.'^'.1
     is_0 = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! is_0)
+    if (is_0)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'^'.1]", path);
     }
@@ -24,7 +28,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'^'.4
         is_0 = json_is_integer(val) && json_integer_value(val) >= 1;
-        if (! is_0)
+        if (is_0)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'^'.4]", path);
         }
@@ -34,7 +42,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'^'.7
         is_0 = json_is_string(val);
-        if (! is_0)
+        if (is_0)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected string [$.'^'.7]", path);
         }
@@ -45,7 +57,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         // empty xor list
         res = false;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
     }

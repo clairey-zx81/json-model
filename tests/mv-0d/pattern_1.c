@@ -22,7 +22,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // "/^[a-z]+/"
     res = json_is_string(val) && _jm_re_0(json_string_value(val));
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected REGEX [$]", path);
     }

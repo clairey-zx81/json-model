@@ -27,7 +27,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$D'
     res = json_model_6(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $l [$.'$D']", path))
     return res
 
@@ -36,7 +38,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_3(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $D [$]", path))
     return res
 
@@ -50,11 +54,15 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$D#l'.0
             res = json_model_10(arr_0_item, arr_0_lpath if path is not None else None, rep)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected $u [$.'$D#l'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not array or unexpected array [$.'$D#l']", path))
     return res
 
@@ -63,7 +71,9 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$D#u'
     res = json_model_12(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $U#un [$.'$D#u']", path))
     return res
 
@@ -82,7 +92,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$D#U#un'.ua
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ua]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$D#U#un'.ua]", lpath_0 if path is not None else None))
@@ -92,7 +104,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$D#U#un'.ub
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 0 strict int [$.'$D#U#un'.ub]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$D#U#un'.ub]", lpath_0 if path is not None else None))
@@ -110,7 +124,9 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$D#U#un'
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$.'$D#U#un']", path))
     return res
 

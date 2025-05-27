@@ -12,7 +12,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     // $
     // $.'@'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'@']", path);
     }

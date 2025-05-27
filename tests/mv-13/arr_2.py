@@ -31,15 +31,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # $.0
         res = isinstance(val[0], bool)
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("not a bool [$.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
             # $.1
             res = isinstance(val[1], int) and not isinstance(val[1], bool) and val[1] >= 0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 0 strict int [$.1]", lpath_0 if path is not None else None))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not array or unexpected array [$]", path))
     return res
 

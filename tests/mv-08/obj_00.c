@@ -12,7 +12,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$foo'
     res = json_is_boolean(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $BOOLEAN [$.'$foo']", path);
     }
@@ -25,7 +29,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_is_boolean(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $BOOLEAN [$]", path);
     }

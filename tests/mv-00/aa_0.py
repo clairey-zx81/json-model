@@ -37,15 +37,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_1_lpath: Path = ((arr_0_lpath if path is not None else None) + [ arr_1_idx ]) if (arr_0_lpath if path is not None else None) is not None else None
                     # $.0.0
                     res = isinstance(arr_1_item, str)
-                    if not res:
+                    if res:
+                        rep is None or rep.clear()
+                    else:
                         rep is None or rep.append(("unexpected string [$.0.0]", arr_1_lpath if (arr_0_lpath if path is not None else None) is not None else None))
                     if not res:
                         break
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not array or unexpected array [$.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not array or unexpected array [$]", path))
     return res
 

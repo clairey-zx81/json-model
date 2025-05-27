@@ -32,11 +32,15 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$array'.0
             res = json_model_1(arr_0_item, arr_0_lpath if path is not None else None, rep)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected $self [$.'$array'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not array or unexpected array [$.'$array']", path))
     return res
 
@@ -53,7 +57,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may prop property
             # $.prop
             res = json_model_1(pval, lpath_0 if path is not None else None, rep)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected $self [$.prop]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.prop]", lpath_0 if path is not None else None))
@@ -68,7 +74,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

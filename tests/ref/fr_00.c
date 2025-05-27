@@ -12,7 +12,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'|'.0
     res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.0]", path);
     }
@@ -20,12 +24,20 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'|'.1
         res = json_is_real(val) && json_real_value(val) >= 0.0;
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'|'.1]", path);
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
     }

@@ -13,7 +13,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $.'@'
     // $.'@'.'|'.0
     res = json_is_integer(val) && json_integer_value(val) >= 1;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'@'.'|'.0]", path);
     }
@@ -21,12 +25,20 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'@'.'|'.1
         res = json_is_string(val);
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected string [$.'@'.'|'.1]", path);
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "no model matched [$.'@'.'|']", path);
     }
@@ -34,7 +46,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         res = jm_check_constraint(val, op_ge, &(constant_t) { cst_is_integer, { .i = 10 } }, path, rep);
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
     }

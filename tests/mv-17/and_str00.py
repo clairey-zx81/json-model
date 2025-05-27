@@ -35,15 +35,21 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         # $.'&'.0
         # "/[a-z]/"
         res = _jm_re_1(val)
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("unexpected REGEX [$.'&'.0]", path))
         if res:
             # $.'&'.1
             # "/[0-9]/"
             res = _jm_re_0(val)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected REGEX [$.'&'.1]", path))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not all model match [$.'&']", path))
     return res
 

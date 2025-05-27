@@ -27,7 +27,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.tag
             res = json_is_string(pval) && strcmp(json_string_value(pval), "a") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected a [$.'|'.0.tag]", (path ? &lpath_0 : NULL));
             }
@@ -43,7 +47,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.a
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.0.a]", (path ? &lpath_0 : NULL));
             }
@@ -88,7 +96,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.tag
             res = json_is_string(pval) && strcmp(json_string_value(pval), "b") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected b [$.'|'.1.tag]", (path ? &lpath_1 : NULL));
             }
@@ -104,7 +116,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.b
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.1.b]", (path ? &lpath_1 : NULL));
             }
@@ -149,7 +165,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.2.tag
             res = json_is_string(pval) && strcmp(json_string_value(pval), "c") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected c [$.'|'.2.tag]", (path ? &lpath_2 : NULL));
             }
@@ -165,7 +185,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.2.c
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.2.c]", (path ? &lpath_2 : NULL));
             }

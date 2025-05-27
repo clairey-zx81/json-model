@@ -24,7 +24,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         // handle other props
         // $.'$obj'.''
         res = json_model_3(pval, (path ? &lpath_0 : NULL), rep);
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected $rec [$.'$obj'.'']", (path ? &lpath_0 : NULL));
         }
@@ -42,7 +46,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$obj'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$obj']", path);
     }
@@ -56,7 +64,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     // $.'$rec'
     // $.'$rec'.'|'.0
     res = json_is_boolean(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a bool [$.'$rec'.'|'.0]", path);
     }
@@ -64,12 +76,20 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     {
         // $.'$rec'.'|'.1
         res = json_model_2(val, path, rep);
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected $obj [$.'$rec'.'|'.1]", path);
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "no model matched [$.'$rec'.'|']", path);
     }
@@ -82,7 +102,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_model_3(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $rec [$]", path);
     }

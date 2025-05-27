@@ -36,7 +36,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
                     // $.'$bibi'.bibi.0
                     res = json_model_2(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $bibi [$.'$bibi'.bibi.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
                     }
@@ -46,7 +50,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
             }
@@ -76,7 +84,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$bibi'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$bibi']", path);
     }
@@ -89,7 +101,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_model_2(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $bibi [$]", path);
     }

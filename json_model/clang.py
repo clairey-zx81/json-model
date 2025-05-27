@@ -239,6 +239,9 @@ class CLangJansson(Language):
         return ([ f"if (rep) jm_report_add_entry(rep, {self.esc(msg)}, {path});" ]
                 if self._with_report else [])
 
+    def clean_report(self) -> Block:
+        return [ "if (rep) jm_report_free_entries(rep);" ]
+
     #
     # path management
     #

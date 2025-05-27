@@ -12,7 +12,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'@'
     res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))));
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a -1 loose int [$.'@']", path);
     }

@@ -28,7 +28,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XXX'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("value not in enum [$.'$XXX'.'|']", path))
     return res
 
@@ -45,7 +47,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 key props
             # $.'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 0.0 strict float [$.'$XXX']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -59,7 +63,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

@@ -27,7 +27,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not a 0 strict int [$.'$EX05a']", path))
     return res
 
@@ -36,7 +38,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$EX05b'
     res = isinstance(val, str)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected string [$.'$EX05b']", path))
     return res
 
@@ -46,14 +50,20 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'|'.0
     res = json_model_2(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $EX05a [$.'|'.0]", path))
     if not res:
         # $.'|'.1
         res = json_model_3(val, path, rep)
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("unexpected $EX05b [$.'|'.1]", path))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("no model matched [$.'|']", path))
     return res
 

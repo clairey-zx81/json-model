@@ -27,7 +27,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.0.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "fr") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected fr [$.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
             }
@@ -43,7 +47,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.0.titre
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
             }
@@ -88,7 +96,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.1.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "en") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected en [$.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
             }
@@ -104,7 +116,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.1.title
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
             }
@@ -149,7 +165,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.2.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "de") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected de [$.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
             }
@@ -165,7 +185,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.2.Title
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
             }
@@ -210,7 +234,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.3.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "ru") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected ru [$.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
             }
@@ -226,7 +254,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.movie.'|'.3.suti
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
             }
@@ -330,7 +362,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

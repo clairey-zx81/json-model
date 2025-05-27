@@ -26,7 +26,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'^'.1.a
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'^'.1.a]", (path ? &lpath_0 : NULL));
             }
@@ -60,7 +64,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     res = true;
     // $.'^'.1
     is_0 = _jm_obj_0(val, path, rep);
-    if (! is_0)
+    if (is_0)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'^'.1]", path);
     }
@@ -70,7 +78,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         // empty xor list
         res = false;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
     }

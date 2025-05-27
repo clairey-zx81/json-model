@@ -30,20 +30,28 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # $.'&'.0
         res = True
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("unexpected string [$.'&'.0]", path))
         if res:
             # $.'&'.1
             # $.'&'.1.'@'
             res = isinstance(val, str)
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected string [$.'&'.1.'@']", path))
             if res:
                 ival_0: int = len(val)
                 res = ival_0 <= 5
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("constraints failed at [$.'&'.1]", path))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not all model match [$.'&']", path))
     return res
 

@@ -12,7 +12,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'@'
     res = json_is_string(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [$.'@']", path);
     }
@@ -21,7 +25,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         int64_t ival_0 = mbstowcs(NULL, json_string_value(val), 0);
         res = ival_0 <= 3 && ival_0 >= 2;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
     }

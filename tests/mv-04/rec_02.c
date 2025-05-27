@@ -24,7 +24,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may foo property
             // $.foo
             res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $foo [$.foo]", (path ? &lpath_0 : NULL));
             }
@@ -49,7 +53,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

@@ -28,34 +28,48 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("value not in enum [$.'|']", path))
     if not res:
         # $.'|'.0
         res = val is None
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("not null [$.'|'.0]", path))
         if not res:
             # $.'|'.1
             res = isinstance(val, bool) and val == False
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected =false [$.'|'.1]", path))
             if not res:
                 # $.'|'.2
                 res = isinstance(val, int) and not isinstance(val, bool) and val == 42
-                if not res:
+                if res:
+                    rep is None or rep.clear()
+                else:
                     rep is None or rep.append(("unexpected =42 [$.'|'.2]", path))
                 if not res:
                     # $.'|'.3
                     res = isinstance(val, float) and val == 3.14159
-                    if not res:
+                    if res:
+                        rep is None or rep.clear()
+                    else:
                         rep is None or rep.append(("unexpected =3.14159 [$.'|'.3]", path))
                     if not res:
                         # $.'|'.4
                         res = isinstance(val, float) and val == 1e+101
-                        if not res:
+                        if res:
+                            rep is None or rep.clear()
+                        else:
                             rep is None or rep.append(("unexpected =10E100 [$.'|'.4]", path))
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("no model matched [$.'|']", path))
     return res
 

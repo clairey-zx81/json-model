@@ -17,7 +17,11 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$ex08'
     res = json_model_9(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $EX08 [$.'$ex08']", path);
     }
@@ -30,7 +34,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$EX08'
     res = json_model_9(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $ex08#EX08 [$.'$EX08']", path);
     }
@@ -56,7 +64,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may # property
             // $.'$EX09'.'#'
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'$EX09'.'#']", (path ? &lpath_0 : NULL));
             }
@@ -71,7 +83,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle 1 key props
             // $.'$EX09'.'$URL'
             res = json_model_6(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $ex08#VAL [$.'$EX09'.'$URL']", (path ? &lpath_0 : NULL));
             }
@@ -95,7 +111,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$EX09'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$EX09']", path);
     }
@@ -108,7 +128,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_model_4(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $EX09 [$]", path);
     }
@@ -121,7 +145,11 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$ex08#VAL'
     res = json_is_boolean(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a bool [$.'$ex08#VAL']", path);
     }
@@ -135,7 +163,11 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     // $.'$ex08#EX08'
     // $.'$ex08#EX08'.'|'.0
     res = json_model_8(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $map [$.'$ex08#EX08'.'|'.0]", path);
     }
@@ -143,7 +175,11 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     {
         // $.'$ex08#EX08'.'|'.1
         res = jm_is_valid_url(json_string_value(val));
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected $URL [$.'$ex08#EX08'.'|'.1]", path);
         }
@@ -151,13 +187,21 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
         {
             // $.'$ex08#EX08'.'|'.2
             res = json_model_6(val, path, rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $VAL [$.'$ex08#EX08'.'|'.2]", path);
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "no model matched [$.'$ex08#EX08'.'|']", path);
     }
@@ -183,7 +227,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             // handle 1 key props
             // $.'$ex08#map'.'$URL'
             res = json_model_6(pval, (path ? &lpath_1 : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $VAL [$.'$ex08#map'.'$URL']", (path ? &lpath_1 : NULL));
             }
@@ -207,7 +255,11 @@ static bool json_model_8(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$ex08#map'
     res = _jm_obj_1(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$ex08#map']", path);
     }

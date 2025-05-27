@@ -12,7 +12,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'@'
     res = json_is_integer(val);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'@']", path);
     }

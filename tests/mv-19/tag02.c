@@ -27,7 +27,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.t
             res = json_is_integer(pval) && json_integer_value(pval) == 1;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected =1 [$.'|'.0.t]", (path ? &lpath_0 : NULL));
             }
@@ -43,7 +47,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.0.a
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.0.a]", (path ? &lpath_0 : NULL));
             }
@@ -88,7 +96,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.t
             res = json_is_integer(pval) && json_integer_value(pval) == 2;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected =2 [$.'|'.1.t]", (path ? &lpath_1 : NULL));
             }
@@ -104,7 +116,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'|'.1.b
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'|'.1.b]", (path ? &lpath_1 : NULL));
             }

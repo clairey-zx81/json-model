@@ -24,7 +24,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may country property
             // $.country
             res = json_is_string(pval) && strcmp(json_string_value(pval), "South Africa") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _South Africa [$.country]", (path ? &lpath_0 : NULL));
             }
@@ -49,7 +53,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

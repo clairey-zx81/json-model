@@ -28,7 +28,9 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'@'
     res = isinstance(val, str) and val == "Susie"
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected _Susie [$.'@']", path))
     return res
 

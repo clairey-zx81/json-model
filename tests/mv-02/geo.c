@@ -35,7 +35,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'$position'.'@'.0
             res = json_is_number(arr_0_item);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$position'.'@'.0]", (path ? &arr_0_lpath : NULL));
             }
@@ -45,7 +49,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$position'.'@']", path);
     }
@@ -54,7 +62,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
         int64_t ival_0 = json_array_size(val);
         res = ival_0 <= 3 && ival_0 >= 2;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$.'$position']", path);
     }
@@ -77,7 +89,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
             Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
             // $.'$coord_array'.'@'.0
             res = json_model_2(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$coord_array'.'@'.0]", (path ? &arr_1_lpath : NULL));
             }
@@ -87,7 +103,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$coord_array'.'@']", path);
     }
@@ -96,7 +116,11 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
         int64_t ival_1 = json_array_size(val);
         res = ival_1 >= 2;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$.'$coord_array']", path);
     }
@@ -119,7 +143,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
             Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
             // $.'$linear_ring'.'@'.0
             res = json_model_2(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$linear_ring'.'@'.0]", (path ? &arr_2_lpath : NULL));
             }
@@ -129,7 +157,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$linear_ring'.'@']", path);
     }
@@ -138,7 +170,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         int64_t ival_2 = json_array_size(val);
         res = ival_2 >= 4;
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$.'$linear_ring']", path);
     }
@@ -166,7 +202,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Point'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "Point") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected Point [$.'$Point'.type]", (path ? &lpath_0 : NULL));
             }
@@ -182,7 +222,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Point'.coordinates
             res = json_model_2(pval, (path ? &lpath_0 : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$Point'.coordinates]", (path ? &lpath_0 : NULL));
             }
@@ -206,7 +250,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     Path arr_3_lpath = (Path) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
                     // $.'$Point'.bbox.0
                     res = json_is_number(arr_3_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Point'.bbox.0]", ((path ? &lpath_0 : NULL) ? &arr_3_lpath : NULL));
                     }
@@ -216,7 +264,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Point'.bbox]", (path ? &lpath_0 : NULL));
             }
@@ -246,7 +298,11 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$Point'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Point']", path);
     }
@@ -274,7 +330,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$MultiPoint'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPoint") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected MultiPoint [$.'$MultiPoint'.type]", (path ? &lpath_1 : NULL));
             }
@@ -299,7 +359,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                     Path arr_4_lpath = (Path) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
                     // $.'$MultiPoint'.coordinates.0
                     res = json_model_2(arr_4_item, ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $position [$.'$MultiPoint'.coordinates.0]", ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL));
                     }
@@ -309,7 +373,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPoint'.coordinates]", (path ? &lpath_1 : NULL));
             }
@@ -333,7 +401,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                     Path arr_5_lpath = (Path) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
                     // $.'$MultiPoint'.bbox.0
                     res = json_is_number(arr_5_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPoint'.bbox.0]", ((path ? &lpath_1 : NULL) ? &arr_5_lpath : NULL));
                     }
@@ -343,7 +415,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPoint'.bbox]", (path ? &lpath_1 : NULL));
             }
@@ -373,7 +449,11 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$MultiPoint'
     res = _jm_obj_1(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$MultiPoint']", path);
     }
@@ -401,7 +481,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$LineString'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "LineString") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected LineString [$.'$LineString'.type]", (path ? &lpath_2 : NULL));
             }
@@ -417,7 +501,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$LineString'.coordinates
             res = json_model_3(pval, (path ? &lpath_2 : NULL), rep);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $coord_array [$.'$LineString'.coordinates]", (path ? &lpath_2 : NULL));
             }
@@ -441,7 +529,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
                     Path arr_6_lpath = (Path) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
                     // $.'$LineString'.bbox.0
                     res = json_is_number(arr_6_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$LineString'.bbox.0]", ((path ? &lpath_2 : NULL) ? &arr_6_lpath : NULL));
                     }
@@ -451,7 +543,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$LineString'.bbox]", (path ? &lpath_2 : NULL));
             }
@@ -481,7 +577,11 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$LineString'
     res = _jm_obj_2(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$LineString']", path);
     }
@@ -509,7 +609,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$MultiLineString'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiLineString") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected MultiLineString [$.'$MultiLineString'.type]", (path ? &lpath_3 : NULL));
             }
@@ -534,7 +638,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                     Path arr_7_lpath = (Path) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
                     // $.'$MultiLineString'.coordinates.0
                     res = json_model_3(arr_7_item, ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $coord_array [$.'$MultiLineString'.coordinates.0]", ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL));
                     }
@@ -544,7 +652,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiLineString'.coordinates]", (path ? &lpath_3 : NULL));
             }
@@ -568,7 +680,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                     Path arr_8_lpath = (Path) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
                     // $.'$MultiLineString'.bbox.0
                     res = json_is_number(arr_8_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiLineString'.bbox.0]", ((path ? &lpath_3 : NULL) ? &arr_8_lpath : NULL));
                     }
@@ -578,7 +694,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiLineString'.bbox]", (path ? &lpath_3 : NULL));
             }
@@ -608,7 +728,11 @@ static bool json_model_8(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$MultiLineString'
     res = _jm_obj_3(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$MultiLineString']", path);
     }
@@ -636,7 +760,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Polygon'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "Polygon") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected Polygon [$.'$Polygon'.type]", (path ? &lpath_4 : NULL));
             }
@@ -661,7 +789,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                     Path arr_9_lpath = (Path) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
                     // $.'$Polygon'.coordinates.0
                     res = json_model_4(arr_9_item, ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [$.'$Polygon'.coordinates.0]", ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL));
                     }
@@ -671,7 +803,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Polygon'.coordinates]", (path ? &lpath_4 : NULL));
             }
@@ -695,7 +831,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                     Path arr_10_lpath = (Path) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
                     // $.'$Polygon'.bbox.0
                     res = json_is_number(arr_10_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Polygon'.bbox.0]", ((path ? &lpath_4 : NULL) ? &arr_10_lpath : NULL));
                     }
@@ -705,7 +845,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Polygon'.bbox]", (path ? &lpath_4 : NULL));
             }
@@ -735,7 +879,11 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$Polygon'
     res = _jm_obj_4(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Polygon']", path);
     }
@@ -763,7 +911,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$MultiPolygon'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPolygon") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected MultiPolygon [$.'$MultiPolygon'.type]", (path ? &lpath_5 : NULL));
             }
@@ -797,7 +949,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                             Path arr_12_lpath = (Path) { NULL, arr_12_idx, ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL), NULL };
                             // $.'$MultiPolygon'.coordinates.0.0
                             res = json_model_4(arr_12_item, (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL), rep);
-                            if (! res)
+                            if (res)
+                            {
+                                if (rep) jm_report_free_entries(rep);
+                            }
+                            else
                             {
                                 if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [$.'$MultiPolygon'.coordinates.0.0]", (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL));
                             }
@@ -807,7 +963,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                             }
                         }
                     }
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPolygon'.coordinates.0]", ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL));
                     }
@@ -817,7 +977,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPolygon'.coordinates]", (path ? &lpath_5 : NULL));
             }
@@ -841,7 +1005,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                     Path arr_13_lpath = (Path) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
                     // $.'$MultiPolygon'.bbox.0
                     res = json_is_number(arr_13_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$MultiPolygon'.bbox.0]", ((path ? &lpath_5 : NULL) ? &arr_13_lpath : NULL));
                     }
@@ -851,7 +1019,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$MultiPolygon'.bbox]", (path ? &lpath_5 : NULL));
             }
@@ -881,7 +1053,11 @@ static bool json_model_10(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$MultiPolygon'
     res = _jm_obj_5(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$MultiPolygon']", path);
     }
@@ -951,7 +1127,11 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$GeometryCollection'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "GeometryCollection") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected GeometryCollection [$.'$GeometryCollection'.type]", (path ? &lpath_6 : NULL));
             }
@@ -976,7 +1156,11 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                     Path arr_14_lpath = (Path) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
                     // $.'$GeometryCollection'.geometries.0
                     res = json_model_11(arr_14_item, ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $geometry [$.'$GeometryCollection'.geometries.0]", ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL));
                     }
@@ -986,7 +1170,11 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$GeometryCollection'.geometries]", (path ? &lpath_6 : NULL));
             }
@@ -1010,7 +1198,11 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                     Path arr_15_lpath = (Path) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
                     // $.'$GeometryCollection'.bbox.0
                     res = json_is_number(arr_15_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_15_lpath : NULL));
                     }
@@ -1020,7 +1212,11 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$GeometryCollection'.bbox]", (path ? &lpath_6 : NULL));
             }
@@ -1050,7 +1246,11 @@ static bool json_model_12(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$GeometryCollection'
     res = _jm_obj_6(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$GeometryCollection']", path);
     }
@@ -1090,7 +1290,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Feature'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "Feature") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected Feature [$.'$Feature'.type]", (path ? &lpath_7 : NULL));
             }
@@ -1107,7 +1311,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             // $.'$Feature'.geometry
             // $.'$Feature'.geometry.'|'.0
             res = json_is_null(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not null [$.'$Feature'.geometry.'|'.0]", (path ? &lpath_7 : NULL));
             }
@@ -1115,7 +1323,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             {
                 // $.'$Feature'.geometry.'|'.1
                 res = json_model_11(pval, (path ? &lpath_7 : NULL), rep);
-                if (! res)
+                if (res)
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected $geometry [$.'$Feature'.geometry.'|'.1]", (path ? &lpath_7 : NULL));
                 }
@@ -1123,13 +1335,21 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                 {
                     // $.'$Feature'.geometry.'|'.2
                     res = json_model_12(pval, (path ? &lpath_7 : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [$.'$Feature'.geometry.'|'.2]", (path ? &lpath_7 : NULL));
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [$.'$Feature'.geometry.'|']", (path ? &lpath_7 : NULL));
             }
@@ -1146,7 +1366,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             // $.'$Feature'.properties
             // $.'$Feature'.properties.'|'.0
             res = json_is_null(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not null [$.'$Feature'.properties.'|'.0]", (path ? &lpath_7 : NULL));
             }
@@ -1154,12 +1378,20 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             {
                 // $.'$Feature'.properties.'|'.1
                 res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
-                if (! res)
+                if (res)
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
                 {
                     if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Feature'.properties.'|'.1]", (path ? &lpath_7 : NULL));
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [$.'$Feature'.properties.'|']", (path ? &lpath_7 : NULL));
             }
@@ -1175,7 +1407,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             // $.'$Feature'.id
             // $.'$Feature'.id.'|'.0
             res = json_is_string(pval);
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'$Feature'.id.'|'.0]", (path ? &lpath_7 : NULL));
             }
@@ -1183,12 +1419,20 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
             {
                 // $.'$Feature'.id.'|'.1
                 res = json_is_number(pval);
-                if (! res)
+                if (res)
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
                 {
                     if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Feature'.id.'|'.1]", (path ? &lpath_7 : NULL));
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "no model matched [$.'$Feature'.id.'|']", (path ? &lpath_7 : NULL));
             }
@@ -1212,7 +1456,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                     Path arr_16_lpath = (Path) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
                     // $.'$Feature'.bbox.0
                     res = json_is_number(arr_16_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$Feature'.bbox.0]", ((path ? &lpath_7 : NULL) ? &arr_16_lpath : NULL));
                     }
@@ -1222,7 +1470,11 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$Feature'.bbox]", (path ? &lpath_7 : NULL));
             }
@@ -1252,7 +1504,11 @@ static bool json_model_13(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$Feature'
     res = _jm_obj_7(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Feature']", path);
     }
@@ -1280,7 +1536,11 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$FeatureCollection'.type
             res = json_is_string(pval) && strcmp(json_string_value(pval), "FeatureCollection") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected FeatureCollection [$.'$FeatureCollection'.type]", (path ? &lpath_8 : NULL));
             }
@@ -1305,7 +1565,11 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                     Path arr_17_lpath = (Path) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
                     // $.'$FeatureCollection'.features.0
                     res = json_model_13(arr_17_item, ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL), rep);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Feature [$.'$FeatureCollection'.features.0]", ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL));
                     }
@@ -1315,7 +1579,11 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$FeatureCollection'.features]", (path ? &lpath_8 : NULL));
             }
@@ -1339,7 +1607,11 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                     Path arr_18_lpath = (Path) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
                     // $.'$FeatureCollection'.bbox.0
                     res = json_is_number(arr_18_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [$.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_18_lpath : NULL));
                     }
@@ -1349,7 +1621,11 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$FeatureCollection'.bbox]", (path ? &lpath_8 : NULL));
             }
@@ -1379,7 +1655,11 @@ static bool json_model_14(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$FeatureCollection'
     res = _jm_obj_9(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$FeatureCollection']", path);
     }
@@ -1396,7 +1676,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool xr_0;
     // $.'^'.0
     xr_0 = json_model_11(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $geometry [$.'^'.0]", path);
     }
@@ -1406,7 +1690,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     // $.'^'.1
     xr_0 = json_model_12(val, path, rep);
-    if (! xr_0)
+    if (xr_0)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [$.'^'.1]", path);
     }
@@ -1418,7 +1706,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'^'.2
         xr_0 = json_model_13(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Feature [$.'^'.2]", path);
         }
@@ -1431,7 +1723,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'^'.3
         xr_0 = json_model_14(val, path, rep);
-        if (! xr_0)
+        if (xr_0)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected $FeatureCollection [$.'^'.3]", path);
         }
@@ -1441,7 +1737,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         }
     }
     res = xc_0 == 1;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
     }

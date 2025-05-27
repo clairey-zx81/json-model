@@ -30,25 +30,35 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$A'
     # $.'$A'.'|'.0
     res = isinstance(val, bool)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not a bool [$.'$A'.'|'.0]", path))
     if not res:
         # $.'$A'.'|'.1
         res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("not a 1 strict int [$.'$A'.'|'.1]", path))
         if not res:
             # $.'$A'.'|'.2
             res = isinstance(val, float) and val > 0.0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("not a 1.0 strict float [$.'$A'.'|'.2]", path))
             if not res:
                 # $.'$A'.'|'.3
                 # "/[a-z]/"
                 res = isinstance(val, str) and _jm_re_0(val)
-                if not res:
+                if res:
+                    rep is None or rep.clear()
+                else:
                     rep is None or rep.append(("unexpected REGEX [$.'$A'.'|'.3]", path))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("no model matched [$.'$A'.'|']", path))
     return res
 
@@ -57,7 +67,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_2(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected $A [$]", path))
     return res
 

@@ -35,7 +35,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // $.all
             // "/.*/"
             res = json_is_string(pval) && true;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.all]", (path ? &lpath_0 : NULL));
             }
@@ -51,7 +55,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // $.nz
             // "/./s"
             res = json_is_string(pval) && mbstowcs(NULL, json_string_value(pval), 0) > 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.nz]", (path ? &lpath_0 : NULL));
             }
@@ -67,7 +75,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // $.some
             // "/./"
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.some]", (path ? &lpath_0 : NULL));
             }
@@ -92,7 +104,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

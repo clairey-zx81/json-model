@@ -38,7 +38,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'|'.0.a
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 10
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected =10 [$.'|'.0.a]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'|'.0.a]", lpath_0 if path is not None else None))
@@ -66,7 +68,9 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'|'.1.a
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 1
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected =1 [$.'|'.1.a]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'|'.1.a]", lpath_1 if path is not None else None))
@@ -94,7 +98,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'|'.2.a
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 0
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected =0 [$.'|'.2.a]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'|'.2.a]", lpath_2 if path is not None else None))

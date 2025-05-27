@@ -25,12 +25,20 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $.'^'.1
     // "/^[a-z]+$/i"
     is_0 = json_is_string(val) && _jm_re_0(json_string_value(val));
-    if (! is_0)
+    if (is_0)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'^'.1]", path);
     }
     res = ! is_0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
     }

@@ -355,11 +355,11 @@ class SourceCode(Validator):
 
         return code
 
-    def _gen_report(self, res: str, msg: str, path: str) -> Block:
+    def _gen_report(self, res: str, msg: str, path: str, cleanup: bool = False) -> Block:
         """Maybe enerate a report."""
         if self._report:
             gen = self._lang
-            return gen.if_stmt(gen.not_op(res), gen.report(msg, path))
+            return gen.if_stmt(res, gen.clean_report(), gen.report(msg, path))
         else:
             return []
 
@@ -652,7 +652,7 @@ class SourceCode(Validator):
             else:
                 icode =  body
 
-        icode += self._gen_report(res, f"no model matched [{smpath}]", vpath)
+        icode += self._gen_report(res, f"no model matched [{smpath}]", vpath, True)
 
         if or_code:
             or_code += gen.if_stmt(res, icode)
@@ -782,7 +782,7 @@ class SourceCode(Validator):
         else:
             code += xcode
 
-        code += self._gen_report(res, f"not one model match [{smpath}]", vpath)
+        code += self._gen_report(res, f"not one model match [{smpath}]", vpath, True)
 
         return code
 
@@ -819,7 +819,8 @@ class SourceCode(Validator):
                 acode
             )
         code += acode
-        code += self._gen_report(res, f"not all model match [{smpath}]", vpath)
+
+        code += self._gen_report(res, f"not all model match [{smpath}]", vpath, True)
 
         return code
 

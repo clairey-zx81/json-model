@@ -454,6 +454,9 @@ class Language:
         return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
             if self._with_report else []
 
+    def clean_report(self) -> Block:
+        raise NotImplementedError("see derived classes")
+
     def indent(self, block: Block, sep: bool = True) -> Block:
         """Indent a block."""
         return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]

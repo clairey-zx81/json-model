@@ -26,7 +26,11 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$T'
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [$.'$T']", path);
     }
@@ -39,7 +43,11 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$R'.a
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.'$R'.a]", path);
     }
@@ -52,7 +60,11 @@ static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$R'.b
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.'$R'.b]", path);
     }
@@ -65,7 +77,11 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$R'.c
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.'$R'.c]", path);
     }
@@ -78,7 +94,11 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$R'.d
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.'$R'.d]", path);
     }
@@ -138,7 +158,11 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$R'
     res = _jm_obj_0(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$R']", path);
     }
@@ -166,7 +190,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Z'.e
             res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [$.'$Z'.e]", (path ? &lpath_1 : NULL));
             }
@@ -182,7 +210,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.'$Z'.f
             res = json_is_string(pval) && strcmp(json_string_value(pval), "cst_02") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [$.'$Z'.f]", (path ? &lpath_1 : NULL));
             }
@@ -212,7 +244,11 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$Z'
     res = _jm_obj_1(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Z']", path);
     }
@@ -225,7 +261,11 @@ static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.a
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.a]", path);
     }
@@ -238,7 +278,11 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.b
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.b]", path);
     }
@@ -251,7 +295,11 @@ static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.c
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.c]", path);
     }
@@ -264,7 +312,11 @@ static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.d
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_01") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_01 [$.d]", path);
     }
@@ -277,7 +329,11 @@ static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.e
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [$.e]", path);
     }
@@ -290,7 +346,11 @@ static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.f
     res = json_is_string(val) && strcmp(json_string_value(val), "cst_02") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _cst_02 [$.f]", path);
     }
@@ -350,7 +410,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_2(val, path, rep);
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

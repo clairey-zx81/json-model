@@ -31,16 +31,22 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res = True
     # $.'^'.2
     is_0 = isinstance(val, int) and not isinstance(val, bool) and val >= 1
-    if not is_0:
+    if is_0:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not a 1 strict int [$.'^'.2]", path))
     res = not is_0
     if res:
         # singleton xor list
         # $.'^'.0
         res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-        if not res:
+        if res:
+            rep is None or rep.clear()
+        else:
             rep is None or rep.append(("not a 0 strict int [$.'^'.0]", path))
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not one model match [$.'^']", path))
     return res
 

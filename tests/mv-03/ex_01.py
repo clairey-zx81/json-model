@@ -27,7 +27,9 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$x1'
     res = isinstance(val, str) and val == "Susie"
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected _Susie [$.'$x1']", path))
     return res
 
@@ -36,7 +38,9 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$x2'
     res = isinstance(val, str) and val == "Susie"
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected _Susie [$.'$x2']", path))
     return res
 
@@ -55,7 +59,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.a
             res = isinstance(pval, str) and pval == "Susie"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected _Susie [$.a]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.a]", lpath_0 if path is not None else None))
@@ -65,7 +71,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.b
             res = isinstance(pval, str) and pval == "Susie"
-            if not res:
+            if res:
+                rep is None or rep.clear()
+            else:
                 rep is None or rep.append(("unexpected _Susie [$.b]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.b]", lpath_0 if path is not None else None))
@@ -83,7 +91,9 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

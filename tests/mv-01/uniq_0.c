@@ -21,7 +21,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
             // $.'@'.0
             res = json_is_integer(arr_0_item) && json_integer_value(arr_0_item) >= 1;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'@'.0]", (path ? &arr_0_lpath : NULL));
             }
@@ -31,7 +35,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'@']", path);
     }
@@ -39,7 +47,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         res = jm_array_is_unique(val, path, rep);
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
     }

@@ -15,7 +15,11 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$x1'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$x1']", path);
     }
@@ -28,7 +32,11 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$x2'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$x2']", path);
     }
@@ -41,7 +49,11 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$x3'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$x3']", path);
     }
@@ -54,7 +66,11 @@ static bool json_model_8(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$__external_0'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$__external_0']", path);
     }
@@ -72,7 +88,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { NULL, 0, path, NULL };
         // $.0
         res = json_is_string(json_array_get(val, 0)) && strcmp(json_string_value(json_array_get(val, 0)), "Susie") == 0;
-        if (! res)
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
         {
             if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.0]", (path ? &lpath_0 : NULL));
         }
@@ -81,7 +101,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             Path lpath_0 = (Path) { NULL, 1, path, NULL };
             // $.1
             res = json_is_string(json_array_get(val, 1)) && strcmp(json_string_value(json_array_get(val, 1)), "Susie") == 0;
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.1]", (path ? &lpath_0 : NULL));
             }
@@ -90,7 +114,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                 Path lpath_0 = (Path) { NULL, 2, path, NULL };
                 // $.2
                 res = json_is_string(json_array_get(val, 2)) && strcmp(json_string_value(json_array_get(val, 2)), "Susie") == 0;
-                if (! res)
+                if (res)
+                {
+                    if (rep) jm_report_free_entries(rep);
+                }
+                else
                 {
                     if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.2]", (path ? &lpath_0 : NULL));
                 }
@@ -99,7 +127,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                     Path lpath_0 = (Path) { NULL, 3, path, NULL };
                     // $.3
                     res = json_is_string(json_array_get(val, 3)) && strcmp(json_string_value(json_array_get(val, 3)), "Susie") == 0;
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.3]", (path ? &lpath_0 : NULL));
                     }
@@ -107,7 +139,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$]", path);
     }

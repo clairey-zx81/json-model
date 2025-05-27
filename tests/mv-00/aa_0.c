@@ -29,7 +29,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                     Path arr_1_lpath = (Path) { NULL, arr_1_idx, (path ? &arr_0_lpath : NULL), NULL };
                     // $.0.0
                     res = json_is_string(arr_1_item);
-                    if (! res)
+                    if (res)
+                    {
+                        if (rep) jm_report_free_entries(rep);
+                    }
+                    else
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected string [$.0.0]", ((path ? &arr_0_lpath : NULL) ? &arr_1_lpath : NULL));
                     }
@@ -39,7 +43,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                     }
                 }
             }
-            if (! res)
+            if (res)
+            {
+                if (rep) jm_report_free_entries(rep);
+            }
+            else
             {
                 if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.0]", (path ? &arr_0_lpath : NULL));
             }
@@ -49,7 +57,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (! res)
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$]", path);
     }

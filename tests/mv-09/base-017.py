@@ -28,12 +28,16 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'@'
     res = isinstance(val, str)
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("unexpected string [$.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
-    if not res:
+    if res:
+        rep is None or rep.clear()
+    else:
         rep is None or rep.append(("constraints failed at [$]", path))
     return res
 
