@@ -1195,10 +1195,10 @@ def xstatic_compile(
     # target language
     if lang == "py":
         from .python import Python
-        language = Python(debug=debug)
+        language = Python(debug=debug, with_report=report)
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug)
+        language = CLangJansson(debug=debug, with_report=report)
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

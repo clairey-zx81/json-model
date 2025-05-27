@@ -178,6 +178,8 @@ def jmc_script():
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
+    arg("--no-report", "-nr", dest="report", action="store_false", default=True,
+        help="remove reporting capabilities")
     arg("--format", "-F", choices=["json", "yaml", "py", "c", "cpp", "js", "ts", "rs", "go"],
         help="output format")
     # expected results on values
@@ -315,7 +317,7 @@ def jmc_script():
             f"valid output language {args.format}"
         code = xstatic_compile(model, args.name, lang=args.format,
                                map_threshold=args.map_threshold, map_share=args.map_share,
-                               debug=args.debug, report=args.verbose)
+                               debug=args.debug, report=args.report)
         source = str(code)
         if args.code:
             print(source, file=output, end="")

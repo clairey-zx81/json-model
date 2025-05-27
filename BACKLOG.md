@@ -6,6 +6,7 @@
 - [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
 - [x] c-frontend: use `getopt_long` instead of `getopt`
 - [x] static: reporting clean slate on or when one is found!
+- [x] static: add option to skip reporting generation `--no-report`
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?

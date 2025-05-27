@@ -9,9 +9,9 @@ class Python(Language):
     so this class in minimal.
     """
 
-    def __init__(self, *, relib: str = "re2", debug: bool = False):
+    def __init__(self, *, relib: str = "re2", debug: bool = False, with_report: bool = True):
 
-        super().__init__("Python", debug=debug, relib=relib)
+        super().__init__("Python", debug=debug, relib=relib, with_report=with_report)
 
         assert relib in ("re", "re2"), f"support for re and re2, not {relib}"
 

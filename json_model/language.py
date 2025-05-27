@@ -56,7 +56,7 @@ class Language:
         # keep parameters
         self._name = name  # language name
         self._debug = debug
-        self._with_path = with_path
+        self._with_path = with_path and with_report
         self._with_report = with_report
         self._with_comment = with_comment
 
