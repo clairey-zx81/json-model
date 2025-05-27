@@ -2,7 +2,9 @@
 
 ## Current Tasks
 
-- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
+- [x] c-backend: fast `$REGEX` implementation based on re2 syntax
+- [ ] command: allow to switch between the C slow and fast `$REGEX` implementations
+- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
 - [ ] tests: allow options for specific tests from pytest
@@ -13,7 +15,6 @@
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
-- [ ] c-backend: fast `$REGEX` implementation (wip)
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] python: cleanup ultimate model reliance on local defs

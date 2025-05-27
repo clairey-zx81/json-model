@@ -422,9 +422,9 @@ jm_is_valid_uuid(const char *uuid)
     return uuid[36] == '\0';
 }
 
-// check regex validity by attempting to compile it, probably not very efficient
+// check regex validity by attempting to compile it with PCRE2, probably not very efficient
 bool
-jm_is_valid_regex(const char *pattern)
+jm_is_valid_regex_slow(const char *pattern)
 {
     if (!pattern)
         return false;
@@ -439,15 +439,20 @@ jm_is_valid_regex(const char *pattern)
     return valid;
 }
 
-// see https://github.com/google/re2/wiki/syntax
+// hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 bool
 jm_is_valid_regex_fast(const char *pattern)
 {
+    if (!pattern)
+        return false;
+
     char *c = (char *) pattern;
 
     int paren = 0;
-    bool start = false;
-    bool okay = false;
+    bool start = true;
+    bool okay = true;
+
+    fprintf(stderr, "pattern = %s\n", pattern);
 
     while (*c && okay)
     {
@@ -457,40 +462,98 @@ jm_is_valid_regex_fast(const char *pattern)
             start = false;
         }
 
+        // TODO we could check for repeat consistency? eg ?? bad but +? ok.
+
         switch (*c) {
             case '\\':  // TODO \p{Greek}
-                c++;  // skip next, whatever
-                okay &= *c != '\0';
+                c++;  // skip next, whatever, possibly some character class
+
+                if ((*c == 'p' || *c == 'P') && *(c+1) == '{')  // handle \p{Greek}
+                {
+                    c+=2;
+                    while (isalpha(*c))
+                        c++;
+                    okay &= *c == '}';
+                }
+                else
+                    okay &= *c != '\0';
                 break;
-            case '[':  // TODO [[:...:]] [^[:...:]] [\p{Name}] [^\p{Name}]
-                // [C] [^C]
-                // simple char list, look for matching ]
-                // skip first char, which may be ]
+            case '[':
                 c++;
-                if (*c == '^')
-                    c++;
-                while (*c && *c != ']')
-                    c++;
-                okay &= *c == ']';  // else ] not found!
-                // fixme what about -? ^ in corner cases?
+                if (*c == '[' && *(c+1) == ':')  // [[: something
+                {
+                    c += 2;
+                    if (*c == '^')  // [[:^
+                        c++;
+                    while (isalpha(*c))  // caracter class name
+                        c++;
+                    okay &= *c == ':' && *(c+1) == ']';  // :], check for following ] below
+                    if (okay)
+                        c += 2;
+                }
+                else  // [C] [^C]
+                {
+                    // FIXME what about -? ^ in corner cases?
+                    if (*c == '^')
+                        c++;
+                    while (*c && *c != ']')
+                        c++;
+                }
+                okay &= *c == ']';  // else final ] not found!
                 break;
             case '{':  // {123} or {12,34} or {12,}
                 c++;  // next char
-                okay &= '0' <= *c && *c <= '9';  // must be a number
-                while ('0' <= *c && *c <= 9)
+                okay &= isdigit(*c);  // must be a number
+                while (isdigit(*c))
                     c++;
                 if (*c == ',') {  // second part, may be empty
                     c++;  // first char
-                    while ('0' <= *c && *c <= 9)
+                    while (isdigit(*c))
                         c++;
                 }
                 okay &= *c == '}';
                 break;
             case '(':
                 paren++;
-                if (*(c+1) == '?')  // (?flag:re)
-                    c++;
-                    // what options are allowed? (?P<name>re) (?<name>re) (?:re)
+
+                if (*(c+1) == '?')  // start of extension
+                {
+                    c += 2;
+
+                    if (islower(*c))  // start of flags
+                    {
+                        while (islower(*c))
+                            c++;
+                        if (*c == ':')  // (?flags:re)
+                        {
+                            start = true;
+                        }
+                        else if (*c == ')')  // (?flags)
+                        {
+                            start = true;
+                            paren--;
+                        }
+                        else
+                            okay = false;
+                    }
+                    else if (*c == 'P' || *c == '<')  // (?P<name>...) or (?<name>...)
+                    {
+                        if (*c == 'P')
+                            c++;
+                        okay &= *c == '<';
+                        c++;
+                        while (isalnum(*c))  // skip name
+                            c++;
+                        okay &= *c == '>';
+                        start = true;
+                    }
+                    else if (*c == ':')  // non capturing group (?:...)
+                    {
+                        start = true;
+                    }
+                    else
+                        okay = false;
+                }
                 else
                     start = true;
                 break;
@@ -503,7 +566,7 @@ jm_is_valid_regex_fast(const char *pattern)
         c++;
     }
 
-    okay &= *c == '\0';
+    okay &= *c == '\0' && paren == 0;
 
     return okay;
 }
@@ -525,7 +588,7 @@ jm_is_valid_url(const char *url)
 }
 
 // generic constraint check.
-bool                                                                                         
+bool
 jm_check_constraint(const json_t * val, constraint_op_t op, const constant_t *cst,
                     Path *path, Report *rep)
 {
@@ -535,7 +598,7 @@ jm_check_constraint(const json_t * val, constraint_op_t op, const constant_t *cs
     {
         if (rep)
             jm_report_add_entry(rep, "unexpected null or bool type for any constraint", path);
-        return false; 
+        return false;
     }
 
     if (cst->tag == cst_is_integer)
