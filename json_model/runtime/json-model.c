@@ -452,8 +452,6 @@ jm_is_valid_regex_fast(const char *pattern)
     bool start = true;
     bool okay = true;
 
-    fprintf(stderr, "pattern = %s\n", pattern);
-
     while (*c && okay)
     {
         if (start) {
@@ -570,6 +568,9 @@ jm_is_valid_regex_fast(const char *pattern)
 
     return okay;
 }
+
+// default version
+bool (*jm_is_valid_regex)(const char *) = jm_is_valid_regex_fast;
 
 // this is utf-8 compatible because multi-byte encoding uses chars over 128.
 bool

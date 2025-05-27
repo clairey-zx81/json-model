@@ -145,7 +145,7 @@ extern bool jm_is_valid_uuid(const char *);
 extern size_t jm_any_len(json_t *);
 extern bool jm_is_valid_regex_slow(const char *);
 extern bool jm_is_valid_regex_fast(const char *);
-#define jm_is_valid_regex jm_is_valid_regex_fast
+extern bool (*jm_is_valid_regex)(const char *);
 extern bool jm_is_valid_url(const char *);
 
 typedef enum {

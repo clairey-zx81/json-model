@@ -3,7 +3,8 @@
 ## Current Tasks
 
 - [x] c-backend: fast `$REGEX` implementation based on re2 syntax
-- [ ] command: allow to switch between the C slow and fast `$REGEX` implementations
+- [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
+- [x] c-frontend: use `getopt_long` instead of `getopt`
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -23,7 +24,6 @@
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] frontend: align python and C outputs
-- [ ] c-frontend: use `getopt_long` instead of `getopt`
 - [ ] optim: root xor should be simplified in `geo.model.json`
 - [ ] optim: detect non feasible constraints wrt values
 - [ ] python: how to keep looseness after inlining?
