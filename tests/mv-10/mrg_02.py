@@ -20,8 +20,8 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_must: PropMap
-_jm_obj_2_must: PropMap
+_jm_obj_0_mup: PropMap
+_jm_obj_2_mup: PropMap
 check_model_map: PropMap
 
 # check $T ($.'$T')
@@ -33,7 +33,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_02 [$.'$T']", path))
     return res
 
-# check _jm_obj_0_must_a ($.'$R'.a)
+# check _jm_obj_0_mup_a ($.'$R'.a)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.a
@@ -42,7 +42,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.a]", path))
     return res
 
-# check _jm_obj_0_must_b ($.'$R'.b)
+# check _jm_obj_0_mup_b ($.'$R'.b)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.b
@@ -51,7 +51,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.b]", path))
     return res
 
-# check _jm_obj_0_must_c ($.'$R'.c)
+# check _jm_obj_0_mup_c ($.'$R'.c)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.c
@@ -60,7 +60,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.c]", path))
     return res
 
-# check _jm_obj_0_must_d ($.'$R'.d)
+# check _jm_obj_0_mup_d ($.'$R'.d)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.d
@@ -80,7 +80,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
+        if pfun := _jm_obj_0_mup.get(prop):
             # handle 4 must props
             if pfun != UNDEFINED:
                 must_count += 1
@@ -151,7 +151,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Z']", path))
     return res
 
-# check _jm_obj_2_must_a ($.a)
+# check _jm_obj_2_mup_a ($.a)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.a
@@ -160,7 +160,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.a]", path))
     return res
 
-# check _jm_obj_2_must_b ($.b)
+# check _jm_obj_2_mup_b ($.b)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.b
@@ -169,7 +169,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.b]", path))
     return res
 
-# check _jm_obj_2_must_c ($.c)
+# check _jm_obj_2_mup_c ($.c)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.c
@@ -178,7 +178,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.c]", path))
     return res
 
-# check _jm_obj_2_must_d ($.d)
+# check _jm_obj_2_mup_d ($.d)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.d
@@ -187,7 +187,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.d]", path))
     return res
 
-# check _jm_obj_2_must_e ($.e)
+# check _jm_obj_2_mup_e ($.e)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.e
@@ -196,7 +196,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_02 [$.e]", path))
     return res
 
-# check _jm_obj_2_must_f ($.f)
+# check _jm_obj_2_mup_f ($.f)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.f
@@ -216,7 +216,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
+        if pfun := _jm_obj_2_mup.get(prop):
             # handle 6 must props
             if pfun != UNDEFINED:
                 must_count += 1
@@ -249,15 +249,15 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
+        global _jm_obj_0_mup
+        _jm_obj_0_mup = {
             "a": _jm_f_0,
             "b": _jm_f_1,
             "c": _jm_f_2,
             "d": _jm_f_3,
         }
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
+        global _jm_obj_2_mup
+        _jm_obj_2_mup = {
             "a": _jm_f_4,
             "b": _jm_f_5,
             "c": _jm_f_6,

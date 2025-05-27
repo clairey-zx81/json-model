@@ -41,7 +41,7 @@ static bool _jm_f_30(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_31(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_32(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_33(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[34];
+static propmap_t _jm_obj_0_map_tab[34];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[7];
 const size_t check_model_map_size = 7;
@@ -199,7 +199,7 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$ref ($.'$ref')
+// check _jm_obj_0_map_$ref ($.'$ref')
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -212,7 +212,7 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$schema ($.'$schema')
+// check _jm_obj_0_map_$schema ($.'$schema')
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -225,7 +225,7 @@ static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_additionalItems ($.additionalItems)
+// check _jm_obj_0_map_additionalItems ($.additionalItems)
 static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -252,7 +252,7 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_additionalProperties ($.additionalProperties)
+// check _jm_obj_0_map_additionalProperties ($.additionalProperties)
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -279,7 +279,7 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_allOf ($.allOf)
+// check _jm_obj_0_map_allOf ($.allOf)
 static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -292,7 +292,7 @@ static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_anyOf ($.anyOf)
+// check _jm_obj_0_map_anyOf ($.anyOf)
 static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -305,7 +305,7 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_default ($.default)
+// check _jm_obj_0_map_default ($.default)
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -347,7 +347,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_definitions ($.definitions)
+// check _jm_obj_0_map_definitions ($.definitions)
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -403,7 +403,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_dependencies ($.dependencies)
+// check _jm_obj_0_map_dependencies ($.dependencies)
 static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -416,7 +416,7 @@ static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_description ($.description)
+// check _jm_obj_0_map_description ($.description)
 static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -429,7 +429,7 @@ static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_enum ($.enum)
+// check _jm_obj_0_map_enum ($.enum)
 static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -456,7 +456,7 @@ static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_exclusiveMaximum ($.exclusiveMaximum)
+// check _jm_obj_0_map_exclusiveMaximum ($.exclusiveMaximum)
 static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -469,7 +469,7 @@ static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_exclusiveMinimum ($.exclusiveMinimum)
+// check _jm_obj_0_map_exclusiveMinimum ($.exclusiveMinimum)
 static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -482,7 +482,7 @@ static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_format ($.format)
+// check _jm_obj_0_map_format ($.format)
 static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -495,7 +495,7 @@ static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_id ($.id)
+// check _jm_obj_0_map_id ($.id)
 static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -508,7 +508,7 @@ static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_items ($.items)
+// check _jm_obj_0_map_items ($.items)
 static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -535,7 +535,7 @@ static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_maxItems ($.maxItems)
+// check _jm_obj_0_map_maxItems ($.maxItems)
 static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -548,7 +548,7 @@ static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_maxLength ($.maxLength)
+// check _jm_obj_0_map_maxLength ($.maxLength)
 static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -561,7 +561,7 @@ static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_maxProperties ($.maxProperties)
+// check _jm_obj_0_map_maxProperties ($.maxProperties)
 static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -574,7 +574,7 @@ static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_maximum ($.maximum)
+// check _jm_obj_0_map_maximum ($.maximum)
 static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -587,7 +587,7 @@ static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_minItems ($.minItems)
+// check _jm_obj_0_map_minItems ($.minItems)
 static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -600,7 +600,7 @@ static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_minLength ($.minLength)
+// check _jm_obj_0_map_minLength ($.minLength)
 static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -613,7 +613,7 @@ static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_minProperties ($.minProperties)
+// check _jm_obj_0_map_minProperties ($.minProperties)
 static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -626,7 +626,7 @@ static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_minimum ($.minimum)
+// check _jm_obj_0_map_minimum ($.minimum)
 static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -639,7 +639,7 @@ static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_multipleOf ($.multipleOf)
+// check _jm_obj_0_map_multipleOf ($.multipleOf)
 static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -652,7 +652,7 @@ static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_not ($.not)
+// check _jm_obj_0_map_not ($.not)
 static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -665,7 +665,7 @@ static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_oneOf ($.oneOf)
+// check _jm_obj_0_map_oneOf ($.oneOf)
 static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -678,7 +678,7 @@ static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_pattern ($.pattern)
+// check _jm_obj_0_map_pattern ($.pattern)
 static bool _jm_f_27(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -720,7 +720,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_patternProperties ($.patternProperties)
+// check _jm_obj_0_map_patternProperties ($.patternProperties)
 static bool _jm_f_28(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -762,7 +762,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_properties ($.properties)
+// check _jm_obj_0_map_properties ($.properties)
 static bool _jm_f_29(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -775,7 +775,7 @@ static bool _jm_f_29(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_required ($.required)
+// check _jm_obj_0_map_required ($.required)
 static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -788,7 +788,7 @@ static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_title ($.title)
+// check _jm_obj_0_map_title ($.title)
 static bool _jm_f_31(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -801,7 +801,7 @@ static bool _jm_f_31(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_type ($.type)
+// check _jm_obj_0_map_type ($.type)
 static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -828,7 +828,7 @@ static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_uniqueItems ($.uniqueItems)
+// check _jm_obj_0_map_uniqueItems ($.uniqueItems)
 static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -841,9 +841,9 @@ static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_0_may(const char *pname)
+static check_fun_t _jm_obj_0_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 34);
+    return jm_search_propmap(pname, _jm_obj_0_map_tab, 34);
 }
 
 // object $
@@ -860,9 +860,9 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_may(prop)))
+        if ((pfun = _jm_obj_0_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 34 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$]", (path ? &lpath_0 : NULL));
@@ -913,41 +913,41 @@ char *CHECK_init(void)
         _jm_cst_0[5] = (constant_t) { cst_is_string, { .s = "array" } };
         _jm_cst_0[6] = (constant_t) { cst_is_string, { .s = "object" } };
         jm_sort_cst(_jm_cst_0, 7);
-        _jm_obj_0_may_tab[0] = (propmap_t) { "$ref", _jm_f_0 };
-        _jm_obj_0_may_tab[1] = (propmap_t) { "$schema", _jm_f_1 };
-        _jm_obj_0_may_tab[2] = (propmap_t) { "additionalItems", _jm_f_2 };
-        _jm_obj_0_may_tab[3] = (propmap_t) { "additionalProperties", _jm_f_3 };
-        _jm_obj_0_may_tab[4] = (propmap_t) { "allOf", _jm_f_4 };
-        _jm_obj_0_may_tab[5] = (propmap_t) { "anyOf", _jm_f_5 };
-        _jm_obj_0_may_tab[6] = (propmap_t) { "default", _jm_f_6 };
-        _jm_obj_0_may_tab[7] = (propmap_t) { "definitions", _jm_f_7 };
-        _jm_obj_0_may_tab[8] = (propmap_t) { "dependencies", _jm_f_8 };
-        _jm_obj_0_may_tab[9] = (propmap_t) { "description", _jm_f_9 };
-        _jm_obj_0_may_tab[10] = (propmap_t) { "enum", _jm_f_10 };
-        _jm_obj_0_may_tab[11] = (propmap_t) { "exclusiveMaximum", _jm_f_11 };
-        _jm_obj_0_may_tab[12] = (propmap_t) { "exclusiveMinimum", _jm_f_12 };
-        _jm_obj_0_may_tab[13] = (propmap_t) { "format", _jm_f_13 };
-        _jm_obj_0_may_tab[14] = (propmap_t) { "id", _jm_f_14 };
-        _jm_obj_0_may_tab[15] = (propmap_t) { "items", _jm_f_15 };
-        _jm_obj_0_may_tab[16] = (propmap_t) { "maxItems", _jm_f_16 };
-        _jm_obj_0_may_tab[17] = (propmap_t) { "maxLength", _jm_f_17 };
-        _jm_obj_0_may_tab[18] = (propmap_t) { "maxProperties", _jm_f_18 };
-        _jm_obj_0_may_tab[19] = (propmap_t) { "maximum", _jm_f_19 };
-        _jm_obj_0_may_tab[20] = (propmap_t) { "minItems", _jm_f_20 };
-        _jm_obj_0_may_tab[21] = (propmap_t) { "minLength", _jm_f_21 };
-        _jm_obj_0_may_tab[22] = (propmap_t) { "minProperties", _jm_f_22 };
-        _jm_obj_0_may_tab[23] = (propmap_t) { "minimum", _jm_f_23 };
-        _jm_obj_0_may_tab[24] = (propmap_t) { "multipleOf", _jm_f_24 };
-        _jm_obj_0_may_tab[25] = (propmap_t) { "not", _jm_f_25 };
-        _jm_obj_0_may_tab[26] = (propmap_t) { "oneOf", _jm_f_26 };
-        _jm_obj_0_may_tab[27] = (propmap_t) { "pattern", _jm_f_27 };
-        _jm_obj_0_may_tab[28] = (propmap_t) { "patternProperties", _jm_f_28 };
-        _jm_obj_0_may_tab[29] = (propmap_t) { "properties", _jm_f_29 };
-        _jm_obj_0_may_tab[30] = (propmap_t) { "required", _jm_f_30 };
-        _jm_obj_0_may_tab[31] = (propmap_t) { "title", _jm_f_31 };
-        _jm_obj_0_may_tab[32] = (propmap_t) { "type", _jm_f_32 };
-        _jm_obj_0_may_tab[33] = (propmap_t) { "uniqueItems", _jm_f_33 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 34);
+        _jm_obj_0_map_tab[0] = (propmap_t) { "$ref", _jm_f_0 };
+        _jm_obj_0_map_tab[1] = (propmap_t) { "$schema", _jm_f_1 };
+        _jm_obj_0_map_tab[2] = (propmap_t) { "additionalItems", _jm_f_2 };
+        _jm_obj_0_map_tab[3] = (propmap_t) { "additionalProperties", _jm_f_3 };
+        _jm_obj_0_map_tab[4] = (propmap_t) { "allOf", _jm_f_4 };
+        _jm_obj_0_map_tab[5] = (propmap_t) { "anyOf", _jm_f_5 };
+        _jm_obj_0_map_tab[6] = (propmap_t) { "default", _jm_f_6 };
+        _jm_obj_0_map_tab[7] = (propmap_t) { "definitions", _jm_f_7 };
+        _jm_obj_0_map_tab[8] = (propmap_t) { "dependencies", _jm_f_8 };
+        _jm_obj_0_map_tab[9] = (propmap_t) { "description", _jm_f_9 };
+        _jm_obj_0_map_tab[10] = (propmap_t) { "enum", _jm_f_10 };
+        _jm_obj_0_map_tab[11] = (propmap_t) { "exclusiveMaximum", _jm_f_11 };
+        _jm_obj_0_map_tab[12] = (propmap_t) { "exclusiveMinimum", _jm_f_12 };
+        _jm_obj_0_map_tab[13] = (propmap_t) { "format", _jm_f_13 };
+        _jm_obj_0_map_tab[14] = (propmap_t) { "id", _jm_f_14 };
+        _jm_obj_0_map_tab[15] = (propmap_t) { "items", _jm_f_15 };
+        _jm_obj_0_map_tab[16] = (propmap_t) { "maxItems", _jm_f_16 };
+        _jm_obj_0_map_tab[17] = (propmap_t) { "maxLength", _jm_f_17 };
+        _jm_obj_0_map_tab[18] = (propmap_t) { "maxProperties", _jm_f_18 };
+        _jm_obj_0_map_tab[19] = (propmap_t) { "maximum", _jm_f_19 };
+        _jm_obj_0_map_tab[20] = (propmap_t) { "minItems", _jm_f_20 };
+        _jm_obj_0_map_tab[21] = (propmap_t) { "minLength", _jm_f_21 };
+        _jm_obj_0_map_tab[22] = (propmap_t) { "minProperties", _jm_f_22 };
+        _jm_obj_0_map_tab[23] = (propmap_t) { "minimum", _jm_f_23 };
+        _jm_obj_0_map_tab[24] = (propmap_t) { "multipleOf", _jm_f_24 };
+        _jm_obj_0_map_tab[25] = (propmap_t) { "not", _jm_f_25 };
+        _jm_obj_0_map_tab[26] = (propmap_t) { "oneOf", _jm_f_26 };
+        _jm_obj_0_map_tab[27] = (propmap_t) { "pattern", _jm_f_27 };
+        _jm_obj_0_map_tab[28] = (propmap_t) { "patternProperties", _jm_f_28 };
+        _jm_obj_0_map_tab[29] = (propmap_t) { "properties", _jm_f_29 };
+        _jm_obj_0_map_tab[30] = (propmap_t) { "required", _jm_f_30 };
+        _jm_obj_0_map_tab[31] = (propmap_t) { "title", _jm_f_31 };
+        _jm_obj_0_map_tab[32] = (propmap_t) { "type", _jm_f_32 };
+        _jm_obj_0_map_tab[33] = (propmap_t) { "uniqueItems", _jm_f_33 };
+        jm_sort_propmap(_jm_obj_0_map_tab, 34);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "URI", json_model_2 };
         check_model_map_tab[2] = (propmap_t) { "schemaArray", json_model_3 };

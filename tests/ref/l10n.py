@@ -24,7 +24,7 @@ _jm_re_0_search: Callable
 _jm_re_0: RegexFun
 _jm_re_1_search: Callable
 _jm_re_1: RegexFun
-_jm_obj_0_must: PropMap
+_jm_obj_0_mup: PropMap
 check_model_map: PropMap
 
 # object $.'$'
@@ -64,7 +64,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check _jm_obj_0_must_$ ($.'$')
+# check _jm_obj_0_mup_$ ($.'$')
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$'
@@ -98,7 +98,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     return True
 
-# check _jm_obj_0_must_% ($.'%')
+# check _jm_obj_0_mup_% ($.'%')
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'%'
@@ -107,7 +107,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'%']", path))
     return res
 
-# check _jm_obj_0_must_@ ($.'@')
+# check _jm_obj_0_mup_@ ($.'@')
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'@'
@@ -116,7 +116,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _$Model [$.'@']", path))
     return res
 
-# check _jm_obj_0_must_~ ($.'~')
+# check _jm_obj_0_mup_~ ($.'~')
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'~'
@@ -137,7 +137,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_must.get(prop):
+        if pfun := _jm_obj_0_mup.get(prop):
             # handle 4 must props
             if pfun != UNDEFINED:
                 must_count += 1
@@ -185,8 +185,8 @@ def check_model_init():
         global _jm_re_1_search, _jm_re_1
         _jm_re_1_search = re.compile("^([#~$%@|&+^/*=]|[<>!]=?)$").search
         _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
-        global _jm_obj_0_must
-        _jm_obj_0_must = {
+        global _jm_obj_0_mup
+        _jm_obj_0_mup = {
             "$": _jm_f_0,
             "%": _jm_f_1,
             "@": _jm_f_2,

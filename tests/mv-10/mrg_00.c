@@ -5,12 +5,12 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_must_tab[4];
+static propmap_t _jm_obj_0_mup_tab[4];
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check _jm_obj_0_must_a ($.a)
+// check _jm_obj_0_mup_a ($.a)
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -23,7 +23,7 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_must_b ($.b)
+// check _jm_obj_0_mup_b ($.b)
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -36,7 +36,7 @@ static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_must_c ($.c)
+// check _jm_obj_0_mup_c ($.c)
 static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -49,7 +49,7 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_must_d ($.d)
+// check _jm_obj_0_mup_d ($.d)
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -62,9 +62,9 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_0_must(const char *pname)
+static check_fun_t _jm_obj_0_mup(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_0_must_tab, 4);
+    return jm_search_propmap(pname, _jm_obj_0_mup_tab, 4);
 }
 
 // object $
@@ -82,7 +82,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_must(prop)))
+        if ((pfun = _jm_obj_0_mup(prop)))
         {
             // handle 4 must props
             if (pfun != NULL)
@@ -135,11 +135,11 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_0_must_tab[0] = (propmap_t) { "a", _jm_f_0 };
-        _jm_obj_0_must_tab[1] = (propmap_t) { "b", _jm_f_1 };
-        _jm_obj_0_must_tab[2] = (propmap_t) { "c", _jm_f_2 };
-        _jm_obj_0_must_tab[3] = (propmap_t) { "d", _jm_f_3 };
-        jm_sort_propmap(_jm_obj_0_must_tab, 4);
+        _jm_obj_0_mup_tab[0] = (propmap_t) { "a", _jm_f_0 };
+        _jm_obj_0_mup_tab[1] = (propmap_t) { "b", _jm_f_1 };
+        _jm_obj_0_mup_tab[2] = (propmap_t) { "c", _jm_f_2 };
+        _jm_obj_0_mup_tab[3] = (propmap_t) { "d", _jm_f_3 };
+        jm_sort_propmap(_jm_obj_0_mup_tab, 4);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

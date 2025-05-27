@@ -2,25 +2,17 @@
 
 ## Current Tasks
 
-- [x] tests: split modval directory for better parallelization (wip)
-- [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
-- [x] project: switch version to beta.
-- [x] tests: drop `fuzzy` name, re-test for stricter versions
-- [x] tests: chunk tests in smaller directories to please xdist
-- [x] command: add test vector mode with `--test-vector`
-- [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
-- [x] tests: fix `wip/openapi-310-models`
-- [x] tests: optimized openapi-310-models should have fully removed schema stuff
-- [x] static: optimize 1 must or may property case with a direct comparison
-- [x] static: choose threshold for switching between few/may must/may props
-- [ ] static: reuse already generated may/must maps when possible
+- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
+- [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
-- [ ] command: rething option usage for compilation.
+- [ ] tests: allow options for specific tests from pytest
+- [ ] command: rethink option usage for compilation
 - [ ] backend: fix `untype00` schema
-- [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with ConstSet
+- [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
+- [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: also prefix type name and extensions with `jm_`
-- [ ] c-backend: optimize unique for scalars using `constant_t`
+- [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] c-backend: fast `$REGEX` implementation (wip)
 - [ ] c-backend: report missing must property names by reinvestigating.
 - [ ] backend: move python-specifics from `language.py` to `python.py`
@@ -42,8 +34,6 @@
 ## To Do
 
 - [ ] project: establish priority
-- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/$REGEX/\$/v"`
-- [ ] design: more predefs: `"$EMAIL"`, `"$URI"`
 - [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: improve backlog management with thematic sections
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
@@ -284,3 +274,16 @@
 - [x] tests: remove `.x.`
 - [x] tests: add `tmp_dir` fixture.
 - [x] tests: improve compilation locking for parallel pytest.
+- [x] tests: split modval directory for better parallelization (wip)
+- [x] tests: refactor all tests with `pytest` to avoid SSD file delete/create cycles (wip)
+- [x] project: switch version to beta.
+- [x] tests: drop `fuzzy` name, re-test for stricter versions
+- [x] tests: chunk tests in smaller directories to please xdist
+- [x] command: add test vector mode with `--test-vector`
+- [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
+- [x] tests: fix `wip/openapi-310-models`
+- [x] tests: optimized openapi-310-models should have fully removed schema stuff
+- [x] static: optimize 1 must or may property case with a direct comparison
+- [x] static: choose threshold for switching between few/may must/may props
+- [x] static: reuse already generated may/must maps when possible (under `--map-share`)
+- [~] static: use common must/may map with must/may boolean? maybe not?

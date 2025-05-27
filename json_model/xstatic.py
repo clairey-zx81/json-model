@@ -4,7 +4,7 @@ from typing import Callable
 import re
 import json
 
-from .mtypes import ModelType, ModelArray, ModelError, ModelPath, Symbols
+from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, json_path
@@ -34,7 +34,7 @@ class SourceCode(Validator):
     """
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
-                 prefix: str = "", map_threshold: int = 3,
+                 prefix: str = "", map_threshold: int = 3, map_share: bool = False,
                  report: bool = True, path: bool = True, debug: bool = False):
 
         super().__init__()
@@ -43,6 +43,7 @@ class SourceCode(Validator):
         self._lang = language
         self._prefix = prefix
         self._map_threshold = map_threshold
+        self._map_share = map_share
         self._report = report
         self._path = path
         self._debug = debug
@@ -256,7 +257,7 @@ class SourceCode(Validator):
                 assert tmodel is str  # redundant sanity check
                 sval = gen.ident("sval")
                 cvars += [
-                    gen.str_var(sval, gen.value(val, str), declare=True) 
+                    gen.str_var(sval, gen.value(val, str), declare=True)
                 ]
             for op in sorted(cmp_props):  # FIXME looseness?
                 vop = model[op]
@@ -372,6 +373,33 @@ class SourceCode(Validator):
         gen = self._lang
         return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.const(False)) ])
 
+    def _propmap_name(self, model: ModelObject, default: str) -> str:
+        """Memoize property map names for reuse.
+
+        However, generated model path are wrong.
+        """
+        assert isinstance(model, dict)
+        if not self._map_share:
+            return default
+        # TODO ignore comments?!
+        smodel = json.dumps(model, sort_keys=True)
+        if smodel in self._generated_maps:
+            return self._generated_maps[smodel]
+        else:
+            self._generated_maps[smodel] = default
+            return default
+
+    def _propmap_gen(self, jm: JsonModel, model: ModelObject, name: str, mpath: ModelPath):
+        """Generate property map for sub-model."""
+        assert isinstance(model, dict)
+        prop_map: dict[str, str] = {}
+        for p in sorted(model.keys()):
+            m = model[p]
+            pid = f"{name}_{p}"  # unique identifier for value function
+            self._compileName(jm, pid, m, mpath + [p], True)
+            prop_map[p] = self._getName(jm, pid)
+        self._code.pmap(name, prop_map)
+
     def _compileObject(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                        oname: str, res: str, val: str, vpath: str) -> Block:
         """Generate the body of a function which checks an actual object."""
@@ -426,6 +454,7 @@ class SourceCode(Validator):
             code += [ gen.int_var(must_c, gen.const(0), True) ]
 
             if len(must) <= self._map_threshold:  # direct property checks
+
                 for p, m in must.items():
                     mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     mu_code = (
@@ -439,16 +468,15 @@ class SourceCode(Validator):
                     multi_if += [(mu_expr, mu_code)]
 
             else:  # generic code above threshold
-                prop_must = f"{oname}_must"
-                prop_must_map: dict[str, str] = {}
-                for p in sorted(must.keys()):
-                    m = must[p]
-                    pid = f"{prop_must}_{p}"  # tmp unique identifier
-                    self._compileName(jm, pid, m, mpath + [p], True)
-                    prop_must_map[p] = self._getName(jm, pid)
 
-                self._code.pmap(prop_must, prop_must_map)
+                candidate = f"{oname}_mup"
+                prop_must = self._propmap_name(must, candidate)
 
+                # no reuse, generate new map
+                if prop_must == candidate:
+                    self._propmap_gen(jm, must, prop_must, mpath)
+
+                # use map
                 mu_expr = gen.prop_fun(pfun, prop, prop_must)
                 mu_code = (
                     [ gen.lcom(f"handle {len(must)} must props") ] +
@@ -461,7 +489,9 @@ class SourceCode(Validator):
                 multi_if += [(mu_expr, mu_code)]
 
         if may:
+
             if len(may) <= self._map_threshold:  # simple one-property code
+
                 for p, m in may.items():
                     ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     ma_code = (
@@ -471,23 +501,19 @@ class SourceCode(Validator):
                             self._gen_fail(f"invalid may property value [{smpath}.{p}]", lpath_ref)
                         )
                     )
-
                     multi_if += [(ma_expr, ma_code)]
 
             else:  # generic code
-                prop_may = f"{oname}_may"
-                prop_may_map: dict[str, str] = {}
-                for p in sorted(may.keys()):
-                    m = may[p]
-                    pid = f"{prop_may}_{p}"
-                    self._compileName(jm, pid, m, mpath + [p])
-                    prop_may_map[p] = self._getName(jm, pid)
 
-                self._code.pmap(prop_may, prop_may_map)
+                candidate = f"{oname}_map"
+                prop_may = self._propmap_name(may, candidate)
+
+                if prop_may == candidate:
+                    self._propmap_gen(jm, may, prop_may, mpath)
 
                 ma_expr = gen.prop_fun(pfun, prop, prop_may)
                 ma_code = (
-                    [ gen.lcom("handle {len(may)} may props") ] +
+                    [ gen.lcom(f"handle {len(may)} may props") ] +
                     gen.if_stmt(gen.and_op(gen.is_def(pfun),
                                            gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
                         self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref))
@@ -1150,6 +1176,7 @@ def xstatic_compile(
         lang: str = "py",
         prefix: str = "_jm_",
         map_threshold: int = 3,
+        map_share: bool = False,
         debug: bool = False,
         report: bool = True,
     ) -> SourceCode:
@@ -1160,6 +1187,7 @@ def xstatic_compile(
     - lang: name of target language.
     - prefix: prefix for generated functions.
     - map_threshold: inline property checks under this threshold.
+    - map_share: share generated property maps.
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     """
@@ -1175,7 +1203,7 @@ def xstatic_compile(
 
     # cource code generator
     sc = SourceCode(model._globs, language, fname, prefix=prefix,
-                    map_threshold=map_threshold, debug=debug, report=report)
+                    map_threshold=map_threshold, map_share=map_share, debug=debug, report=report)
 
     # generate
     code = sc.compileJsonModelHead(model)

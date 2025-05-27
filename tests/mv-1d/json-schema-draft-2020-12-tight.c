@@ -12,7 +12,7 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_0_may_tab[9];
+static propmap_t _jm_obj_0_map_tab[9];
 static bool json_model_4(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_10(const json_t* val, Path* path, Report* rep);
@@ -21,7 +21,7 @@ static bool _jm_f_12(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_13(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_14(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_15(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_3_may_tab[7];
+static propmap_t _jm_obj_3_map_tab[7];
 static bool json_model_5(const json_t* val, Path* path, Report* rep);
 static bool json_model_6(const json_t* val, Path* path, Report* rep);
 static bool json_model_7(const json_t* val, Path* path, Report* rep);
@@ -30,14 +30,14 @@ static bool _jm_f_17(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_18(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_19(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_20(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_6_may_tab[5];
+static propmap_t _jm_obj_6_map_tab[5];
 static bool json_model_8(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_21(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_22(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_23(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_24(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_25(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_7_may_tab[5];
+static propmap_t _jm_obj_7_map_tab[5];
 static bool json_model_9(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_26(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_27(const json_t* val, Path* path, Report* rep);
@@ -46,7 +46,7 @@ static bool _jm_f_29(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_30(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_31(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_32(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_8_may_tab[7];
+static propmap_t _jm_obj_8_map_tab[7];
 static bool json_model_10(const json_t* val, Path* path, Report* rep);
 static bool json_model_11(const json_t* val, Path* path, Report* rep);
 static bool json_model_12(const json_t* val, Path* path, Report* rep);
@@ -59,7 +59,7 @@ static bool _jm_f_38(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_39(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_40(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_41(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_9_may_tab[9];
+static propmap_t _jm_obj_9_map_tab[9];
 static bool json_model_13(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_42(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_43(const json_t* val, Path* path, Report* rep);
@@ -71,7 +71,7 @@ static bool _jm_f_48(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_49(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_50(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_51(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_10_may_tab[10];
+static propmap_t _jm_obj_10_map_tab[10];
 static bool json_model_14(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_52(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_53(const json_t* val, Path* path, Report* rep);
@@ -82,7 +82,7 @@ static bool _jm_f_57(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_58(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_59(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_60(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_15_may_tab[9];
+static propmap_t _jm_obj_15_map_tab[9];
 static bool json_model_15(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_61(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_62(const json_t* val, Path* path, Report* rep);
@@ -109,7 +109,7 @@ static bool _jm_f_82(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_83(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_84(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_85(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_16_may_tab[25];
+static propmap_t _jm_obj_16_map_tab[25];
 static bool _jm_f_86(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_87(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_88(const json_t* val, Path* path, Report* rep);
@@ -136,7 +136,7 @@ static bool _jm_f_108(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_109(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_110(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_111(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_19_may_tab[26];
+static propmap_t _jm_obj_19_map_tab[26];
 static bool _jm_f_112(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_113(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_114(const json_t* val, Path* path, Report* rep);
@@ -162,7 +162,7 @@ static bool _jm_f_133(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_134(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_135(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_136(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_26_may_tab[25];
+static propmap_t _jm_obj_26_map_tab[25];
 static bool _jm_f_137(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_138(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_139(const json_t* val, Path* path, Report* rep);
@@ -186,7 +186,7 @@ static bool _jm_f_156(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_157(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_158(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_159(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_29_may_tab[23];
+static propmap_t _jm_obj_29_map_tab[23];
 static bool _jm_f_160(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_161(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_162(const json_t* val, Path* path, Report* rep);
@@ -208,7 +208,7 @@ static bool _jm_f_177(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_178(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_179(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_180(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_32_may_tab[21];
+static propmap_t _jm_obj_32_map_tab[21];
 static bool _jm_f_181(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_182(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_183(const json_t* val, Path* path, Report* rep);
@@ -230,7 +230,7 @@ static bool _jm_f_198(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_199(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_200(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_201(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_35_may_tab[21];
+static propmap_t _jm_obj_35_map_tab[21];
 static bool _jm_f_202(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_203(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_204(const json_t* val, Path* path, Report* rep);
@@ -247,7 +247,7 @@ static bool _jm_f_214(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_215(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_216(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_217(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_38_may_tab[16];
+static propmap_t _jm_obj_38_map_tab[16];
 static bool _jm_f_218(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_219(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_220(const json_t* val, Path* path, Report* rep);
@@ -264,7 +264,7 @@ static bool _jm_f_230(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_231(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_232(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_233(const json_t* val, Path* path, Report* rep);
-static propmap_t _jm_obj_41_may_tab[16];
+static propmap_t _jm_obj_41_map_tab[16];
 static bool json_model_16(const json_t* val, Path* path, Report* rep);
 static bool json_model_17(const json_t* val, Path* path, Report* rep);
 static bool json_model_1(const json_t* val, Path* path, Report* rep);
@@ -297,7 +297,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$anchor ($.'$core'.'$anchor')
+// check _jm_obj_0_map_$anchor ($.'$core'.'$anchor')
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -310,7 +310,7 @@ static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$comment ($.'$core'.'$comment')
+// check _jm_obj_0_map_$comment ($.'$core'.'$comment')
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -352,7 +352,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_$defs ($.'$core'.'$defs')
+// check _jm_obj_0_map_$defs ($.'$core'.'$defs')
 static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -365,7 +365,7 @@ static bool _jm_f_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$dynamicAnchor ($.'$core'.'$dynamicAnchor')
+// check _jm_obj_0_map_$dynamicAnchor ($.'$core'.'$dynamicAnchor')
 static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -378,7 +378,7 @@ static bool _jm_f_3(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$dynamicRef ($.'$core'.'$dynamicRef')
+// check _jm_obj_0_map_$dynamicRef ($.'$core'.'$dynamicRef')
 static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -391,7 +391,7 @@ static bool _jm_f_4(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$id ($.'$core'.'$id')
+// check _jm_obj_0_map_$id ($.'$core'.'$id')
 static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -404,7 +404,7 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$ref ($.'$core'.'$ref')
+// check _jm_obj_0_map_$ref ($.'$core'.'$ref')
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -417,7 +417,7 @@ static bool _jm_f_6(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_0_may_$schema ($.'$core'.'$schema')
+// check _jm_obj_0_map_$schema ($.'$core'.'$schema')
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -467,7 +467,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_0_may_$vocabulary ($.'$core'.'$vocabulary')
+// check _jm_obj_0_map_$vocabulary ($.'$core'.'$vocabulary')
 static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -480,9 +480,9 @@ static bool _jm_f_8(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_0_may(const char *pname)
+static check_fun_t _jm_obj_0_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_0_may_tab, 9);
+    return jm_search_propmap(pname, _jm_obj_0_map_tab, 9);
 }
 
 // object $.'$core'
@@ -499,9 +499,9 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_may(prop)))
+        if ((pfun = _jm_obj_0_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 9 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_0 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$core']", (path ? &lpath_0 : NULL));
@@ -530,7 +530,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_default ($.'$meta'.default)
+// check _jm_obj_3_map_default ($.'$meta'.default)
 static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -543,7 +543,7 @@ static bool _jm_f_9(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_deprecated ($.'$meta'.deprecated)
+// check _jm_obj_3_map_deprecated ($.'$meta'.deprecated)
 static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -556,7 +556,7 @@ static bool _jm_f_10(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_description ($.'$meta'.description)
+// check _jm_obj_3_map_description ($.'$meta'.description)
 static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -569,7 +569,7 @@ static bool _jm_f_11(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_examples ($.'$meta'.examples)
+// check _jm_obj_3_map_examples ($.'$meta'.examples)
 static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -586,7 +586,7 @@ static bool _jm_f_12(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_readOnly ($.'$meta'.readOnly)
+// check _jm_obj_3_map_readOnly ($.'$meta'.readOnly)
 static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -599,7 +599,7 @@ static bool _jm_f_13(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_title ($.'$meta'.title)
+// check _jm_obj_3_map_title ($.'$meta'.title)
 static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -612,7 +612,7 @@ static bool _jm_f_14(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_3_may_writeOnly ($.'$meta'.writeOnly)
+// check _jm_obj_3_map_writeOnly ($.'$meta'.writeOnly)
 static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -625,9 +625,9 @@ static bool _jm_f_15(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_3_may(const char *pname)
+static check_fun_t _jm_obj_3_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_3_may_tab, 7);
+    return jm_search_propmap(pname, _jm_obj_3_map_tab, 7);
 }
 
 // object $.'$meta'
@@ -644,9 +644,9 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_3 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_3_may(prop)))
+        if ((pfun = _jm_obj_3_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 7 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_3 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$meta']", (path ? &lpath_3 : NULL));
@@ -791,7 +791,7 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_6_may_exclusiveMaximum ($.'$Number'.exclusiveMaximum)
+// check _jm_obj_6_map_exclusiveMaximum ($.'$Number'.exclusiveMaximum)
 static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -818,7 +818,7 @@ static bool _jm_f_16(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_6_may_exclusiveMinimum ($.'$Number'.exclusiveMinimum)
+// check _jm_obj_6_map_exclusiveMinimum ($.'$Number'.exclusiveMinimum)
 static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -845,7 +845,7 @@ static bool _jm_f_17(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_6_may_maximum ($.'$Number'.maximum)
+// check _jm_obj_6_map_maximum ($.'$Number'.maximum)
 static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -872,7 +872,7 @@ static bool _jm_f_18(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_6_may_minimum ($.'$Number'.minimum)
+// check _jm_obj_6_map_minimum ($.'$Number'.minimum)
 static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -899,7 +899,7 @@ static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_6_may_multipleOf ($.'$Number'.multipleOf)
+// check _jm_obj_6_map_multipleOf ($.'$Number'.multipleOf)
 static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -926,9 +926,9 @@ static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_6_may(const char *pname)
+static check_fun_t _jm_obj_6_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_6_may_tab, 5);
+    return jm_search_propmap(pname, _jm_obj_6_map_tab, 5);
 }
 
 // object $.'$Number'
@@ -963,9 +963,9 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_6_may(prop)))
+        else if ((pfun = _jm_obj_6_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 5 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_6 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Number']", (path ? &lpath_6 : NULL));
@@ -999,7 +999,7 @@ static bool json_model_8(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_7_may_exclusiveMaximum ($.'$Integer'.exclusiveMaximum)
+// check _jm_obj_7_map_exclusiveMaximum ($.'$Integer'.exclusiveMaximum)
 static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1012,7 +1012,7 @@ static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_7_may_exclusiveMinimum ($.'$Integer'.exclusiveMinimum)
+// check _jm_obj_7_map_exclusiveMinimum ($.'$Integer'.exclusiveMinimum)
 static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1025,7 +1025,7 @@ static bool _jm_f_22(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_7_may_maximum ($.'$Integer'.maximum)
+// check _jm_obj_7_map_maximum ($.'$Integer'.maximum)
 static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1038,7 +1038,7 @@ static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_7_may_minimum ($.'$Integer'.minimum)
+// check _jm_obj_7_map_minimum ($.'$Integer'.minimum)
 static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1051,7 +1051,7 @@ static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_7_may_multipleOf ($.'$Integer'.multipleOf)
+// check _jm_obj_7_map_multipleOf ($.'$Integer'.multipleOf)
 static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1064,9 +1064,9 @@ static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_7_may(const char *pname)
+static check_fun_t _jm_obj_7_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_7_may_tab, 5);
+    return jm_search_propmap(pname, _jm_obj_7_map_tab, 5);
 }
 
 // object $.'$Integer'
@@ -1101,9 +1101,9 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_7_may(prop)))
+        else if ((pfun = _jm_obj_7_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 5 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_7 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Integer']", (path ? &lpath_7 : NULL));
@@ -1137,7 +1137,7 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_contentEncoding ($.'$String'.contentEncoding)
+// check _jm_obj_8_map_contentEncoding ($.'$String'.contentEncoding)
 static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1150,7 +1150,7 @@ static bool _jm_f_26(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_contentMediaType ($.'$String'.contentMediaType)
+// check _jm_obj_8_map_contentMediaType ($.'$String'.contentMediaType)
 static bool _jm_f_27(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1163,7 +1163,7 @@ static bool _jm_f_27(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_contentSchema ($.'$String'.contentSchema)
+// check _jm_obj_8_map_contentSchema ($.'$String'.contentSchema)
 static bool _jm_f_28(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1176,7 +1176,7 @@ static bool _jm_f_28(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_format ($.'$String'.format)
+// check _jm_obj_8_map_format ($.'$String'.format)
 static bool _jm_f_29(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1189,7 +1189,7 @@ static bool _jm_f_29(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_maxLength ($.'$String'.maxLength)
+// check _jm_obj_8_map_maxLength ($.'$String'.maxLength)
 static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1202,7 +1202,7 @@ static bool _jm_f_30(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_minLength ($.'$String'.minLength)
+// check _jm_obj_8_map_minLength ($.'$String'.minLength)
 static bool _jm_f_31(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1215,7 +1215,7 @@ static bool _jm_f_31(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_8_may_pattern ($.'$String'.pattern)
+// check _jm_obj_8_map_pattern ($.'$String'.pattern)
 static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1228,9 +1228,9 @@ static bool _jm_f_32(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_8_may(const char *pname)
+static check_fun_t _jm_obj_8_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_8_may_tab, 7);
+    return jm_search_propmap(pname, _jm_obj_8_map_tab, 7);
 }
 
 // object $.'$String'
@@ -1265,9 +1265,9 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_8_may(prop)))
+        else if ((pfun = _jm_obj_8_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 7 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_8 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$String']", (path ? &lpath_8 : NULL));
@@ -1385,7 +1385,7 @@ static bool json_model_12(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_contains ($.'$Array'.contains)
+// check _jm_obj_9_map_contains ($.'$Array'.contains)
 static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1398,7 +1398,7 @@ static bool _jm_f_33(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_items ($.'$Array'.items)
+// check _jm_obj_9_map_items ($.'$Array'.items)
 static bool _jm_f_34(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1411,7 +1411,7 @@ static bool _jm_f_34(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_maxContains ($.'$Array'.maxContains)
+// check _jm_obj_9_map_maxContains ($.'$Array'.maxContains)
 static bool _jm_f_35(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1424,7 +1424,7 @@ static bool _jm_f_35(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_maxItems ($.'$Array'.maxItems)
+// check _jm_obj_9_map_maxItems ($.'$Array'.maxItems)
 static bool _jm_f_36(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1437,7 +1437,7 @@ static bool _jm_f_36(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_minContains ($.'$Array'.minContains)
+// check _jm_obj_9_map_minContains ($.'$Array'.minContains)
 static bool _jm_f_37(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1450,7 +1450,7 @@ static bool _jm_f_37(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_minItems ($.'$Array'.minItems)
+// check _jm_obj_9_map_minItems ($.'$Array'.minItems)
 static bool _jm_f_38(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1463,7 +1463,7 @@ static bool _jm_f_38(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_prefixItems ($.'$Array'.prefixItems)
+// check _jm_obj_9_map_prefixItems ($.'$Array'.prefixItems)
 static bool _jm_f_39(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1476,7 +1476,7 @@ static bool _jm_f_39(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_unevaluatedItems ($.'$Array'.unevaluatedItems)
+// check _jm_obj_9_map_unevaluatedItems ($.'$Array'.unevaluatedItems)
 static bool _jm_f_40(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1489,7 +1489,7 @@ static bool _jm_f_40(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_9_may_uniqueItems ($.'$Array'.uniqueItems)
+// check _jm_obj_9_map_uniqueItems ($.'$Array'.uniqueItems)
 static bool _jm_f_41(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1502,9 +1502,9 @@ static bool _jm_f_41(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_9_may(const char *pname)
+static check_fun_t _jm_obj_9_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_9_may_tab, 9);
+    return jm_search_propmap(pname, _jm_obj_9_map_tab, 9);
 }
 
 // object $.'$Array'
@@ -1539,9 +1539,9 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_9_may(prop)))
+        else if ((pfun = _jm_obj_9_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 9 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_9 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Array']", (path ? &lpath_9 : NULL));
@@ -1575,7 +1575,7 @@ static bool json_model_13(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_additionalProperties ($.'$Object'.additionalProperties)
+// check _jm_obj_10_map_additionalProperties ($.'$Object'.additionalProperties)
 static bool _jm_f_42(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1617,7 +1617,7 @@ static bool _jm_obj_11(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_10_may_dependentRequired ($.'$Object'.dependentRequired)
+// check _jm_obj_10_map_dependentRequired ($.'$Object'.dependentRequired)
 static bool _jm_f_43(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1659,7 +1659,7 @@ static bool _jm_obj_12(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_10_may_dependentSchemas ($.'$Object'.dependentSchemas)
+// check _jm_obj_10_map_dependentSchemas ($.'$Object'.dependentSchemas)
 static bool _jm_f_44(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1672,7 +1672,7 @@ static bool _jm_f_44(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_maxProperties ($.'$Object'.maxProperties)
+// check _jm_obj_10_map_maxProperties ($.'$Object'.maxProperties)
 static bool _jm_f_45(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1685,7 +1685,7 @@ static bool _jm_f_45(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_minProperties ($.'$Object'.minProperties)
+// check _jm_obj_10_map_minProperties ($.'$Object'.minProperties)
 static bool _jm_f_46(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1735,7 +1735,7 @@ static bool _jm_obj_13(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_10_may_patternProperties ($.'$Object'.patternProperties)
+// check _jm_obj_10_map_patternProperties ($.'$Object'.patternProperties)
 static bool _jm_f_47(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1777,7 +1777,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_10_may_properties ($.'$Object'.properties)
+// check _jm_obj_10_map_properties ($.'$Object'.properties)
 static bool _jm_f_48(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1790,7 +1790,7 @@ static bool _jm_f_48(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_propertyNames ($.'$Object'.propertyNames)
+// check _jm_obj_10_map_propertyNames ($.'$Object'.propertyNames)
 static bool _jm_f_49(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1803,7 +1803,7 @@ static bool _jm_f_49(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_required ($.'$Object'.required)
+// check _jm_obj_10_map_required ($.'$Object'.required)
 static bool _jm_f_50(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1816,7 +1816,7 @@ static bool _jm_f_50(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_10_may_unevaluatedProperties ($.'$Object'.unevaluatedProperties)
+// check _jm_obj_10_map_unevaluatedProperties ($.'$Object'.unevaluatedProperties)
 static bool _jm_f_51(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1829,9 +1829,9 @@ static bool _jm_f_51(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_10_may(const char *pname)
+static check_fun_t _jm_obj_10_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_10_may_tab, 10);
+    return jm_search_propmap(pname, _jm_obj_10_map_tab, 10);
 }
 
 // object $.'$Object'
@@ -1866,9 +1866,9 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_10_may(prop)))
+        else if ((pfun = _jm_obj_10_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 10 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_10 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Object']", (path ? &lpath_10 : NULL));
@@ -1902,7 +1902,7 @@ static bool json_model_14(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_allOf ($.'$Misc'.allOf)
+// check _jm_obj_15_map_allOf ($.'$Misc'.allOf)
 static bool _jm_f_52(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1915,7 +1915,7 @@ static bool _jm_f_52(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_anyOf ($.'$Misc'.anyOf)
+// check _jm_obj_15_map_anyOf ($.'$Misc'.anyOf)
 static bool _jm_f_53(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1928,7 +1928,7 @@ static bool _jm_f_53(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_const ($.'$Misc'.const)
+// check _jm_obj_15_map_const ($.'$Misc'.const)
 static bool _jm_f_54(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1941,7 +1941,7 @@ static bool _jm_f_54(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_else ($.'$Misc'.else)
+// check _jm_obj_15_map_else ($.'$Misc'.else)
 static bool _jm_f_55(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1954,7 +1954,7 @@ static bool _jm_f_55(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_enum ($.'$Misc'.enum)
+// check _jm_obj_15_map_enum ($.'$Misc'.enum)
 static bool _jm_f_56(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1971,7 +1971,7 @@ static bool _jm_f_56(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_if ($.'$Misc'.if)
+// check _jm_obj_15_map_if ($.'$Misc'.if)
 static bool _jm_f_57(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1984,7 +1984,7 @@ static bool _jm_f_57(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_not ($.'$Misc'.not)
+// check _jm_obj_15_map_not ($.'$Misc'.not)
 static bool _jm_f_58(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -1997,7 +1997,7 @@ static bool _jm_f_58(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_oneOf ($.'$Misc'.oneOf)
+// check _jm_obj_15_map_oneOf ($.'$Misc'.oneOf)
 static bool _jm_f_59(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2010,7 +2010,7 @@ static bool _jm_f_59(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_15_may_then ($.'$Misc'.then)
+// check _jm_obj_15_map_then ($.'$Misc'.then)
 static bool _jm_f_60(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2023,9 +2023,9 @@ static bool _jm_f_60(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_15_may(const char *pname)
+static check_fun_t _jm_obj_15_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_15_may_tab, 9);
+    return jm_search_propmap(pname, _jm_obj_15_map_tab, 9);
 }
 
 // object $.'$Misc'
@@ -2042,9 +2042,9 @@ static bool _jm_obj_15(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_15 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_15_may(prop)))
+        if ((pfun = _jm_obj_15_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 9 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_15 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Misc']", (path ? &lpath_15 : NULL));
@@ -2073,7 +2073,7 @@ static bool json_model_15(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$anchor ($.'$TightSchema'.'|'.7.'$anchor')
+// check _jm_obj_16_map_$anchor ($.'$TightSchema'.'|'.7.'$anchor')
 static bool _jm_f_61(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2086,7 +2086,7 @@ static bool _jm_f_61(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$comment ($.'$TightSchema'.'|'.7.'$comment')
+// check _jm_obj_16_map_$comment ($.'$TightSchema'.'|'.7.'$comment')
 static bool _jm_f_62(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2128,7 +2128,7 @@ static bool _jm_obj_17(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_16_may_$defs ($.'$TightSchema'.'|'.7.'$defs')
+// check _jm_obj_16_map_$defs ($.'$TightSchema'.'|'.7.'$defs')
 static bool _jm_f_63(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2141,7 +2141,7 @@ static bool _jm_f_63(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$dynamicAnchor ($.'$TightSchema'.'|'.7.'$dynamicAnchor')
+// check _jm_obj_16_map_$dynamicAnchor ($.'$TightSchema'.'|'.7.'$dynamicAnchor')
 static bool _jm_f_64(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2154,7 +2154,7 @@ static bool _jm_f_64(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$dynamicRef ($.'$TightSchema'.'|'.7.'$dynamicRef')
+// check _jm_obj_16_map_$dynamicRef ($.'$TightSchema'.'|'.7.'$dynamicRef')
 static bool _jm_f_65(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2167,7 +2167,7 @@ static bool _jm_f_65(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$id ($.'$TightSchema'.'|'.7.'$id')
+// check _jm_obj_16_map_$id ($.'$TightSchema'.'|'.7.'$id')
 static bool _jm_f_66(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2180,7 +2180,7 @@ static bool _jm_f_66(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$ref ($.'$TightSchema'.'|'.7.'$ref')
+// check _jm_obj_16_map_$ref ($.'$TightSchema'.'|'.7.'$ref')
 static bool _jm_f_67(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2193,7 +2193,7 @@ static bool _jm_f_67(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_$schema ($.'$TightSchema'.'|'.7.'$schema')
+// check _jm_obj_16_map_$schema ($.'$TightSchema'.'|'.7.'$schema')
 static bool _jm_f_68(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2243,7 +2243,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_16_may_$vocabulary ($.'$TightSchema'.'|'.7.'$vocabulary')
+// check _jm_obj_16_map_$vocabulary ($.'$TightSchema'.'|'.7.'$vocabulary')
 static bool _jm_f_69(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2256,7 +2256,7 @@ static bool _jm_f_69(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_allOf ($.'$TightSchema'.'|'.7.allOf)
+// check _jm_obj_16_map_allOf ($.'$TightSchema'.'|'.7.allOf)
 static bool _jm_f_70(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2269,7 +2269,7 @@ static bool _jm_f_70(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_anyOf ($.'$TightSchema'.'|'.7.anyOf)
+// check _jm_obj_16_map_anyOf ($.'$TightSchema'.'|'.7.anyOf)
 static bool _jm_f_71(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2282,7 +2282,7 @@ static bool _jm_f_71(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_const ($.'$TightSchema'.'|'.7.const)
+// check _jm_obj_16_map_const ($.'$TightSchema'.'|'.7.const)
 static bool _jm_f_72(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2295,7 +2295,7 @@ static bool _jm_f_72(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_default ($.'$TightSchema'.'|'.7.default)
+// check _jm_obj_16_map_default ($.'$TightSchema'.'|'.7.default)
 static bool _jm_f_73(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2308,7 +2308,7 @@ static bool _jm_f_73(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_deprecated ($.'$TightSchema'.'|'.7.deprecated)
+// check _jm_obj_16_map_deprecated ($.'$TightSchema'.'|'.7.deprecated)
 static bool _jm_f_74(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2321,7 +2321,7 @@ static bool _jm_f_74(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_description ($.'$TightSchema'.'|'.7.description)
+// check _jm_obj_16_map_description ($.'$TightSchema'.'|'.7.description)
 static bool _jm_f_75(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2334,7 +2334,7 @@ static bool _jm_f_75(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_else ($.'$TightSchema'.'|'.7.else)
+// check _jm_obj_16_map_else ($.'$TightSchema'.'|'.7.else)
 static bool _jm_f_76(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2347,7 +2347,7 @@ static bool _jm_f_76(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_enum ($.'$TightSchema'.'|'.7.enum)
+// check _jm_obj_16_map_enum ($.'$TightSchema'.'|'.7.enum)
 static bool _jm_f_77(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2364,7 +2364,7 @@ static bool _jm_f_77(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_examples ($.'$TightSchema'.'|'.7.examples)
+// check _jm_obj_16_map_examples ($.'$TightSchema'.'|'.7.examples)
 static bool _jm_f_78(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2381,7 +2381,7 @@ static bool _jm_f_78(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_if ($.'$TightSchema'.'|'.7.if)
+// check _jm_obj_16_map_if ($.'$TightSchema'.'|'.7.if)
 static bool _jm_f_79(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2394,7 +2394,7 @@ static bool _jm_f_79(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_not ($.'$TightSchema'.'|'.7.not)
+// check _jm_obj_16_map_not ($.'$TightSchema'.'|'.7.not)
 static bool _jm_f_80(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2407,7 +2407,7 @@ static bool _jm_f_80(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_oneOf ($.'$TightSchema'.'|'.7.oneOf)
+// check _jm_obj_16_map_oneOf ($.'$TightSchema'.'|'.7.oneOf)
 static bool _jm_f_81(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2420,7 +2420,7 @@ static bool _jm_f_81(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_readOnly ($.'$TightSchema'.'|'.7.readOnly)
+// check _jm_obj_16_map_readOnly ($.'$TightSchema'.'|'.7.readOnly)
 static bool _jm_f_82(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2433,7 +2433,7 @@ static bool _jm_f_82(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_then ($.'$TightSchema'.'|'.7.then)
+// check _jm_obj_16_map_then ($.'$TightSchema'.'|'.7.then)
 static bool _jm_f_83(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2446,7 +2446,7 @@ static bool _jm_f_83(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_title ($.'$TightSchema'.'|'.7.title)
+// check _jm_obj_16_map_title ($.'$TightSchema'.'|'.7.title)
 static bool _jm_f_84(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2459,7 +2459,7 @@ static bool _jm_f_84(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_16_may_writeOnly ($.'$TightSchema'.'|'.7.writeOnly)
+// check _jm_obj_16_map_writeOnly ($.'$TightSchema'.'|'.7.writeOnly)
 static bool _jm_f_85(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2472,9 +2472,9 @@ static bool _jm_f_85(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_16_may(const char *pname)
+static check_fun_t _jm_obj_16_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_16_may_tab, 25);
+    return jm_search_propmap(pname, _jm_obj_16_map_tab, 25);
 }
 
 // object $.'$TightSchema'.'|'.7
@@ -2491,9 +2491,9 @@ static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_16 = (Path) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_16_may(prop)))
+        if ((pfun = _jm_obj_16_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 25 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_16 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.7]", (path ? &lpath_16 : NULL));
@@ -2509,7 +2509,7 @@ static bool _jm_obj_16(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_$anchor ($.'$TightSchema'.'|'.6.'$anchor')
+// check _jm_obj_19_map_$anchor ($.'$TightSchema'.'|'.6.'$anchor')
 static bool _jm_f_86(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2522,7 +2522,7 @@ static bool _jm_f_86(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$comment ($.'$TightSchema'.'|'.6.'$comment')
+// check _jm_obj_19_map_$comment ($.'$TightSchema'.'|'.6.'$comment')
 static bool _jm_f_87(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2564,7 +2564,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_$defs ($.'$TightSchema'.'|'.6.'$defs')
+// check _jm_obj_19_map_$defs ($.'$TightSchema'.'|'.6.'$defs')
 static bool _jm_f_88(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2577,7 +2577,7 @@ static bool _jm_f_88(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$dynamicAnchor ($.'$TightSchema'.'|'.6.'$dynamicAnchor')
+// check _jm_obj_19_map_$dynamicAnchor ($.'$TightSchema'.'|'.6.'$dynamicAnchor')
 static bool _jm_f_89(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2590,7 +2590,7 @@ static bool _jm_f_89(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$dynamicRef ($.'$TightSchema'.'|'.6.'$dynamicRef')
+// check _jm_obj_19_map_$dynamicRef ($.'$TightSchema'.'|'.6.'$dynamicRef')
 static bool _jm_f_90(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2603,7 +2603,7 @@ static bool _jm_f_90(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$id ($.'$TightSchema'.'|'.6.'$id')
+// check _jm_obj_19_map_$id ($.'$TightSchema'.'|'.6.'$id')
 static bool _jm_f_91(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2616,7 +2616,7 @@ static bool _jm_f_91(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$ref ($.'$TightSchema'.'|'.6.'$ref')
+// check _jm_obj_19_map_$ref ($.'$TightSchema'.'|'.6.'$ref')
 static bool _jm_f_92(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2629,7 +2629,7 @@ static bool _jm_f_92(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_$schema ($.'$TightSchema'.'|'.6.'$schema')
+// check _jm_obj_19_map_$schema ($.'$TightSchema'.'|'.6.'$schema')
 static bool _jm_f_93(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2679,7 +2679,7 @@ static bool _jm_obj_21(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_$vocabulary ($.'$TightSchema'.'|'.6.'$vocabulary')
+// check _jm_obj_19_map_$vocabulary ($.'$TightSchema'.'|'.6.'$vocabulary')
 static bool _jm_f_94(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2692,7 +2692,7 @@ static bool _jm_f_94(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_additionalProperties ($.'$TightSchema'.'|'.6.additionalProperties)
+// check _jm_obj_19_map_additionalProperties ($.'$TightSchema'.'|'.6.additionalProperties)
 static bool _jm_f_95(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2705,7 +2705,7 @@ static bool _jm_f_95(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_default ($.'$TightSchema'.'|'.6.default)
+// check _jm_obj_19_map_default ($.'$TightSchema'.'|'.6.default)
 static bool _jm_f_96(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2747,7 +2747,7 @@ static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_dependentRequired ($.'$TightSchema'.'|'.6.dependentRequired)
+// check _jm_obj_19_map_dependentRequired ($.'$TightSchema'.'|'.6.dependentRequired)
 static bool _jm_f_97(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2789,7 +2789,7 @@ static bool _jm_obj_23(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_dependentSchemas ($.'$TightSchema'.'|'.6.dependentSchemas)
+// check _jm_obj_19_map_dependentSchemas ($.'$TightSchema'.'|'.6.dependentSchemas)
 static bool _jm_f_98(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2802,7 +2802,7 @@ static bool _jm_f_98(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_deprecated ($.'$TightSchema'.'|'.6.deprecated)
+// check _jm_obj_19_map_deprecated ($.'$TightSchema'.'|'.6.deprecated)
 static bool _jm_f_99(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2815,7 +2815,7 @@ static bool _jm_f_99(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_description ($.'$TightSchema'.'|'.6.description)
+// check _jm_obj_19_map_description ($.'$TightSchema'.'|'.6.description)
 static bool _jm_f_100(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2828,7 +2828,7 @@ static bool _jm_f_100(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_examples ($.'$TightSchema'.'|'.6.examples)
+// check _jm_obj_19_map_examples ($.'$TightSchema'.'|'.6.examples)
 static bool _jm_f_101(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2845,7 +2845,7 @@ static bool _jm_f_101(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_maxProperties ($.'$TightSchema'.'|'.6.maxProperties)
+// check _jm_obj_19_map_maxProperties ($.'$TightSchema'.'|'.6.maxProperties)
 static bool _jm_f_102(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2858,7 +2858,7 @@ static bool _jm_f_102(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_minProperties ($.'$TightSchema'.'|'.6.minProperties)
+// check _jm_obj_19_map_minProperties ($.'$TightSchema'.'|'.6.minProperties)
 static bool _jm_f_103(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2908,7 +2908,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_patternProperties ($.'$TightSchema'.'|'.6.patternProperties)
+// check _jm_obj_19_map_patternProperties ($.'$TightSchema'.'|'.6.patternProperties)
 static bool _jm_f_104(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2950,7 +2950,7 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_19_may_properties ($.'$TightSchema'.'|'.6.properties)
+// check _jm_obj_19_map_properties ($.'$TightSchema'.'|'.6.properties)
 static bool _jm_f_105(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2963,7 +2963,7 @@ static bool _jm_f_105(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_propertyNames ($.'$TightSchema'.'|'.6.propertyNames)
+// check _jm_obj_19_map_propertyNames ($.'$TightSchema'.'|'.6.propertyNames)
 static bool _jm_f_106(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2976,7 +2976,7 @@ static bool _jm_f_106(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_readOnly ($.'$TightSchema'.'|'.6.readOnly)
+// check _jm_obj_19_map_readOnly ($.'$TightSchema'.'|'.6.readOnly)
 static bool _jm_f_107(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -2989,7 +2989,7 @@ static bool _jm_f_107(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_required ($.'$TightSchema'.'|'.6.required)
+// check _jm_obj_19_map_required ($.'$TightSchema'.'|'.6.required)
 static bool _jm_f_108(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3002,7 +3002,7 @@ static bool _jm_f_108(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_title ($.'$TightSchema'.'|'.6.title)
+// check _jm_obj_19_map_title ($.'$TightSchema'.'|'.6.title)
 static bool _jm_f_109(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3015,7 +3015,7 @@ static bool _jm_f_109(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_unevaluatedProperties ($.'$TightSchema'.'|'.6.unevaluatedProperties)
+// check _jm_obj_19_map_unevaluatedProperties ($.'$TightSchema'.'|'.6.unevaluatedProperties)
 static bool _jm_f_110(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3028,7 +3028,7 @@ static bool _jm_f_110(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_19_may_writeOnly ($.'$TightSchema'.'|'.6.writeOnly)
+// check _jm_obj_19_map_writeOnly ($.'$TightSchema'.'|'.6.writeOnly)
 static bool _jm_f_111(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3041,9 +3041,9 @@ static bool _jm_f_111(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_19_may(const char *pname)
+static check_fun_t _jm_obj_19_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_19_may_tab, 26);
+    return jm_search_propmap(pname, _jm_obj_19_map_tab, 26);
 }
 
 // object $.'$TightSchema'.'|'.6
@@ -3078,9 +3078,9 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_19_may(prop)))
+        else if ((pfun = _jm_obj_19_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 26 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_19 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.6]", (path ? &lpath_19 : NULL));
@@ -3101,7 +3101,7 @@ static bool _jm_obj_19(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_26_may_$anchor ($.'$TightSchema'.'|'.5.'$anchor')
+// check _jm_obj_26_map_$anchor ($.'$TightSchema'.'|'.5.'$anchor')
 static bool _jm_f_112(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3114,7 +3114,7 @@ static bool _jm_f_112(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$comment ($.'$TightSchema'.'|'.5.'$comment')
+// check _jm_obj_26_map_$comment ($.'$TightSchema'.'|'.5.'$comment')
 static bool _jm_f_113(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3156,7 +3156,7 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_26_may_$defs ($.'$TightSchema'.'|'.5.'$defs')
+// check _jm_obj_26_map_$defs ($.'$TightSchema'.'|'.5.'$defs')
 static bool _jm_f_114(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3169,7 +3169,7 @@ static bool _jm_f_114(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$dynamicAnchor ($.'$TightSchema'.'|'.5.'$dynamicAnchor')
+// check _jm_obj_26_map_$dynamicAnchor ($.'$TightSchema'.'|'.5.'$dynamicAnchor')
 static bool _jm_f_115(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3182,7 +3182,7 @@ static bool _jm_f_115(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$dynamicRef ($.'$TightSchema'.'|'.5.'$dynamicRef')
+// check _jm_obj_26_map_$dynamicRef ($.'$TightSchema'.'|'.5.'$dynamicRef')
 static bool _jm_f_116(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3195,7 +3195,7 @@ static bool _jm_f_116(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$id ($.'$TightSchema'.'|'.5.'$id')
+// check _jm_obj_26_map_$id ($.'$TightSchema'.'|'.5.'$id')
 static bool _jm_f_117(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3208,7 +3208,7 @@ static bool _jm_f_117(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$ref ($.'$TightSchema'.'|'.5.'$ref')
+// check _jm_obj_26_map_$ref ($.'$TightSchema'.'|'.5.'$ref')
 static bool _jm_f_118(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3221,7 +3221,7 @@ static bool _jm_f_118(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_$schema ($.'$TightSchema'.'|'.5.'$schema')
+// check _jm_obj_26_map_$schema ($.'$TightSchema'.'|'.5.'$schema')
 static bool _jm_f_119(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3271,7 +3271,7 @@ static bool _jm_obj_28(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_26_may_$vocabulary ($.'$TightSchema'.'|'.5.'$vocabulary')
+// check _jm_obj_26_map_$vocabulary ($.'$TightSchema'.'|'.5.'$vocabulary')
 static bool _jm_f_120(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3284,7 +3284,7 @@ static bool _jm_f_120(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_contains ($.'$TightSchema'.'|'.5.contains)
+// check _jm_obj_26_map_contains ($.'$TightSchema'.'|'.5.contains)
 static bool _jm_f_121(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3297,7 +3297,7 @@ static bool _jm_f_121(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_default ($.'$TightSchema'.'|'.5.default)
+// check _jm_obj_26_map_default ($.'$TightSchema'.'|'.5.default)
 static bool _jm_f_122(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3310,7 +3310,7 @@ static bool _jm_f_122(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_deprecated ($.'$TightSchema'.'|'.5.deprecated)
+// check _jm_obj_26_map_deprecated ($.'$TightSchema'.'|'.5.deprecated)
 static bool _jm_f_123(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3323,7 +3323,7 @@ static bool _jm_f_123(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_description ($.'$TightSchema'.'|'.5.description)
+// check _jm_obj_26_map_description ($.'$TightSchema'.'|'.5.description)
 static bool _jm_f_124(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3336,7 +3336,7 @@ static bool _jm_f_124(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_examples ($.'$TightSchema'.'|'.5.examples)
+// check _jm_obj_26_map_examples ($.'$TightSchema'.'|'.5.examples)
 static bool _jm_f_125(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3353,7 +3353,7 @@ static bool _jm_f_125(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_items ($.'$TightSchema'.'|'.5.items)
+// check _jm_obj_26_map_items ($.'$TightSchema'.'|'.5.items)
 static bool _jm_f_126(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3366,7 +3366,7 @@ static bool _jm_f_126(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_maxContains ($.'$TightSchema'.'|'.5.maxContains)
+// check _jm_obj_26_map_maxContains ($.'$TightSchema'.'|'.5.maxContains)
 static bool _jm_f_127(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3379,7 +3379,7 @@ static bool _jm_f_127(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_maxItems ($.'$TightSchema'.'|'.5.maxItems)
+// check _jm_obj_26_map_maxItems ($.'$TightSchema'.'|'.5.maxItems)
 static bool _jm_f_128(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3392,7 +3392,7 @@ static bool _jm_f_128(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_minContains ($.'$TightSchema'.'|'.5.minContains)
+// check _jm_obj_26_map_minContains ($.'$TightSchema'.'|'.5.minContains)
 static bool _jm_f_129(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3405,7 +3405,7 @@ static bool _jm_f_129(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_minItems ($.'$TightSchema'.'|'.5.minItems)
+// check _jm_obj_26_map_minItems ($.'$TightSchema'.'|'.5.minItems)
 static bool _jm_f_130(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3418,7 +3418,7 @@ static bool _jm_f_130(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_prefixItems ($.'$TightSchema'.'|'.5.prefixItems)
+// check _jm_obj_26_map_prefixItems ($.'$TightSchema'.'|'.5.prefixItems)
 static bool _jm_f_131(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3431,7 +3431,7 @@ static bool _jm_f_131(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_readOnly ($.'$TightSchema'.'|'.5.readOnly)
+// check _jm_obj_26_map_readOnly ($.'$TightSchema'.'|'.5.readOnly)
 static bool _jm_f_132(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3444,7 +3444,7 @@ static bool _jm_f_132(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_title ($.'$TightSchema'.'|'.5.title)
+// check _jm_obj_26_map_title ($.'$TightSchema'.'|'.5.title)
 static bool _jm_f_133(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3457,7 +3457,7 @@ static bool _jm_f_133(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_unevaluatedItems ($.'$TightSchema'.'|'.5.unevaluatedItems)
+// check _jm_obj_26_map_unevaluatedItems ($.'$TightSchema'.'|'.5.unevaluatedItems)
 static bool _jm_f_134(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3470,7 +3470,7 @@ static bool _jm_f_134(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_uniqueItems ($.'$TightSchema'.'|'.5.uniqueItems)
+// check _jm_obj_26_map_uniqueItems ($.'$TightSchema'.'|'.5.uniqueItems)
 static bool _jm_f_135(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3483,7 +3483,7 @@ static bool _jm_f_135(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_26_may_writeOnly ($.'$TightSchema'.'|'.5.writeOnly)
+// check _jm_obj_26_map_writeOnly ($.'$TightSchema'.'|'.5.writeOnly)
 static bool _jm_f_136(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3496,9 +3496,9 @@ static bool _jm_f_136(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_26_may(const char *pname)
+static check_fun_t _jm_obj_26_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_26_may_tab, 25);
+    return jm_search_propmap(pname, _jm_obj_26_map_tab, 25);
 }
 
 // object $.'$TightSchema'.'|'.5
@@ -3533,9 +3533,9 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_26_may(prop)))
+        else if ((pfun = _jm_obj_26_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 25 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_26 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.5]", (path ? &lpath_26 : NULL));
@@ -3556,7 +3556,7 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_29_may_$anchor ($.'$TightSchema'.'|'.4.'$anchor')
+// check _jm_obj_29_map_$anchor ($.'$TightSchema'.'|'.4.'$anchor')
 static bool _jm_f_137(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3569,7 +3569,7 @@ static bool _jm_f_137(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$comment ($.'$TightSchema'.'|'.4.'$comment')
+// check _jm_obj_29_map_$comment ($.'$TightSchema'.'|'.4.'$comment')
 static bool _jm_f_138(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3611,7 +3611,7 @@ static bool _jm_obj_30(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_29_may_$defs ($.'$TightSchema'.'|'.4.'$defs')
+// check _jm_obj_29_map_$defs ($.'$TightSchema'.'|'.4.'$defs')
 static bool _jm_f_139(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3624,7 +3624,7 @@ static bool _jm_f_139(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$dynamicAnchor ($.'$TightSchema'.'|'.4.'$dynamicAnchor')
+// check _jm_obj_29_map_$dynamicAnchor ($.'$TightSchema'.'|'.4.'$dynamicAnchor')
 static bool _jm_f_140(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3637,7 +3637,7 @@ static bool _jm_f_140(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$dynamicRef ($.'$TightSchema'.'|'.4.'$dynamicRef')
+// check _jm_obj_29_map_$dynamicRef ($.'$TightSchema'.'|'.4.'$dynamicRef')
 static bool _jm_f_141(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3650,7 +3650,7 @@ static bool _jm_f_141(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$id ($.'$TightSchema'.'|'.4.'$id')
+// check _jm_obj_29_map_$id ($.'$TightSchema'.'|'.4.'$id')
 static bool _jm_f_142(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3663,7 +3663,7 @@ static bool _jm_f_142(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$ref ($.'$TightSchema'.'|'.4.'$ref')
+// check _jm_obj_29_map_$ref ($.'$TightSchema'.'|'.4.'$ref')
 static bool _jm_f_143(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3676,7 +3676,7 @@ static bool _jm_f_143(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_$schema ($.'$TightSchema'.'|'.4.'$schema')
+// check _jm_obj_29_map_$schema ($.'$TightSchema'.'|'.4.'$schema')
 static bool _jm_f_144(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3726,7 +3726,7 @@ static bool _jm_obj_31(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_29_may_$vocabulary ($.'$TightSchema'.'|'.4.'$vocabulary')
+// check _jm_obj_29_map_$vocabulary ($.'$TightSchema'.'|'.4.'$vocabulary')
 static bool _jm_f_145(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3739,7 +3739,7 @@ static bool _jm_f_145(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_contentEncoding ($.'$TightSchema'.'|'.4.contentEncoding)
+// check _jm_obj_29_map_contentEncoding ($.'$TightSchema'.'|'.4.contentEncoding)
 static bool _jm_f_146(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3752,7 +3752,7 @@ static bool _jm_f_146(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_contentMediaType ($.'$TightSchema'.'|'.4.contentMediaType)
+// check _jm_obj_29_map_contentMediaType ($.'$TightSchema'.'|'.4.contentMediaType)
 static bool _jm_f_147(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3765,7 +3765,7 @@ static bool _jm_f_147(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_contentSchema ($.'$TightSchema'.'|'.4.contentSchema)
+// check _jm_obj_29_map_contentSchema ($.'$TightSchema'.'|'.4.contentSchema)
 static bool _jm_f_148(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3778,7 +3778,7 @@ static bool _jm_f_148(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_default ($.'$TightSchema'.'|'.4.default)
+// check _jm_obj_29_map_default ($.'$TightSchema'.'|'.4.default)
 static bool _jm_f_149(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3791,7 +3791,7 @@ static bool _jm_f_149(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_deprecated ($.'$TightSchema'.'|'.4.deprecated)
+// check _jm_obj_29_map_deprecated ($.'$TightSchema'.'|'.4.deprecated)
 static bool _jm_f_150(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3804,7 +3804,7 @@ static bool _jm_f_150(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_description ($.'$TightSchema'.'|'.4.description)
+// check _jm_obj_29_map_description ($.'$TightSchema'.'|'.4.description)
 static bool _jm_f_151(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3817,7 +3817,7 @@ static bool _jm_f_151(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_examples ($.'$TightSchema'.'|'.4.examples)
+// check _jm_obj_29_map_examples ($.'$TightSchema'.'|'.4.examples)
 static bool _jm_f_152(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3834,7 +3834,7 @@ static bool _jm_f_152(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_format ($.'$TightSchema'.'|'.4.format)
+// check _jm_obj_29_map_format ($.'$TightSchema'.'|'.4.format)
 static bool _jm_f_153(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3847,7 +3847,7 @@ static bool _jm_f_153(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_maxLength ($.'$TightSchema'.'|'.4.maxLength)
+// check _jm_obj_29_map_maxLength ($.'$TightSchema'.'|'.4.maxLength)
 static bool _jm_f_154(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3860,7 +3860,7 @@ static bool _jm_f_154(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_minLength ($.'$TightSchema'.'|'.4.minLength)
+// check _jm_obj_29_map_minLength ($.'$TightSchema'.'|'.4.minLength)
 static bool _jm_f_155(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3873,7 +3873,7 @@ static bool _jm_f_155(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_pattern ($.'$TightSchema'.'|'.4.pattern)
+// check _jm_obj_29_map_pattern ($.'$TightSchema'.'|'.4.pattern)
 static bool _jm_f_156(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3886,7 +3886,7 @@ static bool _jm_f_156(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_readOnly ($.'$TightSchema'.'|'.4.readOnly)
+// check _jm_obj_29_map_readOnly ($.'$TightSchema'.'|'.4.readOnly)
 static bool _jm_f_157(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3899,7 +3899,7 @@ static bool _jm_f_157(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_title ($.'$TightSchema'.'|'.4.title)
+// check _jm_obj_29_map_title ($.'$TightSchema'.'|'.4.title)
 static bool _jm_f_158(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3912,7 +3912,7 @@ static bool _jm_f_158(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_29_may_writeOnly ($.'$TightSchema'.'|'.4.writeOnly)
+// check _jm_obj_29_map_writeOnly ($.'$TightSchema'.'|'.4.writeOnly)
 static bool _jm_f_159(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3925,9 +3925,9 @@ static bool _jm_f_159(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_29_may(const char *pname)
+static check_fun_t _jm_obj_29_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_29_may_tab, 23);
+    return jm_search_propmap(pname, _jm_obj_29_map_tab, 23);
 }
 
 // object $.'$TightSchema'.'|'.4
@@ -3962,9 +3962,9 @@ static bool _jm_obj_29(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_29_may(prop)))
+        else if ((pfun = _jm_obj_29_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 23 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_29 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.4]", (path ? &lpath_29 : NULL));
@@ -3985,7 +3985,7 @@ static bool _jm_obj_29(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_32_may_$anchor ($.'$TightSchema'.'|'.3.'$anchor')
+// check _jm_obj_32_map_$anchor ($.'$TightSchema'.'|'.3.'$anchor')
 static bool _jm_f_160(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -3998,7 +3998,7 @@ static bool _jm_f_160(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$comment ($.'$TightSchema'.'|'.3.'$comment')
+// check _jm_obj_32_map_$comment ($.'$TightSchema'.'|'.3.'$comment')
 static bool _jm_f_161(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4040,7 +4040,7 @@ static bool _jm_obj_33(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_32_may_$defs ($.'$TightSchema'.'|'.3.'$defs')
+// check _jm_obj_32_map_$defs ($.'$TightSchema'.'|'.3.'$defs')
 static bool _jm_f_162(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4053,7 +4053,7 @@ static bool _jm_f_162(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$dynamicAnchor ($.'$TightSchema'.'|'.3.'$dynamicAnchor')
+// check _jm_obj_32_map_$dynamicAnchor ($.'$TightSchema'.'|'.3.'$dynamicAnchor')
 static bool _jm_f_163(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4066,7 +4066,7 @@ static bool _jm_f_163(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$dynamicRef ($.'$TightSchema'.'|'.3.'$dynamicRef')
+// check _jm_obj_32_map_$dynamicRef ($.'$TightSchema'.'|'.3.'$dynamicRef')
 static bool _jm_f_164(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4079,7 +4079,7 @@ static bool _jm_f_164(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$id ($.'$TightSchema'.'|'.3.'$id')
+// check _jm_obj_32_map_$id ($.'$TightSchema'.'|'.3.'$id')
 static bool _jm_f_165(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4092,7 +4092,7 @@ static bool _jm_f_165(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$ref ($.'$TightSchema'.'|'.3.'$ref')
+// check _jm_obj_32_map_$ref ($.'$TightSchema'.'|'.3.'$ref')
 static bool _jm_f_166(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4105,7 +4105,7 @@ static bool _jm_f_166(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_$schema ($.'$TightSchema'.'|'.3.'$schema')
+// check _jm_obj_32_map_$schema ($.'$TightSchema'.'|'.3.'$schema')
 static bool _jm_f_167(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4155,7 +4155,7 @@ static bool _jm_obj_34(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_32_may_$vocabulary ($.'$TightSchema'.'|'.3.'$vocabulary')
+// check _jm_obj_32_map_$vocabulary ($.'$TightSchema'.'|'.3.'$vocabulary')
 static bool _jm_f_168(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4168,7 +4168,7 @@ static bool _jm_f_168(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_default ($.'$TightSchema'.'|'.3.default)
+// check _jm_obj_32_map_default ($.'$TightSchema'.'|'.3.default)
 static bool _jm_f_169(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4181,7 +4181,7 @@ static bool _jm_f_169(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_deprecated ($.'$TightSchema'.'|'.3.deprecated)
+// check _jm_obj_32_map_deprecated ($.'$TightSchema'.'|'.3.deprecated)
 static bool _jm_f_170(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4194,7 +4194,7 @@ static bool _jm_f_170(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_description ($.'$TightSchema'.'|'.3.description)
+// check _jm_obj_32_map_description ($.'$TightSchema'.'|'.3.description)
 static bool _jm_f_171(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4207,7 +4207,7 @@ static bool _jm_f_171(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_examples ($.'$TightSchema'.'|'.3.examples)
+// check _jm_obj_32_map_examples ($.'$TightSchema'.'|'.3.examples)
 static bool _jm_f_172(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4224,7 +4224,7 @@ static bool _jm_f_172(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_exclusiveMaximum ($.'$TightSchema'.'|'.3.exclusiveMaximum)
+// check _jm_obj_32_map_exclusiveMaximum ($.'$TightSchema'.'|'.3.exclusiveMaximum)
 static bool _jm_f_173(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4237,7 +4237,7 @@ static bool _jm_f_173(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_exclusiveMinimum ($.'$TightSchema'.'|'.3.exclusiveMinimum)
+// check _jm_obj_32_map_exclusiveMinimum ($.'$TightSchema'.'|'.3.exclusiveMinimum)
 static bool _jm_f_174(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4250,7 +4250,7 @@ static bool _jm_f_174(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_maximum ($.'$TightSchema'.'|'.3.maximum)
+// check _jm_obj_32_map_maximum ($.'$TightSchema'.'|'.3.maximum)
 static bool _jm_f_175(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4263,7 +4263,7 @@ static bool _jm_f_175(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_minimum ($.'$TightSchema'.'|'.3.minimum)
+// check _jm_obj_32_map_minimum ($.'$TightSchema'.'|'.3.minimum)
 static bool _jm_f_176(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4276,7 +4276,7 @@ static bool _jm_f_176(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_multipleOf ($.'$TightSchema'.'|'.3.multipleOf)
+// check _jm_obj_32_map_multipleOf ($.'$TightSchema'.'|'.3.multipleOf)
 static bool _jm_f_177(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4289,7 +4289,7 @@ static bool _jm_f_177(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_readOnly ($.'$TightSchema'.'|'.3.readOnly)
+// check _jm_obj_32_map_readOnly ($.'$TightSchema'.'|'.3.readOnly)
 static bool _jm_f_178(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4302,7 +4302,7 @@ static bool _jm_f_178(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_title ($.'$TightSchema'.'|'.3.title)
+// check _jm_obj_32_map_title ($.'$TightSchema'.'|'.3.title)
 static bool _jm_f_179(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4315,7 +4315,7 @@ static bool _jm_f_179(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_32_may_writeOnly ($.'$TightSchema'.'|'.3.writeOnly)
+// check _jm_obj_32_map_writeOnly ($.'$TightSchema'.'|'.3.writeOnly)
 static bool _jm_f_180(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4328,9 +4328,9 @@ static bool _jm_f_180(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_32_may(const char *pname)
+static check_fun_t _jm_obj_32_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_32_may_tab, 21);
+    return jm_search_propmap(pname, _jm_obj_32_map_tab, 21);
 }
 
 // object $.'$TightSchema'.'|'.3
@@ -4365,9 +4365,9 @@ static bool _jm_obj_32(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_32_may(prop)))
+        else if ((pfun = _jm_obj_32_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 21 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_32 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.3]", (path ? &lpath_32 : NULL));
@@ -4388,7 +4388,7 @@ static bool _jm_obj_32(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_35_may_$anchor ($.'$TightSchema'.'|'.2.'$anchor')
+// check _jm_obj_35_map_$anchor ($.'$TightSchema'.'|'.2.'$anchor')
 static bool _jm_f_181(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4401,7 +4401,7 @@ static bool _jm_f_181(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$comment ($.'$TightSchema'.'|'.2.'$comment')
+// check _jm_obj_35_map_$comment ($.'$TightSchema'.'|'.2.'$comment')
 static bool _jm_f_182(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4443,7 +4443,7 @@ static bool _jm_obj_36(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_35_may_$defs ($.'$TightSchema'.'|'.2.'$defs')
+// check _jm_obj_35_map_$defs ($.'$TightSchema'.'|'.2.'$defs')
 static bool _jm_f_183(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4456,7 +4456,7 @@ static bool _jm_f_183(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$dynamicAnchor ($.'$TightSchema'.'|'.2.'$dynamicAnchor')
+// check _jm_obj_35_map_$dynamicAnchor ($.'$TightSchema'.'|'.2.'$dynamicAnchor')
 static bool _jm_f_184(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4469,7 +4469,7 @@ static bool _jm_f_184(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$dynamicRef ($.'$TightSchema'.'|'.2.'$dynamicRef')
+// check _jm_obj_35_map_$dynamicRef ($.'$TightSchema'.'|'.2.'$dynamicRef')
 static bool _jm_f_185(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4482,7 +4482,7 @@ static bool _jm_f_185(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$id ($.'$TightSchema'.'|'.2.'$id')
+// check _jm_obj_35_map_$id ($.'$TightSchema'.'|'.2.'$id')
 static bool _jm_f_186(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4495,7 +4495,7 @@ static bool _jm_f_186(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$ref ($.'$TightSchema'.'|'.2.'$ref')
+// check _jm_obj_35_map_$ref ($.'$TightSchema'.'|'.2.'$ref')
 static bool _jm_f_187(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4508,7 +4508,7 @@ static bool _jm_f_187(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_$schema ($.'$TightSchema'.'|'.2.'$schema')
+// check _jm_obj_35_map_$schema ($.'$TightSchema'.'|'.2.'$schema')
 static bool _jm_f_188(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4558,7 +4558,7 @@ static bool _jm_obj_37(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_35_may_$vocabulary ($.'$TightSchema'.'|'.2.'$vocabulary')
+// check _jm_obj_35_map_$vocabulary ($.'$TightSchema'.'|'.2.'$vocabulary')
 static bool _jm_f_189(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4571,7 +4571,7 @@ static bool _jm_f_189(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_default ($.'$TightSchema'.'|'.2.default)
+// check _jm_obj_35_map_default ($.'$TightSchema'.'|'.2.default)
 static bool _jm_f_190(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4584,7 +4584,7 @@ static bool _jm_f_190(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_deprecated ($.'$TightSchema'.'|'.2.deprecated)
+// check _jm_obj_35_map_deprecated ($.'$TightSchema'.'|'.2.deprecated)
 static bool _jm_f_191(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4597,7 +4597,7 @@ static bool _jm_f_191(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_description ($.'$TightSchema'.'|'.2.description)
+// check _jm_obj_35_map_description ($.'$TightSchema'.'|'.2.description)
 static bool _jm_f_192(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4610,7 +4610,7 @@ static bool _jm_f_192(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_examples ($.'$TightSchema'.'|'.2.examples)
+// check _jm_obj_35_map_examples ($.'$TightSchema'.'|'.2.examples)
 static bool _jm_f_193(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4627,7 +4627,7 @@ static bool _jm_f_193(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_exclusiveMaximum ($.'$TightSchema'.'|'.2.exclusiveMaximum)
+// check _jm_obj_35_map_exclusiveMaximum ($.'$TightSchema'.'|'.2.exclusiveMaximum)
 static bool _jm_f_194(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4654,7 +4654,7 @@ static bool _jm_f_194(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_exclusiveMinimum ($.'$TightSchema'.'|'.2.exclusiveMinimum)
+// check _jm_obj_35_map_exclusiveMinimum ($.'$TightSchema'.'|'.2.exclusiveMinimum)
 static bool _jm_f_195(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4681,7 +4681,7 @@ static bool _jm_f_195(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_maximum ($.'$TightSchema'.'|'.2.maximum)
+// check _jm_obj_35_map_maximum ($.'$TightSchema'.'|'.2.maximum)
 static bool _jm_f_196(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4708,7 +4708,7 @@ static bool _jm_f_196(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_minimum ($.'$TightSchema'.'|'.2.minimum)
+// check _jm_obj_35_map_minimum ($.'$TightSchema'.'|'.2.minimum)
 static bool _jm_f_197(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4735,7 +4735,7 @@ static bool _jm_f_197(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_multipleOf ($.'$TightSchema'.'|'.2.multipleOf)
+// check _jm_obj_35_map_multipleOf ($.'$TightSchema'.'|'.2.multipleOf)
 static bool _jm_f_198(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4762,7 +4762,7 @@ static bool _jm_f_198(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_readOnly ($.'$TightSchema'.'|'.2.readOnly)
+// check _jm_obj_35_map_readOnly ($.'$TightSchema'.'|'.2.readOnly)
 static bool _jm_f_199(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4775,7 +4775,7 @@ static bool _jm_f_199(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_title ($.'$TightSchema'.'|'.2.title)
+// check _jm_obj_35_map_title ($.'$TightSchema'.'|'.2.title)
 static bool _jm_f_200(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4788,7 +4788,7 @@ static bool _jm_f_200(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_35_may_writeOnly ($.'$TightSchema'.'|'.2.writeOnly)
+// check _jm_obj_35_map_writeOnly ($.'$TightSchema'.'|'.2.writeOnly)
 static bool _jm_f_201(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4801,9 +4801,9 @@ static bool _jm_f_201(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_35_may(const char *pname)
+static check_fun_t _jm_obj_35_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_35_may_tab, 21);
+    return jm_search_propmap(pname, _jm_obj_35_map_tab, 21);
 }
 
 // object $.'$TightSchema'.'|'.2
@@ -4838,9 +4838,9 @@ static bool _jm_obj_35(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_35_may(prop)))
+        else if ((pfun = _jm_obj_35_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 21 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_35 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.2]", (path ? &lpath_35 : NULL));
@@ -4861,7 +4861,7 @@ static bool _jm_obj_35(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_38_may_$anchor ($.'$TightSchema'.'|'.1.'$anchor')
+// check _jm_obj_38_map_$anchor ($.'$TightSchema'.'|'.1.'$anchor')
 static bool _jm_f_202(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4874,7 +4874,7 @@ static bool _jm_f_202(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$comment ($.'$TightSchema'.'|'.1.'$comment')
+// check _jm_obj_38_map_$comment ($.'$TightSchema'.'|'.1.'$comment')
 static bool _jm_f_203(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4916,7 +4916,7 @@ static bool _jm_obj_39(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_38_may_$defs ($.'$TightSchema'.'|'.1.'$defs')
+// check _jm_obj_38_map_$defs ($.'$TightSchema'.'|'.1.'$defs')
 static bool _jm_f_204(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4929,7 +4929,7 @@ static bool _jm_f_204(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$dynamicAnchor ($.'$TightSchema'.'|'.1.'$dynamicAnchor')
+// check _jm_obj_38_map_$dynamicAnchor ($.'$TightSchema'.'|'.1.'$dynamicAnchor')
 static bool _jm_f_205(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4942,7 +4942,7 @@ static bool _jm_f_205(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$dynamicRef ($.'$TightSchema'.'|'.1.'$dynamicRef')
+// check _jm_obj_38_map_$dynamicRef ($.'$TightSchema'.'|'.1.'$dynamicRef')
 static bool _jm_f_206(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4955,7 +4955,7 @@ static bool _jm_f_206(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$id ($.'$TightSchema'.'|'.1.'$id')
+// check _jm_obj_38_map_$id ($.'$TightSchema'.'|'.1.'$id')
 static bool _jm_f_207(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4968,7 +4968,7 @@ static bool _jm_f_207(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$ref ($.'$TightSchema'.'|'.1.'$ref')
+// check _jm_obj_38_map_$ref ($.'$TightSchema'.'|'.1.'$ref')
 static bool _jm_f_208(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -4981,7 +4981,7 @@ static bool _jm_f_208(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_$schema ($.'$TightSchema'.'|'.1.'$schema')
+// check _jm_obj_38_map_$schema ($.'$TightSchema'.'|'.1.'$schema')
 static bool _jm_f_209(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5031,7 +5031,7 @@ static bool _jm_obj_40(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_38_may_$vocabulary ($.'$TightSchema'.'|'.1.'$vocabulary')
+// check _jm_obj_38_map_$vocabulary ($.'$TightSchema'.'|'.1.'$vocabulary')
 static bool _jm_f_210(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5044,7 +5044,7 @@ static bool _jm_f_210(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_default ($.'$TightSchema'.'|'.1.default)
+// check _jm_obj_38_map_default ($.'$TightSchema'.'|'.1.default)
 static bool _jm_f_211(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5057,7 +5057,7 @@ static bool _jm_f_211(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_deprecated ($.'$TightSchema'.'|'.1.deprecated)
+// check _jm_obj_38_map_deprecated ($.'$TightSchema'.'|'.1.deprecated)
 static bool _jm_f_212(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5070,7 +5070,7 @@ static bool _jm_f_212(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_description ($.'$TightSchema'.'|'.1.description)
+// check _jm_obj_38_map_description ($.'$TightSchema'.'|'.1.description)
 static bool _jm_f_213(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5083,7 +5083,7 @@ static bool _jm_f_213(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_examples ($.'$TightSchema'.'|'.1.examples)
+// check _jm_obj_38_map_examples ($.'$TightSchema'.'|'.1.examples)
 static bool _jm_f_214(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5100,7 +5100,7 @@ static bool _jm_f_214(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_readOnly ($.'$TightSchema'.'|'.1.readOnly)
+// check _jm_obj_38_map_readOnly ($.'$TightSchema'.'|'.1.readOnly)
 static bool _jm_f_215(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5113,7 +5113,7 @@ static bool _jm_f_215(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_title ($.'$TightSchema'.'|'.1.title)
+// check _jm_obj_38_map_title ($.'$TightSchema'.'|'.1.title)
 static bool _jm_f_216(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5126,7 +5126,7 @@ static bool _jm_f_216(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_38_may_writeOnly ($.'$TightSchema'.'|'.1.writeOnly)
+// check _jm_obj_38_map_writeOnly ($.'$TightSchema'.'|'.1.writeOnly)
 static bool _jm_f_217(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5139,9 +5139,9 @@ static bool _jm_f_217(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_38_may(const char *pname)
+static check_fun_t _jm_obj_38_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_38_may_tab, 16);
+    return jm_search_propmap(pname, _jm_obj_38_map_tab, 16);
 }
 
 // object $.'$TightSchema'.'|'.1
@@ -5176,9 +5176,9 @@ static bool _jm_obj_38(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_38_may(prop)))
+        else if ((pfun = _jm_obj_38_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 16 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_38 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.1]", (path ? &lpath_38 : NULL));
@@ -5199,7 +5199,7 @@ static bool _jm_obj_38(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_41_may_$anchor ($.'$TightSchema'.'|'.0.'$anchor')
+// check _jm_obj_41_map_$anchor ($.'$TightSchema'.'|'.0.'$anchor')
 static bool _jm_f_218(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5212,7 +5212,7 @@ static bool _jm_f_218(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$comment ($.'$TightSchema'.'|'.0.'$comment')
+// check _jm_obj_41_map_$comment ($.'$TightSchema'.'|'.0.'$comment')
 static bool _jm_f_219(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5254,7 +5254,7 @@ static bool _jm_obj_42(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_41_may_$defs ($.'$TightSchema'.'|'.0.'$defs')
+// check _jm_obj_41_map_$defs ($.'$TightSchema'.'|'.0.'$defs')
 static bool _jm_f_220(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5267,7 +5267,7 @@ static bool _jm_f_220(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$dynamicAnchor ($.'$TightSchema'.'|'.0.'$dynamicAnchor')
+// check _jm_obj_41_map_$dynamicAnchor ($.'$TightSchema'.'|'.0.'$dynamicAnchor')
 static bool _jm_f_221(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5280,7 +5280,7 @@ static bool _jm_f_221(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$dynamicRef ($.'$TightSchema'.'|'.0.'$dynamicRef')
+// check _jm_obj_41_map_$dynamicRef ($.'$TightSchema'.'|'.0.'$dynamicRef')
 static bool _jm_f_222(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5293,7 +5293,7 @@ static bool _jm_f_222(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$id ($.'$TightSchema'.'|'.0.'$id')
+// check _jm_obj_41_map_$id ($.'$TightSchema'.'|'.0.'$id')
 static bool _jm_f_223(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5306,7 +5306,7 @@ static bool _jm_f_223(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$ref ($.'$TightSchema'.'|'.0.'$ref')
+// check _jm_obj_41_map_$ref ($.'$TightSchema'.'|'.0.'$ref')
 static bool _jm_f_224(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5319,7 +5319,7 @@ static bool _jm_f_224(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_$schema ($.'$TightSchema'.'|'.0.'$schema')
+// check _jm_obj_41_map_$schema ($.'$TightSchema'.'|'.0.'$schema')
 static bool _jm_f_225(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5369,7 +5369,7 @@ static bool _jm_obj_43(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check _jm_obj_41_may_$vocabulary ($.'$TightSchema'.'|'.0.'$vocabulary')
+// check _jm_obj_41_map_$vocabulary ($.'$TightSchema'.'|'.0.'$vocabulary')
 static bool _jm_f_226(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5382,7 +5382,7 @@ static bool _jm_f_226(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_default ($.'$TightSchema'.'|'.0.default)
+// check _jm_obj_41_map_default ($.'$TightSchema'.'|'.0.default)
 static bool _jm_f_227(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5395,7 +5395,7 @@ static bool _jm_f_227(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_deprecated ($.'$TightSchema'.'|'.0.deprecated)
+// check _jm_obj_41_map_deprecated ($.'$TightSchema'.'|'.0.deprecated)
 static bool _jm_f_228(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5408,7 +5408,7 @@ static bool _jm_f_228(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_description ($.'$TightSchema'.'|'.0.description)
+// check _jm_obj_41_map_description ($.'$TightSchema'.'|'.0.description)
 static bool _jm_f_229(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5421,7 +5421,7 @@ static bool _jm_f_229(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_examples ($.'$TightSchema'.'|'.0.examples)
+// check _jm_obj_41_map_examples ($.'$TightSchema'.'|'.0.examples)
 static bool _jm_f_230(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5438,7 +5438,7 @@ static bool _jm_f_230(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_readOnly ($.'$TightSchema'.'|'.0.readOnly)
+// check _jm_obj_41_map_readOnly ($.'$TightSchema'.'|'.0.readOnly)
 static bool _jm_f_231(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5451,7 +5451,7 @@ static bool _jm_f_231(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_title ($.'$TightSchema'.'|'.0.title)
+// check _jm_obj_41_map_title ($.'$TightSchema'.'|'.0.title)
 static bool _jm_f_232(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5464,7 +5464,7 @@ static bool _jm_f_232(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check _jm_obj_41_may_writeOnly ($.'$TightSchema'.'|'.0.writeOnly)
+// check _jm_obj_41_map_writeOnly ($.'$TightSchema'.'|'.0.writeOnly)
 static bool _jm_f_233(const json_t* val, Path* path, Report* rep)
 {
     bool res;
@@ -5477,9 +5477,9 @@ static bool _jm_f_233(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static check_fun_t _jm_obj_41_may(const char *pname)
+static check_fun_t _jm_obj_41_map(const char *pname)
 {
-    return jm_search_propmap(pname, _jm_obj_41_may_tab, 16);
+    return jm_search_propmap(pname, _jm_obj_41_map_tab, 16);
 }
 
 // object $.'$TightSchema'.'|'.0
@@ -5514,9 +5514,9 @@ static bool _jm_obj_41(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_41_may(prop)))
+        else if ((pfun = _jm_obj_41_map(prop)))
         {
-            // handle {len(may)} may props
+            // handle 16 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_41 : NULL), rep))
             {
                 if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$TightSchema'.'|'.0]", (path ? &lpath_41 : NULL));
@@ -5679,256 +5679,256 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_obj_0_may_tab[0] = (propmap_t) { "$anchor", _jm_f_0 };
-        _jm_obj_0_may_tab[1] = (propmap_t) { "$comment", _jm_f_1 };
-        _jm_obj_0_may_tab[2] = (propmap_t) { "$defs", _jm_f_2 };
-        _jm_obj_0_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_3 };
-        _jm_obj_0_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_4 };
-        _jm_obj_0_may_tab[5] = (propmap_t) { "$id", _jm_f_5 };
-        _jm_obj_0_may_tab[6] = (propmap_t) { "$ref", _jm_f_6 };
-        _jm_obj_0_may_tab[7] = (propmap_t) { "$schema", _jm_f_7 };
-        _jm_obj_0_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_8 };
-        jm_sort_propmap(_jm_obj_0_may_tab, 9);
-        _jm_obj_3_may_tab[0] = (propmap_t) { "default", _jm_f_9 };
-        _jm_obj_3_may_tab[1] = (propmap_t) { "deprecated", _jm_f_10 };
-        _jm_obj_3_may_tab[2] = (propmap_t) { "description", _jm_f_11 };
-        _jm_obj_3_may_tab[3] = (propmap_t) { "examples", _jm_f_12 };
-        _jm_obj_3_may_tab[4] = (propmap_t) { "readOnly", _jm_f_13 };
-        _jm_obj_3_may_tab[5] = (propmap_t) { "title", _jm_f_14 };
-        _jm_obj_3_may_tab[6] = (propmap_t) { "writeOnly", _jm_f_15 };
-        jm_sort_propmap(_jm_obj_3_may_tab, 7);
-        _jm_obj_6_may_tab[0] = (propmap_t) { "exclusiveMaximum", _jm_f_16 };
-        _jm_obj_6_may_tab[1] = (propmap_t) { "exclusiveMinimum", _jm_f_17 };
-        _jm_obj_6_may_tab[2] = (propmap_t) { "maximum", _jm_f_18 };
-        _jm_obj_6_may_tab[3] = (propmap_t) { "minimum", _jm_f_19 };
-        _jm_obj_6_may_tab[4] = (propmap_t) { "multipleOf", _jm_f_20 };
-        jm_sort_propmap(_jm_obj_6_may_tab, 5);
-        _jm_obj_7_may_tab[0] = (propmap_t) { "exclusiveMaximum", _jm_f_21 };
-        _jm_obj_7_may_tab[1] = (propmap_t) { "exclusiveMinimum", _jm_f_22 };
-        _jm_obj_7_may_tab[2] = (propmap_t) { "maximum", _jm_f_23 };
-        _jm_obj_7_may_tab[3] = (propmap_t) { "minimum", _jm_f_24 };
-        _jm_obj_7_may_tab[4] = (propmap_t) { "multipleOf", _jm_f_25 };
-        jm_sort_propmap(_jm_obj_7_may_tab, 5);
-        _jm_obj_8_may_tab[0] = (propmap_t) { "contentEncoding", _jm_f_26 };
-        _jm_obj_8_may_tab[1] = (propmap_t) { "contentMediaType", _jm_f_27 };
-        _jm_obj_8_may_tab[2] = (propmap_t) { "contentSchema", _jm_f_28 };
-        _jm_obj_8_may_tab[3] = (propmap_t) { "format", _jm_f_29 };
-        _jm_obj_8_may_tab[4] = (propmap_t) { "maxLength", _jm_f_30 };
-        _jm_obj_8_may_tab[5] = (propmap_t) { "minLength", _jm_f_31 };
-        _jm_obj_8_may_tab[6] = (propmap_t) { "pattern", _jm_f_32 };
-        jm_sort_propmap(_jm_obj_8_may_tab, 7);
-        _jm_obj_9_may_tab[0] = (propmap_t) { "contains", _jm_f_33 };
-        _jm_obj_9_may_tab[1] = (propmap_t) { "items", _jm_f_34 };
-        _jm_obj_9_may_tab[2] = (propmap_t) { "maxContains", _jm_f_35 };
-        _jm_obj_9_may_tab[3] = (propmap_t) { "maxItems", _jm_f_36 };
-        _jm_obj_9_may_tab[4] = (propmap_t) { "minContains", _jm_f_37 };
-        _jm_obj_9_may_tab[5] = (propmap_t) { "minItems", _jm_f_38 };
-        _jm_obj_9_may_tab[6] = (propmap_t) { "prefixItems", _jm_f_39 };
-        _jm_obj_9_may_tab[7] = (propmap_t) { "unevaluatedItems", _jm_f_40 };
-        _jm_obj_9_may_tab[8] = (propmap_t) { "uniqueItems", _jm_f_41 };
-        jm_sort_propmap(_jm_obj_9_may_tab, 9);
-        _jm_obj_10_may_tab[0] = (propmap_t) { "additionalProperties", _jm_f_42 };
-        _jm_obj_10_may_tab[1] = (propmap_t) { "dependentRequired", _jm_f_43 };
-        _jm_obj_10_may_tab[2] = (propmap_t) { "dependentSchemas", _jm_f_44 };
-        _jm_obj_10_may_tab[3] = (propmap_t) { "maxProperties", _jm_f_45 };
-        _jm_obj_10_may_tab[4] = (propmap_t) { "minProperties", _jm_f_46 };
-        _jm_obj_10_may_tab[5] = (propmap_t) { "patternProperties", _jm_f_47 };
-        _jm_obj_10_may_tab[6] = (propmap_t) { "properties", _jm_f_48 };
-        _jm_obj_10_may_tab[7] = (propmap_t) { "propertyNames", _jm_f_49 };
-        _jm_obj_10_may_tab[8] = (propmap_t) { "required", _jm_f_50 };
-        _jm_obj_10_may_tab[9] = (propmap_t) { "unevaluatedProperties", _jm_f_51 };
-        jm_sort_propmap(_jm_obj_10_may_tab, 10);
-        _jm_obj_15_may_tab[0] = (propmap_t) { "allOf", _jm_f_52 };
-        _jm_obj_15_may_tab[1] = (propmap_t) { "anyOf", _jm_f_53 };
-        _jm_obj_15_may_tab[2] = (propmap_t) { "const", _jm_f_54 };
-        _jm_obj_15_may_tab[3] = (propmap_t) { "else", _jm_f_55 };
-        _jm_obj_15_may_tab[4] = (propmap_t) { "enum", _jm_f_56 };
-        _jm_obj_15_may_tab[5] = (propmap_t) { "if", _jm_f_57 };
-        _jm_obj_15_may_tab[6] = (propmap_t) { "not", _jm_f_58 };
-        _jm_obj_15_may_tab[7] = (propmap_t) { "oneOf", _jm_f_59 };
-        _jm_obj_15_may_tab[8] = (propmap_t) { "then", _jm_f_60 };
-        jm_sort_propmap(_jm_obj_15_may_tab, 9);
-        _jm_obj_16_may_tab[0] = (propmap_t) { "$anchor", _jm_f_61 };
-        _jm_obj_16_may_tab[1] = (propmap_t) { "$comment", _jm_f_62 };
-        _jm_obj_16_may_tab[2] = (propmap_t) { "$defs", _jm_f_63 };
-        _jm_obj_16_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_64 };
-        _jm_obj_16_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_65 };
-        _jm_obj_16_may_tab[5] = (propmap_t) { "$id", _jm_f_66 };
-        _jm_obj_16_may_tab[6] = (propmap_t) { "$ref", _jm_f_67 };
-        _jm_obj_16_may_tab[7] = (propmap_t) { "$schema", _jm_f_68 };
-        _jm_obj_16_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_69 };
-        _jm_obj_16_may_tab[9] = (propmap_t) { "allOf", _jm_f_70 };
-        _jm_obj_16_may_tab[10] = (propmap_t) { "anyOf", _jm_f_71 };
-        _jm_obj_16_may_tab[11] = (propmap_t) { "const", _jm_f_72 };
-        _jm_obj_16_may_tab[12] = (propmap_t) { "default", _jm_f_73 };
-        _jm_obj_16_may_tab[13] = (propmap_t) { "deprecated", _jm_f_74 };
-        _jm_obj_16_may_tab[14] = (propmap_t) { "description", _jm_f_75 };
-        _jm_obj_16_may_tab[15] = (propmap_t) { "else", _jm_f_76 };
-        _jm_obj_16_may_tab[16] = (propmap_t) { "enum", _jm_f_77 };
-        _jm_obj_16_may_tab[17] = (propmap_t) { "examples", _jm_f_78 };
-        _jm_obj_16_may_tab[18] = (propmap_t) { "if", _jm_f_79 };
-        _jm_obj_16_may_tab[19] = (propmap_t) { "not", _jm_f_80 };
-        _jm_obj_16_may_tab[20] = (propmap_t) { "oneOf", _jm_f_81 };
-        _jm_obj_16_may_tab[21] = (propmap_t) { "readOnly", _jm_f_82 };
-        _jm_obj_16_may_tab[22] = (propmap_t) { "then", _jm_f_83 };
-        _jm_obj_16_may_tab[23] = (propmap_t) { "title", _jm_f_84 };
-        _jm_obj_16_may_tab[24] = (propmap_t) { "writeOnly", _jm_f_85 };
-        jm_sort_propmap(_jm_obj_16_may_tab, 25);
-        _jm_obj_19_may_tab[0] = (propmap_t) { "$anchor", _jm_f_86 };
-        _jm_obj_19_may_tab[1] = (propmap_t) { "$comment", _jm_f_87 };
-        _jm_obj_19_may_tab[2] = (propmap_t) { "$defs", _jm_f_88 };
-        _jm_obj_19_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_89 };
-        _jm_obj_19_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_90 };
-        _jm_obj_19_may_tab[5] = (propmap_t) { "$id", _jm_f_91 };
-        _jm_obj_19_may_tab[6] = (propmap_t) { "$ref", _jm_f_92 };
-        _jm_obj_19_may_tab[7] = (propmap_t) { "$schema", _jm_f_93 };
-        _jm_obj_19_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_94 };
-        _jm_obj_19_may_tab[9] = (propmap_t) { "additionalProperties", _jm_f_95 };
-        _jm_obj_19_may_tab[10] = (propmap_t) { "default", _jm_f_96 };
-        _jm_obj_19_may_tab[11] = (propmap_t) { "dependentRequired", _jm_f_97 };
-        _jm_obj_19_may_tab[12] = (propmap_t) { "dependentSchemas", _jm_f_98 };
-        _jm_obj_19_may_tab[13] = (propmap_t) { "deprecated", _jm_f_99 };
-        _jm_obj_19_may_tab[14] = (propmap_t) { "description", _jm_f_100 };
-        _jm_obj_19_may_tab[15] = (propmap_t) { "examples", _jm_f_101 };
-        _jm_obj_19_may_tab[16] = (propmap_t) { "maxProperties", _jm_f_102 };
-        _jm_obj_19_may_tab[17] = (propmap_t) { "minProperties", _jm_f_103 };
-        _jm_obj_19_may_tab[18] = (propmap_t) { "patternProperties", _jm_f_104 };
-        _jm_obj_19_may_tab[19] = (propmap_t) { "properties", _jm_f_105 };
-        _jm_obj_19_may_tab[20] = (propmap_t) { "propertyNames", _jm_f_106 };
-        _jm_obj_19_may_tab[21] = (propmap_t) { "readOnly", _jm_f_107 };
-        _jm_obj_19_may_tab[22] = (propmap_t) { "required", _jm_f_108 };
-        _jm_obj_19_may_tab[23] = (propmap_t) { "title", _jm_f_109 };
-        _jm_obj_19_may_tab[24] = (propmap_t) { "unevaluatedProperties", _jm_f_110 };
-        _jm_obj_19_may_tab[25] = (propmap_t) { "writeOnly", _jm_f_111 };
-        jm_sort_propmap(_jm_obj_19_may_tab, 26);
-        _jm_obj_26_may_tab[0] = (propmap_t) { "$anchor", _jm_f_112 };
-        _jm_obj_26_may_tab[1] = (propmap_t) { "$comment", _jm_f_113 };
-        _jm_obj_26_may_tab[2] = (propmap_t) { "$defs", _jm_f_114 };
-        _jm_obj_26_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_115 };
-        _jm_obj_26_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_116 };
-        _jm_obj_26_may_tab[5] = (propmap_t) { "$id", _jm_f_117 };
-        _jm_obj_26_may_tab[6] = (propmap_t) { "$ref", _jm_f_118 };
-        _jm_obj_26_may_tab[7] = (propmap_t) { "$schema", _jm_f_119 };
-        _jm_obj_26_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_120 };
-        _jm_obj_26_may_tab[9] = (propmap_t) { "contains", _jm_f_121 };
-        _jm_obj_26_may_tab[10] = (propmap_t) { "default", _jm_f_122 };
-        _jm_obj_26_may_tab[11] = (propmap_t) { "deprecated", _jm_f_123 };
-        _jm_obj_26_may_tab[12] = (propmap_t) { "description", _jm_f_124 };
-        _jm_obj_26_may_tab[13] = (propmap_t) { "examples", _jm_f_125 };
-        _jm_obj_26_may_tab[14] = (propmap_t) { "items", _jm_f_126 };
-        _jm_obj_26_may_tab[15] = (propmap_t) { "maxContains", _jm_f_127 };
-        _jm_obj_26_may_tab[16] = (propmap_t) { "maxItems", _jm_f_128 };
-        _jm_obj_26_may_tab[17] = (propmap_t) { "minContains", _jm_f_129 };
-        _jm_obj_26_may_tab[18] = (propmap_t) { "minItems", _jm_f_130 };
-        _jm_obj_26_may_tab[19] = (propmap_t) { "prefixItems", _jm_f_131 };
-        _jm_obj_26_may_tab[20] = (propmap_t) { "readOnly", _jm_f_132 };
-        _jm_obj_26_may_tab[21] = (propmap_t) { "title", _jm_f_133 };
-        _jm_obj_26_may_tab[22] = (propmap_t) { "unevaluatedItems", _jm_f_134 };
-        _jm_obj_26_may_tab[23] = (propmap_t) { "uniqueItems", _jm_f_135 };
-        _jm_obj_26_may_tab[24] = (propmap_t) { "writeOnly", _jm_f_136 };
-        jm_sort_propmap(_jm_obj_26_may_tab, 25);
-        _jm_obj_29_may_tab[0] = (propmap_t) { "$anchor", _jm_f_137 };
-        _jm_obj_29_may_tab[1] = (propmap_t) { "$comment", _jm_f_138 };
-        _jm_obj_29_may_tab[2] = (propmap_t) { "$defs", _jm_f_139 };
-        _jm_obj_29_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_140 };
-        _jm_obj_29_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_141 };
-        _jm_obj_29_may_tab[5] = (propmap_t) { "$id", _jm_f_142 };
-        _jm_obj_29_may_tab[6] = (propmap_t) { "$ref", _jm_f_143 };
-        _jm_obj_29_may_tab[7] = (propmap_t) { "$schema", _jm_f_144 };
-        _jm_obj_29_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_145 };
-        _jm_obj_29_may_tab[9] = (propmap_t) { "contentEncoding", _jm_f_146 };
-        _jm_obj_29_may_tab[10] = (propmap_t) { "contentMediaType", _jm_f_147 };
-        _jm_obj_29_may_tab[11] = (propmap_t) { "contentSchema", _jm_f_148 };
-        _jm_obj_29_may_tab[12] = (propmap_t) { "default", _jm_f_149 };
-        _jm_obj_29_may_tab[13] = (propmap_t) { "deprecated", _jm_f_150 };
-        _jm_obj_29_may_tab[14] = (propmap_t) { "description", _jm_f_151 };
-        _jm_obj_29_may_tab[15] = (propmap_t) { "examples", _jm_f_152 };
-        _jm_obj_29_may_tab[16] = (propmap_t) { "format", _jm_f_153 };
-        _jm_obj_29_may_tab[17] = (propmap_t) { "maxLength", _jm_f_154 };
-        _jm_obj_29_may_tab[18] = (propmap_t) { "minLength", _jm_f_155 };
-        _jm_obj_29_may_tab[19] = (propmap_t) { "pattern", _jm_f_156 };
-        _jm_obj_29_may_tab[20] = (propmap_t) { "readOnly", _jm_f_157 };
-        _jm_obj_29_may_tab[21] = (propmap_t) { "title", _jm_f_158 };
-        _jm_obj_29_may_tab[22] = (propmap_t) { "writeOnly", _jm_f_159 };
-        jm_sort_propmap(_jm_obj_29_may_tab, 23);
-        _jm_obj_32_may_tab[0] = (propmap_t) { "$anchor", _jm_f_160 };
-        _jm_obj_32_may_tab[1] = (propmap_t) { "$comment", _jm_f_161 };
-        _jm_obj_32_may_tab[2] = (propmap_t) { "$defs", _jm_f_162 };
-        _jm_obj_32_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_163 };
-        _jm_obj_32_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_164 };
-        _jm_obj_32_may_tab[5] = (propmap_t) { "$id", _jm_f_165 };
-        _jm_obj_32_may_tab[6] = (propmap_t) { "$ref", _jm_f_166 };
-        _jm_obj_32_may_tab[7] = (propmap_t) { "$schema", _jm_f_167 };
-        _jm_obj_32_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_168 };
-        _jm_obj_32_may_tab[9] = (propmap_t) { "default", _jm_f_169 };
-        _jm_obj_32_may_tab[10] = (propmap_t) { "deprecated", _jm_f_170 };
-        _jm_obj_32_may_tab[11] = (propmap_t) { "description", _jm_f_171 };
-        _jm_obj_32_may_tab[12] = (propmap_t) { "examples", _jm_f_172 };
-        _jm_obj_32_may_tab[13] = (propmap_t) { "exclusiveMaximum", _jm_f_173 };
-        _jm_obj_32_may_tab[14] = (propmap_t) { "exclusiveMinimum", _jm_f_174 };
-        _jm_obj_32_may_tab[15] = (propmap_t) { "maximum", _jm_f_175 };
-        _jm_obj_32_may_tab[16] = (propmap_t) { "minimum", _jm_f_176 };
-        _jm_obj_32_may_tab[17] = (propmap_t) { "multipleOf", _jm_f_177 };
-        _jm_obj_32_may_tab[18] = (propmap_t) { "readOnly", _jm_f_178 };
-        _jm_obj_32_may_tab[19] = (propmap_t) { "title", _jm_f_179 };
-        _jm_obj_32_may_tab[20] = (propmap_t) { "writeOnly", _jm_f_180 };
-        jm_sort_propmap(_jm_obj_32_may_tab, 21);
-        _jm_obj_35_may_tab[0] = (propmap_t) { "$anchor", _jm_f_181 };
-        _jm_obj_35_may_tab[1] = (propmap_t) { "$comment", _jm_f_182 };
-        _jm_obj_35_may_tab[2] = (propmap_t) { "$defs", _jm_f_183 };
-        _jm_obj_35_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_184 };
-        _jm_obj_35_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_185 };
-        _jm_obj_35_may_tab[5] = (propmap_t) { "$id", _jm_f_186 };
-        _jm_obj_35_may_tab[6] = (propmap_t) { "$ref", _jm_f_187 };
-        _jm_obj_35_may_tab[7] = (propmap_t) { "$schema", _jm_f_188 };
-        _jm_obj_35_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_189 };
-        _jm_obj_35_may_tab[9] = (propmap_t) { "default", _jm_f_190 };
-        _jm_obj_35_may_tab[10] = (propmap_t) { "deprecated", _jm_f_191 };
-        _jm_obj_35_may_tab[11] = (propmap_t) { "description", _jm_f_192 };
-        _jm_obj_35_may_tab[12] = (propmap_t) { "examples", _jm_f_193 };
-        _jm_obj_35_may_tab[13] = (propmap_t) { "exclusiveMaximum", _jm_f_194 };
-        _jm_obj_35_may_tab[14] = (propmap_t) { "exclusiveMinimum", _jm_f_195 };
-        _jm_obj_35_may_tab[15] = (propmap_t) { "maximum", _jm_f_196 };
-        _jm_obj_35_may_tab[16] = (propmap_t) { "minimum", _jm_f_197 };
-        _jm_obj_35_may_tab[17] = (propmap_t) { "multipleOf", _jm_f_198 };
-        _jm_obj_35_may_tab[18] = (propmap_t) { "readOnly", _jm_f_199 };
-        _jm_obj_35_may_tab[19] = (propmap_t) { "title", _jm_f_200 };
-        _jm_obj_35_may_tab[20] = (propmap_t) { "writeOnly", _jm_f_201 };
-        jm_sort_propmap(_jm_obj_35_may_tab, 21);
-        _jm_obj_38_may_tab[0] = (propmap_t) { "$anchor", _jm_f_202 };
-        _jm_obj_38_may_tab[1] = (propmap_t) { "$comment", _jm_f_203 };
-        _jm_obj_38_may_tab[2] = (propmap_t) { "$defs", _jm_f_204 };
-        _jm_obj_38_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_205 };
-        _jm_obj_38_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_206 };
-        _jm_obj_38_may_tab[5] = (propmap_t) { "$id", _jm_f_207 };
-        _jm_obj_38_may_tab[6] = (propmap_t) { "$ref", _jm_f_208 };
-        _jm_obj_38_may_tab[7] = (propmap_t) { "$schema", _jm_f_209 };
-        _jm_obj_38_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_210 };
-        _jm_obj_38_may_tab[9] = (propmap_t) { "default", _jm_f_211 };
-        _jm_obj_38_may_tab[10] = (propmap_t) { "deprecated", _jm_f_212 };
-        _jm_obj_38_may_tab[11] = (propmap_t) { "description", _jm_f_213 };
-        _jm_obj_38_may_tab[12] = (propmap_t) { "examples", _jm_f_214 };
-        _jm_obj_38_may_tab[13] = (propmap_t) { "readOnly", _jm_f_215 };
-        _jm_obj_38_may_tab[14] = (propmap_t) { "title", _jm_f_216 };
-        _jm_obj_38_may_tab[15] = (propmap_t) { "writeOnly", _jm_f_217 };
-        jm_sort_propmap(_jm_obj_38_may_tab, 16);
-        _jm_obj_41_may_tab[0] = (propmap_t) { "$anchor", _jm_f_218 };
-        _jm_obj_41_may_tab[1] = (propmap_t) { "$comment", _jm_f_219 };
-        _jm_obj_41_may_tab[2] = (propmap_t) { "$defs", _jm_f_220 };
-        _jm_obj_41_may_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_221 };
-        _jm_obj_41_may_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_222 };
-        _jm_obj_41_may_tab[5] = (propmap_t) { "$id", _jm_f_223 };
-        _jm_obj_41_may_tab[6] = (propmap_t) { "$ref", _jm_f_224 };
-        _jm_obj_41_may_tab[7] = (propmap_t) { "$schema", _jm_f_225 };
-        _jm_obj_41_may_tab[8] = (propmap_t) { "$vocabulary", _jm_f_226 };
-        _jm_obj_41_may_tab[9] = (propmap_t) { "default", _jm_f_227 };
-        _jm_obj_41_may_tab[10] = (propmap_t) { "deprecated", _jm_f_228 };
-        _jm_obj_41_may_tab[11] = (propmap_t) { "description", _jm_f_229 };
-        _jm_obj_41_may_tab[12] = (propmap_t) { "examples", _jm_f_230 };
-        _jm_obj_41_may_tab[13] = (propmap_t) { "readOnly", _jm_f_231 };
-        _jm_obj_41_may_tab[14] = (propmap_t) { "title", _jm_f_232 };
-        _jm_obj_41_may_tab[15] = (propmap_t) { "writeOnly", _jm_f_233 };
-        jm_sort_propmap(_jm_obj_41_may_tab, 16);
+        _jm_obj_0_map_tab[0] = (propmap_t) { "$anchor", _jm_f_0 };
+        _jm_obj_0_map_tab[1] = (propmap_t) { "$comment", _jm_f_1 };
+        _jm_obj_0_map_tab[2] = (propmap_t) { "$defs", _jm_f_2 };
+        _jm_obj_0_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_3 };
+        _jm_obj_0_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_4 };
+        _jm_obj_0_map_tab[5] = (propmap_t) { "$id", _jm_f_5 };
+        _jm_obj_0_map_tab[6] = (propmap_t) { "$ref", _jm_f_6 };
+        _jm_obj_0_map_tab[7] = (propmap_t) { "$schema", _jm_f_7 };
+        _jm_obj_0_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_8 };
+        jm_sort_propmap(_jm_obj_0_map_tab, 9);
+        _jm_obj_3_map_tab[0] = (propmap_t) { "default", _jm_f_9 };
+        _jm_obj_3_map_tab[1] = (propmap_t) { "deprecated", _jm_f_10 };
+        _jm_obj_3_map_tab[2] = (propmap_t) { "description", _jm_f_11 };
+        _jm_obj_3_map_tab[3] = (propmap_t) { "examples", _jm_f_12 };
+        _jm_obj_3_map_tab[4] = (propmap_t) { "readOnly", _jm_f_13 };
+        _jm_obj_3_map_tab[5] = (propmap_t) { "title", _jm_f_14 };
+        _jm_obj_3_map_tab[6] = (propmap_t) { "writeOnly", _jm_f_15 };
+        jm_sort_propmap(_jm_obj_3_map_tab, 7);
+        _jm_obj_6_map_tab[0] = (propmap_t) { "exclusiveMaximum", _jm_f_16 };
+        _jm_obj_6_map_tab[1] = (propmap_t) { "exclusiveMinimum", _jm_f_17 };
+        _jm_obj_6_map_tab[2] = (propmap_t) { "maximum", _jm_f_18 };
+        _jm_obj_6_map_tab[3] = (propmap_t) { "minimum", _jm_f_19 };
+        _jm_obj_6_map_tab[4] = (propmap_t) { "multipleOf", _jm_f_20 };
+        jm_sort_propmap(_jm_obj_6_map_tab, 5);
+        _jm_obj_7_map_tab[0] = (propmap_t) { "exclusiveMaximum", _jm_f_21 };
+        _jm_obj_7_map_tab[1] = (propmap_t) { "exclusiveMinimum", _jm_f_22 };
+        _jm_obj_7_map_tab[2] = (propmap_t) { "maximum", _jm_f_23 };
+        _jm_obj_7_map_tab[3] = (propmap_t) { "minimum", _jm_f_24 };
+        _jm_obj_7_map_tab[4] = (propmap_t) { "multipleOf", _jm_f_25 };
+        jm_sort_propmap(_jm_obj_7_map_tab, 5);
+        _jm_obj_8_map_tab[0] = (propmap_t) { "contentEncoding", _jm_f_26 };
+        _jm_obj_8_map_tab[1] = (propmap_t) { "contentMediaType", _jm_f_27 };
+        _jm_obj_8_map_tab[2] = (propmap_t) { "contentSchema", _jm_f_28 };
+        _jm_obj_8_map_tab[3] = (propmap_t) { "format", _jm_f_29 };
+        _jm_obj_8_map_tab[4] = (propmap_t) { "maxLength", _jm_f_30 };
+        _jm_obj_8_map_tab[5] = (propmap_t) { "minLength", _jm_f_31 };
+        _jm_obj_8_map_tab[6] = (propmap_t) { "pattern", _jm_f_32 };
+        jm_sort_propmap(_jm_obj_8_map_tab, 7);
+        _jm_obj_9_map_tab[0] = (propmap_t) { "contains", _jm_f_33 };
+        _jm_obj_9_map_tab[1] = (propmap_t) { "items", _jm_f_34 };
+        _jm_obj_9_map_tab[2] = (propmap_t) { "maxContains", _jm_f_35 };
+        _jm_obj_9_map_tab[3] = (propmap_t) { "maxItems", _jm_f_36 };
+        _jm_obj_9_map_tab[4] = (propmap_t) { "minContains", _jm_f_37 };
+        _jm_obj_9_map_tab[5] = (propmap_t) { "minItems", _jm_f_38 };
+        _jm_obj_9_map_tab[6] = (propmap_t) { "prefixItems", _jm_f_39 };
+        _jm_obj_9_map_tab[7] = (propmap_t) { "unevaluatedItems", _jm_f_40 };
+        _jm_obj_9_map_tab[8] = (propmap_t) { "uniqueItems", _jm_f_41 };
+        jm_sort_propmap(_jm_obj_9_map_tab, 9);
+        _jm_obj_10_map_tab[0] = (propmap_t) { "additionalProperties", _jm_f_42 };
+        _jm_obj_10_map_tab[1] = (propmap_t) { "dependentRequired", _jm_f_43 };
+        _jm_obj_10_map_tab[2] = (propmap_t) { "dependentSchemas", _jm_f_44 };
+        _jm_obj_10_map_tab[3] = (propmap_t) { "maxProperties", _jm_f_45 };
+        _jm_obj_10_map_tab[4] = (propmap_t) { "minProperties", _jm_f_46 };
+        _jm_obj_10_map_tab[5] = (propmap_t) { "patternProperties", _jm_f_47 };
+        _jm_obj_10_map_tab[6] = (propmap_t) { "properties", _jm_f_48 };
+        _jm_obj_10_map_tab[7] = (propmap_t) { "propertyNames", _jm_f_49 };
+        _jm_obj_10_map_tab[8] = (propmap_t) { "required", _jm_f_50 };
+        _jm_obj_10_map_tab[9] = (propmap_t) { "unevaluatedProperties", _jm_f_51 };
+        jm_sort_propmap(_jm_obj_10_map_tab, 10);
+        _jm_obj_15_map_tab[0] = (propmap_t) { "allOf", _jm_f_52 };
+        _jm_obj_15_map_tab[1] = (propmap_t) { "anyOf", _jm_f_53 };
+        _jm_obj_15_map_tab[2] = (propmap_t) { "const", _jm_f_54 };
+        _jm_obj_15_map_tab[3] = (propmap_t) { "else", _jm_f_55 };
+        _jm_obj_15_map_tab[4] = (propmap_t) { "enum", _jm_f_56 };
+        _jm_obj_15_map_tab[5] = (propmap_t) { "if", _jm_f_57 };
+        _jm_obj_15_map_tab[6] = (propmap_t) { "not", _jm_f_58 };
+        _jm_obj_15_map_tab[7] = (propmap_t) { "oneOf", _jm_f_59 };
+        _jm_obj_15_map_tab[8] = (propmap_t) { "then", _jm_f_60 };
+        jm_sort_propmap(_jm_obj_15_map_tab, 9);
+        _jm_obj_16_map_tab[0] = (propmap_t) { "$anchor", _jm_f_61 };
+        _jm_obj_16_map_tab[1] = (propmap_t) { "$comment", _jm_f_62 };
+        _jm_obj_16_map_tab[2] = (propmap_t) { "$defs", _jm_f_63 };
+        _jm_obj_16_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_64 };
+        _jm_obj_16_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_65 };
+        _jm_obj_16_map_tab[5] = (propmap_t) { "$id", _jm_f_66 };
+        _jm_obj_16_map_tab[6] = (propmap_t) { "$ref", _jm_f_67 };
+        _jm_obj_16_map_tab[7] = (propmap_t) { "$schema", _jm_f_68 };
+        _jm_obj_16_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_69 };
+        _jm_obj_16_map_tab[9] = (propmap_t) { "allOf", _jm_f_70 };
+        _jm_obj_16_map_tab[10] = (propmap_t) { "anyOf", _jm_f_71 };
+        _jm_obj_16_map_tab[11] = (propmap_t) { "const", _jm_f_72 };
+        _jm_obj_16_map_tab[12] = (propmap_t) { "default", _jm_f_73 };
+        _jm_obj_16_map_tab[13] = (propmap_t) { "deprecated", _jm_f_74 };
+        _jm_obj_16_map_tab[14] = (propmap_t) { "description", _jm_f_75 };
+        _jm_obj_16_map_tab[15] = (propmap_t) { "else", _jm_f_76 };
+        _jm_obj_16_map_tab[16] = (propmap_t) { "enum", _jm_f_77 };
+        _jm_obj_16_map_tab[17] = (propmap_t) { "examples", _jm_f_78 };
+        _jm_obj_16_map_tab[18] = (propmap_t) { "if", _jm_f_79 };
+        _jm_obj_16_map_tab[19] = (propmap_t) { "not", _jm_f_80 };
+        _jm_obj_16_map_tab[20] = (propmap_t) { "oneOf", _jm_f_81 };
+        _jm_obj_16_map_tab[21] = (propmap_t) { "readOnly", _jm_f_82 };
+        _jm_obj_16_map_tab[22] = (propmap_t) { "then", _jm_f_83 };
+        _jm_obj_16_map_tab[23] = (propmap_t) { "title", _jm_f_84 };
+        _jm_obj_16_map_tab[24] = (propmap_t) { "writeOnly", _jm_f_85 };
+        jm_sort_propmap(_jm_obj_16_map_tab, 25);
+        _jm_obj_19_map_tab[0] = (propmap_t) { "$anchor", _jm_f_86 };
+        _jm_obj_19_map_tab[1] = (propmap_t) { "$comment", _jm_f_87 };
+        _jm_obj_19_map_tab[2] = (propmap_t) { "$defs", _jm_f_88 };
+        _jm_obj_19_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_89 };
+        _jm_obj_19_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_90 };
+        _jm_obj_19_map_tab[5] = (propmap_t) { "$id", _jm_f_91 };
+        _jm_obj_19_map_tab[6] = (propmap_t) { "$ref", _jm_f_92 };
+        _jm_obj_19_map_tab[7] = (propmap_t) { "$schema", _jm_f_93 };
+        _jm_obj_19_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_94 };
+        _jm_obj_19_map_tab[9] = (propmap_t) { "additionalProperties", _jm_f_95 };
+        _jm_obj_19_map_tab[10] = (propmap_t) { "default", _jm_f_96 };
+        _jm_obj_19_map_tab[11] = (propmap_t) { "dependentRequired", _jm_f_97 };
+        _jm_obj_19_map_tab[12] = (propmap_t) { "dependentSchemas", _jm_f_98 };
+        _jm_obj_19_map_tab[13] = (propmap_t) { "deprecated", _jm_f_99 };
+        _jm_obj_19_map_tab[14] = (propmap_t) { "description", _jm_f_100 };
+        _jm_obj_19_map_tab[15] = (propmap_t) { "examples", _jm_f_101 };
+        _jm_obj_19_map_tab[16] = (propmap_t) { "maxProperties", _jm_f_102 };
+        _jm_obj_19_map_tab[17] = (propmap_t) { "minProperties", _jm_f_103 };
+        _jm_obj_19_map_tab[18] = (propmap_t) { "patternProperties", _jm_f_104 };
+        _jm_obj_19_map_tab[19] = (propmap_t) { "properties", _jm_f_105 };
+        _jm_obj_19_map_tab[20] = (propmap_t) { "propertyNames", _jm_f_106 };
+        _jm_obj_19_map_tab[21] = (propmap_t) { "readOnly", _jm_f_107 };
+        _jm_obj_19_map_tab[22] = (propmap_t) { "required", _jm_f_108 };
+        _jm_obj_19_map_tab[23] = (propmap_t) { "title", _jm_f_109 };
+        _jm_obj_19_map_tab[24] = (propmap_t) { "unevaluatedProperties", _jm_f_110 };
+        _jm_obj_19_map_tab[25] = (propmap_t) { "writeOnly", _jm_f_111 };
+        jm_sort_propmap(_jm_obj_19_map_tab, 26);
+        _jm_obj_26_map_tab[0] = (propmap_t) { "$anchor", _jm_f_112 };
+        _jm_obj_26_map_tab[1] = (propmap_t) { "$comment", _jm_f_113 };
+        _jm_obj_26_map_tab[2] = (propmap_t) { "$defs", _jm_f_114 };
+        _jm_obj_26_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_115 };
+        _jm_obj_26_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_116 };
+        _jm_obj_26_map_tab[5] = (propmap_t) { "$id", _jm_f_117 };
+        _jm_obj_26_map_tab[6] = (propmap_t) { "$ref", _jm_f_118 };
+        _jm_obj_26_map_tab[7] = (propmap_t) { "$schema", _jm_f_119 };
+        _jm_obj_26_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_120 };
+        _jm_obj_26_map_tab[9] = (propmap_t) { "contains", _jm_f_121 };
+        _jm_obj_26_map_tab[10] = (propmap_t) { "default", _jm_f_122 };
+        _jm_obj_26_map_tab[11] = (propmap_t) { "deprecated", _jm_f_123 };
+        _jm_obj_26_map_tab[12] = (propmap_t) { "description", _jm_f_124 };
+        _jm_obj_26_map_tab[13] = (propmap_t) { "examples", _jm_f_125 };
+        _jm_obj_26_map_tab[14] = (propmap_t) { "items", _jm_f_126 };
+        _jm_obj_26_map_tab[15] = (propmap_t) { "maxContains", _jm_f_127 };
+        _jm_obj_26_map_tab[16] = (propmap_t) { "maxItems", _jm_f_128 };
+        _jm_obj_26_map_tab[17] = (propmap_t) { "minContains", _jm_f_129 };
+        _jm_obj_26_map_tab[18] = (propmap_t) { "minItems", _jm_f_130 };
+        _jm_obj_26_map_tab[19] = (propmap_t) { "prefixItems", _jm_f_131 };
+        _jm_obj_26_map_tab[20] = (propmap_t) { "readOnly", _jm_f_132 };
+        _jm_obj_26_map_tab[21] = (propmap_t) { "title", _jm_f_133 };
+        _jm_obj_26_map_tab[22] = (propmap_t) { "unevaluatedItems", _jm_f_134 };
+        _jm_obj_26_map_tab[23] = (propmap_t) { "uniqueItems", _jm_f_135 };
+        _jm_obj_26_map_tab[24] = (propmap_t) { "writeOnly", _jm_f_136 };
+        jm_sort_propmap(_jm_obj_26_map_tab, 25);
+        _jm_obj_29_map_tab[0] = (propmap_t) { "$anchor", _jm_f_137 };
+        _jm_obj_29_map_tab[1] = (propmap_t) { "$comment", _jm_f_138 };
+        _jm_obj_29_map_tab[2] = (propmap_t) { "$defs", _jm_f_139 };
+        _jm_obj_29_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_140 };
+        _jm_obj_29_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_141 };
+        _jm_obj_29_map_tab[5] = (propmap_t) { "$id", _jm_f_142 };
+        _jm_obj_29_map_tab[6] = (propmap_t) { "$ref", _jm_f_143 };
+        _jm_obj_29_map_tab[7] = (propmap_t) { "$schema", _jm_f_144 };
+        _jm_obj_29_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_145 };
+        _jm_obj_29_map_tab[9] = (propmap_t) { "contentEncoding", _jm_f_146 };
+        _jm_obj_29_map_tab[10] = (propmap_t) { "contentMediaType", _jm_f_147 };
+        _jm_obj_29_map_tab[11] = (propmap_t) { "contentSchema", _jm_f_148 };
+        _jm_obj_29_map_tab[12] = (propmap_t) { "default", _jm_f_149 };
+        _jm_obj_29_map_tab[13] = (propmap_t) { "deprecated", _jm_f_150 };
+        _jm_obj_29_map_tab[14] = (propmap_t) { "description", _jm_f_151 };
+        _jm_obj_29_map_tab[15] = (propmap_t) { "examples", _jm_f_152 };
+        _jm_obj_29_map_tab[16] = (propmap_t) { "format", _jm_f_153 };
+        _jm_obj_29_map_tab[17] = (propmap_t) { "maxLength", _jm_f_154 };
+        _jm_obj_29_map_tab[18] = (propmap_t) { "minLength", _jm_f_155 };
+        _jm_obj_29_map_tab[19] = (propmap_t) { "pattern", _jm_f_156 };
+        _jm_obj_29_map_tab[20] = (propmap_t) { "readOnly", _jm_f_157 };
+        _jm_obj_29_map_tab[21] = (propmap_t) { "title", _jm_f_158 };
+        _jm_obj_29_map_tab[22] = (propmap_t) { "writeOnly", _jm_f_159 };
+        jm_sort_propmap(_jm_obj_29_map_tab, 23);
+        _jm_obj_32_map_tab[0] = (propmap_t) { "$anchor", _jm_f_160 };
+        _jm_obj_32_map_tab[1] = (propmap_t) { "$comment", _jm_f_161 };
+        _jm_obj_32_map_tab[2] = (propmap_t) { "$defs", _jm_f_162 };
+        _jm_obj_32_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_163 };
+        _jm_obj_32_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_164 };
+        _jm_obj_32_map_tab[5] = (propmap_t) { "$id", _jm_f_165 };
+        _jm_obj_32_map_tab[6] = (propmap_t) { "$ref", _jm_f_166 };
+        _jm_obj_32_map_tab[7] = (propmap_t) { "$schema", _jm_f_167 };
+        _jm_obj_32_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_168 };
+        _jm_obj_32_map_tab[9] = (propmap_t) { "default", _jm_f_169 };
+        _jm_obj_32_map_tab[10] = (propmap_t) { "deprecated", _jm_f_170 };
+        _jm_obj_32_map_tab[11] = (propmap_t) { "description", _jm_f_171 };
+        _jm_obj_32_map_tab[12] = (propmap_t) { "examples", _jm_f_172 };
+        _jm_obj_32_map_tab[13] = (propmap_t) { "exclusiveMaximum", _jm_f_173 };
+        _jm_obj_32_map_tab[14] = (propmap_t) { "exclusiveMinimum", _jm_f_174 };
+        _jm_obj_32_map_tab[15] = (propmap_t) { "maximum", _jm_f_175 };
+        _jm_obj_32_map_tab[16] = (propmap_t) { "minimum", _jm_f_176 };
+        _jm_obj_32_map_tab[17] = (propmap_t) { "multipleOf", _jm_f_177 };
+        _jm_obj_32_map_tab[18] = (propmap_t) { "readOnly", _jm_f_178 };
+        _jm_obj_32_map_tab[19] = (propmap_t) { "title", _jm_f_179 };
+        _jm_obj_32_map_tab[20] = (propmap_t) { "writeOnly", _jm_f_180 };
+        jm_sort_propmap(_jm_obj_32_map_tab, 21);
+        _jm_obj_35_map_tab[0] = (propmap_t) { "$anchor", _jm_f_181 };
+        _jm_obj_35_map_tab[1] = (propmap_t) { "$comment", _jm_f_182 };
+        _jm_obj_35_map_tab[2] = (propmap_t) { "$defs", _jm_f_183 };
+        _jm_obj_35_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_184 };
+        _jm_obj_35_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_185 };
+        _jm_obj_35_map_tab[5] = (propmap_t) { "$id", _jm_f_186 };
+        _jm_obj_35_map_tab[6] = (propmap_t) { "$ref", _jm_f_187 };
+        _jm_obj_35_map_tab[7] = (propmap_t) { "$schema", _jm_f_188 };
+        _jm_obj_35_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_189 };
+        _jm_obj_35_map_tab[9] = (propmap_t) { "default", _jm_f_190 };
+        _jm_obj_35_map_tab[10] = (propmap_t) { "deprecated", _jm_f_191 };
+        _jm_obj_35_map_tab[11] = (propmap_t) { "description", _jm_f_192 };
+        _jm_obj_35_map_tab[12] = (propmap_t) { "examples", _jm_f_193 };
+        _jm_obj_35_map_tab[13] = (propmap_t) { "exclusiveMaximum", _jm_f_194 };
+        _jm_obj_35_map_tab[14] = (propmap_t) { "exclusiveMinimum", _jm_f_195 };
+        _jm_obj_35_map_tab[15] = (propmap_t) { "maximum", _jm_f_196 };
+        _jm_obj_35_map_tab[16] = (propmap_t) { "minimum", _jm_f_197 };
+        _jm_obj_35_map_tab[17] = (propmap_t) { "multipleOf", _jm_f_198 };
+        _jm_obj_35_map_tab[18] = (propmap_t) { "readOnly", _jm_f_199 };
+        _jm_obj_35_map_tab[19] = (propmap_t) { "title", _jm_f_200 };
+        _jm_obj_35_map_tab[20] = (propmap_t) { "writeOnly", _jm_f_201 };
+        jm_sort_propmap(_jm_obj_35_map_tab, 21);
+        _jm_obj_38_map_tab[0] = (propmap_t) { "$anchor", _jm_f_202 };
+        _jm_obj_38_map_tab[1] = (propmap_t) { "$comment", _jm_f_203 };
+        _jm_obj_38_map_tab[2] = (propmap_t) { "$defs", _jm_f_204 };
+        _jm_obj_38_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_205 };
+        _jm_obj_38_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_206 };
+        _jm_obj_38_map_tab[5] = (propmap_t) { "$id", _jm_f_207 };
+        _jm_obj_38_map_tab[6] = (propmap_t) { "$ref", _jm_f_208 };
+        _jm_obj_38_map_tab[7] = (propmap_t) { "$schema", _jm_f_209 };
+        _jm_obj_38_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_210 };
+        _jm_obj_38_map_tab[9] = (propmap_t) { "default", _jm_f_211 };
+        _jm_obj_38_map_tab[10] = (propmap_t) { "deprecated", _jm_f_212 };
+        _jm_obj_38_map_tab[11] = (propmap_t) { "description", _jm_f_213 };
+        _jm_obj_38_map_tab[12] = (propmap_t) { "examples", _jm_f_214 };
+        _jm_obj_38_map_tab[13] = (propmap_t) { "readOnly", _jm_f_215 };
+        _jm_obj_38_map_tab[14] = (propmap_t) { "title", _jm_f_216 };
+        _jm_obj_38_map_tab[15] = (propmap_t) { "writeOnly", _jm_f_217 };
+        jm_sort_propmap(_jm_obj_38_map_tab, 16);
+        _jm_obj_41_map_tab[0] = (propmap_t) { "$anchor", _jm_f_218 };
+        _jm_obj_41_map_tab[1] = (propmap_t) { "$comment", _jm_f_219 };
+        _jm_obj_41_map_tab[2] = (propmap_t) { "$defs", _jm_f_220 };
+        _jm_obj_41_map_tab[3] = (propmap_t) { "$dynamicAnchor", _jm_f_221 };
+        _jm_obj_41_map_tab[4] = (propmap_t) { "$dynamicRef", _jm_f_222 };
+        _jm_obj_41_map_tab[5] = (propmap_t) { "$id", _jm_f_223 };
+        _jm_obj_41_map_tab[6] = (propmap_t) { "$ref", _jm_f_224 };
+        _jm_obj_41_map_tab[7] = (propmap_t) { "$schema", _jm_f_225 };
+        _jm_obj_41_map_tab[8] = (propmap_t) { "$vocabulary", _jm_f_226 };
+        _jm_obj_41_map_tab[9] = (propmap_t) { "default", _jm_f_227 };
+        _jm_obj_41_map_tab[10] = (propmap_t) { "deprecated", _jm_f_228 };
+        _jm_obj_41_map_tab[11] = (propmap_t) { "description", _jm_f_229 };
+        _jm_obj_41_map_tab[12] = (propmap_t) { "examples", _jm_f_230 };
+        _jm_obj_41_map_tab[13] = (propmap_t) { "readOnly", _jm_f_231 };
+        _jm_obj_41_map_tab[14] = (propmap_t) { "title", _jm_f_232 };
+        _jm_obj_41_map_tab[15] = (propmap_t) { "writeOnly", _jm_f_233 };
+        jm_sort_propmap(_jm_obj_41_map_tab, 16);
         check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (propmap_t) { "URI", json_model_2 };
         check_model_map_tab[2] = (propmap_t) { "URI-REFERENCE", json_model_3 };

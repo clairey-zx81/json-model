@@ -20,7 +20,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_2_must: PropMap
+_jm_obj_2_mup: PropMap
 check_model_map: PropMap
 
 # check $T ($.'$T')
@@ -126,7 +126,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object at [$.'$Y']", path))
     return res
 
-# check _jm_obj_2_must_a ($.a)
+# check _jm_obj_2_mup_a ($.a)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.a
@@ -135,7 +135,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.a]", path))
     return res
 
-# check _jm_obj_2_must_b ($.b)
+# check _jm_obj_2_mup_b ($.b)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.b
@@ -144,7 +144,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.b]", path))
     return res
 
-# check _jm_obj_2_must_c ($.c)
+# check _jm_obj_2_mup_c ($.c)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.c
@@ -153,7 +153,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected _cst_01 [$.c]", path))
     return res
 
-# check _jm_obj_2_must_d ($.d)
+# check _jm_obj_2_mup_d ($.d)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.d
@@ -173,7 +173,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_2_must.get(prop):
+        if pfun := _jm_obj_2_mup.get(prop):
             # handle 4 must props
             if pfun != UNDEFINED:
                 must_count += 1
@@ -206,8 +206,8 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_2_must
-        _jm_obj_2_must = {
+        global _jm_obj_2_mup
+        _jm_obj_2_mup = {
             "a": _jm_f_0,
             "b": _jm_f_1,
             "c": _jm_f_2,
