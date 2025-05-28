@@ -30,7 +30,7 @@ Command `jmc` options include:
 - `-F format`: select `json` or `yaml` for output
 - …
 
-For instance, let's consider the input JSON model in file `person.model.json`:
+For instance, let's consider a JSON model in file `person.model.json`:
 
 ```json
 {
@@ -62,7 +62,7 @@ For instance, let's consider the input JSON model in file `person.model.json`:
   additionalProperties: false
   ```
 
-- to check sample values against a model:
+- to check sample JSON values against it:
 
   ```sh
   jmc -XO -v person.model.json hobbes.json unknown.json
