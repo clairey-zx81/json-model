@@ -22,41 +22,47 @@ Command `jmc` options include:
 - main operations:
   - `-P`: preprocess model.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
+  - `-X`: generate python or C code.
   - `-U`: dump all models.
   - `-J`: dump json IR.
-  - `-X`: generate python or C code.
   - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
 - `-F format`: select `json` or `yaml` for output
 - …
 
-For example, to export a JSON model as a JSON schema using the yaml format:
+For example, to _export_ a JSON model as a JSON schema using the yaml format:
 
-```sh
-jmc -EO -F yaml -
-```
-```js
-// input JSON Model
-{
-  "name": "/^[a-z]+$/i",
-  "born": "$DATE"
-}
-```
-```yaml
-// output JSON Schema (in yaml)
-type: object
-properties:
-  name:
-    type: string
-    pattern: (?i)^[a-z]+$
-  born:
-    type: string
-    format: date
-required:
-- name
-- born
-additionalProperties: false
-```
+- Run json model compiler `jmc` command:
+
+  ```sh
+  jmc -EO -F yaml person.model.json
+  ```
+
+- input JSON Model in file `person.model.json`
+
+  ```json
+  {
+    "name": "/^[a-z]+$/i",
+    "born": "$DATE"
+  }
+  ```
+
+- output JSON Schema (in yaml)
+
+  ```yaml
+  type: object
+  properties:
+    name:
+      type: string
+      pattern: (?i)^[a-z]+$
+    born:
+      type: string
+      format: date
+  required:
+  - name
+  - born
+  additionalProperties: false
+  ```
 
 ## JSON Model Python API
 
