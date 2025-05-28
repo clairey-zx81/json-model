@@ -45,7 +45,7 @@ For instance, let's consider the input JSON model in file `person.model.json`:
   jmc -EO -F yaml person.model.json
   ```
 
-  The output in the YaML format (because of the `-F` option above):
+  Output in the YaML format (because of the `-F` option):
 
   ```yaml
   type: object
@@ -65,10 +65,10 @@ For instance, let's consider the input JSON model in file `person.model.json`:
 - to check sample values against a model:
 
   ```sh
-  jmc -XO -v person.model.json  hobbes.json unknown.json 
+  jmc -XO -v person.model.json hobbes.json unknown.json
   ```
 
-  Output:
+  Output with an explanation (because of `-v` verbose option):
 
   ```
   hobbes.json: PASS
