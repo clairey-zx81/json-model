@@ -1,4 +1,5 @@
 {
+  "description": "A person with a birth date",
   "type": "object",
   "properties": {
     "name": {

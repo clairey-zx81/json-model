@@ -1,4 +1,5 @@
 {
+  "#": "A person with a birth date",
   "name": "/^[a-z]+$/i",
   "born": "$DATE"
 }

@@ -34,6 +34,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
 
 ```json
 {
+  "#": "A person with a birth date",
   "name": "/^[a-z]+$/i",
   "born": "$DATE"
 }
@@ -48,6 +49,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   Output in the YaML format (because of the `-F` option):
 
   ```yaml
+  description: A person with a birth date
   type: object
   properties:
     name:
