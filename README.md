@@ -38,8 +38,8 @@ jmc -EO -F yaml -
 ```js
 // input JSON Model
 {
-  "name": "",
-  "age": 0
+  "name": "/^[a-z]+$/i",
+  "born": "$DATE"
 }
 ```
 ```yaml
@@ -48,12 +48,13 @@ type: object
 properties:
   name:
     type: string
-  age:
-    type: integer
-    minimum: 0
+    pattern: (?i)^[a-z]+$
+  born:
+    type: string
+    format: date
 required:
 - name
-- age
+- born
 additionalProperties: false
 ```
 
