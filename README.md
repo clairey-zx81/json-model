@@ -30,24 +30,22 @@ Command `jmc` options include:
 - `-F format`: select `json` or `yaml` for output
 - …
 
-For example, to _export_ a JSON model as a JSON schema using the yaml format:
+For instance, let's consider the input JSON model in file `person.model.json`:
 
-- Run json model compiler `jmc` command:
+```json
+{
+  "name": "/^[a-z]+$/i",
+  "born": "$DATE"
+}
+```
+
+- to _export_ this model as a JSON schema:
 
   ```sh
   jmc -EO -F yaml person.model.json
   ```
 
-- input JSON Model in file `person.model.json`
-
-  ```json
-  {
-    "name": "/^[a-z]+$/i",
-    "born": "$DATE"
-  }
-  ```
-
-- output JSON Schema (in yaml)
+  The output in the YaML format (because of the `-F` option above):
 
   ```yaml
   type: object
@@ -62,6 +60,19 @@ For example, to _export_ a JSON model as a JSON schema using the yaml format:
   - name
   - born
   additionalProperties: false
+  ```
+
+- to check sample values against a model:
+
+  ```sh
+  jmc -XO -v person.model.json  hobbes.json unknown.json 
+  ```
+
+  Output:
+
+  ```
+  hobbes.json: PASS
+  unknown.json: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
   ```
 
 ## JSON Model Python API
