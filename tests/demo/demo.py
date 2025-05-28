@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import json_model as jm
 
 # direct model definition with 2 mandatory properties
