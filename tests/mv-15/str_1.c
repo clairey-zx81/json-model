@@ -11,11 +11,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_is_string(val);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $STRING [$]", path);
     }

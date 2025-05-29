@@ -34,9 +34,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # $.''
         res = json_model_1(pval, lpath_0 if path is not None else None, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $# [$.'']", lpath_0 if path is not None else None))
         if not res:
             return False
@@ -47,9 +45,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

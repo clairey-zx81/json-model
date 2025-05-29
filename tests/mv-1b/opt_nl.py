@@ -37,9 +37,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.i
             res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a -1 loose int [$.i]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.i]", lpath_0 if path is not None else None))
@@ -49,9 +47,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.f
             res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a -1.0 loose float [$.f]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.f]", lpath_0 if path is not None else None))
@@ -69,9 +65,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

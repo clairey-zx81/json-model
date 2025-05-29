@@ -22,11 +22,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         // handle other props
         // $.''
         res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'']", (path ? &lpath_0 : NULL));
         }
@@ -44,11 +40,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

@@ -42,15 +42,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
                     # $.'$bibi'.bibi.0
                     res = json_model_2(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $bibi [$.'$bibi'.bibi.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$bibi'.bibi]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$bibi'.bibi]", lpath_0 if path is not None else None))
@@ -68,9 +64,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$bibi'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$bibi']", path))
     return res
 
@@ -79,9 +73,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $bibi [$]", path))
     return res
 

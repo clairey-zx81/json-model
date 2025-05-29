@@ -37,9 +37,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$loose'.li
             res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval)) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 loose int [$.'$loose'.li]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$loose'.li]", lpath_0 if path is not None else None))
@@ -57,9 +55,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$loose'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$loose']", path))
     return res
 
@@ -78,9 +74,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$strict'.si
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'$strict'.si]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$strict'.si]", lpath_1 if path is not None else None))
@@ -98,9 +92,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$strict'
     res = _jm_obj_1(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$strict']", path))
     return res
 
@@ -119,9 +111,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$combined'.li
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'$combined'.li]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$combined'.li]", lpath_2 if path is not None else None))
@@ -131,9 +121,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$combined'.si
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'$combined'.si]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$combined'.si]", lpath_2 if path is not None else None))
@@ -151,9 +139,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$combined'
     res = _jm_obj_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$combined']", path))
     return res
 
@@ -162,9 +148,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_4(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $combined [$]", path))
     return res
 

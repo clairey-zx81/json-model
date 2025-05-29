@@ -13,11 +13,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$XXX'
     res = _json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [$.'$XXX'.'|']", path);
     }
@@ -43,11 +39,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle 1 key props
             // $.'$XXX'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$XXX']", (path ? &lpath_0 : NULL));
             }
@@ -71,11 +63,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

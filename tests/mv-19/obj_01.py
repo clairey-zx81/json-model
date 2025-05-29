@@ -30,9 +30,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$XXX'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("value not in enum [$.'$XXX'.'|']", path))
     return res
 
@@ -52,9 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.foo
             res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $DATE [$.foo]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.foo]", lpath_0 if path is not None else None))
@@ -63,9 +59,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may bla property
             # $.bla
             res = isinstance(pval, bool)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a bool [$.bla]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.bla]", lpath_0 if path is not None else None))
@@ -74,9 +68,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 key props
             # $.'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0.0 strict float [$.'$XXX']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -84,9 +76,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle 1 re props
             # $.'/^[0-9]+$/'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'/^[0-9]+$/']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -94,9 +84,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # $.''
             res = pval is None
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not null [$.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -110,9 +98,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

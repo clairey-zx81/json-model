@@ -1,9 +1,9 @@
 dst_03.values.json[0]: PASS
 dst_03.values.json[1]: PASS
-dst_03.values.json[2]: FAIL [("no other prop expected [$.'|'.1]", ['b']), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-dst_03.values.json[3]: FAIL [("missing must prop [$.'|'.1]", []), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
+dst_03.values.json[2]: FAIL [("no other prop expected [$.'|'.0]", ['b']), ("not an expected object at [$.'|'.0]", []), ("no other prop expected [$.'|'.1]", ['b']), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
+dst_03.values.json[3]: FAIL [("no other prop expected [$.'|'.0]", ['c']), ("not an expected object at [$.'|'.0]", []), ("missing must prop [$.'|'.1]", []), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
 dst_03.values.json[4]: FAIL [("not a 0 strict int [$.'|'.0.a]", ['a']), ("invalid must property value [$.'|'.0.a]", ['a']), ("not an expected object at [$.'|'.0]", []), ("not a 0 strict int [$.'|'.1.a]", ['a']), ("invalid must property value [$.'|'.1.a]", ['a']), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-dst_03.values.json[5]: FAIL [("unexpected string [$.'|'.1.c]", ['c']), ("invalid must property value [$.'|'.1.c]", ['c']), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
+dst_03.values.json[5]: FAIL [("no other prop expected [$.'|'.0]", ['c']), ("not an expected object at [$.'|'.0]", []), ("unexpected string [$.'|'.1.c]", ['c']), ("invalid must property value [$.'|'.1.c]", ['c']), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
 dst_03.values.json[6]: FAIL [("unexpected type at [$.'|']", [])]
 dst_03.values.json[7]: FAIL [("missing must prop [$.'|'.0]", []), ("not an expected object at [$.'|'.0]", []), ("missing must prop [$.'|'.1]", []), ("not an expected object at [$.'|'.1]", []), ("no model matched [$.'|']", [])]
 dst_03.values.json[8]: FAIL [("unexpected type at [$.'|']", [])]

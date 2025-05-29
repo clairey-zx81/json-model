@@ -37,9 +37,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'|'.1.b
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'|'.1.b]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'|'.1.b]", lpath_0 if path is not None else None))
@@ -48,9 +46,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # $.'|'.1.''
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'|'.1.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
@@ -74,9 +70,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'|'.0.a
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'|'.0.a]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'|'.0.a]", lpath_1 if path is not None else None))
@@ -85,9 +79,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # $.'|'.0.''
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'|'.0.'']", lpath_1 if path is not None else None))
             if not res:
                 return False
@@ -101,23 +93,17 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = isinstance(val, dict)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected type at [$.'|']", path))
     if res:
         # $.'|'.0
         res = _jm_obj_1(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("not an expected object at [$.'|'.0]", path))
         if not res:
             # $.'|'.1
             res = _jm_obj_0(val, path, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not an expected object at [$.'|'.1]", path))
         if res:
             rep is None or rep.clear()

@@ -206,8 +206,8 @@ def clibjm(tmp_dir):
     # compilation settings
     cc = os.environ.get("CC", "gcc")
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -O2")
-    ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main}")
+    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -Ofast")
+    ldflags = os.environ.get("LDFLAGS", f"{jm_lib} -ljansson -lpcre2-8 {jm_main} -lm")
 
     # compile library once
     with filelock.FileLock(jm_lock):

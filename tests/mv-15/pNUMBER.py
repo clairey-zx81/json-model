@@ -27,9 +27,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $NUMBER [$]", path))
     return res
 

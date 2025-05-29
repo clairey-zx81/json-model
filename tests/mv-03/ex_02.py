@@ -27,9 +27,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$x1'
     res = isinstance(val, str) and val == "Susie"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _Susie [$.'$x1']", path))
     return res
 
@@ -38,9 +36,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$x2'
     res = isinstance(val, str) and val == "Susie"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _Susie [$.'$x2']", path))
     return res
 
@@ -49,9 +45,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$x3'
     res = isinstance(val, str) and val == "Susie"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _Susie [$.'$x3']", path))
     return res
 
@@ -60,9 +54,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$__external_0'
     res = isinstance(val, str) and val == "Susie"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _Susie [$.'$__external_0']", path))
     return res
 
@@ -75,37 +67,27 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # $.0
         res = isinstance(val[0], str) and val[0] == "Susie"
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected _Susie [$.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
             # $.1
             res = isinstance(val[1], str) and val[1] == "Susie"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected _Susie [$.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0: Path = (path + [ 2 ]) if path is not None else None
                 # $.2
                 res = isinstance(val[2], str) and val[2] == "Susie"
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("unexpected _Susie [$.2]", lpath_0 if path is not None else None))
                 if res:
                     lpath_0: Path = (path + [ 3 ]) if path is not None else None
                     # $.3
                     res = isinstance(val[3], str) and val[3] == "Susie"
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected _Susie [$.3]", lpath_0 if path is not None else None))
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$]", path))
     return res
 

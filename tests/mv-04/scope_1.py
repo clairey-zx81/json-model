@@ -35,21 +35,15 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
         # $.'$R'.0
         res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $S [$.'$R'.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
             # $.'$R'.1
             res = json_model_5(val[1], lpath_0 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $S [$.'$R'.1]", lpath_0 if path is not None else None))
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$R']", path))
     return res
 
@@ -60,9 +54,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$S'
     # "/[a-z]/"
     res = isinstance(val, str) and _jm_re_0(val)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected REGEX [$.'$S']", path))
     return res
 
@@ -72,16 +64,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'|'.0
     res = json_model_3(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $S [$.'|'.0]", path))
     if not res:
         # $.'|'.1
         res = json_model_5(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $R#S [$.'|'.1]", path))
     if res:
         rep is None or rep.clear()
@@ -96,9 +84,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$R#S'
     # "/[0-9]/"
     res = isinstance(val, str) and _jm_re_1(val)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected REGEX [$.'$R#S']", path))
     return res
 

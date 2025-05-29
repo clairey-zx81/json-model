@@ -28,16 +28,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$V'
     # $.'$V'.'|'.0
     res = isinstance(val, int) and not isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a -1 strict int [$.'$V'.'|'.0]", path))
     if not res:
         # $.'$V'.'|'.1
         res = isinstance(val, str)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected string [$.'$V'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
@@ -60,9 +56,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$X'.X
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$X'.X]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$X'.X]", lpath_0 if path is not None else None))
@@ -80,9 +74,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$X'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$X']", path))
     return res
 
@@ -101,9 +93,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Y'.Y
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$Y'.Y]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Y'.Y]", lpath_1 if path is not None else None))
@@ -121,9 +111,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Y'
     res = _jm_obj_1(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$Y']", path))
     return res
 
@@ -142,9 +130,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$E'.'|'.1.Y
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
@@ -153,9 +139,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may Z property
             # $.'$E'.'|'.1.Z
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$E'.'|'.1.Z]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$E'.'|'.1.Z]", lpath_2 if path is not None else None))
@@ -183,9 +167,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$E'.'|'.0.X
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
@@ -194,9 +176,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may Z property
             # $.'$E'.'|'.0.Z
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$E'.'|'.0.Z]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$E'.'|'.0.Z]", lpath_3 if path is not None else None))
@@ -214,23 +194,17 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$E'
     res = isinstance(val, dict)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected type at [$.'$E'.'|']", path))
     if res:
         # $.'$E'.'|'.0
         res = _jm_obj_3(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("not an expected object at [$.'$E'.'|'.0]", path))
         if not res:
             # $.'$E'.'|'.1
             res = _jm_obj_2(val, path, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not an expected object at [$.'$E'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
@@ -247,17 +221,13 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # $.'$M'.'^'.0
     xr_0 = json_model_2(val, path, rep)
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("unexpected $V [$.'$M'.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # $.'$M'.'^'.1
     xr_0 = json_model_5(val, path, rep)
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("unexpected $E [$.'$M'.'^'.1]", path))
     if xr_0:
         xc_0 += 1
@@ -273,9 +243,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_6(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $M [$]", path))
     return res
 

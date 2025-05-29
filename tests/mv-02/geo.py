@@ -34,22 +34,16 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$position'.'@'.0
             res = isinstance(arr_0_item, (int, float)) and not isinstance(arr_0_item, bool)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a -1.0 loose float [$.'$position'.'@'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$position'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("constraints failed at [$.'$position']", path))
     return res
 
@@ -64,22 +58,16 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$coord_array'.'@'.0
             res = json_model_2(arr_1_item, arr_1_lpath if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $position [$.'$coord_array'.'@'.0]", arr_1_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$coord_array'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 2
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("constraints failed at [$.'$coord_array']", path))
     return res
 
@@ -94,22 +82,16 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # $.'$linear_ring'.'@'.0
             res = json_model_2(arr_2_item, arr_2_lpath if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $position [$.'$linear_ring'.'@'.0]", arr_2_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$linear_ring'.'@']", path))
     if res:
         ival_2: int = len(val)
         res = ival_2 >= 4
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("constraints failed at [$.'$linear_ring']", path))
     return res
 
@@ -128,9 +110,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Point'.type
             res = isinstance(pval, str) and pval == "Point"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected Point [$.'$Point'.type]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Point'.type]", lpath_0 if path is not None else None))
@@ -140,9 +120,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Point'.coordinates
             res = json_model_2(pval, lpath_0 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $position [$.'$Point'.coordinates]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Point'.coordinates]", lpath_0 if path is not None else None))
@@ -156,15 +134,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_3_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_3_idx ]) if (lpath_0 if path is not None else None) is not None else None
                     # $.'$Point'.bbox.0
                     res = isinstance(arr_3_item, (int, float)) and not isinstance(arr_3_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$Point'.bbox.0]", arr_3_lpath if (lpath_0 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$Point'.bbox]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Point'.bbox]", lpath_0 if path is not None else None))
@@ -182,9 +156,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Point'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$Point']", path))
     return res
 
@@ -203,9 +175,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$MultiPoint'.type
             res = isinstance(pval, str) and pval == "MultiPoint"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected MultiPoint [$.'$MultiPoint'.type]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiPoint'.type]", lpath_1 if path is not None else None))
@@ -220,15 +190,11 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_4_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_4_idx ]) if (lpath_1 if path is not None else None) is not None else None
                     # $.'$MultiPoint'.coordinates.0
                     res = json_model_2(arr_4_item, arr_4_lpath if (lpath_1 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $position [$.'$MultiPoint'.coordinates.0]", arr_4_lpath if (lpath_1 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
@@ -242,15 +208,11 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_5_lpath: Path = ((lpath_1 if path is not None else None) + [ arr_5_idx ]) if (lpath_1 if path is not None else None) is not None else None
                     # $.'$MultiPoint'.bbox.0
                     res = isinstance(arr_5_item, (int, float)) and not isinstance(arr_5_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$MultiPoint'.bbox.0]", arr_5_lpath if (lpath_1 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiPoint'.bbox]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$MultiPoint'.bbox]", lpath_1 if path is not None else None))
@@ -268,9 +230,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MultiPoint'
     res = _jm_obj_1(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$MultiPoint']", path))
     return res
 
@@ -289,9 +249,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$LineString'.type
             res = isinstance(pval, str) and pval == "LineString"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected LineString [$.'$LineString'.type]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$LineString'.type]", lpath_2 if path is not None else None))
@@ -301,9 +259,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$LineString'.coordinates
             res = json_model_3(pval, lpath_2 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $coord_array [$.'$LineString'.coordinates]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$LineString'.coordinates]", lpath_2 if path is not None else None))
@@ -317,15 +273,11 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_6_lpath: Path = ((lpath_2 if path is not None else None) + [ arr_6_idx ]) if (lpath_2 if path is not None else None) is not None else None
                     # $.'$LineString'.bbox.0
                     res = isinstance(arr_6_item, (int, float)) and not isinstance(arr_6_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$LineString'.bbox.0]", arr_6_lpath if (lpath_2 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$LineString'.bbox]", lpath_2 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$LineString'.bbox]", lpath_2 if path is not None else None))
@@ -343,9 +295,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$LineString'
     res = _jm_obj_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$LineString']", path))
     return res
 
@@ -364,9 +314,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$MultiLineString'.type
             res = isinstance(pval, str) and pval == "MultiLineString"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected MultiLineString [$.'$MultiLineString'.type]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiLineString'.type]", lpath_3 if path is not None else None))
@@ -381,15 +329,11 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_7_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_7_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # $.'$MultiLineString'.coordinates.0
                     res = json_model_3(arr_7_item, arr_7_lpath if (lpath_3 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $coord_array [$.'$MultiLineString'.coordinates.0]", arr_7_lpath if (lpath_3 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
@@ -403,15 +347,11 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_8_lpath: Path = ((lpath_3 if path is not None else None) + [ arr_8_idx ]) if (lpath_3 if path is not None else None) is not None else None
                     # $.'$MultiLineString'.bbox.0
                     res = isinstance(arr_8_item, (int, float)) and not isinstance(arr_8_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$MultiLineString'.bbox.0]", arr_8_lpath if (lpath_3 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiLineString'.bbox]", lpath_3 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$MultiLineString'.bbox]", lpath_3 if path is not None else None))
@@ -429,9 +369,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MultiLineString'
     res = _jm_obj_3(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$MultiLineString']", path))
     return res
 
@@ -450,9 +388,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Polygon'.type
             res = isinstance(pval, str) and pval == "Polygon"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected Polygon [$.'$Polygon'.type]", lpath_4 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Polygon'.type]", lpath_4 if path is not None else None))
@@ -467,15 +403,11 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_9_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_9_idx ]) if (lpath_4 if path is not None else None) is not None else None
                     # $.'$Polygon'.coordinates.0
                     res = json_model_4(arr_9_item, arr_9_lpath if (lpath_4 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $linear_ring [$.'$Polygon'.coordinates.0]", arr_9_lpath if (lpath_4 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
@@ -489,15 +421,11 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_10_lpath: Path = ((lpath_4 if path is not None else None) + [ arr_10_idx ]) if (lpath_4 if path is not None else None) is not None else None
                     # $.'$Polygon'.bbox.0
                     res = isinstance(arr_10_item, (int, float)) and not isinstance(arr_10_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$Polygon'.bbox.0]", arr_10_lpath if (lpath_4 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$Polygon'.bbox]", lpath_4 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Polygon'.bbox]", lpath_4 if path is not None else None))
@@ -515,9 +443,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Polygon'
     res = _jm_obj_4(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$Polygon']", path))
     return res
 
@@ -536,9 +462,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$MultiPolygon'.type
             res = isinstance(pval, str) and pval == "MultiPolygon"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected MultiPolygon [$.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
@@ -558,21 +482,15 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                             arr_12_lpath: Path = ((arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) + [ arr_12_idx ]) if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None
                             # $.'$MultiPolygon'.coordinates.0.0
                             res = json_model_4(arr_12_item, arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None, rep)
-                            if res:
-                                rep is None or rep.clear()
-                            else:
+                            if not res:
                                 rep is None or rep.append(("unexpected $linear_ring [$.'$MultiPolygon'.coordinates.0.0]", arr_12_lpath if (arr_11_lpath if (lpath_5 if path is not None else None) is not None else None) is not None else None))
                             if not res:
                                 break
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not array or unexpected array [$.'$MultiPolygon'.coordinates.0]", arr_11_lpath if (lpath_5 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
@@ -586,15 +504,11 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_13_lpath: Path = ((lpath_5 if path is not None else None) + [ arr_13_idx ]) if (lpath_5 if path is not None else None) is not None else None
                     # $.'$MultiPolygon'.bbox.0
                     res = isinstance(arr_13_item, (int, float)) and not isinstance(arr_13_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$MultiPolygon'.bbox.0]", arr_13_lpath if (lpath_5 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$MultiPolygon'.bbox]", lpath_5 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$MultiPolygon'.bbox]", lpath_5 if path is not None else None))
@@ -612,9 +526,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$MultiPolygon'
     res = _jm_obj_5(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$MultiPolygon']", path))
     return res
 
@@ -655,9 +567,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$GeometryCollection'.type
             res = isinstance(pval, str) and pval == "GeometryCollection"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected GeometryCollection [$.'$GeometryCollection'.type]", lpath_6 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$GeometryCollection'.type]", lpath_6 if path is not None else None))
@@ -672,15 +582,11 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_14_lpath: Path = ((lpath_6 if path is not None else None) + [ arr_14_idx ]) if (lpath_6 if path is not None else None) is not None else None
                     # $.'$GeometryCollection'.geometries.0
                     res = json_model_11(arr_14_item, arr_14_lpath if (lpath_6 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $geometry [$.'$GeometryCollection'.geometries.0]", arr_14_lpath if (lpath_6 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$GeometryCollection'.geometries]", lpath_6 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$GeometryCollection'.geometries]", lpath_6 if path is not None else None))
@@ -694,15 +600,11 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_15_lpath: Path = ((lpath_6 if path is not None else None) + [ arr_15_idx ]) if (lpath_6 if path is not None else None) is not None else None
                     # $.'$GeometryCollection'.bbox.0
                     res = isinstance(arr_15_item, (int, float)) and not isinstance(arr_15_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$GeometryCollection'.bbox.0]", arr_15_lpath if (lpath_6 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$GeometryCollection'.bbox]", lpath_6 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$GeometryCollection'.bbox]", lpath_6 if path is not None else None))
@@ -720,9 +622,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$GeometryCollection'
     res = _jm_obj_6(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$GeometryCollection']", path))
     return res
 
@@ -749,9 +649,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Feature'.type
             res = isinstance(pval, str) and pval == "Feature"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected Feature [$.'$Feature'.type]", lpath_7 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Feature'.type]", lpath_7 if path is not None else None))
@@ -762,23 +660,17 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'$Feature'.geometry
             # $.'$Feature'.geometry.'|'.0
             res = pval is None
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not null [$.'$Feature'.geometry.'|'.0]", lpath_7 if path is not None else None))
             if not res:
                 # $.'$Feature'.geometry.'|'.1
                 res = json_model_11(pval, lpath_7 if path is not None else None, rep)
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("unexpected $geometry [$.'$Feature'.geometry.'|'.1]", lpath_7 if path is not None else None))
                 if not res:
                     # $.'$Feature'.geometry.'|'.2
                     res = json_model_12(pval, lpath_7 if path is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $GeometryCollection [$.'$Feature'.geometry.'|'.2]", lpath_7 if path is not None else None))
             if res:
                 rep is None or rep.clear()
@@ -793,16 +685,12 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'$Feature'.properties
             # $.'$Feature'.properties.'|'.0
             res = pval is None
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not null [$.'$Feature'.properties.'|'.0]", lpath_7 if path is not None else None))
             if not res:
                 # $.'$Feature'.properties.'|'.1
                 res = _jm_obj_8(pval, lpath_7 if path is not None else None, rep)
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("not an expected object at [$.'$Feature'.properties.'|'.1]", lpath_7 if path is not None else None))
             if res:
                 rep is None or rep.clear()
@@ -816,16 +704,12 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'$Feature'.id
             # $.'$Feature'.id.'|'.0
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'$Feature'.id.'|'.0]", lpath_7 if path is not None else None))
             if not res:
                 # $.'$Feature'.id.'|'.1
                 res = isinstance(pval, (int, float)) and not isinstance(pval, bool)
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("not a -1.0 loose float [$.'$Feature'.id.'|'.1]", lpath_7 if path is not None else None))
             if res:
                 rep is None or rep.clear()
@@ -843,15 +727,11 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_16_lpath: Path = ((lpath_7 if path is not None else None) + [ arr_16_idx ]) if (lpath_7 if path is not None else None) is not None else None
                     # $.'$Feature'.bbox.0
                     res = isinstance(arr_16_item, (int, float)) and not isinstance(arr_16_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$Feature'.bbox.0]", arr_16_lpath if (lpath_7 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$Feature'.bbox]", lpath_7 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Feature'.bbox]", lpath_7 if path is not None else None))
@@ -869,9 +749,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Feature'
     res = _jm_obj_7(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$Feature']", path))
     return res
 
@@ -890,9 +768,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$FeatureCollection'.type
             res = isinstance(pval, str) and pval == "FeatureCollection"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected FeatureCollection [$.'$FeatureCollection'.type]", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$FeatureCollection'.type]", lpath_8 if path is not None else None))
@@ -907,15 +783,11 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_17_lpath: Path = ((lpath_8 if path is not None else None) + [ arr_17_idx ]) if (lpath_8 if path is not None else None) is not None else None
                     # $.'$FeatureCollection'.features.0
                     res = json_model_13(arr_17_item, arr_17_lpath if (lpath_8 if path is not None else None) is not None else None, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $Feature [$.'$FeatureCollection'.features.0]", arr_17_lpath if (lpath_8 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$FeatureCollection'.features]", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$FeatureCollection'.features]", lpath_8 if path is not None else None))
@@ -929,15 +801,11 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
                     arr_18_lpath: Path = ((lpath_8 if path is not None else None) + [ arr_18_idx ]) if (lpath_8 if path is not None else None) is not None else None
                     # $.'$FeatureCollection'.bbox.0
                     res = isinstance(arr_18_item, (int, float)) and not isinstance(arr_18_item, bool)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("not a -1.0 loose float [$.'$FeatureCollection'.bbox.0]", arr_18_lpath if (lpath_8 if path is not None else None) is not None else None))
                     if not res:
                         break
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not array or unexpected array [$.'$FeatureCollection'.bbox]", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$FeatureCollection'.bbox]", lpath_8 if path is not None else None))
@@ -955,9 +823,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$FeatureCollection'
     res = _jm_obj_9(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$FeatureCollection']", path))
     return res
 
@@ -970,35 +836,27 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # $.'^'.0
     xr_0 = json_model_11(val, path, rep)
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("unexpected $geometry [$.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # $.'^'.1
     xr_0 = json_model_12(val, path, rep)
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("unexpected $GeometryCollection [$.'^'.1]", path))
     if xr_0:
         xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.2
         xr_0 = json_model_13(val, path, rep)
-        if xr_0:
-            rep is None or rep.clear()
-        else:
+        if not xr_0:
             rep is None or rep.append(("unexpected $Feature [$.'^'.2]", path))
         if xr_0:
             xc_0 += 1
     if xc_0 <= 1:
         # $.'^'.3
         xr_0 = json_model_14(val, path, rep)
-        if xr_0:
-            rep is None or rep.clear()
-        else:
+        if not xr_0:
             rep is None or rep.append(("unexpected $FeatureCollection [$.'^'.3]", path))
         if xr_0:
             xc_0 += 1

@@ -31,15 +31,11 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # accept any array
         pass
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("constraints failed at [$]", path))
     return res
 

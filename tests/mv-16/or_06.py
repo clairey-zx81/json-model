@@ -29,24 +29,18 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = isinstance(val, str)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected type at [$.'|']", path))
     if res:
         # $.'|'.0
         res = val == "Susie"
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected _Susie [$.'|'.0]", path))
         if not res:
             # $.'|'.1
             # "/^[a-z]+$/"
             res = _jm_re_0(val)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected REGEX [$.'|'.1]", path))
         if res:
             rep is None or rep.clear()

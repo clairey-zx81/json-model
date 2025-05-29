@@ -27,9 +27,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$N'
     res = val is None
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not null [$.'$N']", path))
     return res
 
@@ -38,9 +36,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$B'
     res = isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a bool [$.'$B']", path))
     return res
 
@@ -49,9 +45,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$I'
     res = isinstance(val, int) and not isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a -1 strict int [$.'$I']", path))
     return res
 
@@ -60,9 +54,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$F'
     res = isinstance(val, float)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a -1.0 strict float [$.'$F']", path))
     return res
 
@@ -71,9 +63,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$S'
     res = isinstance(val, str)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected string [$.'$S']", path))
     return res
 
@@ -87,15 +77,11 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$A'.0
             res = json_model_9(arr_0_item, arr_0_lpath if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $Any [$.'$A'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$A']", path))
     return res
 
@@ -111,9 +97,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # $.'$O'.''
         res = json_model_9(pval, lpath_0 if path is not None else None, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $Any [$.'$O'.'']", lpath_0 if path is not None else None))
         if not res:
             return False
@@ -124,9 +108,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$O'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$O']", path))
     return res
 
@@ -136,51 +118,37 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$Any'
     # $.'$Any'.'|'.0
     res = val is None
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not null [$.'$Any'.'|'.0]", path))
     if not res:
         # $.'$Any'.'|'.1
         res = json_model_3(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $B [$.'$Any'.'|'.1]", path))
         if not res:
             # $.'$Any'.'|'.2
             res = json_model_4(val, path, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $I [$.'$Any'.'|'.2]", path))
             if not res:
                 # $.'$Any'.'|'.3
                 res = json_model_5(val, path, rep)
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("unexpected $F [$.'$Any'.'|'.3]", path))
                 if not res:
                     # $.'$Any'.'|'.4
                     res = json_model_6(val, path, rep)
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected $S [$.'$Any'.'|'.4]", path))
                     if not res:
                         # $.'$Any'.'|'.5
                         res = json_model_7(val, path, rep)
-                        if res:
-                            rep is None or rep.clear()
-                        else:
+                        if not res:
                             rep is None or rep.append(("unexpected $A [$.'$Any'.'|'.5]", path))
                         if not res:
                             # $.'$Any'.'|'.6
                             res = json_model_8(val, path, rep)
-                            if res:
-                                rep is None or rep.clear()
-                            else:
+                            if not res:
                                 rep is None or rep.append(("unexpected $O [$.'$Any'.'|'.6]", path))
     if res:
         rep is None or rep.clear()
@@ -193,9 +161,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_9(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $Any [$]", path))
     return res
 

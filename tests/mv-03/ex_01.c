@@ -13,11 +13,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$x1'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$x1']", path);
     }
@@ -30,11 +26,7 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$x2'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'$x2']", path);
     }
@@ -62,11 +54,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.a
             res = json_is_string(pval) && strcmp(json_string_value(pval), "Susie") == 0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.a]", (path ? &lpath_0 : NULL));
             }
@@ -82,11 +70,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.b
             res = json_is_string(pval) && strcmp(json_string_value(pval), "Susie") == 0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.b]", (path ? &lpath_0 : NULL));
             }
@@ -116,11 +100,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

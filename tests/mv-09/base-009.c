@@ -12,11 +12,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'|'.0
     res = json_is_string(val);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [$.'|'.0]", path);
     }
@@ -24,11 +20,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'|'.1
         res = json_is_null(val);
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "not null [$.'|'.1]", path);
         }

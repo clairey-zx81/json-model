@@ -24,11 +24,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'@'
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'@']", path);
     }
@@ -37,11 +33,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         int64_t ival_0 = json_object_size(val);
         res = ival_0 <= 3 && ival_0 >= 2;
     }
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
     }

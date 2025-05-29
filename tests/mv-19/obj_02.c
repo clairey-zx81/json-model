@@ -34,11 +34,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle 1 re props
             // $.'/^[A-Z]$/'
             res = json_is_boolean(pval);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [$.'/^[A-Z]$/']", (path ? &lpath_0 : NULL));
             }
@@ -62,11 +58,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

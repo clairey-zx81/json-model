@@ -25,11 +25,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may foo property
             // $.'$Foo'.foo
             res = json_is_string(pval) && strcmp(json_string_value(pval), "initial foo") == 0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected _initial foo [$.'$Foo'.foo]", (path ? &lpath_0 : NULL));
             }
@@ -54,11 +50,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$Foo'
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Foo']", path);
     }
@@ -71,11 +63,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = json_model_2(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $Foo [$]", path);
     }

@@ -26,11 +26,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.mu1
             res = json_is_null(pval);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not null [$.mu1]", (path ? &lpath_0 : NULL));
             }
@@ -46,11 +42,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.mu2
             res = json_is_boolean(pval);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a bool [$.mu2]", (path ? &lpath_0 : NULL));
             }
@@ -66,11 +58,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             must_count += 1;
             // $.mu3
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.mu3]", (path ? &lpath_0 : NULL));
             }
@@ -85,11 +73,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may ma1 property
             // $.ma1
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.ma1]", (path ? &lpath_0 : NULL));
             }
@@ -104,11 +88,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may ma2 property
             // $.ma2
             res = json_is_string(pval);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.ma2]", (path ? &lpath_0 : NULL));
             }
@@ -123,11 +103,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle may ma3 property
             // $.ma3
             res = jm_is_valid_date(json_string_value(pval));
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [$.ma3]", (path ? &lpath_0 : NULL));
             }
@@ -157,11 +133,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool res;
     // $
     res = _jm_obj_0(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
     }

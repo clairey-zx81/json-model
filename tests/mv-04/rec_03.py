@@ -36,9 +36,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.foo
             # $.foo.'|'.0
             res = json_model_1(pval, lpath_0 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $root [$.foo.'|'.0]", lpath_0 if path is not None else None))
             if not res:
                 # $.foo.'|'.1
@@ -48,15 +46,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                         arr_0_lpath: Path = ((lpath_0 if path is not None else None) + [ arr_0_idx ]) if (lpath_0 if path is not None else None) is not None else None
                         # $.foo.'|'.1.0
                         res = json_model_1(arr_0_item, arr_0_lpath if (lpath_0 if path is not None else None) is not None else None, rep)
-                        if res:
-                            rep is None or rep.clear()
-                        else:
+                        if not res:
                             rep is None or rep.append(("unexpected $root [$.foo.'|'.1.0]", arr_0_lpath if (lpath_0 if path is not None else None) is not None else None))
                         if not res:
                             break
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("not array or unexpected array [$.foo.'|'.1]", lpath_0 if path is not None else None))
             if res:
                 rep is None or rep.clear()
@@ -75,9 +69,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

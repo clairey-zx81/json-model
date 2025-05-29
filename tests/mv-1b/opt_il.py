@@ -28,9 +28,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'@'
     res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a -1 loose int [$.'@']", path))
     return res
 

@@ -13,11 +13,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$EX05a'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$EX05a']", path);
     }
@@ -30,11 +26,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     bool res;
     // $.'$EX05b'
     res = json_is_string(val);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected string [$.'$EX05b']", path);
     }
@@ -48,11 +40,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'|'.0
     res = json_model_2(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $EX05a [$.'|'.0]", path);
     }
@@ -60,11 +48,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'|'.1
         res = json_model_3(val, path, rep);
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $EX05b [$.'|'.1]", path);
         }

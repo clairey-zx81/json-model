@@ -28,30 +28,22 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$X'
     # $.'$X'.'|'.0
     res = val is None
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not null [$.'$X'.'|'.0]", path))
     if not res:
         # $.'$X'.'|'.1
         res = isinstance(val, bool)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("not a bool [$.'$X'.'|'.1]", path))
         if not res:
             # $.'$X'.'|'.2
             res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 1 strict int [$.'$X'.'|'.2]", path))
             if not res:
                 # $.'$X'.'|'.3
                 res = isinstance(val, float) and val > 0.0
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("not a 1.0 strict float [$.'$X'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
@@ -68,9 +60,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     xr_0: bool
     # $.'^'.0
     xr_0 = json_model_2(val, path, rep)
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("unexpected $X [$.'^'.0]", path))
     if xr_0:
         xc_0 += 1
@@ -81,15 +71,11 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'^'.1.0
             xr_0 = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
-            if xr_0:
-                rep is None or rep.clear()
-            else:
+            if not xr_0:
                 rep is None or rep.append(("unexpected $X [$.'^'.1.0]", arr_0_lpath if path is not None else None))
             if not xr_0:
                 break
-    if xr_0:
-        rep is None or rep.clear()
-    else:
+    if not xr_0:
         rep is None or rep.append(("not array or unexpected array [$.'^'.1]", path))
     if xr_0:
         xc_0 += 1

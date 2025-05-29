@@ -359,7 +359,10 @@ class SourceCode(Validator):
         """Maybe enerate a report."""
         if self._report:
             gen = self._lang
-            return gen.if_stmt(res, gen.clean_report(), gen.report(msg, path))
+            if cleanup:
+                return gen.if_stmt(res, gen.clean_report(), gen.report(msg, path))
+            else:
+                return gen.if_stmt(gen.not_op(res), gen.report(msg, path))
         else:
             return []
 

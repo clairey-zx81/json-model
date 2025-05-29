@@ -15,11 +15,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'&'.0
         res = true;
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected string [$.'&'.0]", path);
         }
@@ -28,11 +24,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             // $.'&'.1
             // $.'&'.1.'@'
             res = json_is_string(val);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected string [$.'&'.1.'@']", path);
             }
@@ -41,11 +33,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                 int64_t ival_0 = mbstowcs(NULL, json_string_value(val), 0);
                 res = ival_0 <= 5;
             }
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "constraints failed at [$.'&'.1]", path);
             }

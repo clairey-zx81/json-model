@@ -32,15 +32,11 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # $.'$li0'.0
             res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool) and arr_0_item >= 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0 strict int [$.'$li0'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$li0']", path))
     return res
 
@@ -54,15 +50,11 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # $.'$ls0'.0
             res = is_valid_url(arr_1_item, arr_1_lpath if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $URL [$.'$ls0'.0]", arr_1_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$ls0']", path))
     return res
 
@@ -76,15 +68,11 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # $.'$lb0'.0
             res = isinstance(arr_2_item, bool)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $BOOL [$.'$lb0'.0]", arr_2_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$lb0']", path))
     return res
 
@@ -98,15 +86,11 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
             # $.'$lf0'.0
             res = isinstance(arr_3_item, float) and arr_3_item >= 0.0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("not a 0.0 strict float [$.'$lf0'.0]", arr_3_lpath if path is not None else None))
             if not res:
                 break
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not array or unexpected array [$.'$lf0']", path))
     return res
 
@@ -116,30 +100,22 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'|'.0
     res = json_model_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $li0 [$.'|'.0]", path))
     if not res:
         # $.'|'.1
         res = json_model_3(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $ls0 [$.'|'.1]", path))
         if not res:
             # $.'|'.2
             res = json_model_4(val, path, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $lb0 [$.'|'.2]", path))
             if not res:
                 # $.'|'.3
                 res = json_model_5(val, path, rep)
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("unexpected $lf0 [$.'|'.3]", path))
     if res:
         rep is None or rep.clear()

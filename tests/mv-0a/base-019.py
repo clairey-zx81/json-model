@@ -28,16 +28,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'@'
     res = isinstance(val, float) and val >= 0.0
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a 0.0 strict float [$.'@']", path))
     if res:
         fval_0: float = val
         res = fval_0 < 100 and fval_0 >= 0
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("constraints failed at [$]", path))
     return res
 

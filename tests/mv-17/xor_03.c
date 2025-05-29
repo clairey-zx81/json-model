@@ -14,11 +14,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     bool is_0;
     // $.'^'.1
     is_0 = json_is_integer(val) && json_integer_value(val) >= 0;
-    if (is_0)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! is_0)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'^'.1]", path);
     }

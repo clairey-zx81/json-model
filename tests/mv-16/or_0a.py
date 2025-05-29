@@ -27,37 +27,27 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = isinstance(val, int) and not isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected type at [$.'|']", path))
     if res:
         # $.'|'.0
         res = val == 200
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected =200 [$.'|'.0]", path))
         if not res:
             # $.'|'.1
             res = val == 300
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected =300 [$.'|'.1]", path))
             if not res:
                 # $.'|'.2
                 res = val == 400
-                if res:
-                    rep is None or rep.clear()
-                else:
+                if not res:
                     rep is None or rep.append(("unexpected =400 [$.'|'.2]", path))
                 if not res:
                     # $.'|'.3
                     res = val == 500
-                    if res:
-                        rep is None or rep.clear()
-                    else:
+                    if not res:
                         rep is None or rep.append(("unexpected =500 [$.'|'.3]", path))
         if res:
             rep is None or rep.clear()

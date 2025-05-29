@@ -38,9 +38,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.all
             # "/.*/"
             res = isinstance(pval, str) and True
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected REGEX [$.all]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.all]", lpath_0 if path is not None else None))
@@ -50,9 +48,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.nz
             # "/./s"
             res = isinstance(pval, str) and len(pval) > 0
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected REGEX [$.nz]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.nz]", lpath_0 if path is not None else None))
@@ -62,9 +58,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.some
             # "/./"
             res = isinstance(pval, str) and _jm_re_0(pval)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected REGEX [$.some]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.some]", lpath_0 if path is not None else None))
@@ -79,9 +73,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

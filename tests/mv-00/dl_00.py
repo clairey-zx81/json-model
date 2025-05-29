@@ -34,9 +34,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # $.'$rec'.'|'.1.''
         res = json_model_2(pval, lpath_0 if path is not None else None, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("unexpected $rec [$.'$rec'.'|'.1.'']", lpath_0 if path is not None else None))
         if not res:
             return False
@@ -48,16 +46,12 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # $.'$rec'
     # $.'$rec'.'|'.0
     res = isinstance(val, bool)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not a bool [$.'$rec'.'|'.0]", path))
     if not res:
         # $.'$rec'.'|'.1
         res = _jm_obj_0(val, path, rep)
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("not an expected object at [$.'$rec'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
@@ -70,9 +64,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = json_model_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected $rec [$]", path))
     return res
 

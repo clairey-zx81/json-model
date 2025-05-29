@@ -28,16 +28,12 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # $
     # $.'|'.0
     res = isinstance(val, str)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected string [$.'|'.0]", path))
     if not res:
         # $.'|'.1
         res = val is None
-        if res:
-            rep is None or rep.clear()
-        else:
+        if not res:
             rep is None or rep.append(("not null [$.'|'.1]", path))
     if res:
         rep is None or rep.clear()

@@ -15,11 +15,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     res = true;
     // $.'^'.2
     is_0 = json_is_integer(val) && json_integer_value(val) >= 1;
-    if (is_0)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! is_0)
     {
         if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'^'.2]", path);
     }
@@ -29,11 +25,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         // singleton xor list
         // $.'^'.0
         res = json_is_integer(val) && json_integer_value(val) >= 0;
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'^'.0]", path);
         }

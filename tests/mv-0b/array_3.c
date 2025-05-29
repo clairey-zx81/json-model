@@ -16,11 +16,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { NULL, 0, path, NULL };
         // $.0
         res = json_is_boolean(json_array_get(val, 0));
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "not a bool [$.0]", (path ? &lpath_0 : NULL));
         }
@@ -29,11 +25,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             Path lpath_0 = (Path) { NULL, 1, path, NULL };
             // $.1
             res = json_is_integer(json_array_get(val, 1)) && json_integer_value(json_array_get(val, 1)) >= 0;
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.1]", (path ? &lpath_0 : NULL));
             }
@@ -42,11 +34,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                 Path lpath_0 = (Path) { NULL, 2, path, NULL };
                 // $.2
                 res = json_is_real(json_array_get(val, 2)) && json_real_value(json_array_get(val, 2)) >= 0.0;
-                if (res)
-                {
-                    if (rep) jm_report_free_entries(rep);
-                }
-                else
+                if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.2]", (path ? &lpath_0 : NULL));
                 }
@@ -55,11 +43,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                     Path lpath_0 = (Path) { NULL, 3, path, NULL };
                     // $.3
                     res = json_is_string(json_array_get(val, 3));
-                    if (res)
-                    {
-                        if (rep) jm_report_free_entries(rep);
-                    }
-                    else
+                    if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected string [$.3]", (path ? &lpath_0 : NULL));
                     }
@@ -67,11 +51,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
         }
     }
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$]", path);
     }

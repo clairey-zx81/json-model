@@ -42,9 +42,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$'.Model
             res = isinstance(pval, str) and pval == "$https://json-model.org/models/json-model"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected _$https://json-model.org/models/json-model [$.'$'.Model]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$'.Model]", lpath_1 if path is not None else None))
@@ -53,9 +51,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may  property
             # $.'$'.''
             res = is_valid_url(pval, lpath_1 if path is not None else None, rep)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected $URL [$.'$'.'']", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$'.]", lpath_1 if path is not None else None))
@@ -73,9 +69,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$'
     res = _jm_obj_1(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$']", path))
     return res
 
@@ -95,9 +89,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # $.'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_1(pval)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected REGEX [$.'%'.'/^\\\\..+$/']", lpath_2 if path is not None else None))
             if not res:
                 return False
@@ -111,9 +103,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'%'
     res = _jm_obj_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'%']", path))
     return res
 
@@ -122,9 +112,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'@'
     res = isinstance(val, str) and val == "$Model"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _$Model [$.'@']", path))
     return res
 
@@ -133,9 +121,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'~'
     res = isinstance(val, str) and val == "https://json-model.org/models/l10n"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _https://json-model.org/models/l10n [$.'~']", path))
     return res
 
@@ -162,9 +148,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle may # property
             # $.'#'
             res = isinstance(pval, str)
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected string [$.'#']", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [$.#]", lpath_0 if path is not None else None))
@@ -182,9 +166,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

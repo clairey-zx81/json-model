@@ -29,9 +29,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$T'
     res = isinstance(val, str) and val == "cst_02"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_02 [$.'$T']", path))
     return res
 
@@ -40,9 +38,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.a
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.a]", path))
     return res
 
@@ -51,9 +47,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.b
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.b]", path))
     return res
 
@@ -62,9 +56,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.c
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.c]", path))
     return res
 
@@ -73,9 +65,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'.d
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.'$R'.d]", path))
     return res
 
@@ -110,9 +100,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$R'
     res = _jm_obj_0(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$R']", path))
     return res
 
@@ -131,9 +119,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Z'.e
             res = isinstance(pval, str) and pval == "cst_02"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected _cst_02 [$.'$Z'.e]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Z'.e]", lpath_1 if path is not None else None))
@@ -143,9 +129,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             must_count += 1
             # $.'$Z'.f
             res = isinstance(pval, str) and pval == "cst_02"
-            if res:
-                rep is None or rep.clear()
-            else:
+            if not res:
                 rep is None or rep.append(("unexpected _cst_02 [$.'$Z'.f]", lpath_1 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$Z'.f]", lpath_1 if path is not None else None))
@@ -163,9 +147,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.'$Z'
     res = _jm_obj_1(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$.'$Z']", path))
     return res
 
@@ -174,9 +156,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.a
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.a]", path))
     return res
 
@@ -185,9 +165,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.b
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.b]", path))
     return res
 
@@ -196,9 +174,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.c
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.c]", path))
     return res
 
@@ -207,9 +183,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.d
     res = isinstance(val, str) and val == "cst_01"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_01 [$.d]", path))
     return res
 
@@ -218,9 +192,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.e
     res = isinstance(val, str) and val == "cst_02"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_02 [$.e]", path))
     return res
 
@@ -229,9 +201,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $.f
     res = isinstance(val, str) and val == "cst_02"
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("unexpected _cst_02 [$.f]", path))
     return res
 
@@ -266,9 +236,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # $
     res = _jm_obj_2(val, path, rep)
-    if res:
-        rep is None or rep.clear()
-    else:
+    if not res:
         rep is None or rep.append(("not an expected object at [$]", path))
     return res
 

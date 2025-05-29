@@ -25,11 +25,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { NULL, 0, path, NULL };
         // $.'$R'.0
         res = json_model_5(json_array_get(val, 0), (path ? &lpath_0 : NULL), rep);
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $S [$.'$R'.0]", (path ? &lpath_0 : NULL));
         }
@@ -38,21 +34,13 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
             Path lpath_0 = (Path) { NULL, 1, path, NULL };
             // $.'$R'.1
             res = json_model_5(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
+            if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $S [$.'$R'.1]", (path ? &lpath_0 : NULL));
             }
         }
     }
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$R']", path);
     }
@@ -73,11 +61,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     // $.'$S'
     // "/[a-z]/"
     res = json_is_string(val) && _jm_re_0(json_string_value(val));
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'$S']", path);
     }
@@ -91,11 +75,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     // $
     // $.'|'.0
     res = json_model_3(val, path, rep);
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $S [$.'|'.0]", path);
     }
@@ -103,11 +83,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     {
         // $.'|'.1
         res = json_model_5(val, path, rep);
-        if (res)
-        {
-            if (rep) jm_report_free_entries(rep);
-        }
-        else
+        if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $R#S [$.'|'.1]", path);
         }
@@ -137,11 +113,7 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     // $.'$R#S'
     // "/[0-9]/"
     res = json_is_string(val) && _jm_re_1(json_string_value(val));
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
+    if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'$R#S']", path);
     }
