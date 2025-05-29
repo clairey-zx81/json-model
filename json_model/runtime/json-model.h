@@ -2,6 +2,8 @@
 #define JSON_MODEL_H_INCLUDED
 
 #define _GNU_SOURCE  // for qsort_r?
+#include <stdbool.h>
+// typedef enum { false, true } bool;
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,7 +35,6 @@
 extern char * jm_version_string;
 
 #define array_length(arr) (sizeof(arr) / sizeof((arr)[0]))
-typedef enum { false, true } bool;
 typedef int (*cmp_fun_t)(const void *, const void *);
 typedef int (*cmp_r_fun_t)(const void *, const void *, void *);
 
