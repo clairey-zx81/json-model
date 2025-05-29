@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <time.h>
 #include <getopt.h>
+#include <math.h>
 
 #include <json-model.h>
 
@@ -27,18 +28,42 @@ process_value(const char *name, const json_t * value,
 
     // check value against model, fast (no path nor reasons)
     bool valid = true;
-    clock_t start = clock();
+    double empty = 0.0;
 
-    for (int i = loop; i; i--)
-         valid = checker(value, NULL, NULL);
-
-    clock_t end = clock();
-
+    // performance loop in µs
     if (loop > 1)
-        fprintf(stderr, "%s.%s[%zu] nop %s %.06f µs/check\n", fname, name, index,
-                valid ? "PASS": "FAIL",
-                (end - start) * 1000000.0 / CLOCKS_PER_SEC / loop);
+    {
+        // evaluate the overhead
+        for (int i = loop; i; i--)
+        {
+            clock_t start = clock();
+            empty += 1000000.0 * (clock() - start) / CLOCKS_PER_SEC;
+        }
+        empty /= loop;
 
+        // evaluate the validation
+        double sum = 0.0, sum2 = 0.0;
+
+        for (int i = loop; i; i--)
+        {
+            clock_t start = clock();
+
+            valid = checker(value, NULL, NULL);
+
+            double delay = (1000000.0 * (clock() - start) / CLOCKS_PER_SEC) - empty;
+            sum += delay;
+            sum2 += delay * delay;
+        }
+
+        double avg = sum / loop;
+        double stdev = sqrt(sum2 / loop - avg * avg);
+
+        fprintf(stderr, "%s.%s[%zu] nop %s %.03f ± %.03f µs/check (%.03f)\n",
+                fname, name, index, valid ? "PASS": "FAIL", avg, stdev, empty);
+    }
+
+    // get result
+    valid = checker(value, NULL, NULL);
     bool unexpected = (mode == expect_fail && valid) || (mode == expect_pass && !valid);
 
     if (mode == expect_nothing)  // just show
@@ -55,22 +80,37 @@ process_value(const char *name, const json_t * value,
         Report report = (Report) { NULL };
 
         bool valid2 = true;
-        start = clock();
 
-        for (int i = loop; i; i--)
+        // loop just for measuring performance, including cleanup
+        if (loop > 1)
         {
-            path = (Path) { "", 0, NULL, NULL };
-            report = (Report) { NULL };
-            valid2 = checker(value, &path, &report);
-            if (i > 1) jm_report_free_entries(&report);
+            double sum = 0.0, sum2 = 0.0;
+
+            for (int i = loop; i; i--)
+            {
+                time_t start = clock();
+
+                path = (Path) { "", 0, NULL, NULL };
+                report = (Report) { NULL };
+                valid2 = checker(value, &path, &report);
+                jm_report_free_entries(&report);
+
+                double delay = (1000000.0 * (clock() - start) / CLOCKS_PER_SEC) - empty;
+                sum += delay;
+                sum2 += delay * delay;
+            }
+
+            double avg = sum / loop;
+            double stdev = sqrt(sum2 / loop - avg * avg);
+
+            fprintf(stderr, "%s.%s[%zu] rep %s %.03f ± %.03f µs/check (%.03f)\n",
+                    fname, name, index, valid ? "PASS": "FAIL", avg, stdev, empty);
         }
 
-        end = clock();
-
-        if (loop > 1)
-            fprintf(stderr, "%s.%s[%zu] rep %s %.06f µs/check\n", fname, name, index,
-                    valid ? "PASS": "FAIL",
-                    (end - start) * 1000000.0 / CLOCKS_PER_SEC / loop);
+        // get the result for display
+        path = (Path) { "", 0, NULL, NULL };
+        report = (Report) { NULL };
+        valid2 = checker(value, &path, &report);
 
         assert(valid == valid2);
 

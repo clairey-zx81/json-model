@@ -5,6 +5,7 @@ import time
 import validators
 import json
 import re  # FIXME re2?
+import math
 
 from json_model.runtime.types import Jsonable, JsonScalar, Report, Path, CheckFun
 
@@ -302,25 +303,51 @@ def main(jm_fun, jm_map, jmc_version):
                     continue
 
                 valid: bool
-                # looping triggers timing
-                loop = args.time
-                start = time.clock_gettime(0)
-                if args.report:
-                    while loop:
-                        loop -= 1
-                        reasons, path = [], []
-                        valid = checker(val, path, reasons)
-                else:
-                    reasons, path = None, None
-                    while loop:
-                        loop -= 1
-                        valid = checker(val, None, None)
-                end = time.clock_gettime(0)
+                empty, sum1, sum2 = 0.0, 0.0, 0.0
 
                 if args.time > 1:
+
+                    # evaluate average overhead
+                    for _ in range(args.time - 1):
+                        start = time.clock_gettime(0)
+                        end = time.clock_gettime(0)
+                        empty += 1000000.0 * (end - start)
+                    empty /= args.time
+
+                    # evaluate validation time
+                    if args.report:
+                        for _ in range(args.time):
+                            start = time.clock_gettime(0)
+                            reasons, path = [], []
+                            valid = checker(val, path, reasons)
+                            del reasons
+                            del path
+                            end = time.clock_gettime(0)
+                            delay = 1000000.0 * (end - start) - empty
+                            sum1 += delay
+                            sum2 += delay * delay
+                    else:
+                        for _ in range(args.time):
+                            start = time.clock_gettime(0)
+                            valid = checker(val, None, None)
+                            end = time.clock_gettime(0)
+                            delay = 1000000.0 * (end - start) - empty
+                            sum1 += delay
+                            sum2 += delay * delay
+
+                    avg = sum1 / args.time
+                    stdev = math.sqrt(sum2 / args.time - avg * avg)
                     print(f"{fn}{info}{' rep ' if args.report else ' nop '}"
-                          f"{(end-start) * 1000000.0 / args.time} µs/call",
+                          f"{avg:.03f} ± {stdev:.03f} µs/call ({empty:.03f})",
                           file=sys.stderr)
+
+                # collect results for actual display
+                if args.report:
+                    reasons, path = [], []
+                    valid = checker(val, path, reasons)
+                else:
+                    reasons, path = None, None
+                    valid = checker(val, None, None)
 
                 if expect is not None and valid != expect:
                     print(f"{fn}{info}: ERROR unexpected {'PASS' if valid else 'FAIL'}")
@@ -331,6 +358,7 @@ def main(jm_fun, jm_map, jmc_version):
                     print(f"{fn}{info}: FAIL {reasons}")
                 else:
                     print(f"{fn}{info}: FAIL")
+
         except Exception as e:
             log.debug(e, exc_info=args.debug)
             print(f"{fn}: ERROR ({e})")
