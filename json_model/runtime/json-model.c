@@ -296,8 +296,8 @@ jm_dbg_cst(const constant_t *c, const char *describe)
 {
     fprintf(stderr, "%s (%s): %s\n",
             describe,
-            c->tag == cst_is_string? "string": "?",
-            c->tag == cst_is_string? c->val.s: "?");
+            c->tag == cst_is_string ? "string" : "?",
+            c->tag == cst_is_string ? c->val.s : "?");
 }
 
 static int
