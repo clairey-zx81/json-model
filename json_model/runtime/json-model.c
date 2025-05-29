@@ -395,31 +395,27 @@ jm_is_valid_uuid(const char *uuid)
 {
     if (!uuid)
         return false;
+
     // hardcoded version for ASCII and UTF-8
-    for (size_t i = 0; i < 8; i++)
-        if (!isxdigit(uuid[i]))
-            return false;
-    if (uuid[8] != '-')
-        return false;
-    for (size_t i = 9; i < 13; i++)
-        if (!isxdigit(uuid[i]))
-            return false;
-    if (uuid[13] != '-')
-        return false;
-    for (size_t i = 14; i < 18; i++)
-        if (!isxdigit(uuid[i]))
-            return false;
-    if (uuid[18] != '-')
-        return false;
-    for (size_t i = 19; i < 23; i++)
-        if (!isxdigit(uuid[i]))
-            return false;
-    if (uuid[23] != '-')
-        return false;
-    for (size_t i = 24; i < 36; i++)
-        if (!isxdigit(uuid[i]))
-            return false;
-    return uuid[36] == '\0';
+    size_t i = 0;
+
+#define subsection(upto)                \
+    while (i < upto)                    \
+        if (!isxdigit(uuid[i++]))       \
+            return false
+
+#define section(upto)                   \
+    subsection(upto);                   \
+    if (uuid[i++] != '-')               \
+        return false
+
+    section(8);
+    section(13);
+    section(18);
+    section(23);
+    subsection(36);
+
+    return uuid[i] == '\0';
 }
 
 // check regex validity by attempting to compile it with PCRE2, probably not very efficient
