@@ -2,6 +2,9 @@
 #define JSON_MODEL_VERSION "2.0a0"
 
 static bool json_model_2(const json_t* val, Path* path, Report* rep);
+static pcre2_code *_jm_re_0_code = NULL;
+static pcre2_match_data *_jm_re_0_data = NULL;
+static bool _jm_re_0(const char *s);
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_1(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_2(const json_t* val, Path* path, Report* rep);
@@ -11,9 +14,9 @@ static bool _jm_f_5(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_6(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_7(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_0_map_tab[8];
-static pcre2_code *_jm_re_0_code = NULL;
-static pcre2_match_data *_jm_re_0_data = NULL;
-static bool _jm_re_0(const char *s);
+static pcre2_code *_jm_re_1_code = NULL;
+static pcre2_match_data *_jm_re_1_data = NULL;
+static bool _jm_re_1(const char *s);
 static bool json_model_3(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_8(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_9(const json_t* val, Path* path, Report* rep);
@@ -38,9 +41,9 @@ static bool _jm_f_21(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_22(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_9_map_tab[10];
 static bool json_model_9(const json_t* val, Path* path, Report* rep);
-static pcre2_code *_jm_re_1_code = NULL;
-static pcre2_match_data *_jm_re_1_data = NULL;
-static bool _jm_re_1(const char *s);
+static pcre2_code *_jm_re_2_code = NULL;
+static pcre2_match_data *_jm_re_2_data = NULL;
+static bool _jm_re_2(const char *s);
 static bool json_model_10(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_23(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_24(const json_t* val, Path* path, Report* rep);
@@ -130,9 +133,9 @@ static bool _jm_f_84(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_85(const json_t* val, Path* path, Report* rep);
 static propmap_t _jm_obj_40_map_tab[5];
 static bool json_model_22(const json_t* val, Path* path, Report* rep);
-static pcre2_code *_jm_re_2_code = NULL;
-static pcre2_match_data *_jm_re_2_data = NULL;
-static bool _jm_re_2(const char *s);
+static pcre2_code *_jm_re_3_code = NULL;
+static pcre2_match_data *_jm_re_3_data = NULL;
+static bool _jm_re_3(const char *s);
 static bool json_model_23(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_86(const json_t* val, Path* path, Report* rep);
 static bool _jm_f_87(const json_t* val, Path* path, Report* rep);
@@ -353,6 +356,13 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
+static bool _jm_re_0(const char *s)
+{
+  int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, _jm_re_0_data, NULL);
+  return rc >= 0;
+}
+
 // check _jm_obj_0_map_component ($.'$OpenAPI'.component)
 static bool _jm_f_0(const json_t* val, Path* path, Report* rep)
 {
@@ -529,10 +539,10 @@ static check_fun_t _jm_obj_0_map(const char *pname)
     return jm_search_propmap(pname, _jm_obj_0_map_tab, 8);
 }
 
-static bool _jm_re_0(const char *s)
+static bool _jm_re_1(const char *s)
 {
-  int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                       0, 0, _jm_re_0_data, NULL);
+  int rc = pcre2_match(_jm_re_1_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, _jm_re_1_data, NULL);
   return rc >= 0;
 }
 
@@ -557,10 +567,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             // handle must openapi property
             must_count += 1;
             // $.'$OpenAPI'.openapi
-            res = json_is_string(pval);
+            // "/^3\\.1\\.\\d+(-.+)?$/"
+            res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.'$OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'$OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -593,7 +604,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$OpenAPI'.'/^x\\-.*$/'
@@ -761,7 +772,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Info'.'/^x\\-.*$/'
@@ -861,7 +872,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Contact'.'/^x\\-.*$/'
@@ -944,7 +955,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$License'.'|'.1.'/^x\\-.*$/'
@@ -1019,7 +1030,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$License'.'|'.0.'/^x\\-.*$/'
@@ -1176,7 +1187,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Server'.'/^x\\-.*$/'
@@ -1297,7 +1308,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$ServerVariable'.'/^x\\-.*$/'
@@ -1949,7 +1960,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Components'.'/^x\\-.*$/'
@@ -1985,10 +1996,10 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static bool _jm_re_1(const char *s)
+static bool _jm_re_2(const char *s)
 {
-  int rc = pcre2_match(_jm_re_1_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                       0, 0, _jm_re_1_data, NULL);
+  int rc = pcre2_match(_jm_re_2_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, _jm_re_2_data, NULL);
   return rc >= 0;
 }
 
@@ -2006,7 +2017,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_20 = (Path) { prop, 0, path, NULL };
-        if (_jm_re_1(prop))
+        if (_jm_re_2(prop))
         {
             // handle 2 re props
             // $.'$Paths'.'/^//'
@@ -2020,7 +2031,7 @@ static bool _jm_obj_20(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 2 re props
             // $.'$Paths'.'/^x\\-.*$/'
@@ -2310,7 +2321,7 @@ static bool _jm_obj_21(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$PathItem'.'/^x\\-.*$/'
@@ -2690,7 +2701,7 @@ static bool _jm_obj_22(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Operation'.'/^x\\-.*$/'
@@ -2772,7 +2783,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$ExternalDocumentation'.'/^x\\-.*$/'
@@ -2894,7 +2905,7 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$parameterShare'.'/^x\\-.*$/'
@@ -3045,7 +3056,7 @@ static bool _jm_obj_26(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$commonParameter'.'/^x\\-.*$/'
@@ -3512,7 +3523,7 @@ static bool _jm_obj_31(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Parameter'.'|'.1.'/^x\\-.*$/'
@@ -3780,7 +3791,7 @@ static bool _jm_obj_33(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Parameter'.'|'.0.'/^x\\-.*$/'
@@ -3935,7 +3946,7 @@ static bool _jm_obj_35(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$RequestBody'.'/^x\\-.*$/'
@@ -4128,7 +4139,7 @@ static bool _jm_obj_37(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$MediaType'.'/^x\\-.*$/'
@@ -4305,7 +4316,7 @@ static bool _jm_obj_40(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Encoding'.'/^x\\-.*$/'
@@ -4341,10 +4352,10 @@ static bool json_model_22(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-static bool _jm_re_2(const char *s)
+static bool _jm_re_3(const char *s)
 {
-  int rc = pcre2_match(_jm_re_2_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                       0, 0, _jm_re_2_data, NULL);
+  int rc = pcre2_match(_jm_re_3_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
+                       0, 0, _jm_re_3_data, NULL);
   return rc >= 0;
 }
 
@@ -4395,7 +4406,7 @@ static bool _jm_obj_42(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_2(prop))
+        else if (_jm_re_3(prop))
         {
             // handle 2 re props
             // $.'$Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -4427,7 +4438,7 @@ static bool _jm_obj_42(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 2 re props
             // $.'$Responses'.'/^x\\-.*$/'
@@ -4667,7 +4678,7 @@ static bool _jm_obj_43(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Response'.'/^x\\-.*$/'
@@ -4749,7 +4760,7 @@ static bool _jm_obj_47(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Callback'.'/^x\\-.*$/'
@@ -4866,7 +4877,7 @@ static bool _jm_obj_48(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Example'.'/^x\\-.*$/'
@@ -5025,7 +5036,7 @@ static bool _jm_obj_49(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Link'.'|'.1.'/^x\\-.*$/'
@@ -5163,7 +5174,7 @@ static bool _jm_obj_51(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Link'.'|'.0.'/^x\\-.*$/'
@@ -5353,7 +5364,7 @@ static bool _jm_obj_53(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Header'.'|'.1.'/^x\\-.*$/'
@@ -5582,7 +5593,7 @@ static bool _jm_obj_55(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Header'.'|'.0.'/^x\\-.*$/'
@@ -5705,7 +5716,7 @@ static bool _jm_obj_57(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Tag'.'/^x\\-.*$/'
@@ -6982,7 +6993,7 @@ static bool _jm_obj_66(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Discriminator'.'/^x\\-.*$/'
@@ -7117,7 +7128,7 @@ static bool _jm_obj_68(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$XML'.'/^x\\-.*$/'
@@ -7296,7 +7307,7 @@ static bool _jm_obj_69(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$SecurityScheme'.'/^x\\-.*$/'
@@ -7418,7 +7429,7 @@ static bool _jm_obj_70(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$OAuthFlows'.'/^x\\-.*$/'
@@ -7561,7 +7572,7 @@ static bool _jm_obj_71(const json_t* val, Path* path, Report* rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$OAuthFlow'.'/^x\\-.*$/'
@@ -7677,7 +7688,7 @@ static bool _jm_obj_74(const json_t* val, Path* path, Report* rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         Path lpath_72 = (Path) { prop, 0, path, NULL };
-        if (_jm_re_0(prop))
+        if (_jm_re_1(prop))
         {
             // handle 1 re props
             // $.'$Extension'.'/^x\\-.*$/'
@@ -8942,6 +8953,16 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
+        int err_code;
+        PCRE2_SIZE err_offset;
+        static PCRE2_UCHAR err_message[1024];
+        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^3\\.1\\.\\d+(-.+)?$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+        if (_jm_re_0_code == NULL)
+        {
+            (void) pcre2_get_error_message(err_code, err_message, 1024);
+            return (char *) err_message;
+        }
+        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
         _jm_obj_0_map_tab[0] = (propmap_t) { "component", _jm_f_0 };
         _jm_obj_0_map_tab[1] = (propmap_t) { "externalDocs", _jm_f_1 };
         _jm_obj_0_map_tab[2] = (propmap_t) { "jsonSchemaDialect", _jm_f_2 };
@@ -8951,16 +8972,13 @@ char *CHECK_init(void)
         _jm_obj_0_map_tab[6] = (propmap_t) { "tags", _jm_f_6 };
         _jm_obj_0_map_tab[7] = (propmap_t) { "webhooks", _jm_f_7 };
         jm_sort_propmap(_jm_obj_0_map_tab, 8);
-        int err_code;
-        PCRE2_SIZE err_offset;
-        static PCRE2_UCHAR err_message[1024];
-        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^x\\-.*$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_0_code == NULL)
+        _jm_re_1_code = pcre2_compile((PCRE2_SPTR) "^x\\-.*$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+        if (_jm_re_1_code == NULL)
         {
             (void) pcre2_get_error_message(err_code, err_message, 1024);
             return (char *) err_message;
         }
-        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
+        _jm_re_1_data = pcre2_match_data_create_from_pattern(_jm_re_1_code, NULL);
         _jm_obj_2_map_tab[0] = (propmap_t) { "contact", _jm_f_8 };
         _jm_obj_2_map_tab[1] = (propmap_t) { "description", _jm_f_9 };
         _jm_obj_2_map_tab[2] = (propmap_t) { "license", _jm_f_10 };
@@ -8978,13 +8996,13 @@ char *CHECK_init(void)
         _jm_obj_9_map_tab[8] = (propmap_t) { "schemas", _jm_f_21 };
         _jm_obj_9_map_tab[9] = (propmap_t) { "securitySchemes", _jm_f_22 };
         jm_sort_propmap(_jm_obj_9_map_tab, 10);
-        _jm_re_1_code = pcre2_compile((PCRE2_SPTR) "^/", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_1_code == NULL)
+        _jm_re_2_code = pcre2_compile((PCRE2_SPTR) "^/", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+        if (_jm_re_2_code == NULL)
         {
             (void) pcre2_get_error_message(err_code, err_message, 1024);
             return (char *) err_message;
         }
-        _jm_re_1_data = pcre2_match_data_create_from_pattern(_jm_re_1_code, NULL);
+        _jm_re_2_data = pcre2_match_data_create_from_pattern(_jm_re_2_code, NULL);
         _jm_obj_21_map_tab[0] = (propmap_t) { "$ref", _jm_f_23 };
         _jm_obj_21_map_tab[1] = (propmap_t) { "delete", _jm_f_24 };
         _jm_obj_21_map_tab[2] = (propmap_t) { "description", _jm_f_25 };
@@ -9084,13 +9102,13 @@ char *CHECK_init(void)
         _jm_obj_40_map_tab[3] = (propmap_t) { "headers", _jm_f_84 };
         _jm_obj_40_map_tab[4] = (propmap_t) { "style", _jm_f_85 };
         jm_sort_propmap(_jm_obj_40_map_tab, 5);
-        _jm_re_2_code = pcre2_compile((PCRE2_SPTR) "^[1-5](\\d\\d|XX)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_2_code == NULL)
+        _jm_re_3_code = pcre2_compile((PCRE2_SPTR) "^[1-5](\\d\\d|XX)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
+        if (_jm_re_3_code == NULL)
         {
             (void) pcre2_get_error_message(err_code, err_message, 1024);
             return (char *) err_message;
         }
-        _jm_re_2_data = pcre2_match_data_create_from_pattern(_jm_re_2_code, NULL);
+        _jm_re_3_data = pcre2_match_data_create_from_pattern(_jm_re_3_code, NULL);
         _jm_obj_43_map_tab[0] = (propmap_t) { "content", _jm_f_86 };
         _jm_obj_43_map_tab[1] = (propmap_t) { "description", _jm_f_87 };
         _jm_obj_43_map_tab[2] = (propmap_t) { "headers", _jm_f_88 };
@@ -9338,6 +9356,8 @@ void CHECK_free(void)
         pcre2_code_free(_jm_re_1_code);
         pcre2_match_data_free(_jm_re_2_data);
         pcre2_code_free(_jm_re_2_code);
+        pcre2_match_data_free(_jm_re_3_data);
+        pcre2_code_free(_jm_re_3_code);
     }
 }
 

@@ -20,13 +20,15 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_map: PropMap
 _jm_re_0_search: Callable
 _jm_re_0: RegexFun
-_jm_obj_2_map: PropMap
-_jm_obj_9_map: PropMap
+_jm_obj_0_map: PropMap
 _jm_re_1_search: Callable
 _jm_re_1: RegexFun
+_jm_obj_2_map: PropMap
+_jm_obj_9_map: PropMap
+_jm_re_2_search: Callable
+_jm_re_2: RegexFun
 _jm_obj_21_map: PropMap
 _jm_obj_22_map: PropMap
 _jm_obj_25_map: PropMap
@@ -40,8 +42,8 @@ _jm_cst_3: set[str]
 _jm_obj_33_map: PropMap
 _jm_obj_37_map: PropMap
 _jm_obj_40_map: PropMap
-_jm_re_2_search: Callable
-_jm_re_2: RegexFun
+_jm_re_3_search: Callable
+_jm_re_3: RegexFun
 _jm_obj_43_map: PropMap
 _jm_obj_48_map: PropMap
 _jm_obj_49_map: PropMap
@@ -65,6 +67,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("unexpected string [$.'$URI']", path))
     return res
+
 
 # check _jm_obj_0_map_component ($.'$OpenAPI'.component)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -191,9 +194,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must openapi property
             must_count += 1
             # $.'$OpenAPI'.openapi
-            res = isinstance(pval, str)
+            # "/^3\\.1\\.\\d+(-.+)?$/"
+            res = isinstance(pval, str) and _jm_re_0(pval)
             if not res:
-                rep is None or rep.append(("unexpected string [$.'$OpenAPI'.openapi]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected REGEX [$.'$OpenAPI'.openapi]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$OpenAPI'.openapi]", lpath_0 if path is not None else None))
                 return False
@@ -212,7 +216,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$OpenAPI']", lpath_0 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$OpenAPI'.'/^x\\-.*$/'
             res = True
@@ -319,7 +323,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_2 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Info']", lpath_2 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Info'.'/^x\\-.*$/'
             res = True
@@ -380,7 +384,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Contact'.email]", lpath_3 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Contact'.'/^x\\-.*$/'
             res = True
@@ -432,7 +436,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$License'.'|'.1.url]", lpath_4 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$License'.'|'.1.'/^x\\-.*$/'
             res = True
@@ -478,7 +482,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid must property value [$.'$License'.'|'.0.identifier]", lpath_5 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$License'.'|'.0.'/^x\\-.*$/'
             res = True
@@ -573,7 +577,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Server'.variables]", lpath_6 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Server'.'/^x\\-.*$/'
             res = True
@@ -645,7 +649,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$ServerVariable'.description]", lpath_8 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$ServerVariable'.'/^x\\-.*$/'
             res = True
@@ -1046,7 +1050,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_9 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Components']", lpath_9 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Components'.'/^x\\-.*$/'
             res = True
@@ -1078,7 +1082,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_20: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_1(prop):
+        if _jm_re_2(prop):
             # handle 2 re props
             # $.'$Paths'.'/^//'
             res = json_model_11(pval, lpath_20 if path is not None else None, rep)
@@ -1086,7 +1090,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $PathItem [$.'$Paths'.'/^//']", lpath_20 if path is not None else None))
             if not res:
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 2 re props
             # $.'$Paths'.'/^x\\-.*$/'
             res = True
@@ -1269,7 +1273,7 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_21 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$PathItem']", lpath_21 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$PathItem'.'/^x\\-.*$/'
             res = True
@@ -1499,7 +1503,7 @@ def _jm_obj_22(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_22 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Operation']", lpath_22 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Operation'.'/^x\\-.*$/'
             res = True
@@ -1550,7 +1554,7 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$ExternalDocumentation'.description]", lpath_24 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$ExternalDocumentation'.'/^x\\-.*$/'
             res = True
@@ -1627,7 +1631,7 @@ def _jm_obj_25(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_25 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$parameterShare']", lpath_25 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$parameterShare'.'/^x\\-.*$/'
             res = True
@@ -1723,7 +1727,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_26 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$commonParameter']", lpath_26 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$commonParameter'.'/^x\\-.*$/'
             res = True
@@ -2020,7 +2024,7 @@ def _jm_obj_31(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_31 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Parameter'.'|'.1]", lpath_31 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Parameter'.'|'.1.'/^x\\-.*$/'
             res = True
@@ -2192,7 +2196,7 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_33 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Parameter'.'|'.0]", lpath_33 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Parameter'.'|'.0.'/^x\\-.*$/'
             res = True
@@ -2285,7 +2289,7 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$RequestBody'.required]", lpath_35 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$RequestBody'.'/^x\\-.*$/'
             res = True
@@ -2405,7 +2409,7 @@ def _jm_obj_37(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_37 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$MediaType']", lpath_37 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$MediaType'.'/^x\\-.*$/'
             res = True
@@ -2516,7 +2520,7 @@ def _jm_obj_40(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_40 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Encoding']", lpath_40 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Encoding'.'/^x\\-.*$/'
             res = True
@@ -2567,7 +2571,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Responses'.default]", lpath_42 if path is not None else None))
                 return False
-        elif _jm_re_2(prop):
+        elif _jm_re_3(prop):
             # handle 2 re props
             # $.'$Responses'.'/^[1-5](\\d\\d|XX)$/'
             # $.'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
@@ -2585,7 +2589,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [$.'$Responses'.'/^[1-5](\\\\d\\\\d|XX)$/'.'|']", lpath_42 if path is not None else None))
             if not res:
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 2 re props
             # $.'$Responses'.'/^x\\-.*$/'
             res = True
@@ -2733,7 +2737,7 @@ def _jm_obj_43(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_43 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Response']", lpath_43 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Response'.'/^x\\-.*$/'
             res = True
@@ -2782,7 +2786,7 @@ def _jm_obj_47(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [$.'$Callback'.'$Expression'.'|']", lpath_47 if path is not None else None))
             if not res:
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Callback'.'/^x\\-.*$/'
             res = True
@@ -2856,7 +2860,7 @@ def _jm_obj_48(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_48 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Example']", lpath_48 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Example'.'/^x\\-.*$/'
             res = True
@@ -2958,7 +2962,7 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_49 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Link'.'|'.1]", lpath_49 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Link'.'|'.1.'/^x\\-.*$/'
             res = True
@@ -3045,7 +3049,7 @@ def _jm_obj_51(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Link'.'|'.0]", lpath_50 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Link'.'|'.0.'/^x\\-.*$/'
             res = True
@@ -3163,7 +3167,7 @@ def _jm_obj_53(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Header'.'|'.1]", lpath_51 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Header'.'|'.1.'/^x\\-.*$/'
             res = True
@@ -3310,7 +3314,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_53 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$Header'.'|'.0]", lpath_53 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Header'.'|'.0.'/^x\\-.*$/'
             res = True
@@ -3384,7 +3388,7 @@ def _jm_obj_57(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Tag'.externalDocs]", lpath_55 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Tag'.'/^x\\-.*$/'
             res = True
@@ -4231,7 +4235,7 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$Discriminator'.mapping]", lpath_64 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$Discriminator'.'/^x\\-.*$/'
             res = True
@@ -4317,7 +4321,7 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_66 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$XML']", lpath_66 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$XML'.'/^x\\-.*$/'
             res = True
@@ -4431,7 +4435,7 @@ def _jm_obj_69(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$SecurityScheme'.bearerFormat]", lpath_67 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$SecurityScheme'.'/^x\\-.*$/'
             res = True
@@ -4508,7 +4512,7 @@ def _jm_obj_70(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED and not pfun(pval, lpath_68 if path is not None else None, rep):
                 rep is None or rep.append(("invalid may property value [$.'$OAuthFlows']", lpath_68 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$OAuthFlows'.'/^x\\-.*$/'
             res = True
@@ -4597,7 +4601,7 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid may property value [$.'$OAuthFlow'.refreshUrl]", lpath_69 if path is not None else None))
                 return False
-        elif _jm_re_0(prop):
+        elif _jm_re_1(prop):
             # handle 1 re props
             # $.'$OAuthFlow'.'/^x\\-.*$/'
             res = True
@@ -4667,7 +4671,7 @@ def _jm_obj_74(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_72: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_0(prop):
+        if _jm_re_1(prop):
             # handle 1 re props
             # $.'$Extension'.'/^x\\-.*$/'
             res = True
@@ -5499,6 +5503,9 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
+        global _jm_re_0_search, _jm_re_0
+        _jm_re_0_search = re.compile("^3\\.1\\.\\d+(-.+)?$").search
+        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
         global _jm_obj_0_map
         _jm_obj_0_map = {
             "component": _jm_f_0,
@@ -5510,9 +5517,9 @@ def check_model_init():
             "tags": _jm_f_6,
             "webhooks": _jm_f_7,
         }
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("^x\\-.*$").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_1_search, _jm_re_1
+        _jm_re_1_search = re.compile("^x\\-.*$").search
+        _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
         global _jm_obj_2_map
         _jm_obj_2_map = {
             "contact": _jm_f_8,
@@ -5534,9 +5541,9 @@ def check_model_init():
             "schemas": _jm_f_21,
             "securitySchemes": _jm_f_22,
         }
-        global _jm_re_1_search, _jm_re_1
-        _jm_re_1_search = re.compile("^/").search
-        _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
+        global _jm_re_2_search, _jm_re_2
+        _jm_re_2_search = re.compile("^/").search
+        _jm_re_2 = lambda s: _jm_re_2_search(s) is not None
         global _jm_obj_21_map
         _jm_obj_21_map = {
             "$ref": _jm_f_23,
@@ -5635,9 +5642,9 @@ def check_model_init():
             "headers": _jm_f_84,
             "style": _jm_f_85,
         }
-        global _jm_re_2_search, _jm_re_2
-        _jm_re_2_search = re.compile("^[1-5](\\d\\d|XX)$").search
-        _jm_re_2 = lambda s: _jm_re_2_search(s) is not None
+        global _jm_re_3_search, _jm_re_3
+        _jm_re_3_search = re.compile("^[1-5](\\d\\d|XX)$").search
+        _jm_re_3 = lambda s: _jm_re_3_search(s) is not None
         global _jm_obj_43_map
         _jm_obj_43_map = {
             "content": _jm_f_86,
@@ -5897,6 +5904,9 @@ def check_model_free():
         global _jm_re_2_search, _jm_re_2
         _jm_re_2_search = None
         _jm_re_2 = None
+        global _jm_re_3_search, _jm_re_3
+        _jm_re_3_search = None
+        _jm_re_3 = None
 
 
 if __name__ == "__main__":
