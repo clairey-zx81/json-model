@@ -5,35 +5,35 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_is_array(val) && json_array_size(val) == 2;
     if (res)
     {
         Path lpath_0 = (Path) { NULL, 0, path, NULL };
-        // $.0
+        // .0
         res = json_is_boolean(json_array_get(val, 0));
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not a bool [$.0]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "not a bool [.0]", (path ? &lpath_0 : NULL));
         }
         if (res)
         {
             Path lpath_0 = (Path) { NULL, 1, path, NULL };
-            // $.1
+            // .1
             res = json_is_integer(json_array_get(val, 1)) && json_integer_value(json_array_get(val, 1)) >= 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.1]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.1]", (path ? &lpath_0 : NULL));
             }
         }
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$]", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array []", path);
     }
     return res;
 }

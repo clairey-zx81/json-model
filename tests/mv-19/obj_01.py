@@ -21,24 +21,24 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_cst_0: set[str]
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $XXX ($.'$XXX')
+# check $XXX (.'$XXX')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$XXX'
+    # .'$XXX'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [$.'$XXX'.'|']", path))
+        rep is None or rep.append(("value not in enum [.'$XXX'.'|']", path))
     return res
 
 
-# object $
+# object 
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$]", path))
+        rep is None or rep.append(("not an object []", path))
         return False
     res: bool
     must_count: int = 0
@@ -48,58 +48,60 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "foo":
             # handle must foo property
             must_count += 1
-            # $.foo
+            # .foo
             res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $DATE [$.foo]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $DATE [.foo]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.foo]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.foo]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bla":
             # handle may bla property
-            # $.bla
+            # .bla
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [$.bla]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a bool [.bla]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [$.bla]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.bla]", lpath_0 if path is not None else None))
                 return False
         elif json_model_2(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
-            # $.'$XXX'
+            # .'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
-                rep is None or rep.append(("not a 0.0 strict float [$.'$XXX']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0.0 strict float [.'$XXX']", lpath_0 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_0(prop):
             # handle 1 re props
-            # $.'/^[0-9]+$/'
+            # .'/^[0-9]+$/'
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.'/^[0-9]+$/']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'/^[0-9]+$/']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
             # handle other props
-            # $.''
+            # .''
             res = pval is None
             if not res:
-                rep is None or rep.append(("not null [$.'']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not null [.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
     if must_count != 1:
-        rep is None or rep.append(("missing must prop [$.'']", path))
+        if rep is not None:
+            if not "foo" in val:
+                rep is None or rep.append(("missing must prop <foo> [.'']", path))
         return False
     return True
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$]", path))
+        rep is None or rep.append(("not an expected object at []", path))
     return res
 
 
@@ -113,9 +115,9 @@ def check_model_init():
         initialized = True
         global _jm_cst_0
         _jm_cst_0 = {'X', 'XX', 'XXX'}
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("^[0-9]+$").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("^[0-9]+$")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -127,8 +129,8 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
 
 

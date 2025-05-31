@@ -9,8 +9,9 @@
 - [x] static: add option to skip reporting generation `--no-report`
 - [x] frontend: improve performance measures with stdev and removing overheads
 - [x] command: allow direct compilation with cc-like options?
+- [x] static: report missing must props
 - [ ] frontend: align python and C outputs
-- [ ] command: rethink option usage for compilation
+- [ ] command: rethink option usage for compilation, allow to pass actual compiler options?
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -34,7 +35,6 @@
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: disjunct could share identical may/must tabs between objects
-- [ ] backend: report missing must props
 - [ ] backend: report which several xor succeeded
 
 ## To Do

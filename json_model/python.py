@@ -36,6 +36,9 @@ class Python(Language):
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         return f"check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {path}, rep)"
 
+    def regroup(self, name: str):
+        return f"(?P<{name}>)" if self._relib == "re" else super().regroup(name)
+
     def file_header(self) -> Block:
         code: Block = [
             "#! /bin/env python",

@@ -22,114 +22,114 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $foo ($.'$foo')
+# check $foo (.'$foo')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo'
-    # $.'$foo'.'|'.0
+    # .'$foo'
+    # .'$foo'.'|'.0
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $li0 [$.'$foo'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $li0 [.'$foo'.'|'.0]", path))
     if not res:
-        # $.'$foo'.'|'.1
+        # .'$foo'.'|'.1
         res = json_model_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $ls0 [$.'$foo'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $ls0 [.'$foo'.'|'.1]", path))
         if not res:
-            # $.'$foo'.'|'.2
+            # .'$foo'.'|'.2
             res = json_model_6(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $lb0 [$.'$foo'.'|'.2]", path))
+                rep is None or rep.append(("unexpected $lb0 [.'$foo'.'|'.2]", path))
             if not res:
-                # $.'$foo'.'|'.3
+                # .'$foo'.'|'.3
                 res = json_model_7(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $lf0 [$.'$foo'.'|'.3]", path))
+                    rep is None or rep.append(("unexpected $lf0 [.'$foo'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$foo'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$foo'.'|']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $foo#ls0 [$]", path))
+        rep is None or rep.append(("unexpected $foo#ls0 []", path))
     return res
 
-# check $foo#li0 ($.'$foo#li0')
+# check $foo#li0 (.'$foo#li0')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo#li0'
+    # .'$foo#li0'
     res = isinstance(val, list)
     if res:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # $.'$foo#li0'.0
+            # .'$foo#li0'.0
             res = isinstance(arr_0_item, int) and not isinstance(arr_0_item, bool) and arr_0_item >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.'$foo#li0'.0]", arr_0_lpath if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$foo#li0'.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$foo#li0']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$foo#li0']", path))
     return res
 
-# check $foo#ls0 ($.'$foo#ls0')
+# check $foo#ls0 (.'$foo#ls0')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo#ls0'
+    # .'$foo#ls0'
     res = isinstance(val, list)
     if res:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
-            # $.'$foo#ls0'.0
+            # .'$foo#ls0'.0
             res = is_valid_date(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $DATE [$.'$foo#ls0'.0]", arr_1_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $DATE [.'$foo#ls0'.0]", arr_1_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$foo#ls0']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$foo#ls0']", path))
     return res
 
-# check $foo#lb0 ($.'$foo#lb0')
+# check $foo#lb0 (.'$foo#lb0')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo#lb0'
+    # .'$foo#lb0'
     res = isinstance(val, list)
     if res:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
-            # $.'$foo#lb0'.0
+            # .'$foo#lb0'.0
             res = isinstance(arr_2_item, bool)
             if not res:
-                rep is None or rep.append(("unexpected $BOOL [$.'$foo#lb0'.0]", arr_2_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $BOOL [.'$foo#lb0'.0]", arr_2_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$foo#lb0']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$foo#lb0']", path))
     return res
 
-# check $foo#lf0 ($.'$foo#lf0')
+# check $foo#lf0 (.'$foo#lf0')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo#lf0'
+    # .'$foo#lf0'
     res = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
-            # $.'$foo#lf0'.0
+            # .'$foo#lf0'.0
             res = isinstance(arr_3_item, float) and arr_3_item >= 0.0
             if not res:
-                rep is None or rep.append(("not a 0.0 strict float [$.'$foo#lf0'.0]", arr_3_lpath if path is not None else None))
+                rep is None or rep.append(("not a 0.0 strict float [.'$foo#lf0'.0]", arr_3_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$foo#lf0']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$foo#lf0']", path))
     return res
 
 

@@ -1,9 +1,9 @@
 dst_03.values.json[0]: PASS
 dst_03.values.json[1]: PASS
-dst_03.values.json[2]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.b: no other prop expected [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.b: no other prop expected [$.'|'.0])
-dst_03.values.json[3]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.c: no other prop expected [$.'|'.0])
-dst_03.values.json[4]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.a: invalid must property value [$.'|'.1.a]) (.a: not a 0 strict int [$.'|'.1.a]) (.: not an expected object at [$.'|'.0]) (.a: invalid must property value [$.'|'.0.a]) (.a: not a 0 strict int [$.'|'.0.a])
-dst_03.values.json[5]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.c: invalid must property value [$.'|'.1.c]) (.c: unexpected string [$.'|'.1.c]) (.: not an expected object at [$.'|'.0]) (.c: no other prop expected [$.'|'.0])
-dst_03.values.json[6]: FAIL (.: unexpected type at [$.'|'])
-dst_03.values.json[7]: FAIL (.: no model matched [$.'|']) (.: not an expected object at [$.'|'.1]) (.: missing must prop [$.'|'.1]) (.: not an expected object at [$.'|'.0]) (.: missing must prop [$.'|'.0])
-dst_03.values.json[8]: FAIL (.: unexpected type at [$.'|'])
+dst_03.values.json[2]: FAIL (.: no model matched [.'|']) (.: not an expected object at [.'|'.1]) (.b: no other prop expected [.'|'.1]) (.: not an expected object at [.'|'.0]) (.b: no other prop expected [.'|'.0])
+dst_03.values.json[3]: FAIL (.: no model matched [.'|']) (.: not an expected object at [.'|'.1]) (.: missing must prop <a> [.'|'.1]) (.: not an expected object at [.'|'.0]) (.c: no other prop expected [.'|'.0])
+dst_03.values.json[4]: FAIL (.: no model matched [.'|']) (.: not an expected object at [.'|'.1]) (.a: invalid must property value [.'|'.1.a]) (.a: not a 0 strict int [.'|'.1.a]) (.: not an expected object at [.'|'.0]) (.a: invalid must property value [.'|'.0.a]) (.a: not a 0 strict int [.'|'.0.a])
+dst_03.values.json[5]: FAIL (.: no model matched [.'|']) (.: not an expected object at [.'|'.1]) (.c: invalid must property value [.'|'.1.c]) (.c: unexpected string [.'|'.1.c]) (.: not an expected object at [.'|'.0]) (.c: no other prop expected [.'|'.0])
+dst_03.values.json[6]: FAIL (.: unexpected type at [.'|'])
+dst_03.values.json[7]: FAIL (.: no model matched [.'|']) (.: not an expected object at [.'|'.1]) (.: missing must prop <c> [.'|'.1]) (.: missing must prop <a> [.'|'.1]) (.: not an expected object at [.'|'.0]) (.: missing must prop <a> [.'|'.0])
+dst_03.values.json[8]: FAIL (.: unexpected type at [.'|'])

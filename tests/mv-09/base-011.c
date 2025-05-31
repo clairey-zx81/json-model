@@ -5,16 +5,16 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
-    // $.'@'
+    //
+    // .'@'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'@']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'@']", path);
     }
     if (res)
     {
@@ -23,7 +23,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed at []", path);
     }
     return res;
 }

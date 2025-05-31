@@ -19,7 +19,7 @@
     "$": {
       "URI": "",
       "OpenAPI": {
-        "openapi": "",
+        "openapi": "/^3\\.1\\.\\d+(-.+)?$/",
         "info": "$Info",
         "?jsonSchemaDialect": "$URL",
         "?servers": [
@@ -617,7 +617,7 @@
   },
   "",
   {
-    "openapi": "",
+    "openapi": "/^3\\.1\\.\\d+(-.+)?$/",
     "info": "$Info",
     "?jsonSchemaDialect": "$URL",
     "?servers": [

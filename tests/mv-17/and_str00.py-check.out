@@ -1,2 +1,2 @@
 and_str00.0.true.json: PASS
-and_str00.1.false.json: FAIL [("unexpected REGEX [$.'&'.0]", []), ("not all model match [$.'&']", [])]
+and_str00.1.false.json: FAIL [("unexpected REGEX [.'&'.0]", []), ("not all model match [.'&']", [])]

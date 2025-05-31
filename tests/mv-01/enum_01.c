@@ -9,56 +9,56 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// check $p1 ($.'$p1')
+// check $p1 (.'$p1')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$p1'
+    // .'$p1'
     res = _json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 5);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [$.'$p1'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$p1'.'|']", path);
     }
     return res;
 }
 
 
-// check $p2 ($.'$p2')
+// check $p2 (.'$p2')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$p2'
+    // .'$p2'
     res = _json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 5);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [$.'$p2'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$p2'.'|']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     // generic xor list
     int64_t xc_0 = 0;
     bool xr_0;
-    // $.'^'.0
+    // .'^'.0
     xr_0 = json_model_2(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $p1 [$.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $p1 [.'^'.0]", path);
     }
     if (xr_0)
     {
         xc_0 += 1;
     }
-    // $.'^'.1
+    // .'^'.1
     xr_0 = json_model_3(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $p2 [$.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $p2 [.'^'.1]", path);
     }
     if (xr_0)
     {
@@ -71,7 +71,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
+        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
     }
     return res;
 }

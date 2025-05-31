@@ -15,12 +15,12 @@ static bool _jm_re_0(const char *s)
   return rc >= 0;
 }
 
-// object $.'^'.0
+// object .'^'.0
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'^'.0]", path);
         return false;
     }
     bool res;
@@ -34,27 +34,27 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must a property
             must_count += 1;
-            // $.'^'.0.a
+            // .'^'.0.a
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.'^'.0.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.0.a]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'^'.0.a]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.'^'.0.a]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
             // handle other props
-            // $.'^'.0.''
+            // .'^'.0.''
             // "/.../"
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'^'.0.'']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'^'.0.'']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -64,18 +64,24 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     }
     if (must_count != 1)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.'^'.0.'']", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "a") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <a> [.'^'.0.'']", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// object $.'^'.1
+// object .'^'.1
 static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'^'.1]", path);
         return false;
     }
     bool res;
@@ -89,27 +95,27 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             // handle must b property
             must_count += 1;
-            // $.'^'.1.b
+            // .'^'.1.b
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.'^'.1.b]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'^'.1.b]", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'^'.1.b]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.'^'.1.b]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
         else
         {
             // handle other props
-            // $.'^'.1.''
+            // .'^'.1.''
             // "/.../"
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'^'.1.'']", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'^'.1.'']", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
@@ -119,35 +125,41 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     }
     if (must_count != 1)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.'^'.1.'']", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "b") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <b> [.'^'.1.'']", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     // generic xor list
     int64_t xc_0 = 0;
     bool xr_0;
-    // $.'^'.0
+    // .'^'.0
     xr_0 = _jm_obj_0(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'^'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'^'.0]", path);
     }
     if (xr_0)
     {
         xc_0 += 1;
     }
-    // $.'^'.1
+    // .'^'.1
     xr_0 = _jm_obj_1(val, path, rep);
     if (! xr_0)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'^'.1]", path);
     }
     if (xr_0)
     {
@@ -160,7 +172,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not one model match [$.'^']", path);
+        if (rep) jm_report_add_entry(rep, "not one model match [.'^']", path);
     }
     return res;
 }

@@ -1,12 +1,12 @@
 xor_04.values.json[0]: PASS
 xor_04.values.json[1]: PASS
 xor_04.values.json[2]: PASS
-xor_04.values.json[3]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[4]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[5]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[6]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[7]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[8]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[9]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[10]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
-xor_04.values.json[11]: FAIL [("not a 0.0 strict float [$.'|'.0]", []), ("unexpected REGEX [$.'|'.1]", []), ("no model matched [$.'|']", [])]
+xor_04.values.json[3]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[4]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[5]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[6]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[7]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[8]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[9]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[10]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]
+xor_04.values.json[11]: FAIL [("not a 0.0 strict float [.'|'.0]", []), ("unexpected REGEX [.'|'.1]", []), ("no model matched [.'|']", [])]

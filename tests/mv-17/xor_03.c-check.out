@@ -1,5 +1,5 @@
-xor_03.values.json[1]: FAIL (.: not one model match [$.'^'])
-xor_03.values.json[2]: FAIL (.: not one model match [$.'^'])
+xor_03.values.json[1]: FAIL (.: not one model match [.'^'])
+xor_03.values.json[2]: FAIL (.: not one model match [.'^'])
 xor_03.values.json[3]: PASS
 xor_03.values.json[4]: PASS
 xor_03.values.json[5]: PASS

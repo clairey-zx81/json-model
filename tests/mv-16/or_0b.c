@@ -14,15 +14,15 @@ static bool _jm_cst_0_test(const json_t *val)
   return jm_search_cst(&cst, _jm_cst_0, 7);
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = _json_is_scalar(val) && _jm_cst_0_test(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [$.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
     }
     return res;
 }

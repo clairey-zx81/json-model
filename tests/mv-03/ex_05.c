@@ -7,50 +7,50 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// check $EX05a ($.'$EX05a')
+// check $EX05a (.'$EX05a')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$EX05a'
+    // .'$EX05a'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$EX05a']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$EX05a']", path);
     }
     return res;
 }
 
-// check $EX05b ($.'$EX05b')
+// check $EX05b (.'$EX05b')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$EX05b'
+    // .'$EX05b'
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$EX05b']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$EX05b']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
-    // $.'|'.0
+    //
+    // .'|'.0
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $EX05a [$.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $EX05a [.'|'.0]", path);
     }
     if (! res)
     {
-        // $.'|'.1
+        // .'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $EX05b [$.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $EX05b [.'|'.1]", path);
         }
     }
     if (res)
@@ -59,7 +59,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
     }
     return res;
 }

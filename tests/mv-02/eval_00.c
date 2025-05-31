@@ -7,41 +7,41 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[3];
 const size_t check_model_map_size = 3;
 
-// check $false ($.'$false')
+// check $false (.'$false')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$false'
+    // .'$false'
     res = false;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $NONE [$.'$false']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$false']", path);
     }
     return res;
 }
 
-// check $true ($.'$true')
+// check $true (.'$true')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$true'
+    // .'$true'
     res = true;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [$.'$true']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $ANY [.'$true']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = true;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $ANY [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $ANY []", path);
     }
     return res;
 }

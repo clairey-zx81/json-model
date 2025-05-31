@@ -6,12 +6,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// object $.'$bibi'
+// object .'$bibi'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'$bibi']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$bibi']", path);
         return false;
     }
     bool res;
@@ -25,7 +25,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must bibi property
             must_count += 1;
-            // $.'$bibi'.bibi
+            // .'$bibi'.bibi
             res = json_is_array(pval);
             if (res)
             {
@@ -34,11 +34,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 json_array_foreach(pval, arr_0_idx, arr_0_item)
                 {
                     Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
-                    // $.'$bibi'.bibi.0
+                    // .'$bibi'.bibi.0
                     res = json_model_2(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $bibi [$.'$bibi'.bibi.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                        if (rep) jm_report_add_entry(rep, "unexpected $bibi [.'$bibi'.bibi.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
                     }
                     if (! res)
                     {
@@ -48,50 +48,56 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$bibi'.bibi]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$bibi']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$bibi']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     if (must_count != 1)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.'$bibi']", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "bibi") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <bibi> [.'$bibi']", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// check $bibi ($.'$bibi')
+// check $bibi (.'$bibi')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$bibi'
+    // .'$bibi'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$bibi']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$bibi']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $bibi [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $bibi []", path);
     }
     return res;
 }

@@ -6,28 +6,28 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $pos ($.'$pos')
+// check $pos (.'$pos')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$pos'
+    // .'$pos'
     res = json_is_real(val) && json_real_value(val) >= 0.0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$pos']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$pos']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $pos [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $pos []", path);
     }
     return res;
 }

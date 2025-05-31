@@ -23,47 +23,47 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_obj_0_mup: PropMap
 check_model_map: PropMap
 
-# check _jm_obj_0_mup_a ($.a)
+# check _jm_obj_0_mup_a (.a)
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.a
+    # .a
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.a]", path))
+        rep is None or rep.append(("not a 0 strict int [.a]", path))
     return res
 
-# check _jm_obj_0_mup_b ($.b)
+# check _jm_obj_0_mup_b (.b)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.b
+    # .b
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
-        rep is None or rep.append(("not a 1 strict int [$.b]", path))
+        rep is None or rep.append(("not a 1 strict int [.b]", path))
     return res
 
-# check _jm_obj_0_mup_c ($.c)
+# check _jm_obj_0_mup_c (.c)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.c
+    # .c
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.c]", path))
+        rep is None or rep.append(("not a bool [.c]", path))
     return res
 
-# check _jm_obj_0_mup_d ($.d)
+# check _jm_obj_0_mup_d (.d)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.d
+    # .d
     res = isinstance(val, int) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1 strict int [$.d]", path))
+        rep is None or rep.append(("not a -1 strict int [.d]", path))
     return res
 
 
-# object $
+# object 
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$]", path))
+        rep is None or rep.append(("not an object []", path))
         return False
     pfun: CheckFun
     must_count: int = 0
@@ -75,23 +75,31 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED:
                 must_count += 1
                 if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value [$]", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("invalid must property value []", lpath_0 if path is not None else None))
                     return False
         else:
-            rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected []", lpath_0 if path is not None else None))
             return False
     if must_count != 4:
-        rep is None or rep.append(("missing must prop [$]", path))
+        if rep is not None:
+            if not "a" in val:
+                rep is None or rep.append(("missing must prop <a> []", path))
+            if not "b" in val:
+                rep is None or rep.append(("missing must prop <b> []", path))
+            if not "c" in val:
+                rep is None or rep.append(("missing must prop <c> []", path))
+            if not "d" in val:
+                rep is None or rep.append(("missing must prop <d> []", path))
         return False
     return True
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$]", path))
+        rep is None or rep.append(("not an expected object at []", path))
     return res
 
 

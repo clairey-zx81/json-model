@@ -5,28 +5,28 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_is_string(val);
     if (res)
     {
-        // $.'&'.0
+        // .'&'.0
         res = true;
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected string [$.'&'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.0]", path);
         }
         if (res)
         {
-            // $.'&'.1
-            // $.'&'.1.'@'
+            // .'&'.1
+            // .'&'.1.'@'
             res = json_is_string(val);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.'&'.1.'@']", path);
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'&'.1.'@']", path);
             }
             if (res)
             {
@@ -35,7 +35,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "constraints failed at [$.'&'.1]", path);
+                if (rep) jm_report_add_entry(rep, "constraints failed at [.'&'.1]", path);
             }
         }
     }
@@ -45,7 +45,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not all model match [$.'&']", path);
+        if (rep) jm_report_add_entry(rep, "not all model match [.'&']", path);
     }
     return res;
 }

@@ -7,25 +7,25 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $XXX ($.'$XXX')
+// check $XXX (.'$XXX')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$XXX'
+    // .'$XXX'
     res = _json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_0, 3);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [$.'$XXX'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$XXX'.'|']", path);
     }
     return res;
 }
 
-// object $
+// object 
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an object []", path);
         return false;
     }
     bool res;
@@ -37,11 +37,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (jm_check_fun_string(json_model_2, prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
-            // $.'$XXX'
+            // .'$XXX'
             res = json_is_real(pval) && json_real_value(pval) >= 0.0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [$.'$XXX']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0.0 strict float [.'$XXX']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -50,22 +50,22 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected []", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at []", path);
     }
     return res;
 }

@@ -9,37 +9,37 @@ static bool json_model_12(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $D ($.'$D')
+// check $D (.'$D')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$D'
+    // .'$D'
     res = json_model_6(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $l [$.'$D']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $l [.'$D']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $D [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $D []", path);
     }
     return res;
 }
 
-// check $D#l ($.'$D#l')
+// check $D#l (.'$D#l')
 static bool json_model_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$D#l'
+    // .'$D#l'
     res = json_is_array(val);
     if (res)
     {
@@ -48,11 +48,11 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
-            // $.'$D#l'.0
+            // .'$D#l'.0
             res = json_model_10(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $u [$.'$D#l'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $u [.'$D#l'.0]", (path ? &arr_0_lpath : NULL));
             }
             if (! res)
             {
@@ -62,30 +62,30 @@ static bool json_model_6(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$D#l']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$D#l']", path);
     }
     return res;
 }
 
-// check $D#u ($.'$D#u')
+// check $D#u (.'$D#u')
 static bool json_model_10(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$D#u'
+    // .'$D#u'
     res = json_model_12(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $U#un [$.'$D#u']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $U#un [.'$D#u']", path);
     }
     return res;
 }
 
-// object $.'$D#U#un'
+// object .'$D#U#un'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'$D#U#un']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$D#U#un']", path);
         return false;
     }
     bool res;
@@ -99,15 +99,15 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must ua property
             must_count += 1;
-            // $.'$D#U#un'.ua
+            // .'$D#U#un'.ua
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$D#U#un'.ua]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$D#U#un'.ua]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$D#U#un'.ua]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$D#U#un'.ua]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -115,41 +115,51 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must ub property
             must_count += 1;
-            // $.'$D#U#un'.ub
+            // .'$D#U#un'.ub
             res = json_is_integer(pval) && json_integer_value(pval) >= 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$D#U#un'.ub]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$D#U#un'.ub]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.'$D#U#un'.ub]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$D#U#un'.ub]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$D#U#un']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$D#U#un']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.'$D#U#un']", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "ua") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <ua> [.'$D#U#un']", path);
+            }
+            if (! (json_object_get(val, "ub") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <ub> [.'$D#U#un']", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// check $D#U#un ($.'$D#U#un')
+// check $D#U#un (.'$D#U#un')
 static bool json_model_12(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$D#U#un'
+    // .'$D#U#un'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$D#U#un']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$D#U#un']", path);
     }
     return res;
 }

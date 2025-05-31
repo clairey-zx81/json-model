@@ -25,29 +25,29 @@ static bool _jm_re_1(const char *s)
   return rc >= 0;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_is_string(val);
     if (res)
     {
-        // $.'&'.0
+        // .'&'.0
         // "/[a-z]/"
         res = _jm_re_1(json_string_value(val));
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'&'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'&'.0]", path);
         }
         if (res)
         {
-            // $.'&'.1
+            // .'&'.1
             // "/[0-9]/"
             res = _jm_re_0(json_string_value(val));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'&'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'&'.1]", path);
             }
         }
     }
@@ -57,7 +57,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "not all model match [$.'&']", path);
+        if (rep) jm_report_add_entry(rep, "not all model match [.'&']", path);
     }
     return res;
 }

@@ -2,8 +2,8 @@ opt_02.values.json[0]: PASS
 opt_02.values.json[1]: PASS
 opt_02.values.json[2]: PASS
 opt_02.values.json[3]: PASS
-opt_02.values.json[4]: FAIL [("not a 0 strict int [$.'|'.0]", []), ("not a 0.0 strict float [$.'|'.1]", []), ("not null [$.'|'.2]", []), ("not a bool [$.'|'.3]", []), ("no model matched [$.'|']", [])]
-opt_02.values.json[5]: FAIL [("not a 0 strict int [$.'|'.0]", []), ("not a 0.0 strict float [$.'|'.1]", []), ("not null [$.'|'.2]", []), ("not a bool [$.'|'.3]", []), ("no model matched [$.'|']", [])]
-opt_02.values.json[6]: FAIL [("not a 0 strict int [$.'|'.0]", []), ("not a 0.0 strict float [$.'|'.1]", []), ("not null [$.'|'.2]", []), ("not a bool [$.'|'.3]", []), ("no model matched [$.'|']", [])]
-opt_02.values.json[7]: FAIL [("not a 0 strict int [$.'|'.0]", []), ("not a 0.0 strict float [$.'|'.1]", []), ("not null [$.'|'.2]", []), ("not a bool [$.'|'.3]", []), ("no model matched [$.'|']", [])]
-opt_02.values.json[8]: FAIL [("not a 0 strict int [$.'|'.0]", []), ("not a 0.0 strict float [$.'|'.1]", []), ("not null [$.'|'.2]", []), ("not a bool [$.'|'.3]", []), ("no model matched [$.'|']", [])]
+opt_02.values.json[4]: FAIL [("not a 0 strict int [.'|'.0]", []), ("not a 0.0 strict float [.'|'.1]", []), ("not null [.'|'.2]", []), ("not a bool [.'|'.3]", []), ("no model matched [.'|']", [])]
+opt_02.values.json[5]: FAIL [("not a 0 strict int [.'|'.0]", []), ("not a 0.0 strict float [.'|'.1]", []), ("not null [.'|'.2]", []), ("not a bool [.'|'.3]", []), ("no model matched [.'|']", [])]
+opt_02.values.json[6]: FAIL [("not a 0 strict int [.'|'.0]", []), ("not a 0.0 strict float [.'|'.1]", []), ("not null [.'|'.2]", []), ("not a bool [.'|'.3]", []), ("no model matched [.'|']", [])]
+opt_02.values.json[7]: FAIL [("not a 0 strict int [.'|'.0]", []), ("not a 0.0 strict float [.'|'.1]", []), ("not null [.'|'.2]", []), ("not a bool [.'|'.3]", []), ("no model matched [.'|']", [])]
+opt_02.values.json[8]: FAIL [("not a 0 strict int [.'|'.0]", []), ("not a 0.0 strict float [.'|'.1]", []), ("not null [.'|'.2]", []), ("not a bool [.'|'.3]", []), ("no model matched [.'|']", [])]

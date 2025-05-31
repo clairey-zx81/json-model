@@ -13,76 +13,76 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[9];
 const size_t check_model_map_size = 9;
 
-// check $N ($.'$N')
+// check $N (.'$N')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$N'
+    // .'$N'
     res = json_is_null(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not null [$.'$N']", path);
+        if (rep) jm_report_add_entry(rep, "not null [.'$N']", path);
     }
     return res;
 }
 
-// check $B ($.'$B')
+// check $B (.'$B')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$B'
+    // .'$B'
     res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a bool [$.'$B']", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$B']", path);
     }
     return res;
 }
 
-// check $I ($.'$I')
+// check $I (.'$I')
 static bool json_model_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$I'
+    // .'$I'
     res = json_is_integer(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.'$I']", path);
+        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$I']", path);
     }
     return res;
 }
 
-// check $F ($.'$F')
+// check $F (.'$F')
 static bool json_model_5(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$F'
+    // .'$F'
     res = json_is_real(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [$.'$F']", path);
+        if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$F']", path);
     }
     return res;
 }
 
-// check $S ($.'$S')
+// check $S (.'$S')
 static bool json_model_6(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$S'
+    // .'$S'
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected string [$.'$S']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'$S']", path);
     }
     return res;
 }
 
-// check $A ($.'$A')
+// check $A (.'$A')
 static bool json_model_7(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$A'
+    // .'$A'
     res = json_is_array(val);
     if (res)
     {
@@ -91,11 +91,11 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
-            // $.'$A'.0
+            // .'$A'.0
             res = json_model_9(arr_0_item, (path ? &arr_0_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$A'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Any [.'$A'.0]", (path ? &arr_0_lpath : NULL));
             }
             if (! res)
             {
@@ -105,17 +105,17 @@ static bool json_model_7(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'$A']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$A']", path);
     }
     return res;
 }
 
-// object $.'$O'
+// object .'$O'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'$O']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$O']", path);
         return false;
     }
     bool res;
@@ -125,11 +125,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     {
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         // handle other props
-        // $.'$O'.''
+        // .'$O'.''
         res = json_model_9(pval, (path ? &lpath_0 : NULL), rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Any [$.'$O'.'']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $Any [.'$O'.'']", (path ? &lpath_0 : NULL));
         }
         if (! res)
         {
@@ -139,77 +139,77 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check $O ($.'$O')
+// check $O (.'$O')
 static bool json_model_8(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$O'
+    // .'$O'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$O']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$O']", path);
     }
     return res;
 }
 
-// check $Any ($.'$Any')
+// check $Any (.'$Any')
 static bool json_model_9(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$Any'
-    // $.'$Any'.'|'.0
+    // .'$Any'
+    // .'$Any'.'|'.0
     res = json_is_null(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not null [$.'$Any'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not null [.'$Any'.'|'.0]", path);
     }
     if (! res)
     {
-        // $.'$Any'.'|'.1
+        // .'$Any'.'|'.1
         res = json_model_3(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $B [$.'$Any'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $B [.'$Any'.'|'.1]", path);
         }
         if (! res)
         {
-            // $.'$Any'.'|'.2
+            // .'$Any'.'|'.2
             res = json_model_4(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $I [$.'$Any'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected $I [.'$Any'.'|'.2]", path);
             }
             if (! res)
             {
-                // $.'$Any'.'|'.3
+                // .'$Any'.'|'.3
                 res = json_model_5(val, path, rep);
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected $F [$.'$Any'.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected $F [.'$Any'.'|'.3]", path);
                 }
                 if (! res)
                 {
-                    // $.'$Any'.'|'.4
+                    // .'$Any'.'|'.4
                     res = json_model_6(val, path, rep);
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected $S [$.'$Any'.'|'.4]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected $S [.'$Any'.'|'.4]", path);
                     }
                     if (! res)
                     {
-                        // $.'$Any'.'|'.5
+                        // .'$Any'.'|'.5
                         res = json_model_7(val, path, rep);
                         if (! res)
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $A [$.'$Any'.'|'.5]", path);
+                            if (rep) jm_report_add_entry(rep, "unexpected $A [.'$Any'.'|'.5]", path);
                         }
                         if (! res)
                         {
-                            // $.'$Any'.'|'.6
+                            // .'$Any'.'|'.6
                             res = json_model_8(val, path, rep);
                             if (! res)
                             {
-                                if (rep) jm_report_add_entry(rep, "unexpected $O [$.'$Any'.'|'.6]", path);
+                                if (rep) jm_report_add_entry(rep, "unexpected $O [.'$Any'.'|'.6]", path);
                             }
                         }
                     }
@@ -223,20 +223,20 @@ static bool json_model_9(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [$.'$Any'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Any'.'|']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_9(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Any [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Any []", path);
     }
     return res;
 }

@@ -7,38 +7,38 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $over ($.'$over')
+// check $over (.'$over')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$over'
+    // .'$over'
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Foo [$.'$over']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Foo [.'$over']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $over#Foo [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $over#Foo []", path);
     }
     return res;
 }
 
-// object $.'$over#Foo'
+// object .'$over#Foo'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'$over#Foo']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$over#Foo']", path);
         return false;
     }
     bool res;
@@ -50,36 +50,36 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (strcmp(prop, "foo") == 0)
         {
             // handle may foo property
-            // $.'$over#Foo'.foo
+            // .'$over#Foo'.foo
             res = json_is_string(pval) && strcmp(json_string_value(pval), "rewritten foo") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _rewritten foo [$.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected _rewritten foo [.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$over#Foo'.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$over#Foo']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$over#Foo']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $over#Foo ($.'$over#Foo')
+// check $over#Foo (.'$over#Foo')
 static bool json_model_4(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$over#Foo'
+    // .'$over#Foo'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$over#Foo']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$over#Foo']", path);
     }
     return res;
 }

@@ -22,37 +22,37 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, list) and len(val) == 4
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
-        # $.0
+        # .0
         res = isinstance(val[0], bool)
         if not res:
-            rep is None or rep.append(("not a bool [$.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("not a bool [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
-            # $.1
+            # .1
             res = isinstance(val[1], int) and not isinstance(val[1], bool) and val[1] >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0: Path = (path + [ 2 ]) if path is not None else None
-                # $.2
+                # .2
                 res = isinstance(val[2], float) and val[2] >= 0.0
                 if not res:
-                    rep is None or rep.append(("not a 0.0 strict float [$.2]", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("not a 0.0 strict float [.2]", lpath_0 if path is not None else None))
                 if res:
                     lpath_0: Path = (path + [ 3 ]) if path is not None else None
-                    # $.3
+                    # .3
                     res = isinstance(val[3], str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [$.3]", lpath_0 if path is not None else None))
+                        rep is None or rep.append(("unexpected string [.3]", lpath_0 if path is not None else None))
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$]", path))
+        rep is None or rep.append(("not array or unexpected array []", path))
     return res
 
 

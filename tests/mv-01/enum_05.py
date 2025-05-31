@@ -23,32 +23,32 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [$.'|']", path))
+        rep is None or rep.append(("value not in enum [.'|']", path))
     if not res:
-        # $.'|'.0
+        # .'|'.0
         res = isinstance(val, int) and not isinstance(val, bool) and val == 200
         if not res:
-            rep is None or rep.append(("unexpected =200 [$.'|'.0]", path))
+            rep is None or rep.append(("unexpected =200 [.'|'.0]", path))
         if not res:
-            # $.'|'.1
+            # .'|'.1
             res = val is None
             if not res:
-                rep is None or rep.append(("not null [$.'|'.1]", path))
+                rep is None or rep.append(("not null [.'|'.1]", path))
             if not res:
-                # $.'|'.2
+                # .'|'.2
                 res = isinstance(val, float) and val == 3.1415927
                 if not res:
-                    rep is None or rep.append(("unexpected =3.1415927 [$.'|'.2]", path))
+                    rep is None or rep.append(("unexpected =3.1415927 [.'|'.2]", path))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [$.'|']", path))
+            rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 

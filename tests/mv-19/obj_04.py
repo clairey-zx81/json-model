@@ -23,19 +23,19 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
-# check $XXX ($.'$XXX')
+# check $XXX (.'$XXX')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$XXX'
+    # .'$XXX'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [$.'$XXX'.'|']", path))
+        rep is None or rep.append(("value not in enum [.'$XXX'.'|']", path))
     return res
 
-# object $
+# object 
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$]", path))
+        rep is None or rep.append(("not an object []", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -43,24 +43,24 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if json_model_2(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
-            # $.'$XXX'
+            # .'$XXX'
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
-                rep is None or rep.append(("not a 0.0 strict float [$.'$XXX']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0.0 strict float [.'$XXX']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected []", lpath_0 if path is not None else None))
             return False
     return True
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$]", path))
+        rep is None or rep.append(("not an expected object at []", path))
     return res
 
 

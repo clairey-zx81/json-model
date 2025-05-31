@@ -5,12 +5,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// object $
+// object 
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an object []", path);
         return false;
     }
     bool res;
@@ -24,15 +24,15 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must i property
             must_count += 1;
-            // $.i
+            // .i
             res = json_is_integer(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [$.i]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.i]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.i]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.i]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -40,41 +40,51 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must f property
             must_count += 1;
-            // $.f
+            // .f
             res = json_is_real(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [$.f]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.f]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.f]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.f]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected []", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "f") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <f> []", path);
+            }
+            if (! (json_object_get(val, "i") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <i> []", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at []", path);
     }
     return res;
 }

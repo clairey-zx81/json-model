@@ -6,12 +6,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// object $.'$Foo'
+// object .'$Foo'
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.'$Foo']", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.'$Foo']", path);
         return false;
     }
     bool res;
@@ -23,49 +23,49 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (strcmp(prop, "foo") == 0)
         {
             // handle may foo property
-            // $.'$Foo'.foo
+            // .'$Foo'.foo
             res = json_is_string(pval) && strcmp(json_string_value(pval), "initial foo") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected _initial foo [$.'$Foo'.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected _initial foo [.'$Foo'.foo]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.'$Foo'.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Foo'.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.'$Foo']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Foo']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $Foo ($.'$Foo')
+// check $Foo (.'$Foo')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$Foo'
+    // .'$Foo'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$.'$Foo']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$Foo']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Foo [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $Foo []", path);
     }
     return res;
 }

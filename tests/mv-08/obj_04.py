@@ -22,22 +22,22 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $bla ($.'$bla')
+# check $bla (.'$bla')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$bla'
+    # .'$bla'
     res = is_valid_date(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $DATE [$.'$bla']", path))
+        rep is None or rep.append(("unexpected $DATE [.'$bla']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $bla [$]", path))
+        rep is None or rep.append(("unexpected $bla []", path))
     return res
 
 

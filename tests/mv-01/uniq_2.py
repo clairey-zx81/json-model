@@ -22,21 +22,21 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
-    # $.'@'
+    #
+    # .'@'
     res = isinstance(val, list)
     if res:
         # accept any array
         pass
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
     if not res:
-        rep is None or rep.append(("constraints failed at [$]", path))
+        rep is None or rep.append(("constraints failed at []", path))
     return res
 
 

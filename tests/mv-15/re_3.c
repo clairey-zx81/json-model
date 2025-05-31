@@ -15,16 +15,16 @@ static bool _jm_re_0(const char *s)
   return rc >= 0;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     // "/^((file|https?)://.*|\\./.+|\\.\\./.+)$/"
     res = json_is_string(val) && _jm_re_0(json_string_value(val));
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected REGEX []", path);
     }
     return res;
 }

@@ -22,14 +22,14 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
-    # $.'@'
+    #
+    # .'@'
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1.0 loose float [$.'@']", path))
+        rep is None or rep.append(("not a -1.0 loose float [.'@']", path))
     return res
 
 

@@ -1,4 +1,4 @@
 loose_strict.values.json[1]: PASS
-loose_strict.values.json[2]: FAIL [("not a 0 strict int [$.'$combined'.si]", ['si']), ("invalid must property value [$.'$combined'.si]", ['si']), ("not an expected object at [$.'$combined']", []), ('unexpected $combined [$]', [])]
-loose_strict.values.json[3]: FAIL [("not a 0 strict int [$.'$combined'.li]", ['li']), ("invalid must property value [$.'$combined'.li]", ['li']), ("not an expected object at [$.'$combined']", []), ('unexpected $combined [$]', [])]
-loose_strict.values.json[5]: FAIL [("not a 0 strict int [$.'$combined'.li]", ['li']), ("invalid must property value [$.'$combined'.li]", ['li']), ("not an expected object at [$.'$combined']", []), ('unexpected $combined [$]', [])]
+loose_strict.values.json[2]: FAIL [("not a 0 strict int [.'$combined'.si]", ['si']), ("invalid must property value [.'$combined'.si]", ['si']), ("not an expected object at [.'$combined']", []), ('unexpected $combined []', [])]
+loose_strict.values.json[3]: FAIL [("not a 0 strict int [.'$combined'.li]", ['li']), ("invalid must property value [.'$combined'.li]", ['li']), ("not an expected object at [.'$combined']", []), ('unexpected $combined []', [])]
+loose_strict.values.json[5]: FAIL [("not a 0 strict int [.'$combined'.li]", ['li']), ("invalid must property value [.'$combined'.li]", ['li']), ("not an expected object at [.'$combined']", []), ('unexpected $combined []', [])]

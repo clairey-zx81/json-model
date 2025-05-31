@@ -252,6 +252,9 @@ class Language:
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
         return f"{obj}.get({prop}, UNDEFINED)"
 
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"{self.esc(prop)} in {obj}"
+
     #
     # inlined length computation
     #
@@ -302,6 +305,7 @@ class Language:
     # logical expressions
     #
     def not_op(self, e: BoolExpr) -> BoolExpr:
+        e = self.paren(e) if "=" in e else e
         return f"{self._not} {e}"
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
@@ -449,6 +453,14 @@ class Language:
     #
     # blocks
     #
+    def reporting(self) -> BoolExpr:
+        """Test whether run is generating a report."""
+        return "rep is not None"
+
+    def if_reporting(self, report: Block) -> Block:
+        """Execute code if under reporting."""
+        return self.if_stmt(self.reporting(), report) if self._with_report else []
+
     def report(self, msg: str, path: Var) -> Block:
         """Add a a report entry."""
         return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
@@ -530,7 +542,7 @@ class Language:
 
     def del_cset(self, name: str, constants: ConstList) -> Block:
         return []
-        
+
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         return []
 
@@ -553,12 +565,16 @@ class Language:
     #
     # REGULAR EXPRESSION PRECOMPILATION
     #
+    def regroup(self, name: str) -> str:
+        """Name a group in a regular expression."""
+        return f"(?<{name}>)"
+
     def def_re(self, name: str, regex: str) -> Block:
         """Define a new (static) regex."""
         self._re_used = True
         return [
             # NOTE re2 imported as re
-            f"{name}_search: Callable",
+            f"{name}_reco: object",
             f"{name}: RegexFun"
         ]
 
@@ -573,17 +589,17 @@ class Language:
         self._re_used = True
         sregex = self.esc(regex)
         return [
-            f"global {name}_search, {name}",
+            f"global {name}_reco, {name}",
             # rex engine imported as re; may raise an exception
-            f"{name}_search = re.compile({sregex}).search",
-            f"{name} = lambda s: {name}_search(s) is not None"
+            f"{name}_reco = re.compile({sregex})",
+            f"{name} = lambda s: {name}_reco.search(s) is not None"
         ]
 
     def del_re(self, name: str, regex: str) -> Block:
         """Free a regex."""
         return [
-            f"global {name}_search, {name}",
-            f"{name}_search = None",
+            f"global {name}_reco, {name}",
+            f"{name}_reco = None",
             f"{name} = None"
         ]
 

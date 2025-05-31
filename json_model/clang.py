@@ -102,6 +102,9 @@ class CLangJansson(Language):
         else:
             return self.json_cst(val)
 
+    def has_prop(self, var: Var, prop: str) -> BoolExpr:
+        return f"json_object_get({var}, {self.esc(prop)}) != NULL"
+
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"json_string_value({var})"
@@ -234,6 +237,9 @@ class CLangJansson(Language):
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, self._int if declare else None)
+
+    def reporting(self) -> BoolExpr:
+        return "rep != NULL"
 
     def report(self, msg: str, path: Var) -> Block:
         return ([ f"if (rep) jm_report_add_entry(rep, {self.esc(msg)}, {path});" ]

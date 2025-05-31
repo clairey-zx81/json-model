@@ -1,10 +1,10 @@
 andopt-000.values.json[0]: PASS
 andopt-000.values.json[1]: PASS
 andopt-000.values.json[2]: PASS
-andopt-000.values.json[3]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[4]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[5]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[6]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[7]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[8]: FAIL (.: not a 0 strict int [$])
-andopt-000.values.json[9]: FAIL (.: not a 0 strict int [$])
+andopt-000.values.json[3]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[4]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[5]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[6]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[7]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[8]: FAIL (.: not a 0 strict int [])
+andopt-000.values.json[9]: FAIL (.: not a 0 strict int [])

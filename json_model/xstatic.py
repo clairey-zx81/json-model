@@ -77,6 +77,7 @@ class SourceCode(Validator):
 
     def _regex(self, regex: str) -> str:
         """Compile a regular expression, with memoization, return function name."""
+        gen = self._lang
 
         if regex not in self._regs:
 
@@ -84,20 +85,55 @@ class SourceCode(Validator):
             try:
                 pattern, ropts = regex[1:].rsplit("/", 1)
                 assert ropts == "" or ropts.isalpha(), f"invalid options: {ropts}"
+
+                extended = False
+                remap: dict[str, str] = {}
+
+                # model extension
+                if "X" in ropts:
+                    extended = True
+                    ropts = ropts.replace("X", "")
+
+                    # match name to reference
+                    def subref(match):
+                        name = f"s{len(remap)}"
+                        dollar = match[1:-1]
+                        remap[name] = match
+                        # re does not support (?<xxx>...) that re2 and pcre2 support
+                        return gen.regroup(name)
+
+                    pattern = re.sub(r"\(\$\w+\)", subref, pattern)
+
+                    if not remap:  # unused extension
+                        extended = False
+
                 pattern = f"(?{ropts}){pattern}" if ropts else pattern
+
                 # statically check re validity
                 if self._lang._relib == "re2":
                     import re2 as rex
                 else:
                     import re as rex
                 rex.compile(pattern)
+
             except Exception as e:
                 raise ModelError(f"invalid regex: {regex} ({e})")
 
-            # ok, generate code for pattern
-            gen = self._lang
             fun = gen.ident(self._prefix + "re")
-            self._code.regex(fun, pattern)
+
+            # possibly generate extension function
+            if extended:
+                rx = gen.ident(self._prefix + "rx")
+                self._code.regex(rx, pattern)
+                code = [ gen.lcom(f"{regex} extended regex function") ]
+                # m = rx.search(str(val))
+                # if m:
+                #     vals = m.groupdict()
+                #     check_str_... vals[s1]
+                raise NotImplementedError("exreg is work in progress")
+            else:
+                # ok, generate code for pattern
+                self._code.regex(fun, pattern)
 
             # memoize
             self._regs[regex] = fun
@@ -567,8 +603,14 @@ class SourceCode(Validator):
 
         # check that all must were seen, although we do not know which ones
         if must:
+            missing = []
+            for prop in sorted(must.keys()):
+                missing += \
+                    gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
+                                gen.report(f"missing must prop <{prop}> [{smpath}]", vpath))
             code += gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
-                self._gen_fail(f"missing must prop [{smpath}]", vpath))
+                gen.if_reporting(missing) +
+                [ gen.ret(gen.const(False)) ])
 
         # early returns so no need to look at res
         code += [ gen.ret(gen.const(True)) ]

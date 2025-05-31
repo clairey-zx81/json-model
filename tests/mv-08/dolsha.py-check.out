@@ -9,10 +9,10 @@ dolsha.values.json[7]: PASS
 dolsha.values.json[8]: PASS
 dolsha.values.json[9]: PASS
 dolsha.values.json[10]: PASS
-dolsha.values.json[11]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[12]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[13]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[14]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[15]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[16]: FAIL [('not an object [$]', []), ('not an expected object at [$]', [])]
-dolsha.values.json[17]: FAIL [('no other prop expected [$]', ['un']), ('not an expected object at [$]', [])]
+dolsha.values.json[11]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[12]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[13]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[14]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[15]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[16]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+dolsha.values.json[17]: FAIL [('no other prop expected []', ['un']), ('not an expected object at []', [])]

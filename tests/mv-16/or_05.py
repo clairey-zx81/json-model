@@ -20,43 +20,43 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
-_jm_re_1_search: Callable
+_jm_re_1_reco: object
 _jm_re_1: RegexFun
-_jm_re_2_search: Callable
+_jm_re_2_reco: object
 _jm_re_2: RegexFun
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected type at [$.'|']", path))
+        rep is None or rep.append(("unexpected type at [.'|']", path))
     if res:
-        # $.'|'.0
+        # .'|'.0
         # "/[0-9]/"
         res = _jm_re_2(val)
         if not res:
-            rep is None or rep.append(("unexpected REGEX [$.'|'.0]", path))
+            rep is None or rep.append(("unexpected REGEX [.'|'.0]", path))
         if not res:
-            # $.'|'.1
+            # .'|'.1
             # "/[a-z]/"
             res = _jm_re_1(val)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [$.'|'.1]", path))
+                rep is None or rep.append(("unexpected REGEX [.'|'.1]", path))
             if not res:
-                # $.'|'.2
+                # .'|'.2
                 # "/[A-Z]/"
                 res = _jm_re_0(val)
                 if not res:
-                    rep is None or rep.append(("unexpected REGEX [$.'|'.2]", path))
+                    rep is None or rep.append(("unexpected REGEX [.'|'.2]", path))
         if res:
             rep is None or rep.clear()
         else:
-            rep is None or rep.append(("no model matched [$.'|']", path))
+            rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 
@@ -68,15 +68,15 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("[A-Z]").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
-        global _jm_re_1_search, _jm_re_1
-        _jm_re_1_search = re.compile("[a-z]").search
-        _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
-        global _jm_re_2_search, _jm_re_2
-        _jm_re_2_search = re.compile("[0-9]").search
-        _jm_re_2 = lambda s: _jm_re_2_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("[A-Z]")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        global _jm_re_1_reco, _jm_re_1
+        _jm_re_1_reco = re.compile("[a-z]")
+        _jm_re_1 = lambda s: _jm_re_1_reco.search(s) is not None
+        global _jm_re_2_reco, _jm_re_2
+        _jm_re_2_reco = re.compile("[0-9]")
+        _jm_re_2 = lambda s: _jm_re_2_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -87,14 +87,14 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
-        global _jm_re_1_search, _jm_re_1
-        _jm_re_1_search = None
+        global _jm_re_1_reco, _jm_re_1
+        _jm_re_1_reco = None
         _jm_re_1 = None
-        global _jm_re_2_search, _jm_re_2
-        _jm_re_2_search = None
+        global _jm_re_2_reco, _jm_re_2
+        _jm_re_2_reco = None
         _jm_re_2 = None
 
 

@@ -22,22 +22,22 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $foo ($.'$foo')
+# check $foo (.'$foo')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$foo'
+    # .'$foo'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("unexpected $BOOLEAN [$.'$foo']", path))
+        rep is None or rep.append(("unexpected $BOOLEAN [.'$foo']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("unexpected $BOOLEAN [$]", path))
+        rep is None or rep.append(("unexpected $BOOLEAN []", path))
     return res
 
 

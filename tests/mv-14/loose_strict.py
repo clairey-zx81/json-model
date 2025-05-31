@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object $.'$loose'
+# object .'$loose'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$loose']", path))
+        rep is None or rep.append(("not an object [.'$loose']", path))
         return False
     res: bool
     must_count: int = 0
@@ -35,34 +35,36 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "li":
             # handle must li property
             must_count += 1
-            # $.'$loose'.li
+            # .'$loose'.li
             res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval)) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 loose int [$.'$loose'.li]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 loose int [.'$loose'.li]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.'$loose'.li]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.'$loose'.li]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'$loose']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'$loose']", lpath_0 if path is not None else None))
             return False
     if must_count != 1:
-        rep is None or rep.append(("missing must prop [$.'$loose']", path))
+        if rep is not None:
+            if not "li" in val:
+                rep is None or rep.append(("missing must prop <li> [.'$loose']", path))
         return False
     return True
 
-# check $loose ($.'$loose')
+# check $loose (.'$loose')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$loose'
+    # .'$loose'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$loose']", path))
+        rep is None or rep.append(("not an expected object at [.'$loose']", path))
     return res
 
-# object $.'$strict'
+# object .'$strict'
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$strict']", path))
+        rep is None or rep.append(("not an object [.'$strict']", path))
         return False
     res: bool
     must_count: int = 0
@@ -72,34 +74,36 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "si":
             # handle must si property
             must_count += 1
-            # $.'$strict'.si
+            # .'$strict'.si
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.'$strict'.si]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$strict'.si]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.'$strict'.si]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.'$strict'.si]", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'$strict']", lpath_1 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'$strict']", lpath_1 if path is not None else None))
             return False
     if must_count != 1:
-        rep is None or rep.append(("missing must prop [$.'$strict']", path))
+        if rep is not None:
+            if not "si" in val:
+                rep is None or rep.append(("missing must prop <si> [.'$strict']", path))
         return False
     return True
 
-# check $strict ($.'$strict')
+# check $strict (.'$strict')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$strict'
+    # .'$strict'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$strict']", path))
+        rep is None or rep.append(("not an expected object at [.'$strict']", path))
     return res
 
-# object $.'$combined'
+# object .'$combined'
 def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$combined']", path))
+        rep is None or rep.append(("not an object [.'$combined']", path))
         return False
     res: bool
     must_count: int = 0
@@ -109,47 +113,51 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "li":
             # handle must li property
             must_count += 1
-            # $.'$combined'.li
+            # .'$combined'.li
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.'$combined'.li]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$combined'.li]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.'$combined'.li]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.'$combined'.li]", lpath_2 if path is not None else None))
                 return False
         elif prop == "si":
             # handle must si property
             must_count += 1
-            # $.'$combined'.si
+            # .'$combined'.si
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.'$combined'.si]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.'$combined'.si]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.'$combined'.si]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.'$combined'.si]", lpath_2 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'$combined']", lpath_2 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'$combined']", lpath_2 if path is not None else None))
             return False
     if must_count != 2:
-        rep is None or rep.append(("missing must prop [$.'$combined']", path))
+        if rep is not None:
+            if not "li" in val:
+                rep is None or rep.append(("missing must prop <li> [.'$combined']", path))
+            if not "si" in val:
+                rep is None or rep.append(("missing must prop <si> [.'$combined']", path))
         return False
     return True
 
-# check $combined ($.'$combined')
+# check $combined (.'$combined')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$combined'
+    # .'$combined'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$combined']", path))
+        rep is None or rep.append(("not an expected object at [.'$combined']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $combined [$]", path))
+        rep is None or rep.append(("unexpected $combined []", path))
     return res
 
 

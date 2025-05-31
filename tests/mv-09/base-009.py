@@ -22,23 +22,23 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
-    # $.'|'.0
+    #
+    # .'|'.0
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'|'.0]", path))
+        rep is None or rep.append(("unexpected string [.'|'.0]", path))
     if not res:
-        # $.'|'.1
+        # .'|'.1
         res = val is None
         if not res:
-            rep is None or rep.append(("not null [$.'|'.1]", path))
+            rep is None or rep.append(("not null [.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'|']", path))
+        rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 

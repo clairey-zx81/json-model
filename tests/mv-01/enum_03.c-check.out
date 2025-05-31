@@ -1,7 +1,7 @@
 enum_03.values.json[0]: PASS
 enum_03.values.json[1]: PASS
-enum_03.values.json[2]: FAIL (.: value not in enum [$.'|'])
-enum_03.values.json[3]: FAIL (.: value not in enum [$.'|'])
-enum_03.values.json[4]: FAIL (.: value not in enum [$.'|'])
-enum_03.values.json[5]: FAIL (.: value not in enum [$.'|'])
-enum_03.values.json[6]: FAIL (.: value not in enum [$.'|'])
+enum_03.values.json[2]: FAIL (.: value not in enum [.'|'])
+enum_03.values.json[3]: FAIL (.: value not in enum [.'|'])
+enum_03.values.json[4]: FAIL (.: value not in enum [.'|'])
+enum_03.values.json[5]: FAIL (.: value not in enum [.'|'])
+enum_03.values.json[6]: FAIL (.: value not in enum [.'|'])

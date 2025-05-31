@@ -6,12 +6,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// object $.movie.'|'.0
+// object .movie.'|'.0
 static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.movie.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.0]", path);
         return false;
     }
     bool res;
@@ -25,15 +25,15 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             // handle must t property
             must_count += 1;
-            // $.movie.'|'.0.t
+            // .movie.'|'.0.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "fr") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected fr [$.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected fr [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -41,38 +41,48 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             // handle must titre property
             must_count += 1;
-            // $.movie.'|'.0.titre
+            // .movie.'|'.0.titre
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.movie.'|'.0]", (path ? &lpath_1 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.movie.'|'.0]", (path ? &lpath_1 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.movie.'|'.0]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.0]", path);
+            }
+            if (! (json_object_get(val, "titre") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <titre> [.movie.'|'.0]", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// object $.movie.'|'.1
+// object .movie.'|'.1
 static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.movie.'|'.1]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.1]", path);
         return false;
     }
     bool res;
@@ -86,15 +96,15 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         {
             // handle must t property
             must_count += 1;
-            // $.movie.'|'.1.t
+            // .movie.'|'.1.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "en") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected en [$.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected en [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -102,38 +112,48 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         {
             // handle must title property
             must_count += 1;
-            // $.movie.'|'.1.title
+            // .movie.'|'.1.title
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.movie.'|'.1]", (path ? &lpath_2 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.movie.'|'.1]", (path ? &lpath_2 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.movie.'|'.1]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.1]", path);
+            }
+            if (! (json_object_get(val, "title") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <title> [.movie.'|'.1]", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// object $.movie.'|'.2
+// object .movie.'|'.2
 static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.movie.'|'.2]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.2]", path);
         return false;
     }
     bool res;
@@ -147,15 +167,15 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         {
             // handle must t property
             must_count += 1;
-            // $.movie.'|'.2.t
+            // .movie.'|'.2.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "de") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected de [$.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected de [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -163,38 +183,48 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         {
             // handle must Title property
             must_count += 1;
-            // $.movie.'|'.2.Title
+            // .movie.'|'.2.Title
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.movie.'|'.2]", (path ? &lpath_3 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.movie.'|'.2]", (path ? &lpath_3 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.movie.'|'.2]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "Title") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <Title> [.movie.'|'.2]", path);
+            }
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.2]", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// object $.movie.'|'.3
+// object .movie.'|'.3
 static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$.movie.'|'.3]", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.movie.'|'.3]", path);
         return false;
     }
     bool res;
@@ -208,15 +238,15 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         {
             // handle must t property
             must_count += 1;
-            // $.movie.'|'.3.t
+            // .movie.'|'.3.t
             res = json_is_string(pval) && strcmp(json_string_value(pval), "ru") == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected ru [$.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected ru [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -224,27 +254,37 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         {
             // handle must suti property
             must_count += 1;
-            // $.movie.'|'.3.suti
+            // .movie.'|'.3.suti
             res = json_is_string(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [$.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected string [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$.movie.'|'.3]", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.movie.'|'.3]", (path ? &lpath_4 : NULL));
             return false;
         }
     }
     if (must_count != 2)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$.movie.'|'.3]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "suti") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <suti> [.movie.'|'.3]", path);
+            }
+            if (! (json_object_get(val, "t") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.3]", path);
+            }
+        }
         return false;
     }
     return true;
@@ -257,12 +297,12 @@ static check_fun_t _jm_map_0(json_t *val)
     return jm_search_constmap(&cst, _jm_map_0_tab, 4);
 }
 
-// object $
+// object 
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an object []", path);
         return false;
     }
     bool res;
@@ -276,7 +316,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             // handle must movie property
             must_count += 1;
-            // $.movie
+            // .movie
             res = json_is_object(pval);
             if (res)
             {
@@ -291,48 +331,54 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     else
                     {
                         res = false;
-                        if (rep) jm_report_add_entry(rep, "tag t value not found [$.movie.'|']", (path ? &lpath_0 : NULL));
+                        if (rep) jm_report_add_entry(rep, "tag t value not found [.movie.'|']", (path ? &lpath_0 : NULL));
                     }
                 }
                 else
                 {
                     res = false;
-                    if (rep) jm_report_add_entry(rep, "tag prop t is missing [$.movie.'|']", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "tag prop t is missing [.movie.'|']", (path ? &lpath_0 : NULL));
                 }
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "value is not an object [$.movie.'|']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "value is not an object [.movie.'|']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [$.movie]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected []", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     if (must_count != 1)
     {
-        if (rep) jm_report_add_entry(rep, "missing must prop [$]", path);
+        if (rep != NULL)
+        {
+            if (! (json_object_get(val, "movie") != NULL))
+            {
+                if (rep) jm_report_add_entry(rep, "missing must prop <movie> []", path);
+            }
+        }
         return false;
     }
     return true;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at []", path);
     }
     return res;
 }

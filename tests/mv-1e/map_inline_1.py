@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object $
+# object 
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$]", path))
+        rep is None or rep.append(("not an object []", path))
         return False
     res: bool
     must_count: int = 0
@@ -35,75 +35,81 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "mu1":
             # handle must mu1 property
             must_count += 1
-            # $.mu1
+            # .mu1
             res = pval is None
             if not res:
-                rep is None or rep.append(("not null [$.mu1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not null [.mu1]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.mu1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.mu1]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu2":
             # handle must mu2 property
             must_count += 1
-            # $.mu2
+            # .mu2
             res = isinstance(pval, bool)
             if not res:
-                rep is None or rep.append(("not a bool [$.mu2]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a bool [.mu2]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.mu2]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.mu2]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu3":
             # handle must mu3 property
             must_count += 1
-            # $.mu3
+            # .mu3
             res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
             if not res:
-                rep is None or rep.append(("not a 0 strict int [$.mu3]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0 strict int [.mu3]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [$.mu3]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid must property value [.mu3]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma1":
             # handle may ma1 property
-            # $.ma1
+            # .ma1
             res = isinstance(pval, float) and pval >= 0.0
             if not res:
-                rep is None or rep.append(("not a 0.0 strict float [$.ma1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not a 0.0 strict float [.ma1]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [$.ma1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.ma1]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma2":
             # handle may ma2 property
-            # $.ma2
+            # .ma2
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [$.ma2]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.ma2]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [$.ma2]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.ma2]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma3":
             # handle may ma3 property
-            # $.ma3
+            # .ma3
             res = is_valid_date(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $DATE [$.ma3]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $DATE [.ma3]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [$.ma3]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.ma3]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected []", lpath_0 if path is not None else None))
             return False
     if must_count != 3:
-        rep is None or rep.append(("missing must prop [$]", path))
+        if rep is not None:
+            if not "mu1" in val:
+                rep is None or rep.append(("missing must prop <mu1> []", path))
+            if not "mu2" in val:
+                rep is None or rep.append(("missing must prop <mu2> []", path))
+            if not "mu3" in val:
+                rep is None or rep.append(("missing must prop <mu3> []", path))
         return False
     return True
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$]", path))
+        rep is None or rep.append(("not an expected object at []", path))
     return res
 
 

@@ -24,378 +24,378 @@ _jm_obj_0_map: PropMap
 _jm_cst_0: set[str]
 check_model_map: PropMap
 
-# check _jm_obj_0_map_$schema ($.'$schema'.'$schema')
+# check _jm_obj_0_map_$schema (.'$schema'.'$schema')
 def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.'$schema'
+    # .'$schema'.'$schema'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.'$schema']", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.'$schema']", path))
     return res
 
-# check _jm_obj_0_map_additionalProperties ($.'$schema'.additionalProperties)
+# check _jm_obj_0_map_additionalProperties (.'$schema'.additionalProperties)
 def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.additionalProperties
-    # $.'$schema'.additionalProperties.'|'.0
+    # .'$schema'.additionalProperties
+    # .'$schema'.additionalProperties.'|'.0
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$schema'.additionalProperties.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$schema'.additionalProperties.'|'.0]", path))
     if not res:
-        # $.'$schema'.additionalProperties.'|'.1
+        # .'$schema'.additionalProperties.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [$.'$schema'.additionalProperties.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.additionalProperties.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.additionalProperties.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.additionalProperties.'|']", path))
     return res
 
-# check _jm_obj_0_map_contentEncoding ($.'$schema'.contentEncoding)
+# check _jm_obj_0_map_contentEncoding (.'$schema'.contentEncoding)
 def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.contentEncoding
+    # .'$schema'.contentEncoding
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.contentEncoding]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.contentEncoding]", path))
     return res
 
-# check _jm_obj_0_map_default ($.'$schema'.default)
+# check _jm_obj_0_map_default (.'$schema'.default)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.default
+    # .'$schema'.default
     res = True
     if not res:
-        rep is None or rep.append(("unexpected $ANY [$.'$schema'.default]", path))
+        rep is None or rep.append(("unexpected $ANY [.'$schema'.default]", path))
     return res
 
-# check _jm_obj_0_map_description ($.'$schema'.description)
+# check _jm_obj_0_map_description (.'$schema'.description)
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.description
+    # .'$schema'.description
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.description]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.description]", path))
     return res
 
-# check _jm_obj_0_map_disallow ($.'$schema'.disallow)
+# check _jm_obj_0_map_disallow (.'$schema'.disallow)
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.disallow
-    # $.'$schema'.disallow.'|'.0
+    # .'$schema'.disallow
+    # .'$schema'.disallow.'|'.0
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.disallow.'|'.0]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.disallow.'|'.0]", path))
     if not res:
-        # $.'$schema'.disallow.'|'.1
+        # .'$schema'.disallow.'|'.1
         res = json_model_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $distinctStringArray [$.'$schema'.disallow.'|'.1]", path))
+            rep is None or rep.append(("unexpected $distinctStringArray [.'$schema'.disallow.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.disallow.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.disallow.'|']", path))
     return res
 
-# check _jm_obj_0_map_divisibleBy ($.'$schema'.divisibleBy)
+# check _jm_obj_0_map_divisibleBy (.'$schema'.divisibleBy)
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.divisibleBy
+    # .'$schema'.divisibleBy
     res = isinstance(val, (int, float)) and not isinstance(val, bool) and val > 0.0
     if not res:
-        rep is None or rep.append(("not a 1.0 loose float [$.'$schema'.divisibleBy]", path))
+        rep is None or rep.append(("not a 1.0 loose float [.'$schema'.divisibleBy]", path))
     return res
 
-# check _jm_obj_0_map_enum ($.'$schema'.enum)
+# check _jm_obj_0_map_enum (.'$schema'.enum)
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.enum
-    # $.'$schema'.enum.'@'
+    # .'$schema'.enum
+    # .'$schema'.enum.'@'
     res = isinstance(val, list)
     if res:
         # accept any array
         pass
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$schema'.enum.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$schema'.enum.'@']", path))
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [$.'$schema'.enum]", path))
+        rep is None or rep.append(("constraints failed at [.'$schema'.enum]", path))
     return res
 
-# check _jm_obj_0_map_extends ($.'$schema'.extends)
+# check _jm_obj_0_map_extends (.'$schema'.extends)
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.extends
-    # $.'$schema'.extends.'|'.0
+    # .'$schema'.extends
+    # .'$schema'.extends.'|'.0
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $Schema [$.'$schema'.extends.'|'.0]", path))
+        rep is None or rep.append(("unexpected $Schema [.'$schema'.extends.'|'.0]", path))
     if not res:
-        # $.'$schema'.extends.'|'.1
+        # .'$schema'.extends.'|'.1
         res = isinstance(val, list)
         if res:
             for arr_0_idx, arr_0_item in enumerate(val):
                 arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-                # $.'$schema'.extends.'|'.1.0
+                # .'$schema'.extends.'|'.1.0
                 res = json_model_3(arr_0_item, arr_0_lpath if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $Schema [$.'$schema'.extends.'|'.1.0]", arr_0_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected $Schema [.'$schema'.extends.'|'.1.0]", arr_0_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [$.'$schema'.extends.'|'.1]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$schema'.extends.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.extends.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.extends.'|']", path))
     return res
 
-# check _jm_obj_0_map_format ($.'$schema'.format)
+# check _jm_obj_0_map_format (.'$schema'.format)
 def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.format
+    # .'$schema'.format
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.format]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.format]", path))
     return res
 
-# check _jm_obj_0_map_id ($.'$schema'.id)
+# check _jm_obj_0_map_id (.'$schema'.id)
 def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.id
+    # .'$schema'.id
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.id]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.id]", path))
     return res
 
-# check _jm_obj_0_map_items ($.'$schema'.items)
+# check _jm_obj_0_map_items (.'$schema'.items)
 def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.items
-    # $.'$schema'.items.'|'.0
+    # .'$schema'.items
+    # .'$schema'.items.'|'.0
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $Schema [$.'$schema'.items.'|'.0]", path))
+        rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.0]", path))
     if not res:
-        # $.'$schema'.items.'|'.1
+        # .'$schema'.items.'|'.1
         res = isinstance(val, list)
         if res:
             for arr_1_idx, arr_1_item in enumerate(val):
                 arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
-                # $.'$schema'.items.'|'.1.0
+                # .'$schema'.items.'|'.1.0
                 res = json_model_3(arr_1_item, arr_1_lpath if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $Schema [$.'$schema'.items.'|'.1.0]", arr_1_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected $Schema [.'$schema'.items.'|'.1.0]", arr_1_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [$.'$schema'.items.'|'.1]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$schema'.items.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.items.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.items.'|']", path))
     return res
 
-# check _jm_obj_0_map_maxItems ($.'$schema'.maxItems)
+# check _jm_obj_0_map_maxItems (.'$schema'.maxItems)
 def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.maxItems
+    # .'$schema'.maxItems
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$schema'.maxItems]", path))
+        rep is None or rep.append(("not a 0 strict int [.'$schema'.maxItems]", path))
     return res
 
-# check _jm_obj_0_map_maxLength ($.'$schema'.maxLength)
+# check _jm_obj_0_map_maxLength (.'$schema'.maxLength)
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.maxLength
+    # .'$schema'.maxLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$schema'.maxLength]", path))
+        rep is None or rep.append(("not a 0 strict int [.'$schema'.maxLength]", path))
     return res
 
-# check _jm_obj_0_map_maximum ($.'$schema'.maximum)
+# check _jm_obj_0_map_maximum (.'$schema'.maximum)
 def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.maximum
+    # .'$schema'.maximum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1.0 loose float [$.'$schema'.maximum]", path))
+        rep is None or rep.append(("not a -1.0 loose float [.'$schema'.maximum]", path))
     return res
 
-# check _jm_obj_0_map_maximumCanEqual ($.'$schema'.maximumCanEqual)
+# check _jm_obj_0_map_maximumCanEqual (.'$schema'.maximumCanEqual)
 def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.maximumCanEqual
+    # .'$schema'.maximumCanEqual
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$schema'.maximumCanEqual]", path))
+        rep is None or rep.append(("not a bool [.'$schema'.maximumCanEqual]", path))
     return res
 
-# check _jm_obj_0_map_minItems ($.'$schema'.minItems)
+# check _jm_obj_0_map_minItems (.'$schema'.minItems)
 def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.minItems
+    # .'$schema'.minItems
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$schema'.minItems]", path))
+        rep is None or rep.append(("not a 0 strict int [.'$schema'.minItems]", path))
     return res
 
-# check _jm_obj_0_map_minLength ($.'$schema'.minLength)
+# check _jm_obj_0_map_minLength (.'$schema'.minLength)
 def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.minLength
+    # .'$schema'.minLength
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$schema'.minLength]", path))
+        rep is None or rep.append(("not a 0 strict int [.'$schema'.minLength]", path))
     return res
 
-# check _jm_obj_0_map_minimum ($.'$schema'.minimum)
+# check _jm_obj_0_map_minimum (.'$schema'.minimum)
 def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.minimum
+    # .'$schema'.minimum
     res = isinstance(val, (int, float)) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1.0 loose float [$.'$schema'.minimum]", path))
+        rep is None or rep.append(("not a -1.0 loose float [.'$schema'.minimum]", path))
     return res
 
-# check _jm_obj_0_map_minimumCanEqual ($.'$schema'.minimumCanEqual)
+# check _jm_obj_0_map_minimumCanEqual (.'$schema'.minimumCanEqual)
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.minimumCanEqual
+    # .'$schema'.minimumCanEqual
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$schema'.minimumCanEqual]", path))
+        rep is None or rep.append(("not a bool [.'$schema'.minimumCanEqual]", path))
     return res
 
-# check _jm_obj_0_map_optional ($.'$schema'.optional)
+# check _jm_obj_0_map_optional (.'$schema'.optional)
 def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.optional
+    # .'$schema'.optional
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$schema'.optional]", path))
+        rep is None or rep.append(("not a bool [.'$schema'.optional]", path))
     return res
 
-# check _jm_obj_0_map_pattern ($.'$schema'.pattern)
+# check _jm_obj_0_map_pattern (.'$schema'.pattern)
 def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.pattern
+    # .'$schema'.pattern
     res = is_valid_regex(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $REGEX [$.'$schema'.pattern]", path))
+        rep is None or rep.append(("unexpected $REGEX [.'$schema'.pattern]", path))
     return res
 
-# object $.'$schema'.properties
+# object .'$schema'.properties
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$schema'.properties]", path))
+        rep is None or rep.append(("not an object [.'$schema'.properties]", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # $.'$schema'.properties.''
+        # .'$schema'.properties.''
         res = json_model_3(pval, lpath_1 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [$.'$schema'.properties.'']", lpath_1 if path is not None else None))
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.properties.'']", lpath_1 if path is not None else None))
         if not res:
             return False
     return True
 
-# check _jm_obj_0_map_properties ($.'$schema'.properties)
+# check _jm_obj_0_map_properties (.'$schema'.properties)
 def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.properties
+    # .'$schema'.properties
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$schema'.properties]", path))
+        rep is None or rep.append(("not an expected object at [.'$schema'.properties]", path))
     return res
 
-# check _jm_obj_0_map_requires ($.'$schema'.requires)
+# check _jm_obj_0_map_requires (.'$schema'.requires)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.requires
-    # $.'$schema'.requires.'|'.0
+    # .'$schema'.requires
+    # .'$schema'.requires.'|'.0
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.requires.'|'.0]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.requires.'|'.0]", path))
     if not res:
-        # $.'$schema'.requires.'|'.1
+        # .'$schema'.requires.'|'.1
         res = json_model_3(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $Schema [$.'$schema'.requires.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Schema [.'$schema'.requires.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.requires.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.requires.'|']", path))
     return res
 
-# check _jm_obj_0_map_title ($.'$schema'.title)
+# check _jm_obj_0_map_title (.'$schema'.title)
 def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.title
+    # .'$schema'.title
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$schema'.title]", path))
+        rep is None or rep.append(("unexpected string [.'$schema'.title]", path))
     return res
 
-# check _jm_obj_0_map_type ($.'$schema'.type)
+# check _jm_obj_0_map_type (.'$schema'.type)
 def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.type
-    # $.'$schema'.type.'|'.0
+    # .'$schema'.type
+    # .'$schema'.type.'|'.0
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $allTypes [$.'$schema'.type.'|'.0]", path))
+        rep is None or rep.append(("unexpected $allTypes [.'$schema'.type.'|'.0]", path))
     if not res:
-        # $.'$schema'.type.'|'.1
+        # .'$schema'.type.'|'.1
         res = isinstance(val, list)
         if res:
             for arr_2_idx, arr_2_item in enumerate(val):
                 arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
-                # $.'$schema'.type.'|'.1.0
-                # $.'$schema'.type.'|'.1.0.'|'.0
+                # .'$schema'.type.'|'.1.0
+                # .'$schema'.type.'|'.1.0.'|'.0
                 res = isinstance(arr_2_item, str)
                 if not res:
-                    rep is None or rep.append(("unexpected string [$.'$schema'.type.'|'.1.0.'|'.0]", arr_2_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", arr_2_lpath if path is not None else None))
                 if not res:
-                    # $.'$schema'.type.'|'.1.0.'|'.1
+                    # .'$schema'.type.'|'.1.0.'|'.1
                     res = json_model_3(arr_2_item, arr_2_lpath if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Schema [$.'$schema'.type.'|'.1.0.'|'.1]", arr_2_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", arr_2_lpath if path is not None else None))
                 if res:
                     rep is None or rep.clear()
                 else:
-                    rep is None or rep.append(("no model matched [$.'$schema'.type.'|'.1.0.'|']", arr_2_lpath if path is not None else None))
+                    rep is None or rep.append(("no model matched [.'$schema'.type.'|'.1.0.'|']", arr_2_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
-            rep is None or rep.append(("not array or unexpected array [$.'$schema'.type.'|'.1]", path))
+            rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$schema'.type.'|']", path))
+        rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
     return res
 
-# check _jm_obj_0_map_uniqueItems ($.'$schema'.uniqueItems)
+# check _jm_obj_0_map_uniqueItems (.'$schema'.uniqueItems)
 def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'.uniqueItems
+    # .'$schema'.uniqueItems
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$schema'.uniqueItems]", path))
+        rep is None or rep.append(("not a bool [.'$schema'.uniqueItems]", path))
     return res
 
 
-# object $.'$schema'
+# object .'$schema'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$schema']", path))
+        rep is None or rep.append(("not an object [.'$schema']", path))
         return False
     res: bool
     pfun: CheckFun
@@ -405,67 +405,67 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_0_map.get(prop):
             # handle 27 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [$.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.'$schema']", lpath_0 if path is not None else None))
                 return False
         else:
             # handle other props
-            # $.'$schema'.''
+            # .'$schema'.''
             res = json_model_3(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Schema [$.'$schema'.'']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $Schema [.'$schema'.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
     return True
 
-# check $schema ($.'$schema')
+# check $schema (.'$schema')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema'
+    # .'$schema'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$schema']", path))
+        rep is None or rep.append(("not an expected object at [.'$schema']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $schema [$]", path))
+        rep is None or rep.append(("unexpected $schema []", path))
     return res
 
 
-# check $schema#allTypes ($.'$schema#allTypes')
+# check $schema#allTypes (.'$schema#allTypes')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema#allTypes'
+    # .'$schema#allTypes'
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [$.'$schema#allTypes'.'|']", path))
+        rep is None or rep.append(("value not in enum [.'$schema#allTypes'.'|']", path))
     return res
 
-# check $schema#distinctStringArray ($.'$schema#distinctStringArray')
+# check $schema#distinctStringArray (.'$schema#distinctStringArray')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$schema#distinctStringArray'
-    # $.'$schema#distinctStringArray'.'@'
+    # .'$schema#distinctStringArray'
+    # .'$schema#distinctStringArray'.'@'
     res = isinstance(val, list)
     if res:
         for arr_3_idx, arr_3_item in enumerate(val):
             arr_3_lpath: Path = (path + [ arr_3_idx ]) if path is not None else None
-            # $.'$schema#distinctStringArray'.'@'.0
+            # .'$schema#distinctStringArray'.'@'.0
             res = isinstance(arr_3_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [$.'$schema#distinctStringArray'.'@'.0]", arr_3_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$schema#distinctStringArray'.'@'.0]", arr_3_lpath if path is not None else None))
             if not res:
                 break
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$.'$schema#distinctStringArray'.'@']", path))
+        rep is None or rep.append(("not array or unexpected array [.'$schema#distinctStringArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
     if not res:
-        rep is None or rep.append(("constraints failed at [$.'$schema#distinctStringArray']", path))
+        rep is None or rep.append(("constraints failed at [.'$schema#distinctStringArray']", path))
     return res
 
 

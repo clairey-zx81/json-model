@@ -5,12 +5,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// object $
+// object 
 static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an object []", path);
         return false;
     }
     bool res;
@@ -22,16 +22,16 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         if (strcmp(prop, "foo") == 0)
         {
             // handle may foo property
-            // $.foo
-            // $.foo.'|'.0
+            // .foo
+            // .foo.'|'.0
             res = json_model_1(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $root [$.foo.'|'.0]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $root [.foo.'|'.0]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                // $.foo.'|'.1
+                // .foo.'|'.1
                 res = json_is_array(pval);
                 if (res)
                 {
@@ -40,11 +40,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                     json_array_foreach(pval, arr_0_idx, arr_0_item)
                     {
                         Path arr_0_lpath = (Path) { NULL, arr_0_idx, (path ? &lpath_0 : NULL), NULL };
-                        // $.foo.'|'.1.0
+                        // .foo.'|'.1.0
                         res = json_model_1(arr_0_item, ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL), rep);
                         if (! res)
                         {
-                            if (rep) jm_report_add_entry(rep, "unexpected $root [$.foo.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
+                            if (rep) jm_report_add_entry(rep, "unexpected $root [.foo.'|'.1.0]", ((path ? &lpath_0 : NULL) ? &arr_0_lpath : NULL));
                         }
                         if (! res)
                         {
@@ -54,7 +54,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 }
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.foo.'|'.1]", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "not array or unexpected array [.foo.'|'.1]", (path ? &lpath_0 : NULL));
                 }
             }
             if (res)
@@ -63,32 +63,32 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             else
             {
-                if (rep) jm_report_add_entry(rep, "no model matched [$.foo.'|']", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "no model matched [.foo.'|']", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [$.foo]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid may property value [.foo]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [$]", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected []", (path ? &lpath_0 : NULL));
             return false;
         }
     }
     return true;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [$]", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object at []", path);
     }
     return res;
 }

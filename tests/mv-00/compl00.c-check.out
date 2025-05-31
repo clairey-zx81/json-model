@@ -7,4 +7,4 @@ compl00.values.json[5]: PASS
 compl00.values.json[6]: PASS
 compl00.values.json[7]: PASS
 compl00.values.json[8]: PASS
-compl00.values.json[9]: FAIL (.: not one model match [$.'^'])
+compl00.values.json[9]: FAIL (.: not one model match [.'^'])

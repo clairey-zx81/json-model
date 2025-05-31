@@ -21,31 +21,31 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_cst_0: set[str]
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
     if not res:
-        rep is None or rep.append(("value not in enum [$.'|']", path))
+        rep is None or rep.append(("value not in enum [.'|']", path))
     if not res:
         res = isinstance(val, str)
         if not res:
-            rep is None or rep.append(("unexpected type at [$.'|']", path))
+            rep is None or rep.append(("unexpected type at [.'|']", path))
         if res:
-            # $.'|'.0
+            # .'|'.0
             # "/[0-9]/"
             res = _jm_re_0(val)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [$.'|'.0]", path))
+                rep is None or rep.append(("unexpected REGEX [.'|'.0]", path))
             if res:
                 rep is None or rep.clear()
             else:
-                rep is None or rep.append(("no model matched [$.'|']", path))
+                rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 
@@ -59,9 +59,9 @@ def check_model_init():
         initialized = True
         global _jm_cst_0
         _jm_cst_0 = {'Calvin', 'Susie'}
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("[0-9]").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("[0-9]")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -72,8 +72,8 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
 
 

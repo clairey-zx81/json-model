@@ -1,5 +1,5 @@
 def_00.values.json[0]: PASS
 def_00.values.json[1]: PASS
-def_00.values.json[2]: FAIL (.: unexpected $pos [$]) (.: not a 0.0 strict float [$.'$pos'])
-def_00.values.json[3]: FAIL (.: unexpected $pos [$]) (.: not a 0.0 strict float [$.'$pos'])
-def_00.values.json[4]: FAIL (.: unexpected $pos [$]) (.: not a 0.0 strict float [$.'$pos'])
+def_00.values.json[2]: FAIL (.: unexpected $pos []) (.: not a 0.0 strict float [.'$pos'])
+def_00.values.json[3]: FAIL (.: unexpected $pos []) (.: not a 0.0 strict float [.'$pos'])
+def_00.values.json[4]: FAIL (.: unexpected $pos []) (.: not a 0.0 strict float [.'$pos'])

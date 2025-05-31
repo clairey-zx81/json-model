@@ -20,120 +20,120 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $ex5 ($.'$ex5')
+# check $ex5 (.'$ex5')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5'
-    # $.'$ex5'.'|'.0
+    # .'$ex5'
+    # .'$ex5'.'|'.0
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX05a [$.'$ex5'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $EX05a [.'$ex5'.'|'.0]", path))
     if not res:
-        # $.'$ex5'.'|'.1
+        # .'$ex5'.'|'.1
         res = json_model_6(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $EX05b [$.'$ex5'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $EX05b [.'$ex5'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$ex5'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$ex5'.'|']", path))
     return res
 
 
-# check $EX07 ($.'$EX07')
+# check $EX07 (.'$EX07')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$EX07'
+    # .'$EX07'
     # "/[a-z]/"
     res = isinstance(val, str) and _jm_re_0(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [$.'$EX07']", path))
+        rep is None or rep.append(("unexpected REGEX [.'$EX07']", path))
     return res
 
-# check $__external_0 ($.'$__external_0')
+# check $__external_0 (.'$__external_0')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$__external_0'
-    # $.'$__external_0'.'|'.0
+    # .'$__external_0'
+    # .'$__external_0'.'|'.0
     res = json_model_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX05a [$.'$__external_0'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $EX05a [.'$__external_0'.'|'.0]", path))
     if not res:
-        # $.'$__external_0'.'|'.1
+        # .'$__external_0'.'|'.1
         res = json_model_9(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $EX05b [$.'$__external_0'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $EX05b [.'$__external_0'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$__external_0'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$__external_0'.'|']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, list) and len(val) == 3
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
-        # $.0
+        # .0
         res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $ex5#EX05a [$.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $ex5#EX05a [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
-            # $.1
+            # .1
             res = json_model_9(val[1], lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $__external_0#EX05b [$.1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $__external_0#EX05b [.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0: Path = (path + [ 2 ]) if path is not None else None
-                # $.2
+                # .2
                 res = json_model_3(val[2], lpath_0 if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $EX07 [$.2]", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("unexpected $EX07 [.2]", lpath_0 if path is not None else None))
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$]", path))
+        rep is None or rep.append(("not array or unexpected array []", path))
     return res
 
-# check $ex5#EX05a ($.'$ex5#EX05a')
+# check $ex5#EX05a (.'$ex5#EX05a')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5#EX05a'
+    # .'$ex5#EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$ex5#EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$ex5#EX05a']", path))
     return res
 
-# check $ex5#EX05b ($.'$ex5#EX05b')
+# check $ex5#EX05b (.'$ex5#EX05b')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5#EX05b'
+    # .'$ex5#EX05b'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$ex5#EX05b']", path))
+        rep is None or rep.append(("unexpected string [.'$ex5#EX05b']", path))
     return res
 
-# check $__external_0#EX05a ($.'$__external_0#EX05a')
+# check $__external_0#EX05a (.'$__external_0#EX05a')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$__external_0#EX05a'
+    # .'$__external_0#EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$__external_0#EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$__external_0#EX05a']", path))
     return res
 
-# check $__external_0#EX05b ($.'$__external_0#EX05b')
+# check $__external_0#EX05b (.'$__external_0#EX05b')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$__external_0#EX05b'
+    # .'$__external_0#EX05b'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$__external_0#EX05b']", path))
+        rep is None or rep.append(("unexpected string [.'$__external_0#EX05b']", path))
     return res
 
 
@@ -145,9 +145,9 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("[a-z]").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("[a-z]")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -161,8 +161,8 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
 
 

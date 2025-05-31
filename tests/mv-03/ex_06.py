@@ -22,77 +22,77 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ex5 ($.'$ex5')
+# check $ex5 (.'$ex5')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5'
-    # $.'$ex5'.'|'.0
+    # .'$ex5'
+    # .'$ex5'.'|'.0
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX05a [$.'$ex5'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $EX05a [.'$ex5'.'|'.0]", path))
     if not res:
-        # $.'$ex5'.'|'.1
+        # .'$ex5'.'|'.1
         res = json_model_6(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $EX05b [$.'$ex5'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $EX05b [.'$ex5'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$ex5'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$ex5'.'|']", path))
     return res
 
-# check $EX06 ($.'$EX06')
+# check $EX06 (.'$EX06')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$EX06'
+    # .'$EX06'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$EX06']", path))
+        rep is None or rep.append(("not a bool [.'$EX06']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, list) and len(val) == 3
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
-        # $.0
+        # .0
         res = json_model_5(val[0], lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $ex5#EX05a [$.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $ex5#EX05a [.0]", lpath_0 if path is not None else None))
         if res:
             lpath_0: Path = (path + [ 1 ]) if path is not None else None
-            # $.1
+            # .1
             res = json_model_6(val[1], lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $ex5#EX05b [$.1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $ex5#EX05b [.1]", lpath_0 if path is not None else None))
             if res:
                 lpath_0: Path = (path + [ 2 ]) if path is not None else None
-                # $.2
+                # .2
                 res = json_model_3(val[2], lpath_0 if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("unexpected $EX06 [$.2]", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("unexpected $EX06 [.2]", lpath_0 if path is not None else None))
     if not res:
-        rep is None or rep.append(("not array or unexpected array [$]", path))
+        rep is None or rep.append(("not array or unexpected array []", path))
     return res
 
-# check $ex5#EX05a ($.'$ex5#EX05a')
+# check $ex5#EX05a (.'$ex5#EX05a')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5#EX05a'
+    # .'$ex5#EX05a'
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'$ex5#EX05a']", path))
+        rep is None or rep.append(("not a 0 strict int [.'$ex5#EX05a']", path))
     return res
 
-# check $ex5#EX05b ($.'$ex5#EX05b')
+# check $ex5#EX05b (.'$ex5#EX05b')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$ex5#EX05b'
+    # .'$ex5#EX05b'
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected string [$.'$ex5#EX05b']", path))
+        rep is None or rep.append(("unexpected string [.'$ex5#EX05b']", path))
     return res
 
 

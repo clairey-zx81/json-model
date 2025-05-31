@@ -22,22 +22,22 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $pos ($.'$pos')
+# check $pos (.'$pos')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$pos'
+    # .'$pos'
     res = isinstance(val, float) and val >= 0.0
     if not res:
-        rep is None or rep.append(("not a 0.0 strict float [$.'$pos']", path))
+        rep is None or rep.append(("not a 0.0 strict float [.'$pos']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $pos [$]", path))
+        rep is None or rep.append(("unexpected $pos []", path))
     return res
 
 

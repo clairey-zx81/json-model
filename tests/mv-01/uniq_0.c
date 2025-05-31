@@ -5,12 +5,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
-    // $.'@'
+    //
+    // .'@'
     res = json_is_array(val);
     if (res)
     {
@@ -19,11 +19,11 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
             Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
-            // $.'@'.0
+            // .'@'.0
             res = json_is_integer(arr_0_item) && json_integer_value(arr_0_item) >= 1;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'@'.0]", (path ? &arr_0_lpath : NULL));
+                if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@'.0]", (path ? &arr_0_lpath : NULL));
             }
             if (! res)
             {
@@ -33,7 +33,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array [$.'@']", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'@']", path);
     }
     if (res)
     {
@@ -41,7 +41,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed at []", path);
     }
     return res;
 }

@@ -22,28 +22,28 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $VAL ($.'$VAL')
+# check $VAL (.'$VAL')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$VAL'
+    # .'$VAL'
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$VAL']", path))
+        rep is None or rep.append(("not a bool [.'$VAL']", path))
     return res
 
-# check $KEY ($.'$KEY')
+# check $KEY (.'$KEY')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$KEY'
+    # .'$KEY'
     res = is_valid_url(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $URL [$.'$KEY']", path))
+        rep is None or rep.append(("unexpected $URL [.'$KEY']", path))
     return res
 
-# object $.'$map'
+# object .'$map'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$map']", path))
+        rep is None or rep.append(("not an object [.'$map']", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -51,57 +51,57 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if is_valid_url(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props
-            # $.'$map'.'$URL'
+            # .'$map'.'$URL'
             res = json_model_2(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [$.'$map'.'$URL']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected $VAL [.'$map'.'$URL']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'$map']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'$map']", lpath_0 if path is not None else None))
             return False
     return True
 
-# check $map ($.'$map')
+# check $map (.'$map')
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$map'
+    # .'$map'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$map']", path))
+        rep is None or rep.append(("not an expected object at [.'$map']", path))
     return res
 
-# check $EX08 ($.'$EX08')
+# check $EX08 (.'$EX08')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$EX08'
-    # $.'$EX08'.'|'.0
+    # .'$EX08'
+    # .'$EX08'.'|'.0
     res = json_model_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $map [$.'$EX08'.'|'.0]", path))
+        rep is None or rep.append(("unexpected $map [.'$EX08'.'|'.0]", path))
     if not res:
-        # $.'$EX08'.'|'.1
+        # .'$EX08'.'|'.1
         res = is_valid_url(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $URL [$.'$EX08'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $URL [.'$EX08'.'|'.1]", path))
         if not res:
-            # $.'$EX08'.'|'.2
+            # .'$EX08'.'|'.2
             res = json_model_2(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $VAL [$.'$EX08'.'|'.2]", path))
+                rep is None or rep.append(("unexpected $VAL [.'$EX08'.'|'.2]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$EX08'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$EX08'.'|']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $EX08 [$]", path))
+        rep is None or rep.append(("unexpected $EX08 []", path))
     return res
 
 

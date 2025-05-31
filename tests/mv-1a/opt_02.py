@@ -22,33 +22,33 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
-    # $.'|'.0
+    #
+    # .'|'.0
     res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
     if not res:
-        rep is None or rep.append(("not a 0 strict int [$.'|'.0]", path))
+        rep is None or rep.append(("not a 0 strict int [.'|'.0]", path))
     if not res:
-        # $.'|'.1
+        # .'|'.1
         res = isinstance(val, float) and val >= 0.0
         if not res:
-            rep is None or rep.append(("not a 0.0 strict float [$.'|'.1]", path))
+            rep is None or rep.append(("not a 0.0 strict float [.'|'.1]", path))
         if not res:
-            # $.'|'.2
+            # .'|'.2
             res = val is None
             if not res:
-                rep is None or rep.append(("not null [$.'|'.2]", path))
+                rep is None or rep.append(("not null [.'|'.2]", path))
             if not res:
-                # $.'|'.3
+                # .'|'.3
                 res = isinstance(val, bool)
                 if not res:
-                    rep is None or rep.append(("not a bool [$.'|'.3]", path))
+                    rep is None or rep.append(("not a bool [.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'|']", path))
+        rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 

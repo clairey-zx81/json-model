@@ -20,33 +20,33 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
-_jm_re_1_search: Callable
+_jm_re_1_reco: object
 _jm_re_1: RegexFun
 check_model_map: PropMap
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = isinstance(val, str)
     if res:
-        # $.'&'.0
+        # .'&'.0
         # "/[a-z]/"
         res = _jm_re_1(val)
         if not res:
-            rep is None or rep.append(("unexpected REGEX [$.'&'.0]", path))
+            rep is None or rep.append(("unexpected REGEX [.'&'.0]", path))
         if res:
-            # $.'&'.1
+            # .'&'.1
             # "/[0-9]/"
             res = _jm_re_0(val)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [$.'&'.1]", path))
+                rep is None or rep.append(("unexpected REGEX [.'&'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("not all model match [$.'&']", path))
+        rep is None or rep.append(("not all model match [.'&']", path))
     return res
 
 
@@ -58,12 +58,12 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("[0-9]").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
-        global _jm_re_1_search, _jm_re_1
-        _jm_re_1_search = re.compile("[a-z]").search
-        _jm_re_1 = lambda s: _jm_re_1_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("[0-9]")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        global _jm_re_1_reco, _jm_re_1
+        _jm_re_1_reco = re.compile("[a-z]")
+        _jm_re_1 = lambda s: _jm_re_1_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -74,11 +74,11 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
-        global _jm_re_1_search, _jm_re_1
-        _jm_re_1_search = None
+        global _jm_re_1_reco, _jm_re_1
+        _jm_re_1_reco = None
         _jm_re_1 = None
 
 

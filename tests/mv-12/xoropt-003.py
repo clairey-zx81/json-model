@@ -20,47 +20,47 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# check $A ($.'$A')
+# check $A (.'$A')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$A'
-    # $.'$A'.'|'.0
+    # .'$A'
+    # .'$A'.'|'.0
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$A'.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$A'.'|'.0]", path))
     if not res:
-        # $.'$A'.'|'.1
+        # .'$A'.'|'.1
         res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
         if not res:
-            rep is None or rep.append(("not a 1 strict int [$.'$A'.'|'.1]", path))
+            rep is None or rep.append(("not a 1 strict int [.'$A'.'|'.1]", path))
         if not res:
-            # $.'$A'.'|'.2
+            # .'$A'.'|'.2
             res = isinstance(val, float) and val > 0.0
             if not res:
-                rep is None or rep.append(("not a 1.0 strict float [$.'$A'.'|'.2]", path))
+                rep is None or rep.append(("not a 1.0 strict float [.'$A'.'|'.2]", path))
             if not res:
-                # $.'$A'.'|'.3
+                # .'$A'.'|'.3
                 # "/[a-z]/"
                 res = isinstance(val, str) and _jm_re_0(val)
                 if not res:
-                    rep is None or rep.append(("unexpected REGEX [$.'$A'.'|'.3]", path))
+                    rep is None or rep.append(("unexpected REGEX [.'$A'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$A'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$A'.'|']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $A [$]", path))
+        rep is None or rep.append(("unexpected $A []", path))
     return res
 
 
@@ -72,9 +72,9 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("[a-z]").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("[a-z]")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -86,8 +86,8 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
 
 

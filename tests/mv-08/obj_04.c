@@ -6,28 +6,28 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $bla ($.'$bla')
+// check $bla (.'$bla')
 static bool json_model_3(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$bla'
+    // .'$bla'
     res = jm_is_valid_date(json_string_value(val));
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $DATE [$.'$bla']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $DATE [.'$bla']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $bla [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $bla []", path);
     }
     return res;
 }

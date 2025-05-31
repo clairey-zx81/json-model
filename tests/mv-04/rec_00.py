@@ -22,59 +22,59 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object $.'$obj'
+# object .'$obj'
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'$obj']", path))
+        rep is None or rep.append(("not an object [.'$obj']", path))
         return False
     res: bool
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         # handle other props
-        # $.'$obj'.''
+        # .'$obj'.''
         res = json_model_3(pval, lpath_0 if path is not None else None, rep)
         if not res:
-            rep is None or rep.append(("unexpected $rec [$.'$obj'.'']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected $rec [.'$obj'.'']", lpath_0 if path is not None else None))
         if not res:
             return False
     return True
 
-# check $obj ($.'$obj')
+# check $obj (.'$obj')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$obj'
+    # .'$obj'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [$.'$obj']", path))
+        rep is None or rep.append(("not an expected object at [.'$obj']", path))
     return res
 
-# check $rec ($.'$rec')
+# check $rec (.'$rec')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $.'$rec'
-    # $.'$rec'.'|'.0
+    # .'$rec'
+    # .'$rec'.'|'.0
     res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a bool [$.'$rec'.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$rec'.'|'.0]", path))
     if not res:
-        # $.'$rec'.'|'.1
+        # .'$rec'.'|'.1
         res = json_model_2(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $obj [$.'$rec'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $obj [.'$rec'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("no model matched [$.'$rec'.'|']", path))
+        rep is None or rep.append(("no model matched [.'$rec'.'|']", path))
     return res
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $rec [$]", path))
+        rep is None or rep.append(("unexpected $rec []", path))
     return res
 
 

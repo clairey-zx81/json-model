@@ -15,32 +15,32 @@ static bool _jm_re_0(const char *s)
   return rc >= 0;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected type at [$.'|']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected type at [.'|']", path);
     }
     if (res)
     {
-        // $.'|'.0
+        // .'|'.0
         res = strcmp(json_string_value(val), "Susie") == 0;
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected _Susie [$.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected _Susie [.'|'.0]", path);
         }
         if (! res)
         {
-            // $.'|'.1
+            // .'|'.1
             // "/^[a-z]+$/"
             res = _jm_re_0(json_string_value(val));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [$.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'|'.1]", path);
             }
         }
         if (res)
@@ -49,7 +49,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no model matched [$.'|']", path);
+            if (rep) jm_report_add_entry(rep, "no model matched [.'|']", path);
         }
     }
     return res;

@@ -20,14 +20,14 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_re_0_search: Callable
+_jm_re_0_reco: object
 _jm_re_0: RegexFun
 check_model_map: PropMap
 
-# object $.'^'.0
+# object .'^'.0
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'^'.0]", path))
+        rep is None or rep.append(("not an object [.'^'.0]", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -35,21 +35,21 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if _jm_re_0(prop):
             # handle 1 re props
-            # $.'^'.0.'/a/'
+            # .'^'.0.'/a/'
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [$.'^'.0.'/a/']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'^'.0.'/a/']", lpath_0 if path is not None else None))
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'^'.0]", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'^'.0]", lpath_0 if path is not None else None))
             return False
     return True
 
-# object $.'^'.1
+# object .'^'.1
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [$.'^'.1]", path))
+        rep is None or rep.append(("not an object [.'^'.1]", path))
         return False
     res: bool
     for prop, pval in val.items():
@@ -57,42 +57,42 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         if prop == "a":
             # handle may a property
-            # $.'^'.1.a
+            # .'^'.1.a
             res = pval is None
             if not res:
-                rep is None or rep.append(("not null [$.'^'.1.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("not null [.'^'.1.a]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [$.'^'.1.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.'^'.1.a]", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [$.'^'.1]", lpath_1 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.'^'.1]", lpath_1 if path is not None else None))
             return False
     return True
 
-# check $ ($)
+# check $ ()
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # $
+    #
     # generic xor list
     xc_0: int = 0
     xr_0: bool
-    # $.'^'.0
+    # .'^'.0
     xr_0 = _jm_obj_0(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("not an expected object at [$.'^'.0]", path))
+        rep is None or rep.append(("not an expected object at [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
-    # $.'^'.1
+    # .'^'.1
     xr_0 = _jm_obj_1(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("not an expected object at [$.'^'.1]", path))
+        rep is None or rep.append(("not an expected object at [.'^'.1]", path))
     if xr_0:
         xc_0 += 1
     res = xc_0 == 1
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("not one model match [$.'^']", path))
+        rep is None or rep.append(("not one model match [.'^']", path))
     return res
 
 
@@ -104,9 +104,9 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = re.compile("a").search
-        _jm_re_0 = lambda s: _jm_re_0_search(s) is not None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = re.compile("a")
+        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -117,8 +117,8 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-        global _jm_re_0_search, _jm_re_0
-        _jm_re_0_search = None
+        global _jm_re_0_reco, _jm_re_0
+        _jm_re_0_reco = None
         _jm_re_0 = None
 
 

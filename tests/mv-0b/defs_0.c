@@ -6,28 +6,28 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
-// check $an_int ($.'$an_int')
+// check $an_int (.'$an_int')
 static bool json_model_2(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $.'$an_int'
+    // .'$an_int'
     res = json_is_integer(val) && json_integer_value(val) >= 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [$.'$an_int']", path);
+        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.'$an_int']", path);
     }
     return res;
 }
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
+    //
     res = json_model_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $an_int [$]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $an_int []", path);
     }
     return res;
 }

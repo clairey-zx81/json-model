@@ -5,25 +5,25 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep);
 propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ($)
+// check $ ()
 static bool json_model_1(const json_t* val, Path* path, Report* rep)
 {
     bool res;
-    // $
-    // $.'@'
-    // $.'@'.'|'.0
+    //
+    // .'@'
+    // .'@'.'|'.0
     res = json_is_integer(val) && json_integer_value(val) >= 1;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 1 strict int [$.'@'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@'.'|'.0]", path);
     }
     if (! res)
     {
-        // $.'@'.'|'.1
+        // .'@'.'|'.1
         res = json_is_string(val);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected string [$.'@'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected string [.'@'.'|'.1]", path);
         }
     }
     if (res)
@@ -32,7 +32,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [$.'@'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'@'.'|']", path);
     }
     if (res)
     {
@@ -40,7 +40,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [$]", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed at []", path);
     }
     return res;
 }
