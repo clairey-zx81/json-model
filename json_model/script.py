@@ -170,7 +170,7 @@ def clang_compile(c_code: str, output: str):
     # compiler setings
     cc = os.environ.get("CC", "gcc")
     cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
-    cppflags = f"-I{rt_dir}"
+    cppflags = f"-I{rt_dir} -DCHECK_FUNCTION_NAME=check_model"
     ldflags = "-ljansson -lpcre2-8 -lm"
 
     with tempfile.NamedTemporaryFile(dir=tmp_dir, suffix=".c") as tmp:
