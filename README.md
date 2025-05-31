@@ -77,6 +77,17 @@ For instance, let's consider a JSON model in file `person.model.json`:
   unknown.json: FAIL [('missing must prop [$]', []), ('not an expected object at [$]', [])]
   ```
 
+- to actually compile an executable for checking a model, and use it for validating values:
+
+  ```sh
+  jmc -XO -F out -o ./person.out person.model.json
+  ./person.out -r hobbes.json unknown.json
+  ```
+  ```
+  hobbes.json: PASS
+  unknown.json: FAIL (.: not an expected object at [$]) (.: missing must prop [$])
+  ```
+
 ## JSON Model Python API
 
 The package provides functions to load and check models from Python:

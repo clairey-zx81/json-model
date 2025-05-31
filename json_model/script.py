@@ -1,9 +1,12 @@
+import os
 import sys
 import re
 import json
 import yaml
 import logging
 from importlib.metadata import version as pkg_version
+from importlib.resources import files
+import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
 from .utils import log, tname
@@ -154,6 +157,28 @@ def create_model(murl: str, resolver: Resolver, *,
                           check=False, merge=False, optimize=False)
 
 
+def clang_compile(c_code: str, output: str):
+    """Generate an actual executable."""
+
+    tmp_dir = os.environ.get("TMPDIR", "/dev/shm")
+
+    # source files
+    rt_dir = files("json_model.runtime")
+    lib = rt_dir.joinpath("json-model.c")
+    main = rt_dir.joinpath("main.c")
+
+    # compiler setings
+    cc = os.environ.get("CC", "gcc")
+    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
+    cppflags = f"-I{rt_dir}"
+    ldflags = "-ljansson -lpcre2-8 -lm"
+
+    with tempfile.NamedTemporaryFile(dir=tmp_dir, suffix=".c") as tmp:
+        tmp.write(c_code.encode("UTF-8"))
+        tmp.flush()
+        status = os.system(f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}")
+        assert status == 0, "C compilation succeeded"
+
 def jmc_script():
 
     import argparse
@@ -180,7 +205,8 @@ def jmc_script():
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
     arg("--no-report", "-nr", dest="report", action="store_false", default=True,
         help="remove reporting capabilities")
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "cpp", "js", "ts", "rs", "go"],
+    # TODO cpp js ts rs go…
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "out"],
         help="output format")
     # expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
@@ -226,15 +252,9 @@ def jmc_script():
 
     # update op-dependent default
     if args.code is None:
-        args.code = args.op in "X" and not args.values
+        args.code = args.op in "X" and not args.values and args.format != "out"
 
     # option/parameter consistency and defaults
-    if args.values and args.op not in "X":  # V?
-        log.error(f"Testing JSON values requires -X: {args.op}")
-        sys.exit(1)
-    if args.code and args.op not in "SX":
-        log.error(f"Showing code requires -X: {args.op}")
-        sys.exit(1)
     if args.op in "PUJNE":
         if args.format is None:
             args.format = "json"
@@ -244,11 +264,21 @@ def jmc_script():
     elif args.op == "X":
         if args.format is None:
             args.format = "py"
-        elif args.format not in ("py", "c", "cpp", "js", "ts", "rs", "go"):
+        elif args.format not in ("py", "c", "out"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
         log.error(f"unexpected operation {args.op}")
+        sys.exit(1)
+
+    if args.values and (args.op not in "X" or args.format != "py"):
+        log.error(f"Testing JSON values requires -X for Python: {args.op} {args.format}")
+        sys.exit(1)
+    if args.code and (args.op not in "X" or args.format not in ("py", "c")):
+        log.error(f"Showing code requires -X for Python or C: {args.op} {args.format}")
+        sys.exit(1)
+    if args.format == "out" and args.op not in "X":
+        log.error(f"generating executable requires -X: {args.op}")
         sys.exit(1)
 
     # debug
@@ -276,12 +306,13 @@ def jmc_script():
             sys.exit(2)
 
     # NOTE preprocessing already done in create_model
+    # TODO check why iterating changes things (eg ref to predefs substitions)
     # process_model(model, check=args.check, merge=args.op != "N",
     #               optimize=args.optimize, debug=args.debug)
 
     # OUTPUT
     # TODO check overwrite?!
-    output = open(args.output, "w") if args.output != "-" else sys.stdout
+    output = open(args.output, "w") if args.output != "-" and args.format != "out" else sys.stdout
     checker = None
 
     # convert json to a string using prettyprint options
@@ -313,14 +344,20 @@ def jmc_script():
         show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "X":
-        assert args.format in ("py", "c", "cpp", "js", "ts", "rs", "go"), \
-            f"valid output language {args.format}"
-        code = xstatic_compile(model, args.name, lang=args.format,
+        assert args.format in ("py", "c", "out"), f"valid output language {args.format}"
+        sfmt = "c" if args.format == "out" else args.format
+
+        code = xstatic_compile(model, args.name, lang=sfmt,
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.report)
         source = str(code)
-        if args.code:
+
+        if args.format == "out":
+            executable = "a.out" if args.output == "-" else args.output
+            clang_compile(source, executable)
+        elif args.code:
             print(source, file=output, end="")
+
         if args.format == "py" and args.values:
             env = {}
             exec(source, env)
@@ -332,7 +369,7 @@ def jmc_script():
     elif args.op == "E":
         mm = model._init_md
         if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):
-            if not ("JSON_MODEL_LOOSE_INT" in comment and "JSON_MODEL_LOOSE_FLOAT" in comment):
+            if "JSON_MODEL_LOOSE" not in comment:
                 log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
         schema: JsonSchema
         try:

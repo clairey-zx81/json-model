@@ -8,8 +8,8 @@
 - [x] static: reporting clean slate on or when one is found!
 - [x] static: add option to skip reporting generation `--no-report`
 - [x] frontend: improve performance measures with stdev and removing overheads
+- [x] command: allow direct compilation with cc-like options?
 - [ ] frontend: align python and C outputs
-- [ ] command: allow direct compilation with cc-like options?
 - [ ] command: rethink option usage for compilation
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
@@ -35,7 +35,6 @@
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] static: disjunct could share identical may/must tabs between objects
 - [ ] backend: report missing must props
-- [ ] backend: report which and failed
 - [ ] backend: report which several xor succeeded
 
 ## To Do
