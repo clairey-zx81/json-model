@@ -39,7 +39,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$allTypes'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$allTypes'.'|']", path))
     return res
@@ -299,7 +299,7 @@ def _jm_f_12(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .format
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_1
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
         rep is None or rep.append(("value not in enum [.format.'|']", path))
     return res

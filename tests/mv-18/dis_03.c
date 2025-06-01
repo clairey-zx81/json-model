@@ -33,7 +33,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.0.discriminator]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -49,7 +49,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'|'.0.x]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.0.x]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -65,11 +65,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "discriminator") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <discriminator> [.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <discriminator> [.'|'.0]", path);
             }
             if (! (json_object_get(val, "x") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <x> [.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <x> [.'|'.0]", path);
             }
         }
         return false;
@@ -104,7 +104,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.1.discriminator]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -120,7 +120,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'|'.1.y]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.1.y]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -136,11 +136,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "discriminator") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <discriminator> [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <discriminator> [.'|'.1]", path);
             }
             if (! (json_object_get(val, "y") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <y> [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <y> [.'|'.1]", path);
             }
         }
         return false;

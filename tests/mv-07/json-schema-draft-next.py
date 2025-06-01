@@ -419,7 +419,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$simpleTypes'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$simpleTypes'.'|']", path))
     return res
@@ -475,7 +475,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$nonNegativeInteger'
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$nonNegativeInteger']", path))
     return res

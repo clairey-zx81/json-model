@@ -33,7 +33,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.0.t]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -49,7 +49,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.0.titre]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -65,11 +65,11 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "t") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.0]", path);
             }
             if (! (json_object_get(val, "titre") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <titre> [.movie.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <titre> [.movie.'|'.0]", path);
             }
         }
         return false;
@@ -104,7 +104,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.1.t]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -120,7 +120,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.1.title]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -136,11 +136,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "t") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.1]", path);
             }
             if (! (json_object_get(val, "title") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <title> [.movie.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.movie.'|'.1]", path);
             }
         }
         return false;
@@ -175,7 +175,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.2.t]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -191,7 +191,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.2.Title]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -207,11 +207,11 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "Title") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <Title> [.movie.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <Title> [.movie.'|'.2]", path);
             }
             if (! (json_object_get(val, "t") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.2]", path);
             }
         }
         return false;
@@ -246,7 +246,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.3.t]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -262,7 +262,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie.'|'.3.suti]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -278,11 +278,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "suti") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <suti> [.movie.'|'.3]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <suti> [.movie.'|'.3]", path);
             }
             if (! (json_object_get(val, "t") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <t> [.movie.'|'.3]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <t> [.movie.'|'.3]", path);
             }
         }
         return false;
@@ -346,7 +346,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.movie]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.movie]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -362,7 +362,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "movie") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <movie> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <movie> []", path);
             }
         }
         return false;

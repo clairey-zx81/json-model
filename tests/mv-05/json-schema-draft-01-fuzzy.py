@@ -434,7 +434,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schema#allTypes'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$schema#allTypes'.'|']", path))
     return res

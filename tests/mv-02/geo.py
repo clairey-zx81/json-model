@@ -113,7 +113,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected Point [.'$Point'.type]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Point'.type]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Point'.type]", lpath_0 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -123,7 +123,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $position [.'$Point'.coordinates]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Point'.coordinates]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Point'.coordinates]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -148,10 +148,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$Point']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Point']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$Point']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$Point']", path))
         return False
     return True
 
@@ -182,7 +182,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected MultiPoint [.'$MultiPoint'.type]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiPoint'.type]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiPoint'.type]", lpath_1 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -201,7 +201,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiPoint'.coordinates]", lpath_1 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -226,10 +226,10 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$MultiPoint']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiPoint']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$MultiPoint']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$MultiPoint']", path))
         return False
     return True
 
@@ -260,7 +260,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected LineString [.'$LineString'.type]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$LineString'.type]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$LineString'.type]", lpath_2 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -270,7 +270,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $coord_array [.'$LineString'.coordinates]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$LineString'.coordinates]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$LineString'.coordinates]", lpath_2 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -295,10 +295,10 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$LineString']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$LineString']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$LineString']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$LineString']", path))
         return False
     return True
 
@@ -329,7 +329,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected MultiLineString [.'$MultiLineString'.type]", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiLineString'.type]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiLineString'.type]", lpath_3 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -348,7 +348,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiLineString'.coordinates]", lpath_3 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -373,10 +373,10 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$MultiLineString']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiLineString']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$MultiLineString']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$MultiLineString']", path))
         return False
     return True
 
@@ -407,7 +407,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected Polygon [.'$Polygon'.type]", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Polygon'.type]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Polygon'.type]", lpath_4 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -426,7 +426,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Polygon'.coordinates]", lpath_4 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -451,10 +451,10 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$Polygon']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Polygon']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$Polygon']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$Polygon']", path))
         return False
     return True
 
@@ -485,7 +485,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected MultiPolygon [.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiPolygon'.type]", lpath_5 if path is not None else None))
                 return False
         elif prop == "coordinates":
             # handle must coordinates property
@@ -513,7 +513,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$MultiPolygon'.coordinates]", lpath_5 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -538,10 +538,10 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             return False
     if must_count != 2:
         if rep is not None:
-            if not "coordinates" in val:
-                rep is None or rep.append(("missing must prop <coordinates> [.'$MultiPolygon']", path))
+            if not ("coordinates" in val):
+                rep is None or rep.append(("missing mandatory prop <coordinates> [.'$MultiPolygon']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$MultiPolygon']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$MultiPolygon']", path))
         return False
     return True
 
@@ -594,7 +594,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected GeometryCollection [.'$GeometryCollection'.type]", lpath_6 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$GeometryCollection'.type]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$GeometryCollection'.type]", lpath_6 if path is not None else None))
                 return False
         elif prop == "geometries":
             # handle must geometries property
@@ -613,7 +613,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$GeometryCollection'.geometries]", lpath_6 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$GeometryCollection'.geometries]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$GeometryCollection'.geometries]", lpath_6 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -639,9 +639,9 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 2:
         if rep is not None:
             if not "geometries" in val:
-                rep is None or rep.append(("missing must prop <geometries> [.'$GeometryCollection']", path))
+                rep is None or rep.append(("missing mandatory prop <geometries> [.'$GeometryCollection']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$GeometryCollection']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$GeometryCollection']", path))
         return False
     return True
 
@@ -680,7 +680,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected Feature [.'$Feature'.type]", lpath_7 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Feature'.type]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Feature'.type]", lpath_7 if path is not None else None))
                 return False
         elif prop == "geometry":
             # handle must geometry property
@@ -705,7 +705,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             else:
                 rep is None or rep.append(("no model matched [.'$Feature'.geometry.'|']", lpath_7 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Feature'.geometry]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Feature'.geometry]", lpath_7 if path is not None else None))
                 return False
         elif prop == "properties":
             # handle must properties property
@@ -725,7 +725,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             else:
                 rep is None or rep.append(("no model matched [.'$Feature'.properties.'|']", lpath_7 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Feature'.properties]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Feature'.properties]", lpath_7 if path is not None else None))
                 return False
         elif prop == "id":
             # handle may id property
@@ -770,11 +770,11 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 3:
         if rep is not None:
             if not "geometry" in val:
-                rep is None or rep.append(("missing must prop <geometry> [.'$Feature']", path))
+                rep is None or rep.append(("missing mandatory prop <geometry> [.'$Feature']", path))
             if not "properties" in val:
-                rep is None or rep.append(("missing must prop <properties> [.'$Feature']", path))
+                rep is None or rep.append(("missing mandatory prop <properties> [.'$Feature']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$Feature']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$Feature']", path))
         return False
     return True
 
@@ -805,7 +805,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected FeatureCollection [.'$FeatureCollection'.type]", lpath_8 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$FeatureCollection'.type]", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$FeatureCollection'.type]", lpath_8 if path is not None else None))
                 return False
         elif prop == "features":
             # handle must features property
@@ -824,7 +824,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$FeatureCollection'.features]", lpath_8 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$FeatureCollection'.features]", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$FeatureCollection'.features]", lpath_8 if path is not None else None))
                 return False
         elif prop == "bbox":
             # handle may bbox property
@@ -850,9 +850,9 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 2:
         if rep is not None:
             if not "features" in val:
-                rep is None or rep.append(("missing must prop <features> [.'$FeatureCollection']", path))
+                rep is None or rep.append(("missing mandatory prop <features> [.'$FeatureCollection']", path))
             if not "type" in val:
-                rep is None or rep.append(("missing must prop <type> [.'$FeatureCollection']", path))
+                rep is None or rep.append(("missing mandatory prop <type> [.'$FeatureCollection']", path))
         return False
     return True
 

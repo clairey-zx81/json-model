@@ -1376,7 +1376,7 @@ static bool json_model_14(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$schema#nonNegativeInteger'
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$schema#nonNegativeInteger']", path);

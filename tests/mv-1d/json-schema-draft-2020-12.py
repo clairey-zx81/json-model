@@ -131,7 +131,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$core'.'$schema'
-    res = isinstance(val, str) and val == "https://json-schema.org/draft/2020-12/schema"
+    res = isinstance(val, str) and (val == "https://json-schema.org/draft/2020-12/schema")
     if not res:
         rep is None or rep.append(("unexpected _https://json-schema.org/draft/2020-12/schema [.'$core'.'$schema']", path))
     return res
@@ -419,7 +419,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$simpleTypes'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$simpleTypes'.'|']", path))
     return res
@@ -475,7 +475,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$nonNegativeInteger'
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$nonNegativeInteger']", path))
     return res
@@ -1051,7 +1051,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.'$schema'
-    res = isinstance(val, str) and val == "https://json-schema.org/draft/2020-12/schema"
+    res = isinstance(val, str) and (val == "https://json-schema.org/draft/2020-12/schema")
     if not res:
         rep is None or rep.append(("unexpected _https://json-schema.org/draft/2020-12/schema [.'$ObjectSchema'.'$schema']", path))
     return res

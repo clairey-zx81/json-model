@@ -41,11 +41,11 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must Model property
             must_count += 1
             # .'$'.Model
-            res = isinstance(pval, str) and pval == "$https://json-model.org/models/json-model"
+            res = isinstance(pval, str) and (pval == "$https://json-model.org/models/json-model")
             if not res:
                 rep is None or rep.append(("unexpected _$https://json-model.org/models/json-model [.'$'.Model]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$'.Model]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$'.Model]", lpath_1 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -62,7 +62,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "Model" in val:
-                rep is None or rep.append(("missing must prop <Model> [.'$']", path))
+                rep is None or rep.append(("missing mandatory prop <Model> [.'$']", path))
         return False
     return True
 
@@ -122,7 +122,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'~'
-    res = isinstance(val, str) and val == "https://json-model.org/models/l10n"
+    res = isinstance(val, str) and (val == "https://json-model.org/models/l10n")
     if not res:
         rep is None or rep.append(("unexpected _https://json-model.org/models/l10n [.'~']", path))
     return res
@@ -140,11 +140,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
         if pfun := _jm_obj_0_mup.get(prop):
-            # handle 4 must props
+            # handle 4 mandatory props
             if pfun != UNDEFINED:
                 must_count += 1
                 if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid must property value []", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("invalid mandatory property value []", lpath_0 if path is not None else None))
                     return False
         elif prop == "#":
             # handle may # property
@@ -161,13 +161,13 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 4:
         if rep is not None:
             if not "$" in val:
-                rep is None or rep.append(("missing must prop <$> []", path))
+                rep is None or rep.append(("missing mandatory prop <$> []", path))
             if not "%" in val:
-                rep is None or rep.append(("missing must prop <%> []", path))
+                rep is None or rep.append(("missing mandatory prop <%> []", path))
             if not "@" in val:
-                rep is None or rep.append(("missing must prop <@> []", path))
+                rep is None or rep.append(("missing mandatory prop <@> []", path))
             if not "~" in val:
-                rep is None or rep.append(("missing must prop <~> []", path))
+                rep is None or rep.append(("missing mandatory prop <~> []", path))
         return False
     return True
 

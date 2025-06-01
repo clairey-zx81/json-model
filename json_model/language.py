@@ -305,11 +305,11 @@ class Language:
     # logical expressions
     #
     def not_op(self, e: BoolExpr) -> BoolExpr:
-        e = self.paren(e) if "=" in e else e
+        e = self.paren(e) if "=" in e or self._and in e or self._or in e else e
         return f"{self._not} {e}"
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
-        return f" {self._and} ".join(exprs)
+        return f" {self._and} ".join(self.paren(e) if self._or in e else e for e in exprs)
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
         return f" {self._or} ".join(exprs)

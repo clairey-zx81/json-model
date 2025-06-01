@@ -1,5 +1,5 @@
 opt_ns.values.json[1]: PASS
-opt_ns.values.json[2]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid must property value [.i]', ['i']), ('not an expected object at []', [])]
-opt_ns.values.json[3]: FAIL [('not a -1.0 strict float [.f]', ['f']), ('invalid must property value [.f]', ['f']), ('not an expected object at []', [])]
-opt_ns.values.json[4]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid must property value [.i]', ['i']), ('not an expected object at []', [])]
-opt_ns.values.json[5]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid must property value [.i]', ['i']), ('not an expected object at []', [])]
+opt_ns.values.json[2]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid mandatory property value [.i]', ['i']), ('not an expected object at []', [])]
+opt_ns.values.json[3]: FAIL [('not a -1.0 strict float [.f]', ['f']), ('invalid mandatory property value [.f]', ['f']), ('not an expected object at []', [])]
+opt_ns.values.json[4]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid mandatory property value [.i]', ['i']), ('not an expected object at []', [])]
+opt_ns.values.json[5]: FAIL [('not a -1 strict int [.i]', ['i']), ('invalid mandatory property value [.i]', ['i']), ('not an expected object at []', [])]

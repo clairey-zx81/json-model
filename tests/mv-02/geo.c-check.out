@@ -33,14 +33,14 @@ geo.values.json[35]: PASS
 geo.values.json[36]: PASS
 geo.values.json[37]: PASS
 geo.values.json[38]: FAIL (.: not an expected object at [.'$Point']) (.coord: no other prop expected [.'$Point'])
-geo.values.json[39]: FAIL (.: not an expected object at [.'$Point']) (.: missing must prop <coordinates> [.'$Point'])
-geo.values.json[40]: FAIL (.: not an expected object at [.'$Point']) (.: missing must prop <type> [.'$Point']) (.: missing must prop <coordinates> [.'$Point'])
+geo.values.json[39]: FAIL (.: not an expected object at [.'$Point']) (.: missing mandatory prop <coordinates> [.'$Point'])
+geo.values.json[40]: FAIL (.: not an expected object at [.'$Point']) (.: missing mandatory prop <type> [.'$Point']) (.: missing mandatory prop <coordinates> [.'$Point'])
 geo.values.json[41]: FAIL (.: not an expected object at [.'$Point']) (.: not an object [.'$Point'])
 geo.values.json[42]: FAIL (.: not an expected object at [.'$Point']) (.: not an object [.'$Point'])
 geo.values.json[43]: FAIL (.: not an expected object at [.'$Point']) (.: not an object [.'$Point'])
 geo.values.json[45]: PASS
-geo.values.json[46]: FAIL (.: not an expected object at [.'$MultiPoint']) (.type: invalid must property value [.'$MultiPoint'.type]) (.type: unexpected MultiPoint [.'$MultiPoint'.type])
-geo.values.json[47]: FAIL (.: not an expected object at [.'$MultiPoint']) (.type: invalid must property value [.'$MultiPoint'.type]) (.type: unexpected MultiPoint [.'$MultiPoint'.type])
+geo.values.json[46]: FAIL (.: not an expected object at [.'$MultiPoint']) (.type: invalid mandatory property value [.'$MultiPoint'.type]) (.type: unexpected MultiPoint [.'$MultiPoint'.type])
+geo.values.json[47]: FAIL (.: not an expected object at [.'$MultiPoint']) (.type: invalid mandatory property value [.'$MultiPoint'.type]) (.type: unexpected MultiPoint [.'$MultiPoint'.type])
 geo.values.json[49]: PASS
-geo.values.json[50]: FAIL (.: not an expected object at [.'$LineString']) (.coordinates: invalid must property value [.'$LineString'.coordinates]) (.coordinates: unexpected $coord_array [.'$LineString'.coordinates]) (.coordinates: constraints failed at [.'$coord_array'])
-geo.values.json[51]: FAIL (.: not an expected object at [.'$LineString']) (.type: invalid must property value [.'$LineString'.type]) (.type: unexpected LineString [.'$LineString'.type])
+geo.values.json[50]: FAIL (.: not an expected object at [.'$LineString']) (.coordinates: invalid mandatory property value [.'$LineString'.coordinates]) (.coordinates: unexpected $coord_array [.'$LineString'.coordinates]) (.coordinates: constraints failed at [.'$coord_array'])
+geo.values.json[51]: FAIL (.: not an expected object at [.'$LineString']) (.type: invalid mandatory property value [.'$LineString'.type]) (.type: unexpected LineString [.'$LineString'.type])

@@ -573,7 +573,7 @@ static bool _jm_f_19(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.maxItems
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxItems]", path);
@@ -586,7 +586,7 @@ static bool _jm_f_20(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.maxLength
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxLength]", path);
@@ -599,7 +599,7 @@ static bool _jm_f_21(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.maxProperties
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.maxProperties]", path);
@@ -625,7 +625,7 @@ static bool _jm_f_23(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.minItems
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minItems]", path);
@@ -638,7 +638,7 @@ static bool _jm_f_24(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.minLength
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minLength]", path);
@@ -651,7 +651,7 @@ static bool _jm_f_25(const json_t* val, Path* path, Report* rep)
 {
     bool res;
     // .'$ObjectSchema'.minProperties
-    res = (json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val)))) && json_number_value(val) >= 0;
+    res = ((json_is_integer(val) || (json_is_real(val) && json_real_value(val) == ((int64_t) json_real_value(val))))) && json_number_value(val) >= 0;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "not a 0 loose int [.'$ObjectSchema'.minProperties]", path);

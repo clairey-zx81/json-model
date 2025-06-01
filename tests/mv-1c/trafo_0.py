@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$zero'.za]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$zero'.za]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$zero'.za]", lpath_0 if path is not None else None))
                 return False
         elif prop == "zb":
             # handle must zb property
@@ -50,7 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$zero'.zb]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$zero'.zb]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$zero'.zb]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$zero']", lpath_0 if path is not None else None))
@@ -58,9 +58,9 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 2:
         if rep is not None:
             if not "za" in val:
-                rep is None or rep.append(("missing must prop <za> [.'$zero']", path))
+                rep is None or rep.append(("missing mandatory prop <za> [.'$zero']", path))
             if not "zb" in val:
-                rep is None or rep.append(("missing must prop <zb> [.'$zero']", path))
+                rep is None or rep.append(("missing mandatory prop <zb> [.'$zero']", path))
         return False
     return True
 

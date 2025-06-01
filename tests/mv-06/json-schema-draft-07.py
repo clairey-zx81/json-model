@@ -71,7 +71,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$simpleTypes'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$simpleTypes'.'|']", path))
     return res
@@ -397,7 +397,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.maxItems
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.maxItems]", path))
     return res
@@ -406,7 +406,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.maxLength
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.maxLength]", path))
     return res
@@ -415,7 +415,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.maxProperties
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.maxProperties]", path))
     return res
@@ -433,7 +433,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.minItems
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.minItems]", path))
     return res
@@ -442,7 +442,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.minLength
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.minLength]", path))
     return res
@@ -451,7 +451,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.minProperties
-    res = (isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val)) and val >= 0
+    res = ((isinstance(val, int) and not isinstance(val, bool) or isinstance(val, float) and val == int(val))) and val >= 0
     if not res:
         rep is None or rep.append(("not a 0 loose int [.'$ObjectSchema'.minProperties]", path))
     return res

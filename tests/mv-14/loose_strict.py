@@ -36,11 +36,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle must li property
             must_count += 1
             # .'$loose'.li
-            res = (isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval)) and pval >= 0
+            res = ((isinstance(pval, int) and not isinstance(pval, bool) or isinstance(pval, float) and pval == int(pval))) and pval >= 0
             if not res:
                 rep is None or rep.append(("not a 0 loose int [.'$loose'.li]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$loose'.li]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$loose'.li]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$loose']", lpath_0 if path is not None else None))
@@ -48,7 +48,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "li" in val:
-                rep is None or rep.append(("missing must prop <li> [.'$loose']", path))
+                rep is None or rep.append(("missing mandatory prop <li> [.'$loose']", path))
         return False
     return True
 
@@ -79,7 +79,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$strict'.si]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$strict'.si]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$strict'.si]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$strict']", lpath_1 if path is not None else None))
@@ -87,7 +87,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "si" in val:
-                rep is None or rep.append(("missing must prop <si> [.'$strict']", path))
+                rep is None or rep.append(("missing mandatory prop <si> [.'$strict']", path))
         return False
     return True
 
@@ -118,7 +118,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$combined'.li]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$combined'.li]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$combined'.li]", lpath_2 if path is not None else None))
                 return False
         elif prop == "si":
             # handle must si property
@@ -128,7 +128,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$combined'.si]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$combined'.si]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$combined'.si]", lpath_2 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$combined']", lpath_2 if path is not None else None))
@@ -136,9 +136,9 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 2:
         if rep is not None:
             if not "li" in val:
-                rep is None or rep.append(("missing must prop <li> [.'$combined']", path))
+                rep is None or rep.append(("missing mandatory prop <li> [.'$combined']", path))
             if not "si" in val:
-                rep is None or rep.append(("missing must prop <si> [.'$combined']", path))
+                rep is None or rep.append(("missing mandatory prop <si> [.'$combined']", path))
         return False
     return True
 

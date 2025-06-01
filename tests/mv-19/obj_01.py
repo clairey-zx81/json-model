@@ -29,7 +29,7 @@ check_model_map: PropMap
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$XXX'
-    res = (val is None or isinstance(val, (bool, int, float, str))) and val in _jm_cst_0
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'$XXX'.'|']", path))
     return res
@@ -53,7 +53,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.foo]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.foo]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.foo]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bla":
             # handle may bla property
@@ -91,7 +91,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "foo" in val:
-                rep is None or rep.append(("missing must prop <foo> [.'']", path))
+                rep is None or rep.append(("missing mandatory prop <foo> [.'']", path))
         return False
     return True
 

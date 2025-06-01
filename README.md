@@ -74,7 +74,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
 
   ```
   hobbes.json: PASS
-  unknown.json: FAIL [('missing must prop <born> []', []), ('not an expected object at []', [])]
+  unknown.json: FAIL [('missing mandatory prop <born> []', []), ('not an expected object at []', [])]
   ```
 
 - to actually compile an executable for checking a model, and use it for validating values:
@@ -85,7 +85,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   ```
   ```
   hobbes.json: PASS
-  unknown.json: FAIL (.: not an expected object at []) (.: missing must prop <born> [])
+  unknown.json: FAIL (.: not an expected object at []) (.: missing mandatory prop <born> [])
   ```
 
 ## JSON Model Python API

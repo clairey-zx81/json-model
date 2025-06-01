@@ -1,8 +1,8 @@
 one_mm.values.json[0]: PASS
 one_mm.values.json[1]: PASS
-one_mm.values.json[2]: FAIL (.: not an expected object at []) (.: missing must prop <must> [])
-one_mm.values.json[3]: FAIL (.: not an expected object at []) (.: missing must prop <must> [])
-one_mm.values.json[4]: FAIL (.: not an expected object at []) (.must: invalid must property value [.must]) (.must: not a 0 strict int [.must])
+one_mm.values.json[2]: FAIL (.: not an expected object at []) (.: missing mandatory prop <must> [])
+one_mm.values.json[3]: FAIL (.: not an expected object at []) (.: missing mandatory prop <must> [])
+one_mm.values.json[4]: FAIL (.: not an expected object at []) (.must: invalid mandatory property value [.must]) (.must: not a 0 strict int [.must])
 one_mm.values.json[5]: FAIL (.: not an expected object at []) (.not: no other prop expected [])
 one_mm.values.json[6]: FAIL (.: not an expected object at []) (.un: no other prop expected [])
 one_mm.values.json[7]: FAIL (.: not an expected object at []) (.: not an object [])

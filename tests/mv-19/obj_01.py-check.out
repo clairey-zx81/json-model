@@ -4,7 +4,7 @@ obj_01.values.json[2]: FAIL [('not a bool [.bla]', ['bla']), ('invalid may prope
 obj_01.values.json[3]: FAIL [("not a 0.0 strict float [.'$XXX']", ['X']), ('not an expected object at []', [])]
 obj_01.values.json[4]: FAIL [("value not in enum [.'$XXX'.'|']", ['418']), ("not a 0 strict int [.'/^[0-9]+$/']", ['418']), ('not an expected object at []', [])]
 obj_01.values.json[5]: FAIL [("value not in enum [.'$XXX'.'|']", ['whatever']), ("not null [.'']", ['whatever']), ('not an expected object at []', [])]
-obj_01.values.json[6]: FAIL [("missing must prop <foo> [.'']", []), ('not an expected object at []', [])]
+obj_01.values.json[6]: FAIL [("missing mandatory prop <foo> [.'']", []), ('not an expected object at []', [])]
 obj_01.values.json[7]: FAIL [('not an object []', []), ('not an expected object at []', [])]
 obj_01.values.json[8]: FAIL [('not an object []', []), ('not an expected object at []', [])]
 obj_01.values.json[9]: FAIL [('not an object []', []), ('not an expected object at []', [])]

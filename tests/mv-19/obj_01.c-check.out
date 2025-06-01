@@ -4,7 +4,7 @@ obj_01.values.json[2]: FAIL (.: not an expected object at []) (.bla: invalid may
 obj_01.values.json[3]: FAIL (.: not an expected object at []) (.X: not a 0.0 strict float [.'$XXX'])
 obj_01.values.json[4]: FAIL (.: not an expected object at []) (.418: not a 0 strict int [.'/^[0-9]+$/']) (.418: value not in enum [.'$XXX'.'|'])
 obj_01.values.json[5]: FAIL (.: not an expected object at []) (.whatever: not null [.'']) (.whatever: value not in enum [.'$XXX'.'|'])
-obj_01.values.json[6]: FAIL (.: not an expected object at []) (.: missing must prop <foo> [.''])
+obj_01.values.json[6]: FAIL (.: not an expected object at []) (.: missing mandatory prop <foo> [.''])
 obj_01.values.json[7]: FAIL (.: not an expected object at []) (.: not an object [])
 obj_01.values.json[8]: FAIL (.: not an expected object at []) (.: not an object [])
 obj_01.values.json[9]: FAIL (.: not an expected object at []) (.: not an object [])

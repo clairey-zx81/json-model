@@ -1858,7 +1858,7 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$String'.type]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$String'.type]", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1883,7 +1883,7 @@ static bool _jm_obj_10(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$String']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$String']", path);
             }
         }
         return false;
@@ -2353,7 +2353,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Array'.type]", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Array'.type]", (path ? &lpath_14 : NULL));
                 return false;
             }
         }
@@ -2378,7 +2378,7 @@ static bool _jm_obj_14(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Array']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Array']", path);
             }
         }
         return false;
@@ -2928,7 +2928,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Object'.type]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Object'.type]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -2953,7 +2953,7 @@ static bool _jm_obj_18(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Object']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Object']", path);
             }
         }
         return false;
@@ -3340,7 +3340,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Integer'.type]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Integer'.type]", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -3365,7 +3365,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Integer']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Integer']", path);
             }
         }
         return false;
@@ -3752,7 +3752,7 @@ static bool _jm_obj_28(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Number'.type]", (path ? &lpath_28 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Number'.type]", (path ? &lpath_28 : NULL));
                 return false;
             }
         }
@@ -3777,7 +3777,7 @@ static bool _jm_obj_28(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Number']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Number']", path);
             }
         }
         return false;
@@ -4138,7 +4138,7 @@ static bool _jm_obj_32(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Bool'.type]", (path ? &lpath_32 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Bool'.type]", (path ? &lpath_32 : NULL));
                 return false;
             }
         }
@@ -4163,7 +4163,7 @@ static bool _jm_obj_32(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Bool']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Bool']", path);
             }
         }
         return false;
@@ -4524,7 +4524,7 @@ static bool _jm_obj_36(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Null'.type]", (path ? &lpath_36 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Null'.type]", (path ? &lpath_36 : NULL));
                 return false;
             }
         }
@@ -4549,7 +4549,7 @@ static bool _jm_obj_36(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$Null']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Null']", path);
             }
         }
         return false;
@@ -4910,7 +4910,7 @@ static bool _jm_obj_40(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$AllOf'.allOf]", (path ? &lpath_40 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$AllOf'.allOf]", (path ? &lpath_40 : NULL));
                 return false;
             }
         }
@@ -4935,7 +4935,7 @@ static bool _jm_obj_40(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "allOf") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <allOf> [.'$AllOf']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <allOf> [.'$AllOf']", path);
             }
         }
         return false;
@@ -5296,7 +5296,7 @@ static bool _jm_obj_44(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$AnyOf'.anyOf]", (path ? &lpath_44 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$AnyOf'.anyOf]", (path ? &lpath_44 : NULL));
                 return false;
             }
         }
@@ -5321,7 +5321,7 @@ static bool _jm_obj_44(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "anyOf") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <anyOf> [.'$AnyOf']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <anyOf> [.'$AnyOf']", path);
             }
         }
         return false;
@@ -5682,7 +5682,7 @@ static bool _jm_obj_48(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$OneOf'.oneOf]", (path ? &lpath_48 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$OneOf'.oneOf]", (path ? &lpath_48 : NULL));
                 return false;
             }
         }
@@ -5707,7 +5707,7 @@ static bool _jm_obj_48(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "oneOf") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <oneOf> [.'$OneOf']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <oneOf> [.'$OneOf']", path);
             }
         }
         return false;
@@ -6068,7 +6068,7 @@ static bool _jm_obj_52(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Enum'.enum]", (path ? &lpath_52 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Enum'.enum]", (path ? &lpath_52 : NULL));
                 return false;
             }
         }
@@ -6093,7 +6093,7 @@ static bool _jm_obj_52(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "enum") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <enum> [.'$Enum']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <enum> [.'$Enum']", path);
             }
         }
         return false;
@@ -6454,7 +6454,7 @@ static bool _jm_obj_56(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Const'.const]", (path ? &lpath_56 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Const'.const]", (path ? &lpath_56 : NULL));
                 return false;
             }
         }
@@ -6479,7 +6479,7 @@ static bool _jm_obj_56(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "const") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <const> [.'$Const']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <const> [.'$Const']", path);
             }
         }
         return false;
@@ -6840,7 +6840,7 @@ static bool _jm_obj_60(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$Ref'.$ref]", (path ? &lpath_60 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Ref'.$ref]", (path ? &lpath_60 : NULL));
                 return false;
             }
         }
@@ -6865,7 +6865,7 @@ static bool _jm_obj_60(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "$ref") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <$ref> [.'$Ref']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <$ref> [.'$Ref']", path);
             }
         }
         return false;
@@ -7226,7 +7226,7 @@ static bool _jm_obj_64(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$DynRef'.$dynamicRef]", (path ? &lpath_64 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$DynRef'.$dynamicRef]", (path ? &lpath_64 : NULL));
                 return false;
             }
         }
@@ -7251,7 +7251,7 @@ static bool _jm_obj_64(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "$dynamicRef") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <$dynamicRef> [.'$DynRef']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <$dynamicRef> [.'$DynRef']", path);
             }
         }
         return false;
@@ -7478,7 +7478,7 @@ static bool _jm_obj_68(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$RootSchema'.'&'.0.$schema]", (path ? &lpath_68 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$RootSchema'.'&'.0.$schema]", (path ? &lpath_68 : NULL));
                 return false;
             }
         }
@@ -7493,7 +7493,7 @@ static bool _jm_obj_68(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "$schema") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <$schema> [.'$RootSchema'.'&'.0.'']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <$schema> [.'$RootSchema'.'&'.0.'']", path);
             }
         }
         return false;

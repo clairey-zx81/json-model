@@ -1,11 +1,11 @@
 xor_ob03.values.json[0]: PASS
 xor_ob03.values.json[1]: PASS
-xor_ob03.values.json[2]: FAIL (.: not an expected object at []) (.movie: invalid must property value [.movie]) (.movie: tag t value not found [.movie.'|'])
-xor_ob03.values.json[3]: FAIL (.: not an expected object at []) (.movie: invalid must property value [.movie]) (.movie: missing must prop <titre> [.movie.'|'.0])
-xor_ob03.values.json[4]: FAIL (.: not an expected object at []) (.movie: invalid must property value [.movie]) (.movie.titre: invalid must property value [.movie.'|'.0.titre]) (.movie.titre: unexpected string [.movie.'|'.0.titre])
-xor_ob03.values.json[5]: FAIL (.: not an expected object at []) (.movie: invalid must property value [.movie]) (.movie.audio: no other prop expected [.movie.'|'.0])
-xor_ob03.values.json[6]: FAIL (.: not an expected object at []) (.movie: invalid must property value [.movie]) (.movie: tag prop t is missing [.movie.'|'])
-xor_ob03.values.json[7]: FAIL (.: not an expected object at []) (.: missing must prop <movie> [])
+xor_ob03.values.json[2]: FAIL (.: not an expected object at []) (.movie: invalid mandatory property value [.movie]) (.movie: tag t value not found [.movie.'|'])
+xor_ob03.values.json[3]: FAIL (.: not an expected object at []) (.movie: invalid mandatory property value [.movie]) (.movie: missing mandatory prop <titre> [.movie.'|'.0])
+xor_ob03.values.json[4]: FAIL (.: not an expected object at []) (.movie: invalid mandatory property value [.movie]) (.movie.titre: invalid mandatory property value [.movie.'|'.0.titre]) (.movie.titre: unexpected string [.movie.'|'.0.titre])
+xor_ob03.values.json[5]: FAIL (.: not an expected object at []) (.movie: invalid mandatory property value [.movie]) (.movie.audio: no other prop expected [.movie.'|'.0])
+xor_ob03.values.json[6]: FAIL (.: not an expected object at []) (.movie: invalid mandatory property value [.movie]) (.movie: tag prop t is missing [.movie.'|'])
+xor_ob03.values.json[7]: FAIL (.: not an expected object at []) (.: missing mandatory prop <movie> [])
 xor_ob03.values.json[8]: FAIL (.: not an expected object at []) (.: not an object [])
 xor_ob03.values.json[9]: FAIL (.: not an expected object at []) (.: not an object [])
 xor_ob03.values.json[10]: FAIL (.: not an expected object at []) (.: not an object [])

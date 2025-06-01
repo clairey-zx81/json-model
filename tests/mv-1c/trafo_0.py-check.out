@@ -1,7 +1,7 @@
 trafo_0.values.json[0]: PASS
-trafo_0.values.json[1]: FAIL [("missing must prop <za> [.'$zero']", []), ("missing must prop <zb> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
-trafo_0.values.json[2]: FAIL [("missing must prop <zb> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
-trafo_0.values.json[3]: FAIL [("missing must prop <za> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
+trafo_0.values.json[1]: FAIL [("missing mandatory prop <za> [.'$zero']", []), ("missing mandatory prop <zb> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
+trafo_0.values.json[2]: FAIL [("missing mandatory prop <zb> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
+trafo_0.values.json[3]: FAIL [("missing mandatory prop <za> [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
 trafo_0.values.json[4]: FAIL [("no other prop expected [.'$zero']", ['un']), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
 trafo_0.values.json[5]: FAIL [("not an object [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]
 trafo_0.values.json[6]: FAIL [("not an object [.'$zero']", []), ("not an expected object at [.'$zero']", []), ('unexpected $zero []', [])]

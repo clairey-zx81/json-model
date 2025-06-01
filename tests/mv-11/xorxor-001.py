@@ -59,7 +59,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$X'.X]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$X'.X]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$X'.X]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$X']", lpath_0 if path is not None else None))
@@ -67,7 +67,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "X" in val:
-                rep is None or rep.append(("missing must prop <X> [.'$X']", path))
+                rep is None or rep.append(("missing mandatory prop <X> [.'$X']", path))
         return False
     return True
 
@@ -98,7 +98,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Y'.Y]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$Y'.Y]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$Y'.Y]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'$Y']", lpath_1 if path is not None else None))
@@ -106,7 +106,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "Y" in val:
-                rep is None or rep.append(("missing must prop <Y> [.'$Y']", path))
+                rep is None or rep.append(("missing mandatory prop <Y> [.'$Y']", path))
         return False
     return True
 
@@ -137,7 +137,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$E'.'|'.1.Y]", lpath_2 if path is not None else None))
                 return False
         elif prop == "Z":
             # handle may Z property
@@ -154,7 +154,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "Y" in val:
-                rep is None or rep.append(("missing must prop <Y> [.'$E'.'|'.1]", path))
+                rep is None or rep.append(("missing mandatory prop <Y> [.'$E'.'|'.1]", path))
         return False
     return True
 
@@ -176,7 +176,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'$E'.'|'.0.X]", lpath_3 if path is not None else None))
                 return False
         elif prop == "Z":
             # handle may Z property
@@ -193,7 +193,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "X" in val:
-                rep is None or rep.append(("missing must prop <X> [.'$E'.'|'.0]", path))
+                rep is None or rep.append(("missing mandatory prop <X> [.'$E'.'|'.0]", path))
         return False
     return True
 

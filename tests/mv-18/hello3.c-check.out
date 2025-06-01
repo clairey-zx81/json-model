@@ -1,3 +1,3 @@
 hello3.values.json[0]: PASS
 hello3.values.json[1]: PASS
-hello3.values.json[2]: FAIL (.: not an expected object at []) (.world: invalid must property value [.world]) (.world: not a bool [.world])
+hello3.values.json[2]: FAIL (.: not an expected object at []) (.world: invalid mandatory property value [.world]) (.world: not a bool [.world])

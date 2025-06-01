@@ -507,7 +507,7 @@ class SourceCode(Validator):
                           gen.inc_var(must_c) ] +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
-                            self._gen_fail(f"invalid must property value [{smpath}.{p}]", lpath_ref)
+                            self._gen_fail(f"invalid mandatory property value [{smpath}.{p}]", lpath_ref)
                         )
                     )
                     multi_if += [(mu_expr, mu_code)]
@@ -524,11 +524,11 @@ class SourceCode(Validator):
                 # use map
                 mu_expr = gen.prop_fun(pfun, prop, prop_must)
                 mu_code = (
-                    [ gen.lcom(f"handle {len(must)} must props") ] +
+                    [ gen.lcom(f"handle {len(must)} mandatory props") ] +
                     gen.if_stmt(gen.is_def(pfun),
                         [ gen.inc_var(must_c) ] +
                         gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
-                            self._gen_fail(f"invalid must property value [{smpath}]", lpath_ref)))
+                            self._gen_fail(f"invalid mandatory property value [{smpath}]", lpath_ref)))
                 )
 
                 multi_if += [(mu_expr, mu_code)]
@@ -613,7 +613,7 @@ class SourceCode(Validator):
             for prop in sorted(must.keys()):
                 missing += \
                     gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
-                                gen.report(f"missing must prop <{prop}> [{smpath}]", vpath))
+                                gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
             code += gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
                 self._gen_reporting(missing) +
                 [ gen.ret(gen.const(False)) ])

@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not null [.mu1]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.mu1]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.mu1]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu2":
             # handle must mu2 property
@@ -50,7 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.mu2]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.mu2]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.mu2]", lpath_0 if path is not None else None))
                 return False
         elif prop == "mu3":
             # handle must mu3 property
@@ -60,7 +60,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.mu3]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.mu3]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.mu3]", lpath_0 if path is not None else None))
                 return False
         elif prop == "ma1":
             # handle may ma1 property
@@ -95,11 +95,11 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 3:
         if rep is not None:
             if not "mu1" in val:
-                rep is None or rep.append(("missing must prop <mu1> []", path))
+                rep is None or rep.append(("missing mandatory prop <mu1> []", path))
             if not "mu2" in val:
-                rep is None or rep.append(("missing must prop <mu2> []", path))
+                rep is None or rep.append(("missing mandatory prop <mu2> []", path))
             if not "mu3" in val:
-                rep is None or rep.append(("missing must prop <mu3> []", path))
+                rep is None or rep.append(("missing mandatory prop <mu3> []", path))
         return False
     return True
 

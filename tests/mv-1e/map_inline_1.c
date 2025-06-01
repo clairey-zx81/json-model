@@ -32,7 +32,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.mu1]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.mu1]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -48,7 +48,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.mu2]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.mu2]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -64,7 +64,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.mu3]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.mu3]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -125,15 +125,15 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "mu1") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <mu1> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu1> []", path);
             }
             if (! (json_object_get(val, "mu2") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <mu2> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu2> []", path);
             }
             if (! (json_object_get(val, "mu3") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <mu3> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <mu3> []", path);
             }
         }
         return false;

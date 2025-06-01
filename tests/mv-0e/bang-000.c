@@ -99,13 +99,13 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         Path lpath_0 = (Path) { prop, 0, path, NULL };
         if ((pfun = _jm_obj_0_mup(prop)))
         {
-            // handle 5 must props
+            // handle 5 mandatory props
             if (pfun != NULL)
             {
                 must_count += 1;
                 if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
                 {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value []", (path ? &lpath_0 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid mandatory property value []", (path ? &lpath_0 : NULL));
                     return false;
                 }
             }
@@ -137,23 +137,23 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "!") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <!> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <!> []", path);
             }
             if (! (json_object_get(val, "/") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop </> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop </> []", path);
             }
             if (! (json_object_get(val, "?") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <?> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <?> []", path);
             }
             if (! (json_object_get(val, "_") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <_> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <_> []", path);
             }
             if (! (json_object_get(val, "a") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <a> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <a> []", path);
             }
         }
         return false;

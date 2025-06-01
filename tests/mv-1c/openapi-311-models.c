@@ -444,7 +444,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -460,7 +460,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#OpenAPI'.info]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -499,11 +499,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "info") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <info> [.'$openapi#OpenAPI']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <info> [.'$openapi#OpenAPI']", path);
             }
             if (! (json_object_get(val, "openapi") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <openapi> [.'$openapi#OpenAPI']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <openapi> [.'$openapi#OpenAPI']", path);
             }
         }
         return false;
@@ -622,7 +622,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Info'.title]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Info'.title]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -638,7 +638,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Info'.version]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Info'.version]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -677,11 +677,11 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "title") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <title> [.'$openapi#Info']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <title> [.'$openapi#Info']", path);
             }
             if (! (json_object_get(val, "version") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <version> [.'$openapi#Info']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <version> [.'$openapi#Info']", path);
             }
         }
         return false;
@@ -824,7 +824,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#License'.'|'.1.name]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#License'.'|'.1.name]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -840,7 +840,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#License'.'|'.1.url]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#License'.'|'.1.url]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -870,11 +870,11 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#License'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#License'.'|'.1]", path);
             }
             if (! (json_object_get(val, "url") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <url> [.'$openapi#License'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$openapi#License'.'|'.1]", path);
             }
         }
         return false;
@@ -909,7 +909,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#License'.'|'.0.name]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#License'.'|'.0.name]", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -925,7 +925,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#License'.'|'.0.identifier]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#License'.'|'.0.identifier]", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -955,11 +955,11 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "identifier") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <identifier> [.'$openapi#License'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <identifier> [.'$openapi#License'.'|'.0]", path);
             }
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#License'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#License'.'|'.0]", path);
             }
         }
         return false;
@@ -1062,7 +1062,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Server'.url]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Server'.url]", (path ? &lpath_6 : NULL));
                 return false;
             }
         }
@@ -1122,7 +1122,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "url") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <url> [.'$openapi#Server']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$openapi#Server']", path);
             }
         }
         return false;
@@ -1170,7 +1170,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#ServerVariable'.default]", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#ServerVariable'.default]", (path ? &lpath_8 : NULL));
                 return false;
             }
         }
@@ -1249,7 +1249,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "default") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <default> [.'$openapi#ServerVariable']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <default> [.'$openapi#ServerVariable']", path);
             }
         }
         return false;
@@ -2698,7 +2698,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#ExternalDocumentation'.url]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#ExternalDocumentation'.url]", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2743,7 +2743,7 @@ static bool _jm_obj_24(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "url") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <url> [.'$openapi#ExternalDocumentation']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <url> [.'$openapi#ExternalDocumentation']", path);
             }
         }
         return false;
@@ -2892,7 +2892,7 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Parameter'.'|'.1.name]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Parameter'.'|'.1.name]", (path ? &lpath_25 : NULL));
                 return false;
             }
         }
@@ -2908,7 +2908,7 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Parameter'.'|'.1.in]", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Parameter'.'|'.1.in]", (path ? &lpath_25 : NULL));
                 return false;
             }
         }
@@ -2947,11 +2947,11 @@ static bool _jm_obj_25(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "in") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <in> [.'$openapi#Parameter'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$openapi#Parameter'.'|'.1]", path);
             }
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#Parameter'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#Parameter'.'|'.1]", path);
             }
         }
         return false;
@@ -3170,7 +3170,7 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Parameter'.'|'.0.name]", (path ? &lpath_27 : NULL));
                 return false;
             }
         }
@@ -3186,7 +3186,7 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Parameter'.'|'.0.in]", (path ? &lpath_27 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Parameter'.'|'.0.in]", (path ? &lpath_27 : NULL));
                 return false;
             }
         }
@@ -3225,11 +3225,11 @@ static bool _jm_obj_27(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "in") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <in> [.'$openapi#Parameter'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$openapi#Parameter'.'|'.0]", path);
             }
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#Parameter'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#Parameter'.'|'.0]", path);
             }
         }
         return false;
@@ -4455,7 +4455,7 @@ static bool _jm_obj_43(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Link'.'|'.1.operationId]", (path ? &lpath_43 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Link'.'|'.1.operationId]", (path ? &lpath_43 : NULL));
                 return false;
             }
         }
@@ -4494,7 +4494,7 @@ static bool _jm_obj_43(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "operationId") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <operationId> [.'$openapi#Link'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <operationId> [.'$openapi#Link'.'|'.1]", path);
             }
         }
         return false;
@@ -4599,7 +4599,7 @@ static bool _jm_obj_45(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Link'.'|'.0.operationRef]", (path ? &lpath_44 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Link'.'|'.0.operationRef]", (path ? &lpath_44 : NULL));
                 return false;
             }
         }
@@ -4638,7 +4638,7 @@ static bool _jm_obj_45(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "operationRef") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <operationRef> [.'$openapi#Link'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <operationRef> [.'$openapi#Link'.'|'.0]", path);
             }
         }
         return false;
@@ -5126,7 +5126,7 @@ static bool _jm_obj_51(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Tag'.name]", (path ? &lpath_49 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Tag'.name]", (path ? &lpath_49 : NULL));
                 return false;
             }
         }
@@ -5186,7 +5186,7 @@ static bool _jm_obj_51(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#Tag']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#Tag']", path);
             }
         }
         return false;
@@ -5234,7 +5234,7 @@ static bool _jm_obj_52(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#Reference'.$ref]", (path ? &lpath_50 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#Reference'.$ref]", (path ? &lpath_50 : NULL));
                 return false;
             }
         }
@@ -5280,7 +5280,7 @@ static bool _jm_obj_52(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "$ref") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <$ref> [.'$openapi#Reference']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <$ref> [.'$openapi#Reference']", path);
             }
         }
         return false;
@@ -5403,13 +5403,13 @@ static bool _jm_obj_53(const json_t* val, Path* path, Report* rep)
         Path lpath_51 = (Path) { prop, 0, path, NULL };
         if ((pfun = _jm_obj_53_mup(prop)))
         {
-            // handle 6 must props
+            // handle 6 mandatory props
             if (pfun != NULL)
             {
                 must_count += 1;
                 if (! pfun(pval, (path ? &lpath_51 : NULL), rep))
                 {
-                    if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#SecurityScheme']", (path ? &lpath_51 : NULL));
+                    if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#SecurityScheme']", (path ? &lpath_51 : NULL));
                     return false;
                 }
             }
@@ -5470,27 +5470,27 @@ static bool _jm_obj_53(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "flows") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <flows> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <flows> [.'$openapi#SecurityScheme']", path);
             }
             if (! (json_object_get(val, "in") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <in> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <in> [.'$openapi#SecurityScheme']", path);
             }
             if (! (json_object_get(val, "name") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <name> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <name> [.'$openapi#SecurityScheme']", path);
             }
             if (! (json_object_get(val, "openIdConnectUrl") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <openIdConnectUrl> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <openIdConnectUrl> [.'$openapi#SecurityScheme']", path);
             }
             if (! (json_object_get(val, "scheme") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <scheme> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <scheme> [.'$openapi#SecurityScheme']", path);
             }
             if (! (json_object_get(val, "type") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <type> [.'$openapi#SecurityScheme']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$openapi#SecurityScheme']", path);
             }
         }
         return false;
@@ -5684,7 +5684,7 @@ static bool _jm_obj_55(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#OAuthFlow'.authorizationUrl]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#OAuthFlow'.authorizationUrl]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -5700,7 +5700,7 @@ static bool _jm_obj_55(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#OAuthFlow'.tokenUrl]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#OAuthFlow'.tokenUrl]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -5716,7 +5716,7 @@ static bool _jm_obj_55(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#OAuthFlow'.scopes]", (path ? &lpath_53 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#OAuthFlow'.scopes]", (path ? &lpath_53 : NULL));
                 return false;
             }
         }
@@ -5761,15 +5761,15 @@ static bool _jm_obj_55(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "authorizationUrl") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <authorizationUrl> [.'$openapi#OAuthFlow']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <authorizationUrl> [.'$openapi#OAuthFlow']", path);
             }
             if (! (json_object_get(val, "scopes") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <scopes> [.'$openapi#OAuthFlow']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <scopes> [.'$openapi#OAuthFlow']", path);
             }
             if (! (json_object_get(val, "tokenUrl") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <tokenUrl> [.'$openapi#OAuthFlow']", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <tokenUrl> [.'$openapi#OAuthFlow']", path);
             }
         }
         return false;
@@ -6050,7 +6050,7 @@ static bool _jm_obj_59(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#model#Elem'.'|'.4.+]", (path ? &lpath_57 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#model#Elem'.'|'.4.+]", (path ? &lpath_57 : NULL));
                 return false;
             }
         }
@@ -6081,7 +6081,7 @@ static bool _jm_obj_59(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "+") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <+> [.'$openapi#model#Elem'.'|'.4]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <+> [.'$openapi#model#Elem'.'|'.4]", path);
             }
         }
         return false;
@@ -6135,7 +6135,7 @@ static bool _jm_obj_60(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#model#Elem'.'|'.3.^]", (path ? &lpath_58 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#model#Elem'.'|'.3.^]", (path ? &lpath_58 : NULL));
                 return false;
             }
         }
@@ -6166,7 +6166,7 @@ static bool _jm_obj_60(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "^") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <^> [.'$openapi#model#Elem'.'|'.3]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <^> [.'$openapi#model#Elem'.'|'.3]", path);
             }
         }
         return false;
@@ -6220,7 +6220,7 @@ static bool _jm_obj_61(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#model#Elem'.'|'.2.&]", (path ? &lpath_59 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#model#Elem'.'|'.2.&]", (path ? &lpath_59 : NULL));
                 return false;
             }
         }
@@ -6251,7 +6251,7 @@ static bool _jm_obj_61(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "&") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <&> [.'$openapi#model#Elem'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <&> [.'$openapi#model#Elem'.'|'.2]", path);
             }
         }
         return false;
@@ -6305,7 +6305,7 @@ static bool _jm_obj_62(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#model#Elem'.'|'.1.|]", (path ? &lpath_60 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#model#Elem'.'|'.1.|]", (path ? &lpath_60 : NULL));
                 return false;
             }
         }
@@ -6336,7 +6336,7 @@ static bool _jm_obj_62(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "|") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <|> [.'$openapi#model#Elem'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <|> [.'$openapi#model#Elem'.'|'.1]", path);
             }
         }
         return false;
@@ -6385,7 +6385,7 @@ static bool _jm_obj_63(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid must property value [.'$openapi#model#Elem'.'|'.0.@]", (path ? &lpath_61 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$openapi#model#Elem'.'|'.0.@]", (path ? &lpath_61 : NULL));
                 return false;
             }
         }
@@ -6486,7 +6486,7 @@ static bool _jm_obj_63(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "@") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing must prop <@> [.'$openapi#model#Elem'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <@> [.'$openapi#model#Elem'.'|'.0]", path);
             }
         }
         return false;

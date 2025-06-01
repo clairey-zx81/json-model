@@ -79,7 +79,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'|'.1.b]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'|'.1.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'|'.1.b]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'|'.1]", lpath_1 if path is not None else None))
@@ -87,7 +87,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "b" in val:
-                rep is None or rep.append(("missing must prop <b> [.'|'.1]", path))
+                rep is None or rep.append(("missing mandatory prop <b> [.'|'.1]", path))
         return False
     return True
 
@@ -109,7 +109,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'|'.0.a]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid must property value [.'|'.0.a]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [.'|'.0.a]", lpath_2 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("no other prop expected [.'|'.0]", lpath_2 if path is not None else None))
@@ -117,7 +117,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if must_count != 1:
         if rep is not None:
             if not "a" in val:
-                rep is None or rep.append(("missing must prop <a> [.'|'.0]", path))
+                rep is None or rep.append(("missing mandatory prop <a> [.'|'.0]", path))
         return False
     return True
 

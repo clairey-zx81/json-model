@@ -1,5 +1,5 @@
 opt_sl.values.json[1]: PASS
 opt_sl.values.json[2]: PASS
-opt_sl.values.json[3]: FAIL (.: not an expected object at []) (.i: invalid must property value [.i]) (.i: not a -1 strict int [.i])
-opt_sl.values.json[4]: FAIL (.: not an expected object at []) (.i: invalid must property value [.i]) (.i: not a -1 strict int [.i])
-opt_sl.values.json[5]: FAIL (.: not an expected object at []) (.i: invalid must property value [.i]) (.i: not a -1 strict int [.i])
+opt_sl.values.json[3]: FAIL (.: not an expected object at []) (.i: invalid mandatory property value [.i]) (.i: not a -1 strict int [.i])
+opt_sl.values.json[4]: FAIL (.: not an expected object at []) (.i: invalid mandatory property value [.i]) (.i: not a -1 strict int [.i])
+opt_sl.values.json[5]: FAIL (.: not an expected object at []) (.i: invalid mandatory property value [.i]) (.i: not a -1 strict int [.i])
