@@ -199,38 +199,38 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'|']", path))
+        rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
         # .'|'.0
         res = _jm_obj_4(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'|'.0]", path))
         if not res:
             # .'|'.1
             res = _jm_obj_3(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'|'.1]", path))
             if not res:
                 # .'|'.2
                 res = _jm_obj_2(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'|'.2]", path))
+                    rep is None or rep.append(("not an expected object [.'|'.2]", path))
                 if not res:
                     # .'|'.3
                     res = _jm_obj_1(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("not an expected object at [.'|'.3]", path))
+                        rep is None or rep.append(("not an expected object [.'|'.3]", path))
                     if not res:
                         # .'|'.4
                         res = _jm_obj_0(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("not an expected object at [.'|'.4]", path))
+                            rep is None or rep.append(("not an expected object [.'|'.4]", path))
         if res:
             rep is None or rep.clear()
         else:

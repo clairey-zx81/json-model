@@ -1,19 +1,19 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[1];
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     res = json_is_array(val) && json_array_size(val) == 4;
     if (res)
     {
-        Path lpath_0 = (Path) { NULL, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
         res = json_is_string(json_array_get(val, 0));
         if (! res)
@@ -22,7 +22,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         }
         if (res)
         {
-            Path lpath_0 = (Path) { NULL, 1, path, NULL };
+            jm_path_t lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_is_integer(json_array_get(val, 1)) && json_integer_value(json_array_get(val, 1)) >= 0;
             if (! res)
@@ -31,7 +31,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             }
             if (res)
             {
-                Path lpath_0 = (Path) { NULL, 2, path, NULL };
+                jm_path_t lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
                 // .2
                 res = json_is_boolean(json_array_get(val, 2));
                 if (! res)
@@ -40,7 +40,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
                 }
                 if (res)
                 {
-                    Path lpath_0 = (Path) { NULL, 3, path, NULL };
+                    jm_path_t lpath_0 = (jm_path_t) { NULL, 3, path, NULL };
                     // .3
                     res = json_is_real(json_array_get(val, 3)) && json_real_value(json_array_get(val, 3)) >= 0.0;
                     if (! res)
@@ -53,12 +53,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array []", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.]", path);
     }
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
@@ -71,7 +71,7 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

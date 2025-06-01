@@ -31,13 +31,13 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a 0 strict int [.'$an_int']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $an_int []", path))
+        rep is None or rep.append(("unexpected $an_int [.]", path))
     return res
 
 

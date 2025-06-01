@@ -58,7 +58,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'|'.1.a
             res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'|'.1.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'|'.1.a]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'|'.1.a]", lpath_0 if path is not None else None))
                 return False
@@ -114,23 +114,23 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'|']", path))
+        rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
         # .'|'.0
         res = _jm_obj_2(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'|'.0]", path))
         if not res:
             # .'|'.1
             res = _jm_obj_0(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:

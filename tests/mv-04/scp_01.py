@@ -69,13 +69,13 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$R'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$R']", path))
+        rep is None or rep.append(("not an expected object [.'$R']", path))
     return res
 
-# object 
+# object .
 def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object []", path))
+        rep is None or rep.append(("not an object [.]", path))
         return False
     res: bool
     must_count: int = 0
@@ -90,7 +90,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $R [.RA]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.RA]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [..RA]", lpath_1 if path is not None else None))
                 return False
         elif prop == "b":
             # handle may b property
@@ -99,7 +99,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $B [.b]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [..b]", lpath_1 if path is not None else None))
                 return False
         elif prop == "a":
             # handle may a property
@@ -108,25 +108,25 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $R#A [.a]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [..a]", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected []", lpath_1 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.]", lpath_1 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
             if not "RA" in val:
-                rep is None or rep.append(("missing mandatory prop <RA> []", path))
+                rep is None or rep.append(("missing mandatory prop <RA> [.]", path))
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at []", path))
+        rep is None or rep.append(("not an expected object [.]", path))
     return res
 
 # check $R#A (.'$R#A')

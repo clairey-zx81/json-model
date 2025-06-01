@@ -28,13 +28,13 @@ _jm_re_2_reco: object
 _jm_re_2: RegexFun
 check_model_map: PropMap
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, str)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'|']", path))
+        rep is None or rep.append(("unexpected type [.'|']", path))
     if res:
         # .'|'.0
         # "/[0-9]/"

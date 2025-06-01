@@ -1,26 +1,26 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_2(const json_t* val, Path* path, Report* rep);
-static bool json_model_3(const json_t* val, Path* path, Report* rep);
-static bool json_model_4(const json_t* val, Path* path, Report* rep);
-static bool json_model_5(const json_t* val, Path* path, Report* rep);
-static bool json_model_6(const json_t* val, Path* path, Report* rep);
-static bool json_model_7(const json_t* val, Path* path, Report* rep);
-static bool json_model_8(const json_t* val, Path* path, Report* rep);
-static bool json_model_9(const json_t* val, Path* path, Report* rep);
-static bool json_model_10(const json_t* val, Path* path, Report* rep);
-static constmap_t _jm_map_0_tab[6];
-static bool json_model_11(const json_t* val, Path* path, Report* rep);
-static bool json_model_12(const json_t* val, Path* path, Report* rep);
-static bool json_model_13(const json_t* val, Path* path, Report* rep);
-static bool json_model_14(const json_t* val, Path* path, Report* rep);
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[14];
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constmap_t _jm_map_0_tab[6];
+static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[14];
 const size_t check_model_map_size = 14;
 
 // check $position (.'$position')
-static bool json_model_2(const json_t* val, Path* path, Report* rep)
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$position'
@@ -32,7 +32,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
         json_t *arr_0_item;
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
-            Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$position'.'@'.0
             res = json_is_number(arr_0_item);
             if (! res)
@@ -56,13 +56,13 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [.'$position']", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed [.'$position']", path);
     }
     return res;
 }
 
 // check $coord_array (.'$coord_array')
-static bool json_model_3(const json_t* val, Path* path, Report* rep)
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$coord_array'
@@ -74,7 +74,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
         json_t *arr_1_item;
         json_array_foreach(val, arr_1_idx, arr_1_item)
         {
-            Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
+            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$coord_array'.'@'.0
             res = json_model_2(arr_1_item, (path ? &arr_1_lpath : NULL), rep);
             if (! res)
@@ -98,13 +98,13 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [.'$coord_array']", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed [.'$coord_array']", path);
     }
     return res;
 }
 
 // check $linear_ring (.'$linear_ring')
-static bool json_model_4(const json_t* val, Path* path, Report* rep)
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$linear_ring'
@@ -116,7 +116,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         json_t *arr_2_item;
         json_array_foreach(val, arr_2_idx, arr_2_item)
         {
-            Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
+            jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, path, NULL };
             // .'$linear_ring'.'@'.0
             res = json_model_2(arr_2_item, (path ? &arr_2_lpath : NULL), rep);
             if (! res)
@@ -140,13 +140,13 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "constraints failed at [.'$linear_ring']", path);
+        if (rep) jm_report_add_entry(rep, "constraints failed [.'$linear_ring']", path);
     }
     return res;
 }
 
 // object .'$Point'
-static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -159,7 +159,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -203,7 +203,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
                 json_t *arr_3_item;
                 json_array_foreach(pval, arr_3_idx, arr_3_item)
                 {
-                    Path arr_3_lpath = (Path) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
+                    jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, (path ? &lpath_0 : NULL), NULL };
                     // .'$Point'.bbox.0
                     res = json_is_number(arr_3_item);
                     if (! res)
@@ -251,20 +251,20 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 }
 
 // check $Point (.'$Point')
-static bool json_model_5(const json_t* val, Path* path, Report* rep)
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Point'
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$Point']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$Point']", path);
     }
     return res;
 }
 
 // object .'$MultiPoint'
-static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -277,7 +277,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_1 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -306,7 +306,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                 json_t *arr_4_item;
                 json_array_foreach(pval, arr_4_idx, arr_4_item)
                 {
-                    Path arr_4_lpath = (Path) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
+                    jm_path_t arr_4_lpath = (jm_path_t) { NULL, arr_4_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$MultiPoint'.coordinates.0
                     res = json_model_2(arr_4_item, ((path ? &lpath_1 : NULL) ? &arr_4_lpath : NULL), rep);
                     if (! res)
@@ -340,7 +340,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
                 json_t *arr_5_item;
                 json_array_foreach(pval, arr_5_idx, arr_5_item)
                 {
-                    Path arr_5_lpath = (Path) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
+                    jm_path_t arr_5_lpath = (jm_path_t) { NULL, arr_5_idx, (path ? &lpath_1 : NULL), NULL };
                     // .'$MultiPoint'.bbox.0
                     res = json_is_number(arr_5_item);
                     if (! res)
@@ -388,20 +388,20 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 }
 
 // check $MultiPoint (.'$MultiPoint')
-static bool json_model_6(const json_t* val, Path* path, Report* rep)
+static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$MultiPoint'
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$MultiPoint']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$MultiPoint']", path);
     }
     return res;
 }
 
 // object .'$LineString'
-static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -414,7 +414,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_2 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -458,7 +458,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
                 json_t *arr_6_item;
                 json_array_foreach(pval, arr_6_idx, arr_6_item)
                 {
-                    Path arr_6_lpath = (Path) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
+                    jm_path_t arr_6_lpath = (jm_path_t) { NULL, arr_6_idx, (path ? &lpath_2 : NULL), NULL };
                     // .'$LineString'.bbox.0
                     res = json_is_number(arr_6_item);
                     if (! res)
@@ -506,20 +506,20 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
 }
 
 // check $LineString (.'$LineString')
-static bool json_model_7(const json_t* val, Path* path, Report* rep)
+static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$LineString'
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$LineString']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$LineString']", path);
     }
     return res;
 }
 
 // object .'$MultiLineString'
-static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -532,7 +532,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_3 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -561,7 +561,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                 json_t *arr_7_item;
                 json_array_foreach(pval, arr_7_idx, arr_7_item)
                 {
-                    Path arr_7_lpath = (Path) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
+                    jm_path_t arr_7_lpath = (jm_path_t) { NULL, arr_7_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$MultiLineString'.coordinates.0
                     res = json_model_3(arr_7_item, ((path ? &lpath_3 : NULL) ? &arr_7_lpath : NULL), rep);
                     if (! res)
@@ -595,7 +595,7 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
                 json_t *arr_8_item;
                 json_array_foreach(pval, arr_8_idx, arr_8_item)
                 {
-                    Path arr_8_lpath = (Path) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
+                    jm_path_t arr_8_lpath = (jm_path_t) { NULL, arr_8_idx, (path ? &lpath_3 : NULL), NULL };
                     // .'$MultiLineString'.bbox.0
                     res = json_is_number(arr_8_item);
                     if (! res)
@@ -643,20 +643,20 @@ static bool _jm_obj_3(const json_t* val, Path* path, Report* rep)
 }
 
 // check $MultiLineString (.'$MultiLineString')
-static bool json_model_8(const json_t* val, Path* path, Report* rep)
+static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$MultiLineString'
     res = _jm_obj_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$MultiLineString']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$MultiLineString']", path);
     }
     return res;
 }
 
 // object .'$Polygon'
-static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -669,7 +669,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_4 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_4 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -698,7 +698,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                 json_t *arr_9_item;
                 json_array_foreach(pval, arr_9_idx, arr_9_item)
                 {
-                    Path arr_9_lpath = (Path) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
+                    jm_path_t arr_9_lpath = (jm_path_t) { NULL, arr_9_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$Polygon'.coordinates.0
                     res = json_model_4(arr_9_item, ((path ? &lpath_4 : NULL) ? &arr_9_lpath : NULL), rep);
                     if (! res)
@@ -732,7 +732,7 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
                 json_t *arr_10_item;
                 json_array_foreach(pval, arr_10_idx, arr_10_item)
                 {
-                    Path arr_10_lpath = (Path) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
+                    jm_path_t arr_10_lpath = (jm_path_t) { NULL, arr_10_idx, (path ? &lpath_4 : NULL), NULL };
                     // .'$Polygon'.bbox.0
                     res = json_is_number(arr_10_item);
                     if (! res)
@@ -780,20 +780,20 @@ static bool _jm_obj_4(const json_t* val, Path* path, Report* rep)
 }
 
 // check $Polygon (.'$Polygon')
-static bool json_model_9(const json_t* val, Path* path, Report* rep)
+static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Polygon'
     res = _jm_obj_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$Polygon']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$Polygon']", path);
     }
     return res;
 }
 
 // object .'$MultiPolygon'
-static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -806,7 +806,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_5 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_5 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -835,7 +835,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                 json_t *arr_11_item;
                 json_array_foreach(pval, arr_11_idx, arr_11_item)
                 {
-                    Path arr_11_lpath = (Path) { NULL, arr_11_idx, (path ? &lpath_5 : NULL), NULL };
+                    jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.coordinates.0
                     res = json_is_array(arr_11_item);
                     if (res)
@@ -844,7 +844,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                         json_t *arr_12_item;
                         json_array_foreach(arr_11_item, arr_12_idx, arr_12_item)
                         {
-                            Path arr_12_lpath = (Path) { NULL, arr_12_idx, ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL), NULL };
+                            jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, ((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL), NULL };
                             // .'$MultiPolygon'.coordinates.0.0
                             res = json_model_4(arr_12_item, (((path ? &lpath_5 : NULL) ? &arr_11_lpath : NULL) ? &arr_12_lpath : NULL), rep);
                             if (! res)
@@ -888,7 +888,7 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
                 json_t *arr_13_item;
                 json_array_foreach(pval, arr_13_idx, arr_13_item)
                 {
-                    Path arr_13_lpath = (Path) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
+                    jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_5 : NULL), NULL };
                     // .'$MultiPolygon'.bbox.0
                     res = json_is_number(arr_13_item);
                     if (! res)
@@ -936,27 +936,27 @@ static bool _jm_obj_5(const json_t* val, Path* path, Report* rep)
 }
 
 // check $MultiPolygon (.'$MultiPolygon')
-static bool json_model_10(const json_t* val, Path* path, Report* rep)
+static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$MultiPolygon'
     res = _jm_obj_5(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$MultiPolygon']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$MultiPolygon']", path);
     }
     return res;
 }
 
-static check_fun_t _jm_map_0(json_t *val)
+static jm_check_fun_t _jm_map_0(json_t *val)
 {
-    constant_t cst;
+    jm_constant_t cst;
     jm_set_cst(&cst, val);
     return jm_search_constmap(&cst, _jm_map_0_tab, 6);
 }
 
 // check $geometry (.'$geometry')
-static bool json_model_11(const json_t* val, Path* path, Report* rep)
+static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$geometry'
@@ -966,7 +966,7 @@ static bool json_model_11(const json_t* val, Path* path, Report* rep)
         json_t * tag_0 = json_object_get(val, "type");
         if (tag_0 != NULL)
         {
-            check_fun_t fun_0 = _jm_map_0(tag_0);
+            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
             {
                 res = fun_0(val, path, rep);
@@ -991,7 +991,7 @@ static bool json_model_11(const json_t* val, Path* path, Report* rep)
 }
 
 // object .'$GeometryCollection'
-static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1004,7 +1004,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_6 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -1033,7 +1033,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 json_t *arr_14_item;
                 json_array_foreach(pval, arr_14_idx, arr_14_item)
                 {
-                    Path arr_14_lpath = (Path) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
+                    jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$GeometryCollection'.geometries.0
                     res = json_model_11(arr_14_item, ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL), rep);
                     if (! res)
@@ -1067,7 +1067,7 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
                 json_t *arr_15_item;
                 json_array_foreach(pval, arr_15_idx, arr_15_item)
                 {
-                    Path arr_15_lpath = (Path) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
+                    jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
                     // .'$GeometryCollection'.bbox.0
                     res = json_is_number(arr_15_item);
                     if (! res)
@@ -1115,20 +1115,20 @@ static bool _jm_obj_6(const json_t* val, Path* path, Report* rep)
 }
 
 // check $GeometryCollection (.'$GeometryCollection')
-static bool json_model_12(const json_t* val, Path* path, Report* rep)
+static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GeometryCollection'
     res = _jm_obj_6(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$GeometryCollection']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$GeometryCollection']", path);
     }
     return res;
 }
 
 // object .'$Feature'.properties.'|'.1
-static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1140,7 +1140,7 @@ static bool _jm_obj_8(const json_t* val, Path* path, Report* rep)
 }
 
 // object .'$Feature'
-static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1153,7 +1153,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_7 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -1230,7 +1230,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                 res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "not an expected object at [.'$Feature'.properties.'|'.1]", (path ? &lpath_7 : NULL));
+                    if (rep) jm_report_add_entry(rep, "not an expected object [.'$Feature'.properties.'|'.1]", (path ? &lpath_7 : NULL));
                 }
             }
             if (res)
@@ -1291,7 +1291,7 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
                 json_t *arr_16_item;
                 json_array_foreach(pval, arr_16_idx, arr_16_item)
                 {
-                    Path arr_16_lpath = (Path) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
+                    jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
                     // .'$Feature'.bbox.0
                     res = json_is_number(arr_16_item);
                     if (! res)
@@ -1343,20 +1343,20 @@ static bool _jm_obj_7(const json_t* val, Path* path, Report* rep)
 }
 
 // check $Feature (.'$Feature')
-static bool json_model_13(const json_t* val, Path* path, Report* rep)
+static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Feature'
     res = _jm_obj_7(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$Feature']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$Feature']", path);
     }
     return res;
 }
 
 // object .'$FeatureCollection'
-static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1369,7 +1369,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_8 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "type") == 0)
         {
             // handle must type property
@@ -1398,7 +1398,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 json_t *arr_17_item;
                 json_array_foreach(pval, arr_17_idx, arr_17_item)
                 {
-                    Path arr_17_lpath = (Path) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
+                    jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$FeatureCollection'.features.0
                     res = json_model_13(arr_17_item, ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL), rep);
                     if (! res)
@@ -1432,7 +1432,7 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
                 json_t *arr_18_item;
                 json_array_foreach(pval, arr_18_idx, arr_18_item)
                 {
-                    Path arr_18_lpath = (Path) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
+                    jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
                     // .'$FeatureCollection'.bbox.0
                     res = json_is_number(arr_18_item);
                     if (! res)
@@ -1480,23 +1480,23 @@ static bool _jm_obj_9(const json_t* val, Path* path, Report* rep)
 }
 
 // check $FeatureCollection (.'$FeatureCollection')
-static bool json_model_14(const json_t* val, Path* path, Report* rep)
+static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$FeatureCollection'
     res = _jm_obj_9(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at [.'$FeatureCollection']", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.'$FeatureCollection']", path);
     }
     return res;
 }
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     // generic xor list
     int64_t xc_0 = 0;
     bool xr_0;
@@ -1558,7 +1558,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 14);
 }
@@ -1571,27 +1571,27 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (constmap_t) { (constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
-        _jm_map_0_tab[1] = (constmap_t) { (constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
-        _jm_map_0_tab[2] = (constmap_t) { (constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
-        _jm_map_0_tab[3] = (constmap_t) { (constant_t) { cst_is_string, { .s = "MultiLineString" } }, json_model_8 };
-        _jm_map_0_tab[4] = (constmap_t) { (constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
-        _jm_map_0_tab[5] = (constmap_t) { (constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, json_model_8 };
+        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
+        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
         jm_sort_constmap(_jm_map_0_tab, 6);
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (propmap_t) { "position", json_model_2 };
-        check_model_map_tab[2] = (propmap_t) { "coord_array", json_model_3 };
-        check_model_map_tab[3] = (propmap_t) { "linear_ring", json_model_4 };
-        check_model_map_tab[4] = (propmap_t) { "Point", json_model_5 };
-        check_model_map_tab[5] = (propmap_t) { "MultiPoint", json_model_6 };
-        check_model_map_tab[6] = (propmap_t) { "LineString", json_model_7 };
-        check_model_map_tab[7] = (propmap_t) { "MultiLineString", json_model_8 };
-        check_model_map_tab[8] = (propmap_t) { "Polygon", json_model_9 };
-        check_model_map_tab[9] = (propmap_t) { "MultiPolygon", json_model_10 };
-        check_model_map_tab[10] = (propmap_t) { "geometry", json_model_11 };
-        check_model_map_tab[11] = (propmap_t) { "GeometryCollection", json_model_12 };
-        check_model_map_tab[12] = (propmap_t) { "Feature", json_model_13 };
-        check_model_map_tab[13] = (propmap_t) { "FeatureCollection", json_model_14 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "coord_array", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "linear_ring", json_model_4 };
+        check_model_map_tab[4] = (jm_propmap_t) { "Point", json_model_5 };
+        check_model_map_tab[5] = (jm_propmap_t) { "MultiPoint", json_model_6 };
+        check_model_map_tab[6] = (jm_propmap_t) { "LineString", json_model_7 };
+        check_model_map_tab[7] = (jm_propmap_t) { "MultiLineString", json_model_8 };
+        check_model_map_tab[8] = (jm_propmap_t) { "Polygon", json_model_9 };
+        check_model_map_tab[9] = (jm_propmap_t) { "MultiPolygon", json_model_10 };
+        check_model_map_tab[10] = (jm_propmap_t) { "geometry", json_model_11 };
+        check_model_map_tab[11] = (jm_propmap_t) { "GeometryCollection", json_model_12 };
+        check_model_map_tab[12] = (jm_propmap_t) { "Feature", json_model_13 };
+        check_model_map_tab[13] = (jm_propmap_t) { "FeatureCollection", json_model_14 };
         jm_sort_propmap(check_model_map_tab, 14);
     }
     return NULL;

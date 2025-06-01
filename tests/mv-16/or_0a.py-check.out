@@ -2,10 +2,10 @@ or_0a.values.json[0]: PASS
 or_0a.values.json[1]: PASS
 or_0a.values.json[2]: PASS
 or_0a.values.json[3]: PASS
-or_0a.values.json[4]: FAIL [("unexpected type at [.'|']", [])]
+or_0a.values.json[4]: FAIL [("unexpected type [.'|']", [])]
 or_0a.values.json[5]: FAIL [("unexpected =200 [.'|'.0]", []), ("unexpected =300 [.'|'.1]", []), ("unexpected =400 [.'|'.2]", []), ("unexpected =500 [.'|'.3]", []), ("no model matched [.'|']", [])]
-or_0a.values.json[6]: FAIL [("unexpected type at [.'|']", [])]
-or_0a.values.json[7]: FAIL [("unexpected type at [.'|']", [])]
-or_0a.values.json[8]: FAIL [("unexpected type at [.'|']", [])]
-or_0a.values.json[9]: FAIL [("unexpected type at [.'|']", [])]
-or_0a.values.json[10]: FAIL [("unexpected type at [.'|']", [])]
+or_0a.values.json[6]: FAIL [("unexpected type [.'|']", [])]
+or_0a.values.json[7]: FAIL [("unexpected type [.'|']", [])]
+or_0a.values.json[8]: FAIL [("unexpected type [.'|']", [])]
+or_0a.values.json[9]: FAIL [("unexpected type [.'|']", [])]
+or_0a.values.json[10]: FAIL [("unexpected type [.'|']", [])]

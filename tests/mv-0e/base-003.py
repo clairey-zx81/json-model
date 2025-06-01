@@ -22,24 +22,24 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object 
+# object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object []", path))
+        rep is None or rep.append(("not an object [.]", path))
         return False
     if len(val) == 0:
         return True
     else:
-        rep is None or rep.append(("expecting empty object []", path))
+        rep is None or rep.append(("expecting empty object [.]", path))
         return False
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at []", path))
+        rep is None or rep.append(("not an expected object [.]", path))
     return res
 
 

@@ -4,9 +4,9 @@
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
-static bool json_model_2(const json_t* val, Path* path, Report* rep);
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[2];
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
 static bool _jm_re_0(const char *s)
@@ -17,7 +17,7 @@ static bool _jm_re_0(const char *s)
 }
 
 // check $S (.'$S')
-static bool json_model_2(const json_t* val, Path* path, Report* rep)
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$S'
@@ -30,15 +30,15 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     res = json_is_array(val) && json_array_size(val) == 2;
     if (res)
     {
-        Path lpath_0 = (Path) { NULL, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { NULL, 0, path, NULL };
         // .0
         res = json_model_2(json_array_get(val, 0), (path ? &lpath_0 : NULL), rep);
         if (! res)
@@ -47,7 +47,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         }
         if (res)
         {
-            Path lpath_0 = (Path) { NULL, 1, path, NULL };
+            jm_path_t lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_model_2(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
             if (! res)
@@ -58,12 +58,12 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     }
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not array or unexpected array []", path);
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.]", path);
     }
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 2);
 }
@@ -86,8 +86,8 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (propmap_t) { "S", json_model_2 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (jm_propmap_t) { "S", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 2);
     }
     return NULL;

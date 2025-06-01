@@ -174,7 +174,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OpenAPI'.webhooks
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$OpenAPI'.webhooks]", path))
+        rep is None or rep.append(("not an expected object [.'$OpenAPI'.webhooks]", path))
     return res
 
 
@@ -242,7 +242,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OpenAPI'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$OpenAPI']", path))
+        rep is None or rep.append(("not an expected object [.'$OpenAPI']", path))
     return res
 
 # check _jm_obj_2_map_contact (.'$Info'.contact)
@@ -353,7 +353,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Info'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Info']", path))
+        rep is None or rep.append(("not an expected object [.'$Info']", path))
     return res
 
 # object .'$Contact'
@@ -411,7 +411,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Contact'
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Contact']", path))
+        rep is None or rep.append(("not an expected object [.'$Contact']", path))
     return res
 
 # object .'$License'.'|'.1
@@ -520,17 +520,17 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$License'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$License'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$License'.'|']", path))
     if res:
         # .'$License'.'|'.0
         res = _jm_obj_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$License'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$License'.'|'.0]", path))
         if not res:
             # .'$License'.'|'.1
             res = _jm_obj_4(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$License'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$License'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -589,7 +589,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Server'.variables
             res = _jm_obj_7(pval, lpath_6 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Server'.variables]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$Server'.variables]", lpath_6 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$Server'.variables]", lpath_6 if path is not None else None))
                 return False
@@ -617,7 +617,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Server'
     res = _jm_obj_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Server']", path))
+        rep is None or rep.append(("not an expected object [.'$Server']", path))
     return res
 
 # object .'$ServerVariable'
@@ -691,7 +691,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ServerVariable'
     res = _jm_obj_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$ServerVariable']", path))
+        rep is None or rep.append(("not an expected object [.'$ServerVariable']", path))
     return res
 
 # object .'$Components'.callbacks
@@ -728,7 +728,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.callbacks
     res = _jm_obj_10(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.callbacks]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.callbacks]", path))
     return res
 
 # object .'$Components'.examples
@@ -765,7 +765,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.examples
     res = _jm_obj_11(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.examples]", path))
     return res
 
 # object .'$Components'.headers
@@ -802,7 +802,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.headers
     res = _jm_obj_12(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.headers]", path))
     return res
 
 # object .'$Components'.links
@@ -839,7 +839,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.links
     res = _jm_obj_13(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.links]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.links]", path))
     return res
 
 # object .'$Components'.parameters
@@ -876,7 +876,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.parameters
     res = _jm_obj_14(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.parameters]", path))
     return res
 
 # object .'$Components'.pathItems
@@ -913,7 +913,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.pathItems
     res = _jm_obj_15(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.pathItems]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.pathItems]", path))
     return res
 
 # object .'$Components'.requestBodies
@@ -950,7 +950,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.requestBodies
     res = _jm_obj_16(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.requestBodies]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.requestBodies]", path))
     return res
 
 # object .'$Components'.responses
@@ -987,7 +987,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.responses
     res = _jm_obj_17(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.responses]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.responses]", path))
     return res
 
 # object .'$Components'.schemas
@@ -1014,7 +1014,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.schemas
     res = _jm_obj_18(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.schemas]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.schemas]", path))
     return res
 
 # object .'$Components'.securitySchemes
@@ -1051,7 +1051,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'.securitySchemes
     res = _jm_obj_19(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components'.securitySchemes]", path))
+        rep is None or rep.append(("not an expected object [.'$Components'.securitySchemes]", path))
     return res
 
 
@@ -1089,7 +1089,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Components'
     res = _jm_obj_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Components']", path))
+        rep is None or rep.append(("not an expected object [.'$Components']", path))
     return res
 
 
@@ -1129,7 +1129,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Paths'
     res = _jm_obj_20(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Paths']", path))
+        rep is None or rep.append(("not an expected object [.'$Paths']", path))
     return res
 
 # check _jm_obj_21_map_$ref (.'$PathItem'.'$ref')
@@ -1312,7 +1312,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$PathItem'
     res = _jm_obj_21(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$PathItem']", path))
+        rep is None or rep.append(("not an expected object [.'$PathItem']", path))
     return res
 
 # object .'$Operation'.callbacks
@@ -1349,7 +1349,7 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Operation'.callbacks
     res = _jm_obj_23(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Operation'.callbacks]", path))
+        rep is None or rep.append(("not an expected object [.'$Operation'.callbacks]", path))
     return res
 
 # check _jm_obj_22_map_deprecated (.'$Operation'.deprecated)
@@ -1542,7 +1542,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Operation'
     res = _jm_obj_22(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Operation']", path))
+        rep is None or rep.append(("not an expected object [.'$Operation']", path))
     return res
 
 # object .'$ExternalDocumentation'
@@ -1598,7 +1598,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ExternalDocumentation'
     res = _jm_obj_24(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$ExternalDocumentation']", path))
+        rep is None or rep.append(("not an expected object [.'$ExternalDocumentation']", path))
     return res
 
 # check _jm_obj_25_map_allowEmptyValue (.'$parameterShare'.allowEmptyValue)
@@ -1672,7 +1672,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$parameterShare'
     res = _jm_obj_25(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$parameterShare']", path))
+        rep is None or rep.append(("not an expected object [.'$parameterShare']", path))
     return res
 
 
@@ -1775,7 +1775,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$commonParameter'
     res = _jm_obj_26(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$commonParameter']", path))
+        rep is None or rep.append(("not an expected object [.'$commonParameter']", path))
     return res
 
 
@@ -1840,7 +1840,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$parameterSchemaOnly'.examples
     res = _jm_obj_28(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$parameterSchemaOnly'.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$parameterSchemaOnly'.examples]", path))
     return res
 
 # check _jm_obj_27_map_explode (.'$parameterSchemaOnly'.explode)
@@ -1896,7 +1896,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$parameterSchemaOnly'
     res = _jm_obj_27(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$parameterSchemaOnly']", path))
+        rep is None or rep.append(("not an expected object [.'$parameterSchemaOnly']", path))
     return res
 
 # object .'$parameterContentOnly'.content
@@ -1931,7 +1931,7 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$parameterContentOnly'.content
             res = _jm_obj_30(pval, lpath_29 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$parameterContentOnly'.content]", lpath_29 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$parameterContentOnly'.content]", lpath_29 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$parameterContentOnly'.content]", lpath_29 if path is not None else None))
                 return False
@@ -1946,7 +1946,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$parameterContentOnly'
     res = _jm_obj_29(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$parameterContentOnly']", path))
+        rep is None or rep.append(("not an expected object [.'$parameterContentOnly']", path))
     return res
 
 
@@ -1983,7 +1983,7 @@ def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Parameter'.'|'.1.content
     res = _jm_obj_32(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Parameter'.'|'.1.content]", path))
+        rep is None or rep.append(("not an expected object [.'$Parameter'.'|'.1.content]", path))
     return res
 
 # check _jm_obj_31_map_deprecated (.'$Parameter'.'|'.1.deprecated)
@@ -2150,7 +2150,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Parameter'.'|'.0.examples
     res = _jm_obj_34(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Parameter'.'|'.0.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$Parameter'.'|'.0.examples]", path))
     return res
 
 # check _jm_obj_33_map_explode (.'$Parameter'.'|'.0.explode)
@@ -2252,17 +2252,17 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Parameter'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$Parameter'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$Parameter'.'|']", path))
     if res:
         # .'$Parameter'.'|'.0
         res = _jm_obj_33(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Parameter'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$Parameter'.'|'.0]", path))
         if not res:
             # .'$Parameter'.'|'.1
             res = _jm_obj_31(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Parameter'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$Parameter'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -2310,7 +2310,7 @@ def _jm_obj_35(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$RequestBody'.content
             res = _jm_obj_36(pval, lpath_35 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$RequestBody'.content]", lpath_35 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$RequestBody'.content]", lpath_35 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$RequestBody'.content]", lpath_35 if path is not None else None))
                 return False
@@ -2342,7 +2342,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$RequestBody'
     res = _jm_obj_35(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$RequestBody']", path))
+        rep is None or rep.append(("not an expected object [.'$RequestBody']", path))
     return res
 
 # object .'$MediaType'.encoding
@@ -2369,7 +2369,7 @@ def _jm_f_77(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MediaType'.encoding
     res = _jm_obj_38(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MediaType'.encoding]", path))
+        rep is None or rep.append(("not an expected object [.'$MediaType'.encoding]", path))
     return res
 
 # check _jm_obj_37_map_example (.'$MediaType'.example)
@@ -2415,7 +2415,7 @@ def _jm_f_79(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MediaType'.examples
     res = _jm_obj_39(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MediaType'.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$MediaType'.examples]", path))
     return res
 
 # check _jm_obj_37_map_schema (.'$MediaType'.schema)
@@ -2462,7 +2462,7 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MediaType'
     res = _jm_obj_37(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MediaType']", path))
+        rep is None or rep.append(("not an expected object [.'$MediaType']", path))
     return res
 
 # check _jm_obj_40_map_allowReserved (.'$Encoding'.allowReserved)
@@ -2526,7 +2526,7 @@ def _jm_f_84(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Encoding'.headers
     res = _jm_obj_41(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Encoding'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$Encoding'.headers]", path))
     return res
 
 # check _jm_obj_40_map_style (.'$Encoding'.style)
@@ -2573,7 +2573,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Encoding'
     res = _jm_obj_40(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Encoding']", path))
+        rep is None or rep.append(("not an expected object [.'$Encoding']", path))
     return res
 
 
@@ -2642,7 +2642,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Responses'
     res = _jm_obj_42(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Responses']", path))
+        rep is None or rep.append(("not an expected object [.'$Responses']", path))
     return res
 
 # object .'$Response'.content
@@ -2669,7 +2669,7 @@ def _jm_f_86(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Response'.content
     res = _jm_obj_44(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Response'.content]", path))
+        rep is None or rep.append(("not an expected object [.'$Response'.content]", path))
     return res
 
 # check _jm_obj_43_map_description (.'$Response'.description)
@@ -2715,7 +2715,7 @@ def _jm_f_88(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Response'.headers
     res = _jm_obj_45(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Response'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$Response'.headers]", path))
     return res
 
 # object .'$Response'.links
@@ -2752,7 +2752,7 @@ def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Response'.links
     res = _jm_obj_46(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Response'.links]", path))
+        rep is None or rep.append(("not an expected object [.'$Response'.links]", path))
     return res
 
 
@@ -2790,7 +2790,7 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Response'
     res = _jm_obj_43(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Response']", path))
+        rep is None or rep.append(("not an expected object [.'$Response']", path))
     return res
 
 # object .'$Callback'
@@ -2839,7 +2839,7 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Callback'
     res = _jm_obj_47(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Callback']", path))
+        rep is None or rep.append(("not an expected object [.'$Callback']", path))
     return res
 
 # check _jm_obj_48_map_description (.'$Example'.description)
@@ -2913,7 +2913,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Example'
     res = _jm_obj_48(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Example']", path))
+        rep is None or rep.append(("not an expected object [.'$Example']", path))
     return res
 
 # check $Expression (.'$Expression')
@@ -2948,7 +2948,7 @@ def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Link'.'|'.1.parameters
     res = _jm_obj_50(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Link'.'|'.1.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$Link'.'|'.1.parameters]", path))
     return res
 
 # check _jm_obj_49_map_requestBody (.'$Link'.'|'.1.requestBody)
@@ -3037,7 +3037,7 @@ def _jm_f_99(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Link'.'|'.0.parameters
     res = _jm_obj_52(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Link'.'|'.0.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$Link'.'|'.0.parameters]", path))
     return res
 
 # check _jm_obj_51_map_requestBody (.'$Link'.'|'.0.requestBody)
@@ -3109,17 +3109,17 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Link'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$Link'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$Link'.'|']", path))
     if res:
         # .'$Link'.'|'.0
         res = _jm_obj_51(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Link'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$Link'.'|'.0]", path))
         if not res:
             # .'$Link'.'|'.1
             res = _jm_obj_49(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Link'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$Link'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -3159,7 +3159,7 @@ def _jm_f_103(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Header'.'|'.1.content
     res = _jm_obj_54(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Header'.'|'.1.content]", path))
+        rep is None or rep.append(("not an expected object [.'$Header'.'|'.1.content]", path))
     return res
 
 # check _jm_obj_53_map_deprecated (.'$Header'.'|'.1.deprecated)
@@ -3297,7 +3297,7 @@ def _jm_f_112(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Header'.'|'.0.examples
     res = _jm_obj_56(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Header'.'|'.0.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$Header'.'|'.0.examples]", path))
     return res
 
 # check _jm_obj_55_map_explode (.'$Header'.'|'.0.explode)
@@ -3371,17 +3371,17 @@ def json_model_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Header'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$Header'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$Header'.'|']", path))
     if res:
         # .'$Header'.'|'.0
         res = _jm_obj_55(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Header'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$Header'.'|'.0]", path))
         if not res:
             # .'$Header'.'|'.1
             res = _jm_obj_53(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Header'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$Header'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -3450,7 +3450,7 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Tag'
     res = _jm_obj_57(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Tag']", path))
+        rep is None or rep.append(("not an expected object [.'$Tag']", path))
     return res
 
 # object .'$Reference'
@@ -3507,7 +3507,7 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Reference'
     res = _jm_obj_58(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Reference']", path))
+        rep is None or rep.append(("not an expected object [.'$Reference']", path))
     return res
 
 # check $schema (.'$schema')
@@ -3562,7 +3562,7 @@ def _jm_f_119(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.'$defs'
     res = _jm_obj_60(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.'$defs']", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.'$defs']", path))
     return res
 
 # check _jm_obj_59_map_$dynamicAnchor (.'$Schema'.'$dynamicAnchor')
@@ -3638,7 +3638,7 @@ def _jm_f_125(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.'$vocabulary'
     res = _jm_obj_61(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.'$vocabulary']", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_59_map_additionalProperties (.'$Schema'.additionalProperties)
@@ -3746,7 +3746,7 @@ def _jm_f_135(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.dependentRequired
     res = _jm_obj_62(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.dependentRequired]", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.dependentRequired]", path))
     return res
 
 # object .'$Schema'.dependentSchemas
@@ -3773,7 +3773,7 @@ def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.dependentSchemas
     res = _jm_obj_63(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.dependentSchemas]", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.dependentSchemas]", path))
     return res
 
 # check _jm_obj_59_map_deprecated (.'$Schema'.deprecated)
@@ -4053,7 +4053,7 @@ def _jm_f_164(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.patternProperties
     res = _jm_obj_64(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.patternProperties]", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.patternProperties]", path))
     return res
 
 # check _jm_obj_59_map_prefixItems (.'$Schema'.prefixItems)
@@ -4089,7 +4089,7 @@ def _jm_f_166(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'.properties
     res = _jm_obj_65(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema'.properties]", path))
+        rep is None or rep.append(("not an expected object [.'$Schema'.properties]", path))
     return res
 
 # check _jm_obj_59_map_propertyNames (.'$Schema'.propertyNames)
@@ -4227,7 +4227,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'
     res = _jm_obj_59(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema']", path))
+        rep is None or rep.append(("not an expected object [.'$Schema']", path))
     return res
 
 # object .'$Discriminator'.mapping
@@ -4273,7 +4273,7 @@ def _jm_obj_66(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Discriminator'.mapping
             res = _jm_obj_67(pval, lpath_64 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Discriminator'.mapping]", lpath_64 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$Discriminator'.mapping]", lpath_64 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$Discriminator'.mapping]", lpath_64 if path is not None else None))
                 return False
@@ -4301,7 +4301,7 @@ def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Discriminator'
     res = _jm_obj_66(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Discriminator']", path))
+        rep is None or rep.append(("not an expected object [.'$Discriminator']", path))
     return res
 
 # check _jm_obj_68_map_attribute (.'$XML'.attribute)
@@ -4384,7 +4384,7 @@ def json_model_35(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$XML'
     res = _jm_obj_68(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$XML']", path))
+        rep is None or rep.append(("not an expected object [.'$XML']", path))
     return res
 
 # check _jm_obj_69_mup_flows (.'$SecurityScheme'.flows)
@@ -4513,7 +4513,7 @@ def json_model_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$SecurityScheme'
     res = _jm_obj_69(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$SecurityScheme']", path))
+        rep is None or rep.append(("not an expected object [.'$SecurityScheme']", path))
     return res
 
 # check _jm_obj_70_map_authorizationCode (.'$OAuthFlows'.authorizationCode)
@@ -4587,7 +4587,7 @@ def json_model_37(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OAuthFlows'
     res = _jm_obj_70(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$OAuthFlows']", path))
+        rep is None or rep.append(("not an expected object [.'$OAuthFlows']", path))
     return res
 
 # object .'$OAuthFlow'.scopes
@@ -4644,7 +4644,7 @@ def _jm_obj_71(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$OAuthFlow'.scopes
             res = _jm_obj_72(pval, lpath_69 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$OAuthFlow'.scopes]", lpath_69 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$OAuthFlow'.scopes]", lpath_69 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory property value [.'$OAuthFlow'.scopes]", lpath_69 if path is not None else None))
                 return False
@@ -4685,7 +4685,7 @@ def json_model_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OAuthFlow'
     res = _jm_obj_71(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$OAuthFlow']", path))
+        rep is None or rep.append(("not an expected object [.'$OAuthFlow']", path))
     return res
 
 # object .'$SecurityRequirement'
@@ -4721,7 +4721,7 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$SecurityRequirement'
     res = _jm_obj_73(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$SecurityRequirement']", path))
+        rep is None or rep.append(("not an expected object [.'$SecurityRequirement']", path))
     return res
 
 # object .'$Extension'
@@ -4752,16 +4752,16 @@ def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Extension'
     res = _jm_obj_74(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Extension']", path))
+        rep is None or rep.append(("not an expected object [.'$Extension']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $OpenAPI []", path))
+        rep is None or rep.append(("unexpected $OpenAPI [.]", path))
     return res
 
 # check $schema#URI-REFERENCE (.'$schema#URI-REFERENCE')
@@ -4804,7 +4804,7 @@ def json_model_50(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#simpleTypesArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#simpleTypesArray']", path))
     return res
 
 # check $schema#stringArray (.'$schema#stringArray')
@@ -4827,7 +4827,7 @@ def json_model_51(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         res = is_unique_array(val, path, rep)
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#stringArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#stringArray']", path))
     return res
 
 # check $schema#nonNegativeInteger (.'$schema#nonNegativeInteger')
@@ -4860,7 +4860,7 @@ def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_1: int = len(val)
         res = ival_1 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#schemaArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#schemaArray']", path))
     return res
 
 # check $schema#Schema (.'$schema#Schema')
@@ -4924,7 +4924,7 @@ def _jm_f_195(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.'$defs'
     res = _jm_obj_76(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.'$defs']", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.'$defs']", path))
     return res
 
 # check _jm_obj_75_map_$dynamicAnchor (.'$schema#ObjectSchema'.'$dynamicAnchor')
@@ -5000,7 +5000,7 @@ def _jm_f_201(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.'$vocabulary'
     res = _jm_obj_77(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.'$vocabulary']", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_75_map_additionalProperties (.'$schema#ObjectSchema'.additionalProperties)
@@ -5108,7 +5108,7 @@ def _jm_f_211(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.dependentRequired
     res = _jm_obj_78(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.dependentRequired]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.dependentRequired]", path))
     return res
 
 # object .'$schema#ObjectSchema'.dependentSchemas
@@ -5135,7 +5135,7 @@ def _jm_f_212(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.dependentSchemas
     res = _jm_obj_79(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.dependentSchemas]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.dependentSchemas]", path))
     return res
 
 # check _jm_obj_75_map_deprecated (.'$schema#ObjectSchema'.deprecated)
@@ -5388,7 +5388,7 @@ def _jm_f_237(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.patternProperties
     res = _jm_obj_80(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.patternProperties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.patternProperties]", path))
     return res
 
 # check _jm_obj_75_map_prefixItems (.'$schema#ObjectSchema'.prefixItems)
@@ -5424,7 +5424,7 @@ def _jm_f_239(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.properties
     res = _jm_obj_81(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.properties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.properties]", path))
     return res
 
 # check _jm_obj_75_map_propertyNames (.'$schema#ObjectSchema'.propertyNames)
@@ -5553,7 +5553,7 @@ def json_model_56(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'
     res = _jm_obj_75(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema']", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema']", path))
     return res
 
 

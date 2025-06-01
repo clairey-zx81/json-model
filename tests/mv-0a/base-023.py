@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, str)
     if res:
         # .'&'.0
@@ -42,7 +42,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 ival_0: int = len(val)
                 res = ival_0 <= 5
             if not res:
-                rep is None or rep.append(("constraints failed at [.'&'.1]", path))
+                rep is None or rep.append(("constraints failed [.'&'.1]", path))
     if res:
         rep is None or rep.clear()
     else:

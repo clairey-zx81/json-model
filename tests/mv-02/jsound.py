@@ -127,7 +127,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$Schema'.metadata
             res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Schema'.metadata]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$Schema'.metadata]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$Schema'.metadata]", lpath_0 if path is not None else None))
                 return False
@@ -147,7 +147,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Schema'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Schema']", path))
+        rep is None or rep.append(("not an expected object [.'$Schema']", path))
     return res
 
 # check $Type (.'$Type')
@@ -405,7 +405,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Atomic'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Atomic']", path))
+        rep is None or rep.append(("not an expected object [.'$Atomic']", path))
     return res
 
 # check _jm_obj_3_map_baseType (.'$Object'.baseType)
@@ -496,7 +496,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Object']", path))
+        rep is None or rep.append(("not an expected object [.'$Object']", path))
     return res
 
 # object .'$Fields'
@@ -574,7 +574,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Fields'
     res = _jm_obj_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Fields']", path))
+        rep is None or rep.append(("not an expected object [.'$Fields']", path))
     return res
 
 # check _jm_obj_5_map_baseType (.'$Array'.baseType)
@@ -665,7 +665,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Array'
     res = _jm_obj_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Array']", path))
+        rep is None or rep.append(("not an expected object [.'$Array']", path))
     return res
 
 # object .'$Union'
@@ -746,7 +746,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Union'
     res = _jm_obj_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Union']", path))
+        rep is None or rep.append(("not an expected object [.'$Union']", path))
     return res
 
 # check $type-or-ref (.'$type-or-ref')
@@ -768,13 +768,13 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$type-or-ref'.'|']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $Schema []", path))
+        rep is None or rep.append(("unexpected $Schema [.]", path))
     return res
 
 

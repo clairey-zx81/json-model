@@ -4,8 +4,8 @@
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
 static bool _jm_re_0(const char *s);
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[1];
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
 static bool _jm_re_0(const char *s)
@@ -16,7 +16,7 @@ static bool _jm_re_0(const char *s)
 }
 
 // object .'|'.1
-static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -28,7 +28,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         if (_jm_re_0(prop))
         {
             // handle 1 re props
@@ -62,7 +62,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 }
 
 // object .'|'.0
-static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -75,7 +75,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_1 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "a") == 0)
         {
             // handle must a property
@@ -112,15 +112,15 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     res = json_is_object(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected type at [.'|']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'|']", path);
     }
     if (res)
     {
@@ -128,7 +128,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
         res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not an expected object at [.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "not an expected object [.'|'.0]", path);
         }
         if (! res)
         {
@@ -136,7 +136,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
             res = _jm_obj_0(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not an expected object at [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "not an expected object [.'|'.1]", path);
             }
         }
         if (res)
@@ -151,7 +151,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
@@ -174,7 +174,7 @@ char *CHECK_init(void)
             return (char *) err_message;
         }
         _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

@@ -1,7 +1,7 @@
 or_05.values.json[0]: PASS
 or_05.values.json[1]: FAIL (.: no model matched [.'|']) (.: unexpected REGEX [.'|'.2]) (.: unexpected REGEX [.'|'.1]) (.: unexpected REGEX [.'|'.0])
-or_05.values.json[2]: FAIL (.: unexpected type at [.'|'])
-or_05.values.json[3]: FAIL (.: unexpected type at [.'|'])
-or_05.values.json[4]: FAIL (.: unexpected type at [.'|'])
-or_05.values.json[5]: FAIL (.: unexpected type at [.'|'])
-or_05.values.json[6]: FAIL (.: unexpected type at [.'|'])
+or_05.values.json[2]: FAIL (.: unexpected type [.'|'])
+or_05.values.json[3]: FAIL (.: unexpected type [.'|'])
+or_05.values.json[4]: FAIL (.: unexpected type [.'|'])
+or_05.values.json[5]: FAIL (.: unexpected type [.'|'])
+or_05.values.json[6]: FAIL (.: unexpected type [.'|'])

@@ -2,9 +2,9 @@ pNUMBER.values.json[0]: PASS
 pNUMBER.values.json[1]: PASS
 pNUMBER.values.json[2]: PASS
 pNUMBER.values.json[3]: PASS
-pNUMBER.values.json[4]: FAIL (.: unexpected $NUMBER [])
-pNUMBER.values.json[5]: FAIL (.: unexpected $NUMBER [])
-pNUMBER.values.json[6]: FAIL (.: unexpected $NUMBER [])
-pNUMBER.values.json[7]: FAIL (.: unexpected $NUMBER [])
-pNUMBER.values.json[8]: FAIL (.: unexpected $NUMBER [])
-pNUMBER.values.json[9]: FAIL (.: unexpected $NUMBER [])
+pNUMBER.values.json[4]: FAIL (.: unexpected $NUMBER [.])
+pNUMBER.values.json[5]: FAIL (.: unexpected $NUMBER [.])
+pNUMBER.values.json[6]: FAIL (.: unexpected $NUMBER [.])
+pNUMBER.values.json[7]: FAIL (.: unexpected $NUMBER [.])
+pNUMBER.values.json[8]: FAIL (.: unexpected $NUMBER [.])
+pNUMBER.values.json[9]: FAIL (.: unexpected $NUMBER [.])

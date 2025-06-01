@@ -77,7 +77,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$X'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$X']", path))
+        rep is None or rep.append(("not an expected object [.'$X']", path))
     return res
 
 # object .'$Y'
@@ -116,7 +116,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Y'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Y']", path))
+        rep is None or rep.append(("not an expected object [.'$Y']", path))
     return res
 
 # object .'$E'.'|'.1
@@ -203,17 +203,17 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$E'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$E'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$E'.'|']", path))
     if res:
         # .'$E'.'|'.0
         res = _jm_obj_3(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$E'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$E'.'|'.0]", path))
         if not res:
             # .'$E'.'|'.1
             res = _jm_obj_2(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$E'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$E'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -246,13 +246,13 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not one model match [.'$M'.'^']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $M []", path))
+        rep is None or rep.append(("unexpected $M [.]", path))
     return res
 
 

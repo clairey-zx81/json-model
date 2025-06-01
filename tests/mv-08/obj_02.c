@@ -1,16 +1,16 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_2(const json_t* val, Path* path, Report* rep);
-static bool json_model_3(const json_t* val, Path* path, Report* rep);
-static bool json_model_4(const json_t* val, Path* path, Report* rep);
-static bool json_model_5(const json_t* val, Path* path, Report* rep);
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[5];
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
 
 // check $li0 (.'$li0')
-static bool json_model_2(const json_t* val, Path* path, Report* rep)
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$li0'
@@ -21,7 +21,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
         json_t *arr_0_item;
         json_array_foreach(val, arr_0_idx, arr_0_item)
         {
-            Path arr_0_lpath = (Path) { NULL, arr_0_idx, path, NULL };
+            jm_path_t arr_0_lpath = (jm_path_t) { NULL, arr_0_idx, path, NULL };
             // .'$li0'.0
             res = json_is_integer(arr_0_item) && json_integer_value(arr_0_item) >= 0;
             if (! res)
@@ -42,7 +42,7 @@ static bool json_model_2(const json_t* val, Path* path, Report* rep)
 }
 
 // check $ls0 (.'$ls0')
-static bool json_model_3(const json_t* val, Path* path, Report* rep)
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ls0'
@@ -53,7 +53,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
         json_t *arr_1_item;
         json_array_foreach(val, arr_1_idx, arr_1_item)
         {
-            Path arr_1_lpath = (Path) { NULL, arr_1_idx, path, NULL };
+            jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$ls0'.0
             res = jm_is_valid_url(json_string_value(arr_1_item));
             if (! res)
@@ -74,7 +74,7 @@ static bool json_model_3(const json_t* val, Path* path, Report* rep)
 }
 
 // check $lb0 (.'$lb0')
-static bool json_model_4(const json_t* val, Path* path, Report* rep)
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$lb0'
@@ -85,7 +85,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
         json_t *arr_2_item;
         json_array_foreach(val, arr_2_idx, arr_2_item)
         {
-            Path arr_2_lpath = (Path) { NULL, arr_2_idx, path, NULL };
+            jm_path_t arr_2_lpath = (jm_path_t) { NULL, arr_2_idx, path, NULL };
             // .'$lb0'.0
             res = json_is_boolean(arr_2_item);
             if (! res)
@@ -106,7 +106,7 @@ static bool json_model_4(const json_t* val, Path* path, Report* rep)
 }
 
 // check $lf0 (.'$lf0')
-static bool json_model_5(const json_t* val, Path* path, Report* rep)
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$lf0'
@@ -117,7 +117,7 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
         json_t *arr_3_item;
         json_array_foreach(val, arr_3_idx, arr_3_item)
         {
-            Path arr_3_lpath = (Path) { NULL, arr_3_idx, path, NULL };
+            jm_path_t arr_3_lpath = (jm_path_t) { NULL, arr_3_idx, path, NULL };
             // .'$lf0'.0
             res = json_is_real(arr_3_item) && json_real_value(arr_3_item) >= 0.0;
             if (! res)
@@ -137,11 +137,11 @@ static bool json_model_5(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     // .'|'.0
     res = json_model_2(val, path, rep);
     if (! res)
@@ -186,7 +186,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 5);
 }
@@ -199,11 +199,11 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (propmap_t) { "li0", json_model_2 };
-        check_model_map_tab[2] = (propmap_t) { "ls0", json_model_3 };
-        check_model_map_tab[3] = (propmap_t) { "lb0", json_model_4 };
-        check_model_map_tab[4] = (propmap_t) { "lf0", json_model_5 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[1] = (jm_propmap_t) { "li0", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "ls0", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "lb0", json_model_4 };
+        check_model_map_tab[4] = (jm_propmap_t) { "lf0", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);
     }
     return NULL;

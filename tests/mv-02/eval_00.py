@@ -40,13 +40,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$true']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = True
     if not res:
-        rep is None or rep.append(("unexpected $ANY []", path))
+        rep is None or rep.append(("unexpected $ANY [.]", path))
     return res
 
 

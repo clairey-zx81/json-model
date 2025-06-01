@@ -1,17 +1,17 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static constant_t _jm_cst_0[3];
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[1];
+static jm_constant_t _jm_cst_0[3];
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
-    res = _json_is_scalar(val) && json_is_integer(val) && jm_search_cst(&(constant_t) { cst_is_integer, { .i = json_integer_value(val) } }, _jm_cst_0, 3);;
+    // .
+    res = jm_json_is_scalar(val) && json_is_integer(val) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } }, _jm_cst_0, 3);;
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "value not in enum [.'|']", path);
@@ -19,7 +19,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
@@ -33,11 +33,11 @@ char *CHECK_init(void)
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
         // initialize sorted set _jm_cst_0
-        _jm_cst_0[0] = (constant_t) { cst_is_integer, { .i = 1 } };
-        _jm_cst_0[1] = (constant_t) { cst_is_integer, { .i = 2 } };
-        _jm_cst_0[2] = (constant_t) { cst_is_integer, { .i = 3 } };
+        _jm_cst_0[0] = (jm_constant_t) { cst_is_integer, { .i = 1 } };
+        _jm_cst_0[1] = (jm_constant_t) { cst_is_integer, { .i = 2 } };
+        _jm_cst_0[2] = (jm_constant_t) { cst_is_integer, { .i = 3 } };
         jm_sort_cst(_jm_cst_0, 3);
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

@@ -66,13 +66,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $OpenAPI [.'$openapi']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $openapi []", path))
+        rep is None or rep.append(("unexpected $openapi [.]", path))
     return res
 
 
@@ -181,7 +181,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#OpenAPI'.webhooks
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#OpenAPI'.webhooks]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#OpenAPI'.webhooks]", path))
     return res
 
 
@@ -249,7 +249,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#OpenAPI'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#OpenAPI']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#OpenAPI']", path))
     return res
 
 # check _jm_obj_2_map_contact (.'$openapi#Info'.contact)
@@ -360,7 +360,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Info'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Info']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Info']", path))
     return res
 
 # object .'$openapi#Contact'
@@ -418,7 +418,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Contact'
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Contact']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Contact']", path))
     return res
 
 # object .'$openapi#License'.'|'.1
@@ -527,17 +527,17 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#License'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$openapi#License'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$openapi#License'.'|']", path))
     if res:
         # .'$openapi#License'.'|'.0
         res = _jm_obj_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$openapi#License'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$openapi#License'.'|'.0]", path))
         if not res:
             # .'$openapi#License'.'|'.1
             res = _jm_obj_4(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#License'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$openapi#License'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -596,7 +596,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$openapi#Server'.variables
             res = _jm_obj_7(pval, lpath_6 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$openapi#Server'.variables]", lpath_6 if path is not None else None))
                 return False
@@ -624,7 +624,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Server'
     res = _jm_obj_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Server']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Server']", path))
     return res
 
 # object .'$openapi#ServerVariable'
@@ -698,7 +698,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#ServerVariable'
     res = _jm_obj_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#ServerVariable']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#ServerVariable']", path))
     return res
 
 # object .'$openapi#Components'.callbacks
@@ -735,7 +735,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.callbacks
     res = _jm_obj_10(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.callbacks]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.callbacks]", path))
     return res
 
 # object .'$openapi#Components'.examples
@@ -772,7 +772,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.examples
     res = _jm_obj_11(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.examples]", path))
     return res
 
 # object .'$openapi#Components'.headers
@@ -809,7 +809,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.headers
     res = _jm_obj_12(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.headers]", path))
     return res
 
 # object .'$openapi#Components'.links
@@ -846,7 +846,7 @@ def _jm_f_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.links
     res = _jm_obj_13(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.links]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.links]", path))
     return res
 
 # object .'$openapi#Components'.models
@@ -873,7 +873,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.models
     res = _jm_obj_14(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.models]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.models]", path))
     return res
 
 # object .'$openapi#Components'.parameters
@@ -910,7 +910,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.parameters
     res = _jm_obj_15(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.parameters]", path))
     return res
 
 # object .'$openapi#Components'.pathItems
@@ -947,7 +947,7 @@ def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.pathItems
     res = _jm_obj_16(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.pathItems]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.pathItems]", path))
     return res
 
 # object .'$openapi#Components'.requestBodies
@@ -984,7 +984,7 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.requestBodies
     res = _jm_obj_17(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.requestBodies]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.requestBodies]", path))
     return res
 
 # object .'$openapi#Components'.responses
@@ -1021,7 +1021,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.responses
     res = _jm_obj_18(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.responses]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.responses]", path))
     return res
 
 # object .'$openapi#Components'.securitySchemes
@@ -1058,7 +1058,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'.securitySchemes
     res = _jm_obj_19(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components'.securitySchemes]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components'.securitySchemes]", path))
     return res
 
 
@@ -1096,7 +1096,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Components'
     res = _jm_obj_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Components']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Components']", path))
     return res
 
 
@@ -1136,7 +1136,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Paths'
     res = _jm_obj_20(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Paths']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Paths']", path))
     return res
 
 # check _jm_obj_21_map_$ref (.'$openapi#PathItem'.'$ref')
@@ -1319,7 +1319,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#PathItem'
     res = _jm_obj_21(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#PathItem']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#PathItem']", path))
     return res
 
 # check $openapi#URI (.'$openapi#URI')
@@ -1365,7 +1365,7 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Operation'.callbacks
     res = _jm_obj_23(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Operation'.callbacks]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Operation'.callbacks]", path))
     return res
 
 # check _jm_obj_22_map_deprecated (.'$openapi#Operation'.deprecated)
@@ -1558,7 +1558,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Operation'
     res = _jm_obj_22(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Operation']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Operation']", path))
     return res
 
 # object .'$openapi#ExternalDocumentation'
@@ -1614,7 +1614,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#ExternalDocumentation'
     res = _jm_obj_24(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#ExternalDocumentation']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#ExternalDocumentation']", path))
     return res
 
 
@@ -1651,7 +1651,7 @@ def _jm_f_49(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Parameter'.'|'.1.content
     res = _jm_obj_26(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Parameter'.'|'.1.content]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Parameter'.'|'.1.content]", path))
     return res
 
 # check _jm_obj_25_map_deprecated (.'$openapi#Parameter'.'|'.1.deprecated)
@@ -1818,7 +1818,7 @@ def _jm_f_58(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Parameter'.'|'.0.examples
     res = _jm_obj_28(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Parameter'.'|'.0.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Parameter'.'|'.0.examples]", path))
     return res
 
 # check _jm_obj_27_map_explode (.'$openapi#Parameter'.'|'.0.explode)
@@ -1920,17 +1920,17 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Parameter'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$openapi#Parameter'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$openapi#Parameter'.'|']", path))
     if res:
         # .'$openapi#Parameter'.'|'.0
         res = _jm_obj_27(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$openapi#Parameter'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$openapi#Parameter'.'|'.0]", path))
         if not res:
             # .'$openapi#Parameter'.'|'.1
             res = _jm_obj_25(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#Parameter'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$openapi#Parameter'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -1988,7 +1988,7 @@ def _jm_obj_29(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$openapi#RequestBody'.content
             res = _jm_obj_30(pval, lpath_29 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#RequestBody'.content]", lpath_29 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$openapi#RequestBody'.content]", lpath_29 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid may property value [.'$openapi#RequestBody'.content]", lpath_29 if path is not None else None))
                 return False
@@ -2020,7 +2020,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#RequestBody'
     res = _jm_obj_29(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#RequestBody']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#RequestBody']", path))
     return res
 
 # object .'$openapi#MediaType'.encoding
@@ -2047,7 +2047,7 @@ def _jm_f_63(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#MediaType'.encoding
     res = _jm_obj_32(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#MediaType'.encoding]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#MediaType'.encoding]", path))
     return res
 
 # check _jm_obj_31_map_example (.'$openapi#MediaType'.example)
@@ -2093,7 +2093,7 @@ def _jm_f_65(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#MediaType'.examples
     res = _jm_obj_33(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#MediaType'.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#MediaType'.examples]", path))
     return res
 
 # check _jm_obj_31_map_model (.'$openapi#MediaType'.model)
@@ -2140,7 +2140,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#MediaType'
     res = _jm_obj_31(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#MediaType']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#MediaType']", path))
     return res
 
 # check _jm_obj_34_map_allowReserved (.'$openapi#Encoding'.allowReserved)
@@ -2204,7 +2204,7 @@ def _jm_f_70(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Encoding'.headers
     res = _jm_obj_35(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Encoding'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Encoding'.headers]", path))
     return res
 
 # check _jm_obj_34_map_style (.'$openapi#Encoding'.style)
@@ -2251,7 +2251,7 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Encoding'
     res = _jm_obj_34(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Encoding']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Encoding']", path))
     return res
 
 
@@ -2320,7 +2320,7 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Responses'
     res = _jm_obj_36(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Responses']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Responses']", path))
     return res
 
 # object .'$openapi#Response'.content
@@ -2347,7 +2347,7 @@ def _jm_f_72(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Response'.content
     res = _jm_obj_38(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Response'.content]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Response'.content]", path))
     return res
 
 # check _jm_obj_37_map_description (.'$openapi#Response'.description)
@@ -2393,7 +2393,7 @@ def _jm_f_74(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Response'.headers
     res = _jm_obj_39(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Response'.headers]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Response'.headers]", path))
     return res
 
 # object .'$openapi#Response'.links
@@ -2430,7 +2430,7 @@ def _jm_f_75(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Response'.links
     res = _jm_obj_40(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Response'.links]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Response'.links]", path))
     return res
 
 
@@ -2468,7 +2468,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Response'
     res = _jm_obj_37(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Response']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Response']", path))
     return res
 
 # object .'$openapi#Callback'
@@ -2517,7 +2517,7 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Callback'
     res = _jm_obj_41(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Callback']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Callback']", path))
     return res
 
 # check _jm_obj_42_map_description (.'$openapi#Example'.description)
@@ -2591,7 +2591,7 @@ def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Example'
     res = _jm_obj_42(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Example']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Example']", path))
     return res
 
 # check $openapi#Expression (.'$openapi#Expression')
@@ -2626,7 +2626,7 @@ def _jm_f_81(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Link'.'|'.1.parameters
     res = _jm_obj_44(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Link'.'|'.1.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Link'.'|'.1.parameters]", path))
     return res
 
 # check _jm_obj_43_map_requestBody (.'$openapi#Link'.'|'.1.requestBody)
@@ -2715,7 +2715,7 @@ def _jm_f_85(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Link'.'|'.0.parameters
     res = _jm_obj_46(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Link'.'|'.0.parameters]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Link'.'|'.0.parameters]", path))
     return res
 
 # check _jm_obj_45_map_requestBody (.'$openapi#Link'.'|'.0.requestBody)
@@ -2787,17 +2787,17 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Link'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$openapi#Link'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$openapi#Link'.'|']", path))
     if res:
         # .'$openapi#Link'.'|'.0
         res = _jm_obj_45(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$openapi#Link'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$openapi#Link'.'|'.0]", path))
         if not res:
             # .'$openapi#Link'.'|'.1
             res = _jm_obj_43(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#Link'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$openapi#Link'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -2837,7 +2837,7 @@ def _jm_f_89(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Header'.'|'.1.content
     res = _jm_obj_48(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Header'.'|'.1.content]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Header'.'|'.1.content]", path))
     return res
 
 # check _jm_obj_47_map_deprecated (.'$openapi#Header'.'|'.1.deprecated)
@@ -2975,7 +2975,7 @@ def _jm_f_98(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Header'.'|'.0.examples
     res = _jm_obj_50(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Header'.'|'.0.examples]", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Header'.'|'.0.examples]", path))
     return res
 
 # check _jm_obj_49_map_explode (.'$openapi#Header'.'|'.0.explode)
@@ -3049,17 +3049,17 @@ def json_model_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Header'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$openapi#Header'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$openapi#Header'.'|']", path))
     if res:
         # .'$openapi#Header'.'|'.0
         res = _jm_obj_49(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$openapi#Header'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$openapi#Header'.'|'.0]", path))
         if not res:
             # .'$openapi#Header'.'|'.1
             res = _jm_obj_47(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#Header'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$openapi#Header'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -3128,7 +3128,7 @@ def json_model_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Tag'
     res = _jm_obj_51(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Tag']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Tag']", path))
     return res
 
 # object .'$openapi#Reference'
@@ -3185,7 +3185,7 @@ def json_model_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#Reference'
     res = _jm_obj_52(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#Reference']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#Reference']", path))
     return res
 
 # check _jm_obj_53_mup_flows (.'$openapi#SecurityScheme'.flows)
@@ -3314,7 +3314,7 @@ def json_model_38(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#SecurityScheme'
     res = _jm_obj_53(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#SecurityScheme']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#SecurityScheme']", path))
     return res
 
 # check _jm_obj_54_map_authorizationCode (.'$openapi#OAuthFlows'.authorizationCode)
@@ -3388,7 +3388,7 @@ def json_model_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#OAuthFlows'
     res = _jm_obj_54(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#OAuthFlows']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#OAuthFlows']", path))
     return res
 
 # object .'$openapi#OAuthFlow'.scopes
@@ -3445,7 +3445,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$openapi#OAuthFlow'.scopes
             res = _jm_obj_56(pval, lpath_53 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#OAuthFlow'.scopes]", lpath_53 if path is not None else None))
+                rep is None or rep.append(("not an expected object [.'$openapi#OAuthFlow'.scopes]", lpath_53 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory property value [.'$openapi#OAuthFlow'.scopes]", lpath_53 if path is not None else None))
                 return False
@@ -3486,7 +3486,7 @@ def json_model_40(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#OAuthFlow'
     res = _jm_obj_55(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#OAuthFlow']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#OAuthFlow']", path))
     return res
 
 # object .'$openapi#SecurityRequirement'
@@ -3522,7 +3522,7 @@ def json_model_41(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#SecurityRequirement'
     res = _jm_obj_57(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$openapi#SecurityRequirement']", path))
+        rep is None or rep.append(("not an expected object [.'$openapi#SecurityRequirement']", path))
     return res
 
 # check $openapi#Model (.'$openapi#Model')
@@ -3892,37 +3892,37 @@ def json_model_75(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$openapi#model#Elem'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$openapi#model#Elem'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$openapi#model#Elem'.'|']", path))
     if res:
         # .'$openapi#model#Elem'.'|'.0
         res = _jm_obj_63(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.0]", path))
         if not res:
             # .'$openapi#model#Elem'.'|'.1
             res = _jm_obj_62(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.1]", path))
             if not res:
                 # .'$openapi#model#Elem'.'|'.2
                 res = _jm_obj_61(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.2]", path))
+                    rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.2]", path))
                 if not res:
                     # .'$openapi#model#Elem'.'|'.3
                     res = _jm_obj_60(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.3]", path))
+                        rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.3]", path))
                     if not res:
                         # .'$openapi#model#Elem'.'|'.4
                         res = _jm_obj_59(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.4]", path))
+                            rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.4]", path))
                         if not res:
                             # .'$openapi#model#Elem'.'|'.5
                             res = _jm_obj_58(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("not an expected object at [.'$openapi#model#Elem'.'|'.5]", path))
+                                rep is None or rep.append(("not an expected object [.'$openapi#model#Elem'.'|'.5]", path))
         if res:
             rep is None or rep.clear()
         else:

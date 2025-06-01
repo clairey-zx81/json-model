@@ -51,13 +51,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$foo'.'|']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $foo#ls0 []", path))
+        rep is None or rep.append(("unexpected $foo#ls0 [.]", path))
     return res
 
 # check $foo#li0 (.'$foo#li0')

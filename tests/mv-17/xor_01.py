@@ -52,17 +52,17 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     # remove duplicate xor list
     is_0: bool
     res = True
     # .'^'.1
     is_0 = _jm_obj_0(val, path, rep)
     if not is_0:
-        rep is None or rep.append(("not an expected object at [.'^'.1]", path))
+        rep is None or rep.append(("not an expected object [.'^'.1]", path))
     res = not is_0
     if res:
         # empty xor list

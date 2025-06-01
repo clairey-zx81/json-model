@@ -1,2 +1,2 @@
-and_str01.0.false.json: FAIL [('unexpected $NONE []', [])]
-and_str01.1.false.json: FAIL [('unexpected $NONE []', [])]
+and_str01.0.false.json: FAIL [('unexpected $NONE [.]', [])]
+and_str01.1.false.json: FAIL [('unexpected $NONE [.]', [])]

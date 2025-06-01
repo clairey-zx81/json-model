@@ -31,13 +31,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $l [.'$D']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $D []", path))
+        rep is None or rep.append(("unexpected $D [.]", path))
     return res
 
 # check $D#l (.'$D#l')
@@ -115,7 +115,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$D#U#un'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$D#U#un']", path))
+        rep is None or rep.append(("not an expected object [.'$D#U#un']", path))
     return res
 
 

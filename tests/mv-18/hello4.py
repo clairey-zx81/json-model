@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# object 
+# object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object []", path))
+        rep is None or rep.append(("not an object [.]", path))
         return False
     res: bool
     must_count: int = 0
@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.hello]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.hello]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [..hello]", lpath_0 if path is not None else None))
                 return False
         elif prop == "world":
             # handle must world property
@@ -50,27 +50,27 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.world]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.world]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory property value [..world]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected []", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.]", lpath_0 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
             if not "hello" in val:
-                rep is None or rep.append(("missing mandatory prop <hello> []", path))
+                rep is None or rep.append(("missing mandatory prop <hello> [.]", path))
             if not ("world" in val):
-                rep is None or rep.append(("missing mandatory prop <world> []", path))
+                rep is None or rep.append(("missing mandatory prop <world> [.]", path))
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at []", path))
+        rep is None or rep.append(("not an expected object [.]", path))
     return res
 
 

@@ -50,10 +50,10 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$EX06']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, list) and len(val) == 3
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
@@ -74,7 +74,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not res:
                     rep is None or rep.append(("unexpected $EX06 [.2]", lpath_0 if path is not None else None))
     if not res:
-        rep is None or rep.append(("not array or unexpected array []", path))
+        rep is None or rep.append(("not array or unexpected array [.]", path))
     return res
 
 # check $ex5#EX05a (.'$ex5#EX05a')

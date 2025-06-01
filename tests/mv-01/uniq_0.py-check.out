@@ -1,5 +1,5 @@
 uniq_0.values.json[0]: PASS
 uniq_0.values.json[1]: PASS
 uniq_0.values.json[2]: PASS
-uniq_0.values.json[3]: FAIL ['non unique array at []', ('constraints failed at []', [])]
-uniq_0.values.json[4]: FAIL [("not a 1 strict int [.'@'.0]", [0]), ("not array or unexpected array [.'@']", []), ('constraints failed at []', [])]
+uniq_0.values.json[3]: FAIL ['non unique array at []', ('constraints failed [.]', [])]
+uniq_0.values.json[4]: FAIL [("not a 1 strict int [.'@'.0]", [0]), ("not array or unexpected array [.'@']", []), ('constraints failed [.]', [])]

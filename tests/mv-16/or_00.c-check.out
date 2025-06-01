@@ -1,7 +1,7 @@
 or_00.values.json[0]: PASS
 or_00.values.json[1]: PASS
-or_00.values.json[2]: FAIL (.: not a 0 strict int [])
-or_00.values.json[3]: FAIL (.: not a 0 strict int [])
-or_00.values.json[4]: FAIL (.: not a 0 strict int [])
-or_00.values.json[5]: FAIL (.: not a 0 strict int [])
-or_00.values.json[6]: FAIL (.: not a 0 strict int [])
+or_00.values.json[2]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[3]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[4]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[5]: FAIL (.: not a 0 strict int [.])
+or_00.values.json[6]: FAIL (.: not a 0 strict int [.])

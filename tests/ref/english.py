@@ -53,13 +53,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $RootModel [.'$Model']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $Model []", path))
+        rep is None or rep.append(("unexpected $Model [.]", path))
     return res
 
 # check $Model#RootModel (.'$Model#RootModel')
@@ -498,37 +498,37 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Elem'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$Model#Elem'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$Model#Elem'.'|']", path))
     if res:
         # .'$Model#Elem'.'|'.0
         res = _jm_obj_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.0]", path))
         if not res:
             # .'$Model#Elem'.'|'.1
             res = _jm_obj_4(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.1]", path))
             if not res:
                 # .'$Model#Elem'.'|'.2
                 res = _jm_obj_3(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.2]", path))
+                    rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.2]", path))
                 if not res:
                     # .'$Model#Elem'.'|'.3
                     res = _jm_obj_2(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.3]", path))
+                        rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.3]", path))
                     if not res:
                         # .'$Model#Elem'.'|'.4
                         res = _jm_obj_1(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.4]", path))
+                            rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.4]", path))
                         if not res:
                             # .'$Model#Elem'.'|'.5
                             res = _jm_obj_0(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("not an expected object at [.'$Model#Elem'.'|'.5]", path))
+                                rep is None or rep.append(("not an expected object [.'$Model#Elem'.'|'.5]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -625,7 +625,7 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.5.'$'
     res = _jm_obj_7(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.5.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.5.'$']", path))
     return res
 
 
@@ -677,7 +677,7 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.5.'%'
     res = _jm_obj_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.5.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.5.'%']", path))
     return res
 
 # check _jm_obj_6_map_~ (.'$Model#Root'.'|'.5.'~')
@@ -778,7 +778,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.4.'$'
     res = _jm_obj_10(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.4.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.4.'$']", path))
     return res
 
 # object .'$Model#Root'.'|'.4.'%'
@@ -827,7 +827,7 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.4.'%'
     res = _jm_obj_11(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.4.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.4.'%']", path))
     return res
 
 # check _jm_obj_9_map_~ (.'$Model#Root'.'|'.4.'~')
@@ -940,7 +940,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.3.'$'
     res = _jm_obj_13(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.3.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.3.'$']", path))
     return res
 
 # object .'$Model#Root'.'|'.3.'%'
@@ -989,7 +989,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.3.'%'
     res = _jm_obj_14(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.3.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.3.'%']", path))
     return res
 
 # check _jm_obj_12_map_~ (.'$Model#Root'.'|'.3.'~')
@@ -1102,7 +1102,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.2.'$'
     res = _jm_obj_16(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.2.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.2.'$']", path))
     return res
 
 # object .'$Model#Root'.'|'.2.'%'
@@ -1151,7 +1151,7 @@ def _jm_f_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.2.'%'
     res = _jm_obj_17(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.2.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.2.'%']", path))
     return res
 
 # check _jm_obj_15_map_~ (.'$Model#Root'.'|'.2.'~')
@@ -1264,7 +1264,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.1.'$'
     res = _jm_obj_19(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.1.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.1.'$']", path))
     return res
 
 # object .'$Model#Root'.'|'.1.'%'
@@ -1313,7 +1313,7 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.1.'%'
     res = _jm_obj_20(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.1.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.1.'%']", path))
     return res
 
 # check _jm_obj_18_map_~ (.'$Model#Root'.'|'.1.'~')
@@ -1435,7 +1435,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.0.'$'
     res = _jm_obj_22(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.0.'$']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.0.'$']", path))
     return res
 
 # object .'$Model#Root'.'|'.0.'%'
@@ -1484,7 +1484,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'.'|'.0.'%'
     res = _jm_obj_23(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.0.'%']", path))
+        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.0.'%']", path))
     return res
 
 # check _jm_obj_21_map_~ (.'$Model#Root'.'|'.0.'~')
@@ -1570,37 +1570,37 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Model#Root'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$Model#Root'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$Model#Root'.'|']", path))
     if res:
         # .'$Model#Root'.'|'.0
         res = _jm_obj_21(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.0]", path))
         if not res:
             # .'$Model#Root'.'|'.1
             res = _jm_obj_18(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.1]", path))
             if not res:
                 # .'$Model#Root'.'|'.2
                 res = _jm_obj_15(val, path, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.2]", path))
+                    rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.2]", path))
                 if not res:
                     # .'$Model#Root'.'|'.3
                     res = _jm_obj_12(val, path, rep)
                     if not res:
-                        rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.3]", path))
+                        rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.3]", path))
                     if not res:
                         # .'$Model#Root'.'|'.4
                         res = _jm_obj_9(val, path, rep)
                         if not res:
-                            rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.4]", path))
+                            rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.4]", path))
                         if not res:
                             # .'$Model#Root'.'|'.5
                             res = _jm_obj_6(val, path, rep)
                             if not res:
-                                rep is None or rep.append(("not an expected object at [.'$Model#Root'.'|'.5]", path))
+                                rep is None or rep.append(("not an expected object [.'$Model#Root'.'|'.5]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -1661,7 +1661,7 @@ def _jm_obj_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Model#Trafo'.'|'.2.'*'.'|'.1
                 res = _jm_obj_25(pval, lpath_24 if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$Model#Trafo'.'|'.2.'*'.'|'.1]", lpath_24 if path is not None else None))
+                    rep is None or rep.append(("not an expected object [.'$Model#Trafo'.'|'.2.'*'.'|'.1]", lpath_24 if path is not None else None))
             if res:
                 rep is None or rep.clear()
             else:
@@ -1758,7 +1758,7 @@ def _jm_obj_26(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Model#Trafo'.'|'.1.'*'.'|'.1
                 res = _jm_obj_27(pval, lpath_26 if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$Model#Trafo'.'|'.1.'*'.'|'.1]", lpath_26 if path is not None else None))
+                    rep is None or rep.append(("not an expected object [.'$Model#Trafo'.'|'.1.'*'.'|'.1]", lpath_26 if path is not None else None))
             if res:
                 rep is None or rep.clear()
             else:
@@ -1788,12 +1788,12 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$Model#Trafo'.'|'.1
         res = _jm_obj_26(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$Model#Trafo'.'|'.1]", path))
+            rep is None or rep.append(("not an expected object [.'$Model#Trafo'.'|'.1]", path))
         if not res:
             # .'$Model#Trafo'.'|'.2
             res = _jm_obj_24(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$Model#Trafo'.'|'.2]", path))
+                rep is None or rep.append(("not an expected object [.'$Model#Trafo'.'|'.2]", path))
     if res:
         rep is None or rep.clear()
     else:

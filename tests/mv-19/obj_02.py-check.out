@@ -1,12 +1,12 @@
 obj_02.values.json[0]: PASS
 obj_02.values.json[1]: PASS
 obj_02.values.json[2]: PASS
-obj_02.values.json[3]: FAIL [("not a bool [.'/^[A-Z]$/']", ['A']), ('not an expected object at []', [])]
-obj_02.values.json[4]: FAIL [('no other prop expected []', ['a']), ('not an expected object at []', [])]
-obj_02.values.json[5]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[6]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[7]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[8]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[9]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[10]: FAIL [('not an object []', []), ('not an expected object at []', [])]
-obj_02.values.json[11]: FAIL [('not an object []', []), ('not an expected object at []', [])]
+obj_02.values.json[3]: FAIL [("not a bool [.'/^[A-Z]$/']", ['A']), ('not an expected object [.]', [])]
+obj_02.values.json[4]: FAIL [('no other prop expected [.]', ['a']), ('not an expected object [.]', [])]
+obj_02.values.json[5]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[6]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[7]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[8]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[9]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+obj_02.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

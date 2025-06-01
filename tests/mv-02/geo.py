@@ -44,7 +44,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$position']", path))
+        rep is None or rep.append(("constraints failed [.'$position']", path))
     return res
 
 # check $coord_array (.'$coord_array')
@@ -68,7 +68,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_1: int = len(val)
         res = ival_1 >= 2
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$coord_array']", path))
+        rep is None or rep.append(("constraints failed [.'$coord_array']", path))
     return res
 
 # check $linear_ring (.'$linear_ring')
@@ -92,7 +92,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_2: int = len(val)
         res = ival_2 >= 4
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$linear_ring']", path))
+        rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
     return res
 
 # object .'$Point'
@@ -161,7 +161,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Point'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Point']", path))
+        rep is None or rep.append(("not an expected object [.'$Point']", path))
     return res
 
 # object .'$MultiPoint'
@@ -239,7 +239,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MultiPoint'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MultiPoint']", path))
+        rep is None or rep.append(("not an expected object [.'$MultiPoint']", path))
     return res
 
 # object .'$LineString'
@@ -308,7 +308,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$LineString'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$LineString']", path))
+        rep is None or rep.append(("not an expected object [.'$LineString']", path))
     return res
 
 # object .'$MultiLineString'
@@ -386,7 +386,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MultiLineString'
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MultiLineString']", path))
+        rep is None or rep.append(("not an expected object [.'$MultiLineString']", path))
     return res
 
 # object .'$Polygon'
@@ -464,7 +464,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Polygon'
     res = _jm_obj_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Polygon']", path))
+        rep is None or rep.append(("not an expected object [.'$Polygon']", path))
     return res
 
 # object .'$MultiPolygon'
@@ -551,7 +551,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$MultiPolygon'
     res = _jm_obj_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$MultiPolygon']", path))
+        rep is None or rep.append(("not an expected object [.'$MultiPolygon']", path))
     return res
 
 
@@ -651,7 +651,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$GeometryCollection'
     res = _jm_obj_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$GeometryCollection']", path))
+        rep is None or rep.append(("not an expected object [.'$GeometryCollection']", path))
     return res
 
 # object .'$Feature'.properties.'|'.1
@@ -719,7 +719,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 # .'$Feature'.properties.'|'.1
                 res = _jm_obj_8(pval, lpath_7 if path is not None else None, rep)
                 if not res:
-                    rep is None or rep.append(("not an expected object at [.'$Feature'.properties.'|'.1]", lpath_7 if path is not None else None))
+                    rep is None or rep.append(("not an expected object [.'$Feature'.properties.'|'.1]", lpath_7 if path is not None else None))
             if res:
                 rep is None or rep.clear()
             else:
@@ -784,7 +784,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Feature'
     res = _jm_obj_7(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$Feature']", path))
+        rep is None or rep.append(("not an expected object [.'$Feature']", path))
     return res
 
 # object .'$FeatureCollection'
@@ -862,13 +862,13 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$FeatureCollection'
     res = _jm_obj_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$FeatureCollection']", path))
+        rep is None or rep.append(("not an expected object [.'$FeatureCollection']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     # generic xor list
     xc_0: int = 0
     xr_0: bool

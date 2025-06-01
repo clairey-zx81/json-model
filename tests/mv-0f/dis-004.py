@@ -88,17 +88,17 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$A'
     res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected type at [.'$A'.'|']", path))
+        rep is None or rep.append(("unexpected type [.'$A'.'|']", path))
     if res:
         # .'$A'.'|'.0
         res = _jm_obj_1(val, path, rep)
         if not res:
-            rep is None or rep.append(("not an expected object at [.'$A'.'|'.0]", path))
+            rep is None or rep.append(("not an expected object [.'$A'.'|'.0]", path))
         if not res:
             # .'$A'.'|'.1
             res = _jm_obj_0(val, path, rep)
             if not res:
-                rep is None or rep.append(("not an expected object at [.'$A'.'|'.1]", path))
+                rep is None or rep.append(("not an expected object [.'$A'.'|'.1]", path))
         if res:
             rep is None or rep.clear()
         else:
@@ -142,7 +142,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$B'.'|'.0
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$B'.'|'.0]", path))
+        rep is None or rep.append(("not an expected object [.'$B'.'|'.0]", path))
     if not res:
         # .'$B'.'|'.1
         res = json_model_2(val, path, rep)
@@ -154,13 +154,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'$B'.'|']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $B []", path))
+        rep is None or rep.append(("unexpected $B [.]", path))
     return res
 
 

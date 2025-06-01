@@ -27,17 +27,17 @@ _jm_re_1_reco: object
 _jm_re_1: RegexFun
 check_model_map: PropMap
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:
         rep is None or rep.append(("value not in enum [.'|']", path))
     if not res:
         res = isinstance(val, str)
         if not res:
-            rep is None or rep.append(("unexpected type at [.'|']", path))
+            rep is None or rep.append(("unexpected type [.'|']", path))
         if res:
             # .'|'.0
             # "/[0-9]/"

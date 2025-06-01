@@ -1,13 +1,13 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static constmap_t _jm_map_0_tab[3];
-static bool json_model_1(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[1];
+static jm_constmap_t _jm_map_0_tab[3];
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
 // object .'|'.0
-static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -20,7 +20,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "tag") == 0)
         {
             // handle must tag property
@@ -78,7 +78,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
 }
 
 // object .'|'.1
-static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -91,7 +91,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_1 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_1 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "tag") == 0)
         {
             // handle must tag property
@@ -149,7 +149,7 @@ static bool _jm_obj_1(const json_t* val, Path* path, Report* rep)
 }
 
 // object .'|'.2
-static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
+static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -162,7 +162,7 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_2 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "tag") == 0)
         {
             // handle must tag property
@@ -219,25 +219,25 @@ static bool _jm_obj_2(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-static check_fun_t _jm_map_0(json_t *val)
+static jm_check_fun_t _jm_map_0(json_t *val)
 {
-    constant_t cst;
+    jm_constant_t cst;
     jm_set_cst(&cst, val);
     return jm_search_constmap(&cst, _jm_map_0_tab, 3);
 }
 
-// check $ ()
-static bool json_model_1(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     res = json_is_object(val);
     if (res)
     {
         json_t * tag_0 = json_object_get(val, "tag");
         if (tag_0 != NULL)
         {
-            check_fun_t fun_0 = _jm_map_0(tag_0);
+            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
             if (fun_0 != NULL)
             {
                 res = fun_0(val, path, rep);
@@ -261,7 +261,7 @@ static bool json_model_1(const json_t* val, Path* path, Report* rep)
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
@@ -274,11 +274,11 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (constmap_t) { (constant_t) { cst_is_string, { .s = "a" } }, _jm_obj_0 };
-        _jm_map_0_tab[1] = (constmap_t) { (constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_1 };
-        _jm_map_0_tab[2] = (constmap_t) { (constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_2 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "a" } }, _jm_obj_0 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "b" } }, _jm_obj_1 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "c" } }, _jm_obj_2 };
         jm_sort_constmap(_jm_map_0_tab, 3);
-        check_model_map_tab[0] = (propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

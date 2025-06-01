@@ -74,7 +74,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         res = is_unique_array(val, path, rep)
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$distinctSchemaArray']", path))
+        rep is None or rep.append(("constraints failed [.'$distinctSchemaArray']", path))
     return res
 
 # check _jm_obj_0_map_$ref (.'$ref')
@@ -190,7 +190,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .dependencies
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.dependencies]", path))
+        rep is None or rep.append(("not an expected object [.dependencies]", path))
     return res
 
 # check _jm_obj_0_map_description (.description)
@@ -245,7 +245,7 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.enum]", path))
+        rep is None or rep.append(("constraints failed [.enum]", path))
     return res
 
 # check _jm_obj_0_map_exclusiveMaximum (.exclusiveMaximum)
@@ -428,7 +428,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .patternProperties
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.patternProperties]", path))
+        rep is None or rep.append(("not an expected object [.patternProperties]", path))
     return res
 
 # object .properties
@@ -455,7 +455,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .properties
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.properties]", path))
+        rep is None or rep.append(("not an expected object [.properties]", path))
     return res
 
 # check _jm_obj_0_map_required (.required)
@@ -524,10 +524,10 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 
-# object 
+# object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
-        rep is None or rep.append(("not an object []", path))
+        rep is None or rep.append(("not an object [.]", path))
         return False
     pfun: CheckFun
     for prop, pval in val.items():
@@ -536,20 +536,20 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_0_map.get(prop):
             # handle 29 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value []", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid may property value [.]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected []", lpath_0 if path is not None else None))
+            rep is None or rep.append(("no other prop expected [.]", lpath_0 if path is not None else None))
             return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at []", path))
+        rep is None or rep.append(("not an expected object [.]", path))
     return res
 
 

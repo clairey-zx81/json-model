@@ -1,16 +1,16 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_2(const json_t* val, Path* path, Report* rep);
-propmap_t check_model_map_tab[1];
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-// object 
-static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
+// object .
+static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
-        if (rep) jm_report_add_entry(rep, "not an object []", path);
+        if (rep) jm_report_add_entry(rep, "not an object [.]", path);
         return false;
     }
     bool res;
@@ -19,7 +19,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
-        Path lpath_0 = (Path) { prop, 0, path, NULL };
+        jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
         if (strcmp(prop, "hello") == 0)
         {
             // handle must hello property
@@ -32,7 +32,7 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.hello]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [..hello]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -48,13 +48,13 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.world]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [..world]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected []", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "no other prop expected [.]", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -64,11 +64,11 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
         {
             if (! (json_object_get(val, "hello") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <hello> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <hello> [.]", path);
             }
             if (! (json_object_get(val, "world") != NULL))
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <world> []", path);
+                if (rep) jm_report_add_entry(rep, "missing mandatory prop <world> [.]", path);
             }
         }
         return false;
@@ -76,20 +76,20 @@ static bool _jm_obj_0(const json_t* val, Path* path, Report* rep)
     return true;
 }
 
-// check $ ()
-static bool json_model_2(const json_t* val, Path* path, Report* rep)
+// check $ (.)
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    //
+    // .
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not an expected object at []", path);
+        if (rep) jm_report_add_entry(rep, "not an expected object [.]", path);
     }
     return res;
 }
 
-check_fun_t check_model_map(const char *pname)
+jm_check_fun_t check_model_map(const char *pname)
 {
     return jm_search_propmap(pname, check_model_map_tab, 1);
 }
@@ -102,7 +102,7 @@ char *CHECK_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (propmap_t) { "", json_model_2 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
     return NULL;

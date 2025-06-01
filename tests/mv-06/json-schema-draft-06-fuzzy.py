@@ -34,13 +34,13 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $Schema [.'$schema'.'@']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $schema []", path))
+        rep is None or rep.append(("unexpected $schema [.]", path))
     return res
 
 # check $schema#Schema (.'$schema#Schema')
@@ -176,7 +176,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.definitions
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.definitions]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.definitions]", path))
     return res
 
 # object .'$schema#ObjectSchema'.dependencies
@@ -213,7 +213,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.dependencies
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.dependencies]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.dependencies]", path))
     return res
 
 # check _jm_obj_0_map_description (.'$schema#ObjectSchema'.description)
@@ -240,7 +240,7 @@ def _jm_f_13(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#ObjectSchema'.enum]", path))
+        rep is None or rep.append(("constraints failed [.'$schema#ObjectSchema'.enum]", path))
     return res
 
 # check _jm_obj_0_map_examples (.'$schema#ObjectSchema'.examples)
@@ -433,7 +433,7 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.patternProperties
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.patternProperties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.patternProperties]", path))
     return res
 
 # object .'$schema#ObjectSchema'.properties
@@ -460,7 +460,7 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'.properties
     res = _jm_obj_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema'.properties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema'.properties]", path))
     return res
 
 # check _jm_obj_0_map_propertyNames (.'$schema#ObjectSchema'.propertyNames)
@@ -544,7 +544,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema#ObjectSchema'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema#ObjectSchema']", path))
+        rep is None or rep.append(("not an expected object [.'$schema#ObjectSchema']", path))
     return res
 
 # check $schema#URI-REFERENCE (.'$schema#URI-REFERENCE')
@@ -577,7 +577,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_1: int = len(val)
         res = ival_1 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#schemaArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#schemaArray']", path))
     return res
 
 
@@ -611,7 +611,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_2: int = len(val)
         res = ival_2 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#typeArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#typeArray']", path))
     return res
 
 # check $schema#stringArray (.'$schema#stringArray')

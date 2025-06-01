@@ -71,7 +71,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$A'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$A']", path))
+        rep is None or rep.append(("not an expected object [.'$A']", path))
     return res
 
 # object .'$B'
@@ -122,14 +122,14 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$B'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$B']", path))
+        rep is None or rep.append(("not an expected object [.'$B']", path))
     return res
 
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, dict)
     if res:
         tag_0: Jsonable = val.get("t", UNDEFINED)

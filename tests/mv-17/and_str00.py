@@ -26,10 +26,10 @@ _jm_re_1_reco: object
 _jm_re_1: RegexFun
 check_model_map: PropMap
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, str)
     if res:
         # .'&'.0

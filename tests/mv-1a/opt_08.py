@@ -31,13 +31,13 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected =1 [.'$one']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, int) and not isinstance(val, bool) and val == 1
     if not res:
-        rep is None or rep.append(("unexpected =1 []", path))
+        rep is None or rep.append(("unexpected =1 [.]", path))
     return res
 
 

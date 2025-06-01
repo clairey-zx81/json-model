@@ -30,19 +30,19 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # accept any object
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     # .'@'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'@']", path))
+        rep is None or rep.append(("not an expected object [.'@']", path))
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
     if not res:
-        rep is None or rep.append(("constraints failed at []", path))
+        rep is None or rep.append(("constraints failed [.]", path))
     return res
 
 

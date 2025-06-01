@@ -22,10 +22,10 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = isinstance(val, list) and len(val) == 4
     if res:
         lpath_0: Path = (path + [ 0 ]) if path is not None else None
@@ -52,7 +52,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     if not res:
                         rep is None or rep.append(("unexpected string [.3]", lpath_0 if path is not None else None))
     if not res:
-        rep is None or rep.append(("not array or unexpected array []", path))
+        rep is None or rep.append(("not array or unexpected array [.]", path))
     return res
 
 

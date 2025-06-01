@@ -131,7 +131,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.definitions
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema'.definitions]", path))
+        rep is None or rep.append(("not an expected object [.'$schema'.definitions]", path))
     return res
 
 # object .'$schema'.dependencies
@@ -168,7 +168,7 @@ def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.dependencies
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema'.dependencies]", path))
+        rep is None or rep.append(("not an expected object [.'$schema'.dependencies]", path))
     return res
 
 # check _jm_obj_0_map_description (.'$schema'.description)
@@ -195,7 +195,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema'.enum]", path))
+        rep is None or rep.append(("constraints failed [.'$schema'.enum]", path))
     return res
 
 # check _jm_obj_0_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
@@ -385,7 +385,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.patternProperties
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema'.patternProperties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema'.patternProperties]", path))
     return res
 
 # object .'$schema'.properties
@@ -412,7 +412,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.properties
     res = _jm_obj_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema'.properties]", path))
+        rep is None or rep.append(("not an expected object [.'$schema'.properties]", path))
     return res
 
 # check _jm_obj_0_map_required (.'$schema'.required)
@@ -487,16 +487,16 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not an expected object at [.'$schema']", path))
+        rep is None or rep.append(("not an expected object [.'$schema']", path))
     return res
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     res = json_model_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $schema []", path))
+        rep is None or rep.append(("unexpected $schema [.]", path))
     return res
 
 # check $schema#schemaArray (.'$schema#schemaArray')
@@ -520,7 +520,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_1: int = len(val)
         res = ival_1 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#schemaArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#schemaArray']", path))
     return res
 
 
@@ -554,7 +554,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_2: int = len(val)
         res = is_unique_array(val, path, rep) and ival_2 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#stringArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#stringArray']", path))
     return res
 
 # check $schema#typeArray (.'$schema#typeArray')
@@ -578,7 +578,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         ival_3: int = len(val)
         res = is_unique_array(val, path, rep) and ival_3 >= 1
     if not res:
-        rep is None or rep.append(("constraints failed at [.'$schema#typeArray']", path))
+        rep is None or rep.append(("constraints failed [.'$schema#typeArray']", path))
     return res
 
 

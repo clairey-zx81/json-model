@@ -96,23 +96,23 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     return True
 
-# check $ ()
+# check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    #
+    # .
     # generic xor list
     xc_0: int = 0
     xr_0: bool
     # .'^'.0
     xr_0 = _jm_obj_0(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("not an expected object at [.'^'.0]", path))
+        rep is None or rep.append(("not an expected object [.'^'.0]", path))
     if xr_0:
         xc_0 += 1
     # .'^'.1
     xr_0 = _jm_obj_1(val, path, rep)
     if not xr_0:
-        rep is None or rep.append(("not an expected object at [.'^'.1]", path))
+        rep is None or rep.append(("not an expected object [.'^'.1]", path))
     if xr_0:
         xc_0 += 1
     res = xc_0 == 1

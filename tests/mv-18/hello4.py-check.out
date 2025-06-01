@@ -1,3 +1,3 @@
 hello4.values.json[0]: PASS
 hello4.values.json[1]: PASS
-hello4.values.json[2]: FAIL [('not a bool [.world]', ['world']), ('invalid mandatory property value [.world]', ['world']), ('not an expected object at []', [])]
+hello4.values.json[2]: FAIL [('not a bool [.world]', ['world']), ('invalid mandatory property value [..world]', ['world']), ('not an expected object [.]', [])]
