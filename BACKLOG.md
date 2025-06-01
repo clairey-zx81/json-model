@@ -8,10 +8,11 @@
 - [x] static: reporting clean slate on or when one is found!
 - [x] static: add option to skip reporting generation `--no-report`
 - [x] frontend: improve performance measures with stdev and removing overheads
-- [x] command: allow direct compilation with cc-like options?
+- [x] jmc: allow direct compilation with cc-like options?
 - [x] static: report missing must props
+- [x] jmc: rethink option usage for compilation
+- [x] jmc: allow to pass actual compiler options?
 - [ ] frontend: align python and C outputs
-- [ ] command: rethink option usage for compilation, allow to pass actual compiler options?
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -84,7 +85,7 @@
 - [ ] feature: `--extension openapi` to activate an extension ? default `none`, `moschin`…
 - [ ] design: add convention for local vs exported definitions? capital?
 - [ ] static: separate compilation of included models
-- [ ] command: add option to do/skip check of `~` model
+- [ ] jmc: add option to do/skip check of `~` model
 - [ ] feature: control url caching, change dir location or disable
 - [ ] feature: cache expiration?
 - [ ] feature: improve error messages, eg missing "$" on a URL reference
@@ -201,7 +202,7 @@
 - [x] feature: clarify and implement options management `JSON_MODEL_…`
 - [x] feature: allow scalar value for `/`
 - [x] schema: test output json schema (strict) conformity
-- [x] command: use exclusive options where appropriate
+- [x] jmc: use exclusive options where appropriate
 - [x] tests: check all models wrt to the meta model, once
 - [x] static: remove pyright asserts from generated code
 - [x] schema: warn when generating schema with strict options
@@ -215,9 +216,9 @@
 - [x] python: remove global list in JsonModel
 - [x] python: remove all globals in Symbols and JsonModel
 - [x] static: generate executable script with minimal main
-- [x] command: add option `-J` to show json IR, set default to `-P` (preprocessed)
-- [x] command: change default to `-ns` (unsorted json properties)
-- [x] command: also use prettyprint options for yaml generation
+- [x] jmc: add option `-J` to show json IR, set default to `-P` (preprocessed)
+- [x] jmc: change default to `-ns` (unsorted json properties)
+- [x] jmc: also use prettyprint options for yaml generation
 - [x] static: add a `_` to the default prefix to separate exports
 - [x] static: rename all internal stuff with a `_` prefix
 - [x] python: refactor in optim analyze merge…
@@ -227,7 +228,7 @@
 - [x] feature: make static compiled exported defs accessible…
 - [x] frontend: select named model with `--name name`
 - [x] frontend: use `--list` to show available models
-- [x] command: add option `--name` to control name of generated function
+- [x] jmc: add option `--name` to control name of generated function
 - [x] frontend: add `--version` or `-v` to show jmc version
 - [x] backend: add free
 - [x] backend: no path option generation in `Language`
@@ -246,7 +247,7 @@
 - [x] static: object disjunction on str
 - [x] static: support or constants, aka enum.
 - [x] static: object disjunction on int, bool, float, null
-- [x] command: allow value checking under `-X -F py`
+- [x] jmc: allow value checking under `-X -F py`
 - [x] api: load model from file, load model from string…
 - [x] py-frontend: handle test vector files
 - [x] c-frontend: handle test vector files
@@ -269,7 +270,7 @@
 - [x] python: use local loose settings if appropriate (but not with inlining!)
 - [x] tests: remove SO stuff
 - [x] python: remove `static.py`
-- [x] command: remove `-S`
+- [x] jmc: remove `-S`
 - [x] doc: remove about S
 - [x] optim: predef normalization and or/and included type cleanups
 - [x] tests: parallelism with `pytest-xdist`
@@ -285,7 +286,7 @@
 - [x] project: switch version to beta.
 - [x] tests: drop `fuzzy` name, re-test for stricter versions
 - [x] tests: chunk tests in smaller directories to please xdist
-- [x] command: add test vector mode with `--test-vector`
+- [x] jmc: add test vector mode with `--test-vector`
 - [x] tests: fix `wip/obj_04` (double processing from `jmc` yielded to more substitions)
 - [x] tests: fix `wip/openapi-310-models`
 - [x] tests: optimized openapi-310-models should have fully removed schema stuff

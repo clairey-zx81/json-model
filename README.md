@@ -25,7 +25,7 @@ Command `jmc` options include:
   - `-X`: generate python or C code.
   - `-U`: dump all models.
   - `-J`: dump json IR.
-  - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
+- `-O`: optimize model: const prop, partial eval, xor to or, flatten…
 - `-o output`: file output instead of standard
 - `-F format`: select `json` or `yaml` for output
 - …
@@ -46,7 +46,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   jmc -EO -F yaml person.model.json
   ```
 
-  Output in the YaML format (because of the `-F` option):
+  Output in the YaML format:
 
   ```yaml
   description: A person with a birth date
@@ -80,7 +80,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
 - to actually compile an executable for checking a model, and use it for validating values:
 
   ```sh
-  jmc -XO -F out -o ./person.out person.model.json
+  jmc -O -o ./person.out person.model.json
   ./person.out -r hobbes.json unknown.json
   ```
   ```

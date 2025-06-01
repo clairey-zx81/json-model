@@ -157,7 +157,7 @@ def create_model(murl: str, resolver: Resolver, *,
                           check=False, merge=False, optimize=False)
 
 
-def clang_compile(c_code: str, output: str):
+def clang_compile(c_code: str, args):
     """Generate an actual executable."""
 
     tmp_dir = os.environ.get("TMPDIR", "/dev/shm")
@@ -168,10 +168,13 @@ def clang_compile(c_code: str, output: str):
     main = rt_dir.joinpath("main.c")
 
     # compiler setings
-    cc = os.environ.get("CC", "gcc")
-    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
-    cppflags = f"-I{rt_dir} -DCHECK_FUNCTION_NAME=check_model"
-    ldflags = "-ljansson -lpcre2-8 -lm"
+    env = os.environ.get
+    cc = args.cc or env("CC", "cc")
+    cflags = args.cflags or env("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
+    cppflags = args.cppflags or f"-I{rt_dir} -DCHECK_FUNCTION_NAME=check_model"
+    ldflags = args.ldflags or "-ljansson -lpcre2-8 -lm"
+
+    output = "a.out" if args.output == "-" else args.output
 
     with tempfile.NamedTemporaryFile(dir=tmp_dir, suffix=".c") as tmp:
         tmp.write(c_code.encode("UTF-8"))
@@ -187,14 +190,17 @@ def jmc_script():
 
     ap = argparse.ArgumentParser()
     arg = ap.add_argument
+
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
     arg("--debug", "-d", action="store_true", help="set debugging mode")
     arg("--verbose", "-v", action="store_true", help="more verbose")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
+
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
-    arg("--auto", "-a", action="store_true", help="automatic mapping")
+    arg("--auto", "-a", action="store_true", help="automatic URL mapping")
+
     # output options
     arg("--name", default="check_model", help="name of generated function")
     arg("--output", "-o", default="-", help="output file")
@@ -205,10 +211,17 @@ def jmc_script():
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
     arg("--no-report", "-nr", dest="report", action="store_false", default=True,
         help="remove reporting capabilities")
-    # TODO cpp js ts rs go…
+
+    # TODO js cpp ts rs go…
     arg("--format", "-F", choices=["json", "yaml", "py", "c", "out"],
         help="output format")
-    # expected results on values
+
+    arg("--cc", type=str, help="override default C language compiler")
+    arg("--cflags", type=str, help="override C compiler flags")
+    arg("--cppflags", type=str, help="override C pre-processor flags")
+    arg("--ldflags", type=str, help="override C linker flags")
+
+    # testing mode, expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
         help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True,
@@ -217,15 +230,17 @@ def jmc_script():
         help="test values for false")
     arg("--test-vector", "-tv", action="store_true", default=False,
         help="read values from a test vector file")
+
     # operations on model
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", help="optimize model")
     arg("--map-threshold", "-mt", default=3, type=int, help="property map threshold")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
+
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", default="P", choices=["P", "U", "J", "N", "V", "E", "X"],
+    ope("--op", choices=["P", "U", "J", "N", "V", "E", "X"],
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -241,6 +256,7 @@ def jmc_script():
         help="export as JSON Schema")
     ope("--experimental", "-X", dest="op", action="store_const", const="X",
         help="experimental code generation")
+
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -249,6 +265,27 @@ def jmc_script():
     if args.version:
         print(pkg_version("json-model"))
         sys.exit(0)
+
+    # format/operation guessing
+    if args.output != "-" and args.op is None and args.format is None:
+        if args.output.endswith(".c"):
+            args.format, args.op = "c", "X"
+        elif args.output.endswith(".out"):
+            args.format, args.op = "out", "X"
+        elif args.output.endswith(".py"):
+            args.format, args.op = "py", "X"
+        elif args.output.endswith(".schema.json"):
+            args.format, args.op = "json", "E"
+        elif args.output.endswith(".model.json"):
+            args.format, args.op = "json", "P"
+    elif args.values:
+        if args.op is None:
+            args.op = "X"
+        if args.format is None:
+            args.format = "py"
+
+    if args.op is None:
+        args.op = "P"
 
     # update op-dependent default
     if args.code is None:
@@ -353,8 +390,7 @@ def jmc_script():
         source = str(code)
 
         if args.format == "out":
-            executable = "a.out" if args.output == "-" else args.output
-            clang_compile(source, executable)
+            clang_compile(source, args)
         elif args.code:
             print(source, file=output, end="")
 
