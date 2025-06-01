@@ -1,5 +1,6 @@
 from .language import Language, Code, Block, Inst, Var
 from .language import BoolExpr, JsonExpr
+from .mtypes import Number
 
 
 class Python(Language):
@@ -17,6 +18,32 @@ class Python(Language):
 
         # TODO check actual use to desactivate
         self._setmap_used = True
+
+    def is_num(self, var: Var) -> BoolExpr:
+        return f"isinstance({var}, (int, float)) and not isinstance({var}, bool)"
+
+    def is_def(self, var: Var) -> BoolExpr:
+        return f"{var} != UNDEFINED"
+
+    def is_scalar(self, var: Var) -> BoolExpr:
+        return f"({var} is None or isinstance({var}, (bool, int, float, str)))"
+
+    def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
+        assert loose is None or tval in (int, float, Number)
+        if tval is None or tval == type(None):
+            return f"{var} is None"
+        elif tval is int:
+            is_an_int = f"isinstance({var}, int) and not isinstance({var}, bool)"
+            if loose:
+                is_an_int = f"({is_an_int} or isinstance({var}, float) and {var} == int({var}))"
+            return is_an_int
+        elif tval is float:
+            return self.is_num(var) if loose else f"isinstance({var}, float)"
+        elif tval is Number:
+            return self.is_num(var)
+        else:
+            assert tval in (bool, str, list, dict)
+            return f"isinstance({var}, {tval.__name__})"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         if name == "$URL":

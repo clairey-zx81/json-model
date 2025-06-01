@@ -45,44 +45,39 @@ class CLangJansson(Language):
     #
     # inlined type test expressions about JSON data
     #
-    def is_obj(self, var: Var) -> BoolExpr:
-        return f"json_is_object({var})"
-
-    def is_arr(self, var: Var) -> BoolExpr:
-        return f"json_is_array({var})"
-
-    def is_str(self, var: Var) -> BoolExpr:
-        return f"json_is_string({var})"
-
     def is_num(self, var: Var) -> BoolExpr:
         return f"json_is_number({var})"
-
-    def is_flt(self, var: Var, loose: bool = False) -> BoolExpr:
-        if loose:
-            return self.is_num(var)
-        else:
-            return f"json_is_real({var})"
-
-    def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
-        is_an_int = f"json_is_integer({var})"
-        if loose:
-            is_an_int = (
-                "(" + is_an_int + " || " +
-                f"(json_is_real({var}) && "
-                    f"json_real_value({var}) == (({self._int}) json_real_value({var}))))")
-        return is_an_int
-
-    def is_bool(self, var: Var) -> BoolExpr:
-        return f"json_is_boolean({var})"
-
-    def is_null(self, var: Var) -> BoolExpr:
-        return f"json_is_null({var})"
 
     def is_scalar(self, var: Var) -> BoolExpr:
         return f"jm_json_is_scalar({var})"
 
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} != NULL"
+
+    def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
+        assert loose is None or tval in (int, float, Number)
+        if tval is None or tval is type(None):
+            return f"json_is_null({var})"
+        elif tval is bool:
+            return f"json_is_boolean({var})"
+        elif tval is int:
+            is_an_int = f"json_is_integer({var})"
+            if loose:
+                is_an_int = (
+                    "(" + is_an_int + " || " +
+                    f"(json_is_real({var}) && "
+                        f"json_real_value({var}) == (({self._int}) json_real_value({var}))))")
+            return is_an_int
+        elif tval is float:
+            return self.is_num(var) if loose else f"json_is_real({var})"
+        elif tval is Number:
+            return self.is_num(var)
+        elif tval is str:
+            return f"json_is_string({var})"
+        elif tval is list:
+            return f"json_is_array({var})"
+        elif tval is dict:
+            return f"json_is_object({var})"
 
     def _json_str(self, j) -> str:
         j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
@@ -419,7 +414,7 @@ class CLangJansson(Language):
         if len(types) == 1:
             tcs = types.pop()
             val = self._var_cst(var, tcs)
-            return f"{self.is_this_type(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
+            return f"{self.is_a(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
         else:  # multi type managed in a generated function
             return f"{name}_test({var})"
 

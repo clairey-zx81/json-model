@@ -129,63 +129,23 @@ class Language:
         return []
 
     #
-    # inlined type test expressions about JSON data
+    # type tests
     #
-    # TODO is_a(var, type) in Python
-    #
-    def is_obj(self, var: Var) -> BoolExpr:
-        return f"isinstance({var}, dict)"
-
-    def is_arr(self, var: Var) -> BoolExpr:
-        return f"isinstance({var}, list)"
-
-    def is_str(self, var: Var) -> BoolExpr:
-        return f"isinstance({var}, str)"
-
     def is_num(self, var: Var) -> BoolExpr:
-        return f"isinstance({var}, (int, float)) and not isinstance({var}, bool)"
-
-    def is_flt(self, var: Var, loose: bool = False) -> BoolExpr:
-        return self.is_num(var) if loose else f"isinstance({var}, float)"
-
-    def is_int(self, var: Var, loose: bool = False) -> BoolExpr:
-        is_an_int = f"isinstance({var}, int) and not isinstance({var}, bool)"
-        if loose:
-            is_an_int = f"({is_an_int} or isinstance({var}, float) and {var} == int({var}))"
-        return is_an_int
-
-    def is_bool(self, var: Var) -> BoolExpr:
-        return f"isinstance({var}, bool)"
-
-    def is_null(self, var: Var) -> BoolExpr:
-        return f"{var} is None"
+        """Is JSON variable a number?"""
+        raise NotImplementedError(f"to be implemented")
 
     def is_def(self, var: Var) -> BoolExpr:
-        return f"{var} != UNDEFINED"
+        """Is JSON variable defined?"""
+        raise NotImplementedError(f"to be implemented")
 
     def is_scalar(self, var: Var) -> BoolExpr:
-        return f"({var} is None or isinstance({var}, (bool, int, float, str)))"
+        """Is JSON variable a scalar?"""
+        raise NotImplementedError(f"to be implemented")
 
-    # FIXME number looseness is lost!
-    def is_this_type(self, var: Var, tval: type|None) -> BoolExpr:
-        if tval is None or tval == type(None):
-            return self.is_null(var)
-        elif tval is bool:
-            return self.is_bool(var)
-        elif tval is int:
-            return self.is_int(var)
-        elif tval is float:
-            return self.is_flt(var)
-        elif tval is Number:
-            return self.is_num(var)
-        elif tval is str:
-            return self.is_str(var)
-        elif tval is list:
-            return self.is_arr(var)
-        elif tval is dict:
-            return self.is_obj(var)
-        else:
-            raise NotImplementedError(f"unexpected type {tval}")
+    def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
+        """Is JSON variable of this type?"""
+        raise NotImplementedError(f"to be implemented")
 
     #
     # predefs
@@ -207,20 +167,20 @@ class Language:
         elif name == "$NONE":
             return self.const(False)
         elif name == "$NULL":
-            return self.is_this_type(var, None)
+            return self.is_a(var, None)
         elif name in ("$BOOL", "$BOOLEAN"):
-            return self.is_this_type(var, bool)
+            return self.is_a(var, bool)
         elif name in ("$INT", "$INTEGER", "$I32", "$I64"):
-            return self.is_this_type(var, int)
+            return self.is_a(var, int)
         elif name in ("$U32", "$U64"):
-            return self.and_op(self.is_this_type(var, int),
+            return self.and_op(self.is_a(var, int),
                                self.num_cmp(self.value(var, int), ">=", self.const(0)))
         elif name in ("$FLOAT", "$F32", "$F64"):
-            return self.is_this_type(var, float)
+            return self.is_a(var, float)
         elif name == "$NUMBER":
-            return self.is_this_type(var, Number)
+            return self.is_a(var, Number)
         elif name == "$STRING":
-            return self.is_this_type(var, str)
+            return self.is_a(var, str)
         elif name in ("$DATE", "$URL", "$REGEX", "$UUID"):
             raise NotImplementedError(f"TODO predef {name}")
         else:

@@ -252,7 +252,7 @@ class SourceCode(Validator):
         if tmodel is None:
             # generic implementations if several model types, using runtime functions
             if has_unique:
-                checks.append(gen.is_arr(val))
+                checks.append(gen.is_a(val, list))
                 checks.append(gen.check_unique(val, vpath))
             for op in sorted(cmp_props):
                 checks.append(gen.check_constraint(op, model[op], val, vpath))
@@ -366,7 +366,7 @@ class SourceCode(Validator):
 
         self._code.cmap(cmap, TAG_CHECKS)
 
-        code += [ gen.bool_var(res, gen.is_obj(val)) ]
+        code += [ gen.bool_var(res, gen.is_a(val, dict)) ]
 
         # FIXME None tag value?!
         tag = self._lang.ident("tag")
@@ -463,7 +463,7 @@ class SourceCode(Validator):
         prop, pval, must_c, pfun = "prop", "pval", "must_count", "pfun"
 
         # should be an object
-        code += gen.if_stmt(gen.not_op(gen.is_obj(val)),
+        code += gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
                             self._gen_fail(f"not an object [{smpath}]", vpath))
 
         # shorcut for empty/any object
@@ -695,7 +695,7 @@ class SourceCode(Validator):
         or_code = []
         if same:
             # all models have the same ultimate type, type check shortcut
-            type_test = gen.is_this_type(val, expected)
+            type_test = gen.is_a(val, expected)
             or_known.add(type_test)
             or_code += [ gen.bool_var(res, type_test) ]
             or_code += self._gen_report(res, f"unexpected type [{smpath}]", vpath)
@@ -861,7 +861,7 @@ class SourceCode(Validator):
         same, expected = all_model_type(models, mpath)
         if same:
             # all models have the same ultimate type, use a type shortcut
-            type_test = gen.is_this_type(val, expected)
+            type_test = gen.is_a(val, expected)
             code += [ gen.bool_var(res, type_test) ]
             and_known.add(type_test)
         else:
@@ -893,13 +893,13 @@ class SourceCode(Validator):
         code = [ gen.lcom(f"{json_path(mpath)}") ]
         match model:
             case None:
-                code += [ gen.bool_var(res, gen.is_null(val)) ] + \
+                code += [ gen.bool_var(res, gen.is_a(val, None)) ] + \
                     self._gen_report(res, f"not null [{smpath}]", vpath)
             case bool():
-                code += [ gen.bool_var(res, gen.is_bool(val)) ] + \
+                code += [ gen.bool_var(res, gen.is_a(val, bool)) ] + \
                     self._gen_report(res, f"not a bool [{smpath}]", vpath)
             case int():
-                expr = gen.is_int(val, jm._loose_int)
+                expr = gen.is_a(val, int, jm._loose_int)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -925,7 +925,7 @@ class SourceCode(Validator):
                         self._gen_report(res,
                             f"not a {model} {looseness} int [{smpath}]", vpath)
             case float():
-                expr = gen.is_flt(val, jm._loose_float)
+                expr = gen.is_a(val, float, jm._loose_float)
                 if known is not None:
                     if expr in known:
                         expr = None
@@ -950,7 +950,7 @@ class SourceCode(Validator):
                     code += [ gen.bool_var(res, expr) ] + \
                         self._gen_report(res, f"not a {model} {looseness} float [{smpath}]", vpath)
             case str():
-                expr = gen.is_str(val)
+                expr = gen.is_a(val, str)
                 if known is not None:
                     # Skip special cases
                     if model == "" or model[0] not in ["$", "="]:
@@ -973,22 +973,22 @@ class SourceCode(Validator):
                     if not a_cst:
                         raise ModelError(f"unexpected constant: {model}")
                     if value is None:
-                        code += [ gen.bool_var(res, gen.is_null(val)) ]
+                        code += [ gen.bool_var(res, gen.is_a(val, None)) ]
                     elif isinstance(value, bool):
-                        ttest = gen.is_bool(val)
+                        ttest = gen.is_a(val, bool)
                         expr = gen.num_cmp(gen.value(val, bool), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, int):
-                        ttest = gen.is_int(val, jm._loose_int)
+                        ttest = gen.is_a(val, int, jm._loose_int)
                         # FIXME cast depends on type?
                         expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
                         code += [ gen.bool_var(res, expr) ]
                     elif isinstance(value, float):
-                        ttest = gen.is_flt(val, jm._loose_float)
+                        ttest = gen.is_a(val, float, jm._loose_float)
                         expr = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
                                            "=", gen.const(value))
                         if ttest not in known:
@@ -1017,7 +1017,7 @@ class SourceCode(Validator):
                         smodel = "REGEX"
                     code += self._gen_report(res, f"unexpected {smodel} [{smpath}]", vpath)
             case list():
-                expr = gen.is_arr(val)
+                expr = gen.is_a(val, list)
                 smpath = json_path(mpath)
                 if known is not None:
                     if expr in known:
