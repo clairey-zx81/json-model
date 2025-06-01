@@ -16,7 +16,7 @@ good_person = { "name": "Hobbes", "born": "2020-07-29" }
 print(good_person, "->", checker(good_person))
 
 # check invalid data
-bad_person = { "name": "Unknown" }
+bad_person = { "name": "Oops" }
 print(bad_person, "->", checker(bad_person))
 
 # collect reasons

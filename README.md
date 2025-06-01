@@ -66,11 +66,11 @@ For instance, let's consider a JSON model in file `person.model.json`:
 - to check directly sample JSON values against it (with the Python backend):
 
   ```sh
-  jmc -r person.model.json hobbes.json unknown.json
+  jmc -r person.model.json hobbes.json oops.json
   ```
   ```
   hobbes.json: PASS
-  unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
+  oops.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
   ```
 
 - to actually compile an executable for checking a model (with the C backend),
@@ -78,11 +78,11 @@ For instance, let's consider a JSON model in file `person.model.json`:
 
   ```sh
   jmc -o ./person.out person.model.json
-  ./person.out -r hobbes.json unknown.json
+  ./person.out -r hobbes.json oops.json
   ```
   ```
   hobbes.json: PASS
-  unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
+  oops.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
   ```
 
 ## JSON Model Python API
@@ -106,7 +106,7 @@ good_person = { "name": "Hobbes", "born": "2020-07-29" }
 print(good_person, "->", checker(good_person))
 
 # check invalid data
-bad_person = { "name": "Unknown" }
+bad_person = { "name": "Opps" }
 print(bad_person, "->", checker(bad_person))
 
 # collect reasons
