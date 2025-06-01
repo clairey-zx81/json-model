@@ -41,13 +41,11 @@ For instance, let's consider a JSON model in file `person.model.json`:
 }
 ```
 
-- to _export_ this model as a JSON schema:
+- to _export_ this model as a JSON schema in the YaML format:
 
   ```sh
   jmc -E -F yaml person.model.json
   ```
-
-  Output in the YaML format:
 
   ```yaml
   description: A person with a birth date
@@ -65,14 +63,11 @@ For instance, let's consider a JSON model in file `person.model.json`:
   additionalProperties: false
   ```
 
-- to check sample JSON values against it:
+- to check directly sample JSON values against it (with the Python backend):
 
   ```sh
   jmc -r person.model.json hobbes.json unknown.json
   ```
-
-  Output with an explanation.
-
   ```
   hobbes.json: PASS
   unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
