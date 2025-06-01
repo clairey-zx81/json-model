@@ -236,7 +236,7 @@ class SourceCode(Validator):
 
         # TODO add to "optimize.py"
         if elim:
-            log.warning(f"unfeasible model at [{smpath}]")
+            log.warning(f"unfeasible model [{smpath}]")
             return elim + [ gen.bool_var(res, gen.const(False)) ]
 
         # initial model check
@@ -310,7 +310,7 @@ class SourceCode(Validator):
         assert checks
         log.debug(f"checks={checks}")
         code += gen.if_stmt(res, cvars + [ gen.bool_var(res, gen.and_op(*checks)) ])
-        code += self._gen_report(res, f"constraints failed at [{smpath}]", vpath)
+        code += self._gen_report(res, f"constraints failed [{smpath}]", vpath)
         return code
 
     def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -693,7 +693,7 @@ class SourceCode(Validator):
             type_test = gen.is_this_type(val, expected)
             or_known.add(type_test)
             or_code += [ gen.bool_var(res, type_test) ]
-            or_code += self._gen_report(res, f"unexpected type at [{smpath}]", vpath)
+            or_code += self._gen_report(res, f"unexpected type [{smpath}]", vpath)
 
         icode = []
         for i, m in reversed(list(enumerate(models))):
@@ -1088,7 +1088,7 @@ class SourceCode(Validator):
 
                     # call object check and possibly report
                     code += [ gen.bool_var(res, gen.check_call(objid, val, vpath)) ]
-                    code += self._gen_report(res, f"not an expected object at [{smpath}]", vpath)
+                    code += self._gen_report(res, f"not an expected object [{smpath}]", vpath)
 
                     # record object function for path
                     self._paths[tuple(mpath)] = objid
