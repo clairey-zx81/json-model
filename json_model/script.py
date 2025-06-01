@@ -392,7 +392,9 @@ def jmc_script():
         if args.format == "out":
             clang_compile(source, args)
         elif args.code:
-            print(source, file=output, end="")
+            print(source, file=output, end="", flush=True)
+            if args.format == "py" and args.output != "-":
+                os.chmod(args.output, 0o755)
 
         if args.format == "py" and args.values:
             env = {}
