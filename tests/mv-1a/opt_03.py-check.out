@@ -1,5 +1,5 @@
 opt_03.values.json[0]: PASS
-opt_03.values.json[1]: FAIL [('no other prop expected [.]', ['Z']), ('not an expected object [.]', [])]
+opt_03.values.json[1]: FAIL [('unexpected prop [.]', ['Z']), ('not an expected object [.]', [])]
 opt_03.values.json[2]: FAIL [('not a 0 strict int [.a]', ['a']), ('invalid mandatory property value [..a]', ['a']), ('not an expected object [.]', [])]
 opt_03.values.json[3]: FAIL [('not a -1 strict int [.b]', ['b']), ('invalid mandatory property value [..b]', ['b']), ('not an expected object [.]', [])]
 opt_03.values.json[4]: FAIL [('not a 1 strict int [.c]', ['c']), ('invalid mandatory property value [..c]', ['c']), ('not an expected object [.]', [])]
@@ -7,7 +7,7 @@ opt_03.values.json[5]: FAIL [('missing mandatory prop <a> [.]', []), ('not an ex
 opt_03.values.json[6]: FAIL [('missing mandatory prop <b> [.]', []), ('not an expected object [.]', [])]
 opt_03.values.json[7]: FAIL [('missing mandatory prop <c> [.]', []), ('not an expected object [.]', [])]
 opt_03.values.json[8]: FAIL [('missing mandatory prop <a> [.]', []), ('missing mandatory prop <b> [.]', []), ('missing mandatory prop <c> [.]', []), ('not an expected object [.]', [])]
-opt_03.values.json[9]: FAIL [('no other prop expected [.]', ['not']), ('not an expected object [.]', [])]
+opt_03.values.json[9]: FAIL [('unexpected prop [.]', ['not']), ('not an expected object [.]', [])]
 opt_03.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 opt_03.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 opt_03.values.json[12]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

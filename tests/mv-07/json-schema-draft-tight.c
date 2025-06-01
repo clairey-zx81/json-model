@@ -624,7 +624,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$stringKeywords']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$stringKeywords']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -783,7 +783,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$arrayKeywords']", (path ? &lpath_1 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$arrayKeywords']", (path ? &lpath_1 : NULL));
             return false;
         }
     }
@@ -872,7 +872,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$objectKeywords'.patternProperties]", (path ? &lpath_3 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords'.patternProperties]", (path ? &lpath_3 : NULL));
             return false;
         }
     }
@@ -1022,7 +1022,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$objectKeywords']", (path ? &lpath_2 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$objectKeywords']", (path ? &lpath_2 : NULL));
             return false;
         }
     }
@@ -1088,7 +1088,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$numberKeywords']", (path ? &lpath_5 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$numberKeywords']", (path ? &lpath_5 : NULL));
             return false;
         }
     }
@@ -1245,7 +1245,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$metas'.'$vocabulary']", (path ? &lpath_8 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas'.'$vocabulary']", (path ? &lpath_8 : NULL));
             return false;
         }
     }
@@ -1445,7 +1445,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$metas']", (path ? &lpath_6 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$metas']", (path ? &lpath_6 : NULL));
             return false;
         }
     }
@@ -1602,7 +1602,7 @@ static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$String'.'$vocabulary']", (path ? &lpath_12 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String'.'$vocabulary']", (path ? &lpath_12 : NULL));
             return false;
         }
     }
@@ -1873,7 +1873,7 @@ static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$String']", (path ? &lpath_10 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$String']", (path ? &lpath_10 : NULL));
             return false;
         }
     }
@@ -2041,7 +2041,7 @@ static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Array'.'$vocabulary']", (path ? &lpath_16 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Array'.'$vocabulary']", (path ? &lpath_16 : NULL));
             return false;
         }
     }
@@ -2368,7 +2368,7 @@ static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Array']", (path ? &lpath_14 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Array']", (path ? &lpath_14 : NULL));
             return false;
         }
     }
@@ -2536,7 +2536,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Object'.'$vocabulary']", (path ? &lpath_20 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.'$vocabulary']", (path ? &lpath_20 : NULL));
             return false;
         }
     }
@@ -2736,7 +2736,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Object'.patternProperties]", (path ? &lpath_22 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object'.patternProperties]", (path ? &lpath_22 : NULL));
             return false;
         }
     }
@@ -2943,7 +2943,7 @@ static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Object']", (path ? &lpath_18 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Object']", (path ? &lpath_18 : NULL));
             return false;
         }
     }
@@ -3111,7 +3111,7 @@ static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Integer'.'$vocabulary']", (path ? &lpath_26 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Integer'.'$vocabulary']", (path ? &lpath_26 : NULL));
             return false;
         }
     }
@@ -3355,7 +3355,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Integer']", (path ? &lpath_24 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Integer']", (path ? &lpath_24 : NULL));
             return false;
         }
     }
@@ -3523,7 +3523,7 @@ static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Number'.'$vocabulary']", (path ? &lpath_30 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Number'.'$vocabulary']", (path ? &lpath_30 : NULL));
             return false;
         }
     }
@@ -3767,7 +3767,7 @@ static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Number']", (path ? &lpath_28 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Number']", (path ? &lpath_28 : NULL));
             return false;
         }
     }
@@ -3935,7 +3935,7 @@ static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Bool'.'$vocabulary']", (path ? &lpath_34 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Bool'.'$vocabulary']", (path ? &lpath_34 : NULL));
             return false;
         }
     }
@@ -4153,7 +4153,7 @@ static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Bool']", (path ? &lpath_32 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Bool']", (path ? &lpath_32 : NULL));
             return false;
         }
     }
@@ -4321,7 +4321,7 @@ static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Null'.'$vocabulary']", (path ? &lpath_38 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Null'.'$vocabulary']", (path ? &lpath_38 : NULL));
             return false;
         }
     }
@@ -4539,7 +4539,7 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Null']", (path ? &lpath_36 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Null']", (path ? &lpath_36 : NULL));
             return false;
         }
     }
@@ -4707,7 +4707,7 @@ static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$AllOf'.'$vocabulary']", (path ? &lpath_42 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AllOf'.'$vocabulary']", (path ? &lpath_42 : NULL));
             return false;
         }
     }
@@ -4925,7 +4925,7 @@ static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$AllOf']", (path ? &lpath_40 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AllOf']", (path ? &lpath_40 : NULL));
             return false;
         }
     }
@@ -5093,7 +5093,7 @@ static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$AnyOf'.'$vocabulary']", (path ? &lpath_46 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnyOf'.'$vocabulary']", (path ? &lpath_46 : NULL));
             return false;
         }
     }
@@ -5311,7 +5311,7 @@ static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$AnyOf']", (path ? &lpath_44 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$AnyOf']", (path ? &lpath_44 : NULL));
             return false;
         }
     }
@@ -5479,7 +5479,7 @@ static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$OneOf'.'$vocabulary']", (path ? &lpath_50 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$OneOf'.'$vocabulary']", (path ? &lpath_50 : NULL));
             return false;
         }
     }
@@ -5697,7 +5697,7 @@ static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$OneOf']", (path ? &lpath_48 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$OneOf']", (path ? &lpath_48 : NULL));
             return false;
         }
     }
@@ -5865,7 +5865,7 @@ static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Enum'.'$vocabulary']", (path ? &lpath_54 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Enum'.'$vocabulary']", (path ? &lpath_54 : NULL));
             return false;
         }
     }
@@ -6083,7 +6083,7 @@ static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Enum']", (path ? &lpath_52 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Enum']", (path ? &lpath_52 : NULL));
             return false;
         }
     }
@@ -6251,7 +6251,7 @@ static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Const'.'$vocabulary']", (path ? &lpath_58 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Const'.'$vocabulary']", (path ? &lpath_58 : NULL));
             return false;
         }
     }
@@ -6469,7 +6469,7 @@ static bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Const']", (path ? &lpath_56 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Const']", (path ? &lpath_56 : NULL));
             return false;
         }
     }
@@ -6637,7 +6637,7 @@ static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Ref'.'$vocabulary']", (path ? &lpath_62 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Ref'.'$vocabulary']", (path ? &lpath_62 : NULL));
             return false;
         }
     }
@@ -6855,7 +6855,7 @@ static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$Ref']", (path ? &lpath_60 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Ref']", (path ? &lpath_60 : NULL));
             return false;
         }
     }
@@ -7023,7 +7023,7 @@ static bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$DynRef'.'$vocabulary']", (path ? &lpath_66 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$DynRef'.'$vocabulary']", (path ? &lpath_66 : NULL));
             return false;
         }
     }
@@ -7241,7 +7241,7 @@ static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$DynRef']", (path ? &lpath_64 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$DynRef']", (path ? &lpath_64 : NULL));
             return false;
         }
     }

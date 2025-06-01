@@ -3,7 +3,7 @@ obj_04.values.json[1]: PASS
 obj_04.values.json[2]: PASS
 obj_04.values.json[3]: PASS
 obj_04.values.json[4]: PASS
-obj_04.values.json[5]: FAIL [("value not in enum [.'$XXX'.'|']", ['Y']), ('no other prop expected [.]', ['Y']), ('not an expected object [.]', [])]
+obj_04.values.json[5]: FAIL [("value not in enum [.'$XXX'.'|']", ['Y']), ('unexpected prop [.]', ['Y']), ('not an expected object [.]', [])]
 obj_04.values.json[6]: FAIL [("not a 0.0 strict float [.'$XXX']", ['X']), ('not an expected object [.]', [])]
 obj_04.values.json[7]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 obj_04.values.json[8]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

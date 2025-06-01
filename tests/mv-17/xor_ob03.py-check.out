@@ -3,7 +3,7 @@ xor_ob03.values.json[1]: PASS
 xor_ob03.values.json[2]: FAIL [("tag t value not found [.movie.'|']", ['movie']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
 xor_ob03.values.json[3]: FAIL [("missing mandatory prop <titre> [.movie.'|'.0]", ['movie']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
 xor_ob03.values.json[4]: FAIL [("unexpected string [.movie.'|'.0.titre]", ['movie', 'titre']), ("invalid mandatory property value [.movie.'|'.0.titre]", ['movie', 'titre']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
-xor_ob03.values.json[5]: FAIL [("no other prop expected [.movie.'|'.0]", ['movie', 'audio']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
+xor_ob03.values.json[5]: FAIL [("unexpected prop [.movie.'|'.0]", ['movie', 'audio']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
 xor_ob03.values.json[6]: FAIL [("tag prop t is missing [.movie.'|']", ['movie']), ('invalid mandatory property value [..movie]', ['movie']), ('not an expected object [.]', [])]
 xor_ob03.values.json[7]: FAIL [('missing mandatory prop <movie> [.]', []), ('not an expected object [.]', [])]
 xor_ob03.values.json[8]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

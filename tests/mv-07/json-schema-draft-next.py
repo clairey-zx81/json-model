@@ -154,7 +154,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$core'.'$vocabulary']", lpath_2 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$core'.'$vocabulary']", lpath_2 if path is not None else None))
             return False
     return True
 
@@ -183,7 +183,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$core']", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$core']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
             return False
     return True
 
@@ -278,7 +278,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$meta']", lpath_3 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$meta']", lpath_3 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
             return False
     return True
 
@@ -328,7 +328,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$content'.contentSchema]", lpath_4 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$content']", lpath_4 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$content']", lpath_4 if path is not None else None))
             return False
     return True
 
@@ -369,7 +369,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$unevaluated'.unevaluatedProperties]", lpath_5 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$unevaluated']", lpath_5 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$unevaluated']", lpath_5 if path is not None else None))
             return False
     return True
 
@@ -401,7 +401,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$format'.format]", lpath_6 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$format']", lpath_6 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$format']", lpath_6 if path is not None else None))
             return False
     return True
 
@@ -707,7 +707,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$validation']", lpath_7 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$validation']", lpath_7 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$validation']", lpath_7 if path is not None else None))
             return False
     return True
 
@@ -870,7 +870,7 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$applicator'.patternProperties]", lpath_11 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$applicator'.patternProperties]", lpath_11 if path is not None else None))
             return False
     return True
 
@@ -998,7 +998,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$applicator']", lpath_9 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$applicator']", lpath_9 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$applicator']", lpath_9 if path is not None else None))
             return False
     return True
 
@@ -1119,7 +1119,7 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$ObjectSchema'.'$vocabulary']", lpath_17 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$ObjectSchema'.'$vocabulary']", lpath_17 if path is not None else None))
             return False
     return True
 
@@ -1507,7 +1507,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$ObjectSchema'.patternProperties]", lpath_20 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$ObjectSchema'.patternProperties]", lpath_20 if path is not None else None))
             return False
     return True
 
@@ -1717,7 +1717,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$ObjectSchema']", lpath_15 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$ObjectSchema']", lpath_15 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$ObjectSchema']", lpath_15 if path is not None else None))
             return False
     return True
 

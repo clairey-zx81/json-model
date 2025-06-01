@@ -754,7 +754,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$ObjectSchema'.patternProperties]", (path ? &lpath_3 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$ObjectSchema'.patternProperties]", (path ? &lpath_3 : NULL));
             return false;
         }
     }
@@ -929,7 +929,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$ObjectSchema']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$ObjectSchema']", (path ? &lpath_0 : NULL));
             return false;
         }
     }

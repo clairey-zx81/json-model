@@ -7,4 +7,4 @@ xor_01.values.json[5]: FAIL (.: not one model match [.'^']) (.: not an expected 
 xor_01.values.json[6]: FAIL (.: not one model match [.'^']) (.: not an expected object [.'^'.1]) (.: not an object [.'^'.1])
 xor_01.values.json[7]: FAIL (.: not one model match [.'^']) (.: not an expected object [.'^'.1]) (.: not an object [.'^'.1])
 xor_01.values.json[8]: FAIL (.: not one model match [.'^']) (.: not an expected object [.'^'.1]) (.: missing mandatory prop <a> [.'^'.1])
-xor_01.values.json[9]: FAIL (.: not one model match [.'^']) (.: not an expected object [.'^'.1]) (.no: no other prop expected [.'^'.1])
+xor_01.values.json[9]: FAIL (.: not one model match [.'^']) (.: not an expected object [.'^'.1]) (.no: unexpected prop [.'^'.1])

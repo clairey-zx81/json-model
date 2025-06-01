@@ -32,7 +32,7 @@ geo.values.json[33]: FAIL (.: constraints failed [.'$linear_ring']) (.: not arra
 geo.values.json[35]: PASS
 geo.values.json[36]: PASS
 geo.values.json[37]: PASS
-geo.values.json[38]: FAIL (.: not an expected object [.'$Point']) (.coord: no other prop expected [.'$Point'])
+geo.values.json[38]: FAIL (.: not an expected object [.'$Point']) (.coord: unexpected prop [.'$Point'])
 geo.values.json[39]: FAIL (.: not an expected object [.'$Point']) (.: missing mandatory prop <coordinates> [.'$Point'])
 geo.values.json[40]: FAIL (.: not an expected object [.'$Point']) (.: missing mandatory prop <type> [.'$Point']) (.: missing mandatory prop <coordinates> [.'$Point'])
 geo.values.json[41]: FAIL (.: not an expected object [.'$Point']) (.: not an object [.'$Point'])

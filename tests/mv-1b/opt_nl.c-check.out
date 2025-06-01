@@ -9,4 +9,4 @@ opt_nl.values.json[8]: FAIL (.: not an expected object [.]) (.: not an object [.
 opt_nl.values.json[9]: FAIL (.: not an expected object [.]) (.: not an object [.])
 opt_nl.values.json[10]: FAIL (.: not an expected object [.]) (.: not an object [.])
 opt_nl.values.json[11]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <i> [.]) (.: missing mandatory prop <f> [.])
-opt_nl.values.json[12]: FAIL (.: not an expected object [.]) (.not: no other prop expected [.])
+opt_nl.values.json[12]: FAIL (.: not an expected object [.]) (.not: unexpected prop [.])

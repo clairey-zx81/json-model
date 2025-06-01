@@ -67,7 +67,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$EX09']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$EX09']", lpath_0 if path is not None else None))
             return False
     return True
 
@@ -140,7 +140,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$ex08#map']", lpath_1 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$ex08#map']", lpath_1 if path is not None else None))
             return False
     return True
 

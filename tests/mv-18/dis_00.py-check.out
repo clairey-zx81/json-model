@@ -2,7 +2,7 @@ dis_00.values.json[0]: PASS
 dis_00.values.json[1]: PASS
 dis_00.values.json[2]: PASS
 dis_00.values.json[3]: FAIL [("tag tag value not found [.'|']", [])]
-dis_00.values.json[4]: FAIL [("no other prop expected [.'|'.0]", ['b'])]
+dis_00.values.json[4]: FAIL [("unexpected prop [.'|'.0]", ['b'])]
 dis_00.values.json[5]: FAIL [("value is not an object [.'|']", [])]
 dis_00.values.json[6]: FAIL [("value is not an object [.'|']", [])]
 dis_00.values.json[7]: FAIL [("value is not an object [.'|']", [])]

@@ -1,11 +1,11 @@
 dst_00.values.json[0]: PASS
 dst_00.values.json[1]: PASS
 dst_00.values.json[2]: FAIL [("missing mandatory prop <b> [.'|'.0]", []), ("not an expected object [.'|'.0]", []), ("missing mandatory prop <c> [.'|'.1]", []), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]
-dst_00.values.json[3]: FAIL [("missing mandatory prop <a> [.'|'.0]", []), ("not an expected object [.'|'.0]", []), ("no other prop expected [.'|'.1]", ['b']), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]
+dst_00.values.json[3]: FAIL [("missing mandatory prop <a> [.'|'.0]", []), ("not an expected object [.'|'.0]", []), ("unexpected prop [.'|'.1]", ['b']), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]
 dst_00.values.json[4]: FAIL [("unexpected type [.'|']", [])]
 dst_00.values.json[5]: FAIL [("unexpected type [.'|']", [])]
 dst_00.values.json[6]: FAIL [("unexpected type [.'|']", [])]
 dst_00.values.json[7]: FAIL [("unexpected type [.'|']", [])]
 dst_00.values.json[8]: FAIL [("unexpected type [.'|']", [])]
 dst_00.values.json[9]: FAIL [("missing mandatory prop <a> [.'|'.0]", []), ("missing mandatory prop <b> [.'|'.0]", []), ("not an expected object [.'|'.0]", []), ("missing mandatory prop <a> [.'|'.1]", []), ("missing mandatory prop <c> [.'|'.1]", []), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]
-dst_00.values.json[10]: FAIL [("no other prop expected [.'|'.0]", ['unexpected']), ("not an expected object [.'|'.0]", []), ("no other prop expected [.'|'.1]", ['unexpected']), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]
+dst_00.values.json[10]: FAIL [("unexpected prop [.'|'.0]", ['unexpected']), ("not an expected object [.'|'.0]", []), ("unexpected prop [.'|'.1]", ['unexpected']), ("not an expected object [.'|'.1]", []), ("no model matched [.'|']", [])]

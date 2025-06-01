@@ -1,9 +1,9 @@
 opt_04.values.json[0]: PASS
 opt_04.values.json[1]: FAIL (.: not an expected object [.]) (.a: invalid mandatory property value [..a]) (.a: not a 1 strict int [.a])
-opt_04.values.json[2]: FAIL (.: not an expected object [.]) (.Z: no other prop expected [.])
+opt_04.values.json[2]: FAIL (.: not an expected object [.]) (.Z: unexpected prop [.])
 opt_04.values.json[3]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <a> [.])
 opt_04.values.json[4]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <b> [.])
-opt_04.values.json[5]: FAIL (.: not an expected object [.]) (.Z: no other prop expected [.])
+opt_04.values.json[5]: FAIL (.: not an expected object [.]) (.Z: unexpected prop [.])
 opt_04.values.json[6]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <b> [.]) (.: missing mandatory prop <a> [.])
 opt_04.values.json[7]: FAIL (.: not an expected object [.]) (.: not an object [.])
 opt_04.values.json[8]: FAIL (.: not an expected object [.]) (.: not an object [.])

@@ -7,7 +7,7 @@ opt_07.values.json[5]: PASS
 opt_07.values.json[6]: FAIL (.: tag d value not found [.'|'])
 opt_07.values.json[7]: FAIL (.: tag d value not found [.'|'])
 opt_07.values.json[8]: FAIL (.: tag d value not found [.'|'])
-opt_07.values.json[9]: FAIL (.not: no other prop expected [.'|'.0])
+opt_07.values.json[9]: FAIL (.not: unexpected prop [.'|'.0])
 opt_07.values.json[10]: FAIL (.: missing mandatory prop <val> [.'|'.0])
 opt_07.values.json[11]: FAIL (.val: invalid mandatory property value [.'|'.0.val]) (.val: not a -1 strict int [.'|'.0.val])
 opt_07.values.json[12]: FAIL (.val: invalid mandatory property value [.'|'.0.val]) (.val: not a -1 strict int [.'|'.0.val])

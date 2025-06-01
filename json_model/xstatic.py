@@ -601,7 +601,7 @@ class SourceCode(Validator):
                 ]
         else:  # no catch all
             smpath = json_path(mpath)
-            ot_code = self._gen_fail(f"no other prop expected [{smpath}]", lpath_ref)
+            ot_code = self._gen_fail(f"unexpected prop [{smpath}]", lpath_ref)
 
         code += gen.obj_loop(val, prop, pval,
             [ gen.path_var(lpath, gen.path_val(vpath, prop, True), True) ] +

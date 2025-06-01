@@ -1,6 +1,6 @@
 base-028.values.json[0]: PASS
 base-028.values.json[1]: PASS
-base-028.values.json[2]: FAIL (.: not an expected object [.]) (.un: no other prop expected [.])
+base-028.values.json[2]: FAIL (.: not an expected object [.]) (.un: unexpected prop [.])
 base-028.values.json[3]: FAIL (.: not an expected object [.]) (.: not an object [.])
 base-028.values.json[4]: FAIL (.: not an expected object [.]) (.: not an object [.])
 base-028.values.json[5]: FAIL (.: not an expected object [.]) (.: not an object [.])

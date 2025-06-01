@@ -3,11 +3,11 @@ scp_01.values.json[1]: PASS
 scp_01.values.json[2]: PASS
 scp_01.values.json[3]: PASS
 scp_01.values.json[4]: FAIL [('missing mandatory prop <RA> [.]', []), ('not an expected object [.]', [])]
-scp_01.values.json[5]: FAIL [('no other prop expected [.]', ['Z']), ('not an expected object [.]', [])]
+scp_01.values.json[5]: FAIL [('unexpected prop [.]', ['Z']), ('not an expected object [.]', [])]
 scp_01.values.json[6]: FAIL [('missing mandatory prop <RA> [.]', []), ('not an expected object [.]', [])]
 scp_01.values.json[7]: FAIL [('missing mandatory prop <RA> [.]', []), ('not an expected object [.]', [])]
 scp_01.values.json[8]: FAIL [('missing mandatory prop <RA> [.]', []), ('not an expected object [.]', [])]
-scp_01.values.json[9]: FAIL [('no other prop expected [.]', ['not']), ('not an expected object [.]', [])]
+scp_01.values.json[9]: FAIL [('unexpected prop [.]', ['not']), ('not an expected object [.]', [])]
 scp_01.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 scp_01.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 scp_01.values.json[12]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

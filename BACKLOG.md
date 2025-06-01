@@ -15,6 +15,7 @@
 - [x] static: disjunct could share identical may/must tabs between objects (optional)
 - [x] c-backend: also prefix type name and extensions with `jm_`
 - [x] static: use `[.]` for root in error messages
+- [x] static: simplify unexpected prop message
 - [ ] frontend: align python and C outputs
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`

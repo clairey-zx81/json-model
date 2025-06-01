@@ -489,7 +489,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#OpenAPI']", (path ? &lpath_0 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#OpenAPI']", (path ? &lpath_0 : NULL));
             return false;
         }
     }
@@ -667,7 +667,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Info']", (path ? &lpath_2 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Info']", (path ? &lpath_2 : NULL));
             return false;
         }
     }
@@ -777,7 +777,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Contact']", (path ? &lpath_3 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Contact']", (path ? &lpath_3 : NULL));
             return false;
         }
     }
@@ -860,7 +860,7 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#License'.'|'.1]", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#License'.'|'.1]", (path ? &lpath_4 : NULL));
             return false;
         }
     }
@@ -945,7 +945,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#License'.'|'.0]", (path ? &lpath_5 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#License'.'|'.0]", (path ? &lpath_5 : NULL));
             return false;
         }
     }
@@ -1112,7 +1112,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Server']", (path ? &lpath_6 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Server']", (path ? &lpath_6 : NULL));
             return false;
         }
     }
@@ -1239,7 +1239,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#ServerVariable']", (path ? &lpath_8 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#ServerVariable']", (path ? &lpath_8 : NULL));
             return false;
         }
     }
@@ -1897,7 +1897,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Components']", (path ? &lpath_9 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Components']", (path ? &lpath_9 : NULL));
             return false;
         }
     }
@@ -1968,7 +1968,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Paths']", (path ? &lpath_20 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Paths']", (path ? &lpath_20 : NULL));
             return false;
         }
     }
@@ -2258,7 +2258,7 @@ static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#PathItem']", (path ? &lpath_21 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#PathItem']", (path ? &lpath_21 : NULL));
             return false;
         }
     }
@@ -2651,7 +2651,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Operation']", (path ? &lpath_22 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Operation']", (path ? &lpath_22 : NULL));
             return false;
         }
     }
@@ -2733,7 +2733,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#ExternalDocumentation']", (path ? &lpath_24 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#ExternalDocumentation']", (path ? &lpath_24 : NULL));
             return false;
         }
     }
@@ -2937,7 +2937,7 @@ static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Parameter'.'|'.1]", (path ? &lpath_25 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Parameter'.'|'.1]", (path ? &lpath_25 : NULL));
             return false;
         }
     }
@@ -3215,7 +3215,7 @@ static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Parameter'.'|'.0]", (path ? &lpath_27 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Parameter'.'|'.0]", (path ? &lpath_27 : NULL));
             return false;
         }
     }
@@ -3394,7 +3394,7 @@ static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#RequestBody']", (path ? &lpath_29 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#RequestBody']", (path ? &lpath_29 : NULL));
             return false;
         }
     }
@@ -3587,7 +3587,7 @@ static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#MediaType']", (path ? &lpath_31 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#MediaType']", (path ? &lpath_31 : NULL));
             return false;
         }
     }
@@ -3764,7 +3764,7 @@ static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Encoding']", (path ? &lpath_34 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Encoding']", (path ? &lpath_34 : NULL));
             return false;
         }
     }
@@ -3886,7 +3886,7 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Responses']", (path ? &lpath_36 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Responses']", (path ? &lpath_36 : NULL));
             return false;
         }
     }
@@ -4126,7 +4126,7 @@ static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Response']", (path ? &lpath_37 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Response']", (path ? &lpath_37 : NULL));
             return false;
         }
     }
@@ -4208,7 +4208,7 @@ static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Callback']", (path ? &lpath_41 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Callback']", (path ? &lpath_41 : NULL));
             return false;
         }
     }
@@ -4325,7 +4325,7 @@ static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Example']", (path ? &lpath_42 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Example']", (path ? &lpath_42 : NULL));
             return false;
         }
     }
@@ -4484,7 +4484,7 @@ static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Link'.'|'.1]", (path ? &lpath_43 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Link'.'|'.1]", (path ? &lpath_43 : NULL));
             return false;
         }
     }
@@ -4628,7 +4628,7 @@ static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Link'.'|'.0]", (path ? &lpath_44 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Link'.'|'.0]", (path ? &lpath_44 : NULL));
             return false;
         }
     }
@@ -4824,7 +4824,7 @@ static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Header'.'|'.1]", (path ? &lpath_45 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Header'.'|'.1]", (path ? &lpath_45 : NULL));
             return false;
         }
     }
@@ -5053,7 +5053,7 @@ static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Header'.'|'.0]", (path ? &lpath_47 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Header'.'|'.0]", (path ? &lpath_47 : NULL));
             return false;
         }
     }
@@ -5176,7 +5176,7 @@ static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Tag']", (path ? &lpath_49 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Tag']", (path ? &lpath_49 : NULL));
             return false;
         }
     }
@@ -5270,7 +5270,7 @@ static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#Reference']", (path ? &lpath_50 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#Reference']", (path ? &lpath_50 : NULL));
             return false;
         }
     }
@@ -5460,7 +5460,7 @@ static bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#SecurityScheme']", (path ? &lpath_51 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#SecurityScheme']", (path ? &lpath_51 : NULL));
             return false;
         }
     }
@@ -5608,7 +5608,7 @@ static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#OAuthFlows']", (path ? &lpath_52 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#OAuthFlows']", (path ? &lpath_52 : NULL));
             return false;
         }
     }
@@ -5751,7 +5751,7 @@ static bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#OAuthFlow']", (path ? &lpath_53 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#OAuthFlow']", (path ? &lpath_53 : NULL));
             return false;
         }
     }
@@ -6071,7 +6071,7 @@ static bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#model#Elem'.'|'.4]", (path ? &lpath_57 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Elem'.'|'.4]", (path ? &lpath_57 : NULL));
             return false;
         }
     }
@@ -6156,7 +6156,7 @@ static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#model#Elem'.'|'.3]", (path ? &lpath_58 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Elem'.'|'.3]", (path ? &lpath_58 : NULL));
             return false;
         }
     }
@@ -6241,7 +6241,7 @@ static bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#model#Elem'.'|'.2]", (path ? &lpath_59 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Elem'.'|'.2]", (path ? &lpath_59 : NULL));
             return false;
         }
     }
@@ -6326,7 +6326,7 @@ static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#model#Elem'.'|'.1]", (path ? &lpath_60 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Elem'.'|'.1]", (path ? &lpath_60 : NULL));
             return false;
         }
     }
@@ -6476,7 +6476,7 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$openapi#model#Elem'.'|'.0]", (path ? &lpath_61 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Elem'.'|'.0]", (path ? &lpath_61 : NULL));
             return false;
         }
     }

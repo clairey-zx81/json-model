@@ -89,7 +89,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Schema'.metadata]", lpath_1 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Schema'.metadata]", lpath_1 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Schema'.metadata]", lpath_1 if path is not None else None))
             return False
     return True
 
@@ -132,7 +132,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Schema'.metadata]", lpath_0 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Schema']", lpath_0 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Schema']", lpath_0 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
@@ -388,7 +388,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Atomic']", lpath_2 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Atomic']", lpath_2 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Atomic']", lpath_2 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
@@ -481,7 +481,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Object']", lpath_3 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Object']", lpath_3 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Object']", lpath_3 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
@@ -557,7 +557,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Fields'.unique]", lpath_4 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Fields']", lpath_4 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Fields']", lpath_4 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
@@ -650,7 +650,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Array']", lpath_5 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Array']", lpath_5 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Array']", lpath_5 if path is not None else None))
             return False
     if must_count != 1:
         if rep is not None:
@@ -727,7 +727,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("invalid may property value [.'$Union'.baseType]", lpath_6 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("no other prop expected [.'$Union']", lpath_6 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$Union']", lpath_6 if path is not None else None))
             return False
     if must_count != 3:
         if rep is not None:

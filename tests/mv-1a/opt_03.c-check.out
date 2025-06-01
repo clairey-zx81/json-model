@@ -1,5 +1,5 @@
 opt_03.values.json[0]: PASS
-opt_03.values.json[1]: FAIL (.: not an expected object [.]) (.Z: no other prop expected [.])
+opt_03.values.json[1]: FAIL (.: not an expected object [.]) (.Z: unexpected prop [.])
 opt_03.values.json[2]: FAIL (.: not an expected object [.]) (.a: invalid mandatory property value [..a]) (.a: not a 0 strict int [.a])
 opt_03.values.json[3]: FAIL (.: not an expected object [.]) (.b: invalid mandatory property value [..b]) (.b: not a -1 strict int [.b])
 opt_03.values.json[4]: FAIL (.: not an expected object [.]) (.c: invalid mandatory property value [..c]) (.c: not a 1 strict int [.c])
@@ -7,7 +7,7 @@ opt_03.values.json[5]: FAIL (.: not an expected object [.]) (.: missing mandator
 opt_03.values.json[6]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <b> [.])
 opt_03.values.json[7]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <c> [.])
 opt_03.values.json[8]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <c> [.]) (.: missing mandatory prop <b> [.]) (.: missing mandatory prop <a> [.])
-opt_03.values.json[9]: FAIL (.: not an expected object [.]) (.not: no other prop expected [.])
+opt_03.values.json[9]: FAIL (.: not an expected object [.]) (.not: unexpected prop [.])
 opt_03.values.json[10]: FAIL (.: not an expected object [.]) (.: not an object [.])
 opt_03.values.json[11]: FAIL (.: not an expected object [.]) (.: not an object [.])
 opt_03.values.json[12]: FAIL (.: not an expected object [.]) (.: not an object [.])

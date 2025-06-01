@@ -6,7 +6,7 @@ mrg_03.values.json[4]: FAIL [('missing mandatory prop <a> [.]', []), ('not an ex
 mrg_03.values.json[5]: FAIL [('missing mandatory prop <b> [.]', []), ('not an expected object [.]', [])]
 mrg_03.values.json[6]: FAIL [('missing mandatory prop <c> [.]', []), ('not an expected object [.]', [])]
 mrg_03.values.json[7]: FAIL [('missing mandatory prop <a> [.]', []), ('missing mandatory prop <b> [.]', []), ('missing mandatory prop <c> [.]', []), ('not an expected object [.]', [])]
-mrg_03.values.json[8]: FAIL [('no other prop expected [.]', ['not']), ('not an expected object [.]', [])]
+mrg_03.values.json[8]: FAIL [('unexpected prop [.]', ['not']), ('not an expected object [.]', [])]
 mrg_03.values.json[9]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 mrg_03.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 mrg_03.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

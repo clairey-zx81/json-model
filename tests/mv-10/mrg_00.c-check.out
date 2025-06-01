@@ -4,7 +4,7 @@ mrg_00.values.json[2]: FAIL (.: not an expected object [.]) (.: missing mandator
 mrg_00.values.json[3]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <c> [.])
 mrg_00.values.json[4]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <d> [.])
 mrg_00.values.json[5]: FAIL (.: not an expected object [.]) (.: missing mandatory prop <d> [.]) (.: missing mandatory prop <c> [.]) (.: missing mandatory prop <b> [.]) (.: missing mandatory prop <a> [.])
-mrg_00.values.json[6]: FAIL (.: not an expected object [.]) (.z: no other prop expected [.])
+mrg_00.values.json[6]: FAIL (.: not an expected object [.]) (.z: unexpected prop [.])
 mrg_00.values.json[7]: FAIL (.: not an expected object [.]) (.: not an object [.])
 mrg_00.values.json[8]: FAIL (.: not an expected object [.]) (.: not an object [.])
 mrg_00.values.json[9]: FAIL (.: not an expected object [.]) (.: not an object [.])

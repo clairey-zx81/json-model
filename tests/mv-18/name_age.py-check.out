@@ -1,7 +1,7 @@
 name_age.values.json[0]: PASS
 name_age.values.json[1]: PASS
 name_age.values.json[2]: FAIL [('missing mandatory prop <age> [.]', []), ('not an expected object [.]', [])]
-name_age.values.json[3]: FAIL [('no other prop expected [.]', ['nom']), ('not an expected object [.]', [])]
+name_age.values.json[3]: FAIL [('unexpected prop [.]', ['nom']), ('not an expected object [.]', [])]
 name_age.values.json[4]: FAIL [('missing mandatory prop <age> [.]', []), ('missing mandatory prop <name> [.]', []), ('not an expected object [.]', [])]
 name_age.values.json[5]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 name_age.values.json[6]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]

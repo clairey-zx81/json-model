@@ -15,4 +15,4 @@ dolsha.values.json[13]: FAIL [('not an object [.]', []), ('not an expected objec
 dolsha.values.json[14]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 dolsha.values.json[15]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
 dolsha.values.json[16]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-dolsha.values.json[17]: FAIL [('no other prop expected [.]', ['un']), ('not an expected object [.]', [])]
+dolsha.values.json[17]: FAIL [('unexpected prop [.]', ['un']), ('not an expected object [.]', [])]

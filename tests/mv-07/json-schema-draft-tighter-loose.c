@@ -818,7 +818,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#metas']", (path ? &lpath_1 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#metas']", (path ? &lpath_1 : NULL));
             return false;
         }
     }
@@ -1131,7 +1131,7 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#String']", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#String']", (path ? &lpath_4 : NULL));
             return false;
         }
     }
@@ -1498,7 +1498,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Array']", (path ? &lpath_7 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Array']", (path ? &lpath_7 : NULL));
             return false;
         }
     }
@@ -1783,7 +1783,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Object'.patternProperties]", (path ? &lpath_13 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Object'.patternProperties]", (path ? &lpath_13 : NULL));
             return false;
         }
     }
@@ -1938,7 +1938,7 @@ static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Object']", (path ? &lpath_10 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Object']", (path ? &lpath_10 : NULL));
             return false;
         }
     }
@@ -2235,7 +2235,7 @@ static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Integer']", (path ? &lpath_15 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Integer']", (path ? &lpath_15 : NULL));
             return false;
         }
     }
@@ -2532,7 +2532,7 @@ static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Number']", (path ? &lpath_18 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Number']", (path ? &lpath_18 : NULL));
             return false;
         }
     }
@@ -2803,7 +2803,7 @@ static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Bool']", (path ? &lpath_21 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Bool']", (path ? &lpath_21 : NULL));
             return false;
         }
     }
@@ -3074,7 +3074,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Null']", (path ? &lpath_24 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Null']", (path ? &lpath_24 : NULL));
             return false;
         }
     }
@@ -3345,7 +3345,7 @@ static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#AllOf']", (path ? &lpath_27 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AllOf']", (path ? &lpath_27 : NULL));
             return false;
         }
     }
@@ -3616,7 +3616,7 @@ static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#AnyOf']", (path ? &lpath_30 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#AnyOf']", (path ? &lpath_30 : NULL));
             return false;
         }
     }
@@ -3887,7 +3887,7 @@ static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#OneOf']", (path ? &lpath_33 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#OneOf']", (path ? &lpath_33 : NULL));
             return false;
         }
     }
@@ -4158,7 +4158,7 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Enum']", (path ? &lpath_36 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Enum']", (path ? &lpath_36 : NULL));
             return false;
         }
     }
@@ -4534,7 +4534,7 @@ static bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Const']", (path ? &lpath_39 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Const']", (path ? &lpath_39 : NULL));
             return false;
         }
     }
@@ -4863,7 +4863,7 @@ static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#Ref']", (path ? &lpath_42 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#Ref']", (path ? &lpath_42 : NULL));
             return false;
         }
     }
@@ -5200,7 +5200,7 @@ static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#EnumString']", (path ? &lpath_45 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumString']", (path ? &lpath_45 : NULL));
             return false;
         }
     }
@@ -5510,7 +5510,7 @@ static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#EnumNum']", (path ? &lpath_48 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumNum']", (path ? &lpath_48 : NULL));
             return false;
         }
     }
@@ -5820,7 +5820,7 @@ static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#EnumInt']", (path ? &lpath_51 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#EnumInt']", (path ? &lpath_51 : NULL));
             return false;
         }
     }
@@ -6111,7 +6111,7 @@ static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#ConstString']", (path ? &lpath_54 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstString']", (path ? &lpath_54 : NULL));
             return false;
         }
     }
@@ -6402,7 +6402,7 @@ static bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#ConstNum']", (path ? &lpath_57 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstNum']", (path ? &lpath_57 : NULL));
             return false;
         }
     }
@@ -6693,7 +6693,7 @@ static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#ConstInt']", (path ? &lpath_60 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstInt']", (path ? &lpath_60 : NULL));
             return false;
         }
     }
@@ -6984,7 +6984,7 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "no other prop expected [.'$tight#ConstBool']", (path ? &lpath_63 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$tight#ConstBool']", (path ? &lpath_63 : NULL));
             return false;
         }
     }
