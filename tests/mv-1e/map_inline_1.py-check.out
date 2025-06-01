@@ -2,16 +2,16 @@ map_inline_1.values.json[0]: PASS
 map_inline_1.values.json[1]: PASS
 map_inline_1.values.json[2]: PASS
 map_inline_1.values.json[3]: PASS
-map_inline_1.values.json[4]: FAIL [('missing mandatory prop <mu3> [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[5]: FAIL [('missing mandatory prop <mu2> [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[6]: FAIL [('missing mandatory prop <mu1> [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[7]: FAIL [('missing mandatory prop <mu1> [.]', []), ('missing mandatory prop <mu2> [.]', []), ('missing mandatory prop <mu3> [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[8]: FAIL [('unexpected prop [.]', ['un']), ('not an expected object [.]', [])]
-map_inline_1.values.json[9]: FAIL [('unexpected prop [.]', ['no']), ('not an expected object [.]', [])]
-map_inline_1.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[12]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[13]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[14]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[15]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-map_inline_1.values.json[16]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+map_inline_1.values.json[4]: FAIL (.: not an expected object [.]; .: missing mandatory prop <mu3> [.])
+map_inline_1.values.json[5]: FAIL (.: not an expected object [.]; .: missing mandatory prop <mu2> [.])
+map_inline_1.values.json[6]: FAIL (.: not an expected object [.]; .: missing mandatory prop <mu1> [.])
+map_inline_1.values.json[7]: FAIL (.: not an expected object [.]; .: missing mandatory prop <mu3> [.]; .: missing mandatory prop <mu2> [.]; .: missing mandatory prop <mu1> [.])
+map_inline_1.values.json[8]: FAIL (.: not an expected object [.]; .un: unexpected prop [.])
+map_inline_1.values.json[9]: FAIL (.: not an expected object [.]; .no: unexpected prop [.])
+map_inline_1.values.json[10]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[11]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[12]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[13]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[14]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[15]: FAIL (.: not an expected object [.]; .: not an object [.])
+map_inline_1.values.json[16]: FAIL (.: not an expected object [.]; .: not an object [.])

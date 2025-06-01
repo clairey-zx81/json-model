@@ -114,8 +114,22 @@ process_value(const char *name, const json_t * value,
 
         assert(valid == valid2);
 
-        for (jm_report_entry_t *entry = report.entry; entry != NULL; entry = entry->prev)
-            fprintf(stdout, " (%s: %s)", entry->path, entry->message);
+        if (report.entry)
+        {
+            bool first = true;
+            fprintf(stdout, " (");
+
+            for (jm_report_entry_t *entry = report.entry; entry != NULL; entry = entry->prev)
+            {
+                if (first)
+                    first = false;
+                else
+                    fprintf(stdout, "; ");
+                fprintf(stdout, "%s: %s", entry->path, entry->message);
+            }
+
+            fprintf(stdout, ")");
+        }
 
         jm_report_free_entries(&report);
     }

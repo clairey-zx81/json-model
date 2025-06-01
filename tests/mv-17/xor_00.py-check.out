@@ -1,13 +1,13 @@
 xor_00.values.json[0]: PASS
-xor_00.values.json[1]: FAIL [("not one model match [.'^']", [])]
-xor_00.values.json[2]: FAIL [("not one model match [.'^']", [])]
-xor_00.values.json[3]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[4]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[5]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[6]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[7]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[8]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[9]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[10]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[11]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
-xor_00.values.json[12]: FAIL [("not a 1 strict int [.'^'.2]", []), ("not a 0 strict int [.'^'.0]", []), ("not one model match [.'^']", [])]
+xor_00.values.json[1]: FAIL (.: not one model match [.'^'])
+xor_00.values.json[2]: FAIL (.: not one model match [.'^'])
+xor_00.values.json[3]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[4]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[5]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[6]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[7]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[8]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[9]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[10]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[11]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])
+xor_00.values.json[12]: FAIL (.: not one model match [.'^']; .: not a 0 strict int [.'^'.0]; .: not a 1 strict int [.'^'.2])

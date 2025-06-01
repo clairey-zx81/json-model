@@ -1,8 +1,8 @@
 orob_00.values.json[0]: PASS
 orob_00.values.json[1]: PASS
-orob_00.values.json[2]: FAIL (.: no model matched [.'|']) (.: not an expected object [.'|'.1]) (.a: unexpected prop [.'|'.1]) (.: not an expected object [.'|'.0]) (.b: unexpected prop [.'|'.0])
-orob_00.values.json[3]: FAIL (.: no model matched [.'|']) (.: not an expected object [.'|'.1]) (.: missing mandatory prop <b> [.'|'.1]) (.: not an expected object [.'|'.0]) (.: missing mandatory prop <a> [.'|'.0])
-orob_00.values.json[4]: FAIL (.: no model matched [.'|']) (.: not an expected object [.'|'.1]) (.a: unexpected prop [.'|'.1]) (.: not an expected object [.'|'.0]) (.c: unexpected prop [.'|'.0])
+orob_00.values.json[2]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .a: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .b: unexpected prop [.'|'.0])
+orob_00.values.json[3]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .: missing mandatory prop <b> [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+orob_00.values.json[4]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .a: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .c: unexpected prop [.'|'.0])
 orob_00.values.json[5]: FAIL (.: unexpected type [.'|'])
 orob_00.values.json[6]: FAIL (.: unexpected type [.'|'])
 orob_00.values.json[7]: FAIL (.: unexpected type [.'|'])

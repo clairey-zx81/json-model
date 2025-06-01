@@ -1,12 +1,12 @@
 mrg_02.values.json[0]: PASS
-mrg_02.values.json[1]: FAIL [('missing mandatory prop <a> [.]', []), ('missing mandatory prop <b> [.]', []), ('missing mandatory prop <c> [.]', []), ('missing mandatory prop <d> [.]', []), ('missing mandatory prop <e> [.]', []), ('missing mandatory prop <f> [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[2]: FAIL [('unexpected _cst_01 [.a]', ['a']), ('invalid mandatory property value [.]', ['a']), ('not an expected object [.]', [])]
-mrg_02.values.json[3]: FAIL [('unexpected _cst_02 [.e]', ['e']), ('invalid mandatory property value [.]', ['e']), ('not an expected object [.]', [])]
-mrg_02.values.json[4]: FAIL [('unexpected prop [.]', ['not']), ('not an expected object [.]', [])]
-mrg_02.values.json[5]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[6]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[7]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[8]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[9]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[10]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-mrg_02.values.json[11]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+mrg_02.values.json[1]: FAIL (.: not an expected object [.]; .: missing mandatory prop <f> [.]; .: missing mandatory prop <e> [.]; .: missing mandatory prop <d> [.]; .: missing mandatory prop <c> [.]; .: missing mandatory prop <b> [.]; .: missing mandatory prop <a> [.])
+mrg_02.values.json[2]: FAIL (.: not an expected object [.]; .a: invalid mandatory property value [.]; .a: unexpected _cst_01 [.a])
+mrg_02.values.json[3]: FAIL (.: not an expected object [.]; .e: invalid mandatory property value [.]; .e: unexpected _cst_02 [.e])
+mrg_02.values.json[4]: FAIL (.: not an expected object [.]; .not: unexpected prop [.])
+mrg_02.values.json[5]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[6]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[8]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[9]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[10]: FAIL (.: not an expected object [.]; .: not an object [.])
+mrg_02.values.json[11]: FAIL (.: not an expected object [.]; .: not an object [.])

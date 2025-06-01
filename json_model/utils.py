@@ -339,20 +339,6 @@ def openfiles(args: list[str] = []):
             with open(fn) as fh:
                 yield fn, fh
 
-def json_path(path: ModelPath) -> str:
-    """Show path as a JSON Path (RFC9535), with proper escaping when necessary."""
-
-    def esc(item: str|int) -> str:
-        if isinstance(item, int):
-            return str(item)
-        elif not item.isidentifier():
-            items = item.split("'")
-            return "'" + "\\'".join(i.replace("\\", "\\\\") for i in items) + "'"
-        else:
-            return item
-
-    return "." + ".".join(list(map(esc, path)))
-
 def _dedup_models(models: list[ModelType]) -> list[ModelType]:
     dedups = []
     for m in models:

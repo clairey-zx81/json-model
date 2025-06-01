@@ -1,14 +1,14 @@
 pUUID.values.json[0]: PASS
 pUUID.values.json[1]: PASS
-pUUID.values.json[2]: FAIL ['str not an uuid at []', ('unexpected $UUID [.]', [])]
-pUUID.values.json[3]: FAIL ['str not an uuid at []', ('unexpected $UUID [.]', [])]
-pUUID.values.json[4]: FAIL ['str not an uuid at []', ('unexpected $UUID [.]', [])]
-pUUID.values.json[5]: FAIL ['incompatible type for uuid at []: dict', ('unexpected $UUID [.]', [])]
-pUUID.values.json[6]: FAIL ['incompatible type for uuid at []: NoneType', ('unexpected $UUID [.]', [])]
-pUUID.values.json[7]: FAIL ['incompatible type for uuid at []: bool', ('unexpected $UUID [.]', [])]
-pUUID.values.json[8]: FAIL ['incompatible type for uuid at []: int', ('unexpected $UUID [.]', [])]
-pUUID.values.json[9]: FAIL ['incompatible type for uuid at []: float', ('unexpected $UUID [.]', [])]
-pUUID.values.json[10]: FAIL ['incompatible type for uuid at []: dict', ('unexpected $UUID [.]', [])]
-pUUID.values.json[11]: FAIL ['incompatible type for uuid at []: dict', ('unexpected $UUID [.]', [])]
-pUUID.values.json[12]: FAIL ['incompatible type for uuid at []: list', ('unexpected $UUID [.]', [])]
-pUUID.values.json[13]: FAIL ['incompatible type for uuid at []: list', ('unexpected $UUID [.]', [])]
+pUUID.values.json[2]: FAIL (.: unexpected $UUID [.]; .: str not an uuid)
+pUUID.values.json[3]: FAIL (.: unexpected $UUID [.]; .: str not an uuid)
+pUUID.values.json[4]: FAIL (.: unexpected $UUID [.]; .: str not an uuid)
+pUUID.values.json[5]: FAIL (.: unexpected $UUID [.]; .: incompatible type dict for uuid)
+pUUID.values.json[6]: FAIL (.: unexpected $UUID [.]; .: incompatible type NoneType for uuid)
+pUUID.values.json[7]: FAIL (.: unexpected $UUID [.]; .: incompatible type bool for uuid)
+pUUID.values.json[8]: FAIL (.: unexpected $UUID [.]; .: incompatible type int for uuid)
+pUUID.values.json[9]: FAIL (.: unexpected $UUID [.]; .: incompatible type float for uuid)
+pUUID.values.json[10]: FAIL (.: unexpected $UUID [.]; .: incompatible type dict for uuid)
+pUUID.values.json[11]: FAIL (.: unexpected $UUID [.]; .: incompatible type dict for uuid)
+pUUID.values.json[12]: FAIL (.: unexpected $UUID [.]; .: incompatible type list for uuid)
+pUUID.values.json[13]: FAIL (.: unexpected $UUID [.]; .: incompatible type list for uuid)

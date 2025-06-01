@@ -8,13 +8,13 @@ uniq_2.values.json[6]: PASS
 uniq_2.values.json[7]: PASS
 uniq_2.values.json[8]: PASS
 uniq_2.values.json[9]: PASS
-uniq_2.values.json[10]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[11]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[12]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[13]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[14]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[15]: FAIL (.: constraints failed [.]) (.: non unique array)
-uniq_2.values.json[16]: FAIL (.: constraints failed [.]) (.: not array or unexpected array [.'@'])
-uniq_2.values.json[17]: FAIL (.: constraints failed [.]) (.: not array or unexpected array [.'@'])
-uniq_2.values.json[18]: FAIL (.: constraints failed [.]) (.: not array or unexpected array [.'@'])
-uniq_2.values.json[19]: FAIL (.: constraints failed [.]) (.: not array or unexpected array [.'@'])
+uniq_2.values.json[10]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[11]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[12]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[13]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[14]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[15]: FAIL (.: constraints failed [.]; .: non unique array)
+uniq_2.values.json[16]: FAIL (.: constraints failed [.]; .: not array or unexpected array [.'@'])
+uniq_2.values.json[17]: FAIL (.: constraints failed [.]; .: not array or unexpected array [.'@'])
+uniq_2.values.json[18]: FAIL (.: constraints failed [.]; .: not array or unexpected array [.'@'])
+uniq_2.values.json[19]: FAIL (.: constraints failed [.]; .: not array or unexpected array [.'@'])

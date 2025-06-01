@@ -17,7 +17,8 @@
 - [x] static: use `[.]` for root in error messages
 - [x] static: simplify unexpected prop message
 - [x] jmc: generate executable python script
-- [ ] frontend: align python and C pass/fail outputs
+- [x] jmc: make `-O` the default, add `-nO` to disable.
+- [x] frontend: align python and C pass/fail outputs
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?

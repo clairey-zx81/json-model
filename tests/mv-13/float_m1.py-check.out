@@ -1,4 +1,4 @@
 float_m1.values.json[0]: PASS
 float_m1.values.json[1]: PASS
-float_m1.values.json[2]: FAIL [('not a -1.0 strict float [.]', [])]
-float_m1.values.json[3]: FAIL [('not a -1.0 strict float [.]', [])]
+float_m1.values.json[2]: FAIL (.: not a -1.0 strict float [.])
+float_m1.values.json[3]: FAIL (.: not a -1.0 strict float [.])

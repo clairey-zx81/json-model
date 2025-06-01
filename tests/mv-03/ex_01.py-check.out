@@ -1,5 +1,5 @@
 ex_01.values.json[0]: PASS
-ex_01.values.json[1]: FAIL [('unexpected _Susie [.a]', ['a']), ('invalid mandatory property value [..a]', ['a']), ('not an expected object [.]', [])]
-ex_01.values.json[2]: FAIL [('missing mandatory prop <b> [.]', []), ('not an expected object [.]', [])]
-ex_01.values.json[3]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
-ex_01.values.json[4]: FAIL [('not an object [.]', []), ('not an expected object [.]', [])]
+ex_01.values.json[1]: FAIL (.: not an expected object [.]; .a: invalid mandatory property value [..a]; .a: unexpected _Susie [.a])
+ex_01.values.json[2]: FAIL (.: not an expected object [.]; .: missing mandatory prop <b> [.])
+ex_01.values.json[3]: FAIL (.: not an expected object [.]; .: not an object [.])
+ex_01.values.json[4]: FAIL (.: not an expected object [.]; .: not an object [.])

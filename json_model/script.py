@@ -15,6 +15,7 @@ from .model import JsonModel
 from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
 from .runtime.types import EntryCheckFun, Report
+from .runtime.support import _path as json_path
 
 
 def process_model(model: JsonModel, *,
@@ -209,7 +210,7 @@ def jmc_script():
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
     arg("--code", action="store_true", default=None, help="show source code")
     arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
-    arg("--no-report", "-nr", dest="report", action="store_false", default=True,
+    arg("--no-reporting", dest="reporting", action="store_false", default=True,
         help="remove reporting capabilities")
 
     # TODO js cpp ts rs go…
@@ -230,13 +231,16 @@ def jmc_script():
         help="test values for false")
     arg("--test-vector", "-tv", action="store_true", default=False,
         help="read values from a test vector file")
+    arg("--report", "-r", action="store_true", default=False, help="report reasons on fail")
+    arg("--no-report", "-nr", dest="report", action="store_false",
+        help="fast mode, do not give reasons")
 
     # operations on model
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
-    arg("--optimize", "-O", action="store_true", help="optimize model")
+    arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
+    arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
     arg("--map-threshold", "-mt", default=3, type=int, help="property map threshold")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
-    arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
@@ -386,7 +390,7 @@ def jmc_script():
 
         code = xstatic_compile(model, args.name, lang=sfmt,
                                map_threshold=args.map_threshold, map_share=args.map_share,
-                               debug=args.debug, report=args.report)
+                               debug=args.debug, report=args.reporting)
         source = str(code)
 
         if args.format == "out":
@@ -421,14 +425,14 @@ def jmc_script():
 
     def _process(checker, model: str, value: Jsonable, fid: str, expect: bool|None, output) -> bool:
         """Process a value and report to output depending on args, return if as expected."""
-        collect = args.verbose and args.op in "X"
+        collect = args.report and args.op in "X"
         reasons = [] if collect else None
         okay = checker(value, model, reasons)
         sokay = "PASS" if okay else "FAIL"
         if expect is None or args.verbose or fid[-1] == "]":
             msg = f"{fid}: {sokay}"
-            if not okay and args.verbose:
-                msg += " " + str(reasons)
+            if not okay and args.report and reasons:
+                msg += " (" + "; ".join(f"{json_path(p)}: {m}" for m, p in reasons) + ")"
             print(msg, file=output)
         if expect is not None:
             if okay == expect:

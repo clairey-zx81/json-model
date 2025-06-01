@@ -1,7 +1,7 @@
 date.0.true.json: PASS
 date.1.true.json: PASS
-date.2.false.json: FAIL ["invalid date at []: not a date ! (Invalid isoformat string: 'not a date !')", ('unexpected $DATE [.]', [])]
-date.3.false.json: FAIL ["invalid date at []: mercredi 29 juillet 2020 (Invalid isoformat string: 'mercredi 29 juillet 2020')", ('unexpected $DATE [.]', [])]
-date.4.false.json: FAIL ['invalid date at []: 2025-02-29 (day is out of range for month)', ('unexpected $DATE [.]', [])]
-date.5.false.json: FAIL ['invalid date at []: 2000-13-01 (month must be in 1..12)', ('unexpected $DATE [.]', [])]
-date.6.false.json: FAIL ['invalid date at []: 1970-10-42 (day is out of range for month)', ('unexpected $DATE [.]', [])]
+date.2.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date not a date ! (Invalid isoformat string: 'not a date !'))
+date.3.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date mercredi 29 juillet 2020 (Invalid isoformat string: 'mercredi 29 juillet 2020'))
+date.4.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 2025-02-29 (day is out of range for month))
+date.5.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 2000-13-01 (month must be in 1..12))
+date.6.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 1970-10-42 (day is out of range for month))

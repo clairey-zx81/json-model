@@ -2,7 +2,7 @@ uniq_1.values.json[0]: PASS
 uniq_1.values.json[1]: PASS
 uniq_1.values.json[2]: PASS
 uniq_1.values.json[3]: PASS
-uniq_1.values.json[4]: FAIL (.: not array or unexpected array [.]) (.0: unexpected string [.0])
+uniq_1.values.json[4]: FAIL (.: not array or unexpected array [.]; .0: unexpected string [.0])
 uniq_1.values.json[5]: FAIL (.: not array or unexpected array [.])
 uniq_1.values.json[6]: FAIL (.: not array or unexpected array [.])
 uniq_1.values.json[7]: FAIL (.: not array or unexpected array [.])

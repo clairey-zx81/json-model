@@ -19,13 +19,14 @@ pip install git+https://github.com/clairey-zx81/json-model.git
 
 Command `jmc` options include:
 
-- main operations:
+- main operations (default depends on other options, final guess is preprocess):
   - `-P`: preprocess model.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
   - `-X`: generate python or C code.
   - `-U`: dump all models.
   - `-J`: dump json IR.
 - `-O`: optimize model: const prop, partial eval, xor to or, flatten…
+  (this is the default, `-nO` to disable)
 - `-o output`: file output instead of standard
 - `-F format`: select `json` or `yaml` for output
 - …
@@ -43,7 +44,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
 - to _export_ this model as a JSON schema:
 
   ```sh
-  jmc -EO -F yaml person.model.json
+  jmc -E -F yaml person.model.json
   ```
 
   Output in the YaML format:
@@ -67,25 +68,25 @@ For instance, let's consider a JSON model in file `person.model.json`:
 - to check sample JSON values against it:
 
   ```sh
-  jmc -XO -v person.model.json hobbes.json unknown.json
+  jmc -r person.model.json hobbes.json unknown.json
   ```
 
-  Output with an explanation (because of `-v` verbose option):
+  Output with an explanation.
 
   ```
   hobbes.json: PASS
-  unknown.json: FAIL [('missing mandatory prop <born> [.]', []), ('not an expected object at [.]', [])]
+  unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
   ```
 
 - to actually compile an executable for checking a model, and use it for validating values:
 
   ```sh
-  jmc -O -o ./person.out person.model.json
+  jmc -o ./person.out person.model.json
   ./person.out -r hobbes.json unknown.json
   ```
   ```
   hobbes.json: PASS
-  unknown.json: FAIL (.: not an expected object at [.]) (.: missing mandatory prop <born> [.])
+  unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
   ```
 
 ## JSON Model Python API

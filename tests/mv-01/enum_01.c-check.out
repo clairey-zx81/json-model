@@ -5,10 +5,10 @@ enum_01.values.json[4]: PASS
 enum_01.values.json[6]: PASS
 enum_01.values.json[7]: PASS
 enum_01.values.json[8]: FAIL (.: not one model match [.'^'])
-enum_01.values.json[10]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[11]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[13]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[14]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[15]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[16]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
-enum_01.values.json[17]: FAIL (.: not one model match [.'^']) (.: unexpected $p2 [.'^'.1]) (.: value not in enum [.'$p2'.'|']) (.: unexpected $p1 [.'^'.0]) (.: value not in enum [.'$p1'.'|'])
+enum_01.values.json[10]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[11]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[13]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[14]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[15]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[16]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])
+enum_01.values.json[17]: FAIL (.: not one model match [.'^']; .: unexpected $p2 [.'^'.1]; .: value not in enum [.'$p2'.'|']; .: unexpected $p1 [.'^'.0]; .: value not in enum [.'$p1'.'|'])

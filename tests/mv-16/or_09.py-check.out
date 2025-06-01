@@ -1,9 +1,9 @@
 or_09.values.json[0]: PASS
 or_09.values.json[1]: PASS
-or_09.values.json[2]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[3]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[4]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[5]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[6]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[7]: FAIL [('not a -1.0 strict float [.]', [])]
-or_09.values.json[8]: FAIL [('not a -1.0 strict float [.]', [])]
+or_09.values.json[2]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[3]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[4]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[5]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[6]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[7]: FAIL (.: not a -1.0 strict float [.])
+or_09.values.json[8]: FAIL (.: not a -1.0 strict float [.])

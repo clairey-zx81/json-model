@@ -1,10 +1,10 @@
 pNULL.values.json[0]: PASS
-pNULL.values.json[1]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[2]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[3]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[4]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[5]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[6]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[7]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[8]: FAIL [('unexpected $NULL [.]', [])]
-pNULL.values.json[9]: FAIL [('unexpected $NULL [.]', [])]
+pNULL.values.json[1]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[2]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[3]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[4]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[5]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[6]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[7]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[8]: FAIL (.: unexpected $NULL [.])
+pNULL.values.json[9]: FAIL (.: unexpected $NULL [.])

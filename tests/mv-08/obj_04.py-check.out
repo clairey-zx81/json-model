@@ -1,11 +1,11 @@
 obj_04.values.json[0]: PASS
-obj_04.values.json[1]: FAIL ["invalid date at []: unexpected (Invalid isoformat string: 'unexpected')", ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[2]: FAIL ["invalid date at []:  (Invalid isoformat string: '')", ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[3]: FAIL ['incompatible type for date at []: NoneType', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[4]: FAIL ['incompatible type for date at []: bool', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[5]: FAIL ['incompatible type for date at []: int', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[6]: FAIL ['incompatible type for date at []: float', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[7]: FAIL ['incompatible type for date at []: list', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[8]: FAIL ['incompatible type for date at []: list', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[9]: FAIL ['incompatible type for date at []: dict', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
-obj_04.values.json[10]: FAIL ['incompatible type for date at []: dict', ("unexpected $DATE [.'$bla']", []), ('unexpected $bla [.]', [])]
+obj_04.values.json[1]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: invalid date unexpected (Invalid isoformat string: 'unexpected'))
+obj_04.values.json[2]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: invalid date  (Invalid isoformat string: ''))
+obj_04.values.json[3]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type NoneType for data)
+obj_04.values.json[4]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type bool for data)
+obj_04.values.json[5]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type int for data)
+obj_04.values.json[6]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type float for data)
+obj_04.values.json[7]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type list for data)
+obj_04.values.json[8]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type list for data)
+obj_04.values.json[9]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type dict for data)
+obj_04.values.json[10]: FAIL (.: unexpected $bla [.]; .: unexpected $DATE [.'$bla']; .: incompatible type dict for data)

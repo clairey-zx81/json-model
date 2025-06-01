@@ -1,10 +1,10 @@
 re_2.values.json[0]: PASS
-re_2.values.json[1]: FAIL ['regex compile error at []: [abc (unterminated character set at position 0)', ('unexpected $REGEX [.]', [])]
-re_2.values.json[2]: FAIL ['regex compile error at []: (Susie|Calvin (missing ), unterminated subpattern at position 0)', ('unexpected $REGEX [.]', [])]
-re_2.values.json[3]: FAIL ['incompatible type for regex at []: NoneType', ('unexpected $REGEX [.]', [])]
-re_2.values.json[4]: FAIL ['incompatible type for regex at []: int', ('unexpected $REGEX [.]', [])]
-re_2.values.json[5]: FAIL ['incompatible type for regex at []: float', ('unexpected $REGEX [.]', [])]
-re_2.values.json[6]: FAIL ['incompatible type for regex at []: list', ('unexpected $REGEX [.]', [])]
-re_2.values.json[7]: FAIL ['incompatible type for regex at []: list', ('unexpected $REGEX [.]', [])]
-re_2.values.json[8]: FAIL ['incompatible type for regex at []: dict', ('unexpected $REGEX [.]', [])]
-re_2.values.json[9]: FAIL ['incompatible type for regex at []: dict', ('unexpected $REGEX [.]', [])]
+re_2.values.json[1]: FAIL (.: unexpected $REGEX [.]; .: regex [abc compile error (unterminated character set at position 0))
+re_2.values.json[2]: FAIL (.: unexpected $REGEX [.]; .: regex (Susie|Calvin compile error (missing ), unterminated subpattern at position 0))
+re_2.values.json[3]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: NoneType)
+re_2.values.json[4]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: int)
+re_2.values.json[5]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: float)
+re_2.values.json[6]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: list)
+re_2.values.json[7]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: list)
+re_2.values.json[8]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: dict)
+re_2.values.json[9]: FAIL (.: unexpected $REGEX [.]; .: incompatible type for regex: dict)

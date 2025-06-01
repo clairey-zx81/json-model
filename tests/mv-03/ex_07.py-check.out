@@ -4,10 +4,10 @@ ex_07.values.json[2]: PASS
 ex_07.values.json[3]: PASS
 ex_07.values.json[4]: PASS
 ex_07.values.json[5]: PASS
-ex_07.values.json[6]: FAIL [("unexpected REGEX [.'$EX07']", [])]
-ex_07.values.json[7]: FAIL [("unexpected REGEX [.'$EX07']", [])]
-ex_07.values.json[8]: FAIL [("unexpected REGEX [.'$EX07']", [])]
-ex_07.values.json[9]: FAIL [('not array or unexpected array [.]', [])]
-ex_07.values.json[10]: FAIL [('not array or unexpected array [.]', [])]
-ex_07.values.json[11]: FAIL [('not array or unexpected array [.]', [])]
-ex_07.values.json[12]: FAIL [("unexpected REGEX [.'$EX07']", [2]), ('unexpected $EX07 [.2]', [2]), ('not array or unexpected array [.]', [])]
+ex_07.values.json[6]: FAIL (.: unexpected REGEX [.'$EX07'])
+ex_07.values.json[7]: FAIL (.: unexpected REGEX [.'$EX07'])
+ex_07.values.json[8]: FAIL (.: unexpected REGEX [.'$EX07'])
+ex_07.values.json[9]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[10]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[11]: FAIL (.: not array or unexpected array [.])
+ex_07.values.json[12]: FAIL (.: not array or unexpected array [.]; .2: unexpected $EX07 [.2]; .2: unexpected REGEX [.'$EX07'])

@@ -7,7 +7,8 @@ import json
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
-from .utils import log, tname, json_path
+from .utils import log, tname
+from .runtime.support import _path as json_path
 from .defines import Validator, ultimate_type
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr

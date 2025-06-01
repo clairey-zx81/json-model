@@ -22,10 +22,19 @@ def _rep(msg: str, rep: Report) -> bool:
     return False
 
 # generate path for display
-# TODO add appropriate escaping…
 def _path(path: Path) -> str:
-    return ".".join(str(i) for i in path)
+    """Show path as a JSON Path (RFC9535), with proper escaping when necessary."""
 
+    def esc(item: str|int) -> str:
+        if isinstance(item, int):
+            return str(item)
+        elif item.isidentifier():
+            return item
+        else:
+            items = item.split("'")
+            return "'" + "\\'".join(i.replace("\\", "\\\\") for i in items) + "'"
+
+    return "." + ".".join(map(esc, path))
 
 #
 # TYPED VALUES MANAGEMENT
@@ -126,9 +135,9 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
             datetime.date.fromisoformat(value)
             return True
         except Exception as e:
-            rep is None or rep.append(f"invalid date at {path}: {value} ({e})")
+            rep is None or rep.append((f"invalid date {value} ({e})", path))
             return False
-    rep is None or rep.append(f"incompatible type for date at {path}: {_tname(value)}")
+    rep is None or rep.append((f"incompatible type {_tname(value)} for data", path))
     return False
 
 
@@ -149,10 +158,10 @@ def is_valid_uuid(value: Jsonable, path: str, rep: Report = None) -> bool:
         if _UUID_SEARCH(value) is not None:
             return True
         else:
-            rep is None or rep.append(f"str not an uuid at {path}")
+            rep is None or rep.append((f"str not an uuid", path))
             return False
     else:
-        rep is None or rep.append(f"incompatible type for uuid at {path}: {_tname(value)}")
+        rep is None or rep.append((f"incompatible type {_tname(value)} for uuid", path))
         return False
 
 
@@ -161,7 +170,7 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     # NOTE simple_host required to accept "localhost"
     valid = isinstance(value, str) and validators.url(value, simple_host=True) is True
     if not valid:
-        rep is None or rep.append(f"invalid url at {path}: {value}")
+        rep is None or rep.append((f"invalid url {value}", path))
     return valid
 
 
@@ -172,10 +181,10 @@ def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
             re.compile(value)
             return True
         except Exception as e:
-            rep is None or rep.append(f"regex compile error at {path}: {value} ({e})")
+            rep is None or rep.append((f"regex {value} compile error ({e})", path))
             return False
     # other types cannot be valid regex
-    rep is None or rep.append(f"incompatible type for regex at {path}: {_tname(value)}")
+    rep is None or rep.append((f"incompatible type for regex: {_tname(value)}", path))
     return False
 
 
@@ -184,16 +193,16 @@ def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
         # that costs but works in all cases…
         unique = len(set(json.dumps(i, sort_keys=True) for i in value)) == len(value)
         if not unique:
-            rep is None or rep.append(f"non unique array at {path}")
+            rep is None or rep.append((f"non unique array", path))
         return unique
     # other types cannot be unique
-    rep is None or rep.append(f"non array for unique at {path}")
+    rep is None or rep.append((f"non array for unique", path))
     return False
 
 def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, rep: Report) -> bool:
     if value is None or isinstance(value, bool):
         rep is None or \
-            rep.append(f"unexpected type {_tname(value)} for {op} constraint at {path}")
+            rep.append((f"unexpected type {_tname(value)} for {op} constraint", path))
     # get comparison value depending on constant cst type
     if isinstance(cst, int):
         if isinstance(value, (str, list, dict)):
@@ -206,7 +215,7 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
             cval = value
         else:  # list, dict, str
             rep is None or \
-                rep.append(f"unexpected type {_tname(value)} for {op} float constraint at {path}")
+                rep.append((f"unexpected type {_tname(value)} for {op} float constraint", path))
             return False
     else:
         assert isinstance(cst, str)
@@ -214,7 +223,7 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
             cval = value
         else:  # dict, list, int, float
             rep is None or \
-                rep.append(f"unexpected type {_tname(value)} for {op} str constraint at {path}")
+                rep.append((f"unexpected type {_tname(value)} for {op} str constraint", path))
             return False
     # actual comparison
     if op == "=":
@@ -223,16 +232,16 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
         cmp = cval != cst
     elif op == "<=":
         cmp = cval <= cst
-    elif op == "<":    
+    elif op == "<":
         cmp = cval < cst
     elif op == ">=":
         cmp = cval >= cst
-    elif op == ">":    
+    elif op == ">":
         cmp = cval > cst
     else:
         assert False, f"unexpected operator: {op}"
     if not cmp and rep is not None:
-        rep.append(f"invalid {op} {cst} constraint at {path}")
+        rep.append((f"invalid {op} {cst} constraint", path))
     return cmp
 
 
@@ -355,7 +364,8 @@ def main(jm_fun, jm_map, jmc_version):
                 elif valid:
                     print(f"{fn}{info}: PASS")
                 elif reasons:
-                    print(f"{fn}{info}: FAIL {reasons}")
+                    msg = "; ".join(f"{_path(p)}: {m}" for m, p in reversed(reasons))
+                    print(f"{fn}{info}: FAIL ({msg})")
                 else:
                     print(f"{fn}{info}: FAIL")
 
