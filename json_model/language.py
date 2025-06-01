@@ -44,6 +44,8 @@ class Language:
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
+            check_t: str = "CheckFun", json_t: str = "Jsonable",
+            float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True,
             with_comment: bool = True, set_caps: list[type|None] = (str,),
@@ -81,6 +83,12 @@ class Language:
         self._true = true
         self._false = false
         self._null = null
+        self._check_t = check_t
+        self._json_t = json_t
+        self._bool_t = bool_t
+        self._int_t = int_t
+        self._float_t = float_t
+        self._str_t = str_t
 
         # other stuff
         self._version = __version__
@@ -137,19 +145,19 @@ class Language:
     #
     def is_num(self, var: Var) -> BoolExpr:
         """Is JSON variable a number?"""
-        raise NotImplementedError(f"to be implemented")
+        raise NotImplementedError(f"is_num")
 
     def is_def(self, var: Var) -> BoolExpr:
         """Is JSON variable defined?"""
-        raise NotImplementedError(f"to be implemented")
+        raise NotImplementedError(f"is_def")
 
     def is_scalar(self, var: Var) -> BoolExpr:
         """Is JSON variable a scalar?"""
-        raise NotImplementedError(f"to be implemented")
+        raise NotImplementedError(f"is_scalar")
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
         """Is JSON variable of this type?"""
-        raise NotImplementedError(f"to be implemented")
+        raise NotImplementedError(f"is_a")
 
     #
     # predefs
@@ -186,7 +194,7 @@ class Language:
         elif name == "$STRING":
             return self.is_a(var, str)
         elif name in ("$DATE", "$URL", "$REGEX", "$UUID"):
-            raise NotImplementedError(f"TODO predef {name}")
+            raise NotImplementedError(f"predef: {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")
 
@@ -216,25 +224,25 @@ class Language:
         return f"{arr}[{idx}]"
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
-        return f"{obj}.get({prop}, UNDEFINED)"
+        raise NotImplementedError(f"unexpected predef {name}")
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
-        return f"{self.esc(prop)} in {obj}"
+        raise NotImplementedError(f"unexpected predef {name}")
 
     #
     # inlined length computation
     #
+    def any_len(self, var: Var) -> IntExpr:
+        raise NotImplementedError(f"unexpected predef {name}")
+
     def obj_len(self, var: Var) -> IntExpr:
-        return f"len({var})"
+        return self.any_len(var)
 
     def arr_len(self, var: Var) -> IntExpr:
-        return f"len({var})"
+        return self.any_len(var)
 
     def str_len(self, var: Var) -> IntExpr:
-        return f"len({var})"
-
-    def any_len(self, var: Var) -> IntExpr:
-        return f"len({var})"
+        return self.any_len(var)
 
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
         """Known type int extraction for constraints."""
@@ -259,7 +267,7 @@ class Language:
         return f"{name}({val}, {path}, rep)"
 
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
-        return f"{true} if {cond} else {false}"
+        raise NotImplementedError("ternary")
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         raise NotImplementedError("check_unique")
@@ -310,7 +318,7 @@ class Language:
         return self.num_cmp(e1, op, e2)
 
     def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
-        return f"{fun} := {mapname}.get({prop})"
+        raise NotImplementedError("prop_fun")
 
     #
     # for JSON values
@@ -334,36 +342,34 @@ class Language:
         else:
             return None
 
-    def _var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
-        """Declare and/or assign a variable."""
-        assign = f" = {val}" if val else ""
-        decl = f": {tname}" if tname else ""
-        return f"{var}{decl}{assign}{self._eoi}"
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+        """Declare and/or assign a variable with a type."""
+        raise NotImplementedError("var")
 
     def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
         """Declare a JSON variable."""
-        return self._var(var, val, "Jsonable" if declare else None)
+        return self.var(var, val, self._json_t if declare else None)
 
     def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
         """Declare a boolean variable."""
-        return self._var(var, val, "bool" if declare else None)
+        return self.var(var, val, self._bool_t if declare else None)
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         """Declare and assign to int variable."""
-        return self._var(var, val, "int" if declare else None)
+        return self.var(var, val, self._int_t if declare else None)
 
     def str_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         """Declare and assign to str variable."""
-        return self._var(var, val, "str" if declare else None)
+        return self.var(var, val, self._str_t if declare else None)
 
     def flt_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         """Declare and assign to str variable."""
-        return self._var(var, val, "float" if declare else None)
+        return self.var(var, val, self._float_t if declare else None)
 
     def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Inst:
         """Declare a check function variable pointer."""
         # FIXME should guard for scalar?
-        return self._var(var, val, "CheckFun" if declare else None)
+        return self.var(var, val, self._check_t if declare else None)
 
     def iand_op(self, res: Var, e: BoolExpr) -> Inst:
         """And-update boolean variable."""
@@ -382,7 +388,7 @@ class Language:
         return f"break{self._eoi}"
 
     def esc(self, s: str) -> StrExpr:
-        """Escape string."""
+        """Escape string, with double quotes."""
         return '"' + s.replace("\\", "\\\\").replace('"', r'\"') + '"'
 
     #

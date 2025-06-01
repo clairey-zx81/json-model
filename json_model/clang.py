@@ -22,12 +22,14 @@ class CLangJansson(Language):
             "C",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
-             true="true", false="false", null="NULL",
+             true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
+             float_t="double", str_t="char *",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
         assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
 
+        # we keep 2 ints: "int64_t" and "int"
         self._int: str = int_t
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
@@ -90,7 +92,7 @@ class CLangJansson(Language):
         if isinstance(val, (list, dict)):
             return self.json_cst(val)
         else:
-            super().const(val)
+            return super().const(val)
 
     def has_prop(self, var: Var, prop: str) -> BoolExpr:
         return f"json_object_get({var}, {self.esc(prop)}) != NULL"
@@ -201,19 +203,13 @@ class CLangJansson(Language):
     def nope(self) -> Inst:
         return None
 
-    def  _var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+    def  var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
         assign = f" = {val}" if val else ""
         decl = f"{tname} " if tname else ""
         return f"{decl}{var}{assign}{self._eoi}"
 
-    def fun_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
-        return self._var(var, val, "jm_check_fun_t" if declare else None)
-
-    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
-        return self._var(var, val, "json_t *" if declare else None)
-
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
-        return self._var(var, val, self._int if declare else None)
+        return self.var(var, val, self._int if declare else None)
 
     #
     # reporting

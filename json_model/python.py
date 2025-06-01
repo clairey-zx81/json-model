@@ -1,5 +1,5 @@
 from .language import Language, Code, Block, Inst, Var
-from .language import BoolExpr, JsonExpr
+from .language import BoolExpr, JsonExpr, Expr, IntExpr
 from .mtypes import Number
 
 
@@ -91,3 +91,23 @@ class Python(Language):
 
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("python_free.py", free)
+
+    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
+        return f"{obj}.get({prop}, UNDEFINED)"
+
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"{self.esc(prop)} in {obj}"
+
+    def any_len(self, var: Var) -> IntExpr:
+        return f"len({var})"
+
+    def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
+        return f"{true} if {cond} else {false}"
+
+    def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+        return f"{fun} := {mapname}.get({prop})"
+
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+        assign = f" = {val}" if val else ""
+        decl = f": {tname}" if tname else ""
+        return f"{var}{decl}{assign}{self._eoi}"

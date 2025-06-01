@@ -18,7 +18,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        float fval_0 = json_real_value(val);
+        double fval_0 = json_real_value(val);
         res = fval_0 < 100 && fval_0 >= 0;
     }
     if (! res)
