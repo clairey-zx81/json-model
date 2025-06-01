@@ -238,7 +238,10 @@ class CLangJansson(Language):
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, self._int if declare else None)
 
-    def reporting(self) -> BoolExpr:
+    #
+    # reporting
+    #
+    def is_reporting(self) -> BoolExpr:
         return "rep != NULL"
 
     def report(self, msg: str, path: Var) -> Block:

@@ -392,7 +392,7 @@ class SourceCode(Validator):
         return code
 
     def _gen_report(self, res: str, msg: str, path: str, cleanup: bool = False) -> Block:
-        """Maybe enerate a report."""
+        """Maybe generate a report."""
         if self._report:
             gen = self._lang
             if cleanup:
@@ -401,6 +401,12 @@ class SourceCode(Validator):
                 return gen.if_stmt(gen.not_op(res), gen.report(msg, path))
         else:
             return []
+
+    def _gen_reporting(self, report: Block) -> Block:
+        """Detailed reporting."""
+        gen = self._lang
+        return gen.if_stmt(gen.is_reporting(), report) if self._report else []
+
 
     def _gen_fail(self, msg: str, path: str) -> Block:
         """Generate a report and return false."""
@@ -609,7 +615,7 @@ class SourceCode(Validator):
                     gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
                                 gen.report(f"missing must prop <{prop}> [{smpath}]", vpath))
             code += gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
-                gen.if_reporting(missing) +
+                self._gen_reporting(missing) +
                 [ gen.ret(gen.const(False)) ])
 
         # early returns so no need to look at res

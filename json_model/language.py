@@ -453,13 +453,9 @@ class Language:
     #
     # blocks
     #
-    def reporting(self) -> BoolExpr:
+    def is_reporting(self) -> BoolExpr:
         """Test whether run is generating a report."""
         return "rep is not None"
-
-    def if_reporting(self, report: Block) -> Block:
-        """Execute code if under reporting."""
-        return self.if_stmt(self.reporting(), report) if self._with_report else []
 
     def report(self, msg: str, path: Var) -> Block:
         """Add a a report entry."""
