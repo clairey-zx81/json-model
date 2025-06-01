@@ -73,7 +73,8 @@ For instance, let's consider a JSON model in file `person.model.json`:
   unknown.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
   ```
 
-- to actually compile an executable for checking a model, and use it for validating values:
+- to actually compile an executable for checking a model (with the C backend),
+  and use it for validating values:
 
   ```sh
   jmc -o ./person.out person.model.json
