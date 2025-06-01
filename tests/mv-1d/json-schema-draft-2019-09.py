@@ -189,7 +189,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_0_map.get(prop):
             # handle 9 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$core']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$core']", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$core']", lpath_0 if path is not None else None))
@@ -284,7 +284,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_3_map.get(prop):
             # handle 7 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_3 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$meta']", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$meta']", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$meta']", lpath_3 if path is not None else None))
@@ -316,7 +316,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$content'.contentEncoding]", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$content'.contentEncoding]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$content'.contentEncoding]", lpath_4 if path is not None else None))
                 return False
         elif prop == "contentMediaType":
             # handle may contentMediaType property
@@ -325,7 +325,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$content'.contentMediaType]", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$content'.contentMediaType]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$content'.contentMediaType]", lpath_4 if path is not None else None))
                 return False
         elif prop == "contentSchema":
             # handle may contentSchema property
@@ -334,7 +334,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$content'.contentSchema]", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$content'.contentSchema]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$content'.contentSchema]", lpath_4 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$content']", lpath_4 if path is not None else None))
@@ -366,7 +366,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$format'.format]", lpath_5 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$format'.format]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$format'.format]", lpath_5 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$format']", lpath_5 if path is not None else None))
@@ -672,7 +672,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_6_map.get(prop):
             # handle 20 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_6 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$validation']", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$validation']", lpath_6 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$validation']", lpath_6 if path is not None else None))
@@ -946,7 +946,7 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_8_map.get(prop):
             # handle 17 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_8 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$applicator']", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$applicator']", lpath_8 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$applicator']", lpath_8 if path is not None else None))
@@ -1630,7 +1630,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_12_map.get(prop):
             # handle 57 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_12 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$ObjectSchema']", lpath_12 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$ObjectSchema']", lpath_12 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$ObjectSchema']", lpath_12 if path is not None else None))

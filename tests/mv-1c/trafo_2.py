@@ -85,7 +85,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$Z#zero'.za]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Z#zero'.za]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Z#zero'.za]", lpath_0 if path is not None else None))
                 return False
         elif prop == "zb":
             # handle must zb property
@@ -95,7 +95,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$Z#zero'.zb]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Z#zero'.zb]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Z#zero'.zb]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Z#zero']", lpath_0 if path is not None else None))

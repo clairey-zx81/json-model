@@ -46,7 +46,6 @@ For instance, let's consider a JSON model in file `person.model.json`:
   ```sh
   jmc -E -F yaml person.model.json
   ```
-
   ```yaml
   description: A person with a birth date
   type: object

@@ -53,7 +53,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $DATE [.foo]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [..foo]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.foo]", lpath_0 if path is not None else None))
                 return False
         elif prop == "bla":
             # handle may bla property
@@ -62,7 +62,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.bla]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [..bla]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.bla]", lpath_0 if path is not None else None))
                 return False
         elif json_model_2(prop, lpath_0 if path is not None else None, rep):
             # handle 1 key props

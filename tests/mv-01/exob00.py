@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'|'.1.b]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'|'.1.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'|'.1.b]", lpath_0 if path is not None else None))
                 return False
         elif prop == "a":
             # handle may a property
@@ -49,7 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $NONE [.'|'.1.a]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'|'.1.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'|'.1.a]", lpath_0 if path is not None else None))
                 return False
         else:
             # handle other props
@@ -84,7 +84,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'|'.0.a]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'|'.0.a]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'|'.0.a]", lpath_1 if path is not None else None))
                 return False
         elif prop == "b":
             # handle may b property
@@ -93,7 +93,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $NONE [.'|'.0.b]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'|'.0.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'|'.0.b]", lpath_1 if path is not None else None))
                 return False
         else:
             # handle other props

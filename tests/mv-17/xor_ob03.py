@@ -41,7 +41,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected fr [.movie.'|'.0.t]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.0.t]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.t]", lpath_1 if path is not None else None))
                 return False
         elif prop == "titre":
             # handle must titre property
@@ -51,7 +51,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.0.titre]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.movie.'|'.0]", lpath_1 if path is not None else None))
@@ -83,7 +83,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected en [.movie.'|'.1.t]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.1.t]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.t]", lpath_2 if path is not None else None))
                 return False
         elif prop == "title":
             # handle must title property
@@ -93,7 +93,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.1.title]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.1.title]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.1.title]", lpath_2 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.movie.'|'.1]", lpath_2 if path is not None else None))
@@ -125,7 +125,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected ru [.movie.'|'.2.t]", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.2.t]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.t]", lpath_3 if path is not None else None))
                 return False
         elif prop == "suti":
             # handle must suti property
@@ -135,7 +135,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.movie.'|'.2.suti]", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.movie.'|'.2.suti]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie.'|'.2.suti]", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.movie.'|'.2]", lpath_3 if path is not None else None))
@@ -180,7 +180,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             else:
                 rep is None or rep.append(("value is not an object [.movie.'|']", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [..movie]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.movie]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))

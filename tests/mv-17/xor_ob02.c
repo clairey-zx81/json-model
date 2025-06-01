@@ -35,7 +35,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$A'.'|'.1.b]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$A'.'|'.1.b]", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -86,7 +86,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$A'.'|'.0.a]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$A'.'|'.0.a]", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -176,7 +176,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$B'.'|'.1.c]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.1.c]", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -227,7 +227,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$B'.'|'.0.a]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$B'.'|'.0.a]", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -317,7 +317,7 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$C'.'|'.1.c]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$C'.'|'.1.c]", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -368,7 +368,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$C'.'|'.0.b]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$C'.'|'.0.b]", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -458,7 +458,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.3.b]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.b]", (path ? &lpath_6 : NULL));
                 return false;
             }
         }
@@ -474,7 +474,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.3.c]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.3.c]", (path ? &lpath_6 : NULL));
                 return false;
             }
         }
@@ -529,7 +529,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.2.a]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.a]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -545,7 +545,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.2.c]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.c]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -561,7 +561,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.2.b]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.2.b]", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -620,7 +620,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.1.a]", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.a]", (path ? &lpath_8 : NULL));
                 return false;
             }
         }
@@ -636,7 +636,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.1.c]", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.1.c]", (path ? &lpath_8 : NULL));
                 return false;
             }
         }
@@ -691,7 +691,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.0.a]", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.a]", (path ? &lpath_9 : NULL));
                 return false;
             }
         }
@@ -707,7 +707,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'|'.0.b]", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'|'.0.b]", (path ? &lpath_9 : NULL));
                 return false;
             }
         }

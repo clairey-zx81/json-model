@@ -50,7 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$X'.a]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$X'.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$X'.a]", lpath_0 if path is not None else None))
                 return False
         elif prop == "b":
             # handle must b property
@@ -60,7 +60,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$X'.b]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$X'.b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$X'.b]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$X']", lpath_0 if path is not None else None))
@@ -101,7 +101,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$Y'.c]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Y'.c]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Y'.c]", lpath_1 if path is not None else None))
                 return False
         elif prop == "d":
             # handle must d property
@@ -111,7 +111,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_01 [.'$Y'.d]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Y'.d]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Y'.d]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Y']", lpath_1 if path is not None else None))
@@ -186,7 +186,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED:
                 must_count += 1
                 if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid mandatory property value [.]", lpath_2 if path is not None else None))
+                    rep is None or rep.append(("invalid mandatory prop value [.]", lpath_2 if path is not None else None))
                     return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_2 if path is not None else None))

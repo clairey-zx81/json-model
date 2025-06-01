@@ -485,7 +485,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_0_map.get(prop):
             # handle 29 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_0 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$schema']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$schema']", lpath_0 if path is not None else None))
                 return False
         else:
             # handle other props

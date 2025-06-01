@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.b]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [..b]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.b]", lpath_0 if path is not None else None))
                 return False
         elif prop == "a":
             # handle may a property
@@ -49,7 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.a]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [..a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.a]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_0 if path is not None else None))

@@ -287,7 +287,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.5.#]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.5.'#']", (path ? &lpath_0 : NULL));
                 return false;
             }
         }
@@ -369,7 +369,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Elem'.'|'.4.+]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Elem'.'|'.4.'+']", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -384,7 +384,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.4.#]", (path ? &lpath_1 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.4.'#']", (path ? &lpath_1 : NULL));
                 return false;
             }
         }
@@ -454,7 +454,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Elem'.'|'.3.^]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Elem'.'|'.3.'^']", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -469,7 +469,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.3.#]", (path ? &lpath_2 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.3.'#']", (path ? &lpath_2 : NULL));
                 return false;
             }
         }
@@ -539,7 +539,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Elem'.'|'.2.&]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Elem'.'|'.2.'&']", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -554,7 +554,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.2.#]", (path ? &lpath_3 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.2.'#']", (path ? &lpath_3 : NULL));
                 return false;
             }
         }
@@ -624,7 +624,7 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Elem'.'|'.1.|]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Elem'.'|'.1.'|']", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -639,7 +639,7 @@ static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.1.#]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.1.'#']", (path ? &lpath_4 : NULL));
                 return false;
             }
         }
@@ -704,7 +704,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Elem'.'|'.0.@]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Elem'.'|'.0.'@']", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -719,7 +719,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.0.#]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.0.'#']", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -734,7 +734,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Elem'.'|'.0.!]", (path ? &lpath_5 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Elem'.'|'.0.'!']", (path ? &lpath_5 : NULL));
                 return false;
             }
         }
@@ -991,7 +991,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.5.'$'.#]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'#']", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -1006,7 +1006,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.5.'$'.]", (path ? &lpath_7 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.5.'$'.'']", (path ? &lpath_7 : NULL));
                 return false;
             }
         }
@@ -1092,7 +1092,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.5.'%'.#]", (path ? &lpath_8 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.5.'%'.'#']", (path ? &lpath_8 : NULL));
                 return false;
             }
         }
@@ -1185,7 +1185,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 4 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_6 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.5]", (path ? &lpath_6 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.5]", (path ? &lpath_6 : NULL));
                 return false;
             }
         }
@@ -1259,7 +1259,7 @@ static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.4.'$'.#]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'#']", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1274,7 +1274,7 @@ static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.4.'$'.]", (path ? &lpath_10 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'']", (path ? &lpath_10 : NULL));
                 return false;
             }
         }
@@ -1339,7 +1339,7 @@ static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.4.'%'.#]", (path ? &lpath_11 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'#']", (path ? &lpath_11 : NULL));
                 return false;
             }
         }
@@ -1459,7 +1459,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Root'.'|'.4.+]", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Root'.'|'.4.'+']", (path ? &lpath_9 : NULL));
                 return false;
             }
         }
@@ -1468,7 +1468,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 4 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_9 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.4]", (path ? &lpath_9 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.4]", (path ? &lpath_9 : NULL));
                 return false;
             }
         }
@@ -1530,7 +1530,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.3.'$'.#]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'#']", (path ? &lpath_13 : NULL));
                 return false;
             }
         }
@@ -1545,7 +1545,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.3.'$'.]", (path ? &lpath_13 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'']", (path ? &lpath_13 : NULL));
                 return false;
             }
         }
@@ -1610,7 +1610,7 @@ static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.3.'%'.#]", (path ? &lpath_14 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'#']", (path ? &lpath_14 : NULL));
                 return false;
             }
         }
@@ -1730,7 +1730,7 @@ static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Root'.'|'.3.^]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Root'.'|'.3.'^']", (path ? &lpath_12 : NULL));
                 return false;
             }
         }
@@ -1739,7 +1739,7 @@ static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 4 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_12 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.3]", (path ? &lpath_12 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.3]", (path ? &lpath_12 : NULL));
                 return false;
             }
         }
@@ -1801,7 +1801,7 @@ static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.2.'$'.#]", (path ? &lpath_16 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'#']", (path ? &lpath_16 : NULL));
                 return false;
             }
         }
@@ -1816,7 +1816,7 @@ static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.2.'$'.]", (path ? &lpath_16 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'']", (path ? &lpath_16 : NULL));
                 return false;
             }
         }
@@ -1881,7 +1881,7 @@ static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.2.'%'.#]", (path ? &lpath_17 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'#']", (path ? &lpath_17 : NULL));
                 return false;
             }
         }
@@ -2001,7 +2001,7 @@ static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Root'.'|'.2.&]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Root'.'|'.2.'&']", (path ? &lpath_15 : NULL));
                 return false;
             }
         }
@@ -2010,7 +2010,7 @@ static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 4 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_15 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.2]", (path ? &lpath_15 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.2]", (path ? &lpath_15 : NULL));
                 return false;
             }
         }
@@ -2072,7 +2072,7 @@ static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.1.'$'.#]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'#']", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
@@ -2087,7 +2087,7 @@ static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.1.'$'.]", (path ? &lpath_19 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'']", (path ? &lpath_19 : NULL));
                 return false;
             }
         }
@@ -2152,7 +2152,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.1.'%'.#]", (path ? &lpath_20 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'#']", (path ? &lpath_20 : NULL));
                 return false;
             }
         }
@@ -2272,7 +2272,7 @@ static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Root'.'|'.1.|]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Root'.'|'.1.'|']", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -2281,7 +2281,7 @@ static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 4 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_18 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.1]", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.1]", (path ? &lpath_18 : NULL));
                 return false;
             }
         }
@@ -2356,7 +2356,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.0.'$'.#]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'#']", (path ? &lpath_22 : NULL));
                 return false;
             }
         }
@@ -2371,7 +2371,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.0.'$'.]", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'']", (path ? &lpath_22 : NULL));
                 return false;
             }
         }
@@ -2436,7 +2436,7 @@ static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.0.'%'.#]", (path ? &lpath_23 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'#']", (path ? &lpath_23 : NULL));
                 return false;
             }
         }
@@ -2537,7 +2537,7 @@ static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Root'.'|'.0.@]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Root'.'|'.0.'@']", (path ? &lpath_21 : NULL));
                 return false;
             }
         }
@@ -2546,7 +2546,7 @@ static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle 5 may props
             if (pfun != NULL && ! pfun(pval, (path ? &lpath_21 : NULL), rep))
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Root'.'|'.0]", (path ? &lpath_21 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Root'.'|'.0]", (path ? &lpath_21 : NULL));
                 return false;
             }
         }
@@ -2799,7 +2799,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Trafo'.'|'.2.*]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Trafo'.'|'.2.'*']", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2814,7 +2814,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Trafo'.'|'.2.#]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Trafo'.'|'.2.'#']", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2829,7 +2829,7 @@ static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Trafo'.'|'.2./]", (path ? &lpath_24 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Trafo'.'|'.2.'/']", (path ? &lpath_24 : NULL));
                 return false;
             }
         }
@@ -2909,7 +2909,7 @@ static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory property value [.'$Model#Trafo'.'|'.1./]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Model#Trafo'.'|'.1.'/']", (path ? &lpath_26 : NULL));
                 return false;
             }
         }
@@ -2924,7 +2924,7 @@ static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Trafo'.'|'.1.#]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Trafo'.'|'.1.'#']", (path ? &lpath_26 : NULL));
                 return false;
             }
         }
@@ -2961,7 +2961,7 @@ static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "invalid may property value [.'$Model#Trafo'.'|'.1.*]", (path ? &lpath_26 : NULL));
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Model#Trafo'.'|'.1.'*']", (path ? &lpath_26 : NULL));
                 return false;
             }
         }

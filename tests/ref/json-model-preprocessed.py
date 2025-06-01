@@ -196,7 +196,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Elem'.'|'.4.'#']", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.4.#]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.4.'#']", lpath_0 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle 1 re props
@@ -243,7 +243,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Elem'.'|'.3.'^']", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Elem'.'|'.3.^]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Elem'.'|'.3.'^']", lpath_1 if path is not None else None))
                 return False
         elif prop == "#":
             # handle may # property
@@ -252,7 +252,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Elem'.'|'.3.'#']", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.3.#]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.3.'#']", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Elem'.'|'.3]", lpath_1 if path is not None else None))
@@ -291,7 +291,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Elem'.'|'.2.'&']", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Elem'.'|'.2.&]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Elem'.'|'.2.'&']", lpath_2 if path is not None else None))
                 return False
         elif prop == "#":
             # handle may # property
@@ -300,7 +300,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Elem'.'|'.2.'#']", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.2.#]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.2.'#']", lpath_2 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Elem'.'|'.2]", lpath_2 if path is not None else None))
@@ -339,7 +339,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Elem'.'|'.1.'|']", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Elem'.'|'.1.|]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Elem'.'|'.1.'|']", lpath_3 if path is not None else None))
                 return False
         elif prop == "#":
             # handle may # property
@@ -348,7 +348,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Elem'.'|'.1.'#']", lpath_3 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.1.#]", lpath_3 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.1.'#']", lpath_3 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Elem'.'|'.1]", lpath_3 if path is not None else None))
@@ -380,7 +380,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Model [.'$Model#Elem'.'|'.0.'@']", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Elem'.'|'.0.@]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Elem'.'|'.0.'@']", lpath_4 if path is not None else None))
                 return False
         elif prop == "#":
             # handle may # property
@@ -389,7 +389,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Elem'.'|'.0.'#']", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.0.#]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.0.'#']", lpath_4 if path is not None else None))
                 return False
         elif prop == "!":
             # handle may ! property
@@ -398,7 +398,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a bool [.'$Model#Elem'.'|'.0.'!']", lpath_4 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Elem'.'|'.0.!]", lpath_4 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Elem'.'|'.0.'!']", lpath_4 if path is not None else None))
                 return False
         elif _jm_re_1(prop):
             # handle 2 re props
@@ -539,7 +539,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.4.'$'.'#']", lpath_6 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.4.'$'.#]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'#']", lpath_6 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -548,7 +548,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.4.'$'.'']", lpath_6 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.4.'$'.]", lpath_6 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.4.'$'.'']", lpath_6 if path is not None else None))
                 return False
         elif _jm_re_3(prop):
             # handle 1 re props
@@ -590,7 +590,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.4.'%'.'#']", lpath_7 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.4.'%'.#]", lpath_7 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.4.'%'.'#']", lpath_7 if path is not None else None))
                 return False
         elif _jm_re_4(prop):
             # handle 1 re props
@@ -638,7 +638,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
         if pfun := _jm_obj_5_map.get(prop):
             # handle 4 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_5 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.4]", lpath_5 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.4]", lpath_5 if path is not None else None))
                 return False
         elif _jm_re_0(prop):
             # handle 1 re props
@@ -683,7 +683,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.3.'$'.'#']", lpath_9 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.3.'$'.#]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'#']", lpath_9 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -692,7 +692,7 @@ def _jm_obj_9(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.3.'$'.'']", lpath_9 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.3.'$'.]", lpath_9 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.3.'$'.'']", lpath_9 if path is not None else None))
                 return False
         elif _jm_re_3(prop):
             # handle 1 re props
@@ -732,7 +732,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.3.'%'.'#']", lpath_10 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.3.'%'.#]", lpath_10 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.3.'%'.'#']", lpath_10 if path is not None else None))
                 return False
         elif _jm_re_4(prop):
             # handle 1 re props
@@ -795,12 +795,12 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Root'.'|'.3.'^']", lpath_8 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Root'.'|'.3.^]", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Root'.'|'.3.'^']", lpath_8 if path is not None else None))
                 return False
         elif pfun := _jm_obj_8_map.get(prop):
             # handle 4 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_8 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.3]", lpath_8 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.3]", lpath_8 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Root'.'|'.3]", lpath_8 if path is not None else None))
@@ -837,7 +837,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.2.'$'.'#']", lpath_12 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.2.'$'.#]", lpath_12 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'#']", lpath_12 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -846,7 +846,7 @@ def _jm_obj_12(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.2.'$'.'']", lpath_12 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.2.'$'.]", lpath_12 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.2.'$'.'']", lpath_12 if path is not None else None))
                 return False
         elif _jm_re_3(prop):
             # handle 1 re props
@@ -886,7 +886,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.2.'%'.'#']", lpath_13 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.2.'%'.#]", lpath_13 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.2.'%'.'#']", lpath_13 if path is not None else None))
                 return False
         elif _jm_re_4(prop):
             # handle 1 re props
@@ -949,12 +949,12 @@ def _jm_obj_11(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Root'.'|'.2.'&']", lpath_11 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Root'.'|'.2.&]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Root'.'|'.2.'&']", lpath_11 if path is not None else None))
                 return False
         elif pfun := _jm_obj_11_map.get(prop):
             # handle 4 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_11 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.2]", lpath_11 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.2]", lpath_11 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Root'.'|'.2]", lpath_11 if path is not None else None))
@@ -991,7 +991,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.1.'$'.'#']", lpath_15 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.1.'$'.#]", lpath_15 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'#']", lpath_15 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -1000,7 +1000,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.1.'$'.'']", lpath_15 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.1.'$'.]", lpath_15 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.1.'$'.'']", lpath_15 if path is not None else None))
                 return False
         elif _jm_re_3(prop):
             # handle 1 re props
@@ -1040,7 +1040,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.1.'%'.'#']", lpath_16 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.1.'%'.#]", lpath_16 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.1.'%'.'#']", lpath_16 if path is not None else None))
                 return False
         elif _jm_re_4(prop):
             # handle 1 re props
@@ -1103,12 +1103,12 @@ def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$Model#Root'.'|'.1.'|']", lpath_14 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Root'.'|'.1.|]", lpath_14 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Root'.'|'.1.'|']", lpath_14 if path is not None else None))
                 return False
         elif pfun := _jm_obj_14_map.get(prop):
             # handle 4 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_14 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.1]", lpath_14 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.1]", lpath_14 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Model#Root'.'|'.1]", lpath_14 if path is not None else None))
@@ -1154,7 +1154,7 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.0.'$'.'#']", lpath_18 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.0.'$'.#]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'#']", lpath_18 if path is not None else None))
                 return False
         elif prop == "":
             # handle may  property
@@ -1163,7 +1163,7 @@ def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Url [.'$Model#Root'.'|'.0.'$'.'']", lpath_18 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.0.'$'.]", lpath_18 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.0.'$'.'']", lpath_18 if path is not None else None))
                 return False
         elif _jm_re_3(prop):
             # handle 1 re props
@@ -1203,7 +1203,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected string [.'$Model#Root'.'|'.0.'%'.'#']", lpath_19 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.0.'%'.#]", lpath_19 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.0.'%'.'#']", lpath_19 if path is not None else None))
                 return False
         elif _jm_re_4(prop):
             # handle 1 re props
@@ -1257,12 +1257,12 @@ def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected $Model [.'$Model#Root'.'|'.0.'@']", lpath_17 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Model#Root'.'|'.0.@]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Model#Root'.'|'.0.'@']", lpath_17 if path is not None else None))
                 return False
         elif pfun := _jm_obj_17_map.get(prop):
             # handle 5 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_17 if path is not None else None, rep):
-                rep is None or rep.append(("invalid may property value [.'$Model#Root'.'|'.0]", lpath_17 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$Model#Root'.'|'.0]", lpath_17 if path is not None else None))
                 return False
         elif _jm_re_1(prop):
             # handle 2 re props

@@ -85,7 +85,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED:
                 must_count += 1
                 if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid mandatory property value [.'$R']", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("invalid mandatory prop value [.'$R']", lpath_0 if path is not None else None))
                     return False
         else:
             rep is None or rep.append(("unexpected prop [.'$R']", lpath_0 if path is not None else None))
@@ -130,7 +130,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_02 [.'$Z'.e]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Z'.e]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Z'.e]", lpath_1 if path is not None else None))
                 return False
         elif prop == "f":
             # handle must f property
@@ -140,7 +140,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected _cst_02 [.'$Z'.f]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$Z'.f]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$Z'.f]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$Z']", lpath_1 if path is not None else None))
@@ -233,7 +233,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if pfun != UNDEFINED:
                 must_count += 1
                 if not pfun(pval, lpath_2 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid mandatory property value [.]", lpath_2 if path is not None else None))
+                    rep is None or rep.append(("invalid mandatory prop value [.]", lpath_2 if path is not None else None))
                     return False
         else:
             rep is None or rep.append(("unexpected prop [.]", lpath_2 if path is not None else None))

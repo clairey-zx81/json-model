@@ -1,5 +1,5 @@
 hello.values.json[0]: PASS
 hello.values.json[1]: PASS
-hello.values.json[2]: FAIL (.: not an expected object [.]; .world: invalid mandatory property value [..world]; .world: not a bool [.world])
-hello.values.json[3]: FAIL (.: not an expected object [.]; .hello: invalid mandatory property value [..hello]; .hello: not a 0 strict int [.hello])
+hello.values.json[2]: FAIL (.: not an expected object [.]; .world: invalid mandatory prop value [.world]; .world: not a bool [.world])
+hello.values.json[3]: FAIL (.: not an expected object [.]; .hello: invalid mandatory prop value [.hello]; .hello: not a 0 strict int [.hello])
 hello.values.json[4]: FAIL (.: not an expected object [.]; .: not an object [.])

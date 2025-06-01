@@ -1,7 +1,7 @@
 opt_ls.values.json[1]: PASS
 opt_ls.values.json[2]: PASS
-opt_ls.values.json[3]: FAIL (.: not an expected object [.]; .f: invalid mandatory property value [..f]; .f: not a -1.0 strict float [.f])
-opt_ls.values.json[4]: FAIL (.: not an expected object [.]; .f: invalid mandatory property value [..f]; .f: not a -1.0 strict float [.f])
+opt_ls.values.json[3]: FAIL (.: not an expected object [.]; .f: invalid mandatory prop value [.f]; .f: not a -1.0 strict float [.f])
+opt_ls.values.json[4]: FAIL (.: not an expected object [.]; .f: invalid mandatory prop value [.f]; .f: not a -1.0 strict float [.f])
 opt_ls.values.json[5]: FAIL (.: not an expected object [.]; .: not an object [.])
 opt_ls.values.json[6]: FAIL (.: not an expected object [.]; .: not an object [.])
 opt_ls.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])

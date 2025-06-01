@@ -3,7 +3,7 @@ rec_03.values.json[1]: PASS
 rec_03.values.json[2]: PASS
 rec_03.values.json[3]: PASS
 rec_03.values.json[4]: PASS
-rec_03.values.json[5]: FAIL (.: not an expected object [.]; .foo: invalid may property value [..foo]; .foo: no model matched [.foo.'|']; .foo: not array or unexpected array [.foo.'|'.1]; .foo.0: unexpected $root [.foo.'|'.1.0]; .foo.0: not an expected object [.]; .foo.0: not an object [.]; .foo: unexpected $root [.foo.'|'.0]; .foo: not an expected object [.]; .foo: not an object [.])
+rec_03.values.json[5]: FAIL (.: not an expected object [.]; .foo: invalid optional prop value [.foo]; .foo: no model matched [.foo.'|']; .foo: not array or unexpected array [.foo.'|'.1]; .foo.0: unexpected $root [.foo.'|'.1.0]; .foo.0: not an expected object [.]; .foo.0: not an object [.]; .foo: unexpected $root [.foo.'|'.0]; .foo: not an expected object [.]; .foo: not an object [.])
 rec_03.values.json[6]: FAIL (.: not an expected object [.]; .bla: unexpected prop [.])
 rec_03.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])
 rec_03.values.json[8]: FAIL (.: not an expected object [.]; .: not an object [.])

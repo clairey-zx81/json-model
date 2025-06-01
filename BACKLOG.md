@@ -2,23 +2,8 @@
 
 ## Current Tasks
 
-- [x] c-backend: fast `$REGEX` implementation based on re2 syntax
-- [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
-- [x] c-frontend: use `getopt_long` instead of `getopt`
-- [x] static: reporting clean slate on or when one is found!
-- [x] static: add option to skip reporting generation `--no-report`
-- [x] frontend: improve performance measures with stdev and removing overheads
-- [x] jmc: allow direct compilation with cc-like options?
-- [x] static: report missing must props
-- [x] jmc: rethink option usage for compilation
-- [x] jmc: allow to pass actual compiler options?
-- [x] static: disjunct could share identical may/must tabs between objects (optional)
-- [x] c-backend: also prefix type name and extensions with `jm_`
-- [x] static: use `[.]` for root in error messages
-- [x] static: simplify unexpected prop message
-- [x] jmc: generate executable python script
-- [x] jmc: make `-O` the default, add `-nO` to disable.
-- [x] frontend: align python and C pass/fail outputs
+- [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
+- [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
@@ -28,7 +13,7 @@
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
-- [ ] backend: move python-specifics from `language.py` to `python.py`
+- [ ] c-backend: remove path build under no reporting code gen
 - [ ] python: cleanup ultimate model reliance on local defs
 - [ ] python: drop `Validator` class
 - [ ] schema: add explicit `"$schema"` property if appropriate
@@ -41,7 +26,6 @@
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] backend: report which several xor succeeded?
-- [ ] static: fast mode, check that it returns as early as possible?
 
 ## To Do
 
@@ -301,3 +285,20 @@
 - [x] static: choose threshold for switching between few/may must/may props
 - [x] static: reuse already generated may/must maps when possible (under `--map-share`)
 - [~] static: use common must/may map with must/may boolean? maybe not?
+- [x] c-backend: fast `$REGEX` implementation based on re2 syntax
+- [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
+- [x] c-frontend: use `getopt_long` instead of `getopt`
+- [x] static: reporting clean slate on or when one is found!
+- [x] static: add option to skip reporting generation `--no-report`
+- [x] frontend: improve performance measures with stdev and removing overheads
+- [x] jmc: allow direct compilation with cc-like options?
+- [x] static: report missing must props
+- [x] jmc: rethink option usage for compilation
+- [x] jmc: allow to pass actual compiler options?
+- [x] static: disjunct could share identical may/must tabs between objects (optional)
+- [x] c-backend: also prefix type name and extensions with `jm_`
+- [x] static: use `[.]` for root in error messages
+- [x] static: simplify unexpected prop message
+- [x] jmc: generate executable python script
+- [x] jmc: make `-O` the default, add `-nO` to disable.
+- [x] frontend: align python and C pass/fail outputs

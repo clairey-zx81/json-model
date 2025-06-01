@@ -41,7 +41,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected =true [.'$A'.t]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$A'.t]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$A'.t]", lpath_0 if path is not None else None))
                 return False
         elif prop == "a":
             # handle must a property
@@ -51,7 +51,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$A'.a]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$A'.a]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$A'.a]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$A']", lpath_0 if path is not None else None))
@@ -92,7 +92,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("unexpected =false [.'$B'.t]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$B'.t]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$B'.t]", lpath_1 if path is not None else None))
                 return False
         elif prop == "b":
             # handle must b property
@@ -102,7 +102,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$B'.b]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$B'.b]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$B'.b]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$B']", lpath_1 if path is not None else None))

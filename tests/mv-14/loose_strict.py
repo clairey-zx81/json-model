@@ -40,7 +40,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 loose int [.'$loose'.li]", lpath_0 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$loose'.li]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$loose'.li]", lpath_0 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$loose']", lpath_0 if path is not None else None))
@@ -79,7 +79,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$strict'.si]", lpath_1 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$strict'.si]", lpath_1 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$strict'.si]", lpath_1 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$strict']", lpath_1 if path is not None else None))
@@ -118,7 +118,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$combined'.li]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$combined'.li]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$combined'.li]", lpath_2 if path is not None else None))
                 return False
         elif prop == "si":
             # handle must si property
@@ -128,7 +128,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not a 0 strict int [.'$combined'.si]", lpath_2 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory property value [.'$combined'.si]", lpath_2 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$combined'.si]", lpath_2 if path is not None else None))
                 return False
         else:
             rep is None or rep.append(("unexpected prop [.'$combined']", lpath_2 if path is not None else None))
