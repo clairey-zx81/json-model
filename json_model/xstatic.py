@@ -508,7 +508,9 @@ class SourceCode(Validator):
                           gen.inc_var(must_c) ] +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
-                            self._gen_fail(f"invalid mandatory property value [{smpath}.{p}]", lpath_ref)
+                            self._gen_fail(
+                                f"invalid mandatory prop value [{json_path(mpath + [p])}]",
+                                lpath_ref)
                         )
                     )
                     multi_if += [(mu_expr, mu_code)]
@@ -529,14 +531,14 @@ class SourceCode(Validator):
                     gen.if_stmt(gen.is_def(pfun),
                         [ gen.inc_var(must_c) ] +
                         gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
-                            self._gen_fail(f"invalid mandatory property value [{smpath}]", lpath_ref)))
+                            self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref)))
                 )
 
                 multi_if += [(mu_expr, mu_code)]
 
         if may:
 
-            if len(may) <= self._map_threshold:  # simple one-property code
+            if len(may) <= self._map_threshold:  # simple few-property code
 
                 for p, m in may.items():
                     ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
@@ -544,7 +546,9 @@ class SourceCode(Validator):
                         [ gen.lcom(f"handle may {p} property") ] +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
-                            self._gen_fail(f"invalid may property value [{smpath}.{p}]", lpath_ref)
+                            self._gen_fail(
+                                f"invalid optional prop value [{json_path(mpath + [p])}]",
+                                lpath_ref)
                         )
                     )
                     multi_if += [(ma_expr, ma_code)]
@@ -562,7 +566,7 @@ class SourceCode(Validator):
                     [ gen.lcom(f"handle {len(may)} may props") ] +
                     gen.if_stmt(gen.and_op(gen.is_def(pfun),
                                            gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
-                        self._gen_fail(f"invalid may property value [{smpath}]", lpath_ref))
+                        self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
                 )
 
                 multi_if += [(ma_expr, ma_code)]
@@ -608,7 +612,7 @@ class SourceCode(Validator):
             [ gen.path_var(lpath, gen.path_val(vpath, prop, True), True) ] +
             gen.mif_stmt(multi_if, ot_code))
 
-        # check that all must were seen, although we do not know which ones
+        # check that all must were seen, with some effort to report the missing ones
         if must:
             missing = []
             for prop in sorted(must.keys()):
