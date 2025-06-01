@@ -44,7 +44,7 @@ class Language:
             eoi: str = "", isep: str = "\n", indent: str = "    ",
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
-            check_t: str = "CheckFun", json_t: str = "Jsonable",
+            check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True,
@@ -85,6 +85,7 @@ class Language:
         self._null = null
         self._check_t = check_t
         self._json_t = json_t
+        self._path_t = path_t
         self._bool_t = bool_t
         self._int_t = int_t
         self._float_t = float_t
@@ -371,6 +372,10 @@ class Language:
         # FIXME should guard for scalar?
         return self.var(var, val, self._check_t if declare else None)
 
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
+        """Assign and possibly declare a value to a path variable."""
+        return self.var(pvar, val, self._path_t if declare else None) if self._with_path else None
+
     def iand_op(self, res: Var, e: BoolExpr) -> Inst:
         """And-update boolean variable."""
         return "{var} &= {e}{self.eoi}"
@@ -409,12 +414,6 @@ class Language:
         # avoid nested if expressions
         pvar = f"({pvar})" if " if " in pvar else pvar
         return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
-
-    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
-        """Assign and possibly declare a value to a path variable."""
-        assign = f" = {val}" if val else ""
-        decl = ": Path" if declare else ""
-        return f"{pvar}{decl}{assign}" if self._with_path else None
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
         # avoid nested if expressions

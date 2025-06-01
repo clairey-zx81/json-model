@@ -23,7 +23,7 @@ class CLangJansson(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
-             float_t="double", str_t="char *",
+             path_t="jm_path_t", float_t="double", str_t="char *",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
@@ -232,14 +232,6 @@ class CLangJansson(Language):
         if self._with_path:
             return (f"(jm_path_t) {{ {pseg}, 0, {pvar}, NULL }}" if is_prop else
                     f"(jm_path_t) {{ NULL, {pseg}, {pvar}, NULL }}")
-        else:
-            return None
-
-    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
-        if self._with_path:
-            assign = f" = {val}" if val else ""
-            decl = "jm_path_t " if declare else ""
-            return f"{decl}{pvar}{assign};"
         else:
             return None
 
