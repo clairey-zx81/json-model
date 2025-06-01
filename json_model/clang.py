@@ -22,6 +22,7 @@ class CLangJansson(Language):
             "C",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
+             true="true", false="false", null="NULL",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
@@ -86,16 +87,10 @@ class CLangJansson(Language):
         return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
 
     def const(self, val: Jsonable) -> Expr:
-        if val is None:
-            return "NULL";
-        elif isinstance(val, bool):
-            return "true" if val else "false"
-        elif isinstance(val, (int, float)):
-            return str(val)
-        elif isinstance(val, str):
-            return self.esc(val)
-        else:
+        if isinstance(val, (list, dict)):
             return self.json_cst(val)
+        else:
+            super().const(val)
 
     def has_prop(self, var: Var, prop: str) -> BoolExpr:
         return f"json_object_get({var}, {self.esc(prop)}) != NULL"
@@ -111,7 +106,7 @@ class CLangJansson(Language):
             return f"jm_is_valid_regex({val})"
         elif name == "$URL":
             return f"jm_is_valid_url({val})"
-        else:  # TODO $URL
+        else:
             return super().predef(var, name, path, is_str)
     
     def value(self, var: Var, tvar: type) -> Expr:
@@ -130,19 +125,6 @@ class CLangJansson(Language):
             return f"json_string_value({var})"
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
-
-    def any_int_val(self, var: Var, tvar: type) -> IntExpr:
-        """Get an int from whatever, if possible, from a Json variable or value."""
-        if tvar is int:
-            return self.value(var, int)
-        elif tvar is list:
-            return self.arr_len(var)
-        elif tvar is dict:
-            return self.obj_len(var)
-        elif tvar is str:
-            return self.str_len(self.value(var, str))
-        else:
-            raise Exception(f"unexpected type for int extraction: {tvar.__name__}")
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
         return f"json_array_get({arr}, {idx})"

@@ -42,8 +42,8 @@ class Language:
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
             not_op: str = "not", and_op: str = "and", or_op: str = "or",
             eoi: str = "", isep: str = "\n", indent: str = "    ",
-            lcom: str = "#",
-            relib: str = "re2",
+            lcom: str = "#", relib: str = "re2",
+            true: str = "True", false: str = "False", null: str = "None",
             # options
             with_path: bool = True, with_report: bool = True,
             with_comment: bool = True, set_caps: list[type|None] = (str,),
@@ -77,6 +77,10 @@ class Language:
         self._indent = indent
         self._lcom = lcom
         self._relib = relib
+        # constants
+        self._true = true
+        self._false = false
+        self._null = null
 
         # other stuff
         self._version = __version__
@@ -191,7 +195,9 @@ class Language:
     #
     def const(self, c: Jsonable) -> Expr:
         if c is None:
-            return "None"
+            return self._null
+        elif isinstance(c, bool):
+            return self._true if c else self._false
         elif isinstance(c, str):
             return self.esc(c)
         else:
@@ -235,7 +241,7 @@ class Language:
         if tval is int:
             return self.value(val, int)
         elif tval is str:
-            return self.str_len(val)
+            return self.str_len(self.value(val, str))
         elif tval is list:
             return self.arr_len(val)
         elif tval is dict:
@@ -534,7 +540,6 @@ class Language:
             f"{name}: RegexFun"
         ]
 
-    # FIXME: remove?
     def sub_re(self, name: str, regex: str) -> Block:
         """Generate a regex check function."""
         self._re_used = True
