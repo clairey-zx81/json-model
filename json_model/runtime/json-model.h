@@ -3,7 +3,6 @@
 
 #define _GNU_SOURCE  // for qsort_r?
 #include <stdbool.h>
-// typedef enum { false, true } bool;
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,8 +34,8 @@
 extern char * jm_version_string;
 
 #define array_length(arr) (sizeof(arr) / sizeof((arr)[0]))
-typedef int (*cmp_fun_t)(const void *, const void *);
-typedef int (*cmp_r_fun_t)(const void *, const void *, void *);
+typedef int (*jm_cmp_fun_t)(const void *, const void *);
+typedef int (*jm_cmp_r_fun_t)(const void *, const void *, void *);
 
 /*
  * JSON API extensions
@@ -46,55 +45,56 @@ typedef int (*cmp_r_fun_t)(const void *, const void *, void *);
 typedef struct {
     const char *prop;
     const json_t *val;
-} json_propval_t;
+} jm_propval_t;
 
-extern bool _json_is_scalar(const json_t *);
-extern int _json_cmp(const json_t *, const json_t *);
-extern int _json_array_cmp(const json_t *, const json_t *);
-extern int _json_object_cmp(const json_t *, const json_t *);
-extern int _json_propval_cmp(const json_propval_t *, const json_propval_t *);
-extern bool _json_array_unique(const json_t *);
+extern int jm_propval_cmp(const jm_propval_t *, const jm_propval_t *);
+
+extern bool jm_json_is_scalar(const json_t *);
+extern int jm_json_cmp(const json_t *, const json_t *);
+extern int jm_json_array_cmp(const json_t *, const json_t *);
+extern int jm_json_object_cmp(const json_t *, const json_t *);
+extern bool jm_json_array_unique(const json_t *);
 
 /*
  * reporting
  */
 // linked list of report entries
-typedef struct ReportEntry {
+typedef struct jm_report_entry {
   const char *message;
   char *path;
-  struct ReportEntry *prev;
-} ReportEntry;
+  struct jm_report_entry *prev;
+} jm_report_entry_t;
 
-typedef struct Report {
-  ReportEntry *entry;
-} Report;
+typedef struct {
+  jm_report_entry_t *entry;
+} jm_report_t;
 
 // path segment, name == NULL means use index
-typedef struct Path {
+typedef struct jm_path {
     const char *name;
     size_t index;
-    struct Path *prev;  // link to previous (in stack) segment
-    struct Path *next;  // used for backtacking
-} Path;
+    struct jm_path *prev;  // link to previous (in stack) segment
+    struct jm_path *next;  // used for backtacking
+} jm_path_t;
 
-extern void jm_report_add_entry(Report* rep, const char *msg, Path *path);
-extern void jm_report_free_entries(Report *rep);
+extern void jm_report_add_entry(jm_report_t* rep, const char *msg, jm_path_t *path);
+extern void jm_report_free_entries(jm_report_t *rep);
 
-typedef bool (*check_fun_t)(const json_t *, Path *, Report *);
+typedef bool (*jm_check_fun_t)(const json_t *, jm_path_t *, jm_report_t *);
 
-extern bool jm_check_fun_string(check_fun_t, const char *, Path *, Report *);
-extern bool jm_array_is_unique(const json_t *, Path *, Report *);
+extern bool jm_check_fun_string(jm_check_fun_t, const char *, jm_path_t *, jm_report_t *);
+extern bool jm_array_is_unique(const json_t *, jm_path_t *, jm_report_t *);
 
 /*
  * property mapping management
  */
 typedef struct {
     const char *name;
-    check_fun_t val_check;
-} propmap_t;
+    jm_check_fun_t val_check;
+} jm_propmap_t;
 
-extern void jm_sort_propmap(propmap_t *, int);
-extern check_fun_t jm_search_propmap(const char *, const propmap_t *, int);
+extern void jm_sort_propmap(jm_propmap_t *, int);
+extern jm_check_fun_t jm_search_propmap(const char *, const jm_propmap_t *, int);
 
 /*
  * set of scalar constants
@@ -107,34 +107,34 @@ typedef enum {
     cst_is_string
     // cst_is_array + const json_t * + free
     // cst_is_object + const json_t * + free
-} constant_tag;
+} jm_constant_tag;
 
 typedef struct
 {
-    constant_tag tag;
+    jm_constant_tag tag;
     union {
         bool b;
         int64_t i;
         double f;
         const char *s;
     } val;
-} constant_t;
+} jm_constant_t;
 
-extern bool jm_set_cst(constant_t *, const json_t *);
-extern void jm_dbg_cst(const constant_t *, const char *);
-extern void jm_sort_cst(constant_t *, size_t);
-extern bool jm_search_cst(const constant_t *, const constant_t *, size_t);
+extern bool jm_set_cst(jm_constant_t *, const json_t *);
+extern void jm_dbg_cst(const jm_constant_t *, const char *);
+extern void jm_sort_cst(jm_constant_t *, size_t);
+extern bool jm_search_cst(const jm_constant_t *, const jm_constant_t *, size_t);
 
 /*
  * constant mapping management for discriminant optimization
  */
 typedef struct {
-    constant_t cst;
-    check_fun_t check_val;
-} constmap_t;
+    jm_constant_t cst;
+    jm_check_fun_t check_val;
+} jm_constmap_t;
 
-extern void jm_sort_constmap(constmap_t *, size_t);
-extern check_fun_t jm_search_constmap(const constant_t *, const constmap_t *, size_t);
+extern void jm_sort_constmap(jm_constmap_t *, size_t);
+extern jm_check_fun_t jm_search_constmap(const jm_constant_t *, const jm_constmap_t *, size_t);
 
 /*
  * Miscellaneous support functions and related data
@@ -154,15 +154,15 @@ typedef enum {
     op_lt,
     op_ge,
     op_gt
-} constraint_op_t;
+} jm_constraint_op_t;
 
 extern bool
-jm_check_constraint(const json_t *, constraint_op_t, const constant_t *, Path *, Report *);
+jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *, jm_path_t *, jm_report_t *);
 
 /*
  * Shared high-level entry point
  */
-extern bool jm_generic_entry(char *(*)(void), check_fun_t (*)(const char *),
+extern bool jm_generic_entry(char *(*)(void), jm_check_fun_t (*)(const char *),
                              const json_t *, const char *, bool *, char **);
 
 /*
@@ -170,8 +170,8 @@ extern bool jm_generic_entry(char *(*)(void), check_fun_t (*)(const char *),
  */
 // low-level interface
 extern const size_t CHECK_map_size;
-extern propmap_t CHECK_map_tab[];
-extern check_fun_t CHECK_fun(const char *);
+extern jm_propmap_t CHECK_map_tab[];
+extern jm_check_fun_t CHECK_fun(const char *);
 // high-level interface
 extern char *CHECK_init(void);
 extern bool CHECK(const json_t *, const char *, bool *, char **);

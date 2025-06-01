@@ -79,7 +79,7 @@ class CLangJansson(Language):
         return f"json_is_null({var})"
 
     def is_scalar(self, var: Var) -> BoolExpr:
-        return f"_json_is_scalar({var})"
+        return f"jm_json_is_scalar({var})"
 
     def is_def(self, var: Var) -> BoolExpr:
         return f"{var} != NULL"
@@ -230,7 +230,7 @@ class CLangJansson(Language):
         return f"{decl}{var}{assign}{self._eoi}"
 
     def fun_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
-        return self._var(var, val, "check_fun_t" if declare else None)
+        return self._var(var, val, "jm_check_fun_t" if declare else None)
 
     def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
         return self._var(var, val, "json_t *" if declare else None)
@@ -257,15 +257,15 @@ class CLangJansson(Language):
     def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
         if self._with_path:
-            return (f"(Path) {{ {pseg}, 0, {pvar}, NULL }}" if is_prop else
-                    f"(Path) {{ NULL, {pseg}, {pvar}, NULL }}")
+            return (f"(jm_path_t) {{ {pseg}, 0, {pvar}, NULL }}" if is_prop else
+                    f"(jm_path_t) {{ NULL, {pseg}, {pvar}, NULL }}")
         else:
             return None
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
         if self._with_path:
             assign = f" = {val}" if val else ""
-            decl = "Path " if declare else ""
+            decl = "jm_path_t " if declare else ""
             return f"{decl}{pvar}{assign};"
         else:
             return None
@@ -357,7 +357,7 @@ class CLangJansson(Language):
         ]
 
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        code = [ f"{'' if public else 'static '}propmap_t {name}_tab[{len(pmap)}];" ]
+        code = [ f"{'' if public else 'static '}jm_propmap_t {name}_tab[{len(pmap)}];" ]
         if public:
             # add size accessor to public maps
             code += [ f"const size_t {name}_size = {len(pmap)};" ]
@@ -366,13 +366,13 @@ class CLangJansson(Language):
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         init = []
         for i, (p, f) in enumerate(pmap.items()):
-            init += [ f"{name}_tab[{i}] = (propmap_t) {{ {self.esc(p)}, {f} }};" ]
+            init += [ f"{name}_tab[{i}] = (jm_propmap_t) {{ {self.esc(p)}, {f} }};" ]
         init += [ f"jm_sort_propmap({name}_tab, {len(pmap)});" ]
         return init
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [
-            f"{'' if public else 'static '}check_fun_t {name}(const char *pname)",
+            f"{'' if public else 'static '}jm_check_fun_t {name}(const char *pname)",
             r"{",
             f"    return jm_search_propmap(pname, {name}_tab, {len(pmap)});",
             r"}",
@@ -383,7 +383,7 @@ class CLangJansson(Language):
         code = []
         if len(types) > 1:
             code += [ f"static bool {name}_test(const json_t *);" ]
-        return  code + [ f"static constant_t {name}[{len(constants)}];" ]
+        return  code + [ f"static jm_constant_t {name}[{len(constants)}];" ]
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         types = set(type(c) for c in constants)
@@ -392,7 +392,7 @@ class CLangJansson(Language):
             code += [
                 f"static bool {name}_test(const json_t *val)",
                 r"{",
-                r"  constant_t cst;",
+                r"  jm_constant_t cst;",
                 r"  jm_set_cst(&cst, val);",
                 f"  return jm_search_cst(&cst, {name}, {len(constants)});",
                 r"}"
@@ -401,15 +401,15 @@ class CLangJansson(Language):
 
     def _var_cst(self, var: Var, vtype: type|None) -> Expr:
         if vtype is None or vtype == type(None):
-            return "(constant_t) { cst_is_null, { .s = NULL } }"
+            return "(jm_constant_t) { cst_is_null, { .s = NULL } }"
         elif vtype is bool:
-            return f"(constant_t) {{ cst_is_bool, {{ .b = {self.value(var, bool)} }} }}"
+            return f"(jm_constant_t) {{ cst_is_bool, {{ .b = {self.value(var, bool)} }} }}"
         elif vtype is int:
-            return f"(constant_t) {{ cst_is_integer, {{ .i = {self.value(var, int)} }} }}"
+            return f"(jm_constant_t) {{ cst_is_integer, {{ .i = {self.value(var, int)} }} }}"
         elif vtype is float:
-            return f"(constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
+            return f"(jm_constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
         elif vtype is str:
-            return f"(constant_t) {{ cst_is_string, {{ .s = {self.value(var, str)} }} }}"
+            return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.value(var, str)} }} }}"
         else:
             raise NotImplementedError(f"type {vtype}")
 
@@ -426,15 +426,15 @@ class CLangJansson(Language):
     def _cst(self, value: Jsonable) -> str:
         match value:
             case None:
-                return "(constant_t) { cst_is_null, { .s = NULL } }"
+                return "(jm_constant_t) { cst_is_null, { .s = NULL } }"
             case bool(b):
-                return f"(constant_t) {{ cst_is_bool, {{ .b = {self.const(b)} }} }}"
+                return f"(jm_constant_t) {{ cst_is_bool, {{ .b = {self.const(b)} }} }}"
             case int(i):
-                return f"(constant_t) {{ cst_is_integer, {{ .i = {i} }} }}"
+                return f"(jm_constant_t) {{ cst_is_integer, {{ .i = {i} }} }}"
             case float(f):
-                return f"(constant_t) {{ cst_is_float, {{ .f = {f} }} }}"
+                return f"(jm_constant_t) {{ cst_is_float, {{ .f = {f} }} }}"
             case str(s):
-                return f"(constant_t) {{ cst_is_string, {{ .s = {self.esc(s)} }} }}"
+                return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.esc(s)} }} }}"
             case _:
                 raise Exception(f"unexpected constant value: {value}")
 
@@ -446,7 +446,7 @@ class CLangJansson(Language):
         return code
 
     def _fun(self, name: str) -> str:
-        return  f"static bool {name}(const json_t* val, Path* path, Report* rep)"
+        return  f"static bool {name}(const json_t *val, jm_path_t *path, jm_report_t *rep)"
 
     def def_fun(self, name: str) -> Block:
         return [ self._fun(name) + ";" ]
@@ -455,13 +455,13 @@ class CLangJansson(Language):
         return [ self._fun(name) ] + self.indent(body)
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"static constmap_t {name}_tab[{len(mapping)}];" ]
+        return [ f"static jm_constmap_t {name}_tab[{len(mapping)}];" ]
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [
-            f"static check_fun_t {name}(json_t *val)",
+            f"static jm_check_fun_t {name}(json_t *val)",
             r"{",
-            r"    constant_t cst;",
+            r"    jm_constant_t cst;",
             r"    jm_set_cst(&cst, val);",
             f"    return jm_search_constmap(&cst, {name}_tab, {len(mapping)});",
             r"}",
@@ -470,7 +470,7 @@ class CLangJansson(Language):
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         code = []
         for i, (k, v) in enumerate(list(mapping.items())):
-            code += [ f"{name}_tab[{i}] = (constmap_t) {{ {self._cst(k)}, {v} }};" ]
+            code += [ f"{name}_tab[{i}] = (jm_constmap_t) {{ {self._cst(k)}, {v} }};" ]
         code += [ f"jm_sort_constmap({name}_tab, {len(mapping)});" ]
         return code
 

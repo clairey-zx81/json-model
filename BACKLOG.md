@@ -13,6 +13,8 @@
 - [x] jmc: rethink option usage for compilation
 - [x] jmc: allow to pass actual compiler options?
 - [x] static: disjunct could share identical may/must tabs between objects (optional)
+- [x] c-backend: also prefix type name and extensions with `jm_`
+- [ ] static: use `[.]` for root in error messages
 - [ ] frontend: align python and C outputs
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
@@ -22,7 +24,6 @@
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
-- [ ] c-backend: also prefix type name and extensions with `jm_`
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] backend: move python-specifics from `language.py` to `python.py`
 - [ ] python: cleanup ultimate model reliance on local defs
@@ -147,6 +148,7 @@
 - [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
+- [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
@@ -155,6 +157,7 @@
 - [ ] service: json to lang conversion API :-)
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
+- [ ] pr: provide a docker.
 
 ## Done
 

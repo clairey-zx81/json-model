@@ -10,7 +10,7 @@ char *jm_version_string = "<unknown>";
  * JSON API extensions
  */
 bool
-_json_is_scalar(const json_t *val)
+jm_json_is_scalar(const json_t *val)
 {
     const json_type tval = json_typeof(val);
     return (tval == JSON_STRING || tval == JSON_INTEGER || tval == JSON_REAL ||
@@ -19,7 +19,7 @@ _json_is_scalar(const json_t *val)
 
 // fast JSON array comparison for a total order
 int
-_json_array_cmp(const json_t *v1, const json_t *v2)
+jm_json_array_cmp(const json_t *v1, const json_t *v2)
 {
     // try size
     size_t s1 = json_array_size(v1), s2 = json_array_size(v2);
@@ -32,7 +32,7 @@ _json_array_cmp(const json_t *v1, const json_t *v2)
     json_array_foreach(v1, index, iv1)
     {
         json_t *iv2 = json_array_get(v2, index);
-        int cmp = _json_cmp(iv1, iv2);
+        int cmp = jm_json_cmp(iv1, iv2);
         if (cmp != 0)
             return cmp;
     }
@@ -43,14 +43,14 @@ _json_array_cmp(const json_t *v1, const json_t *v2)
 
 // for sorting propvals by property names
 int
-_json_propval_cmp(const json_propval_t *pv1, const json_propval_t *pv2)
+jm_propval_cmp(const jm_propval_t *pv1, const jm_propval_t *pv2)
 {
     return strcmp(pv1->prop, pv2->prop);
 }
 
 // fast JSON object comparison for a total order
 int
-_json_object_cmp(const json_t *v1, const json_t *v2)
+jm_json_object_cmp(const json_t *v1, const json_t *v2)
 {
     // first, try size
     size_t s1 = json_object_size(v1), s2 = json_object_size(v2);
@@ -58,20 +58,20 @@ _json_object_cmp(const json_t *v1, const json_t *v2)
         return s2 - s1;
 
     // else same size, extract property/value pairs
-    json_propval_t pv1[s1], pv2[s2];
+    jm_propval_t pv1[s1], pv2[s2];
     const char *key;
     json_t *value;
 
     // borrow properties and values from both objects
     size_t index = 0;
     json_object_foreach((json_t *) v1, key, value)
-        pv1[index++] = (json_propval_t) { key, value };
-    qsort(pv1, s1, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
+        pv1[index++] = (jm_propval_t) { key, value };
+    qsort(pv1, s1, sizeof(jm_propval_t), (jm_cmp_fun_t) jm_propval_cmp);
 
     index = 0;
     json_object_foreach((json_t *) v2, key, value)
-        pv2[index++] = (json_propval_t) { key, value };
-    qsort(pv2, s2, sizeof(json_propval_t), (cmp_fun_t) _json_propval_cmp);
+        pv2[index++] = (jm_propval_t) { key, value };
+    qsort(pv2, s2, sizeof(jm_propval_t), (jm_cmp_fun_t) jm_propval_cmp);
 
     // second, try lexicographic order of keys
     for (size_t i = 0; i < s1; i++)
@@ -83,7 +83,7 @@ _json_object_cmp(const json_t *v1, const json_t *v2)
     // same keys, third, try lexicographic order of values
     for (size_t i = 0; i < s1; i++)
     {
-        int cmp = _json_cmp(pv1[i].val, pv2[i].val);
+        int cmp = jm_json_cmp(pv1[i].val, pv2[i].val);
         if (cmp != 0)
             return cmp;
     }
@@ -92,7 +92,7 @@ _json_object_cmp(const json_t *v1, const json_t *v2)
 }
 
 int
-_json_cmp(const json_t *v1, const json_t *v2)
+jm_json_cmp(const json_t *v1, const json_t *v2)
 {
     const json_type t1 = json_typeof(v1), t2 = json_typeof(v2);
     if (t1 != t2)
@@ -116,9 +116,9 @@ _json_cmp(const json_t *v1, const json_t *v2)
         case JSON_STRING:
             return strcmp(json_string_value(v1), json_string_value(v2));
         case JSON_ARRAY:
-            return _json_array_cmp(v1, v2);
+            return jm_json_array_cmp(v1, v2);
         case JSON_OBJECT:
-            return _json_object_cmp(v1, v2);
+            return jm_json_object_cmp(v1, v2);
     }
 
     // default: panic, internal error
@@ -133,11 +133,11 @@ _json_cmp(const json_t *v1, const json_t *v2)
 // NOTE fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
 static int
-_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
+jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 {
     if (*((bool *) duplicate))
         return 0;
-    int cmp = _json_cmp(*v1, *v2);
+    int cmp = jm_json_cmp(*v1, *v2);
     if (cmp == 0)
         *((bool *) duplicate) = true;
     return cmp;
@@ -145,7 +145,7 @@ _json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
 
 // tell whether a JSON array holds distinct values.
 bool
-_json_array_unique(const json_t *val)
+jm_json_array_unique(const json_t *val)
 {
     assert(json_is_array(val));
     // extract as an actual array for sorting
@@ -158,15 +158,15 @@ _json_array_unique(const json_t *val)
     // all items have been compared to their neighbours
     bool duplicate = false;
     // life is fun
-    qsort_r(array, size, sizeof(json_t *), (cmp_r_fun_t) _json_cmp_r, &duplicate);
+    qsort_r(array, size, sizeof(json_t *), (jm_cmp_r_fun_t) jm_json_cmp_r, &duplicate);
     return !duplicate;
 }
 
 // idem with reporting
 bool
-jm_array_is_unique(const json_t *val, Path *path, Report *rep)
+jm_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
-    bool unique = _json_array_unique(val);
+    bool unique = jm_json_array_unique(val);
     if (!unique && rep)
         jm_report_add_entry(rep, "non unique array", path);
     return unique;
@@ -176,23 +176,23 @@ jm_array_is_unique(const json_t *val, Path *path, Report *rep)
  * reporting
  */
 void
-jm_report_add_entry(Report* rep, const char *msg, Path *path)
+jm_report_add_entry(jm_report_t* rep, const char *msg, jm_path_t *path)
 {
-    ReportEntry *entry = malloc(sizeof(ReportEntry));
-    *entry = (ReportEntry) { msg, NULL, rep->entry };
+    jm_report_entry_t *entry = malloc(sizeof(jm_report_entry_t));
+    *entry = (jm_report_entry_t) { msg, NULL, rep->entry };
     rep->entry = entry;
     if (path)
     {
         // path segments are stored in reverse order
         size_t size = 1;
-        Path *current = path;
-        Path *next = NULL;
+        jm_path_t *current = path;
+        jm_path_t *next = NULL;
         // dive to compute the path length and build the back path
         while (current != NULL)
         {
             // "." name or "." number
             size += 1 + (current->name ? strlen(current->name) : (3 * sizeof(size_t)));
-            Path *prev = current->prev;
+            jm_path_t *prev = current->prev;
             current->next = next;  // needed to backtrack
             next = current;  // future next
             current = prev;
@@ -221,13 +221,13 @@ jm_report_add_entry(Report* rep, const char *msg, Path *path)
 }
 
 void
-jm_report_free_entries(Report *rep)
+jm_report_free_entries(jm_report_t *rep)
 {
-    ReportEntry *entry = rep->entry;
+    jm_report_entry_t *entry = rep->entry;
     rep->entry = NULL;
 
     while (entry != NULL) {
-        ReportEntry *follow = entry->prev;
+        jm_report_entry_t *follow = entry->prev;
         if (entry->path)
             free(entry->path);
         free(entry);
@@ -239,23 +239,23 @@ jm_report_free_entries(Report *rep)
  * property mapping management
  */
 static int
-cmp_propmap(const propmap_t *e1, const propmap_t *e2)
+jm_cmp_propmap(const jm_propmap_t *e1, const jm_propmap_t *e2)
 {
     return strcmp(e1->name, e2->name);
 }
 
 void
-jm_sort_propmap(propmap_t *props, int nprops)
+jm_sort_propmap(jm_propmap_t *props, int nprops)
 {
-    qsort(props, nprops, sizeof(propmap_t), (cmp_fun_t) cmp_propmap);
+    qsort(props, nprops, sizeof(jm_propmap_t), (jm_cmp_fun_t) jm_cmp_propmap);
 }
 
-check_fun_t
-jm_search_propmap(const char *name, const propmap_t *props, int nprops)
+jm_check_fun_t
+jm_search_propmap(const char *name, const jm_propmap_t *props, int nprops)
 {
-    propmap_t searched = (propmap_t) { name, NULL };
-    propmap_t *entry = (propmap_t *)
-        bsearch(&searched, props, nprops, sizeof(propmap_t), (cmp_fun_t) cmp_propmap);
+    jm_propmap_t searched = (jm_propmap_t) { name, NULL };
+    jm_propmap_t *entry = (jm_propmap_t *)
+        bsearch(&searched, props, nprops, sizeof(jm_propmap_t), (jm_cmp_fun_t) jm_cmp_propmap);
     return entry ? entry->val_check : NULL;
 }
 
@@ -263,27 +263,27 @@ jm_search_propmap(const char *name, const propmap_t *props, int nprops)
  * set of scalar constants
  */
 bool
-jm_set_cst(constant_t *c, const json_t *val)
+jm_set_cst(jm_constant_t *c, const json_t *val)
 {
     switch (json_typeof(val))
     {
         case JSON_STRING:
-            *c = (constant_t) { cst_is_string, { .s = json_string_value(val) } };
+            *c = (jm_constant_t) { cst_is_string, { .s = json_string_value(val) } };
             break;
         case JSON_INTEGER:
-            *c = (constant_t) { cst_is_integer, { .i = json_integer_value(val) } };
+            *c = (jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } };
             break;
         case JSON_REAL:
-            *c = (constant_t) { cst_is_float, { .f = json_real_value(val) } };
+            *c = (jm_constant_t) { cst_is_float, { .f = json_real_value(val) } };
             break;
         case JSON_TRUE:
-            *c = (constant_t) { cst_is_bool, { .b = true } };
+            *c = (jm_constant_t) { cst_is_bool, { .b = true } };
             break;
         case JSON_FALSE:
-            *c = (constant_t) { cst_is_bool, { .b = false } };
+            *c = (jm_constant_t) { cst_is_bool, { .b = false } };
             break;
         case JSON_NULL:
-            *c = (constant_t) { cst_is_null, { .s = NULL } };
+            *c = (jm_constant_t) { cst_is_null, { .s = NULL } };
             break;
         default:
             return false;
@@ -292,7 +292,7 @@ jm_set_cst(constant_t *c, const json_t *val)
 }
 
 void
-jm_dbg_cst(const constant_t *c, const char *describe)
+jm_dbg_cst(const jm_constant_t *c, const char *describe)
 {
     fprintf(stderr, "%s (%s): %s\n",
             describe,
@@ -301,7 +301,7 @@ jm_dbg_cst(const constant_t *c, const char *describe)
 }
 
 static int
-cmp_cst(const constant_t *c1, const constant_t *c2)
+jm_cmp_cst(const jm_constant_t *c1, const jm_constant_t *c2)
 {
     // sort by types: null < bool < int < float < string
     if (c1->tag != c2->tag)
@@ -327,38 +327,38 @@ cmp_cst(const constant_t *c1, const constant_t *c2)
 }
 
 void
-jm_sort_cst(constant_t *array, size_t size)
+jm_sort_cst(jm_constant_t *array, size_t size)
 {
-    qsort(array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst);
+    qsort(array, size, sizeof(jm_constant_t), (jm_cmp_fun_t) jm_cmp_cst);
 }
 
 bool
-jm_search_cst(const constant_t *value, const constant_t *array, size_t size)
+jm_search_cst(const jm_constant_t *value, const jm_constant_t *array, size_t size)
 {
-    return bsearch(value, array, size, sizeof(constant_t), (cmp_fun_t) cmp_cst) != NULL;
+    return bsearch(value, array, size, sizeof(jm_constant_t), (jm_cmp_fun_t) jm_cmp_cst) != NULL;
 }
 
 /*
  * constant mapping management for discriminant optimization
  */
 static int
-cmp_constmap(const constmap_t *cm1, const constmap_t *cm2)
+jm_cmp_constmap(const jm_constmap_t *cm1, const jm_constmap_t *cm2)
 {
-    return cmp_cst(&cm1->cst, &cm2->cst);
+    return jm_cmp_cst(&cm1->cst, &cm2->cst);
 }
 
 void
-jm_sort_constmap(constmap_t *array, size_t size)
+jm_sort_constmap(jm_constmap_t *array, size_t size)
 {
-    qsort(array, size, sizeof(constmap_t), (cmp_fun_t) cmp_constmap);
+    qsort(array, size, sizeof(jm_constmap_t), (jm_cmp_fun_t) jm_cmp_constmap);
 }
 
-check_fun_t
-jm_search_constmap(const constant_t *val, const constmap_t *array, size_t size)
+jm_check_fun_t
+jm_search_constmap(const jm_constant_t *val, const jm_constmap_t *array, size_t size)
 {
-    constmap_t value = (constmap_t) { *val, NULL };
-    constmap_t *found = (constmap_t *)
-        bsearch(&value, array, size, sizeof(constmap_t), (cmp_fun_t) cmp_constmap);
+    jm_constmap_t value = (jm_constmap_t) { *val, NULL };
+    jm_constmap_t *found = (jm_constmap_t *)
+        bsearch(&value, array, size, sizeof(jm_constmap_t), (jm_cmp_fun_t) jm_cmp_constmap);
     return found ? found->check_val : NULL;
 }
 
@@ -586,8 +586,8 @@ jm_is_valid_url(const char *url)
 
 // generic constraint check.
 bool
-jm_check_constraint(const json_t * val, constraint_op_t op, const constant_t *cst,
-                    Path *path, Report *rep)
+jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant_t *cst,
+                    jm_path_t *path, jm_report_t *rep)
 {
     bool res = false;
 
@@ -750,7 +750,7 @@ typedef struct {
 
 // call a check function with a string instead of a json objet.
 bool
-jm_check_fun_string(check_fun_t fun, const char *val, Path *path, Report *rep)
+jm_check_fun_string(jm_check_fun_t fun, const char *val, jm_path_t *path, jm_report_t *rep)
 {
     // create a temporary non-malloced json head for the string
     const json_string_t holder = (json_string_t) {
@@ -764,12 +764,12 @@ jm_check_fun_string(check_fun_t fun, const char *val, Path *path, Report *rep)
 bool
 jm_generic_entry(
     char *(*model_init)(void),
-    check_fun_t (*model_fun)(const char *),
+    jm_check_fun_t (*model_fun)(const char *),
     // void (*model_free)(void),
     const json_t *val, const char *name, bool *error, char **reasons)
 {
     model_init();  // lazy
-    check_fun_t checker = model_fun(name);
+    jm_check_fun_t checker = model_fun(name);
 
     bool not_found = checker == NULL;
     if (error)
@@ -796,8 +796,8 @@ jm_generic_entry(
         return false;
     }
 
-    Path root = (Path) { "$", 0, NULL, NULL };
-    Report report = (Report) { NULL };
+    jm_path_t root = (jm_path_t) { "$", 0, NULL, NULL };
+    jm_report_t report = (jm_report_t) { NULL };
 
     bool valid = checker(val, reasons ? &root : NULL, reasons ? &report : NULL);
 
@@ -806,13 +806,13 @@ jm_generic_entry(
     {
         size_t size = 1;
 
-        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+        for (jm_report_entry_t *entry = report.entry; entry != NULL; entry = entry->prev)
             size += strlen(entry->message) + strlen(entry->path) + 3;
 
         char *message = malloc(size);
         *reasons = message;
 
-        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+        for (jm_report_entry_t *entry = report.entry; entry != NULL; entry = entry->prev)
             message += sprintf("%s: %s\n", entry->path, entry->message);
     }
 

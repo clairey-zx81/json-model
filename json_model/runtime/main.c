@@ -19,7 +19,7 @@ process_value(const char *name, const json_t * value,
     const char *fname, size_t index, process_mode_t mode, bool report, int loop)
 {
     // get checker function
-    const check_fun_t checker = CHECK_fun(name);
+    const jm_check_fun_t checker = CHECK_fun(name);
     if (checker == NULL)
     {
         fprintf(stderr, "check function not found for %s\n", name);
@@ -76,8 +76,8 @@ process_value(const char *name, const json_t * value,
     // maybe second pass with report collection
     if ((loop > 1 || !valid) && report)
     {
-        Path path = (Path) { "", 0, NULL, NULL };
-        Report report = (Report) { NULL };
+        jm_path_t path = (jm_path_t) { "", 0, NULL, NULL };
+        jm_report_t report = (jm_report_t) { NULL };
 
         bool valid2 = true;
 
@@ -90,8 +90,8 @@ process_value(const char *name, const json_t * value,
             {
                 time_t start = clock();
 
-                path = (Path) { "", 0, NULL, NULL };
-                report = (Report) { NULL };
+                path = (jm_path_t) { "", 0, NULL, NULL };
+                report = (jm_report_t) { NULL };
                 valid2 = checker(value, &path, &report);
                 jm_report_free_entries(&report);
 
@@ -108,13 +108,13 @@ process_value(const char *name, const json_t * value,
         }
 
         // get the result for display
-        path = (Path) { "", 0, NULL, NULL };
-        report = (Report) { NULL };
+        path = (jm_path_t) { "", 0, NULL, NULL };
+        report = (jm_report_t) { NULL };
         valid2 = checker(value, &path, &report);
 
         assert(valid == valid2);
 
-        for (ReportEntry *entry = report.entry; entry != NULL; entry = entry->prev)
+        for (jm_report_entry_t *entry = report.entry; entry != NULL; entry = entry->prev)
             fprintf(stdout, " (%s: %s)", entry->path, entry->message);
 
         jm_report_free_entries(&report);
