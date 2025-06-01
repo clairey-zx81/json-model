@@ -37,6 +37,7 @@
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] backend: report which several xor succeeded?
+- [ ] static: fast mode, check that it returns as early as possible?
 
 ## To Do
 
