@@ -70,7 +70,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   ```
   ```
   hobbes.json: PASS
-  oops.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
+  oops.json: FAIL (.: not an expected object [.]; .: missing mandatory prop <born> [.])
   ```
 
 - to actually compile an executable for checking a model (with the C backend),
@@ -82,7 +82,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   ```
   ```
   hobbes.json: PASS
-  oops.json: FAIL (.: not an expected object at [.]; .: missing mandatory prop <born> [.])
+  oops.json: FAIL (.: not an expected object [.]; .: missing mandatory prop <born> [.])
   ```
 
 ## JSON Model Python API
