@@ -411,27 +411,22 @@ class Language:
     #
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         """Append a segment variable/value to path."""
-        # avoid nested if expressions
-        pvar = f"({pvar})" if " if " in pvar else pvar
-        return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
+        raise NotImplementedError("see derived classes")
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
         # avoid nested if expressions
-        rvar = f"({rvar})" if " if " in rvar else rvar
-        lvar = f"({lvar})" if " if " in lvar else lvar
-        return f"{lvar} if {rvar} is not None else None" if self._with_path else "None"
+        raise NotImplementedError("see derived classes")
 
     #
     # blocks
     #
     def is_reporting(self) -> BoolExpr:
         """Test whether run is generating a report."""
-        return "rep is not None"
+        raise NotImplementedError("see derived classes")
 
     def report(self, msg: str, path: Var) -> Block:
         """Add a a report entry."""
-        return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
-            if self._with_report else []
+        raise NotImplementedError("see derived classes")
 
     def clean_report(self) -> Block:
         raise NotImplementedError("see derived classes")
@@ -442,55 +437,33 @@ class Language:
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         """Loop over all items of an array."""
-        return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
+        raise NotImplementedError("see derived classes")
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         """Loop over all property-values pairs of an object."""
-        return [ f"for {key}, {val} in {obj}.items():" ] + \
-            self.indent([ f"assert isinstance({key}, str)" ] + body)
+        raise NotImplementedError("see derived classes")
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         """Generate a if-then[-else] statement."""
-        if true and false:
-            return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)
-        elif true:
-            return [ f"if {cond}:" ] + self.indent(true)
-        else:
-            return [ f"if not ({cond}):" ] + self.indent(false)
+        raise NotImplementedError("see derived classes")
 
     def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
         """Generate a multi-if[-else] statement."""
-        code, op = [], "if"
-        for cond, true in cond_true:
-            code += [ f"{op} {cond}:" ]
-            code += self.indent(true)
-            op = "elif"
-        if false:
-            if op != "if":
-                code += [ "else:" ]
-                code += self.indent(false)
-            else:
-                code += false
-        return code
+        raise NotImplementedError("see derived classes")
 
     #
     # PROPERTY MAPPING : property value (constant string) to check function
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Define a new (property) map."""
-        return [f"{name}: PropMap"]
+        raise NotImplementedError("see derived classes")
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Initialize a map."""
-        return [
-            f"global {name}",
-            f"{name} = {{" ] + [
-                (self._indent + self.esc(p) + ": " + f + ",")
-                    for p, f in pmap.items()
-                ] + [ "}" ]
+        raise NotImplementedError("see derived classes")
 
     def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []
@@ -499,22 +472,20 @@ class Language:
     # CONSTANT SET FOR ENUM OPTIMIZATION
     #
     def def_cset(self, name: str, constants: ConstList) -> Block:
-        return [ f"{name}: set[str]" ]
+        raise NotImplementedError("see derived classes")
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         # generate a deterministic initialization
-        dset = str(sorted(list(constants)))
-        dset = f"{{{dset[1:-1]}}}"
-        return [ f"global {name}", f"{name} = {dset}" ]
+        raise NotImplementedError("see derived classes")
+
+    def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        raise NotImplementedError("see derived classes")
 
     def del_cset(self, name: str, constants: ConstList) -> Block:
         return []
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
         return []
-
-    def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
-        return f"{var} in {name}"
 
     #
     # CHECK FUNCTION SIGNATURE
@@ -525,84 +496,54 @@ class Language:
 
     def sub_fun(self, name: str, body: Block) -> Block:
         """Generate a check function."""
-        return [
-            f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
-        ] + self.indent(body)
+        raise NotImplementedError("see derived classes")
 
     #
     # REGULAR EXPRESSION PRECOMPILATION
     #
     def regroup(self, name: str) -> str:
         """Name a group in a regular expression."""
-        return f"(?<{name}>)"
-
-    def def_re(self, name: str, regex: str) -> Block:
-        """Define a new (static) regex."""
         self._re_used = True
-        return [
-            # NOTE re2 imported as re
-            f"{name}_reco: object",
-            f"{name}: RegexFun"
-        ]
+        return f"(?<{name}>)"
 
     def sub_re(self, name: str, regex: str) -> Block:
         """Generate a regex check function."""
         self._re_used = True
         return []
 
+    def def_re(self, name: str, regex: str) -> Block:
+        """Define a new (static) regex."""
+        raise NotImplementedError("see derived classes")
+
     def ini_re(self, name: str, regex: str) -> Block:
         """Initialize a regex."""
-        self._re_used = True
-        sregex = self.esc(regex)
-        return [
-            f"global {name}_reco, {name}",
-            # rex engine imported as re; may raise an exception
-            f"{name}_reco = re.compile({sregex})",
-            f"{name} = lambda s: {name}_reco.search(s) is not None"
-        ]
+        raise NotImplementedError("see derived classes")
 
     def del_re(self, name: str, regex: str) -> Block:
         """Free a regex."""
-        return [
-            f"global {name}_reco, {name}",
-            f"{name}_reco = None",
-            f"{name} = None"
-        ]
+        raise NotImplementedError("see derived classes")
 
     #
     # CONSTANT MAPPING FOR DISCRIMINANT OPTIMIZATION
     # constant value to check function
     #
-    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        """Return the function associated to the tag value if any."""
-        return f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
-
     def _str_map(self, mapping: dict[JsonScalar, str]) -> bool:
         return all(isinstance(k, str) for k in mapping.keys())
 
+    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+        """Return the function associated to the tag value if any."""
+        raise NotImplementedError("see derived classes")
+
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Declare a new constant map."""
-        if self._str_map(mapping):
-            return [ f"{name}: dict[str, str]" ]
-        else:
-            return [ f"{name}: ConstMap = ConstMap()" ]
-
-    def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return []
+        raise NotImplementedError("see derived classes")
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Initialize constant mapping."""
-        icode = [ f"global {name}" ]
-        if self._str_map(mapping):
-            icode += [
-                f"{name} = {{", ] + [
-                f"    {self.const(v)}: {fun},"
-                    for v, fun in mapping.items()
-            ] + [ r"}" ]
-        else:
-            for v, fun in mapping.items():
-                icode += [ f"{name}[{self.const(v)}] = {fun}" ]
-        return icode
+        raise NotImplementedError("see derived classes")
+
+    def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return []
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return []
