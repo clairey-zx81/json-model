@@ -7,6 +7,7 @@ static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_1_map_tab[4];
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constmap_t _jm_map_0_tab[4];
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[14];
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -253,51 +254,44 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+static jm_check_fun_t _jm_map_0(json_t *val)
+{
+    jm_constant_t cst;
+    jm_set_cst(&cst, val);
+    return jm_search_constmap(&cst, _jm_map_0_tab, 4);
+}
+
 // check $Type (.'$Type')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Type'
-    // .'$Type'.'|'.0
-    res = json_model_6(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $Atomic [.'$Type'.'|'.0]", path);
-    }
-    if (! res)
-    {
-        // .'$Type'.'|'.1
-        res = json_model_7(val, path, rep);
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$Type'.'|'.1]", path);
-        }
-        if (! res)
-        {
-            // .'$Type'.'|'.2
-            res = json_model_9(val, path, rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$Type'.'|'.2]", path);
-            }
-            if (! res)
-            {
-                // .'$Type'.'|'.3
-                res = json_model_10(val, path, rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $Union [.'$Type'.'|'.3]", path);
-                }
-            }
-        }
-    }
+    res = json_is_object(val);
     if (res)
     {
-        if (rep) jm_report_free_entries(rep);
+        json_t * tag_0 = json_object_get(val, "kind");
+        if (tag_0 != NULL)
+        {
+            jm_check_fun_t fun_0 = _jm_map_0(tag_0);
+            if (fun_0 != NULL)
+            {
+                res = fun_0(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                if (rep) jm_report_add_entry(rep, "tag kind value not found [.'$Type'.'|']", path);
+            }
+        }
+        else
+        {
+            res = false;
+            if (rep) jm_report_add_entry(rep, "tag prop kind is missing [.'$Type'.'|']", path);
+        }
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$Type'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value is not an object [.'$Type'.'|']", path);
     }
     return res;
 }
@@ -1285,6 +1279,11 @@ char *CHECK_init(void)
         _jm_obj_1_map_tab[2] = (jm_propmap_t) { "name", _jm_f_2 };
         _jm_obj_1_map_tab[3] = (jm_propmap_t) { "previous", _jm_f_3 };
         jm_sort_propmap(_jm_obj_1_map_tab, 4);
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "atomic" } }, json_model_6 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "object" } }, json_model_7 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "array" } }, json_model_9 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "union" } }, json_model_10 };
+        jm_sort_constmap(_jm_map_0_tab, 4);
         // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "string" } };
         _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "decimal" } };

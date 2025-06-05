@@ -21,6 +21,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_obj_1_map: PropMap
+_jm_map_0: dict[str, str]
 _jm_cst_0: set[str]
 _jm_cst_1: set[str]
 _jm_obj_2_map: PropMap
@@ -150,33 +151,26 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an expected object [.'$Schema']", path))
     return res
 
+
 # check $Type (.'$Type')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Type'
-    # .'$Type'.'|'.0
-    res = json_model_6(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $Atomic [.'$Type'.'|'.0]", path))
-    if not res:
-        # .'$Type'.'|'.1
-        res = json_model_7(val, path, rep)
-        if not res:
-            rep is None or rep.append(("unexpected $Object [.'$Type'.'|'.1]", path))
-        if not res:
-            # .'$Type'.'|'.2
-            res = json_model_9(val, path, rep)
-            if not res:
-                rep is None or rep.append(("unexpected $Array [.'$Type'.'|'.2]", path))
-            if not res:
-                # .'$Type'.'|'.3
-                res = json_model_10(val, path, rep)
-                if not res:
-                    rep is None or rep.append(("unexpected $Union [.'$Type'.'|'.3]", path))
+    res = isinstance(val, dict)
     if res:
-        rep is None or rep.clear()
+        tag_0: Jsonable = val.get("kind", UNDEFINED)
+        if tag_0 != UNDEFINED:
+            fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
+            if fun_0 != UNDEFINED:
+                res = fun_0(val, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag kind value not found [.'$Type'.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop kind is missing [.'$Type'.'|']", path))
     else:
-        rep is None or rep.append(("no model matched [.'$Type'.'|']", path))
+        rep is None or rep.append(("value is not an object [.'$Type'.'|']", path))
     return res
 
 
@@ -792,6 +786,13 @@ def check_model_init():
             "date": _jm_f_1,
             "name": _jm_f_2,
             "previous": _jm_f_3,
+        }
+        global _jm_map_0
+        _jm_map_0 = {
+            "atomic": json_model_6,
+            "object": json_model_7,
+            "array": json_model_9,
+            "union": json_model_10,
         }
         global _jm_cst_0
         _jm_cst_0 = {'anyURI', 'base64Binary', 'boolean', 'date', 'dateTime', 'dateTimeStamp', 'decimal', 'double', 'duration', 'hexBinary', 'integer', 'null', 'string', 'time'}

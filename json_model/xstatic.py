@@ -9,7 +9,7 @@ from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname
 from .runtime.support import _path as json_path
-from .defines import Validator, ultimate_type
+from .defines import Validator, ultimate_type, disjunct_analyse
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr
 
@@ -319,7 +319,7 @@ class SourceCode(Validator):
         """Generate optimized disjunction check, return None if failed."""
 
         assert "|" in model and isinstance(model["|"], list)
-        dis = self._disjunct_analyse(jm, model, mpath)  # pyright: ignore
+        dis = disjunct_analyse(jm, model, mpath)  # pyright: ignore
         log.debug(f"disjunct at {mpath}: dis={dis}")
         if dis is None:
             return None
@@ -1143,10 +1143,6 @@ class SourceCode(Validator):
 
         # TODO simplify, clarify, remove
         # memoize the associated function name that can be retrieved if there is a recursion
-        # FIXME still used by ultimate model
-        xname = name if not name or name[0] != "$" else name[1:]
-        self._defs.set(xname, model)
-
         fun2 = None
         hpath = tuple(mpath)
         if hpath in self._paths:

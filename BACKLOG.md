@@ -11,6 +11,7 @@
 - [x] schema: fix `untype00` schema
 - [x] optim: detect non feasible constraints wrt values
 - [x] optim: remove unfeasible `!=`
+- [ ] python: refactor and cleanup
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
@@ -91,7 +92,6 @@
 - [ ] feature: simplify lib usage wrt script-like features with some functions
 - [ ] feature: full inline of externals to generate a working model without includes
 - [ ] feature: check/forbid/allow url references with an anchor
-- [ ] python: refactor and cleanup
 - [ ] static: remove spurious newlines
 - [ ] tests: move/add more tests to rwt, modval, bads
 - [ ] tests: what if a trafo adds/replaces an external reference, is it resolved?
