@@ -4,9 +4,10 @@
 
 - [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
 - [x] backend: move python-specifics from `language.py` to `python.py`
-- [x] ~backend: report which several xor succeeded? no, implicit with rejects~
+- [x] backend: ~report which several xor succeeded? no, implicit with rejects~
 - [x] tests: run with dynamic python
 - [x] tests: run generated schema (partial)
+- [x] schema: ~nearly always add explicit `"$schema"` property, nope, fixed in tests?~
 - [x] schema: fix `untype00` schema
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
@@ -29,7 +30,6 @@
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
-- [x] ~schema: nearly always add explicit `"$schema"` property, nope, fixed in tests?~
 
 ## To Do
 
@@ -155,7 +155,7 @@
 - [x] refactor: move schema to model conversion to json-schema-utils.
 - [x] design: change `%` to `$` and remove `$` intra-model naming shortcut.
 - [x] design: name space decision, there is only one name space per file. trafo path are exceptions?
-- [x] ~design: readability and style: `:verbose` version of single char keywords!? (see extensions)~
+- [x] design: ~readability and style: `:verbose` version of single char keywords!? (see extensions)~
 - [x] design: clarify stuff inside the root `#`? or use `%` for specific purpose?
 - [x] design: extension for preprocessed (merged and trafo).
 - [x] dynamic: python compiler
@@ -188,7 +188,7 @@
 - [x] python: rename `types.py` which is a pain
 - [x] feature: yaml url input
 - [x] tests: True/False -> PASS/FAIL
-- [x] ~feature: how to remove a definition? nope, must be nullified (eg `$NONE`) because refs~
+- [x] feature: ~how to remove a definition? nope, must be nullified (eg `$NONE`) because refs~
 - [x] tests: upgrade all models in `models/` and check them as well
 - [x] tests: add expected "$schema" value to schema models
 - [x] static: do not inline unused support function (`is_valid_*` and possibly others)
@@ -288,7 +288,7 @@
 - [x] static: optimize 1 must or may property case with a direct comparison
 - [x] static: choose threshold for switching between few/may must/may props
 - [x] static: reuse already generated may/must maps when possible (under `--map-share`)
-- [~] static: use common must/may map with must/may boolean? maybe not?
+- [x] static: ~use common must/may map with must/may boolean? maybe not?~
 - [x] c-backend: fast `$REGEX` implementation based on re2 syntax
 - [x] c-frontend: allow to switch between the C slow and fast `$REGEX` implementations
 - [x] c-frontend: use `getopt_long` instead of `getopt`
