@@ -1,0 +1,16 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "n0": "$NONE",
+      "n1": "$NONE",
+      "n2": "$NONE",
+      "#": "Symbol 1",
+      "": "./empty_cons_0.model.json"
+    },
+    "@": "$NONE"
+  },
+  "$NONE",
+  "$NONE",
+  "$NONE"
+]

@@ -287,15 +287,62 @@ def partial_eval(jm: JsonModel):
 
                 # "!": false is the default, so is not needed
                 if "!" in model and not model["!"]:
+                    changes += 1
                     del model["!"]
                 # constraint without actual constraints
                 if not (set(model.keys()) - {"#", "~", "$", "%", "@"}):
+                    # keep directives
                     if path == [] and "#" in model:
                         assert isinstance(model["#"], str)
                         if "JSON_MODEL_" in model["#"]:
                             return model
+                    changes += 1
                     return model["@"]
-                # TODO detect infeasible constraints!
+                # some non-feasable numerical cases
+                lev, gev = None, None
+                # add type information
+                if isinstance(model["@"], float):
+                    if model["@"] in (0.0, 1.0):
+                        gev = 0.0
+                elif isinstance(model["@"], int):
+                    if model["@"] == 0:
+                        gev = 0.0
+                    elif model["@"] == 1:
+                        gev = 1.0
+                # map < and <= together for now
+                if "<" in model:
+                    if isinstance(model["<"], (int, float)):
+                        lev = float(model["<"])
+                if "<=" in model:
+                    if isinstance(model["<="], (int, float)):
+                        v = float(model["<="])
+                        lev = v if lev is None else min(lev, v)
+                # idem > and >=
+                if ">" in model:
+                    if isinstance(model[">"], (int, float)):
+                        gev = float(model[">"])
+                if ">=" in model:
+                    if isinstance(model[">="], (int, float)):
+                        v = float(model[">="])
+                        gev = v if gev is None else max(gev, v)
+                # map = to <= and >=
+                if "=" in model:
+                    if isinstance(model["="], (int, float)):
+                        v = float(model["="])
+                        lev = v if lev is None else min(lev, v)
+                        gev = v if gev is None else max(gev, v)
+                # conclude for < <= = > >=
+                if gev is not None and lev is not None and gev > lev:
+                    changes += 1
+                    return "$NONE"
+                # cleanup redundant !=
+                if "!=" in model:
+                    if isinstance(model["!="], (int, float)):
+                        nev = float(model["!="])
+                    if nev < gev or lev < nev:
+                        changes += 1
+                        del model["!="]
+                # TODO could do other cases about str?
         return model
 
     jm._model = recModel(jm._model, allFlt, evalRwt)

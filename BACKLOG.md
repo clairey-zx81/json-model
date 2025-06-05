@@ -9,6 +9,8 @@
 - [x] tests: run generated schema (partial)
 - [x] schema: ~nearly always add explicit `"$schema"` property, nope, fixed in tests?~
 - [x] schema: fix `untype00` schema
+- [x] optim: detect non feasible constraints wrt values
+- [x] optim: remove unfeasible `!=`
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
@@ -21,8 +23,7 @@
 - [ ] python: drop `Validator` class
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
-- [ ] optim: root xor should be simplified in `geo.model.json`
-- [ ] optim: detect non feasible constraints wrt values
+- [ ] optim: root xor should be simplified in `geo.model.json`, maybe with inlining?
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
@@ -30,6 +31,7 @@
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
+- [ ] optim: more constraint simplifications, eg redundant `<` and `<=`.
 
 ## To Do
 

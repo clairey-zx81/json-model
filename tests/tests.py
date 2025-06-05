@@ -121,8 +121,8 @@ EXPECT: dict[str, int] = {
     "mv-1d:models": 5,
     "mv-1d:values": 0,
     # chunk 1E
-    "mv-1e:models": 2,
-    "mv-1e:values": 32,
+    "mv-1e:models": 4,
+    "mv-1e:values": 46,
     # miscellaneous tests
     # miscellaneous tests
     "bads:models": 54,
@@ -520,7 +520,7 @@ def test_dyn_js(directory):
                 "mv-00", "mv-01", "mv-03", "mv-04",
                 "mv-08", "mv-09", "mv-0a", "mv-13", "mv-14",
                 "mv-15", "mv-16", "mv-17", "mv-19", "mv-1a",
-                "mv-1b", "mv-1c", "ref",
+                "mv-1b", "mv-1c", "mv-1e", "ref",
             }:
         pytest.mark.skip(reason="wip")
         return
