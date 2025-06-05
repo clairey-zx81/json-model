@@ -4,11 +4,13 @@
 
 - [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
 - [x] backend: move python-specifics from `language.py` to `python.py`
+- [x] ~backend: report which several xor succeeded? no, implicit with rejects~
+- [x] tests: run with dynamic python
+- [ ] tests: run generated schem
+- [ ] schema: nearly always add explicit `"$schema"` property
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
-- [ ] optim: allow more substitutions after transformations? when/where to trigger optims?
-- [ ] tests: allow options for specific tests from pytest
-- [ ] tests: put generated exe in `/dev/shm` instead of locally
+- [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
@@ -17,7 +19,6 @@
 - [ ] c-backend: remove path build under no reporting code gen
 - [ ] python: cleanup ultimate model reliance on local defs
 - [ ] python: drop `Validator` class
-- [ ] schema: add explicit `"$schema"` property if appropriate
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] optim: root xor should be simplified in `geo.model.json`
@@ -26,7 +27,8 @@
 - [ ] static: multi-type object disjunction?
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
-- [ ] backend: report which several xor succeeded?
+- [ ] tests: allow options for specific tests from pytest
+- [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 
 ## To Do
 

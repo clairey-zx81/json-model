@@ -156,7 +156,8 @@ def file_is_newer(f1: str, f2: str) -> bool:
 #
 # LOCAL FIXTURES
 #
-@pytest.fixture(params=[
+@pytest.fixture(
+    params=[
         "./ref",
         "./mv-00", "./mv-01", "./mv-02", "./mv-03",
         "./mv-04", "./mv-05", "./mv-06", "./mv-07",
@@ -166,7 +167,8 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-14", "./mv-15", "./mv-16", "./mv-17",
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b",
         "./mv-1c", "./mv-1d", "./mv-1e", # "./mv-1f",
-    ])
+    ]
+)
 def directory(request):
     return pathlib.Path(request.param)
 
@@ -194,6 +196,7 @@ def language(request):
 
 @pytest.fixture(scope="session")
 def clibjm(tmp_dir):
+    """Compile JSON Model C runtime library."""
 
     jm_lock = f"{tmp_dir}/clibjm.lock"
     jm_lib = f"{tmp_dir}/json-model.o"
@@ -237,6 +240,7 @@ def clibjm(tmp_dir):
 
 @pytest.fixture(scope="session")
 def jmchecker(clibjm):
+    """Compile JSON Model C checker."""
 
     # compilation settings
     cc, cppflags, cflags, ldflags = \
@@ -429,18 +433,18 @@ def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py-check.out", lambda f: f)
 
-
 # def test_wip():
 #     test_lang(pathlib.Path("./wip"), "c")
 
 
 # TODO use check_values?
-@pytest.mark.skip(reason="wip")
+# @pytest.mark.skip(reason="wip")
 def test_dyna_py(directory):
     """Check generated python with test values."""
     resolver = Resolver(None, dirmap(directory))
-    ntests = 0
+    nfiles, ntests = 0, 0
     for fpath in sorted(directory.glob("*.model.json")):
+        nfiles += 1
         fname = f"./{fpath}"
         bname = fname.replace(".model.json", "")
         fin = bname.replace(f"{directory}/", "")
@@ -449,17 +453,18 @@ def test_dyna_py(directory):
         checker = model_checker_from_url(fin, resolver=resolver, follow=True, debug=False)
 
         # true/false files
-        for vpath in sorted(directory.glob(f"{bname}.*.*.json")):
+        for vpath in sorted(directory.glob(f"{fin}.*.*.json")):
+            spath = str(vpath)
+            assert spath.endswith(".true.json") or spath.endswith(".false.json")
             ntests += 1
             value = json.loads(vpath.read_text())
-            assert ".true.json" in vpath or ".false.json" in vpath
-            if ".true.json" in vpath:
+            if spath.endswith(".true.json"):
                 assert checker(value)
             else:
                 assert not checker(value)
 
         # values file
-        vfile = directory.joinpath(f"{bname}.values.json")
+        vfile = directory.joinpath(f"{fin}.values.json")
         if vfile.exists():
             values = json.loads(vfile.read_text())
             assert isinstance(values, list)
@@ -467,13 +472,35 @@ def test_dyna_py(directory):
                 if isinstance(tvect, str):
                     continue  # skip comments
                 ntests += 1
+                assert len(tvect) in (2, 3)
+                if len(tvect) == 3:
+                    expect, case, value = tvect
+                else:
+                    expect, value = tvect
+                    case = ""
                 assert isinstance(expect, bool)
                 if expect:
-                    assert checker(value)
+                    assert checker(value, case)
                 else:
-                    assert not checker(value)
+                    assert not checker(value, case)
 
+    assert nfiles == EXPECT.get(f"{directory}:models", 0)
     assert ntests == EXPECT.get(f"{directory}:values", 0)
+
+
+# @pytest.mark.skip(reason="wip")
+def test_sta_js(directory):
+    """Test generated JSON Schema with test value files."""
+
+    import jsonschema
+
+    def generate_js_checker(fname: str):
+        assert fname.endswith(".schema.json")
+        js = json.loads(fname)
+        if isinstance(js, dict) and "$schema" not in js:
+            js["$schema"] = "https://json-schema.org/draft/2020-12/schema"
+        
+        
 
 #
 # CHECK MODELS AGAINST META MODEL(S)
