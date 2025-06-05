@@ -21,8 +21,8 @@ _PREDEFS = {
 }
 
 
-class SourceCode:
-    """Source code for compiling JSON Models.
+class CodeGenerator:
+    """JSON Models Compilation.
 
     - globs: global map of symbols.
     - language: target language abstraction.
@@ -1232,7 +1232,7 @@ def xstatic_compile(
         map_share: bool = False,
         debug: bool = False,
         report: bool = True,
-    ) -> SourceCode:
+    ) -> CodeGenerator:
     """Generate the check source code for a model.
 
     - model: JSON Model root to compile.
@@ -1255,11 +1255,12 @@ def xstatic_compile(
         raise NotImplementedError(f"no support yet for language: {lang}")
 
     # cource code generator
-    sc = SourceCode(model._globs, language, fname, prefix=prefix,
-                    map_threshold=map_threshold, map_share=map_share, debug=debug, report=report)
+    gen = CodeGenerator(model._globs, language, fname, prefix=prefix,
+                        map_threshold=map_threshold, map_share=map_share,
+                        debug=debug, report=report)
 
     # generate
-    code = sc.compileJsonModelHead(model)
+    code = gen.compileJsonModelHead(model)
 
     # debug and log.debug(f"code = {code}")
     return code
