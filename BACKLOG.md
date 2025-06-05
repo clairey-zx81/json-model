@@ -12,6 +12,7 @@
 - [x] optim: detect non feasible constraints wrt values
 - [x] optim: remove unfeasible `!=`
 - [x] python: refactoring, drop `Validator` class
+- [x] python: refactoring, remove `defines.py` and `validator.py`
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?

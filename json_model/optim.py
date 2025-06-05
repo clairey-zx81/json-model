@@ -5,7 +5,7 @@ from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models, constant_value, same_model
 from .recurse import recModel, allFlt, builtFlt
 from .model import JsonModel
-from .defines import ultimate_type
+from .analyze import ultimate_type
 from .runtime import ConstSet
 
 def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
