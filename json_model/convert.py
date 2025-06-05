@@ -155,7 +155,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     # constraints on array
                     if schema["type"] == "array":
                         if ".in" in model:  # model extension
-                            schema["contains"] = model2schema(model["~"])
+                            schema["contains"] = model2schema(model[".in"])
                             if "<=" in model:
                                 schema["maxContains"] = model["<="]
                             if ">=" in model:
@@ -170,6 +170,44 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                             assert isinstance(v, bool)
                             if v:
                                 schema["uniqueItems"] = True
+                else:
+                    # no type, maybe because there are several, eg a or/xor
+                    # random attempt at supporting some cases…
+                    # we could do a better job if we knew here which types are actually possible
+                    if ">=" in model and isinstance(model[">="], int):
+                        v = int(model[">="])
+                        schema["minimum"] = v
+                        schema["minLength"] = v
+                        schema["minProperties"] = v
+                        schema["minItems"] = v
+                    if ">" in model and isinstance(model[">"], int):
+                        v = int(model[">"])
+                        schema["exclusiveMinimum"] = v
+                        schema["minLength"] = v + 1
+                        schema["minProperties"] = v + 1
+                        schema["minItems"] = v + 1
+                    if "<=" in model and isinstance(model["<="], int):
+                        v = int(model[">="])
+                        schema["maximum"] = v
+                        schema["maxLength"] = v
+                        schema["maxProperties"] = v
+                        schema["maxItems"] = v
+                    if "<" in model and isinstance(model["<"], int):
+                        v = int(model["<"])
+                        schema["exclusiveMaximum"] = v
+                        schema["maxLength"] = v - 1
+                        schema["maxProperties"] = v - 1
+                        schema["maxItems"] = v - 1
+                    if "=" in model and isinstance(model["="], int):
+                        v = int(model["="])
+                        schema["minimum"] = v
+                        schema["maximum"] = v
+                        schema["minLength"] = v
+                        schema["maxLength"] = v
+                        schema["minProperties"] = v
+                        schema["maxProperties"] = v
+                        schema["minItems"] = v
+                        schema["maxItems"] = v
             # combinations
             elif "&" in model:
                 models = model["&"]

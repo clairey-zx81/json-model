@@ -7,11 +7,10 @@
 - [x] ~backend: report which several xor succeeded? no, implicit with rejects~
 - [x] tests: run with dynamic python
 - [x] tests: run generated schema (partial)
-- [ ] schema: nearly always add explicit `"$schema"` property
+- [x] schema: fix `untype00` schema
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
-- [ ] backend: fix `untype00` schema
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
@@ -30,6 +29,7 @@
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
+- [x] ~schema: nearly always add explicit `"$schema"` property, nope, fixed in tests?~
 
 ## To Do
 

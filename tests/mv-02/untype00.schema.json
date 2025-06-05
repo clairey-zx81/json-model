@@ -8,5 +8,9 @@
     {
       "type": "string"
     }
-  ]
+  ],
+  "minimum": 10,
+  "minLength": 10,
+  "minProperties": 10,
+  "minItems": 10
 }
