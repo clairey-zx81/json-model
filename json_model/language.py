@@ -166,6 +166,7 @@ class Language:
     # FIXME loose vs strict
     #
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        """Compile a predef."""
         # shortcut if the variable value is known to be a string
         if is_str:
             if name in { "$NULL", "$BOOL", "$BOOLEAN",
@@ -203,6 +204,7 @@ class Language:
     # constants
     #
     def const(self, c: Jsonable) -> Expr:
+        """Build a constant expression for a value."""
         if c is None:
             return self._null
         elif isinstance(c, bool):
@@ -216,33 +218,41 @@ class Language:
     # inline json scalar value extraction
     #
     def value(self, var: Var, tvar: type) -> Expr:
+        """Extract a type from JSON var."""
         if tvar in (bool, int, float, Number, str):
             return var
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
+        """Get array item for an index."""
         return f"{arr}[{idx}]"
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
+        """Get object property value."""
         raise NotImplementedError(f"unexpected predef {name}")
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        """Tell whether an object as a property."""
         raise NotImplementedError(f"unexpected predef {name}")
 
     #
     # inlined length computation
     #
     def any_len(self, var: Var) -> IntExpr:
+        """Get length of variable."""
         raise NotImplementedError(f"unexpected predef {name}")
 
     def obj_len(self, var: Var) -> IntExpr:
+        """Get number of properties of an object."""
         return self.any_len(var)
 
     def arr_len(self, var: Var) -> IntExpr:
+        """Get number of items of an array."""
         return self.any_len(var)
 
     def str_len(self, var: Var) -> IntExpr:
+        """Get length of a string."""
         return self.any_len(var)
 
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
@@ -262,40 +272,50 @@ class Language:
     # boolean expression
     #
     def str_check_call(self, name: str, val: StrExpr) -> BoolExpr:
+        """Model check call for a string value."""
         return f"{name}({val})"
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, is_str: bool = False) -> BoolExpr:
+        """Model check call for a JSON value."""
         return f"{name}({val}, {path}, rep)"
 
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
+        """Ternary operator."""
         raise NotImplementedError("ternary")
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+        """Check uniqueness."""
         raise NotImplementedError("check_unique")
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
+        """Check constraint."""
         raise NotImplementedError("check_constraint")
 
     #
     # logical expressions
     #
     def not_op(self, e: BoolExpr) -> BoolExpr:
+        """Not logical operator."""
         e = self.paren(e) if "=" in e or self._and in e or self._or in e else e
         return f"{self._not} {e}"
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
+        """And logical operator."""
         return f" {self._and} ".join(self.paren(e) if self._or in e else e for e in exprs)
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
+        """Or logical operator."""
         return f" {self._or} ".join(exprs)
 
     def paren(self, e: Expr) -> Expr:
+        """Parenthesize an expression."""
         return f"({e})"
 
     #
     # inline comparison expressions for numbers
     #
     def num_cmp(self, e1: NumExpr, op: str, e2: NumExpr) -> BoolExpr:
+        """Numerical comparison."""
         assert op in ("=", "!=", "<", "<=", ">=", ">")
         if op == "=":
             return f"{e1} {self._eq} {e2}"
@@ -316,24 +336,29 @@ class Language:
     # inline comparison expressions for strings
     #
     def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
+        """String comparison."""
         return self.num_cmp(e1, op, e2)
 
     def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+        """Get check value fonction for a property."""
         raise NotImplementedError("prop_fun")
 
     #
     # for JSON values
     #
     def json_eq(self, e1: Expr, e2: Expr) -> BoolExpr:
+        """Compare JSON values."""
         return f"{e1} {self._eq} {e2}"
 
     def json_ne(self, e1: Expr, e2: Expr) -> BoolExpr:
+        """Compare JSON values."""
         return f"{e1} {self._ne} {e2}"
 
     #
     # simple instructions
     #
     def nope(self) -> Inst:
+        """Do nothing."""
         return "pass"
 
     def lcom(self, text: str = "") -> Inst:
@@ -459,6 +484,7 @@ class Language:
         raise NotImplementedError("see derived classes")
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        """Generate a subroutine for the property map."""
         return []
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
@@ -466,25 +492,30 @@ class Language:
         raise NotImplementedError("see derived classes")
 
     def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        """Remove initial stuff for a property map."""
         return []
 
     #
     # CONSTANT SET FOR ENUM OPTIMIZATION
     #
     def def_cset(self, name: str, constants: ConstList) -> Block:
+        """Declare a constant set."""
         raise NotImplementedError("see derived classes")
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        # generate a deterministic initialization
+        """Initialize a constant set with constants."""
         raise NotImplementedError("see derived classes")
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        """Test whether variable value belongs to constant set."""
         raise NotImplementedError("see derived classes")
 
     def del_cset(self, name: str, constants: ConstList) -> Block:
+        """Remove stuff for constant set."""
         return []
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
+        """Generate support function for constant set check."""
         return []
 
     #
@@ -543,9 +574,11 @@ class Language:
         raise NotImplementedError("see derived classes")
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        """Generate support function for mapping."""
         return []
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        """Remove stuff for mapping."""
         return []
 
     #

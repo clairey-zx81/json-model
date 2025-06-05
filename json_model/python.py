@@ -113,7 +113,6 @@ class Python(Language):
         return f"{var}{decl}{assign}{self._eoi}"
 
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
-        """Append a segment variable/value to path."""
         # avoid nested if expressions
         pvar = f"({pvar})" if " if " in pvar else pvar
         return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
@@ -125,25 +124,20 @@ class Python(Language):
         return f"{lvar} if {rvar} is not None else None" if self._with_path else "None"
 
     def is_reporting(self) -> BoolExpr:
-        """Test whether run is generating a report."""
         return "rep is not None"
 
     def report(self, msg: str, path: Var) -> Block:
-        """Add a a report entry."""
         return [ f"rep is None or rep.append(({self.esc(msg)}, {path}))" ] \
             if self._with_report else []
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
-        """Loop over all items of an array."""
         return [ f"for {idx}, {val} in enumerate({arr}):" ] + self.indent(body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
-        """Loop over all property-values pairs of an object."""
         return [ f"for {key}, {val} in {obj}.items():" ] + \
             self.indent([ f"assert isinstance({key}, str)" ] + body)
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
-        """Generate a if-then[-else] statement."""
         if true and false:
             return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)
         elif true:
@@ -152,7 +146,6 @@ class Python(Language):
             return [ f"if not ({cond}):" ] + self.indent(false)
 
     def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
-        """Generate a multi-if[-else] statement."""
         code, op = [], "if"
         for cond, true in cond_true:
             code += [ f"{op} {cond}:" ]
@@ -167,11 +160,9 @@ class Python(Language):
         return code
 
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        """Define a new (property) map."""
         return [f"{name}: PropMap"]
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        """Initialize a map."""
         return [
             f"global {name}",
             f"{name} = {{" ] + [
@@ -192,13 +183,11 @@ class Python(Language):
         return f"{var} in {name}"
 
     def sub_fun(self, name: str, body: Block) -> Block:
-        """Generate a check function."""
         return [
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)
 
     def def_re(self, name: str, regex: str) -> Block:
-        """Define a new (static) regex."""
         self._re_used = True
         return [
             # NOTE re2 imported as re
@@ -207,7 +196,6 @@ class Python(Language):
         ]
 
     def ini_re(self, name: str, regex: str) -> Block:
-        """Initialize a regex."""
         self._re_used = True
         sregex = self.esc(regex)
         return [
@@ -218,7 +206,6 @@ class Python(Language):
         ]
 
     def del_re(self, name: str, regex: str) -> Block:
-        """Free a regex."""
         return [
             f"global {name}_reco, {name}",
             f"{name}_reco = None",
@@ -226,18 +213,15 @@ class Python(Language):
         ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        """Return the function associated to the tag value if any."""
         return f"{name}.get({self.value(tag, ttag)}, UNDEFINED)"
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        """Declare a new constant map."""
         if self._str_map(mapping):
             return [ f"{name}: dict[str, str]" ]
         else:
             return [ f"{name}: ConstMap = ConstMap()" ]
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        """Initialize constant mapping."""
         icode = [ f"global {name}" ]
         if self._str_map(mapping):
             icode += [
