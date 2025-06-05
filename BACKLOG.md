@@ -6,7 +6,7 @@
 - [x] backend: move python-specifics from `language.py` to `python.py`
 - [x] ~backend: report which several xor succeeded? no, implicit with rejects~
 - [x] tests: run with dynamic python
-- [ ] tests: run generated schem
+- [x] tests: run generated schema (partial)
 - [ ] schema: nearly always add explicit `"$schema"` property
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
@@ -29,6 +29,7 @@
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
+- [ ] tests: improve schema tests by allowing more cases
 
 ## To Do
 

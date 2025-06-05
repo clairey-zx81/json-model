@@ -12,8 +12,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-# log.setLevel(logging.DEBUG)
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
+# log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS, IN SMALL CHUNKS FOR XDIST
@@ -354,7 +354,7 @@ def test_lang(directory, language):
 
 
 #
-# CHECK MODELS AGAINST VALUES
+# STATIC CHECK MODELS AGAINST VALUES
 #
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, generate):
@@ -433,27 +433,29 @@ def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py-check.out", lambda f: f)
 
-# def test_wip():
-#     test_lang(pathlib.Path("./wip"), "c")
+
+#
+# DYNAMIC CHECKS AGAINST VALUES
+#
+class NotSupportedError(BaseException):
+    pass
 
 
-# TODO use check_values?
-# @pytest.mark.skip(reason="wip")
-def test_dyna_py(directory):
-    """Check generated python with test values."""
-    resolver = Resolver(None, dirmap(directory))
+def run_dyn(directory, gen_checker):
+    """Check dynamic checker with test values."""
     nfiles, ntests = 0, 0
     for fpath in sorted(directory.glob("*.model.json")):
         nfiles += 1
-        fname = f"./{fpath}"
-        bname = fname.replace(".model.json", "")
-        fin = bname.replace(f"{directory}/", "")
-        log.debug(f"dyna-py[{directory}]: {fname} ({fpath})")
 
-        checker = model_checker_from_url(fin, resolver=resolver, follow=True, debug=False)
+        fmodel = f"./{fpath}"
+        model = fmodel.replace(f"{directory}/", "").replace(".model.json", "")
+
+        log.debug(f"dyn[{directory}]: {model} ({fpath})")
+
+        checker = gen_checker(f"./{fpath}")
 
         # true/false files
-        for vpath in sorted(directory.glob(f"{fin}.*.*.json")):
+        for vpath in sorted(directory.glob(f"{model}.*.*.json")):
             spath = str(vpath)
             assert spath.endswith(".true.json") or spath.endswith(".false.json")
             ntests += 1
@@ -464,7 +466,7 @@ def test_dyna_py(directory):
                 assert not checker(value)
 
         # values file
-        vfile = directory.joinpath(f"{fin}.values.json")
+        vfile = directory.joinpath(f"{model}.values.json")
         if vfile.exists():
             values = json.loads(vfile.read_text())
             assert isinstance(values, list)
@@ -472,6 +474,7 @@ def test_dyna_py(directory):
                 if isinstance(tvect, str):
                     continue  # skip comments
                 ntests += 1
+                log.debug(f"{model}.values.json[{index}]")
                 assert len(tvect) in (2, 3)
                 if len(tvect) == 3:
                     expect, case, value = tvect
@@ -479,28 +482,74 @@ def test_dyna_py(directory):
                     expect, value = tvect
                     case = ""
                 assert isinstance(expect, bool)
-                if expect:
-                    assert checker(value, case)
-                else:
-                    assert not checker(value, case)
+                try:
+                    if expect:
+                        assert checker(value, case)
+                    else:
+                        assert not checker(value, case)
+                except NotSupportedError as e:
+                    # simply ignore
+                    pass
 
     assert nfiles == EXPECT.get(f"{directory}:models", 0)
     assert ntests == EXPECT.get(f"{directory}:values", 0)
 
 
-# @pytest.mark.skip(reason="wip")
-def test_sta_js(directory):
+def test_dyn_py(directory):
+
+    resolver = Resolver(None, dirmap(directory))
+
+    def gen_py_checker(fmodel: str):
+        assert fmodel.endswith(".model.json")
+        model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
+        return model_checker_from_url(model, resolver=resolver, follow=True, debug=False)
+
+    run_dyn(directory, gen_py_checker)
+
+
+def test_dyn_js(directory):
     """Test generated JSON Schema with test value files."""
+
+    # Some test cases cannot validate because:
+    # 1. they require strict int/float (feature)
+    # 2. there is no direct schema for a model (feature)
+    # 3. the schema is wrong (bug)
+    # for now, just skip the corresponding directories
+    log.debug(f"directory: {str(directory)}")
+    if str(directory) in {
+                "mv-00", "mv-01", "mv-02", "mv-03", "mv-04",
+                "mv-08", "mv-09", "mv-0a", "mv-13", "mv-14",
+                "mv-15", "mv-16", "mv-17", "mv-19", "mv-1a",
+                "mv-1b", "mv-1c", "ref",
+            }:
+        pytest.mark.skip(reason="wip")
+        return
 
     import jsonschema
 
-    def generate_js_checker(fname: str):
-        assert fname.endswith(".schema.json")
-        js = json.loads(fname)
+    def gen_js_checker(fmodel: str):
+        assert fmodel.endswith(".model.json")
+
+        # load schema
+        fschema = fmodel.replace(".model.json", ".schema.json")
+        with open(fschema) as f:
+            js = json.loads(f.read())
+
+        # set version just in case
         if isinstance(js, dict) and "$schema" not in js:
             js["$schema"] = "https://json-schema.org/draft/2020-12/schema"
-        
-        
+
+        # native checker
+        jsc = jsonschema.Draft202012Validator(js, format_checker=jsonschema.FormatChecker())
+
+        def checker(val, name: str = ""):
+            if name == "":
+                return jsc.is_valid(val)
+            raise NotSupportedError("cannot check sub-model with a schema")
+
+        return checker
+
+    run_dyn(directory, gen_js_checker)
 
 #
 # CHECK MODELS AGAINST META MODEL(S)
