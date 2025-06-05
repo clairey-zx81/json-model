@@ -11,7 +11,7 @@
 - [x] schema: fix `untype00` schema
 - [x] optim: detect non feasible constraints wrt values
 - [x] optim: remove unfeasible `!=`
-- [ ] python: refactor and cleanup
+- [x] python: refactoring, drop `Validator` class
 - [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
@@ -21,7 +21,6 @@
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] c-backend: remove path build under no reporting code gen
 - [ ] python: cleanup ultimate model reliance on local defs
-- [ ] python: drop `Validator` class
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] optim: root xor should be simplified in `geo.model.json`, maybe with inlining?

@@ -9,7 +9,7 @@ from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname
 from .runtime.support import _path as json_path
-from .defines import Validator, ultimate_type, disjunct_analyse
+from .defines import ultimate_type, disjunct_analyse
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr
 
@@ -21,7 +21,7 @@ _PREDEFS = {
 }
 
 
-class SourceCode(Validator):
+class SourceCode:
     """Source code for compiling JSON Models.
 
     - globs: global map of symbols.
