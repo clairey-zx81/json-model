@@ -1,0 +1,17 @@
+[
+  [ true,  "X-2020-07-29-Y" ],
+  [ true,  "X-1970-10-14-Y" ],
+  [ true,  "X-1970-03-20-Y" ],
+  [ false, "X-2025-02-30-Y" ],
+  [ false, "X-Today-Y" ],
+  [ false, "2020-07-29" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

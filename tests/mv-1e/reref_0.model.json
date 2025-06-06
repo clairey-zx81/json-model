@@ -1,0 +1,7 @@
+{
+  "#": "regular expression extension with a reference",
+  "$": {
+    "character": { "|": ["Susie", "Calvin", "Hobbes"] }
+  },
+  "@": "/'($character:\\w+)'.*'($character:\\w+)'/X"
+}

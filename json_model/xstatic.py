@@ -7,18 +7,11 @@ import json
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
 from .mtypes import Jsonable, Number
 from .utils import split_object, model_in_models, all_model_type, constant_value
-from .utils import log, tname
+from .utils import log, tname, MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse
 from .model import JsonModel
 from .language import Language, Code, Block, BoolExpr
-
-_PREDEFS = {
-    "$ANY", "$NONE", "$NULL", "$BOOL", "$BOOLEAN",
-    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
-    "$FLOAT", "$F32", "$F64", "$NUMBER",
-    "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
-}
 
 
 class CodeGenerator:
@@ -76,64 +69,80 @@ class CodeGenerator:
         self._to_compile.clear()
         self._generated_maps.clear()
 
-    def _regex(self, regex: str) -> str:
+    def _exreg(self, jm: JsonModel, name: str, rname: str, remap: dict[str, str]) -> Block:
+        """Generate post regex code for extended regular expression."""
+        gen = self._lang
+        code = [
+            gen.match_var("match", gen.match_re(rname, "val"), declare=True),
+        ] + gen.if_stmt(gen.not_op("match"), [ gen.ret(gen.const(False)) ] )
+        checks = [
+            gen.match_str_var("extract", "val", declare=True)
+        ]
+        # sname is the name of the substrin
+        for sname, ref in remap.items():
+            checks += gen.match_val("match", rname, sname, "extract")
+            checks += gen.if_stmt(
+                gen.not_op(self._dollarExpr(jm, ref, "extract", "path", True)), [
+                gen.ret(gen.const(False)) ])
+        checks += [ gen.ret(gen.const(True)) ]
+        code += checks
+
+        # generate the string check function
+        self._code.strfun(name,  code)
+
+    def _regex(self, jm: JsonModel, regex: str) -> str:
         """Compile a regular expression, with memoization, return function name."""
         gen = self._lang
 
         if regex not in self._regs:
+
+            remap: dict[str, str] = {}
 
             # extract and check actual pattern
             try:
                 pattern, ropts = regex[1:].rsplit("/", 1)
                 assert ropts == "" or ropts.isalpha(), f"invalid options: {ropts}"
 
-                extended = False
-                remap: dict[str, str] = {}
-
-                # model extension
+                # model eXtension
+                # re: aiLmsux (Ascii/Unicode, Ignore case, Locale, Multi/Single-line, verbose)
                 if "X" in ropts:
-                    extended = True
                     ropts = ropts.replace("X", "")
 
                     # match name to reference
                     def subref(match):
+                        log.debug(f"subref match={match}")
                         name = f"s{len(remap)}"
-                        dollar = match[1:-1]
-                        remap[name] = match
-                        # re does not support (?<xxx>...) that re2 and pcre2 support
-                        return gen.regroup(name)
+                        matched = match.group(0)[1:-1]
+                        if ":" in matched:
+                            dollar, pattern = matched.split(":", 1)
+                        else:
+                            dollar, pattern = matched, ".*"
+                        remap[name] = dollar
+                        return gen.regroup(name, pattern)
 
-                    pattern = re.sub(r"\(\$\w+\)", subref, pattern)
+                    pattern = re.sub(r"\(\$\w+(:[^)]*)?\)", subref, pattern)
 
-                    if not remap:  # unused extension
-                        extended = False
-
+                # standardized syntax
                 pattern = f"(?{ropts}){pattern}" if ropts else pattern
 
-                # statically check re validity
+                # statically check re validity by trying to compile it
                 if self._lang._relib == "re2":
                     import re2 as rex
                 else:
                     import re as rex
+                # FIXME pcre2 and re syntax can differ
                 rex.compile(pattern)
 
             except Exception as e:
-                raise ModelError(f"invalid regex: {regex} ({e})")
-
-            fun = gen.ident(self._prefix + "re")
+                log.warning(f"possibly invalid regex: {regex} ({e})")
 
             # possibly generate extension function
-            if extended:
-                rx = gen.ident(self._prefix + "rx")
-                self._code.regex(rx, pattern)
-                code = [ gen.lcom(f"{regex} extended regex function") ]
-                # m = rx.search(str(val))
-                # if m:
-                #     vals = m.groupdict()
-                #     check_str_... vals[s1]
-                raise NotImplementedError("exreg is work in progress")
+            if remap:
+                fun = gen.ident(self._prefix + "xre")
+                self._code.regex(fun + "_re", pattern)
+                self._exreg(jm, fun, fun + "_re", remap)
             else:
-                # ok, generate code for pattern
+                fun = gen.ident(self._prefix + "re")
                 self._code.regex(fun, pattern)
 
             # memoize
@@ -141,7 +150,7 @@ class CodeGenerator:
 
         return self._regs[regex]
 
-    def _regExpr(self, regex: str, val: str, path: str, is_str: bool = False) -> BoolExpr:
+    def _regExpr(self, jm: JsonModel, regex: str, val: str, path: str, is_str: bool = False) -> BoolExpr:
         """Generate an inlined regex check expression on a value."""
         gen = self._lang
         sval = val if is_str else gen.value(val, str)
@@ -152,7 +161,7 @@ class CodeGenerator:
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
         else:
-            fun = self._regex(regex)
+            fun = self._regex(jm, regex)
             # TODO inline the internal function if possible?
             return gen.str_check_call(fun, sval)
         # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
@@ -170,10 +179,10 @@ class CodeGenerator:
     def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, is_prop: bool = False):
         # FIXME C val is may be a char*, not a json_t*.
         assert ref and ref[0] == "$"
-        if ref in _PREDEFS:  # inline predefs
+        if ref in MODEL_PREDEFS:  # inline predefs
             # TODO improve
             return self._lang.predef(val, ref, vpath, is_prop)
-            # return (self._PREDEFS[ref](val, vpath) +
+            # return (self.MODEL_PREDEFS[ref](val, vpath) +
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
@@ -584,7 +593,7 @@ class CodeGenerator:
         for r, v in regs.items():
             # FIXME options?!
             regex = f"/{r}/"
-            rg_expr = self._regExpr(regex, prop, vpath, True)  # FIXME lpath &lpath?
+            rg_expr = self._regExpr(jm, regex, prop, vpath, True)  # FIXME lpath &lpath?
             rg_code = [ gen.lcom(f"handle {len(regs)} re props") ] + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
@@ -1005,7 +1014,7 @@ class CodeGenerator:
                     code += [ gen.bool_var(res, call) ]
                 elif model[0] == "/":
                     code += [ gen.lcom(f"{self._esc(model)}") ]
-                    call = self._regExpr(model, val, vpath)
+                    call = self._regExpr(jm, model, val, vpath)
                     code += [ gen.bool_var(res, gen.and_op(expr, call) if expr else call) ]
                 else:  # simple string
                     compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model))

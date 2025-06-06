@@ -9,7 +9,7 @@ _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 class CLangJansson(Language):
     """Generate JSON value checker in C with Jansson and PCRE2.
 
-    This implemebtation relies on inheritance for many methods, thanks to the root
+    This implementation relies on inheritance for many methods, thanks to the root
     class heavy parameterization about operators, end-of-instruction and the like.
     """
 
@@ -23,7 +23,7 @@ class CLangJansson(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
-             path_t="jm_path_t", float_t="double", str_t="char *",
+             path_t="jm_path_t", float_t="double", str_t="char *", match_t="bool",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
@@ -282,7 +282,7 @@ class CLangJansson(Language):
         return code
 
     #
-    # per-section/concept code generation
+    # (Extended) Regular Expressions
     #
     def def_re(self, name: str, regex: str) -> Block:
         return [
@@ -296,13 +296,14 @@ class CLangJansson(Language):
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str) -> Block:
+        # declare once
         code = [] if self._re_used else [
             "int err_code;",
             "PCRE2_SIZE err_offset;",
-            # FIXME strdup?
             "static PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
+        # TODO move to 
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
@@ -321,6 +322,41 @@ class CLangJansson(Language):
             f"pcre2_code_free({name}_code);",
         ]
 
+    def match_var(self, var: str, val: Expr, declare: bool) -> Inst:
+        decl = f"{self._match_t} " if declare else ""
+        value = f" = {val}" if val else ""
+        return f"{decl}{var}{value};"
+
+    def match_str_var(self, var: str, val: str, declare: bool = True) -> Inst:
+        assert declare
+        return f"const PCRE2_SIZE {var}_size = strlen({val});" \
+               f"char {var}[{var}_size];" \
+               f"PCRE2_SIZE {var}_len;" \
+               f"int rc;"
+
+    def match_re(self, rname: str, val: str) -> Expr:
+        return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
+               f" 0, 0, {rname}_data, NULL) != 0"
+
+    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+        return [
+            f"{dname}_len = {dname}_size;",
+            f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)}," \
+            f" (PCRE2_UCHAR *) {dname}, &{dname}_len);",
+            f"if (rc != 0)",
+            f"    return false;",
+        ]
+
+    def def_strfun(self, fname: str) -> Block:
+        return [ f"static bool {fname}(const char *);" ]
+
+    def sub_strfun(self, fname: str, body: Block) -> Block:
+        return [ f"static bool {fname}(const char *val)" ] + self.indent(
+               [ "jm_path_t *path = NULL;", "jm_report_t *rep = NULL;" ] + body)
+
+    #
+    # Property Map
+    #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         code = [ f"{'' if public else 'static '}jm_propmap_t {name}_tab[{len(pmap)}];" ]
         if public:

@@ -13,7 +13,7 @@
 - [x] optim: remove unfeasible `!=`
 - [x] python: refactoring, drop `Validator` class
 - [x] python: refactoring, remove `defines.py` and `validator.py`
-- [ ] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
+- [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
@@ -33,6 +33,9 @@
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] optim: more constraint simplifications, eg redundant `<` and `<=`.
+- [ ] c-backend: generate thread-safe code? option?
+- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [ ] static: improve failure reporting of extended regex
 
 ## To Do
 

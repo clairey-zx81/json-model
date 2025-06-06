@@ -63,8 +63,8 @@ class Python(Language):
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         return f"check_constraint({val}, {self.esc(op)}, {self.const(vop)}, {path}, rep)"
 
-    def regroup(self, name: str):
-        return f"(?P<{name}>)" if self._relib == "re" else super().regroup(name)
+    def regroup(self, name: str, pattern: str = ".*"):
+        return f"(?P<{name}>{pattern})" if self._relib == "re" else super().regroup(name, pattern)
 
     def file_header(self) -> Block:
         code: Block = [
@@ -187,8 +187,15 @@ class Python(Language):
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)
 
+    def def_strfun(self, name: str) -> Block:
+        return [ f"{name}: RegexFun" ]
+
+    def sub_strfun(self, name: str, body: Block) -> Block:
+        return [
+            f"def {name}(val: str) -> bool:",
+        ] + self.indent([ f"path, rep = None, None" ] + body)
+
     def def_re(self, name: str, regex: str) -> Block:
-        self._re_used = True
         return [
             # NOTE re2 imported as re
             f"{name}_reco: object",
@@ -210,6 +217,14 @@ class Python(Language):
             f"global {name}_reco, {name}",
             f"{name}_reco = None",
             f"{name} = None"
+        ]
+
+    def match_re(self, name: str, val: str) -> Expr:
+        return f"{name}_reco.search({val})"
+
+    def match_val(self, mname: str, rname: str, name: str, dest: str) -> Block:
+        return [
+            f"{dest} = {mname}.groupdict()[{self.esc(name)}]"
         ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:

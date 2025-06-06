@@ -13,6 +13,14 @@ __version__ = pkg_version("json_model")
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)
 
+MODEL_PREDEFS = {
+    "$ANY", "$NONE", "$NULL", "$BOOL", "$BOOLEAN",
+    "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
+    "$FLOAT", "$F32", "$F64", "$NUMBER",
+    "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
+    # TODO $URI $URI-REF…
+}
+
 WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
 CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
 JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"

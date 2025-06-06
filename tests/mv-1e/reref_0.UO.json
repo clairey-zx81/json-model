@@ -1,0 +1,26 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "character": {
+        "|": [
+          "Susie",
+          "Calvin",
+          "Hobbes"
+        ],
+        "#": "JsonModel 2"
+      },
+      "#": "Symbol 1",
+      "": "./reref_0.model.json"
+    },
+    "@": "/'($character:\\w+)'.*'($character:\\w+)'/X"
+  },
+  {
+    "|": [
+      "Susie",
+      "Calvin",
+      "Hobbes"
+    ],
+    "#": "JsonModel 2"
+  }
+]

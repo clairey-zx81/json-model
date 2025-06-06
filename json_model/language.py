@@ -26,6 +26,7 @@ type Block = list[Inst]
 type PropMap = dict[str, str]
 type ConstList = list[None|bool|int|float|str]
 type ConstMap = dict[JsonScalar, str]
+type RegMap = dict[str, str]
 
 class Language:
     """Dumb abstraction of an imperative language to manipulate JSON data.
@@ -45,6 +46,7 @@ class Language:
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
             check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
+            match_t: str = None,
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True,
@@ -86,6 +88,7 @@ class Language:
         self._check_t = check_t
         self._json_t = json_t
         self._path_t = path_t
+        self._match_t = match_t
         self._bool_t = bool_t
         self._int_t = int_t
         self._float_t = float_t
@@ -401,6 +404,15 @@ class Language:
         """Assign and possibly declare a value to a path variable."""
         return self.var(pvar, val, self._path_t if declare else None) if self._with_path else None
 
+    def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Inst:
+        """Assign and possibly declare a match result variable."""
+        return self.var(var, val, self._match_t if declare else None)
+
+    def match_str_var(self, var: str, val: str, declare: bool = False) -> Inst:
+        """Declare a variable for a matching result extracted from val."""
+        # the value is just as a length helper
+        return self.str_var(var, None, declare)
+
     def iand_op(self, res: Var, e: BoolExpr) -> Inst:
         """And-update boolean variable."""
         return "{var} &= {e}{self.eoi}"
@@ -529,17 +541,22 @@ class Language:
         """Generate a check function."""
         raise NotImplementedError("see derived classes")
 
+    def def_strfun(self, name: str) -> Block:
+        """Define a string check function."""
+        return []
+
+    def sub_strfun(self, name: str, body: Block) -> Block:
+        raise NotImplementedError("see derived classes")
+
     #
     # REGULAR EXPRESSION PRECOMPILATION
     #
-    def regroup(self, name: str) -> str:
+    def regroup(self, name: str, pattern: str = ".*") -> str:
         """Name a group in a regular expression."""
-        self._re_used = True
-        return f"(?<{name}>)"
+        return f"(?<{name}>{pattern})"
 
     def sub_re(self, name: str, regex: str) -> Block:
         """Generate a regex check function."""
-        self._re_used = True
         return []
 
     def def_re(self, name: str, regex: str) -> Block:
@@ -552,6 +569,14 @@ class Language:
 
     def del_re(self, name: str, regex: str) -> Block:
         """Free a regex."""
+        raise NotImplementedError("see derived classes")
+
+    def match_re(self, name: str, var: str) -> BoolExpr:
+        """Get a match result for string variable var value."""
+        raise NotImplementedError("see derived classes")
+
+    def match_val(self, mname: str, name: str, sname: str) -> Block:
+        """Assign match "name" to variable sname."""
         raise NotImplementedError("see derived classes")
 
     #
@@ -664,6 +689,10 @@ class Code:
         self.inis(self._lang.ini_re(name, regex))
         self.dels(self._lang.del_re(name, regex))
         self.subs(self._lang.sub_re(name, regex))
+
+    def strfun(self, name: str, body: Block):
+        self.defs(self._lang.def_strfun(name))
+        self.subs(self._lang.sub_strfun(name, body))
 
     def __str__(self):
         """Gather everything to generate the full source code."""
