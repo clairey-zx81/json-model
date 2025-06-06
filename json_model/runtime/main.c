@@ -157,8 +157,8 @@ int main(int argc, char* argv[])
         { "report", no_argument, NULL, 'r' },
         { "test", no_argument, NULL, 't' },
         { "time", required_argument, NULL, 'T' },
-        { "regex-fast", no_argument, NULL, 1000 },
-        { "regex-slow", no_argument, NULL, 1001 },
+        { "fast", no_argument, NULL, 1000 },
+        { "slow", no_argument, NULL, 1001 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -193,9 +193,11 @@ int main(int argc, char* argv[])
                 break;
             case 1000:
                 jm_is_valid_regex = jm_is_valid_regex_fast;
+                jm_is_valid_date = jm_is_valid_date_fast;
                 break;
             case 1001:
                 jm_is_valid_regex = jm_is_valid_regex_slow;
+                jm_is_valid_date = jm_is_valid_date_slow;
                 break;
             case '?':
             default:

@@ -375,8 +375,9 @@ jm_any_len(json_t *val)
     return 0;
 }
 
+// NOTE this version is beyond slow because of mktime.
 bool
-jm_is_valid_date(const char *date)
+jm_is_valid_date_slow(const char *date)
 {
     int year, month, day;
 
@@ -389,6 +390,46 @@ jm_is_valid_date(const char *date)
     // checks no error *and* no "funny" normalization
     return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
 }
+
+static int MONTH_DAYS[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+// NOTE this version runs about 50 times faster
+bool
+jm_is_valid_date_fast(const char *date)
+{
+    if (date == NULL)
+        return false;
+
+    int year = 0, month = 0, day = 0, idx = 0;
+
+    // manual parsing for DDDD-DD-DD and value validation
+    while (isdigit(date[idx]) && idx < 4)
+        year = year * 10 + date[idx++] - '0';
+
+    if (idx++ != 4 || date[4] != '-' || year <= 0)
+        return false;
+
+    while (isdigit(date[idx]) && idx < 7)
+        month = month * 10 + date[idx++] - '0';
+
+    if (idx++ != 7 || date[7] != '-' || month < 1 || month > 12)
+        return false;
+
+    while (isdigit(date[idx]) && idx < 10)
+        day = day * 10 + date[idx++] - '0';
+
+    if (idx != 10 || date[10] != '\0' || day < 1 || day > MONTH_DAYS[month - 1])
+        return false;
+
+    // allow February 29th only on leap years
+    if (day == 29 && month == 2)
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+
+    return true;
+}
+
+// default version
+bool (*jm_is_valid_date)(const char *) = jm_is_valid_date_fast;
 
 bool
 jm_is_valid_uuid(const char *uuid)

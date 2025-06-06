@@ -16,6 +16,7 @@
 - [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
 - [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [x] models: update JSON model meta-model with regex extension…
+- [x] c-backend: get rid of `mktime` for fast date validation
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
