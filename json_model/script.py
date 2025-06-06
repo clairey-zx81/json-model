@@ -158,7 +158,7 @@ def create_model(murl: str, resolver: Resolver, *,
                           check=False, merge=False, optimize=False)
 
 DEFAULT_CC = "cc"
-DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wunused-variable -Wunused-function -Ofast"
+DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast"
 DEFAULT_LDFLAGS = "-ljansson -lpcre2-8 -lm"
 
 def clang_compile(c_code: str, args):

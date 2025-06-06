@@ -257,6 +257,8 @@ _UMODEL = {
     "$F32": -1.0, "$F64": -1.0, "$NUMBER": -1.0,
     "$STRING": "",
     # stop recursion on (some) predefs
+    "$ANY": "$ANY",
+    "$NONE": "$NONE",
     "$URL": "$URL",
     "$REGEX": "$REGEX",
     "$DATE": "$DATE",

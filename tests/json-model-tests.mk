@@ -102,7 +102,7 @@ check.x: clean.x
 
 CC        = gcc
 CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I../../json_model/runtime
-CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Ofast
+CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast
 LDFLAGS   = json-model.o -ljansson -lpcre2-8 main.o -lm
 
 json-model.o: ../../json_model/runtime/json-model.c
