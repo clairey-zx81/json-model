@@ -584,6 +584,31 @@ jm_is_valid_url(const char *url)
     return true;
 }
 
+static bool is_email_char(int c)
+{
+    return isalnum(c) || c == '_' || c == '.';
+}
+
+// ...@... for ASCII and UTF-8
+bool
+jm_is_valid_email(const char *email)
+{
+    if (!email)
+        return false;
+    char *c = (char *) email;
+    if (!is_email_char(*c++))
+        return false;
+    while (is_email_char(*c))
+        c++;
+    if (*c++ != '@')
+        return false;
+    if (!is_email_char(*c++))
+        return false;
+    while (is_email_char(*c))
+        c++;
+    return *c == '\0';
+}
+
 // generic constraint check.
 bool
 jm_check_constraint(const json_t * val, jm_constraint_op_t op, const jm_constant_t *cst,

@@ -7,7 +7,6 @@
       "$": {
         "": "https://json-model.org/models/json-schema-draft-06",
         "URI-REFERENCE": "",
-        "URI": "$URL",
         "schemaArray": {
           "@": [
             "$Schema"

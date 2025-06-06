@@ -157,6 +157,9 @@ def create_model(murl: str, resolver: Resolver, *,
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
                           check=False, merge=False, optimize=False)
 
+DEFAULT_CC = "cc"
+DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wunused-variable -Wunused-function -Ofast"
+DEFAULT_LDFLAGS = "-ljansson -lpcre2-8 -lm"
 
 def clang_compile(c_code: str, args):
     """Generate an actual executable."""
@@ -170,10 +173,10 @@ def clang_compile(c_code: str, args):
 
     # compiler setings
     env = os.environ.get
-    cc = args.cc or env("CC", "cc")
-    cflags = args.cflags or env("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
+    cc = args.cc or env("CC", DEFAULT_CC)
+    cflags = args.cflags or env("CFLAGS", DEFAULT_CFLAGS)
     cppflags = args.cppflags or f"-I{rt_dir} -DCHECK_FUNCTION_NAME=check_model"
-    ldflags = args.ldflags or "-ljansson -lpcre2-8 -lm"
+    ldflags = args.ldflags or DEFAULT_LDFLAGS
 
     output = "a.out" if args.output == "-" else args.output
 

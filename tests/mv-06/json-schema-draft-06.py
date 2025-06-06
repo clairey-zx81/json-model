@@ -33,17 +33,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$URI-REFERENCE']", path))
     return res
 
-# check $URI (.'$URI')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$URI'
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [.'$URI']", path))
-    return res
-
 # check $schemaArray (.'$schemaArray')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schemaArray'
     # .'$schemaArray'.'@'
@@ -52,7 +43,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_0_idx, arr_0_item in enumerate(val):
             arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
             # .'$schemaArray'.'@'.0
-            res = json_model_9(arr_0_item, arr_0_lpath if path is not None else None, rep)
+            res = json_model_8(arr_0_item, arr_0_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$schemaArray'.'@'.0]", arr_0_lpath if path is not None else None))
             if not res:
@@ -68,7 +59,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check $simpleTypes (.'$simpleTypes')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$simpleTypes'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
@@ -77,7 +68,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $typeArray (.'$typeArray')
-def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$typeArray'
     # .'$typeArray'.'@'
@@ -86,7 +77,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_1_idx, arr_1_item in enumerate(val):
             arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
             # .'$typeArray'.'@'.0
-            res = json_model_5(arr_1_item, arr_1_lpath if path is not None else None, rep)
+            res = json_model_4(arr_1_item, arr_1_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $simpleTypes [.'$typeArray'.'@'.0]", arr_1_lpath if path is not None else None))
             if not res:
@@ -101,7 +92,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $stringArray (.'$stringArray')
-def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$stringArray'
     res = isinstance(val, list)
@@ -142,14 +133,14 @@ def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ObjectSchema'.'$schema'
     res = is_valid_url(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $URL [.'$ObjectSchema'.'$schema']", path))
+        rep is None or rep.append(("unexpected $URI [.'$ObjectSchema'.'$schema']", path))
     return res
 
 # check _jm_obj_0_map_additionalItems (.'$ObjectSchema'.additionalItems)
 def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.additionalItems
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.additionalItems]", path))
     return res
@@ -158,7 +149,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.additionalProperties
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.additionalProperties]", path))
     return res
@@ -167,7 +158,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.allOf
-    res = json_model_4(val, path, rep)
+    res = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.'$ObjectSchema'.allOf]", path))
     return res
@@ -176,7 +167,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.anyOf
-    res = json_model_4(val, path, rep)
+    res = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.'$ObjectSchema'.anyOf]", path))
     return res
@@ -194,7 +185,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.contains
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.contains]", path))
     return res
@@ -219,7 +210,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_1: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$ObjectSchema'.definitions.''
-        res = json_model_9(pval, lpath_1 if path is not None else None, rep)
+        res = json_model_8(pval, lpath_1 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.definitions.'']", lpath_1 if path is not None else None))
         if not res:
@@ -247,12 +238,12 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
         # handle other props
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
-        res = json_model_9(pval, lpath_2 if path is not None else None, rep)
+        res = json_model_8(pval, lpath_2 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", lpath_2 if path is not None else None))
         if not res:
             # .'$ObjectSchema'.dependencies.''.'|'.1
-            res = json_model_7(pval, lpath_2 if path is not None else None, rep)
+            res = json_model_6(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.1]", lpath_2 if path is not None else None))
         if res:
@@ -343,12 +334,12 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path))
     if not res:
         # .'$ObjectSchema'.items.'|'.1
-        res = json_model_4(val, path, rep)
+        res = json_model_3(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $schemaArray [.'$ObjectSchema'.items.'|'.1]", path))
     if res:
@@ -442,7 +433,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.not
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.not]", path))
     return res
@@ -451,7 +442,7 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.oneOf
-    res = json_model_4(val, path, rep)
+    res = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.'$ObjectSchema'.oneOf]", path))
     return res
@@ -477,7 +468,7 @@ def _jm_obj_3(val: Jsonable, path: Path, rep: Report) -> bool:
         if is_valid_regex(prop, lpath_3 if path is not None else None, rep):
             # handle 1 key props
             # .'$ObjectSchema'.patternProperties.'$REGEX'
-            res = json_model_9(pval, lpath_3 if path is not None else None, rep)
+            res = json_model_8(pval, lpath_3 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.patternProperties.'$REGEX']", lpath_3 if path is not None else None))
             if not res:
@@ -507,7 +498,7 @@ def _jm_obj_4(val: Jsonable, path: Path, rep: Report) -> bool:
         lpath_4: Path = (path + [ prop ]) if path is not None else None
         # handle other props
         # .'$ObjectSchema'.properties.''
-        res = json_model_9(pval, lpath_4 if path is not None else None, rep)
+        res = json_model_8(pval, lpath_4 if path is not None else None, rep)
         if not res:
             rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.properties.'']", lpath_4 if path is not None else None))
         if not res:
@@ -527,7 +518,7 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.propertyNames
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'$ObjectSchema'.propertyNames]", path))
     return res
@@ -536,7 +527,7 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.required
-    res = json_model_7(val, path, rep)
+    res = json_model_6(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $stringArray [.'$ObjectSchema'.required]", path))
     return res
@@ -555,12 +546,12 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'.type
     # .'$ObjectSchema'.type.'|'.0
-    res = json_model_5(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path))
     if not res:
         # .'$ObjectSchema'.type.'|'.1
-        res = json_model_6(val, path, rep)
+        res = json_model_5(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $typeArray [.'$ObjectSchema'.type.'|'.1]", path))
     if res:
@@ -599,7 +590,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     return True
 
 # check $ObjectSchema (.'$ObjectSchema')
-def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$ObjectSchema'
     res = _jm_obj_0(val, path, rep)
@@ -608,7 +599,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $Schema (.'$Schema')
-def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Schema'
     # .'$Schema'.'|'.0
@@ -617,7 +608,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
     if not res:
         # .'$Schema'.'|'.1
-        res = json_model_8(val, path, rep)
+        res = json_model_7(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path))
     if res:
@@ -631,7 +622,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     # .'@'
-    res = json_model_9(val, path, rep)
+    res = json_model_8(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $Schema [.'@']", path))
     return res
@@ -692,13 +683,12 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
             "URI-REFERENCE": json_model_2,
-            "URI": json_model_3,
-            "schemaArray": json_model_4,
-            "simpleTypes": json_model_5,
-            "typeArray": json_model_6,
-            "stringArray": json_model_7,
-            "ObjectSchema": json_model_8,
-            "Schema": json_model_9,
+            "schemaArray": json_model_3,
+            "simpleTypes": json_model_4,
+            "typeArray": json_model_5,
+            "stringArray": json_model_6,
+            "ObjectSchema": json_model_7,
+            "Schema": json_model_8,
         }
 
 # differed module cleanup

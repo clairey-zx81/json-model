@@ -3,13 +3,12 @@
   "#": "JsonModel 1 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
   "$": {
     "URI-REFERENCE": "",
-    "URI": "$URL",
     "schemaArray": {
       "@": [
         "$Schema"
       ],
       ">=": 1,
-      "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },
     "simpleTypes": {
       "|": [
@@ -21,21 +20,21 @@
         "array",
         "object"
       ],
-      "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },
     "typeArray": {
       "@": [
         "$simpleTypes"
       ],
       ">=": 1,
-      "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },
     "stringArray": [
       ""
     ],
     "ObjectSchema": {
       "?$id": "$URI-REFERENCE",
-      "?$schema": "$URL",
+      "?$schema": "$URI",
       "?title": "",
       "?description": "",
       "?default": "$ANY",
@@ -103,14 +102,14 @@
       "?oneOf": "$schemaArray",
       "?not": "$Schema",
       "?$ref": "$URI-REFERENCE",
-      "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },
     "Schema": {
       "|": [
         true,
         "$ObjectSchema"
       ],
-      "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+      "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
     },
     "#": "Symbol 1",
     "": "https://json-model.org/models/json-schema-draft-06"

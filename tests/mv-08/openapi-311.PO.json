@@ -1,7 +1,6 @@
 {
   "#": "JsonModel 1 with defs",
   "$": {
-    "URI": "",
     "OpenAPI": {
       "openapi": "/^3\\.1\\.\\d+(-.+)?$/",
       "info": "$Info",
@@ -20,7 +19,7 @@
       ],
       "?externalDocs": "$ExternalDocumentation",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 3"
+      "#": "JsonModel 2"
     },
     "Info": {
       "title": "",
@@ -31,14 +30,14 @@
       "?license": "$License",
       "version": "",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 4"
+      "#": "JsonModel 3"
     },
     "Contact": {
       "?name": "",
       "?url": "$URL",
       "?email": "",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 5"
+      "#": "JsonModel 4"
     },
     "License": {
       "|": [
@@ -53,7 +52,7 @@
           "/^x\\-.*$/": "$ANY"
         }
       ],
-      "#": "JsonModel 6"
+      "#": "JsonModel 5"
     },
     "Server": {
       "url": "$URL",
@@ -62,7 +61,7 @@
         "": "$ServerVariable"
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 7"
+      "#": "JsonModel 6"
     },
     "ServerVariable": {
       "?enum": [
@@ -71,7 +70,7 @@
       "default": "",
       "?description": "",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 8"
+      "#": "JsonModel 7"
     },
     "Components": {
       "?schemas": {
@@ -150,12 +149,12 @@
         }
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 9"
+      "#": "JsonModel 8"
     },
     "Paths": {
       "/^//": "$PathItem",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 10"
+      "#": "JsonModel 9"
     },
     "PathItem": {
       "?$ref": "$URI",
@@ -181,7 +180,7 @@
         }
       ],
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 11"
+      "#": "JsonModel 10"
     },
     "Operation": {
       "?tags": [
@@ -222,13 +221,13 @@
         "$Server"
       ],
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 12"
+      "#": "JsonModel 11"
     },
     "ExternalDocumentation": {
       "?description": "",
       "url": "$URL",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 13"
+      "#": "JsonModel 12"
     },
     "parameterShare": {
       "?description": "",
@@ -236,7 +235,7 @@
       "?deprecated": true,
       "?allowEmptyValue": true,
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 14"
+      "#": "JsonModel 13"
     },
     "commonParameter": {
       "name": "",
@@ -253,7 +252,7 @@
       "?deprecated": true,
       "?allowEmptyValue": true,
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 15"
+      "#": "JsonModel 14"
     },
     "Style": {
       "|": [
@@ -265,7 +264,7 @@
         "pipeDelimited",
         "deepObject"
       ],
-      "#": "JsonModel 16"
+      "#": "JsonModel 15"
     },
     "parameterSchemaOnly": {
       "?style": "$Style",
@@ -281,13 +280,13 @@
           ]
         }
       },
-      "#": "JsonModel 17"
+      "#": "JsonModel 16"
     },
     "parameterContentOnly": {
       "?content": {
         "": "$MediaType"
       },
-      "#": "JsonModel 18"
+      "#": "JsonModel 17"
     },
     "Parameter": {
       "|": [
@@ -340,7 +339,7 @@
           "/^x\\-.*$/": "$ANY"
         }
       ],
-      "#": "JsonModel 19"
+      "#": "JsonModel 18"
     },
     "RequestBody": {
       "?description": "",
@@ -349,7 +348,7 @@
       },
       "?required": true,
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 20"
+      "#": "JsonModel 19"
     },
     "MediaType": {
       "?schema": "$Schema",
@@ -366,7 +365,7 @@
         "": "$Encoding"
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 21"
+      "#": "JsonModel 20"
     },
     "Encoding": {
       "?contentType": "",
@@ -382,7 +381,7 @@
       "?explode": true,
       "?allowReserved": true,
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 22"
+      "#": "JsonModel 21"
     },
     "Responses": {
       "/^[1-5](\\d\\d|XX)$/": {
@@ -398,7 +397,7 @@
         ]
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 23"
+      "#": "JsonModel 22"
     },
     "Response": {
       "?description": "",
@@ -422,7 +421,7 @@
         }
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 24"
+      "#": "JsonModel 23"
     },
     "Callback": {
       "$Expression": {
@@ -432,7 +431,7 @@
         ]
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 25"
+      "#": "JsonModel 24"
     },
     "Example": {
       "?summary": "",
@@ -440,7 +439,7 @@
       "?value": "$ANY",
       "?externalValue": "",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 26"
+      "#": "JsonModel 25"
     },
     "Expression": "",
     "Link": {
@@ -466,7 +465,7 @@
           "/^x\\-.*$/": "$ANY"
         }
       ],
-      "#": "JsonModel 28"
+      "#": "JsonModel 27"
     },
     "Header": {
       "|": [
@@ -501,28 +500,27 @@
           "/^x\\-.*$/": "$ANY"
         }
       ],
-      "#": "JsonModel 29"
+      "#": "JsonModel 28"
     },
     "Tag": {
       "name": "",
       "?description": "",
       "?externalDocs": "$ExternalDocumentation",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 30"
+      "#": "JsonModel 29"
     },
     "Reference": {
       "_$ref": "",
       "?summary": "",
       "?description": "",
-      "#": "JsonModel 31"
+      "#": "JsonModel 30"
     },
     "schema": {
       "@": "$Schema",
-      "#": "JsonModel 41 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
+      "#": "JsonModel 40 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
       "$": {
         "": "https://json-model.org/models/json-schema-draft-2020-12",
         "URI-REFERENCE": "",
-        "URI": "$URL",
         "core": {
           "?$id": "$URI-REFERENCE",
           "?$schema": "_https://json-schema.org/draft/2020-12/schema",
@@ -674,7 +672,7 @@
       "?$dynamicRef": "$schema#URI-REFERENCE",
       "?$dynamicAnchor": "$schema#URI-REFERENCE",
       "?$vocabulary": {
-        "$URL": true
+        "$URI": true
       },
       "?$comment": "",
       "?$defs": {
@@ -749,7 +747,7 @@
       "?externalDocs": "$ExternalDocumentation",
       "?xml": "$XML",
       "?example": "$ANY",
-      "#": "JsonModel 33"
+      "#": "JsonModel 32"
     },
     "Discriminator": {
       "propertyName": "",
@@ -757,7 +755,7 @@
         "": ""
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 34"
+      "#": "JsonModel 33"
     },
     "XML": {
       "?name": "",
@@ -766,7 +764,7 @@
       "?attribute": true,
       "?wrapped": true,
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 35"
+      "#": "JsonModel 34"
     },
     "SecurityScheme": {
       "type": "",
@@ -784,7 +782,7 @@
       "flows": "$OAuthFlows",
       "openIdConnectUrl": "",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 36"
+      "#": "JsonModel 35"
     },
     "OAuthFlows": {
       "?implicit": "$OAuthFlow",
@@ -792,7 +790,7 @@
       "?clientCredentials": "$OAuthFlow",
       "?authorizationCode": "$OAuthFlow",
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 37"
+      "#": "JsonModel 36"
     },
     "OAuthFlow": {
       "authorizationUrl": "$URL",
@@ -802,17 +800,17 @@
         "": ""
       },
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 38"
+      "#": "JsonModel 37"
     },
     "SecurityRequirement": {
       "": [
         ""
       ],
-      "#": "JsonModel 39"
+      "#": "JsonModel 38"
     },
     "Extension": {
       "/^x\\-.*$/": "$ANY",
-      "#": "JsonModel 40"
+      "#": "JsonModel 39"
     },
     "#": "Symbol 1",
     "": "https://json-model.org/models/openapi-311"

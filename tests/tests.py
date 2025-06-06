@@ -121,8 +121,8 @@ EXPECT: dict[str, int] = {
     "mv-1d:models": 5,
     "mv-1d:values": 0,
     # chunk 1E
-    "mv-1e:models": 6,
-    "mv-1e:values": 74,
+    "mv-1e:models": 7,
+    "mv-1e:values": 91,
     # miscellaneous tests
     # miscellaneous tests
     "bads:models": 54,
@@ -206,11 +206,13 @@ def clibjm(tmp_dir):
     src_lib = f"{src_dir}/json-model.c"
     src_main = f"{src_dir}/main.c"
 
+    from json_model.script import DEFAULT_CC, DEFAULT_CFLAGS, DEFAULT_LDFLAGS
+
     # compilation settings
-    cc = os.environ.get("CC", "gcc")
+    cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
-    cflags = os.environ.get("CFLAGS", "-Wall -Wno-address -Wno-c23-extensions -Ofast")
-    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} -ljansson -lpcre2-8 -lm")
+    cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
+    ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
 
     # compile library once
     with filelock.FileLock(jm_lock):

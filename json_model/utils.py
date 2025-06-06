@@ -18,7 +18,8 @@ MODEL_PREDEFS = {
     "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
     "$FLOAT", "$F32", "$F64", "$NUMBER",
     "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
-    # TODO $URI $URI-REF…
+    "$URI", "$EMAIL",
+    # TODO $URI-REF, $DOMAIN…
 }
 
 WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"

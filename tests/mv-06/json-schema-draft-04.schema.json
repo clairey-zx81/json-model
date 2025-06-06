@@ -3,10 +3,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]",
   "$defs": {
-    "URI": {
-      "type": "string",
-      "format": "uri"
-    },
     "schemaArray": {
       "type": "array",
       "items": {

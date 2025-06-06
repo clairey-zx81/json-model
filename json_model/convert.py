@@ -11,6 +11,8 @@ PREDEF_TYPES = {
     "$REGEX": "string",
     "$UUID": "string",
     "$URL": "string",
+    "$URI": "string",
+    "$EMAIL": "string",
     "$NUMBER": "number",
     "$BOOL": "boolean",
     "$BOOLEAN": "boolean",
@@ -29,6 +31,8 @@ PREDEF_FORMATS = {
     "$URL": "uri",
     "$REGEX": "regex",
     "$UUID": "uuid",
+    "$EMAIL": "email",
+    "$URI": "uri",
 }
 
 def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:

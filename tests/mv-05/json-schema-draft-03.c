@@ -1,10 +1,9 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0a0"
 
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_0[8];
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -37,25 +36,11 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_0_map_tab[29];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-jm_propmap_t check_model_map_tab[5];
-const size_t check_model_map_size = 5;
-
-// check $URI (.'$URI')
-static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$URI'
-    res = jm_is_valid_url(json_string_value(val));
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$URI']", path);
-    }
-    return res;
-}
-
+jm_propmap_t check_model_map_tab[4];
+const size_t check_model_map_size = 4;
 
 // check $allTypes (.'$allTypes')
-static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$allTypes'
@@ -68,7 +53,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $distinctSchemaArray (.'$distinctSchemaArray')
-static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$distinctSchemaArray'
@@ -342,7 +327,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .disallow.'|'.1
-        res = json_model_4(val, path, rep);
+        res = json_model_3(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $distinctSchemaArray [.disallow.'|'.1]", path);
@@ -759,7 +744,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .type
     // .type.'|'.0
-    res = json_model_3(val, path, rep);
+    res = json_model_2(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $allTypes [.type.'|'.0]", path);
@@ -886,7 +871,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 jm_check_fun_t check_model_map(const char *pname)
 {
-    return jm_search_propmap(pname, check_model_map_tab, 5);
+    return jm_search_propmap(pname, check_model_map_tab, 4);
 }
 
 static bool initialized = false;
@@ -953,11 +938,10 @@ char *CHECK_init(void)
         _jm_obj_0_map_tab[28] = (jm_propmap_t) { "uniqueItems", _jm_f_28 };
         jm_sort_propmap(_jm_obj_0_map_tab, 29);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "URI", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "allTypes", json_model_3 };
-        check_model_map_tab[3] = (jm_propmap_t) { "distinctSchemaArray", json_model_4 };
-        check_model_map_tab[4] = (jm_propmap_t) { "Schema", json_model_1 };
-        jm_sort_propmap(check_model_map_tab, 5);
+        check_model_map_tab[1] = (jm_propmap_t) { "allTypes", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "distinctSchemaArray", json_model_3 };
+        check_model_map_tab[3] = (jm_propmap_t) { "Schema", json_model_1 };
+        jm_sort_propmap(check_model_map_tab, 4);
     }
     return NULL;
 }

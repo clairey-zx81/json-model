@@ -3,7 +3,6 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-03",
-    "URI": "$URL",
     "allTypes": {"|": ["null", "boolean", "integer", "number", "string", "array", "object", "any"]},
     "distinctSchemaArray": {"@": [{"|": ["", "$Schema"]}], "!": true},
     "Schema": "$#"

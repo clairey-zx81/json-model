@@ -2,7 +2,6 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "URI": "",
       "const": {
         "|": [
           null,
@@ -11,7 +10,7 @@
           -1.0,
           ""
         ],
-        "#": "JsonModel 3"
+        "#": "JsonModel 2"
       },
       "enum": {
         "|": [
@@ -25,7 +24,7 @@
             true
           ]
         ],
-        "#": "JsonModel 4"
+        "#": "JsonModel 3"
       },
       "schemaArray": [
         "$Schema"
@@ -65,7 +64,7 @@
             "mime-type"
           ]
         },
-        "#": "JsonModel 6"
+        "#": "JsonModel 5"
       },
       "arrayKeywords": {
         "?prefixItems": "$schemaArray",
@@ -80,7 +79,7 @@
         "?minItems": 0,
         "?maxItems": 0,
         "?uniqueItems": true,
-        "#": "JsonModel 7"
+        "#": "JsonModel 6"
       },
       "objectKeywords": {
         "?properties": {
@@ -97,12 +96,12 @@
           "$REGEX": "$Schema"
         },
         "?propertyNames": "$ObjectSchema",
-        "#": "JsonModel 8"
+        "#": "JsonModel 7"
       },
       "numberKeywords": {
         "?minimum": -1.0,
         "?maximum": -1.0,
-        "#": "JsonModel 9"
+        "#": "JsonModel 8"
       },
       "metas": {
         "?$schema": "",
@@ -129,7 +128,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 10"
+        "#": "JsonModel 9"
       },
       "String": {
         "type": "string",
@@ -191,7 +190,7 @@
             "mime-type"
           ]
         },
-        "#": "JsonModel 11"
+        "#": "JsonModel 10"
       },
       "Array": {
         "type": "array",
@@ -231,7 +230,7 @@
         "?minItems": 0,
         "?maxItems": 0,
         "?uniqueItems": true,
-        "#": "JsonModel 12"
+        "#": "JsonModel 11"
       },
       "Object": {
         "type": "object",
@@ -273,7 +272,7 @@
           "$REGEX": "$Schema"
         },
         "?propertyNames": "$ObjectSchema",
-        "#": "JsonModel 13"
+        "#": "JsonModel 12"
       },
       "Integer": {
         "type": "integer",
@@ -303,7 +302,7 @@
         },
         "?minimum": -1.0,
         "?maximum": -1.0,
-        "#": "JsonModel 14"
+        "#": "JsonModel 13"
       },
       "Number": {
         "type": "number",
@@ -333,7 +332,7 @@
         },
         "?minimum": -1.0,
         "?maximum": -1.0,
-        "#": "JsonModel 15"
+        "#": "JsonModel 14"
       },
       "Bool": {
         "type": "boolean",
@@ -361,7 +360,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 16"
+        "#": "JsonModel 15"
       },
       "Null": {
         "type": "null",
@@ -389,7 +388,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 17"
+        "#": "JsonModel 16"
       },
       "AllOf": {
         "allOf": "$schemaArray",
@@ -417,7 +416,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 18"
+        "#": "JsonModel 17"
       },
       "AnyOf": {
         "anyOf": "$schemaArray",
@@ -445,7 +444,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 19"
+        "#": "JsonModel 18"
       },
       "OneOf": {
         "oneOf": "$schemaArray",
@@ -473,7 +472,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 20"
+        "#": "JsonModel 19"
       },
       "Enum": {
         "enum": "$enum",
@@ -501,7 +500,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 21"
+        "#": "JsonModel 20"
       },
       "Const": {
         "const": "$const",
@@ -529,7 +528,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 22"
+        "#": "JsonModel 21"
       },
       "Ref": {
         "!$ref": "$URI",
@@ -557,7 +556,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 23"
+        "#": "JsonModel 22"
       },
       "DynRef": {
         "!$dynamicRef": "$URI",
@@ -585,7 +584,7 @@
         "?definitions": {
           "": "$Schema"
         },
-        "#": "JsonModel 24"
+        "#": "JsonModel 23"
       },
       "ObjectSchema": {
         "|": [
@@ -605,14 +604,14 @@
           "$DynRef",
           "$metas"
         ],
-        "#": "JsonModel 25"
+        "#": "JsonModel 24"
       },
       "Schema": {
         "|": [
           true,
           "$ObjectSchema"
         ],
-        "#": "JsonModel 26"
+        "#": "JsonModel 25"
       },
       "RootSchema": {
         "&": [
@@ -622,7 +621,7 @@
           },
           "$ObjectSchema"
         ],
-        "#": "JsonModel 27"
+        "#": "JsonModel 26"
       },
       "#": "Symbol 1",
       "": "https://json-model.org/models/json-schema-draft-tight"
@@ -630,7 +629,6 @@
     "@": "$RootSchema",
     "~": "https://json-model.org/models/json-model"
   },
-  "",
   {
     "|": [
       null,
@@ -639,7 +637,7 @@
       -1.0,
       ""
     ],
-    "#": "JsonModel 3"
+    "#": "JsonModel 2"
   },
   {
     "|": [
@@ -653,7 +651,7 @@
         true
       ]
     ],
-    "#": "JsonModel 4"
+    "#": "JsonModel 3"
   },
   [
     "$Schema"
@@ -693,7 +691,7 @@
         "mime-type"
       ]
     },
-    "#": "JsonModel 6"
+    "#": "JsonModel 5"
   },
   {
     "?prefixItems": "$schemaArray",
@@ -708,7 +706,7 @@
     "?minItems": 0,
     "?maxItems": 0,
     "?uniqueItems": true,
-    "#": "JsonModel 7"
+    "#": "JsonModel 6"
   },
   {
     "?properties": {
@@ -725,12 +723,12 @@
       "$REGEX": "$Schema"
     },
     "?propertyNames": "$ObjectSchema",
-    "#": "JsonModel 8"
+    "#": "JsonModel 7"
   },
   {
     "?minimum": -1.0,
     "?maximum": -1.0,
-    "#": "JsonModel 9"
+    "#": "JsonModel 8"
   },
   {
     "?$schema": "",
@@ -757,7 +755,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 10"
+    "#": "JsonModel 9"
   },
   {
     "type": "string",
@@ -819,7 +817,7 @@
         "mime-type"
       ]
     },
-    "#": "JsonModel 11"
+    "#": "JsonModel 10"
   },
   {
     "type": "array",
@@ -859,7 +857,7 @@
     "?minItems": 0,
     "?maxItems": 0,
     "?uniqueItems": true,
-    "#": "JsonModel 12"
+    "#": "JsonModel 11"
   },
   {
     "type": "object",
@@ -901,7 +899,7 @@
       "$REGEX": "$Schema"
     },
     "?propertyNames": "$ObjectSchema",
-    "#": "JsonModel 13"
+    "#": "JsonModel 12"
   },
   {
     "type": "integer",
@@ -931,7 +929,7 @@
     },
     "?minimum": -1.0,
     "?maximum": -1.0,
-    "#": "JsonModel 14"
+    "#": "JsonModel 13"
   },
   {
     "type": "number",
@@ -961,7 +959,7 @@
     },
     "?minimum": -1.0,
     "?maximum": -1.0,
-    "#": "JsonModel 15"
+    "#": "JsonModel 14"
   },
   {
     "type": "boolean",
@@ -989,7 +987,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 16"
+    "#": "JsonModel 15"
   },
   {
     "type": "null",
@@ -1017,7 +1015,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 17"
+    "#": "JsonModel 16"
   },
   {
     "allOf": "$schemaArray",
@@ -1045,7 +1043,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 18"
+    "#": "JsonModel 17"
   },
   {
     "anyOf": "$schemaArray",
@@ -1073,7 +1071,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 19"
+    "#": "JsonModel 18"
   },
   {
     "oneOf": "$schemaArray",
@@ -1101,7 +1099,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 20"
+    "#": "JsonModel 19"
   },
   {
     "enum": "$enum",
@@ -1129,7 +1127,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 21"
+    "#": "JsonModel 20"
   },
   {
     "const": "$const",
@@ -1157,7 +1155,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 22"
+    "#": "JsonModel 21"
   },
   {
     "!$ref": "$URI",
@@ -1185,7 +1183,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 23"
+    "#": "JsonModel 22"
   },
   {
     "!$dynamicRef": "$URI",
@@ -1213,7 +1211,7 @@
     "?definitions": {
       "": "$Schema"
     },
-    "#": "JsonModel 24"
+    "#": "JsonModel 23"
   },
   {
     "|": [
@@ -1233,14 +1231,14 @@
       "$DynRef",
       "$metas"
     ],
-    "#": "JsonModel 25"
+    "#": "JsonModel 24"
   },
   {
     "|": [
       true,
       "$ObjectSchema"
     ],
-    "#": "JsonModel 26"
+    "#": "JsonModel 25"
   },
   {
     "&": [
@@ -1250,6 +1248,6 @@
       },
       "$ObjectSchema"
     ],
-    "#": "JsonModel 27"
+    "#": "JsonModel 26"
   }
 ]

@@ -25,18 +25,8 @@ _jm_cst_1: set[str]
 _jm_obj_0_map: PropMap
 check_model_map: PropMap
 
-# check $URI (.'$URI')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$URI'
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [.'$URI']", path))
-    return res
-
-
 # check $allTypes (.'$allTypes')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$allTypes'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
@@ -45,7 +35,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $distinctSchemaArray (.'$distinctSchemaArray')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$distinctSchemaArray'
     # .'$distinctSchemaArray'.'@'
@@ -212,7 +202,7 @@ def _jm_f_7(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.disallow.'|'.0]", path))
     if not res:
         # .disallow.'|'.1
-        res = json_model_4(val, path, rep)
+        res = json_model_3(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $distinctSchemaArray [.disallow.'|'.1]", path))
     if res:
@@ -481,7 +471,7 @@ def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .type
     # .type.'|'.0
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $allTypes [.type.'|'.0]", path))
     if not res:
@@ -600,9 +590,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "URI": json_model_2,
-            "allTypes": json_model_3,
-            "distinctSchemaArray": json_model_4,
+            "allTypes": json_model_2,
+            "distinctSchemaArray": json_model_3,
             "Schema": json_model_1,
         }
 

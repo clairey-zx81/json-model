@@ -24,17 +24,8 @@ _jm_cst_0: set[str]
 _jm_obj_0_map: PropMap
 check_model_map: PropMap
 
-# check $URI (.'$URI')
-def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$URI'
-    res = is_valid_url(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $URL [.'$URI']", path))
-    return res
-
 # check $schemaArray (.'$schemaArray')
-def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$schemaArray'
     # .'$schemaArray'.'@'
@@ -59,7 +50,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # check $simpleTypes (.'$simpleTypes')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$simpleTypes'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
@@ -68,7 +59,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $stringArray (.'$stringArray')
-def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$stringArray'
     # .'$stringArray'.'@'
@@ -92,7 +83,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # check $typeArray (.'$typeArray')
-def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
+def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$typeArray'
     # .'$typeArray'.'@'
@@ -101,7 +92,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
         for arr_2_idx, arr_2_item in enumerate(val):
             arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
             # .'$typeArray'.'@'.0
-            res = json_model_4(arr_2_item, arr_2_lpath if path is not None else None, rep)
+            res = json_model_3(arr_2_item, arr_2_lpath if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $simpleTypes [.'$typeArray'.'@'.0]", arr_2_lpath if path is not None else None))
             if not res:
@@ -121,7 +112,7 @@ def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$ref'
     res = is_valid_url(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected $URL [.'$ref']", path))
+        rep is None or rep.append(("unexpected $URI [.'$ref']", path))
     return res
 
 # check _jm_obj_0_map_$schema (.'$schema')
@@ -175,7 +166,7 @@ def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .allOf
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.allOf]", path))
     return res
@@ -184,7 +175,7 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .anyOf
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.anyOf]", path))
     return res
@@ -242,7 +233,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             rep is None or rep.append(("unexpected $Schema [.dependencies.''.'|'.0]", lpath_2 if path is not None else None))
         if not res:
             # .dependencies.''.'|'.1
-            res = json_model_5(pval, lpath_2 if path is not None else None, rep)
+            res = json_model_4(pval, lpath_2 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected $stringArray [.dependencies.''.'|'.1]", lpath_2 if path is not None else None))
         if res:
@@ -335,7 +326,7 @@ def _jm_f_15(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $Schema [.items.'|'.0]", path))
     if not res:
         # .items.'|'.1
-        res = json_model_3(val, path, rep)
+        res = json_model_2(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $schemaArray [.items.'|'.1]", path))
     if res:
@@ -438,7 +429,7 @@ def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .oneOf
-    res = json_model_3(val, path, rep)
+    res = json_model_2(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schemaArray [.oneOf]", path))
     return res
@@ -510,7 +501,7 @@ def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .required
-    res = json_model_5(val, path, rep)
+    res = json_model_4(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $stringArray [.required]", path))
     return res
@@ -529,12 +520,12 @@ def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .type
     # .type.'|'.0
-    res = json_model_4(val, path, rep)
+    res = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $simpleTypes [.type.'|'.0]", path))
     if not res:
         # .type.'|'.1
-        res = json_model_6(val, path, rep)
+        res = json_model_5(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected $typeArray [.type.'|'.1]", path))
     if res:
@@ -632,11 +623,10 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "URI": json_model_2,
-            "schemaArray": json_model_3,
-            "simpleTypes": json_model_4,
-            "stringArray": json_model_5,
-            "typeArray": json_model_6,
+            "schemaArray": json_model_2,
+            "simpleTypes": json_model_3,
+            "stringArray": json_model_4,
+            "typeArray": json_model_5,
             "Schema": json_model_1,
         }
 

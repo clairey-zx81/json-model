@@ -132,10 +132,12 @@ class JsonModel:
         "F64": -1.0,
         "NUMBER": {"|": [-1, -1.0]},
         "STRING": "",
-        "URL": r"/^\w+://.*/",  # FIXME relative URL?
+        "URL": r"/^\w+://.*$/",  # FIXME relative URL?
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
         "UUID": UUID_RE,
         "REGEX": "",  # FIXME
+        "URI": r"^\w+:.*$/",  # TODO improve
+        "EMAIL": r"^(?i)[a-z0-9_.]+@[a-z0-9_.]+$",
         # to be continued…
         # o = optional
         "oBOOL": {"|": [None, "$BOOL"]},
@@ -592,8 +594,8 @@ class JsonModel:
                     match m:
                         case ""|"$STRING":
                             m = ""
-                        case "$URL":
-                            log.warning(f"approximating $URL key at {lpath}")
+                        case "$URL"|"$URI":
+                            log.warning(f"approximating $URL/$URI key at {lpath}")
                             m = r"/[:/#]/"  # hmmm…
                         case "$REGEX":
                             log.warning(f"approximating $REGEX key at {lpath}")
@@ -601,6 +603,9 @@ class JsonModel:
                         case "$DATE":
                             log.warning(f"approximating $DATE key at {lpath}")
                             m = "/" + WEAK_DATE_RE + "/"
+                        case "$EMAIL":
+                            log.warning(f"approximating $EMAIL key at {lpath}")
+                            m = "/^[a-z0-9_.]+@[a-z0-9_.]+$/i"
                         case _:
                             if m[0] == "_":
                                 m = "?" + m[1:]

@@ -4,7 +4,6 @@
   "$": {
     "": "https://json-model.org/models/json-schema-draft-2020-12",
     "URI-REFERENCE": "",
-    "URI": "$URL",
     "core": {
       "?$id": "$URI-REFERENCE",
       "?$schema": "_https://json-schema.org/draft/2020-12/schema",

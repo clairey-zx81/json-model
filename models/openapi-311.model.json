@@ -3,7 +3,6 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/openapi-311",
-    "URI": "",
     "OpenAPI": {
       "openapi": "/^3\\.1\\.\\d+(-.+)?$/",
       "info": "$Info",

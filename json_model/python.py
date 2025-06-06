@@ -46,7 +46,7 @@ class Python(Language):
             return f"isinstance({var}, {tval.__name__})"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
-        if name == "$URL":
+        if name in ("$URL", "$URI"):  # approximate
             return f"is_valid_url({var}, {path}, rep)"
         elif name == "$DATE":
             return f"is_valid_date({var}, {path}, rep)"
@@ -54,6 +54,8 @@ class Python(Language):
             return f"is_valid_regex({var}, {path}, rep)"
         elif name == "$UUID":
             return f"is_valid_uuid({var}, {path}, rep)"
+        elif name == "$EMAIL":
+            return f"is_valid_email({var}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
 

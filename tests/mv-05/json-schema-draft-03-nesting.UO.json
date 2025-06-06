@@ -113,7 +113,6 @@
         "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
         "$": {
           "": "https://json-model.org/models/json-schema-draft-03",
-          "URI": "$URL",
           "allTypes": {
             "|": [
               "null",
@@ -257,7 +256,6 @@
     "": "$Schema",
     "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
     "$": {
-      "URI": "$URL",
       "allTypes": {
         "|": [
           "null",
@@ -269,7 +267,7 @@
           "object",
           "any"
         ],
-        "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
       },
       "distinctSchemaArray": {
         "@": [
@@ -281,7 +279,7 @@
           }
         ],
         "!": true,
-        "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": "$#",
       "#": "Symbol 3",
@@ -289,7 +287,6 @@
     },
     "~": "https://json-model.org/models/json-model"
   },
-  "$URL",
   {
     "|": [
       "null",
@@ -301,7 +298,7 @@
       "object",
       "any"
     ],
-    "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 4 (JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
@@ -313,7 +310,7 @@
       }
     ],
     "!": true,
-    "#": "JsonModel 6 (JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 5 (JSON_MODEL_LOOSE_FLOAT)"
   },
   "$#"
 ]

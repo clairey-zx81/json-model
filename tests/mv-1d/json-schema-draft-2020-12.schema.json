@@ -6,10 +6,6 @@
     "URI-REFERENCE": {
       "type": "string"
     },
-    "URI": {
-      "type": "string",
-      "format": "uri"
-    },
     "core": {
       "type": "object",
       "properties": {

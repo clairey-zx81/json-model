@@ -20,6 +20,7 @@ from .support import (
     is_valid_date,
     is_valid_regex,
     is_valid_url,
+    is_valid_email,
     is_valid_uuid,
     is_unique_array,
     check_constraint,

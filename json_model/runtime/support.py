@@ -174,6 +174,13 @@ def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
     return valid
 
 
+def is_valid_email(value: Jsonable, path: str, rep: Report = None) -> bool:
+    valid = isinstance(value, str) and validators.email(value) is True
+    if not valid:
+        rep is None or rep.append((f"invalid email {value}", path))
+    return valid
+
+
 # quite inefficient but safe
 def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, str):

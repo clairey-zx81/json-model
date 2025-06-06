@@ -146,6 +146,7 @@ extern bool jm_is_valid_regex_slow(const char *);
 extern bool jm_is_valid_regex_fast(const char *);
 extern bool (*jm_is_valid_regex)(const char *);
 extern bool jm_is_valid_url(const char *);
+extern bool jm_is_valid_email(const char *);
 
 typedef enum {
     op_eq,

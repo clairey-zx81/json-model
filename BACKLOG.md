@@ -14,7 +14,8 @@
 - [x] python: refactoring, drop `Validator` class
 - [x] python: refactoring, remove `defines.py` and `validator.py`
 - [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
-- [ ] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
+- [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
+- [x] models: update JSON model meta-model with regex extension…
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
@@ -36,6 +37,7 @@
 - [ ] c-backend: generate thread-safe code? option?
 - [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [ ] static: improve failure reporting of extended regex
+- [ ] design: add `$URI-REF`?
 
 ## To Do
 

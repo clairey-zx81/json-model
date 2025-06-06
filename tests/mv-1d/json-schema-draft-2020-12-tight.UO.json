@@ -2,23 +2,22 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "URI": "$URL",
       "URI-REFERENCE": "",
       "core": {
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "#": "JsonModel 4"
+        "#": "JsonModel 3"
       },
       "meta": {
         "?title": "",
@@ -30,15 +29,15 @@
         "?examples": [
           "$ANY"
         ],
-        "#": "JsonModel 5"
+        "#": "JsonModel 4"
       },
       "Null": {
         "type": "_null",
-        "#": "JsonModel 6"
+        "#": "JsonModel 5"
       },
       "Boolean": {
         "type": "_boolean",
-        "#": "JsonModel 7"
+        "#": "JsonModel 6"
       },
       "Number": {
         "type": "_number",
@@ -72,7 +71,7 @@
             -1.0
           ]
         },
-        "#": "JsonModel 8"
+        "#": "JsonModel 7"
       },
       "Integer": {
         "type": "_integer",
@@ -81,7 +80,7 @@
         "?exclusiveMaximum": -1,
         "?minimum": -1,
         "?exclusiveMinimum": -1,
-        "#": "JsonModel 9"
+        "#": "JsonModel 8"
       },
       "String": {
         "type": "_string",
@@ -92,21 +91,21 @@
         "?maxLength": 0,
         "?minLength": 0,
         "?pattern": "$REGEX",
-        "#": "JsonModel 10"
+        "#": "JsonModel 9"
       },
       "stringArray": {
         "@": [
           ""
         ],
         ">=": 1,
-        "#": "JsonModel 11"
+        "#": "JsonModel 10"
       },
       "schemaArray": {
         "@": [
           "$Schema"
         ],
         ">=": 1,
-        "#": "JsonModel 12"
+        "#": "JsonModel 11"
       },
       "Array": {
         "type": "_array",
@@ -119,7 +118,7 @@
         "?prefixItems": "$schemaArray",
         "?items": "$Schema",
         "?unevaluatedItems": "$Schema",
-        "#": "JsonModel 13"
+        "#": "JsonModel 12"
       },
       "Object": {
         "type": "_object",
@@ -141,7 +140,7 @@
         "?dependentSchemas": {
           "": "$Schema"
         },
-        "#": "JsonModel 14"
+        "#": "JsonModel 13"
       },
       "Misc": {
         "?const": "$ANY",
@@ -155,20 +154,20 @@
         "?allOf": "$schemaArray",
         "?anyOf": "$schemaArray",
         "?oneOf": "$schemaArray",
-        "#": "JsonModel 15"
+        "#": "JsonModel 14"
       },
       "TightSchema": {
         "|": [
           {
             "type": "_null",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -187,13 +186,13 @@
           {
             "type": "_boolean",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -212,13 +211,13 @@
           {
             "type": "_number",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -267,13 +266,13 @@
           {
             "type": "_integer",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -297,13 +296,13 @@
           {
             "type": "_string",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -329,13 +328,13 @@
           {
             "type": "_array",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -363,13 +362,13 @@
           {
             "type": "_object",
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -405,13 +404,13 @@
           },
           {
             "?$id": "$URI-REFERENCE",
-            "?$schema": "$URL",
+            "?$schema": "$URI",
             "?$ref": "$URI-REFERENCE",
             "?$anchor": "$URI-REFERENCE",
             "?$dynamicRef": "$URI-REFERENCE",
             "?$dynamicAnchor": "$URI-REFERENCE",
             "?$vocabulary": {
-              "$URL": true
+              "$URI": true
             },
             "?$comment": "",
             "?$defs": {
@@ -439,14 +438,14 @@
             "?oneOf": "$schemaArray"
           }
         ],
-        "#": "JsonModel 16"
+        "#": "JsonModel 15"
       },
       "Schema": {
         "|": [
           true,
           "$TightSchema"
         ],
-        "#": "JsonModel 17"
+        "#": "JsonModel 16"
       },
       "#": "Symbol 1",
       "": "https://json-model.org/models/json-schema-draft-2020-12-tight"
@@ -454,23 +453,22 @@
     "@": "$Schema",
     "~": "https://json-model.org/models/json-model"
   },
-  "$URL",
   "",
   {
     "?$id": "$URI-REFERENCE",
-    "?$schema": "$URL",
+    "?$schema": "$URI",
     "?$ref": "$URI-REFERENCE",
     "?$anchor": "$URI-REFERENCE",
     "?$dynamicRef": "$URI-REFERENCE",
     "?$dynamicAnchor": "$URI-REFERENCE",
     "?$vocabulary": {
-      "$URL": true
+      "$URI": true
     },
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "#": "JsonModel 4"
+    "#": "JsonModel 3"
   },
   {
     "?title": "",
@@ -482,15 +480,15 @@
     "?examples": [
       "$ANY"
     ],
-    "#": "JsonModel 5"
+    "#": "JsonModel 4"
   },
   {
     "type": "_null",
-    "#": "JsonModel 6"
+    "#": "JsonModel 5"
   },
   {
     "type": "_boolean",
-    "#": "JsonModel 7"
+    "#": "JsonModel 6"
   },
   {
     "type": "_number",
@@ -524,7 +522,7 @@
         -1.0
       ]
     },
-    "#": "JsonModel 8"
+    "#": "JsonModel 7"
   },
   {
     "type": "_integer",
@@ -533,7 +531,7 @@
     "?exclusiveMaximum": -1,
     "?minimum": -1,
     "?exclusiveMinimum": -1,
-    "#": "JsonModel 9"
+    "#": "JsonModel 8"
   },
   {
     "type": "_string",
@@ -544,21 +542,21 @@
     "?maxLength": 0,
     "?minLength": 0,
     "?pattern": "$REGEX",
-    "#": "JsonModel 10"
+    "#": "JsonModel 9"
   },
   {
     "@": [
       ""
     ],
     ">=": 1,
-    "#": "JsonModel 11"
+    "#": "JsonModel 10"
   },
   {
     "@": [
       "$Schema"
     ],
     ">=": 1,
-    "#": "JsonModel 12"
+    "#": "JsonModel 11"
   },
   {
     "type": "_array",
@@ -571,7 +569,7 @@
     "?prefixItems": "$schemaArray",
     "?items": "$Schema",
     "?unevaluatedItems": "$Schema",
-    "#": "JsonModel 13"
+    "#": "JsonModel 12"
   },
   {
     "type": "_object",
@@ -593,7 +591,7 @@
     "?dependentSchemas": {
       "": "$Schema"
     },
-    "#": "JsonModel 14"
+    "#": "JsonModel 13"
   },
   {
     "?const": "$ANY",
@@ -607,20 +605,20 @@
     "?allOf": "$schemaArray",
     "?anyOf": "$schemaArray",
     "?oneOf": "$schemaArray",
-    "#": "JsonModel 15"
+    "#": "JsonModel 14"
   },
   {
     "|": [
       {
         "type": "_null",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -639,13 +637,13 @@
       {
         "type": "_boolean",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -664,13 +662,13 @@
       {
         "type": "_number",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -719,13 +717,13 @@
       {
         "type": "_integer",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -749,13 +747,13 @@
       {
         "type": "_string",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -781,13 +779,13 @@
       {
         "type": "_array",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -815,13 +813,13 @@
       {
         "type": "_object",
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -857,13 +855,13 @@
       },
       {
         "?$id": "$URI-REFERENCE",
-        "?$schema": "$URL",
+        "?$schema": "$URI",
         "?$ref": "$URI-REFERENCE",
         "?$anchor": "$URI-REFERENCE",
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -891,13 +889,13 @@
         "?oneOf": "$schemaArray"
       }
     ],
-    "#": "JsonModel 16"
+    "#": "JsonModel 15"
   },
   {
     "|": [
       true,
       "$TightSchema"
     ],
-    "#": "JsonModel 17"
+    "#": "JsonModel 16"
   }
 ]

@@ -1,0 +1,19 @@
+[
+  [ true,  "u@domain.fr" ],
+  [ true,  "susie@comics.net" ],
+  [ true,  "Calvin_and_Hobbes@Comics.Net" ],
+  [ true,  "Postgres.5432@some.domain" ],
+  [ false, "<susie@comics.net>" ],
+  [ false, "@comics.net" ],
+  [ false, "susie@" ],
+  [ false, "susie derkins@comics dot net" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["susie@comics.net"] ],
+  [ false, {} ],
+  [ false, {"mél": "susie@comics.net"} ]
+]

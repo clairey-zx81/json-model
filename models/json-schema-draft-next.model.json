@@ -3,7 +3,6 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/json-schema-draft-next",
-    "URI": "$URL",
     "URI-REFERENCE": "",
     "core": {
       "?$id": "$URI-REFERENCE",

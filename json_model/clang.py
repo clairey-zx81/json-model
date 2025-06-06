@@ -106,8 +106,10 @@ class CLangJansson(Language):
             return f"jm_is_valid_date({val})"
         elif name == "$REGEX":
             return f"jm_is_valid_regex({val})"
-        elif name == "$URL":
+        elif name in ("$URL", "$URI"):
             return f"jm_is_valid_url({val})"
+        elif name == "$EMAIL":
+            return f"jm_is_valid_email({val})"
         else:
             return super().predef(var, name, path, is_str)
     

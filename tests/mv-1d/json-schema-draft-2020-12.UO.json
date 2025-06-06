@@ -4,7 +4,6 @@
     "#": "JsonModel 1 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
     "$": {
       "URI-REFERENCE": "",
-      "URI": "$URL",
       "core": {
         "?$id": "$URI-REFERENCE",
         "?$schema": "_https://json-schema.org/draft/2020-12/schema",
@@ -13,13 +12,13 @@
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
           "": "$Schema"
         },
-        "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 3 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "meta": {
         "?title": "",
@@ -31,22 +30,22 @@
         "?examples": [
           "$ANY"
         ],
-        "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "content": {
         "?contentEncoding": "",
         "?contentMediaType": "",
         "?contentSchema": "$Schema",
-        "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "unevaluated": {
         "?unevaluatedItems": "$Schema",
         "?unevaluatedProperties": "$Schema",
-        "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "format": {
         "?format": "",
-        "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypes": {
         "|": [
@@ -58,7 +57,7 @@
           "object",
           "string"
         ],
-        "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypesArray": {
         "@": [
@@ -66,14 +65,14 @@
         ],
         ">=": 1,
         "!": true,
-        "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "stringArray": {
         "@": [
           ""
         ],
         "!": true,
-        "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "nonNegativeInteger": 0,
       "validation": {
@@ -106,14 +105,14 @@
         "?dependentRequired": {
           "": "$stringArray"
         },
-        "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "schemaArray": {
         "@": [
           "$Schema"
         ],
         ">=": 1,
-        "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "applicator": {
         "?prefixItems": "$schemaArray",
@@ -137,7 +136,7 @@
         "?allOf": "$schemaArray",
         "?anyOf": "$schemaArray",
         "?oneOf": "$schemaArray",
-        "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "ObjectSchema": {
         "?$id": "$URI-REFERENCE",
@@ -147,7 +146,7 @@
         "?$dynamicRef": "$URI-REFERENCE",
         "?$dynamicAnchor": "$URI-REFERENCE",
         "?$vocabulary": {
-          "$URL": true
+          "$URI": true
         },
         "?$comment": "",
         "?$defs": {
@@ -218,14 +217,14 @@
         "?contentEncoding": "",
         "?contentMediaType": "",
         "?contentSchema": "$Schema",
-        "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": {
         "|": [
           true,
           "$ObjectSchema"
         ],
-        "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "#": "Symbol 1",
       "": "https://json-model.org/models/json-schema-draft-2020-12"
@@ -233,7 +232,6 @@
     "~": "https://json-model.org/models/json-model"
   },
   "",
-  "$URL",
   {
     "?$id": "$URI-REFERENCE",
     "?$schema": "_https://json-schema.org/draft/2020-12/schema",
@@ -242,13 +240,13 @@
     "?$dynamicRef": "$URI-REFERENCE",
     "?$dynamicAnchor": "$URI-REFERENCE",
     "?$vocabulary": {
-      "$URL": true
+      "$URI": true
     },
     "?$comment": "",
     "?$defs": {
       "": "$Schema"
     },
-    "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 3 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?title": "",
@@ -260,22 +258,22 @@
     "?examples": [
       "$ANY"
     ],
-    "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?contentEncoding": "",
     "?contentMediaType": "",
     "?contentSchema": "$Schema",
-    "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?unevaluatedItems": "$Schema",
     "?unevaluatedProperties": "$Schema",
-    "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?format": "",
-    "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
@@ -287,7 +285,7 @@
       "object",
       "string"
     ],
-    "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
@@ -295,14 +293,14 @@
     ],
     ">=": 1,
     "!": true,
-    "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       ""
     ],
     "!": true,
-    "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   0,
   {
@@ -335,14 +333,14 @@
     "?dependentRequired": {
       "": "$stringArray"
     },
-    "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       "$Schema"
     ],
     ">=": 1,
-    "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?prefixItems": "$schemaArray",
@@ -366,7 +364,7 @@
     "?allOf": "$schemaArray",
     "?anyOf": "$schemaArray",
     "?oneOf": "$schemaArray",
-    "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?$id": "$URI-REFERENCE",
@@ -376,7 +374,7 @@
     "?$dynamicRef": "$URI-REFERENCE",
     "?$dynamicAnchor": "$URI-REFERENCE",
     "?$vocabulary": {
-      "$URL": true
+      "$URI": true
     },
     "?$comment": "",
     "?$defs": {
@@ -447,13 +445,13 @@
     "?contentEncoding": "",
     "?contentMediaType": "",
     "?contentSchema": "$Schema",
-    "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
       true,
       "$ObjectSchema"
     ],
-    "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   }
 ]

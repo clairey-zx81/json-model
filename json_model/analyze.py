@@ -192,6 +192,7 @@ _UTYPE = {
     "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,
     "$URL": str, "$REGEX": str, "$DATE": str, "$UUID": str,
+    "$URI": str, "$EMAIL": str,
 }
 
 
@@ -256,11 +257,12 @@ _UMODEL = {
     "$F32": -1.0, "$F64": -1.0, "$NUMBER": -1.0,
     "$STRING": "",
     # stop recursion on (some) predefs
-    "$URI": "$URI",
     "$URL": "$URL",
     "$REGEX": "$REGEX",
     "$DATE": "$DATE",
     "$UUID": "$UUID",
+    "$URI": "$URI",
+    "$EMAIL": "$EMAIL",
     # to be continued…
 }
 

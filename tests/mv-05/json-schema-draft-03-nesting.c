@@ -35,8 +35,8 @@ static jm_propmap_t _jm_obj_0_map_tab[29];
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_constant_t _jm_cst_1[8];
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
@@ -256,7 +256,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$schema'.disallow.'|'.1
-        res = json_model_6(val, path, rep);
+        res = json_model_5(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $distinctSchemaArray [.'$schema'.disallow.'|'.1]", path);
@@ -673,7 +673,7 @@ static bool _jm_f_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$schema'.type
     // .'$schema'.type.'|'.0
-    res = json_model_5(val, path, rep);
+    res = json_model_4(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $allTypes [.'$schema'.type.'|'.0]", path);
@@ -823,7 +823,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 
 // check $schema#allTypes (.'$schema#allTypes')
-static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$schema#allTypes'
@@ -836,7 +836,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $schema#distinctSchemaArray (.'$schema#distinctSchemaArray')
-static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$schema#distinctSchemaArray'
