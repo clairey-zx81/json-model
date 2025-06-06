@@ -84,6 +84,18 @@ For instance, let's consider a JSON model in file `person.model.json`:
   oops.json: FAIL (.: not an expected object [.]; .: missing mandatory prop <born> [.])
   ```
 
+  The generated executable allow to collect validation performance figures (average and
+  standard deviation) over a loop, with or without reporting:
+
+  ```sh
+  ./person.out -r -T 100000 hobbes.json
+  ```
+  ```
+  hobbes.json.[0] nop PASS 0.056 ± 0.423 µs/check (0.174)
+  hobbes.json.[0] rep PASS 0.071 ± 0.443 µs/check (0.174)
+  hobbes.json: PASS
+  ```
+
 ## JSON Model Python API
 
 The package provides functions to load and check models from Python:
