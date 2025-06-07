@@ -90,6 +90,9 @@ class Python(Language):
     def clean_report(self) -> Block:
         return [ "rep is None or rep.clear()" ]
 
+    def nope(self) -> Block:
+        return [ "pass" ]
+
     def gen_init(self, init: Block) -> Block:
         return self.file_subs("python_init.py", init)
 

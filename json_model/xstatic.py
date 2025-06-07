@@ -225,22 +225,22 @@ class CodeGenerator:
 
         # per constraints
         if has_str and has_flt:
-            elim += [ gen.lcom("cannot mix float and string constraints") ]
+            elim += gen.lcom("cannot mix float and string constraints")
 
         # per model type
         if tmodel in (bool, type(None)) and (cmp_props or has_unique):
-            elim += [ gen.lcom("no constraint allowed on bool or null") ]
+            elim += gen.lcom("no constraint allowed on bool or null")
             # else type check will be enough, standard case below
         elif tmodel in (dict, list) and (has_flt or has_str):
-            elim += [ gen.lcom("no str/flt constraints on object or array") ]
+            elim += gen.lcom("no str/flt constraints on object or array")
         elif tmodel is str and has_flt:
-            elim += [ gen.lcom("no float constraints on strings") ]
+            elim += gen.lcom("no float constraints on strings")
         elif tmodel in (int, float) and has_str:
-            elim += [ gen.lcom("no string constraints on numbers") ]
+            elim += gen.lcom("no string constraints on numbers")
 
         # per unique
         if has_unique and tmodel is not list:
-            elim += [ gen.lcom(f"no unique constraint on {tname(tmodel)}") ]
+            elim += gen.lcom(f"no unique constraint on {tname(tmodel)}")
 
         # TODO value-based elimination
 
@@ -484,7 +484,7 @@ class CodeGenerator:
                                 self._gen_fail(f"expecting empty object [{smpath}]", vpath))
                 return code
             elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
-                code += [ gen.lcom("accept any object"), gen.ret(gen.const(True)) ]
+                code += gen.lcom("accept any object") + [ gen.ret(gen.const(True)) ]
                 return code
             # else cannot optimize early
 
@@ -513,8 +513,8 @@ class CodeGenerator:
                 for p, m in must.items():
                     mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     mu_code = (
-                        [ gen.lcom(f"handle must {p} property"),
-                          gen.inc_var(must_c) ] +
+                        gen.lcom(f"handle must {p} property") +
+                        [  gen.inc_var(must_c) ] +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
                             self._gen_fail(
@@ -536,7 +536,7 @@ class CodeGenerator:
                 # use map
                 mu_expr = gen.prop_fun(pfun, prop, prop_must)
                 mu_code = (
-                    [ gen.lcom(f"handle {len(must)} mandatory props") ] +
+                    gen.lcom(f"handle {len(must)} mandatory props") +
                     gen.if_stmt(gen.is_def(pfun),
                         [ gen.inc_var(must_c) ] +
                         gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
@@ -552,7 +552,7 @@ class CodeGenerator:
                 for p, m in may.items():
                     ma_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     ma_code = (
-                        [ gen.lcom(f"handle may {p} property") ] +
+                        gen.lcom(f"handle may {p} property") +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
                             self._gen_fail(
@@ -572,7 +572,7 @@ class CodeGenerator:
 
                 ma_expr = gen.prop_fun(pfun, prop, prop_may)
                 ma_code = (
-                    [ gen.lcom(f"handle {len(may)} may props") ] +
+                    gen.lcom(f"handle {len(may)} may props") +
                     gen.if_stmt(gen.and_op(gen.is_def(pfun),
                                            gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
                         self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
@@ -584,7 +584,7 @@ class CodeGenerator:
         for d, m in defs.items():
             ref = "$" + d
             dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, True)  # FIXME lpath &lpath?
-            dl_code = [ gen.lcom(f"handle {len(defs)} key props") ] + \
+            dl_code = gen.lcom(f"handle {len(defs)} key props") + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(dl_expr, dl_code)]
@@ -594,7 +594,7 @@ class CodeGenerator:
             # FIXME options?!
             regex = f"/{r}/"
             rg_expr = self._regExpr(jm, regex, prop, vpath, True)  # FIXME lpath &lpath?
-            rg_code = [ gen.lcom(f"handle {len(regs)} re props") ] + \
+            rg_code = gen.lcom(f"handle {len(regs)} re props") + \
                 self._compileModel(jm, v, mpath + [regex], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
             multi_if += [(rg_expr, rg_code)]
@@ -605,14 +605,11 @@ class CodeGenerator:
             omodel = oth[""]
             smpath = json_path(mpath + [""])
             if omodel != "$ANY":
-                ot_code = [ gen.lcom("handle other props") ] + \
+                ot_code = gen.lcom("handle other props") + \
                     self._compileModel(jm, omodel, mpath + [""], res, pval, lpath_ref) + \
                     self._gen_short_expr(res)
             else:  # optimized "": "$ANY" case
-                ot_code = [
-                    gen.lcom("accept any other props"),
-                    gen.nope()
-                ]
+                ot_code = gen.lcom("accept any other props") + gen.nope()
         else:  # no catch all
             smpath = json_path(mpath)
             ot_code = self._gen_fail(f"unexpected prop [{smpath}]", lpath_ref)
@@ -742,15 +739,14 @@ class CodeGenerator:
 
         # NOTE optimized out under -O
         if len(models) == 0:
-            code += [
-                gen.lcom("early empty xor list"),
+            code += gen.lcom("early empty xor list") + [
                 gen.bool_var(res, gen.const(False))
             ]
             return code
 
         # NOTE optimized out under -O
         if len(models) == 1:
-            return [ gen.lcom("early singleton xor list") ] + \
+            return gen.lcom("early singleton xor list") + \
                 self._compileModel(jm, models[0], mpath + [0], res, val, vpath, known)
 
         # optimize out repeated models
@@ -773,8 +769,7 @@ class CodeGenerator:
             # direct false if in dups
             if dups:
                 isin = gen.ident("is")
-                code += [
-                    gen.lcom("remove duplicate xor list"),
+                code += gen.lcom("remove duplicate xor list") + [
                     gen.bool_var(isin, declare=True),
                     gen.bool_var(res, gen.const(True))
                 ]
@@ -799,14 +794,14 @@ class CodeGenerator:
         # TODO reporting
         xcode = []
         if not models:
-            xcode += [ gen.lcom("empty xor list"), gen.bool_var(res, gen.const(False)) ]
+            xcode += gen.lcom("empty xor list") + [ gen.bool_var(res, gen.const(False)) ]
         elif len(models) == 1:
             mod, idx = models[0], models_i[0]
-            xcode += [ gen.lcom("singleton xor list") ] + \
+            xcode += gen.lcom("singleton xor list") + \
                 self._compileModel(jm, mod, mpath + [idx], res, val, vpath)
         else:  # several models are inlined
             if len(models) == 2 and "$ANY" in models:
-                xcode += [ gen.lcom("not-case xor list") ]
+                xcode += gen.lcom("not-case xor list")
                 # get other model
                 if models[0] == "$ANY":
                     m = models[1]
@@ -823,8 +818,7 @@ class CodeGenerator:
                 # TODO collect which model matched for reporting?
                 count = self._lang.ident("xc")
                 test = self._lang.ident("xr")
-                xcode += [
-                    gen.lcom("generic xor list"),
+                xcode += gen.lcom("generic xor list") + [
                     gen.int_var(count, gen.const(0), declare=True),
                     gen.bool_var(test, declare=True)
                 ]
@@ -899,7 +893,7 @@ class CodeGenerator:
         gen = self._lang
         known = known or set()
 
-        code = [ gen.lcom(f"{json_path(mpath)}") ]
+        code = gen.lcom(f"{json_path(mpath)}")
         match model:
             case None:
                 code += [ gen.bool_var(res, gen.is_a(val, None)) ] + \
@@ -1013,7 +1007,7 @@ class CodeGenerator:
                     call = self._dollarExpr(jm, model, val, vpath)
                     code += [ gen.bool_var(res, call) ]
                 elif model[0] == "/":
-                    code += [ gen.lcom(f"{self._esc(model)}") ]
+                    code += gen.lcom(f"{self._esc(model)}")
                     call = self._regExpr(jm, model, val, vpath)
                     code += [ gen.bool_var(res, gen.and_op(expr, call) if expr else call) ]
                 else:  # simple string
@@ -1038,7 +1032,7 @@ class CodeGenerator:
                     # SHORT RES?
                 elif len(model) == 1:
                     if model[0] == "$ANY":
-                        loop = [ gen.lcom("accept any array"), gen.nope() ]
+                        loop = gen.lcom("accept any array") + gen.nope()
                     else:
                         arrayid = gen.ident("arr")
                         idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
@@ -1092,7 +1086,7 @@ class CodeGenerator:
                     # new function to check the object
                     objid = gen.ident(self._prefix + "obj")
                     ocode: Block = (
-                        [ gen.lcom(f"object {json_path(mpath)}") ] +
+                        gen.lcom(f"object {json_path(mpath)}") +
                         gen.sub_fun(objid,
                             self._compileObject(jm, model, mpath, objid, "res", "val", "path"))
                     )

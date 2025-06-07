@@ -2,7 +2,9 @@
 
 ## Current Tasks
 
-- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation (wip)
+- [ ] js-backend: add java/type script backend
+- [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] models: update JSON model meta-model with regex extension…
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
@@ -24,6 +26,7 @@
 - [ ] design: add `$URI-REF`?
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
+- [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 
 ## To Do
 
@@ -123,8 +126,6 @@
 - [ ] perf: two phase check, without collection and with collection if needed.
 - [ ] perf: no reasons/path collection and run with collection only when bad.
 - [ ] schema: handle includes? inline?!
-- [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
-- [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] js/ts-backend: look at JSON Schema implementations?
 - [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
@@ -139,6 +140,7 @@
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 - [ ] pr: provide a docker.
+- [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
 
 ## Done
 

@@ -204,8 +204,8 @@ class CLangJansson(Language):
     #
     # simple instructions
     #
-    def nope(self) -> Inst:
-        return None
+    def nope(self) -> Block:
+        return []
 
     def  var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
         assign = f" = {val}" if val else ""
@@ -444,7 +444,7 @@ class CLangJansson(Language):
                 raise Exception(f"unexpected constant value: {value}")
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        code = [ self.lcom(f"initialize sorted set {name}") ]
+        code = self.lcom(f"initialize sorted set {name}")
         for i, cst in enumerate(constants):
             code.append(f"{name}[{i}] = {self._cst(cst)};")
         code.append(f"jm_sort_cst({name}, {len(constants)});")
