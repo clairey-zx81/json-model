@@ -2,45 +2,28 @@
 
 ## Current Tasks
 
-- [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
-- [x] backend: move python-specifics from `language.py` to `python.py`
-- [x] backend: ~report which several xor succeeded? no, implicit with rejects~
-- [x] tests: run with dynamic python
-- [x] tests: run generated schema (partial)
-- [x] schema: ~nearly always add explicit `"$schema"` property, nope, fixed in tests?~
-- [x] schema: fix `untype00` schema
-- [x] optim: detect non feasible constraints wrt values
-- [x] optim: remove unfeasible `!=`
-- [x] python: refactoring, drop `Validator` class
-- [x] python: refactoring, remove `defines.py` and `validator.py`
-- [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
-- [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
-- [x] models: update JSON model meta-model with regex extension…
-- [x] c-backend: get rid of `mktime` for fast date validation
-- [x] design: add `$EXREG' for JSON Model extended regex
+- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [ ] models: update JSON model meta-model with regex extension…
+- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] c-backend: remove path build under no reporting code gen
-- [ ] python: cleanup ultimate model reliance on local defs
 - [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] optim: root xor should be simplified in `geo.model.json`, maybe with inlining?
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
-- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
-- [ ] optim: more constraint simplifications, eg redundant `<` and `<=`.
-- [ ] c-backend: generate thread-safe code? option?
-- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF`?
 - [ ] c-backend: add reporting to predef failures?
+- [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 
 ## To Do
 
@@ -50,6 +33,7 @@
 - [ ] design: $-refs may only appear in defs for simpler compiler AND better readability?
 - [ ] project: move all code's TODO here
 - [ ] py-backend: multi-type enum `enum_05`
+- [ ] optim: more constraint simplifications, eg redundant `<` and `<=`.
 - [ ] static: if loose, cast all int constants to double?
 - [ ] static: keep model comments in generated code?
 - [ ] c-backend: add arr and obj to cst management?
@@ -62,11 +46,8 @@
 - [ ] backend: direct code for blaze?
 - [ ] dynamic: rely on static and eval
 - [ ] frontend: add multi-level naming option
-- [ ] backend: report errors
 - [ ] optim: ultimate type on loose should yield `float`
 - [ ] static: abstract imperative language code generation (wip)
-- [ ] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
-- [ ] c-backend: predefs for $DATE, $URL, $REGEX
 - [ ] backend: do not generate intermediate empty functions for direct objects?
 - [ ] backend: do not generate intermediate empty functions for property values when possible
 - [ ] backend: reduce/minimize language abstraction? `T_var_val`?
@@ -79,7 +60,6 @@
 - [ ] optim: remove unused introduced names `__external_...`
 - [ ] optim: remove unused names at depth 1 and more?
 - [ ] optim: remove unused local (not exported) definitions?
-- [ ] static: fix `modval/_untyped*` with `value_len` when type is unknown
 - [ ] static: detect and remove duplicate functions!
 - [ ] static: generate pyright compatible code…
 - [ ] tests: remove unstable DO output? remove empty lines?
@@ -316,3 +296,23 @@
 - [x] jmc: generate executable python script
 - [x] jmc: make `-O` the default, add `-nO` to disable.
 - [x] frontend: align python and C pass/fail outputs
+- [x] static: fix `untyped...` with `value_len` when type is unknown
+- [x] static: fast mode, check that it returns as early as possible (or, xor, and, obj, arr)
+- [x] backend: move python-specifics from `language.py` to `python.py`
+- [x] backend: ~report which several xor succeeded? no, implicit with rejects~
+- [x] tests: run with dynamic python
+- [x] tests: run generated schema (partial)
+- [x] schema: ~nearly always add explicit `"$schema"` property, nope, fixed in tests?~
+- [x] schema: fix `untype00` schema
+- [x] optim: detect non feasible constraints wrt values
+- [x] optim: remove unfeasible `!=`
+- [x] python: refactoring, drop `Validator` class
+- [x] python: refactoring, remove `defines.py` and `validator.py`
+- [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
+- [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
+- [x] c-backend: get rid of `mktime` for fast date validation
+- [x] design: add `$EXREG' for JSON Model extended regex
+- [x] c-backend: see [jansson](https://jansson.readthedocs.io/en/latest/), avoid cJSON
+- [x] c-backend: predefs for $DATE, $URL, $REGEX
+- [x] backend: report errors
+- [x] python: cleanup ultimate model reliance on local defs
