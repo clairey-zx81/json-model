@@ -371,44 +371,44 @@ class Language:
         else:
             return []
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         """Declare and/or assign a variable with a type."""
         raise NotImplementedError("var")
 
-    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Inst:
+    def json_var(self, var: Var, val: JsonExpr|None = None, declare: bool = False) -> Block:
         """Declare a JSON variable."""
         return self.var(var, val, self._json_t if declare else None)
 
-    def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Inst:
+    def bool_var(self, var: Var, val: BoolExpr|None = None, declare: bool = False) -> Block:
         """Declare a boolean variable."""
         return self.var(var, val, self._bool_t if declare else None)
 
-    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
+    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         """Declare and assign to int variable."""
         return self.var(var, val, self._int_t if declare else None)
 
-    def str_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
+    def str_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         """Declare and assign to str variable."""
         return self.var(var, val, self._str_t if declare else None)
 
-    def flt_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
+    def flt_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         """Declare and assign to str variable."""
         return self.var(var, val, self._float_t if declare else None)
 
-    def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Inst:
+    def fun_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Declare a check function variable pointer."""
         # FIXME should guard for scalar?
         return self.var(var, val, self._check_t if declare else None)
 
-    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Inst:
+    def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a value to a path variable."""
         return self.var(pvar, val, self._path_t if declare else None) if self._with_path else None
 
-    def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Inst:
+    def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a match result variable."""
         return self.var(var, val, self._match_t if declare else None)
 
-    def match_str_var(self, var: str, val: str, declare: bool = False) -> Inst:
+    def match_str_var(self, var: str, val: str, declare: bool = False) -> Block:
         """Declare a variable for a matching result extracted from val."""
         # the value is just as a length helper
         return self.str_var(var, None, declare)
@@ -417,9 +417,9 @@ class Language:
         """And-update boolean variable."""
         return "{var} &= {e}{self.eoi}"
 
-    def inc_var(self, var: Var) -> Inst:
+    def inc_var(self, var: Var) -> Block:
         """Increment integer variable."""
-        return f"{var} += 1{self._eoi}"
+        return [ f"{var} += 1{self._eoi}" ]
 
     def ret(self, res: BoolExpr) -> Inst:
         """Return boolean result."""

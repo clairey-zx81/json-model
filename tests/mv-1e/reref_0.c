@@ -40,7 +40,10 @@ static bool _jm_xre_0(const char *val)
     {
         return false;
     }
-    const PCRE2_SIZE extract_size = strlen(val);char extract[extract_size];PCRE2_SIZE extract_len;int rc;
+    const PCRE2_SIZE extract_size = strlen(val);
+    char extract[extract_size];
+    PCRE2_SIZE extract_len;
+    int rc;
     extract_len = extract_size;
     rc = pcre2_substring_copy_byname(_jm_xre_0_re_data, (PCRE2_SPTR) "s0", (PCRE2_UCHAR *) extract, &extract_len);
     if (rc != 0)

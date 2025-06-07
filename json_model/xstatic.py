@@ -72,12 +72,9 @@ class CodeGenerator:
     def _exreg(self, jm: JsonModel, name: str, rname: str, remap: dict[str, str]) -> Block:
         """Generate post regex code for extended regular expression."""
         gen = self._lang
-        code = [
-            gen.match_var("match", gen.match_re(rname, "val"), declare=True),
-        ] + gen.if_stmt(gen.not_op("match"), [ gen.ret(gen.const(False)) ] )
-        checks = [
-            gen.match_str_var("extract", "val", declare=True)
-        ]
+        code = gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
+            gen.if_stmt(gen.not_op("match"), [ gen.ret(gen.const(False)) ] )
+        checks = gen.match_str_var("extract", "val", declare=True)
         # sname is the name of the substrin
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract")
@@ -247,7 +244,7 @@ class CodeGenerator:
         # TODO add to "optimize.py"
         if elim:
             log.warning(f"unfeasible model [{smpath}]")
-            return elim + [ gen.bool_var(res, gen.const(False)) ]
+            return elim + gen.bool_var(res, gen.const(False))
 
         # initial model check
         code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
@@ -276,35 +273,25 @@ class CodeGenerator:
                 if tmodel in (int, str, list, dict):
                     # skip float
                     ival = gen.ident("ival")
-                    cvars += [
-                        gen.int_var(ival, gen.any_int_val(val, tmodel), declare=True)
-                    ]
+                    cvars += gen.int_var(ival, gen.any_int_val(val, tmodel), declare=True)
                 else:
                     assert tmodel is float
                     fval = gen.ident("fval")
-                    cvars += [
-                        gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),
-                                    declare=True)
-                    ]
+                    cvars += gen.flt_var(fval,
+                        gen.value(val, Number if jm._loose_float else float), declare=True)
             if has_flt:
                 if tmodel is float and not has_int:
                     fval = gen.ident("fval")
-                    cvars += [
-                        gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),
-                                    declare=True)
-                    ]
+                    cvars += gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),
+                                         declare=True)
                 elif tmodel is int:
                     fval = gen.ident("fval")
-                    cvars += [
-                        gen.flt_var(fval, gen.value(val, Number), declare=True)
-                    ]
+                    cvars += gen.flt_var(fval, gen.value(val, Number), declare=True)
                 # else cannot happen
             if has_str:
                 assert tmodel is str  # redundant sanity check
                 sval = gen.ident("sval")
-                cvars += [
-                    gen.str_var(sval, gen.value(val, str), declare=True)
-                ]
+                cvars += gen.str_var(sval, gen.value(val, str), declare=True)
             for op in sorted(cmp_props):  # FIXME looseness?
                 vop = model[op]
                 if isinstance(vop, int):
@@ -319,7 +306,7 @@ class CodeGenerator:
 
         assert checks
         log.debug(f"checks={checks}")
-        code += gen.if_stmt(res, cvars + [ gen.bool_var(res, gen.and_op(*checks)) ])
+        code += gen.if_stmt(res, cvars + gen.bool_var(res, gen.and_op(*checks)))
         code += self._gen_report(res, f"constraints failed [{smpath}]", vpath)
         return code
 
@@ -375,7 +362,7 @@ class CodeGenerator:
 
         self._code.cmap(cmap, TAG_CHECKS)
 
-        code += [ gen.bool_var(res, gen.is_a(val, dict)) ]
+        code += gen.bool_var(res, gen.is_a(val, dict))
 
         # FIXME None tag value?!
         tag = self._lang.ident("tag")
@@ -387,14 +374,14 @@ class CodeGenerator:
 
         code += (
             gen.if_stmt(res,
-                [ itag ] +
+                itag +
                 gen.if_stmt(gen.is_def(tag),
-                    [ ifun ] +
+                    ifun +
                     gen.if_stmt(gen.is_def(fun),
-                        [ icall ],
-                        [ gen.bool_var(res, gen.const(False)) ] +
+                        icall,
+                        gen.bool_var(res, gen.const(False)) +
                         gen.report(f"tag {tag_name} value not found [{smpath}]", vpath)),
-                    [ gen.bool_var(res, gen.const(False)) ] +
+                    gen.bool_var(res, gen.const(False)) +
                     gen.report(f"tag prop {tag_name} is missing [{smpath}]", vpath)),
                 gen.report(f"value is not an object [{smpath}]", vpath))
         )
@@ -496,17 +483,17 @@ class CodeGenerator:
         if defs or regs or oth and oth[""] != "$ANY" or \
                 1 <= len(must) <= self._map_threshold or \
                 1 <= len(may) <= self._map_threshold:
-            code += [ gen.bool_var(res, declare=True) ]
+            code += gen.bool_var(res, declare=True)
 
         if len(may) > self._map_threshold or len(must) > self._map_threshold:
             # we need a function pointer for simple properties
-            code += [ gen.fun_var(pfun, declare=True) ]
+            code += gen.fun_var(pfun, declare=True)
 
         # build multi-if structure to put in prop/val loop
         if must:
 
             # must prop counter to check at the end if all were seen
-            code += [ gen.int_var(must_c, gen.const(0), True) ]
+            code += gen.int_var(must_c, gen.const(0), True)
 
             if len(must) <= self._map_threshold:  # direct property checks
 
@@ -514,7 +501,7 @@ class CodeGenerator:
                     mu_expr = gen.str_cmp(prop, "=", gen.esc(p))
                     mu_code = (
                         gen.lcom(f"handle must {p} property") +
-                        [  gen.inc_var(must_c) ] +
+                        gen.inc_var(must_c) +
                         self._compileModel(jm, m, mpath + [p], res, pval, lpath_ref) +
                         gen.if_stmt(gen.not_op(res),
                             self._gen_fail(
@@ -538,7 +525,7 @@ class CodeGenerator:
                 mu_code = (
                     gen.lcom(f"handle {len(must)} mandatory props") +
                     gen.if_stmt(gen.is_def(pfun),
-                        [ gen.inc_var(must_c) ] +
+                        gen.inc_var(must_c) +
                         gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
                             self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref)))
                 )
@@ -615,7 +602,7 @@ class CodeGenerator:
             ot_code = self._gen_fail(f"unexpected prop [{smpath}]", lpath_ref)
 
         code += gen.obj_loop(val, prop, pval,
-            [ gen.path_var(lpath, gen.path_val(vpath, prop, True), True) ] +
+            gen.path_var(lpath, gen.path_val(vpath, prop, True), True) +
             gen.mif_stmt(multi_if, ot_code))
 
         # check that all must were seen, with some effort to report the missing ones
@@ -647,7 +634,7 @@ class CodeGenerator:
         if not models:
             if self._report:
                 code += [ gen.report(f"empty or [{smpath}]", vpath) ]
-            code += [ gen.bool_var(res, gen.const(False)) ]
+            code += gen.bool_var(res, gen.const(False))
             return code
 
         # partial/full list of constants optimization
@@ -672,11 +659,9 @@ class CodeGenerator:
             if constants:
                 sname = gen.ident(self._prefix + "cst")
                 self._code.cset(sname, constants)
-                code += [
-                    gen.bool_var(res,
-                                 gen.and_op(gen.is_scalar(val),
-                                            gen.in_cset(sname, val, constants)))
-                ]
+                code += gen.bool_var(res,
+                                     gen.and_op(gen.is_scalar(val),
+                                                gen.in_cset(sname, val, constants)))
                 code += self._gen_report(res, f"value not in enum [{smpath}]", vpath)
                 if not n_models:
                     return code
@@ -703,7 +688,7 @@ class CodeGenerator:
             # all models have the same ultimate type, type check shortcut
             type_test = gen.is_a(val, expected)
             or_known.add(type_test)
-            or_code += [ gen.bool_var(res, type_test) ]
+            or_code += gen.bool_var(res, type_test)
             or_code += self._gen_report(res, f"unexpected type [{smpath}]", vpath)
 
         icode = []
@@ -739,9 +724,7 @@ class CodeGenerator:
 
         # NOTE optimized out under -O
         if len(models) == 0:
-            code += gen.lcom("early empty xor list") + [
-                gen.bool_var(res, gen.const(False))
-            ]
+            code += gen.lcom("early empty xor list") + gen.bool_var(res, gen.const(False))
             return code
 
         # NOTE optimized out under -O
@@ -769,16 +752,17 @@ class CodeGenerator:
             # direct false if in dups
             if dups:
                 isin = gen.ident("is")
-                code += gen.lcom("remove duplicate xor list") + [
-                    gen.bool_var(isin, declare=True),
+                code += (
+                    gen.lcom("remove duplicate xor list") +
+                    gen.bool_var(isin, declare=True) +
                     gen.bool_var(res, gen.const(True))
-                ]
+                )
 
                 # generate flat if, no big deal?
                 for i, m in enumerate(dups):
                     idx = dups_i[i]
                     icode = self._compileModel(jm, m, mpath + [idx], isin, val, vpath) + \
-                        [ gen.bool_var(res, gen.not_op(isin)) ]
+                        gen.bool_var(res, gen.not_op(isin))
                     if i == 0:
                         code += icode
                     else:
@@ -794,7 +778,7 @@ class CodeGenerator:
         # TODO reporting
         xcode = []
         if not models:
-            xcode += gen.lcom("empty xor list") + [ gen.bool_var(res, gen.const(False)) ]
+            xcode += gen.lcom("empty xor list") + gen.bool_var(res, gen.const(False))
         elif len(models) == 1:
             mod, idx = models[0], models_i[0]
             xcode += gen.lcom("singleton xor list") + \
@@ -810,31 +794,33 @@ class CodeGenerator:
                     m = models[0]
                     idx = models_i[0]
                 is_m = self._lang.ident("is")
-                xcode += \
-                    [ gen.bool_var(is_m, declare=True) ] + \
-                    self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) + \
-                    [ gen.bool_var(res, gen.not_op(is_m)) ]
+                xcode += (
+                    gen.bool_var(is_m, declare=True) +
+                    self._compileModel(jm, m, mpath + [idx], is_m, val, vpath) +
+                    gen.bool_var(res, gen.not_op(is_m))
+                )
             else:
                 # TODO collect which model matched for reporting?
                 count = self._lang.ident("xc")
                 test = self._lang.ident("xr")
-                xcode += gen.lcom("generic xor list") + [
-                    gen.int_var(count, gen.const(0), declare=True),
+                xcode += (
+                    gen.lcom("generic xor list") +
+                    gen.int_var(count, gen.const(0), declare=True) +
                     gen.bool_var(test, declare=True)
-                ]
+                )
 
                 # flat if…
                 for i, m in enumerate(models):
                     idx = models_i[i]
                     icode = self._compileModel(jm, m, mpath + [idx], test, val, vpath) + \
-                        gen.if_stmt(test, [ gen.inc_var(count) ])
+                        gen.if_stmt(test, gen.inc_var(count))
                     if i < 2:
                         xcode += icode
                     else:  # maybe skip
                         xcode += gen.if_stmt(gen.num_cmp(count, "<=", gen.const(1)), icode)
 
                 # verify that only one matched
-                xcode += [ gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1))) ]
+                xcode += gen.bool_var(res, gen.num_cmp(count, "=", gen.const(1)))
 
         if dups:
             code += gen.if_stmt(res, xcode)
@@ -857,7 +843,7 @@ class CodeGenerator:
         code = []
 
         if not models:  # empty & list
-            code += [ gen.bool_var(res, gen.const(True)) ]
+            code += gen.bool_var(res, gen.const(True))
             return
 
         # homogeneous typed list
@@ -865,10 +851,10 @@ class CodeGenerator:
         if same:
             # all models have the same ultimate type, use a type shortcut
             type_test = gen.is_a(val, expected)
-            code += [ gen.bool_var(res, type_test) ]
+            code += gen.bool_var(res, type_test)
             and_known.add(type_test)
         else:
-            code += [ gen.bool_var(res, gen.const(True)) ]
+            code += gen.bool_var(res, gen.const(True))
 
         # build in reverse order the if structure
         acode: Block = []
@@ -896,10 +882,10 @@ class CodeGenerator:
         code = gen.lcom(f"{json_path(mpath)}")
         match model:
             case None:
-                code += [ gen.bool_var(res, gen.is_a(val, None)) ] + \
+                code += gen.bool_var(res, gen.is_a(val, None)) + \
                     self._gen_report(res, f"not null [{smpath}]", vpath)
             case bool():
-                code += [ gen.bool_var(res, gen.is_a(val, bool)) ] + \
+                code += gen.bool_var(res, gen.is_a(val, bool)) + \
                     self._gen_report(res, f"not a bool [{smpath}]", vpath)
             case int():
                 expr = gen.is_a(val, int, jm._loose_int)
@@ -924,7 +910,7 @@ class CodeGenerator:
                     raise ModelError(f"unexpected int value {model} at {smpath}")
                 if expr:
                     looseness = "loose" if jm._loose_int else "strict"
-                    code += [ gen.bool_var(res, expr) ] + \
+                    code += gen.bool_var(res, expr) + \
                         self._gen_report(res,
                             f"not a {model} {looseness} int [{smpath}]", vpath)
             case float():
@@ -950,7 +936,7 @@ class CodeGenerator:
                     raise ModelError(f"unexpected float value {model} at {mpath}")
                 if expr:
                     looseness = "loose" if jm._loose_float else "strict"
-                    code += [ gen.bool_var(res, expr) ] + \
+                    code += gen.bool_var(res, expr) + \
                         self._gen_report(res, f"not a {model} {looseness} float [{smpath}]", vpath)
             case str():
                 expr = gen.is_a(val, str)
@@ -964,11 +950,11 @@ class CodeGenerator:
                     if known is not None:
                         if expr is not None:
                             known.add(expr)
-                    code += [ gen.bool_var(res, expr if expr else gen.const(True)) ]
+                    code += gen.bool_var(res, expr if expr else gen.const(True))
                 elif model[0] == "_":
                     compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model[1:]))
                     expr = gen.and_op(expr, compare) if expr else compare
-                    code += [ gen.bool_var(res, expr) ]
+                    code += gen.bool_var(res, expr)
                 elif model[0] == "=":
                     # TODO FIXME known
                     # NOTE expr is ignore here
@@ -976,44 +962,44 @@ class CodeGenerator:
                     if not a_cst:
                         raise ModelError(f"unexpected constant: {model}")
                     if value is None:
-                        code += [ gen.bool_var(res, gen.is_a(val, None)) ]
+                        code += gen.bool_var(res, gen.is_a(val, None))
                     elif isinstance(value, bool):
                         ttest = gen.is_a(val, bool)
                         expr = gen.num_cmp(gen.value(val, bool), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
-                        code += [ gen.bool_var(res, expr) ]
+                        code += gen.bool_var(res, expr)
                     elif isinstance(value, int):
                         ttest = gen.is_a(val, int, jm._loose_int)
                         # FIXME cast depends on type?
                         expr = gen.num_cmp(gen.value(val, int), "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
-                        code += [ gen.bool_var(res, expr) ]
+                        code += gen.bool_var(res, expr)
                     elif isinstance(value, float):
                         ttest = gen.is_a(val, float, jm._loose_float)
                         expr = gen.num_cmp(gen.value(val, Number if jm._loose_float else float),
                                            "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
-                        code += [ gen.bool_var(res, expr) ]
+                        code += gen.bool_var(res, expr)
                     # elif isinstance(value, str):
                     #     compare = gen.str_eq(gen.str_val(val), gen.str_cst(model[1:]))
                     #     expr = gen.and_op(expr, compare) if expr else compare
-                    #     code += [ gen.bool_var(res, expr) ]
+                    #     code += gen.bool_var(res, expr)
                     else:
                         raise ModelError(f"unexpected constant type: {tname(value)}")
                 elif model[0] == "$":
                     call = self._dollarExpr(jm, model, val, vpath)
-                    code += [ gen.bool_var(res, call) ]
+                    code += gen.bool_var(res, call)
                 elif model[0] == "/":
                     code += gen.lcom(f"{self._esc(model)}")
                     call = self._regExpr(jm, model, val, vpath)
-                    code += [ gen.bool_var(res, gen.and_op(expr, call) if expr else call) ]
+                    code += gen.bool_var(res, gen.and_op(expr, call) if expr else call)
                 else:  # simple string
                     compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model))
                     expr = gen.and_op(expr, compare) if expr else compare
-                    code += [ gen.bool_var(res, expr) ]
+                    code += gen.bool_var(res, expr)
                 if self._report:
                     smodel = model if model else "string"
                     code += self._gen_report(res, f"unexpected {smodel} [{smpath}]", vpath)
@@ -1028,7 +1014,7 @@ class CodeGenerator:
                 if len(model) == 0:
                     length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0))
                     expr = gen.and_op(expr, length) if expr else length
-                    code += [ gen.bool_var(res, expr) ]
+                    code += gen.bool_var(res, expr)
                     # SHORT RES?
                 elif len(model) == 1:
                     if model[0] == "$ANY":
@@ -1037,27 +1023,27 @@ class CodeGenerator:
                         arrayid = gen.ident("arr")
                         idx, item, lpath = f"{arrayid}_idx", f"{arrayid}_item", f"{arrayid}_lpath"
 
-                        loop = gen.arr_loop(val, idx, item, [
-                            gen.path_var(lpath, gen.path_val(vpath, idx, False), True)
-                        ] + self._compileModel(jm, model[0], mpath + [0],
+                        loop = gen.arr_loop(val, idx, item,
+                            gen.path_var(lpath, gen.path_val(vpath, idx, False), True) +
+                            self._compileModel(jm, model[0], mpath + [0],
                                                res, item, gen.path_lvar(lpath, vpath)) + \
                             gen.if_stmt(gen.not_op(res), [ gen.brk() ])
                         )
 
-                    code += [ gen.bool_var(res, expr if expr else gen.const(True)) ] + \
+                    code += gen.bool_var(res, expr if expr else gen.const(True)) + \
                         gen.if_stmt(res, loop)
                 else:
                     length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
                     expr = gen.and_op(expr, length) if expr else length
-                    code += [ gen.bool_var(res, expr) ]
+                    code += gen.bool_var(res, expr)
                     lpath = gen.ident("lpath")
                     lpath_ref = gen.path_lvar(lpath, vpath)
-                    # body = [ gen.path_var(lpath, declare=True) ]
+                    # body = gen.path_var(lpath, declare=True)
                     body = []
                     for i, m in reversed(list(enumerate(model))):
                         body = gen.if_stmt(
                             res,
-                            [ gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) ] +
+                            gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) +
                             # FIXME generated variable reference…
                             self._compileModel(
                                 jm, model[i], mpath + [i],
@@ -1093,7 +1079,7 @@ class CodeGenerator:
                     self._code.subs(ocode)
 
                     # call object check and possibly report
-                    code += [ gen.bool_var(res, gen.check_call(objid, val, vpath)) ]
+                    code += gen.bool_var(res, gen.check_call(objid, val, vpath))
                     code += self._gen_report(res, f"not an expected object [{smpath}]", vpath)
 
                     # record object function for path
@@ -1156,7 +1142,7 @@ class CodeGenerator:
             fun = self._getName(jm, name)
             self._paths[hpath] = fun
 
-        body = [ self._lang.bool_var("res", declare=True) ] + \
+        body = self._lang.bool_var("res", declare=True) + \
             self._compileModel(jm, model, mpath, "res", "val", "path", set()) + \
             [ self._lang.ret("res") ]
 

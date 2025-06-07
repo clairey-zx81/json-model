@@ -18,7 +18,10 @@ check.pytest:
 	$(PYTEST) $(PYTOPT) tests.py
 
 .PHONY: check
-check: $(D.check)
+check: check.pytest
+
+.PHONY: check.gen
+check.gen: $(D.check)
 
 .PHONY: %.check
 %.check:

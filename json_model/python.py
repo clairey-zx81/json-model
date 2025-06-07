@@ -114,10 +114,10 @@ class Python(Language):
     def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
 
-    def var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = f": {tname}" if tname else ""
-        return f"{var}{decl}{assign}{self._eoi}"
+        return [ f"{var}{decl}{assign}{self._eoi}" ]
 
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         # avoid nested if expressions

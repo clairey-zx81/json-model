@@ -207,12 +207,12 @@ class CLangJansson(Language):
     def nope(self) -> Block:
         return []
 
-    def  var(self, var: Var, val: Expr|None, tname: str|None) -> Inst:
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
         assign = f" = {val}" if val else ""
         decl = f"{tname} " if tname else ""
-        return f"{decl}{var}{assign}{self._eoi}"
+        return [ f"{decl}{var}{assign}{self._eoi}" ]
 
-    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Inst:
+    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
         return self.var(var, val, self._int if declare else None)
 
     #
@@ -326,17 +326,19 @@ class CLangJansson(Language):
             f"pcre2_code_free({name}_code);",
         ]
 
-    def match_var(self, var: str, val: Expr, declare: bool) -> Inst:
+    def match_var(self, var: str, val: Expr, declare: bool) -> Block:
         decl = f"{self._match_t} " if declare else ""
         value = f" = {val}" if val else ""
-        return f"{decl}{var}{value};"
+        return [ f"{decl}{var}{value};" ]
 
-    def match_str_var(self, var: str, val: str, declare: bool = True) -> Inst:
+    def match_str_var(self, var: str, val: str, declare: bool = True) -> Block:
         assert declare
-        return f"const PCRE2_SIZE {var}_size = strlen({val});" \
-               f"char {var}[{var}_size];" \
-               f"PCRE2_SIZE {var}_len;" \
-               f"int rc;"
+        return [
+            f"const PCRE2_SIZE {var}_size = strlen({val});",
+            f"char {var}[{var}_size];",
+            f"PCRE2_SIZE {var}_len;",
+            f"int rc;"
+        ]
 
     def match_re(self, rname: str, val: str) -> Expr:
         return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
