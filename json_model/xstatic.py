@@ -73,15 +73,15 @@ class CodeGenerator:
         """Generate post regex code for extended regular expression."""
         gen = self._lang
         code = gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
-            gen.if_stmt(gen.not_op("match"), [ gen.ret(gen.const(False)) ] )
+            gen.if_stmt(gen.not_op("match"), gen.ret(gen.const(False)))
         checks = gen.match_str_var("extract", "val", declare=True)
         # sname is the name of the substrin
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract")
             checks += gen.if_stmt(
-                gen.not_op(self._dollarExpr(jm, ref, "extract", "path", True)), [
-                gen.ret(gen.const(False)) ])
-        checks += [ gen.ret(gen.const(True)) ]
+                gen.not_op(self._dollarExpr(jm, ref, "extract", "path", True)),
+                gen.ret(gen.const(False)))
+        checks += gen.ret(gen.const(True))
         code += checks
 
         # generate the string check function
@@ -408,12 +408,12 @@ class CodeGenerator:
     def _gen_fail(self, msg: str, path: str) -> Block:
         """Generate a report and return false."""
         gen = self._lang
-        return gen.report(msg, path) + [ gen.ret(gen.const(False)) ]
+        return gen.report(msg, path) + gen.ret(gen.const(False))
 
     def _gen_short_expr(self, expr: BoolExpr) -> Block:
         """Return immediately if expression is false."""
         gen = self._lang
-        return gen.if_stmt(gen.not_op(expr), [ gen.ret(gen.const(False)) ])
+        return gen.if_stmt(gen.not_op(expr), gen.ret(gen.const(False)))
 
     def _propmap_name(self, model: ModelObject, default: str) -> str:
         """Memoize property map names for reuse.
@@ -467,11 +467,11 @@ class CodeGenerator:
             if not oth:  # empty object
                 code += \
                     gen.if_stmt(gen.num_cmp(gen.obj_len(val), "=", gen.const(0)),
-                                [ gen.ret(gen.const(True)) ],
+                                gen.ret(gen.const(True)),
                                 self._gen_fail(f"expecting empty object [{smpath}]", vpath))
                 return code
             elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
-                code += gen.lcom("accept any object") + [ gen.ret(gen.const(True)) ]
+                code += gen.lcom("accept any object") + gen.ret(gen.const(True))
                 return code
             # else cannot optimize early
 
@@ -613,11 +613,10 @@ class CodeGenerator:
                     gen.if_stmt(gen.not_op(gen.has_prop(val, prop)),
                                 gen.report(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
             code += gen.if_stmt(gen.num_cmp(must_c, "!=", gen.const(len(must))),
-                self._gen_reporting(missing) +
-                [ gen.ret(gen.const(False)) ])
+                self._gen_reporting(missing) + gen.ret(gen.const(False)))
 
         # early returns so no need to look at res
-        code += [ gen.ret(gen.const(True)) ]
+        code += gen.ret(gen.const(True))
 
         return code
 
@@ -1027,7 +1026,7 @@ class CodeGenerator:
                             gen.path_var(lpath, gen.path_val(vpath, idx, False), True) +
                             self._compileModel(jm, model[0], mpath + [0],
                                                res, item, gen.path_lvar(lpath, vpath)) + \
-                            gen.if_stmt(gen.not_op(res), [ gen.brk() ])
+                            gen.if_stmt(gen.not_op(res), gen.brk())
                         )
 
                     code += gen.bool_var(res, expr if expr else gen.const(True)) + \
@@ -1144,7 +1143,7 @@ class CodeGenerator:
 
         body = self._lang.bool_var("res", declare=True) + \
             self._compileModel(jm, model, mpath, "res", "val", "path", set()) + \
-            [ self._lang.ret("res") ]
+            self._lang.ret("res")
 
         self._code.sub(fun, body, comment=f"check {name} ({json_path(mpath)})")
 

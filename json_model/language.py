@@ -413,21 +413,21 @@ class Language:
         # the value is just as a length helper
         return self.str_var(var, None, declare)
 
-    def iand_op(self, res: Var, e: BoolExpr) -> Inst:
+    def iand_op(self, res: Var, e: BoolExpr) -> Block:
         """And-update boolean variable."""
-        return "{var} &= {e}{self.eoi}"
+        return [ "{var} &= {e}{self.eoi}" ]
 
     def inc_var(self, var: Var) -> Block:
         """Increment integer variable."""
         return [ f"{var} += 1{self._eoi}" ]
 
-    def ret(self, res: BoolExpr) -> Inst:
+    def ret(self, res: BoolExpr) -> Block:
         """Return boolean result."""
-        return f"return {res}{self._eoi}"
+        return [ f"return {res}{self._eoi}" ]
 
-    def brk(self) -> Inst:
+    def brk(self) -> Block:
         """Break from surrounding loop."""
-        return f"break{self._eoi}"
+        return [ f"break{self._eoi}" ]
 
     def esc(self, s: str) -> StrExpr:
         """Escape string, with double quotes."""
