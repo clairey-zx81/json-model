@@ -27,7 +27,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     is_0 = json_is_string(val) && _jm_re_0(json_string_value(val));
     if (! is_0)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'^'.1]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected /^[a-z]+$/i [.'^'.1]", path);
     }
     res = ! is_0;
     if (res)

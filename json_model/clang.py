@@ -105,7 +105,9 @@ class CLangJansson(Language):
         elif name == "$DATE":
             return f"jm_is_valid_date({val})"
         elif name == "$REGEX":
-            return f"jm_is_valid_regex({val})"
+            return f"jm_is_valid_regex({val}, false)"
+        elif name == "$EXREG":
+            return f"jm_is_valid_regex({val}, true)"
         elif name in ("$URL", "$URI"):
             return f"jm_is_valid_url({val})"
         elif name == "$EMAIL":

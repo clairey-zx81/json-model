@@ -439,7 +439,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {

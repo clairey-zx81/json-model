@@ -1022,8 +1022,6 @@ class CodeGenerator:
                     code += [ gen.bool_var(res, expr) ]
                 if self._report:
                     smodel = model if model else "string"
-                    if model and model[0] == "/":  # FIXME workaround
-                        smodel = "REGEX"
                     code += self._gen_report(res, f"unexpected {smodel} [{smpath}]", vpath)
             case list():
                 expr = gen.is_a(val, list)

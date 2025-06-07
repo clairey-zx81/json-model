@@ -39,7 +39,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/.*/"
             res = isinstance(pval, str) and True
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.all]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /.*/ [.all]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.all]", lpath_0 if path is not None else None))
                 return False
@@ -49,7 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/./s"
             res = isinstance(pval, str) and len(pval) > 0
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.nz]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /./s [.nz]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.nz]", lpath_0 if path is not None else None))
                 return False
@@ -59,7 +59,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/./"
             res = isinstance(pval, str) and _jm_re_0(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.some]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /./ [.some]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.some]", lpath_0 if path is not None else None))
                 return False

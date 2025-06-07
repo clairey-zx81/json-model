@@ -144,9 +144,9 @@ extern bool jm_is_valid_date_fast(const char *);
 extern bool (*jm_is_valid_date)(const char *);
 extern bool jm_is_valid_uuid(const char *);
 extern size_t jm_any_len(json_t *);
-extern bool jm_is_valid_regex_slow(const char *);
-extern bool jm_is_valid_regex_fast(const char *);
-extern bool (*jm_is_valid_regex)(const char *);
+extern bool jm_is_valid_regex_slow(const char *, bool);
+extern bool jm_is_valid_regex_fast(const char *, bool);
+extern bool (*jm_is_valid_regex)(const char *, bool);
 extern bool jm_is_valid_url(const char *);
 extern bool jm_is_valid_email(const char *);
 

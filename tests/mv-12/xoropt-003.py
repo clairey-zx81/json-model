@@ -47,7 +47,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
                 # "/[a-z]/"
                 res = isinstance(val, str) and _jm_re_0(val)
                 if not res:
-                    rep is None or rep.append(("unexpected REGEX [.'$A'.'|'.3]", path))
+                    rep is None or rep.append(("unexpected /[a-z]/ [.'$A'.'|'.3]", path))
     if res:
         rep is None or rep.clear()
     else:

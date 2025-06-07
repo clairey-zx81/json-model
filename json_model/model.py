@@ -136,6 +136,7 @@ class JsonModel:
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
         "UUID": UUID_RE,
         "REGEX": "",  # FIXME
+        "EXREG": "",
         "URI": r"^\w+:.*$/",  # TODO improve
         "EMAIL": r"^(?i)[a-z0-9_.]+@[a-z0-9_.]+$",
         # to be continued…
@@ -597,8 +598,8 @@ class JsonModel:
                         case "$URL"|"$URI":
                             log.warning(f"approximating $URL/$URI key at {lpath}")
                             m = r"/[:/#]/"  # hmmm…
-                        case "$REGEX":
-                            log.warning(f"approximating $REGEX key at {lpath}")
+                        case "$REGEX"|"$EXREG":
+                            log.warning(f"approximating $REGEX/$EXREG key at {lpath}")
                             m = ""
                         case "$DATE":
                             log.warning(f"approximating $DATE key at {lpath}")

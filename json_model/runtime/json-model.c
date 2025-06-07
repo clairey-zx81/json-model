@@ -461,7 +461,7 @@ jm_is_valid_uuid(const char *uuid)
 
 // check regex validity by attempting to compile it with PCRE2, probably not very efficient
 bool
-jm_is_valid_regex_slow(const char *pattern)
+jm_is_valid_regex_slow(const char *pattern, bool extended)
 {
     if (!pattern)
         return false;
@@ -478,7 +478,7 @@ jm_is_valid_regex_slow(const char *pattern)
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 bool
-jm_is_valid_regex_fast(const char *pattern)
+jm_is_valid_regex_fast(const char *pattern, bool extended)
 {
     if (!pattern)
         return false;
@@ -551,7 +551,21 @@ jm_is_valid_regex_fast(const char *pattern)
             case '(':
                 paren++;
 
-                if (*(c+1) == '?')  // start of extension
+                if (extended && *(c+1) == '$')  // start of JSON MODEL extension
+                {
+                    c += 2;
+
+                    while (isalnum(*c))  // skip name
+                        c++;
+
+                    if (*c == ':')  // optional regex
+                        start = true;
+                    else if (*c == ')')
+                        start = true, paren--;
+                    else
+                        okay = false;
+                }
+                else if (*(c+1) == '?')  // start of a usual extension
                 {
                     c += 2;
 
@@ -560,14 +574,9 @@ jm_is_valid_regex_fast(const char *pattern)
                         while (islower(*c))
                             c++;
                         if (*c == ':')  // (?flags:re)
-                        {
                             start = true;
-                        }
                         else if (*c == ')')  // (?flags)
-                        {
-                            start = true;
-                            paren--;
-                        }
+                            start = true, paren--;
                         else
                             okay = false;
                     }
@@ -583,9 +592,7 @@ jm_is_valid_regex_fast(const char *pattern)
                         start = true;
                     }
                     else if (*c == ':')  // non capturing group (?:...)
-                    {
                         start = true;
-                    }
                     else
                         okay = false;
                 }
@@ -607,7 +614,7 @@ jm_is_valid_regex_fast(const char *pattern)
 }
 
 // default version
-bool (*jm_is_valid_regex)(const char *) = jm_is_valid_regex_fast;
+bool (*jm_is_valid_regex)(const char *, bool) = jm_is_valid_regex_fast;
 
 // this is utf-8 compatible because multi-byte encoding uses chars over 128.
 bool

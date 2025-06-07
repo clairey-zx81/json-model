@@ -192,7 +192,7 @@ _UTYPE = {
     "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,
     "$URL": str, "$REGEX": str, "$DATE": str, "$UUID": str,
-    "$URI": str, "$EMAIL": str,
+    "$URI": str, "$EMAIL": str, "$EXREG": str,
 }
 
 
@@ -261,6 +261,7 @@ _UMODEL = {
     "$NONE": "$NONE",
     "$URL": "$URL",
     "$REGEX": "$REGEX",
+    "$EXREG": "$EXREG",
     "$DATE": "$DATE",
     "$UUID": "$UUID",
     "$URI": "$URI",

@@ -52,6 +52,8 @@ class Python(Language):
             return f"is_valid_date({var}, {path}, rep)"
         elif name == "$REGEX":
             return f"is_valid_regex({var}, {path}, rep)"
+        elif name == "$EXREG":
+            return f"is_valid_exreg({var}, {path}, rep)"
         elif name == "$UUID":
             return f"is_valid_uuid({var}, {path}, rep)"
         elif name == "$EMAIL":

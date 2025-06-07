@@ -1,0 +1,17 @@
+exreg.values.json[0]: PASS
+exreg.values.json[1]: PASS
+exreg.values.json[2]: PASS
+exreg.values.json[3]: PASS
+exreg.values.json[4]: PASS
+exreg.values.json[5]: FAIL (.: unexpected $EXREG [.]; .: regex ( compile error (missing ), unterminated subpattern at position 0))
+exreg.values.json[6]: FAIL (.: unexpected $EXREG [.]; .: regex (P<x1>: compile error (missing ), unterminated subpattern at position 0))
+exreg.values.json[7]: FAIL (.: unexpected $EXREG [.]; .: regex (P<x1>:[a-) compile error (bad character range a-) at position 8))
+exreg.values.json[8]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: NoneType)
+exreg.values.json[9]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: bool)
+exreg.values.json[10]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: bool)
+exreg.values.json[11]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: int)
+exreg.values.json[12]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: float)
+exreg.values.json[13]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: list)
+exreg.values.json[14]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: list)
+exreg.values.json[15]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: dict)
+exreg.values.json[16]: FAIL (.: unexpected $EXREG [.]; .: incompatible type for regex: dict)

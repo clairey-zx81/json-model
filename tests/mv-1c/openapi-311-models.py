@@ -204,7 +204,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^3\\.1\\.\\d+(-.+)?$/"
             res = isinstance(pval, str) and _jm_re_0(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$openapi#OpenAPI'.openapi]", lpath_0 if path is not None else None))
                 return False

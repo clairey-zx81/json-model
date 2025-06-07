@@ -62,7 +62,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_is_string(val) && _jm_re_0(json_string_value(val));
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$EX07']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected /[a-z]/ [.'$EX07']", path);
     }
     return res;
 }

@@ -17,7 +17,7 @@ MODEL_PREDEFS = {
     "$ANY", "$NONE", "$NULL", "$BOOL", "$BOOLEAN",
     "$INT", "$INTEGER", "$I32", "$I64", "$U32", "$U64",
     "$FLOAT", "$F32", "$F64", "$NUMBER",
-    "$STRING", "$DATE", "$URL", "$REGEX", "$UUID",
+    "$STRING", "$DATE", "$URL", "$REGEX", "$EXREG", "$UUID",
     "$URI", "$EMAIL",
     # TODO $URI-REF, $DOMAIN…
 }

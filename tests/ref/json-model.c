@@ -100,7 +100,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = json_is_string(val) && _jm_re_0(json_string_value(val));
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Url']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Url']", path);
     }
     return res;
 }
@@ -1927,7 +1927,7 @@ static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Rename'.'/^\\\\..+$/']", (path ? &lpath_18 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Rename'.'/^\\\\..+$/']", (path ? &lpath_18 : NULL));
             }
             if (! res)
             {
@@ -2117,7 +2117,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$RootOnly'.'%'.'/^\\\\..+$/']", (path ? &lpath_22 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$RootOnly'.'%'.'/^\\\\..+$/']", (path ? &lpath_22 : NULL));
             }
             if (! res)
             {
@@ -2358,7 +2358,7 @@ static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.5.'%'.'/^\\\\..+$/']", (path ? &lpath_25 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.5.'%'.'/^\\\\..+$/']", (path ? &lpath_25 : NULL));
             }
             if (! res)
             {
@@ -2605,7 +2605,7 @@ static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.4.'%'.'/^\\\\..+$/']", (path ? &lpath_28 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.4.'%'.'/^\\\\..+$/']", (path ? &lpath_28 : NULL));
             }
             if (! res)
             {
@@ -2876,7 +2876,7 @@ static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.3.'%'.'/^\\\\..+$/']", (path ? &lpath_31 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.3.'%'.'/^\\\\..+$/']", (path ? &lpath_31 : NULL));
             }
             if (! res)
             {
@@ -3147,7 +3147,7 @@ static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.2.'%'.'/^\\\\..+$/']", (path ? &lpath_34 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.2.'%'.'/^\\\\..+$/']", (path ? &lpath_34 : NULL));
             }
             if (! res)
             {
@@ -3418,7 +3418,7 @@ static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.1.'%'.'/^\\\\..+$/']", (path ? &lpath_37 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.1.'%'.'/^\\\\..+$/']", (path ? &lpath_37 : NULL));
             }
             if (! res)
             {
@@ -3702,7 +3702,7 @@ static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_6(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$Root'.'|'.0.'%'.'/^\\\\..+$/']", (path ? &lpath_40 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.0.'%'.'/^\\\\..+$/']", (path ? &lpath_40 : NULL));
             }
             if (! res)
             {

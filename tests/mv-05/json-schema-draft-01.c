@@ -468,7 +468,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .pattern
-    res = jm_is_valid_regex(json_string_value(val));
+    res = jm_is_valid_regex(json_string_value(val), false);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.pattern]", path);

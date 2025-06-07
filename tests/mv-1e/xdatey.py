@@ -43,7 +43,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/^X-($DATE)-Y$/X"
     res = isinstance(val, str) and _jm_xre_0(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.]", path))
+        rep is None or rep.append(("unexpected /^X-($DATE)-Y$/X [.]", path))
     return res
 
 

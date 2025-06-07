@@ -557,7 +557,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_string(pval) && _jm_re_0(json_string_value(pval));
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected REGEX [.'$OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$OpenAPI'.openapi]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -6692,7 +6692,7 @@ static bool _jm_f_163(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Schema'.pattern
-    res = jm_is_valid_regex(json_string_value(val));
+    res = jm_is_valid_regex(json_string_value(val), false);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$Schema'.pattern]", path);
@@ -6714,7 +6714,7 @@ static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop))
+        if (jm_is_valid_regex(prop, false))
         {
             // handle 1 key props
             // .'$Schema'.patternProperties.'$REGEX'
@@ -8773,7 +8773,7 @@ static bool _jm_f_236(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$schema#ObjectSchema'.pattern
-    res = jm_is_valid_regex(json_string_value(val));
+    res = jm_is_valid_regex(json_string_value(val), false);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$schema#ObjectSchema'.pattern]", path);
@@ -8795,7 +8795,7 @@ static bool _jm_obj_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_78 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop))
+        if (jm_is_valid_regex(prop, false))
         {
             // handle 1 key props
             // .'$schema#ObjectSchema'.patternProperties.'$REGEX'

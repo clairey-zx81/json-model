@@ -50,7 +50,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/.../"
             res = isinstance(pval, str) and _jm_re_0(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'^'.0.'']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /.../ [.'^'.0.'']", lpath_0 if path is not None else None))
             if not res:
                 return False
     if must_count != 1:
@@ -86,7 +86,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/.../"
             res = isinstance(pval, str) and _jm_re_0(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'^'.1.'']", lpath_1 if path is not None else None))
+                rep is None or rep.append(("unexpected /.../ [.'^'.1.'']", lpath_1 if path is not None else None))
             if not res:
                 return False
     if must_count != 1:

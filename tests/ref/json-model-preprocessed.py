@@ -598,7 +598,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.4.'%'.'/^\\\\..+$/']", lpath_7 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.4.'%'.'/^\\\\..+$/']", lpath_7 if path is not None else None))
             if not res:
                 return False
         else:
@@ -740,7 +740,7 @@ def _jm_obj_10(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.3.'%'.'/^\\\\..+$/']", lpath_10 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.3.'%'.'/^\\\\..+$/']", lpath_10 if path is not None else None))
             if not res:
                 return False
         else:
@@ -894,7 +894,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.2.'%'.'/^\\\\..+$/']", lpath_13 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.2.'%'.'/^\\\\..+$/']", lpath_13 if path is not None else None))
             if not res:
                 return False
         else:
@@ -1048,7 +1048,7 @@ def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.1.'%'.'/^\\\\..+$/']", lpath_16 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.1.'%'.'/^\\\\..+$/']", lpath_16 if path is not None else None))
             if not res:
                 return False
         else:
@@ -1211,7 +1211,7 @@ def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.0.'%'.'/^\\\\..+$/']", lpath_19 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.0.'%'.'/^\\\\..+$/']", lpath_19 if path is not None else None))
             if not res:
                 return False
         else:
@@ -1351,7 +1351,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
     res = isinstance(val, str) and _jm_re_6(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.'$Model#Url']", path))
+        rep is None or rep.append(("unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path))
     return res
 
 

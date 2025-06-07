@@ -817,7 +817,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.5.'%'.'/^\\\\..+$/']", lpath_8 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.5.'%'.'/^\\\\..+$/']", lpath_8 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -1018,7 +1018,7 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.4.'%'.'/^\\\\..+$/']", lpath_11 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.4.'%'.'/^\\\\..+$/']", lpath_11 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -1231,7 +1231,7 @@ def _jm_obj_27(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.3.'%'.'/^\\\\..+$/']", lpath_14 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.3.'%'.'/^\\\\..+$/']", lpath_14 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -1444,7 +1444,7 @@ def _jm_obj_33(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.2.'%'.'/^\\\\..+$/']", lpath_17 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.2.'%'.'/^\\\\..+$/']", lpath_17 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -1657,7 +1657,7 @@ def _jm_obj_39(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.1.'%'.'/^\\\\..+$/']", lpath_20 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.1.'%'.'/^\\\\..+$/']", lpath_20 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -1879,7 +1879,7 @@ def _jm_obj_45(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_5(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'$Model#Root'.'|'.0.'%'.'/^\\\\..+$/']", lpath_23 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.0.'%'.'/^\\\\..+$/']", lpath_23 if path is not None else None))
             if not res:
                 return False
         elif _jm_re_6(prop):
@@ -2067,7 +2067,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
     res = isinstance(val, str) and _jm_re_7(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.'$Model#Url']", path))
+        rep is None or rep.append(("unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path))
     return res
 
 # object .'$Model#Trafo'.'|'.2.'*'.'|'.1

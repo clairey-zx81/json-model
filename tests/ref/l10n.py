@@ -92,7 +92,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
             res = isinstance(pval, str) and _jm_re_1(pval)
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'%'.'/^\\\\..+$/']", lpath_2 if path is not None else None))
+                rep is None or rep.append(("unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", lpath_2 if path is not None else None))
             if not res:
                 return False
         else:

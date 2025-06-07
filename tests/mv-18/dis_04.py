@@ -49,7 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # "/./s"
             res = isinstance(pval, str) and len(pval) > 0
             if not res:
-                rep is None or rep.append(("unexpected REGEX [.'|'.5.v]", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected /./s [.'|'.5.v]", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'|'.5.v]", lpath_0 if path is not None else None))
                 return False

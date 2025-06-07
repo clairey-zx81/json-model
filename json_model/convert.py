@@ -9,6 +9,7 @@ PREDEF_TYPES = {
     "$STRING": "string",
     "$DATE": "string",
     "$REGEX": "string",
+    "$EXREG": "string",
     "$UUID": "string",
     "$URL": "string",
     "$URI": "string",
@@ -30,6 +31,7 @@ PREDEF_FORMATS = {
     "$DATE": "date",
     "$URL": "uri",
     "$REGEX": "regex",
+    # not "$EXREG"?
     "$UUID": "uuid",
     "$EMAIL": "email",
     "$URI": "uri",

@@ -198,7 +198,7 @@ class Language:
             return self.is_a(var, Number)
         elif name == "$STRING":
             return self.is_a(var, str)
-        elif name in ("$DATE", "$URL", "$REGEX", "$UUID", "$URI", "$EMAIL"):
+        elif name in ("$DATE", "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL"):
             raise NotImplementedError(f"predef: {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")

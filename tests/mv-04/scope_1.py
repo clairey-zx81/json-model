@@ -55,7 +55,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/[a-z]/"
     res = isinstance(val, str) and _jm_re_0(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.'$S']", path))
+        rep is None or rep.append(("unexpected /[a-z]/ [.'$S']", path))
     return res
 
 # check $ (.)
@@ -85,7 +85,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/[0-9]/"
     res = isinstance(val, str) and _jm_re_1(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.'$R#S']", path))
+        rep is None or rep.append(("unexpected /[0-9]/ [.'$R#S']", path))
     return res
 
 

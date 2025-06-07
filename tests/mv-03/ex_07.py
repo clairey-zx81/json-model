@@ -51,7 +51,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # "/[a-z]/"
     res = isinstance(val, str) and _jm_re_0(val)
     if not res:
-        rep is None or rep.append(("unexpected REGEX [.'$EX07']", path))
+        rep is None or rep.append(("unexpected /[a-z]/ [.'$EX07']", path))
     return res
 
 # check $__external_0 (.'$__external_0')

@@ -195,6 +195,19 @@ def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
     return False
 
 
+# extension: accept inlined reference syntax ($FOO:...)
+def is_valid_exreg(value: Jsonable, path: str, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        # remplace references with named subpattern
+        count = 0
+        def repl(_):
+            nonlocal count
+            count += 1
+            return f"(P<x{count}>"
+        value = re.sub(r"\(\$\w+", repl, value)
+    return is_valid_regex(value, path, rep)
+
+
 def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
     if isinstance(value, list):
         # that costs but works in all cases…

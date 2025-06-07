@@ -1062,7 +1062,7 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$tight#String'.pattern
-    res = jm_is_valid_regex(json_string_value(val));
+    res = jm_is_valid_regex(json_string_value(val), false);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$tight#String'.pattern]", path);
@@ -1767,7 +1767,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop))
+        if (jm_is_valid_regex(prop, false))
         {
             // handle 1 key props
             // .'$tight#Object'.patternProperties.'$REGEX'
