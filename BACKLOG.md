@@ -39,6 +39,8 @@
 - [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF`?
+- [ ] c-backend: add reporting to predef failures?
+- [ ] design: add `$EXREG` or extend `$REGEX` to accept extensions?
 
 ## To Do
 
