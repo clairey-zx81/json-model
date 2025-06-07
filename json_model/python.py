@@ -1,4 +1,4 @@
-from .language import Language, Code, Block, Inst, Var, PropMap, ConstList
+from .language import Language, Code, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar
 from .mtypes import Number
 

@@ -2,7 +2,8 @@
 
 ## Current Tasks
 
-- [ ] backend: switch all `Inst` functions to `Block` to simplify code concatenation (wip)
+- [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [ ] python: rerun style and type checks
 - [ ] js-backend: add java/type script backend
 - [ ] static: prioritize ts/js for usability, c for speed.
 - [ ] models: update JSON model meta-model with regex extension…

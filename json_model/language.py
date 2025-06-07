@@ -19,8 +19,7 @@ type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
 type PathExpr = str
 
 # actual code
-type Inst = str|None
-type Block = list[Inst]
+type Block = list[str]
 
 # must or may property name -> corresponding check function
 type PropMap = dict[str, str]

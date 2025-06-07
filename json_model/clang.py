@@ -1,5 +1,5 @@
 import json
-from .language import Language, Block, Var, Inst, Block, PropMap, ConstList
+from .language import Language, Block, Var, Block, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
 from .utils import UUID_RE
