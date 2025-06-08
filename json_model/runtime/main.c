@@ -4,6 +4,8 @@
 #include <time.h>
 #include <getopt.h>
 #include <math.h>
+#include <errno.h>
+#include <string.h>
 
 #include <json-model.h>
 
@@ -12,6 +14,18 @@ typedef enum {
     expect_fail,
     expect_pass
 } process_mode_t;
+
+// return µs
+static double now(void)
+{
+    struct timespec ts;
+    if (clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts))
+    {
+        fprintf(stderr, "cannot get time (%d): %s\n", errno, strerror(errno));
+        exit(2);
+    }
+    return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
+}
 
 // check value and report if there was some error wrt expectations
 static bool
@@ -33,24 +47,24 @@ process_value(const char *name, const json_t * value,
     // performance loop in µs
     if (loop > 1)
     {
-        // evaluate the overhead
+        // overhead estimation
         for (int i = loop; i; i--)
         {
-            clock_t start = clock();
-            empty += 1000000.0 * (clock() - start) / CLOCKS_PER_SEC;
+            double start = now();
+            empty += now() - start;
         }
         empty /= loop;
 
-        // evaluate the validation
+        // validation estimation
         double sum = 0.0, sum2 = 0.0;
 
         for (int i = loop; i; i--)
         {
-            clock_t start = clock();
+            double start = now();
 
             valid = checker(value, NULL, NULL);
 
-            double delay = (1000000.0 * (clock() - start) / CLOCKS_PER_SEC) - empty;
+            double delay = now() - start - empty;
             sum += delay;
             sum2 += delay * delay;
         }
@@ -88,14 +102,14 @@ process_value(const char *name, const json_t * value,
 
             for (int i = loop; i; i--)
             {
-                time_t start = clock();
+                double start = now();
 
                 path = (jm_path_t) { "", 0, NULL, NULL };
                 report = (jm_report_t) { NULL };
                 valid2 = checker(value, &path, &report);
                 jm_report_free_entries(&report);
 
-                double delay = (1000000.0 * (clock() - start) / CLOCKS_PER_SEC) - empty;
+                double delay = now() - start - empty;
                 sum += delay;
                 sum2 += delay * delay;
             }
