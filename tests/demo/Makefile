@@ -8,7 +8,7 @@ person.out: person.model.json
 person.py: person.model.json
 	jmc -o $@ $<
 
-person.py: person.model.json
+person.js: person.model.json
 	jmc -o $@ $<
 
 person.c: person.model.json
