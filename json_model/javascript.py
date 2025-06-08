@@ -250,7 +250,7 @@ class JavaScript(Language):
     # Property Map
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [ f"var {name} = new Map();" ]
+        return [ f"var {name} = new Map()" ]
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [ f"{name}[{self.esc(p)}] = {f};" for p, f in pmap.items() ]
@@ -259,16 +259,16 @@ class JavaScript(Language):
         return []
 
     def def_cset(self, name: str, constants: ConstList) -> Block:
-        return [ "TODO def_cset" ]
+        return [ f"let {name} = new Set()" ]
 
     def sub_cset(self, name: str, constants: ConstList) -> Block:
-        return [ "TODO sub_cset" ]
+        return []
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
-        return [ "TODO in_cset" ]
+        return f"{name}.has({var})"
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
-        return [ "TODO ini_cset" ]
+        return [ f"{name}.add({self.const(v)})" for v in constants ]
 
     def def_fun(self, name: str) -> Block:
         return []

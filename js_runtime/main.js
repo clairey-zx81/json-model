@@ -115,7 +115,7 @@ export default async function main(checker)
                     }
 
                     let expect, name, val
-                    if (args.length == 3)
+                    if (item.length == 3)
                         [expect, name, val] = item
                     else
                         [expect, val] = item, name = ''
