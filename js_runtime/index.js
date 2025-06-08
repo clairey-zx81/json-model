@@ -54,6 +54,7 @@ export function jm_is_valid_url(url)
     return false;
 }
 
+// FIXME this implementation only works for scalar types and assumes 0 === 0.0 (mv-01/uniq_2)
 export function jm_array_is_unique(arr)
 {
     let sorted = arr.toSorted()
