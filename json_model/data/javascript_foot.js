@@ -8,4 +8,6 @@ export function check_model(val, name, rep)
     return checker(val, path, rep)
 }
 
-main(check_model)
+// possibly run as main based on a guess
+if (import.meta.url.endsWith(process.argv[1]))
+    main(check_model)
