@@ -33,12 +33,14 @@ F.EO    = $(F.root:%=%.schema.json)
 # C and Python generation
 F.c     = $(F.root:%=%.c)
 F.py    = $(F.root:%=%.py)
+F.js    = $(F.root:%=%.js)
 F.exe   = $(F.root:%=%.exe)
 F.cc    = $(F.root:%=%.c-check.out)
 F.pyc   = $(F.root:%=%.py-check.out)
+F.jsc   = $(F.root:%=%.js-check.out)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.js) $(F.sXc) $(F.c) $(F.py) $(F.cc) $(F.pyc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.c) $(F.py) $(F.js) $(F.cc) $(F.pyc) $(F.jsc)
 
 -include local.mk
 
@@ -131,6 +133,18 @@ $(F.exe): json-model.o main.o
 	chmod a+rx $@
 
 %.py-check.out: %.py
+	shopt -s nullglob
+	set -o pipefail
+	./$< -r $*.*.{true,false}.json | sort > $@
+	if [ -f $*.values.json ] ; then
+	    $< -tr $*.values.json >> $@
+	fi
+
+%.js: %.model.json
+	$(JMC.cmd) -v -o $< $@
+	chmod a+rx $@
+
+%.js-check.out: %.js
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@

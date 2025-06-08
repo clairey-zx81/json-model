@@ -5,6 +5,7 @@
 - [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [x] static: prioritize c for speed, js for usability
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
+- [ ] tests: move `FOO-check.out` to `FOO.check`
 - [ ] js-backend: allow to generate a module only
 - [ ] py-backend: allow to generate a simple module only? separate main file?
 - [ ] python: rerun style and type checks
