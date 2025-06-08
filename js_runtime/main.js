@@ -35,7 +35,18 @@ export default function main(checker)
         process.exit(1);
     }
 
-    console.log(`times = ${times} ${times === Number.NaN}`)
+    // overhead estimation
+    let empty = 0.0
+    if (times > 1)
+    {
+        let n = times
+        while (n--)
+        {
+            const start = performance.now()
+            empty += 1000.0 * (performance.now() - start)
+        }
+        empty /= times
+    }
 
     for (const fname of args.positionals)
     { 
@@ -57,14 +68,14 @@ export default function main(checker)
                         let rep = args.values.report ? [] : null
                         const valid = checker(value, '', rep)
                         rep && (rep.length = 0)
-                        let delay = 1000.0 * (performance.now() - start)  // µs
+                        let delay = (1000.0 * (performance.now() - start)) - empty  // µs
                         sum += delay
                         sum2 += delay * delay
                     }
                     const avg = sum / times
                     const stdev = Math.sqrt(sum2 / times - avg * avg)
                     console.log(`${fname}: ${args.values.report ? 'rep' : 'nop'}`,
-                                `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs`)
+                                `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs (${empty.toFixed(3)})`)
                 }
 
                 // do it anyway for the result
