@@ -53,3 +53,12 @@ export function jm_is_valid_url(url)
     // TODO
     return false;
 }
+
+export function jm_array_is_unique(arr)
+{
+    let sorted = arr.toSorted()
+    for (let i = 0; i < sorted.length - 1; i++)
+        if (sorted[i] === sorted[i+1])
+            return false
+    return true
+}
