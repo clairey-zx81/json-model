@@ -34,13 +34,14 @@ F.EO    = $(F.root:%=%.schema.json)
 F.c     = $(F.root:%=%.c)
 F.py    = $(F.root:%=%.py)
 F.js    = $(F.root:%=%.js)
-F.exe   = $(F.root:%=%.exe)
-F.cc    = $(F.root:%=%.c-check.out)
-F.pyc   = $(F.root:%=%.py-check.out)
-F.jsc   = $(F.root:%=%.js-check.out)
+F.out   = $(F.root:%=%.out)
+F.cc    = $(F.root:%=%.c.check)
+F.pyc   = $(F.root:%=%.py.check)
+F.jsc   = $(F.root:%=%.js.check)
 
 # all generated
-F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.c) $(F.py) $(F.js) $(F.cc) $(F.pyc) $(F.jsc)
+F.gen   = $(F.UO) $(F.PO) $(F.EO) $(F.json) $(F.c) $(F.py) $(F.cc) $(F.pyc)
+# $(F.js) $(F.jsc)
 
 -include local.mk
 
@@ -58,7 +59,7 @@ check:
 
 .PHONY: clean
 clean:
-	$(RM) *.o *.exe
+	$(RM) *.o *.out
 
 .PHONY: json
 json: $(F.json)
@@ -88,17 +89,6 @@ schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
 
-# code execution
-F.x     = $(F.c) $(F.exe) $(F.cc) $(F.py) $(F.pyc)
-
-.PHONY: clean.x
-clean.x:
-	$(RM) $(F.x) json-model.o main.o
-
-.PHONY: check.x
-check.x: clean.x
-	$(MAKE) $(F.x)
-
 %.c: %.model.json
 	$(JMC.cmd) -o $@ ./$<
 
@@ -113,14 +103,14 @@ json-model.o: ../../json_model/runtime/json-model.c
 main.o: ../../json_model/runtime/main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
-$(F.exe): json-model.o main.o
+$(F.out): json-model.o main.o
 
-%.exe: json-model.o main.o
+%.out: json-model.o main.o
 
-%.exe: %.c
+%.out: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@
 
-%.c-check.out: %.exe
+%.c.check: %.out
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
@@ -132,7 +122,7 @@ $(F.exe): json-model.o main.o
 	$(JMC.cmd) -v -o $@ ./$<
 	chmod a+rx $@
 
-%.py-check.out: %.py
+%.py.check: %.py
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
@@ -144,7 +134,7 @@ $(F.exe): json-model.o main.o
 	$(JMC.cmd) -v -o $@ $<
 	chmod a+rx $@
 
-%.js-check.out: %.js
+%.js.check: %.js
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
@@ -152,27 +142,13 @@ $(F.exe): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
-.PHONY: %.x
-%.x: %.model.json
-	shopt -s nullglob
-	$(RM) $*.c $*.exe $*.c-check.out $*.py $*.py-check.out
-	$(MAKE) $*.c $*.exe $*.c-check.out $*.py $*.py-check.out
-
-.PHONY: %.xALL
-%.xALL:
-	$(MAKE) $*.x $*.ALL
-	for f in $*.*check.out ; do
-	  echo "# $$f"
-	  cat $$f
-	done
-
 #
 # Generated JSON Schema checks
 #
+F.schema    = $(F.root:%=%.schema.json)
+
 .PHONY: check.schema
 check.schema: $(F.sXc)
-
-F.schema    = $(F.root:%=%.schema.json)
 
 #
 # JSON model value checks with generated JSON schemas
@@ -198,11 +174,3 @@ F.schema    = $(F.root:%=%.schema.json)
 # 	else
 # 	  exit 1
 # 	fi
-
-#
-# generate everything from a model
-#
-.PHONY: %.ALL
-%.ALL: %.model.json
-	$(RM) $*.UO.json $*.PO.json $*.schema.json
-	$(MAKE) $*.UO.json $*.PO.json $*.schema.json

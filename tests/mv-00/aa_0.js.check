@@ -1,0 +1,7 @@
+aa_0.values.json[0]: PASS
+aa_0.values.json[1]: PASS
+aa_0.values.json[2]: PASS
+aa_0.values.json[3]: PASS
+aa_0.values.json[4]: FAIL (.: not array or unexpected array [.]; .0: not array or unexpected array [.0]; .0.0: unexpected string [.0.0])
+aa_0.values.json[5]: FAIL (.: not array or unexpected array [.]; .0: not array or unexpected array [.0])
+aa_0.values.json[6]: FAIL (.: not array or unexpected array [.]; .3: not array or unexpected array [.0]; .3.2: unexpected string [.0.0])

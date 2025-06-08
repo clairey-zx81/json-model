@@ -10,7 +10,7 @@ function reporting(rep)
 
     let reps = []
     for (const [message, path] of rep)
-        reps.push(`${json_path(path)}: ${message}`)
+        reps.unshift(`${json_path(path)}: ${message}`)
 
     return ' (' + reps.join('; ') + ')'
 }

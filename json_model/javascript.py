@@ -64,7 +64,7 @@ class JavaScript(Language):
         elif tval is bool:
             return f"(typeof {var} === 'boolean' || {var} instanceof Boolean)"
         elif tval is int:
-            return self.is_num(var) + f" && Number.isInteger({var}))"
+            return self.is_num(var) + f" && Number.isInteger({var})"
         elif tval is float:
             return self.is_num(var)
         elif tval is Number:
@@ -163,11 +163,11 @@ class JavaScript(Language):
         return "rep !== null"
 
     def report(self, msg: str, path: Var) -> Block:
-        return ([ f"rep !== null && rep.push([{self.esc(msg)}, {path}]);" ]
+        return ([ f"rep !== null && rep.push([{self.esc(msg)}, {path}])" ]
                 if self._with_report else [])
 
     def clean_report(self) -> Block:
-        return [ "rep && re.length = 0;" ]
+        return [ "if (rep !== null) rep.length = 0" ]
 
     #
     # path management
