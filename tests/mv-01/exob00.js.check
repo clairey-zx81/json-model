@@ -1,0 +1,4 @@
+exob00.values.json[0]: PASS
+exob00.values.json[1]: PASS
+exob00.values.json[2]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .a: invalid optional prop value [.'|'.1.a]; .a: unexpected $NONE [.'|'.1.a]; .: not an expected object [.'|'.0]; .b: invalid optional prop value [.'|'.0.b]; .b: unexpected $NONE [.'|'.0.b])
+exob00.values.json[3]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .: missing mandatory prop <b> [.'|'.1.'']; .: not an expected object [.'|'.0]; .: missing mandatory prop <a> [.'|'.0.''])
