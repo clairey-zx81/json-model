@@ -50,7 +50,7 @@ function processing(fname, index, value, checker, name, expected, report, times,
     // display validation result
     let source = index === null ? fname : `${fname}[${index}]`
 
-    if (expected === null || valid !== expected)
+    if (expected === null || valid === expected)
         console.log(`${source}: ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)
     else
         console.log(`${source}: ERROR unexpected ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)

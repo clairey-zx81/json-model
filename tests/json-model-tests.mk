@@ -100,7 +100,7 @@ check.x: clean.x
 	$(MAKE) $(F.x)
 
 %.c: %.model.json
-	$(JMC.cmd) -XO -v --format c ./$< > $@
+	$(JMC.cmd) -o $@ ./$<
 
 CC        = gcc
 CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I../../json_model/runtime
@@ -129,7 +129,7 @@ $(F.exe): json-model.o main.o
 	fi
 
 %.py: %.model.json
-	$(JMC.cmd) -XO -v --format py ./$< > $@
+	$(JMC.cmd) -v -o $@ ./$<
 	chmod a+rx $@
 
 %.py-check.out: %.py
@@ -141,7 +141,7 @@ $(F.exe): json-model.o main.o
 	fi
 
 %.js: %.model.json
-	$(JMC.cmd) -v -o $< $@
+	$(JMC.cmd) -v -o $@ $<
 	chmod a+rx $@
 
 %.js-check.out: %.js

@@ -187,9 +187,10 @@ class JavaScript(Language):
         return ([ "{" ] + indented + [ "}" ]) if sep else indented
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
+        # forEach: KO, cannot break
         return [
-            f"{arr}.forEach(({val}, {idx}) => "
-        ] + self.indent(body) + [ ")" ]
+            f"for (let {idx} = 0; {idx} < {arr}.length; {idx}++)"
+        ] + self.indent([ f"let {val} = {arr}[{idx}]" ] + body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         return [
