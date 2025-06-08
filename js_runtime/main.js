@@ -6,7 +6,7 @@ const json_path = (path) => '.' + path.join('.')
 
 function report(rep)
 {
-    if (rep.length === 0) return ''
+    if (rep === null || rep.length === 0) return ''
 
     let reps = []
     for (const [message, path] of rep)
