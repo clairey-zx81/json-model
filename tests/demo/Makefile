@@ -1,8 +1,11 @@
 .PHONY: clean
 clean:
-	$(RM) person.out person.c person.py person.schema.json
+	$(RM) person.out person.c person.py person.js person.schema.json
 
 person.out: person.model.json
+	jmc -o $@ $<
+
+person.py: person.model.json
 	jmc -o $@ $<
 
 person.py: person.model.json
