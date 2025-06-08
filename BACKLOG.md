@@ -3,9 +3,12 @@
 ## Current Tasks
 
 - [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [x] static: prioritize c for speed, js for usability
+- [ ] js-backend: add javascript backend and runtime and working tests (wip)
+- [ ] js-backend: allow to generate a module only
+- [ ] py-backend: allow to generate a simple module only? separate main file?
 - [ ] python: rerun style and type checks
-- [ ] js-backend: add java/type script backend
-- [ ] static: prioritize ts/js for usability, c for speed.
+- [ ] ts-backend: js sharing?
 - [ ] models: update JSON model meta-model with regex extension…
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
@@ -25,6 +28,7 @@
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF`?
+- [ ] design: add `"$DATETIME"` and `"$TIME"`
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?

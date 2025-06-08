@@ -1,0 +1,11 @@
+{
+  "name": "json-model",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.",
+  "author": "",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "json_model_runtime": "file:js_runtime"
+  }
+}

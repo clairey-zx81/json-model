@@ -83,7 +83,7 @@ class CLangJansson(Language):
             return f"json_is_object({var})"
 
     def _json_str(self, j) -> str:
-        j = '"' + json.dumps(j).translate(self._json_esc_table) + '"'
+        return '"' + json.dumps(j).translate(self._json_esc_table) + '"'
 
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
@@ -288,18 +288,18 @@ class CLangJansson(Language):
     #
     # (Extended) Regular Expressions
     #
-    def def_re(self, name: str, regex: str) -> Block:
+    def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [
             f"static pcre2_code *{name}_code = NULL;",
             f"static pcre2_match_data *{name}_data = NULL;",
             f"static bool {name}(const char *s);"
         ]
 
-    def sub_re(self, name: str, regex: str) -> Block:
+    def sub_re(self, name: str, regex: str, opts: str) -> Block:
         code = self.file_load("clang_pcre2_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
-    def ini_re(self, name: str, regex: str) -> Block:
+    def ini_re(self, name: str, regex: str, opts: str) -> Block:
         # declare once
         code = [] if self._re_used else [
             "int err_code;",
@@ -307,9 +307,9 @@ class CLangJansson(Language):
             "static PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
-        # TODO move to 
+        sregex = self.esc(f"(?{opts})" + regex)
         code += [
-            f"{name}_code = pcre2_compile((PCRE2_SPTR) {self.esc(regex)},"
+            f"{name}_code = pcre2_compile((PCRE2_SPTR) {sregex},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
             f"if ({name}_code == NULL)",
             r"{",
@@ -320,7 +320,7 @@ class CLangJansson(Language):
         ]
         return code
 
-    def del_re(self, name: str, regex: str) -> Block:
+    def del_re(self, name: str, regex: str, opts: str) -> Block:
         return [
             f"pcre2_match_data_free({name}_data);",
             f"pcre2_code_free({name}_code);",

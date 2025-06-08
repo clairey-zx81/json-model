@@ -1,0 +1,9 @@
+{
+  "name": "json_model_runtime",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "JSON Model Runtime for JavaScript",
+  "main": "index.js",
+  "author": "",
+  "license": "CC0-1.0"
+}

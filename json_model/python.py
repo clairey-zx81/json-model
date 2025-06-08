@@ -202,16 +202,16 @@ class Python(Language):
             f"def {name}(val: str) -> bool:",
         ] + self.indent([ f"path, rep = None, None" ] + body)
 
-    def def_re(self, name: str, regex: str) -> Block:
+    def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [
             # NOTE re2 imported as re
             f"{name}_reco: object",
             f"{name}: RegexFun"
         ]
 
-    def ini_re(self, name: str, regex: str) -> Block:
+    def ini_re(self, name: str, regex: str, opts: str) -> Block:
         self._re_used = True
-        sregex = self.esc(regex)
+        sregex = self.esc(f"(?{opts})" + regex)
         return [
             f"global {name}_reco, {name}",
             # rex engine imported as re; may raise an exception
@@ -219,7 +219,7 @@ class Python(Language):
             f"{name} = lambda s: {name}_reco.search(s) is not None"
         ]
 
-    def del_re(self, name: str, regex: str) -> Block:
+    def del_re(self, name: str, regex: str, opts: str) -> Block:
         return [
             f"global {name}_reco, {name}",
             f"{name}_reco = None",

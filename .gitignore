@@ -6,3 +6,5 @@ dist
 *.swp
 *.exe
 *.o
+package-lock.json
+node_modules/

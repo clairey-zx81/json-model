@@ -102,6 +102,7 @@ class CodeGenerator:
 
                 # model eXtension
                 # re: aiLmsux (Ascii/Unicode, Ignore case, Locale, Multi/Single-line, verbose)
+                # js: dgimsuvy
                 if "X" in ropts:
                     ropts = ropts.replace("X", "")
 
@@ -119,14 +120,12 @@ class CodeGenerator:
 
                     pattern = re.sub(r"\(\$\w+(:[^)]*)?\)", subref, pattern)
 
-                # standardized syntax
-                pattern = f"(?{ropts}){pattern}" if ropts else pattern
-
                 # statically check re validity by trying to compile it
                 if self._lang._relib == "re2":
                     import re2 as rex
                 else:
                     import re as rex
+
                 # FIXME pcre2 and re syntax can differ
                 rex.compile(pattern)
 
@@ -136,11 +135,11 @@ class CodeGenerator:
             # possibly generate extension function
             if remap:
                 fun = gen.ident(self._prefix + "xre")
-                self._code.regex(fun + "_re", pattern)
+                self._code.regex(fun + "_re", pattern, ropts)
                 self._exreg(jm, fun, fun + "_re", remap)
             else:
                 fun = gen.ident(self._prefix + "re")
-                self._code.regex(fun, pattern)
+                self._code.regex(fun, pattern, ropts)
 
             # memoize
             self._regs[regex] = fun
@@ -1237,6 +1236,9 @@ def xstatic_compile(
     elif lang == "c":
         from .clang import CLangJansson
         language = CLangJansson(debug=debug, with_report=report)
+    elif lang == "js":
+        from .javascript import JavaScript
+        language = JavaScript(debug=debug, with_report=report)
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

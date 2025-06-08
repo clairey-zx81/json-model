@@ -554,21 +554,21 @@ class Language:
         """Name a group in a regular expression."""
         return f"(?<{name}>{pattern})"
 
-    def sub_re(self, name: str, regex: str) -> Block:
+    def sub_re(self, name: str, regex: str, opts: str) -> Block:
         """Generate a regex check function."""
         return []
 
-    def def_re(self, name: str, regex: str) -> Block:
+    def def_re(self, name: str, regex: str, opts: str) -> Block:
         """Define a new (static) regex."""
         raise NotImplementedError("see derived classes")
 
-    def ini_re(self, name: str, regex: str) -> Block:
+    def ini_re(self, name: str, regex: str, opts: str) -> Block:
         """Initialize a regex."""
-        raise NotImplementedError("see derived classes")
+        return []
 
-    def del_re(self, name: str, regex: str) -> Block:
+    def del_re(self, name: str, regex: str, opts: str) -> Block:
         """Free a regex."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def match_re(self, name: str, var: str) -> BoolExpr:
         """Get a match result for string variable var value."""
@@ -682,12 +682,12 @@ class Code:
         self.dels(self._lang.del_cmap(name, mapping))
         self.subs(self._lang.sub_cmap(name, mapping))
 
-    def regex(self, name: str, regex: str):
+    def regex(self, name: str, regex: str, opts: str):
         """Add a regex."""
-        self.defs(self._lang.def_re(name, regex))
-        self.inis(self._lang.ini_re(name, regex))
-        self.dels(self._lang.del_re(name, regex))
-        self.subs(self._lang.sub_re(name, regex))
+        self.defs(self._lang.def_re(name, regex, opts))
+        self.inis(self._lang.ini_re(name, regex, opts))
+        self.dels(self._lang.del_re(name, regex, opts))
+        self.subs(self._lang.sub_re(name, regex, opts))
 
     def strfun(self, name: str, body: Block):
         self.defs(self._lang.def_strfun(name))

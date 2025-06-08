@@ -217,7 +217,7 @@ def jmc_script():
         help="remove reporting capabilities")
 
     # TODO js cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "out"],
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "out"],
         help="output format")
 
     arg("--cc", type=str, help="override default C language compiler")
@@ -281,6 +281,8 @@ def jmc_script():
             args.format, args.op = "out", "X"
         elif args.output.endswith(".py"):
             args.format, args.op = "py", "X"
+        elif args.output.endswith(".js"):
+            args.format, args.op = "js", "X"
         elif args.output.endswith(".schema.json"):
             args.format, args.op = "json", "E"
         elif args.output.endswith(".model.json"):
@@ -308,7 +310,7 @@ def jmc_script():
     elif args.op == "X":
         if args.format is None:
             args.format = "py"
-        elif args.format not in ("py", "c", "out"):
+        elif args.format not in ("py", "c", "js", "out"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
@@ -318,7 +320,7 @@ def jmc_script():
     if args.values and (args.op not in "X" or args.format != "py"):
         log.error(f"Testing JSON values requires -X for Python: {args.op} {args.format}")
         sys.exit(1)
-    if args.code and (args.op not in "X" or args.format not in ("py", "c")):
+    if args.code and (args.op not in "X" or args.format not in ("py", "c", "js")):
         log.error(f"Showing code requires -X for Python or C: {args.op} {args.format}")
         sys.exit(1)
     if args.format == "out" and args.op not in "X":
@@ -388,7 +390,7 @@ def jmc_script():
         show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "X":
-        assert args.format in ("py", "c", "out"), f"valid output language {args.format}"
+        assert args.format in ("py", "c", "js", "out"), f"valid output language {args.format}"
         sfmt = "c" if args.format == "out" else args.format
 
         code = xstatic_compile(model, args.name, lang=sfmt,
@@ -400,7 +402,7 @@ def jmc_script():
             clang_compile(source, args)
         elif args.code:
             print(source, file=output, end="", flush=True)
-            if args.format == "py" and args.output != "-":
+            if args.format in ("py", "js") and args.output != "-":
                 os.chmod(args.output, 0o755)
 
         if args.format == "py" and args.values:
