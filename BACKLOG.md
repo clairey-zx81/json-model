@@ -40,6 +40,7 @@
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
+- [ ] command: write a man-page or similar
 
 ## To Do
 
