@@ -97,9 +97,9 @@ function check_model_init()
         _jm_cst_1.add("Milou")
         _jm_cst_1.add("Tintin")
         _jm_cst_1.add("Bad")
-        check_model_map[""] = json_model_1;
-        check_model_map["p1"] = json_model_2;
-        check_model_map["p2"] = json_model_3;
+        check_model_map[""] = json_model_1
+        check_model_map["p1"] = json_model_2
+        check_model_map["p2"] = json_model_3
     }
 }
 

@@ -7,7 +7,7 @@ import * as runtime from "json_model_runtime"
 import main from "json_model_runtime/main.js"
 const JSON_MODEL_VERSION = "2.0a0";
 
-var check_model_map = new Map();
+var check_model_map = new Map()
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -31,7 +31,7 @@ function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        check_model_map[""] = json_model_1;
+        check_model_map[""] = json_model_1
     }
 }
 

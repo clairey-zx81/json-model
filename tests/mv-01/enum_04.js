@@ -35,7 +35,7 @@ function check_model_init()
         _jm_cst_0.add(200)
         _jm_cst_0.add(201)
         _jm_cst_0.add(204)
-        check_model_map[""] = json_model_1;
+        check_model_map[""] = json_model_1
     }
 }
 

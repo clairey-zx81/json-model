@@ -35,7 +35,7 @@ function check_model_init()
         _jm_cst_0.add("Calvin")
         _jm_cst_0.add("Susie")
         _jm_cst_0.add("Hobbes")
-        check_model_map[""] = json_model_1;
+        check_model_map[""] = json_model_1
     }
 }
 

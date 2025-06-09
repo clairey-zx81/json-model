@@ -49,7 +49,7 @@ function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        check_model_map[""] = json_model_1;
+        check_model_map[""] = json_model_1
     }
 }
 

@@ -43,6 +43,12 @@ F.jsc   = $(F.root:%=%.js.check)
 F.gen   = $(F.json) $(F.UO) $(F.PO) $(F.EO) $(F.c) $(F.py) $(F.cc) $(F.pyc)
 # $(F.js) $(F.jsc)
 
+.PHONY: js clean.js
+js: $(F.js) $(F.jsc)
+
+clean.js:
+	$(RM) $(F.js) $(F.jsc)
+
 -include local.mk
 
 .PHONY: clean.gen

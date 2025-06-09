@@ -223,10 +223,10 @@ class JavaScript(Language):
     # (Extended) Regular Expressions
     #
     def def_re(self, name: str, regex: str, opts: str) -> Block:
-        return [ f"const {name}_re = new RegExp({self.esc(regex)}, {self.esc(opts)});" ]
+        return [ f"const {name}_re = new RegExp({self.esc(regex)}, {self.esc(opts)})" ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
-        return [ f"const {name} = (s) => {name}_re.exec(s) !== null;" ]
+        return [ f"const {name} = (s) => {name}_re.exec(s) !== null" ]
 
     def match_var(self, var: str, val: Expr, declare: bool) -> Block:
         return [ "TODO match_var" ]
@@ -253,7 +253,7 @@ class JavaScript(Language):
         return [ f"var {name} = new Map()" ]
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [ f"{name}[{self.esc(p)}] = {f};" for p, f in pmap.items() ]
+        return [ f"{name}[{self.esc(p)}] = {f}" for p, f in pmap.items() ]
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []

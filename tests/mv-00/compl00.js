@@ -7,10 +7,10 @@ import * as runtime from "json_model_runtime"
 import main from "json_model_runtime/main.js"
 const JSON_MODEL_VERSION = "2.0a0";
 
-const _jm_re_0_re = new RegExp("^[a-z]+$", "i");
-var check_model_map = new Map();
+const _jm_re_0_re = new RegExp("^[a-z]+$", "i")
+var check_model_map = new Map()
 
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null;
+const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -47,7 +47,7 @@ function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        check_model_map[""] = json_model_1;
+        check_model_map[""] = json_model_1
     }
 }
 
