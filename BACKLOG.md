@@ -4,8 +4,8 @@
 
 - [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [x] static: prioritize c for speed, js for usability
+- [x] js-backend: fix unique for non scalars (still 0 === 0.0)
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
-- [ ] js-backend: fix unique for non scalars (`mv-01/uniq_2`)
 - [ ] tests: move `FOO-check.out` to `FOO.check`
 - [ ] js-backend: allow to generate a module only
 - [ ] py-backend: allow to generate a simple module only? separate main file?
