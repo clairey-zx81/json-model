@@ -189,7 +189,7 @@ def tmp_dir():
     # could cleanup
 
 
-@pytest.fixture(params=["py", "c"])
+@pytest.fixture(params=["py", "c", "js"])
 def language(request):
     return request.param
 
@@ -428,12 +428,17 @@ def test_sta_c(directory, clibjm):
         assert status == 0, f"{fname} compilation success"
         return fexec
 
-    check_values(directory, "sta-c", ".c", ".c-check.out", generate_exec)
+    check_values(directory, "sta-c", ".c", ".c.check", generate_exec)
 
 
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
-    check_values(directory, "sta-py", ".py", ".py-check.out", lambda f: f)
+    check_values(directory, "sta-py", ".py", ".py.check", lambda f: f)
+
+
+def test_sta_py(directory):
+    """Check generated JS scripts with test value files."""
+    check_values(directory, "sta-js", ".js", ".js.check", lambda f: f)
 
 
 #
@@ -509,7 +514,7 @@ def test_dyn_py(directory):
     run_dyn(directory, gen_py_checker)
 
 
-def test_dyn_js(directory):
+def test_dyn_json_schema(directory):
     """Test generated JSON Schema with test value files."""
 
     # Some test cases cannot validate because:
@@ -571,6 +576,9 @@ def test_models_c(directory, jmchecker):
 def test_models_py(directory):
     check_models(directory, "./ref/json-model.py")
 
+def test_models_js(directory):
+    check_models(directory, "./ref/json-model.js")
+
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
@@ -622,6 +630,9 @@ def test_bads_c(jmchecker):
 
 def test_bads_py():
     check_bads("./ref/json-model.py")
+
+def test_bads_js():
+    check_bads("./ref/json-model.js")
 
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
