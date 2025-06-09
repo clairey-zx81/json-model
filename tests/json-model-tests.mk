@@ -40,8 +40,7 @@ F.pyc   = $(F.root:%=%.py.check)
 F.jsc   = $(F.root:%=%.js.check)
 
 # all generated
-F.gen   = $(F.json) $(F.UO) $(F.PO) $(F.EO) $(F.c) $(F.py) $(F.cc) $(F.pyc)
-# $(F.js) $(F.jsc)
+F.gen   = $(F.json) $(F.UO) $(F.PO) $(F.EO) $(F.c) $(F.py) $(F.cc) $(F.pyc) $(F.js) $(F.jsc)
 
 .PHONY: js clean.js
 js: $(F.js) $(F.jsc)

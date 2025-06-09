@@ -31,16 +31,18 @@ class JavaScript(Language):
     #
     # file
     #
-    def file_header(self) -> Block:
-        return (
-            [ r"#! /usr/bin/env node" ] +
-            super().file_header() +
-            self.file_load("javascript_head.js") +
-            [ f"const JSON_MODEL_VERSION = {self.esc(self._version)};" ]
-        )
+    def file_header(self, exe: bool = True) -> Block:
+        code: Block = self.file_load("javascript_exe.js") if exe else []
+        code += super().file_header(exe)
+        code += self.file_load("javascript_head.js")
+        code += [ f"const JSON_MODEL_VERSION = {self.esc(self._version)};" ]
+        return code
 
-    def file_footer(self) -> Block:
-        return self.file_load("javascript_foot.js")
+    def file_footer(self, exe: bool = True) -> Block:
+        code: Block = self.file_load("javascript_foot.js")
+        if exe:
+            code += [""] + self.file_load("javascript_main.js")
+        return code
 
     #
     # inlined type test expressions about JSON data

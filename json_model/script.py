@@ -162,7 +162,7 @@ DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -W
 DEFAULT_LDFLAGS = "-ljansson -lpcre2-8 -lm"
 
 def clang_compile(c_code: str, args):
-    """Generate an actual executable."""
+    """Generate an actual executable or object file."""
 
     tmp_dir = os.environ.get("TMPDIR", "/dev/shm")
 
@@ -183,7 +183,10 @@ def clang_compile(c_code: str, args):
     with tempfile.NamedTemporaryFile(dir=tmp_dir, suffix=".c") as tmp:
         tmp.write(c_code.encode("UTF-8"))
         tmp.flush()
-        status = os.system(f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}")
+        if args.gen == "exec":
+            status = os.system(f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}")
+        else:
+            status = os.system(f"{cc} {cppflags} {cflags} -o {output} -c {tmp.name}")
         assert status == 0, "C compilation succeeded"
 
 def jmc_script():
@@ -211,19 +214,23 @@ def jmc_script():
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
-    arg("--code", action="store_true", default=None, help="show source code")
-    arg("--no-code", "-nc", dest="code", action="store_false", help="do not show source code")
     arg("--no-reporting", dest="reporting", action="store_false", default=True,
         help="remove reporting capabilities")
 
-    # TODO js cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "out"],
-        help="output format")
+    arg("--executable", dest="gen", default=None, action="store_const", const="exec",
+        help="generate an executable")
+    arg("--module", dest="gen", action="store_const", const="module", help="generate a module")
+    arg("--code", dest="gen", action="store_const", const="source", help="generate source code")
+    arg("--no-gen", "-ng", dest="gen", action="store_const", const="none",
+        help="do not generate anything")
+
+    # TODO cpp ts rs go…
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js"], help="output format language")
 
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
-    arg("--ldflags", type=str, help="override C linker flags")
+    arg("--ldflags", type=str, help="override C linker flags for executable")
 
     # testing mode, expected results on values
     arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
@@ -247,7 +254,7 @@ def jmc_script():
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", choices=["P", "U", "J", "N", "V", "E", "X"],
+    ope("--op", choices=["P", "U", "J", "N", "E", "C"],
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -257,12 +264,10 @@ def jmc_script():
         help="dump json IR")
     ope("--nope", "-N", dest="op", action="store_const", const="N",
         help="dump (retrieved) seldom processed json model input")
-    ope("--validate", "-V", dest="op", action="store_const", const="V",
-        help="interpreted model validation")
     ope("--export", "-E", dest="op", action="store_const", const="E",
         help="export as JSON Schema")
-    ope("--experimental", "-X", dest="op", action="store_const", const="X",
-        help="experimental code generation")
+    ope("--compile", "-C", dest="op", action="store_const", const="C",
+        help="code generation")
 
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
@@ -273,32 +278,52 @@ def jmc_script():
         print(pkg_version("json-model"))
         sys.exit(0)
 
-    # format/operation guessing
+    # format/operation/gen guessing
     if args.output != "-" and args.op is None and args.format is None:
         if args.output.endswith(".c"):
-            args.format, args.op = "c", "X"
+            args.format, args.op = "c", "C"
+        if args.output.endswith(".o"):
+            args.format, args.op = "c", "C"
+            if args.gen is None:
+                args.gen = "module"
         elif args.output.endswith(".out"):
-            args.format, args.op = "out", "X"
+            args.format, args.op = "c", "C"
+            if args.gen is None:
+                args.gen = "exec"
         elif args.output.endswith(".py"):
-            args.format, args.op = "py", "X"
+            args.format, args.op = "py", "C"
+            if args.gen is None:
+                args.gen = "exec"
+        elif args.output.endswith(".mpy"):
+            args.format, args.op = "py", "C"
+            if args.gen is None:
+                args.gen = "module"
         elif args.output.endswith(".js"):
-            args.format, args.op = "js", "X"
+            args.format, args.op = "js", "C"
+            if args.gen is None:
+                args.gen = "exec"
+        elif args.output.endswith(".mjs"):
+            args.format, args.op = "js", "C"
+            if args.gen is None:
+                args.gen = "module"
         elif args.output.endswith(".schema.json"):
             args.format, args.op = "json", "E"
         elif args.output.endswith(".model.json"):
             args.format, args.op = "json", "P"
     elif args.values:
         if args.op is None:
-            args.op = "X"
+            args.op = "C"
         if args.format is None:
             args.format = "py"
+        if args.gen is None:
+            args.gen = "none"
 
     if args.op is None:
         args.op = "P"
 
     # update op-dependent default
-    if args.code is None:
-        args.code = args.op in "X" and not args.values and args.format != "out"
+    if args.gen is None:
+        args.gen = "source" if args.op in "C" and not args.values else "module"
 
     # option/parameter consistency and defaults
     if args.op in "PUJNE":
@@ -307,24 +332,21 @@ def jmc_script():
         elif args.format not in ("json", "yaml"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
-    elif args.op == "X":
+    elif args.op == "C":
         if args.format is None:
             args.format = "py"
-        elif args.format not in ("py", "c", "js", "out"):
+        elif args.format not in ("py", "c", "js"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
         log.error(f"unexpected operation {args.op}")
         sys.exit(1)
 
-    if args.values and (args.op not in "X" or args.format != "py"):
+    if args.values and (args.op not in "C" or args.format != "py"):
         log.error(f"Testing JSON values requires -X for Python: {args.op} {args.format}")
         sys.exit(1)
-    if args.code and (args.op not in "X" or args.format not in ("py", "c", "js")):
-        log.error(f"Showing code requires -X for Python or C: {args.op} {args.format}")
-        sys.exit(1)
-    if args.format == "out" and args.op not in "X":
-        log.error(f"generating executable requires -X: {args.op}")
+    if args.gen == "source" and (args.op not in "C" or args.format not in ("py", "c", "js")):
+        log.error(f"Showing code requires -C for Python, C or JS: {args.op} {args.format}")
         sys.exit(1)
 
     # debug
@@ -389,20 +411,19 @@ def jmc_script():
     elif args.op == "P":  # preprocessed model
         show = model.toModel(True)
         print(json2str(show), file=output)
-    elif args.op == "X":
-        assert args.format in ("py", "c", "js", "out"), f"valid output language {args.format}"
-        sfmt = "c" if args.format == "out" else args.format
+    elif args.op == "C":
+        assert args.format in ("py", "c", "js"), f"valid output language {args.format}"
 
-        code = xstatic_compile(model, args.name, lang=sfmt,
+        code = xstatic_compile(model, args.name, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting)
         source = str(code)
 
-        if args.format == "out":
+        if args.format == "c" and args.gen in ("exec", "module"):
             clang_compile(source, args)
-        elif args.code:
+        elif args.gen != "none":
             print(source, file=output, end="", flush=True)
-            if args.format in ("py", "js") and args.output != "-":
+            if args.output != "-" and args.gen == "exec":
                 os.chmod(args.output, 0o755)
 
         if args.format == "py" and args.values:

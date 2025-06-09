@@ -5,11 +5,15 @@
 - [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
 - [x] static: prioritize c for speed, js for usability
 - [x] js-backend: fix unique for non scalars (still 0 === 0.0)
+- [x] tests: move `FOO-check.out` to `FOO.check`
+- [x] js-backend: allow to generate a module only, with `mjs`
+- [x] py-backend: allow to generate a simple module only, with `mpy`
+- [x] c-backend: allow to generate a simple object file only
+- [x] command: rethink code/executable/module generation options
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
-- [ ] static: keep recursive names?
-- [ ] tests: move `FOO-check.out` to `FOO.check`
-- [ ] js-backend: allow to generate a module only, with `mjs`
-- [ ] py-backend: allow to generate a simple module only? separate main file?
+- [ ] tests: fix strange issue with `make check` in `mv-03`
+- [ ] c-backend: add `qsort_r` code for Windows and MacOS
+- [ ] static: keep deep names?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
 - [ ] models: update JSON model meta-model with regex extension…

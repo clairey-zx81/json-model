@@ -130,7 +130,7 @@ class Language:
         code = code[:bidx] + body + code[bidx+1:]
         return code
 
-    def file_header(self) -> Block:
+    def file_header(self, exe: bool = True) -> Block:
         """File header."""
         return (
             self.lcom() +
@@ -139,7 +139,7 @@ class Language:
             self.lcom()
         )
 
-    def file_footer(self) -> Block:
+    def file_footer(self, exe: bool = True) -> Block:
         """File footer."""
         return []
 
@@ -624,13 +624,14 @@ class Code:
     - `entry`: name of the entry function
     """
 
-    def __init__(self, lang: Language, entry: str = "check_model"):
-        self._lang = lang       # generated language abstraction
-        self._entry = entry     # entry function name/prefix
-        self._defs: Block = []  # definitions and declarations
-        self._inis: Block = []  # initialization code
-        self._dels: Block = []  # deallocation code
-        self._subs: Block = []  # actual subroutines
+    def __init__(self, lang: Language, entry: str = "check_model", executable: bool = True):
+        self._lang = lang              # generated language abstraction
+        self._entry = entry            # entry function name/prefix
+        self._executable = executable  # executable (shebang, main) vs module
+        self._defs: Block = []         # definitions and declarations
+        self._inis: Block = []         # initialization code
+        self._dels: Block = []         # deallocation code
+        self._subs: Block = []         # actual subroutines
 
     #
     # add blocks
@@ -702,8 +703,8 @@ class Code:
 
         # reduce with empty lines between parts
         code: Block = []
-        for block in (self._lang.file_header(), self._defs,
-                self._subs, inis, dels, self._lang.file_footer()):
+        for block in (self._lang.file_header(self._executable), self._defs,
+                self._subs, inis, dels, self._lang.file_footer(self._executable)):
             if code and block:
                 code += [""]
             code += [ line.replace("CHECK_FUNCTION_NAME", self._entry)

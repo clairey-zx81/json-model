@@ -36,13 +36,15 @@ class CLangJansson(Language):
     #
     # file
     #
-    def file_header(self: str) -> Block:
-        return [
+    def file_header(self, exe: bool = True) -> Block:
+        code: Block = super().file_header(exe)
+        code += [
             r"#include <json-model.h>",
             f"#define JSON_MODEL_VERSION {self.esc(self._version)}"
         ]
+        return code
 
-    def file_footer(self) -> Block:
+    def file_footer(self, exe: bool = True) -> Block:
         return [""] + self.file_load("clang_entry.c")
 
     #
@@ -307,7 +309,7 @@ class CLangJansson(Language):
             "static PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
-        sregex = self.esc(f"(?{opts})" + regex)
+        sregex = self.esc((f"(?{opts})" if opts else "") + regex)
         code += [
             f"{name}_code = pcre2_compile((PCRE2_SPTR) {sregex},"
              " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",

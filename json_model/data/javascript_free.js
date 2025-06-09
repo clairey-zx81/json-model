@@ -1,5 +1,5 @@
 // differed module cleanup
-function CHECK_FUNCTION_NAME_free()
+export function CHECK_FUNCTION_NAME_free()
 {
     if (initialized)
     {

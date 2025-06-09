@@ -165,10 +165,10 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = fun_0(val, path, rep)
             else:
                 res = False
-                rep is None or rep.append(("tag kind value not found [.'$Type'.'|']", path))
+                rep is None or rep.append(("tag <kind> value not found [.'$Type'.'|']", path))
         else:
             res = False
-            rep is None or rep.append(("tag prop kind is missing [.'$Type'.'|']", path))
+            rep is None or rep.append(("tag prop <kind> is missing [.'$Type'.'|']", path))
     else:
         rep is None or rep.append(("value is not an object [.'$Type'.'|']", path))
     return res
@@ -849,7 +849,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-
 
 if __name__ == "__main__":
     check_model_init()

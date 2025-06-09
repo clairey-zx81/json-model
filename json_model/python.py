@@ -70,22 +70,21 @@ class Python(Language):
     def regroup(self, name: str, pattern: str = ".*"):
         return f"(?P<{name}>{pattern})" if self._relib == "re" else super().regroup(name, pattern)
 
-    def file_header(self) -> Block:
-        code: Block = [
-            "#! /bin/env python",
-        ]
-        code += super().file_header()
+    def file_header(self, exe: bool = True) -> Block:
+        code: Block = self.file_load("python_exe.py") if exe else []
+        code += super().file_header(exe)
         code += [
             r"from typing import Callable",
             f"import {self._relib} as re",
             f"from json_model.runtime import *",
             f"__version__ = {self.esc(self._version)}",
             "",
-        ] + self.file_load("python_entry.py")
+        ]
+        code += self.file_load("python_entry.py")  # too early?
         return code
 
-    def file_footer(self) -> Block:
-        return [""] + self.file_load("python_main.py")
+    def file_footer(self, exe: bool = True) -> Block:
+        return self.file_load("python_main.py") if exe else []
 
     def clean_report(self) -> Block:
         return [ "rep is None or rep.clear()" ]
@@ -211,7 +210,7 @@ class Python(Language):
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
         self._re_used = True
-        sregex = self.esc(f"(?{opts})" + regex)
+        sregex = self.esc((f"(?{opts})" if opts else "") + regex)
         return [
             f"global {name}_reco, {name}",
             # rex engine imported as re; may raise an exception

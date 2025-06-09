@@ -568,10 +568,10 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
                 res = fun_0(val, path, rep)
             else:
                 res = False
-                rep is None or rep.append(("tag type value not found [.'$geometry'.'|']", path))
+                rep is None or rep.append(("tag <type> value not found [.'$geometry'.'|']", path))
         else:
             res = False
-            rep is None or rep.append(("tag prop type is missing [.'$geometry'.'|']", path))
+            rep is None or rep.append(("tag prop <type> is missing [.'$geometry'.'|']", path))
     else:
         rep is None or rep.append(("value is not an object [.'$geometry'.'|']", path))
     return res
@@ -946,7 +946,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-
 
 if __name__ == "__main__":
     check_model_init()

@@ -22,7 +22,7 @@ Command `jmc` options include:
 - main operations (default depends on other options, final guess is preprocess):
   - `-P`: preprocess model.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
-  - `-X`: generate python or C code.
+  - `-C`: compile to Python, C or JS.
   - `-U`: dump all models.
   - `-J`: dump json IR.
 - `-O`: optimize model: const prop, partial eval, xor to or, flatten…

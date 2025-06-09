@@ -19,6 +19,7 @@ class CodeGenerator:
 
     - globs: global map of symbols.
     - language: target language abstraction.
+    - execute: true for executable, false for module.
     - fname: entry function name.
     - prefix: use this prefix for file-level identifiers.
     - map_threshold: whether to inline property name checks (up to threshold) or use a map.
@@ -29,7 +30,7 @@ class CodeGenerator:
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
-                 report: bool = True, path: bool = True, debug: bool = False):
+                 execute: bool = True, report: bool = True, path: bool = True, debug: bool = False):
 
         super().__init__()
 
@@ -42,7 +43,7 @@ class CodeGenerator:
         self._path = path
         self._debug = debug
 
-        self._code = Code(language, fname)
+        self._code = Code(language, fname, executable=execute)
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
@@ -379,9 +380,9 @@ class CodeGenerator:
                     gen.if_stmt(gen.is_def(fun),
                         icall,
                         gen.bool_var(res, gen.const(False)) +
-                        gen.report(f"tag {tag_name} value not found [{smpath}]", vpath)),
+                        gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
                     gen.bool_var(res, gen.const(False)) +
-                    gen.report(f"tag prop {tag_name} is missing [{smpath}]", vpath)),
+                    gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)),
                 gen.report(f"value is not an object [{smpath}]", vpath))
         )
 
@@ -1214,6 +1215,7 @@ def xstatic_compile(
         lang: str = "py",
         prefix: str = "_jm_",
         map_threshold: int = 3,
+        execute: bool = True,
         map_share: bool = False,
         debug: bool = False,
         report: bool = True,
@@ -1243,7 +1245,7 @@ def xstatic_compile(
         raise NotImplementedError(f"no support yet for language: {lang}")
 
     # cource code generator
-    gen = CodeGenerator(model._globs, language, fname, prefix=prefix,
+    gen = CodeGenerator(model._globs, language, fname, prefix=prefix, execute=execute,
                         map_threshold=map_threshold, map_share=map_share,
                         debug=debug, report=report)
 
