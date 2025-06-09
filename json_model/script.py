@@ -195,7 +195,13 @@ def jmc_script():
 
     logging.basicConfig()
 
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        prog="jmc",
+        description="""JSON Model is a compact and intuitive JSON syntax to describe JSON data
+            structures. This JSON Model Compiler command allows to derive codes or schemas from
+            a model. See https://github.com/clairey-zx81/json-model for details.""",
+        epilog="This code is Public Domain."
+    )
     arg = ap.add_argument
 
     # verbosity and checks
@@ -225,7 +231,7 @@ def jmc_script():
         help="do not generate anything")
 
     # TODO cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js"], help="output format language")
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js"], help="output language")
 
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
