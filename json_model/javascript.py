@@ -143,7 +143,7 @@ class JavaScript(Language):
         return f"runtime.jm_array_is_unique({val}, {path}, rep)"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"runtime.jm_check_constraint({val}, {self.esc(op)}, &{self._cst(vop)}, {path}, rep)"
+        return f"runtime.jm_check_constraint({val}, {self.esc(op)}, &{self.const(vop)}, {path}, rep)"
 
     def nope(self) -> Block:
         return []
