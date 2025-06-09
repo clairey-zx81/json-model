@@ -6,6 +6,7 @@
 - [x] static: prioritize c for speed, js for usability
 - [x] js-backend: fix unique for non scalars (still 0 === 0.0)
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
+- [ ] static: keep recursive names?
 - [ ] tests: move `FOO-check.out` to `FOO.check`
 - [ ] js-backend: allow to generate a module only
 - [ ] py-backend: allow to generate a simple module only? separate main file?
