@@ -50,8 +50,13 @@ export function jm_is_valid_uuid(uuid)
 
 export function jm_is_valid_url(url)
 {
-    // TODO
-    return false;
+    try {
+        new URL(url)
+        return true
+    }
+    catch (e) {
+        return false
+    }
 }
 
 // work around js abysmal type system
