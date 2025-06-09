@@ -58,8 +58,10 @@ function processing(fname, index, value, checker, name, expected, report, times,
     return error
 }
 
-export default async function main(checker)
+export default async function main(checker_init, checker, checker_free)
 {
+    checker_init()
+
     const options = {
       'verbose': { type: 'boolean', short: 'v' },
       'times': { type: 'string', short: 'T' },
@@ -145,5 +147,6 @@ export default async function main(checker)
         }
     }
 
+    checker_free()
     process.exit(errors ? 4 : 0)
 }

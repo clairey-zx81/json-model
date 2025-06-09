@@ -3606,46 +3606,46 @@ export function check_model_init()
         _jm_cst_0.add(0.0)
         _jm_cst_0.add(1.0)
         _jm_cst_0.add(-1.0)
-        _jm_obj_10_map["!"] = _jm_f_0
-        _jm_obj_10_map["#"] = _jm_f_1
-        _jm_obj_10_map[".in"] = _jm_f_2
-        _jm_obj_10_map[".mo"] = _jm_f_3
-        _jm_obj_10_map[".schema"] = _jm_f_4
-        _jm_obj_12_map["#"] = _jm_f_5
-        _jm_obj_12_map["$"] = _jm_f_6
-        _jm_obj_12_map["%"] = _jm_f_7
-        _jm_obj_12_map[".schema"] = _jm_f_8
-        _jm_obj_12_map["~"] = _jm_f_9
-        _jm_obj_18_map["#"] = _jm_f_10
-        _jm_obj_18_map["$"] = _jm_f_11
-        _jm_obj_18_map["%"] = _jm_f_12
-        _jm_obj_18_map[".schema"] = _jm_f_13
-        _jm_obj_18_map["~"] = _jm_f_14
-        _jm_obj_24_map["#"] = _jm_f_15
-        _jm_obj_24_map["$"] = _jm_f_16
-        _jm_obj_24_map["%"] = _jm_f_17
-        _jm_obj_24_map[".schema"] = _jm_f_18
-        _jm_obj_24_map["~"] = _jm_f_19
-        _jm_obj_30_map["#"] = _jm_f_20
-        _jm_obj_30_map["$"] = _jm_f_21
-        _jm_obj_30_map["%"] = _jm_f_22
-        _jm_obj_30_map[".schema"] = _jm_f_23
-        _jm_obj_30_map["~"] = _jm_f_24
-        _jm_obj_36_map["#"] = _jm_f_25
-        _jm_obj_36_map["$"] = _jm_f_26
-        _jm_obj_36_map["%"] = _jm_f_27
-        _jm_obj_36_map[".schema"] = _jm_f_28
-        _jm_obj_36_map["~"] = _jm_f_29
-        _jm_obj_42_map["!"] = _jm_f_30
-        _jm_obj_42_map["#"] = _jm_f_31
-        _jm_obj_42_map["$"] = _jm_f_32
-        _jm_obj_42_map["%"] = _jm_f_33
-        _jm_obj_42_map[".in"] = _jm_f_34
-        _jm_obj_42_map[".mo"] = _jm_f_35
-        _jm_obj_42_map[".schema"] = _jm_f_36
-        _jm_obj_42_map["~"] = _jm_f_37
-        check_model_map[""] = json_model_1
-        check_model_map["Model"] = json_model_3
+        _jm_obj_10_map.set("!", _jm_f_0)
+        _jm_obj_10_map.set("#", _jm_f_1)
+        _jm_obj_10_map.set(".in", _jm_f_2)
+        _jm_obj_10_map.set(".mo", _jm_f_3)
+        _jm_obj_10_map.set(".schema", _jm_f_4)
+        _jm_obj_12_map.set("#", _jm_f_5)
+        _jm_obj_12_map.set("$", _jm_f_6)
+        _jm_obj_12_map.set("%", _jm_f_7)
+        _jm_obj_12_map.set(".schema", _jm_f_8)
+        _jm_obj_12_map.set("~", _jm_f_9)
+        _jm_obj_18_map.set("#", _jm_f_10)
+        _jm_obj_18_map.set("$", _jm_f_11)
+        _jm_obj_18_map.set("%", _jm_f_12)
+        _jm_obj_18_map.set(".schema", _jm_f_13)
+        _jm_obj_18_map.set("~", _jm_f_14)
+        _jm_obj_24_map.set("#", _jm_f_15)
+        _jm_obj_24_map.set("$", _jm_f_16)
+        _jm_obj_24_map.set("%", _jm_f_17)
+        _jm_obj_24_map.set(".schema", _jm_f_18)
+        _jm_obj_24_map.set("~", _jm_f_19)
+        _jm_obj_30_map.set("#", _jm_f_20)
+        _jm_obj_30_map.set("$", _jm_f_21)
+        _jm_obj_30_map.set("%", _jm_f_22)
+        _jm_obj_30_map.set(".schema", _jm_f_23)
+        _jm_obj_30_map.set("~", _jm_f_24)
+        _jm_obj_36_map.set("#", _jm_f_25)
+        _jm_obj_36_map.set("$", _jm_f_26)
+        _jm_obj_36_map.set("%", _jm_f_27)
+        _jm_obj_36_map.set(".schema", _jm_f_28)
+        _jm_obj_36_map.set("~", _jm_f_29)
+        _jm_obj_42_map.set("!", _jm_f_30)
+        _jm_obj_42_map.set("#", _jm_f_31)
+        _jm_obj_42_map.set("$", _jm_f_32)
+        _jm_obj_42_map.set("%", _jm_f_33)
+        _jm_obj_42_map.set(".in", _jm_f_34)
+        _jm_obj_42_map.set(".mo", _jm_f_35)
+        _jm_obj_42_map.set(".schema", _jm_f_36)
+        _jm_obj_42_map.set("~", _jm_f_37)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("Model", json_model_3)
     }
 }
 
@@ -3660,9 +3660,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -3672,4 +3672,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

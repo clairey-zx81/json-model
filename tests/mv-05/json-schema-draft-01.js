@@ -661,35 +661,35 @@ export function check_model_init()
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
         _jm_cst_0.add("any")
-        _jm_obj_0_map["$schema"] = _jm_f_0
-        _jm_obj_0_map["additionalProperties"] = _jm_f_1
-        _jm_obj_0_map["contentEncoding"] = _jm_f_2
-        _jm_obj_0_map["default"] = _jm_f_3
-        _jm_obj_0_map["description"] = _jm_f_4
-        _jm_obj_0_map["disallow"] = _jm_f_5
-        _jm_obj_0_map["enum"] = _jm_f_6
-        _jm_obj_0_map["extends"] = _jm_f_7
-        _jm_obj_0_map["format"] = _jm_f_8
-        _jm_obj_0_map["id"] = _jm_f_9
-        _jm_obj_0_map["items"] = _jm_f_10
-        _jm_obj_0_map["maxDecimal"] = _jm_f_11
-        _jm_obj_0_map["maxItems"] = _jm_f_12
-        _jm_obj_0_map["maxLength"] = _jm_f_13
-        _jm_obj_0_map["maximum"] = _jm_f_14
-        _jm_obj_0_map["maximumCanEqual"] = _jm_f_15
-        _jm_obj_0_map["minItems"] = _jm_f_16
-        _jm_obj_0_map["minLength"] = _jm_f_17
-        _jm_obj_0_map["minimum"] = _jm_f_18
-        _jm_obj_0_map["minimumCanEqual"] = _jm_f_19
-        _jm_obj_0_map["optional"] = _jm_f_20
-        _jm_obj_0_map["pattern"] = _jm_f_21
-        _jm_obj_0_map["properties"] = _jm_f_22
-        _jm_obj_0_map["requires"] = _jm_f_23
-        _jm_obj_0_map["title"] = _jm_f_24
-        _jm_obj_0_map["type"] = _jm_f_25
-        check_model_map[""] = json_model_1
-        check_model_map["allTypes"] = json_model_2
-        check_model_map["Schema"] = json_model_1
+        _jm_obj_0_map.set("$schema", _jm_f_0)
+        _jm_obj_0_map.set("additionalProperties", _jm_f_1)
+        _jm_obj_0_map.set("contentEncoding", _jm_f_2)
+        _jm_obj_0_map.set("default", _jm_f_3)
+        _jm_obj_0_map.set("description", _jm_f_4)
+        _jm_obj_0_map.set("disallow", _jm_f_5)
+        _jm_obj_0_map.set("enum", _jm_f_6)
+        _jm_obj_0_map.set("extends", _jm_f_7)
+        _jm_obj_0_map.set("format", _jm_f_8)
+        _jm_obj_0_map.set("id", _jm_f_9)
+        _jm_obj_0_map.set("items", _jm_f_10)
+        _jm_obj_0_map.set("maxDecimal", _jm_f_11)
+        _jm_obj_0_map.set("maxItems", _jm_f_12)
+        _jm_obj_0_map.set("maxLength", _jm_f_13)
+        _jm_obj_0_map.set("maximum", _jm_f_14)
+        _jm_obj_0_map.set("maximumCanEqual", _jm_f_15)
+        _jm_obj_0_map.set("minItems", _jm_f_16)
+        _jm_obj_0_map.set("minLength", _jm_f_17)
+        _jm_obj_0_map.set("minimum", _jm_f_18)
+        _jm_obj_0_map.set("minimumCanEqual", _jm_f_19)
+        _jm_obj_0_map.set("optional", _jm_f_20)
+        _jm_obj_0_map.set("pattern", _jm_f_21)
+        _jm_obj_0_map.set("properties", _jm_f_22)
+        _jm_obj_0_map.set("requires", _jm_f_23)
+        _jm_obj_0_map.set("title", _jm_f_24)
+        _jm_obj_0_map.set("type", _jm_f_25)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("allTypes", json_model_2)
+        check_model_map.set("Schema", json_model_1)
     }
 }
 
@@ -706,7 +706,7 @@ export function check_model(val, name, rep)
 {
     check_model_init()
 
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)

@@ -2588,22 +2588,22 @@ export function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        _jm_obj_0_map["$anchor"] = _jm_f_0
-        _jm_obj_0_map["$comment"] = _jm_f_1
-        _jm_obj_0_map["$defs"] = _jm_f_2
-        _jm_obj_0_map["$dynamicAnchor"] = _jm_f_3
-        _jm_obj_0_map["$dynamicRef"] = _jm_f_4
-        _jm_obj_0_map["$id"] = _jm_f_5
-        _jm_obj_0_map["$ref"] = _jm_f_6
-        _jm_obj_0_map["$schema"] = _jm_f_7
-        _jm_obj_0_map["$vocabulary"] = _jm_f_8
-        _jm_obj_3_map["default"] = _jm_f_9
-        _jm_obj_3_map["deprecated"] = _jm_f_10
-        _jm_obj_3_map["description"] = _jm_f_11
-        _jm_obj_3_map["examples"] = _jm_f_12
-        _jm_obj_3_map["readOnly"] = _jm_f_13
-        _jm_obj_3_map["title"] = _jm_f_14
-        _jm_obj_3_map["writeOnly"] = _jm_f_15
+        _jm_obj_0_map.set("$anchor", _jm_f_0)
+        _jm_obj_0_map.set("$comment", _jm_f_1)
+        _jm_obj_0_map.set("$defs", _jm_f_2)
+        _jm_obj_0_map.set("$dynamicAnchor", _jm_f_3)
+        _jm_obj_0_map.set("$dynamicRef", _jm_f_4)
+        _jm_obj_0_map.set("$id", _jm_f_5)
+        _jm_obj_0_map.set("$ref", _jm_f_6)
+        _jm_obj_0_map.set("$schema", _jm_f_7)
+        _jm_obj_0_map.set("$vocabulary", _jm_f_8)
+        _jm_obj_3_map.set("default", _jm_f_9)
+        _jm_obj_3_map.set("deprecated", _jm_f_10)
+        _jm_obj_3_map.set("description", _jm_f_11)
+        _jm_obj_3_map.set("examples", _jm_f_12)
+        _jm_obj_3_map.set("readOnly", _jm_f_13)
+        _jm_obj_3_map.set("title", _jm_f_14)
+        _jm_obj_3_map.set("writeOnly", _jm_f_15)
         _jm_cst_0.add("array")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")
@@ -2611,116 +2611,116 @@ export function check_model_init()
         _jm_cst_0.add("number")
         _jm_cst_0.add("object")
         _jm_cst_0.add("string")
-        _jm_obj_7_map["const"] = _jm_f_16
-        _jm_obj_7_map["dependentRequired"] = _jm_f_17
-        _jm_obj_7_map["enum"] = _jm_f_18
-        _jm_obj_7_map["exclusiveMaximum"] = _jm_f_19
-        _jm_obj_7_map["exclusiveMinimum"] = _jm_f_20
-        _jm_obj_7_map["maxContains"] = _jm_f_21
-        _jm_obj_7_map["maxItems"] = _jm_f_22
-        _jm_obj_7_map["maxLength"] = _jm_f_23
-        _jm_obj_7_map["maxProperties"] = _jm_f_24
-        _jm_obj_7_map["maximum"] = _jm_f_25
-        _jm_obj_7_map["minContains"] = _jm_f_26
-        _jm_obj_7_map["minItems"] = _jm_f_27
-        _jm_obj_7_map["minLength"] = _jm_f_28
-        _jm_obj_7_map["minProperties"] = _jm_f_29
-        _jm_obj_7_map["minimum"] = _jm_f_30
-        _jm_obj_7_map["multipleOf"] = _jm_f_31
-        _jm_obj_7_map["pattern"] = _jm_f_32
-        _jm_obj_7_map["required"] = _jm_f_33
-        _jm_obj_7_map["type"] = _jm_f_34
-        _jm_obj_7_map["uniqueItems"] = _jm_f_35
-        _jm_obj_9_map["additionalProperties"] = _jm_f_36
-        _jm_obj_9_map["allOf"] = _jm_f_37
-        _jm_obj_9_map["anyOf"] = _jm_f_38
-        _jm_obj_9_map["contains"] = _jm_f_39
-        _jm_obj_9_map["dependentSchemas"] = _jm_f_40
-        _jm_obj_9_map["else"] = _jm_f_41
-        _jm_obj_9_map["if"] = _jm_f_42
-        _jm_obj_9_map["items"] = _jm_f_43
-        _jm_obj_9_map["not"] = _jm_f_44
-        _jm_obj_9_map["oneOf"] = _jm_f_45
-        _jm_obj_9_map["patternProperties"] = _jm_f_46
-        _jm_obj_9_map["prefixItems"] = _jm_f_47
-        _jm_obj_9_map["properties"] = _jm_f_48
-        _jm_obj_9_map["propertyDependencies"] = _jm_f_49
-        _jm_obj_9_map["propertyNames"] = _jm_f_50
-        _jm_obj_9_map["then"] = _jm_f_51
-        _jm_obj_15_map["$anchor"] = _jm_f_52
-        _jm_obj_15_map["$comment"] = _jm_f_53
-        _jm_obj_15_map["$defs"] = _jm_f_54
-        _jm_obj_15_map["$dynamicAnchor"] = _jm_f_55
-        _jm_obj_15_map["$dynamicRef"] = _jm_f_56
-        _jm_obj_15_map["$id"] = _jm_f_57
-        _jm_obj_15_map["$ref"] = _jm_f_58
-        _jm_obj_15_map["$schema"] = _jm_f_59
-        _jm_obj_15_map["$vocabulary"] = _jm_f_60
-        _jm_obj_15_map["additionalProperties"] = _jm_f_61
-        _jm_obj_15_map["allOf"] = _jm_f_62
-        _jm_obj_15_map["anyOf"] = _jm_f_63
-        _jm_obj_15_map["const"] = _jm_f_64
-        _jm_obj_15_map["contains"] = _jm_f_65
-        _jm_obj_15_map["contentEncoding"] = _jm_f_66
-        _jm_obj_15_map["contentMediaType"] = _jm_f_67
-        _jm_obj_15_map["contentSchema"] = _jm_f_68
-        _jm_obj_15_map["default"] = _jm_f_69
-        _jm_obj_15_map["dependentRequired"] = _jm_f_70
-        _jm_obj_15_map["dependentSchemas"] = _jm_f_71
-        _jm_obj_15_map["deprecated"] = _jm_f_72
-        _jm_obj_15_map["description"] = _jm_f_73
-        _jm_obj_15_map["else"] = _jm_f_74
-        _jm_obj_15_map["enum"] = _jm_f_75
-        _jm_obj_15_map["examples"] = _jm_f_76
-        _jm_obj_15_map["exclusiveMaximum"] = _jm_f_77
-        _jm_obj_15_map["exclusiveMinimum"] = _jm_f_78
-        _jm_obj_15_map["format"] = _jm_f_79
-        _jm_obj_15_map["if"] = _jm_f_80
-        _jm_obj_15_map["items"] = _jm_f_81
-        _jm_obj_15_map["maxContains"] = _jm_f_82
-        _jm_obj_15_map["maxItems"] = _jm_f_83
-        _jm_obj_15_map["maxLength"] = _jm_f_84
-        _jm_obj_15_map["maxProperties"] = _jm_f_85
-        _jm_obj_15_map["maximum"] = _jm_f_86
-        _jm_obj_15_map["minContains"] = _jm_f_87
-        _jm_obj_15_map["minItems"] = _jm_f_88
-        _jm_obj_15_map["minLength"] = _jm_f_89
-        _jm_obj_15_map["minProperties"] = _jm_f_90
-        _jm_obj_15_map["minimum"] = _jm_f_91
-        _jm_obj_15_map["multipleOf"] = _jm_f_92
-        _jm_obj_15_map["not"] = _jm_f_93
-        _jm_obj_15_map["oneOf"] = _jm_f_94
-        _jm_obj_15_map["pattern"] = _jm_f_95
-        _jm_obj_15_map["patternProperties"] = _jm_f_96
-        _jm_obj_15_map["prefixItems"] = _jm_f_97
-        _jm_obj_15_map["properties"] = _jm_f_98
-        _jm_obj_15_map["propertyDependencies"] = _jm_f_99
-        _jm_obj_15_map["propertyNames"] = _jm_f_100
-        _jm_obj_15_map["readOnly"] = _jm_f_101
-        _jm_obj_15_map["required"] = _jm_f_102
-        _jm_obj_15_map["then"] = _jm_f_103
-        _jm_obj_15_map["title"] = _jm_f_104
-        _jm_obj_15_map["type"] = _jm_f_105
-        _jm_obj_15_map["unevaluatedItems"] = _jm_f_106
-        _jm_obj_15_map["unevaluatedProperties"] = _jm_f_107
-        _jm_obj_15_map["uniqueItems"] = _jm_f_108
-        _jm_obj_15_map["writeOnly"] = _jm_f_109
-        check_model_map[""] = json_model_1
-        check_model_map["URI-REFERENCE"] = json_model_2
-        check_model_map["core"] = json_model_3
-        check_model_map["meta"] = json_model_4
-        check_model_map["content"] = json_model_5
-        check_model_map["unevaluated"] = json_model_6
-        check_model_map["format"] = json_model_7
-        check_model_map["simpleTypes"] = json_model_8
-        check_model_map["simpleTypesArray"] = json_model_9
-        check_model_map["stringArray"] = json_model_10
-        check_model_map["nonNegativeInteger"] = json_model_11
-        check_model_map["validation"] = json_model_12
-        check_model_map["schemaArray"] = json_model_13
-        check_model_map["applicator"] = json_model_14
-        check_model_map["ObjectSchema"] = json_model_15
-        check_model_map["Schema"] = json_model_16
+        _jm_obj_7_map.set("const", _jm_f_16)
+        _jm_obj_7_map.set("dependentRequired", _jm_f_17)
+        _jm_obj_7_map.set("enum", _jm_f_18)
+        _jm_obj_7_map.set("exclusiveMaximum", _jm_f_19)
+        _jm_obj_7_map.set("exclusiveMinimum", _jm_f_20)
+        _jm_obj_7_map.set("maxContains", _jm_f_21)
+        _jm_obj_7_map.set("maxItems", _jm_f_22)
+        _jm_obj_7_map.set("maxLength", _jm_f_23)
+        _jm_obj_7_map.set("maxProperties", _jm_f_24)
+        _jm_obj_7_map.set("maximum", _jm_f_25)
+        _jm_obj_7_map.set("minContains", _jm_f_26)
+        _jm_obj_7_map.set("minItems", _jm_f_27)
+        _jm_obj_7_map.set("minLength", _jm_f_28)
+        _jm_obj_7_map.set("minProperties", _jm_f_29)
+        _jm_obj_7_map.set("minimum", _jm_f_30)
+        _jm_obj_7_map.set("multipleOf", _jm_f_31)
+        _jm_obj_7_map.set("pattern", _jm_f_32)
+        _jm_obj_7_map.set("required", _jm_f_33)
+        _jm_obj_7_map.set("type", _jm_f_34)
+        _jm_obj_7_map.set("uniqueItems", _jm_f_35)
+        _jm_obj_9_map.set("additionalProperties", _jm_f_36)
+        _jm_obj_9_map.set("allOf", _jm_f_37)
+        _jm_obj_9_map.set("anyOf", _jm_f_38)
+        _jm_obj_9_map.set("contains", _jm_f_39)
+        _jm_obj_9_map.set("dependentSchemas", _jm_f_40)
+        _jm_obj_9_map.set("else", _jm_f_41)
+        _jm_obj_9_map.set("if", _jm_f_42)
+        _jm_obj_9_map.set("items", _jm_f_43)
+        _jm_obj_9_map.set("not", _jm_f_44)
+        _jm_obj_9_map.set("oneOf", _jm_f_45)
+        _jm_obj_9_map.set("patternProperties", _jm_f_46)
+        _jm_obj_9_map.set("prefixItems", _jm_f_47)
+        _jm_obj_9_map.set("properties", _jm_f_48)
+        _jm_obj_9_map.set("propertyDependencies", _jm_f_49)
+        _jm_obj_9_map.set("propertyNames", _jm_f_50)
+        _jm_obj_9_map.set("then", _jm_f_51)
+        _jm_obj_15_map.set("$anchor", _jm_f_52)
+        _jm_obj_15_map.set("$comment", _jm_f_53)
+        _jm_obj_15_map.set("$defs", _jm_f_54)
+        _jm_obj_15_map.set("$dynamicAnchor", _jm_f_55)
+        _jm_obj_15_map.set("$dynamicRef", _jm_f_56)
+        _jm_obj_15_map.set("$id", _jm_f_57)
+        _jm_obj_15_map.set("$ref", _jm_f_58)
+        _jm_obj_15_map.set("$schema", _jm_f_59)
+        _jm_obj_15_map.set("$vocabulary", _jm_f_60)
+        _jm_obj_15_map.set("additionalProperties", _jm_f_61)
+        _jm_obj_15_map.set("allOf", _jm_f_62)
+        _jm_obj_15_map.set("anyOf", _jm_f_63)
+        _jm_obj_15_map.set("const", _jm_f_64)
+        _jm_obj_15_map.set("contains", _jm_f_65)
+        _jm_obj_15_map.set("contentEncoding", _jm_f_66)
+        _jm_obj_15_map.set("contentMediaType", _jm_f_67)
+        _jm_obj_15_map.set("contentSchema", _jm_f_68)
+        _jm_obj_15_map.set("default", _jm_f_69)
+        _jm_obj_15_map.set("dependentRequired", _jm_f_70)
+        _jm_obj_15_map.set("dependentSchemas", _jm_f_71)
+        _jm_obj_15_map.set("deprecated", _jm_f_72)
+        _jm_obj_15_map.set("description", _jm_f_73)
+        _jm_obj_15_map.set("else", _jm_f_74)
+        _jm_obj_15_map.set("enum", _jm_f_75)
+        _jm_obj_15_map.set("examples", _jm_f_76)
+        _jm_obj_15_map.set("exclusiveMaximum", _jm_f_77)
+        _jm_obj_15_map.set("exclusiveMinimum", _jm_f_78)
+        _jm_obj_15_map.set("format", _jm_f_79)
+        _jm_obj_15_map.set("if", _jm_f_80)
+        _jm_obj_15_map.set("items", _jm_f_81)
+        _jm_obj_15_map.set("maxContains", _jm_f_82)
+        _jm_obj_15_map.set("maxItems", _jm_f_83)
+        _jm_obj_15_map.set("maxLength", _jm_f_84)
+        _jm_obj_15_map.set("maxProperties", _jm_f_85)
+        _jm_obj_15_map.set("maximum", _jm_f_86)
+        _jm_obj_15_map.set("minContains", _jm_f_87)
+        _jm_obj_15_map.set("minItems", _jm_f_88)
+        _jm_obj_15_map.set("minLength", _jm_f_89)
+        _jm_obj_15_map.set("minProperties", _jm_f_90)
+        _jm_obj_15_map.set("minimum", _jm_f_91)
+        _jm_obj_15_map.set("multipleOf", _jm_f_92)
+        _jm_obj_15_map.set("not", _jm_f_93)
+        _jm_obj_15_map.set("oneOf", _jm_f_94)
+        _jm_obj_15_map.set("pattern", _jm_f_95)
+        _jm_obj_15_map.set("patternProperties", _jm_f_96)
+        _jm_obj_15_map.set("prefixItems", _jm_f_97)
+        _jm_obj_15_map.set("properties", _jm_f_98)
+        _jm_obj_15_map.set("propertyDependencies", _jm_f_99)
+        _jm_obj_15_map.set("propertyNames", _jm_f_100)
+        _jm_obj_15_map.set("readOnly", _jm_f_101)
+        _jm_obj_15_map.set("required", _jm_f_102)
+        _jm_obj_15_map.set("then", _jm_f_103)
+        _jm_obj_15_map.set("title", _jm_f_104)
+        _jm_obj_15_map.set("type", _jm_f_105)
+        _jm_obj_15_map.set("unevaluatedItems", _jm_f_106)
+        _jm_obj_15_map.set("unevaluatedProperties", _jm_f_107)
+        _jm_obj_15_map.set("uniqueItems", _jm_f_108)
+        _jm_obj_15_map.set("writeOnly", _jm_f_109)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("URI-REFERENCE", json_model_2)
+        check_model_map.set("core", json_model_3)
+        check_model_map.set("meta", json_model_4)
+        check_model_map.set("content", json_model_5)
+        check_model_map.set("unevaluated", json_model_6)
+        check_model_map.set("format", json_model_7)
+        check_model_map.set("simpleTypes", json_model_8)
+        check_model_map.set("simpleTypesArray", json_model_9)
+        check_model_map.set("stringArray", json_model_10)
+        check_model_map.set("nonNegativeInteger", json_model_11)
+        check_model_map.set("validation", json_model_12)
+        check_model_map.set("schemaArray", json_model_13)
+        check_model_map.set("applicator", json_model_14)
+        check_model_map.set("ObjectSchema", json_model_15)
+        check_model_map.set("Schema", json_model_16)
     }
 }
 
@@ -2735,9 +2735,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -2747,4 +2747,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

@@ -8507,66 +8507,66 @@ export function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        _jm_obj_0_map["component"] = _jm_f_0
-        _jm_obj_0_map["externalDocs"] = _jm_f_1
-        _jm_obj_0_map["jsonSchemaDialect"] = _jm_f_2
-        _jm_obj_0_map["paths"] = _jm_f_3
-        _jm_obj_0_map["security"] = _jm_f_4
-        _jm_obj_0_map["servers"] = _jm_f_5
-        _jm_obj_0_map["tags"] = _jm_f_6
-        _jm_obj_0_map["webhooks"] = _jm_f_7
-        _jm_obj_2_map["contact"] = _jm_f_8
-        _jm_obj_2_map["description"] = _jm_f_9
-        _jm_obj_2_map["license"] = _jm_f_10
-        _jm_obj_2_map["summary"] = _jm_f_11
-        _jm_obj_2_map["termsOfService"] = _jm_f_12
-        _jm_obj_9_map["callbacks"] = _jm_f_13
-        _jm_obj_9_map["examples"] = _jm_f_14
-        _jm_obj_9_map["headers"] = _jm_f_15
-        _jm_obj_9_map["links"] = _jm_f_16
-        _jm_obj_9_map["parameters"] = _jm_f_17
-        _jm_obj_9_map["pathItems"] = _jm_f_18
-        _jm_obj_9_map["requestBodies"] = _jm_f_19
-        _jm_obj_9_map["responses"] = _jm_f_20
-        _jm_obj_9_map["schemas"] = _jm_f_21
-        _jm_obj_9_map["securitySchemes"] = _jm_f_22
-        _jm_obj_21_map["$ref"] = _jm_f_23
-        _jm_obj_21_map["delete"] = _jm_f_24
-        _jm_obj_21_map["description"] = _jm_f_25
-        _jm_obj_21_map["get"] = _jm_f_26
-        _jm_obj_21_map["head"] = _jm_f_27
-        _jm_obj_21_map["options"] = _jm_f_28
-        _jm_obj_21_map["parameters"] = _jm_f_29
-        _jm_obj_21_map["patch"] = _jm_f_30
-        _jm_obj_21_map["post"] = _jm_f_31
-        _jm_obj_21_map["put"] = _jm_f_32
-        _jm_obj_21_map["servers"] = _jm_f_33
-        _jm_obj_21_map["summary"] = _jm_f_34
-        _jm_obj_21_map["trace"] = _jm_f_35
-        _jm_obj_22_map["callbacks"] = _jm_f_36
-        _jm_obj_22_map["deprecated"] = _jm_f_37
-        _jm_obj_22_map["description"] = _jm_f_38
-        _jm_obj_22_map["externalDocs"] = _jm_f_39
-        _jm_obj_22_map["operationId"] = _jm_f_40
-        _jm_obj_22_map["parameters"] = _jm_f_41
-        _jm_obj_22_map["requestBody"] = _jm_f_42
-        _jm_obj_22_map["responses"] = _jm_f_43
-        _jm_obj_22_map["security"] = _jm_f_44
-        _jm_obj_22_map["servers"] = _jm_f_45
-        _jm_obj_22_map["summary"] = _jm_f_46
-        _jm_obj_22_map["tags"] = _jm_f_47
-        _jm_obj_25_map["allowEmptyValue"] = _jm_f_48
-        _jm_obj_25_map["deprecated"] = _jm_f_49
-        _jm_obj_25_map["description"] = _jm_f_50
-        _jm_obj_25_map["required"] = _jm_f_51
+        _jm_obj_0_map.set("component", _jm_f_0)
+        _jm_obj_0_map.set("externalDocs", _jm_f_1)
+        _jm_obj_0_map.set("jsonSchemaDialect", _jm_f_2)
+        _jm_obj_0_map.set("paths", _jm_f_3)
+        _jm_obj_0_map.set("security", _jm_f_4)
+        _jm_obj_0_map.set("servers", _jm_f_5)
+        _jm_obj_0_map.set("tags", _jm_f_6)
+        _jm_obj_0_map.set("webhooks", _jm_f_7)
+        _jm_obj_2_map.set("contact", _jm_f_8)
+        _jm_obj_2_map.set("description", _jm_f_9)
+        _jm_obj_2_map.set("license", _jm_f_10)
+        _jm_obj_2_map.set("summary", _jm_f_11)
+        _jm_obj_2_map.set("termsOfService", _jm_f_12)
+        _jm_obj_9_map.set("callbacks", _jm_f_13)
+        _jm_obj_9_map.set("examples", _jm_f_14)
+        _jm_obj_9_map.set("headers", _jm_f_15)
+        _jm_obj_9_map.set("links", _jm_f_16)
+        _jm_obj_9_map.set("parameters", _jm_f_17)
+        _jm_obj_9_map.set("pathItems", _jm_f_18)
+        _jm_obj_9_map.set("requestBodies", _jm_f_19)
+        _jm_obj_9_map.set("responses", _jm_f_20)
+        _jm_obj_9_map.set("schemas", _jm_f_21)
+        _jm_obj_9_map.set("securitySchemes", _jm_f_22)
+        _jm_obj_21_map.set("$ref", _jm_f_23)
+        _jm_obj_21_map.set("delete", _jm_f_24)
+        _jm_obj_21_map.set("description", _jm_f_25)
+        _jm_obj_21_map.set("get", _jm_f_26)
+        _jm_obj_21_map.set("head", _jm_f_27)
+        _jm_obj_21_map.set("options", _jm_f_28)
+        _jm_obj_21_map.set("parameters", _jm_f_29)
+        _jm_obj_21_map.set("patch", _jm_f_30)
+        _jm_obj_21_map.set("post", _jm_f_31)
+        _jm_obj_21_map.set("put", _jm_f_32)
+        _jm_obj_21_map.set("servers", _jm_f_33)
+        _jm_obj_21_map.set("summary", _jm_f_34)
+        _jm_obj_21_map.set("trace", _jm_f_35)
+        _jm_obj_22_map.set("callbacks", _jm_f_36)
+        _jm_obj_22_map.set("deprecated", _jm_f_37)
+        _jm_obj_22_map.set("description", _jm_f_38)
+        _jm_obj_22_map.set("externalDocs", _jm_f_39)
+        _jm_obj_22_map.set("operationId", _jm_f_40)
+        _jm_obj_22_map.set("parameters", _jm_f_41)
+        _jm_obj_22_map.set("requestBody", _jm_f_42)
+        _jm_obj_22_map.set("responses", _jm_f_43)
+        _jm_obj_22_map.set("security", _jm_f_44)
+        _jm_obj_22_map.set("servers", _jm_f_45)
+        _jm_obj_22_map.set("summary", _jm_f_46)
+        _jm_obj_22_map.set("tags", _jm_f_47)
+        _jm_obj_25_map.set("allowEmptyValue", _jm_f_48)
+        _jm_obj_25_map.set("deprecated", _jm_f_49)
+        _jm_obj_25_map.set("description", _jm_f_50)
+        _jm_obj_25_map.set("required", _jm_f_51)
         _jm_cst_0.add("query")
         _jm_cst_0.add("header")
         _jm_cst_0.add("path")
         _jm_cst_0.add("cookie")
-        _jm_obj_26_map["allowEmptyValue"] = _jm_f_52
-        _jm_obj_26_map["deprecated"] = _jm_f_53
-        _jm_obj_26_map["description"] = _jm_f_54
-        _jm_obj_26_map["required"] = _jm_f_55
+        _jm_obj_26_map.set("allowEmptyValue", _jm_f_52)
+        _jm_obj_26_map.set("deprecated", _jm_f_53)
+        _jm_obj_26_map.set("description", _jm_f_54)
+        _jm_obj_26_map.set("required", _jm_f_55)
         _jm_cst_1.add("matrix")
         _jm_cst_1.add("label")
         _jm_cst_1.add("form")
@@ -8574,154 +8574,154 @@ export function check_model_init()
         _jm_cst_1.add("spaceDelimited")
         _jm_cst_1.add("pipeDelimited")
         _jm_cst_1.add("deepObject")
-        _jm_obj_27_map["allowReserved"] = _jm_f_56
-        _jm_obj_27_map["example"] = _jm_f_57
-        _jm_obj_27_map["examples"] = _jm_f_58
-        _jm_obj_27_map["explode"] = _jm_f_59
-        _jm_obj_27_map["schema"] = _jm_f_60
-        _jm_obj_27_map["style"] = _jm_f_61
+        _jm_obj_27_map.set("allowReserved", _jm_f_56)
+        _jm_obj_27_map.set("example", _jm_f_57)
+        _jm_obj_27_map.set("examples", _jm_f_58)
+        _jm_obj_27_map.set("explode", _jm_f_59)
+        _jm_obj_27_map.set("schema", _jm_f_60)
+        _jm_obj_27_map.set("style", _jm_f_61)
         _jm_cst_2.add("query")
         _jm_cst_2.add("header")
         _jm_cst_2.add("path")
         _jm_cst_2.add("cookie")
-        _jm_obj_31_map["allowEmptyValue"] = _jm_f_62
-        _jm_obj_31_map["content"] = _jm_f_63
-        _jm_obj_31_map["deprecated"] = _jm_f_64
-        _jm_obj_31_map["description"] = _jm_f_65
-        _jm_obj_31_map["required"] = _jm_f_66
+        _jm_obj_31_map.set("allowEmptyValue", _jm_f_62)
+        _jm_obj_31_map.set("content", _jm_f_63)
+        _jm_obj_31_map.set("deprecated", _jm_f_64)
+        _jm_obj_31_map.set("description", _jm_f_65)
+        _jm_obj_31_map.set("required", _jm_f_66)
         _jm_cst_3.add("query")
         _jm_cst_3.add("header")
         _jm_cst_3.add("path")
         _jm_cst_3.add("cookie")
-        _jm_obj_33_map["allowEmptyValue"] = _jm_f_67
-        _jm_obj_33_map["allowReserved"] = _jm_f_68
-        _jm_obj_33_map["deprecated"] = _jm_f_69
-        _jm_obj_33_map["description"] = _jm_f_70
-        _jm_obj_33_map["example"] = _jm_f_71
-        _jm_obj_33_map["examples"] = _jm_f_72
-        _jm_obj_33_map["explode"] = _jm_f_73
-        _jm_obj_33_map["required"] = _jm_f_74
-        _jm_obj_33_map["schema"] = _jm_f_75
-        _jm_obj_33_map["style"] = _jm_f_76
-        _jm_obj_37_map["encoding"] = _jm_f_77
-        _jm_obj_37_map["example"] = _jm_f_78
-        _jm_obj_37_map["examples"] = _jm_f_79
-        _jm_obj_37_map["schema"] = _jm_f_80
-        _jm_obj_40_map["allowReserved"] = _jm_f_81
-        _jm_obj_40_map["contentType"] = _jm_f_82
-        _jm_obj_40_map["explode"] = _jm_f_83
-        _jm_obj_40_map["headers"] = _jm_f_84
-        _jm_obj_40_map["style"] = _jm_f_85
-        _jm_obj_43_map["content"] = _jm_f_86
-        _jm_obj_43_map["description"] = _jm_f_87
-        _jm_obj_43_map["headers"] = _jm_f_88
-        _jm_obj_43_map["links"] = _jm_f_89
-        _jm_obj_48_map["description"] = _jm_f_90
-        _jm_obj_48_map["externalValue"] = _jm_f_91
-        _jm_obj_48_map["summary"] = _jm_f_92
-        _jm_obj_48_map["value"] = _jm_f_93
-        _jm_obj_49_map["description"] = _jm_f_94
-        _jm_obj_49_map["parameters"] = _jm_f_95
-        _jm_obj_49_map["requestBody"] = _jm_f_96
-        _jm_obj_49_map["server"] = _jm_f_97
-        _jm_obj_51_map["description"] = _jm_f_98
-        _jm_obj_51_map["parameters"] = _jm_f_99
-        _jm_obj_51_map["requestBody"] = _jm_f_100
-        _jm_obj_51_map["server"] = _jm_f_101
-        _jm_obj_53_map["allowEmptyValue"] = _jm_f_102
-        _jm_obj_53_map["content"] = _jm_f_103
-        _jm_obj_53_map["deprecated"] = _jm_f_104
-        _jm_obj_53_map["description"] = _jm_f_105
-        _jm_obj_53_map["required"] = _jm_f_106
-        _jm_obj_55_map["allowEmptyValue"] = _jm_f_107
-        _jm_obj_55_map["allowReserved"] = _jm_f_108
-        _jm_obj_55_map["deprecated"] = _jm_f_109
-        _jm_obj_55_map["description"] = _jm_f_110
-        _jm_obj_55_map["example"] = _jm_f_111
-        _jm_obj_55_map["examples"] = _jm_f_112
-        _jm_obj_55_map["explode"] = _jm_f_113
-        _jm_obj_55_map["required"] = _jm_f_114
-        _jm_obj_55_map["schema"] = _jm_f_115
-        _jm_obj_55_map["style"] = _jm_f_116
-        _jm_obj_59_map["$anchor"] = _jm_f_117
-        _jm_obj_59_map["$comment"] = _jm_f_118
-        _jm_obj_59_map["$defs"] = _jm_f_119
-        _jm_obj_59_map["$dynamicAnchor"] = _jm_f_120
-        _jm_obj_59_map["$dynamicRef"] = _jm_f_121
-        _jm_obj_59_map["$id"] = _jm_f_122
-        _jm_obj_59_map["$ref"] = _jm_f_123
-        _jm_obj_59_map["$schema"] = _jm_f_124
-        _jm_obj_59_map["$vocabulary"] = _jm_f_125
-        _jm_obj_59_map["additionalProperties"] = _jm_f_126
-        _jm_obj_59_map["allOf"] = _jm_f_127
-        _jm_obj_59_map["anyOf"] = _jm_f_128
-        _jm_obj_59_map["const"] = _jm_f_129
-        _jm_obj_59_map["contains"] = _jm_f_130
-        _jm_obj_59_map["contentEncoding"] = _jm_f_131
-        _jm_obj_59_map["contentMediaType"] = _jm_f_132
-        _jm_obj_59_map["contentSchema"] = _jm_f_133
-        _jm_obj_59_map["default"] = _jm_f_134
-        _jm_obj_59_map["dependentRequired"] = _jm_f_135
-        _jm_obj_59_map["dependentSchemas"] = _jm_f_136
-        _jm_obj_59_map["deprecated"] = _jm_f_137
-        _jm_obj_59_map["description"] = _jm_f_138
-        _jm_obj_59_map["discriminator"] = _jm_f_139
-        _jm_obj_59_map["else"] = _jm_f_140
-        _jm_obj_59_map["enum"] = _jm_f_141
-        _jm_obj_59_map["example"] = _jm_f_142
-        _jm_obj_59_map["examples"] = _jm_f_143
-        _jm_obj_59_map["exclusiveMaximum"] = _jm_f_144
-        _jm_obj_59_map["exclusiveMinimum"] = _jm_f_145
-        _jm_obj_59_map["externalDocs"] = _jm_f_146
-        _jm_obj_59_map["format"] = _jm_f_147
-        _jm_obj_59_map["if"] = _jm_f_148
-        _jm_obj_59_map["items"] = _jm_f_149
-        _jm_obj_59_map["maxContains"] = _jm_f_150
-        _jm_obj_59_map["maxItems"] = _jm_f_151
-        _jm_obj_59_map["maxLength"] = _jm_f_152
-        _jm_obj_59_map["maxProperties"] = _jm_f_153
-        _jm_obj_59_map["maximum"] = _jm_f_154
-        _jm_obj_59_map["minContains"] = _jm_f_155
-        _jm_obj_59_map["minItems"] = _jm_f_156
-        _jm_obj_59_map["minLength"] = _jm_f_157
-        _jm_obj_59_map["minProperties"] = _jm_f_158
-        _jm_obj_59_map["minimum"] = _jm_f_159
-        _jm_obj_59_map["multipleOf"] = _jm_f_160
-        _jm_obj_59_map["not"] = _jm_f_161
-        _jm_obj_59_map["oneOf"] = _jm_f_162
-        _jm_obj_59_map["pattern"] = _jm_f_163
-        _jm_obj_59_map["patternProperties"] = _jm_f_164
-        _jm_obj_59_map["prefixItems"] = _jm_f_165
-        _jm_obj_59_map["properties"] = _jm_f_166
-        _jm_obj_59_map["propertyNames"] = _jm_f_167
-        _jm_obj_59_map["readOnly"] = _jm_f_168
-        _jm_obj_59_map["required"] = _jm_f_169
-        _jm_obj_59_map["then"] = _jm_f_170
-        _jm_obj_59_map["title"] = _jm_f_171
-        _jm_obj_59_map["type"] = _jm_f_172
-        _jm_obj_59_map["unevaluatedItems"] = _jm_f_173
-        _jm_obj_59_map["unevaluatedProperties"] = _jm_f_174
-        _jm_obj_59_map["uniqueItems"] = _jm_f_175
-        _jm_obj_59_map["writeOnly"] = _jm_f_176
-        _jm_obj_59_map["xml"] = _jm_f_177
-        _jm_obj_68_map["attribute"] = _jm_f_178
-        _jm_obj_68_map["name"] = _jm_f_179
-        _jm_obj_68_map["namespace"] = _jm_f_180
-        _jm_obj_68_map["prefix"] = _jm_f_181
-        _jm_obj_68_map["wrapped"] = _jm_f_182
+        _jm_obj_33_map.set("allowEmptyValue", _jm_f_67)
+        _jm_obj_33_map.set("allowReserved", _jm_f_68)
+        _jm_obj_33_map.set("deprecated", _jm_f_69)
+        _jm_obj_33_map.set("description", _jm_f_70)
+        _jm_obj_33_map.set("example", _jm_f_71)
+        _jm_obj_33_map.set("examples", _jm_f_72)
+        _jm_obj_33_map.set("explode", _jm_f_73)
+        _jm_obj_33_map.set("required", _jm_f_74)
+        _jm_obj_33_map.set("schema", _jm_f_75)
+        _jm_obj_33_map.set("style", _jm_f_76)
+        _jm_obj_37_map.set("encoding", _jm_f_77)
+        _jm_obj_37_map.set("example", _jm_f_78)
+        _jm_obj_37_map.set("examples", _jm_f_79)
+        _jm_obj_37_map.set("schema", _jm_f_80)
+        _jm_obj_40_map.set("allowReserved", _jm_f_81)
+        _jm_obj_40_map.set("contentType", _jm_f_82)
+        _jm_obj_40_map.set("explode", _jm_f_83)
+        _jm_obj_40_map.set("headers", _jm_f_84)
+        _jm_obj_40_map.set("style", _jm_f_85)
+        _jm_obj_43_map.set("content", _jm_f_86)
+        _jm_obj_43_map.set("description", _jm_f_87)
+        _jm_obj_43_map.set("headers", _jm_f_88)
+        _jm_obj_43_map.set("links", _jm_f_89)
+        _jm_obj_48_map.set("description", _jm_f_90)
+        _jm_obj_48_map.set("externalValue", _jm_f_91)
+        _jm_obj_48_map.set("summary", _jm_f_92)
+        _jm_obj_48_map.set("value", _jm_f_93)
+        _jm_obj_49_map.set("description", _jm_f_94)
+        _jm_obj_49_map.set("parameters", _jm_f_95)
+        _jm_obj_49_map.set("requestBody", _jm_f_96)
+        _jm_obj_49_map.set("server", _jm_f_97)
+        _jm_obj_51_map.set("description", _jm_f_98)
+        _jm_obj_51_map.set("parameters", _jm_f_99)
+        _jm_obj_51_map.set("requestBody", _jm_f_100)
+        _jm_obj_51_map.set("server", _jm_f_101)
+        _jm_obj_53_map.set("allowEmptyValue", _jm_f_102)
+        _jm_obj_53_map.set("content", _jm_f_103)
+        _jm_obj_53_map.set("deprecated", _jm_f_104)
+        _jm_obj_53_map.set("description", _jm_f_105)
+        _jm_obj_53_map.set("required", _jm_f_106)
+        _jm_obj_55_map.set("allowEmptyValue", _jm_f_107)
+        _jm_obj_55_map.set("allowReserved", _jm_f_108)
+        _jm_obj_55_map.set("deprecated", _jm_f_109)
+        _jm_obj_55_map.set("description", _jm_f_110)
+        _jm_obj_55_map.set("example", _jm_f_111)
+        _jm_obj_55_map.set("examples", _jm_f_112)
+        _jm_obj_55_map.set("explode", _jm_f_113)
+        _jm_obj_55_map.set("required", _jm_f_114)
+        _jm_obj_55_map.set("schema", _jm_f_115)
+        _jm_obj_55_map.set("style", _jm_f_116)
+        _jm_obj_59_map.set("$anchor", _jm_f_117)
+        _jm_obj_59_map.set("$comment", _jm_f_118)
+        _jm_obj_59_map.set("$defs", _jm_f_119)
+        _jm_obj_59_map.set("$dynamicAnchor", _jm_f_120)
+        _jm_obj_59_map.set("$dynamicRef", _jm_f_121)
+        _jm_obj_59_map.set("$id", _jm_f_122)
+        _jm_obj_59_map.set("$ref", _jm_f_123)
+        _jm_obj_59_map.set("$schema", _jm_f_124)
+        _jm_obj_59_map.set("$vocabulary", _jm_f_125)
+        _jm_obj_59_map.set("additionalProperties", _jm_f_126)
+        _jm_obj_59_map.set("allOf", _jm_f_127)
+        _jm_obj_59_map.set("anyOf", _jm_f_128)
+        _jm_obj_59_map.set("const", _jm_f_129)
+        _jm_obj_59_map.set("contains", _jm_f_130)
+        _jm_obj_59_map.set("contentEncoding", _jm_f_131)
+        _jm_obj_59_map.set("contentMediaType", _jm_f_132)
+        _jm_obj_59_map.set("contentSchema", _jm_f_133)
+        _jm_obj_59_map.set("default", _jm_f_134)
+        _jm_obj_59_map.set("dependentRequired", _jm_f_135)
+        _jm_obj_59_map.set("dependentSchemas", _jm_f_136)
+        _jm_obj_59_map.set("deprecated", _jm_f_137)
+        _jm_obj_59_map.set("description", _jm_f_138)
+        _jm_obj_59_map.set("discriminator", _jm_f_139)
+        _jm_obj_59_map.set("else", _jm_f_140)
+        _jm_obj_59_map.set("enum", _jm_f_141)
+        _jm_obj_59_map.set("example", _jm_f_142)
+        _jm_obj_59_map.set("examples", _jm_f_143)
+        _jm_obj_59_map.set("exclusiveMaximum", _jm_f_144)
+        _jm_obj_59_map.set("exclusiveMinimum", _jm_f_145)
+        _jm_obj_59_map.set("externalDocs", _jm_f_146)
+        _jm_obj_59_map.set("format", _jm_f_147)
+        _jm_obj_59_map.set("if", _jm_f_148)
+        _jm_obj_59_map.set("items", _jm_f_149)
+        _jm_obj_59_map.set("maxContains", _jm_f_150)
+        _jm_obj_59_map.set("maxItems", _jm_f_151)
+        _jm_obj_59_map.set("maxLength", _jm_f_152)
+        _jm_obj_59_map.set("maxProperties", _jm_f_153)
+        _jm_obj_59_map.set("maximum", _jm_f_154)
+        _jm_obj_59_map.set("minContains", _jm_f_155)
+        _jm_obj_59_map.set("minItems", _jm_f_156)
+        _jm_obj_59_map.set("minLength", _jm_f_157)
+        _jm_obj_59_map.set("minProperties", _jm_f_158)
+        _jm_obj_59_map.set("minimum", _jm_f_159)
+        _jm_obj_59_map.set("multipleOf", _jm_f_160)
+        _jm_obj_59_map.set("not", _jm_f_161)
+        _jm_obj_59_map.set("oneOf", _jm_f_162)
+        _jm_obj_59_map.set("pattern", _jm_f_163)
+        _jm_obj_59_map.set("patternProperties", _jm_f_164)
+        _jm_obj_59_map.set("prefixItems", _jm_f_165)
+        _jm_obj_59_map.set("properties", _jm_f_166)
+        _jm_obj_59_map.set("propertyNames", _jm_f_167)
+        _jm_obj_59_map.set("readOnly", _jm_f_168)
+        _jm_obj_59_map.set("required", _jm_f_169)
+        _jm_obj_59_map.set("then", _jm_f_170)
+        _jm_obj_59_map.set("title", _jm_f_171)
+        _jm_obj_59_map.set("type", _jm_f_172)
+        _jm_obj_59_map.set("unevaluatedItems", _jm_f_173)
+        _jm_obj_59_map.set("unevaluatedProperties", _jm_f_174)
+        _jm_obj_59_map.set("uniqueItems", _jm_f_175)
+        _jm_obj_59_map.set("writeOnly", _jm_f_176)
+        _jm_obj_59_map.set("xml", _jm_f_177)
+        _jm_obj_68_map.set("attribute", _jm_f_178)
+        _jm_obj_68_map.set("name", _jm_f_179)
+        _jm_obj_68_map.set("namespace", _jm_f_180)
+        _jm_obj_68_map.set("prefix", _jm_f_181)
+        _jm_obj_68_map.set("wrapped", _jm_f_182)
         _jm_cst_4.add("query")
         _jm_cst_4.add("header")
         _jm_cst_4.add("cookie")
-        _jm_obj_69_mup["flows"] = _jm_f_183
-        _jm_obj_69_mup["in"] = _jm_f_184
-        _jm_obj_69_mup["name"] = _jm_f_185
-        _jm_obj_69_mup["openIdConnectUrl"] = _jm_f_186
-        _jm_obj_69_mup["scheme"] = _jm_f_187
-        _jm_obj_69_mup["type"] = _jm_f_188
-        _jm_obj_70_map["authorizationCode"] = _jm_f_189
-        _jm_obj_70_map["clientCredentials"] = _jm_f_190
-        _jm_obj_70_map["implicit"] = _jm_f_191
-        _jm_obj_70_map["password"] = _jm_f_192
+        _jm_obj_69_mup.set("flows", _jm_f_183)
+        _jm_obj_69_mup.set("in", _jm_f_184)
+        _jm_obj_69_mup.set("name", _jm_f_185)
+        _jm_obj_69_mup.set("openIdConnectUrl", _jm_f_186)
+        _jm_obj_69_mup.set("scheme", _jm_f_187)
+        _jm_obj_69_mup.set("type", _jm_f_188)
+        _jm_obj_70_map.set("authorizationCode", _jm_f_189)
+        _jm_obj_70_map.set("clientCredentials", _jm_f_190)
+        _jm_obj_70_map.set("implicit", _jm_f_191)
+        _jm_obj_70_map.set("password", _jm_f_192)
         _jm_cst_5.add("array")
         _jm_cst_5.add("boolean")
         _jm_cst_5.add("integer")
@@ -8729,102 +8729,102 @@ export function check_model_init()
         _jm_cst_5.add("number")
         _jm_cst_5.add("object")
         _jm_cst_5.add("string")
-        _jm_obj_75_map["$anchor"] = _jm_f_193
-        _jm_obj_75_map["$comment"] = _jm_f_194
-        _jm_obj_75_map["$defs"] = _jm_f_195
-        _jm_obj_75_map["$dynamicAnchor"] = _jm_f_196
-        _jm_obj_75_map["$dynamicRef"] = _jm_f_197
-        _jm_obj_75_map["$id"] = _jm_f_198
-        _jm_obj_75_map["$ref"] = _jm_f_199
-        _jm_obj_75_map["$schema"] = _jm_f_200
-        _jm_obj_75_map["$vocabulary"] = _jm_f_201
-        _jm_obj_75_map["additionalProperties"] = _jm_f_202
-        _jm_obj_75_map["allOf"] = _jm_f_203
-        _jm_obj_75_map["anyOf"] = _jm_f_204
-        _jm_obj_75_map["const"] = _jm_f_205
-        _jm_obj_75_map["contains"] = _jm_f_206
-        _jm_obj_75_map["contentEncoding"] = _jm_f_207
-        _jm_obj_75_map["contentMediaType"] = _jm_f_208
-        _jm_obj_75_map["contentSchema"] = _jm_f_209
-        _jm_obj_75_map["default"] = _jm_f_210
-        _jm_obj_75_map["dependentRequired"] = _jm_f_211
-        _jm_obj_75_map["dependentSchemas"] = _jm_f_212
-        _jm_obj_75_map["deprecated"] = _jm_f_213
-        _jm_obj_75_map["description"] = _jm_f_214
-        _jm_obj_75_map["else"] = _jm_f_215
-        _jm_obj_75_map["enum"] = _jm_f_216
-        _jm_obj_75_map["examples"] = _jm_f_217
-        _jm_obj_75_map["exclusiveMaximum"] = _jm_f_218
-        _jm_obj_75_map["exclusiveMinimum"] = _jm_f_219
-        _jm_obj_75_map["format"] = _jm_f_220
-        _jm_obj_75_map["if"] = _jm_f_221
-        _jm_obj_75_map["items"] = _jm_f_222
-        _jm_obj_75_map["maxContains"] = _jm_f_223
-        _jm_obj_75_map["maxItems"] = _jm_f_224
-        _jm_obj_75_map["maxLength"] = _jm_f_225
-        _jm_obj_75_map["maxProperties"] = _jm_f_226
-        _jm_obj_75_map["maximum"] = _jm_f_227
-        _jm_obj_75_map["minContains"] = _jm_f_228
-        _jm_obj_75_map["minItems"] = _jm_f_229
-        _jm_obj_75_map["minLength"] = _jm_f_230
-        _jm_obj_75_map["minProperties"] = _jm_f_231
-        _jm_obj_75_map["minimum"] = _jm_f_232
-        _jm_obj_75_map["multipleOf"] = _jm_f_233
-        _jm_obj_75_map["not"] = _jm_f_234
-        _jm_obj_75_map["oneOf"] = _jm_f_235
-        _jm_obj_75_map["pattern"] = _jm_f_236
-        _jm_obj_75_map["patternProperties"] = _jm_f_237
-        _jm_obj_75_map["prefixItems"] = _jm_f_238
-        _jm_obj_75_map["properties"] = _jm_f_239
-        _jm_obj_75_map["propertyNames"] = _jm_f_240
-        _jm_obj_75_map["readOnly"] = _jm_f_241
-        _jm_obj_75_map["required"] = _jm_f_242
-        _jm_obj_75_map["then"] = _jm_f_243
-        _jm_obj_75_map["title"] = _jm_f_244
-        _jm_obj_75_map["type"] = _jm_f_245
-        _jm_obj_75_map["unevaluatedItems"] = _jm_f_246
-        _jm_obj_75_map["unevaluatedProperties"] = _jm_f_247
-        _jm_obj_75_map["uniqueItems"] = _jm_f_248
-        _jm_obj_75_map["writeOnly"] = _jm_f_249
-        check_model_map[""] = json_model_1
-        check_model_map["OpenAPI"] = json_model_2
-        check_model_map["Info"] = json_model_3
-        check_model_map["Contact"] = json_model_4
-        check_model_map["License"] = json_model_5
-        check_model_map["Server"] = json_model_6
-        check_model_map["ServerVariable"] = json_model_7
-        check_model_map["Components"] = json_model_8
-        check_model_map["Paths"] = json_model_9
-        check_model_map["PathItem"] = json_model_10
-        check_model_map["Operation"] = json_model_11
-        check_model_map["ExternalDocumentation"] = json_model_12
-        check_model_map["parameterShare"] = json_model_13
-        check_model_map["commonParameter"] = json_model_14
-        check_model_map["Style"] = json_model_15
-        check_model_map["parameterSchemaOnly"] = json_model_16
-        check_model_map["parameterContentOnly"] = json_model_17
-        check_model_map["Parameter"] = json_model_18
-        check_model_map["RequestBody"] = json_model_19
-        check_model_map["MediaType"] = json_model_20
-        check_model_map["Encoding"] = json_model_21
-        check_model_map["Responses"] = json_model_22
-        check_model_map["Response"] = json_model_23
-        check_model_map["Callback"] = json_model_24
-        check_model_map["Example"] = json_model_25
-        check_model_map["Expression"] = json_model_26
-        check_model_map["Link"] = json_model_27
-        check_model_map["Header"] = json_model_28
-        check_model_map["Tag"] = json_model_29
-        check_model_map["Reference"] = json_model_30
-        check_model_map["schema"] = json_model_40
-        check_model_map["Schema"] = json_model_32
-        check_model_map["Discriminator"] = json_model_33
-        check_model_map["XML"] = json_model_34
-        check_model_map["SecurityScheme"] = json_model_35
-        check_model_map["OAuthFlows"] = json_model_36
-        check_model_map["OAuthFlow"] = json_model_37
-        check_model_map["SecurityRequirement"] = json_model_38
-        check_model_map["Extension"] = json_model_39
+        _jm_obj_75_map.set("$anchor", _jm_f_193)
+        _jm_obj_75_map.set("$comment", _jm_f_194)
+        _jm_obj_75_map.set("$defs", _jm_f_195)
+        _jm_obj_75_map.set("$dynamicAnchor", _jm_f_196)
+        _jm_obj_75_map.set("$dynamicRef", _jm_f_197)
+        _jm_obj_75_map.set("$id", _jm_f_198)
+        _jm_obj_75_map.set("$ref", _jm_f_199)
+        _jm_obj_75_map.set("$schema", _jm_f_200)
+        _jm_obj_75_map.set("$vocabulary", _jm_f_201)
+        _jm_obj_75_map.set("additionalProperties", _jm_f_202)
+        _jm_obj_75_map.set("allOf", _jm_f_203)
+        _jm_obj_75_map.set("anyOf", _jm_f_204)
+        _jm_obj_75_map.set("const", _jm_f_205)
+        _jm_obj_75_map.set("contains", _jm_f_206)
+        _jm_obj_75_map.set("contentEncoding", _jm_f_207)
+        _jm_obj_75_map.set("contentMediaType", _jm_f_208)
+        _jm_obj_75_map.set("contentSchema", _jm_f_209)
+        _jm_obj_75_map.set("default", _jm_f_210)
+        _jm_obj_75_map.set("dependentRequired", _jm_f_211)
+        _jm_obj_75_map.set("dependentSchemas", _jm_f_212)
+        _jm_obj_75_map.set("deprecated", _jm_f_213)
+        _jm_obj_75_map.set("description", _jm_f_214)
+        _jm_obj_75_map.set("else", _jm_f_215)
+        _jm_obj_75_map.set("enum", _jm_f_216)
+        _jm_obj_75_map.set("examples", _jm_f_217)
+        _jm_obj_75_map.set("exclusiveMaximum", _jm_f_218)
+        _jm_obj_75_map.set("exclusiveMinimum", _jm_f_219)
+        _jm_obj_75_map.set("format", _jm_f_220)
+        _jm_obj_75_map.set("if", _jm_f_221)
+        _jm_obj_75_map.set("items", _jm_f_222)
+        _jm_obj_75_map.set("maxContains", _jm_f_223)
+        _jm_obj_75_map.set("maxItems", _jm_f_224)
+        _jm_obj_75_map.set("maxLength", _jm_f_225)
+        _jm_obj_75_map.set("maxProperties", _jm_f_226)
+        _jm_obj_75_map.set("maximum", _jm_f_227)
+        _jm_obj_75_map.set("minContains", _jm_f_228)
+        _jm_obj_75_map.set("minItems", _jm_f_229)
+        _jm_obj_75_map.set("minLength", _jm_f_230)
+        _jm_obj_75_map.set("minProperties", _jm_f_231)
+        _jm_obj_75_map.set("minimum", _jm_f_232)
+        _jm_obj_75_map.set("multipleOf", _jm_f_233)
+        _jm_obj_75_map.set("not", _jm_f_234)
+        _jm_obj_75_map.set("oneOf", _jm_f_235)
+        _jm_obj_75_map.set("pattern", _jm_f_236)
+        _jm_obj_75_map.set("patternProperties", _jm_f_237)
+        _jm_obj_75_map.set("prefixItems", _jm_f_238)
+        _jm_obj_75_map.set("properties", _jm_f_239)
+        _jm_obj_75_map.set("propertyNames", _jm_f_240)
+        _jm_obj_75_map.set("readOnly", _jm_f_241)
+        _jm_obj_75_map.set("required", _jm_f_242)
+        _jm_obj_75_map.set("then", _jm_f_243)
+        _jm_obj_75_map.set("title", _jm_f_244)
+        _jm_obj_75_map.set("type", _jm_f_245)
+        _jm_obj_75_map.set("unevaluatedItems", _jm_f_246)
+        _jm_obj_75_map.set("unevaluatedProperties", _jm_f_247)
+        _jm_obj_75_map.set("uniqueItems", _jm_f_248)
+        _jm_obj_75_map.set("writeOnly", _jm_f_249)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("OpenAPI", json_model_2)
+        check_model_map.set("Info", json_model_3)
+        check_model_map.set("Contact", json_model_4)
+        check_model_map.set("License", json_model_5)
+        check_model_map.set("Server", json_model_6)
+        check_model_map.set("ServerVariable", json_model_7)
+        check_model_map.set("Components", json_model_8)
+        check_model_map.set("Paths", json_model_9)
+        check_model_map.set("PathItem", json_model_10)
+        check_model_map.set("Operation", json_model_11)
+        check_model_map.set("ExternalDocumentation", json_model_12)
+        check_model_map.set("parameterShare", json_model_13)
+        check_model_map.set("commonParameter", json_model_14)
+        check_model_map.set("Style", json_model_15)
+        check_model_map.set("parameterSchemaOnly", json_model_16)
+        check_model_map.set("parameterContentOnly", json_model_17)
+        check_model_map.set("Parameter", json_model_18)
+        check_model_map.set("RequestBody", json_model_19)
+        check_model_map.set("MediaType", json_model_20)
+        check_model_map.set("Encoding", json_model_21)
+        check_model_map.set("Responses", json_model_22)
+        check_model_map.set("Response", json_model_23)
+        check_model_map.set("Callback", json_model_24)
+        check_model_map.set("Example", json_model_25)
+        check_model_map.set("Expression", json_model_26)
+        check_model_map.set("Link", json_model_27)
+        check_model_map.set("Header", json_model_28)
+        check_model_map.set("Tag", json_model_29)
+        check_model_map.set("Reference", json_model_30)
+        check_model_map.set("schema", json_model_40)
+        check_model_map.set("Schema", json_model_32)
+        check_model_map.set("Discriminator", json_model_33)
+        check_model_map.set("XML", json_model_34)
+        check_model_map.set("SecurityScheme", json_model_35)
+        check_model_map.set("OAuthFlows", json_model_36)
+        check_model_map.set("OAuthFlow", json_model_37)
+        check_model_map.set("SecurityRequirement", json_model_38)
+        check_model_map.set("Extension", json_model_39)
     }
 }
 
@@ -8839,9 +8839,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -8851,4 +8851,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

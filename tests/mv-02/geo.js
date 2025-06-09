@@ -1520,20 +1520,20 @@ export function check_model_init()
         _jm_map_0.set("MultiLineString", json_model_8)
         _jm_map_0.set("Polygon", json_model_9)
         _jm_map_0.set("MultiPolygon", json_model_10)
-        check_model_map[""] = json_model_1
-        check_model_map["position"] = json_model_2
-        check_model_map["coord_array"] = json_model_3
-        check_model_map["linear_ring"] = json_model_4
-        check_model_map["Point"] = json_model_5
-        check_model_map["MultiPoint"] = json_model_6
-        check_model_map["LineString"] = json_model_7
-        check_model_map["MultiLineString"] = json_model_8
-        check_model_map["Polygon"] = json_model_9
-        check_model_map["MultiPolygon"] = json_model_10
-        check_model_map["geometry"] = json_model_11
-        check_model_map["GeometryCollection"] = json_model_12
-        check_model_map["Feature"] = json_model_13
-        check_model_map["FeatureCollection"] = json_model_14
+        check_model_map.set("", json_model_1)
+        check_model_map.set("position", json_model_2)
+        check_model_map.set("coord_array", json_model_3)
+        check_model_map.set("linear_ring", json_model_4)
+        check_model_map.set("Point", json_model_5)
+        check_model_map.set("MultiPoint", json_model_6)
+        check_model_map.set("LineString", json_model_7)
+        check_model_map.set("MultiLineString", json_model_8)
+        check_model_map.set("Polygon", json_model_9)
+        check_model_map.set("MultiPolygon", json_model_10)
+        check_model_map.set("geometry", json_model_11)
+        check_model_map.set("GeometryCollection", json_model_12)
+        check_model_map.set("Feature", json_model_13)
+        check_model_map.set("FeatureCollection", json_model_14)
     }
 }
 
@@ -1548,9 +1548,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -1560,4 +1560,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

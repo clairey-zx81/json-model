@@ -5155,30 +5155,30 @@ export function check_model_init()
         _jm_cst_0.add("double")
         _jm_cst_0.add("int")
         _jm_cst_0.add("mime-type")
-        _jm_obj_0_map["format"] = _jm_f_0
-        _jm_obj_0_map["maxLength"] = _jm_f_1
-        _jm_obj_0_map["minLength"] = _jm_f_2
-        _jm_obj_0_map["pattern"] = _jm_f_3
-        _jm_obj_1_map["additionalItems"] = _jm_f_4
-        _jm_obj_1_map["items"] = _jm_f_5
-        _jm_obj_1_map["maxItems"] = _jm_f_6
-        _jm_obj_1_map["minItems"] = _jm_f_7
-        _jm_obj_1_map["prefixItems"] = _jm_f_8
-        _jm_obj_1_map["uniqueItems"] = _jm_f_9
-        _jm_obj_2_map["additionalProperties"] = _jm_f_10
-        _jm_obj_2_map["patternProperties"] = _jm_f_11
-        _jm_obj_2_map["properties"] = _jm_f_12
-        _jm_obj_2_map["required"] = _jm_f_13
-        _jm_obj_6_map["$comment"] = _jm_f_14
-        _jm_obj_6_map["$defs"] = _jm_f_15
-        _jm_obj_6_map["$id"] = _jm_f_16
-        _jm_obj_6_map["$schema"] = _jm_f_17
-        _jm_obj_6_map["default"] = _jm_f_18
-        _jm_obj_6_map["definitions"] = _jm_f_19
-        _jm_obj_6_map["description"] = _jm_f_20
-        _jm_obj_6_map["examples"] = _jm_f_21
-        _jm_obj_6_map["id"] = _jm_f_22
-        _jm_obj_6_map["title"] = _jm_f_23
+        _jm_obj_0_map.set("format", _jm_f_0)
+        _jm_obj_0_map.set("maxLength", _jm_f_1)
+        _jm_obj_0_map.set("minLength", _jm_f_2)
+        _jm_obj_0_map.set("pattern", _jm_f_3)
+        _jm_obj_1_map.set("additionalItems", _jm_f_4)
+        _jm_obj_1_map.set("items", _jm_f_5)
+        _jm_obj_1_map.set("maxItems", _jm_f_6)
+        _jm_obj_1_map.set("minItems", _jm_f_7)
+        _jm_obj_1_map.set("prefixItems", _jm_f_8)
+        _jm_obj_1_map.set("uniqueItems", _jm_f_9)
+        _jm_obj_2_map.set("additionalProperties", _jm_f_10)
+        _jm_obj_2_map.set("patternProperties", _jm_f_11)
+        _jm_obj_2_map.set("properties", _jm_f_12)
+        _jm_obj_2_map.set("required", _jm_f_13)
+        _jm_obj_6_map.set("$comment", _jm_f_14)
+        _jm_obj_6_map.set("$defs", _jm_f_15)
+        _jm_obj_6_map.set("$id", _jm_f_16)
+        _jm_obj_6_map.set("$schema", _jm_f_17)
+        _jm_obj_6_map.set("default", _jm_f_18)
+        _jm_obj_6_map.set("definitions", _jm_f_19)
+        _jm_obj_6_map.set("description", _jm_f_20)
+        _jm_obj_6_map.set("examples", _jm_f_21)
+        _jm_obj_6_map.set("id", _jm_f_22)
+        _jm_obj_6_map.set("title", _jm_f_23)
         _jm_cst_1.add("uri")
         _jm_cst_1.add("uri-reference")
         _jm_cst_1.add("iri")
@@ -5206,179 +5206,179 @@ export function check_model_init()
         _jm_cst_1.add("double")
         _jm_cst_1.add("int")
         _jm_cst_1.add("mime-type")
-        _jm_obj_9_map["$comment"] = _jm_f_24
-        _jm_obj_9_map["$defs"] = _jm_f_25
-        _jm_obj_9_map["$id"] = _jm_f_26
-        _jm_obj_9_map["$schema"] = _jm_f_27
-        _jm_obj_9_map["default"] = _jm_f_28
-        _jm_obj_9_map["definitions"] = _jm_f_29
-        _jm_obj_9_map["description"] = _jm_f_30
-        _jm_obj_9_map["examples"] = _jm_f_31
-        _jm_obj_9_map["format"] = _jm_f_32
-        _jm_obj_9_map["id"] = _jm_f_33
-        _jm_obj_9_map["maxLength"] = _jm_f_34
-        _jm_obj_9_map["minLength"] = _jm_f_35
-        _jm_obj_9_map["pattern"] = _jm_f_36
-        _jm_obj_9_map["title"] = _jm_f_37
-        _jm_obj_12_map["$comment"] = _jm_f_38
-        _jm_obj_12_map["$defs"] = _jm_f_39
-        _jm_obj_12_map["$id"] = _jm_f_40
-        _jm_obj_12_map["$schema"] = _jm_f_41
-        _jm_obj_12_map["additionalItems"] = _jm_f_42
-        _jm_obj_12_map["default"] = _jm_f_43
-        _jm_obj_12_map["definitions"] = _jm_f_44
-        _jm_obj_12_map["description"] = _jm_f_45
-        _jm_obj_12_map["examples"] = _jm_f_46
-        _jm_obj_12_map["id"] = _jm_f_47
-        _jm_obj_12_map["items"] = _jm_f_48
-        _jm_obj_12_map["maxItems"] = _jm_f_49
-        _jm_obj_12_map["minItems"] = _jm_f_50
-        _jm_obj_12_map["prefixItems"] = _jm_f_51
-        _jm_obj_12_map["title"] = _jm_f_52
-        _jm_obj_12_map["uniqueItems"] = _jm_f_53
-        _jm_obj_15_map["$comment"] = _jm_f_54
-        _jm_obj_15_map["$defs"] = _jm_f_55
-        _jm_obj_15_map["$id"] = _jm_f_56
-        _jm_obj_15_map["$schema"] = _jm_f_57
-        _jm_obj_15_map["additionalProperties"] = _jm_f_58
-        _jm_obj_15_map["default"] = _jm_f_59
-        _jm_obj_15_map["definitions"] = _jm_f_60
-        _jm_obj_15_map["description"] = _jm_f_61
-        _jm_obj_15_map["examples"] = _jm_f_62
-        _jm_obj_15_map["id"] = _jm_f_63
-        _jm_obj_15_map["patternProperties"] = _jm_f_64
-        _jm_obj_15_map["properties"] = _jm_f_65
-        _jm_obj_15_map["required"] = _jm_f_66
-        _jm_obj_15_map["title"] = _jm_f_67
-        _jm_obj_20_map["$comment"] = _jm_f_68
-        _jm_obj_20_map["$defs"] = _jm_f_69
-        _jm_obj_20_map["$id"] = _jm_f_70
-        _jm_obj_20_map["$schema"] = _jm_f_71
-        _jm_obj_20_map["default"] = _jm_f_72
-        _jm_obj_20_map["definitions"] = _jm_f_73
-        _jm_obj_20_map["description"] = _jm_f_74
-        _jm_obj_20_map["examples"] = _jm_f_75
-        _jm_obj_20_map["id"] = _jm_f_76
-        _jm_obj_20_map["maximum"] = _jm_f_77
-        _jm_obj_20_map["minimum"] = _jm_f_78
-        _jm_obj_20_map["title"] = _jm_f_79
-        _jm_obj_23_map["$comment"] = _jm_f_80
-        _jm_obj_23_map["$defs"] = _jm_f_81
-        _jm_obj_23_map["$id"] = _jm_f_82
-        _jm_obj_23_map["$schema"] = _jm_f_83
-        _jm_obj_23_map["default"] = _jm_f_84
-        _jm_obj_23_map["definitions"] = _jm_f_85
-        _jm_obj_23_map["description"] = _jm_f_86
-        _jm_obj_23_map["examples"] = _jm_f_87
-        _jm_obj_23_map["id"] = _jm_f_88
-        _jm_obj_23_map["maximum"] = _jm_f_89
-        _jm_obj_23_map["minimum"] = _jm_f_90
-        _jm_obj_23_map["title"] = _jm_f_91
-        _jm_obj_26_map["$comment"] = _jm_f_92
-        _jm_obj_26_map["$defs"] = _jm_f_93
-        _jm_obj_26_map["$id"] = _jm_f_94
-        _jm_obj_26_map["$schema"] = _jm_f_95
-        _jm_obj_26_map["default"] = _jm_f_96
-        _jm_obj_26_map["definitions"] = _jm_f_97
-        _jm_obj_26_map["description"] = _jm_f_98
-        _jm_obj_26_map["examples"] = _jm_f_99
-        _jm_obj_26_map["id"] = _jm_f_100
-        _jm_obj_26_map["title"] = _jm_f_101
-        _jm_obj_29_map["$comment"] = _jm_f_102
-        _jm_obj_29_map["$defs"] = _jm_f_103
-        _jm_obj_29_map["$id"] = _jm_f_104
-        _jm_obj_29_map["$schema"] = _jm_f_105
-        _jm_obj_29_map["default"] = _jm_f_106
-        _jm_obj_29_map["definitions"] = _jm_f_107
-        _jm_obj_29_map["description"] = _jm_f_108
-        _jm_obj_29_map["examples"] = _jm_f_109
-        _jm_obj_29_map["id"] = _jm_f_110
-        _jm_obj_29_map["title"] = _jm_f_111
-        _jm_obj_32_map["$comment"] = _jm_f_112
-        _jm_obj_32_map["$defs"] = _jm_f_113
-        _jm_obj_32_map["$id"] = _jm_f_114
-        _jm_obj_32_map["$schema"] = _jm_f_115
-        _jm_obj_32_map["default"] = _jm_f_116
-        _jm_obj_32_map["definitions"] = _jm_f_117
-        _jm_obj_32_map["description"] = _jm_f_118
-        _jm_obj_32_map["examples"] = _jm_f_119
-        _jm_obj_32_map["id"] = _jm_f_120
-        _jm_obj_32_map["title"] = _jm_f_121
-        _jm_obj_35_map["$comment"] = _jm_f_122
-        _jm_obj_35_map["$defs"] = _jm_f_123
-        _jm_obj_35_map["$id"] = _jm_f_124
-        _jm_obj_35_map["$schema"] = _jm_f_125
-        _jm_obj_35_map["default"] = _jm_f_126
-        _jm_obj_35_map["definitions"] = _jm_f_127
-        _jm_obj_35_map["description"] = _jm_f_128
-        _jm_obj_35_map["examples"] = _jm_f_129
-        _jm_obj_35_map["id"] = _jm_f_130
-        _jm_obj_35_map["title"] = _jm_f_131
-        _jm_obj_38_map["$comment"] = _jm_f_132
-        _jm_obj_38_map["$defs"] = _jm_f_133
-        _jm_obj_38_map["$id"] = _jm_f_134
-        _jm_obj_38_map["$schema"] = _jm_f_135
-        _jm_obj_38_map["default"] = _jm_f_136
-        _jm_obj_38_map["definitions"] = _jm_f_137
-        _jm_obj_38_map["description"] = _jm_f_138
-        _jm_obj_38_map["examples"] = _jm_f_139
-        _jm_obj_38_map["id"] = _jm_f_140
-        _jm_obj_38_map["title"] = _jm_f_141
-        _jm_obj_41_map["$comment"] = _jm_f_142
-        _jm_obj_41_map["$defs"] = _jm_f_143
-        _jm_obj_41_map["$id"] = _jm_f_144
-        _jm_obj_41_map["$schema"] = _jm_f_145
-        _jm_obj_41_map["default"] = _jm_f_146
-        _jm_obj_41_map["definitions"] = _jm_f_147
-        _jm_obj_41_map["description"] = _jm_f_148
-        _jm_obj_41_map["examples"] = _jm_f_149
-        _jm_obj_41_map["id"] = _jm_f_150
-        _jm_obj_41_map["title"] = _jm_f_151
-        _jm_obj_44_map["$comment"] = _jm_f_152
-        _jm_obj_44_map["$defs"] = _jm_f_153
-        _jm_obj_44_map["$id"] = _jm_f_154
-        _jm_obj_44_map["$schema"] = _jm_f_155
-        _jm_obj_44_map["default"] = _jm_f_156
-        _jm_obj_44_map["definitions"] = _jm_f_157
-        _jm_obj_44_map["description"] = _jm_f_158
-        _jm_obj_44_map["examples"] = _jm_f_159
-        _jm_obj_44_map["id"] = _jm_f_160
-        _jm_obj_44_map["title"] = _jm_f_161
-        _jm_obj_47_map["$comment"] = _jm_f_162
-        _jm_obj_47_map["$defs"] = _jm_f_163
-        _jm_obj_47_map["$id"] = _jm_f_164
-        _jm_obj_47_map["$schema"] = _jm_f_165
-        _jm_obj_47_map["default"] = _jm_f_166
-        _jm_obj_47_map["definitions"] = _jm_f_167
-        _jm_obj_47_map["description"] = _jm_f_168
-        _jm_obj_47_map["examples"] = _jm_f_169
-        _jm_obj_47_map["id"] = _jm_f_170
-        _jm_obj_47_map["title"] = _jm_f_171
-        check_model_map[""] = json_model_1
-        check_model_map["const"] = json_model_2
-        check_model_map["enum"] = json_model_3
-        check_model_map["schemaArray"] = json_model_4
-        check_model_map["stringKeywords"] = json_model_5
-        check_model_map["arrayKeywords"] = json_model_6
-        check_model_map["objectKeywords"] = json_model_7
-        check_model_map["numberKeywords"] = json_model_8
-        check_model_map["metas"] = json_model_9
-        check_model_map["String"] = json_model_10
-        check_model_map["Array"] = json_model_11
-        check_model_map["Object"] = json_model_12
-        check_model_map["Integer"] = json_model_13
-        check_model_map["Number"] = json_model_14
-        check_model_map["Bool"] = json_model_15
-        check_model_map["Null"] = json_model_16
-        check_model_map["AllOf"] = json_model_17
-        check_model_map["AnyOf"] = json_model_18
-        check_model_map["OneOf"] = json_model_19
-        check_model_map["Enum"] = json_model_20
-        check_model_map["Const"] = json_model_21
-        check_model_map["Ref"] = json_model_22
-        check_model_map["ObjectSchema"] = json_model_23
-        check_model_map["Schema"] = json_model_24
-        check_model_map["RootSchema"] = json_model_25
+        _jm_obj_9_map.set("$comment", _jm_f_24)
+        _jm_obj_9_map.set("$defs", _jm_f_25)
+        _jm_obj_9_map.set("$id", _jm_f_26)
+        _jm_obj_9_map.set("$schema", _jm_f_27)
+        _jm_obj_9_map.set("default", _jm_f_28)
+        _jm_obj_9_map.set("definitions", _jm_f_29)
+        _jm_obj_9_map.set("description", _jm_f_30)
+        _jm_obj_9_map.set("examples", _jm_f_31)
+        _jm_obj_9_map.set("format", _jm_f_32)
+        _jm_obj_9_map.set("id", _jm_f_33)
+        _jm_obj_9_map.set("maxLength", _jm_f_34)
+        _jm_obj_9_map.set("minLength", _jm_f_35)
+        _jm_obj_9_map.set("pattern", _jm_f_36)
+        _jm_obj_9_map.set("title", _jm_f_37)
+        _jm_obj_12_map.set("$comment", _jm_f_38)
+        _jm_obj_12_map.set("$defs", _jm_f_39)
+        _jm_obj_12_map.set("$id", _jm_f_40)
+        _jm_obj_12_map.set("$schema", _jm_f_41)
+        _jm_obj_12_map.set("additionalItems", _jm_f_42)
+        _jm_obj_12_map.set("default", _jm_f_43)
+        _jm_obj_12_map.set("definitions", _jm_f_44)
+        _jm_obj_12_map.set("description", _jm_f_45)
+        _jm_obj_12_map.set("examples", _jm_f_46)
+        _jm_obj_12_map.set("id", _jm_f_47)
+        _jm_obj_12_map.set("items", _jm_f_48)
+        _jm_obj_12_map.set("maxItems", _jm_f_49)
+        _jm_obj_12_map.set("minItems", _jm_f_50)
+        _jm_obj_12_map.set("prefixItems", _jm_f_51)
+        _jm_obj_12_map.set("title", _jm_f_52)
+        _jm_obj_12_map.set("uniqueItems", _jm_f_53)
+        _jm_obj_15_map.set("$comment", _jm_f_54)
+        _jm_obj_15_map.set("$defs", _jm_f_55)
+        _jm_obj_15_map.set("$id", _jm_f_56)
+        _jm_obj_15_map.set("$schema", _jm_f_57)
+        _jm_obj_15_map.set("additionalProperties", _jm_f_58)
+        _jm_obj_15_map.set("default", _jm_f_59)
+        _jm_obj_15_map.set("definitions", _jm_f_60)
+        _jm_obj_15_map.set("description", _jm_f_61)
+        _jm_obj_15_map.set("examples", _jm_f_62)
+        _jm_obj_15_map.set("id", _jm_f_63)
+        _jm_obj_15_map.set("patternProperties", _jm_f_64)
+        _jm_obj_15_map.set("properties", _jm_f_65)
+        _jm_obj_15_map.set("required", _jm_f_66)
+        _jm_obj_15_map.set("title", _jm_f_67)
+        _jm_obj_20_map.set("$comment", _jm_f_68)
+        _jm_obj_20_map.set("$defs", _jm_f_69)
+        _jm_obj_20_map.set("$id", _jm_f_70)
+        _jm_obj_20_map.set("$schema", _jm_f_71)
+        _jm_obj_20_map.set("default", _jm_f_72)
+        _jm_obj_20_map.set("definitions", _jm_f_73)
+        _jm_obj_20_map.set("description", _jm_f_74)
+        _jm_obj_20_map.set("examples", _jm_f_75)
+        _jm_obj_20_map.set("id", _jm_f_76)
+        _jm_obj_20_map.set("maximum", _jm_f_77)
+        _jm_obj_20_map.set("minimum", _jm_f_78)
+        _jm_obj_20_map.set("title", _jm_f_79)
+        _jm_obj_23_map.set("$comment", _jm_f_80)
+        _jm_obj_23_map.set("$defs", _jm_f_81)
+        _jm_obj_23_map.set("$id", _jm_f_82)
+        _jm_obj_23_map.set("$schema", _jm_f_83)
+        _jm_obj_23_map.set("default", _jm_f_84)
+        _jm_obj_23_map.set("definitions", _jm_f_85)
+        _jm_obj_23_map.set("description", _jm_f_86)
+        _jm_obj_23_map.set("examples", _jm_f_87)
+        _jm_obj_23_map.set("id", _jm_f_88)
+        _jm_obj_23_map.set("maximum", _jm_f_89)
+        _jm_obj_23_map.set("minimum", _jm_f_90)
+        _jm_obj_23_map.set("title", _jm_f_91)
+        _jm_obj_26_map.set("$comment", _jm_f_92)
+        _jm_obj_26_map.set("$defs", _jm_f_93)
+        _jm_obj_26_map.set("$id", _jm_f_94)
+        _jm_obj_26_map.set("$schema", _jm_f_95)
+        _jm_obj_26_map.set("default", _jm_f_96)
+        _jm_obj_26_map.set("definitions", _jm_f_97)
+        _jm_obj_26_map.set("description", _jm_f_98)
+        _jm_obj_26_map.set("examples", _jm_f_99)
+        _jm_obj_26_map.set("id", _jm_f_100)
+        _jm_obj_26_map.set("title", _jm_f_101)
+        _jm_obj_29_map.set("$comment", _jm_f_102)
+        _jm_obj_29_map.set("$defs", _jm_f_103)
+        _jm_obj_29_map.set("$id", _jm_f_104)
+        _jm_obj_29_map.set("$schema", _jm_f_105)
+        _jm_obj_29_map.set("default", _jm_f_106)
+        _jm_obj_29_map.set("definitions", _jm_f_107)
+        _jm_obj_29_map.set("description", _jm_f_108)
+        _jm_obj_29_map.set("examples", _jm_f_109)
+        _jm_obj_29_map.set("id", _jm_f_110)
+        _jm_obj_29_map.set("title", _jm_f_111)
+        _jm_obj_32_map.set("$comment", _jm_f_112)
+        _jm_obj_32_map.set("$defs", _jm_f_113)
+        _jm_obj_32_map.set("$id", _jm_f_114)
+        _jm_obj_32_map.set("$schema", _jm_f_115)
+        _jm_obj_32_map.set("default", _jm_f_116)
+        _jm_obj_32_map.set("definitions", _jm_f_117)
+        _jm_obj_32_map.set("description", _jm_f_118)
+        _jm_obj_32_map.set("examples", _jm_f_119)
+        _jm_obj_32_map.set("id", _jm_f_120)
+        _jm_obj_32_map.set("title", _jm_f_121)
+        _jm_obj_35_map.set("$comment", _jm_f_122)
+        _jm_obj_35_map.set("$defs", _jm_f_123)
+        _jm_obj_35_map.set("$id", _jm_f_124)
+        _jm_obj_35_map.set("$schema", _jm_f_125)
+        _jm_obj_35_map.set("default", _jm_f_126)
+        _jm_obj_35_map.set("definitions", _jm_f_127)
+        _jm_obj_35_map.set("description", _jm_f_128)
+        _jm_obj_35_map.set("examples", _jm_f_129)
+        _jm_obj_35_map.set("id", _jm_f_130)
+        _jm_obj_35_map.set("title", _jm_f_131)
+        _jm_obj_38_map.set("$comment", _jm_f_132)
+        _jm_obj_38_map.set("$defs", _jm_f_133)
+        _jm_obj_38_map.set("$id", _jm_f_134)
+        _jm_obj_38_map.set("$schema", _jm_f_135)
+        _jm_obj_38_map.set("default", _jm_f_136)
+        _jm_obj_38_map.set("definitions", _jm_f_137)
+        _jm_obj_38_map.set("description", _jm_f_138)
+        _jm_obj_38_map.set("examples", _jm_f_139)
+        _jm_obj_38_map.set("id", _jm_f_140)
+        _jm_obj_38_map.set("title", _jm_f_141)
+        _jm_obj_41_map.set("$comment", _jm_f_142)
+        _jm_obj_41_map.set("$defs", _jm_f_143)
+        _jm_obj_41_map.set("$id", _jm_f_144)
+        _jm_obj_41_map.set("$schema", _jm_f_145)
+        _jm_obj_41_map.set("default", _jm_f_146)
+        _jm_obj_41_map.set("definitions", _jm_f_147)
+        _jm_obj_41_map.set("description", _jm_f_148)
+        _jm_obj_41_map.set("examples", _jm_f_149)
+        _jm_obj_41_map.set("id", _jm_f_150)
+        _jm_obj_41_map.set("title", _jm_f_151)
+        _jm_obj_44_map.set("$comment", _jm_f_152)
+        _jm_obj_44_map.set("$defs", _jm_f_153)
+        _jm_obj_44_map.set("$id", _jm_f_154)
+        _jm_obj_44_map.set("$schema", _jm_f_155)
+        _jm_obj_44_map.set("default", _jm_f_156)
+        _jm_obj_44_map.set("definitions", _jm_f_157)
+        _jm_obj_44_map.set("description", _jm_f_158)
+        _jm_obj_44_map.set("examples", _jm_f_159)
+        _jm_obj_44_map.set("id", _jm_f_160)
+        _jm_obj_44_map.set("title", _jm_f_161)
+        _jm_obj_47_map.set("$comment", _jm_f_162)
+        _jm_obj_47_map.set("$defs", _jm_f_163)
+        _jm_obj_47_map.set("$id", _jm_f_164)
+        _jm_obj_47_map.set("$schema", _jm_f_165)
+        _jm_obj_47_map.set("default", _jm_f_166)
+        _jm_obj_47_map.set("definitions", _jm_f_167)
+        _jm_obj_47_map.set("description", _jm_f_168)
+        _jm_obj_47_map.set("examples", _jm_f_169)
+        _jm_obj_47_map.set("id", _jm_f_170)
+        _jm_obj_47_map.set("title", _jm_f_171)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("const", json_model_2)
+        check_model_map.set("enum", json_model_3)
+        check_model_map.set("schemaArray", json_model_4)
+        check_model_map.set("stringKeywords", json_model_5)
+        check_model_map.set("arrayKeywords", json_model_6)
+        check_model_map.set("objectKeywords", json_model_7)
+        check_model_map.set("numberKeywords", json_model_8)
+        check_model_map.set("metas", json_model_9)
+        check_model_map.set("String", json_model_10)
+        check_model_map.set("Array", json_model_11)
+        check_model_map.set("Object", json_model_12)
+        check_model_map.set("Integer", json_model_13)
+        check_model_map.set("Number", json_model_14)
+        check_model_map.set("Bool", json_model_15)
+        check_model_map.set("Null", json_model_16)
+        check_model_map.set("AllOf", json_model_17)
+        check_model_map.set("AnyOf", json_model_18)
+        check_model_map.set("OneOf", json_model_19)
+        check_model_map.set("Enum", json_model_20)
+        check_model_map.set("Const", json_model_21)
+        check_model_map.set("Ref", json_model_22)
+        check_model_map.set("ObjectSchema", json_model_23)
+        check_model_map.set("Schema", json_model_24)
+        check_model_map.set("RootSchema", json_model_25)
     }
 }
 
@@ -5393,9 +5393,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -5405,4 +5405,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

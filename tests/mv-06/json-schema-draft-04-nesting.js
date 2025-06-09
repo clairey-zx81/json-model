@@ -877,40 +877,40 @@ export function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        _jm_obj_0_map["$ref"] = _jm_f_0
-        _jm_obj_0_map["$schema"] = _jm_f_1
-        _jm_obj_0_map["additionalItems"] = _jm_f_2
-        _jm_obj_0_map["additionalProperties"] = _jm_f_3
-        _jm_obj_0_map["allOf"] = _jm_f_4
-        _jm_obj_0_map["anyOf"] = _jm_f_5
-        _jm_obj_0_map["default"] = _jm_f_6
-        _jm_obj_0_map["definitions"] = _jm_f_7
-        _jm_obj_0_map["dependencies"] = _jm_f_8
-        _jm_obj_0_map["description"] = _jm_f_9
-        _jm_obj_0_map["enum"] = _jm_f_10
-        _jm_obj_0_map["exclusiveMaximum"] = _jm_f_11
-        _jm_obj_0_map["exclusiveMinimum"] = _jm_f_12
-        _jm_obj_0_map["format"] = _jm_f_13
-        _jm_obj_0_map["id"] = _jm_f_14
-        _jm_obj_0_map["items"] = _jm_f_15
-        _jm_obj_0_map["maxItems"] = _jm_f_16
-        _jm_obj_0_map["maxLength"] = _jm_f_17
-        _jm_obj_0_map["maxProperties"] = _jm_f_18
-        _jm_obj_0_map["maximum"] = _jm_f_19
-        _jm_obj_0_map["minItems"] = _jm_f_20
-        _jm_obj_0_map["minLength"] = _jm_f_21
-        _jm_obj_0_map["minProperties"] = _jm_f_22
-        _jm_obj_0_map["minimum"] = _jm_f_23
-        _jm_obj_0_map["multipleOf"] = _jm_f_24
-        _jm_obj_0_map["not"] = _jm_f_25
-        _jm_obj_0_map["oneOf"] = _jm_f_26
-        _jm_obj_0_map["pattern"] = _jm_f_27
-        _jm_obj_0_map["patternProperties"] = _jm_f_28
-        _jm_obj_0_map["properties"] = _jm_f_29
-        _jm_obj_0_map["required"] = _jm_f_30
-        _jm_obj_0_map["title"] = _jm_f_31
-        _jm_obj_0_map["type"] = _jm_f_32
-        _jm_obj_0_map["uniqueItems"] = _jm_f_33
+        _jm_obj_0_map.set("$ref", _jm_f_0)
+        _jm_obj_0_map.set("$schema", _jm_f_1)
+        _jm_obj_0_map.set("additionalItems", _jm_f_2)
+        _jm_obj_0_map.set("additionalProperties", _jm_f_3)
+        _jm_obj_0_map.set("allOf", _jm_f_4)
+        _jm_obj_0_map.set("anyOf", _jm_f_5)
+        _jm_obj_0_map.set("default", _jm_f_6)
+        _jm_obj_0_map.set("definitions", _jm_f_7)
+        _jm_obj_0_map.set("dependencies", _jm_f_8)
+        _jm_obj_0_map.set("description", _jm_f_9)
+        _jm_obj_0_map.set("enum", _jm_f_10)
+        _jm_obj_0_map.set("exclusiveMaximum", _jm_f_11)
+        _jm_obj_0_map.set("exclusiveMinimum", _jm_f_12)
+        _jm_obj_0_map.set("format", _jm_f_13)
+        _jm_obj_0_map.set("id", _jm_f_14)
+        _jm_obj_0_map.set("items", _jm_f_15)
+        _jm_obj_0_map.set("maxItems", _jm_f_16)
+        _jm_obj_0_map.set("maxLength", _jm_f_17)
+        _jm_obj_0_map.set("maxProperties", _jm_f_18)
+        _jm_obj_0_map.set("maximum", _jm_f_19)
+        _jm_obj_0_map.set("minItems", _jm_f_20)
+        _jm_obj_0_map.set("minLength", _jm_f_21)
+        _jm_obj_0_map.set("minProperties", _jm_f_22)
+        _jm_obj_0_map.set("minimum", _jm_f_23)
+        _jm_obj_0_map.set("multipleOf", _jm_f_24)
+        _jm_obj_0_map.set("not", _jm_f_25)
+        _jm_obj_0_map.set("oneOf", _jm_f_26)
+        _jm_obj_0_map.set("pattern", _jm_f_27)
+        _jm_obj_0_map.set("patternProperties", _jm_f_28)
+        _jm_obj_0_map.set("properties", _jm_f_29)
+        _jm_obj_0_map.set("required", _jm_f_30)
+        _jm_obj_0_map.set("title", _jm_f_31)
+        _jm_obj_0_map.set("type", _jm_f_32)
+        _jm_obj_0_map.set("uniqueItems", _jm_f_33)
         _jm_cst_0.add("null")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")
@@ -918,8 +918,8 @@ export function check_model_init()
         _jm_cst_0.add("string")
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
-        check_model_map[""] = json_model_1
-        check_model_map["schema"] = json_model_3
+        check_model_map.set("", json_model_1)
+        check_model_map.set("schema", json_model_3)
     }
 }
 
@@ -934,9 +934,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -946,4 +946,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

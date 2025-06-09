@@ -7051,41 +7051,41 @@ export function check_model_init()
         _jm_cst_0.add("double")
         _jm_cst_0.add("int")
         _jm_cst_0.add("mime-type")
-        _jm_obj_0_map["format"] = _jm_f_0
-        _jm_obj_0_map["maxLength"] = _jm_f_1
-        _jm_obj_0_map["minLength"] = _jm_f_2
-        _jm_obj_0_map["pattern"] = _jm_f_3
-        _jm_obj_1_map["additionalItems"] = _jm_f_4
-        _jm_obj_1_map["items"] = _jm_f_5
-        _jm_obj_1_map["maxItems"] = _jm_f_6
-        _jm_obj_1_map["minItems"] = _jm_f_7
-        _jm_obj_1_map["prefixItems"] = _jm_f_8
-        _jm_obj_1_map["unevaluatedItems"] = _jm_f_9
-        _jm_obj_1_map["uniqueItems"] = _jm_f_10
-        _jm_obj_2_map["additionalProperties"] = _jm_f_11
-        _jm_obj_2_map["maxProperties"] = _jm_f_12
-        _jm_obj_2_map["minProperties"] = _jm_f_13
-        _jm_obj_2_map["patternProperties"] = _jm_f_14
-        _jm_obj_2_map["properties"] = _jm_f_15
-        _jm_obj_2_map["propertyNames"] = _jm_f_16
-        _jm_obj_2_map["required"] = _jm_f_17
-        _jm_obj_2_map["unevaluatedProperties"] = _jm_f_18
-        _jm_obj_6_map["$anchor"] = _jm_f_19
-        _jm_obj_6_map["$comment"] = _jm_f_20
-        _jm_obj_6_map["$defs"] = _jm_f_21
-        _jm_obj_6_map["$dynamicAnchor"] = _jm_f_22
-        _jm_obj_6_map["$id"] = _jm_f_23
-        _jm_obj_6_map["$schema"] = _jm_f_24
-        _jm_obj_6_map["$vocabulary"] = _jm_f_25
-        _jm_obj_6_map["default"] = _jm_f_26
-        _jm_obj_6_map["definitions"] = _jm_f_27
-        _jm_obj_6_map["deprecated"] = _jm_f_28
-        _jm_obj_6_map["description"] = _jm_f_29
-        _jm_obj_6_map["examples"] = _jm_f_30
-        _jm_obj_6_map["id"] = _jm_f_31
-        _jm_obj_6_map["readOnly"] = _jm_f_32
-        _jm_obj_6_map["title"] = _jm_f_33
-        _jm_obj_6_map["writeOnly"] = _jm_f_34
+        _jm_obj_0_map.set("format", _jm_f_0)
+        _jm_obj_0_map.set("maxLength", _jm_f_1)
+        _jm_obj_0_map.set("minLength", _jm_f_2)
+        _jm_obj_0_map.set("pattern", _jm_f_3)
+        _jm_obj_1_map.set("additionalItems", _jm_f_4)
+        _jm_obj_1_map.set("items", _jm_f_5)
+        _jm_obj_1_map.set("maxItems", _jm_f_6)
+        _jm_obj_1_map.set("minItems", _jm_f_7)
+        _jm_obj_1_map.set("prefixItems", _jm_f_8)
+        _jm_obj_1_map.set("unevaluatedItems", _jm_f_9)
+        _jm_obj_1_map.set("uniqueItems", _jm_f_10)
+        _jm_obj_2_map.set("additionalProperties", _jm_f_11)
+        _jm_obj_2_map.set("maxProperties", _jm_f_12)
+        _jm_obj_2_map.set("minProperties", _jm_f_13)
+        _jm_obj_2_map.set("patternProperties", _jm_f_14)
+        _jm_obj_2_map.set("properties", _jm_f_15)
+        _jm_obj_2_map.set("propertyNames", _jm_f_16)
+        _jm_obj_2_map.set("required", _jm_f_17)
+        _jm_obj_2_map.set("unevaluatedProperties", _jm_f_18)
+        _jm_obj_6_map.set("$anchor", _jm_f_19)
+        _jm_obj_6_map.set("$comment", _jm_f_20)
+        _jm_obj_6_map.set("$defs", _jm_f_21)
+        _jm_obj_6_map.set("$dynamicAnchor", _jm_f_22)
+        _jm_obj_6_map.set("$id", _jm_f_23)
+        _jm_obj_6_map.set("$schema", _jm_f_24)
+        _jm_obj_6_map.set("$vocabulary", _jm_f_25)
+        _jm_obj_6_map.set("default", _jm_f_26)
+        _jm_obj_6_map.set("definitions", _jm_f_27)
+        _jm_obj_6_map.set("deprecated", _jm_f_28)
+        _jm_obj_6_map.set("description", _jm_f_29)
+        _jm_obj_6_map.set("examples", _jm_f_30)
+        _jm_obj_6_map.set("id", _jm_f_31)
+        _jm_obj_6_map.set("readOnly", _jm_f_32)
+        _jm_obj_6_map.set("title", _jm_f_33)
+        _jm_obj_6_map.set("writeOnly", _jm_f_34)
         _jm_cst_1.add("uri")
         _jm_cst_1.add("uri-reference")
         _jm_cst_1.add("iri")
@@ -7113,279 +7113,279 @@ export function check_model_init()
         _jm_cst_1.add("double")
         _jm_cst_1.add("int")
         _jm_cst_1.add("mime-type")
-        _jm_obj_10_map["$anchor"] = _jm_f_35
-        _jm_obj_10_map["$comment"] = _jm_f_36
-        _jm_obj_10_map["$defs"] = _jm_f_37
-        _jm_obj_10_map["$dynamicAnchor"] = _jm_f_38
-        _jm_obj_10_map["$id"] = _jm_f_39
-        _jm_obj_10_map["$schema"] = _jm_f_40
-        _jm_obj_10_map["$vocabulary"] = _jm_f_41
-        _jm_obj_10_map["default"] = _jm_f_42
-        _jm_obj_10_map["definitions"] = _jm_f_43
-        _jm_obj_10_map["deprecated"] = _jm_f_44
-        _jm_obj_10_map["description"] = _jm_f_45
-        _jm_obj_10_map["examples"] = _jm_f_46
-        _jm_obj_10_map["format"] = _jm_f_47
-        _jm_obj_10_map["id"] = _jm_f_48
-        _jm_obj_10_map["maxLength"] = _jm_f_49
-        _jm_obj_10_map["minLength"] = _jm_f_50
-        _jm_obj_10_map["pattern"] = _jm_f_51
-        _jm_obj_10_map["readOnly"] = _jm_f_52
-        _jm_obj_10_map["title"] = _jm_f_53
-        _jm_obj_10_map["writeOnly"] = _jm_f_54
-        _jm_obj_14_map["$anchor"] = _jm_f_55
-        _jm_obj_14_map["$comment"] = _jm_f_56
-        _jm_obj_14_map["$defs"] = _jm_f_57
-        _jm_obj_14_map["$dynamicAnchor"] = _jm_f_58
-        _jm_obj_14_map["$id"] = _jm_f_59
-        _jm_obj_14_map["$schema"] = _jm_f_60
-        _jm_obj_14_map["$vocabulary"] = _jm_f_61
-        _jm_obj_14_map["additionalItems"] = _jm_f_62
-        _jm_obj_14_map["default"] = _jm_f_63
-        _jm_obj_14_map["definitions"] = _jm_f_64
-        _jm_obj_14_map["deprecated"] = _jm_f_65
-        _jm_obj_14_map["description"] = _jm_f_66
-        _jm_obj_14_map["examples"] = _jm_f_67
-        _jm_obj_14_map["id"] = _jm_f_68
-        _jm_obj_14_map["items"] = _jm_f_69
-        _jm_obj_14_map["maxItems"] = _jm_f_70
-        _jm_obj_14_map["minItems"] = _jm_f_71
-        _jm_obj_14_map["prefixItems"] = _jm_f_72
-        _jm_obj_14_map["readOnly"] = _jm_f_73
-        _jm_obj_14_map["title"] = _jm_f_74
-        _jm_obj_14_map["unevaluatedItems"] = _jm_f_75
-        _jm_obj_14_map["uniqueItems"] = _jm_f_76
-        _jm_obj_14_map["writeOnly"] = _jm_f_77
-        _jm_obj_18_map["$anchor"] = _jm_f_78
-        _jm_obj_18_map["$comment"] = _jm_f_79
-        _jm_obj_18_map["$defs"] = _jm_f_80
-        _jm_obj_18_map["$dynamicAnchor"] = _jm_f_81
-        _jm_obj_18_map["$id"] = _jm_f_82
-        _jm_obj_18_map["$schema"] = _jm_f_83
-        _jm_obj_18_map["$vocabulary"] = _jm_f_84
-        _jm_obj_18_map["additionalProperties"] = _jm_f_85
-        _jm_obj_18_map["default"] = _jm_f_86
-        _jm_obj_18_map["definitions"] = _jm_f_87
-        _jm_obj_18_map["deprecated"] = _jm_f_88
-        _jm_obj_18_map["description"] = _jm_f_89
-        _jm_obj_18_map["examples"] = _jm_f_90
-        _jm_obj_18_map["id"] = _jm_f_91
-        _jm_obj_18_map["maxProperties"] = _jm_f_92
-        _jm_obj_18_map["minProperties"] = _jm_f_93
-        _jm_obj_18_map["patternProperties"] = _jm_f_94
-        _jm_obj_18_map["properties"] = _jm_f_95
-        _jm_obj_18_map["propertyNames"] = _jm_f_96
-        _jm_obj_18_map["readOnly"] = _jm_f_97
-        _jm_obj_18_map["required"] = _jm_f_98
-        _jm_obj_18_map["title"] = _jm_f_99
-        _jm_obj_18_map["unevaluatedProperties"] = _jm_f_100
-        _jm_obj_18_map["writeOnly"] = _jm_f_101
-        _jm_obj_24_map["$anchor"] = _jm_f_102
-        _jm_obj_24_map["$comment"] = _jm_f_103
-        _jm_obj_24_map["$defs"] = _jm_f_104
-        _jm_obj_24_map["$dynamicAnchor"] = _jm_f_105
-        _jm_obj_24_map["$id"] = _jm_f_106
-        _jm_obj_24_map["$schema"] = _jm_f_107
-        _jm_obj_24_map["$vocabulary"] = _jm_f_108
-        _jm_obj_24_map["default"] = _jm_f_109
-        _jm_obj_24_map["definitions"] = _jm_f_110
-        _jm_obj_24_map["deprecated"] = _jm_f_111
-        _jm_obj_24_map["description"] = _jm_f_112
-        _jm_obj_24_map["examples"] = _jm_f_113
-        _jm_obj_24_map["id"] = _jm_f_114
-        _jm_obj_24_map["maximum"] = _jm_f_115
-        _jm_obj_24_map["minimum"] = _jm_f_116
-        _jm_obj_24_map["readOnly"] = _jm_f_117
-        _jm_obj_24_map["title"] = _jm_f_118
-        _jm_obj_24_map["writeOnly"] = _jm_f_119
-        _jm_obj_28_map["$anchor"] = _jm_f_120
-        _jm_obj_28_map["$comment"] = _jm_f_121
-        _jm_obj_28_map["$defs"] = _jm_f_122
-        _jm_obj_28_map["$dynamicAnchor"] = _jm_f_123
-        _jm_obj_28_map["$id"] = _jm_f_124
-        _jm_obj_28_map["$schema"] = _jm_f_125
-        _jm_obj_28_map["$vocabulary"] = _jm_f_126
-        _jm_obj_28_map["default"] = _jm_f_127
-        _jm_obj_28_map["definitions"] = _jm_f_128
-        _jm_obj_28_map["deprecated"] = _jm_f_129
-        _jm_obj_28_map["description"] = _jm_f_130
-        _jm_obj_28_map["examples"] = _jm_f_131
-        _jm_obj_28_map["id"] = _jm_f_132
-        _jm_obj_28_map["maximum"] = _jm_f_133
-        _jm_obj_28_map["minimum"] = _jm_f_134
-        _jm_obj_28_map["readOnly"] = _jm_f_135
-        _jm_obj_28_map["title"] = _jm_f_136
-        _jm_obj_28_map["writeOnly"] = _jm_f_137
-        _jm_obj_32_map["$anchor"] = _jm_f_138
-        _jm_obj_32_map["$comment"] = _jm_f_139
-        _jm_obj_32_map["$defs"] = _jm_f_140
-        _jm_obj_32_map["$dynamicAnchor"] = _jm_f_141
-        _jm_obj_32_map["$id"] = _jm_f_142
-        _jm_obj_32_map["$schema"] = _jm_f_143
-        _jm_obj_32_map["$vocabulary"] = _jm_f_144
-        _jm_obj_32_map["default"] = _jm_f_145
-        _jm_obj_32_map["definitions"] = _jm_f_146
-        _jm_obj_32_map["deprecated"] = _jm_f_147
-        _jm_obj_32_map["description"] = _jm_f_148
-        _jm_obj_32_map["examples"] = _jm_f_149
-        _jm_obj_32_map["id"] = _jm_f_150
-        _jm_obj_32_map["readOnly"] = _jm_f_151
-        _jm_obj_32_map["title"] = _jm_f_152
-        _jm_obj_32_map["writeOnly"] = _jm_f_153
-        _jm_obj_36_map["$anchor"] = _jm_f_154
-        _jm_obj_36_map["$comment"] = _jm_f_155
-        _jm_obj_36_map["$defs"] = _jm_f_156
-        _jm_obj_36_map["$dynamicAnchor"] = _jm_f_157
-        _jm_obj_36_map["$id"] = _jm_f_158
-        _jm_obj_36_map["$schema"] = _jm_f_159
-        _jm_obj_36_map["$vocabulary"] = _jm_f_160
-        _jm_obj_36_map["default"] = _jm_f_161
-        _jm_obj_36_map["definitions"] = _jm_f_162
-        _jm_obj_36_map["deprecated"] = _jm_f_163
-        _jm_obj_36_map["description"] = _jm_f_164
-        _jm_obj_36_map["examples"] = _jm_f_165
-        _jm_obj_36_map["id"] = _jm_f_166
-        _jm_obj_36_map["readOnly"] = _jm_f_167
-        _jm_obj_36_map["title"] = _jm_f_168
-        _jm_obj_36_map["writeOnly"] = _jm_f_169
-        _jm_obj_40_map["$anchor"] = _jm_f_170
-        _jm_obj_40_map["$comment"] = _jm_f_171
-        _jm_obj_40_map["$defs"] = _jm_f_172
-        _jm_obj_40_map["$dynamicAnchor"] = _jm_f_173
-        _jm_obj_40_map["$id"] = _jm_f_174
-        _jm_obj_40_map["$schema"] = _jm_f_175
-        _jm_obj_40_map["$vocabulary"] = _jm_f_176
-        _jm_obj_40_map["default"] = _jm_f_177
-        _jm_obj_40_map["definitions"] = _jm_f_178
-        _jm_obj_40_map["deprecated"] = _jm_f_179
-        _jm_obj_40_map["description"] = _jm_f_180
-        _jm_obj_40_map["examples"] = _jm_f_181
-        _jm_obj_40_map["id"] = _jm_f_182
-        _jm_obj_40_map["readOnly"] = _jm_f_183
-        _jm_obj_40_map["title"] = _jm_f_184
-        _jm_obj_40_map["writeOnly"] = _jm_f_185
-        _jm_obj_44_map["$anchor"] = _jm_f_186
-        _jm_obj_44_map["$comment"] = _jm_f_187
-        _jm_obj_44_map["$defs"] = _jm_f_188
-        _jm_obj_44_map["$dynamicAnchor"] = _jm_f_189
-        _jm_obj_44_map["$id"] = _jm_f_190
-        _jm_obj_44_map["$schema"] = _jm_f_191
-        _jm_obj_44_map["$vocabulary"] = _jm_f_192
-        _jm_obj_44_map["default"] = _jm_f_193
-        _jm_obj_44_map["definitions"] = _jm_f_194
-        _jm_obj_44_map["deprecated"] = _jm_f_195
-        _jm_obj_44_map["description"] = _jm_f_196
-        _jm_obj_44_map["examples"] = _jm_f_197
-        _jm_obj_44_map["id"] = _jm_f_198
-        _jm_obj_44_map["readOnly"] = _jm_f_199
-        _jm_obj_44_map["title"] = _jm_f_200
-        _jm_obj_44_map["writeOnly"] = _jm_f_201
-        _jm_obj_48_map["$anchor"] = _jm_f_202
-        _jm_obj_48_map["$comment"] = _jm_f_203
-        _jm_obj_48_map["$defs"] = _jm_f_204
-        _jm_obj_48_map["$dynamicAnchor"] = _jm_f_205
-        _jm_obj_48_map["$id"] = _jm_f_206
-        _jm_obj_48_map["$schema"] = _jm_f_207
-        _jm_obj_48_map["$vocabulary"] = _jm_f_208
-        _jm_obj_48_map["default"] = _jm_f_209
-        _jm_obj_48_map["definitions"] = _jm_f_210
-        _jm_obj_48_map["deprecated"] = _jm_f_211
-        _jm_obj_48_map["description"] = _jm_f_212
-        _jm_obj_48_map["examples"] = _jm_f_213
-        _jm_obj_48_map["id"] = _jm_f_214
-        _jm_obj_48_map["readOnly"] = _jm_f_215
-        _jm_obj_48_map["title"] = _jm_f_216
-        _jm_obj_48_map["writeOnly"] = _jm_f_217
-        _jm_obj_52_map["$anchor"] = _jm_f_218
-        _jm_obj_52_map["$comment"] = _jm_f_219
-        _jm_obj_52_map["$defs"] = _jm_f_220
-        _jm_obj_52_map["$dynamicAnchor"] = _jm_f_221
-        _jm_obj_52_map["$id"] = _jm_f_222
-        _jm_obj_52_map["$schema"] = _jm_f_223
-        _jm_obj_52_map["$vocabulary"] = _jm_f_224
-        _jm_obj_52_map["default"] = _jm_f_225
-        _jm_obj_52_map["definitions"] = _jm_f_226
-        _jm_obj_52_map["deprecated"] = _jm_f_227
-        _jm_obj_52_map["description"] = _jm_f_228
-        _jm_obj_52_map["examples"] = _jm_f_229
-        _jm_obj_52_map["id"] = _jm_f_230
-        _jm_obj_52_map["readOnly"] = _jm_f_231
-        _jm_obj_52_map["title"] = _jm_f_232
-        _jm_obj_52_map["writeOnly"] = _jm_f_233
-        _jm_obj_56_map["$anchor"] = _jm_f_234
-        _jm_obj_56_map["$comment"] = _jm_f_235
-        _jm_obj_56_map["$defs"] = _jm_f_236
-        _jm_obj_56_map["$dynamicAnchor"] = _jm_f_237
-        _jm_obj_56_map["$id"] = _jm_f_238
-        _jm_obj_56_map["$schema"] = _jm_f_239
-        _jm_obj_56_map["$vocabulary"] = _jm_f_240
-        _jm_obj_56_map["default"] = _jm_f_241
-        _jm_obj_56_map["definitions"] = _jm_f_242
-        _jm_obj_56_map["deprecated"] = _jm_f_243
-        _jm_obj_56_map["description"] = _jm_f_244
-        _jm_obj_56_map["examples"] = _jm_f_245
-        _jm_obj_56_map["id"] = _jm_f_246
-        _jm_obj_56_map["readOnly"] = _jm_f_247
-        _jm_obj_56_map["title"] = _jm_f_248
-        _jm_obj_56_map["writeOnly"] = _jm_f_249
-        _jm_obj_60_map["$anchor"] = _jm_f_250
-        _jm_obj_60_map["$comment"] = _jm_f_251
-        _jm_obj_60_map["$defs"] = _jm_f_252
-        _jm_obj_60_map["$dynamicAnchor"] = _jm_f_253
-        _jm_obj_60_map["$id"] = _jm_f_254
-        _jm_obj_60_map["$schema"] = _jm_f_255
-        _jm_obj_60_map["$vocabulary"] = _jm_f_256
-        _jm_obj_60_map["default"] = _jm_f_257
-        _jm_obj_60_map["definitions"] = _jm_f_258
-        _jm_obj_60_map["deprecated"] = _jm_f_259
-        _jm_obj_60_map["description"] = _jm_f_260
-        _jm_obj_60_map["examples"] = _jm_f_261
-        _jm_obj_60_map["id"] = _jm_f_262
-        _jm_obj_60_map["readOnly"] = _jm_f_263
-        _jm_obj_60_map["title"] = _jm_f_264
-        _jm_obj_60_map["writeOnly"] = _jm_f_265
-        _jm_obj_64_map["$anchor"] = _jm_f_266
-        _jm_obj_64_map["$comment"] = _jm_f_267
-        _jm_obj_64_map["$defs"] = _jm_f_268
-        _jm_obj_64_map["$dynamicAnchor"] = _jm_f_269
-        _jm_obj_64_map["$id"] = _jm_f_270
-        _jm_obj_64_map["$schema"] = _jm_f_271
-        _jm_obj_64_map["$vocabulary"] = _jm_f_272
-        _jm_obj_64_map["default"] = _jm_f_273
-        _jm_obj_64_map["definitions"] = _jm_f_274
-        _jm_obj_64_map["deprecated"] = _jm_f_275
-        _jm_obj_64_map["description"] = _jm_f_276
-        _jm_obj_64_map["examples"] = _jm_f_277
-        _jm_obj_64_map["id"] = _jm_f_278
-        _jm_obj_64_map["readOnly"] = _jm_f_279
-        _jm_obj_64_map["title"] = _jm_f_280
-        _jm_obj_64_map["writeOnly"] = _jm_f_281
-        check_model_map[""] = json_model_1
-        check_model_map["const"] = json_model_2
-        check_model_map["enum"] = json_model_3
-        check_model_map["schemaArray"] = json_model_4
-        check_model_map["stringKeywords"] = json_model_5
-        check_model_map["arrayKeywords"] = json_model_6
-        check_model_map["objectKeywords"] = json_model_7
-        check_model_map["numberKeywords"] = json_model_8
-        check_model_map["metas"] = json_model_9
-        check_model_map["String"] = json_model_10
-        check_model_map["Array"] = json_model_11
-        check_model_map["Object"] = json_model_12
-        check_model_map["Integer"] = json_model_13
-        check_model_map["Number"] = json_model_14
-        check_model_map["Bool"] = json_model_15
-        check_model_map["Null"] = json_model_16
-        check_model_map["AllOf"] = json_model_17
-        check_model_map["AnyOf"] = json_model_18
-        check_model_map["OneOf"] = json_model_19
-        check_model_map["Enum"] = json_model_20
-        check_model_map["Const"] = json_model_21
-        check_model_map["Ref"] = json_model_22
-        check_model_map["DynRef"] = json_model_23
-        check_model_map["ObjectSchema"] = json_model_24
-        check_model_map["Schema"] = json_model_25
-        check_model_map["RootSchema"] = json_model_26
+        _jm_obj_10_map.set("$anchor", _jm_f_35)
+        _jm_obj_10_map.set("$comment", _jm_f_36)
+        _jm_obj_10_map.set("$defs", _jm_f_37)
+        _jm_obj_10_map.set("$dynamicAnchor", _jm_f_38)
+        _jm_obj_10_map.set("$id", _jm_f_39)
+        _jm_obj_10_map.set("$schema", _jm_f_40)
+        _jm_obj_10_map.set("$vocabulary", _jm_f_41)
+        _jm_obj_10_map.set("default", _jm_f_42)
+        _jm_obj_10_map.set("definitions", _jm_f_43)
+        _jm_obj_10_map.set("deprecated", _jm_f_44)
+        _jm_obj_10_map.set("description", _jm_f_45)
+        _jm_obj_10_map.set("examples", _jm_f_46)
+        _jm_obj_10_map.set("format", _jm_f_47)
+        _jm_obj_10_map.set("id", _jm_f_48)
+        _jm_obj_10_map.set("maxLength", _jm_f_49)
+        _jm_obj_10_map.set("minLength", _jm_f_50)
+        _jm_obj_10_map.set("pattern", _jm_f_51)
+        _jm_obj_10_map.set("readOnly", _jm_f_52)
+        _jm_obj_10_map.set("title", _jm_f_53)
+        _jm_obj_10_map.set("writeOnly", _jm_f_54)
+        _jm_obj_14_map.set("$anchor", _jm_f_55)
+        _jm_obj_14_map.set("$comment", _jm_f_56)
+        _jm_obj_14_map.set("$defs", _jm_f_57)
+        _jm_obj_14_map.set("$dynamicAnchor", _jm_f_58)
+        _jm_obj_14_map.set("$id", _jm_f_59)
+        _jm_obj_14_map.set("$schema", _jm_f_60)
+        _jm_obj_14_map.set("$vocabulary", _jm_f_61)
+        _jm_obj_14_map.set("additionalItems", _jm_f_62)
+        _jm_obj_14_map.set("default", _jm_f_63)
+        _jm_obj_14_map.set("definitions", _jm_f_64)
+        _jm_obj_14_map.set("deprecated", _jm_f_65)
+        _jm_obj_14_map.set("description", _jm_f_66)
+        _jm_obj_14_map.set("examples", _jm_f_67)
+        _jm_obj_14_map.set("id", _jm_f_68)
+        _jm_obj_14_map.set("items", _jm_f_69)
+        _jm_obj_14_map.set("maxItems", _jm_f_70)
+        _jm_obj_14_map.set("minItems", _jm_f_71)
+        _jm_obj_14_map.set("prefixItems", _jm_f_72)
+        _jm_obj_14_map.set("readOnly", _jm_f_73)
+        _jm_obj_14_map.set("title", _jm_f_74)
+        _jm_obj_14_map.set("unevaluatedItems", _jm_f_75)
+        _jm_obj_14_map.set("uniqueItems", _jm_f_76)
+        _jm_obj_14_map.set("writeOnly", _jm_f_77)
+        _jm_obj_18_map.set("$anchor", _jm_f_78)
+        _jm_obj_18_map.set("$comment", _jm_f_79)
+        _jm_obj_18_map.set("$defs", _jm_f_80)
+        _jm_obj_18_map.set("$dynamicAnchor", _jm_f_81)
+        _jm_obj_18_map.set("$id", _jm_f_82)
+        _jm_obj_18_map.set("$schema", _jm_f_83)
+        _jm_obj_18_map.set("$vocabulary", _jm_f_84)
+        _jm_obj_18_map.set("additionalProperties", _jm_f_85)
+        _jm_obj_18_map.set("default", _jm_f_86)
+        _jm_obj_18_map.set("definitions", _jm_f_87)
+        _jm_obj_18_map.set("deprecated", _jm_f_88)
+        _jm_obj_18_map.set("description", _jm_f_89)
+        _jm_obj_18_map.set("examples", _jm_f_90)
+        _jm_obj_18_map.set("id", _jm_f_91)
+        _jm_obj_18_map.set("maxProperties", _jm_f_92)
+        _jm_obj_18_map.set("minProperties", _jm_f_93)
+        _jm_obj_18_map.set("patternProperties", _jm_f_94)
+        _jm_obj_18_map.set("properties", _jm_f_95)
+        _jm_obj_18_map.set("propertyNames", _jm_f_96)
+        _jm_obj_18_map.set("readOnly", _jm_f_97)
+        _jm_obj_18_map.set("required", _jm_f_98)
+        _jm_obj_18_map.set("title", _jm_f_99)
+        _jm_obj_18_map.set("unevaluatedProperties", _jm_f_100)
+        _jm_obj_18_map.set("writeOnly", _jm_f_101)
+        _jm_obj_24_map.set("$anchor", _jm_f_102)
+        _jm_obj_24_map.set("$comment", _jm_f_103)
+        _jm_obj_24_map.set("$defs", _jm_f_104)
+        _jm_obj_24_map.set("$dynamicAnchor", _jm_f_105)
+        _jm_obj_24_map.set("$id", _jm_f_106)
+        _jm_obj_24_map.set("$schema", _jm_f_107)
+        _jm_obj_24_map.set("$vocabulary", _jm_f_108)
+        _jm_obj_24_map.set("default", _jm_f_109)
+        _jm_obj_24_map.set("definitions", _jm_f_110)
+        _jm_obj_24_map.set("deprecated", _jm_f_111)
+        _jm_obj_24_map.set("description", _jm_f_112)
+        _jm_obj_24_map.set("examples", _jm_f_113)
+        _jm_obj_24_map.set("id", _jm_f_114)
+        _jm_obj_24_map.set("maximum", _jm_f_115)
+        _jm_obj_24_map.set("minimum", _jm_f_116)
+        _jm_obj_24_map.set("readOnly", _jm_f_117)
+        _jm_obj_24_map.set("title", _jm_f_118)
+        _jm_obj_24_map.set("writeOnly", _jm_f_119)
+        _jm_obj_28_map.set("$anchor", _jm_f_120)
+        _jm_obj_28_map.set("$comment", _jm_f_121)
+        _jm_obj_28_map.set("$defs", _jm_f_122)
+        _jm_obj_28_map.set("$dynamicAnchor", _jm_f_123)
+        _jm_obj_28_map.set("$id", _jm_f_124)
+        _jm_obj_28_map.set("$schema", _jm_f_125)
+        _jm_obj_28_map.set("$vocabulary", _jm_f_126)
+        _jm_obj_28_map.set("default", _jm_f_127)
+        _jm_obj_28_map.set("definitions", _jm_f_128)
+        _jm_obj_28_map.set("deprecated", _jm_f_129)
+        _jm_obj_28_map.set("description", _jm_f_130)
+        _jm_obj_28_map.set("examples", _jm_f_131)
+        _jm_obj_28_map.set("id", _jm_f_132)
+        _jm_obj_28_map.set("maximum", _jm_f_133)
+        _jm_obj_28_map.set("minimum", _jm_f_134)
+        _jm_obj_28_map.set("readOnly", _jm_f_135)
+        _jm_obj_28_map.set("title", _jm_f_136)
+        _jm_obj_28_map.set("writeOnly", _jm_f_137)
+        _jm_obj_32_map.set("$anchor", _jm_f_138)
+        _jm_obj_32_map.set("$comment", _jm_f_139)
+        _jm_obj_32_map.set("$defs", _jm_f_140)
+        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_141)
+        _jm_obj_32_map.set("$id", _jm_f_142)
+        _jm_obj_32_map.set("$schema", _jm_f_143)
+        _jm_obj_32_map.set("$vocabulary", _jm_f_144)
+        _jm_obj_32_map.set("default", _jm_f_145)
+        _jm_obj_32_map.set("definitions", _jm_f_146)
+        _jm_obj_32_map.set("deprecated", _jm_f_147)
+        _jm_obj_32_map.set("description", _jm_f_148)
+        _jm_obj_32_map.set("examples", _jm_f_149)
+        _jm_obj_32_map.set("id", _jm_f_150)
+        _jm_obj_32_map.set("readOnly", _jm_f_151)
+        _jm_obj_32_map.set("title", _jm_f_152)
+        _jm_obj_32_map.set("writeOnly", _jm_f_153)
+        _jm_obj_36_map.set("$anchor", _jm_f_154)
+        _jm_obj_36_map.set("$comment", _jm_f_155)
+        _jm_obj_36_map.set("$defs", _jm_f_156)
+        _jm_obj_36_map.set("$dynamicAnchor", _jm_f_157)
+        _jm_obj_36_map.set("$id", _jm_f_158)
+        _jm_obj_36_map.set("$schema", _jm_f_159)
+        _jm_obj_36_map.set("$vocabulary", _jm_f_160)
+        _jm_obj_36_map.set("default", _jm_f_161)
+        _jm_obj_36_map.set("definitions", _jm_f_162)
+        _jm_obj_36_map.set("deprecated", _jm_f_163)
+        _jm_obj_36_map.set("description", _jm_f_164)
+        _jm_obj_36_map.set("examples", _jm_f_165)
+        _jm_obj_36_map.set("id", _jm_f_166)
+        _jm_obj_36_map.set("readOnly", _jm_f_167)
+        _jm_obj_36_map.set("title", _jm_f_168)
+        _jm_obj_36_map.set("writeOnly", _jm_f_169)
+        _jm_obj_40_map.set("$anchor", _jm_f_170)
+        _jm_obj_40_map.set("$comment", _jm_f_171)
+        _jm_obj_40_map.set("$defs", _jm_f_172)
+        _jm_obj_40_map.set("$dynamicAnchor", _jm_f_173)
+        _jm_obj_40_map.set("$id", _jm_f_174)
+        _jm_obj_40_map.set("$schema", _jm_f_175)
+        _jm_obj_40_map.set("$vocabulary", _jm_f_176)
+        _jm_obj_40_map.set("default", _jm_f_177)
+        _jm_obj_40_map.set("definitions", _jm_f_178)
+        _jm_obj_40_map.set("deprecated", _jm_f_179)
+        _jm_obj_40_map.set("description", _jm_f_180)
+        _jm_obj_40_map.set("examples", _jm_f_181)
+        _jm_obj_40_map.set("id", _jm_f_182)
+        _jm_obj_40_map.set("readOnly", _jm_f_183)
+        _jm_obj_40_map.set("title", _jm_f_184)
+        _jm_obj_40_map.set("writeOnly", _jm_f_185)
+        _jm_obj_44_map.set("$anchor", _jm_f_186)
+        _jm_obj_44_map.set("$comment", _jm_f_187)
+        _jm_obj_44_map.set("$defs", _jm_f_188)
+        _jm_obj_44_map.set("$dynamicAnchor", _jm_f_189)
+        _jm_obj_44_map.set("$id", _jm_f_190)
+        _jm_obj_44_map.set("$schema", _jm_f_191)
+        _jm_obj_44_map.set("$vocabulary", _jm_f_192)
+        _jm_obj_44_map.set("default", _jm_f_193)
+        _jm_obj_44_map.set("definitions", _jm_f_194)
+        _jm_obj_44_map.set("deprecated", _jm_f_195)
+        _jm_obj_44_map.set("description", _jm_f_196)
+        _jm_obj_44_map.set("examples", _jm_f_197)
+        _jm_obj_44_map.set("id", _jm_f_198)
+        _jm_obj_44_map.set("readOnly", _jm_f_199)
+        _jm_obj_44_map.set("title", _jm_f_200)
+        _jm_obj_44_map.set("writeOnly", _jm_f_201)
+        _jm_obj_48_map.set("$anchor", _jm_f_202)
+        _jm_obj_48_map.set("$comment", _jm_f_203)
+        _jm_obj_48_map.set("$defs", _jm_f_204)
+        _jm_obj_48_map.set("$dynamicAnchor", _jm_f_205)
+        _jm_obj_48_map.set("$id", _jm_f_206)
+        _jm_obj_48_map.set("$schema", _jm_f_207)
+        _jm_obj_48_map.set("$vocabulary", _jm_f_208)
+        _jm_obj_48_map.set("default", _jm_f_209)
+        _jm_obj_48_map.set("definitions", _jm_f_210)
+        _jm_obj_48_map.set("deprecated", _jm_f_211)
+        _jm_obj_48_map.set("description", _jm_f_212)
+        _jm_obj_48_map.set("examples", _jm_f_213)
+        _jm_obj_48_map.set("id", _jm_f_214)
+        _jm_obj_48_map.set("readOnly", _jm_f_215)
+        _jm_obj_48_map.set("title", _jm_f_216)
+        _jm_obj_48_map.set("writeOnly", _jm_f_217)
+        _jm_obj_52_map.set("$anchor", _jm_f_218)
+        _jm_obj_52_map.set("$comment", _jm_f_219)
+        _jm_obj_52_map.set("$defs", _jm_f_220)
+        _jm_obj_52_map.set("$dynamicAnchor", _jm_f_221)
+        _jm_obj_52_map.set("$id", _jm_f_222)
+        _jm_obj_52_map.set("$schema", _jm_f_223)
+        _jm_obj_52_map.set("$vocabulary", _jm_f_224)
+        _jm_obj_52_map.set("default", _jm_f_225)
+        _jm_obj_52_map.set("definitions", _jm_f_226)
+        _jm_obj_52_map.set("deprecated", _jm_f_227)
+        _jm_obj_52_map.set("description", _jm_f_228)
+        _jm_obj_52_map.set("examples", _jm_f_229)
+        _jm_obj_52_map.set("id", _jm_f_230)
+        _jm_obj_52_map.set("readOnly", _jm_f_231)
+        _jm_obj_52_map.set("title", _jm_f_232)
+        _jm_obj_52_map.set("writeOnly", _jm_f_233)
+        _jm_obj_56_map.set("$anchor", _jm_f_234)
+        _jm_obj_56_map.set("$comment", _jm_f_235)
+        _jm_obj_56_map.set("$defs", _jm_f_236)
+        _jm_obj_56_map.set("$dynamicAnchor", _jm_f_237)
+        _jm_obj_56_map.set("$id", _jm_f_238)
+        _jm_obj_56_map.set("$schema", _jm_f_239)
+        _jm_obj_56_map.set("$vocabulary", _jm_f_240)
+        _jm_obj_56_map.set("default", _jm_f_241)
+        _jm_obj_56_map.set("definitions", _jm_f_242)
+        _jm_obj_56_map.set("deprecated", _jm_f_243)
+        _jm_obj_56_map.set("description", _jm_f_244)
+        _jm_obj_56_map.set("examples", _jm_f_245)
+        _jm_obj_56_map.set("id", _jm_f_246)
+        _jm_obj_56_map.set("readOnly", _jm_f_247)
+        _jm_obj_56_map.set("title", _jm_f_248)
+        _jm_obj_56_map.set("writeOnly", _jm_f_249)
+        _jm_obj_60_map.set("$anchor", _jm_f_250)
+        _jm_obj_60_map.set("$comment", _jm_f_251)
+        _jm_obj_60_map.set("$defs", _jm_f_252)
+        _jm_obj_60_map.set("$dynamicAnchor", _jm_f_253)
+        _jm_obj_60_map.set("$id", _jm_f_254)
+        _jm_obj_60_map.set("$schema", _jm_f_255)
+        _jm_obj_60_map.set("$vocabulary", _jm_f_256)
+        _jm_obj_60_map.set("default", _jm_f_257)
+        _jm_obj_60_map.set("definitions", _jm_f_258)
+        _jm_obj_60_map.set("deprecated", _jm_f_259)
+        _jm_obj_60_map.set("description", _jm_f_260)
+        _jm_obj_60_map.set("examples", _jm_f_261)
+        _jm_obj_60_map.set("id", _jm_f_262)
+        _jm_obj_60_map.set("readOnly", _jm_f_263)
+        _jm_obj_60_map.set("title", _jm_f_264)
+        _jm_obj_60_map.set("writeOnly", _jm_f_265)
+        _jm_obj_64_map.set("$anchor", _jm_f_266)
+        _jm_obj_64_map.set("$comment", _jm_f_267)
+        _jm_obj_64_map.set("$defs", _jm_f_268)
+        _jm_obj_64_map.set("$dynamicAnchor", _jm_f_269)
+        _jm_obj_64_map.set("$id", _jm_f_270)
+        _jm_obj_64_map.set("$schema", _jm_f_271)
+        _jm_obj_64_map.set("$vocabulary", _jm_f_272)
+        _jm_obj_64_map.set("default", _jm_f_273)
+        _jm_obj_64_map.set("definitions", _jm_f_274)
+        _jm_obj_64_map.set("deprecated", _jm_f_275)
+        _jm_obj_64_map.set("description", _jm_f_276)
+        _jm_obj_64_map.set("examples", _jm_f_277)
+        _jm_obj_64_map.set("id", _jm_f_278)
+        _jm_obj_64_map.set("readOnly", _jm_f_279)
+        _jm_obj_64_map.set("title", _jm_f_280)
+        _jm_obj_64_map.set("writeOnly", _jm_f_281)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("const", json_model_2)
+        check_model_map.set("enum", json_model_3)
+        check_model_map.set("schemaArray", json_model_4)
+        check_model_map.set("stringKeywords", json_model_5)
+        check_model_map.set("arrayKeywords", json_model_6)
+        check_model_map.set("objectKeywords", json_model_7)
+        check_model_map.set("numberKeywords", json_model_8)
+        check_model_map.set("metas", json_model_9)
+        check_model_map.set("String", json_model_10)
+        check_model_map.set("Array", json_model_11)
+        check_model_map.set("Object", json_model_12)
+        check_model_map.set("Integer", json_model_13)
+        check_model_map.set("Number", json_model_14)
+        check_model_map.set("Bool", json_model_15)
+        check_model_map.set("Null", json_model_16)
+        check_model_map.set("AllOf", json_model_17)
+        check_model_map.set("AnyOf", json_model_18)
+        check_model_map.set("OneOf", json_model_19)
+        check_model_map.set("Enum", json_model_20)
+        check_model_map.set("Const", json_model_21)
+        check_model_map.set("Ref", json_model_22)
+        check_model_map.set("DynRef", json_model_23)
+        check_model_map.set("ObjectSchema", json_model_24)
+        check_model_map.set("Schema", json_model_25)
+        check_model_map.set("RootSchema", json_model_26)
     }
 }
 
@@ -7400,9 +7400,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -7412,4 +7412,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

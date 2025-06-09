@@ -1196,10 +1196,10 @@ export function check_model_init()
     if (! initialized)
     {
         initialized = true;
-        _jm_obj_1_map["authors"] = _jm_f_0
-        _jm_obj_1_map["date"] = _jm_f_1
-        _jm_obj_1_map["name"] = _jm_f_2
-        _jm_obj_1_map["previous"] = _jm_f_3
+        _jm_obj_1_map.set("authors", _jm_f_0)
+        _jm_obj_1_map.set("date", _jm_f_1)
+        _jm_obj_1_map.set("name", _jm_f_2)
+        _jm_obj_1_map.set("previous", _jm_f_3)
         _jm_map_0.set("atomic", json_model_6)
         _jm_map_0.set("object", json_model_7)
         _jm_map_0.set("array", json_model_9)
@@ -1221,39 +1221,39 @@ export function check_model_init()
         _jm_cst_1.add("required")
         _jm_cst_1.add("prohibited")
         _jm_cst_1.add("optional")
-        _jm_obj_2_map["enumeration"] = _jm_f_4
-        _jm_obj_2_map["explicitTypeZone"] = _jm_f_5
-        _jm_obj_2_map["fractionDigits"] = _jm_f_6
-        _jm_obj_2_map["length"] = _jm_f_7
-        _jm_obj_2_map["maxExclusive"] = _jm_f_8
-        _jm_obj_2_map["maxInclusive"] = _jm_f_9
-        _jm_obj_2_map["maxLength"] = _jm_f_10
-        _jm_obj_2_map["minExclusive"] = _jm_f_11
-        _jm_obj_2_map["minInclusive"] = _jm_f_12
-        _jm_obj_2_map["minLength"] = _jm_f_13
-        _jm_obj_2_map["name"] = _jm_f_14
-        _jm_obj_2_map["pattern"] = _jm_f_15
-        _jm_obj_2_map["totalDigits"] = _jm_f_16
-        _jm_obj_3_map["baseType"] = _jm_f_17
-        _jm_obj_3_map["closed"] = _jm_f_18
-        _jm_obj_3_map["content"] = _jm_f_19
-        _jm_obj_3_map["name"] = _jm_f_20
-        _jm_obj_5_map["baseType"] = _jm_f_21
-        _jm_obj_5_map["content"] = _jm_f_22
-        _jm_obj_5_map["maxLength"] = _jm_f_23
-        _jm_obj_5_map["minLength"] = _jm_f_24
-        _jm_obj_5_map["name"] = _jm_f_25
-        check_model_map[""] = json_model_1
-        check_model_map["Schema"] = json_model_2
-        check_model_map["Type"] = json_model_3
-        check_model_map["atomic-types"] = json_model_4
-        check_model_map["atomic"] = json_model_5
-        check_model_map["Atomic"] = json_model_6
-        check_model_map["Object"] = json_model_7
-        check_model_map["Fields"] = json_model_8
-        check_model_map["Array"] = json_model_9
-        check_model_map["Union"] = json_model_10
-        check_model_map["type-or-ref"] = json_model_11
+        _jm_obj_2_map.set("enumeration", _jm_f_4)
+        _jm_obj_2_map.set("explicitTypeZone", _jm_f_5)
+        _jm_obj_2_map.set("fractionDigits", _jm_f_6)
+        _jm_obj_2_map.set("length", _jm_f_7)
+        _jm_obj_2_map.set("maxExclusive", _jm_f_8)
+        _jm_obj_2_map.set("maxInclusive", _jm_f_9)
+        _jm_obj_2_map.set("maxLength", _jm_f_10)
+        _jm_obj_2_map.set("minExclusive", _jm_f_11)
+        _jm_obj_2_map.set("minInclusive", _jm_f_12)
+        _jm_obj_2_map.set("minLength", _jm_f_13)
+        _jm_obj_2_map.set("name", _jm_f_14)
+        _jm_obj_2_map.set("pattern", _jm_f_15)
+        _jm_obj_2_map.set("totalDigits", _jm_f_16)
+        _jm_obj_3_map.set("baseType", _jm_f_17)
+        _jm_obj_3_map.set("closed", _jm_f_18)
+        _jm_obj_3_map.set("content", _jm_f_19)
+        _jm_obj_3_map.set("name", _jm_f_20)
+        _jm_obj_5_map.set("baseType", _jm_f_21)
+        _jm_obj_5_map.set("content", _jm_f_22)
+        _jm_obj_5_map.set("maxLength", _jm_f_23)
+        _jm_obj_5_map.set("minLength", _jm_f_24)
+        _jm_obj_5_map.set("name", _jm_f_25)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("Schema", json_model_2)
+        check_model_map.set("Type", json_model_3)
+        check_model_map.set("atomic-types", json_model_4)
+        check_model_map.set("atomic", json_model_5)
+        check_model_map.set("Atomic", json_model_6)
+        check_model_map.set("Object", json_model_7)
+        check_model_map.set("Fields", json_model_8)
+        check_model_map.set("Array", json_model_9)
+        check_model_map.set("Union", json_model_10)
+        check_model_map.set("type-or-ref", json_model_11)
     }
 }
 
@@ -1268,9 +1268,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -1280,4 +1280,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

@@ -2,7 +2,7 @@
 
 export function jm_is_valid_regex(pattern, extended)
 {
-    if (typeof pattern !== 'string' && ! pattern instanceof String)
+    if (typeof pattern !== 'string' && !(pattern instanceof String))
         return false
 
     try {
@@ -18,7 +18,7 @@ const MONTH_DAYS = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
 export function jm_is_valid_date(date)
 {
-    if ((typeof date !== 'string' && ! date instanceof String) || date.length != 10)
+    if ((typeof date !== 'string' && !(date instanceof String)) || date.length != 10)
         return false
 
     try {

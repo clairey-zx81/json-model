@@ -3798,54 +3798,54 @@ export function check_model_init()
         _jm_cst_0.add(0.0)
         _jm_cst_0.add(1.0)
         _jm_cst_0.add(-1.0)
-        _jm_obj_23_map["#"] = _jm_f_0
-        _jm_obj_23_map["$"] = _jm_f_1
-        _jm_obj_23_map["%"] = _jm_f_2
-        _jm_obj_23_map["~"] = _jm_f_3
-        _jm_obj_26_map["#"] = _jm_f_4
-        _jm_obj_26_map["$"] = _jm_f_5
-        _jm_obj_26_map["%"] = _jm_f_6
-        _jm_obj_26_map["~"] = _jm_f_7
-        _jm_obj_29_map["#"] = _jm_f_8
-        _jm_obj_29_map["$"] = _jm_f_9
-        _jm_obj_29_map["%"] = _jm_f_10
-        _jm_obj_29_map["~"] = _jm_f_11
-        _jm_obj_32_map["#"] = _jm_f_12
-        _jm_obj_32_map["$"] = _jm_f_13
-        _jm_obj_32_map["%"] = _jm_f_14
-        _jm_obj_32_map["~"] = _jm_f_15
-        _jm_obj_35_map["#"] = _jm_f_16
-        _jm_obj_35_map["$"] = _jm_f_17
-        _jm_obj_35_map["%"] = _jm_f_18
-        _jm_obj_35_map["~"] = _jm_f_19
-        _jm_obj_38_map["!"] = _jm_f_20
-        _jm_obj_38_map["#"] = _jm_f_21
-        _jm_obj_38_map["$"] = _jm_f_22
-        _jm_obj_38_map["%"] = _jm_f_23
-        _jm_obj_38_map["~"] = _jm_f_24
-        check_model_map[""] = json_model_1
-        check_model_map["Url"] = json_model_2
-        check_model_map["Val"] = json_model_3
-        check_model_map["Any"] = json_model_4
-        check_model_map["None"] = json_model_5
-        check_model_map["Common"] = json_model_6
-        check_model_map["Array"] = json_model_7
-        check_model_map["Constraint"] = json_model_8
-        check_model_map["Or"] = json_model_9
-        check_model_map["And"] = json_model_10
-        check_model_map["Xor"] = json_model_11
-        check_model_map["Add"] = json_model_12
-        check_model_map["Obj"] = json_model_13
-        check_model_map["Elem"] = json_model_14
-        check_model_map["Trafo"] = json_model_15
-        check_model_map["Scalar"] = json_model_16
-        check_model_map["Model"] = json_model_17
-        check_model_map["Defs"] = json_model_18
-        check_model_map["Rename"] = json_model_19
-        check_model_map["Rewrite"] = json_model_20
-        check_model_map["RootOnly"] = json_model_21
-        check_model_map["Root"] = json_model_22
-        check_model_map["RootModel"] = json_model_23
+        _jm_obj_23_map.set("#", _jm_f_0)
+        _jm_obj_23_map.set("$", _jm_f_1)
+        _jm_obj_23_map.set("%", _jm_f_2)
+        _jm_obj_23_map.set("~", _jm_f_3)
+        _jm_obj_26_map.set("#", _jm_f_4)
+        _jm_obj_26_map.set("$", _jm_f_5)
+        _jm_obj_26_map.set("%", _jm_f_6)
+        _jm_obj_26_map.set("~", _jm_f_7)
+        _jm_obj_29_map.set("#", _jm_f_8)
+        _jm_obj_29_map.set("$", _jm_f_9)
+        _jm_obj_29_map.set("%", _jm_f_10)
+        _jm_obj_29_map.set("~", _jm_f_11)
+        _jm_obj_32_map.set("#", _jm_f_12)
+        _jm_obj_32_map.set("$", _jm_f_13)
+        _jm_obj_32_map.set("%", _jm_f_14)
+        _jm_obj_32_map.set("~", _jm_f_15)
+        _jm_obj_35_map.set("#", _jm_f_16)
+        _jm_obj_35_map.set("$", _jm_f_17)
+        _jm_obj_35_map.set("%", _jm_f_18)
+        _jm_obj_35_map.set("~", _jm_f_19)
+        _jm_obj_38_map.set("!", _jm_f_20)
+        _jm_obj_38_map.set("#", _jm_f_21)
+        _jm_obj_38_map.set("$", _jm_f_22)
+        _jm_obj_38_map.set("%", _jm_f_23)
+        _jm_obj_38_map.set("~", _jm_f_24)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("Url", json_model_2)
+        check_model_map.set("Val", json_model_3)
+        check_model_map.set("Any", json_model_4)
+        check_model_map.set("None", json_model_5)
+        check_model_map.set("Common", json_model_6)
+        check_model_map.set("Array", json_model_7)
+        check_model_map.set("Constraint", json_model_8)
+        check_model_map.set("Or", json_model_9)
+        check_model_map.set("And", json_model_10)
+        check_model_map.set("Xor", json_model_11)
+        check_model_map.set("Add", json_model_12)
+        check_model_map.set("Obj", json_model_13)
+        check_model_map.set("Elem", json_model_14)
+        check_model_map.set("Trafo", json_model_15)
+        check_model_map.set("Scalar", json_model_16)
+        check_model_map.set("Model", json_model_17)
+        check_model_map.set("Defs", json_model_18)
+        check_model_map.set("Rename", json_model_19)
+        check_model_map.set("Rewrite", json_model_20)
+        check_model_map.set("RootOnly", json_model_21)
+        check_model_map.set("Root", json_model_22)
+        check_model_map.set("RootModel", json_model_23)
     }
 }
 
@@ -3860,9 +3860,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -3872,4 +3872,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)

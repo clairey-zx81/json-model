@@ -2128,29 +2128,29 @@ export function check_model_init()
         _jm_cst_0.add(0.0)
         _jm_cst_0.add(1.0)
         _jm_cst_0.add(-1.0)
-        _jm_obj_5_map["#"] = _jm_f_0
-        _jm_obj_5_map["$"] = _jm_f_1
-        _jm_obj_5_map["%"] = _jm_f_2
-        _jm_obj_5_map["~"] = _jm_f_3
-        _jm_obj_8_map["#"] = _jm_f_4
-        _jm_obj_8_map["$"] = _jm_f_5
-        _jm_obj_8_map["%"] = _jm_f_6
-        _jm_obj_8_map["~"] = _jm_f_7
-        _jm_obj_11_map["#"] = _jm_f_8
-        _jm_obj_11_map["$"] = _jm_f_9
-        _jm_obj_11_map["%"] = _jm_f_10
-        _jm_obj_11_map["~"] = _jm_f_11
-        _jm_obj_14_map["#"] = _jm_f_12
-        _jm_obj_14_map["$"] = _jm_f_13
-        _jm_obj_14_map["%"] = _jm_f_14
-        _jm_obj_14_map["~"] = _jm_f_15
-        _jm_obj_17_map["!"] = _jm_f_16
-        _jm_obj_17_map["#"] = _jm_f_17
-        _jm_obj_17_map["$"] = _jm_f_18
-        _jm_obj_17_map["%"] = _jm_f_19
-        _jm_obj_17_map["~"] = _jm_f_20
-        check_model_map[""] = json_model_1
-        check_model_map["Model"] = json_model_3
+        _jm_obj_5_map.set("#", _jm_f_0)
+        _jm_obj_5_map.set("$", _jm_f_1)
+        _jm_obj_5_map.set("%", _jm_f_2)
+        _jm_obj_5_map.set("~", _jm_f_3)
+        _jm_obj_8_map.set("#", _jm_f_4)
+        _jm_obj_8_map.set("$", _jm_f_5)
+        _jm_obj_8_map.set("%", _jm_f_6)
+        _jm_obj_8_map.set("~", _jm_f_7)
+        _jm_obj_11_map.set("#", _jm_f_8)
+        _jm_obj_11_map.set("$", _jm_f_9)
+        _jm_obj_11_map.set("%", _jm_f_10)
+        _jm_obj_11_map.set("~", _jm_f_11)
+        _jm_obj_14_map.set("#", _jm_f_12)
+        _jm_obj_14_map.set("$", _jm_f_13)
+        _jm_obj_14_map.set("%", _jm_f_14)
+        _jm_obj_14_map.set("~", _jm_f_15)
+        _jm_obj_17_map.set("!", _jm_f_16)
+        _jm_obj_17_map.set("#", _jm_f_17)
+        _jm_obj_17_map.set("$", _jm_f_18)
+        _jm_obj_17_map.set("%", _jm_f_19)
+        _jm_obj_17_map.set("~", _jm_f_20)
+        check_model_map.set("", json_model_1)
+        check_model_map.set("Model", json_model_3)
     }
 }
 
@@ -2165,9 +2165,9 @@ export function check_model_free()
 
 export function check_model(val, name, rep)
 {
-    check_model_init()
-
-    let checker = check_model_map[name]
+    let checker = check_model_map.get(name)
+    if (checker === undefined)
+        throw `no checker for "${name}"`
     let path = rep !== null ? [] : null
 
     return checker(val, path, rep)
@@ -2177,4 +2177,4 @@ export function check_model(val, name, rep)
 import main from "json_model_runtime/main.js"
 
 if (import.meta.url.endsWith(process.argv[1]))
-    main(check_model)
+    main(check_model_init, check_model, check_model_free)
