@@ -44,8 +44,7 @@ export function jm_is_valid_date(date)
 
 export function jm_is_valid_uuid(uuid)
 {
-    // TODO
-    return false;
+    return /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null
 }
 
 export function jm_is_valid_url(url)

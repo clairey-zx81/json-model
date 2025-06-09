@@ -3668,7 +3668,6 @@ def check_model_free():
         _jm_re_0_reco = None
         _jm_re_0 = None
 
-
 if __name__ == "__main__":
     check_model_init()
     main(check_model_fun, check_model_map, __version__)
