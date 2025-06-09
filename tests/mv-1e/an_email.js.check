@@ -1,0 +1,17 @@
+an_email.values.json[0]: PASS
+an_email.values.json[1]: PASS
+an_email.values.json[2]: PASS
+an_email.values.json[3]: PASS
+an_email.values.json[4]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[5]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[6]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[7]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[8]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[9]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[10]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[11]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[12]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[13]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[14]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[15]: FAIL (.: unexpected $EMAIL [.])
+an_email.values.json[16]: FAIL (.: unexpected $EMAIL [.])

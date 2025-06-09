@@ -121,8 +121,8 @@ EXPECT: dict[str, int] = {
     "mv-1d:models": 5,
     "mv-1d:values": 0,
     # chunk 1E
-    "mv-1e:models": 8,
-    "mv-1e:values": 108,
+    "mv-1e:models": 9,
+    "mv-1e:values": 127,
     # miscellaneous tests
     # miscellaneous tests
     "bads:models": 54,

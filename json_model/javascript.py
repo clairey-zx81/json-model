@@ -258,7 +258,7 @@ class JavaScript(Language):
         return [ f"var {name} = new Map()" ]
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [ f"{name}[{self.esc(p)}] = {f}" for p, f in pmap.items() ]
+        return [ f"{name}.set({self.esc(p)}, {f})" for p, f in pmap.items() ]
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return []

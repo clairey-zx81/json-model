@@ -1,13 +1,16 @@
 // JSON Model Runtime
 
-export function jm_is_valid_regex(pattern, options)
+export function jm_is_valid_regex(pattern, extended)
 {
+    if (typeof pattern !== 'string' && ! pattern instanceof String)
+        return false
+
     try {
-        new RegExp(pattern, options);
-        return true;
+        new RegExp(pattern)
+        return true
     }
     catch (e) {
-        return false;
+        return false
     }
 }
 
@@ -15,40 +18,42 @@ const MONTH_DAYS = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
 export function jm_is_valid_date(date)
 {
-    if (typeof date !== 'string' || date.length != 10)
-        return false;
+    if ((typeof date !== 'string' && ! date instanceof String) || date.length != 10)
+        return false
 
     try {
         // parsing is rather approximate…
-        const [y, m, d] = date.split("-", 3);
-        const year = Number(y);
-        const month = Number(m);
-        const day = Number(d);
+        const [y, m, d] = date.split("-", 3)
+        const year = Number(y), month = Number(m), day = Number(d)
 
         if (!Number.isInteger(year) || !Number.isInteger(month) || !Number.isInteger(day))
-            return false;
+            return false
         if (year < 1)
-            return false;
+            return false
         if (month < 1 || month > 12)
-            return false;
+            return false
         if (day < 1 || day > MONTH_DAYS[month - 1])
-            return false;
+            return false
         if (day === 29 && month === 2)  // only on leap years
             return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-        return true;
+        return true
     }
     catch (e) {
-        return false;
+        return false
     }
 }
 
 export function jm_is_valid_uuid(uuid)
 {
-    return /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null
+    return ((typeof uuid === 'string' || uuid instanceof String) && uuid.length === 36 &&
+            /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null)
 }
 
 export function jm_is_valid_url(url)
 {
+    if (typeof url !== 'string' && ! url instanceof String)
+        return false
+
     try {
         new URL(url)
         return true
@@ -56,6 +61,12 @@ export function jm_is_valid_url(url)
     catch (e) {
         return false
     }
+}
+
+export function jm_is_valid_email(email)
+{
+    return ((typeof email === 'string' || email instanceof String) &&
+            /^[_a-zA-Z0-9.]+@[_a-zA-Z0-9.]+$/.exec(email) !== null)
 }
 
 // work around js abysmal type system
