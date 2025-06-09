@@ -64,7 +64,7 @@ check:
 
 .PHONY: clean
 clean:
-	$(RM) *.o *.out
+	$(RM) *.o *.out *.mjs *.mpy
 
 .PHONY: json
 json: $(F.json)
