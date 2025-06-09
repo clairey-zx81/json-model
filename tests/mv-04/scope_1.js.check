@@ -1,0 +1,11 @@
+scope_1.values.json[0]: PASS
+scope_1.values.json[1]: PASS
+scope_1.values.json[2]: PASS
+scope_1.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
+scope_1.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected $R#S [.'|'.1]; .: unexpected /[0-9]/ [.'$R#S']; .: unexpected $S [.'|'.0]; .: unexpected /[a-z]/ [.'$S'])
