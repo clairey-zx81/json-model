@@ -1,0 +1,1 @@
+json-model-moschin.0.true.json: FAIL (.: unexpected $Model [.]; .: unexpected $RootModel [.'$Model']; .: no model matched [.'$Model#RootModel'.'|']; .: unexpected $Root [.'$Model#RootModel'.'|'.2]; .: no model matched [.'$Model#Root'.'|']; .: not an expected object [.'$Model#Root'.'|'.5]; .@: unexpected $NONE [.'$Model#Root'.'|'.5.'/^[@|&^+/*]$/'])

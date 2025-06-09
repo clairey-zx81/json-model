@@ -11,6 +11,7 @@
 - [x] c-backend: allow to generate a simple object file only
 - [x] command: rethink code/executable/module generation options
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
+- [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] tests: fix strange issue with `make check` in `mv-03`
 - [ ] c-backend: add `qsort_r` code for Windows and MacOS
 - [ ] static: keep deep names?
