@@ -92,6 +92,9 @@ class JavaScript(Language):
         else:
             return super().const(val)
 
+    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
+        return f"{obj}[{prop}]"
+
     def has_prop(self, var: Var, prop: str) -> BoolExpr:
         return f"{var}.hasOwnProperty({self.esc(prop)})"
 
@@ -134,7 +137,7 @@ class JavaScript(Language):
         return f"(({cond}) ? ({true}) : ({false}))"
 
     def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
-        return f"({fun} = {name}({prop}))"
+        return f"({fun} = {name}.get({prop}))"
 
     def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
         return super().check_call(fun, val, path, is_str)
@@ -277,16 +280,16 @@ class JavaScript(Language):
         return [ f"function {name}(val, path, rep)" ] + self.indent(body)
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"TODO def_cmap" ]
+        return [ f"let {name} = new Map()" ]
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"TODO sub_cmap" ]
+        return [ ]
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"TODO ini_cmap" ]
+        return [ f"{name}.set({self.esc(k)}, {m})" for k, m in mapping.items() ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return f"{name}({tag})"
+        return f"{name}.get({tag})"
 
     def gen_init(self, init: Block) -> Block:
         return self.file_subs("javascript_init.js", init)

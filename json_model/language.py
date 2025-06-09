@@ -232,18 +232,18 @@ class Language:
 
     def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
         """Get object property value."""
-        raise NotImplementedError(f"unexpected predef {name}")
+        raise NotImplementedError(f"obj_prop_val")
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         """Tell whether an object as a property."""
-        raise NotImplementedError(f"unexpected predef {name}")
+        raise NotImplementedError(f"has_prop")
 
     #
     # inlined length computation
     #
     def any_len(self, var: Var) -> IntExpr:
         """Get length of variable."""
-        raise NotImplementedError(f"unexpected predef {name}")
+        raise NotImplementedError(f"any_len")
 
     def obj_len(self, var: Var) -> IntExpr:
         """Get number of properties of an object."""

@@ -1,0 +1,19 @@
+jm-tests.0.true.json: PASS
+jm-tests.values.json[1]: PASS
+jm-tests.values.json[2]: PASS
+jm-tests.values.json[3]: PASS
+jm-tests.values.json[4]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm-tests.values.json[5]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm-tests.values.json[6]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[7]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[8]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[9]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[11]: PASS
+jm-tests.values.json[12]: PASS
+jm-tests.values.json[13]: PASS
+jm-tests.values.json[14]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm-tests.values.json[15]: FAIL (.: not array or unexpected array [.]; .0: no model matched [.0.'|']; .0: not array or unexpected array [.0.'|'.2]; .0: not array or unexpected array [.0.'|'.1]; .0: unexpected string [.0.'|'.0])
+jm-tests.values.json[16]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[17]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[18]: FAIL (.: not array or unexpected array [.])
+jm-tests.values.json[19]: FAIL (.: not array or unexpected array [.])

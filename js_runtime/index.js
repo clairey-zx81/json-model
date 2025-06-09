@@ -88,6 +88,18 @@ export function jm_arr_cmp(a1, a2)
     return 0
 }
 
+export function jm_number_value(v)
+{
+    const t = jm_typeof(v)
+    if (t === 'integer' || t === 'number')
+        return v
+    if (t === 'string' || t === 'array')
+        return v.length
+    if (t === 'object')  // O(n)
+        return Object.keys(v).length
+    throw `cannot extract number from ${v}`
+}
+
 export function jm_obj_cmp(o1, o2)
 {
     // get sorted property names
@@ -132,4 +144,23 @@ export function jm_array_is_unique(arr)
         if (jm_cmp(sorted[i], sorted[i+1]) == 0)
             return false
     return true
+}
+
+export function jm_check_constraint(v1, op, v2, path, rep)
+{
+    const t1 = jm_typeof(v1), t2 = jm_typeof(v2)
+    const v = t2 === 'integer' ? jm_number_value(v1) : v1
+    if (op === '=')
+        return v === v2
+    if (op === '!=')
+        return v !== v2
+    if (op === '<')
+        return v < v2
+    if (op === '<=')
+        return v <= v2
+    if (op === '>')
+        return v > v2
+    if (op === '>=')
+        return v >= v2
+    throw `unexpected comparison operator ${op}`
 }

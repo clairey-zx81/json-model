@@ -8,7 +8,7 @@
 - [ ] js-backend: add javascript backend and runtime and working tests (wip)
 - [ ] static: keep recursive names?
 - [ ] tests: move `FOO-check.out` to `FOO.check`
-- [ ] js-backend: allow to generate a module only
+- [ ] js-backend: allow to generate a module only, with `mjs`
 - [ ] py-backend: allow to generate a simple module only? separate main file?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
