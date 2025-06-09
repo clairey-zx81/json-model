@@ -1,0 +1,10 @@
+int_1_s.values.json[0]: PASS
+int_1_s.values.json[1]: PASS
+int_1_s.values.json[2]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[3]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[4]: ERROR unexpected PASS
+int_1_s.values.json[5]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[6]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[7]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[8]: FAIL (.: not a 1 strict int [.'@'])
+int_1_s.values.json[9]: FAIL (.: not a 1 strict int [.'@'])

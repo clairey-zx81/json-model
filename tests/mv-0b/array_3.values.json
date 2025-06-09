@@ -1,0 +1,14 @@
+[
+  [ true,  [ false, 42, 18.5, "hello" ] ],
+  [ true,  [ true, 0, 0.0, "world!" ] ],
+  [ false, [ true, 0, 0.0 ] ],
+  [ false, [] ],
+  [ false, null ],
+  [ false, false ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

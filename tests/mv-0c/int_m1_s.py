@@ -26,10 +26,9 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # .'@'
     res = isinstance(val, int) and not isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("not a -1 strict int [.'@']", path))
+        rep is None or rep.append(("not a -1 strict int [.]", path))
     return res
 
 
@@ -51,7 +50,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-
 
 if __name__ == "__main__":
     check_model_init()
