@@ -1,0 +1,16 @@
+[
+  [ true,  "Susie and Calvin" ],
+  [ false, "susie and calvin" ],
+  [ false, "Calvin and Hobbes" ],
+  [ false, "++Susie and Calvin--" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["Susie and Calvin"] ],
+  [ false, {} ],
+  [ false, {"Susie": "and Calvin"} ]
+]

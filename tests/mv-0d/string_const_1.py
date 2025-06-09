@@ -26,9 +26,9 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    res = isinstance(val, str) and val == "Calvin and Susie"
+    res = isinstance(val, str) and val == "Susie and Calvin"
     if not res:
-        rep is None or rep.append(("unexpected _Calvin and Susie [.]", path))
+        rep is None or rep.append(("unexpected _Susie and Calvin [.]", path))
     return res
 
 
@@ -50,7 +50,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-
 
 if __name__ == "__main__":
     check_model_init()

@@ -28,10 +28,10 @@ check_model_map: PropMap
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # "/^[a-z]+/"
+    # "/^[a-z]+$/"
     res = isinstance(val, str) and _jm_re_0(val)
     if not res:
-        rep is None or rep.append(("unexpected /^[a-z]+/ [.]", path))
+        rep is None or rep.append(("unexpected /^[a-z]+$/ [.]", path))
     return res
 
 
@@ -44,7 +44,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_re_0_reco, _jm_re_0
-        _jm_re_0_reco = re.compile("^[a-z]+")
+        _jm_re_0_reco = re.compile("^[a-z]+$")
         _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
@@ -59,7 +59,6 @@ def check_model_free():
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = None
         _jm_re_0 = None
-
 
 if __name__ == "__main__":
     check_model_init()
