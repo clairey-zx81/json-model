@@ -28,6 +28,7 @@ EXPECT: dict[str, int] = {
     # chunk 01
     "mv-01:models": 10,
     "mv-01:values": 100,
+    "mv-01:errors.js": 2,
     # chunk 02
     "mv-02:js2json": 1,
     "mv-02:models": 10,
@@ -55,15 +56,18 @@ EXPECT: dict[str, int] = {
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 45,
+    "mv-09:errors.js": 2,
     # chunk 0A
     "mv-0a:models": 10,
     "mv-0a:values": 74,
+    "mv-0a:errors.js": 1,
     # chunk 0B
     "mv-0b:models": 7,
     "mv-0b:values": 82,
     # chunk 0C
     "mv-0c:models": 5,
-    "mv-0c:values": 0,
+    "mv-0c:values": 50,
+    "mv-0c:errors.js": 1,
     # chunk 0D
     "mv-0d:models": 10,
     "mv-0d:values": 112,
@@ -87,19 +91,24 @@ EXPECT: dict[str, int] = {
     "mv-13:js2json": 2,
     "mv-13:models": 12,
     "mv-13:values": 81,
+    "mv-13:errors.js": 1,
     # chunk 14
     "mv-14:models": 12,
     "mv-14:values": 84,
+    "mv-14:errors.js": 6,
     # chunk 15
     "mv-15:js2json": 2,
     "mv-15:models": 12,
     "mv-15:values": 102,
+    "mv-15:errors.js": 1,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
+    "mv-16:errors.js": 1,
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 136,
+    "mv-17:errors.js": 2,
     # chunk 18
     "mv-18:js2json": 3,
     "mv-18:yaml2json": 1,
@@ -111,9 +120,11 @@ EXPECT: dict[str, int] = {
     # chunk 1A
     "mv-1a:models": 10,
     "mv-1a:values": 132,
+    "mv-1a:errors.js": 2,
     # chunk 1B
     "mv-1b:models": 10,
     "mv-1b:values": 68,
+    "mv-1b:errors.js": 13,
     # chunk 1C
     "mv-1c:models": 6,
     "mv-1c:values": 64,
@@ -123,7 +134,7 @@ EXPECT: dict[str, int] = {
     # chunk 1E
     "mv-1e:models": 9,
     "mv-1e:values": 127,
-    # miscellaneous tests
+    "mv-1e:errors.js": 1,
     # miscellaneous tests
     "bads:models": 54,
     # tests json models of json schema versions
@@ -361,7 +372,7 @@ def test_lang(directory, language):
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, generate):
     """Generic value testing."""
-    ntests, nvalues = 0, 0
+    ntests, nvalues, nerrors = 0, 0, EXPECT.get(f"{directory}:errors{suffix}", 0)
 
     # try all sources
     for fpath in sorted(directory.glob(f"*{suffix}")):
@@ -389,7 +400,12 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
         if vfile.exists():
             for line in os.popen(f"{fexec} -t {vfile}"):
                 nvalues += 1
-                assert ": ERROR" not in line and (": PASS" in line or ": FAIL" in line)
+                if ": ERROR" not in line and (": PASS" in line or ": FAIL" in line):
+                    assert True, "PASS/FAIL expectation ok"
+                elif nerrors > 0:
+                    nerrors -= 1
+                else:
+                    assert False, f"unexpected ERROR for {line}"
 
         # run again with reporting
         with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
@@ -411,6 +427,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nvalues == EXPECT.get(f"{directory}:values", 0)
+    assert nerrors == 0, "expected errors seen"
 
 
 def test_sta_c(directory, clibjm):
