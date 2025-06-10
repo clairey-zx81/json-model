@@ -22,7 +22,7 @@ class JavaScript(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null",
-             check_t="FIXME", json_t="object", int_t="Number", float_t="Number",
+             check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool",
              eoi=";", set_caps=[type(None), bool, int, float, str])
 
@@ -234,22 +234,22 @@ class JavaScript(Language):
         return [ f"const {name} = (s) => {name}_re.exec(s) !== null" ]
 
     def match_var(self, var: str, val: Expr, declare: bool) -> Block:
-        return [ "TODO match_var" ]
+        return self.var(var, val, "Array")
 
     def match_str_var(self, var: str, val: str, declare: bool = True) -> Block:
-        return [ "TODO match_var_str" ]
+        return self.var(var, val, "String")
 
     def match_re(self, rname: str, val: str) -> Expr:
-        return [ "TODO match_re" ]
+        return f"{rname}_re.exec({val})"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
-        return [ "TODO match_val" ]
+        return [ f"{dname} = {mname}.groups[{self.esc(sname)}]" ]
 
     def def_strfun(self, fname: str) -> Block:
-        return [ "TODO def_strfun" ]
+        return []
 
     def sub_strfun(self, fname: str, body: Block) -> Block:
-        return [ "TODO sub_strfun" ]
+        return [ f"function {fname}(val, path = null, rep = null)" ] + self.indent(body)
 
     #
     # Property Map

@@ -14,6 +14,7 @@
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] tests: fix strange issue with `make check` in `mv-03`
 - [ ] c-backend: add `qsort_r` code for Windows and MacOS
+- [ ] backend: add `path` and `rep` to str functions
 - [ ] static: keep deep names?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
