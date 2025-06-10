@@ -6,17 +6,21 @@
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0a0";
 
+const _jm_re_0_re = new RegExp("^((file|https?)://.*|\\./.+|\\.\\./.+)$", "")
 var check_model_map = new Map()
+
+const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = runtime.jm_is_valid_uuid(val);
+    // "/^((file|https?)://.*|\\./.+|\\.\\./.+)$/"
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $UUID [.]", path])
+        rep !== null && rep.push(["unexpected /^((file|https?)://.*|\\./.+|\\.\\./.+)$/ [.]", path])
     }
     return res;
 }

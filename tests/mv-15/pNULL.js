@@ -13,10 +13,10 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = runtime.jm_is_valid_uuid(val);
+    res = val === null;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $UUID [.]", path])
+        rep !== null && rep.push(["unexpected $NULL [.]", path])
     }
     return res;
 }

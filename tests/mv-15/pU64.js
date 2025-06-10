@@ -13,10 +13,10 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = runtime.jm_is_valid_uuid(val);
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $UUID [.]", path])
+        rep !== null && rep.push(["unexpected $U64 [.]", path])
     }
     return res;
 }
