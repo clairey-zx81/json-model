@@ -1,0 +1,10 @@
+or_06.values.json[0]: PASS
+or_06.values.json[1]: PASS
+or_06.values.json[2]: PASS
+or_06.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/ [.'|'.1]; .: unexpected _Susie [.'|'.0])
+or_06.values.json[4]: FAIL (.: unexpected type [.'|'])
+or_06.values.json[5]: FAIL (.: unexpected type [.'|'])
+or_06.values.json[6]: FAIL (.: unexpected type [.'|'])
+or_06.values.json[7]: FAIL (.: unexpected type [.'|'])
+or_06.values.json[8]: FAIL (.: unexpected type [.'|'])
+or_06.values.json[9]: FAIL (.: unexpected type [.'|'])

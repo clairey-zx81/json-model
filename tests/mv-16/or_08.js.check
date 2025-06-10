@@ -1,0 +1,9 @@
+or_08.values.json[0]: PASS
+or_08.values.json[1]: PASS
+or_08.values.json[2]: PASS
+or_08.values.json[3]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[4]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[5]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[6]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[7]: FAIL (.: not a -1 strict int [.])
+or_08.values.json[8]: FAIL (.: not a -1 strict int [.])
