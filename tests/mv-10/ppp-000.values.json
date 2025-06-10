@@ -1,0 +1,17 @@
+[
+  [ true,  {"a": 0, "b": 0} ],
+  [ true,  {"a": 42, "b": 18} ],
+  [ false, {"a": 42} ],
+  [ false, {"b": 42} ],
+  [ false, {"c": "ouf"} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

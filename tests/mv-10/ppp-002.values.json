@@ -1,0 +1,21 @@
+[
+  [ true,  {"a": 0, "b": 1, "c": -1} ],
+  [ true,  {"a": 42, "b": 18, "c": 5432} ],
+  [ false, {"b": 1, "c": -1} ],
+  [ false, {"a": 0, "c": -1} ],
+  [ false, {"a": 0, "b": 1} ],
+  [ false, {"a": 0} ],
+  [ false, {"b": 1} ],
+  [ false, {"c": -1} ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ]
+]
