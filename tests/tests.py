@@ -59,20 +59,20 @@ EXPECT: dict[str, int] = {
     "mv-0a:models": 10,
     "mv-0a:values": 74,
     # chunk 0B
-    "mv-0b:models": 9,
-    "mv-0b:values": 0,
+    "mv-0b:models": 7,
+    "mv-0b:values": 82,
     # chunk 0C
-    "mv-0c:models": 10,
+    "mv-0c:models": 5,
     "mv-0c:values": 0,
     # chunk 0D
     "mv-0d:models": 10,
-    "mv-0d:values": 0,
+    "mv-0d:values": 112,
     # chunk 0E
     "mv-0e:models": 9,
-    "mv-0e:values": 20,
+    "mv-0e:values": 121,
     # chunk 0F
     "mv-0f:models": 9,
-    "mv-0f:values": 0,
+    "mv-0f:values": 107,
     # chunk 10
     "mv-10:js2json": 1,
     "mv-10:models": 9,
@@ -436,7 +436,7 @@ def test_sta_py(directory):
     check_values(directory, "sta-py", ".py", ".py.check", lambda f: f)
 
 
-def test_sta_py(directory):
+def test_sta_js(directory):
     """Check generated JS scripts with test value files."""
     check_values(directory, "sta-js", ".js", ".js.check", lambda f: f)
 
