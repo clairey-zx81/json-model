@@ -81,7 +81,6 @@ def check_model_free():
         _jm_re_1_reco = None
         _jm_re_1 = None
 
-
 if __name__ == "__main__":
     check_model_init()
     main(check_model_fun, check_model_map, __version__)

@@ -1,0 +1,12 @@
+xor_04.values.json[0]: PASS
+xor_04.values.json[1]: PASS
+xor_04.values.json[2]: PASS
+xor_04.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[5]: ERROR unexpected PASS
+xor_04.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])
+xor_04.values.json[11]: FAIL (.: no model matched [.'|']; .: unexpected /^[a-z]+$/i [.'|'.1]; .: not a 0.0 strict float [.'|'.0])

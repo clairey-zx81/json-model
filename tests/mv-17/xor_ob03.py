@@ -173,10 +173,10 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
                         res = fun_0(pval, lpath_0 if path is not None else None, rep)
                     else:
                         res = False
-                        rep is None or rep.append(("tag t value not found [.movie.'|']", lpath_0 if path is not None else None))
+                        rep is None or rep.append(("tag <t> value not found [.movie.'|']", lpath_0 if path is not None else None))
                 else:
                     res = False
-                    rep is None or rep.append(("tag prop t is missing [.movie.'|']", lpath_0 if path is not None else None))
+                    rep is None or rep.append(("tag prop <t> is missing [.movie.'|']", lpath_0 if path is not None else None))
             else:
                 rep is None or rep.append(("value is not an object [.movie.'|']", lpath_0 if path is not None else None))
             if not res:
@@ -226,7 +226,6 @@ def check_model_free():
     global initialized
     if initialized:
         initialized = False
-
 
 if __name__ == "__main__":
     check_model_init()

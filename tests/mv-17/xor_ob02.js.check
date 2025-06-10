@@ -1,0 +1,18 @@
+xor_ob02.values.json[0]: PASS
+xor_ob02.values.json[1]: PASS
+xor_ob02.values.json[2]: PASS
+xor_ob02.values.json[3]: PASS
+xor_ob02.values.json[4]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .: missing mandatory prop <c> [.'|'.3]; .: missing mandatory prop <b> [.'|'.3]; .: not an expected object [.'|'.2]; .: missing mandatory prop <c> [.'|'.2]; .: missing mandatory prop <b> [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: not an expected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+xor_ob02.values.json[5]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .a: unexpected prop [.'|'.3]; .: not an expected object [.'|'.2]; .: missing mandatory prop <c> [.'|'.2]; .: missing mandatory prop <b> [.'|'.2]; .: not an expected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0])
+xor_ob02.values.json[6]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .: missing mandatory prop <c> [.'|'.3]; .: not an expected object [.'|'.2]; .: missing mandatory prop <c> [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: not an expected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+xor_ob02.values.json[7]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .: missing mandatory prop <b> [.'|'.3]; .: not an expected object [.'|'.2]; .: missing mandatory prop <b> [.'|'.2]; .: missing mandatory prop <a> [.'|'.2]; .: not an expected object [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: not an expected object [.'|'.0]; .c: unexpected prop [.'|'.0])
+xor_ob02.values.json[8]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .Z: unexpected prop [.'|'.3]; .: not an expected object [.'|'.2]; .Z: unexpected prop [.'|'.2]; .: not an expected object [.'|'.1]; .Z: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .Z: unexpected prop [.'|'.0])
+xor_ob02.values.json[9]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .a: unexpected prop [.'|'.3]; .: not an expected object [.'|'.2]; .b: invalid mandatory prop value [.'|'.2.b]; .b: not a 0 strict int [.'|'.2.b]; .: not an expected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .b: invalid mandatory prop value [.'|'.0.b]; .b: not a 0 strict int [.'|'.0.b])
+xor_ob02.values.json[10]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[11]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[12]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[13]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[14]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[15]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[16]: FAIL (.: unexpected type [.'|'])
+xor_ob02.values.json[17]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.3]; .a: unexpected prop [.'|'.3]; .: not an expected object [.'|'.2]; .a: invalid mandatory prop value [.'|'.2.a]; .a: not a 0 strict int [.'|'.2.a]; .: not an expected object [.'|'.1]; .a: invalid mandatory prop value [.'|'.1.a]; .a: not a 0 strict int [.'|'.1.a]; .: not an expected object [.'|'.0]; .a: invalid mandatory prop value [.'|'.0.a]; .a: not a 0 strict int [.'|'.0.a])
