@@ -76,7 +76,7 @@ EXPECT: dict[str, int] = {
     # chunk 10
     "mv-10:js2json": 1,
     "mv-10:models": 9,
-    "mv-10:values": 53,
+    "mv-10:values": 120,
     # chunk 11
     "mv-11:models": 9,
     "mv-11:values": 0,
@@ -366,6 +366,9 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
     # try all sources
     for fpath in sorted(directory.glob(f"*{suffix}")):
         fname = f"./{fpath}"
+        # skip *.model.js
+        if ".model." in fname:
+            continue
         fexec = generate(fname)
         log.debug(f"{name}[{directory}]: {fname} ({fexec})")
         ntests += 1
