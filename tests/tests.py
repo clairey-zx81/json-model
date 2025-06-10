@@ -12,8 +12,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-log.setLevel(logging.DEBUG)
-# log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS, IN SMALL CHUNKS FOR XDIST
