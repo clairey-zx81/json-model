@@ -1,0 +1,17 @@
+[
+  [ true,  {"a": 42, "b": 18} ],
+  [ true,  {"a": 42, "c": -18} ],
+  [ true,  {"a": 42, "d": "forty-two"} ],
+  [ false, {"b": 42, "c": 18, "d": "forty-two"} ],
+  [ false, {"a": 42} ],
+  [ false, {} ],
+  [ false, {"a": 42, "b": 18, "c": 17, "d": "forty-two"} ],
+  [ false, {"un": "expected"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

@@ -1,0 +1,13 @@
+[
+  [ true,  0 ],
+  [ true,  42 ],
+  [ true,  "" ],
+  [ true,  "Susie!" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

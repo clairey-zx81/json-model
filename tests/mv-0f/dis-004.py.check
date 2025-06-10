@@ -1,0 +1,14 @@
+dis-004.values.json[0]: PASS
+dis-004.values.json[1]: PASS
+dis-004.values.json[2]: PASS
+dis-004.values.json[3]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: no model matched [.'$A'.'|']; .: not an expected object [.'$A'.'|'.1]; .a: unexpected prop [.'$A'.'|'.1]; .: not an expected object [.'$A'.'|'.0]; .b: unexpected prop [.'$A'.'|'.0]; .: not an expected object [.'$B'.'|'.0]; .a: unexpected prop [.'$B'.'|'.0])
+dis-004.values.json[4]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: no model matched [.'$A'.'|']; .: not an expected object [.'$A'.'|'.1]; .: missing mandatory prop <b> [.'$A'.'|'.1]; .: not an expected object [.'$A'.'|'.0]; .: missing mandatory prop <a> [.'$A'.'|'.0]; .: not an expected object [.'$B'.'|'.0]; .: missing mandatory prop <c> [.'$B'.'|'.0])
+dis-004.values.json[5]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[6]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[7]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[8]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[9]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[10]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[11]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[12]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])
+dis-004.values.json[13]: FAIL (.: unexpected $B [.]; .: no model matched [.'$B'.'|']; .: unexpected $A [.'$B'.'|'.1]; .: unexpected type [.'$A'.'|']; .: not an expected object [.'$B'.'|'.0]; .: not an object [.'$B'.'|'.0])

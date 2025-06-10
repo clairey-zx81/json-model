@@ -1,0 +1,11 @@
+dedup-000.values.json[0]: PASS
+dedup-000.values.json[1]: PASS
+dedup-000.values.json[2]: PASS
+dedup-000.values.json[3]: PASS
+dedup-000.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[7]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[8]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[9]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
+dedup-000.values.json[10]: FAIL (.: no model matched [.'|']; .: unexpected string [.'|'.1]; .: not a 0 strict int [.'|'.0])
