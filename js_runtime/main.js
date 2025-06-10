@@ -143,7 +143,7 @@ export default async function main(checker_init, checker, checker_free)
         }
         catch (e) {
             errors++
-            console.log(`${fname}: ERROR (${e})`)
+            console.log(`${fname}: ERROR (${String(e).replace('\n', '\\n')})`)
         }
     }
 
