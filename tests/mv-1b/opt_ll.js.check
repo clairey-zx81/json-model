@@ -1,0 +1,12 @@
+opt_ll.values.json[1]: PASS
+opt_ll.values.json[2]: PASS
+opt_ll.values.json[3]: PASS
+opt_ll.values.json[4]: PASS
+opt_ll.values.json[5]: FAIL (.: not an expected object [.]; .i: invalid mandatory prop value [.i]; .i: not a -1 loose int [.i])
+opt_ll.values.json[6]: FAIL (.: not an expected object [.]; .: not an object [.])
+opt_ll.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])
+opt_ll.values.json[8]: FAIL (.: not an expected object [.]; .: not an object [.])
+opt_ll.values.json[9]: FAIL (.: not an expected object [.]; .: not an object [.])
+opt_ll.values.json[10]: FAIL (.: not an expected object [.]; .: not an object [.])
+opt_ll.values.json[11]: FAIL (.: not an expected object [.]; .: missing mandatory prop <i> [.]; .: missing mandatory prop <f> [.])
+opt_ll.values.json[12]: FAIL (.: not an expected object [.]; .not: unexpected prop [.])
