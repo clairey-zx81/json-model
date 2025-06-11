@@ -1,8 +1,8 @@
 xdatey.values.json[0]: PASS
 xdatey.values.json[1]: PASS
 xdatey.values.json[2]: PASS
-xdatey.values.json[3]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.])
-xdatey.values.json[4]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.])
+xdatey.values.json[3]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.]; .: unexpected date day)
+xdatey.values.json[4]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.]; .: unexpected date year)
 xdatey.values.json[5]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.])
 xdatey.values.json[6]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.])
 xdatey.values.json[7]: FAIL (.: unexpected /^X-($DATE)-Y$/X [.])

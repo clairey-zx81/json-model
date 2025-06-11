@@ -419,24 +419,33 @@ jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
     while (isdigit(date[idx]) && idx < 4)
         year = year * 10 + date[idx++] - '0';
 
-    if (idx++ != 4 || date[4] != '-' || year <= 0)
+    if (idx++ != 4 || date[4] != '-' || year <= 0) {
+        if (rep) jm_report_add_entry(rep, "unexpected date year", path);
         return false;
+    }
 
     while (isdigit(date[idx]) && idx < 7)
         month = month * 10 + date[idx++] - '0';
 
-    if (idx++ != 7 || date[7] != '-' || month < 1 || month > 12)
+    if (idx++ != 7 || date[7] != '-' || month < 1 || month > 12) {
+        if (rep) jm_report_add_entry(rep, "unexpected date month", path);
         return false;
+    }
 
     while (isdigit(date[idx]) && idx < 10)
         day = day * 10 + date[idx++] - '0';
 
-    if (idx != 10 || date[10] != '\0' || day < 1 || day > MONTH_DAYS[month - 1])
+    if (idx != 10 || date[10] != '\0' || day < 1 || day > MONTH_DAYS[month - 1]) {
+        if (rep) jm_report_add_entry(rep, "unexpected date day", path);
         return false;
+    }
 
     // allow February 29th only on leap years
-    if (day == 29 && month == 2)
-        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    if (day == 29 && month == 2) {
+        bool leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        if (rep && !leap) jm_report_add_entry(rep, "unexpected date, not a leap year", path);
+        return leap;
+    }
 
     return true;
 }

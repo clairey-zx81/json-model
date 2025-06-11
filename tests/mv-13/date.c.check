@@ -1,7 +1,7 @@
 date.0.true.json: PASS
 date.1.true.json: PASS
-date.2.false.json: FAIL (.: unexpected $DATE [.])
-date.3.false.json: FAIL (.: unexpected $DATE [.])
-date.4.false.json: FAIL (.: unexpected $DATE [.])
-date.5.false.json: FAIL (.: unexpected $DATE [.])
-date.6.false.json: FAIL (.: unexpected $DATE [.])
+date.2.false.json: FAIL (.: unexpected $DATE [.]; .: unexpected date year)
+date.3.false.json: FAIL (.: unexpected $DATE [.]; .: unexpected date year)
+date.4.false.json: FAIL (.: unexpected $DATE [.]; .: unexpected date, not a leap year)
+date.5.false.json: FAIL (.: unexpected $DATE [.]; .: unexpected date month)
+date.6.false.json: FAIL (.: unexpected $DATE [.]; .: unexpected date day)
