@@ -35,7 +35,6 @@ extern char * jm_version_string;
 
 #define array_length(arr) (sizeof(arr) / sizeof((arr)[0]))
 typedef int (*jm_cmp_fun_t)(const void *, const void *);
-typedef int (*jm_cmp_r_fun_t)(const void *, const void *, void *);
 
 /*
  * JSON API extensions

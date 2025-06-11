@@ -126,14 +126,27 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
     return 0;
 }
 
-// typedef int(*cmp_r_fun_t)(const void *, const void *, void *);
+#if defined(_WIN64)
+#define qsort_r qsort_s
+#endif
+
+#if defined(_WIN64) || defined(__APPLE__)
+typedef int(*jm_cmp_r_fun_t)(void *, const void *, const void *);
+#else  // Linux, Unix, whatever
+typedef int(*jm_cmp_r_fun_t)(const void *, const void *, void *);
+#endif
 
 // FIXME this assumes ISO, and won't work on MacOS/BSD nor Windows
 // which have their own view of qsort_r, including different names and/or argument orders.
 // NOTE fast version which stops comparing once a duplicate has been seen:
 // hopefully an optimized qsort implementation can use this to return early.
+#if defined(_WIN64) || defined(__APPLE__)
+static int
+jm_json_cmp_r(void *duplicate, const json_t **v1, const json_t **v2)
+#else
 static int
 jm_json_cmp_r(const json_t **v1, const json_t **v2, void *duplicate)
+#endif
 {
     if (*((bool *) duplicate))
         return 0;
