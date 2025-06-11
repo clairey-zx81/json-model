@@ -60,7 +60,7 @@ function _jm_obj_0(val, path, rep)
             // handle may some property
             // .some
             // "/./"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /./ [.some]", (path ? lpath_0 : null)])

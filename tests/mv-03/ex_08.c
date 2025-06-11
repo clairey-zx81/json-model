@@ -31,7 +31,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$KEY'
-    res = jm_is_valid_url(json_string_value(val));
+    res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$KEY']", path);
@@ -53,7 +53,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_0 : NULL), rep))
         {
             // handle 1 key props
             // .'$map'.'$URL'
@@ -103,7 +103,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$EX08'.'|'.1
-        res = jm_is_valid_url(json_string_value(val));
+        res = jm_is_valid_url(json_string_value(val), path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$EX08'.'|'.1]", path);

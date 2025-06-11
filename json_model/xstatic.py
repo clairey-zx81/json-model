@@ -70,7 +70,8 @@ class CodeGenerator:
         self._to_compile.clear()
         self._generated_maps.clear()
 
-    def _exreg(self, jm: JsonModel, name: str, rname: str, remap: dict[str, str]) -> Block:
+    def _exreg(self, jm: JsonModel, name: str, rname: str, remap: dict[str, str],
+               path: str) -> Block:
         """Generate post regex code for extended regular expression."""
         gen = self._lang
         code = gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
@@ -80,7 +81,7 @@ class CodeGenerator:
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract")
             checks += gen.if_stmt(
-                gen.not_op(self._dollarExpr(jm, ref, "extract", "path", True)),
+                gen.not_op(self._dollarExpr(jm, ref, "extract", path, True)),
                 gen.ret(gen.const(False)))
         checks += gen.ret(gen.const(True))
         code += checks
@@ -88,7 +89,7 @@ class CodeGenerator:
         # generate the string check function
         self._code.strfun(name,  code)
 
-    def _regex(self, jm: JsonModel, regex: str) -> str:
+    def _regex(self, jm: JsonModel, regex: str, path: str) -> str:
         """Compile a regular expression, with memoization, return function name."""
         gen = self._lang
 
@@ -137,7 +138,7 @@ class CodeGenerator:
             if remap:
                 fun = gen.ident(self._prefix + "xre")
                 self._code.regex(fun + "_re", pattern, ropts)
-                self._exreg(jm, fun, fun + "_re", remap)
+                self._exreg(jm, fun, fun + "_re", remap, path)
             else:
                 fun = gen.ident(self._prefix + "re")
                 self._code.regex(fun, pattern, ropts)
@@ -158,9 +159,9 @@ class CodeGenerator:
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
         else:
-            fun = self._regex(jm, regex)
+            fun = self._regex(jm, regex, path)
             # TODO inline the internal function if possible?
-            return gen.str_check_call(fun, sval)
+            return gen.str_check_call(fun, sval, path)
         # TODO f" or _rep(f\"does not match {self._fesc(regex)} at {{{path}}}\", rep)"
 
     def _esc(self, val: Jsonable) -> str:

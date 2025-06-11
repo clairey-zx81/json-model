@@ -117,7 +117,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle other props
             // .'$O0'.''
-            res = jm_is_valid_date(json_string_value(pval));
+            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.'$O0'.'']", (path ? &lpath_0 : NULL));

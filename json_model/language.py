@@ -273,9 +273,9 @@ class Language:
     #
     # boolean expression
     #
-    def str_check_call(self, name: str, val: StrExpr) -> BoolExpr:
+    def str_check_call(self, name: str, val: StrExpr, path: Var) -> BoolExpr:
         """Model check call for a string value."""
-        return f"{name}({val})"
+        return f"{name}({val}, {path}, rep)"
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, is_str: bool = False) -> BoolExpr:
         """Model check call for a JSON value."""

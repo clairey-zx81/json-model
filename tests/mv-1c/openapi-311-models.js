@@ -255,7 +255,7 @@ function _jm_obj_0(val, path, rep)
             must_count += 1;
             // .'$openapi#OpenAPI'.openapi
             // "/^3\\.1\\.\\d+(-.+)?$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$openapi#OpenAPI'.openapi]", (path ? lpath_0 : null)])
@@ -291,7 +291,7 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#OpenAPI'.'/^x\\-.*$/'
@@ -463,7 +463,7 @@ function _jm_obj_2(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Info'.'/^x\\-.*$/'
@@ -571,7 +571,7 @@ function _jm_obj_3(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Contact'.'/^x\\-.*$/'
@@ -652,7 +652,7 @@ function _jm_obj_4(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#License'.'|'.1.'/^x\\-.*$/'
@@ -735,7 +735,7 @@ function _jm_obj_5(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#License'.'|'.0.'/^x\\-.*$/'
@@ -898,7 +898,7 @@ function _jm_obj_6(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Server'.'/^x\\-.*$/'
@@ -1022,7 +1022,7 @@ function _jm_obj_8(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#ServerVariable'.'/^x\\-.*$/'
@@ -1654,7 +1654,7 @@ function _jm_obj_9(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Components'.'/^x\\-.*$/'
@@ -1704,7 +1704,7 @@ function _jm_obj_20(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (_jm_re_2(prop))
+        if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Paths'.'/^//'
@@ -1718,7 +1718,7 @@ function _jm_obj_20(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Paths'.'/^x\\-.*$/'
@@ -2000,7 +2000,7 @@ function _jm_obj_21(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#PathItem'.'/^x\\-.*$/'
@@ -2368,7 +2368,7 @@ function _jm_obj_22(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Operation'.'/^x\\-.*$/'
@@ -2448,7 +2448,7 @@ function _jm_obj_24(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#ExternalDocumentation'.'/^x\\-.*$/'
@@ -2644,7 +2644,7 @@ function _jm_obj_25(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.1.'/^x\\-.*$/'
@@ -2914,7 +2914,7 @@ function _jm_obj_27(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Parameter'.'|'.0.'/^x\\-.*$/'
@@ -3089,7 +3089,7 @@ function _jm_obj_29(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#RequestBody'.'/^x\\-.*$/'
@@ -3272,7 +3272,7 @@ function _jm_obj_31(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#MediaType'.'/^x\\-.*$/'
@@ -3441,7 +3441,7 @@ function _jm_obj_34(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Encoding'.'/^x\\-.*$/'
@@ -3524,7 +3524,7 @@ function _jm_obj_36(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -3556,7 +3556,7 @@ function _jm_obj_36(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^x\\-.*$/'
@@ -3784,7 +3784,7 @@ function _jm_obj_37(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Response'.'/^x\\-.*$/'
@@ -3864,7 +3864,7 @@ function _jm_obj_41(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Callback'.'/^x\\-.*$/'
@@ -3975,7 +3975,7 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Example'.'/^x\\-.*$/'
@@ -4128,7 +4128,7 @@ function _jm_obj_43(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Link'.'|'.1.'/^x\\-.*$/'
@@ -4266,7 +4266,7 @@ function _jm_obj_45(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Link'.'|'.0.'/^x\\-.*$/'
@@ -4454,7 +4454,7 @@ function _jm_obj_47(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Header'.'|'.1.'/^x\\-.*$/'
@@ -4675,7 +4675,7 @@ function _jm_obj_49(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Header'.'|'.0.'/^x\\-.*$/'
@@ -4796,7 +4796,7 @@ function _jm_obj_51(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#Tag'.'/^x\\-.*$/'
@@ -5072,7 +5072,7 @@ function _jm_obj_53(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#SecurityScheme'.'/^x\\-.*$/'
@@ -5214,7 +5214,7 @@ function _jm_obj_54(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#OAuthFlows'.'/^x\\-.*$/'
@@ -5353,7 +5353,7 @@ function _jm_obj_55(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#OAuthFlow'.'/^x\\-.*$/'
@@ -5579,7 +5579,7 @@ function _jm_obj_58(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#model#Elem'.'|'.5.'/^[@|&^+/*]$/'
@@ -6002,7 +6002,7 @@ function _jm_obj_63(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
@@ -6043,7 +6043,7 @@ function _jm_obj_63(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_6(prop))
+        else if (_jm_re_6(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(=|!=|≠)$/'

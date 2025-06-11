@@ -53,7 +53,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$S'
     # "/[a-z]/"
-    res = isinstance(val, str) and _jm_re_0(val)
+    res = isinstance(val, str) and _jm_re_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[a-z]/ [.'$S']", path))
     return res
@@ -83,7 +83,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$R#S'
     # "/[0-9]/"
-    res = isinstance(val, str) and _jm_re_1(val)
+    res = isinstance(val, str) and _jm_re_1(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /[0-9]/ [.'$R#S']", path))
     return res
@@ -99,10 +99,10 @@ def check_model_init():
         initialized = True
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("[a-z]")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("[0-9]")
-        _jm_re_1 = lambda s: _jm_re_1_reco.search(s) is not None
+        _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

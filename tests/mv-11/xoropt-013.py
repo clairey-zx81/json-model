@@ -48,7 +48,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # .'^'.0.''
             # "/.../"
-            res = isinstance(pval, str) and _jm_re_0(pval)
+            res = isinstance(pval, str) and _jm_re_0(pval, lpath_0 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected /.../ [.'^'.0.'']", lpath_0 if path is not None else None))
             if not res:
@@ -84,7 +84,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
             # handle other props
             # .'^'.1.''
             # "/.../"
-            res = isinstance(pval, str) and _jm_re_0(pval)
+            res = isinstance(pval, str) and _jm_re_0(pval, lpath_1 if path is not None else None, rep)
             if not res:
                 rep is None or rep.append(("unexpected /.../ [.'^'.1.'']", lpath_1 if path is not None else None))
             if not res:
@@ -133,7 +133,7 @@ def check_model_init():
         initialized = True
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("...")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

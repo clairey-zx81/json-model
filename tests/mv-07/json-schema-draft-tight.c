@@ -576,7 +576,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$stringKeywords'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false);
+    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$stringKeywords'.pattern]", path);
@@ -846,7 +846,7 @@ static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_3 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop, false))
+        if (jm_is_valid_regex(prop, false, (path ? &lpath_3 : NULL), rep))
         {
             // handle 1 key props
             // .'$objectKeywords'.patternProperties.'$REGEX'
@@ -1219,7 +1219,7 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_8 : NULL), rep))
         {
             // handle 1 key props
             // .'$metas'.'$vocabulary'.'$URI'
@@ -1576,7 +1576,7 @@ static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_12 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_12 : NULL), rep))
         {
             // handle 1 key props
             // .'$String'.'$vocabulary'.'$URI'
@@ -1768,7 +1768,7 @@ static bool _jm_f_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$String'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false);
+    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$String'.pattern]", path);
@@ -2015,7 +2015,7 @@ static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_16 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_16 : NULL), rep))
         {
             // handle 1 key props
             // .'$Array'.'$vocabulary'.'$URI'
@@ -2510,7 +2510,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_20 : NULL), rep))
         {
             // handle 1 key props
             // .'$Object'.'$vocabulary'.'$URI'
@@ -2710,7 +2710,7 @@ static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_22 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop, false))
+        if (jm_is_valid_regex(prop, false, (path ? &lpath_22 : NULL), rep))
         {
             // handle 1 key props
             // .'$Object'.patternProperties.'$REGEX'
@@ -3085,7 +3085,7 @@ static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_26 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_26 : NULL), rep))
         {
             // handle 1 key props
             // .'$Integer'.'$vocabulary'.'$URI'
@@ -3497,7 +3497,7 @@ static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_30 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_30 : NULL), rep))
         {
             // handle 1 key props
             // .'$Number'.'$vocabulary'.'$URI'
@@ -3909,7 +3909,7 @@ static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_34 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_34 : NULL), rep))
         {
             // handle 1 key props
             // .'$Bool'.'$vocabulary'.'$URI'
@@ -4295,7 +4295,7 @@ static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_38 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_38 : NULL), rep))
         {
             // handle 1 key props
             // .'$Null'.'$vocabulary'.'$URI'
@@ -4681,7 +4681,7 @@ static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_42 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_42 : NULL), rep))
         {
             // handle 1 key props
             // .'$AllOf'.'$vocabulary'.'$URI'
@@ -5067,7 +5067,7 @@ static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_46 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_46 : NULL), rep))
         {
             // handle 1 key props
             // .'$AnyOf'.'$vocabulary'.'$URI'
@@ -5453,7 +5453,7 @@ static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_50 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_50 : NULL), rep))
         {
             // handle 1 key props
             // .'$OneOf'.'$vocabulary'.'$URI'
@@ -5839,7 +5839,7 @@ static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_54 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_54 : NULL), rep))
         {
             // handle 1 key props
             // .'$Enum'.'$vocabulary'.'$URI'
@@ -6225,7 +6225,7 @@ static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_58 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_58 : NULL), rep))
         {
             // handle 1 key props
             // .'$Const'.'$vocabulary'.'$URI'
@@ -6611,7 +6611,7 @@ static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_62 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_62 : NULL), rep))
         {
             // handle 1 key props
             // .'$Ref'.'$vocabulary'.'$URI'
@@ -6823,7 +6823,7 @@ static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must $ref property
             must_count += 1;
             // .'$Ref'.'$ref'
-            res = jm_is_valid_url(json_string_value(pval));
+            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_60 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$Ref'.'$ref']", (path ? &lpath_60 : NULL));
@@ -6997,7 +6997,7 @@ static bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_66 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_66 : NULL), rep))
         {
             // handle 1 key props
             // .'$DynRef'.'$vocabulary'.'$URI'
@@ -7209,7 +7209,7 @@ static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must $dynamicRef property
             must_count += 1;
             // .'$DynRef'.'$dynamicRef'
-            res = jm_is_valid_url(json_string_value(pval));
+            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_64 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$DynRef'.'$dynamicRef']", (path ? &lpath_64 : NULL));

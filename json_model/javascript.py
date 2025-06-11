@@ -249,7 +249,7 @@ class JavaScript(Language):
         return []
 
     def sub_strfun(self, fname: str, body: Block) -> Block:
-        return [ f"function {fname}(val, path = null, rep = null)" ] + self.indent(body)
+        return [ f"function {fname}(val, path, rep)" ] + self.indent(body)
 
     #
     # Property Map

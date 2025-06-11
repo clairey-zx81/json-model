@@ -39,7 +39,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         if res:
             # .'|'.0
             # "/[0-9]/"
-            res = _jm_re_0(val)
+            res = _jm_re_0(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
             if res:
@@ -61,7 +61,7 @@ def check_model_init():
         _jm_cst_0 = {'Calvin', 'Susie'}
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("[0-9]")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

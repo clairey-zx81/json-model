@@ -7,23 +7,21 @@
 
 static pcre2_code *_jm_xre_0_re_code = NULL;
 static pcre2_match_data *_jm_xre_0_re_data = NULL;
-static bool _jm_xre_0_re(const char *s);
-static bool _jm_xre_0(const char *);
+static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_xre_0(const char *, jm_path_t *, jm_report_t *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
-static bool _jm_xre_0_re(const char *s)
+static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep)
 {
   int rc = pcre2_match(_jm_xre_0_re_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
                        0, 0, _jm_xre_0_re_data, NULL);
   return rc >= 0;
 }
 
-static bool _jm_xre_0(const char *val)
+static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
 {
-    jm_path_t *path = NULL;
-    jm_report_t *rep = NULL;
     bool match = pcre2_match(_jm_xre_0_re_code, (PCRE2_SPTR) val, PCRE2_ZERO_TERMINATED, 0, 0, _jm_xre_0_re_data, NULL) != 0;
     if (! match)
     {
@@ -37,7 +35,7 @@ static bool _jm_xre_0(const char *val)
     rc = pcre2_substring_copy_byname(_jm_xre_0_re_data, (PCRE2_SPTR) "s0", (PCRE2_UCHAR *) extract, &extract_len);
     if (rc != 0)
         return false;
-    if (! jm_is_valid_date(extract))
+    if (! jm_is_valid_date(extract, path, rep))
     {
         return false;
     }
@@ -50,7 +48,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .
     // "/^X-($DATE)-Y$/X"
-    res = json_is_string(val) && _jm_xre_0(json_string_value(val));
+    res = json_is_string(val) && _jm_xre_0(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected /^X-($DATE)-Y$/X [.]", path);

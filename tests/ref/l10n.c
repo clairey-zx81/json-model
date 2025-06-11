@@ -8,10 +8,10 @@
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
-static bool _jm_re_0(const char *s);
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static pcre2_code *_jm_re_1_code = NULL;
 static pcre2_match_data *_jm_re_1_data = NULL;
-static bool _jm_re_1(const char *s);
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -55,7 +55,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle may  property
             // .'$'.''
-            res = jm_is_valid_url(json_string_value(pval));
+            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_1 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$'.'']", (path ? &lpath_1 : NULL));
@@ -99,14 +99,14 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_0(const char *s)
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
   int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
                        0, 0, _jm_re_0_data, NULL);
   return rc >= 0;
 }
 
-static bool _jm_re_1(const char *s)
+static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
   int rc = pcre2_match(_jm_re_1_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
                        0, 0, _jm_re_1_data, NULL);
@@ -127,12 +127,12 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (_jm_re_0(prop))
+        if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'%'.'/^\\..+$/'
             // "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
-            res = json_is_string(pval) && _jm_re_1(json_string_value(pval));
+            res = json_is_string(pval) && _jm_re_1(json_string_value(pval), (path ? &lpath_2 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /^([#~$%@|&+^/*=]|[<>!]=?)$/ [.'%'.'/^\\\\..+$/']", (path ? &lpath_2 : NULL));

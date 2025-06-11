@@ -166,7 +166,7 @@ static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$schema#ObjectSchema'.'$schema'
-    res = jm_is_valid_url(json_string_value(val));
+    res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$schema#ObjectSchema'.'$schema']", path);

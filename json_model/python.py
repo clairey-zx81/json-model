@@ -198,8 +198,8 @@ class Python(Language):
 
     def sub_strfun(self, name: str, body: Block) -> Block:
         return [
-            f"def {name}(val: str) -> bool:",
-        ] + self.indent([ f"path, rep = None, None" ] + body)
+            f"def {name}(val: str, path: Path, rep: Report) -> bool:",
+        ] + self.indent(body)
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
         return [
@@ -215,7 +215,7 @@ class Python(Language):
             f"global {name}_reco, {name}",
             # rex engine imported as re; may raise an exception
             f"{name}_reco = re.compile({sregex})",
-            f"{name} = lambda s: {name}_reco.search(s) is not None"
+            f"{name} = lambda s, p, r: {name}_reco.search(s) is not None"
         ]
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:

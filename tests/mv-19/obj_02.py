@@ -33,7 +33,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_0(prop):
+        if _jm_re_0(prop, path, rep):
             # handle 1 re props
             # .'/^[A-Z]$/'
             res = isinstance(pval, bool)
@@ -66,7 +66,7 @@ def check_model_init():
         initialized = True
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("^[A-Z]$")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

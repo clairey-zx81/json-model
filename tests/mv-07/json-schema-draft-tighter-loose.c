@@ -1066,7 +1066,7 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$tight#String'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false);
+    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$tight#String'.pattern]", path);
@@ -1771,7 +1771,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_13 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop, false))
+        if (jm_is_valid_regex(prop, false, (path ? &lpath_13 : NULL), rep))
         {
             // handle 1 key props
             // .'$tight#Object'.patternProperties.'$REGEX'
@@ -4845,7 +4845,7 @@ static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must $ref property
             must_count += 1;
             // .'$tight#Ref'.'$ref'
-            res = jm_is_valid_url(json_string_value(pval));
+            res = jm_is_valid_url(json_string_value(pval), (path ? &lpath_42 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$tight#Ref'.'$ref']", (path ? &lpath_42 : NULL));

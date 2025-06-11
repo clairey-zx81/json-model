@@ -35,7 +35,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         # .'|'.1
         # "/^[a-z]+$/i"
-        res = isinstance(val, str) and _jm_re_0(val)
+        res = isinstance(val, str) and _jm_re_0(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected /^[a-z]+$/i [.'|'.1]", path))
     if res:
@@ -55,7 +55,7 @@ def check_model_init():
         initialized = True
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("(?i)^[a-z]+$")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

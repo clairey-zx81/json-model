@@ -122,7 +122,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$foo#ls0'.0
-            res = jm_is_valid_date(json_string_value(arr_1_item));
+            res = jm_is_valid_date(json_string_value(arr_1_item), (path ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.'$foo#ls0'.0]", (path ? &arr_1_lpath : NULL));

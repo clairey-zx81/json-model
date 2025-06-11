@@ -59,7 +59,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_1_lpath = (jm_path_t) { NULL, arr_1_idx, path, NULL };
             // .'$ls0'.0
-            res = jm_is_valid_url(json_string_value(arr_1_item));
+            res = jm_is_valid_url(json_string_value(arr_1_item), (path ? &arr_1_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $URL [.'$ls0'.0]", (path ? &arr_1_lpath : NULL));

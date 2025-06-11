@@ -38,19 +38,19 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # .'|'.0
         # "/[0-9]/"
-        res = _jm_re_2(val)
+        res = _jm_re_2(val, path, rep)
         if not res:
             rep is None or rep.append(("unexpected /[0-9]/ [.'|'.0]", path))
         if not res:
             # .'|'.1
             # "/[a-z]/"
-            res = _jm_re_1(val)
+            res = _jm_re_1(val, path, rep)
             if not res:
                 rep is None or rep.append(("unexpected /[a-z]/ [.'|'.1]", path))
             if not res:
                 # .'|'.2
                 # "/[A-Z]/"
-                res = _jm_re_0(val)
+                res = _jm_re_0(val, path, rep)
                 if not res:
                     rep is None or rep.append(("unexpected /[A-Z]/ [.'|'.2]", path))
         if res:
@@ -70,13 +70,13 @@ def check_model_init():
         initialized = True
         global _jm_re_0_reco, _jm_re_0
         _jm_re_0_reco = re.compile("[A-Z]")
-        _jm_re_0 = lambda s: _jm_re_0_reco.search(s) is not None
+        _jm_re_0 = lambda s, p, r: _jm_re_0_reco.search(s) is not None
         global _jm_re_1_reco, _jm_re_1
         _jm_re_1_reco = re.compile("[a-z]")
-        _jm_re_1 = lambda s: _jm_re_1_reco.search(s) is not None
+        _jm_re_1 = lambda s, p, r: _jm_re_1_reco.search(s) is not None
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = re.compile("[0-9]")
-        _jm_re_2 = lambda s: _jm_re_2_reco.search(s) is not None
+        _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

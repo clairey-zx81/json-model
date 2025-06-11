@@ -83,7 +83,7 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'

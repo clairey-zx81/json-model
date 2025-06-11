@@ -36,7 +36,7 @@ function json_model_1(val, path, rep)
         {
             // .'|'.0
             // "/[0-9]/"
-            res = _jm_re_1(val);
+            res = _jm_re_1(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /[0-9]/ [.'|'.0]", path])
@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
             {
                 // .'|'.1
                 // "/[a-z]/"
-                res = _jm_re_0(val);
+                res = _jm_re_0(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected /[a-z]/ [.'|'.1]", path])

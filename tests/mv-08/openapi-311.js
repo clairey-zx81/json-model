@@ -233,7 +233,7 @@ function _jm_obj_0(val, path, rep)
             must_count += 1;
             // .'$OpenAPI'.openapi
             // "/^3\\.1\\.\\d+(-.+)?$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_0(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^3\\.1\\.\\d+(-.+)?$/ [.'$OpenAPI'.openapi]", (path ? lpath_0 : null)])
@@ -269,7 +269,7 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$OpenAPI'.'/^x\\-.*$/'
@@ -441,7 +441,7 @@ function _jm_obj_2(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Info'.'/^x\\-.*$/'
@@ -549,7 +549,7 @@ function _jm_obj_3(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Contact'.'/^x\\-.*$/'
@@ -630,7 +630,7 @@ function _jm_obj_4(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$License'.'|'.1.'/^x\\-.*$/'
@@ -713,7 +713,7 @@ function _jm_obj_5(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$License'.'|'.0.'/^x\\-.*$/'
@@ -876,7 +876,7 @@ function _jm_obj_6(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Server'.'/^x\\-.*$/'
@@ -1000,7 +1000,7 @@ function _jm_obj_8(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$ServerVariable'.'/^x\\-.*$/'
@@ -1632,7 +1632,7 @@ function _jm_obj_9(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Components'.'/^x\\-.*$/'
@@ -1682,7 +1682,7 @@ function _jm_obj_20(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (_jm_re_2(prop))
+        if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
@@ -1696,7 +1696,7 @@ function _jm_obj_20(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$Paths'.'/^x\\-.*$/'
@@ -1978,7 +1978,7 @@ function _jm_obj_21(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$PathItem'.'/^x\\-.*$/'
@@ -2346,7 +2346,7 @@ function _jm_obj_22(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Operation'.'/^x\\-.*$/'
@@ -2426,7 +2426,7 @@ function _jm_obj_24(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$ExternalDocumentation'.'/^x\\-.*$/'
@@ -2548,7 +2548,7 @@ function _jm_obj_25(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$parameterShare'.'/^x\\-.*$/'
@@ -2693,7 +2693,7 @@ function _jm_obj_26(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$commonParameter'.'/^x\\-.*$/'
@@ -3150,7 +3150,7 @@ function _jm_obj_31(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Parameter'.'|'.1.'/^x\\-.*$/'
@@ -3420,7 +3420,7 @@ function _jm_obj_33(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Parameter'.'|'.0.'/^x\\-.*$/'
@@ -3581,7 +3581,7 @@ function _jm_obj_35(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$RequestBody'.'/^x\\-.*$/'
@@ -3764,7 +3764,7 @@ function _jm_obj_37(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$MediaType'.'/^x\\-.*$/'
@@ -3933,7 +3933,7 @@ function _jm_obj_40(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Encoding'.'/^x\\-.*$/'
@@ -4016,7 +4016,7 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 2 re props
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -4048,7 +4048,7 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$Responses'.'/^x\\-.*$/'
@@ -4276,7 +4276,7 @@ function _jm_obj_43(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Response'.'/^x\\-.*$/'
@@ -4356,7 +4356,7 @@ function _jm_obj_47(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Callback'.'/^x\\-.*$/'
@@ -4467,7 +4467,7 @@ function _jm_obj_48(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Example'.'/^x\\-.*$/'
@@ -4620,7 +4620,7 @@ function _jm_obj_49(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Link'.'|'.1.'/^x\\-.*$/'
@@ -4758,7 +4758,7 @@ function _jm_obj_51(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Link'.'|'.0.'/^x\\-.*$/'
@@ -4946,7 +4946,7 @@ function _jm_obj_53(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Header'.'|'.1.'/^x\\-.*$/'
@@ -5167,7 +5167,7 @@ function _jm_obj_55(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Header'.'|'.0.'/^x\\-.*$/'
@@ -5288,7 +5288,7 @@ function _jm_obj_57(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Tag'.'/^x\\-.*$/'
@@ -6553,7 +6553,7 @@ function _jm_obj_66(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Discriminator'.'/^x\\-.*$/'
@@ -6688,7 +6688,7 @@ function _jm_obj_68(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$XML'.'/^x\\-.*$/'
@@ -6861,7 +6861,7 @@ function _jm_obj_69(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$SecurityScheme'.'/^x\\-.*$/'
@@ -7003,7 +7003,7 @@ function _jm_obj_70(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$OAuthFlows'.'/^x\\-.*$/'
@@ -7142,7 +7142,7 @@ function _jm_obj_71(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$OAuthFlow'.'/^x\\-.*$/'
@@ -7267,7 +7267,7 @@ function _jm_obj_74(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_72 = path ? path.concat([prop]) : null;
-        if (_jm_re_1(prop))
+        if (_jm_re_1(prop, path, rep))
         {
             // handle 1 re props
             // .'$Extension'.'/^x\\-.*$/'

@@ -42,7 +42,7 @@ function json_model_2(val, path, rep)
             {
                 // .'$A'.'|'.3
                 // "/[a-z]/"
-                res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val);
+                res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
                 if (! res)
                 {
                     rep !== null && rep.push(["unexpected /[a-z]/ [.'$A'.'|'.3]", path])

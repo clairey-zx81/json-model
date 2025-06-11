@@ -9,7 +9,7 @@ static jm_constant_t _jm_cst_0[3];
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static pcre2_code *_jm_re_0_code = NULL;
 static pcre2_match_data *_jm_re_0_data = NULL;
-static bool _jm_re_0(const char *s);
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -27,7 +27,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_0(const char *s)
+static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
   int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
                        0, 0, _jm_re_0_data, NULL);
@@ -54,7 +54,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must foo property
             must_count += 1;
             // .foo
-            res = jm_is_valid_date(json_string_value(pval));
+            res = jm_is_valid_date(json_string_value(pval), (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $DATE [.foo]", (path ? &lpath_0 : NULL));
@@ -94,7 +94,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/^[0-9]+$/'

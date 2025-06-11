@@ -138,16 +138,16 @@ extern jm_check_fun_t jm_search_constmap(const jm_constant_t *, const jm_constma
 /*
  * Miscellaneous support functions and related data
  */
-extern bool jm_is_valid_date_slow(const char *);
-extern bool jm_is_valid_date_fast(const char *);
-extern bool (*jm_is_valid_date)(const char *);
-extern bool jm_is_valid_uuid(const char *);
+extern bool jm_is_valid_date_slow(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_date_fast(const char *, jm_path_t *, jm_report_t *);
+extern bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_uuid(const char *, jm_path_t *, jm_report_t *);
 extern size_t jm_any_len(json_t *);
-extern bool jm_is_valid_regex_slow(const char *, bool);
-extern bool jm_is_valid_regex_fast(const char *, bool);
-extern bool (*jm_is_valid_regex)(const char *, bool);
-extern bool jm_is_valid_url(const char *);
-extern bool jm_is_valid_email(const char *);
+extern bool jm_is_valid_regex_slow(const char *, bool, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_regex_fast(const char *, bool, jm_path_t *, jm_report_t *);
+extern bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_url(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_email(const char *, jm_path_t *, jm_report_t *);
 
 typedef enum {
     op_eq,
@@ -159,7 +159,8 @@ typedef enum {
 } jm_constraint_op_t;
 
 extern bool
-jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *, jm_path_t *, jm_report_t *);
+jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
+                    jm_path_t *, jm_report_t *);
 
 /*
  * Shared high-level entry point

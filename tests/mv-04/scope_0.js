@@ -17,7 +17,7 @@ function json_model_2(val, path, rep)
     let res;
     // .'$S'
     // "/[0-9]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[0-9]/ [.'$S']", path])

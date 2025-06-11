@@ -51,7 +51,7 @@ function json_model_3(val, path, rep)
     let res;
     // .'$S'
     // "/[a-z]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[a-z]/ [.'$S']", path])
@@ -98,7 +98,7 @@ function json_model_5(val, path, rep)
     let res;
     // .'$R#S'
     // "/[0-9]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /[0-9]/ [.'$R#S']", path])

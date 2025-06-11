@@ -12,9 +12,9 @@
 - [x] command: rethink code/executable/module generation options
 - [x] js-backend: add javascript backend and runtime and working tests
 - [x] c-backend: add `qsort_r` code for Windows and MacOS (blind)
+- [x] backend: add `path` and `rep` to str functions
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] tests: fix strange issue with `make check` in `mv-03`
-- [ ] backend: add `path` and `rep` to str functions
 - [ ] static: keep deep names?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?

@@ -25,8 +25,7 @@ _jm_xre_0_re: RegexFun
 _jm_xre_0: RegexFun
 check_model_map: PropMap
 
-def _jm_xre_0(val: str) -> bool:
-    path, rep = None, None
+def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
     match = _jm_xre_0_re_reco.search(val)
     if not match:
         return False
@@ -41,7 +40,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
     # "/^X-($DATE)-Y$/X"
-    res = isinstance(val, str) and _jm_xre_0(val)
+    res = isinstance(val, str) and _jm_xre_0(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected /^X-($DATE)-Y$/X [.]", path))
     return res
@@ -57,7 +56,7 @@ def check_model_init():
         initialized = True
         global _jm_xre_0_re_reco, _jm_xre_0_re
         _jm_xre_0_re_reco = re.compile("^X-(?<s0>.*)-Y$")
-        _jm_xre_0_re = lambda s: _jm_xre_0_re_reco.search(s) is not None
+        _jm_xre_0_re = lambda s, p, r: _jm_xre_0_re_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,

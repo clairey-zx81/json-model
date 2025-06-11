@@ -1,6 +1,6 @@
 // JSON Model Runtime
 
-export function jm_is_valid_regex(pattern, extended)
+export function jm_is_valid_regex(pattern, extended, path, rep)
 {
     if (typeof pattern !== 'string' && !(pattern instanceof String))
         return false
@@ -16,7 +16,7 @@ export function jm_is_valid_regex(pattern, extended)
 
 const MONTH_DAYS = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
-export function jm_is_valid_date(date)
+export function jm_is_valid_date(date, path, rep)
 {
     if ((typeof date !== 'string' && !(date instanceof String)) || date.length != 10)
         return false
@@ -43,13 +43,13 @@ export function jm_is_valid_date(date)
     }
 }
 
-export function jm_is_valid_uuid(uuid)
+export function jm_is_valid_uuid(uuid, path, rep)
 {
     return ((typeof uuid === 'string' || uuid instanceof String) && uuid.length === 36 &&
             /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null)
 }
 
-export function jm_is_valid_url(url)
+export function jm_is_valid_url(url, path, rep)
 {
     if (typeof url !== 'string' && ! url instanceof String)
         return false
@@ -63,7 +63,7 @@ export function jm_is_valid_url(url)
     }
 }
 
-export function jm_is_valid_email(email)
+export function jm_is_valid_email(email, path, rep)
 {
     return ((typeof email === 'string' || email instanceof String) &&
             /^[_a-zA-Z0-9.]+@[_a-zA-Z0-9.]+$/.exec(email) !== null)

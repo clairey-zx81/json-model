@@ -390,7 +390,7 @@ jm_any_len(json_t *val)
 
 // NOTE this version is beyond slow because of mktime.
 bool
-jm_is_valid_date_slow(const char *date)
+jm_is_valid_date_slow(const char *date, jm_path_t *path, jm_report_t *rep)
 {
     int year, month, day;
 
@@ -408,7 +408,7 @@ static int MONTH_DAYS[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 // NOTE this version runs about 50 times faster
 bool
-jm_is_valid_date_fast(const char *date)
+jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
 {
     if (date == NULL)
         return false;
@@ -442,10 +442,10 @@ jm_is_valid_date_fast(const char *date)
 }
 
 // default version
-bool (*jm_is_valid_date)(const char *) = jm_is_valid_date_fast;
+bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *) = jm_is_valid_date_fast;
 
 bool
-jm_is_valid_uuid(const char *uuid)
+jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 {
     if (!uuid)
         return false;
@@ -474,7 +474,7 @@ jm_is_valid_uuid(const char *uuid)
 
 // check regex validity by attempting to compile it with PCRE2, probably not very efficient
 bool
-jm_is_valid_regex_slow(const char *pattern, bool extended)
+jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {
     if (!pattern)
         return false;
@@ -491,7 +491,7 @@ jm_is_valid_regex_slow(const char *pattern, bool extended)
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
 bool
-jm_is_valid_regex_fast(const char *pattern, bool extended)
+jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {
     if (!pattern)
         return false;
@@ -627,11 +627,11 @@ jm_is_valid_regex_fast(const char *pattern, bool extended)
 }
 
 // default version
-bool (*jm_is_valid_regex)(const char *, bool) = jm_is_valid_regex_fast;
+bool (*jm_is_valid_regex)(const char *, bool, jm_path_t *, jm_report_t *) = jm_is_valid_regex_fast;
 
 // this is utf-8 compatible because multi-byte encoding uses chars over 128.
 bool
-jm_is_valid_url(const char *url)
+jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 {
     if (!url)
         return false;
@@ -652,7 +652,7 @@ static bool is_email_char(int c)
 
 // ...@... for ASCII and UTF-8
 bool
-jm_is_valid_email(const char *email)
+jm_is_valid_email(const char *email, jm_path_t *path, jm_report_t *rep)
 {
     if (!email)
         return false;

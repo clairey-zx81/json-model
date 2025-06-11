@@ -23,7 +23,7 @@ function _jm_obj_0(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if (_jm_re_0(prop))
+        if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'/^(foo|bla)$/'

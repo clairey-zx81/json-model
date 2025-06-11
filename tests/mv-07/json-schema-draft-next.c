@@ -278,7 +278,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$core'.'$schema'
-    res = jm_is_valid_url(json_string_value(val));
+    res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$core'.'$schema']", path);
@@ -300,7 +300,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_2 : NULL), rep))
         {
             // handle 1 key props
             // .'$core'.'$vocabulary'.'$URI'
@@ -1085,7 +1085,7 @@ static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$validation'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false);
+    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$validation'.pattern]", path);
@@ -1415,7 +1415,7 @@ static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_11 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop, false))
+        if (jm_is_valid_regex(prop, false, (path ? &lpath_11 : NULL), rep))
         {
             // handle 1 key props
             // .'$applicator'.patternProperties.'$REGEX'
@@ -1778,7 +1778,7 @@ static bool _jm_f_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ObjectSchema'.'$schema'
-    res = jm_is_valid_url(json_string_value(val));
+    res = jm_is_valid_url(json_string_value(val), path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $URI [.'$ObjectSchema'.'$schema']", path);
@@ -1800,7 +1800,7 @@ static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_17 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_url(prop))
+        if (jm_is_valid_url(prop, (path ? &lpath_17 : NULL), rep))
         {
             // handle 1 key props
             // .'$ObjectSchema'.'$vocabulary'.'$URI'
@@ -2349,7 +2349,7 @@ static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ObjectSchema'.pattern
-    res = jm_is_valid_regex(json_string_value(val), false);
+    res = jm_is_valid_regex(json_string_value(val), false, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $REGEX [.'$ObjectSchema'.pattern]", path);
@@ -2371,7 +2371,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (jm_is_valid_regex(prop, false))
+        if (jm_is_valid_regex(prop, false, (path ? &lpath_20 : NULL), rep))
         {
             // handle 1 key props
             // .'$ObjectSchema'.patternProperties.'$REGEX'

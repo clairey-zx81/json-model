@@ -909,7 +909,7 @@ function _jm_obj_6(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$metas'.'/^x-.*/'
@@ -1226,7 +1226,7 @@ function _jm_obj_9(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$String'.'/^x-.*/'
@@ -1597,7 +1597,7 @@ function _jm_obj_12(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Array'.'/^x-.*/'
@@ -2004,7 +2004,7 @@ function _jm_obj_15(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Object'.'/^x-.*/'
@@ -2305,7 +2305,7 @@ function _jm_obj_20(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Integer'.'/^x-.*/'
@@ -2606,7 +2606,7 @@ function _jm_obj_23(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Number'.'/^x-.*/'
@@ -2881,7 +2881,7 @@ function _jm_obj_26(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Bool'.'/^x-.*/'
@@ -3156,7 +3156,7 @@ function _jm_obj_29(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Null'.'/^x-.*/'
@@ -3431,7 +3431,7 @@ function _jm_obj_32(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$AllOf'.'/^x-.*/'
@@ -3706,7 +3706,7 @@ function _jm_obj_35(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$AnyOf'.'/^x-.*/'
@@ -3981,7 +3981,7 @@ function _jm_obj_38(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$OneOf'.'/^x-.*/'
@@ -4256,7 +4256,7 @@ function _jm_obj_41(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Enum'.'/^x-.*/'
@@ -4531,7 +4531,7 @@ function _jm_obj_44(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Const'.'/^x-.*/'
@@ -4806,7 +4806,7 @@ function _jm_obj_47(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_0(prop))
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'$Ref'.'/^x-.*/'

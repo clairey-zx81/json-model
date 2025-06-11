@@ -31,7 +31,7 @@ function json_model_2(val, path, rep)
     let res;
     // .'$Url'
     // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Url']", path])
@@ -251,7 +251,7 @@ function _jm_obj_1(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$Constraint'.'/^(<=|>=|<|>|≥|≤)$/'
@@ -292,7 +292,7 @@ function _jm_obj_1(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_2(prop))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Constraint'.'/^(=|!=|≠)$/'
@@ -673,7 +673,7 @@ function _jm_obj_6(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_6 = path ? path.concat([prop]) : null;
-        if (_jm_re_3(prop))
+        if (_jm_re_3(prop, path, rep))
         {
             // handle 1 re props
             // .'$Obj'.'/^[@|&^+/*]$/'
@@ -745,7 +745,7 @@ function _jm_obj_7(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 1 re props
             // .'$Elem'.'|'.5.'/^[@|&^+/*]$/'
@@ -1164,7 +1164,7 @@ function _jm_obj_12(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
@@ -1205,7 +1205,7 @@ function _jm_obj_12(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_2(prop))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Elem'.'|'.0.'/^(=|!=|≠)$/'
@@ -1718,7 +1718,7 @@ function _jm_obj_17(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Defs'.'/.+/'
@@ -1770,12 +1770,12 @@ function _jm_obj_18(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_18 = path ? path.concat([prop]) : null;
-        if (_jm_re_5(prop))
+        if (_jm_re_5(prop, path, rep))
         {
             // handle 1 re props
             // .'$Rename'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_18 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Rename'.'/^\\\\..+$/']", (path ? lpath_18 : null)])
@@ -1821,7 +1821,7 @@ function _jm_obj_19(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_19 = path ? path.concat([prop]) : null;
-        if (_jm_re_7(prop))
+        if (_jm_re_7(prop, path, rep))
         {
             // handle 1 re props
             // .'$Rewrite'.'/^\\$.*$/'
@@ -1899,7 +1899,7 @@ function _jm_obj_21(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$RootOnly'.'$'.'/.+/'
@@ -1949,12 +1949,12 @@ function _jm_obj_22(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$RootOnly'.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_22 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$RootOnly'.'%'.'/^\\\\..+$/']", (path ? lpath_22 : null)])
@@ -1964,7 +1964,7 @@ function _jm_obj_22(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$RootOnly'.'%'.'/^\\$.*$/'
@@ -2121,7 +2121,7 @@ function _jm_obj_24(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.5.'$'.'/.+/'
@@ -2184,12 +2184,12 @@ function _jm_obj_25(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.5.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_25 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.5.'%'.'/^\\\\..+$/']", (path ? lpath_25 : null)])
@@ -2199,7 +2199,7 @@ function _jm_obj_25(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.5.'%'.'/^\\$.*$/'
@@ -2271,7 +2271,7 @@ function _jm_obj_23(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.5.'/^[@|&^+/*]$/'
@@ -2358,7 +2358,7 @@ function _jm_obj_27(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.4.'$'.'/.+/'
@@ -2421,12 +2421,12 @@ function _jm_obj_28(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.4.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_28 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.4.'%'.'/^\\\\..+$/']", (path ? lpath_28 : null)])
@@ -2436,7 +2436,7 @@ function _jm_obj_28(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.4.'%'.'/^\\$.*$/'
@@ -2618,7 +2618,7 @@ function _jm_obj_30(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.3.'$'.'/.+/'
@@ -2681,12 +2681,12 @@ function _jm_obj_31(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.3.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_31 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.3.'%'.'/^\\\\..+$/']", (path ? lpath_31 : null)])
@@ -2696,7 +2696,7 @@ function _jm_obj_31(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.3.'%'.'/^\\$.*$/'
@@ -2878,7 +2878,7 @@ function _jm_obj_33(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.2.'$'.'/.+/'
@@ -2941,12 +2941,12 @@ function _jm_obj_34(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.2.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_34 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.2.'%'.'/^\\\\..+$/']", (path ? lpath_34 : null)])
@@ -2956,7 +2956,7 @@ function _jm_obj_34(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.2.'%'.'/^\\$.*$/'
@@ -3138,7 +3138,7 @@ function _jm_obj_36(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.1.'$'.'/.+/'
@@ -3201,12 +3201,12 @@ function _jm_obj_37(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.1.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_37 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.1.'%'.'/^\\\\..+$/']", (path ? lpath_37 : null)])
@@ -3216,7 +3216,7 @@ function _jm_obj_37(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.1.'%'.'/^\\$.*$/'
@@ -3411,7 +3411,7 @@ function _jm_obj_39(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 1 re props
             // .'$Root'.'|'.0.'$'.'/.+/'
@@ -3474,12 +3474,12 @@ function _jm_obj_40(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.0.'%'.'/^\\..+$/'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_6(pval, (path ? lpath_40 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Root'.'|'.0.'%'.'/^\\\\..+$/']", (path ? lpath_40 : null)])
@@ -3489,7 +3489,7 @@ function _jm_obj_40(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_7(prop))
+        else if (_jm_re_7(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.0.'%'.'/^\\$.*$/'
@@ -3578,7 +3578,7 @@ function _jm_obj_38(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_1(prop))
+        else if (_jm_re_1(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
@@ -3619,7 +3619,7 @@ function _jm_obj_38(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_2(prop))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Root'.'|'.0.'/^(=|!=|≠)$/'

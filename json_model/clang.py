@@ -103,17 +103,17 @@ class CLangJansson(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"json_string_value({var})"
         if name == "$UUID":
-            return f"jm_is_valid_uuid({val})"
+            return f"jm_is_valid_uuid({val}, {path}, rep)"
         elif name == "$DATE":
-            return f"jm_is_valid_date({val})"
+            return f"jm_is_valid_date({val}, {path}, rep)"
         elif name == "$REGEX":
-            return f"jm_is_valid_regex({val}, false)"
+            return f"jm_is_valid_regex({val}, false, {path}, rep)"
         elif name == "$EXREG":
-            return f"jm_is_valid_regex({val}, true)"
+            return f"jm_is_valid_regex({val}, true, {path}, rep)"
         elif name in ("$URL", "$URI"):
-            return f"jm_is_valid_url({val})"
+            return f"jm_is_valid_url({val}, {path}, rep)"
         elif name == "$EMAIL":
-            return f"jm_is_valid_email({val})"
+            return f"jm_is_valid_email({val}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
     
@@ -294,7 +294,7 @@ class CLangJansson(Language):
         return [
             f"static pcre2_code *{name}_code = NULL;",
             f"static pcre2_match_data *{name}_data = NULL;",
-            f"static bool {name}(const char *s);"
+            f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
         ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
@@ -356,11 +356,11 @@ class CLangJansson(Language):
         ]
 
     def def_strfun(self, fname: str) -> Block:
-        return [ f"static bool {fname}(const char *);" ]
+        return [ f"static bool {fname}(const char *, jm_path_t *, jm_report_t *);" ]
 
     def sub_strfun(self, fname: str, body: Block) -> Block:
-        return [ f"static bool {fname}(const char *val)" ] + self.indent(
-               [ "jm_path_t *path = NULL;", "jm_report_t *rep = NULL;" ] + body)
+        return [ f"static bool {fname}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
+                    self.indent(body)
 
     #
     # Property Map
