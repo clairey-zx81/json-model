@@ -100,7 +100,6 @@ def check_model_free():
     if initialized:
         initialized = False
 
-
 if __name__ == "__main__":
     check_model_init()
     main(check_model_fun, check_model_map, __version__)
