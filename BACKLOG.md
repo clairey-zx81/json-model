@@ -10,10 +10,10 @@
 - [x] py-backend: allow to generate a simple module only, with `mpy`
 - [x] c-backend: allow to generate a simple object file only
 - [x] command: rethink code/executable/module generation options
-- [ ] js-backend: add javascript backend and runtime and working tests (wip)
+- [x] js-backend: add javascript backend and runtime and working tests
+- [ ] c-backend: add `qsort_r` code for Windows and MacOS
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] tests: fix strange issue with `make check` in `mv-03`
-- [ ] c-backend: add `qsort_r` code for Windows and MacOS
 - [ ] backend: add `path` and `rep` to str functions
 - [ ] static: keep deep names?
 - [ ] python: rerun style and type checks

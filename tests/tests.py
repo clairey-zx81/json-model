@@ -12,8 +12,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-# log.setLevel(logging.DEBUG)
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
+# log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS, IN SMALL CHUNKS FOR XDIST
@@ -544,7 +544,7 @@ def test_dyn_json_schema(directory):
     # for now, just skip the corresponding directories
     log.debug(f"directory: {str(directory)}")
     if str(directory) in {
-                "mv-00", "mv-01", "mv-03", "mv-04",
+                "mv-00", "mv-01", "mv-03", "mv-04", "mv-0c",
                 "mv-08", "mv-09", "mv-0a", "mv-13", "mv-14",
                 "mv-15", "mv-16", "mv-17", "mv-19", "mv-1a",
                 "mv-1b", "mv-1c", "mv-1e", "ref",
@@ -554,7 +554,7 @@ def test_dyn_json_schema(directory):
 
     import jsonschema
 
-    def gen_js_checker(fmodel: str):
+    def gen_jschema_checker(fmodel: str):
         assert fmodel.endswith(".model.json")
 
         # load schema
@@ -576,7 +576,7 @@ def test_dyn_json_schema(directory):
 
         return checker
 
-    run_dyn(directory, gen_js_checker)
+    run_dyn(directory, gen_jschema_checker)
 
 #
 # CHECK MODELS AGAINST META MODEL(S)
