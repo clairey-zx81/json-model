@@ -1,0 +1,13 @@
+{
+  "$": { "coord": [ -1.0, -1.0 ] },
+  "^": [
+    {
+      "type": "Point",
+      "data": "$coord"
+    },
+    {
+      "type": "Segment",
+      "data": [ "$coord", "$coord" ]
+    }
+  ]
+}

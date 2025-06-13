@@ -215,7 +215,7 @@ Hence, with file `Loose.model.json`:
 ```
 
 The model is loosened thus accepts a person extended with unspecified properties having _any_ value.
-However, this model would silently ignore the property name typo in file `moe.json`
+However, this model silently ignores the property name typo in file `moe.json`
 because it is covered by the catch-all property:
 
 ```json
@@ -225,11 +225,61 @@ jmc Loose.model.json moe.json
 moe.json: PASS
 ```
 
-This leads to ignore typos on optional property names.
+This leads to ignoring typos on optional property names, which is seldom a good idea.
 
 ## JSON Model with alternatives
 
-Objects with a discriminant property.
+A frequent pattern is allow several kind of object as some point in the data structure.
+This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
+(or, any-of) property with the list of objects.
+
+Consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
+a pair of numbers, and use it for defining a point and a segment objects which are
+allowed at the root of the model:
+
+```json
+{
+  "$": { "coord": [ -1.0, -1.0 ] },
+  "^": [
+    {
+      "type": "Point",
+      "data": "$coord"
+    },
+    {
+      "type": "Segment",
+      "data": [ "$coord", "$coord" ]
+    }
+  ]
+}
+```
+
+It matches both files `marseille.json` and `seoul-tokyo.json`:
+
+```json
+{
+  "type": "Point",
+  "data": [ 43.3, 5.4 ]
+}
+```
+
+```json
+{
+  "type": "Segment",
+  "data": [ [ 37.5, 127.0 ], [ 35.7, 139.7 ] ]
+}
+```
+
+```sh
+jmc Geom.model.json marseille.json seoul-tokyo.json
+```
+```
+marseille.json: PASS
+seoul-tokyo.json: PASS
+```
+
+When defining such unions, it is much better to include a discriminant property (here `type`)
+with distinct constant value: it is detected by the JSON Model compiler and used to generate
+efficient code which only checks for the relevant object.
 
 ## JSON Model with numbers
 
@@ -238,6 +288,8 @@ Objects with a discriminant property.
 ## JSON Model with constraints
 
 ## JSON Model transformations
+
+## JSON Model examples
 
 ## JSON Model export to JSON Schema
 
