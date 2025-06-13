@@ -491,7 +491,7 @@ def jmc_script():
 
                         if len(test) == 2:
                             expect, val = test
-                            model = ""
+                            model = args.name
                         else:
                             assert len(test) == 3
                             expect, model, val = test
