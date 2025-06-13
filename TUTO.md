@@ -29,7 +29,7 @@ Check that the `jmc` command is avalaible by checking its version.
 jmc --version
 ```
 
-## JSON (JavaScript Object Notation)
+## JSON – JavaScript Object Notation
 
 [JSON](https://www.json.org/) is a simple text serialization format to represent structured
 values involving scalars, arrays and objects.
@@ -142,9 +142,9 @@ jmc person-1.model.json elysee.json  # FAIL
 
 ## JSON Model with definitions
 
-The previous model includes a regex which is hard to read.
-It can use definitions which can be reused to enhance readability and help structuring
-types, in file `person-2.model.json`:
+The previous model includes a regex which is hard to read, and repeated twice.
+It can use definitions which enhance readability and help reuse structures,
+in file `person-2.model.json`:
 
 ```json
 {
@@ -155,22 +155,31 @@ types, in file `person-2.model.json`:
       "name": "$Name",
       "birth": "$DATE",
       "?friends": [ "$Name" ]
-    }
+    },
+    "PI": "=3.141592653589793238462643"
   },
   "@": "$Person"
 }
 ```
 
-This model defines two named models (`$` section), which are referenced with `"$..."`
-in definitions and as the root target type after ('@' is the target), and also includes a
+This model defines 3 named models (in the `$` property), which can be referenced with `"$..."`
+in definitions and as the root target type after ('@' property), and also includes a
 comment (`#`).
 
-## JSON Model with numbers
+Special one-letter properties are used by JSON Model to extend models beyond simple
+type inference. The choice of short special characters avoids confusion with word-based
+property names used in typical JSON data structures.
+
+Sentinel characters are used at the beginning of strings to embed special semantics,
+such as regular expressions (`/`), references to named models (`$`) or constants (`=`).
 
 ## JSON Model with loose objects
 
 ## JSON Model with alternatives
 
+Objects with a discriminant property.
+
+## JSON Model with numbers
 
 ## JSON Model with object compositions
 
