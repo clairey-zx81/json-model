@@ -4,6 +4,8 @@ JSON Model is a compact and intuitive JSON syntax to describe JSON data structur
 
 Version 2 is work-in-progress design, implementation and tests.
 
+This implementation is given to the _Public Domain_.
+
 ## Tool Installation
 
 Proof-of-concept compiler to test JSON Model is available as Python a command
