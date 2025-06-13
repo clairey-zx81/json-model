@@ -215,7 +215,7 @@ def jmc_script():
     arg("--auto", "-a", action="store_true", help="automatic URL mapping")
 
     # output options
-    arg("--name", default="check_model", help="name of generated function")
+    arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
     arg("--output", "-o", default="-", help="output file")
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
@@ -241,7 +241,8 @@ def jmc_script():
     arg("--ldflags", type=str, help="override C linker flags for executable")
 
     # testing mode, expected results on values
-    arg("--none", "-n", dest="expect", action="store_const", const=None, default=None,
+    arg("--name", "-n", default="", help="name of validation submodel, default is \"\" (root)")
+    arg("--none", dest="expect", action="store_const", const=None, default=None,
         help="no test expectations")
     arg("--true", "-t", dest="expect", action="store_const", const=True,
         help="test values for true")
@@ -422,7 +423,7 @@ def jmc_script():
     elif args.op == "C":
         assert args.format in ("py", "c", "js"), f"valid output language {args.format}"
 
-        code = xstatic_compile(model, args.name, lang=args.format, execute=args.gen == "exec",
+        code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting)
         source = str(code)
@@ -437,10 +438,10 @@ def jmc_script():
         if args.format == "py" and args.values:
             env = {}
             exec(source, env)
-            env[args.name + "_init"]()
+            env[args.entry + "_init"]()
 
             def checker(v: Jsonable, model: str, rep: Report = None):
-                return env[args.name](v, model, rep)
+                return env[args.entry](v, model, rep)
 
     elif args.op == "E":
         mm = model._init_md
@@ -500,7 +501,7 @@ def jmc_script():
                             nerrors += 1
 
                 else:  # direct value testing
-                    if not _process(checker, "", value, fn, args.expect, output):
+                    if not _process(checker, args.name, value, fn, args.expect, output):
                         nerrors += 1
             except Exception as e:
                 nerrors += 1

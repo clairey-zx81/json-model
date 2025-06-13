@@ -12,7 +12,7 @@ would depend on the specific framework used, as discussed in [How To…](HOWTO.m
 
 ## Installation
 
-First, create a directory and install a Python virtual environment with the JSON Model
+First, let us create a directory and install a Python virtual environment with the JSON Model
 Compiler. In a Linux, MacOS or Windows with WSL terminal, type:
 
 ```sh
@@ -23,7 +23,7 @@ source venv/bin/activate
 pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
-Check that the `jmc` command is avalaible by checking its version.
+Check that the `jmc` command is indeed available by checking its version:
 
 ```sh
 jmc --version
@@ -55,7 +55,7 @@ of friend names, that you can put in File `hobbes.json` using your favorite text
 ## JSON Model for a Person
 
 A possible model simplistic model declaration for this data structure,
-in file `person-0.model.json`, is:
+in file `Person-0.model.json`, is:
 
 ```json
 {
@@ -66,13 +66,14 @@ in file `person-0.model.json`, is:
 ```
 
 The object properties are directly mapped to simple values: `""` stands for any string,
-and `[ "" ]` an array of any number of strings.
-The `?` sentinel character in the `"?friends"` property name indicates an optional property.
+and `[ "" ]` an array of any number of strings, thanks to type inference.
+The `?` sentinel character in the `"?friends"` property name indicates an _optional_ property,
+other properties are _mandatory_ by default.
 
-Check that the value matches the model:
+Let us check that our initial value matches the model by invoking the `jmc` command:
 
 ```sh
-jmc person-0.model.json hobbes.json
+jmc Person-0.model.json hobbes.json
 ```
 
 Should yield:
@@ -81,8 +82,8 @@ Should yield:
 hobbes.json: PASS
 ```
 
-Let us try a value which does not match because of a typo (proprety `friend` instead of `friends`),
-in file `moe.json`:
+Let us try a value which does not match because of a typo on a property name
+(`friend` instead of `friends`), in file `moe.json`:
 
 ```json
 {
@@ -96,23 +97,23 @@ Then we can invoke the `jmc -r` command (the option triggers reporting the reaso
 validation failures) to validate this value with the person model:
 
 ```sh
-jmc -r person-0.model.json moe.json
+jmc -r Person-0.model.json moe.json
 ```
 ```
 moe.json: FAIL (.: not an expected object [.]; .friend: unexpected prop [.])
 ```
 
-The validation has rejected the property at path `.friend` because it is not allowed
+The validation rejects the property at path `.friend` because it is not allowed
 by the model, which yields to the conclusion that the object at the root `.` is unexpected.
 The JSON path in square brackets `[.]` indicates where in the _model_ the
-ruled was found whereas the path before the `:` indicates the where in the _value_ it failed.
+ruled was found whereas the path before the `:` indicates where in the _value_ it failed.
 
-Note: for efficiency, the validation stops on the first error which invalidates the value:
-if a value includes several root errors, only one is reported.
+Note: for efficiency, the validation stops at the first encountered error which invalidates the
+value: if a value includes several root errors, only one is reported.
 
 ## JSON Model with Constrained Strings
 
-Our first model has no constraints on strings, thus validates file `elysee.json`:
+Our first model has no constraints on strings, thus also validates file `elysee.json`:
 
 ```json
 {
@@ -123,7 +124,7 @@ Our first model has no constraints on strings, thus validates file `elysee.json`
 ```
 
 We can improve it by constraining strings with regular expressions (between `/.../`)
-and predefined types (`$...`), in file `person-1.model.json`:
+and predefined types (`$...`), in file `Person-1.model.json`:
 
 ```json
 {
@@ -133,22 +134,22 @@ and predefined types (`$...`), in file `person-1.model.json`:
 }
 ```
 
-Then:
+Then the validation is strict enough to invalidate this value:
 
 ```sh
-jmc person-0.model.json elysee.json  # PASS
-jmc person-1.model.json elysee.json  # FAIL
+jmc Person-0.model.json elysee.json  # PASS
+jmc Person-1.model.json elysee.json  # FAIL
 ```
 
 ## JSON Model with definitions
 
-The previous model includes a regex which is hard to read, and repeated twice.
-It can use definitions which enhance readability and help reuse structures,
-in file `person-2.model.json`:
+The previous model includes a regex which is hard to read and repeated twice.
+We can use definitions to enhance readability and help reuse structures,
+in file `Person-2.model.json`:
 
 ```json
 {
-  "#": "Definition of a person",
+  "#": "Definition of a Person",
   "$": {
     "Name": "/^(\\w+ ?)+$/",
     "Person": {
@@ -164,7 +165,7 @@ in file `person-2.model.json`:
 
 This model defines 3 named models (in the `$` property), which can be referenced with `"$..."`
 in definitions and as the root target type after ('@' property), and also includes a
-comment (`#`).
+comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
 
 Special properties (`# $ @`) are used by JSON Model to extend models beyond simple
 type inference. The choice of short symbols avoids confusion with word-based
@@ -172,6 +173,22 @@ property names used in typical JSON data structures.
 
 Sentinel characters are used at the beginning of strings to embed special semantics,
 such as regular expressions (`/`), references to named models (`$`) or scalar constants (`=`).
+
+The `jmc` command allows to validate a value against a particular definition of a model,
+for instance with file `pi.json`:
+
+```json
+3.141592653589793238462643
+```
+
+We can check that its content conforms to PI definition:
+
+```sh
+jmc --name PI Person-2.model.json pi.json
+```
+```
+pi.json: PASS
+```
 
 ## JSON Model with loose objects
 
