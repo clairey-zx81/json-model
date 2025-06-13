@@ -309,13 +309,13 @@ Consider the model in file `Town.model.json`, which defines a town objects:
 ```
 
 The population _must_ be a positive integer, whereas `lat` and `long` coordinates _must_
-be floating point numbers, this for files `beijing.json` and `shanghai.json`:
+be floating point numbers, thus for files `beijing.json` and `shanghai.json`:
 
 ```json
 { "name": "Beijing", "pop": 21893095, "coord": { "lat": 39.9, "lon": 116.3 } }
 ```
 ```json
-{ "name": "Shanghai", "pop": 24874000.0, "coord": { "lat": 31, "long": 121 } }
+{ "name": "Shanghai", "pop": 24874000.0, "coord": { "lat": 31, "lon": 121 } }
 ```
 
 The first one is valid but the second is rejected:
@@ -325,7 +325,7 @@ jmc Town.model.json beijing.json shanghai.json
 ```
 ```
 beijing.json: PASS
-shanghai.json: FAIL
+shanghai.json: FAIL (.: unexpected object [.]; .pop: invalid mandatory prop value [.pop]; .pop: not a 1 strict int [.pop])
 ```
 
 This behavior can be loosen with option `--loose-number`, or by adding a special
@@ -390,5 +390,7 @@ imported for checking values.
 TODO
 
 ## Exporting to JSON Schema
+
+## Importing from JSON Schema
 
 ## Conclusion
