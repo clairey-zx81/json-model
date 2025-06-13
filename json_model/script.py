@@ -66,6 +66,7 @@ def model_from_json(
         mjson: Jsonable, *, auto: bool = False,
         debug: bool = False, murl: str|None = None,
         check: bool = True, merge: bool = True, optimize: bool = True,
+        loose_int: bool|None = None, loose_float: bool|None = None,
         resolver: Resolver|None = None) -> JsonModel:
     """JsonModel instanciation from JSON data."""
 
@@ -88,7 +89,8 @@ def model_from_json(
                 log.info(f"auto adding url map: {upref} -> {fpref}")
                 resolver._maps[upref] = fpref
 
-    jm = JsonModel(mjson, resolver, murl, debug=debug)
+    jm = JsonModel(mjson, resolver, murl, debug=debug,
+                   loose_int=loose_int, loose_float=loose_float)
 
     if check or merge or optimize:
         process_model(jm, check=check, merge=merge, optimize=optimize, debug=debug)
@@ -98,6 +100,7 @@ def model_from_json(
 
 def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
+                   loose_int: bool|None = None, loose_float: bool|None = None,
                    resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
     """JsonModel instanciation from a URL."""
 
@@ -106,15 +109,18 @@ def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
 
     mjson = resolver(murl, follow=follow)
 
-    return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver)
+    return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver,
+                           loose_int=loose_int, loose_float=loose_float)
 
 
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
+                   loose_int: bool|None = None, loose_float: bool|None = None,
                    debug: bool = False, murl: str|None = None) -> JsonModel:
     """JsonModel instanciation from a string."""
 
     return model_from_json(json.loads(mstring), auto=auto, debug=debug, murl=murl,
+                           loose_int=loose_int, loose_float=loose_float,
                            check=check, merge=merge, optimize=optimize)
 
 
@@ -136,25 +142,31 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
 def model_checker_from_json(
             mjson: Jsonable, *, auto: bool = False, debug: bool = False,
             resolver: Resolver|None = None,
+            loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
-    jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver)
+    jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
+                         loose_int=loose_int, loose_float=loose_float)
     return model_checker(jm, debug=debug)
 
 
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: bool = False,
             resolver: Resolver|None = None, follow: bool = True,
+            loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
-    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow)
+    jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
+                        loose_int=loose_int, loose_float=loose_float)
     return model_checker(jm, debug=debug)
 
 
 def create_model(murl: str, resolver: Resolver, *,
-                 auto: bool = False, follow: bool = True, debug: bool = False) -> JsonModel:
+                 auto: bool = False, follow: bool = True, debug: bool = False,
+                 loose_int: bool|None = None, loose_float: bool|None = None) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
+                          loose_int=loose_int, loose_float=loose_float,
                           check=False, merge=False, optimize=False)
 
 DEFAULT_CC = "cc"
@@ -213,6 +225,19 @@ def jmc_script():
     # input options
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic URL mapping")
+
+    arg("--loose-int", "-li", action="store_true", default=None,
+        help="use loose integers")
+    arg("--strict-int", "-si", dest="loose_int", action="store_false", default=None,
+        help="use strict integers (default)")
+    arg("--loose-float", "-lf", action="store_true", default=None,
+        help="use loose floats")
+    arg("--strict-float", "-sf", dest="loose_float", action="store_false",
+        help="use strict floats (default)")
+    arg("--loose-number", "-ln", action="store_true", default=None,
+        help="use loose integer and float numbers")
+    arg("--strict-number", "-sn", dest="loose_number", action="store_false",
+        help="use strict integer and float numbers (default)")
 
     # output options
     arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
@@ -358,6 +383,17 @@ def jmc_script():
         log.error(f"Showing code requires -C for Python, C or JS: {args.op} {args.format}")
         sys.exit(1)
 
+    # strict/loose numbers
+    if args.loose_number is not None:
+        if args.loose_int is None:
+            args.loose_int = args.loose_number
+        else:
+            log.warning("keeping integer strictness as already set")
+        if args.loose_float is None:
+            args.loose_float = args.loose_number
+        else:
+            log.warning("keeping float strictness as already set")
+
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
 
@@ -373,7 +409,8 @@ def jmc_script():
 
     # CREATE FROM FILE OR URL
     try:
-        model = create_model(args.model, resolver, auto=args.auto, debug=args.debug, follow=False)
+        model = create_model(args.model, resolver, auto=args.auto, debug=args.debug,
+                             loose_int=args.loose_int, loose_float=args.loose_float, follow=False)
     except BaseException as e:
         log.error(e)
         if args.debug:

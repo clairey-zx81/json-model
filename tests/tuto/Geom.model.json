@@ -2,11 +2,11 @@
   "$": { "coord": [ -1.0, -1.0 ] },
   "^": [
     {
-      "type": "Point",
+      "type": "_Point",
       "data": "$coord"
     },
     {
-      "type": "Segment",
+      "type": "_Segment",
       "data": [ "$coord", "$coord" ]
     }
   ]

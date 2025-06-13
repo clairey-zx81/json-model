@@ -1080,7 +1080,7 @@ class CodeGenerator:
 
                     # call object check and possibly report
                     code += gen.bool_var(res, gen.check_call(objid, val, vpath))
-                    code += self._gen_report(res, f"not an expected object [{smpath}]", vpath)
+                    code += self._gen_report(res, f"unexpected object [{smpath}]", vpath)
 
                     # record object function for path
                     self._paths[tuple(mpath)] = objid
