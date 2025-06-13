@@ -190,7 +190,42 @@ jmc --name PI Person-2.model.json pi.json
 pi.json: PASS
 ```
 
-## JSON Model with loose objects
+## JSON Model with Loose Objects
+
+People coming to JSON formatted data from strongly typed programming languages and relational
+databases often like strict types to detect potential errors as soon as possible.
+People coming to JSON from web application programming with weakly typed languages such as
+JavaScript or PHP and loose document-based storage such as MongoDB might prefer loose data
+structures which allow to add new properties silently.
+
+There is no way to please everybody. Prioritizing data safety, JSON models are strict (closed)
+by default, but can be easily extended to allow unknown properties with a special empty
+string property, which is consistent with `""` representing _any_ string.
+
+Hence, with file `Loose.model.json`:
+
+```json
+{
+  "$": { "Name": "/^(\\w+ ?)+$/" },
+  "name": "$Name",
+  "birth": "$DATE",
+  "?friends": [ "$Name" ],
+  "": "$ANY"
+}
+```
+
+The model is loosened thus accepts a person extended with unspecified properties having _any_ value.
+However, this model would silently ignore the property name typo in file `moe.json`
+because it is covered by the catch-all property:
+
+```json
+jmc Loose.model.json moe.json
+```
+```
+moe.json: PASS
+```
+
+This leads to ignore typos on optional property names.
 
 ## JSON Model with alternatives
 

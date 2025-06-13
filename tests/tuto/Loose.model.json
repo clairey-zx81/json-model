@@ -1,0 +1,7 @@
+{
+  "$": { "Name": "/^(\\w+ ?)+$/" },
+  "name": "$Name",
+  "birth": "$DATE",
+  "?friends": [ "$Name" ],
+  "": "$ANY"
+}
