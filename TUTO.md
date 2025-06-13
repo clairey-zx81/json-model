@@ -108,7 +108,7 @@ by the model, which yields to the conclusion that the object at the root `.` is 
 The JSON path in square brackets `[.]` indicates where in the _model_ the
 ruled was found whereas the path before the `:` indicates where in the _value_ it failed.
 
-Note: for efficiency, the validation stops at the first encountered error which invalidates the
+:+1: for efficiency, the validation stops at the first encountered error which invalidates the
 value: if a value includes several root errors, only one is reported.
 
 ## JSON Model with Constrained Strings
