@@ -218,7 +218,7 @@ The model is loosened thus accepts a person extended with unspecified properties
 However, this model silently ignores the property name typo in file `moe.json`
 because it is covered by the catch-all property:
 
-```json
+```sh
 jmc Loose.model.json moe.json
 ```
 ```
