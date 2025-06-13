@@ -31,8 +31,10 @@ jmc --loose-number Town beijing.json shanghai.json
 jmc University psl.json
 
 # playing with constraints
+
+jmc -r Tournament musketeers.json 3_musketeers.json
+
 # transforming models
-# larger examples
 
 # prefering yaml or js
 jmc -r Person-0.model.json hobbes.json moe.json
@@ -52,3 +54,4 @@ jmc -o person.py Person-2    # Python script
 
 # exporting to JSON Schema
 # importing from JSON Schema
+# larger examples
