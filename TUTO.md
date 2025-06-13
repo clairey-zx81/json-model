@@ -96,7 +96,7 @@ Then we can invoke the `jmc -r` command (the option triggers reporting the reaso
 validation failures) to validate this value with the person model:
 
 ```sh
-jmc -r person.model.json moe.json
+jmc -r person-0.model.json moe.json
 ```
 ```
 moe.json: FAIL (.: not an expected object [.]; .friend: unexpected prop [.])
@@ -166,12 +166,12 @@ This model defines 3 named models (in the `$` property), which can be referenced
 in definitions and as the root target type after ('@' property), and also includes a
 comment (`#`).
 
-Special one-letter properties are used by JSON Model to extend models beyond simple
-type inference. The choice of short special characters avoids confusion with word-based
+Special properties (`# $ @`) are used by JSON Model to extend models beyond simple
+type inference. The choice of short symbols avoids confusion with word-based
 property names used in typical JSON data structures.
 
 Sentinel characters are used at the beginning of strings to embed special semantics,
-such as regular expressions (`/`), references to named models (`$`) or constants (`=`).
+such as regular expressions (`/`), references to named models (`$`) or scalar constants (`=`).
 
 ## JSON Model with loose objects
 
