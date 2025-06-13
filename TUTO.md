@@ -430,9 +430,7 @@ psl.json: PASS
 
 ## Playing with Constraints
 
-## Transformating Models
-
-## Larger Examples
+## Transforming Models
 
 ## Preferring YaML or JS
 
@@ -471,12 +469,55 @@ jmc -r Person-0.model.js hobbes.json moe.json
 ## Running with C, JS or Python
 
 The JSON Model compiler can generate C, JavaScript or Python validation code, ready to be
-imported for checking values.
+imported for checking values:
 
-TODO
+```sh
+jmc -o person.o Person-2            # C object file
+jmc -o person.mjs Person-2          # JavaScript Module
+jmc -o person.py --module Person-2  # Python Module
+```
+
+The JSON Model compiler also allows to create actual test executables or scripts which can be used
+for validation or performance testing, including option `-T` to loop over a value so as to
+compute the average and standard deviation times in µs.
+
+C executable:
+
+```sh
+jmc -o person.out Person-2
+./person.out -T 1000000 hobbes.json
+```
+```
+hobbes.json: 0.337 ± 0.898 µs/check (0.143)
+hobbes.json: PASS
+```
+
+NodeJS script:
+
+```sh
+jmc -o person.js Person-2
+./person.js -T 1000000 hobbes.json
+```
+```
+hobbes.json: 0.540 ± 0.884 µs (0.032)
+hobbes.json: PASS
+```
+
+Python script:
+
+```sh
+jmc -o person.py Person-2
+./person.py -T 100000 hobbes.json
+```
+```
+hobbes.json: 8.675 ± 4.096 µs/call (0.046)
+hobbes.json: PASS
+```
 
 ## Exporting to JSON Schema
 
 ## Importing from JSON Schema
+
+## Larger Examples
 
 ## Conclusion

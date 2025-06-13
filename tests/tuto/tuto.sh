@@ -41,4 +41,14 @@ jmc -r Person-0.model.js hobbes.json moe.json
 
 # running with C, JS or Python
 
+jmc -o person.out Person-2   # C executable
+./person.out -T 1000000 hobbes.json
+
+jmc -o person.js Person-2    # JavaScript script
+./person.js -T 1000000 hobbes.json
+
+jmc -o person.py Person-2    # Python script
+./person.py -T 100000 hobbes.json
+
 # exporting to JSON Schema
+# importing from JSON Schema
