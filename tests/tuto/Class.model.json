@@ -1,0 +1,5 @@
+{
+  "$": { "pv2": "$./Person-2" },
+  "name": "$pv2#Name",
+  "students": [ "$pv2#Person" ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "CM1",
+  "students": [
+    { "name": "Susie", "birth": "2016-10-14" },
+    { "name": "Calvin", "birth": "2016-03-20" }
+  ]
+}

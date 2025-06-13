@@ -96,10 +96,11 @@ Let us try a value which does not match because of a typo on a property name
 ```
 
 Then we can invoke the `jmc -r` command (the option triggers _reporting_ the reason for
-validation failures) to validate this value with the person model:
+validation failures) to validate this value with the person model (the `.model.json` suffix
+is added automatically):
 
 ```sh
-jmc -r Person-0.model.json moe.json
+jmc -r Person-0 moe.json
 ```
 ```
 moe.json: FAIL (.: unexpected object [.]; .friend: unexpected prop [.])
@@ -141,8 +142,8 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 Then the validation is strict enough to invalidate this value:
 
 ```sh
-jmc Person-0.model.json elysee.json  # PASS
-jmc Person-1.model.json elysee.json  # FAIL
+jmc Person-0 elysee.json  # PASS
+jmc Person-1 elysee.json  # FAIL
 ```
 
 ## Using Definitions
@@ -189,10 +190,49 @@ for instance with file `pi.json`:
 We can check that its content conforms to PI definition:
 
 ```sh
-jmc --name PI Person-2.model.json pi.json
+jmc --name PI Person-2 pi.json
 ```
 ```
 pi.json: PASS
+```
+
+## Reusing Definitions
+
+A common use case is to define some data structure and to reuse them in other
+related settings, much like one would _import_ a module or _include_ a header file.
+
+JSON Model allows definitions to be local or remote URLs so as to fetch and reuse
+models easily.
+Let us write file `Class.model.json` which reuses `Person-2.model.json`
+contents for defining the class name and array of students:
+
+```json
+{
+  "$": { "pv2": "$./Person-2" },
+  "name": "$pv2#Name",
+  "students": [ "$pv2#Person" ]
+}
+```
+
+Then file `cm1.json`:
+
+```json
+{
+  "name": "CM1",
+  "students": [
+    { "name": "Susie", "birth": "2016-10-14" },
+    { "name": "Calvin", "birth": "2016-03-20" }
+  ]
+}
+```
+
+Validates:
+
+```sh
+jmc Class cm1.json
+```
+```
+cm1.json: PASS
 ```
 
 ## Loosening Objects
@@ -224,7 +264,7 @@ However, this model silently ignores the property name typo in file `moe.json`
 because it is covered by the catch-all property:
 
 ```sh
-jmc Loose.model.json moe.json
+jmc Loose moe.json
 ```
 ```
 moe.json: PASS
@@ -275,7 +315,7 @@ It matches both files `marseille.json` and `seoul-tokyo.json`:
 ```
 
 ```sh
-jmc Geom.model.json marseille.json seoul-tokyo.json
+jmc Geom marseille.json seoul-tokyo.json
 ```
 ```
 marseille.json: PASS
@@ -321,7 +361,7 @@ be floating point numbers, thus for files `beijing.json` and `shanghai.json`:
 The first one is valid but the second is rejected:
 
 ```sh
-jmc Town.model.json beijing.json shanghai.json
+jmc Town beijing.json shanghai.json
 ```
 ```
 beijing.json: PASS
@@ -332,7 +372,7 @@ This behavior can be loosen with option `--loose-number`, or by adding a special
 `JSON_MODEL_LOOSE_NUMBER` at the root comment.
 
 ```sh
-jmc --loose-number Town.model.json beijing.json shanghai.json
+jmc --loose-number Town beijing.json shanghai.json
 ```
 ```
 beijing.json: PASS
@@ -341,15 +381,16 @@ shanghai.json: PASS
 
 ## Composing Objects
 
-## Playing with Constraints
+When building large JSON data structures a common use case is to combine object definitions,
+somehow like object inheritance.
 
-## Reusing Definitions
+## Playing with Constraints
 
 ## Transformating Models
 
 ## Larger Examples
 
-## Preferring YaML or JS.
+## Preferring YaML or JS
 
 JSON is convenient for exchanging data between computer programs, especially across languages
 and over networks. However, it is not a very friendly format for humans, thus actually typing
@@ -378,6 +419,7 @@ birth: "$DATE"
 Both these formats are converted to JSON and can be used as JSON Model:
 
 ```sh
+jmc Person-0.model.json hobbes.json moe.json
 jmc Person-0.model.yaml hobbes.json moe.json
 jmc Person-0.model.js hobbes.json moe.json
 ```
