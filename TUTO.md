@@ -119,7 +119,7 @@ which does not represent a person:
 
 ```json
 {
-  "name": "Élysée Palace, 55 rue du Faubourd Saint-Honoré, 75008 Paris, France.",
+  "name": "Élysée Palace, 55 rue du Faubourg Saint-Honoré, 75008 Paris, France.",
   "birth": "1722",
   "friends": [ "2", "3", "5", "7", "11" ]
 }
