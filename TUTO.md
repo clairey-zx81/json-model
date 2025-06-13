@@ -172,9 +172,9 @@ This model defines 3 named sub-models (in the `$` property), which can be refere
 in definitions and as the root target type after (`@` property), and also includes a
 comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
 
-Special properties (`# $ @`) are used by JSON Model to extend models beyond simple
+Symbol properties (`# $ @`) are used by JSON Model to extend models beyond simple
 type inference. The choice of short symbols avoids confusion with word-based
-property names used in typical JSON data structures.
+property names found in typical JSON data structures.
 
 Sentinel characters are used at the beginning of strings to embed special semantics,
 such as regular expressions (`/`), references to named models (`$`) or scalar constants
@@ -383,7 +383,50 @@ shanghai.json: PASS
 ## Composing Objects
 
 When building large JSON data structures a common use case is to combine object definitions,
-somehow like object inheritance.
+much like inheritance in some languages.
+
+Let us use the _merge_ (`+`) operator to compose objects with different set of properties,
+in file `University.model.json`, with students and factuties which are both persons:
+
+```json
+{
+  "#": "People at the University",
+  "$": {
+    "#": "Student and Faculty inherit properties from Person",
+    "Person": { "name": "", "birth": "$DATE" },
+    "Student": { "+": [ "$Person", { "class": 1 } ] },
+    "Faculty": { "+": [ "$Person", { "domain": "" } ] }
+  },
+  "name": "",
+  "students": [ "$Student" ],
+  "faculties": [ "$Faculty" ]
+}
+```
+
+And the JSON value in file `psl.json`:
+
+```json
+{
+  "name": "PSL",
+  "faculties": [
+    { "name": "Susie", "birth": "1980-10-14", "domain": "CS" },
+    { "name": "Calvin", "birth": "1980-03-20", "domain": "CS" }
+  ],
+  "students": [
+    { "name": "Moe", "birth": "2001-01-01", "class": 42 },
+    { "name": "Rosalyn", "birth": "2002-02-02", "class": 17 }
+  ]
+}
+```
+
+Which validates:
+
+```sh
+jmc University psl.json
+```
+```
+psl.json: PASS
+```
 
 ## Playing with Constraints
 

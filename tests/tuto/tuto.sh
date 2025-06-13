@@ -28,6 +28,8 @@ jmc -r Town beijing.json shanghai.json
 jmc --loose-number Town beijing.json shanghai.json
 
 # composing objects
+jmc University psl.json
+
 # playing with constraints
 # transforming models
 # larger examples

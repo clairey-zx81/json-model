@@ -1,0 +1,12 @@
+{
+  "#": "People at the University",
+  "$": {
+    "#": "Student and Faculty inherit properties from Person",
+    "Person": { "name": "", "birth": "$DATE" },
+    "Student": { "+": [ "$Person", { "class": 1 } ] },
+    "Faculty": { "+": [ "$Person", { "domain": "" } ] }
+  },
+  "name": "",
+  "students": [ "$Student" ],
+  "faculties": [ "$Faculty" ]
+}
