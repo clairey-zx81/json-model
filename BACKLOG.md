@@ -13,27 +13,27 @@
 - [x] js-backend: add javascript backend and runtime and working tests
 - [x] c-backend: add `qsort_r` code for Windows and MacOS (blind)
 - [x] backend: add `path` and `rep` to str functions
+- [x] tests: fix strange issue with `make check` in `mv-03`
+- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
+- [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
-- [ ] tests: fix strange issue with `make check` in `mv-03`
 - [ ] static: keep deep names?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
 - [ ] models: update JSON model meta-model with regex extension…
-- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.values.json`) 
+- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.model.json`)
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] c-backend: remove path build under no reporting code gen
-- [ ] static: fix double reports, eg constraint type and constraints
 - [ ] static: make loose/strict work locally, triggered by `$name` root comments
 - [ ] optim: root xor should be simplified in `geo.model.json`, maybe with inlining?
 - [ ] python: how to keep looseness after inlining?
 - [ ] static: multi-type object disjunction?
 - [ ] tests: fix `./rwt/json-schema-draft-next-fuzzy.x.c unused variable res`
 - [ ] tests: allow options for specific tests from pytest
-- [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF`?
@@ -42,6 +42,8 @@
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] command: write a man-page or similar
+- [ ] command: regex engine selection?
+- [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 
 ## To Do
 
@@ -144,7 +146,6 @@
 - [ ] js/ts-backend: look at JSON Schema implementations?
 - [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
-- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
