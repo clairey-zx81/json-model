@@ -38,7 +38,7 @@ values involving scalars, arrays and objects.
   and utf-8 strings in double quotes.
 - **arrays**: a possibly empty list of JSON elements between square brackets (`[` and `]`)
   with comma `,` as a separator.
-- **objects**: a mapping of property names (strings) to JSON values between curly braces 
+- **objects**: a mapping of property names (strings) to JSON values between curly braces
   (`{` and `}`) with colons `:` and commas `,` as separators.
 
 For instance, the following object can represent a person with their name, birth date and array
@@ -54,24 +54,25 @@ of friend names, that you can put in File `hobbes.json` using your favorite text
 
 ## JSON Model for a Person
 
-A possible model for this data structure, in file `person.model.json`, is:
+A possible model simplistic model declaration for this data structure,
+in file `person-0.model.json`, is:
 
 ```json
 {
   "name": "",
-  "birth": "$DATE",
+  "birth": "",
   "?friends": [ "" ]
 }
 ```
 
-The object properties are directly mapped to simple values: `""` stands for any string, `"$DATE"`
-for a predefined which must match a valid date, `[ "" ]` an array of any number of strings.
+The object properties are directly mapped to simple values: `""` stands for any string,
+and `[ "" ]` an array of any number of strings.
 The `?` sentinel character in the `"?friends"` property name indicates an optional property.
 
 Check that the value matches the model:
 
 ```sh
-jmc person.model.json hobbes.json
+jmc person-0.model.json hobbes.json
 ```
 
 Should yield:
@@ -106,13 +107,70 @@ by the model, which yields to the conclusion that the object at the root `.` is 
 The JSON path in square brackets `[.]` indicates where in the _model_ the
 ruled was found whereas the path before the `:` indicates the where in the _value_ it failed.
 
+Note: for efficiency, the validation stops on the first error which invalidates the value:
+if a value includes several root errors, only one is reported.
+
+## JSON Model with Constrained Strings
+
+Our first model has no constraints on strings, thus validates file `elysee.json`:
+
+```json
+{
+  "name": "Élysée Palace, 55 rue du Faubourd Saint-Honoré, 75008 Paris, France.",
+  "birth": "1722",
+  "friends": [ "2", "3", "5", "7", "11" ]
+}
+```
+
+We can improve it by constraining strings with regular expressions (between `/.../`)
+and predefined types (`$...`), in file `person-1.model.json`:
+
+```json
+{
+  "name": "/^(\\w+ ?)+$/",
+  "birth": "$DATE",
+  "?friends": [ "/^(\\w+ ?)+$/" ]
+}
+```
+
+Then:
+
+```sh
+jmc person-0.model.json elysee.json  # PASS
+jmc person-1.model.json elysee.json  # FAIL
+```
+
+## JSON Model with definitions
+
+The previous model includes a regex which is hard to read.
+It can use definitions which can be reused to enhance readability and help structuring
+types, in file `person-2.model.json`:
+
+```json
+{
+  "#": "Definition of a person",
+  "$": {
+    "Name": "/^(\\w+ ?)+$/",
+    "Person": {
+      "name": "$Name",
+      "birth": "$DATE",
+      "?friends": [ "$Name" ]
+    }
+  },
+  "@": "$Person"
+}
+```
+
+This model defines two named models (`$` section), which are referenced with `"$..."`
+in definitions and as the root target type after ('@' is the target), and also includes a
+comment (`#`).
+
 ## JSON Model with numbers
 
 ## JSON Model with loose objects
 
 ## JSON Model with alternatives
 
-## JSON Model with definitions
 
 ## JSON Model with object compositions
 
