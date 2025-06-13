@@ -428,7 +428,44 @@ jmc University psl.json
 psl.json: PASS
 ```
 
+This feature is made even more powerful when used with references which can point to models
+defined in other files, so that object models can be reused anywhere.
+
 ## Playing with Constraints
+
+A infrequent but convenient use case is to add constaints about types such as the
+length of a string the number of items of an array or the number of properties of an object.
+Let us consider file `Tournament.model.json` where 4 distinct players must be listed:
+
+```json
+{
+  "@": [ "" ],
+  "!": true,
+  "=": 4
+}
+```
+
+The target model (`@`) is an array of strings, which must be distinct (`!` is _true_), the
+array length must be equal (`=`) to _4_.
+
+The value file `musketeers.json` and `3_musketeers.json`:
+
+```json
+[ "Athos", "Porthos", "Aramis", "D'Artagnan" ]
+```
+```json
+[ "Athos", "Porthos", "Aramis" ]
+```
+
+May or may not validate:
+
+```sh
+jmc -r Tournament musketeers.json 3_musketeers.json
+```
+```
+musketeers.json: PASS
+3_musketeers.json: FAIL (.: constraints failed [.])
+```
 
 ## Transforming Models
 
