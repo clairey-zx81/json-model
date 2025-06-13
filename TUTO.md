@@ -225,7 +225,7 @@ jmc Loose.model.json moe.json
 moe.json: PASS
 ```
 
-This leads to ignoring typos on optional property names, which is seldom a good idea.
+:warning: This leads to ignoring typos on optional property names, which is seldom a good idea.
 
 ## JSON Model with alternatives
 
