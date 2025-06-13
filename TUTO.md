@@ -3,7 +3,7 @@
 JSON Model is a JSON language to describe JSON data structures.
 Its objective is similar to [JSON Schema](https://json-schema.org/), but with
 a user-friendly, compact and intuitive syntax which relies on type inference,
-so that simple objects are typically described with example values.
+so that simple objects are typically described with sample values.
 
 This tutorial aims at learning briefly the JSON Model syntax and how to use
 the `jmc` command for validating values directly.
@@ -12,7 +12,7 @@ For integrating JSON Model in a project, see [HowTo](HOWTO.md).
 ## Installation
 
 First, let us create a directory and install a Python virtual environment with the JSON Model
-Compiler. In a Linux, MacOS or Windows with WSL terminal, type:
+Compiler. In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
 
 ```sh
 mkdir json-model-tutorial
@@ -22,7 +22,7 @@ source venv/bin/activate
 pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
-Check that the `jmc` command is indeed available by checking its version:
+Check that the `jmc` command is indeed available by asking for its version:
 
 ```sh
 jmc --version
@@ -77,9 +77,6 @@ Let us check that our initial value matches the model by invoking the `jmc` comm
 ```sh
 jmc Person-0.model.json hobbes.json
 ```
-
-Should yield:
-
 ```
 hobbes.json: PASS
 ```
