@@ -220,7 +220,9 @@ def jmc_script():
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
-    arg("--no-reporting", dest="reporting", action="store_false", default=True,
+    arg("--reporting", action="store_true", default=True,
+        help="add reporting capabilities (default)")
+    arg("--no-reporting", dest="reporting", action="store_false",
         help="remove reporting capabilities")
 
     arg("--executable", dest="gen", default=None, action="store_const", const="exec",
@@ -457,14 +459,13 @@ def jmc_script():
 
     def _process(checker, model: str, value: Jsonable, fid: str, expect: bool|None, output) -> bool:
         """Process a value and report to output depending on args, return if as expected."""
-        collect = args.report and args.op in "X"
-        reasons = [] if collect else None
+        reasons = [] if args.report else None
         okay = checker(value, model, reasons)
         sokay = "PASS" if okay else "FAIL"
         if expect is None or args.verbose or fid[-1] == "]":
             msg = f"{fid}: {sokay}"
             if not okay and args.report and reasons:
-                msg += " (" + "; ".join(f"{json_path(p)}: {m}" for m, p in reasons) + ")"
+                msg += " (" + "; ".join(f"{json_path(p)}: {m}" for m, p in reversed(reasons)) + ")"
             print(msg, file=output)
         if expect is not None:
             if okay == expect:
