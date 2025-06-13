@@ -33,9 +33,9 @@ jmc --loose-number Town beijing.json shanghai.json
 # larger examples
 
 # prefering yaml or js
-jmc Person-0.model.json hobbes.json moe.json
-jmc Person-0.model.yaml hobbes.json moe.json
-jmc Person-0.model.js hobbes.json moe.json
+jmc -r Person-0.model.json hobbes.json moe.json
+jmc -r Person-0.model.yaml hobbes.json moe.json
+jmc -r Person-0.model.js hobbes.json moe.json
 
 # running with C, JS or Python
 

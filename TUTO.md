@@ -214,7 +214,7 @@ contents for defining the class name and array of students:
 }
 ```
 
-Then file `cm1.json`:
+Then value file `cm1.json`:
 
 ```json
 {
@@ -274,9 +274,9 @@ moe.json: PASS
 
 ## Having Alternatives
 
-A frequent pattern is allow several kind of object as some point in the data structure.
+A common pattern is allow several kind of object as some point in the data structure.
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
-(or, any-of) property with the list of objects.
+(or, any-of) property with a list of models.
 
 Consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for defining a point and a segment objects which are
@@ -323,8 +323,9 @@ seoul-tokyo.json: PASS
 ```
 
 When defining such unions, it is much better to include a discriminant property (here `type`)
-with distinct constant value: it is detected by the JSON Model compiler and used to generate
-efficient code which only checks for the relevant object.
+with distinct constant value (here string constants introduced with `_`):
+it is detected by the JSON Model compiler and used to generate efficient code which only checks
+for the relevant object.
 
 ## Numbers vs Numbers
 
@@ -419,9 +420,9 @@ birth: "$DATE"
 Both these formats are converted to JSON and can be used as JSON Model:
 
 ```sh
-jmc Person-0.model.json hobbes.json moe.json
-jmc Person-0.model.yaml hobbes.json moe.json
-jmc Person-0.model.js hobbes.json moe.json
+jmc -r Person-0.model.json hobbes.json moe.json
+jmc -r Person-0.model.yaml hobbes.json moe.json
+jmc -r Person-0.model.js hobbes.json moe.json
 ```
 
 ## Running with C, JS or Python
