@@ -28,16 +28,15 @@ Check that the `jmc` command is indeed available by asking for its version:
 jmc --version
 ```
 
-Add the different example values and models discussed below in this directory
-so as to test the compiler.
+Add the example values and models discussed below in this directory for testing.
 
 ## JSON – JavaScript Object Notation
 
 [JSON](https://www.json.org/) is a simple text serialization format to represent structured
 values involving scalars, arrays and objects.
 
-- **scalars**: `null`, `true`, `false`, integers or floats (collectively named `number` in JSON),
-  and utf-8 strings in double quotes.
+- **scalars**: `null`, `true`, `false`, integers or floats (collectively named _number_ in JSON),
+  and double-quoted utf-8 strings.
 - **arrays**: a possibly empty list of JSON elements between square brackets (`[` and `]`)
   with comma `,` as a separator.
 - **objects**: a mapping of property names (strings) to JSON values between curly braces
@@ -67,10 +66,10 @@ in file `Person-0.model.json`, is:
 }
 ```
 
-The object properties are directly mapped to simple values: `""` stands for any string,
+Object property names are directly mapped to simple values: `""` stands for any string
 and `[ "" ]` an array of any number of strings, thanks to type inference.
 The `?` sentinel character in the `"?friends"` property name indicates an _optional_ property,
-other properties are _mandatory_ by default.
+whereas other properties are _mandatory_ by default.
 
 Let us check that our initial value matches the model by invoking the `jmc` command:
 
@@ -92,7 +91,7 @@ Let us try a value which does not match because of a typo on a property name
 }
 ```
 
-Then we can invoke the `jmc -r` command (the option triggers _reporting_ the reason for
+Let us invoke the `jmc -r` command (the option triggers _reporting_ the reason for
 validation failures) to validate this value with the person model (the `.model.json` suffix
 is added automatically):
 
@@ -110,11 +109,11 @@ ruled was found whereas the path before the `:` indicates where in the _value_ i
 
 :+1: For efficiency, the validation stops at the first encountered error which invalidates the
 value: if a value includes several root errors, only one is reported, plus
-cumulative failures along the path yielding to this error.
+cumulative failures along the path yielding to this error and invalidating the whole value.
 
 ## Constraining Strings
 
-Our first model has no constraints on strings, thus also validates file `elysee.json`
+Our first model has no string constraints, thus also validates file `elysee.json`
 which does not represent a person:
 
 ```json
@@ -130,13 +129,13 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 
 ```json
 {
-  "name": "/^(\\w+ ?)+$/",
+  "name": "/^\\w+( \\w+)*$/",
   "birth": "$DATE",
-  "?friends": [ "/^(\\w+ ?)+$/" ]
+  "?friends": [ "/^\\w+( \\w+)*$/" ]
 }
 ```
 
-Then the validation is strict enough to invalidate this value:
+The model is strict enough to invalidate this value:
 
 ```sh
 jmc Person-0 elysee.json  # PASS
@@ -153,7 +152,7 @@ with file `Person-2.model.json`:
 {
   "#": "Definition of a Person",
   "$": {
-    "Name": "/^(\\w+ ?)+$/",
+    "Name": "/^\\w+( \\w+)*$/",
     "Person": {
       "name": "$Name",
       "birth": "$DATE",
@@ -165,9 +164,9 @@ with file `Person-2.model.json`:
 }
 ```
 
-This model defines 3 named sub-models (in the `$` property), which can be referenced with `"$..."`
-in definitions and as the root target type after (`@` property), and also includes a
-comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
+This model defines 3 named sub-models (inside the `$` property), which can be referenced
+with `"$..."` in definitions and as the root target type after (`@` property), and also includes
+a comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
 
 Symbol properties (`# $ @`) are used by JSON Model to extend models beyond simple
 type inference. The choice of short symbols avoids confusion with word-based
@@ -184,22 +183,19 @@ for instance with file `pi.json`:
 3.141592653589793238462643
 ```
 
-We can check that its content conforms to PI definition:
+We can check that its content conforms to PI definitionn inside the `Person-2` model:
 
 ```sh
-jmc --name PI Person-2 pi.json
-```
-```
-pi.json: PASS
+jmc --name PI Person-2 pi.json  # PASS
 ```
 
 ## Reusing Definitions
 
 A common use case is to define some data structure and to reuse them in other
 related settings, much like one would _import_ a module or _include_ a header file.
-
 JSON Model allows definitions to be local or remote URLs so as to fetch and reuse
-models easily.
+external models easily.
+
 Let us write file `Class.model.json` which reuses `Person-2.model.json`
 contents for defining the class name and array of students:
 
@@ -226,10 +222,7 @@ Then value file `cm1.json`:
 Validates:
 
 ```sh
-jmc Class cm1.json
-```
-```
-cm1.json: PASS
+jmc Class cm1.json  # PASS
 ```
 
 ## Loosening Objects
@@ -237,18 +230,17 @@ cm1.json: PASS
 People coming to JSON formatted data from strongly typed programming languages and relational
 databases often like strict types to detect potential errors as soon as possible.
 People coming to JSON from web application programming with weakly typed languages such as
-JavaScript or PHP and loose document-based storage such as MongoDB might prefer loose data
+JavaScript or PHP and loose document-based storage such as MongoDB may prefer loose data
 structures which allow to add new properties silently.
 
 There is no way to please everybody. Prioritizing data safety, JSON models are strict (closed)
 by default, but can be easily extended to allow unknown properties with a special empty
 string property, which is consistent with `""` representing _any_ string.
-
 Hence, with file `Loose.model.json`:
 
 ```json
 {
-  "$": { "Name": "/^(\\w+ ?)+$/" },
+  "$": { "Name": "/^\\w+( \\w+)*$/" },
   "name": "$Name",
   "birth": "$DATE",
   "?friends": [ "$Name" ],
@@ -256,28 +248,24 @@ Hence, with file `Loose.model.json`:
 }
 ```
 
-The model is loosened thus accepts a person extended with unspecified properties having _any_ value.
+The model is loosened to accept a person extended with unspecified properties having _any_ value.
 However, this model silently ignores the property name typo in file `moe.json`
 because it is covered by the catch-all property:
 
 ```sh
-jmc Loose moe.json
-```
-```
-moe.json: PASS
+jmc Loose moe.json  # PASS
 ```
 
 :warning: This leads to ignoring typos on optional property names, which is seldom a good idea.
 
 ## Having Alternatives
 
-A common pattern is allow several kind of object as some point in the data structure.
+A common pattern is to allow several kind of object as some point in the data structure.
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
-(or, any-of) property with a list of models.
+(or, any-of) property with a list of possible models.
 
 Consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
-a pair of numbers, and use it for defining a point and a segment objects which are
-allowed at the root of the model:
+a pair of numbers, and use it for point and segment objects:
 
 ```json
 {
@@ -295,7 +283,7 @@ allowed at the root of the model:
 }
 ```
 
-It matches both files `marseille.json` and `seoul-tokyo.json`:
+The model matches both files `marseille.json` and `seoul-tokyo.json`:
 
 ```json
 {
@@ -312,41 +300,37 @@ It matches both files `marseille.json` and `seoul-tokyo.json`:
 ```
 
 ```sh
-jmc Geom marseille.json seoul-tokyo.json
-```
-```
-marseille.json: PASS
-seoul-tokyo.json: PASS
+jmc Geom marseille.json seoul-tokyo.json  # PASS, PASS
 ```
 
 When defining such unions, it is much better to include a discriminant property (here `type`)
-with distinct constant value (here string constants introduced with `_`):
-it is detected by the JSON Model compiler and used to generate efficient code which only checks
-for the relevant object.
+with distinct scalar constant values (here strings introduced with `_`):
+The JSON Model compiler uses this to generate efficient code which only checks
+for the relevant object based on the discriminant.
 
 ## Numbers vs Numbers
 
-JSON actually defines a loose _Number_ type which can hold any floatting point or integer number.
+JSON only defines a loose _Number_ type which can hold any floating point or integer value.
 Internally, JavaScript uses `double` for everything.
 However, most programming languages differentiate integers from floats.
 
 JSON Model is not linked to the JavaScript ecosystem, thus supports actually distinguishing
 integers from floats, but can also be configured to be more tolerant.
 
-In the previous example, we used `-1.0` to represent a floatting point number in a coordinate.
+In the previous example, we used `-1.0` to represent a floating point number in a coordinate.
 JSON: This definition precludes validating against a strict integer, eg `5432` would be rejected.
 
 Consider the model in file `Town.model.json`, which defines a town objects:
 
 ```json
 {
-  "name": "/^(\\w+ ?)+$/",
+  "name": "/^\\w+( \\w+)*$/",
   "pop": 1,
   "coord": { "lat": -1.0, "lon": -1.0 }
 }
 ```
 
-The population _must_ be a positive integer, whereas `lat` and `long` coordinates _must_
+The population _must_ be a positive integer, whereas `lat` and `lon` coordinates _must_
 be floating point numbers, thus for files `beijing.json` and `shanghai.json`:
 
 ```json
@@ -370,11 +354,7 @@ This behavior can be loosen with option `--loose-number`, or by adding a special
 `JSON_MODEL_LOOSE_NUMBER` at the root comment.
 
 ```sh
-jmc --loose-number Town beijing.json shanghai.json
-```
-```
-beijing.json: PASS
-shanghai.json: PASS
+jmc --loose-number Town beijing.json shanghai.json  # PASS, PASS
 ```
 
 ## Composing Objects
@@ -389,7 +369,7 @@ in file `University.model.json`, with students and factuties which are both pers
 {
   "#": "People at the University",
   "$": {
-    "#": "Student and Faculty inherit properties from Person",
+    "#": "Student and Faculty inherit properties from Person and add their own",
     "Person": { "name": "", "birth": "$DATE" },
     "Student": { "+": [ "$Person", { "class": 1 } ] },
     "Faculty": { "+": [ "$Person", { "domain": "" } ] }
@@ -419,10 +399,7 @@ And the JSON value in file `psl.json`:
 Which validates:
 
 ```sh
-jmc University psl.json
-```
-```
-psl.json: PASS
+jmc University psl.json  # PASS
 ```
 
 This feature is made even more powerful when used with references which can point to models
@@ -445,7 +422,7 @@ Let us consider file `Tournament.model.json` where 4 distinct players must be li
 The target model (`@`) is an array of strings, which must be distinct (`!` is _true_), the
 array length must be equal (`=`) to _4_.
 
-The value file `musketeers.json` and `3_musketeers.json`:
+Value files `musketeers.json` and `3_musketeers.json`:
 
 ```json
 [ "Athos", "Porthos", "Aramis", "D'Artagnan" ]
@@ -466,20 +443,22 @@ musketeers.json: PASS
 
 ## Transforming Models
 
+
+
 ## Preferring YaML or JS
 
 JSON is convenient for exchanging data between computer programs, especially across languages
 and over networks. However, it is not a very friendly format for humans, thus actually typing
-JSON models can be quite cumbersome.
+a model can be quite cumbersome.
 
-In order to aleviate this drawback, this JSON Model implementation allows to use _YAML_  and
+In order to alleviate this drawback, this JSON Model implementation allows to use _YAML_  and
 _JavaScript_ files, which drop some overheads such as double quotes, braces and commas, and
 add comments:
 
 ```yaml
 # a yaml representation of a person in Person-0.model.yaml
 name: ""
-birth: "$DATE"
+birth: $DATE
 ?friends: [ "" ]
 ```
 
@@ -515,38 +494,45 @@ The JSON Model compiler also allows to create actual test executables or scripts
 for validation or performance testing, including option `-T` to loop over a value so as to
 compute the average and standard deviation times in µs.
 
-C executable:
+- C executable:
 
-```sh
-jmc -o person.out Person-2
-./person.out -T 1000000 hobbes.json
-```
-```
-hobbes.json: 0.337 ± 0.898 µs/check (0.143)
-hobbes.json: PASS
-```
+  ```sh
+  jmc -o person.out Person-2
+  ./person.out -T 1000000 hobbes.json
+  ```
+  ```
+  hobbes.json: 0.337 ± 0.898 µs/check (0.143)
+  hobbes.json: PASS
+  ```
+  
+- NodeJS script (provided that the small runtime is also installed):
+  
+  ```sh
+  jmc -o person.js Person-2
+  ./person.js -T 1000000 hobbes.json
+  ```
+  ```
+  hobbes.json: 0.540 ± 0.884 µs (0.032)
+  hobbes.json: PASS
+  ```
+  
+  Python script:
+  
+  ```sh
+  jmc -o person.py Person-2
+  ./person.py -T 100000 hobbes.json
+  ```
+  ```
+  hobbes.json: 8.675 ± 4.096 µs/call (0.046)
+  hobbes.json: PASS
+  ```
 
-NodeJS script:
-
-```sh
-jmc -o person.js Person-2
-./person.js -T 1000000 hobbes.json
-```
-```
-hobbes.json: 0.540 ± 0.884 µs (0.032)
-hobbes.json: PASS
-```
-
-Python script:
-
-```sh
-jmc -o person.py Person-2
-./person.py -T 100000 hobbes.json
-```
-```
-hobbes.json: 8.675 ± 4.096 µs/call (0.046)
-hobbes.json: PASS
-```
+These real performance figures deserve some comments: Most of the validation time
+is spent in the regular expression engine, and JIT compilation is quite effective,
+thus JavaScript performance is not that far from compiled code.
+However, a more typical JS-to-C validation performance ratio would be 4:1.
+Python is slow, the 25:1 ratio to compiled C is quite representative.
+Because the `-r` option is not used, there are no reporting overheads.
 
 ## Exporting to JSON Schema
 

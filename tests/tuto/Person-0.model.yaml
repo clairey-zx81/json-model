@@ -1,4 +1,4 @@
 # a yaml representation of a person
 name: ""
-birth: "$DATE"
+birth: $DATE
 ?friends: [ "" ]

@@ -1,5 +1,5 @@
 {
-  "$": { "Name": "/^(\\w+ ?)+$/" },
+  "$": { "Name": "/^\\w+( \\w+)*$/" },
   "name": "$Name",
   "birth": "$DATE",
   "?friends": [ "$Name" ],

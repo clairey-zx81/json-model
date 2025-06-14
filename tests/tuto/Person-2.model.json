@@ -1,7 +1,7 @@
 {
   "#": "Definition of a person",
   "$": {
-    "Name": "/^(\\w+ ?)+$/",
+    "Name": "/^\\w+( \\w+)*$/",
     "Person": {
       "name": "$Name",
       "birth": "$DATE",
