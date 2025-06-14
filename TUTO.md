@@ -540,6 +540,23 @@ Because the `-r` option is not used, there are no reporting overheads.
 
 ## Importing from JSON Schema
 
-## Larger Examples
-
 ## Conclusion
+
+JSON Model is a compact and intuitive syntax for describing JSON data structures used
+extensively to exchange data over networks, across programming languagess and storage.
+
+The power of JSON Model can be  illustrated with the
+[OpenAPI 3.1.1](https://github.com/clairey-zx81/json-model/blob/main/models/openapi-311.model.json)
+model:
+
+- it describes deeply nested objects with mostly optional properties.
+- it reuses and extends the
+  [JSON Schema model](https://github.com/clairey-zx81/json-model/blob/main/models/json-schema-draft-2020-12.model.json),
+  see `schema` and `Schema` definitions.
+
+This model is reused for defining an new OpenAPI standard where _models_ replace _schemas_,
+with a short (32 lines) transformation model, see
+[OpenAPI 3.1.1 with models](https://github.com/clairey-zx81/json-model/blob/main/models/openapi-311-models.model.json).
+
+- it add new definitions to import JSON Model model
+- replaces instances of schemas with instances of models where appropriate.

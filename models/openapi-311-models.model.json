@@ -11,6 +11,10 @@
     "$openapi#Schema": "$NONE",
     "$openapi#model": "$https://json-model.org/models/json-model",
     "$openapi#Model": "$model#Model",
+    "$openapi#OpenAPI": {
+       "/": "?jsonSchemaDialect",
+       "*": {"?jsonModelVersion": "$URL"}
+    },
     "$openapi#Components": {
       "/": "?schemas",
       "*": {"?models": {"": "$Model"}}
