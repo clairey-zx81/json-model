@@ -402,8 +402,10 @@ Which validates:
 jmc University psl.json  # PASS
 ```
 
-This feature is made even more powerful when used with references which can point to models
-defined in other files, so that object models can be reused anywhere.
+A special behavior of merging object is that the operator is distributive over `|` and
+`^`, which allows to add common properties to list of objects.
+Morover, the operator can be used with references which point to models defined in other files,
+so that object models can be reused anywhere.
 
 ## Playing with Constraints
 
@@ -516,7 +518,7 @@ compute the average and standard deviation times in µs.
   hobbes.json: PASS
   ```
   
-  Python script:
+- Python script:
   
   ```sh
   jmc -o person.py Person-2
