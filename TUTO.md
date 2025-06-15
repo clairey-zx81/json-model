@@ -577,9 +577,9 @@ $defs:
 $ref: '#/$defs/Person'
 ```
 
-A schema can also be converted to a model, although its lack structural constraint makes it
-harder. A partial converter is available with
-[json-schema-util](https://github.com/zx80/json-schema-utils):
+A schema can also be converted to a model, although its lack of structural constraint makes it
+harder. A partial converter which work with well-structured cases and support common schema
+keywords is available with [json-schema-util](https://github.com/zx80/json-schema-utils):
 
 ```sh
 jmc -E Person-2 | jsu-model
