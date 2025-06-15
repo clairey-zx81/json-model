@@ -53,3 +53,8 @@ check.pyright: dev
 check.tests: dev
 	source venv/bin/activate
 	$(MAKE) -C tests check
+
+.PHONY: publish.js
+publish.js:
+	npm publish --dry-run ./js_runtime
+	echo npm publish ./js_runtime
