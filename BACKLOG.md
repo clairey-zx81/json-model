@@ -47,6 +47,7 @@
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases?
+- [ ] js-backend: add official npm module?
 
 ## To Do
 
