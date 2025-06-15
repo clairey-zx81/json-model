@@ -1,5 +1,6 @@
 // JSON Model Runtime
 
+// return whether pattern is a regular expression ($REGEX)
 export function jm_is_valid_regex(pattern, extended, path, rep)
 {
     if (typeof pattern !== 'string' && !(pattern instanceof String))
@@ -14,6 +15,7 @@ export function jm_is_valid_regex(pattern, extended, path, rep)
     }
 }
 
+// return whether date is a valid date ($DATE)
 const MONTH_DAYS = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
 export function jm_is_valid_date(date, path, rep)
@@ -43,12 +45,14 @@ export function jm_is_valid_date(date, path, rep)
     }
 }
 
+// return whether uuid is a valid uuid ($UUID)
 export function jm_is_valid_uuid(uuid, path, rep)
 {
     return ((typeof uuid === 'string' || uuid instanceof String) && uuid.length === 36 &&
             /^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$/.exec(uuid) !== null)
 }
 
+// return whether url is a valid url ($URL)
 export function jm_is_valid_url(url, path, rep)
 {
     if (typeof url !== 'string' && ! url instanceof String)
@@ -63,13 +67,14 @@ export function jm_is_valid_url(url, path, rep)
     }
 }
 
+// return whether email is a valid email address ($EMAIL)
 export function jm_is_valid_email(email, path, rep)
 {
     return ((typeof email === 'string' || email instanceof String) &&
             /^[_a-zA-Z0-9.]+@[_a-zA-Z0-9.]+$/.exec(email) !== null)
 }
 
-// work around js abysmal type system
+// work around js abysmal type (?) system
 export function jm_typeof(val)
 {
     if (val === null)
@@ -88,6 +93,7 @@ export function jm_typeof(val)
     return 'object'
 }
 
+// array comparison
 export function jm_arr_cmp(a1, a2)
 {
     let s1 = a1.length, s2 = a2.length
@@ -103,6 +109,7 @@ export function jm_arr_cmp(a1, a2)
     return 0
 }
 
+// get a number value out of anything
 export function jm_number_value(v)
 {
     const t = jm_typeof(v)
@@ -115,6 +122,7 @@ export function jm_number_value(v)
     throw `cannot extract number from ${v}`
 }
 
+// object comparison
 export function jm_obj_cmp(o1, o2)
 {
     // get sorted property names
@@ -133,6 +141,7 @@ export function jm_obj_cmp(o1, o2)
     return 0
 }
 
+// JSON value comparison
 export function jm_cmp(v1, v2)
 {
     let t1 = jm_typeof(v1), t2 = jm_typeof(v2)
@@ -161,6 +170,7 @@ export function jm_array_is_unique(arr)
     return true
 }
 
+// check constraints
 export function jm_check_constraint(v1, op, v2, path, rep)
 {
     const t1 = jm_typeof(v1), t2 = jm_typeof(v2)
