@@ -153,6 +153,7 @@
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
+- [ ] ruby-backend: for rails people?
 - [ ] feature: add model predef for URI, URI-REF and the like
 - [ ] design: URI vs URL?
 - [ ] service: json to lang conversion API :-)
