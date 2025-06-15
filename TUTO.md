@@ -108,8 +108,8 @@ The JSON path in square brackets `[.]` indicates where in the _model_ the
 ruled was found whereas the path before the `:` indicates where in the _value_ it failed.
 
 :+1: For efficiency, the validation stops at the first encountered error which invalidates the
-value: if a value includes several root errors, only one is reported, plus
-cumulative failures along the path yielding to this error and invalidating the whole value.
+value: if a value includes several errors, only one is reported, plus cumulative failures along
+the path yielding to this error and invalidating the whole value.
 
 ## Constraining Strings
 
@@ -507,7 +507,15 @@ compute the average and standard deviation times in µs.
   hobbes.json: PASS
   ```
   
-- NodeJS script (provided that the small runtime is also installed):
+- NodeJS script:
+
+  First, install the needed runtime with:
+
+  ```
+  npm install json_model_runtime
+  ```
+
+  Then compile and run the generated validation node executable:
   
   ```sh
   jmc -o person.js Person-2

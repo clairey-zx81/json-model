@@ -1,9 +1,11 @@
 {
   "name": "json_model_runtime",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0-alpha2",
   "type": "module",
   "description": "JSON Model Runtime for JavaScript",
   "main": "index.js",
   "author": "Claire Yannou-Medrala and Fabien Coelho",
+  "homepage": "https://github.com/clairey-zx81/json-model",
+  "keywords": ["JSON", "JSON Model", "JSON Schema"],
   "license": "CC0-1.0"
 }
