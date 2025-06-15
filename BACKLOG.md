@@ -15,6 +15,7 @@
 - [x] backend: add `path` and `rep` to str functions
 - [x] tests: fix strange issue with `make check` in `mv-03`
 - [x] docs: add a tutorial tour
+- [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
