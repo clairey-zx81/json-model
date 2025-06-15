@@ -52,6 +52,8 @@ jmc -o person.js Person-2    # JavaScript script
 jmc -o person.py Person-2    # Python script
 ./person.py -T 100000 hobbes.json
 
-# exporting to JSON Schema
-# importing from JSON Schema
+# exporting to, importing from JSON Schema
+jmc -E -F yaml Person-2
+jmc -E Person-2 | jsu-model
+
 # larger examples
