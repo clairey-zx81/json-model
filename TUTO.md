@@ -363,7 +363,7 @@ When building large JSON data structures a common use case is to combine object 
 much like inheritance in some languages.
 
 Let us use the _merge_ (`+`) operator to compose objects with different set of properties,
-in file `University.model.json`, with students and factuties which are both persons:
+in file `University.model.json`, with students and faculties which are both persons:
 
 ```json
 {
