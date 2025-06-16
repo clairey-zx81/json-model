@@ -35,6 +35,7 @@ jmc University psl.json
 jmc -r Tournament musketeers.json 3_musketeers.json
 
 # transforming models
+jmc Person-3 hobbes.json
 
 # prefering yaml or js
 jmc -r Person-0.model.json hobbes.json moe.json
@@ -42,7 +43,6 @@ jmc -r Person-0.model.yaml hobbes.json moe.json
 jmc -r Person-0.model.js hobbes.json moe.json
 
 # running with C, JS or Python
-
 jmc -o person.out Person-2   # C executable
 ./person.out -T 1000000 hobbes.json
 
@@ -55,5 +55,3 @@ jmc -o person.py Person-2    # Python script
 # exporting to, importing from JSON Schema
 jmc -E -F yaml Person-2
 jmc -E Person-2 | jsu-model
-
-# larger examples
