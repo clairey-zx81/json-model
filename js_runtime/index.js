@@ -45,6 +45,31 @@ export function jm_is_valid_date(date, path, rep)
     }
 }
 
+export function jm_is_valid_time(time, path, rep)
+{
+    return ((typeof time === 'string' || time instanceof String) &&
+            /^[T ]?([01][0-9]|2[0-3]):?[0-5][0-9]:?[0-5][0-9](\.[0-9]{3})?(Z|[-+][0-9]{2}(:?[0-5][0-9])?)?$/.exec(time) != null)
+}
+
+export function jm_is_valid_datetime(datetime, path, rep)
+{
+    if (typeof datetime !== 'string' && !(datetime instanceof String))
+        return false
+    let okay = jm_is_valid_date(datetime.slice(0, 10), path, rep)
+    if (!okay) {
+        if (rep) rep.push(["invalid date part in $DATETIME", path])
+        return false
+    }
+    if (datetime[10] !== 'T' && datetime[10] !== ' ') {
+        if (rep) rep.push(["invalid date-time separator in $DATETIME", path])
+        return false
+    }
+    okay = jm_is_valid_time(datetime.slice(10), path, rep)
+    if (!okay && rep)
+        rep.push(["invalid time part in $DATETIME", path])
+    return okay
+}
+
 // return whether uuid is a valid uuid ($UUID)
 export function jm_is_valid_uuid(uuid, path, rep)
 {

@@ -8,6 +8,8 @@ from .utils import is_cst, cst
 PREDEF_TYPES = {
     "$STRING": "string",
     "$DATE": "string",
+    "$TIME": "string",
+    "$DATETIME": "string",
     "$REGEX": "string",
     "$EXREG": "string",
     "$UUID": "string",
@@ -29,6 +31,8 @@ PREDEF_TYPES = {
 
 PREDEF_FORMATS = {
     "$DATE": "date",
+    "$TIME": "time",
+    "$DATETIME": "datetime",
     "$URL": "uri",
     "$REGEX": "regex",
     # not "$EXREG"?

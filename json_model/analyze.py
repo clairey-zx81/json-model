@@ -191,8 +191,10 @@ _UTYPE = {
     "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
     "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,
-    "$URL": str, "$REGEX": str, "$DATE": str, "$UUID": str,
-    "$URI": str, "$EMAIL": str, "$EXREG": str,
+    "$URL": str, "$URI": str, "$EMAIL": str,
+    "$REGEX": str, "$EXREG": str,
+    "$DATE": str, "$TIME": str, "$DATETIME": str,
+    "$UUID": str,
 }
 
 
@@ -263,6 +265,8 @@ _UMODEL = {
     "$REGEX": "$REGEX",
     "$EXREG": "$EXREG",
     "$DATE": "$DATE",
+    "$TIME": "$TIME",
+    "$DATETIME": "$DATETIME",
     "$UUID": "$UUID",
     "$URI": "$URI",
     "$EMAIL": "$EMAIL",

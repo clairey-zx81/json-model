@@ -137,7 +137,31 @@ def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
         except Exception as e:
             rep is None or rep.append((f"invalid date {value} ({e})", path))
             return False
-    rep is None or rep.append((f"incompatible type {_tname(value)} for data", path))
+    rep is None or rep.append((f"incompatible type {_tname(value)} for date", path))
+    return False
+
+
+def is_valid_time(value: Jsonable, path: str, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        try:
+            datetime.time.fromisoformat(value)
+            return True
+        except Exception as e:
+            rep is None or rep.append((f"invalid time {value} ({e})", path))
+            return False
+    rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
+    return False
+
+
+def is_valid_datetime(value: Jsonable, path: str, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        try:
+            datetime.datetime.fromisoformat(value)
+            return True
+        except Exception as e:
+            rep is None or rep.append((f"invalid datetime {value} ({e})", path))
+            return False
+    rep is None or rep.append((f"incompatible type {_tname(value)} for datetime", path))
     return False
 
 

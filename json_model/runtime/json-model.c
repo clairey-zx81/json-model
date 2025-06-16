@@ -404,15 +404,13 @@ jm_is_valid_date_slow(const char *date, jm_path_t *path, jm_report_t *rep)
     return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
 }
 
-static int MONTH_DAYS[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-// NOTE this version runs about 50 times faster
-bool
-jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
+static bool
+is_valid_date(const char *date, jm_path_t *path, jm_report_t *rep, bool full)
 {
     if (date == NULL)
         return false;
 
+    static int MONTH_DAYS[12] = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
     int year = 0, month = 0, day = 0, idx = 0;
 
     // manual parsing for DDDD-DD-DD and value validation
@@ -435,7 +433,7 @@ jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
     while (isdigit(date[idx]) && idx < 10)
         day = day * 10 + date[idx++] - '0';
 
-    if (idx != 10 || date[10] != '\0' || day < 1 || day > MONTH_DAYS[month - 1]) {
+    if (idx != 10 || (full && date[10] != '\0') || day < 1 || day > MONTH_DAYS[month - 1]) {
         if (rep) jm_report_add_entry(rep, "unexpected date day", path);
         return false;
     }
@@ -450,8 +448,132 @@ jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+// NOTE this version runs about 50 times faster
+bool
+jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
+{
+    return is_valid_date(date, path, rep, true);
+}
+
 // default version
 bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *) = jm_is_valid_date_fast;
+
+// time parsing
+static bool
+is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
+{
+    bool with_colon;
+    int hour = 0, minute = 0, second = 0, idx = 0;
+
+    // handle optional or mandatory separator, possibly accepting space
+    if (time[idx] != 'T' && time[idx] != ' ') {
+        if (sep)
+            return false;
+    }
+    else
+        idx++;
+
+    // 00..23 hour
+    if (!isdigit(time[idx]))
+        return false;
+    hour = 10 * (time[idx++] - '0');
+    if (!isdigit(time[idx]))
+        return false;
+    hour += time[idx++] - '0';
+
+    if (hour >= 24) {
+        if (rep) jm_report_add_entry(rep, "unexpected time hour", path);
+        return false;
+    }
+    with_colon = time[idx] == ':';
+    if (with_colon)
+        idx++;
+
+    // 00..60 minute
+    if (!isdigit(time[idx]))
+        return false;
+    minute = 10 * (time[idx++] - '0');
+    if (!isdigit(time[idx]))
+        return false;
+    minute += time[idx++] - '0';
+
+    if (minute >= 60) {
+        if (rep) jm_report_add_entry(rep, "unexpected time minute", path);
+        return false;
+    }
+    if (with_colon && time[idx++] != ':')
+        return false;
+
+    // 00..60 second
+    if (!isdigit(time[idx]))
+        return false;
+    second = 10 * (time[idx++] - '0');
+    if (!isdigit(time[idx]))
+        return false;
+    second += time[idx++] - '0';
+    if (second >= 60) {
+        if (rep) jm_report_add_entry(rep, "unexpected time second", path);
+        return false;
+    }
+
+    // optional millis
+    if (time[idx] == '.') {
+        idx++;
+        if (!isdigit(time[idx++]))
+            return false;
+        if (!isdigit(time[idx++]))
+            return false;
+        if (!isdigit(time[idx++]))
+            return false;
+    }
+
+    // optional timezone
+    if (time[idx] == 'Z')
+        idx++;
+    else if (time[idx] == '+' || time[idx] == '-')
+    {
+        idx++;
+        // hours
+        if (!isdigit(time[idx++]))
+            return false;
+        if (!isdigit(time[idx++]))
+            return false;
+        // optional minutes
+        if (time[idx] == ':')
+        {
+            idx++;
+            if (time[idx] < '0' || time[idx] > '5')
+                return false;
+            idx++;
+            if (!isdigit(time[idx++]))
+                return false;
+        }
+        else if (isdigit(time[idx]))
+        {
+            idx++;
+            if (!isdigit(time[idx++]))
+                return false;
+        }
+    }
+
+    return time[idx] == '\0';
+}
+
+bool
+jm_is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep)
+{
+    if (time == NULL)
+        return false;
+    return is_valid_time(time, path, rep, false);
+}
+
+bool
+jm_is_valid_datetime(const char *datetime, jm_path_t *path, jm_report_t *rep)
+{
+    if (!is_valid_date(datetime, path, rep, false))
+        return false;
+    return is_valid_time(datetime + 10, path, rep, true);
+}
 
 bool
 jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)

@@ -50,6 +50,10 @@ class Python(Language):
             return f"is_valid_url({var}, {path}, rep)"
         elif name == "$DATE":
             return f"is_valid_date({var}, {path}, rep)"
+        elif name == "$TIME":
+            return f"is_valid_time({var}, {path}, rep)"
+        elif name == "$DATETIME":
+            return f"is_valid_datetime({var}, {path}, rep)"
         elif name == "$REGEX":
             return f"is_valid_regex({var}, {path}, rep)"
         elif name == "$EXREG":

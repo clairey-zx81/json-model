@@ -141,6 +141,8 @@ extern jm_check_fun_t jm_search_constmap(const jm_constant_t *, const jm_constma
 extern bool jm_is_valid_date_slow(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_date_fast(const char *, jm_path_t *, jm_report_t *);
 extern bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_time(const char *, jm_path_t *, jm_report_t *);
+extern bool jm_is_valid_datetime(const char *, jm_path_t *, jm_report_t *);
 extern bool jm_is_valid_uuid(const char *, jm_path_t *, jm_report_t *);
 extern size_t jm_any_len(json_t *);
 extern bool jm_is_valid_regex_slow(const char *, bool, jm_path_t *, jm_report_t *);

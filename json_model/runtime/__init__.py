@@ -18,6 +18,8 @@ from .support import (
     ConstSet,
     ConstMap,
     is_valid_date,
+    is_valid_time,
+    is_valid_datetime,
     is_valid_regex,
     is_valid_exreg,
     is_valid_url,

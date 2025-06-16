@@ -106,6 +106,10 @@ class CLangJansson(Language):
             return f"jm_is_valid_uuid({val}, {path}, rep)"
         elif name == "$DATE":
             return f"jm_is_valid_date({val}, {path}, rep)"
+        elif name == "$TIME":
+            return f"jm_is_valid_time({val}, {path}, rep)"
+        elif name == "$DATETIME":
+            return f"jm_is_valid_datetime({val}, {path}, rep)"
         elif name == "$REGEX":
             return f"jm_is_valid_regex({val}, false, {path}, rep)"
         elif name == "$EXREG":

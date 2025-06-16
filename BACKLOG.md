@@ -16,6 +16,7 @@
 - [x] tests: fix strange issue with `make check` in `mv-03`
 - [x] docs: add a tutorial tour
 - [x] js-backend: add official npm module on `npmjs`.
+- [x] design: add `"$DATETIME"` and `"$TIME"`
 - [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
@@ -40,7 +41,6 @@
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
 - [ ] design: add `$URI-REF`?
-- [ ] design: add `"$DATETIME"` and `"$TIME"`
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?

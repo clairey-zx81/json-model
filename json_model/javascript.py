@@ -106,7 +106,11 @@ class JavaScript(Language):
         if name == "$UUID":
             return f"runtime.jm_is_valid_uuid({val})"
         elif name == "$DATE":
-            return f"runtime.jm_is_valid_date({val})"
+            return f"runtime.jm_is_valid_date({val}, {path}, rep)"
+        elif name == "$TIME":
+            return f"runtime.jm_is_valid_time({val}, {path}, rep)"
+        elif name == "$DATETIME":
+            return f"runtime.jm_is_valid_datetime({val}, {path}, rep)"
         elif name == "$REGEX":
             return f"runtime.jm_is_valid_regex({val}, false)"
         elif name == "$EXREG":

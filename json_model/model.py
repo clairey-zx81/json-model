@@ -134,6 +134,8 @@ class JsonModel:
         "STRING": "",
         "URL": r"/^\w+://.*$/",  # FIXME relative URL?
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
+        "TIME": r"/^[T ]?\d\d:\d\d:\d\d(\.\d\d\d)?(Z|[-+]\d\d(:?\d\d)?$/",  # FIXME
+        "DATETIME": "",  # FIXME
         "UUID": UUID_RE,
         "REGEX": "",  # FIXME
         "EXREG": "",

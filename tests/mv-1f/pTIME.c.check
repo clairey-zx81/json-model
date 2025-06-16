@@ -1,0 +1,25 @@
+pTIME.values.json[0]: PASS
+pTIME.values.json[1]: PASS
+pTIME.values.json[2]: PASS
+pTIME.values.json[3]: PASS
+pTIME.values.json[4]: PASS
+pTIME.values.json[5]: PASS
+pTIME.values.json[6]: PASS
+pTIME.values.json[7]: PASS
+pTIME.values.json[8]: PASS
+pTIME.values.json[9]: FAIL (.: unexpected $TIME [.]; .: unexpected time hour)
+pTIME.values.json[10]: FAIL (.: unexpected $TIME [.]; .: unexpected time minute)
+pTIME.values.json[11]: FAIL (.: unexpected $TIME [.]; .: unexpected time second)
+pTIME.values.json[12]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[13]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[14]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[15]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[16]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[17]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[18]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[19]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[20]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[21]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[22]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[23]: FAIL (.: unexpected $TIME [.])
+pTIME.values.json[24]: FAIL (.: unexpected $TIME [.])
