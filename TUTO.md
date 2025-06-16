@@ -150,7 +150,7 @@ with file `Person-2.model.json`:
 
 ```json
 {
-  "#": "Definition of a Person",
+  "#": "Model for a Person",
   "$": {
     "Name": "/^\\w+( \\w+)*$/",
     "Person": {
@@ -164,9 +164,9 @@ with file `Person-2.model.json`:
 }
 ```
 
-This model defines 3 named sub-models (inside the `$` property), which can be referenced
-with `"$..."` in definitions and as the root target type after (`@` property), and also includes
-a comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
+This model defines 3 named sub-models (as a map inside the `$` property value), which can be
+referenced with `"$..."` in definitions and as the root target type after (`@` property), and also
+includes a comment (`#`). `"$DATE"` is predefined to only allow valid ISO-formatted date strings.
 
 Symbol properties (`# $ @`) are used by JSON Model to extend models beyond simple
 type inference. The choice of short symbols avoids confusion with word-based
@@ -183,7 +183,7 @@ for instance with file `pi.json`:
 3.141592653589793238462643
 ```
 
-We can check that its content conforms to PI definitionn inside the `Person-2` model:
+We can check that its content conforms to PI definition inside the `Person-2` model:
 
 ```sh
 jmc --name PI Person-2 pi.json  # PASS
@@ -262,7 +262,7 @@ jmc Loose moe.json  # PASS
 
 A common pattern is to allow several kind of object as some point in the data structure.
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
-(or, any-of) property with a list of possible models.
+(or, any-of) property with an array of possible models.
 
 Consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for point and segment objects:
@@ -318,7 +318,7 @@ JSON Model is not linked to the JavaScript ecosystem, thus supports actually dis
 integers from floats, but can also be configured to be more tolerant.
 
 In the previous example, we used `-1.0` to represent a floating point number in a coordinate.
-JSON: This definition precludes validating against a strict integer, eg `5432` would be rejected.
+This definition precludes validating against a strict integer, eg `5432` would be rejected.
 
 Consider the model in file `Town.model.json`, which defines a town objects:
 
@@ -407,7 +407,7 @@ A special behavior of merging object is that the operator is distributive over `
 Morover, the operator can be used with references which point to models defined in other files,
 so that object models can be reused anywhere.
 
-## Playing with Constraints
+## Adding Constraints
 
 A infrequent but convenient use case is to add constaints about types such as the
 length of a string the number of items of an array or the number of properties of an object.

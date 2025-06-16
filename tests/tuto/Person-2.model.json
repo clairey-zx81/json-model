@@ -1,5 +1,5 @@
 {
-  "#": "Definition of a person",
+  "#": "Model for a person",
   "$": {
     "Name": "/^\\w+( \\w+)*$/",
     "Person": {
