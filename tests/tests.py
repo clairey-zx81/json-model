@@ -12,8 +12,8 @@ from json_model.xstatic import xstatic_compile
 
 logging.basicConfig()
 log = logging.getLogger("test")
-log.setLevel(logging.DEBUG)
-# log.setLevel(logging.INFO)
+# log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 #
 # PER-DIRECTORY TEST EXPECTATIONS, IN SMALL CHUNKS FOR XDIST
@@ -132,9 +132,12 @@ EXPECT: dict[str, int] = {
     "mv-1d:models": 5,
     "mv-1d:values": 0,
     # chunk 1E
-    "mv-1e:models": 9,
-    "mv-1e:values": 127,
+    "mv-1e:models": 10,
+    "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
+    # chunk 1F
+    "mv-1f:models": 1,
+    "mv-1f:values": 25,
     # miscellaneous tests
     "bads:models": 54,
     # tests json models of json schema versions

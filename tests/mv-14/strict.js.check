@@ -1,10 +1,10 @@
 strict.values.json[0]: PASS
 strict.values.json[1]: ERROR unexpected PASS
-strict.values.json[2]: FAIL (.: not an expected object [.]; .si: invalid mandatory prop value [.si]; .si: not a 0 strict int [.si])
-strict.values.json[3]: FAIL (.: not an expected object [.]; .si: invalid mandatory prop value [.si]; .si: not a 0 strict int [.si])
-strict.values.json[4]: FAIL (.: not an expected object [.]; .: not an object [.])
-strict.values.json[5]: FAIL (.: not an expected object [.]; .: not an object [.])
-strict.values.json[6]: FAIL (.: not an expected object [.]; .: not an object [.])
-strict.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])
-strict.values.json[8]: FAIL (.: not an expected object [.]; .: not an object [.])
-strict.values.json[9]: FAIL (.: not an expected object [.]; .: not an object [.])
+strict.values.json[2]: FAIL (.: unexpected object [.]; .si: invalid mandatory prop value [.si]; .si: not a 0 strict int [.si])
+strict.values.json[3]: FAIL (.: unexpected object [.]; .si: invalid mandatory prop value [.si]; .si: not a 0 strict int [.si])
+strict.values.json[4]: FAIL (.: unexpected object [.]; .: not an object [.])
+strict.values.json[5]: FAIL (.: unexpected object [.]; .: not an object [.])
+strict.values.json[6]: FAIL (.: unexpected object [.]; .: not an object [.])
+strict.values.json[7]: FAIL (.: unexpected object [.]; .: not an object [.])
+strict.values.json[8]: FAIL (.: unexpected object [.]; .: not an object [.])
+strict.values.json[9]: FAIL (.: unexpected object [.]; .: not an object [.])

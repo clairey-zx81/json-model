@@ -2,8 +2,8 @@ opt_ls.values.json[1]: PASS
 opt_ls.values.json[2]: PASS
 opt_ls.values.json[3]: ERROR unexpected PASS
 opt_ls.values.json[4]: ERROR unexpected PASS
-opt_ls.values.json[5]: FAIL (.: not an expected object [.]; .: not an object [.])
-opt_ls.values.json[6]: FAIL (.: not an expected object [.]; .: not an object [.])
-opt_ls.values.json[7]: FAIL (.: not an expected object [.]; .: not an object [.])
-opt_ls.values.json[8]: FAIL (.: not an expected object [.]; .: not an object [.])
-opt_ls.values.json[9]: FAIL (.: not an expected object [.]; .not: unexpected prop [.])
+opt_ls.values.json[5]: FAIL (.: unexpected object [.]; .: not an object [.])
+opt_ls.values.json[6]: FAIL (.: unexpected object [.]; .: not an object [.])
+opt_ls.values.json[7]: FAIL (.: unexpected object [.]; .: not an object [.])
+opt_ls.values.json[8]: FAIL (.: unexpected object [.]; .: not an object [.])
+opt_ls.values.json[9]: FAIL (.: unexpected object [.]; .not: unexpected prop [.])

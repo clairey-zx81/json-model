@@ -1,10 +1,10 @@
 dis-000.values.json[0]: PASS
 dis-000.values.json[1]: PASS
-dis-000.values.json[2]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .c: unexpected prop [.'|'.0])
-dis-000.values.json[3]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0])
-dis-000.values.json[4]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: not an expected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
-dis-000.values.json[5]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .c: unexpected prop [.'|'.0])
-dis-000.values.json[6]: FAIL (.: no model matched [.'|']; .: not an expected object [.'|'.1]; .un: unexpected prop [.'|'.1]; .: not an expected object [.'|'.0]; .un: unexpected prop [.'|'.0])
+dis-000.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: unexpected object [.'|'.0]; .c: unexpected prop [.'|'.0])
+dis-000.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: unexpected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0])
+dis-000.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .: missing mandatory prop <c> [.'|'.1]; .: missing mandatory prop <a> [.'|'.1]; .: unexpected object [.'|'.0]; .: missing mandatory prop <b> [.'|'.0]; .: missing mandatory prop <a> [.'|'.0])
+dis-000.values.json[5]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .b: unexpected prop [.'|'.1]; .: unexpected object [.'|'.0]; .c: unexpected prop [.'|'.0])
+dis-000.values.json[6]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .un: unexpected prop [.'|'.1]; .: unexpected object [.'|'.0]; .un: unexpected prop [.'|'.0])
 dis-000.values.json[7]: FAIL (.: unexpected type [.'|'])
 dis-000.values.json[8]: FAIL (.: unexpected type [.'|'])
 dis-000.values.json[9]: FAIL (.: unexpected type [.'|'])
