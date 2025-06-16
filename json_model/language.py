@@ -197,7 +197,8 @@ class Language:
             return self.is_a(var, Number)
         elif name == "$STRING":
             return self.is_a(var, str)
-        elif name in ("$DATE", "$URL", "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL"):
+        elif name in ("$DATE", "$TIME", "$DATETIME", "$URL",
+                      "$REGEX", "$EXREG", "$UUID", "$URI", "$EMAIL"):
             raise NotImplementedError(f"predef: {name}")
         else:
             raise NotImplementedError(f"unexpected predef {name}")
@@ -401,7 +402,7 @@ class Language:
 
     def path_var(self, pvar: Var, val: PathExpr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a value to a path variable."""
-        return self.var(pvar, val, self._path_t if declare else None) if self._with_path else None
+        return self.var(pvar, val, self._path_t if declare else None) if self._with_path else []
 
     def match_var(self, var: Var, val: Expr|None = None, declare: bool = False) -> Block:
         """Assign and possibly declare a match result variable."""
