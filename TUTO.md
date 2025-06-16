@@ -445,7 +445,37 @@ musketeers.json: PASS
 
 ## Transforming Models
 
+As pointed out in the previous _Reusing Definitions_ and _Composing Object_ sections,
+models can be reused and even combined for merging properties into new objects.
+However, it is sometimes convenient to transform a model when reusing it, for
+instance to update a constraint or replace a part.
 
+Let us reuse the person data model by adding a constraint so that the _friends_ array
+must not be empty and must contain distinct people, in file `Person-3.model.json`:
+
+```json
+{
+  "#": "Constrained Person",
+  "$": {
+    "p2": "$./Person-2"
+  },
+  "%": {
+    "$p2#Person.?friends": {
+      "@": [ "$Name" ],
+      "!": true,
+      ">": 0
+    }
+  },
+  "@": "$p2#Person"
+}
+```
+
+The rewrite section (inside `%`) overrides the `?friends` property initial definition with the
+new one, which takes precedence.
+
+```sh
+jmc Person-3 hobbes.json  # PASS
+```
 
 ## Preferring YaML or JS
 
@@ -506,7 +536,7 @@ compute the average and standard deviation times in µs.
   hobbes.json: 0.337 ± 0.898 µs/check (0.143)
   hobbes.json: PASS
   ```
-  
+
 - NodeJS script:
 
   First, install the needed runtime with:
@@ -516,7 +546,7 @@ compute the average and standard deviation times in µs.
   ```
 
   Then compile and run the generated validation node executable:
-  
+
   ```sh
   jmc -o person.js Person-2
   ./person.js -T 1000000 hobbes.json
@@ -525,9 +555,9 @@ compute the average and standard deviation times in µs.
   hobbes.json: 0.540 ± 0.884 µs (0.032)
   hobbes.json: PASS
   ```
-  
+
 - Python script:
-  
+
   ```sh
   jmc -o person.py Person-2
   ./person.py -T 100000 hobbes.json
@@ -540,7 +570,7 @@ compute the average and standard deviation times in µs.
 These real performance figures deserve some comments: Most of the validation time
 is really spent in the regular expression engine, and JIT compilation is quite effective,
 thus JavaScript performance is not that far from compiled code.
-However, a more typical JS-to-C validation performance ratio would be 4:1.
+However, a more typical JS-to-C validation performance ratio would be 3:1.
 Python is slow, the 25:1 ratio to compiled C is quite representative.
 Because the `-r` option is not used, there are no reporting overheads.
 

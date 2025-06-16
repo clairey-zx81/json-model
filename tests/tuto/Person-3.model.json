@@ -1,0 +1,14 @@
+{
+  "#": "Constrained Person",
+  "$": {
+    "p2": "$./Person-2"
+  },
+  "%": {
+    "$p2#Person.?friends": {
+      "@": [ "$Name" ],
+      "!": true,
+      ">": 0
+    }
+  },
+  "@": "$p2#Person"
+}
