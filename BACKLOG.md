@@ -2,26 +2,12 @@
 
 ## Current Tasks
 
-- [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
-- [x] static: prioritize c for speed, js for usability
-- [x] js-backend: fix unique for non scalars (still 0 === 0.0)
-- [x] tests: move `FOO-check.out` to `FOO.check`
-- [x] js-backend: allow to generate a module only, with `mjs`
-- [x] py-backend: allow to generate a simple module only, with `mpy`
-- [x] c-backend: allow to generate a simple object file only
-- [x] command: rethink code/executable/module generation options
-- [x] js-backend: add javascript backend and runtime and working tests
-- [x] c-backend: add `qsort_r` code for Windows and MacOS (blind)
-- [x] backend: add `path` and `rep` to str functions
-- [x] tests: fix strange issue with `make check` in `mv-03`
-- [x] docs: add a tutorial tour
-- [x] js-backend: add official npm module on `npmjs`.
-- [x] design: add `"$DATETIME"` and `"$TIME"`
 - [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
+- [ ] c-backend: add `re2` support?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
-- [ ] static: keep deep names?
+- [ ] static: keep deeper names?
 - [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
 - [ ] models: update JSON model meta-model with regex extension…
@@ -340,3 +326,18 @@
 - [x] c-backend: predefs for $DATE, $URL, $REGEX
 - [x] backend: report errors
 - [x] python: cleanup ultimate model reliance on local defs
+- [x] backend: switch all `Inst` functions to `Block` to simplify code concatenation
+- [x] static: prioritize c for speed, js for usability
+- [x] js-backend: fix unique for non scalars (still 0 === 0.0)
+- [x] tests: move `FOO-check.out` to `FOO.check`
+- [x] js-backend: allow to generate a module only, with `mjs`
+- [x] py-backend: allow to generate a simple module only, with `mpy`
+- [x] c-backend: allow to generate a simple object file only
+- [x] command: rethink code/executable/module generation options
+- [x] js-backend: add javascript backend and runtime and working tests
+- [x] c-backend: add `qsort_r` code for Windows and MacOS (blind)
+- [x] backend: add `path` and `rep` to str functions
+- [x] tests: fix strange issue with `make check` in `mv-03`
+- [x] docs: add a tutorial tour
+- [x] js-backend: add official npm module on `npmjs`.
+- [x] design: add `"$DATETIME"` and `"$TIME"`
