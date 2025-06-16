@@ -264,7 +264,7 @@ A common pattern is to allow several kind of object as some point in the data st
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
 (or, any-of) property with an array of possible models.
 
-Consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
+Let us consider the model in file `Geom.model.json`, which defines a coordinate (`coord`) as
 a pair of numbers, and use it for point and segment objects:
 
 ```json
@@ -313,14 +313,12 @@ for the relevant object based on the discriminant.
 JSON only defines a loose _Number_ type which can hold any floating point or integer value.
 Internally, JavaScript uses `double` for everything.
 However, most programming languages differentiate integers from floats.
-
 JSON Model is not linked to the JavaScript ecosystem, thus supports actually distinguishing
 integers from floats, but can also be configured to be more tolerant.
 
 In the previous example, we used `-1.0` to represent a floating point number in a coordinate.
 This definition precludes validating against a strict integer, eg `5432` would be rejected.
-
-Consider the model in file `Town.model.json`, which defines a town objects:
+Let us consider the model in file `Town.model.json`, which defines a town objects:
 
 ```json
 {
