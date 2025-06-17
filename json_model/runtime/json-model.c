@@ -616,9 +616,9 @@ jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 bool
 jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {
-#ifdef REGEX_ENGINE_PCRE2
     if (!pattern)
         return false;
+#if defined(REGEX_ENGINE_PCRE2)
     int err_code;
     PCRE2_SIZE err_offset;
     pcre2_code *code =
@@ -627,11 +627,12 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
     bool valid = code != NULL;
     if (code)
         pcre2_code_free(code);
+#elif defined(REGEX_ENGINE_RE2)
+    cre2_regexp_t *rx = cre2_new(pattern, strlen(pattern), NULL);
+    bool valid = cre2_error_code(rx) == 0;
+    cre2_delete(rx);
+#endif
     return valid;
-#endif
-#ifdef REGEX_ENGINE_RE2
-    return false;
-#endif
 }
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
