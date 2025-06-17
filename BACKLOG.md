@@ -4,10 +4,10 @@
 
 - [x] command: regex engine selection
 - [x] c-backend: add `re2` support
-- [ ] doc: document `re2` support for C, possibly change default
+- [ ] doc: document `re2` support for C and change default to that
+- [ ] js-backend: add `re2` (backend, node only) support?
 - [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
-- [ ] js-backend: add `re2` (backend, node only) support?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
@@ -36,7 +36,7 @@
 - [ ] command: write a man-page or similar
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
-- [ ] schema: inline external references to generate working schemas in more cases?
+- [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
 
 ## To Do
 
