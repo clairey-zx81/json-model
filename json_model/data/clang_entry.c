@@ -15,7 +15,7 @@
  * - `message` is provided if a non NULL pointer is passed, and must be freed by the caller.
  */
 bool
-CHECK(const json_t *val, const char *name, bool *error, char **reasons)
+CHECK_FUNCTION_NAME(const json_t *val, const char *name, bool *error, char **reasons)
 {
-    return jm_generic_entry(CHECK_init, CHECK_fun, val, name, error, reasons);
+    return jm_generic_entry(CHECK_FUNCTION_NAME_init, CHECK_FUNCTION_NAME_map, val, name, error, reasons);
 }

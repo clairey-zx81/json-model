@@ -26,10 +26,10 @@ _jm_xre_0: RegexFun
 check_model_map: PropMap
 
 def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
+    extract: str
     match = _jm_xre_0_re_reco.search(val)
     if not match:
         return False
-    extract: str
     extract = match.groupdict()["s0"]
     if not is_valid_date(extract, path, rep):
         return False

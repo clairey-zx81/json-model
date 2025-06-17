@@ -23,11 +23,12 @@ class CLangJansson(Language):
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="NULL", check_t="jm_check_fun_t", json_t="json_t *",
-             path_t="jm_path_t", float_t="double", str_t="char *", match_t="bool",
+             path_t="jm_path_t", float_t="double", str_t="char *",
+             match_t="bool" if relib == "pcre2" else "int",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
-        assert relib == "pcre2", f"only pcre2 is supported for now, not {relib}"
+        assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
 
         # we keep 2 ints: "int64_t" and "int"
         self._int: str = int_t
@@ -38,7 +39,19 @@ class CLangJansson(Language):
     #
     def file_header(self, exe: bool = True) -> Block:
         code: Block = super().file_header(exe)
+        code += [ "", "// regular expression engine" ]
+        if self._relib == "pcre2":
+            code += [
+                "#define PCRE2_CODE_UNIT_WIDTH 8",
+                "#include <pcre2.h>",
+            ]
+        else:
+            code += [
+                "#include <stddef.h>",
+                "#include <cre2.h>",
+            ]
         code += [
+            "",
             r"#include <json-model.h>",
             f"#define JSON_MODEL_VERSION {self.esc(self._version)}"
         ]
@@ -294,70 +307,110 @@ class CLangJansson(Language):
     #
     # (Extended) Regular Expressions
     #
+    def regroup(self, name: str, pattern: str = ".*") -> str:
+        return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
+
     def def_re(self, name: str, regex: str, opts: str) -> Block:
-        return [
-            f"static pcre2_code *{name}_code = NULL;",
-            f"static pcre2_match_data *{name}_data = NULL;",
-            f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);"
-        ]
+        if self._relib == "pcre2":
+            return [
+                f"static pcre2_code *{name}_code = NULL;",
+                f"static pcre2_match_data *{name}_data = NULL;",
+                f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);",
+            ]
+        else:
+            return [
+                f"static cre2_regexp_t *{name}_re2 = NULL;",
+                f"static int {name}_nn = 0;",
+                f"static bool {name}(const char *s, jm_path_t *path, jm_report_t *rep);",
+            ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
-        code = self.file_load("clang_pcre2_fun.c")
+        code = self.file_load(f"clang_{self._relib}_fun.c")
         return [ c.replace("FUNCTION_NAME", name) for c in code ]
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
         # declare once
-        code = [] if self._re_used else [
+        code = [] if self._re_used or self._relib != "pcre2" else [
             "int err_code;",
             "PCRE2_SIZE err_offset;",
             "static PCRE2_UCHAR err_message[1024];",
         ]
         self._re_used = True
         sregex = self.esc((f"(?{opts})" if opts else "") + regex)
-        code += [
-            f"{name}_code = pcre2_compile((PCRE2_SPTR) {sregex},"
-             " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
-            f"if ({name}_code == NULL)",
-            r"{",
-            r"    (void) pcre2_get_error_message(err_code, err_message, 1024);",
-            r"    return (char *) err_message;",
-            r"}",
-            f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
-        ]
+        if self._relib == "pcre2":
+            code += [
+                f"{name}_code = pcre2_compile((PCRE2_SPTR) {sregex},"
+                 " PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);",
+                f"if ({name}_code == NULL)",
+                r"{",
+                r"    (void) pcre2_get_error_message(err_code, err_message, 1024);",
+                r"    return (const char *) err_message;",
+                r"}",
+                f"{name}_data = pcre2_match_data_create_from_pattern({name}_code, NULL);"
+            ]
+        else:
+            code += [
+                f"{name}_re2 = cre2_new({sregex}, strlen({sregex}), NULL);",
+                f"if (cre2_error_code({name}_re2))",
+                f"    return cre2_error_string({name}_re2);",
+                f"{name}_nn = cre2_num_capturing_groups({name}_re2) + 1;",  # why?
+            ]
         return code
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:
-        return [
-            f"pcre2_match_data_free({name}_data);",
-            f"pcre2_code_free({name}_code);",
-        ]
+        if self._relib == "pcre2":
+            return [
+                f"pcre2_match_data_free({name}_data);",
+                f"pcre2_code_free({name}_code);",
+            ]
+        else:
+            return [
+                f"cre2_delete({name}_re2);",
+                f"{name}_re2 = NULL;",
+                f"{name}_nn = 0;",
+            ]
 
-    def match_var(self, var: str, val: Expr, declare: bool) -> Block:
-        decl = f"{self._match_t} " if declare else ""
-        value = f" = {val}" if val else ""
-        return [ f"{decl}{var}{value};" ]
-
-    def match_str_var(self, var: str, val: str, declare: bool = True) -> Block:
+    # TODO add rname
+    def match_str_var(self, rname: str, var: str, val: str, declare: bool = True) -> Block:
         assert declare
-        return [
-            f"const PCRE2_SIZE {var}_size = strlen({val});",
-            f"char {var}[{var}_size];",
-            f"PCRE2_SIZE {var}_len;",
-            f"int rc;"
-        ]
+        if self._relib == "pcre2":
+            return [
+                f"const PCRE2_SIZE {var}_size = strlen({val});",
+                f"char {var}[{var}_size];",
+                f"PCRE2_SIZE {var}_len;",
+                f"int rc;"
+            ]
+        else:  # var is dname
+            return [
+                f"size_t {var}_size = strlen({val}) + 1;",
+                f"char {var}[{var}_size];",
+                f"int match_index;",
+                f"cre2_string_t matches[{rname}_nn];",
+            ]
 
     def match_re(self, rname: str, val: str) -> Expr:
-        return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
-               f" 0, 0, {rname}_data, NULL) != 0"
+        if self._relib == "pcre2":
+            return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
+                   f" 0, 0, {rname}_data, NULL) != 0"
+        else:
+            return f"cre2_match({rname}_re2, {val}, strlen({val}), 0, strlen({val}), " \
+                   f"CRE2_UNANCHORED, matches, {rname}_nn) != 0"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
-        return [
-            f"{dname}_len = {dname}_size;",
-            f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)}," \
-            f" (PCRE2_UCHAR *) {dname}, &{dname}_len);",
-            f"if (rc != 0)",
-            f"    return false;",
-        ]
+        if self._relib == "pcre2":
+            return [
+                f"{dname}_len = {dname}_size;",
+                f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)}," \
+                f" (PCRE2_UCHAR *) {dname}, &{dname}_len);",
+                f"if (rc != 0)",
+                f"    return false;",
+            ]
+        else:
+            return [
+                f"match_index = cre2_find_named_capturing_groups({rname}_re2, {self.esc(sname)});",
+                f"strncpy({dname}, matches[match_index].data, matches[match_index].length);",
+                f"{dname}[matches[match_index].length] = '\\0';",
+            ]
 
     def def_strfun(self, fname: str) -> Block:
         return [ f"static bool {fname}(const char *, jm_path_t *, jm_report_t *);" ]

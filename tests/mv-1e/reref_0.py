@@ -37,10 +37,10 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
+    extract: str
     match = _jm_xre_0_re_reco.search(val)
     if not match:
         return False
-    extract: str
     extract = match.groupdict()["s0"]
     if not json_model_2(extract, path, rep):
         return False

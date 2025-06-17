@@ -8,8 +8,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
 #include <jansson.h>
 
 /*
@@ -167,7 +165,7 @@ jm_check_constraint(const json_t *, jm_constraint_op_t, const jm_constant_t *,
 /*
  * Shared high-level entry point
  */
-extern bool jm_generic_entry(char *(*)(void), jm_check_fun_t (*)(const char *),
+extern bool jm_generic_entry(const char *(*)(void), jm_check_fun_t (*)(const char *),
                              const json_t *, const char *, bool *, char **);
 
 /*
@@ -178,7 +176,7 @@ extern const size_t CHECK_map_size;
 extern jm_propmap_t CHECK_map_tab[];
 extern jm_check_fun_t CHECK_fun(const char *);
 // high-level interface
-extern char *CHECK_init(void);
+extern const char *CHECK_init(void);
 extern bool CHECK(const json_t *, const char *, bool *, char **);
 extern void CHECK_free(void);
 

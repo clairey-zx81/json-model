@@ -232,9 +232,9 @@ class Python(Language):
     def match_re(self, name: str, val: str) -> Expr:
         return f"{name}_reco.search({val})"
 
-    def match_val(self, mname: str, rname: str, name: str, dest: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dest: str) -> Block:
         return [
-            f"{dest} = {mname}.groupdict()[{self.esc(name)}]"
+            f"{dest} = {mname}.groupdict()[{self.esc(sname)}]"
         ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:

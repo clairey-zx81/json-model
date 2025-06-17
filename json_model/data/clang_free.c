@@ -1,4 +1,4 @@
-void CHECK_free(void)
+void CHECK_FUNCTION_NAME_free(void)
 {
     if (initialized)
     {

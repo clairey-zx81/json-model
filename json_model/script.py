@@ -171,7 +171,9 @@ def create_model(murl: str, resolver: Resolver, *,
 
 DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast"
-DEFAULT_LDFLAGS = "-ljansson -lpcre2-8 -lm"
+DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
+# pkgconf --libs cre2
+DEFAULT_LDFLAGS_CRE2 = "-L/usr/local -ljansson -lcre2 -lpthread -lre2 -lm"
 
 def clang_compile(c_code: str, args):
     """Generate an actual executable or object file."""
@@ -187,8 +189,11 @@ def clang_compile(c_code: str, args):
     env = os.environ.get
     cc = args.cc or env("CC", DEFAULT_CC)
     cflags = args.cflags or env("CFLAGS", DEFAULT_CFLAGS)
-    cppflags = args.cppflags or f"-I{rt_dir} -DCHECK_FUNCTION_NAME=check_model"
-    ldflags = args.ldflags or DEFAULT_LDFLAGS
+    d_engine = "-DREGEX_ENGINE_PCRE2" if args.regex_engine == "pcre2" else "-DREGEX_ENGINE_RE2"
+    cppflags = args.cppflags or \
+        f"-I{rt_dir} -I/usr/local -DCHECK_FUNCTION_NAME=check_model {d_engine}"
+    ldflags = args.ldflags or \
+        (DEFAULT_LDFLAGS_CRE2 if args.regex_engine == "re2" else DEFAULT_LDFLAGS_PCRE2)
 
     output = "a.out" if args.output == "-" else args.output
 
@@ -240,8 +245,10 @@ def jmc_script():
         help="use strict integer and float numbers (default)")
 
     # output options
-    arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
     arg("--output", "-o", default="-", help="output file")
+    arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
+    arg("--regex-engine", "-re", default=None, choices=["re", "re2", "pcre2"],
+        help="select regular expression engine (default depends on target language)")
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
@@ -462,7 +469,7 @@ def jmc_script():
 
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
-                               debug=args.debug, report=args.reporting)
+                               debug=args.debug, report=args.reporting, relib=args.regex_engine)
         source = str(code)
 
         if args.format == "c" and args.gen in ("exec", "module"):

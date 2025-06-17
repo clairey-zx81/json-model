@@ -74,10 +74,11 @@ class CodeGenerator:
                path: str) -> Block:
         """Generate post regex code for extended regular expression."""
         gen = self._lang
-        code = gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
+        code = gen.match_str_var(rname, "extract", "val", declare=True) + \
+            gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
             gen.if_stmt(gen.not_op("match"), gen.ret(gen.const(False)))
-        checks = gen.match_str_var("extract", "val", declare=True)
-        # sname is the name of the substrin
+        checks = []
+        # sname is the name of the substring
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract")
             checks += gen.if_stmt(
@@ -1215,6 +1216,7 @@ def xstatic_compile(
         *,
         lang: str = "py",
         prefix: str = "_jm_",
+        relib: str|None = None,
         map_threshold: int = 3,
         execute: bool = True,
         map_share: bool = False,
@@ -1235,10 +1237,10 @@ def xstatic_compile(
     # target language
     if lang == "py":
         from .python import Python
-        language = Python(debug=debug, with_report=report)
+        language = Python(debug=debug, with_report=report, relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug, with_report=report)
+        language = CLangJansson(debug=debug, with_report=report, relib=relib or "pcre2")
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report)

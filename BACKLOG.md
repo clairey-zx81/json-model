@@ -2,9 +2,12 @@
 
 ## Current Tasks
 
+- [x] command: regex engine selection
+- [x] c-backend: add `re2` support
+- [ ] doc: document `re2` support for C, possibly change default
 - [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
-- [ ] c-backend: add `re2` support?
+- [ ] js-backend: add `re2` (backend, node only) support?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
@@ -31,7 +34,6 @@
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] command: write a man-page or similar
-- [ ] command: regex engine selection?
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases?

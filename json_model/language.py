@@ -408,7 +408,7 @@ class Language:
         """Assign and possibly declare a match result variable."""
         return self.var(var, val, self._match_t if declare else None)
 
-    def match_str_var(self, var: str, val: str, declare: bool = False) -> Block:
+    def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         """Declare a variable for a matching result extracted from val."""
         # the value is just as a length helper
         return self.str_var(var, None, declare)
@@ -575,7 +575,7 @@ class Language:
         """Get a match result for string variable var value."""
         raise NotImplementedError("see derived classes")
 
-    def match_val(self, mname: str, name: str, sname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
         """Assign match "name" to variable sname."""
         raise NotImplementedError("see derived classes")
 

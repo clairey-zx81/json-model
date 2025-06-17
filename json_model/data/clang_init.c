@@ -1,6 +1,6 @@
 static bool initialized = false;
 
-char *CHECK_init(void)
+const char *CHECK_FUNCTION_NAME_init(void)
 {
     if (!initialized)
     {

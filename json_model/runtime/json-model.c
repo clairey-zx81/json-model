@@ -6,6 +6,15 @@
 
 char *jm_version_string = "<unknown>";
 
+// regular expression engine
+#if defined(REGEX_ENGINE_PCRE2)
+#define PCRE2_CODE_UNIT_WIDTH 8
+#include <pcre2.h>
+#elif defined(REGEX_ENGINE_RE2)
+#include <stddef.h>
+#include <cre2.h>
+#endif
+
 /*
  * JSON API extensions
  */
@@ -607,6 +616,7 @@ jm_is_valid_uuid(const char *uuid, jm_path_t *path, jm_report_t *rep)
 bool
 jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_report_t *rep)
 {
+#ifdef REGEX_ENGINE_PCRE2
     if (!pattern)
         return false;
     int err_code;
@@ -618,6 +628,10 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
     if (code)
         pcre2_code_free(code);
     return valid;
+#endif
+#ifdef REGEX_ENGINE_RE2
+    return false;
+#endif
 }
 
 // hardcoded regex parser for https://github.com/google/re2/wiki/syntax
@@ -980,7 +994,7 @@ jm_check_fun_string(jm_check_fun_t fun, const char *val, jm_path_t *path, jm_rep
 
 bool
 jm_generic_entry(
-    char *(*model_init)(void),
+    const char *(*model_init)(void),
     jm_check_fun_t (*model_fun)(const char *),
     // void (*model_free)(void),
     const json_t *val, const char *name, bool *error, char **reasons)
