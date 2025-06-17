@@ -221,7 +221,7 @@ int main(int argc, char* argv[])
     }
 
     // initialization
-    char *error;
+    const char *error;
     if ((error = CHECK_init()) != NULL)
     {
         fprintf(stderr, "JSON Model initialization error: %s\n", error);
