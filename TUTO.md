@@ -531,7 +531,7 @@ compute the average and standard deviation times in µs.
   ./person.out -T 1000000 hobbes.json
   ```
   ```
-  hobbes.json: 0.337 ± 0.898 µs/check (0.143)
+  hobbes.json: 0.152 ± 0.058 µs/check (0.152)
   hobbes.json: PASS
   ```
 
@@ -550,7 +550,7 @@ compute the average and standard deviation times in µs.
   ./person.js -T 1000000 hobbes.json
   ```
   ```
-  hobbes.json: 0.540 ± 0.884 µs (0.032)
+  hobbes.json: 0.536 ± 0.962 µs (0.032)
   hobbes.json: PASS
   ```
 
@@ -558,19 +558,20 @@ compute the average and standard deviation times in µs.
 
   ```sh
   jmc -o person.py Person-2
-  ./person.py -T 100000 hobbes.json
+  ./person.py -T 1000000 hobbes.json
   ```
   ```
-  hobbes.json: 8.675 ± 4.096 µs/call (0.046)
+  hobbes.json: 9.386 ± 0.972 µs/call (0.050)
   hobbes.json: PASS
   ```
 
-These real performance figures deserve some comments: Most of the validation time
-is really spent in the regular expression engine, and JIT compilation is quite effective,
-thus JavaScript performance is not that far from compiled code.
-However, a more typical JS-to-C validation performance ratio would be 3:1.
-Python is slow, the 25:1 ratio to compiled C is quite representative.
+Some comments about these representative performance figures:
+As JavaScript JIT and its underlying regex engine are quite good,
+a typical JS-to-C performance ratio is 4:1.
+Python is _slow_, a typical ratio to compiled C is 25:1. 
 Because the `-r` option is not used, there are no reporting overheads.
+For JS standard deviation is quite high, which could be induced by
+occasional garbage collection.
 
 ## Exporting to and Importing from JSON Schema
 

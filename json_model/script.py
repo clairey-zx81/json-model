@@ -193,7 +193,7 @@ def clang_compile(c_code: str, args):
     cppflags = args.cppflags or \
         f"-I{rt_dir} -I/usr/local -DCHECK_FUNCTION_NAME=check_model {d_engine}"
     ldflags = args.ldflags or \
-        (DEFAULT_LDFLAGS_CRE2 if args.regex_engine == "re2" else DEFAULT_LDFLAGS_PCRE2)
+        (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
 
     output = "a.out" if args.output == "-" else args.output
 
@@ -201,10 +201,11 @@ def clang_compile(c_code: str, args):
         tmp.write(c_code.encode("UTF-8"))
         tmp.flush()
         if args.gen == "exec":
-            status = os.system(f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}")
+            command = f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}"
         else:
-            status = os.system(f"{cc} {cppflags} {cflags} -o {output} -c {tmp.name}")
-        assert status == 0, "C compilation succeeded"
+            command = "{cc} {cppflags} {cflags} -o {output} -c {tmp.name}"
+        status = os.system(command)
+        assert status == 0, f"C compilation succeeded: {command}"
 
 def jmc_script():
 
