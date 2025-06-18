@@ -1,5 +1,14 @@
 // JSON Model Runtime
 
+// default regex engine, can be overriden
+export var RX = RegExp
+
+export function jm_set_rx(rx)
+{
+    // console.log(`setting RX to ${rx}`)
+    RX = rx
+}
+
 // return whether pattern is a regular expression ($REGEX)
 export function jm_is_valid_regex(pattern, extended, path, rep)
 {
@@ -7,7 +16,7 @@ export function jm_is_valid_regex(pattern, extended, path, rep)
         return false
 
     try {
-        new RegExp(pattern)
+        new RX(pattern)
         return true
     }
     catch (e) {

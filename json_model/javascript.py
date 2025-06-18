@@ -14,17 +14,19 @@ class JavaScript(Language):
     """
 
     def __init__(self, *,
-                 debug: bool = False,
+                 debug: bool = False, relib: str = "re",
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True):
 
         super().__init__(
             "JS",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
              not_op="!", and_op="&&", or_op="||", lcom="//",
-             true="true", false="false", null="null",
+             true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool",
              eoi=";", set_caps=[type(None), bool, int, float, str])
+
+        assert self._relib in ("re", "re2"), f"unsupported regex engine: {self._relib}"
 
         self._json_esc_table: str.maketrans(_ESC_TABLE)
 
@@ -232,7 +234,7 @@ class JavaScript(Language):
     # (Extended) Regular Expressions
     #
     def def_re(self, name: str, regex: str, opts: str) -> Block:
-        return [ f"const {name}_re = new RegExp({self.esc(regex)}, {self.esc(opts)})" ]
+        return [ f"const {name}_re = new runtime.RX({self.esc(regex)}, {self.esc(opts)})" ]
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         return [ f"const {name} = (s) => {name}_re.exec(s) !== null" ]
@@ -298,7 +300,10 @@ class JavaScript(Language):
         return f"{name}.get({tag})"
 
     def gen_init(self, init: Block) -> Block:
-        return self.file_subs("javascript_init.js", init)
+        code = [
+            "runtime.jm_set_rx(require('re2'))" if self._relib == "re2" else "runtime.jm_set_rx(RegExp)"
+        ] + init
+        return self.file_subs("javascript_init.js", code)
 
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("javascript_free.js", free)

@@ -1243,7 +1243,7 @@ def xstatic_compile(
         language = CLangJansson(debug=debug, with_report=report, relib=relib or "re2")
     elif lang == "js":
         from .javascript import JavaScript
-        language = JavaScript(debug=debug, with_report=report)
+        language = JavaScript(debug=debug, with_report=report, relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

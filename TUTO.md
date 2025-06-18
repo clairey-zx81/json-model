@@ -534,7 +534,8 @@ The JSON Model compiler also allows to create actual test executables or scripts
 for validation or performance testing, including option `-T` to loop over a value so as to
 compute the average and standard deviation times in µs.
 
-- C executable:
+- C executable (assuming that [cre2](https://github.com/marcomaggi/cre2) is available in
+  `/usr/local`):
 
   ```sh
   jmc -o person.out Person-2

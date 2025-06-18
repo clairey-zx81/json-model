@@ -1,6 +1,10 @@
 import { parseArgs } from 'node:util'
 import fs from 'node:fs/promises'
 
+import { jm_set_rx } from 'json_model_runtime'
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+
 // TODO escaping?
 const json_path = (path) => '.' + path.join('.')
 
@@ -67,6 +71,8 @@ export default async function main(checker_init, checker, checker_free)
       'times': { type: 'string', short: 'T' },
       'report': { type: 'boolean', short: 'r' },
       'test': { type: 'boolean', short: 't' },
+      're2': { type: 'boolean' },
+      'regexp': { type: 'boolean' },
     }
 
     const args = parseArgs({options, allowPositionals: true})
@@ -79,6 +85,12 @@ export default async function main(checker_init, checker, checker_free)
         console.log(`Unexpected --times: ${args.values.times}`)
         process.exit(1);
     }
+
+    // reset regular expression engine
+    if (args.values.regexp)
+        jm_set_rx(RegExp)
+    if (args.values.re2)
+        jm_set_rx(require('re2'))
 
     // overhead estimation
     let empty = 0.0
