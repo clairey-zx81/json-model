@@ -105,7 +105,7 @@ moe.json: FAIL (.: unexpected object [.]; .friend: unexpected prop [.])
 The validation rejects the property at path `.friend` because it is not allowed
 by the model, which yields to the conclusion that the object at the root `.` is unexpected.
 The JSON path in square brackets `[.]` indicates where in the _model_ the
-ruled was found whereas the path before the `:` indicates where in the _value_ it failed.
+rule was found whereas the path before the `:` indicates where in the _value_ it failed.
 
 :+1: For efficiency, the validation stops at the first encountered error which invalidates the
 value: if a value includes several errors, only one is reported, plus cumulative failures along
@@ -358,7 +358,7 @@ jmc --loose-number Town beijing.json shanghai.json  # PASS, PASS
 ## Composing Objects
 
 When building large JSON data structures a common use case is to combine object definitions,
-much like inheritance in some languages.
+much like inheritance in programming languages.
 
 Let us use the _merge_ (`+`) operator to compose objects with different set of properties,
 in file `University.model.json`, with students and faculties which are both persons:
@@ -472,7 +472,18 @@ The rewrite section (inside `%`) overrides the `?friends` property initial defin
 new one, which takes precedence.
 
 ```sh
-jmc Person-3 hobbes.json  # PASS
+jmc Person-3 hobbes.json    # PASS
+jmc Person-3 bastille.json  # FAIL
+```
+
+With file `bastille.json` which repeats _Marat_ in the friends array:
+
+```json
+{
+  "name": "Bastille Day",
+  "birth": "1789-07-14",
+  "friends": [ "Marat", "Robespierre", "Danton", "Marat" ]
+}
 ```
 
 ## Preferring YaML or JS
@@ -537,13 +548,13 @@ compute the average and standard deviation times in µs.
 
 - NodeJS script:
 
-  First, install the needed runtime with:
+  First, let us install the needed runtime with:
 
   ```
   npm install json_model_runtime
   ```
 
-  Then compile and run the generated validation node executable:
+  Then we can compile and run the generated validation node executable:
 
   ```sh
   jmc -o person.js Person-2
@@ -641,6 +652,7 @@ jmc -E Person-2 | jsu-model
 
 JSON Model is a compact and intuitive syntax for describing JSON data structures used
 extensively to exchange data over networks, across programming languages and storage.
+Its `jmc` implementation offers high performance validation for C, JS and Python.
 
 The power of JSON Model is illustrated with this
 [OpenAPI 3.1.1](https://github.com/clairey-zx81/json-model/blob/main/models/openapi-311.model.json)
