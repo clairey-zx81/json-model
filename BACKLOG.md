@@ -44,6 +44,9 @@
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
+- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data?
+- [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
+- [ ] php-backend: should it stoop so low?
 
 ## To Do
 
