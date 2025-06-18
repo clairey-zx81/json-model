@@ -4,6 +4,11 @@
 
 - [x] command: regex engine selection
 - [x] c-backend: add `re2` support
+- [ ] design: rewrite reuse path?
+- [ ] use: js/ts type export?
+- [ ] use: py type dataclass/pydantic export?
+- [ ] use: test with corrector?
+- [ ] js-backend: warn about loose
 - [ ] doc: document `re2` support for C and change default to that
 - [ ] js-backend: add `re2` (backend, node only) support?
 - [ ] tuto: add further reading pointers in the conclusion
