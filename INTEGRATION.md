@@ -35,10 +35,10 @@ would be enough?
 
 ## Postgres JSON Data
 
-Hmmm… Use JS? PL/pgSQL? generate an SQL expression (how to recurse?)?
-Generate a set of PL/pgSQL functions and a CHECK call!?
+- JS with `plv8` extension and some glue?
+- PL/pgSQL?  Generate a set of PL/pgSQL functions and a CHECK call!?
 
 ## MongoDB JSON Data
 
-JSON Schema (bson) export?
-MongoDB validation extension
+- JSON Schema (bson) export?
+- MongoDB validation extension, hook? _not found_
