@@ -43,11 +43,14 @@ would be enough?
   pgxnclient install plv8
   ```
 
+  The glue is not obvious.
+
 - plpython?
 
 - PL/pgSQL: Generate a set of PL/pgSQL functions?
 
   how to handle variable declaration with the code generator? `Block` is too simplistic for that.
+  possibly add a stupid prefix which is grep-ed when generating the final function?
 
 ## MongoDB JSON Data
 
