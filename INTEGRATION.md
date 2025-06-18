@@ -1,0 +1,44 @@
+# JSON Schema Integration
+
+## Python Flask FSA
+
+Maybe add keyword related extension mechanism:
+
+```python
+@app.get("/foo", authz="OPEN", model="Name")
+def get_foo():
+    return a_model_thing, 200
+```
+
+Not very interesting: it is probably enough to only validate _incoming_ data and let the client
+validate server outgoing data, or the database validate stored data.
+
+For incoming data validation, this is already achieved with pydantic, so a pydantic export
+would be enough?
+
+## Python Script
+
+## Python ORM
+
+- SQLAlchemy
+- Django
+
+## JavaScript Client in Browser
+
+- `fetch`
+- `axios`
+- `swr`
+
+## JavaScript Server with Node
+
+## Ruby on Rails
+
+## Postgres JSON Data
+
+Hmmm… Use JS? PL/pgSQL? generate an SQL expression (how to recurse?)?
+Generate a set of PL/pgSQL functions and a CHECK call!?
+
+## MongoDB JSON Data
+
+JSON Schema (bson) export?
+MongoDB validation extension
