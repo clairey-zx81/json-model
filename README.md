@@ -130,6 +130,8 @@ print("reasons:", reasons)
 
 ## References
 
+See the [JSON Model Tutorial](./TUDO.md) for an hands-on overview of JSON Model.
+
 JSON Model design is presented in:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
