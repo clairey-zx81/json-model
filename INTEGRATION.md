@@ -36,7 +36,16 @@ would be enough?
 ## Postgres JSON Data
 
 - JS with `plv8` extension and some glue?
-- PL/pgSQL?  Generate a set of PL/pgSQL functions and a CHECK call!?
+
+  ```sh
+  pgxnclient install plv8
+  ```
+
+- plpython?
+
+- PL/pgSQL: Generate a set of PL/pgSQL functions?
+
+  how to handle variable declaration with the code generator? `Block` is too simplistic for that.
 
 ## MongoDB JSON Data
 
