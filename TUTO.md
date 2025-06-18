@@ -472,8 +472,7 @@ The rewrite section (inside `%`) overrides the `?friends` property initial defin
 new one, which takes precedence.
 
 ```sh
-jmc Person-3 hobbes.json    # PASS
-jmc Person-3 bastille.json  # FAIL
+jmc Person-3 hobbes.json bastille.json  # PASS, FAIL
 ```
 
 With file `bastille.json` which repeats _Marat_ in the friends array:

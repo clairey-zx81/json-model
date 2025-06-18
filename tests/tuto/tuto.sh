@@ -35,7 +35,7 @@ jmc University psl.json
 jmc -r Tournament musketeers.json 3_musketeers.json
 
 # transforming models
-jmc Person-3 hobbes.json
+jmc Person-3 hobbes.json bastille.json
 
 # prefering yaml or js
 jmc -r Person-0.model.json hobbes.json moe.json
