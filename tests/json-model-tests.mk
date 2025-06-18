@@ -95,7 +95,7 @@ schema: $(F.EO)
 	$(JMC.cmd) -EO -ns ./$< > $@
 
 # regular expression library for C generated code
-RELIB    = pcre2
+RELIB    = re2
 
 %.c: %.model.json
 	$(JMC.cmd) -re $(RELIB) -o $@ ./$<

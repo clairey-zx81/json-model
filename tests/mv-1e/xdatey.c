@@ -4,14 +4,14 @@
 //
 
 // regular expression engine
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#include <stddef.h>
+#include <cre2.h>
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"
 
-static pcre2_code *_jm_xre_0_re_code = NULL;
-static pcre2_match_data *_jm_xre_0_re_data = NULL;
+static cre2_regexp_t *_jm_xre_0_re_re2 = NULL;
+static int _jm_xre_0_re_nn = 0;
 static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_xre_0(const char *, jm_path_t *, jm_report_t *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -20,26 +20,24 @@ const size_t check_model_map_size = 1;
 
 static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_xre_0_re_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_xre_0_re_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_xre_0_re_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
 {
-    const PCRE2_SIZE extract_size = strlen(val);
+    size_t extract_size = strlen(val) + 1;
     char extract[extract_size];
-    PCRE2_SIZE extract_len;
-    int rc;
-    bool match = pcre2_match(_jm_xre_0_re_code, (PCRE2_SPTR) val, PCRE2_ZERO_TERMINATED, 0, 0, _jm_xre_0_re_data, NULL) != 0;
+    int match_index;
+    cre2_string_t matches[_jm_xre_0_re_nn];
+    int match = cre2_match(_jm_xre_0_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_0_re_nn) != 0;
     if (! match)
     {
         return false;
     }
-    extract_len = extract_size;
-    rc = pcre2_substring_copy_byname(_jm_xre_0_re_data, (PCRE2_SPTR) "s0", (PCRE2_UCHAR *) extract, &extract_len);
-    if (rc != 0)
-        return false;
+    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s0");
+    strncpy(extract, matches[match_index].data, matches[match_index].length);
+    extract[matches[match_index].length] = '\0';
     if (! jm_is_valid_date(extract, path, rep))
     {
         return false;
@@ -74,16 +72,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        int err_code;
-        PCRE2_SIZE err_offset;
-        static PCRE2_UCHAR err_message[1024];
-        _jm_xre_0_re_code = pcre2_compile((PCRE2_SPTR) "^X-(?<s0>.*)-Y$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_xre_0_re_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_xre_0_re_data = pcre2_match_data_create_from_pattern(_jm_xre_0_re_code, NULL);
+        _jm_xre_0_re_re2 = cre2_new("^X-(?P<s0>.*)-Y$", strlen("^X-(?P<s0>.*)-Y$"), NULL);
+        if (cre2_error_code(_jm_xre_0_re_re2))
+            return cre2_error_string(_jm_xre_0_re_re2);
+        _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
@@ -97,8 +89,9 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        pcre2_match_data_free(_jm_xre_0_re_data);
-        pcre2_code_free(_jm_xre_0_re_code);
+        cre2_delete(_jm_xre_0_re_re2);
+        _jm_xre_0_re_re2 = NULL;
+        _jm_xre_0_re_nn = 0;
     }
 }
 

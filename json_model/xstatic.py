@@ -1240,7 +1240,7 @@ def xstatic_compile(
         language = Python(debug=debug, with_report=report, relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug, with_report=report, relib=relib or "pcre2")
+        language = CLangJansson(debug=debug, with_report=report, relib=relib or "re2")
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report)

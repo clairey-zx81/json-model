@@ -4,12 +4,14 @@
 
 - [x] command: regex engine selection
 - [x] c-backend: add `re2` support
+- [x] c-backend: default to `re2`
+- [ ] tests: with multiple regex engine
+- [ ] doc: document `re2` support for C
 - [ ] design: rewrite reuse path?
 - [ ] use: js/ts type export?
 - [ ] use: py type dataclass/pydantic export?
 - [ ] use: test with corrector?
 - [ ] js-backend: warn about loose
-- [ ] doc: document `re2` support for C and change default to that
 - [ ] js-backend: add `re2` (backend, node only) support?
 - [ ] tuto: add further reading pointers in the conclusion
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.

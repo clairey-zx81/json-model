@@ -4,16 +4,16 @@
 //
 
 // regular expression engine
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#include <stddef.h>
+#include <cre2.h>
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"
 
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_0_code = NULL;
-static pcre2_match_data *_jm_re_0_data = NULL;
+static cre2_regexp_t *_jm_re_0_re2 = NULL;
+static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -24,8 +24,8 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_0_map_tab[8];
-static pcre2_code *_jm_re_1_code = NULL;
-static pcre2_match_data *_jm_re_1_data = NULL;
+static cre2_regexp_t *_jm_re_1_re2 = NULL;
+static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -51,8 +51,8 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_9_map_tab[10];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_2_code = NULL;
-static pcre2_match_data *_jm_re_2_data = NULL;
+static cre2_regexp_t *_jm_re_2_re2 = NULL;
+static int _jm_re_2_nn = 0;
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -121,8 +121,8 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_34_map_tab[5];
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_3_code = NULL;
-static pcre2_match_data *_jm_re_3_data = NULL;
+static cre2_regexp_t *_jm_re_3_re2 = NULL;
+static int _jm_re_3_nn = 0;
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -190,14 +190,14 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_4_code = NULL;
-static pcre2_match_data *_jm_re_4_data = NULL;
+static cre2_regexp_t *_jm_re_4_re2 = NULL;
+static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_5_code = NULL;
-static pcre2_match_data *_jm_re_5_data = NULL;
+static cre2_regexp_t *_jm_re_5_re2 = NULL;
+static int _jm_re_5_nn = 0;
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep);
-static pcre2_code *_jm_re_6_code = NULL;
-static pcre2_match_data *_jm_re_6_data = NULL;
+static cre2_regexp_t *_jm_re_6_re2 = NULL;
+static int _jm_re_6_nn = 0;
 static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -235,9 +235,8 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_0_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // check _jm_obj_0_map_component (.'$openapi#OpenAPI'.component)
@@ -418,9 +417,8 @@ static jm_check_fun_t _jm_obj_0_map(const char *pname)
 
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_1_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_1_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_1_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#OpenAPI'
@@ -1927,9 +1925,8 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_2_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_2_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#Paths'
@@ -3781,9 +3778,8 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_3_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_3_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_3_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#Responses'
@@ -5933,9 +5929,8 @@ static bool json_model_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_4_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_4_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Elem'.'|'.5
@@ -6341,16 +6336,14 @@ static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_5_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_5_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_5_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_6_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_6_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_6_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Elem'.'|'.0
@@ -6680,16 +6673,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        int err_code;
-        PCRE2_SIZE err_offset;
-        static PCRE2_UCHAR err_message[1024];
-        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^3\\.1\\.\\d+(-.+)?$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_0_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
+        _jm_re_0_re2 = cre2_new("^3\\.1\\.\\d+(-.+)?$", strlen("^3\\.1\\.\\d+(-.+)?$"), NULL);
+        if (cre2_error_code(_jm_re_0_re2))
+            return cre2_error_string(_jm_re_0_re2);
+        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         _jm_obj_0_map_tab[0] = (jm_propmap_t) { "component", _jm_f_0 };
         _jm_obj_0_map_tab[1] = (jm_propmap_t) { "externalDocs", _jm_f_1 };
         _jm_obj_0_map_tab[2] = (jm_propmap_t) { "jsonModelVersion", _jm_f_2 };
@@ -6699,13 +6686,10 @@ const char *check_model_init(void)
         _jm_obj_0_map_tab[6] = (jm_propmap_t) { "tags", _jm_f_6 };
         _jm_obj_0_map_tab[7] = (jm_propmap_t) { "webhooks", _jm_f_7 };
         jm_sort_propmap(_jm_obj_0_map_tab, 8);
-        _jm_re_1_code = pcre2_compile((PCRE2_SPTR) "^x\\-.*$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_1_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_1_data = pcre2_match_data_create_from_pattern(_jm_re_1_code, NULL);
+        _jm_re_1_re2 = cre2_new("^x\\-.*$", strlen("^x\\-.*$"), NULL);
+        if (cre2_error_code(_jm_re_1_re2))
+            return cre2_error_string(_jm_re_1_re2);
+        _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
         _jm_obj_2_map_tab[0] = (jm_propmap_t) { "contact", _jm_f_8 };
         _jm_obj_2_map_tab[1] = (jm_propmap_t) { "description", _jm_f_9 };
         _jm_obj_2_map_tab[2] = (jm_propmap_t) { "license", _jm_f_10 };
@@ -6723,13 +6707,10 @@ const char *check_model_init(void)
         _jm_obj_9_map_tab[8] = (jm_propmap_t) { "responses", _jm_f_21 };
         _jm_obj_9_map_tab[9] = (jm_propmap_t) { "securitySchemes", _jm_f_22 };
         jm_sort_propmap(_jm_obj_9_map_tab, 10);
-        _jm_re_2_code = pcre2_compile((PCRE2_SPTR) "^/", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_2_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_2_data = pcre2_match_data_create_from_pattern(_jm_re_2_code, NULL);
+        _jm_re_2_re2 = cre2_new("^/", strlen("^/"), NULL);
+        if (cre2_error_code(_jm_re_2_re2))
+            return cre2_error_string(_jm_re_2_re2);
+        _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         _jm_obj_21_map_tab[0] = (jm_propmap_t) { "$ref", _jm_f_23 };
         _jm_obj_21_map_tab[1] = (jm_propmap_t) { "delete", _jm_f_24 };
         _jm_obj_21_map_tab[2] = (jm_propmap_t) { "description", _jm_f_25 };
@@ -6806,13 +6787,10 @@ const char *check_model_init(void)
         _jm_obj_34_map_tab[3] = (jm_propmap_t) { "headers", _jm_f_70 };
         _jm_obj_34_map_tab[4] = (jm_propmap_t) { "style", _jm_f_71 };
         jm_sort_propmap(_jm_obj_34_map_tab, 5);
-        _jm_re_3_code = pcre2_compile((PCRE2_SPTR) "^[1-5](\\d\\d|XX)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_3_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_3_data = pcre2_match_data_create_from_pattern(_jm_re_3_code, NULL);
+        _jm_re_3_re2 = cre2_new("^[1-5](\\d\\d|XX)$", strlen("^[1-5](\\d\\d|XX)$"), NULL);
+        if (cre2_error_code(_jm_re_3_re2))
+            return cre2_error_string(_jm_re_3_re2);
+        _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
         _jm_obj_37_map_tab[0] = (jm_propmap_t) { "content", _jm_f_72 };
         _jm_obj_37_map_tab[1] = (jm_propmap_t) { "description", _jm_f_73 };
         _jm_obj_37_map_tab[2] = (jm_propmap_t) { "headers", _jm_f_74 };
@@ -6867,27 +6845,18 @@ const char *check_model_init(void)
         _jm_obj_54_map_tab[2] = (jm_propmap_t) { "implicit", _jm_f_111 };
         _jm_obj_54_map_tab[3] = (jm_propmap_t) { "password", _jm_f_112 };
         jm_sort_propmap(_jm_obj_54_map_tab, 4);
-        _jm_re_4_code = pcre2_compile((PCRE2_SPTR) "^[@|&^+/*]$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_4_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_4_data = pcre2_match_data_create_from_pattern(_jm_re_4_code, NULL);
-        _jm_re_5_code = pcre2_compile((PCRE2_SPTR) "^(<=|>=|<|>|≥|≤)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_5_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_5_data = pcre2_match_data_create_from_pattern(_jm_re_5_code, NULL);
-        _jm_re_6_code = pcre2_compile((PCRE2_SPTR) "^(=|!=|≠)$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_6_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_6_data = pcre2_match_data_create_from_pattern(_jm_re_6_code, NULL);
+        _jm_re_4_re2 = cre2_new("^[@|&^+/*]$", strlen("^[@|&^+/*]$"), NULL);
+        if (cre2_error_code(_jm_re_4_re2))
+            return cre2_error_string(_jm_re_4_re2);
+        _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
+        _jm_re_5_re2 = cre2_new("^(<=|>=|<|>|≥|≤)$", strlen("^(<=|>=|<|>|≥|≤)$"), NULL);
+        if (cre2_error_code(_jm_re_5_re2))
+            return cre2_error_string(_jm_re_5_re2);
+        _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
+        _jm_re_6_re2 = cre2_new("^(=|!=|≠)$", strlen("^(=|!=|≠)$"), NULL);
+        if (cre2_error_code(_jm_re_6_re2))
+            return cre2_error_string(_jm_re_6_re2);
+        _jm_re_6_nn = cre2_num_capturing_groups(_jm_re_6_re2) + 1;
         // initialize sorted set _jm_cst_4
         _jm_cst_4[0] = (jm_constant_t) { cst_is_null, { .s = NULL } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_bool, { .b = true } };
@@ -6912,20 +6881,27 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        pcre2_match_data_free(_jm_re_0_data);
-        pcre2_code_free(_jm_re_0_code);
-        pcre2_match_data_free(_jm_re_1_data);
-        pcre2_code_free(_jm_re_1_code);
-        pcre2_match_data_free(_jm_re_2_data);
-        pcre2_code_free(_jm_re_2_code);
-        pcre2_match_data_free(_jm_re_3_data);
-        pcre2_code_free(_jm_re_3_code);
-        pcre2_match_data_free(_jm_re_4_data);
-        pcre2_code_free(_jm_re_4_code);
-        pcre2_match_data_free(_jm_re_5_data);
-        pcre2_code_free(_jm_re_5_code);
-        pcre2_match_data_free(_jm_re_6_data);
-        pcre2_code_free(_jm_re_6_code);
+        cre2_delete(_jm_re_0_re2);
+        _jm_re_0_re2 = NULL;
+        _jm_re_0_nn = 0;
+        cre2_delete(_jm_re_1_re2);
+        _jm_re_1_re2 = NULL;
+        _jm_re_1_nn = 0;
+        cre2_delete(_jm_re_2_re2);
+        _jm_re_2_re2 = NULL;
+        _jm_re_2_nn = 0;
+        cre2_delete(_jm_re_3_re2);
+        _jm_re_3_re2 = NULL;
+        _jm_re_3_nn = 0;
+        cre2_delete(_jm_re_4_re2);
+        _jm_re_4_re2 = NULL;
+        _jm_re_4_nn = 0;
+        cre2_delete(_jm_re_5_re2);
+        _jm_re_5_re2 = NULL;
+        _jm_re_5_nn = 0;
+        cre2_delete(_jm_re_6_re2);
+        _jm_re_6_re2 = NULL;
+        _jm_re_6_nn = 0;
     }
 }
 

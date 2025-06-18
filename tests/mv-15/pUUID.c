@@ -4,8 +4,8 @@
 //
 
 // regular expression engine
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#include <stddef.h>
+#include <cre2.h>
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"

@@ -4,8 +4,8 @@
 //
 
 // regular expression engine
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#include <stddef.h>
+#include <cre2.h>
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"
@@ -46,8 +46,8 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_6_map_tab[10];
-static pcre2_code *_jm_re_0_code = NULL;
-static pcre2_match_data *_jm_re_0_data = NULL;
+static cre2_regexp_t *_jm_re_0_re2 = NULL;
+static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -1128,9 +1128,8 @@ static jm_check_fun_t _jm_obj_6_map(const char *pname)
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_0_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$metas'
@@ -5574,16 +5573,10 @@ const char *check_model_init(void)
         _jm_obj_6_map_tab[8] = (jm_propmap_t) { "id", _jm_f_22 };
         _jm_obj_6_map_tab[9] = (jm_propmap_t) { "title", _jm_f_23 };
         jm_sort_propmap(_jm_obj_6_map_tab, 10);
-        int err_code;
-        PCRE2_SIZE err_offset;
-        static PCRE2_UCHAR err_message[1024];
-        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^x-.*", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_0_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
+        _jm_re_0_re2 = cre2_new("^x-.*", strlen("^x-.*"), NULL);
+        if (cre2_error_code(_jm_re_0_re2))
+            return cre2_error_string(_jm_re_0_re2);
+        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         // initialize sorted set _jm_cst_1
         _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "uri" } };
         _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "uri-reference" } };
@@ -5811,8 +5804,9 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        pcre2_match_data_free(_jm_re_0_data);
-        pcre2_code_free(_jm_re_0_code);
+        cre2_delete(_jm_re_0_re2);
+        _jm_re_0_re2 = NULL;
+        _jm_re_0_nn = 0;
     }
 }
 

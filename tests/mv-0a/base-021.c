@@ -4,14 +4,14 @@
 //
 
 // regular expression engine
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#include <stddef.h>
+#include <cre2.h>
 
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"
 
-static pcre2_code *_jm_re_0_code = NULL;
-static pcre2_match_data *_jm_re_0_data = NULL;
+static cre2_regexp_t *_jm_re_0_re2 = NULL;
+static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
@@ -19,9 +19,8 @@ const size_t check_model_map_size = 1;
 
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
-    int rc = pcre2_match(_jm_re_0_code, (PCRE2_SPTR) s, PCRE2_ZERO_TERMINATED,
-                         0, 0, _jm_re_0_data, NULL);
-    return rc >= 0;
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_0_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // check $ (.)
@@ -51,16 +50,10 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        int err_code;
-        PCRE2_SIZE err_offset;
-        static PCRE2_UCHAR err_message[1024];
-        _jm_re_0_code = pcre2_compile((PCRE2_SPTR) "^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$", PCRE2_ZERO_TERMINATED, PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-        if (_jm_re_0_code == NULL)
-        {
-            (void) pcre2_get_error_message(err_code, err_message, 1024);
-            return (const char *) err_message;
-        }
-        _jm_re_0_data = pcre2_match_data_create_from_pattern(_jm_re_0_code, NULL);
+        _jm_re_0_re2 = cre2_new("^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$", strlen("^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"), NULL);
+        if (cre2_error_code(_jm_re_0_re2))
+            return cre2_error_string(_jm_re_0_re2);
+        _jm_re_0_nn = cre2_num_capturing_groups(_jm_re_0_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }
@@ -74,8 +67,9 @@ void check_model_free(void)
         initialized = false;
 
         // cleanup code
-        pcre2_match_data_free(_jm_re_0_data);
-        pcre2_code_free(_jm_re_0_code);
+        cre2_delete(_jm_re_0_re2);
+        _jm_re_0_re2 = NULL;
+        _jm_re_0_nn = 0;
     }
 }
 
