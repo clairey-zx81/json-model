@@ -18,6 +18,8 @@ would be enough?
 
 ## Python Script
 
+- direct import and call of the check function?
+
 ## Python ORM
 
 - SQLAlchemy
