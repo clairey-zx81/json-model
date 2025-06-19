@@ -9,7 +9,7 @@ This tutorial aims at learning briefly the JSON Model syntax and how to use
 the `jmc` command for validating values directly.
 For integrating JSON Model in a project, see [HowTo](HOWTO.md).
 
-## Installation
+## Installing the Tool
 
 First, let us create a directory and install a Python virtual environment with the JSON Model
 Compiler. In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
@@ -53,7 +53,7 @@ of friend names, that you can put in file `hobbes.json` using your favorite text
 }
 ```
 
-## A Person Model
+## Modelling a Person
 
 A possible simplistic model declaration for this data structure,
 in file `Person-0.model.json`, is:
@@ -648,7 +648,7 @@ jmc -E Person-2 | jsu-model
 }
 ```
 
-## Conclusion
+## Empowering Developers
 
 JSON Model is a compact and intuitive syntax for describing JSON data structures used
 extensively to exchange data over networks, across programming languages and storage.

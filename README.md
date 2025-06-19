@@ -100,7 +100,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
 
 ## JSON Model Python API
 
-The package provides functions to load and check models from Python:
+The package provides functions to create and check models from Python:
 
 ```python
 import json_model as jm
@@ -128,11 +128,11 @@ assert not checker(bad_person, "", reasons)
 print("reasons:", reasons)
 ```
 
-## References
+## More Information
 
 See the [JSON Model Tutorial](./TUDO.md) for an hands-on overview of JSON Model.
 
-JSON Model design is presented in:
+JSON Model design is presented research papers and reports:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
   Fabien Coelho and Claire Yannou-Medrala.  
