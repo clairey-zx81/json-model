@@ -258,6 +258,9 @@ class Language:
         """Get length of a string."""
         return self.any_len(var)
 
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        raise NotImplementedError("str_start")
+
     def any_int_val(self, val: JsonExpr, tval: type) -> IntExpr:
         """Known type int extraction for constraints."""
         if tval is int:

@@ -108,6 +108,9 @@ class Python(Language):
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{self.esc(prop)} in {obj}"
 
+    def str_start(self, val: str, string: str) -> BoolExpr:
+        return f"{val}.startswith({self.esc(string)})"
+
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
 

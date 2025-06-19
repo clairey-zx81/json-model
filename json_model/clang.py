@@ -181,6 +181,9 @@ class CLangJansson(Language):
     def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
         return f"({fun} = {name}({prop}))"
 
+    def str_start(self, val: str, string: str) -> BoolExpr:
+        return f"strncmp({val}, {self.esc(string)}, strlen({self.esc(string)})) == 0"
+
     def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
         if is_str:
             return f"jm_check_fun_string({fun}, {val}, {path}, rep)"

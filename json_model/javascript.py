@@ -147,6 +147,9 @@ class JavaScript(Language):
     def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
         return f"({fun} = {name}.get({prop}))"
 
+    def str_start(self, val: str, string: str) -> BoolExpr:
+        return f"{val}.startsWith({self.esc(string)})"
+
     def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
         return super().check_call(fun, val, path, is_str)
 
