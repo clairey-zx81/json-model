@@ -128,9 +128,23 @@ assert not checker(bad_person, "", reasons)
 print("reasons:", reasons)
 ```
 
+## JSON Model Validation Performance
+
+Preliminary performance tests below compare validation times for a large 500 KB JSON OpenAPI
+description using JSON Model in C, JS and Python and JSON Schema Blaze implementation, with
+an average collected on thousands of runs, on the same laptop:
+
+- JSON Model C: 239 µs/check
+- JSON Model JS: 865 µs/check
+- JSON Schema C++ Blaze: 952 µs/check
+- JSON Model Python: 5,960 µs/check (about 6 ms)
+
+JSON Model Compiler outperforms the fastest JSON Schema library 4:1,
+and the JavaScript code is slightly faster with the C++ library.
+
 ## More Information
 
-See the [JSON Model Tutorial](./TUDO.md) for an hands-on overview of JSON Model.
+See the [JSON Model Tutorial](./TUTO.md) for an hands-on overview of JSON Model.
 
 JSON Model design is presented research papers and reports:
 
