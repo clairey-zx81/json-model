@@ -88,3 +88,5 @@
     - py: for convenient data structure documentation (?!)
     - ORM, tables, pydantic, dataclass, python types…
   - extensions: derive models for distinct usages?
+
+- rewrite: compare with dynamic reference JSON Schema use case.
