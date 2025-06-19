@@ -14,7 +14,6 @@ var _jm_obj_0_map = new Map()
 const _jm_re_1_re = new runtime.RX("^x\\-.*$", "")
 var _jm_obj_2_map = new Map()
 var _jm_obj_9_map = new Map()
-const _jm_re_2_re = new runtime.RX("^/", "")
 var _jm_obj_21_map = new Map()
 var _jm_obj_22_map = new Map()
 let _jm_cst_0 = new Set()
@@ -24,7 +23,7 @@ var _jm_obj_27_map = new Map()
 let _jm_cst_2 = new Set()
 var _jm_obj_31_map = new Map()
 var _jm_obj_34_map = new Map()
-const _jm_re_3_re = new runtime.RX("^[1-5](\\d\\d|XX)$", "")
+const _jm_re_2_re = new runtime.RX("^[1-5](\\d\\d|XX)$", "")
 var _jm_obj_37_map = new Map()
 var _jm_obj_42_map = new Map()
 var _jm_obj_43_map = new Map()
@@ -34,9 +33,9 @@ var _jm_obj_49_map = new Map()
 let _jm_cst_3 = new Set()
 var _jm_obj_53_mup = new Map()
 var _jm_obj_54_map = new Map()
-const _jm_re_4_re = new runtime.RX("^[@|&^+/*]$", "")
-const _jm_re_5_re = new runtime.RX("^(<=|>=|<|>|≥|≤)$", "")
-const _jm_re_6_re = new runtime.RX("^(=|!=|≠)$", "")
+const _jm_re_3_re = new runtime.RX("^[@|&^+/*]$", "")
+const _jm_re_4_re = new runtime.RX("^(<=|>=|<|>|≥|≤)$", "")
+const _jm_re_5_re = new runtime.RX("^(=|!=|≠)$", "")
 let _jm_cst_4 = new Set()
 var check_model_map = new Map()
 
@@ -1693,8 +1692,6 @@ function json_model_10(val, path, rep)
     return res;
 }
 
-const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
-
 // object .'$openapi#Paths'
 function _jm_obj_20(val, path, rep)
 {
@@ -1707,7 +1704,7 @@ function _jm_obj_20(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (_jm_re_2(prop, path, rep))
+        if (prop.startsWith("/"))
         {
             // handle 2 re props
             // .'$openapi#Paths'.'/^//'
@@ -3480,7 +3477,7 @@ function json_model_23(val, path, rep)
     return res;
 }
 
-const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
+const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
 // object .'$openapi#Responses'
 function _jm_obj_36(val, path, rep)
@@ -3527,7 +3524,7 @@ function _jm_obj_36(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -5553,7 +5550,7 @@ function json_model_66(val, path, rep)
     return res;
 }
 
-const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
+const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 // object .'$openapi#model#Elem'.'|'.5
 function _jm_obj_58(val, path, rep)
@@ -5582,7 +5579,7 @@ function _jm_obj_58(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop, path, rep))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#model#Elem'.'|'.5.'/^[@|&^+/*]$/'
@@ -5942,9 +5939,9 @@ function _jm_obj_62(val, path, rep)
     return true;
 }
 
-const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
+const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
 
-const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
+const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
 
 // object .'$openapi#model#Elem'.'|'.0
 function _jm_obj_63(val, path, rep)
@@ -6005,7 +6002,7 @@ function _jm_obj_63(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop, path, rep))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
@@ -6046,7 +6043,7 @@ function _jm_obj_63(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_6(prop, path, rep))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(=|!=|≠)$/'

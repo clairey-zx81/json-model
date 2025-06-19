@@ -27,8 +27,6 @@ _jm_re_1_reco: object
 _jm_re_1: RegexFun
 _jm_obj_2_map: PropMap
 _jm_obj_9_map: PropMap
-_jm_re_2_reco: object
-_jm_re_2: RegexFun
 _jm_obj_21_map: PropMap
 _jm_obj_22_map: PropMap
 _jm_obj_25_map: PropMap
@@ -42,8 +40,8 @@ _jm_cst_3: set[str]
 _jm_obj_33_map: PropMap
 _jm_obj_37_map: PropMap
 _jm_obj_40_map: PropMap
-_jm_re_3_reco: object
-_jm_re_3: RegexFun
+_jm_re_2_reco: object
+_jm_re_2: RegexFun
 _jm_obj_43_map: PropMap
 _jm_obj_48_map: PropMap
 _jm_obj_49_map: PropMap
@@ -1082,7 +1080,6 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected object [.'$Components']", path))
     return res
 
-
 # object .'$Paths'
 def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -1092,7 +1089,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_20: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_2(prop, path, rep):
+        if prop.startswith("/"):
             # handle 2 re props
             # .'$Paths'.'/^//'
             res = json_model_10(pval, lpath_20 if path is not None else None, rep)
@@ -2595,7 +2592,7 @@ def _jm_obj_42(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$Responses'.default]", lpath_42 if path is not None else None))
                 return False
-        elif _jm_re_3(prop, path, rep):
+        elif _jm_re_2(prop, path, rep):
             # handle 2 re props
             # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'
             # .'$Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
@@ -5593,9 +5590,6 @@ def check_model_init():
             "schemas": _jm_f_21,
             "securitySchemes": _jm_f_22,
         }
-        global _jm_re_2_reco, _jm_re_2
-        _jm_re_2_reco = re.compile("^/")
-        _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_obj_21_map
         _jm_obj_21_map = {
             "$ref": _jm_f_23,
@@ -5694,9 +5688,9 @@ def check_model_init():
             "headers": _jm_f_84,
             "style": _jm_f_85,
         }
-        global _jm_re_3_reco, _jm_re_3
-        _jm_re_3_reco = re.compile("^[1-5](\\d\\d|XX)$")
-        _jm_re_3 = lambda s, p, r: _jm_re_3_reco.search(s) is not None
+        global _jm_re_2_reco, _jm_re_2
+        _jm_re_2_reco = re.compile("^[1-5](\\d\\d|XX)$")
+        _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_obj_43_map
         _jm_obj_43_map = {
             "content": _jm_f_86,
@@ -5955,9 +5949,6 @@ def check_model_free():
         global _jm_re_2_reco, _jm_re_2
         _jm_re_2_reco = None
         _jm_re_2 = None
-        global _jm_re_3_reco, _jm_re_3
-        _jm_re_3_reco = None
-        _jm_re_3 = None
 
 if __name__ == "__main__":
     check_model_init()

@@ -27,8 +27,6 @@ _jm_re_1_reco: object
 _jm_re_1: RegexFun
 _jm_obj_2_map: PropMap
 _jm_obj_9_map: PropMap
-_jm_re_2_reco: object
-_jm_re_2: RegexFun
 _jm_obj_21_map: PropMap
 _jm_obj_22_map: PropMap
 _jm_cst_0: set[str]
@@ -38,8 +36,8 @@ _jm_obj_27_map: PropMap
 _jm_cst_2: set[str]
 _jm_obj_31_map: PropMap
 _jm_obj_34_map: PropMap
-_jm_re_3_reco: object
-_jm_re_3: RegexFun
+_jm_re_2_reco: object
+_jm_re_2: RegexFun
 _jm_obj_37_map: PropMap
 _jm_obj_42_map: PropMap
 _jm_obj_43_map: PropMap
@@ -49,12 +47,12 @@ _jm_obj_49_map: PropMap
 _jm_cst_3: set[str]
 _jm_obj_53_mup: PropMap
 _jm_obj_54_map: PropMap
+_jm_re_3_reco: object
+_jm_re_3: RegexFun
 _jm_re_4_reco: object
 _jm_re_4: RegexFun
 _jm_re_5_reco: object
 _jm_re_5: RegexFun
-_jm_re_6_reco: object
-_jm_re_6: RegexFun
 check_model_map: PropMap
 
 # check $openapi (.'$openapi')
@@ -1099,7 +1097,6 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected object [.'$openapi#Components']", path))
     return res
 
-
 # object .'$openapi#Paths'
 def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
@@ -1109,7 +1106,7 @@ def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_20: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_2(prop, path, rep):
+        if prop.startswith("/"):
             # handle 2 re props
             # .'$openapi#Paths'.'/^//'
             res = json_model_12(pval, lpath_20 if path is not None else None, rep)
@@ -2274,7 +2271,7 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#Responses'.default]", lpath_36 if path is not None else None))
                 return False
-        elif _jm_re_3(prop, path, rep):
+        elif _jm_re_2(prop, path, rep):
             # handle 2 re props
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
             # .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'.'|'.0
@@ -3586,7 +3583,7 @@ def _jm_obj_58(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Elem'.'|'.5.'#']", lpath_56 if path is not None else None))
                 return False
-        elif _jm_re_4(prop, path, rep):
+        elif _jm_re_3(prop, path, rep):
             # handle 1 re props
             # .'$openapi#model#Elem'.'|'.5.'/^[@|&^+/*]$/'
             res = False
@@ -3836,7 +3833,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$openapi#model#Elem'.'|'.0.'!']", lpath_61 if path is not None else None))
                 return False
-        elif _jm_re_5(prop, path, rep):
+        elif _jm_re_4(prop, path, rep):
             # handle 2 re props
             # .'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
             # .'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.0
@@ -3859,7 +3856,7 @@ def _jm_obj_63(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|']", lpath_61 if path is not None else None))
             if not res:
                 return False
-        elif _jm_re_6(prop, path, rep):
+        elif _jm_re_5(prop, path, rep):
             # handle 2 re props
             # .'$openapi#model#Elem'.'|'.0.'/^(=|!=|≠)$/'
             res = json_model_62(pval, lpath_61 if path is not None else None, rep)
@@ -4055,9 +4052,6 @@ def check_model_init():
             "responses": _jm_f_21,
             "securitySchemes": _jm_f_22,
         }
-        global _jm_re_2_reco, _jm_re_2
-        _jm_re_2_reco = re.compile("^/")
-        _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_obj_21_map
         _jm_obj_21_map = {
             "$ref": _jm_f_23,
@@ -4131,9 +4125,9 @@ def check_model_init():
             "headers": _jm_f_70,
             "style": _jm_f_71,
         }
-        global _jm_re_3_reco, _jm_re_3
-        _jm_re_3_reco = re.compile("^[1-5](\\d\\d|XX)$")
-        _jm_re_3 = lambda s, p, r: _jm_re_3_reco.search(s) is not None
+        global _jm_re_2_reco, _jm_re_2
+        _jm_re_2_reco = re.compile("^[1-5](\\d\\d|XX)$")
+        _jm_re_2 = lambda s, p, r: _jm_re_2_reco.search(s) is not None
         global _jm_obj_37_map
         _jm_obj_37_map = {
             "content": _jm_f_72,
@@ -4201,15 +4195,15 @@ def check_model_init():
             "implicit": _jm_f_111,
             "password": _jm_f_112,
         }
+        global _jm_re_3_reco, _jm_re_3
+        _jm_re_3_reco = re.compile("^[@|&^+/*]$")
+        _jm_re_3 = lambda s, p, r: _jm_re_3_reco.search(s) is not None
         global _jm_re_4_reco, _jm_re_4
-        _jm_re_4_reco = re.compile("^[@|&^+/*]$")
+        _jm_re_4_reco = re.compile("^(<=|>=|<|>|≥|≤)$")
         _jm_re_4 = lambda s, p, r: _jm_re_4_reco.search(s) is not None
         global _jm_re_5_reco, _jm_re_5
-        _jm_re_5_reco = re.compile("^(<=|>=|<|>|≥|≤)$")
+        _jm_re_5_reco = re.compile("^(=|!=|≠)$")
         _jm_re_5 = lambda s, p, r: _jm_re_5_reco.search(s) is not None
-        global _jm_re_6_reco, _jm_re_6
-        _jm_re_6_reco = re.compile("^(=|!=|≠)$")
-        _jm_re_6 = lambda s, p, r: _jm_re_6_reco.search(s) is not None
         global check_model_map
         check_model_map = {
             "": json_model_1,
@@ -4239,9 +4233,6 @@ def check_model_free():
         global _jm_re_5_reco, _jm_re_5
         _jm_re_5_reco = None
         _jm_re_5 = None
-        global _jm_re_6_reco, _jm_re_6
-        _jm_re_6_reco = None
-        _jm_re_6 = None
 
 if __name__ == "__main__":
     check_model_init()

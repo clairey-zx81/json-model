@@ -9,10 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-const _jm_re_0_re = new runtime.RX("^S", "")
 var check_model_map = new Map()
-
-const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 // check $ (.)
 function json_model_1(val, path, rep)
@@ -20,7 +17,7 @@ function json_model_1(val, path, rep)
     let res;
     // .
     // "/^S/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    res = ((typeof val === 'string' || val instanceof String)) && val.startsWith("S");
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^S/ [.]", path])

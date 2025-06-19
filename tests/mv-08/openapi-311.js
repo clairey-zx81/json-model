@@ -14,7 +14,6 @@ var _jm_obj_0_map = new Map()
 const _jm_re_1_re = new runtime.RX("^x\\-.*$", "")
 var _jm_obj_2_map = new Map()
 var _jm_obj_9_map = new Map()
-const _jm_re_2_re = new runtime.RX("^/", "")
 var _jm_obj_21_map = new Map()
 var _jm_obj_22_map = new Map()
 var _jm_obj_25_map = new Map()
@@ -28,7 +27,7 @@ let _jm_cst_3 = new Set()
 var _jm_obj_33_map = new Map()
 var _jm_obj_37_map = new Map()
 var _jm_obj_40_map = new Map()
-const _jm_re_3_re = new runtime.RX("^[1-5](\\d\\d|XX)$", "")
+const _jm_re_2_re = new runtime.RX("^[1-5](\\d\\d|XX)$", "")
 var _jm_obj_43_map = new Map()
 var _jm_obj_48_map = new Map()
 var _jm_obj_49_map = new Map()
@@ -1671,8 +1670,6 @@ function json_model_8(val, path, rep)
     return res;
 }
 
-const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
-
 // object .'$Paths'
 function _jm_obj_20(val, path, rep)
 {
@@ -1685,7 +1682,7 @@ function _jm_obj_20(val, path, rep)
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
-        if (_jm_re_2(prop, path, rep))
+        if (prop.startsWith("/"))
         {
             // handle 2 re props
             // .'$Paths'.'/^//'
@@ -3972,7 +3969,7 @@ function json_model_21(val, path, rep)
     return res;
 }
 
-const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
+const _jm_re_2 = (s) => _jm_re_2_re.exec(s) !== null
 
 // object .'$Responses'
 function _jm_obj_42(val, path, rep)
@@ -4019,7 +4016,7 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$Responses'.'/^[1-5](\\d\\d|XX)$/'

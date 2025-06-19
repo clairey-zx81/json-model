@@ -51,9 +51,6 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_9_map_tab[10];
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_2_re2 = NULL;
-static int _jm_re_2_nn = 0;
-static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -121,9 +118,9 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_34_map_tab[5];
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_3_re2 = NULL;
-static int _jm_re_3_nn = 0;
-static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_2_re2 = NULL;
+static int _jm_re_2_nn = 0;
+static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -190,15 +187,15 @@ static bool json_model_40(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_66(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_3_re2 = NULL;
+static int _jm_re_3_nn = 0;
+static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_4_re2 = NULL;
 static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_5_re2 = NULL;
 static int _jm_re_5_nn = 0;
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep);
-static cre2_regexp_t *_jm_re_6_re2 = NULL;
-static int _jm_re_6_nn = 0;
-static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_62(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_cst_4_test(const json_t *);
@@ -1923,12 +1920,6 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
 // object .'$openapi#Paths'
 static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -1943,7 +1934,7 @@ static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_20 = (jm_path_t) { prop, 0, path, NULL };
-        if (_jm_re_2(prop, path, rep))
+        if (strncmp(prop, "/", strlen("/")) == 0)
         {
             // handle 2 re props
             // .'$openapi#Paths'.'/^//'
@@ -3776,10 +3767,10 @@ static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
+static bool _jm_re_2(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
-    return cre2_match(_jm_re_3_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return cre2_match(_jm_re_2_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#Responses'
@@ -3829,7 +3820,7 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (_jm_re_2(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#Responses'.'/^[1-5](\\d\\d|XX)$/'
@@ -5927,10 +5918,10 @@ static bool json_model_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
+static bool _jm_re_3(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
-    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+    return cre2_match(_jm_re_3_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Elem'.'|'.5
@@ -5962,7 +5953,7 @@ static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop, path, rep))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 1 re props
             // .'$openapi#model#Elem'.'|'.5.'/^[@|&^+/*]$/'
@@ -6334,16 +6325,16 @@ static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(_jm_re_5_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
-static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_6_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Elem'.'|'.0
@@ -6407,7 +6398,7 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop, path, rep))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
@@ -6448,7 +6439,7 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_6(prop, path, rep))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
             // .'$openapi#model#Elem'.'|'.0.'/^(=|!=|≠)$/'
@@ -6707,10 +6698,6 @@ const char *check_model_init(void)
         _jm_obj_9_map_tab[8] = (jm_propmap_t) { "responses", _jm_f_21 };
         _jm_obj_9_map_tab[9] = (jm_propmap_t) { "securitySchemes", _jm_f_22 };
         jm_sort_propmap(_jm_obj_9_map_tab, 10);
-        _jm_re_2_re2 = cre2_new("^/", strlen("^/"), NULL);
-        if (cre2_error_code(_jm_re_2_re2))
-            return cre2_error_string(_jm_re_2_re2);
-        _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         _jm_obj_21_map_tab[0] = (jm_propmap_t) { "$ref", _jm_f_23 };
         _jm_obj_21_map_tab[1] = (jm_propmap_t) { "delete", _jm_f_24 };
         _jm_obj_21_map_tab[2] = (jm_propmap_t) { "description", _jm_f_25 };
@@ -6787,10 +6774,10 @@ const char *check_model_init(void)
         _jm_obj_34_map_tab[3] = (jm_propmap_t) { "headers", _jm_f_70 };
         _jm_obj_34_map_tab[4] = (jm_propmap_t) { "style", _jm_f_71 };
         jm_sort_propmap(_jm_obj_34_map_tab, 5);
-        _jm_re_3_re2 = cre2_new("^[1-5](\\d\\d|XX)$", strlen("^[1-5](\\d\\d|XX)$"), NULL);
-        if (cre2_error_code(_jm_re_3_re2))
-            return cre2_error_string(_jm_re_3_re2);
-        _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
+        _jm_re_2_re2 = cre2_new("^[1-5](\\d\\d|XX)$", strlen("^[1-5](\\d\\d|XX)$"), NULL);
+        if (cre2_error_code(_jm_re_2_re2))
+            return cre2_error_string(_jm_re_2_re2);
+        _jm_re_2_nn = cre2_num_capturing_groups(_jm_re_2_re2) + 1;
         _jm_obj_37_map_tab[0] = (jm_propmap_t) { "content", _jm_f_72 };
         _jm_obj_37_map_tab[1] = (jm_propmap_t) { "description", _jm_f_73 };
         _jm_obj_37_map_tab[2] = (jm_propmap_t) { "headers", _jm_f_74 };
@@ -6845,18 +6832,18 @@ const char *check_model_init(void)
         _jm_obj_54_map_tab[2] = (jm_propmap_t) { "implicit", _jm_f_111 };
         _jm_obj_54_map_tab[3] = (jm_propmap_t) { "password", _jm_f_112 };
         jm_sort_propmap(_jm_obj_54_map_tab, 4);
-        _jm_re_4_re2 = cre2_new("^[@|&^+/*]$", strlen("^[@|&^+/*]$"), NULL);
+        _jm_re_3_re2 = cre2_new("^[@|&^+/*]$", strlen("^[@|&^+/*]$"), NULL);
+        if (cre2_error_code(_jm_re_3_re2))
+            return cre2_error_string(_jm_re_3_re2);
+        _jm_re_3_nn = cre2_num_capturing_groups(_jm_re_3_re2) + 1;
+        _jm_re_4_re2 = cre2_new("^(<=|>=|<|>|≥|≤)$", strlen("^(<=|>=|<|>|≥|≤)$"), NULL);
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
         _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
-        _jm_re_5_re2 = cre2_new("^(<=|>=|<|>|≥|≤)$", strlen("^(<=|>=|<|>|≥|≤)$"), NULL);
+        _jm_re_5_re2 = cre2_new("^(=|!=|≠)$", strlen("^(=|!=|≠)$"), NULL);
         if (cre2_error_code(_jm_re_5_re2))
             return cre2_error_string(_jm_re_5_re2);
         _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
-        _jm_re_6_re2 = cre2_new("^(=|!=|≠)$", strlen("^(=|!=|≠)$"), NULL);
-        if (cre2_error_code(_jm_re_6_re2))
-            return cre2_error_string(_jm_re_6_re2);
-        _jm_re_6_nn = cre2_num_capturing_groups(_jm_re_6_re2) + 1;
         // initialize sorted set _jm_cst_4
         _jm_cst_4[0] = (jm_constant_t) { cst_is_null, { .s = NULL } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_bool, { .b = true } };
@@ -6899,9 +6886,6 @@ void check_model_free(void)
         cre2_delete(_jm_re_5_re2);
         _jm_re_5_re2 = NULL;
         _jm_re_5_nn = 0;
-        cre2_delete(_jm_re_6_re2);
-        _jm_re_6_re2 = NULL;
-        _jm_re_6_nn = 0;
     }
 }
 
