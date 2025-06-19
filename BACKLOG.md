@@ -6,6 +6,7 @@
 - [x] c-backend: add `re2` support
 - [x] c-backend: default to `re2`
 - [x] js-backend: add `re2` (backend, node only) support
+- [x] command: allow `-I` and `-L` for C compilation
 - [ ] tests: with multiple regex engine
 - [ ] doc: document `re2` support for C
 - [ ] design: rewrite reuse path?

@@ -173,7 +173,7 @@ DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast"
 DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
 # pkgconf --libs cre2
-DEFAULT_LDFLAGS_CRE2 = "-L/usr/local -ljansson -lcre2 -lpthread -lre2 -lm"
+DEFAULT_LDFLAGS_CRE2 = "-L/usr/local/lib -ljansson -lcre2 -lpthread -lre2 -lm"
 
 def clang_compile(c_code: str, args):
     """Generate an actual executable or object file."""
@@ -191,9 +191,13 @@ def clang_compile(c_code: str, args):
     cflags = args.cflags or env("CFLAGS", DEFAULT_CFLAGS)
     d_engine = "-DREGEX_ENGINE_PCRE2" if args.regex_engine == "pcre2" else "-DREGEX_ENGINE_RE2"
     cppflags = args.cppflags or \
-        f"-I{rt_dir} -I/usr/local -DCHECK_FUNCTION_NAME=check_model {d_engine}"
+        f"-I{rt_dir} -I/usr/local/linclude -DCHECK_FUNCTION_NAME=check_model {d_engine}"
+    if args.include:
+        cppflags = " -I".join([""] + args.include) + " " + cppflags
     ldflags = args.ldflags or \
         (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
+    if args.library:
+        ldflags = " -L".join([""] + args.library) + " " + ldflags
 
     output = "a.out" if args.output == "-" else args.output
 
@@ -272,6 +276,8 @@ def jmc_script():
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
     arg("--ldflags", type=str, help="override C linker flags for executable")
+    arg("--include", "-I", nargs="*", default=[], help="add include directory")
+    arg("--library", "-L", nargs="*", default=[], help="add library directory")
 
     # testing mode, expected results on values
     arg("--name", "-n", default="", help="name of validation submodel, default is \"\" (root)")
