@@ -137,7 +137,7 @@ an average collected on thousands of runs, in _fast_ (no reporting) mode, on the
 - JSON Model C: _225_ µs/check (under ¼ ms)
 - JSON Model JS: _798_ µs/check (under 1 ms)
 - JSON Schema C++ Blaze: _952_ µs/check (under 1 ms)
-- JSON Model Python: _5,245_ µs/check (about 6 ms)
+- JSON Model Python: _5,245_ µs/check (about 5 ms)
 
 JSON Model Compiler outperforms the fastest JSON Schema library 4:1,
 and the JavaScript code is 16% faster than the C++ library.
