@@ -475,7 +475,7 @@ new one, which takes precedence.
 jmc Person-3 hobbes.json bastille.json  # PASS, FAIL
 ```
 
-With file `bastille.json` which repeats _Marat_ in the friends array:
+With file `bastille.json` which repeats _Marat_ in the `friends` array:
 
 ```json
 {
