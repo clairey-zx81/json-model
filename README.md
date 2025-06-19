@@ -140,7 +140,7 @@ an average collected on thousands of runs, on the same laptop:
 - JSON Model Python: _5,960_ µs/check (about 6 ms)
 
 JSON Model Compiler outperforms the fastest JSON Schema library 4:1,
-and the JavaScript code is still slightly faster than the C++ library.
+and the JavaScript code is 10% faster than the C++ library.
 
 ## More Information
 
