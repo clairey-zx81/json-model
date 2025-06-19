@@ -132,7 +132,7 @@ print("reasons:", reasons)
 
 Preliminary performance tests below compare validation times for a large 500 KB JSON OpenAPI
 description using JSON Model in C, JS and Python and JSON Schema Blaze implementation, with
-an average collected on thousands of runs, on the same laptop:
+an average collected on thousands of runs, in _fast_ (no reporting) mode, on the same laptop:
 
 - JSON Model C: _239_ µs/check
 - JSON Model JS: _865_ µs/check
