@@ -111,6 +111,9 @@ class Python(Language):
     def str_start(self, val: str, string: str) -> BoolExpr:
         return f"{val}.startswith({self.esc(string)})"
 
+    def str_end(self, val: str, string: str) -> BoolExpr:
+        return f"{val}.endswith({self.esc(string)})"
+
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
 

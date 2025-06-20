@@ -1,0 +1,15 @@
+[
+  [ true,  "Susie" ],
+  [ false, "xSusie" ],
+  [ false, "Susie!" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, ["Susie"] ],
+  [ false, {} ],
+  [ false, {"Susie": "Susie"} ]
+]

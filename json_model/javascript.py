@@ -150,6 +150,9 @@ class JavaScript(Language):
     def str_start(self, val: str, string: str) -> BoolExpr:
         return f"{val}.startsWith({self.esc(string)})"
 
+    def str_end(self, val: str, string: str) -> BoolExpr:
+        return f"{val}.endsWith({self.esc(string)})"
+
     def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
         return super().check_call(fun, val, path, is_str)
 

@@ -7,7 +7,8 @@
 - [x] c-backend: default to `re2`
 - [x] js-backend: add `re2` (backend, node only) support
 - [x] command: allow `-I` and `-L` for C compilation
-- [x] static: optimize `^...` using starts with when possible (idea from blaze paper)
+- [x] static: re optimize `^...` using starts with when possible (idea from blaze paper)
+- [x] static: re optimize `...$` and `^...$`
 - [ ] tests: with multiple regex engine
 - [ ] doc: document `re2` support for C
 - [ ] design: rewrite reuse path?

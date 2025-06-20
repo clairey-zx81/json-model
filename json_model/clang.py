@@ -184,6 +184,11 @@ class CLangJansson(Language):
     def str_start(self, val: str, string: str) -> BoolExpr:
         return f"strncmp({val}, {self.esc(string)}, strlen({self.esc(string)})) == 0"
 
+    def str_end(self, val: str, string: str) -> BoolExpr:
+        sstr = self.esc(string)
+        return f"strlen({val}) >= strlen({sstr}) && " \
+               f"strcmp({val} + strlen({val}) - strlen({sstr}), {sstr}) == 0"
+
     def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
         if is_str:
             return f"jm_check_fun_string({fun}, {val}, {path}, rep)"

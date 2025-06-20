@@ -159,8 +159,12 @@ class CodeGenerator:
             return gen.const(True)
         elif re.match(r"^/(\?s)\.\+?/$", regex) or re.match(r"^/\.\+?/s$", regex):
             return gen.num_cmp(gen.str_len(sval), ">", gen.const(0))
-        elif re.match(r"^/\^[^][(){}.+*?\\]+/$", regex):  # startwith
+        elif re.match(r"^/\^[^[({|.+*?\\^$]+/$", regex):  # starts with
             return gen.str_start(sval, regex[2:-1])
+        elif re.match(r"^/[^[({|.+*?\\^$]+\$/$", regex):  # ends with
+            return gen.str_end(sval, regex[1:-2])
+        elif re.match(r"^/\^[^[({|.+*?\\^$]+\$/$", regex):  # streq
+            return gen.str_cmp(sval, "=", gen.esc(regex[2:-2]))
         else:
             fun = self._regex(jm, regex, path)
             # TODO inline the internal function if possible?
