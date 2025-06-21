@@ -146,7 +146,7 @@ and the JavaScript model validation is 20% faster than the C++ schema validation
 
 See the [JSON Model Tutorial](./TUTO.md) for a hands-on overview of JSON Model.
 
-JSON Model design is presented research papers and reports:
+JSON Model design is presented in research papers and reports:
 
 - JSON Model: a Lightweight Featureful DSL for JSON.
   Fabien Coelho and Claire Yannou-Medrala.  
