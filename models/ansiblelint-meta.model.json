@@ -268,7 +268,7 @@
       "?versions": [ { "|": ["5.5", "6.0", "6.5", "6.7", "7.0", "8.0","all"] } ]
     },
     "any_platform": {
-      "#": "FIXME: name is not mandatory, not sure it makes much sense…",
+      "#": "FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?",
       "|": [
         "$AIXPlatformModel",
         "$AlpinePlatformModel",
