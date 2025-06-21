@@ -5,7 +5,7 @@
     "OpenAPI": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "openapi": {
@@ -34,11 +34,14 @@
             "$ref": "#/$defs/PathItem"
           }
         },
-        "component": {
+        "components": {
           "$ref": "#/$defs/Components"
         },
         "security": {
-          "$ref": "#/$defs/SecurityRequirement"
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SecurityRequirement"
+          }
         },
         "tags": {
           "type": "array",
@@ -59,7 +62,7 @@
     "Info": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "title": {
@@ -93,7 +96,7 @@
     "Contact": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "name": {
@@ -155,7 +158,7 @@
     "Server": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "url": {
@@ -180,7 +183,7 @@
     "ServerVariable": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "enum": {
@@ -204,7 +207,7 @@
     "Components": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "schemas": {
@@ -339,14 +342,14 @@
         "^/": {
           "$ref": "#/$defs/PathItem"
         },
-        "^x\\-.*$": true
+        "^x-": true
       },
       "additionalProperties": false
     },
     "PathItem": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "$ref": {
@@ -408,7 +411,7 @@
     "Operation": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "tags": {
@@ -489,7 +492,7 @@
     "ExternalDocumentation": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "description": {
@@ -508,7 +511,7 @@
     "parameterShare": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "description": {
@@ -529,7 +532,7 @@
     "commonParameter": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "name": {
@@ -623,7 +626,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "name": {
@@ -685,7 +688,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "name": {
@@ -729,7 +732,7 @@
     "RequestBody": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "description": {
@@ -750,7 +753,7 @@
     "MediaType": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "schema": {
@@ -782,7 +785,7 @@
     "Encoding": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "contentType": {
@@ -826,7 +829,7 @@
             }
           ]
         },
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "default": {
@@ -845,7 +848,7 @@
     "Response": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "description": {
@@ -889,7 +892,7 @@
     "Callback": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "additionalProperties": {
         "anyOf": [
@@ -905,7 +908,7 @@
     "Example": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "summary": {
@@ -929,7 +932,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "operationRef": {
@@ -955,7 +958,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "operationId": {
@@ -986,7 +989,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "description": {
@@ -1033,7 +1036,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^x\\-.*$": true
+            "^x-": true
           },
           "properties": {
             "description": {
@@ -1062,7 +1065,7 @@
     "Tag": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "name": {
@@ -1320,7 +1323,7 @@
     "Discriminator": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "propertyName": {
@@ -1341,7 +1344,7 @@
     "XML": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "name": {
@@ -1362,17 +1365,11 @@
       },
       "additionalProperties": false
     },
-    "SecurityScheme": {
+    "SS-apikey": {
       "type": "object",
-      "patternProperties": {
-        "^x\\-.*$": true
-      },
       "properties": {
         "type": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
+          "const": "apiKey"
         },
         "name": {
           "type": "string"
@@ -1383,34 +1380,212 @@
             "header",
             "cookie"
           ]
-        },
-        "scheme": {
-          "type": "string"
-        },
-        "bearerFormat": {
-          "type": "string"
-        },
-        "flows": {
-          "$ref": "#/$defs/OAuthFlows"
-        },
-        "openIdConnectUrl": {
-          "type": "string"
         }
       },
       "required": [
         "type",
         "name",
-        "in",
-        "scheme",
-        "flows",
+        "in"
+      ],
+      "additionalProperties": false
+    },
+    "SS-http": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "http"
+        },
+        "scheme": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "scheme"
+      ],
+      "additionalProperties": false
+    },
+    "SS-http-bearer": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "http"
+        },
+        "scheme": {
+          "type": "string",
+          "pattern": "(?i)bearer"
+        },
+        "bearerFormat": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "scheme"
+      ],
+      "additionalProperties": false
+    },
+    "SS-oauth2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "oauth2"
+        },
+        "flows": {
+          "$ref": "#/$defs/OAuthFlows"
+        }
+      },
+      "required": [
+        "type",
+        "flows"
+      ],
+      "additionalProperties": false
+    },
+    "SS-oic": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "openIdConnect"
+        },
+        "openIdConnectUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
         "openIdConnectUrl"
       ],
       "additionalProperties": false
     },
+    "SecurityScheme": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "apiKey"
+            },
+            "name": {
+              "type": "string"
+            },
+            "in": {
+              "enum": [
+                "query",
+                "header",
+                "cookie"
+              ]
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "name",
+            "in"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "http"
+            },
+            "scheme": {
+              "type": "string",
+              "pattern": "(?i)bearer"
+            },
+            "bearerFormat": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "scheme"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "http"
+            },
+            "scheme": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "scheme"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "oauth2"
+            },
+            "flows": {
+              "$ref": "#/$defs/OAuthFlows"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "flows"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "openIdConnect"
+            },
+            "openIdConnectUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "openIdConnectUrl"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^x-": true
+          },
+          "properties": {
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
     "OAuthFlows": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "implicit": {
@@ -1431,7 +1606,7 @@
     "OAuthFlow": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "properties": {
         "authorizationUrl": {
@@ -1472,7 +1647,7 @@
     "Extension": {
       "type": "object",
       "patternProperties": {
-        "^x\\-.*$": true
+        "^x-": true
       },
       "additionalProperties": false
     }

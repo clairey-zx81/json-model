@@ -10,11 +10,11 @@
       "?servers": [ "$Server" ],
       "?paths": "$Paths",
       "?webhooks": { "": "$PathItem" },
-      "?component": "$Components",
-      "?security": "$SecurityRequirement",
+      "?components": "$Components",
+      "?security": [ "$SecurityRequirement" ],
       "?tags": [ "$Tag" ],
       "?externalDocs": "$ExternalDocumentation",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Info": {
       "title": "",
@@ -24,13 +24,13 @@
       "?contact": "$Contact",
       "?license": "$License",
       "version": "",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Contact": {
       "?name": "",
       "?url": "$URL",
       "?email": "",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "License": {
       "|": [
@@ -42,13 +42,13 @@
       "url": "$URL",
       "?description": "",
       "?variables": { "": "$ServerVariable" },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "ServerVariable": {
       "?enum": [""],
       "default": "",
       "?description": "",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Components": {
       "?schemas": { "": "$Schema" },
@@ -61,11 +61,11 @@
       "?links": { "": { "|": [ "$Link", "$Reference" ] }},
       "?callbacks": { "": { "|": [ "$Callback", "$Reference" ] }},
       "?pathItems": { "": { "|": [ "$PathItem", "$Reference" ] }},
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Paths": {
       "/^//": "$PathItem",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "PathItem": { 
       "?$ref": "$URI",
@@ -81,7 +81,7 @@
       "?trace": "$Operation",
       "?servers": [ "$Operation" ],
       "?parameters": [ { "|": [ "$Parameter", "$Reference" ] } ],
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Operation": { 
       "?tags": [ "" ],
@@ -96,19 +96,19 @@
       "?deprecated": true,
       "?security": [ "$SecurityRequirement" ],
       "?servers": [ "$Server" ],
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "ExternalDocumentation": {
       "?description": "",
       "url": "$URL",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "parameterShare": {
       "?description": "",
       "?required": true,
       "?deprecated": true,
       "?allowEmptyValue": true,
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "commonParameter": {
       "+": [
@@ -144,14 +144,14 @@
       "?description": "",
       "?content": { "": "$MediaType" },
       "?required": true,
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "MediaType": {
       "?schema": "$Schema",
       "?example": "$ANY",
       "?examples": { "": { "|": [ "$Example", "$Reference" ] }},
       "?encoding": { "": "$Encoding" },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Encoding": {
       "?contentType": "",
@@ -159,30 +159,30 @@
       "?style": "$Style",
       "?explode": true,
       "?allowReserved": true,
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Responses": {
       "/^[1-5](\\d\\d|XX)$/": { "|": [ "$Response", "$Reference" ] },
       "?default": { "|": [ "$Response", "$Reference" ] },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Response": {
       "?description": "",
       "?headers": { "": { "|": [ "$Header", "$Reference" ] } },
       "?content": { "": "$MediaType" },
       "?links": { "": { "|": [ "$Link", "$Reference" ] } },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Callback": {
       "$Expression": { "|": [ "$PathItem", "$Reference" ] },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Example": {
       "?summary": "",
       "?description": "",
       "?value": "$ANY",
       "?externalValue": "",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Expression": "",
     "Link": {
@@ -193,7 +193,7 @@
           "?requestBody": { "|": ["$Expression", "$ANY"] }, 
           "?description": "",
           "?server": "$Server",
-          "/^x\\-.*$/": "$ANY"
+          "/^x-/": "$ANY"
         }
       ]
     },
@@ -208,7 +208,7 @@
       "name": "",
       "?description": "",
       "?externalDocs": "$ExternalDocumentation",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "Reference": {
       "_$ref": "",
@@ -231,7 +231,7 @@
     "Discriminator": {
       "propertyName": "",
       "?mapping": { "": "" },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "XML": {
       "?name": "",
@@ -239,35 +239,52 @@
       "?prefix": "",
       "?attribute": true,
       "?wrapped": true,
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
+    },
+    "SS-apikey": {
+      "type": "_apiKey",
+      "name": "",
+      "in": { "|": ["query", "header", "cookie"] }
+    },
+    "SS-http": {
+      "type": "_http",
+      "scheme": ""
+    },
+    "SS-http-bearer": {
+      "type": "_http",
+      "scheme": "/bearer/i",
+      "?bearerFormat": ""
+    },
+    "SS-oauth2": {
+      "type": "_oauth2",
+      "flows": "$OAuthFlows"
+    },
+    "SS-oic": {
+      "type": "_openIdConnect",
+      "openIdConnectUrl": "$URL"
     },
     "SecurityScheme": {
-      "type": "",
-      "?description": "",
-      "name": "",
-      "in": { "|": ["query", "header", "cookie"] },
-      "scheme": "",
-      "?bearerFormat": "",
-      "flows": "$OAuthFlows",
-      "openIdConnectUrl": "",
-      "/^x\\-.*$/": "$ANY"
+      "+": [
+        { "|": [ "$SS-apikey", "$SS-http-bearer", "$SS-http", "$SS-oauth2", "$SS-oic", "$Extension" ] },
+        { "?description": "" }
+      ]
     },
     "OAuthFlows": {
       "?implicit": "$OAuthFlow",
       "?password": "$OAuthFlow",
       "?clientCredentials": "$OAuthFlow",
       "?authorizationCode": "$OAuthFlow",
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "OAuthFlow": {
       "authorizationUrl": "$URL",
       "tokenUrl": "$URL",
       "?refreshUrl": "$URL",
       "scopes": { "": "" },
-      "/^x\\-.*$/": "$ANY"
+      "/^x-/": "$ANY"
     },
     "SecurityRequirement": { "": [ "" ] },
-    "Extension": { "/^x\\-.*$/": "$ANY" }
+    "Extension": { "/^x-/": "$ANY" }
   },
   "@": "$OpenAPI"
 }
