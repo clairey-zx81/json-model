@@ -297,7 +297,7 @@ def jmc_script():
     arg("--check", "-c", action="store_true", default=False, help="check model validity")
     arg("--optimize", "-O", action="store_true", default=True, help="optimize model")
     arg("--no-optimize", "-nO", dest="optimize", action="store_false", help="do not optimize model")
-    arg("--map-threshold", "-mt", default=3, type=int, help="property map threshold")
+    arg("--map-threshold", "-mt", default=5, type=int, help="property map threshold, default 5")
     arg("--map-share", "-ms", default=False, action="store_true", help="property map sharing")
 
     operation = ap.add_mutually_exclusive_group()

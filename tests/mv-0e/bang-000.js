@@ -9,74 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-var _jm_obj_0_mup = new Map()
 var check_model_map = new Map()
-
-// check _jm_obj_0_mup_! (.'!')
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'!'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'!']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_/ (.'/')
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'/'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 17;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected =17 [.'/']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_? (.'?')
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'?'
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0.0 strict float [.'?']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup__ (._)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // ._
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [._]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_a (.a)
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .a
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.a]", path])
-    }
-    return res;
-}
-
 
 // object .
 function _jm_obj_0(val, path, rep)
@@ -87,22 +20,88 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_mup.get(prop)))
+        if (prop == "!")
         {
-            // handle 5 mandatory props
-            if (pfun !== undefined)
+            // handle must ! property
+            must_count += 1;
+            // .'!'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_0 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.]", (path ? lpath_0 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["not a 0 strict int [.'!']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'!']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "_")
+        {
+            // handle must _ property
+            must_count += 1;
+            // ._
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [._]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [._]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "a")
+        {
+            // handle must a property
+            must_count += 1;
+            // .a
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.a]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "?")
+        {
+            // handle must ? property
+            must_count += 1;
+            // .'?'
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.'?']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'?']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "/")
+        {
+            // handle must / property
+            must_count += 1;
+            // .'/'
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval == 17;
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected =17 [.'/']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'/']", (path ? lpath_0 : null)])
+                return false;
             }
         }
         else if (prop == "b")
@@ -179,11 +178,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_0_mup.set("!", _jm_f_0)
-        _jm_obj_0_mup.set("/", _jm_f_1)
-        _jm_obj_0_mup.set("?", _jm_f_2)
-        _jm_obj_0_mup.set("_", _jm_f_3)
-        _jm_obj_0_mup.set("a", _jm_f_4)
         check_model_map.set("", json_model_1)
     }
 }

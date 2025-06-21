@@ -134,13 +134,13 @@ Preliminary performance tests below compare validation times for a large 500 KB 
 description using JSON Model in C, JS and Python and JSON Schema Blaze implementation, with
 an average collected on thousands of runs, in _fast_ (no reporting) mode, on the same laptop:
 
-- JSON Model C: _225_ µs/check (under ¼ ms)
-- JSON Model JS: _798_ µs/check (under 1 ms)
+- JSON Model C: _208_ µs/check (about ⅕ ms)
+- JSON Model JS: _755_ µs/check (under 1 ms)
 - JSON Schema C++ Blaze: _952_ µs/check (under 1 ms)
-- JSON Model Python: _5,245_ µs/check (about 5 ms)
+- JSON Model Python: _4,886_ µs/check (under 5 ms)
 
-JSON Model Compiler outperforms the fastest JSON Schema library 4:1,
-and the JavaScript code is 16% faster than the C++ library.
+JSON Model Compiler outperforms the fastest JSON Schema library 4.5:1,
+and the JavaScript model validation is 20% faster than the C++ schema validation.
 
 ## More Information
 

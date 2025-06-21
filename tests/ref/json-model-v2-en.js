@@ -17,12 +17,6 @@ const _jm_re_3_re = new runtime.RX(".+", "")
 const _jm_re_4_re = new runtime.RX("^\\..+$", "")
 const _jm_re_5_re = new runtime.RX("^([#|&^+/*@~=$%]|[<>!]=?)$", "")
 const _jm_re_6_re = new runtime.RX("^\\$.*$", "")
-var _jm_obj_6_map = new Map()
-var _jm_obj_9_map = new Map()
-var _jm_obj_12_map = new Map()
-var _jm_obj_15_map = new Map()
-var _jm_obj_18_map = new Map()
-var _jm_obj_21_map = new Map()
 const _jm_re_7_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
 var check_model_map = new Map()
 
@@ -862,19 +856,6 @@ function json_model_5(val, path, rep)
     return res;
 }
 
-// check _jm_obj_6_map_# (.'$Model#Root'.'|'.5.'#')
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.5.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.5.'#']", path])
-    }
-    return res;
-}
-
 const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
 // object .'$Model#Root'.'|'.5.'$'
@@ -940,19 +921,6 @@ function _jm_obj_7(val, path, rep)
         }
     }
     return true;
-}
-
-// check _jm_obj_6_map_$ (.'$Model#Root'.'|'.5.'$')
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.5.'$'
-    res = _jm_obj_7(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.5.'$']", path])
-    }
-    return res;
 }
 
 const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
@@ -1026,33 +994,6 @@ function _jm_obj_8(val, path, rep)
     return true;
 }
 
-// check _jm_obj_6_map_% (.'$Model#Root'.'|'.5.'%')
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.5.'%'
-    res = _jm_obj_8(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.5.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_~ (.'$Model#Root'.'|'.5.'~')
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.5.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.5.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.5
 function _jm_obj_6(val, path, rep)
 {
@@ -1062,16 +1003,66 @@ function _jm_obj_6(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_6 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_6_map.get(prop)))
+        if (prop == "~")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_6 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.5.'~'
+            res = json_model_4(pval, (path ? lpath_6 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5]", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.5.'~']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'~']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.5.'$'
+            res = _jm_obj_7(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.5.'$']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'$']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.5.'%'
+            res = _jm_obj_8(pval, (path ? lpath_6 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.5.'%']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'%']", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.5.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.5.'#']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.5.'#']", (path ? lpath_6 : null)])
                 return false;
             }
         }
@@ -1105,19 +1096,6 @@ function _jm_obj_6(val, path, rep)
         }
     }
     return true;
-}
-
-// check _jm_obj_9_map_# (.'$Model#Root'.'|'.4.'#')
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.4.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.4.'#']", path])
-    }
-    return res;
 }
 
 // object .'$Model#Root'.'|'.4.'$'
@@ -1185,19 +1163,6 @@ function _jm_obj_10(val, path, rep)
     return true;
 }
 
-// check _jm_obj_9_map_$ (.'$Model#Root'.'|'.4.'$')
-function _jm_f_5(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.4.'$'
-    res = _jm_obj_10(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.4.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.4.'%'
 function _jm_obj_11(val, path, rep)
 {
@@ -1263,33 +1228,6 @@ function _jm_obj_11(val, path, rep)
     return true;
 }
 
-// check _jm_obj_9_map_% (.'$Model#Root'.'|'.4.'%')
-function _jm_f_6(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.4.'%'
-    res = _jm_obj_11(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.4.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_9_map_~ (.'$Model#Root'.'|'.4.'~')
-function _jm_f_7(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.4.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.4.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.4
 function _jm_obj_9(val, path, rep)
 {
@@ -1299,7 +1237,6 @@ function _jm_obj_9(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -1338,12 +1275,63 @@ function _jm_obj_9(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_9_map.get(prop)))
+        else if (prop == "~")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_9 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.4.'~'
+            res = json_model_4(pval, (path ? lpath_9 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4]", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.4.'~']", (path ? lpath_9 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'~']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.4.'$'
+            res = _jm_obj_10(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.4.'$']", (path ? lpath_9 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'$']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.4.'%'
+            res = _jm_obj_11(pval, (path ? lpath_9 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.4.'%']", (path ? lpath_9 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'%']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.4.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.4.'#']", (path ? lpath_9 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.4.'#']", (path ? lpath_9 : null)])
                 return false;
             }
         }
@@ -1365,19 +1353,6 @@ function _jm_obj_9(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check _jm_obj_12_map_# (.'$Model#Root'.'|'.3.'#')
-function _jm_f_8(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.3.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.3.'#']", path])
-    }
-    return res;
 }
 
 // object .'$Model#Root'.'|'.3.'$'
@@ -1445,19 +1420,6 @@ function _jm_obj_13(val, path, rep)
     return true;
 }
 
-// check _jm_obj_12_map_$ (.'$Model#Root'.'|'.3.'$')
-function _jm_f_9(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.3.'$'
-    res = _jm_obj_13(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.3.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.3.'%'
 function _jm_obj_14(val, path, rep)
 {
@@ -1523,33 +1485,6 @@ function _jm_obj_14(val, path, rep)
     return true;
 }
 
-// check _jm_obj_12_map_% (.'$Model#Root'.'|'.3.'%')
-function _jm_f_10(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.3.'%'
-    res = _jm_obj_14(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.3.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_12_map_~ (.'$Model#Root'.'|'.3.'~')
-function _jm_f_11(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.3.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.3.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.3
 function _jm_obj_12(val, path, rep)
 {
@@ -1559,7 +1494,6 @@ function _jm_obj_12(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -1598,12 +1532,63 @@ function _jm_obj_12(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_12_map.get(prop)))
+        else if (prop == "~")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_12 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.3.'~'
+            res = json_model_4(pval, (path ? lpath_12 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3]", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.3.'~']", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'~']", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.3.'$'
+            res = _jm_obj_13(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.3.'$']", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'$']", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.3.'%'
+            res = _jm_obj_14(pval, (path ? lpath_12 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.3.'%']", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'%']", (path ? lpath_12 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.3.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.3.'#']", (path ? lpath_12 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.3.'#']", (path ? lpath_12 : null)])
                 return false;
             }
         }
@@ -1625,19 +1610,6 @@ function _jm_obj_12(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check _jm_obj_15_map_# (.'$Model#Root'.'|'.2.'#')
-function _jm_f_12(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.2.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.2.'#']", path])
-    }
-    return res;
 }
 
 // object .'$Model#Root'.'|'.2.'$'
@@ -1705,19 +1677,6 @@ function _jm_obj_16(val, path, rep)
     return true;
 }
 
-// check _jm_obj_15_map_$ (.'$Model#Root'.'|'.2.'$')
-function _jm_f_13(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.2.'$'
-    res = _jm_obj_16(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.2.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.2.'%'
 function _jm_obj_17(val, path, rep)
 {
@@ -1783,33 +1742,6 @@ function _jm_obj_17(val, path, rep)
     return true;
 }
 
-// check _jm_obj_15_map_% (.'$Model#Root'.'|'.2.'%')
-function _jm_f_14(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.2.'%'
-    res = _jm_obj_17(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.2.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_15_map_~ (.'$Model#Root'.'|'.2.'~')
-function _jm_f_15(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.2.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.2.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.2
 function _jm_obj_15(val, path, rep)
 {
@@ -1819,7 +1751,6 @@ function _jm_obj_15(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -1858,12 +1789,63 @@ function _jm_obj_15(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_15_map.get(prop)))
+        else if (prop == "~")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_15 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.2.'~'
+            res = json_model_4(pval, (path ? lpath_15 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2]", (path ? lpath_15 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.2.'~']", (path ? lpath_15 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'~']", (path ? lpath_15 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.2.'$'
+            res = _jm_obj_16(pval, (path ? lpath_15 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.2.'$']", (path ? lpath_15 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'$']", (path ? lpath_15 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.2.'%'
+            res = _jm_obj_17(pval, (path ? lpath_15 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.2.'%']", (path ? lpath_15 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'%']", (path ? lpath_15 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.2.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.2.'#']", (path ? lpath_15 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.2.'#']", (path ? lpath_15 : null)])
                 return false;
             }
         }
@@ -1885,19 +1867,6 @@ function _jm_obj_15(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check _jm_obj_18_map_# (.'$Model#Root'.'|'.1.'#')
-function _jm_f_16(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.1.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.1.'#']", path])
-    }
-    return res;
 }
 
 // object .'$Model#Root'.'|'.1.'$'
@@ -1965,19 +1934,6 @@ function _jm_obj_19(val, path, rep)
     return true;
 }
 
-// check _jm_obj_18_map_$ (.'$Model#Root'.'|'.1.'$')
-function _jm_f_17(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.1.'$'
-    res = _jm_obj_19(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.1.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.1.'%'
 function _jm_obj_20(val, path, rep)
 {
@@ -2043,33 +1999,6 @@ function _jm_obj_20(val, path, rep)
     return true;
 }
 
-// check _jm_obj_18_map_% (.'$Model#Root'.'|'.1.'%')
-function _jm_f_18(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.1.'%'
-    res = _jm_obj_20(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.1.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_18_map_~ (.'$Model#Root'.'|'.1.'~')
-function _jm_f_19(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.1.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.1.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.1
 function _jm_obj_18(val, path, rep)
 {
@@ -2079,7 +2008,6 @@ function _jm_obj_18(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -2118,12 +2046,63 @@ function _jm_obj_18(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_18_map.get(prop)))
+        else if (prop == "~")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_18 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.1.'~'
+            res = json_model_4(pval, (path ? lpath_18 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1]", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.1.'~']", (path ? lpath_18 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'~']", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.1.'$'
+            res = _jm_obj_19(pval, (path ? lpath_18 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.1.'$']", (path ? lpath_18 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'$']", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.1.'%'
+            res = _jm_obj_20(pval, (path ? lpath_18 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.1.'%']", (path ? lpath_18 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'%']", (path ? lpath_18 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.1.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.1.'#']", (path ? lpath_18 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.1.'#']", (path ? lpath_18 : null)])
                 return false;
             }
         }
@@ -2145,32 +2124,6 @@ function _jm_obj_18(val, path, rep)
         return false;
     }
     return true;
-}
-
-// check _jm_obj_21_map_! (.'$Model#Root'.'|'.0.'!')
-function _jm_f_20(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'!'
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$Model#Root'.'|'.0.'!']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_21_map_# (.'$Model#Root'.'|'.0.'#')
-function _jm_f_21(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'#'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.0.'#']", path])
-    }
-    return res;
 }
 
 // object .'$Model#Root'.'|'.0.'$'
@@ -2238,19 +2191,6 @@ function _jm_obj_22(val, path, rep)
     return true;
 }
 
-// check _jm_obj_21_map_$ (.'$Model#Root'.'|'.0.'$')
-function _jm_f_22(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'$'
-    res = _jm_obj_22(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.0.'$']", path])
-    }
-    return res;
-}
-
 // object .'$Model#Root'.'|'.0.'%'
 function _jm_obj_23(val, path, rep)
 {
@@ -2316,33 +2256,6 @@ function _jm_obj_23(val, path, rep)
     return true;
 }
 
-// check _jm_obj_21_map_% (.'$Model#Root'.'|'.0.'%')
-function _jm_f_23(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'%'
-    res = _jm_obj_23(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.0.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_21_map_~ (.'$Model#Root'.'|'.0.'~')
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .'$Model#Root'.'|'.0.'~'
-    res = json_model_4(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.0.'~']", path])
-    }
-    return res;
-}
-
-
 // object .'$Model#Root'.'|'.0
 function _jm_obj_21(val, path, rep)
 {
@@ -2352,7 +2265,6 @@ function _jm_obj_21(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -2373,12 +2285,78 @@ function _jm_obj_21(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_21_map.get(prop)))
+        else if (prop == "~")
         {
-            // handle 5 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_21 : null), rep))
+            // handle may ~ property
+            // .'$Model#Root'.'|'.0.'~'
+            res = json_model_4(pval, (path ? lpath_21 : null), rep);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0]", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected $Url [.'$Model#Root'.'|'.0.'~']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'~']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$")
+        {
+            // handle may $ property
+            // .'$Model#Root'.'|'.0.'$'
+            res = _jm_obj_22(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.0.'$']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'$']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle may % property
+            // .'$Model#Root'.'|'.0.'%'
+            res = _jm_obj_23(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'$Model#Root'.'|'.0.'%']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'%']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "#")
+        {
+            // handle may # property
+            // .'$Model#Root'.'|'.0.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$Model#Root'.'|'.0.'#']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'#']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "!")
+        {
+            // handle may ! property
+            // .'$Model#Root'.'|'.0.'!'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$Model#Root'.'|'.0.'!']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Model#Root'.'|'.0.'!']", (path ? lpath_21 : null)])
                 return false;
             }
         }
@@ -2862,31 +2840,6 @@ export function check_model_init()
         _jm_cst_0.add(0.0)
         _jm_cst_0.add(1.0)
         _jm_cst_0.add(-1.0)
-        _jm_obj_6_map.set("#", _jm_f_0)
-        _jm_obj_6_map.set("$", _jm_f_1)
-        _jm_obj_6_map.set("%", _jm_f_2)
-        _jm_obj_6_map.set("~", _jm_f_3)
-        _jm_obj_9_map.set("#", _jm_f_4)
-        _jm_obj_9_map.set("$", _jm_f_5)
-        _jm_obj_9_map.set("%", _jm_f_6)
-        _jm_obj_9_map.set("~", _jm_f_7)
-        _jm_obj_12_map.set("#", _jm_f_8)
-        _jm_obj_12_map.set("$", _jm_f_9)
-        _jm_obj_12_map.set("%", _jm_f_10)
-        _jm_obj_12_map.set("~", _jm_f_11)
-        _jm_obj_15_map.set("#", _jm_f_12)
-        _jm_obj_15_map.set("$", _jm_f_13)
-        _jm_obj_15_map.set("%", _jm_f_14)
-        _jm_obj_15_map.set("~", _jm_f_15)
-        _jm_obj_18_map.set("#", _jm_f_16)
-        _jm_obj_18_map.set("$", _jm_f_17)
-        _jm_obj_18_map.set("%", _jm_f_18)
-        _jm_obj_18_map.set("~", _jm_f_19)
-        _jm_obj_21_map.set("!", _jm_f_20)
-        _jm_obj_21_map.set("#", _jm_f_21)
-        _jm_obj_21_map.set("$", _jm_f_22)
-        _jm_obj_21_map.set("%", _jm_f_23)
-        _jm_obj_21_map.set("~", _jm_f_24)
         check_model_map.set("", json_model_1)
         check_model_map.set("Model", json_model_3)
     }

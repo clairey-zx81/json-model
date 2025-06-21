@@ -20,54 +20,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     checker = check_model_map[name]
     return checker(val, [], rep)
 
-_jm_obj_0_mup: PropMap
 check_model_map: PropMap
-
-# check _jm_obj_0_mup_! (.'!')
-def _jm_f_0(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'!'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [.'!']", path))
-    return res
-
-# check _jm_obj_0_mup_/ (.'/')
-def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'/'
-    res = isinstance(val, int) and not isinstance(val, bool) and val == 17
-    if not res:
-        rep is None or rep.append(("unexpected =17 [.'/']", path))
-    return res
-
-# check _jm_obj_0_mup_? (.'?')
-def _jm_f_2(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'?'
-    res = isinstance(val, float) and val >= 0.0
-    if not res:
-        rep is None or rep.append(("not a 0.0 strict float [.'?']", path))
-    return res
-
-# check _jm_obj_0_mup__ (._)
-def _jm_f_3(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # ._
-    res = isinstance(val, bool)
-    if not res:
-        rep is None or rep.append(("not a bool [._]", path))
-    return res
-
-# check _jm_obj_0_mup_a (.a)
-def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .a
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
-    if not res:
-        rep is None or rep.append(("not a 0 strict int [.a]", path))
-    return res
-
 
 # object .
 def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
@@ -75,18 +28,60 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not an object [.]", path))
         return False
     res: bool
-    pfun: CheckFun
     must_count: int = 0
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_0: Path = (path + [ prop ]) if path is not None else None
-        if pfun := _jm_obj_0_mup.get(prop):
-            # handle 5 mandatory props
-            if pfun != UNDEFINED:
-                must_count += 1
-                if not pfun(pval, lpath_0 if path is not None else None, rep):
-                    rep is None or rep.append(("invalid mandatory prop value [.]", lpath_0 if path is not None else None))
-                    return False
+        if prop == "!":
+            # handle must ! property
+            must_count += 1
+            # .'!'
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [.'!']", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'!']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "_":
+            # handle must _ property
+            must_count += 1
+            # ._
+            res = isinstance(pval, bool)
+            if not res:
+                rep is None or rep.append(("not a bool [._]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [._]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "a":
+            # handle must a property
+            must_count += 1
+            # .a
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval >= 0
+            if not res:
+                rep is None or rep.append(("not a 0 strict int [.a]", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.a]", lpath_0 if path is not None else None))
+                return False
+        elif prop == "?":
+            # handle must ? property
+            must_count += 1
+            # .'?'
+            res = isinstance(pval, float) and pval >= 0.0
+            if not res:
+                rep is None or rep.append(("not a 0.0 strict float [.'?']", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'?']", lpath_0 if path is not None else None))
+                return False
+        elif prop == "/":
+            # handle must / property
+            must_count += 1
+            # .'/'
+            res = isinstance(pval, int) and not isinstance(pval, bool) and pval == 17
+            if not res:
+                rep is None or rep.append(("unexpected =17 [.'/']", lpath_0 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'/']", lpath_0 if path is not None else None))
+                return False
         elif prop == "b":
             # handle may b property
             # .b
@@ -132,14 +127,6 @@ def check_model_init():
     global initialized
     if not initialized:
         initialized = True
-        global _jm_obj_0_mup
-        _jm_obj_0_mup = {
-            "!": _jm_f_0,
-            "/": _jm_f_1,
-            "?": _jm_f_2,
-            "_": _jm_f_3,
-            "a": _jm_f_4,
-        }
         global check_model_map
         check_model_map = {
             "": json_model_1,

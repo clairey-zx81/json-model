@@ -1,10 +1,10 @@
 bang-000.values.json[0]: PASS
 bang-000.values.json[1]: PASS
-bang-000.values.json[2]: FAIL (.: unexpected object [.]; .'!': invalid mandatory prop value [.]; .'!': not a 0 strict int [.'!'])
-bang-000.values.json[3]: FAIL (.: unexpected object [.]; ._: invalid mandatory prop value [.]; ._: not a bool [._])
-bang-000.values.json[4]: FAIL (.: unexpected object [.]; .a: invalid mandatory prop value [.]; .a: not a 0 strict int [.a])
-bang-000.values.json[5]: FAIL (.: unexpected object [.]; .'?': invalid mandatory prop value [.]; .'?': not a 0.0 strict float [.'?'])
-bang-000.values.json[6]: FAIL (.: unexpected object [.]; .'/': invalid mandatory prop value [.]; .'/': unexpected =17 [.'/'])
+bang-000.values.json[2]: FAIL (.: unexpected object [.]; .'!': invalid mandatory prop value [.'!']; .'!': not a 0 strict int [.'!'])
+bang-000.values.json[3]: FAIL (.: unexpected object [.]; ._: invalid mandatory prop value [._]; ._: not a bool [._])
+bang-000.values.json[4]: FAIL (.: unexpected object [.]; .a: invalid mandatory prop value [.a]; .a: not a 0 strict int [.a])
+bang-000.values.json[5]: FAIL (.: unexpected object [.]; .'?': invalid mandatory prop value [.'?']; .'?': not a 0.0 strict float [.'?'])
+bang-000.values.json[6]: FAIL (.: unexpected object [.]; .'/': invalid mandatory prop value [.'/']; .'/': unexpected =17 [.'/'])
 bang-000.values.json[7]: FAIL (.: unexpected object [.]; .: missing mandatory prop <?> [.]; .: missing mandatory prop <!> [.])
 bang-000.values.json[8]: FAIL (.: unexpected object [.]; .: missing mandatory prop <_> [.]; .: missing mandatory prop <?> [.])
 bang-000.values.json[9]: FAIL (.: unexpected object [.]; .: missing mandatory prop <a> [.]; .: missing mandatory prop <?> [.])

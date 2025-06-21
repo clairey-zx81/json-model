@@ -10,7 +10,6 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
 let _jm_cst_0 = new Set()
-var _jm_obj_0_map = new Map()
 var _jm_obj_1_map = new Map()
 var _jm_obj_2_map = new Map()
 var _jm_obj_6_map = new Map()
@@ -223,59 +222,6 @@ function json_model_4(val, path, rep)
 }
 
 
-// check _jm_obj_0_map_format (.'$stringKeywords'.format)
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$stringKeywords'.format
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$stringKeywords'.format.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_maxLength (.'$stringKeywords'.maxLength)
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'$stringKeywords'.maxLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.maxLength]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_minLength (.'$stringKeywords'.minLength)
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'$stringKeywords'.minLength
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.minLength]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_map_pattern (.'$stringKeywords'.pattern)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$stringKeywords'.pattern
-    res = runtime.jm_is_valid_regex(val, false);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $REGEX [.'$stringKeywords'.pattern]", path])
-    }
-    return res;
-}
-
-
 // object .'$stringKeywords'
 function _jm_obj_0(val, path, rep)
 {
@@ -284,16 +230,67 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["not an object [.'$stringKeywords']", path])
         return false;
     }
-    let pfun;
+    let res;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_map.get(prop)))
+        if (prop == "pattern")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
+            // handle may pattern property
+            // .'$stringKeywords'.pattern
+            res = runtime.jm_is_valid_regex(pval, false);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $REGEX [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.pattern]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minLength")
+        {
+            // handle may minLength property
+            // .'$stringKeywords'.minLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.minLength]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maxLength")
+        {
+            // handle may maxLength property
+            // .'$stringKeywords'.maxLength
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.maxLength]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "format")
+        {
+            // handle may format property
+            // .'$stringKeywords'.format
+            res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["value not in enum [.'$stringKeywords'.format.'|']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$stringKeywords'.format]", (path ? lpath_0 : null)])
                 return false;
             }
         }
@@ -320,7 +317,7 @@ function json_model_5(val, path, rep)
 }
 
 // check _jm_obj_1_map_additionalItems (.'$arrayKeywords'.additionalItems)
-function _jm_f_4(val, path, rep)
+function _jm_f_0(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.additionalItems
@@ -333,7 +330,7 @@ function _jm_f_4(val, path, rep)
 }
 
 // check _jm_obj_1_map_items (.'$arrayKeywords'.items)
-function _jm_f_5(val, path, rep)
+function _jm_f_1(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.items
@@ -364,7 +361,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check _jm_obj_1_map_maxItems (.'$arrayKeywords'.maxItems)
-function _jm_f_6(val, path, rep)
+function _jm_f_2(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.maxItems
@@ -377,7 +374,7 @@ function _jm_f_6(val, path, rep)
 }
 
 // check _jm_obj_1_map_minItems (.'$arrayKeywords'.minItems)
-function _jm_f_7(val, path, rep)
+function _jm_f_3(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.minItems
@@ -390,7 +387,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check _jm_obj_1_map_prefixItems (.'$arrayKeywords'.prefixItems)
-function _jm_f_8(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.prefixItems
@@ -403,7 +400,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check _jm_obj_1_map_unevaluatedItems (.'$arrayKeywords'.unevaluatedItems)
-function _jm_f_9(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.unevaluatedItems
@@ -416,7 +413,7 @@ function _jm_f_9(val, path, rep)
 }
 
 // check _jm_obj_1_map_uniqueItems (.'$arrayKeywords'.uniqueItems)
-function _jm_f_10(val, path, rep)
+function _jm_f_6(val, path, rep)
 {
     let res;
     // .'$arrayKeywords'.uniqueItems
@@ -473,7 +470,7 @@ function json_model_6(val, path, rep)
 }
 
 // check _jm_obj_2_map_additionalProperties (.'$objectKeywords'.additionalProperties)
-function _jm_f_11(val, path, rep)
+function _jm_f_7(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.additionalProperties
@@ -486,7 +483,7 @@ function _jm_f_11(val, path, rep)
 }
 
 // check _jm_obj_2_map_maxProperties (.'$objectKeywords'.maxProperties)
-function _jm_f_12(val, path, rep)
+function _jm_f_8(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.maxProperties
@@ -499,7 +496,7 @@ function _jm_f_12(val, path, rep)
 }
 
 // check _jm_obj_2_map_minProperties (.'$objectKeywords'.minProperties)
-function _jm_f_13(val, path, rep)
+function _jm_f_9(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.minProperties
@@ -547,7 +544,7 @@ function _jm_obj_3(val, path, rep)
 }
 
 // check _jm_obj_2_map_patternProperties (.'$objectKeywords'.patternProperties)
-function _jm_f_14(val, path, rep)
+function _jm_f_10(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.patternProperties
@@ -587,7 +584,7 @@ function _jm_obj_4(val, path, rep)
 }
 
 // check _jm_obj_2_map_properties (.'$objectKeywords'.properties)
-function _jm_f_15(val, path, rep)
+function _jm_f_11(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.properties
@@ -600,7 +597,7 @@ function _jm_f_15(val, path, rep)
 }
 
 // check _jm_obj_2_map_propertyNames (.'$objectKeywords'.propertyNames)
-function _jm_f_16(val, path, rep)
+function _jm_f_12(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.propertyNames
@@ -613,7 +610,7 @@ function _jm_f_16(val, path, rep)
 }
 
 // check _jm_obj_2_map_required (.'$objectKeywords'.required)
-function _jm_f_17(val, path, rep)
+function _jm_f_13(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.required
@@ -644,7 +641,7 @@ function _jm_f_17(val, path, rep)
 }
 
 // check _jm_obj_2_map_unevaluatedProperties (.'$objectKeywords'.unevaluatedProperties)
-function _jm_f_18(val, path, rep)
+function _jm_f_14(val, path, rep)
 {
     let res;
     // .'$objectKeywords'.unevaluatedProperties
@@ -765,7 +762,7 @@ function json_model_8(val, path, rep)
 }
 
 // check _jm_obj_6_map_$anchor (.'$metas'.'$anchor')
-function _jm_f_19(val, path, rep)
+function _jm_f_15(val, path, rep)
 {
     let res;
     // .'$metas'.'$anchor'
@@ -778,7 +775,7 @@ function _jm_f_19(val, path, rep)
 }
 
 // check _jm_obj_6_map_$comment (.'$metas'.'$comment')
-function _jm_f_20(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$metas'.'$comment'
@@ -818,7 +815,7 @@ function _jm_obj_7(val, path, rep)
 }
 
 // check _jm_obj_6_map_$defs (.'$metas'.'$defs')
-function _jm_f_21(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$metas'.'$defs'
@@ -831,7 +828,7 @@ function _jm_f_21(val, path, rep)
 }
 
 // check _jm_obj_6_map_$dynamicAnchor (.'$metas'.'$dynamicAnchor')
-function _jm_f_22(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$metas'.'$dynamicAnchor'
@@ -844,7 +841,7 @@ function _jm_f_22(val, path, rep)
 }
 
 // check _jm_obj_6_map_$id (.'$metas'.'$id')
-function _jm_f_23(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$metas'.'$id'
@@ -857,7 +854,7 @@ function _jm_f_23(val, path, rep)
 }
 
 // check _jm_obj_6_map_$schema (.'$metas'.'$schema')
-function _jm_f_24(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$metas'.'$schema'
@@ -905,7 +902,7 @@ function _jm_obj_8(val, path, rep)
 }
 
 // check _jm_obj_6_map_$vocabulary (.'$metas'.'$vocabulary')
-function _jm_f_25(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$metas'.'$vocabulary'
@@ -918,7 +915,7 @@ function _jm_f_25(val, path, rep)
 }
 
 // check _jm_obj_6_map_default (.'$metas'.default)
-function _jm_f_26(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$metas'.default
@@ -958,7 +955,7 @@ function _jm_obj_9(val, path, rep)
 }
 
 // check _jm_obj_6_map_definitions (.'$metas'.definitions)
-function _jm_f_27(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$metas'.definitions
@@ -971,7 +968,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check _jm_obj_6_map_deprecated (.'$metas'.deprecated)
-function _jm_f_28(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$metas'.deprecated
@@ -984,7 +981,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check _jm_obj_6_map_description (.'$metas'.description)
-function _jm_f_29(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$metas'.description
@@ -997,7 +994,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check _jm_obj_6_map_examples (.'$metas'.examples)
-function _jm_f_30(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$metas'.examples
@@ -1014,7 +1011,7 @@ function _jm_f_30(val, path, rep)
 }
 
 // check _jm_obj_6_map_id (.'$metas'.id)
-function _jm_f_31(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$metas'.id
@@ -1027,7 +1024,7 @@ function _jm_f_31(val, path, rep)
 }
 
 // check _jm_obj_6_map_readOnly (.'$metas'.readOnly)
-function _jm_f_32(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$metas'.readOnly
@@ -1040,7 +1037,7 @@ function _jm_f_32(val, path, rep)
 }
 
 // check _jm_obj_6_map_title (.'$metas'.title)
-function _jm_f_33(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$metas'.title
@@ -1053,7 +1050,7 @@ function _jm_f_33(val, path, rep)
 }
 
 // check _jm_obj_6_map_writeOnly (.'$metas'.writeOnly)
-function _jm_f_34(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$metas'.writeOnly
@@ -1110,7 +1107,7 @@ function json_model_9(val, path, rep)
 }
 
 // check _jm_obj_10_map_$anchor (.'$String'.'$anchor')
-function _jm_f_35(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     let res;
     // .'$String'.'$anchor'
@@ -1123,7 +1120,7 @@ function _jm_f_35(val, path, rep)
 }
 
 // check _jm_obj_10_map_$comment (.'$String'.'$comment')
-function _jm_f_36(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$String'.'$comment'
@@ -1163,7 +1160,7 @@ function _jm_obj_11(val, path, rep)
 }
 
 // check _jm_obj_10_map_$defs (.'$String'.'$defs')
-function _jm_f_37(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     let res;
     // .'$String'.'$defs'
@@ -1176,7 +1173,7 @@ function _jm_f_37(val, path, rep)
 }
 
 // check _jm_obj_10_map_$dynamicAnchor (.'$String'.'$dynamicAnchor')
-function _jm_f_38(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$String'.'$dynamicAnchor'
@@ -1189,7 +1186,7 @@ function _jm_f_38(val, path, rep)
 }
 
 // check _jm_obj_10_map_$id (.'$String'.'$id')
-function _jm_f_39(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     let res;
     // .'$String'.'$id'
@@ -1202,7 +1199,7 @@ function _jm_f_39(val, path, rep)
 }
 
 // check _jm_obj_10_map_$schema (.'$String'.'$schema')
-function _jm_f_40(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$String'.'$schema'
@@ -1250,7 +1247,7 @@ function _jm_obj_12(val, path, rep)
 }
 
 // check _jm_obj_10_map_$vocabulary (.'$String'.'$vocabulary')
-function _jm_f_41(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     let res;
     // .'$String'.'$vocabulary'
@@ -1263,7 +1260,7 @@ function _jm_f_41(val, path, rep)
 }
 
 // check _jm_obj_10_map_default (.'$String'.default)
-function _jm_f_42(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$String'.default
@@ -1303,7 +1300,7 @@ function _jm_obj_13(val, path, rep)
 }
 
 // check _jm_obj_10_map_definitions (.'$String'.definitions)
-function _jm_f_43(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     let res;
     // .'$String'.definitions
@@ -1316,7 +1313,7 @@ function _jm_f_43(val, path, rep)
 }
 
 // check _jm_obj_10_map_deprecated (.'$String'.deprecated)
-function _jm_f_44(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     let res;
     // .'$String'.deprecated
@@ -1329,7 +1326,7 @@ function _jm_f_44(val, path, rep)
 }
 
 // check _jm_obj_10_map_description (.'$String'.description)
-function _jm_f_45(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     let res;
     // .'$String'.description
@@ -1342,7 +1339,7 @@ function _jm_f_45(val, path, rep)
 }
 
 // check _jm_obj_10_map_examples (.'$String'.examples)
-function _jm_f_46(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     let res;
     // .'$String'.examples
@@ -1360,7 +1357,7 @@ function _jm_f_46(val, path, rep)
 
 
 // check _jm_obj_10_map_format (.'$String'.format)
-function _jm_f_47(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     let res;
     // .'$String'.format
@@ -1373,7 +1370,7 @@ function _jm_f_47(val, path, rep)
 }
 
 // check _jm_obj_10_map_id (.'$String'.id)
-function _jm_f_48(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     let res;
     // .'$String'.id
@@ -1386,7 +1383,7 @@ function _jm_f_48(val, path, rep)
 }
 
 // check _jm_obj_10_map_maxLength (.'$String'.maxLength)
-function _jm_f_49(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     let res;
     // .'$String'.maxLength
@@ -1399,7 +1396,7 @@ function _jm_f_49(val, path, rep)
 }
 
 // check _jm_obj_10_map_minLength (.'$String'.minLength)
-function _jm_f_50(val, path, rep)
+function _jm_f_46(val, path, rep)
 {
     let res;
     // .'$String'.minLength
@@ -1412,7 +1409,7 @@ function _jm_f_50(val, path, rep)
 }
 
 // check _jm_obj_10_map_pattern (.'$String'.pattern)
-function _jm_f_51(val, path, rep)
+function _jm_f_47(val, path, rep)
 {
     let res;
     // .'$String'.pattern
@@ -1425,7 +1422,7 @@ function _jm_f_51(val, path, rep)
 }
 
 // check _jm_obj_10_map_readOnly (.'$String'.readOnly)
-function _jm_f_52(val, path, rep)
+function _jm_f_48(val, path, rep)
 {
     let res;
     // .'$String'.readOnly
@@ -1438,7 +1435,7 @@ function _jm_f_52(val, path, rep)
 }
 
 // check _jm_obj_10_map_title (.'$String'.title)
-function _jm_f_53(val, path, rep)
+function _jm_f_49(val, path, rep)
 {
     let res;
     // .'$String'.title
@@ -1451,7 +1448,7 @@ function _jm_f_53(val, path, rep)
 }
 
 // check _jm_obj_10_map_writeOnly (.'$String'.writeOnly)
-function _jm_f_54(val, path, rep)
+function _jm_f_50(val, path, rep)
 {
     let res;
     // .'$String'.writeOnly
@@ -1537,7 +1534,7 @@ function json_model_10(val, path, rep)
 }
 
 // check _jm_obj_14_map_$anchor (.'$Array'.'$anchor')
-function _jm_f_55(val, path, rep)
+function _jm_f_51(val, path, rep)
 {
     let res;
     // .'$Array'.'$anchor'
@@ -1550,7 +1547,7 @@ function _jm_f_55(val, path, rep)
 }
 
 // check _jm_obj_14_map_$comment (.'$Array'.'$comment')
-function _jm_f_56(val, path, rep)
+function _jm_f_52(val, path, rep)
 {
     let res;
     // .'$Array'.'$comment'
@@ -1590,7 +1587,7 @@ function _jm_obj_15(val, path, rep)
 }
 
 // check _jm_obj_14_map_$defs (.'$Array'.'$defs')
-function _jm_f_57(val, path, rep)
+function _jm_f_53(val, path, rep)
 {
     let res;
     // .'$Array'.'$defs'
@@ -1603,7 +1600,7 @@ function _jm_f_57(val, path, rep)
 }
 
 // check _jm_obj_14_map_$dynamicAnchor (.'$Array'.'$dynamicAnchor')
-function _jm_f_58(val, path, rep)
+function _jm_f_54(val, path, rep)
 {
     let res;
     // .'$Array'.'$dynamicAnchor'
@@ -1616,7 +1613,7 @@ function _jm_f_58(val, path, rep)
 }
 
 // check _jm_obj_14_map_$id (.'$Array'.'$id')
-function _jm_f_59(val, path, rep)
+function _jm_f_55(val, path, rep)
 {
     let res;
     // .'$Array'.'$id'
@@ -1629,7 +1626,7 @@ function _jm_f_59(val, path, rep)
 }
 
 // check _jm_obj_14_map_$schema (.'$Array'.'$schema')
-function _jm_f_60(val, path, rep)
+function _jm_f_56(val, path, rep)
 {
     let res;
     // .'$Array'.'$schema'
@@ -1677,7 +1674,7 @@ function _jm_obj_16(val, path, rep)
 }
 
 // check _jm_obj_14_map_$vocabulary (.'$Array'.'$vocabulary')
-function _jm_f_61(val, path, rep)
+function _jm_f_57(val, path, rep)
 {
     let res;
     // .'$Array'.'$vocabulary'
@@ -1690,7 +1687,7 @@ function _jm_f_61(val, path, rep)
 }
 
 // check _jm_obj_14_map_additionalItems (.'$Array'.additionalItems)
-function _jm_f_62(val, path, rep)
+function _jm_f_58(val, path, rep)
 {
     let res;
     // .'$Array'.additionalItems
@@ -1703,7 +1700,7 @@ function _jm_f_62(val, path, rep)
 }
 
 // check _jm_obj_14_map_default (.'$Array'.default)
-function _jm_f_63(val, path, rep)
+function _jm_f_59(val, path, rep)
 {
     let res;
     // .'$Array'.default
@@ -1743,7 +1740,7 @@ function _jm_obj_17(val, path, rep)
 }
 
 // check _jm_obj_14_map_definitions (.'$Array'.definitions)
-function _jm_f_64(val, path, rep)
+function _jm_f_60(val, path, rep)
 {
     let res;
     // .'$Array'.definitions
@@ -1756,7 +1753,7 @@ function _jm_f_64(val, path, rep)
 }
 
 // check _jm_obj_14_map_deprecated (.'$Array'.deprecated)
-function _jm_f_65(val, path, rep)
+function _jm_f_61(val, path, rep)
 {
     let res;
     // .'$Array'.deprecated
@@ -1769,7 +1766,7 @@ function _jm_f_65(val, path, rep)
 }
 
 // check _jm_obj_14_map_description (.'$Array'.description)
-function _jm_f_66(val, path, rep)
+function _jm_f_62(val, path, rep)
 {
     let res;
     // .'$Array'.description
@@ -1782,7 +1779,7 @@ function _jm_f_66(val, path, rep)
 }
 
 // check _jm_obj_14_map_examples (.'$Array'.examples)
-function _jm_f_67(val, path, rep)
+function _jm_f_63(val, path, rep)
 {
     let res;
     // .'$Array'.examples
@@ -1799,7 +1796,7 @@ function _jm_f_67(val, path, rep)
 }
 
 // check _jm_obj_14_map_id (.'$Array'.id)
-function _jm_f_68(val, path, rep)
+function _jm_f_64(val, path, rep)
 {
     let res;
     // .'$Array'.id
@@ -1812,7 +1809,7 @@ function _jm_f_68(val, path, rep)
 }
 
 // check _jm_obj_14_map_items (.'$Array'.items)
-function _jm_f_69(val, path, rep)
+function _jm_f_65(val, path, rep)
 {
     let res;
     // .'$Array'.items
@@ -1843,7 +1840,7 @@ function _jm_f_69(val, path, rep)
 }
 
 // check _jm_obj_14_map_maxItems (.'$Array'.maxItems)
-function _jm_f_70(val, path, rep)
+function _jm_f_66(val, path, rep)
 {
     let res;
     // .'$Array'.maxItems
@@ -1856,7 +1853,7 @@ function _jm_f_70(val, path, rep)
 }
 
 // check _jm_obj_14_map_minItems (.'$Array'.minItems)
-function _jm_f_71(val, path, rep)
+function _jm_f_67(val, path, rep)
 {
     let res;
     // .'$Array'.minItems
@@ -1869,7 +1866,7 @@ function _jm_f_71(val, path, rep)
 }
 
 // check _jm_obj_14_map_prefixItems (.'$Array'.prefixItems)
-function _jm_f_72(val, path, rep)
+function _jm_f_68(val, path, rep)
 {
     let res;
     // .'$Array'.prefixItems
@@ -1882,7 +1879,7 @@ function _jm_f_72(val, path, rep)
 }
 
 // check _jm_obj_14_map_readOnly (.'$Array'.readOnly)
-function _jm_f_73(val, path, rep)
+function _jm_f_69(val, path, rep)
 {
     let res;
     // .'$Array'.readOnly
@@ -1895,7 +1892,7 @@ function _jm_f_73(val, path, rep)
 }
 
 // check _jm_obj_14_map_title (.'$Array'.title)
-function _jm_f_74(val, path, rep)
+function _jm_f_70(val, path, rep)
 {
     let res;
     // .'$Array'.title
@@ -1908,7 +1905,7 @@ function _jm_f_74(val, path, rep)
 }
 
 // check _jm_obj_14_map_unevaluatedItems (.'$Array'.unevaluatedItems)
-function _jm_f_75(val, path, rep)
+function _jm_f_71(val, path, rep)
 {
     let res;
     // .'$Array'.unevaluatedItems
@@ -1921,7 +1918,7 @@ function _jm_f_75(val, path, rep)
 }
 
 // check _jm_obj_14_map_uniqueItems (.'$Array'.uniqueItems)
-function _jm_f_76(val, path, rep)
+function _jm_f_72(val, path, rep)
 {
     let res;
     // .'$Array'.uniqueItems
@@ -1934,7 +1931,7 @@ function _jm_f_76(val, path, rep)
 }
 
 // check _jm_obj_14_map_writeOnly (.'$Array'.writeOnly)
-function _jm_f_77(val, path, rep)
+function _jm_f_73(val, path, rep)
 {
     let res;
     // .'$Array'.writeOnly
@@ -2020,7 +2017,7 @@ function json_model_11(val, path, rep)
 }
 
 // check _jm_obj_18_map_$anchor (.'$Object'.'$anchor')
-function _jm_f_78(val, path, rep)
+function _jm_f_74(val, path, rep)
 {
     let res;
     // .'$Object'.'$anchor'
@@ -2033,7 +2030,7 @@ function _jm_f_78(val, path, rep)
 }
 
 // check _jm_obj_18_map_$comment (.'$Object'.'$comment')
-function _jm_f_79(val, path, rep)
+function _jm_f_75(val, path, rep)
 {
     let res;
     // .'$Object'.'$comment'
@@ -2073,7 +2070,7 @@ function _jm_obj_19(val, path, rep)
 }
 
 // check _jm_obj_18_map_$defs (.'$Object'.'$defs')
-function _jm_f_80(val, path, rep)
+function _jm_f_76(val, path, rep)
 {
     let res;
     // .'$Object'.'$defs'
@@ -2086,7 +2083,7 @@ function _jm_f_80(val, path, rep)
 }
 
 // check _jm_obj_18_map_$dynamicAnchor (.'$Object'.'$dynamicAnchor')
-function _jm_f_81(val, path, rep)
+function _jm_f_77(val, path, rep)
 {
     let res;
     // .'$Object'.'$dynamicAnchor'
@@ -2099,7 +2096,7 @@ function _jm_f_81(val, path, rep)
 }
 
 // check _jm_obj_18_map_$id (.'$Object'.'$id')
-function _jm_f_82(val, path, rep)
+function _jm_f_78(val, path, rep)
 {
     let res;
     // .'$Object'.'$id'
@@ -2112,7 +2109,7 @@ function _jm_f_82(val, path, rep)
 }
 
 // check _jm_obj_18_map_$schema (.'$Object'.'$schema')
-function _jm_f_83(val, path, rep)
+function _jm_f_79(val, path, rep)
 {
     let res;
     // .'$Object'.'$schema'
@@ -2160,7 +2157,7 @@ function _jm_obj_20(val, path, rep)
 }
 
 // check _jm_obj_18_map_$vocabulary (.'$Object'.'$vocabulary')
-function _jm_f_84(val, path, rep)
+function _jm_f_80(val, path, rep)
 {
     let res;
     // .'$Object'.'$vocabulary'
@@ -2173,7 +2170,7 @@ function _jm_f_84(val, path, rep)
 }
 
 // check _jm_obj_18_map_additionalProperties (.'$Object'.additionalProperties)
-function _jm_f_85(val, path, rep)
+function _jm_f_81(val, path, rep)
 {
     let res;
     // .'$Object'.additionalProperties
@@ -2186,7 +2183,7 @@ function _jm_f_85(val, path, rep)
 }
 
 // check _jm_obj_18_map_default (.'$Object'.default)
-function _jm_f_86(val, path, rep)
+function _jm_f_82(val, path, rep)
 {
     let res;
     // .'$Object'.default
@@ -2226,7 +2223,7 @@ function _jm_obj_21(val, path, rep)
 }
 
 // check _jm_obj_18_map_definitions (.'$Object'.definitions)
-function _jm_f_87(val, path, rep)
+function _jm_f_83(val, path, rep)
 {
     let res;
     // .'$Object'.definitions
@@ -2239,7 +2236,7 @@ function _jm_f_87(val, path, rep)
 }
 
 // check _jm_obj_18_map_deprecated (.'$Object'.deprecated)
-function _jm_f_88(val, path, rep)
+function _jm_f_84(val, path, rep)
 {
     let res;
     // .'$Object'.deprecated
@@ -2252,7 +2249,7 @@ function _jm_f_88(val, path, rep)
 }
 
 // check _jm_obj_18_map_description (.'$Object'.description)
-function _jm_f_89(val, path, rep)
+function _jm_f_85(val, path, rep)
 {
     let res;
     // .'$Object'.description
@@ -2265,7 +2262,7 @@ function _jm_f_89(val, path, rep)
 }
 
 // check _jm_obj_18_map_examples (.'$Object'.examples)
-function _jm_f_90(val, path, rep)
+function _jm_f_86(val, path, rep)
 {
     let res;
     // .'$Object'.examples
@@ -2282,7 +2279,7 @@ function _jm_f_90(val, path, rep)
 }
 
 // check _jm_obj_18_map_id (.'$Object'.id)
-function _jm_f_91(val, path, rep)
+function _jm_f_87(val, path, rep)
 {
     let res;
     // .'$Object'.id
@@ -2295,7 +2292,7 @@ function _jm_f_91(val, path, rep)
 }
 
 // check _jm_obj_18_map_maxProperties (.'$Object'.maxProperties)
-function _jm_f_92(val, path, rep)
+function _jm_f_88(val, path, rep)
 {
     let res;
     // .'$Object'.maxProperties
@@ -2308,7 +2305,7 @@ function _jm_f_92(val, path, rep)
 }
 
 // check _jm_obj_18_map_minProperties (.'$Object'.minProperties)
-function _jm_f_93(val, path, rep)
+function _jm_f_89(val, path, rep)
 {
     let res;
     // .'$Object'.minProperties
@@ -2356,7 +2353,7 @@ function _jm_obj_22(val, path, rep)
 }
 
 // check _jm_obj_18_map_patternProperties (.'$Object'.patternProperties)
-function _jm_f_94(val, path, rep)
+function _jm_f_90(val, path, rep)
 {
     let res;
     // .'$Object'.patternProperties
@@ -2396,7 +2393,7 @@ function _jm_obj_23(val, path, rep)
 }
 
 // check _jm_obj_18_map_properties (.'$Object'.properties)
-function _jm_f_95(val, path, rep)
+function _jm_f_91(val, path, rep)
 {
     let res;
     // .'$Object'.properties
@@ -2409,7 +2406,7 @@ function _jm_f_95(val, path, rep)
 }
 
 // check _jm_obj_18_map_propertyNames (.'$Object'.propertyNames)
-function _jm_f_96(val, path, rep)
+function _jm_f_92(val, path, rep)
 {
     let res;
     // .'$Object'.propertyNames
@@ -2422,7 +2419,7 @@ function _jm_f_96(val, path, rep)
 }
 
 // check _jm_obj_18_map_readOnly (.'$Object'.readOnly)
-function _jm_f_97(val, path, rep)
+function _jm_f_93(val, path, rep)
 {
     let res;
     // .'$Object'.readOnly
@@ -2435,7 +2432,7 @@ function _jm_f_97(val, path, rep)
 }
 
 // check _jm_obj_18_map_required (.'$Object'.required)
-function _jm_f_98(val, path, rep)
+function _jm_f_94(val, path, rep)
 {
     let res;
     // .'$Object'.required
@@ -2466,7 +2463,7 @@ function _jm_f_98(val, path, rep)
 }
 
 // check _jm_obj_18_map_title (.'$Object'.title)
-function _jm_f_99(val, path, rep)
+function _jm_f_95(val, path, rep)
 {
     let res;
     // .'$Object'.title
@@ -2479,7 +2476,7 @@ function _jm_f_99(val, path, rep)
 }
 
 // check _jm_obj_18_map_unevaluatedProperties (.'$Object'.unevaluatedProperties)
-function _jm_f_100(val, path, rep)
+function _jm_f_96(val, path, rep)
 {
     let res;
     // .'$Object'.unevaluatedProperties
@@ -2492,7 +2489,7 @@ function _jm_f_100(val, path, rep)
 }
 
 // check _jm_obj_18_map_writeOnly (.'$Object'.writeOnly)
-function _jm_f_101(val, path, rep)
+function _jm_f_97(val, path, rep)
 {
     let res;
     // .'$Object'.writeOnly
@@ -2578,7 +2575,7 @@ function json_model_12(val, path, rep)
 }
 
 // check _jm_obj_24_map_$anchor (.'$Integer'.'$anchor')
-function _jm_f_102(val, path, rep)
+function _jm_f_98(val, path, rep)
 {
     let res;
     // .'$Integer'.'$anchor'
@@ -2591,7 +2588,7 @@ function _jm_f_102(val, path, rep)
 }
 
 // check _jm_obj_24_map_$comment (.'$Integer'.'$comment')
-function _jm_f_103(val, path, rep)
+function _jm_f_99(val, path, rep)
 {
     let res;
     // .'$Integer'.'$comment'
@@ -2631,7 +2628,7 @@ function _jm_obj_25(val, path, rep)
 }
 
 // check _jm_obj_24_map_$defs (.'$Integer'.'$defs')
-function _jm_f_104(val, path, rep)
+function _jm_f_100(val, path, rep)
 {
     let res;
     // .'$Integer'.'$defs'
@@ -2644,7 +2641,7 @@ function _jm_f_104(val, path, rep)
 }
 
 // check _jm_obj_24_map_$dynamicAnchor (.'$Integer'.'$dynamicAnchor')
-function _jm_f_105(val, path, rep)
+function _jm_f_101(val, path, rep)
 {
     let res;
     // .'$Integer'.'$dynamicAnchor'
@@ -2657,7 +2654,7 @@ function _jm_f_105(val, path, rep)
 }
 
 // check _jm_obj_24_map_$id (.'$Integer'.'$id')
-function _jm_f_106(val, path, rep)
+function _jm_f_102(val, path, rep)
 {
     let res;
     // .'$Integer'.'$id'
@@ -2670,7 +2667,7 @@ function _jm_f_106(val, path, rep)
 }
 
 // check _jm_obj_24_map_$schema (.'$Integer'.'$schema')
-function _jm_f_107(val, path, rep)
+function _jm_f_103(val, path, rep)
 {
     let res;
     // .'$Integer'.'$schema'
@@ -2718,7 +2715,7 @@ function _jm_obj_26(val, path, rep)
 }
 
 // check _jm_obj_24_map_$vocabulary (.'$Integer'.'$vocabulary')
-function _jm_f_108(val, path, rep)
+function _jm_f_104(val, path, rep)
 {
     let res;
     // .'$Integer'.'$vocabulary'
@@ -2731,7 +2728,7 @@ function _jm_f_108(val, path, rep)
 }
 
 // check _jm_obj_24_map_default (.'$Integer'.default)
-function _jm_f_109(val, path, rep)
+function _jm_f_105(val, path, rep)
 {
     let res;
     // .'$Integer'.default
@@ -2771,7 +2768,7 @@ function _jm_obj_27(val, path, rep)
 }
 
 // check _jm_obj_24_map_definitions (.'$Integer'.definitions)
-function _jm_f_110(val, path, rep)
+function _jm_f_106(val, path, rep)
 {
     let res;
     // .'$Integer'.definitions
@@ -2784,7 +2781,7 @@ function _jm_f_110(val, path, rep)
 }
 
 // check _jm_obj_24_map_deprecated (.'$Integer'.deprecated)
-function _jm_f_111(val, path, rep)
+function _jm_f_107(val, path, rep)
 {
     let res;
     // .'$Integer'.deprecated
@@ -2797,7 +2794,7 @@ function _jm_f_111(val, path, rep)
 }
 
 // check _jm_obj_24_map_description (.'$Integer'.description)
-function _jm_f_112(val, path, rep)
+function _jm_f_108(val, path, rep)
 {
     let res;
     // .'$Integer'.description
@@ -2810,7 +2807,7 @@ function _jm_f_112(val, path, rep)
 }
 
 // check _jm_obj_24_map_examples (.'$Integer'.examples)
-function _jm_f_113(val, path, rep)
+function _jm_f_109(val, path, rep)
 {
     let res;
     // .'$Integer'.examples
@@ -2827,7 +2824,7 @@ function _jm_f_113(val, path, rep)
 }
 
 // check _jm_obj_24_map_id (.'$Integer'.id)
-function _jm_f_114(val, path, rep)
+function _jm_f_110(val, path, rep)
 {
     let res;
     // .'$Integer'.id
@@ -2840,7 +2837,7 @@ function _jm_f_114(val, path, rep)
 }
 
 // check _jm_obj_24_map_maximum (.'$Integer'.maximum)
-function _jm_f_115(val, path, rep)
+function _jm_f_111(val, path, rep)
 {
     let res;
     // .'$Integer'.maximum
@@ -2853,7 +2850,7 @@ function _jm_f_115(val, path, rep)
 }
 
 // check _jm_obj_24_map_minimum (.'$Integer'.minimum)
-function _jm_f_116(val, path, rep)
+function _jm_f_112(val, path, rep)
 {
     let res;
     // .'$Integer'.minimum
@@ -2866,7 +2863,7 @@ function _jm_f_116(val, path, rep)
 }
 
 // check _jm_obj_24_map_readOnly (.'$Integer'.readOnly)
-function _jm_f_117(val, path, rep)
+function _jm_f_113(val, path, rep)
 {
     let res;
     // .'$Integer'.readOnly
@@ -2879,7 +2876,7 @@ function _jm_f_117(val, path, rep)
 }
 
 // check _jm_obj_24_map_title (.'$Integer'.title)
-function _jm_f_118(val, path, rep)
+function _jm_f_114(val, path, rep)
 {
     let res;
     // .'$Integer'.title
@@ -2892,7 +2889,7 @@ function _jm_f_118(val, path, rep)
 }
 
 // check _jm_obj_24_map_writeOnly (.'$Integer'.writeOnly)
-function _jm_f_119(val, path, rep)
+function _jm_f_115(val, path, rep)
 {
     let res;
     // .'$Integer'.writeOnly
@@ -2978,7 +2975,7 @@ function json_model_13(val, path, rep)
 }
 
 // check _jm_obj_28_map_$anchor (.'$Number'.'$anchor')
-function _jm_f_120(val, path, rep)
+function _jm_f_116(val, path, rep)
 {
     let res;
     // .'$Number'.'$anchor'
@@ -2991,7 +2988,7 @@ function _jm_f_120(val, path, rep)
 }
 
 // check _jm_obj_28_map_$comment (.'$Number'.'$comment')
-function _jm_f_121(val, path, rep)
+function _jm_f_117(val, path, rep)
 {
     let res;
     // .'$Number'.'$comment'
@@ -3031,7 +3028,7 @@ function _jm_obj_29(val, path, rep)
 }
 
 // check _jm_obj_28_map_$defs (.'$Number'.'$defs')
-function _jm_f_122(val, path, rep)
+function _jm_f_118(val, path, rep)
 {
     let res;
     // .'$Number'.'$defs'
@@ -3044,7 +3041,7 @@ function _jm_f_122(val, path, rep)
 }
 
 // check _jm_obj_28_map_$dynamicAnchor (.'$Number'.'$dynamicAnchor')
-function _jm_f_123(val, path, rep)
+function _jm_f_119(val, path, rep)
 {
     let res;
     // .'$Number'.'$dynamicAnchor'
@@ -3057,7 +3054,7 @@ function _jm_f_123(val, path, rep)
 }
 
 // check _jm_obj_28_map_$id (.'$Number'.'$id')
-function _jm_f_124(val, path, rep)
+function _jm_f_120(val, path, rep)
 {
     let res;
     // .'$Number'.'$id'
@@ -3070,7 +3067,7 @@ function _jm_f_124(val, path, rep)
 }
 
 // check _jm_obj_28_map_$schema (.'$Number'.'$schema')
-function _jm_f_125(val, path, rep)
+function _jm_f_121(val, path, rep)
 {
     let res;
     // .'$Number'.'$schema'
@@ -3118,7 +3115,7 @@ function _jm_obj_30(val, path, rep)
 }
 
 // check _jm_obj_28_map_$vocabulary (.'$Number'.'$vocabulary')
-function _jm_f_126(val, path, rep)
+function _jm_f_122(val, path, rep)
 {
     let res;
     // .'$Number'.'$vocabulary'
@@ -3131,7 +3128,7 @@ function _jm_f_126(val, path, rep)
 }
 
 // check _jm_obj_28_map_default (.'$Number'.default)
-function _jm_f_127(val, path, rep)
+function _jm_f_123(val, path, rep)
 {
     let res;
     // .'$Number'.default
@@ -3171,7 +3168,7 @@ function _jm_obj_31(val, path, rep)
 }
 
 // check _jm_obj_28_map_definitions (.'$Number'.definitions)
-function _jm_f_128(val, path, rep)
+function _jm_f_124(val, path, rep)
 {
     let res;
     // .'$Number'.definitions
@@ -3184,7 +3181,7 @@ function _jm_f_128(val, path, rep)
 }
 
 // check _jm_obj_28_map_deprecated (.'$Number'.deprecated)
-function _jm_f_129(val, path, rep)
+function _jm_f_125(val, path, rep)
 {
     let res;
     // .'$Number'.deprecated
@@ -3197,7 +3194,7 @@ function _jm_f_129(val, path, rep)
 }
 
 // check _jm_obj_28_map_description (.'$Number'.description)
-function _jm_f_130(val, path, rep)
+function _jm_f_126(val, path, rep)
 {
     let res;
     // .'$Number'.description
@@ -3210,7 +3207,7 @@ function _jm_f_130(val, path, rep)
 }
 
 // check _jm_obj_28_map_examples (.'$Number'.examples)
-function _jm_f_131(val, path, rep)
+function _jm_f_127(val, path, rep)
 {
     let res;
     // .'$Number'.examples
@@ -3227,7 +3224,7 @@ function _jm_f_131(val, path, rep)
 }
 
 // check _jm_obj_28_map_id (.'$Number'.id)
-function _jm_f_132(val, path, rep)
+function _jm_f_128(val, path, rep)
 {
     let res;
     // .'$Number'.id
@@ -3240,7 +3237,7 @@ function _jm_f_132(val, path, rep)
 }
 
 // check _jm_obj_28_map_maximum (.'$Number'.maximum)
-function _jm_f_133(val, path, rep)
+function _jm_f_129(val, path, rep)
 {
     let res;
     // .'$Number'.maximum
@@ -3253,7 +3250,7 @@ function _jm_f_133(val, path, rep)
 }
 
 // check _jm_obj_28_map_minimum (.'$Number'.minimum)
-function _jm_f_134(val, path, rep)
+function _jm_f_130(val, path, rep)
 {
     let res;
     // .'$Number'.minimum
@@ -3266,7 +3263,7 @@ function _jm_f_134(val, path, rep)
 }
 
 // check _jm_obj_28_map_readOnly (.'$Number'.readOnly)
-function _jm_f_135(val, path, rep)
+function _jm_f_131(val, path, rep)
 {
     let res;
     // .'$Number'.readOnly
@@ -3279,7 +3276,7 @@ function _jm_f_135(val, path, rep)
 }
 
 // check _jm_obj_28_map_title (.'$Number'.title)
-function _jm_f_136(val, path, rep)
+function _jm_f_132(val, path, rep)
 {
     let res;
     // .'$Number'.title
@@ -3292,7 +3289,7 @@ function _jm_f_136(val, path, rep)
 }
 
 // check _jm_obj_28_map_writeOnly (.'$Number'.writeOnly)
-function _jm_f_137(val, path, rep)
+function _jm_f_133(val, path, rep)
 {
     let res;
     // .'$Number'.writeOnly
@@ -3378,7 +3375,7 @@ function json_model_14(val, path, rep)
 }
 
 // check _jm_obj_32_map_$anchor (.'$Bool'.'$anchor')
-function _jm_f_138(val, path, rep)
+function _jm_f_134(val, path, rep)
 {
     let res;
     // .'$Bool'.'$anchor'
@@ -3391,7 +3388,7 @@ function _jm_f_138(val, path, rep)
 }
 
 // check _jm_obj_32_map_$comment (.'$Bool'.'$comment')
-function _jm_f_139(val, path, rep)
+function _jm_f_135(val, path, rep)
 {
     let res;
     // .'$Bool'.'$comment'
@@ -3431,7 +3428,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // check _jm_obj_32_map_$defs (.'$Bool'.'$defs')
-function _jm_f_140(val, path, rep)
+function _jm_f_136(val, path, rep)
 {
     let res;
     // .'$Bool'.'$defs'
@@ -3444,7 +3441,7 @@ function _jm_f_140(val, path, rep)
 }
 
 // check _jm_obj_32_map_$dynamicAnchor (.'$Bool'.'$dynamicAnchor')
-function _jm_f_141(val, path, rep)
+function _jm_f_137(val, path, rep)
 {
     let res;
     // .'$Bool'.'$dynamicAnchor'
@@ -3457,7 +3454,7 @@ function _jm_f_141(val, path, rep)
 }
 
 // check _jm_obj_32_map_$id (.'$Bool'.'$id')
-function _jm_f_142(val, path, rep)
+function _jm_f_138(val, path, rep)
 {
     let res;
     // .'$Bool'.'$id'
@@ -3470,7 +3467,7 @@ function _jm_f_142(val, path, rep)
 }
 
 // check _jm_obj_32_map_$schema (.'$Bool'.'$schema')
-function _jm_f_143(val, path, rep)
+function _jm_f_139(val, path, rep)
 {
     let res;
     // .'$Bool'.'$schema'
@@ -3518,7 +3515,7 @@ function _jm_obj_34(val, path, rep)
 }
 
 // check _jm_obj_32_map_$vocabulary (.'$Bool'.'$vocabulary')
-function _jm_f_144(val, path, rep)
+function _jm_f_140(val, path, rep)
 {
     let res;
     // .'$Bool'.'$vocabulary'
@@ -3531,7 +3528,7 @@ function _jm_f_144(val, path, rep)
 }
 
 // check _jm_obj_32_map_default (.'$Bool'.default)
-function _jm_f_145(val, path, rep)
+function _jm_f_141(val, path, rep)
 {
     let res;
     // .'$Bool'.default
@@ -3571,7 +3568,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // check _jm_obj_32_map_definitions (.'$Bool'.definitions)
-function _jm_f_146(val, path, rep)
+function _jm_f_142(val, path, rep)
 {
     let res;
     // .'$Bool'.definitions
@@ -3584,7 +3581,7 @@ function _jm_f_146(val, path, rep)
 }
 
 // check _jm_obj_32_map_deprecated (.'$Bool'.deprecated)
-function _jm_f_147(val, path, rep)
+function _jm_f_143(val, path, rep)
 {
     let res;
     // .'$Bool'.deprecated
@@ -3597,7 +3594,7 @@ function _jm_f_147(val, path, rep)
 }
 
 // check _jm_obj_32_map_description (.'$Bool'.description)
-function _jm_f_148(val, path, rep)
+function _jm_f_144(val, path, rep)
 {
     let res;
     // .'$Bool'.description
@@ -3610,7 +3607,7 @@ function _jm_f_148(val, path, rep)
 }
 
 // check _jm_obj_32_map_examples (.'$Bool'.examples)
-function _jm_f_149(val, path, rep)
+function _jm_f_145(val, path, rep)
 {
     let res;
     // .'$Bool'.examples
@@ -3627,7 +3624,7 @@ function _jm_f_149(val, path, rep)
 }
 
 // check _jm_obj_32_map_id (.'$Bool'.id)
-function _jm_f_150(val, path, rep)
+function _jm_f_146(val, path, rep)
 {
     let res;
     // .'$Bool'.id
@@ -3640,7 +3637,7 @@ function _jm_f_150(val, path, rep)
 }
 
 // check _jm_obj_32_map_readOnly (.'$Bool'.readOnly)
-function _jm_f_151(val, path, rep)
+function _jm_f_147(val, path, rep)
 {
     let res;
     // .'$Bool'.readOnly
@@ -3653,7 +3650,7 @@ function _jm_f_151(val, path, rep)
 }
 
 // check _jm_obj_32_map_title (.'$Bool'.title)
-function _jm_f_152(val, path, rep)
+function _jm_f_148(val, path, rep)
 {
     let res;
     // .'$Bool'.title
@@ -3666,7 +3663,7 @@ function _jm_f_152(val, path, rep)
 }
 
 // check _jm_obj_32_map_writeOnly (.'$Bool'.writeOnly)
-function _jm_f_153(val, path, rep)
+function _jm_f_149(val, path, rep)
 {
     let res;
     // .'$Bool'.writeOnly
@@ -3752,7 +3749,7 @@ function json_model_15(val, path, rep)
 }
 
 // check _jm_obj_36_map_$anchor (.'$Null'.'$anchor')
-function _jm_f_154(val, path, rep)
+function _jm_f_150(val, path, rep)
 {
     let res;
     // .'$Null'.'$anchor'
@@ -3765,7 +3762,7 @@ function _jm_f_154(val, path, rep)
 }
 
 // check _jm_obj_36_map_$comment (.'$Null'.'$comment')
-function _jm_f_155(val, path, rep)
+function _jm_f_151(val, path, rep)
 {
     let res;
     // .'$Null'.'$comment'
@@ -3805,7 +3802,7 @@ function _jm_obj_37(val, path, rep)
 }
 
 // check _jm_obj_36_map_$defs (.'$Null'.'$defs')
-function _jm_f_156(val, path, rep)
+function _jm_f_152(val, path, rep)
 {
     let res;
     // .'$Null'.'$defs'
@@ -3818,7 +3815,7 @@ function _jm_f_156(val, path, rep)
 }
 
 // check _jm_obj_36_map_$dynamicAnchor (.'$Null'.'$dynamicAnchor')
-function _jm_f_157(val, path, rep)
+function _jm_f_153(val, path, rep)
 {
     let res;
     // .'$Null'.'$dynamicAnchor'
@@ -3831,7 +3828,7 @@ function _jm_f_157(val, path, rep)
 }
 
 // check _jm_obj_36_map_$id (.'$Null'.'$id')
-function _jm_f_158(val, path, rep)
+function _jm_f_154(val, path, rep)
 {
     let res;
     // .'$Null'.'$id'
@@ -3844,7 +3841,7 @@ function _jm_f_158(val, path, rep)
 }
 
 // check _jm_obj_36_map_$schema (.'$Null'.'$schema')
-function _jm_f_159(val, path, rep)
+function _jm_f_155(val, path, rep)
 {
     let res;
     // .'$Null'.'$schema'
@@ -3892,7 +3889,7 @@ function _jm_obj_38(val, path, rep)
 }
 
 // check _jm_obj_36_map_$vocabulary (.'$Null'.'$vocabulary')
-function _jm_f_160(val, path, rep)
+function _jm_f_156(val, path, rep)
 {
     let res;
     // .'$Null'.'$vocabulary'
@@ -3905,7 +3902,7 @@ function _jm_f_160(val, path, rep)
 }
 
 // check _jm_obj_36_map_default (.'$Null'.default)
-function _jm_f_161(val, path, rep)
+function _jm_f_157(val, path, rep)
 {
     let res;
     // .'$Null'.default
@@ -3945,7 +3942,7 @@ function _jm_obj_39(val, path, rep)
 }
 
 // check _jm_obj_36_map_definitions (.'$Null'.definitions)
-function _jm_f_162(val, path, rep)
+function _jm_f_158(val, path, rep)
 {
     let res;
     // .'$Null'.definitions
@@ -3958,7 +3955,7 @@ function _jm_f_162(val, path, rep)
 }
 
 // check _jm_obj_36_map_deprecated (.'$Null'.deprecated)
-function _jm_f_163(val, path, rep)
+function _jm_f_159(val, path, rep)
 {
     let res;
     // .'$Null'.deprecated
@@ -3971,7 +3968,7 @@ function _jm_f_163(val, path, rep)
 }
 
 // check _jm_obj_36_map_description (.'$Null'.description)
-function _jm_f_164(val, path, rep)
+function _jm_f_160(val, path, rep)
 {
     let res;
     // .'$Null'.description
@@ -3984,7 +3981,7 @@ function _jm_f_164(val, path, rep)
 }
 
 // check _jm_obj_36_map_examples (.'$Null'.examples)
-function _jm_f_165(val, path, rep)
+function _jm_f_161(val, path, rep)
 {
     let res;
     // .'$Null'.examples
@@ -4001,7 +3998,7 @@ function _jm_f_165(val, path, rep)
 }
 
 // check _jm_obj_36_map_id (.'$Null'.id)
-function _jm_f_166(val, path, rep)
+function _jm_f_162(val, path, rep)
 {
     let res;
     // .'$Null'.id
@@ -4014,7 +4011,7 @@ function _jm_f_166(val, path, rep)
 }
 
 // check _jm_obj_36_map_readOnly (.'$Null'.readOnly)
-function _jm_f_167(val, path, rep)
+function _jm_f_163(val, path, rep)
 {
     let res;
     // .'$Null'.readOnly
@@ -4027,7 +4024,7 @@ function _jm_f_167(val, path, rep)
 }
 
 // check _jm_obj_36_map_title (.'$Null'.title)
-function _jm_f_168(val, path, rep)
+function _jm_f_164(val, path, rep)
 {
     let res;
     // .'$Null'.title
@@ -4040,7 +4037,7 @@ function _jm_f_168(val, path, rep)
 }
 
 // check _jm_obj_36_map_writeOnly (.'$Null'.writeOnly)
-function _jm_f_169(val, path, rep)
+function _jm_f_165(val, path, rep)
 {
     let res;
     // .'$Null'.writeOnly
@@ -4126,7 +4123,7 @@ function json_model_16(val, path, rep)
 }
 
 // check _jm_obj_40_map_$anchor (.'$AllOf'.'$anchor')
-function _jm_f_170(val, path, rep)
+function _jm_f_166(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$anchor'
@@ -4139,7 +4136,7 @@ function _jm_f_170(val, path, rep)
 }
 
 // check _jm_obj_40_map_$comment (.'$AllOf'.'$comment')
-function _jm_f_171(val, path, rep)
+function _jm_f_167(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$comment'
@@ -4179,7 +4176,7 @@ function _jm_obj_41(val, path, rep)
 }
 
 // check _jm_obj_40_map_$defs (.'$AllOf'.'$defs')
-function _jm_f_172(val, path, rep)
+function _jm_f_168(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$defs'
@@ -4192,7 +4189,7 @@ function _jm_f_172(val, path, rep)
 }
 
 // check _jm_obj_40_map_$dynamicAnchor (.'$AllOf'.'$dynamicAnchor')
-function _jm_f_173(val, path, rep)
+function _jm_f_169(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$dynamicAnchor'
@@ -4205,7 +4202,7 @@ function _jm_f_173(val, path, rep)
 }
 
 // check _jm_obj_40_map_$id (.'$AllOf'.'$id')
-function _jm_f_174(val, path, rep)
+function _jm_f_170(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$id'
@@ -4218,7 +4215,7 @@ function _jm_f_174(val, path, rep)
 }
 
 // check _jm_obj_40_map_$schema (.'$AllOf'.'$schema')
-function _jm_f_175(val, path, rep)
+function _jm_f_171(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$schema'
@@ -4266,7 +4263,7 @@ function _jm_obj_42(val, path, rep)
 }
 
 // check _jm_obj_40_map_$vocabulary (.'$AllOf'.'$vocabulary')
-function _jm_f_176(val, path, rep)
+function _jm_f_172(val, path, rep)
 {
     let res;
     // .'$AllOf'.'$vocabulary'
@@ -4279,7 +4276,7 @@ function _jm_f_176(val, path, rep)
 }
 
 // check _jm_obj_40_map_default (.'$AllOf'.default)
-function _jm_f_177(val, path, rep)
+function _jm_f_173(val, path, rep)
 {
     let res;
     // .'$AllOf'.default
@@ -4319,7 +4316,7 @@ function _jm_obj_43(val, path, rep)
 }
 
 // check _jm_obj_40_map_definitions (.'$AllOf'.definitions)
-function _jm_f_178(val, path, rep)
+function _jm_f_174(val, path, rep)
 {
     let res;
     // .'$AllOf'.definitions
@@ -4332,7 +4329,7 @@ function _jm_f_178(val, path, rep)
 }
 
 // check _jm_obj_40_map_deprecated (.'$AllOf'.deprecated)
-function _jm_f_179(val, path, rep)
+function _jm_f_175(val, path, rep)
 {
     let res;
     // .'$AllOf'.deprecated
@@ -4345,7 +4342,7 @@ function _jm_f_179(val, path, rep)
 }
 
 // check _jm_obj_40_map_description (.'$AllOf'.description)
-function _jm_f_180(val, path, rep)
+function _jm_f_176(val, path, rep)
 {
     let res;
     // .'$AllOf'.description
@@ -4358,7 +4355,7 @@ function _jm_f_180(val, path, rep)
 }
 
 // check _jm_obj_40_map_examples (.'$AllOf'.examples)
-function _jm_f_181(val, path, rep)
+function _jm_f_177(val, path, rep)
 {
     let res;
     // .'$AllOf'.examples
@@ -4375,7 +4372,7 @@ function _jm_f_181(val, path, rep)
 }
 
 // check _jm_obj_40_map_id (.'$AllOf'.id)
-function _jm_f_182(val, path, rep)
+function _jm_f_178(val, path, rep)
 {
     let res;
     // .'$AllOf'.id
@@ -4388,7 +4385,7 @@ function _jm_f_182(val, path, rep)
 }
 
 // check _jm_obj_40_map_readOnly (.'$AllOf'.readOnly)
-function _jm_f_183(val, path, rep)
+function _jm_f_179(val, path, rep)
 {
     let res;
     // .'$AllOf'.readOnly
@@ -4401,7 +4398,7 @@ function _jm_f_183(val, path, rep)
 }
 
 // check _jm_obj_40_map_title (.'$AllOf'.title)
-function _jm_f_184(val, path, rep)
+function _jm_f_180(val, path, rep)
 {
     let res;
     // .'$AllOf'.title
@@ -4414,7 +4411,7 @@ function _jm_f_184(val, path, rep)
 }
 
 // check _jm_obj_40_map_writeOnly (.'$AllOf'.writeOnly)
-function _jm_f_185(val, path, rep)
+function _jm_f_181(val, path, rep)
 {
     let res;
     // .'$AllOf'.writeOnly
@@ -4500,7 +4497,7 @@ function json_model_17(val, path, rep)
 }
 
 // check _jm_obj_44_map_$anchor (.'$AnyOf'.'$anchor')
-function _jm_f_186(val, path, rep)
+function _jm_f_182(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$anchor'
@@ -4513,7 +4510,7 @@ function _jm_f_186(val, path, rep)
 }
 
 // check _jm_obj_44_map_$comment (.'$AnyOf'.'$comment')
-function _jm_f_187(val, path, rep)
+function _jm_f_183(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$comment'
@@ -4553,7 +4550,7 @@ function _jm_obj_45(val, path, rep)
 }
 
 // check _jm_obj_44_map_$defs (.'$AnyOf'.'$defs')
-function _jm_f_188(val, path, rep)
+function _jm_f_184(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$defs'
@@ -4566,7 +4563,7 @@ function _jm_f_188(val, path, rep)
 }
 
 // check _jm_obj_44_map_$dynamicAnchor (.'$AnyOf'.'$dynamicAnchor')
-function _jm_f_189(val, path, rep)
+function _jm_f_185(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$dynamicAnchor'
@@ -4579,7 +4576,7 @@ function _jm_f_189(val, path, rep)
 }
 
 // check _jm_obj_44_map_$id (.'$AnyOf'.'$id')
-function _jm_f_190(val, path, rep)
+function _jm_f_186(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$id'
@@ -4592,7 +4589,7 @@ function _jm_f_190(val, path, rep)
 }
 
 // check _jm_obj_44_map_$schema (.'$AnyOf'.'$schema')
-function _jm_f_191(val, path, rep)
+function _jm_f_187(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$schema'
@@ -4640,7 +4637,7 @@ function _jm_obj_46(val, path, rep)
 }
 
 // check _jm_obj_44_map_$vocabulary (.'$AnyOf'.'$vocabulary')
-function _jm_f_192(val, path, rep)
+function _jm_f_188(val, path, rep)
 {
     let res;
     // .'$AnyOf'.'$vocabulary'
@@ -4653,7 +4650,7 @@ function _jm_f_192(val, path, rep)
 }
 
 // check _jm_obj_44_map_default (.'$AnyOf'.default)
-function _jm_f_193(val, path, rep)
+function _jm_f_189(val, path, rep)
 {
     let res;
     // .'$AnyOf'.default
@@ -4693,7 +4690,7 @@ function _jm_obj_47(val, path, rep)
 }
 
 // check _jm_obj_44_map_definitions (.'$AnyOf'.definitions)
-function _jm_f_194(val, path, rep)
+function _jm_f_190(val, path, rep)
 {
     let res;
     // .'$AnyOf'.definitions
@@ -4706,7 +4703,7 @@ function _jm_f_194(val, path, rep)
 }
 
 // check _jm_obj_44_map_deprecated (.'$AnyOf'.deprecated)
-function _jm_f_195(val, path, rep)
+function _jm_f_191(val, path, rep)
 {
     let res;
     // .'$AnyOf'.deprecated
@@ -4719,7 +4716,7 @@ function _jm_f_195(val, path, rep)
 }
 
 // check _jm_obj_44_map_description (.'$AnyOf'.description)
-function _jm_f_196(val, path, rep)
+function _jm_f_192(val, path, rep)
 {
     let res;
     // .'$AnyOf'.description
@@ -4732,7 +4729,7 @@ function _jm_f_196(val, path, rep)
 }
 
 // check _jm_obj_44_map_examples (.'$AnyOf'.examples)
-function _jm_f_197(val, path, rep)
+function _jm_f_193(val, path, rep)
 {
     let res;
     // .'$AnyOf'.examples
@@ -4749,7 +4746,7 @@ function _jm_f_197(val, path, rep)
 }
 
 // check _jm_obj_44_map_id (.'$AnyOf'.id)
-function _jm_f_198(val, path, rep)
+function _jm_f_194(val, path, rep)
 {
     let res;
     // .'$AnyOf'.id
@@ -4762,7 +4759,7 @@ function _jm_f_198(val, path, rep)
 }
 
 // check _jm_obj_44_map_readOnly (.'$AnyOf'.readOnly)
-function _jm_f_199(val, path, rep)
+function _jm_f_195(val, path, rep)
 {
     let res;
     // .'$AnyOf'.readOnly
@@ -4775,7 +4772,7 @@ function _jm_f_199(val, path, rep)
 }
 
 // check _jm_obj_44_map_title (.'$AnyOf'.title)
-function _jm_f_200(val, path, rep)
+function _jm_f_196(val, path, rep)
 {
     let res;
     // .'$AnyOf'.title
@@ -4788,7 +4785,7 @@ function _jm_f_200(val, path, rep)
 }
 
 // check _jm_obj_44_map_writeOnly (.'$AnyOf'.writeOnly)
-function _jm_f_201(val, path, rep)
+function _jm_f_197(val, path, rep)
 {
     let res;
     // .'$AnyOf'.writeOnly
@@ -4874,7 +4871,7 @@ function json_model_18(val, path, rep)
 }
 
 // check _jm_obj_48_map_$anchor (.'$OneOf'.'$anchor')
-function _jm_f_202(val, path, rep)
+function _jm_f_198(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$anchor'
@@ -4887,7 +4884,7 @@ function _jm_f_202(val, path, rep)
 }
 
 // check _jm_obj_48_map_$comment (.'$OneOf'.'$comment')
-function _jm_f_203(val, path, rep)
+function _jm_f_199(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$comment'
@@ -4927,7 +4924,7 @@ function _jm_obj_49(val, path, rep)
 }
 
 // check _jm_obj_48_map_$defs (.'$OneOf'.'$defs')
-function _jm_f_204(val, path, rep)
+function _jm_f_200(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$defs'
@@ -4940,7 +4937,7 @@ function _jm_f_204(val, path, rep)
 }
 
 // check _jm_obj_48_map_$dynamicAnchor (.'$OneOf'.'$dynamicAnchor')
-function _jm_f_205(val, path, rep)
+function _jm_f_201(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$dynamicAnchor'
@@ -4953,7 +4950,7 @@ function _jm_f_205(val, path, rep)
 }
 
 // check _jm_obj_48_map_$id (.'$OneOf'.'$id')
-function _jm_f_206(val, path, rep)
+function _jm_f_202(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$id'
@@ -4966,7 +4963,7 @@ function _jm_f_206(val, path, rep)
 }
 
 // check _jm_obj_48_map_$schema (.'$OneOf'.'$schema')
-function _jm_f_207(val, path, rep)
+function _jm_f_203(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$schema'
@@ -5014,7 +5011,7 @@ function _jm_obj_50(val, path, rep)
 }
 
 // check _jm_obj_48_map_$vocabulary (.'$OneOf'.'$vocabulary')
-function _jm_f_208(val, path, rep)
+function _jm_f_204(val, path, rep)
 {
     let res;
     // .'$OneOf'.'$vocabulary'
@@ -5027,7 +5024,7 @@ function _jm_f_208(val, path, rep)
 }
 
 // check _jm_obj_48_map_default (.'$OneOf'.default)
-function _jm_f_209(val, path, rep)
+function _jm_f_205(val, path, rep)
 {
     let res;
     // .'$OneOf'.default
@@ -5067,7 +5064,7 @@ function _jm_obj_51(val, path, rep)
 }
 
 // check _jm_obj_48_map_definitions (.'$OneOf'.definitions)
-function _jm_f_210(val, path, rep)
+function _jm_f_206(val, path, rep)
 {
     let res;
     // .'$OneOf'.definitions
@@ -5080,7 +5077,7 @@ function _jm_f_210(val, path, rep)
 }
 
 // check _jm_obj_48_map_deprecated (.'$OneOf'.deprecated)
-function _jm_f_211(val, path, rep)
+function _jm_f_207(val, path, rep)
 {
     let res;
     // .'$OneOf'.deprecated
@@ -5093,7 +5090,7 @@ function _jm_f_211(val, path, rep)
 }
 
 // check _jm_obj_48_map_description (.'$OneOf'.description)
-function _jm_f_212(val, path, rep)
+function _jm_f_208(val, path, rep)
 {
     let res;
     // .'$OneOf'.description
@@ -5106,7 +5103,7 @@ function _jm_f_212(val, path, rep)
 }
 
 // check _jm_obj_48_map_examples (.'$OneOf'.examples)
-function _jm_f_213(val, path, rep)
+function _jm_f_209(val, path, rep)
 {
     let res;
     // .'$OneOf'.examples
@@ -5123,7 +5120,7 @@ function _jm_f_213(val, path, rep)
 }
 
 // check _jm_obj_48_map_id (.'$OneOf'.id)
-function _jm_f_214(val, path, rep)
+function _jm_f_210(val, path, rep)
 {
     let res;
     // .'$OneOf'.id
@@ -5136,7 +5133,7 @@ function _jm_f_214(val, path, rep)
 }
 
 // check _jm_obj_48_map_readOnly (.'$OneOf'.readOnly)
-function _jm_f_215(val, path, rep)
+function _jm_f_211(val, path, rep)
 {
     let res;
     // .'$OneOf'.readOnly
@@ -5149,7 +5146,7 @@ function _jm_f_215(val, path, rep)
 }
 
 // check _jm_obj_48_map_title (.'$OneOf'.title)
-function _jm_f_216(val, path, rep)
+function _jm_f_212(val, path, rep)
 {
     let res;
     // .'$OneOf'.title
@@ -5162,7 +5159,7 @@ function _jm_f_216(val, path, rep)
 }
 
 // check _jm_obj_48_map_writeOnly (.'$OneOf'.writeOnly)
-function _jm_f_217(val, path, rep)
+function _jm_f_213(val, path, rep)
 {
     let res;
     // .'$OneOf'.writeOnly
@@ -5248,7 +5245,7 @@ function json_model_19(val, path, rep)
 }
 
 // check _jm_obj_52_map_$anchor (.'$Enum'.'$anchor')
-function _jm_f_218(val, path, rep)
+function _jm_f_214(val, path, rep)
 {
     let res;
     // .'$Enum'.'$anchor'
@@ -5261,7 +5258,7 @@ function _jm_f_218(val, path, rep)
 }
 
 // check _jm_obj_52_map_$comment (.'$Enum'.'$comment')
-function _jm_f_219(val, path, rep)
+function _jm_f_215(val, path, rep)
 {
     let res;
     // .'$Enum'.'$comment'
@@ -5301,7 +5298,7 @@ function _jm_obj_53(val, path, rep)
 }
 
 // check _jm_obj_52_map_$defs (.'$Enum'.'$defs')
-function _jm_f_220(val, path, rep)
+function _jm_f_216(val, path, rep)
 {
     let res;
     // .'$Enum'.'$defs'
@@ -5314,7 +5311,7 @@ function _jm_f_220(val, path, rep)
 }
 
 // check _jm_obj_52_map_$dynamicAnchor (.'$Enum'.'$dynamicAnchor')
-function _jm_f_221(val, path, rep)
+function _jm_f_217(val, path, rep)
 {
     let res;
     // .'$Enum'.'$dynamicAnchor'
@@ -5327,7 +5324,7 @@ function _jm_f_221(val, path, rep)
 }
 
 // check _jm_obj_52_map_$id (.'$Enum'.'$id')
-function _jm_f_222(val, path, rep)
+function _jm_f_218(val, path, rep)
 {
     let res;
     // .'$Enum'.'$id'
@@ -5340,7 +5337,7 @@ function _jm_f_222(val, path, rep)
 }
 
 // check _jm_obj_52_map_$schema (.'$Enum'.'$schema')
-function _jm_f_223(val, path, rep)
+function _jm_f_219(val, path, rep)
 {
     let res;
     // .'$Enum'.'$schema'
@@ -5388,7 +5385,7 @@ function _jm_obj_54(val, path, rep)
 }
 
 // check _jm_obj_52_map_$vocabulary (.'$Enum'.'$vocabulary')
-function _jm_f_224(val, path, rep)
+function _jm_f_220(val, path, rep)
 {
     let res;
     // .'$Enum'.'$vocabulary'
@@ -5401,7 +5398,7 @@ function _jm_f_224(val, path, rep)
 }
 
 // check _jm_obj_52_map_default (.'$Enum'.default)
-function _jm_f_225(val, path, rep)
+function _jm_f_221(val, path, rep)
 {
     let res;
     // .'$Enum'.default
@@ -5441,7 +5438,7 @@ function _jm_obj_55(val, path, rep)
 }
 
 // check _jm_obj_52_map_definitions (.'$Enum'.definitions)
-function _jm_f_226(val, path, rep)
+function _jm_f_222(val, path, rep)
 {
     let res;
     // .'$Enum'.definitions
@@ -5454,7 +5451,7 @@ function _jm_f_226(val, path, rep)
 }
 
 // check _jm_obj_52_map_deprecated (.'$Enum'.deprecated)
-function _jm_f_227(val, path, rep)
+function _jm_f_223(val, path, rep)
 {
     let res;
     // .'$Enum'.deprecated
@@ -5467,7 +5464,7 @@ function _jm_f_227(val, path, rep)
 }
 
 // check _jm_obj_52_map_description (.'$Enum'.description)
-function _jm_f_228(val, path, rep)
+function _jm_f_224(val, path, rep)
 {
     let res;
     // .'$Enum'.description
@@ -5480,7 +5477,7 @@ function _jm_f_228(val, path, rep)
 }
 
 // check _jm_obj_52_map_examples (.'$Enum'.examples)
-function _jm_f_229(val, path, rep)
+function _jm_f_225(val, path, rep)
 {
     let res;
     // .'$Enum'.examples
@@ -5497,7 +5494,7 @@ function _jm_f_229(val, path, rep)
 }
 
 // check _jm_obj_52_map_id (.'$Enum'.id)
-function _jm_f_230(val, path, rep)
+function _jm_f_226(val, path, rep)
 {
     let res;
     // .'$Enum'.id
@@ -5510,7 +5507,7 @@ function _jm_f_230(val, path, rep)
 }
 
 // check _jm_obj_52_map_readOnly (.'$Enum'.readOnly)
-function _jm_f_231(val, path, rep)
+function _jm_f_227(val, path, rep)
 {
     let res;
     // .'$Enum'.readOnly
@@ -5523,7 +5520,7 @@ function _jm_f_231(val, path, rep)
 }
 
 // check _jm_obj_52_map_title (.'$Enum'.title)
-function _jm_f_232(val, path, rep)
+function _jm_f_228(val, path, rep)
 {
     let res;
     // .'$Enum'.title
@@ -5536,7 +5533,7 @@ function _jm_f_232(val, path, rep)
 }
 
 // check _jm_obj_52_map_writeOnly (.'$Enum'.writeOnly)
-function _jm_f_233(val, path, rep)
+function _jm_f_229(val, path, rep)
 {
     let res;
     // .'$Enum'.writeOnly
@@ -5622,7 +5619,7 @@ function json_model_20(val, path, rep)
 }
 
 // check _jm_obj_56_map_$anchor (.'$Const'.'$anchor')
-function _jm_f_234(val, path, rep)
+function _jm_f_230(val, path, rep)
 {
     let res;
     // .'$Const'.'$anchor'
@@ -5635,7 +5632,7 @@ function _jm_f_234(val, path, rep)
 }
 
 // check _jm_obj_56_map_$comment (.'$Const'.'$comment')
-function _jm_f_235(val, path, rep)
+function _jm_f_231(val, path, rep)
 {
     let res;
     // .'$Const'.'$comment'
@@ -5675,7 +5672,7 @@ function _jm_obj_57(val, path, rep)
 }
 
 // check _jm_obj_56_map_$defs (.'$Const'.'$defs')
-function _jm_f_236(val, path, rep)
+function _jm_f_232(val, path, rep)
 {
     let res;
     // .'$Const'.'$defs'
@@ -5688,7 +5685,7 @@ function _jm_f_236(val, path, rep)
 }
 
 // check _jm_obj_56_map_$dynamicAnchor (.'$Const'.'$dynamicAnchor')
-function _jm_f_237(val, path, rep)
+function _jm_f_233(val, path, rep)
 {
     let res;
     // .'$Const'.'$dynamicAnchor'
@@ -5701,7 +5698,7 @@ function _jm_f_237(val, path, rep)
 }
 
 // check _jm_obj_56_map_$id (.'$Const'.'$id')
-function _jm_f_238(val, path, rep)
+function _jm_f_234(val, path, rep)
 {
     let res;
     // .'$Const'.'$id'
@@ -5714,7 +5711,7 @@ function _jm_f_238(val, path, rep)
 }
 
 // check _jm_obj_56_map_$schema (.'$Const'.'$schema')
-function _jm_f_239(val, path, rep)
+function _jm_f_235(val, path, rep)
 {
     let res;
     // .'$Const'.'$schema'
@@ -5762,7 +5759,7 @@ function _jm_obj_58(val, path, rep)
 }
 
 // check _jm_obj_56_map_$vocabulary (.'$Const'.'$vocabulary')
-function _jm_f_240(val, path, rep)
+function _jm_f_236(val, path, rep)
 {
     let res;
     // .'$Const'.'$vocabulary'
@@ -5775,7 +5772,7 @@ function _jm_f_240(val, path, rep)
 }
 
 // check _jm_obj_56_map_default (.'$Const'.default)
-function _jm_f_241(val, path, rep)
+function _jm_f_237(val, path, rep)
 {
     let res;
     // .'$Const'.default
@@ -5815,7 +5812,7 @@ function _jm_obj_59(val, path, rep)
 }
 
 // check _jm_obj_56_map_definitions (.'$Const'.definitions)
-function _jm_f_242(val, path, rep)
+function _jm_f_238(val, path, rep)
 {
     let res;
     // .'$Const'.definitions
@@ -5828,7 +5825,7 @@ function _jm_f_242(val, path, rep)
 }
 
 // check _jm_obj_56_map_deprecated (.'$Const'.deprecated)
-function _jm_f_243(val, path, rep)
+function _jm_f_239(val, path, rep)
 {
     let res;
     // .'$Const'.deprecated
@@ -5841,7 +5838,7 @@ function _jm_f_243(val, path, rep)
 }
 
 // check _jm_obj_56_map_description (.'$Const'.description)
-function _jm_f_244(val, path, rep)
+function _jm_f_240(val, path, rep)
 {
     let res;
     // .'$Const'.description
@@ -5854,7 +5851,7 @@ function _jm_f_244(val, path, rep)
 }
 
 // check _jm_obj_56_map_examples (.'$Const'.examples)
-function _jm_f_245(val, path, rep)
+function _jm_f_241(val, path, rep)
 {
     let res;
     // .'$Const'.examples
@@ -5871,7 +5868,7 @@ function _jm_f_245(val, path, rep)
 }
 
 // check _jm_obj_56_map_id (.'$Const'.id)
-function _jm_f_246(val, path, rep)
+function _jm_f_242(val, path, rep)
 {
     let res;
     // .'$Const'.id
@@ -5884,7 +5881,7 @@ function _jm_f_246(val, path, rep)
 }
 
 // check _jm_obj_56_map_readOnly (.'$Const'.readOnly)
-function _jm_f_247(val, path, rep)
+function _jm_f_243(val, path, rep)
 {
     let res;
     // .'$Const'.readOnly
@@ -5897,7 +5894,7 @@ function _jm_f_247(val, path, rep)
 }
 
 // check _jm_obj_56_map_title (.'$Const'.title)
-function _jm_f_248(val, path, rep)
+function _jm_f_244(val, path, rep)
 {
     let res;
     // .'$Const'.title
@@ -5910,7 +5907,7 @@ function _jm_f_248(val, path, rep)
 }
 
 // check _jm_obj_56_map_writeOnly (.'$Const'.writeOnly)
-function _jm_f_249(val, path, rep)
+function _jm_f_245(val, path, rep)
 {
     let res;
     // .'$Const'.writeOnly
@@ -5996,7 +5993,7 @@ function json_model_21(val, path, rep)
 }
 
 // check _jm_obj_60_map_$anchor (.'$Ref'.'$anchor')
-function _jm_f_250(val, path, rep)
+function _jm_f_246(val, path, rep)
 {
     let res;
     // .'$Ref'.'$anchor'
@@ -6009,7 +6006,7 @@ function _jm_f_250(val, path, rep)
 }
 
 // check _jm_obj_60_map_$comment (.'$Ref'.'$comment')
-function _jm_f_251(val, path, rep)
+function _jm_f_247(val, path, rep)
 {
     let res;
     // .'$Ref'.'$comment'
@@ -6049,7 +6046,7 @@ function _jm_obj_61(val, path, rep)
 }
 
 // check _jm_obj_60_map_$defs (.'$Ref'.'$defs')
-function _jm_f_252(val, path, rep)
+function _jm_f_248(val, path, rep)
 {
     let res;
     // .'$Ref'.'$defs'
@@ -6062,7 +6059,7 @@ function _jm_f_252(val, path, rep)
 }
 
 // check _jm_obj_60_map_$dynamicAnchor (.'$Ref'.'$dynamicAnchor')
-function _jm_f_253(val, path, rep)
+function _jm_f_249(val, path, rep)
 {
     let res;
     // .'$Ref'.'$dynamicAnchor'
@@ -6075,7 +6072,7 @@ function _jm_f_253(val, path, rep)
 }
 
 // check _jm_obj_60_map_$id (.'$Ref'.'$id')
-function _jm_f_254(val, path, rep)
+function _jm_f_250(val, path, rep)
 {
     let res;
     // .'$Ref'.'$id'
@@ -6088,7 +6085,7 @@ function _jm_f_254(val, path, rep)
 }
 
 // check _jm_obj_60_map_$schema (.'$Ref'.'$schema')
-function _jm_f_255(val, path, rep)
+function _jm_f_251(val, path, rep)
 {
     let res;
     // .'$Ref'.'$schema'
@@ -6136,7 +6133,7 @@ function _jm_obj_62(val, path, rep)
 }
 
 // check _jm_obj_60_map_$vocabulary (.'$Ref'.'$vocabulary')
-function _jm_f_256(val, path, rep)
+function _jm_f_252(val, path, rep)
 {
     let res;
     // .'$Ref'.'$vocabulary'
@@ -6149,7 +6146,7 @@ function _jm_f_256(val, path, rep)
 }
 
 // check _jm_obj_60_map_default (.'$Ref'.default)
-function _jm_f_257(val, path, rep)
+function _jm_f_253(val, path, rep)
 {
     let res;
     // .'$Ref'.default
@@ -6189,7 +6186,7 @@ function _jm_obj_63(val, path, rep)
 }
 
 // check _jm_obj_60_map_definitions (.'$Ref'.definitions)
-function _jm_f_258(val, path, rep)
+function _jm_f_254(val, path, rep)
 {
     let res;
     // .'$Ref'.definitions
@@ -6202,7 +6199,7 @@ function _jm_f_258(val, path, rep)
 }
 
 // check _jm_obj_60_map_deprecated (.'$Ref'.deprecated)
-function _jm_f_259(val, path, rep)
+function _jm_f_255(val, path, rep)
 {
     let res;
     // .'$Ref'.deprecated
@@ -6215,7 +6212,7 @@ function _jm_f_259(val, path, rep)
 }
 
 // check _jm_obj_60_map_description (.'$Ref'.description)
-function _jm_f_260(val, path, rep)
+function _jm_f_256(val, path, rep)
 {
     let res;
     // .'$Ref'.description
@@ -6228,7 +6225,7 @@ function _jm_f_260(val, path, rep)
 }
 
 // check _jm_obj_60_map_examples (.'$Ref'.examples)
-function _jm_f_261(val, path, rep)
+function _jm_f_257(val, path, rep)
 {
     let res;
     // .'$Ref'.examples
@@ -6245,7 +6242,7 @@ function _jm_f_261(val, path, rep)
 }
 
 // check _jm_obj_60_map_id (.'$Ref'.id)
-function _jm_f_262(val, path, rep)
+function _jm_f_258(val, path, rep)
 {
     let res;
     // .'$Ref'.id
@@ -6258,7 +6255,7 @@ function _jm_f_262(val, path, rep)
 }
 
 // check _jm_obj_60_map_readOnly (.'$Ref'.readOnly)
-function _jm_f_263(val, path, rep)
+function _jm_f_259(val, path, rep)
 {
     let res;
     // .'$Ref'.readOnly
@@ -6271,7 +6268,7 @@ function _jm_f_263(val, path, rep)
 }
 
 // check _jm_obj_60_map_title (.'$Ref'.title)
-function _jm_f_264(val, path, rep)
+function _jm_f_260(val, path, rep)
 {
     let res;
     // .'$Ref'.title
@@ -6284,7 +6281,7 @@ function _jm_f_264(val, path, rep)
 }
 
 // check _jm_obj_60_map_writeOnly (.'$Ref'.writeOnly)
-function _jm_f_265(val, path, rep)
+function _jm_f_261(val, path, rep)
 {
     let res;
     // .'$Ref'.writeOnly
@@ -6370,7 +6367,7 @@ function json_model_22(val, path, rep)
 }
 
 // check _jm_obj_64_map_$anchor (.'$DynRef'.'$anchor')
-function _jm_f_266(val, path, rep)
+function _jm_f_262(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$anchor'
@@ -6383,7 +6380,7 @@ function _jm_f_266(val, path, rep)
 }
 
 // check _jm_obj_64_map_$comment (.'$DynRef'.'$comment')
-function _jm_f_267(val, path, rep)
+function _jm_f_263(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$comment'
@@ -6423,7 +6420,7 @@ function _jm_obj_65(val, path, rep)
 }
 
 // check _jm_obj_64_map_$defs (.'$DynRef'.'$defs')
-function _jm_f_268(val, path, rep)
+function _jm_f_264(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$defs'
@@ -6436,7 +6433,7 @@ function _jm_f_268(val, path, rep)
 }
 
 // check _jm_obj_64_map_$dynamicAnchor (.'$DynRef'.'$dynamicAnchor')
-function _jm_f_269(val, path, rep)
+function _jm_f_265(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$dynamicAnchor'
@@ -6449,7 +6446,7 @@ function _jm_f_269(val, path, rep)
 }
 
 // check _jm_obj_64_map_$id (.'$DynRef'.'$id')
-function _jm_f_270(val, path, rep)
+function _jm_f_266(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$id'
@@ -6462,7 +6459,7 @@ function _jm_f_270(val, path, rep)
 }
 
 // check _jm_obj_64_map_$schema (.'$DynRef'.'$schema')
-function _jm_f_271(val, path, rep)
+function _jm_f_267(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$schema'
@@ -6510,7 +6507,7 @@ function _jm_obj_66(val, path, rep)
 }
 
 // check _jm_obj_64_map_$vocabulary (.'$DynRef'.'$vocabulary')
-function _jm_f_272(val, path, rep)
+function _jm_f_268(val, path, rep)
 {
     let res;
     // .'$DynRef'.'$vocabulary'
@@ -6523,7 +6520,7 @@ function _jm_f_272(val, path, rep)
 }
 
 // check _jm_obj_64_map_default (.'$DynRef'.default)
-function _jm_f_273(val, path, rep)
+function _jm_f_269(val, path, rep)
 {
     let res;
     // .'$DynRef'.default
@@ -6563,7 +6560,7 @@ function _jm_obj_67(val, path, rep)
 }
 
 // check _jm_obj_64_map_definitions (.'$DynRef'.definitions)
-function _jm_f_274(val, path, rep)
+function _jm_f_270(val, path, rep)
 {
     let res;
     // .'$DynRef'.definitions
@@ -6576,7 +6573,7 @@ function _jm_f_274(val, path, rep)
 }
 
 // check _jm_obj_64_map_deprecated (.'$DynRef'.deprecated)
-function _jm_f_275(val, path, rep)
+function _jm_f_271(val, path, rep)
 {
     let res;
     // .'$DynRef'.deprecated
@@ -6589,7 +6586,7 @@ function _jm_f_275(val, path, rep)
 }
 
 // check _jm_obj_64_map_description (.'$DynRef'.description)
-function _jm_f_276(val, path, rep)
+function _jm_f_272(val, path, rep)
 {
     let res;
     // .'$DynRef'.description
@@ -6602,7 +6599,7 @@ function _jm_f_276(val, path, rep)
 }
 
 // check _jm_obj_64_map_examples (.'$DynRef'.examples)
-function _jm_f_277(val, path, rep)
+function _jm_f_273(val, path, rep)
 {
     let res;
     // .'$DynRef'.examples
@@ -6619,7 +6616,7 @@ function _jm_f_277(val, path, rep)
 }
 
 // check _jm_obj_64_map_id (.'$DynRef'.id)
-function _jm_f_278(val, path, rep)
+function _jm_f_274(val, path, rep)
 {
     let res;
     // .'$DynRef'.id
@@ -6632,7 +6629,7 @@ function _jm_f_278(val, path, rep)
 }
 
 // check _jm_obj_64_map_readOnly (.'$DynRef'.readOnly)
-function _jm_f_279(val, path, rep)
+function _jm_f_275(val, path, rep)
 {
     let res;
     // .'$DynRef'.readOnly
@@ -6645,7 +6642,7 @@ function _jm_f_279(val, path, rep)
 }
 
 // check _jm_obj_64_map_title (.'$DynRef'.title)
-function _jm_f_280(val, path, rep)
+function _jm_f_276(val, path, rep)
 {
     let res;
     // .'$DynRef'.title
@@ -6658,7 +6655,7 @@ function _jm_f_280(val, path, rep)
 }
 
 // check _jm_obj_64_map_writeOnly (.'$DynRef'.writeOnly)
-function _jm_f_281(val, path, rep)
+function _jm_f_277(val, path, rep)
 {
     let res;
     // .'$DynRef'.writeOnly
@@ -7055,41 +7052,37 @@ export function check_model_init()
         _jm_cst_0.add("double")
         _jm_cst_0.add("int")
         _jm_cst_0.add("mime-type")
-        _jm_obj_0_map.set("format", _jm_f_0)
-        _jm_obj_0_map.set("maxLength", _jm_f_1)
-        _jm_obj_0_map.set("minLength", _jm_f_2)
-        _jm_obj_0_map.set("pattern", _jm_f_3)
-        _jm_obj_1_map.set("additionalItems", _jm_f_4)
-        _jm_obj_1_map.set("items", _jm_f_5)
-        _jm_obj_1_map.set("maxItems", _jm_f_6)
-        _jm_obj_1_map.set("minItems", _jm_f_7)
-        _jm_obj_1_map.set("prefixItems", _jm_f_8)
-        _jm_obj_1_map.set("unevaluatedItems", _jm_f_9)
-        _jm_obj_1_map.set("uniqueItems", _jm_f_10)
-        _jm_obj_2_map.set("additionalProperties", _jm_f_11)
-        _jm_obj_2_map.set("maxProperties", _jm_f_12)
-        _jm_obj_2_map.set("minProperties", _jm_f_13)
-        _jm_obj_2_map.set("patternProperties", _jm_f_14)
-        _jm_obj_2_map.set("properties", _jm_f_15)
-        _jm_obj_2_map.set("propertyNames", _jm_f_16)
-        _jm_obj_2_map.set("required", _jm_f_17)
-        _jm_obj_2_map.set("unevaluatedProperties", _jm_f_18)
-        _jm_obj_6_map.set("$anchor", _jm_f_19)
-        _jm_obj_6_map.set("$comment", _jm_f_20)
-        _jm_obj_6_map.set("$defs", _jm_f_21)
-        _jm_obj_6_map.set("$dynamicAnchor", _jm_f_22)
-        _jm_obj_6_map.set("$id", _jm_f_23)
-        _jm_obj_6_map.set("$schema", _jm_f_24)
-        _jm_obj_6_map.set("$vocabulary", _jm_f_25)
-        _jm_obj_6_map.set("default", _jm_f_26)
-        _jm_obj_6_map.set("definitions", _jm_f_27)
-        _jm_obj_6_map.set("deprecated", _jm_f_28)
-        _jm_obj_6_map.set("description", _jm_f_29)
-        _jm_obj_6_map.set("examples", _jm_f_30)
-        _jm_obj_6_map.set("id", _jm_f_31)
-        _jm_obj_6_map.set("readOnly", _jm_f_32)
-        _jm_obj_6_map.set("title", _jm_f_33)
-        _jm_obj_6_map.set("writeOnly", _jm_f_34)
+        _jm_obj_1_map.set("additionalItems", _jm_f_0)
+        _jm_obj_1_map.set("items", _jm_f_1)
+        _jm_obj_1_map.set("maxItems", _jm_f_2)
+        _jm_obj_1_map.set("minItems", _jm_f_3)
+        _jm_obj_1_map.set("prefixItems", _jm_f_4)
+        _jm_obj_1_map.set("unevaluatedItems", _jm_f_5)
+        _jm_obj_1_map.set("uniqueItems", _jm_f_6)
+        _jm_obj_2_map.set("additionalProperties", _jm_f_7)
+        _jm_obj_2_map.set("maxProperties", _jm_f_8)
+        _jm_obj_2_map.set("minProperties", _jm_f_9)
+        _jm_obj_2_map.set("patternProperties", _jm_f_10)
+        _jm_obj_2_map.set("properties", _jm_f_11)
+        _jm_obj_2_map.set("propertyNames", _jm_f_12)
+        _jm_obj_2_map.set("required", _jm_f_13)
+        _jm_obj_2_map.set("unevaluatedProperties", _jm_f_14)
+        _jm_obj_6_map.set("$anchor", _jm_f_15)
+        _jm_obj_6_map.set("$comment", _jm_f_16)
+        _jm_obj_6_map.set("$defs", _jm_f_17)
+        _jm_obj_6_map.set("$dynamicAnchor", _jm_f_18)
+        _jm_obj_6_map.set("$id", _jm_f_19)
+        _jm_obj_6_map.set("$schema", _jm_f_20)
+        _jm_obj_6_map.set("$vocabulary", _jm_f_21)
+        _jm_obj_6_map.set("default", _jm_f_22)
+        _jm_obj_6_map.set("definitions", _jm_f_23)
+        _jm_obj_6_map.set("deprecated", _jm_f_24)
+        _jm_obj_6_map.set("description", _jm_f_25)
+        _jm_obj_6_map.set("examples", _jm_f_26)
+        _jm_obj_6_map.set("id", _jm_f_27)
+        _jm_obj_6_map.set("readOnly", _jm_f_28)
+        _jm_obj_6_map.set("title", _jm_f_29)
+        _jm_obj_6_map.set("writeOnly", _jm_f_30)
         _jm_cst_1.add("uri")
         _jm_cst_1.add("uri-reference")
         _jm_cst_1.add("iri")
@@ -7117,253 +7110,253 @@ export function check_model_init()
         _jm_cst_1.add("double")
         _jm_cst_1.add("int")
         _jm_cst_1.add("mime-type")
-        _jm_obj_10_map.set("$anchor", _jm_f_35)
-        _jm_obj_10_map.set("$comment", _jm_f_36)
-        _jm_obj_10_map.set("$defs", _jm_f_37)
-        _jm_obj_10_map.set("$dynamicAnchor", _jm_f_38)
-        _jm_obj_10_map.set("$id", _jm_f_39)
-        _jm_obj_10_map.set("$schema", _jm_f_40)
-        _jm_obj_10_map.set("$vocabulary", _jm_f_41)
-        _jm_obj_10_map.set("default", _jm_f_42)
-        _jm_obj_10_map.set("definitions", _jm_f_43)
-        _jm_obj_10_map.set("deprecated", _jm_f_44)
-        _jm_obj_10_map.set("description", _jm_f_45)
-        _jm_obj_10_map.set("examples", _jm_f_46)
-        _jm_obj_10_map.set("format", _jm_f_47)
-        _jm_obj_10_map.set("id", _jm_f_48)
-        _jm_obj_10_map.set("maxLength", _jm_f_49)
-        _jm_obj_10_map.set("minLength", _jm_f_50)
-        _jm_obj_10_map.set("pattern", _jm_f_51)
-        _jm_obj_10_map.set("readOnly", _jm_f_52)
-        _jm_obj_10_map.set("title", _jm_f_53)
-        _jm_obj_10_map.set("writeOnly", _jm_f_54)
-        _jm_obj_14_map.set("$anchor", _jm_f_55)
-        _jm_obj_14_map.set("$comment", _jm_f_56)
-        _jm_obj_14_map.set("$defs", _jm_f_57)
-        _jm_obj_14_map.set("$dynamicAnchor", _jm_f_58)
-        _jm_obj_14_map.set("$id", _jm_f_59)
-        _jm_obj_14_map.set("$schema", _jm_f_60)
-        _jm_obj_14_map.set("$vocabulary", _jm_f_61)
-        _jm_obj_14_map.set("additionalItems", _jm_f_62)
-        _jm_obj_14_map.set("default", _jm_f_63)
-        _jm_obj_14_map.set("definitions", _jm_f_64)
-        _jm_obj_14_map.set("deprecated", _jm_f_65)
-        _jm_obj_14_map.set("description", _jm_f_66)
-        _jm_obj_14_map.set("examples", _jm_f_67)
-        _jm_obj_14_map.set("id", _jm_f_68)
-        _jm_obj_14_map.set("items", _jm_f_69)
-        _jm_obj_14_map.set("maxItems", _jm_f_70)
-        _jm_obj_14_map.set("minItems", _jm_f_71)
-        _jm_obj_14_map.set("prefixItems", _jm_f_72)
-        _jm_obj_14_map.set("readOnly", _jm_f_73)
-        _jm_obj_14_map.set("title", _jm_f_74)
-        _jm_obj_14_map.set("unevaluatedItems", _jm_f_75)
-        _jm_obj_14_map.set("uniqueItems", _jm_f_76)
-        _jm_obj_14_map.set("writeOnly", _jm_f_77)
-        _jm_obj_18_map.set("$anchor", _jm_f_78)
-        _jm_obj_18_map.set("$comment", _jm_f_79)
-        _jm_obj_18_map.set("$defs", _jm_f_80)
-        _jm_obj_18_map.set("$dynamicAnchor", _jm_f_81)
-        _jm_obj_18_map.set("$id", _jm_f_82)
-        _jm_obj_18_map.set("$schema", _jm_f_83)
-        _jm_obj_18_map.set("$vocabulary", _jm_f_84)
-        _jm_obj_18_map.set("additionalProperties", _jm_f_85)
-        _jm_obj_18_map.set("default", _jm_f_86)
-        _jm_obj_18_map.set("definitions", _jm_f_87)
-        _jm_obj_18_map.set("deprecated", _jm_f_88)
-        _jm_obj_18_map.set("description", _jm_f_89)
-        _jm_obj_18_map.set("examples", _jm_f_90)
-        _jm_obj_18_map.set("id", _jm_f_91)
-        _jm_obj_18_map.set("maxProperties", _jm_f_92)
-        _jm_obj_18_map.set("minProperties", _jm_f_93)
-        _jm_obj_18_map.set("patternProperties", _jm_f_94)
-        _jm_obj_18_map.set("properties", _jm_f_95)
-        _jm_obj_18_map.set("propertyNames", _jm_f_96)
-        _jm_obj_18_map.set("readOnly", _jm_f_97)
-        _jm_obj_18_map.set("required", _jm_f_98)
-        _jm_obj_18_map.set("title", _jm_f_99)
-        _jm_obj_18_map.set("unevaluatedProperties", _jm_f_100)
-        _jm_obj_18_map.set("writeOnly", _jm_f_101)
-        _jm_obj_24_map.set("$anchor", _jm_f_102)
-        _jm_obj_24_map.set("$comment", _jm_f_103)
-        _jm_obj_24_map.set("$defs", _jm_f_104)
-        _jm_obj_24_map.set("$dynamicAnchor", _jm_f_105)
-        _jm_obj_24_map.set("$id", _jm_f_106)
-        _jm_obj_24_map.set("$schema", _jm_f_107)
-        _jm_obj_24_map.set("$vocabulary", _jm_f_108)
-        _jm_obj_24_map.set("default", _jm_f_109)
-        _jm_obj_24_map.set("definitions", _jm_f_110)
-        _jm_obj_24_map.set("deprecated", _jm_f_111)
-        _jm_obj_24_map.set("description", _jm_f_112)
-        _jm_obj_24_map.set("examples", _jm_f_113)
-        _jm_obj_24_map.set("id", _jm_f_114)
-        _jm_obj_24_map.set("maximum", _jm_f_115)
-        _jm_obj_24_map.set("minimum", _jm_f_116)
-        _jm_obj_24_map.set("readOnly", _jm_f_117)
-        _jm_obj_24_map.set("title", _jm_f_118)
-        _jm_obj_24_map.set("writeOnly", _jm_f_119)
-        _jm_obj_28_map.set("$anchor", _jm_f_120)
-        _jm_obj_28_map.set("$comment", _jm_f_121)
-        _jm_obj_28_map.set("$defs", _jm_f_122)
-        _jm_obj_28_map.set("$dynamicAnchor", _jm_f_123)
-        _jm_obj_28_map.set("$id", _jm_f_124)
-        _jm_obj_28_map.set("$schema", _jm_f_125)
-        _jm_obj_28_map.set("$vocabulary", _jm_f_126)
-        _jm_obj_28_map.set("default", _jm_f_127)
-        _jm_obj_28_map.set("definitions", _jm_f_128)
-        _jm_obj_28_map.set("deprecated", _jm_f_129)
-        _jm_obj_28_map.set("description", _jm_f_130)
-        _jm_obj_28_map.set("examples", _jm_f_131)
-        _jm_obj_28_map.set("id", _jm_f_132)
-        _jm_obj_28_map.set("maximum", _jm_f_133)
-        _jm_obj_28_map.set("minimum", _jm_f_134)
-        _jm_obj_28_map.set("readOnly", _jm_f_135)
-        _jm_obj_28_map.set("title", _jm_f_136)
-        _jm_obj_28_map.set("writeOnly", _jm_f_137)
-        _jm_obj_32_map.set("$anchor", _jm_f_138)
-        _jm_obj_32_map.set("$comment", _jm_f_139)
-        _jm_obj_32_map.set("$defs", _jm_f_140)
-        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_141)
-        _jm_obj_32_map.set("$id", _jm_f_142)
-        _jm_obj_32_map.set("$schema", _jm_f_143)
-        _jm_obj_32_map.set("$vocabulary", _jm_f_144)
-        _jm_obj_32_map.set("default", _jm_f_145)
-        _jm_obj_32_map.set("definitions", _jm_f_146)
-        _jm_obj_32_map.set("deprecated", _jm_f_147)
-        _jm_obj_32_map.set("description", _jm_f_148)
-        _jm_obj_32_map.set("examples", _jm_f_149)
-        _jm_obj_32_map.set("id", _jm_f_150)
-        _jm_obj_32_map.set("readOnly", _jm_f_151)
-        _jm_obj_32_map.set("title", _jm_f_152)
-        _jm_obj_32_map.set("writeOnly", _jm_f_153)
-        _jm_obj_36_map.set("$anchor", _jm_f_154)
-        _jm_obj_36_map.set("$comment", _jm_f_155)
-        _jm_obj_36_map.set("$defs", _jm_f_156)
-        _jm_obj_36_map.set("$dynamicAnchor", _jm_f_157)
-        _jm_obj_36_map.set("$id", _jm_f_158)
-        _jm_obj_36_map.set("$schema", _jm_f_159)
-        _jm_obj_36_map.set("$vocabulary", _jm_f_160)
-        _jm_obj_36_map.set("default", _jm_f_161)
-        _jm_obj_36_map.set("definitions", _jm_f_162)
-        _jm_obj_36_map.set("deprecated", _jm_f_163)
-        _jm_obj_36_map.set("description", _jm_f_164)
-        _jm_obj_36_map.set("examples", _jm_f_165)
-        _jm_obj_36_map.set("id", _jm_f_166)
-        _jm_obj_36_map.set("readOnly", _jm_f_167)
-        _jm_obj_36_map.set("title", _jm_f_168)
-        _jm_obj_36_map.set("writeOnly", _jm_f_169)
-        _jm_obj_40_map.set("$anchor", _jm_f_170)
-        _jm_obj_40_map.set("$comment", _jm_f_171)
-        _jm_obj_40_map.set("$defs", _jm_f_172)
-        _jm_obj_40_map.set("$dynamicAnchor", _jm_f_173)
-        _jm_obj_40_map.set("$id", _jm_f_174)
-        _jm_obj_40_map.set("$schema", _jm_f_175)
-        _jm_obj_40_map.set("$vocabulary", _jm_f_176)
-        _jm_obj_40_map.set("default", _jm_f_177)
-        _jm_obj_40_map.set("definitions", _jm_f_178)
-        _jm_obj_40_map.set("deprecated", _jm_f_179)
-        _jm_obj_40_map.set("description", _jm_f_180)
-        _jm_obj_40_map.set("examples", _jm_f_181)
-        _jm_obj_40_map.set("id", _jm_f_182)
-        _jm_obj_40_map.set("readOnly", _jm_f_183)
-        _jm_obj_40_map.set("title", _jm_f_184)
-        _jm_obj_40_map.set("writeOnly", _jm_f_185)
-        _jm_obj_44_map.set("$anchor", _jm_f_186)
-        _jm_obj_44_map.set("$comment", _jm_f_187)
-        _jm_obj_44_map.set("$defs", _jm_f_188)
-        _jm_obj_44_map.set("$dynamicAnchor", _jm_f_189)
-        _jm_obj_44_map.set("$id", _jm_f_190)
-        _jm_obj_44_map.set("$schema", _jm_f_191)
-        _jm_obj_44_map.set("$vocabulary", _jm_f_192)
-        _jm_obj_44_map.set("default", _jm_f_193)
-        _jm_obj_44_map.set("definitions", _jm_f_194)
-        _jm_obj_44_map.set("deprecated", _jm_f_195)
-        _jm_obj_44_map.set("description", _jm_f_196)
-        _jm_obj_44_map.set("examples", _jm_f_197)
-        _jm_obj_44_map.set("id", _jm_f_198)
-        _jm_obj_44_map.set("readOnly", _jm_f_199)
-        _jm_obj_44_map.set("title", _jm_f_200)
-        _jm_obj_44_map.set("writeOnly", _jm_f_201)
-        _jm_obj_48_map.set("$anchor", _jm_f_202)
-        _jm_obj_48_map.set("$comment", _jm_f_203)
-        _jm_obj_48_map.set("$defs", _jm_f_204)
-        _jm_obj_48_map.set("$dynamicAnchor", _jm_f_205)
-        _jm_obj_48_map.set("$id", _jm_f_206)
-        _jm_obj_48_map.set("$schema", _jm_f_207)
-        _jm_obj_48_map.set("$vocabulary", _jm_f_208)
-        _jm_obj_48_map.set("default", _jm_f_209)
-        _jm_obj_48_map.set("definitions", _jm_f_210)
-        _jm_obj_48_map.set("deprecated", _jm_f_211)
-        _jm_obj_48_map.set("description", _jm_f_212)
-        _jm_obj_48_map.set("examples", _jm_f_213)
-        _jm_obj_48_map.set("id", _jm_f_214)
-        _jm_obj_48_map.set("readOnly", _jm_f_215)
-        _jm_obj_48_map.set("title", _jm_f_216)
-        _jm_obj_48_map.set("writeOnly", _jm_f_217)
-        _jm_obj_52_map.set("$anchor", _jm_f_218)
-        _jm_obj_52_map.set("$comment", _jm_f_219)
-        _jm_obj_52_map.set("$defs", _jm_f_220)
-        _jm_obj_52_map.set("$dynamicAnchor", _jm_f_221)
-        _jm_obj_52_map.set("$id", _jm_f_222)
-        _jm_obj_52_map.set("$schema", _jm_f_223)
-        _jm_obj_52_map.set("$vocabulary", _jm_f_224)
-        _jm_obj_52_map.set("default", _jm_f_225)
-        _jm_obj_52_map.set("definitions", _jm_f_226)
-        _jm_obj_52_map.set("deprecated", _jm_f_227)
-        _jm_obj_52_map.set("description", _jm_f_228)
-        _jm_obj_52_map.set("examples", _jm_f_229)
-        _jm_obj_52_map.set("id", _jm_f_230)
-        _jm_obj_52_map.set("readOnly", _jm_f_231)
-        _jm_obj_52_map.set("title", _jm_f_232)
-        _jm_obj_52_map.set("writeOnly", _jm_f_233)
-        _jm_obj_56_map.set("$anchor", _jm_f_234)
-        _jm_obj_56_map.set("$comment", _jm_f_235)
-        _jm_obj_56_map.set("$defs", _jm_f_236)
-        _jm_obj_56_map.set("$dynamicAnchor", _jm_f_237)
-        _jm_obj_56_map.set("$id", _jm_f_238)
-        _jm_obj_56_map.set("$schema", _jm_f_239)
-        _jm_obj_56_map.set("$vocabulary", _jm_f_240)
-        _jm_obj_56_map.set("default", _jm_f_241)
-        _jm_obj_56_map.set("definitions", _jm_f_242)
-        _jm_obj_56_map.set("deprecated", _jm_f_243)
-        _jm_obj_56_map.set("description", _jm_f_244)
-        _jm_obj_56_map.set("examples", _jm_f_245)
-        _jm_obj_56_map.set("id", _jm_f_246)
-        _jm_obj_56_map.set("readOnly", _jm_f_247)
-        _jm_obj_56_map.set("title", _jm_f_248)
-        _jm_obj_56_map.set("writeOnly", _jm_f_249)
-        _jm_obj_60_map.set("$anchor", _jm_f_250)
-        _jm_obj_60_map.set("$comment", _jm_f_251)
-        _jm_obj_60_map.set("$defs", _jm_f_252)
-        _jm_obj_60_map.set("$dynamicAnchor", _jm_f_253)
-        _jm_obj_60_map.set("$id", _jm_f_254)
-        _jm_obj_60_map.set("$schema", _jm_f_255)
-        _jm_obj_60_map.set("$vocabulary", _jm_f_256)
-        _jm_obj_60_map.set("default", _jm_f_257)
-        _jm_obj_60_map.set("definitions", _jm_f_258)
-        _jm_obj_60_map.set("deprecated", _jm_f_259)
-        _jm_obj_60_map.set("description", _jm_f_260)
-        _jm_obj_60_map.set("examples", _jm_f_261)
-        _jm_obj_60_map.set("id", _jm_f_262)
-        _jm_obj_60_map.set("readOnly", _jm_f_263)
-        _jm_obj_60_map.set("title", _jm_f_264)
-        _jm_obj_60_map.set("writeOnly", _jm_f_265)
-        _jm_obj_64_map.set("$anchor", _jm_f_266)
-        _jm_obj_64_map.set("$comment", _jm_f_267)
-        _jm_obj_64_map.set("$defs", _jm_f_268)
-        _jm_obj_64_map.set("$dynamicAnchor", _jm_f_269)
-        _jm_obj_64_map.set("$id", _jm_f_270)
-        _jm_obj_64_map.set("$schema", _jm_f_271)
-        _jm_obj_64_map.set("$vocabulary", _jm_f_272)
-        _jm_obj_64_map.set("default", _jm_f_273)
-        _jm_obj_64_map.set("definitions", _jm_f_274)
-        _jm_obj_64_map.set("deprecated", _jm_f_275)
-        _jm_obj_64_map.set("description", _jm_f_276)
-        _jm_obj_64_map.set("examples", _jm_f_277)
-        _jm_obj_64_map.set("id", _jm_f_278)
-        _jm_obj_64_map.set("readOnly", _jm_f_279)
-        _jm_obj_64_map.set("title", _jm_f_280)
-        _jm_obj_64_map.set("writeOnly", _jm_f_281)
+        _jm_obj_10_map.set("$anchor", _jm_f_31)
+        _jm_obj_10_map.set("$comment", _jm_f_32)
+        _jm_obj_10_map.set("$defs", _jm_f_33)
+        _jm_obj_10_map.set("$dynamicAnchor", _jm_f_34)
+        _jm_obj_10_map.set("$id", _jm_f_35)
+        _jm_obj_10_map.set("$schema", _jm_f_36)
+        _jm_obj_10_map.set("$vocabulary", _jm_f_37)
+        _jm_obj_10_map.set("default", _jm_f_38)
+        _jm_obj_10_map.set("definitions", _jm_f_39)
+        _jm_obj_10_map.set("deprecated", _jm_f_40)
+        _jm_obj_10_map.set("description", _jm_f_41)
+        _jm_obj_10_map.set("examples", _jm_f_42)
+        _jm_obj_10_map.set("format", _jm_f_43)
+        _jm_obj_10_map.set("id", _jm_f_44)
+        _jm_obj_10_map.set("maxLength", _jm_f_45)
+        _jm_obj_10_map.set("minLength", _jm_f_46)
+        _jm_obj_10_map.set("pattern", _jm_f_47)
+        _jm_obj_10_map.set("readOnly", _jm_f_48)
+        _jm_obj_10_map.set("title", _jm_f_49)
+        _jm_obj_10_map.set("writeOnly", _jm_f_50)
+        _jm_obj_14_map.set("$anchor", _jm_f_51)
+        _jm_obj_14_map.set("$comment", _jm_f_52)
+        _jm_obj_14_map.set("$defs", _jm_f_53)
+        _jm_obj_14_map.set("$dynamicAnchor", _jm_f_54)
+        _jm_obj_14_map.set("$id", _jm_f_55)
+        _jm_obj_14_map.set("$schema", _jm_f_56)
+        _jm_obj_14_map.set("$vocabulary", _jm_f_57)
+        _jm_obj_14_map.set("additionalItems", _jm_f_58)
+        _jm_obj_14_map.set("default", _jm_f_59)
+        _jm_obj_14_map.set("definitions", _jm_f_60)
+        _jm_obj_14_map.set("deprecated", _jm_f_61)
+        _jm_obj_14_map.set("description", _jm_f_62)
+        _jm_obj_14_map.set("examples", _jm_f_63)
+        _jm_obj_14_map.set("id", _jm_f_64)
+        _jm_obj_14_map.set("items", _jm_f_65)
+        _jm_obj_14_map.set("maxItems", _jm_f_66)
+        _jm_obj_14_map.set("minItems", _jm_f_67)
+        _jm_obj_14_map.set("prefixItems", _jm_f_68)
+        _jm_obj_14_map.set("readOnly", _jm_f_69)
+        _jm_obj_14_map.set("title", _jm_f_70)
+        _jm_obj_14_map.set("unevaluatedItems", _jm_f_71)
+        _jm_obj_14_map.set("uniqueItems", _jm_f_72)
+        _jm_obj_14_map.set("writeOnly", _jm_f_73)
+        _jm_obj_18_map.set("$anchor", _jm_f_74)
+        _jm_obj_18_map.set("$comment", _jm_f_75)
+        _jm_obj_18_map.set("$defs", _jm_f_76)
+        _jm_obj_18_map.set("$dynamicAnchor", _jm_f_77)
+        _jm_obj_18_map.set("$id", _jm_f_78)
+        _jm_obj_18_map.set("$schema", _jm_f_79)
+        _jm_obj_18_map.set("$vocabulary", _jm_f_80)
+        _jm_obj_18_map.set("additionalProperties", _jm_f_81)
+        _jm_obj_18_map.set("default", _jm_f_82)
+        _jm_obj_18_map.set("definitions", _jm_f_83)
+        _jm_obj_18_map.set("deprecated", _jm_f_84)
+        _jm_obj_18_map.set("description", _jm_f_85)
+        _jm_obj_18_map.set("examples", _jm_f_86)
+        _jm_obj_18_map.set("id", _jm_f_87)
+        _jm_obj_18_map.set("maxProperties", _jm_f_88)
+        _jm_obj_18_map.set("minProperties", _jm_f_89)
+        _jm_obj_18_map.set("patternProperties", _jm_f_90)
+        _jm_obj_18_map.set("properties", _jm_f_91)
+        _jm_obj_18_map.set("propertyNames", _jm_f_92)
+        _jm_obj_18_map.set("readOnly", _jm_f_93)
+        _jm_obj_18_map.set("required", _jm_f_94)
+        _jm_obj_18_map.set("title", _jm_f_95)
+        _jm_obj_18_map.set("unevaluatedProperties", _jm_f_96)
+        _jm_obj_18_map.set("writeOnly", _jm_f_97)
+        _jm_obj_24_map.set("$anchor", _jm_f_98)
+        _jm_obj_24_map.set("$comment", _jm_f_99)
+        _jm_obj_24_map.set("$defs", _jm_f_100)
+        _jm_obj_24_map.set("$dynamicAnchor", _jm_f_101)
+        _jm_obj_24_map.set("$id", _jm_f_102)
+        _jm_obj_24_map.set("$schema", _jm_f_103)
+        _jm_obj_24_map.set("$vocabulary", _jm_f_104)
+        _jm_obj_24_map.set("default", _jm_f_105)
+        _jm_obj_24_map.set("definitions", _jm_f_106)
+        _jm_obj_24_map.set("deprecated", _jm_f_107)
+        _jm_obj_24_map.set("description", _jm_f_108)
+        _jm_obj_24_map.set("examples", _jm_f_109)
+        _jm_obj_24_map.set("id", _jm_f_110)
+        _jm_obj_24_map.set("maximum", _jm_f_111)
+        _jm_obj_24_map.set("minimum", _jm_f_112)
+        _jm_obj_24_map.set("readOnly", _jm_f_113)
+        _jm_obj_24_map.set("title", _jm_f_114)
+        _jm_obj_24_map.set("writeOnly", _jm_f_115)
+        _jm_obj_28_map.set("$anchor", _jm_f_116)
+        _jm_obj_28_map.set("$comment", _jm_f_117)
+        _jm_obj_28_map.set("$defs", _jm_f_118)
+        _jm_obj_28_map.set("$dynamicAnchor", _jm_f_119)
+        _jm_obj_28_map.set("$id", _jm_f_120)
+        _jm_obj_28_map.set("$schema", _jm_f_121)
+        _jm_obj_28_map.set("$vocabulary", _jm_f_122)
+        _jm_obj_28_map.set("default", _jm_f_123)
+        _jm_obj_28_map.set("definitions", _jm_f_124)
+        _jm_obj_28_map.set("deprecated", _jm_f_125)
+        _jm_obj_28_map.set("description", _jm_f_126)
+        _jm_obj_28_map.set("examples", _jm_f_127)
+        _jm_obj_28_map.set("id", _jm_f_128)
+        _jm_obj_28_map.set("maximum", _jm_f_129)
+        _jm_obj_28_map.set("minimum", _jm_f_130)
+        _jm_obj_28_map.set("readOnly", _jm_f_131)
+        _jm_obj_28_map.set("title", _jm_f_132)
+        _jm_obj_28_map.set("writeOnly", _jm_f_133)
+        _jm_obj_32_map.set("$anchor", _jm_f_134)
+        _jm_obj_32_map.set("$comment", _jm_f_135)
+        _jm_obj_32_map.set("$defs", _jm_f_136)
+        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_137)
+        _jm_obj_32_map.set("$id", _jm_f_138)
+        _jm_obj_32_map.set("$schema", _jm_f_139)
+        _jm_obj_32_map.set("$vocabulary", _jm_f_140)
+        _jm_obj_32_map.set("default", _jm_f_141)
+        _jm_obj_32_map.set("definitions", _jm_f_142)
+        _jm_obj_32_map.set("deprecated", _jm_f_143)
+        _jm_obj_32_map.set("description", _jm_f_144)
+        _jm_obj_32_map.set("examples", _jm_f_145)
+        _jm_obj_32_map.set("id", _jm_f_146)
+        _jm_obj_32_map.set("readOnly", _jm_f_147)
+        _jm_obj_32_map.set("title", _jm_f_148)
+        _jm_obj_32_map.set("writeOnly", _jm_f_149)
+        _jm_obj_36_map.set("$anchor", _jm_f_150)
+        _jm_obj_36_map.set("$comment", _jm_f_151)
+        _jm_obj_36_map.set("$defs", _jm_f_152)
+        _jm_obj_36_map.set("$dynamicAnchor", _jm_f_153)
+        _jm_obj_36_map.set("$id", _jm_f_154)
+        _jm_obj_36_map.set("$schema", _jm_f_155)
+        _jm_obj_36_map.set("$vocabulary", _jm_f_156)
+        _jm_obj_36_map.set("default", _jm_f_157)
+        _jm_obj_36_map.set("definitions", _jm_f_158)
+        _jm_obj_36_map.set("deprecated", _jm_f_159)
+        _jm_obj_36_map.set("description", _jm_f_160)
+        _jm_obj_36_map.set("examples", _jm_f_161)
+        _jm_obj_36_map.set("id", _jm_f_162)
+        _jm_obj_36_map.set("readOnly", _jm_f_163)
+        _jm_obj_36_map.set("title", _jm_f_164)
+        _jm_obj_36_map.set("writeOnly", _jm_f_165)
+        _jm_obj_40_map.set("$anchor", _jm_f_166)
+        _jm_obj_40_map.set("$comment", _jm_f_167)
+        _jm_obj_40_map.set("$defs", _jm_f_168)
+        _jm_obj_40_map.set("$dynamicAnchor", _jm_f_169)
+        _jm_obj_40_map.set("$id", _jm_f_170)
+        _jm_obj_40_map.set("$schema", _jm_f_171)
+        _jm_obj_40_map.set("$vocabulary", _jm_f_172)
+        _jm_obj_40_map.set("default", _jm_f_173)
+        _jm_obj_40_map.set("definitions", _jm_f_174)
+        _jm_obj_40_map.set("deprecated", _jm_f_175)
+        _jm_obj_40_map.set("description", _jm_f_176)
+        _jm_obj_40_map.set("examples", _jm_f_177)
+        _jm_obj_40_map.set("id", _jm_f_178)
+        _jm_obj_40_map.set("readOnly", _jm_f_179)
+        _jm_obj_40_map.set("title", _jm_f_180)
+        _jm_obj_40_map.set("writeOnly", _jm_f_181)
+        _jm_obj_44_map.set("$anchor", _jm_f_182)
+        _jm_obj_44_map.set("$comment", _jm_f_183)
+        _jm_obj_44_map.set("$defs", _jm_f_184)
+        _jm_obj_44_map.set("$dynamicAnchor", _jm_f_185)
+        _jm_obj_44_map.set("$id", _jm_f_186)
+        _jm_obj_44_map.set("$schema", _jm_f_187)
+        _jm_obj_44_map.set("$vocabulary", _jm_f_188)
+        _jm_obj_44_map.set("default", _jm_f_189)
+        _jm_obj_44_map.set("definitions", _jm_f_190)
+        _jm_obj_44_map.set("deprecated", _jm_f_191)
+        _jm_obj_44_map.set("description", _jm_f_192)
+        _jm_obj_44_map.set("examples", _jm_f_193)
+        _jm_obj_44_map.set("id", _jm_f_194)
+        _jm_obj_44_map.set("readOnly", _jm_f_195)
+        _jm_obj_44_map.set("title", _jm_f_196)
+        _jm_obj_44_map.set("writeOnly", _jm_f_197)
+        _jm_obj_48_map.set("$anchor", _jm_f_198)
+        _jm_obj_48_map.set("$comment", _jm_f_199)
+        _jm_obj_48_map.set("$defs", _jm_f_200)
+        _jm_obj_48_map.set("$dynamicAnchor", _jm_f_201)
+        _jm_obj_48_map.set("$id", _jm_f_202)
+        _jm_obj_48_map.set("$schema", _jm_f_203)
+        _jm_obj_48_map.set("$vocabulary", _jm_f_204)
+        _jm_obj_48_map.set("default", _jm_f_205)
+        _jm_obj_48_map.set("definitions", _jm_f_206)
+        _jm_obj_48_map.set("deprecated", _jm_f_207)
+        _jm_obj_48_map.set("description", _jm_f_208)
+        _jm_obj_48_map.set("examples", _jm_f_209)
+        _jm_obj_48_map.set("id", _jm_f_210)
+        _jm_obj_48_map.set("readOnly", _jm_f_211)
+        _jm_obj_48_map.set("title", _jm_f_212)
+        _jm_obj_48_map.set("writeOnly", _jm_f_213)
+        _jm_obj_52_map.set("$anchor", _jm_f_214)
+        _jm_obj_52_map.set("$comment", _jm_f_215)
+        _jm_obj_52_map.set("$defs", _jm_f_216)
+        _jm_obj_52_map.set("$dynamicAnchor", _jm_f_217)
+        _jm_obj_52_map.set("$id", _jm_f_218)
+        _jm_obj_52_map.set("$schema", _jm_f_219)
+        _jm_obj_52_map.set("$vocabulary", _jm_f_220)
+        _jm_obj_52_map.set("default", _jm_f_221)
+        _jm_obj_52_map.set("definitions", _jm_f_222)
+        _jm_obj_52_map.set("deprecated", _jm_f_223)
+        _jm_obj_52_map.set("description", _jm_f_224)
+        _jm_obj_52_map.set("examples", _jm_f_225)
+        _jm_obj_52_map.set("id", _jm_f_226)
+        _jm_obj_52_map.set("readOnly", _jm_f_227)
+        _jm_obj_52_map.set("title", _jm_f_228)
+        _jm_obj_52_map.set("writeOnly", _jm_f_229)
+        _jm_obj_56_map.set("$anchor", _jm_f_230)
+        _jm_obj_56_map.set("$comment", _jm_f_231)
+        _jm_obj_56_map.set("$defs", _jm_f_232)
+        _jm_obj_56_map.set("$dynamicAnchor", _jm_f_233)
+        _jm_obj_56_map.set("$id", _jm_f_234)
+        _jm_obj_56_map.set("$schema", _jm_f_235)
+        _jm_obj_56_map.set("$vocabulary", _jm_f_236)
+        _jm_obj_56_map.set("default", _jm_f_237)
+        _jm_obj_56_map.set("definitions", _jm_f_238)
+        _jm_obj_56_map.set("deprecated", _jm_f_239)
+        _jm_obj_56_map.set("description", _jm_f_240)
+        _jm_obj_56_map.set("examples", _jm_f_241)
+        _jm_obj_56_map.set("id", _jm_f_242)
+        _jm_obj_56_map.set("readOnly", _jm_f_243)
+        _jm_obj_56_map.set("title", _jm_f_244)
+        _jm_obj_56_map.set("writeOnly", _jm_f_245)
+        _jm_obj_60_map.set("$anchor", _jm_f_246)
+        _jm_obj_60_map.set("$comment", _jm_f_247)
+        _jm_obj_60_map.set("$defs", _jm_f_248)
+        _jm_obj_60_map.set("$dynamicAnchor", _jm_f_249)
+        _jm_obj_60_map.set("$id", _jm_f_250)
+        _jm_obj_60_map.set("$schema", _jm_f_251)
+        _jm_obj_60_map.set("$vocabulary", _jm_f_252)
+        _jm_obj_60_map.set("default", _jm_f_253)
+        _jm_obj_60_map.set("definitions", _jm_f_254)
+        _jm_obj_60_map.set("deprecated", _jm_f_255)
+        _jm_obj_60_map.set("description", _jm_f_256)
+        _jm_obj_60_map.set("examples", _jm_f_257)
+        _jm_obj_60_map.set("id", _jm_f_258)
+        _jm_obj_60_map.set("readOnly", _jm_f_259)
+        _jm_obj_60_map.set("title", _jm_f_260)
+        _jm_obj_60_map.set("writeOnly", _jm_f_261)
+        _jm_obj_64_map.set("$anchor", _jm_f_262)
+        _jm_obj_64_map.set("$comment", _jm_f_263)
+        _jm_obj_64_map.set("$defs", _jm_f_264)
+        _jm_obj_64_map.set("$dynamicAnchor", _jm_f_265)
+        _jm_obj_64_map.set("$id", _jm_f_266)
+        _jm_obj_64_map.set("$schema", _jm_f_267)
+        _jm_obj_64_map.set("$vocabulary", _jm_f_268)
+        _jm_obj_64_map.set("default", _jm_f_269)
+        _jm_obj_64_map.set("definitions", _jm_f_270)
+        _jm_obj_64_map.set("deprecated", _jm_f_271)
+        _jm_obj_64_map.set("description", _jm_f_272)
+        _jm_obj_64_map.set("examples", _jm_f_273)
+        _jm_obj_64_map.set("id", _jm_f_274)
+        _jm_obj_64_map.set("readOnly", _jm_f_275)
+        _jm_obj_64_map.set("title", _jm_f_276)
+        _jm_obj_64_map.set("writeOnly", _jm_f_277)
         check_model_map.set("", json_model_1)
         check_model_map.set("const", json_model_2)
         check_model_map.set("enum", json_model_3)

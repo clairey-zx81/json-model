@@ -1,6 +1,6 @@
 mrg_01.values.json[0]: PASS
 mrg_01.values.json[1]: FAIL (.: unexpected object [.]; .: missing mandatory prop <d> [.]; .: missing mandatory prop <c> [.]; .: missing mandatory prop <b> [.]; .: missing mandatory prop <a> [.])
-mrg_01.values.json[2]: FAIL (.: unexpected object [.]; .a: invalid mandatory prop value [.]; .a: unexpected _cst_01 [.a])
+mrg_01.values.json[2]: FAIL (.: unexpected object [.]; .a: invalid mandatory prop value [.a]; .a: unexpected _cst_01 [.a])
 mrg_01.values.json[3]: FAIL (.: unexpected object [.]; .not: unexpected prop [.])
 mrg_01.values.json[4]: FAIL (.: unexpected object [.]; .: not an object [.])
 mrg_01.values.json[5]: FAIL (.: unexpected object [.]; .: not an object [.])

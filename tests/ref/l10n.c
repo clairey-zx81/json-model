@@ -10,17 +10,12 @@
 #include <json-model.h>
 #define JSON_MODEL_VERSION "2.0b0"
 
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_0_re2 = NULL;
 static int _jm_re_0_nn = 0;
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_1_re2 = NULL;
 static int _jm_re_1_nn = 0;
 static bool _jm_re_1(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static jm_propmap_t _jm_obj_0_mup_tab[4];
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
@@ -91,19 +86,6 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// check _jm_obj_0_mup_$ (.'$')
-static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'$'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$']", path);
-    }
-    return res;
-}
-
 static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
@@ -154,50 +136,6 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-// check _jm_obj_0_mup_% (.'%')
-static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'%'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'%']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_@ (.'@')
-static bool _jm_f_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'@'
-    res = json_is_string(val) && strcmp(json_string_value(val), "$Model") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _$Model [.'@']", path);
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_~ (.'~')
-static bool _jm_f_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
-{
-    bool res;
-    // .'~'
-    res = json_is_string(val) && strcmp(json_string_value(val), "https://json-model.org/models/l10n") == 0;
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", path);
-    }
-    return res;
-}
-
-static jm_check_fun_t _jm_obj_0_mup(const char *pname)
-{
-    return jm_search_propmap(pname, _jm_obj_0_mup_tab, 4);
-}
-
 // object .
 static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
@@ -207,24 +145,74 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         return false;
     }
     bool res;
-    jm_check_fun_t pfun;
     int64_t must_count = 0;
     const char *prop;
     json_t *pval;
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_0 = (jm_path_t) { prop, 0, path, NULL };
-        if ((pfun = _jm_obj_0_mup(prop)))
+        if (strcmp(prop, "$") == 0)
         {
-            // handle 4 mandatory props
-            if (pfun != NULL)
+            // handle must $ property
+            must_count += 1;
+            // .'$'
+            res = _jm_obj_1(pval, (path ? &lpath_0 : NULL), rep);
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? &lpath_0 : NULL), rep))
-                {
-                    if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.]", (path ? &lpath_0 : NULL));
-                    return false;
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected object [.'$']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$']", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "~") == 0)
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            res = json_is_string(pval) && strcmp(json_string_value(pval), "https://json-model.org/models/l10n") == 0;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected _https://json-model.org/models/l10n [.'~']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'~']", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "%") == 0)
+        {
+            // handle must % property
+            must_count += 1;
+            // .'%'
+            res = _jm_obj_2(pval, (path ? &lpath_0 : NULL), rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected object [.'%']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'%']", (path ? &lpath_0 : NULL));
+                return false;
+            }
+        }
+        else if (strcmp(prop, "@") == 0)
+        {
+            // handle must @ property
+            must_count += 1;
+            // .'@'
+            res = json_is_string(pval) && strcmp(json_string_value(pval), "$Model") == 0;
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected _$Model [.'@']", (path ? &lpath_0 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'@']", (path ? &lpath_0 : NULL));
+                return false;
             }
         }
         else if (strcmp(prop, "#") == 0)
@@ -308,11 +296,6 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_1_re2))
             return cre2_error_string(_jm_re_1_re2);
         _jm_re_1_nn = cre2_num_capturing_groups(_jm_re_1_re2) + 1;
-        _jm_obj_0_mup_tab[0] = (jm_propmap_t) { "$", _jm_f_0 };
-        _jm_obj_0_mup_tab[1] = (jm_propmap_t) { "%", _jm_f_1 };
-        _jm_obj_0_mup_tab[2] = (jm_propmap_t) { "@", _jm_f_2 };
-        _jm_obj_0_mup_tab[3] = (jm_propmap_t) { "~", _jm_f_3 };
-        jm_sort_propmap(_jm_obj_0_mup_tab, 4);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         jm_sort_propmap(check_model_map_tab, 1);
     }

@@ -11,8 +11,6 @@ const JSON_MODEL_VERSION = "2.0b0";
 
 var _jm_obj_0_map = new Map()
 var _jm_obj_3_map = new Map()
-var _jm_obj_6_map = new Map()
-var _jm_obj_7_map = new Map()
 var _jm_obj_8_map = new Map()
 var _jm_obj_9_map = new Map()
 var _jm_obj_10_map = new Map()
@@ -526,162 +524,6 @@ function json_model_6(val, path, rep)
     return res;
 }
 
-// check _jm_obj_6_map_exclusiveMaximum (.'$Number'.exclusiveMaximum)
-function _jm_f_16(val, path, rep)
-{
-    let res;
-    // .'$Number'.exclusiveMaximum
-    // .'$Number'.exclusiveMaximum.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Number'.exclusiveMaximum.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$Number'.exclusiveMaximum.'|'.1
-        res = (typeof val === 'number' || val instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.exclusiveMaximum.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$Number'.exclusiveMaximum.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_exclusiveMinimum (.'$Number'.exclusiveMinimum)
-function _jm_f_17(val, path, rep)
-{
-    let res;
-    // .'$Number'.exclusiveMinimum
-    // .'$Number'.exclusiveMinimum.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Number'.exclusiveMinimum.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$Number'.exclusiveMinimum.'|'.1
-        res = (typeof val === 'number' || val instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.exclusiveMinimum.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$Number'.exclusiveMinimum.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_maximum (.'$Number'.maximum)
-function _jm_f_18(val, path, rep)
-{
-    let res;
-    // .'$Number'.maximum
-    // .'$Number'.maximum.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Number'.maximum.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$Number'.maximum.'|'.1
-        res = (typeof val === 'number' || val instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.maximum.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$Number'.maximum.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_minimum (.'$Number'.minimum)
-function _jm_f_19(val, path, rep)
-{
-    let res;
-    // .'$Number'.minimum
-    // .'$Number'.minimum.'|'.0
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Number'.minimum.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$Number'.minimum.'|'.1
-        res = (typeof val === 'number' || val instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.minimum.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$Number'.minimum.'|']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_6_map_multipleOf (.'$Number'.multipleOf)
-function _jm_f_20(val, path, rep)
-{
-    let res;
-    // .'$Number'.multipleOf
-    // .'$Number'.multipleOf.'|'.0
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$Number'.multipleOf.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$Number'.multipleOf.'|'.1
-        res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
-        if (! res)
-        {
-            rep !== null && rep.push(["not a 1.0 strict float [.'$Number'.multipleOf.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$Number'.multipleOf.'|']", path])
-    }
-    return res;
-}
-
-
 // object .'$Number'
 function _jm_obj_6(val, path, rep)
 {
@@ -691,7 +533,6 @@ function _jm_obj_6(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -712,12 +553,168 @@ function _jm_obj_6(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_6_map.get(prop)))
+        else if (prop == "multipleOf")
         {
-            // handle 5 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_6 : null), rep))
+            // handle may multipleOf property
+            // .'$Number'.multipleOf
+            // .'$Number'.multipleOf.'|'.0
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Number']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["not a 1 strict int [.'$Number'.multipleOf.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$Number'.multipleOf.'|'.1
+                res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a 1.0 strict float [.'$Number'.multipleOf.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Number'.multipleOf.'|']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Number'.multipleOf]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maximum")
+        {
+            // handle may maximum property
+            // .'$Number'.maximum
+            // .'$Number'.maximum.'|'.0
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Number'.maximum.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$Number'.maximum.'|'.1
+                res = (typeof pval === 'number' || pval instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.maximum.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Number'.maximum.'|']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Number'.maximum]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "exclusiveMaximum")
+        {
+            // handle may exclusiveMaximum property
+            // .'$Number'.exclusiveMaximum
+            // .'$Number'.exclusiveMaximum.'|'.0
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Number'.exclusiveMaximum.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$Number'.exclusiveMaximum.'|'.1
+                res = (typeof pval === 'number' || pval instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.exclusiveMaximum.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Number'.exclusiveMaximum.'|']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Number'.exclusiveMaximum]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minimum")
+        {
+            // handle may minimum property
+            // .'$Number'.minimum
+            // .'$Number'.minimum.'|'.0
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Number'.minimum.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$Number'.minimum.'|'.1
+                res = (typeof pval === 'number' || pval instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.minimum.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Number'.minimum.'|']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Number'.minimum]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else if (prop == "exclusiveMinimum")
+        {
+            // handle may exclusiveMinimum property
+            // .'$Number'.exclusiveMinimum
+            // .'$Number'.exclusiveMinimum.'|'.0
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Number'.exclusiveMinimum.'|'.0]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                // .'$Number'.exclusiveMinimum.'|'.1
+                res = (typeof pval === 'number' || pval instanceof Number);
+                if (! res)
+                {
+                    rep !== null && rep.push(["not a -1.0 strict float [.'$Number'.exclusiveMinimum.'|'.1]", (path ? lpath_6 : null)])
+                }
+            }
+            if (res)
+            {
+                if (rep !== null) rep.length = 0
+            }
+            else
+            {
+                rep !== null && rep.push(["no model matched [.'$Number'.exclusiveMinimum.'|']", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Number'.exclusiveMinimum]", (path ? lpath_6 : null)])
                 return false;
             }
         }
@@ -754,72 +751,6 @@ function json_model_7(val, path, rep)
     return res;
 }
 
-// check _jm_obj_7_map_exclusiveMaximum (.'$Integer'.exclusiveMaximum)
-function _jm_f_21(val, path, rep)
-{
-    let res;
-    // .'$Integer'.exclusiveMaximum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Integer'.exclusiveMaximum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_exclusiveMinimum (.'$Integer'.exclusiveMinimum)
-function _jm_f_22(val, path, rep)
-{
-    let res;
-    // .'$Integer'.exclusiveMinimum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Integer'.exclusiveMinimum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_maximum (.'$Integer'.maximum)
-function _jm_f_23(val, path, rep)
-{
-    let res;
-    // .'$Integer'.maximum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Integer'.maximum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_minimum (.'$Integer'.minimum)
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .'$Integer'.minimum
-    res = (typeof val === 'number' || val instanceof Number) && Number.isInteger(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a -1 strict int [.'$Integer'.minimum]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_7_map_multipleOf (.'$Integer'.multipleOf)
-function _jm_f_25(val, path, rep)
-{
-    let res;
-    // .'$Integer'.multipleOf
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 1 strict int [.'$Integer'.multipleOf]", path])
-    }
-    return res;
-}
-
-
 // object .'$Integer'
 function _jm_obj_7(val, path, rep)
 {
@@ -829,7 +760,6 @@ function _jm_obj_7(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -850,12 +780,78 @@ function _jm_obj_7(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_7_map.get(prop)))
+        else if (prop == "multipleOf")
         {
-            // handle 5 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_7 : null), rep))
+            // handle may multipleOf property
+            // .'$Integer'.multipleOf
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 1;
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$Integer']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["not a 1 strict int [.'$Integer'.multipleOf]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Integer'.multipleOf]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "maximum")
+        {
+            // handle may maximum property
+            // .'$Integer'.maximum
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Integer'.maximum]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Integer'.maximum]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "exclusiveMaximum")
+        {
+            // handle may exclusiveMaximum property
+            // .'$Integer'.exclusiveMaximum
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Integer'.exclusiveMaximum]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Integer'.exclusiveMaximum]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "minimum")
+        {
+            // handle may minimum property
+            // .'$Integer'.minimum
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Integer'.minimum]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Integer'.minimum]", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else if (prop == "exclusiveMinimum")
+        {
+            // handle may exclusiveMinimum property
+            // .'$Integer'.exclusiveMinimum
+            res = (typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a -1 strict int [.'$Integer'.exclusiveMinimum]", (path ? lpath_7 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$Integer'.exclusiveMinimum]", (path ? lpath_7 : null)])
                 return false;
             }
         }
@@ -893,7 +889,7 @@ function json_model_8(val, path, rep)
 }
 
 // check _jm_obj_8_map_contentEncoding (.'$String'.contentEncoding)
-function _jm_f_26(val, path, rep)
+function _jm_f_16(val, path, rep)
 {
     let res;
     // .'$String'.contentEncoding
@@ -906,7 +902,7 @@ function _jm_f_26(val, path, rep)
 }
 
 // check _jm_obj_8_map_contentMediaType (.'$String'.contentMediaType)
-function _jm_f_27(val, path, rep)
+function _jm_f_17(val, path, rep)
 {
     let res;
     // .'$String'.contentMediaType
@@ -919,7 +915,7 @@ function _jm_f_27(val, path, rep)
 }
 
 // check _jm_obj_8_map_contentSchema (.'$String'.contentSchema)
-function _jm_f_28(val, path, rep)
+function _jm_f_18(val, path, rep)
 {
     let res;
     // .'$String'.contentSchema
@@ -932,7 +928,7 @@ function _jm_f_28(val, path, rep)
 }
 
 // check _jm_obj_8_map_format (.'$String'.format)
-function _jm_f_29(val, path, rep)
+function _jm_f_19(val, path, rep)
 {
     let res;
     // .'$String'.format
@@ -945,7 +941,7 @@ function _jm_f_29(val, path, rep)
 }
 
 // check _jm_obj_8_map_maxLength (.'$String'.maxLength)
-function _jm_f_30(val, path, rep)
+function _jm_f_20(val, path, rep)
 {
     let res;
     // .'$String'.maxLength
@@ -958,7 +954,7 @@ function _jm_f_30(val, path, rep)
 }
 
 // check _jm_obj_8_map_minLength (.'$String'.minLength)
-function _jm_f_31(val, path, rep)
+function _jm_f_21(val, path, rep)
 {
     let res;
     // .'$String'.minLength
@@ -971,7 +967,7 @@ function _jm_f_31(val, path, rep)
 }
 
 // check _jm_obj_8_map_pattern (.'$String'.pattern)
-function _jm_f_32(val, path, rep)
+function _jm_f_22(val, path, rep)
 {
     let res;
     // .'$String'.pattern
@@ -1139,7 +1135,7 @@ function json_model_11(val, path, rep)
 }
 
 // check _jm_obj_9_map_contains (.'$Array'.contains)
-function _jm_f_33(val, path, rep)
+function _jm_f_23(val, path, rep)
 {
     let res;
     // .'$Array'.contains
@@ -1152,7 +1148,7 @@ function _jm_f_33(val, path, rep)
 }
 
 // check _jm_obj_9_map_items (.'$Array'.items)
-function _jm_f_34(val, path, rep)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$Array'.items
@@ -1165,7 +1161,7 @@ function _jm_f_34(val, path, rep)
 }
 
 // check _jm_obj_9_map_maxContains (.'$Array'.maxContains)
-function _jm_f_35(val, path, rep)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$Array'.maxContains
@@ -1178,7 +1174,7 @@ function _jm_f_35(val, path, rep)
 }
 
 // check _jm_obj_9_map_maxItems (.'$Array'.maxItems)
-function _jm_f_36(val, path, rep)
+function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$Array'.maxItems
@@ -1191,7 +1187,7 @@ function _jm_f_36(val, path, rep)
 }
 
 // check _jm_obj_9_map_minContains (.'$Array'.minContains)
-function _jm_f_37(val, path, rep)
+function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$Array'.minContains
@@ -1204,7 +1200,7 @@ function _jm_f_37(val, path, rep)
 }
 
 // check _jm_obj_9_map_minItems (.'$Array'.minItems)
-function _jm_f_38(val, path, rep)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$Array'.minItems
@@ -1217,7 +1213,7 @@ function _jm_f_38(val, path, rep)
 }
 
 // check _jm_obj_9_map_prefixItems (.'$Array'.prefixItems)
-function _jm_f_39(val, path, rep)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$Array'.prefixItems
@@ -1230,7 +1226,7 @@ function _jm_f_39(val, path, rep)
 }
 
 // check _jm_obj_9_map_unevaluatedItems (.'$Array'.unevaluatedItems)
-function _jm_f_40(val, path, rep)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$Array'.unevaluatedItems
@@ -1243,7 +1239,7 @@ function _jm_f_40(val, path, rep)
 }
 
 // check _jm_obj_9_map_uniqueItems (.'$Array'.uniqueItems)
-function _jm_f_41(val, path, rep)
+function _jm_f_31(val, path, rep)
 {
     let res;
     // .'$Array'.uniqueItems
@@ -1329,7 +1325,7 @@ function json_model_12(val, path, rep)
 }
 
 // check _jm_obj_10_map_additionalProperties (.'$Object'.additionalProperties)
-function _jm_f_42(val, path, rep)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$Object'.additionalProperties
@@ -1369,7 +1365,7 @@ function _jm_obj_11(val, path, rep)
 }
 
 // check _jm_obj_10_map_dependentRequired (.'$Object'.dependentRequired)
-function _jm_f_43(val, path, rep)
+function _jm_f_33(val, path, rep)
 {
     let res;
     // .'$Object'.dependentRequired
@@ -1409,7 +1405,7 @@ function _jm_obj_12(val, path, rep)
 }
 
 // check _jm_obj_10_map_dependentSchemas (.'$Object'.dependentSchemas)
-function _jm_f_44(val, path, rep)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$Object'.dependentSchemas
@@ -1422,7 +1418,7 @@ function _jm_f_44(val, path, rep)
 }
 
 // check _jm_obj_10_map_maxProperties (.'$Object'.maxProperties)
-function _jm_f_45(val, path, rep)
+function _jm_f_35(val, path, rep)
 {
     let res;
     // .'$Object'.maxProperties
@@ -1435,7 +1431,7 @@ function _jm_f_45(val, path, rep)
 }
 
 // check _jm_obj_10_map_minProperties (.'$Object'.minProperties)
-function _jm_f_46(val, path, rep)
+function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$Object'.minProperties
@@ -1483,7 +1479,7 @@ function _jm_obj_13(val, path, rep)
 }
 
 // check _jm_obj_10_map_patternProperties (.'$Object'.patternProperties)
-function _jm_f_47(val, path, rep)
+function _jm_f_37(val, path, rep)
 {
     let res;
     // .'$Object'.patternProperties
@@ -1523,7 +1519,7 @@ function _jm_obj_14(val, path, rep)
 }
 
 // check _jm_obj_10_map_properties (.'$Object'.properties)
-function _jm_f_48(val, path, rep)
+function _jm_f_38(val, path, rep)
 {
     let res;
     // .'$Object'.properties
@@ -1536,7 +1532,7 @@ function _jm_f_48(val, path, rep)
 }
 
 // check _jm_obj_10_map_propertyNames (.'$Object'.propertyNames)
-function _jm_f_49(val, path, rep)
+function _jm_f_39(val, path, rep)
 {
     let res;
     // .'$Object'.propertyNames
@@ -1549,7 +1545,7 @@ function _jm_f_49(val, path, rep)
 }
 
 // check _jm_obj_10_map_required (.'$Object'.required)
-function _jm_f_50(val, path, rep)
+function _jm_f_40(val, path, rep)
 {
     let res;
     // .'$Object'.required
@@ -1562,7 +1558,7 @@ function _jm_f_50(val, path, rep)
 }
 
 // check _jm_obj_10_map_unevaluatedProperties (.'$Object'.unevaluatedProperties)
-function _jm_f_51(val, path, rep)
+function _jm_f_41(val, path, rep)
 {
     let res;
     // .'$Object'.unevaluatedProperties
@@ -1648,7 +1644,7 @@ function json_model_13(val, path, rep)
 }
 
 // check _jm_obj_15_map_allOf (.'$Misc'.allOf)
-function _jm_f_52(val, path, rep)
+function _jm_f_42(val, path, rep)
 {
     let res;
     // .'$Misc'.allOf
@@ -1661,7 +1657,7 @@ function _jm_f_52(val, path, rep)
 }
 
 // check _jm_obj_15_map_anyOf (.'$Misc'.anyOf)
-function _jm_f_53(val, path, rep)
+function _jm_f_43(val, path, rep)
 {
     let res;
     // .'$Misc'.anyOf
@@ -1674,7 +1670,7 @@ function _jm_f_53(val, path, rep)
 }
 
 // check _jm_obj_15_map_const (.'$Misc'.const)
-function _jm_f_54(val, path, rep)
+function _jm_f_44(val, path, rep)
 {
     let res;
     // .'$Misc'.const
@@ -1687,7 +1683,7 @@ function _jm_f_54(val, path, rep)
 }
 
 // check _jm_obj_15_map_else (.'$Misc'.else)
-function _jm_f_55(val, path, rep)
+function _jm_f_45(val, path, rep)
 {
     let res;
     // .'$Misc'.else
@@ -1700,7 +1696,7 @@ function _jm_f_55(val, path, rep)
 }
 
 // check _jm_obj_15_map_enum (.'$Misc'.enum)
-function _jm_f_56(val, path, rep)
+function _jm_f_46(val, path, rep)
 {
     let res;
     // .'$Misc'.enum
@@ -1717,7 +1713,7 @@ function _jm_f_56(val, path, rep)
 }
 
 // check _jm_obj_15_map_if (.'$Misc'.if)
-function _jm_f_57(val, path, rep)
+function _jm_f_47(val, path, rep)
 {
     let res;
     // .'$Misc'.if
@@ -1730,7 +1726,7 @@ function _jm_f_57(val, path, rep)
 }
 
 // check _jm_obj_15_map_not (.'$Misc'.not)
-function _jm_f_58(val, path, rep)
+function _jm_f_48(val, path, rep)
 {
     let res;
     // .'$Misc'.not
@@ -1743,7 +1739,7 @@ function _jm_f_58(val, path, rep)
 }
 
 // check _jm_obj_15_map_oneOf (.'$Misc'.oneOf)
-function _jm_f_59(val, path, rep)
+function _jm_f_49(val, path, rep)
 {
     let res;
     // .'$Misc'.oneOf
@@ -1756,7 +1752,7 @@ function _jm_f_59(val, path, rep)
 }
 
 // check _jm_obj_15_map_then (.'$Misc'.then)
-function _jm_f_60(val, path, rep)
+function _jm_f_50(val, path, rep)
 {
     let res;
     // .'$Misc'.then
@@ -1813,7 +1809,7 @@ function json_model_14(val, path, rep)
 }
 
 // check _jm_obj_16_map_$anchor (.'$TightSchema'.'|'.7.'$anchor')
-function _jm_f_61(val, path, rep)
+function _jm_f_51(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$anchor'
@@ -1826,7 +1822,7 @@ function _jm_f_61(val, path, rep)
 }
 
 // check _jm_obj_16_map_$comment (.'$TightSchema'.'|'.7.'$comment')
-function _jm_f_62(val, path, rep)
+function _jm_f_52(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$comment'
@@ -1866,7 +1862,7 @@ function _jm_obj_17(val, path, rep)
 }
 
 // check _jm_obj_16_map_$defs (.'$TightSchema'.'|'.7.'$defs')
-function _jm_f_63(val, path, rep)
+function _jm_f_53(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$defs'
@@ -1879,7 +1875,7 @@ function _jm_f_63(val, path, rep)
 }
 
 // check _jm_obj_16_map_$dynamicAnchor (.'$TightSchema'.'|'.7.'$dynamicAnchor')
-function _jm_f_64(val, path, rep)
+function _jm_f_54(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$dynamicAnchor'
@@ -1892,7 +1888,7 @@ function _jm_f_64(val, path, rep)
 }
 
 // check _jm_obj_16_map_$dynamicRef (.'$TightSchema'.'|'.7.'$dynamicRef')
-function _jm_f_65(val, path, rep)
+function _jm_f_55(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$dynamicRef'
@@ -1905,7 +1901,7 @@ function _jm_f_65(val, path, rep)
 }
 
 // check _jm_obj_16_map_$id (.'$TightSchema'.'|'.7.'$id')
-function _jm_f_66(val, path, rep)
+function _jm_f_56(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$id'
@@ -1918,7 +1914,7 @@ function _jm_f_66(val, path, rep)
 }
 
 // check _jm_obj_16_map_$ref (.'$TightSchema'.'|'.7.'$ref')
-function _jm_f_67(val, path, rep)
+function _jm_f_57(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$ref'
@@ -1931,7 +1927,7 @@ function _jm_f_67(val, path, rep)
 }
 
 // check _jm_obj_16_map_$schema (.'$TightSchema'.'|'.7.'$schema')
-function _jm_f_68(val, path, rep)
+function _jm_f_58(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$schema'
@@ -1979,7 +1975,7 @@ function _jm_obj_18(val, path, rep)
 }
 
 // check _jm_obj_16_map_$vocabulary (.'$TightSchema'.'|'.7.'$vocabulary')
-function _jm_f_69(val, path, rep)
+function _jm_f_59(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.'$vocabulary'
@@ -1992,7 +1988,7 @@ function _jm_f_69(val, path, rep)
 }
 
 // check _jm_obj_16_map_allOf (.'$TightSchema'.'|'.7.allOf)
-function _jm_f_70(val, path, rep)
+function _jm_f_60(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.allOf
@@ -2005,7 +2001,7 @@ function _jm_f_70(val, path, rep)
 }
 
 // check _jm_obj_16_map_anyOf (.'$TightSchema'.'|'.7.anyOf)
-function _jm_f_71(val, path, rep)
+function _jm_f_61(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.anyOf
@@ -2018,7 +2014,7 @@ function _jm_f_71(val, path, rep)
 }
 
 // check _jm_obj_16_map_const (.'$TightSchema'.'|'.7.const)
-function _jm_f_72(val, path, rep)
+function _jm_f_62(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.const
@@ -2031,7 +2027,7 @@ function _jm_f_72(val, path, rep)
 }
 
 // check _jm_obj_16_map_default (.'$TightSchema'.'|'.7.default)
-function _jm_f_73(val, path, rep)
+function _jm_f_63(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.default
@@ -2044,7 +2040,7 @@ function _jm_f_73(val, path, rep)
 }
 
 // check _jm_obj_16_map_deprecated (.'$TightSchema'.'|'.7.deprecated)
-function _jm_f_74(val, path, rep)
+function _jm_f_64(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.deprecated
@@ -2057,7 +2053,7 @@ function _jm_f_74(val, path, rep)
 }
 
 // check _jm_obj_16_map_description (.'$TightSchema'.'|'.7.description)
-function _jm_f_75(val, path, rep)
+function _jm_f_65(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.description
@@ -2070,7 +2066,7 @@ function _jm_f_75(val, path, rep)
 }
 
 // check _jm_obj_16_map_else (.'$TightSchema'.'|'.7.else)
-function _jm_f_76(val, path, rep)
+function _jm_f_66(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.else
@@ -2083,7 +2079,7 @@ function _jm_f_76(val, path, rep)
 }
 
 // check _jm_obj_16_map_enum (.'$TightSchema'.'|'.7.enum)
-function _jm_f_77(val, path, rep)
+function _jm_f_67(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.enum
@@ -2100,7 +2096,7 @@ function _jm_f_77(val, path, rep)
 }
 
 // check _jm_obj_16_map_examples (.'$TightSchema'.'|'.7.examples)
-function _jm_f_78(val, path, rep)
+function _jm_f_68(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.examples
@@ -2117,7 +2113,7 @@ function _jm_f_78(val, path, rep)
 }
 
 // check _jm_obj_16_map_if (.'$TightSchema'.'|'.7.if)
-function _jm_f_79(val, path, rep)
+function _jm_f_69(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.if
@@ -2130,7 +2126,7 @@ function _jm_f_79(val, path, rep)
 }
 
 // check _jm_obj_16_map_not (.'$TightSchema'.'|'.7.not)
-function _jm_f_80(val, path, rep)
+function _jm_f_70(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.not
@@ -2143,7 +2139,7 @@ function _jm_f_80(val, path, rep)
 }
 
 // check _jm_obj_16_map_oneOf (.'$TightSchema'.'|'.7.oneOf)
-function _jm_f_81(val, path, rep)
+function _jm_f_71(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.oneOf
@@ -2156,7 +2152,7 @@ function _jm_f_81(val, path, rep)
 }
 
 // check _jm_obj_16_map_readOnly (.'$TightSchema'.'|'.7.readOnly)
-function _jm_f_82(val, path, rep)
+function _jm_f_72(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.readOnly
@@ -2169,7 +2165,7 @@ function _jm_f_82(val, path, rep)
 }
 
 // check _jm_obj_16_map_then (.'$TightSchema'.'|'.7.then)
-function _jm_f_83(val, path, rep)
+function _jm_f_73(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.then
@@ -2182,7 +2178,7 @@ function _jm_f_83(val, path, rep)
 }
 
 // check _jm_obj_16_map_title (.'$TightSchema'.'|'.7.title)
-function _jm_f_84(val, path, rep)
+function _jm_f_74(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.title
@@ -2195,7 +2191,7 @@ function _jm_f_84(val, path, rep)
 }
 
 // check _jm_obj_16_map_writeOnly (.'$TightSchema'.'|'.7.writeOnly)
-function _jm_f_85(val, path, rep)
+function _jm_f_75(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.7.writeOnly
@@ -2239,7 +2235,7 @@ function _jm_obj_16(val, path, rep)
 }
 
 // check _jm_obj_19_map_$anchor (.'$TightSchema'.'|'.6.'$anchor')
-function _jm_f_86(val, path, rep)
+function _jm_f_76(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$anchor'
@@ -2252,7 +2248,7 @@ function _jm_f_86(val, path, rep)
 }
 
 // check _jm_obj_19_map_$comment (.'$TightSchema'.'|'.6.'$comment')
-function _jm_f_87(val, path, rep)
+function _jm_f_77(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$comment'
@@ -2292,7 +2288,7 @@ function _jm_obj_20(val, path, rep)
 }
 
 // check _jm_obj_19_map_$defs (.'$TightSchema'.'|'.6.'$defs')
-function _jm_f_88(val, path, rep)
+function _jm_f_78(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$defs'
@@ -2305,7 +2301,7 @@ function _jm_f_88(val, path, rep)
 }
 
 // check _jm_obj_19_map_$dynamicAnchor (.'$TightSchema'.'|'.6.'$dynamicAnchor')
-function _jm_f_89(val, path, rep)
+function _jm_f_79(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$dynamicAnchor'
@@ -2318,7 +2314,7 @@ function _jm_f_89(val, path, rep)
 }
 
 // check _jm_obj_19_map_$dynamicRef (.'$TightSchema'.'|'.6.'$dynamicRef')
-function _jm_f_90(val, path, rep)
+function _jm_f_80(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$dynamicRef'
@@ -2331,7 +2327,7 @@ function _jm_f_90(val, path, rep)
 }
 
 // check _jm_obj_19_map_$id (.'$TightSchema'.'|'.6.'$id')
-function _jm_f_91(val, path, rep)
+function _jm_f_81(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$id'
@@ -2344,7 +2340,7 @@ function _jm_f_91(val, path, rep)
 }
 
 // check _jm_obj_19_map_$ref (.'$TightSchema'.'|'.6.'$ref')
-function _jm_f_92(val, path, rep)
+function _jm_f_82(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$ref'
@@ -2357,7 +2353,7 @@ function _jm_f_92(val, path, rep)
 }
 
 // check _jm_obj_19_map_$schema (.'$TightSchema'.'|'.6.'$schema')
-function _jm_f_93(val, path, rep)
+function _jm_f_83(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$schema'
@@ -2405,7 +2401,7 @@ function _jm_obj_21(val, path, rep)
 }
 
 // check _jm_obj_19_map_$vocabulary (.'$TightSchema'.'|'.6.'$vocabulary')
-function _jm_f_94(val, path, rep)
+function _jm_f_84(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.'$vocabulary'
@@ -2418,7 +2414,7 @@ function _jm_f_94(val, path, rep)
 }
 
 // check _jm_obj_19_map_additionalProperties (.'$TightSchema'.'|'.6.additionalProperties)
-function _jm_f_95(val, path, rep)
+function _jm_f_85(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.additionalProperties
@@ -2431,7 +2427,7 @@ function _jm_f_95(val, path, rep)
 }
 
 // check _jm_obj_19_map_default (.'$TightSchema'.'|'.6.default)
-function _jm_f_96(val, path, rep)
+function _jm_f_86(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.default
@@ -2471,7 +2467,7 @@ function _jm_obj_22(val, path, rep)
 }
 
 // check _jm_obj_19_map_dependentRequired (.'$TightSchema'.'|'.6.dependentRequired)
-function _jm_f_97(val, path, rep)
+function _jm_f_87(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.dependentRequired
@@ -2511,7 +2507,7 @@ function _jm_obj_23(val, path, rep)
 }
 
 // check _jm_obj_19_map_dependentSchemas (.'$TightSchema'.'|'.6.dependentSchemas)
-function _jm_f_98(val, path, rep)
+function _jm_f_88(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.dependentSchemas
@@ -2524,7 +2520,7 @@ function _jm_f_98(val, path, rep)
 }
 
 // check _jm_obj_19_map_deprecated (.'$TightSchema'.'|'.6.deprecated)
-function _jm_f_99(val, path, rep)
+function _jm_f_89(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.deprecated
@@ -2537,7 +2533,7 @@ function _jm_f_99(val, path, rep)
 }
 
 // check _jm_obj_19_map_description (.'$TightSchema'.'|'.6.description)
-function _jm_f_100(val, path, rep)
+function _jm_f_90(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.description
@@ -2550,7 +2546,7 @@ function _jm_f_100(val, path, rep)
 }
 
 // check _jm_obj_19_map_examples (.'$TightSchema'.'|'.6.examples)
-function _jm_f_101(val, path, rep)
+function _jm_f_91(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.examples
@@ -2567,7 +2563,7 @@ function _jm_f_101(val, path, rep)
 }
 
 // check _jm_obj_19_map_maxProperties (.'$TightSchema'.'|'.6.maxProperties)
-function _jm_f_102(val, path, rep)
+function _jm_f_92(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.maxProperties
@@ -2580,7 +2576,7 @@ function _jm_f_102(val, path, rep)
 }
 
 // check _jm_obj_19_map_minProperties (.'$TightSchema'.'|'.6.minProperties)
-function _jm_f_103(val, path, rep)
+function _jm_f_93(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.minProperties
@@ -2628,7 +2624,7 @@ function _jm_obj_24(val, path, rep)
 }
 
 // check _jm_obj_19_map_patternProperties (.'$TightSchema'.'|'.6.patternProperties)
-function _jm_f_104(val, path, rep)
+function _jm_f_94(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.patternProperties
@@ -2668,7 +2664,7 @@ function _jm_obj_25(val, path, rep)
 }
 
 // check _jm_obj_19_map_properties (.'$TightSchema'.'|'.6.properties)
-function _jm_f_105(val, path, rep)
+function _jm_f_95(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.properties
@@ -2681,7 +2677,7 @@ function _jm_f_105(val, path, rep)
 }
 
 // check _jm_obj_19_map_propertyNames (.'$TightSchema'.'|'.6.propertyNames)
-function _jm_f_106(val, path, rep)
+function _jm_f_96(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.propertyNames
@@ -2694,7 +2690,7 @@ function _jm_f_106(val, path, rep)
 }
 
 // check _jm_obj_19_map_readOnly (.'$TightSchema'.'|'.6.readOnly)
-function _jm_f_107(val, path, rep)
+function _jm_f_97(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.readOnly
@@ -2707,7 +2703,7 @@ function _jm_f_107(val, path, rep)
 }
 
 // check _jm_obj_19_map_required (.'$TightSchema'.'|'.6.required)
-function _jm_f_108(val, path, rep)
+function _jm_f_98(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.required
@@ -2720,7 +2716,7 @@ function _jm_f_108(val, path, rep)
 }
 
 // check _jm_obj_19_map_title (.'$TightSchema'.'|'.6.title)
-function _jm_f_109(val, path, rep)
+function _jm_f_99(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.title
@@ -2733,7 +2729,7 @@ function _jm_f_109(val, path, rep)
 }
 
 // check _jm_obj_19_map_unevaluatedProperties (.'$TightSchema'.'|'.6.unevaluatedProperties)
-function _jm_f_110(val, path, rep)
+function _jm_f_100(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.unevaluatedProperties
@@ -2746,7 +2742,7 @@ function _jm_f_110(val, path, rep)
 }
 
 // check _jm_obj_19_map_writeOnly (.'$TightSchema'.'|'.6.writeOnly)
-function _jm_f_111(val, path, rep)
+function _jm_f_101(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.6.writeOnly
@@ -2819,7 +2815,7 @@ function _jm_obj_19(val, path, rep)
 }
 
 // check _jm_obj_26_map_$anchor (.'$TightSchema'.'|'.5.'$anchor')
-function _jm_f_112(val, path, rep)
+function _jm_f_102(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$anchor'
@@ -2832,7 +2828,7 @@ function _jm_f_112(val, path, rep)
 }
 
 // check _jm_obj_26_map_$comment (.'$TightSchema'.'|'.5.'$comment')
-function _jm_f_113(val, path, rep)
+function _jm_f_103(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$comment'
@@ -2872,7 +2868,7 @@ function _jm_obj_27(val, path, rep)
 }
 
 // check _jm_obj_26_map_$defs (.'$TightSchema'.'|'.5.'$defs')
-function _jm_f_114(val, path, rep)
+function _jm_f_104(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$defs'
@@ -2885,7 +2881,7 @@ function _jm_f_114(val, path, rep)
 }
 
 // check _jm_obj_26_map_$dynamicAnchor (.'$TightSchema'.'|'.5.'$dynamicAnchor')
-function _jm_f_115(val, path, rep)
+function _jm_f_105(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$dynamicAnchor'
@@ -2898,7 +2894,7 @@ function _jm_f_115(val, path, rep)
 }
 
 // check _jm_obj_26_map_$dynamicRef (.'$TightSchema'.'|'.5.'$dynamicRef')
-function _jm_f_116(val, path, rep)
+function _jm_f_106(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$dynamicRef'
@@ -2911,7 +2907,7 @@ function _jm_f_116(val, path, rep)
 }
 
 // check _jm_obj_26_map_$id (.'$TightSchema'.'|'.5.'$id')
-function _jm_f_117(val, path, rep)
+function _jm_f_107(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$id'
@@ -2924,7 +2920,7 @@ function _jm_f_117(val, path, rep)
 }
 
 // check _jm_obj_26_map_$ref (.'$TightSchema'.'|'.5.'$ref')
-function _jm_f_118(val, path, rep)
+function _jm_f_108(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$ref'
@@ -2937,7 +2933,7 @@ function _jm_f_118(val, path, rep)
 }
 
 // check _jm_obj_26_map_$schema (.'$TightSchema'.'|'.5.'$schema')
-function _jm_f_119(val, path, rep)
+function _jm_f_109(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$schema'
@@ -2985,7 +2981,7 @@ function _jm_obj_28(val, path, rep)
 }
 
 // check _jm_obj_26_map_$vocabulary (.'$TightSchema'.'|'.5.'$vocabulary')
-function _jm_f_120(val, path, rep)
+function _jm_f_110(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.'$vocabulary'
@@ -2998,7 +2994,7 @@ function _jm_f_120(val, path, rep)
 }
 
 // check _jm_obj_26_map_contains (.'$TightSchema'.'|'.5.contains)
-function _jm_f_121(val, path, rep)
+function _jm_f_111(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.contains
@@ -3011,7 +3007,7 @@ function _jm_f_121(val, path, rep)
 }
 
 // check _jm_obj_26_map_default (.'$TightSchema'.'|'.5.default)
-function _jm_f_122(val, path, rep)
+function _jm_f_112(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.default
@@ -3024,7 +3020,7 @@ function _jm_f_122(val, path, rep)
 }
 
 // check _jm_obj_26_map_deprecated (.'$TightSchema'.'|'.5.deprecated)
-function _jm_f_123(val, path, rep)
+function _jm_f_113(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.deprecated
@@ -3037,7 +3033,7 @@ function _jm_f_123(val, path, rep)
 }
 
 // check _jm_obj_26_map_description (.'$TightSchema'.'|'.5.description)
-function _jm_f_124(val, path, rep)
+function _jm_f_114(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.description
@@ -3050,7 +3046,7 @@ function _jm_f_124(val, path, rep)
 }
 
 // check _jm_obj_26_map_examples (.'$TightSchema'.'|'.5.examples)
-function _jm_f_125(val, path, rep)
+function _jm_f_115(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.examples
@@ -3067,7 +3063,7 @@ function _jm_f_125(val, path, rep)
 }
 
 // check _jm_obj_26_map_items (.'$TightSchema'.'|'.5.items)
-function _jm_f_126(val, path, rep)
+function _jm_f_116(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.items
@@ -3080,7 +3076,7 @@ function _jm_f_126(val, path, rep)
 }
 
 // check _jm_obj_26_map_maxContains (.'$TightSchema'.'|'.5.maxContains)
-function _jm_f_127(val, path, rep)
+function _jm_f_117(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.maxContains
@@ -3093,7 +3089,7 @@ function _jm_f_127(val, path, rep)
 }
 
 // check _jm_obj_26_map_maxItems (.'$TightSchema'.'|'.5.maxItems)
-function _jm_f_128(val, path, rep)
+function _jm_f_118(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.maxItems
@@ -3106,7 +3102,7 @@ function _jm_f_128(val, path, rep)
 }
 
 // check _jm_obj_26_map_minContains (.'$TightSchema'.'|'.5.minContains)
-function _jm_f_129(val, path, rep)
+function _jm_f_119(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.minContains
@@ -3119,7 +3115,7 @@ function _jm_f_129(val, path, rep)
 }
 
 // check _jm_obj_26_map_minItems (.'$TightSchema'.'|'.5.minItems)
-function _jm_f_130(val, path, rep)
+function _jm_f_120(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.minItems
@@ -3132,7 +3128,7 @@ function _jm_f_130(val, path, rep)
 }
 
 // check _jm_obj_26_map_prefixItems (.'$TightSchema'.'|'.5.prefixItems)
-function _jm_f_131(val, path, rep)
+function _jm_f_121(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.prefixItems
@@ -3145,7 +3141,7 @@ function _jm_f_131(val, path, rep)
 }
 
 // check _jm_obj_26_map_readOnly (.'$TightSchema'.'|'.5.readOnly)
-function _jm_f_132(val, path, rep)
+function _jm_f_122(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.readOnly
@@ -3158,7 +3154,7 @@ function _jm_f_132(val, path, rep)
 }
 
 // check _jm_obj_26_map_title (.'$TightSchema'.'|'.5.title)
-function _jm_f_133(val, path, rep)
+function _jm_f_123(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.title
@@ -3171,7 +3167,7 @@ function _jm_f_133(val, path, rep)
 }
 
 // check _jm_obj_26_map_unevaluatedItems (.'$TightSchema'.'|'.5.unevaluatedItems)
-function _jm_f_134(val, path, rep)
+function _jm_f_124(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.unevaluatedItems
@@ -3184,7 +3180,7 @@ function _jm_f_134(val, path, rep)
 }
 
 // check _jm_obj_26_map_uniqueItems (.'$TightSchema'.'|'.5.uniqueItems)
-function _jm_f_135(val, path, rep)
+function _jm_f_125(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.uniqueItems
@@ -3197,7 +3193,7 @@ function _jm_f_135(val, path, rep)
 }
 
 // check _jm_obj_26_map_writeOnly (.'$TightSchema'.'|'.5.writeOnly)
-function _jm_f_136(val, path, rep)
+function _jm_f_126(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.5.writeOnly
@@ -3270,7 +3266,7 @@ function _jm_obj_26(val, path, rep)
 }
 
 // check _jm_obj_29_map_$anchor (.'$TightSchema'.'|'.4.'$anchor')
-function _jm_f_137(val, path, rep)
+function _jm_f_127(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$anchor'
@@ -3283,7 +3279,7 @@ function _jm_f_137(val, path, rep)
 }
 
 // check _jm_obj_29_map_$comment (.'$TightSchema'.'|'.4.'$comment')
-function _jm_f_138(val, path, rep)
+function _jm_f_128(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$comment'
@@ -3323,7 +3319,7 @@ function _jm_obj_30(val, path, rep)
 }
 
 // check _jm_obj_29_map_$defs (.'$TightSchema'.'|'.4.'$defs')
-function _jm_f_139(val, path, rep)
+function _jm_f_129(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$defs'
@@ -3336,7 +3332,7 @@ function _jm_f_139(val, path, rep)
 }
 
 // check _jm_obj_29_map_$dynamicAnchor (.'$TightSchema'.'|'.4.'$dynamicAnchor')
-function _jm_f_140(val, path, rep)
+function _jm_f_130(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$dynamicAnchor'
@@ -3349,7 +3345,7 @@ function _jm_f_140(val, path, rep)
 }
 
 // check _jm_obj_29_map_$dynamicRef (.'$TightSchema'.'|'.4.'$dynamicRef')
-function _jm_f_141(val, path, rep)
+function _jm_f_131(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$dynamicRef'
@@ -3362,7 +3358,7 @@ function _jm_f_141(val, path, rep)
 }
 
 // check _jm_obj_29_map_$id (.'$TightSchema'.'|'.4.'$id')
-function _jm_f_142(val, path, rep)
+function _jm_f_132(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$id'
@@ -3375,7 +3371,7 @@ function _jm_f_142(val, path, rep)
 }
 
 // check _jm_obj_29_map_$ref (.'$TightSchema'.'|'.4.'$ref')
-function _jm_f_143(val, path, rep)
+function _jm_f_133(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$ref'
@@ -3388,7 +3384,7 @@ function _jm_f_143(val, path, rep)
 }
 
 // check _jm_obj_29_map_$schema (.'$TightSchema'.'|'.4.'$schema')
-function _jm_f_144(val, path, rep)
+function _jm_f_134(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$schema'
@@ -3436,7 +3432,7 @@ function _jm_obj_31(val, path, rep)
 }
 
 // check _jm_obj_29_map_$vocabulary (.'$TightSchema'.'|'.4.'$vocabulary')
-function _jm_f_145(val, path, rep)
+function _jm_f_135(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.'$vocabulary'
@@ -3449,7 +3445,7 @@ function _jm_f_145(val, path, rep)
 }
 
 // check _jm_obj_29_map_contentEncoding (.'$TightSchema'.'|'.4.contentEncoding)
-function _jm_f_146(val, path, rep)
+function _jm_f_136(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.contentEncoding
@@ -3462,7 +3458,7 @@ function _jm_f_146(val, path, rep)
 }
 
 // check _jm_obj_29_map_contentMediaType (.'$TightSchema'.'|'.4.contentMediaType)
-function _jm_f_147(val, path, rep)
+function _jm_f_137(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.contentMediaType
@@ -3475,7 +3471,7 @@ function _jm_f_147(val, path, rep)
 }
 
 // check _jm_obj_29_map_contentSchema (.'$TightSchema'.'|'.4.contentSchema)
-function _jm_f_148(val, path, rep)
+function _jm_f_138(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.contentSchema
@@ -3488,7 +3484,7 @@ function _jm_f_148(val, path, rep)
 }
 
 // check _jm_obj_29_map_default (.'$TightSchema'.'|'.4.default)
-function _jm_f_149(val, path, rep)
+function _jm_f_139(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.default
@@ -3501,7 +3497,7 @@ function _jm_f_149(val, path, rep)
 }
 
 // check _jm_obj_29_map_deprecated (.'$TightSchema'.'|'.4.deprecated)
-function _jm_f_150(val, path, rep)
+function _jm_f_140(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.deprecated
@@ -3514,7 +3510,7 @@ function _jm_f_150(val, path, rep)
 }
 
 // check _jm_obj_29_map_description (.'$TightSchema'.'|'.4.description)
-function _jm_f_151(val, path, rep)
+function _jm_f_141(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.description
@@ -3527,7 +3523,7 @@ function _jm_f_151(val, path, rep)
 }
 
 // check _jm_obj_29_map_examples (.'$TightSchema'.'|'.4.examples)
-function _jm_f_152(val, path, rep)
+function _jm_f_142(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.examples
@@ -3544,7 +3540,7 @@ function _jm_f_152(val, path, rep)
 }
 
 // check _jm_obj_29_map_format (.'$TightSchema'.'|'.4.format)
-function _jm_f_153(val, path, rep)
+function _jm_f_143(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.format
@@ -3557,7 +3553,7 @@ function _jm_f_153(val, path, rep)
 }
 
 // check _jm_obj_29_map_maxLength (.'$TightSchema'.'|'.4.maxLength)
-function _jm_f_154(val, path, rep)
+function _jm_f_144(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.maxLength
@@ -3570,7 +3566,7 @@ function _jm_f_154(val, path, rep)
 }
 
 // check _jm_obj_29_map_minLength (.'$TightSchema'.'|'.4.minLength)
-function _jm_f_155(val, path, rep)
+function _jm_f_145(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.minLength
@@ -3583,7 +3579,7 @@ function _jm_f_155(val, path, rep)
 }
 
 // check _jm_obj_29_map_pattern (.'$TightSchema'.'|'.4.pattern)
-function _jm_f_156(val, path, rep)
+function _jm_f_146(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.pattern
@@ -3596,7 +3592,7 @@ function _jm_f_156(val, path, rep)
 }
 
 // check _jm_obj_29_map_readOnly (.'$TightSchema'.'|'.4.readOnly)
-function _jm_f_157(val, path, rep)
+function _jm_f_147(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.readOnly
@@ -3609,7 +3605,7 @@ function _jm_f_157(val, path, rep)
 }
 
 // check _jm_obj_29_map_title (.'$TightSchema'.'|'.4.title)
-function _jm_f_158(val, path, rep)
+function _jm_f_148(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.title
@@ -3622,7 +3618,7 @@ function _jm_f_158(val, path, rep)
 }
 
 // check _jm_obj_29_map_writeOnly (.'$TightSchema'.'|'.4.writeOnly)
-function _jm_f_159(val, path, rep)
+function _jm_f_149(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.4.writeOnly
@@ -3695,7 +3691,7 @@ function _jm_obj_29(val, path, rep)
 }
 
 // check _jm_obj_32_map_$anchor (.'$TightSchema'.'|'.3.'$anchor')
-function _jm_f_160(val, path, rep)
+function _jm_f_150(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$anchor'
@@ -3708,7 +3704,7 @@ function _jm_f_160(val, path, rep)
 }
 
 // check _jm_obj_32_map_$comment (.'$TightSchema'.'|'.3.'$comment')
-function _jm_f_161(val, path, rep)
+function _jm_f_151(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$comment'
@@ -3748,7 +3744,7 @@ function _jm_obj_33(val, path, rep)
 }
 
 // check _jm_obj_32_map_$defs (.'$TightSchema'.'|'.3.'$defs')
-function _jm_f_162(val, path, rep)
+function _jm_f_152(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$defs'
@@ -3761,7 +3757,7 @@ function _jm_f_162(val, path, rep)
 }
 
 // check _jm_obj_32_map_$dynamicAnchor (.'$TightSchema'.'|'.3.'$dynamicAnchor')
-function _jm_f_163(val, path, rep)
+function _jm_f_153(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$dynamicAnchor'
@@ -3774,7 +3770,7 @@ function _jm_f_163(val, path, rep)
 }
 
 // check _jm_obj_32_map_$dynamicRef (.'$TightSchema'.'|'.3.'$dynamicRef')
-function _jm_f_164(val, path, rep)
+function _jm_f_154(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$dynamicRef'
@@ -3787,7 +3783,7 @@ function _jm_f_164(val, path, rep)
 }
 
 // check _jm_obj_32_map_$id (.'$TightSchema'.'|'.3.'$id')
-function _jm_f_165(val, path, rep)
+function _jm_f_155(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$id'
@@ -3800,7 +3796,7 @@ function _jm_f_165(val, path, rep)
 }
 
 // check _jm_obj_32_map_$ref (.'$TightSchema'.'|'.3.'$ref')
-function _jm_f_166(val, path, rep)
+function _jm_f_156(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$ref'
@@ -3813,7 +3809,7 @@ function _jm_f_166(val, path, rep)
 }
 
 // check _jm_obj_32_map_$schema (.'$TightSchema'.'|'.3.'$schema')
-function _jm_f_167(val, path, rep)
+function _jm_f_157(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$schema'
@@ -3861,7 +3857,7 @@ function _jm_obj_34(val, path, rep)
 }
 
 // check _jm_obj_32_map_$vocabulary (.'$TightSchema'.'|'.3.'$vocabulary')
-function _jm_f_168(val, path, rep)
+function _jm_f_158(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.'$vocabulary'
@@ -3874,7 +3870,7 @@ function _jm_f_168(val, path, rep)
 }
 
 // check _jm_obj_32_map_default (.'$TightSchema'.'|'.3.default)
-function _jm_f_169(val, path, rep)
+function _jm_f_159(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.default
@@ -3887,7 +3883,7 @@ function _jm_f_169(val, path, rep)
 }
 
 // check _jm_obj_32_map_deprecated (.'$TightSchema'.'|'.3.deprecated)
-function _jm_f_170(val, path, rep)
+function _jm_f_160(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.deprecated
@@ -3900,7 +3896,7 @@ function _jm_f_170(val, path, rep)
 }
 
 // check _jm_obj_32_map_description (.'$TightSchema'.'|'.3.description)
-function _jm_f_171(val, path, rep)
+function _jm_f_161(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.description
@@ -3913,7 +3909,7 @@ function _jm_f_171(val, path, rep)
 }
 
 // check _jm_obj_32_map_examples (.'$TightSchema'.'|'.3.examples)
-function _jm_f_172(val, path, rep)
+function _jm_f_162(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.examples
@@ -3930,7 +3926,7 @@ function _jm_f_172(val, path, rep)
 }
 
 // check _jm_obj_32_map_exclusiveMaximum (.'$TightSchema'.'|'.3.exclusiveMaximum)
-function _jm_f_173(val, path, rep)
+function _jm_f_163(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.exclusiveMaximum
@@ -3943,7 +3939,7 @@ function _jm_f_173(val, path, rep)
 }
 
 // check _jm_obj_32_map_exclusiveMinimum (.'$TightSchema'.'|'.3.exclusiveMinimum)
-function _jm_f_174(val, path, rep)
+function _jm_f_164(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.exclusiveMinimum
@@ -3956,7 +3952,7 @@ function _jm_f_174(val, path, rep)
 }
 
 // check _jm_obj_32_map_maximum (.'$TightSchema'.'|'.3.maximum)
-function _jm_f_175(val, path, rep)
+function _jm_f_165(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.maximum
@@ -3969,7 +3965,7 @@ function _jm_f_175(val, path, rep)
 }
 
 // check _jm_obj_32_map_minimum (.'$TightSchema'.'|'.3.minimum)
-function _jm_f_176(val, path, rep)
+function _jm_f_166(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.minimum
@@ -3982,7 +3978,7 @@ function _jm_f_176(val, path, rep)
 }
 
 // check _jm_obj_32_map_multipleOf (.'$TightSchema'.'|'.3.multipleOf)
-function _jm_f_177(val, path, rep)
+function _jm_f_167(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.multipleOf
@@ -3995,7 +3991,7 @@ function _jm_f_177(val, path, rep)
 }
 
 // check _jm_obj_32_map_readOnly (.'$TightSchema'.'|'.3.readOnly)
-function _jm_f_178(val, path, rep)
+function _jm_f_168(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.readOnly
@@ -4008,7 +4004,7 @@ function _jm_f_178(val, path, rep)
 }
 
 // check _jm_obj_32_map_title (.'$TightSchema'.'|'.3.title)
-function _jm_f_179(val, path, rep)
+function _jm_f_169(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.title
@@ -4021,7 +4017,7 @@ function _jm_f_179(val, path, rep)
 }
 
 // check _jm_obj_32_map_writeOnly (.'$TightSchema'.'|'.3.writeOnly)
-function _jm_f_180(val, path, rep)
+function _jm_f_170(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.3.writeOnly
@@ -4094,7 +4090,7 @@ function _jm_obj_32(val, path, rep)
 }
 
 // check _jm_obj_35_map_$anchor (.'$TightSchema'.'|'.2.'$anchor')
-function _jm_f_181(val, path, rep)
+function _jm_f_171(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$anchor'
@@ -4107,7 +4103,7 @@ function _jm_f_181(val, path, rep)
 }
 
 // check _jm_obj_35_map_$comment (.'$TightSchema'.'|'.2.'$comment')
-function _jm_f_182(val, path, rep)
+function _jm_f_172(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$comment'
@@ -4147,7 +4143,7 @@ function _jm_obj_36(val, path, rep)
 }
 
 // check _jm_obj_35_map_$defs (.'$TightSchema'.'|'.2.'$defs')
-function _jm_f_183(val, path, rep)
+function _jm_f_173(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$defs'
@@ -4160,7 +4156,7 @@ function _jm_f_183(val, path, rep)
 }
 
 // check _jm_obj_35_map_$dynamicAnchor (.'$TightSchema'.'|'.2.'$dynamicAnchor')
-function _jm_f_184(val, path, rep)
+function _jm_f_174(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$dynamicAnchor'
@@ -4173,7 +4169,7 @@ function _jm_f_184(val, path, rep)
 }
 
 // check _jm_obj_35_map_$dynamicRef (.'$TightSchema'.'|'.2.'$dynamicRef')
-function _jm_f_185(val, path, rep)
+function _jm_f_175(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$dynamicRef'
@@ -4186,7 +4182,7 @@ function _jm_f_185(val, path, rep)
 }
 
 // check _jm_obj_35_map_$id (.'$TightSchema'.'|'.2.'$id')
-function _jm_f_186(val, path, rep)
+function _jm_f_176(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$id'
@@ -4199,7 +4195,7 @@ function _jm_f_186(val, path, rep)
 }
 
 // check _jm_obj_35_map_$ref (.'$TightSchema'.'|'.2.'$ref')
-function _jm_f_187(val, path, rep)
+function _jm_f_177(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$ref'
@@ -4212,7 +4208,7 @@ function _jm_f_187(val, path, rep)
 }
 
 // check _jm_obj_35_map_$schema (.'$TightSchema'.'|'.2.'$schema')
-function _jm_f_188(val, path, rep)
+function _jm_f_178(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$schema'
@@ -4260,7 +4256,7 @@ function _jm_obj_37(val, path, rep)
 }
 
 // check _jm_obj_35_map_$vocabulary (.'$TightSchema'.'|'.2.'$vocabulary')
-function _jm_f_189(val, path, rep)
+function _jm_f_179(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.'$vocabulary'
@@ -4273,7 +4269,7 @@ function _jm_f_189(val, path, rep)
 }
 
 // check _jm_obj_35_map_default (.'$TightSchema'.'|'.2.default)
-function _jm_f_190(val, path, rep)
+function _jm_f_180(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.default
@@ -4286,7 +4282,7 @@ function _jm_f_190(val, path, rep)
 }
 
 // check _jm_obj_35_map_deprecated (.'$TightSchema'.'|'.2.deprecated)
-function _jm_f_191(val, path, rep)
+function _jm_f_181(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.deprecated
@@ -4299,7 +4295,7 @@ function _jm_f_191(val, path, rep)
 }
 
 // check _jm_obj_35_map_description (.'$TightSchema'.'|'.2.description)
-function _jm_f_192(val, path, rep)
+function _jm_f_182(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.description
@@ -4312,7 +4308,7 @@ function _jm_f_192(val, path, rep)
 }
 
 // check _jm_obj_35_map_examples (.'$TightSchema'.'|'.2.examples)
-function _jm_f_193(val, path, rep)
+function _jm_f_183(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.examples
@@ -4329,7 +4325,7 @@ function _jm_f_193(val, path, rep)
 }
 
 // check _jm_obj_35_map_exclusiveMaximum (.'$TightSchema'.'|'.2.exclusiveMaximum)
-function _jm_f_194(val, path, rep)
+function _jm_f_184(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMaximum
@@ -4360,7 +4356,7 @@ function _jm_f_194(val, path, rep)
 }
 
 // check _jm_obj_35_map_exclusiveMinimum (.'$TightSchema'.'|'.2.exclusiveMinimum)
-function _jm_f_195(val, path, rep)
+function _jm_f_185(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.exclusiveMinimum
@@ -4391,7 +4387,7 @@ function _jm_f_195(val, path, rep)
 }
 
 // check _jm_obj_35_map_maximum (.'$TightSchema'.'|'.2.maximum)
-function _jm_f_196(val, path, rep)
+function _jm_f_186(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.maximum
@@ -4422,7 +4418,7 @@ function _jm_f_196(val, path, rep)
 }
 
 // check _jm_obj_35_map_minimum (.'$TightSchema'.'|'.2.minimum)
-function _jm_f_197(val, path, rep)
+function _jm_f_187(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.minimum
@@ -4453,7 +4449,7 @@ function _jm_f_197(val, path, rep)
 }
 
 // check _jm_obj_35_map_multipleOf (.'$TightSchema'.'|'.2.multipleOf)
-function _jm_f_198(val, path, rep)
+function _jm_f_188(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.multipleOf
@@ -4484,7 +4480,7 @@ function _jm_f_198(val, path, rep)
 }
 
 // check _jm_obj_35_map_readOnly (.'$TightSchema'.'|'.2.readOnly)
-function _jm_f_199(val, path, rep)
+function _jm_f_189(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.readOnly
@@ -4497,7 +4493,7 @@ function _jm_f_199(val, path, rep)
 }
 
 // check _jm_obj_35_map_title (.'$TightSchema'.'|'.2.title)
-function _jm_f_200(val, path, rep)
+function _jm_f_190(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.title
@@ -4510,7 +4506,7 @@ function _jm_f_200(val, path, rep)
 }
 
 // check _jm_obj_35_map_writeOnly (.'$TightSchema'.'|'.2.writeOnly)
-function _jm_f_201(val, path, rep)
+function _jm_f_191(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.2.writeOnly
@@ -4583,7 +4579,7 @@ function _jm_obj_35(val, path, rep)
 }
 
 // check _jm_obj_38_map_$anchor (.'$TightSchema'.'|'.1.'$anchor')
-function _jm_f_202(val, path, rep)
+function _jm_f_192(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$anchor'
@@ -4596,7 +4592,7 @@ function _jm_f_202(val, path, rep)
 }
 
 // check _jm_obj_38_map_$comment (.'$TightSchema'.'|'.1.'$comment')
-function _jm_f_203(val, path, rep)
+function _jm_f_193(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$comment'
@@ -4636,7 +4632,7 @@ function _jm_obj_39(val, path, rep)
 }
 
 // check _jm_obj_38_map_$defs (.'$TightSchema'.'|'.1.'$defs')
-function _jm_f_204(val, path, rep)
+function _jm_f_194(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$defs'
@@ -4649,7 +4645,7 @@ function _jm_f_204(val, path, rep)
 }
 
 // check _jm_obj_38_map_$dynamicAnchor (.'$TightSchema'.'|'.1.'$dynamicAnchor')
-function _jm_f_205(val, path, rep)
+function _jm_f_195(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$dynamicAnchor'
@@ -4662,7 +4658,7 @@ function _jm_f_205(val, path, rep)
 }
 
 // check _jm_obj_38_map_$dynamicRef (.'$TightSchema'.'|'.1.'$dynamicRef')
-function _jm_f_206(val, path, rep)
+function _jm_f_196(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$dynamicRef'
@@ -4675,7 +4671,7 @@ function _jm_f_206(val, path, rep)
 }
 
 // check _jm_obj_38_map_$id (.'$TightSchema'.'|'.1.'$id')
-function _jm_f_207(val, path, rep)
+function _jm_f_197(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$id'
@@ -4688,7 +4684,7 @@ function _jm_f_207(val, path, rep)
 }
 
 // check _jm_obj_38_map_$ref (.'$TightSchema'.'|'.1.'$ref')
-function _jm_f_208(val, path, rep)
+function _jm_f_198(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$ref'
@@ -4701,7 +4697,7 @@ function _jm_f_208(val, path, rep)
 }
 
 // check _jm_obj_38_map_$schema (.'$TightSchema'.'|'.1.'$schema')
-function _jm_f_209(val, path, rep)
+function _jm_f_199(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$schema'
@@ -4749,7 +4745,7 @@ function _jm_obj_40(val, path, rep)
 }
 
 // check _jm_obj_38_map_$vocabulary (.'$TightSchema'.'|'.1.'$vocabulary')
-function _jm_f_210(val, path, rep)
+function _jm_f_200(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.'$vocabulary'
@@ -4762,7 +4758,7 @@ function _jm_f_210(val, path, rep)
 }
 
 // check _jm_obj_38_map_default (.'$TightSchema'.'|'.1.default)
-function _jm_f_211(val, path, rep)
+function _jm_f_201(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.default
@@ -4775,7 +4771,7 @@ function _jm_f_211(val, path, rep)
 }
 
 // check _jm_obj_38_map_deprecated (.'$TightSchema'.'|'.1.deprecated)
-function _jm_f_212(val, path, rep)
+function _jm_f_202(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.deprecated
@@ -4788,7 +4784,7 @@ function _jm_f_212(val, path, rep)
 }
 
 // check _jm_obj_38_map_description (.'$TightSchema'.'|'.1.description)
-function _jm_f_213(val, path, rep)
+function _jm_f_203(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.description
@@ -4801,7 +4797,7 @@ function _jm_f_213(val, path, rep)
 }
 
 // check _jm_obj_38_map_examples (.'$TightSchema'.'|'.1.examples)
-function _jm_f_214(val, path, rep)
+function _jm_f_204(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.examples
@@ -4818,7 +4814,7 @@ function _jm_f_214(val, path, rep)
 }
 
 // check _jm_obj_38_map_readOnly (.'$TightSchema'.'|'.1.readOnly)
-function _jm_f_215(val, path, rep)
+function _jm_f_205(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.readOnly
@@ -4831,7 +4827,7 @@ function _jm_f_215(val, path, rep)
 }
 
 // check _jm_obj_38_map_title (.'$TightSchema'.'|'.1.title)
-function _jm_f_216(val, path, rep)
+function _jm_f_206(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.title
@@ -4844,7 +4840,7 @@ function _jm_f_216(val, path, rep)
 }
 
 // check _jm_obj_38_map_writeOnly (.'$TightSchema'.'|'.1.writeOnly)
-function _jm_f_217(val, path, rep)
+function _jm_f_207(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.1.writeOnly
@@ -4917,7 +4913,7 @@ function _jm_obj_38(val, path, rep)
 }
 
 // check _jm_obj_41_map_$anchor (.'$TightSchema'.'|'.0.'$anchor')
-function _jm_f_218(val, path, rep)
+function _jm_f_208(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$anchor'
@@ -4930,7 +4926,7 @@ function _jm_f_218(val, path, rep)
 }
 
 // check _jm_obj_41_map_$comment (.'$TightSchema'.'|'.0.'$comment')
-function _jm_f_219(val, path, rep)
+function _jm_f_209(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$comment'
@@ -4970,7 +4966,7 @@ function _jm_obj_42(val, path, rep)
 }
 
 // check _jm_obj_41_map_$defs (.'$TightSchema'.'|'.0.'$defs')
-function _jm_f_220(val, path, rep)
+function _jm_f_210(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$defs'
@@ -4983,7 +4979,7 @@ function _jm_f_220(val, path, rep)
 }
 
 // check _jm_obj_41_map_$dynamicAnchor (.'$TightSchema'.'|'.0.'$dynamicAnchor')
-function _jm_f_221(val, path, rep)
+function _jm_f_211(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$dynamicAnchor'
@@ -4996,7 +4992,7 @@ function _jm_f_221(val, path, rep)
 }
 
 // check _jm_obj_41_map_$dynamicRef (.'$TightSchema'.'|'.0.'$dynamicRef')
-function _jm_f_222(val, path, rep)
+function _jm_f_212(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$dynamicRef'
@@ -5009,7 +5005,7 @@ function _jm_f_222(val, path, rep)
 }
 
 // check _jm_obj_41_map_$id (.'$TightSchema'.'|'.0.'$id')
-function _jm_f_223(val, path, rep)
+function _jm_f_213(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$id'
@@ -5022,7 +5018,7 @@ function _jm_f_223(val, path, rep)
 }
 
 // check _jm_obj_41_map_$ref (.'$TightSchema'.'|'.0.'$ref')
-function _jm_f_224(val, path, rep)
+function _jm_f_214(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$ref'
@@ -5035,7 +5031,7 @@ function _jm_f_224(val, path, rep)
 }
 
 // check _jm_obj_41_map_$schema (.'$TightSchema'.'|'.0.'$schema')
-function _jm_f_225(val, path, rep)
+function _jm_f_215(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$schema'
@@ -5083,7 +5079,7 @@ function _jm_obj_43(val, path, rep)
 }
 
 // check _jm_obj_41_map_$vocabulary (.'$TightSchema'.'|'.0.'$vocabulary')
-function _jm_f_226(val, path, rep)
+function _jm_f_216(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.'$vocabulary'
@@ -5096,7 +5092,7 @@ function _jm_f_226(val, path, rep)
 }
 
 // check _jm_obj_41_map_default (.'$TightSchema'.'|'.0.default)
-function _jm_f_227(val, path, rep)
+function _jm_f_217(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.default
@@ -5109,7 +5105,7 @@ function _jm_f_227(val, path, rep)
 }
 
 // check _jm_obj_41_map_deprecated (.'$TightSchema'.'|'.0.deprecated)
-function _jm_f_228(val, path, rep)
+function _jm_f_218(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.deprecated
@@ -5122,7 +5118,7 @@ function _jm_f_228(val, path, rep)
 }
 
 // check _jm_obj_41_map_description (.'$TightSchema'.'|'.0.description)
-function _jm_f_229(val, path, rep)
+function _jm_f_219(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.description
@@ -5135,7 +5131,7 @@ function _jm_f_229(val, path, rep)
 }
 
 // check _jm_obj_41_map_examples (.'$TightSchema'.'|'.0.examples)
-function _jm_f_230(val, path, rep)
+function _jm_f_220(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.examples
@@ -5152,7 +5148,7 @@ function _jm_f_230(val, path, rep)
 }
 
 // check _jm_obj_41_map_readOnly (.'$TightSchema'.'|'.0.readOnly)
-function _jm_f_231(val, path, rep)
+function _jm_f_221(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.readOnly
@@ -5165,7 +5161,7 @@ function _jm_f_231(val, path, rep)
 }
 
 // check _jm_obj_41_map_title (.'$TightSchema'.'|'.0.title)
-function _jm_f_232(val, path, rep)
+function _jm_f_222(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.title
@@ -5178,7 +5174,7 @@ function _jm_f_232(val, path, rep)
 }
 
 // check _jm_obj_41_map_writeOnly (.'$TightSchema'.'|'.0.writeOnly)
-function _jm_f_233(val, path, rep)
+function _jm_f_223(val, path, rep)
 {
     let res;
     // .'$TightSchema'.'|'.0.writeOnly
@@ -5413,224 +5409,214 @@ export function check_model_init()
         _jm_obj_3_map.set("readOnly", _jm_f_13)
         _jm_obj_3_map.set("title", _jm_f_14)
         _jm_obj_3_map.set("writeOnly", _jm_f_15)
-        _jm_obj_6_map.set("exclusiveMaximum", _jm_f_16)
-        _jm_obj_6_map.set("exclusiveMinimum", _jm_f_17)
-        _jm_obj_6_map.set("maximum", _jm_f_18)
-        _jm_obj_6_map.set("minimum", _jm_f_19)
-        _jm_obj_6_map.set("multipleOf", _jm_f_20)
-        _jm_obj_7_map.set("exclusiveMaximum", _jm_f_21)
-        _jm_obj_7_map.set("exclusiveMinimum", _jm_f_22)
-        _jm_obj_7_map.set("maximum", _jm_f_23)
-        _jm_obj_7_map.set("minimum", _jm_f_24)
-        _jm_obj_7_map.set("multipleOf", _jm_f_25)
-        _jm_obj_8_map.set("contentEncoding", _jm_f_26)
-        _jm_obj_8_map.set("contentMediaType", _jm_f_27)
-        _jm_obj_8_map.set("contentSchema", _jm_f_28)
-        _jm_obj_8_map.set("format", _jm_f_29)
-        _jm_obj_8_map.set("maxLength", _jm_f_30)
-        _jm_obj_8_map.set("minLength", _jm_f_31)
-        _jm_obj_8_map.set("pattern", _jm_f_32)
-        _jm_obj_9_map.set("contains", _jm_f_33)
-        _jm_obj_9_map.set("items", _jm_f_34)
-        _jm_obj_9_map.set("maxContains", _jm_f_35)
-        _jm_obj_9_map.set("maxItems", _jm_f_36)
-        _jm_obj_9_map.set("minContains", _jm_f_37)
-        _jm_obj_9_map.set("minItems", _jm_f_38)
-        _jm_obj_9_map.set("prefixItems", _jm_f_39)
-        _jm_obj_9_map.set("unevaluatedItems", _jm_f_40)
-        _jm_obj_9_map.set("uniqueItems", _jm_f_41)
-        _jm_obj_10_map.set("additionalProperties", _jm_f_42)
-        _jm_obj_10_map.set("dependentRequired", _jm_f_43)
-        _jm_obj_10_map.set("dependentSchemas", _jm_f_44)
-        _jm_obj_10_map.set("maxProperties", _jm_f_45)
-        _jm_obj_10_map.set("minProperties", _jm_f_46)
-        _jm_obj_10_map.set("patternProperties", _jm_f_47)
-        _jm_obj_10_map.set("properties", _jm_f_48)
-        _jm_obj_10_map.set("propertyNames", _jm_f_49)
-        _jm_obj_10_map.set("required", _jm_f_50)
-        _jm_obj_10_map.set("unevaluatedProperties", _jm_f_51)
-        _jm_obj_15_map.set("allOf", _jm_f_52)
-        _jm_obj_15_map.set("anyOf", _jm_f_53)
-        _jm_obj_15_map.set("const", _jm_f_54)
-        _jm_obj_15_map.set("else", _jm_f_55)
-        _jm_obj_15_map.set("enum", _jm_f_56)
-        _jm_obj_15_map.set("if", _jm_f_57)
-        _jm_obj_15_map.set("not", _jm_f_58)
-        _jm_obj_15_map.set("oneOf", _jm_f_59)
-        _jm_obj_15_map.set("then", _jm_f_60)
-        _jm_obj_16_map.set("$anchor", _jm_f_61)
-        _jm_obj_16_map.set("$comment", _jm_f_62)
-        _jm_obj_16_map.set("$defs", _jm_f_63)
-        _jm_obj_16_map.set("$dynamicAnchor", _jm_f_64)
-        _jm_obj_16_map.set("$dynamicRef", _jm_f_65)
-        _jm_obj_16_map.set("$id", _jm_f_66)
-        _jm_obj_16_map.set("$ref", _jm_f_67)
-        _jm_obj_16_map.set("$schema", _jm_f_68)
-        _jm_obj_16_map.set("$vocabulary", _jm_f_69)
-        _jm_obj_16_map.set("allOf", _jm_f_70)
-        _jm_obj_16_map.set("anyOf", _jm_f_71)
-        _jm_obj_16_map.set("const", _jm_f_72)
-        _jm_obj_16_map.set("default", _jm_f_73)
-        _jm_obj_16_map.set("deprecated", _jm_f_74)
-        _jm_obj_16_map.set("description", _jm_f_75)
-        _jm_obj_16_map.set("else", _jm_f_76)
-        _jm_obj_16_map.set("enum", _jm_f_77)
-        _jm_obj_16_map.set("examples", _jm_f_78)
-        _jm_obj_16_map.set("if", _jm_f_79)
-        _jm_obj_16_map.set("not", _jm_f_80)
-        _jm_obj_16_map.set("oneOf", _jm_f_81)
-        _jm_obj_16_map.set("readOnly", _jm_f_82)
-        _jm_obj_16_map.set("then", _jm_f_83)
-        _jm_obj_16_map.set("title", _jm_f_84)
-        _jm_obj_16_map.set("writeOnly", _jm_f_85)
-        _jm_obj_19_map.set("$anchor", _jm_f_86)
-        _jm_obj_19_map.set("$comment", _jm_f_87)
-        _jm_obj_19_map.set("$defs", _jm_f_88)
-        _jm_obj_19_map.set("$dynamicAnchor", _jm_f_89)
-        _jm_obj_19_map.set("$dynamicRef", _jm_f_90)
-        _jm_obj_19_map.set("$id", _jm_f_91)
-        _jm_obj_19_map.set("$ref", _jm_f_92)
-        _jm_obj_19_map.set("$schema", _jm_f_93)
-        _jm_obj_19_map.set("$vocabulary", _jm_f_94)
-        _jm_obj_19_map.set("additionalProperties", _jm_f_95)
-        _jm_obj_19_map.set("default", _jm_f_96)
-        _jm_obj_19_map.set("dependentRequired", _jm_f_97)
-        _jm_obj_19_map.set("dependentSchemas", _jm_f_98)
-        _jm_obj_19_map.set("deprecated", _jm_f_99)
-        _jm_obj_19_map.set("description", _jm_f_100)
-        _jm_obj_19_map.set("examples", _jm_f_101)
-        _jm_obj_19_map.set("maxProperties", _jm_f_102)
-        _jm_obj_19_map.set("minProperties", _jm_f_103)
-        _jm_obj_19_map.set("patternProperties", _jm_f_104)
-        _jm_obj_19_map.set("properties", _jm_f_105)
-        _jm_obj_19_map.set("propertyNames", _jm_f_106)
-        _jm_obj_19_map.set("readOnly", _jm_f_107)
-        _jm_obj_19_map.set("required", _jm_f_108)
-        _jm_obj_19_map.set("title", _jm_f_109)
-        _jm_obj_19_map.set("unevaluatedProperties", _jm_f_110)
-        _jm_obj_19_map.set("writeOnly", _jm_f_111)
-        _jm_obj_26_map.set("$anchor", _jm_f_112)
-        _jm_obj_26_map.set("$comment", _jm_f_113)
-        _jm_obj_26_map.set("$defs", _jm_f_114)
-        _jm_obj_26_map.set("$dynamicAnchor", _jm_f_115)
-        _jm_obj_26_map.set("$dynamicRef", _jm_f_116)
-        _jm_obj_26_map.set("$id", _jm_f_117)
-        _jm_obj_26_map.set("$ref", _jm_f_118)
-        _jm_obj_26_map.set("$schema", _jm_f_119)
-        _jm_obj_26_map.set("$vocabulary", _jm_f_120)
-        _jm_obj_26_map.set("contains", _jm_f_121)
-        _jm_obj_26_map.set("default", _jm_f_122)
-        _jm_obj_26_map.set("deprecated", _jm_f_123)
-        _jm_obj_26_map.set("description", _jm_f_124)
-        _jm_obj_26_map.set("examples", _jm_f_125)
-        _jm_obj_26_map.set("items", _jm_f_126)
-        _jm_obj_26_map.set("maxContains", _jm_f_127)
-        _jm_obj_26_map.set("maxItems", _jm_f_128)
-        _jm_obj_26_map.set("minContains", _jm_f_129)
-        _jm_obj_26_map.set("minItems", _jm_f_130)
-        _jm_obj_26_map.set("prefixItems", _jm_f_131)
-        _jm_obj_26_map.set("readOnly", _jm_f_132)
-        _jm_obj_26_map.set("title", _jm_f_133)
-        _jm_obj_26_map.set("unevaluatedItems", _jm_f_134)
-        _jm_obj_26_map.set("uniqueItems", _jm_f_135)
-        _jm_obj_26_map.set("writeOnly", _jm_f_136)
-        _jm_obj_29_map.set("$anchor", _jm_f_137)
-        _jm_obj_29_map.set("$comment", _jm_f_138)
-        _jm_obj_29_map.set("$defs", _jm_f_139)
-        _jm_obj_29_map.set("$dynamicAnchor", _jm_f_140)
-        _jm_obj_29_map.set("$dynamicRef", _jm_f_141)
-        _jm_obj_29_map.set("$id", _jm_f_142)
-        _jm_obj_29_map.set("$ref", _jm_f_143)
-        _jm_obj_29_map.set("$schema", _jm_f_144)
-        _jm_obj_29_map.set("$vocabulary", _jm_f_145)
-        _jm_obj_29_map.set("contentEncoding", _jm_f_146)
-        _jm_obj_29_map.set("contentMediaType", _jm_f_147)
-        _jm_obj_29_map.set("contentSchema", _jm_f_148)
-        _jm_obj_29_map.set("default", _jm_f_149)
-        _jm_obj_29_map.set("deprecated", _jm_f_150)
-        _jm_obj_29_map.set("description", _jm_f_151)
-        _jm_obj_29_map.set("examples", _jm_f_152)
-        _jm_obj_29_map.set("format", _jm_f_153)
-        _jm_obj_29_map.set("maxLength", _jm_f_154)
-        _jm_obj_29_map.set("minLength", _jm_f_155)
-        _jm_obj_29_map.set("pattern", _jm_f_156)
-        _jm_obj_29_map.set("readOnly", _jm_f_157)
-        _jm_obj_29_map.set("title", _jm_f_158)
-        _jm_obj_29_map.set("writeOnly", _jm_f_159)
-        _jm_obj_32_map.set("$anchor", _jm_f_160)
-        _jm_obj_32_map.set("$comment", _jm_f_161)
-        _jm_obj_32_map.set("$defs", _jm_f_162)
-        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_163)
-        _jm_obj_32_map.set("$dynamicRef", _jm_f_164)
-        _jm_obj_32_map.set("$id", _jm_f_165)
-        _jm_obj_32_map.set("$ref", _jm_f_166)
-        _jm_obj_32_map.set("$schema", _jm_f_167)
-        _jm_obj_32_map.set("$vocabulary", _jm_f_168)
-        _jm_obj_32_map.set("default", _jm_f_169)
-        _jm_obj_32_map.set("deprecated", _jm_f_170)
-        _jm_obj_32_map.set("description", _jm_f_171)
-        _jm_obj_32_map.set("examples", _jm_f_172)
-        _jm_obj_32_map.set("exclusiveMaximum", _jm_f_173)
-        _jm_obj_32_map.set("exclusiveMinimum", _jm_f_174)
-        _jm_obj_32_map.set("maximum", _jm_f_175)
-        _jm_obj_32_map.set("minimum", _jm_f_176)
-        _jm_obj_32_map.set("multipleOf", _jm_f_177)
-        _jm_obj_32_map.set("readOnly", _jm_f_178)
-        _jm_obj_32_map.set("title", _jm_f_179)
-        _jm_obj_32_map.set("writeOnly", _jm_f_180)
-        _jm_obj_35_map.set("$anchor", _jm_f_181)
-        _jm_obj_35_map.set("$comment", _jm_f_182)
-        _jm_obj_35_map.set("$defs", _jm_f_183)
-        _jm_obj_35_map.set("$dynamicAnchor", _jm_f_184)
-        _jm_obj_35_map.set("$dynamicRef", _jm_f_185)
-        _jm_obj_35_map.set("$id", _jm_f_186)
-        _jm_obj_35_map.set("$ref", _jm_f_187)
-        _jm_obj_35_map.set("$schema", _jm_f_188)
-        _jm_obj_35_map.set("$vocabulary", _jm_f_189)
-        _jm_obj_35_map.set("default", _jm_f_190)
-        _jm_obj_35_map.set("deprecated", _jm_f_191)
-        _jm_obj_35_map.set("description", _jm_f_192)
-        _jm_obj_35_map.set("examples", _jm_f_193)
-        _jm_obj_35_map.set("exclusiveMaximum", _jm_f_194)
-        _jm_obj_35_map.set("exclusiveMinimum", _jm_f_195)
-        _jm_obj_35_map.set("maximum", _jm_f_196)
-        _jm_obj_35_map.set("minimum", _jm_f_197)
-        _jm_obj_35_map.set("multipleOf", _jm_f_198)
-        _jm_obj_35_map.set("readOnly", _jm_f_199)
-        _jm_obj_35_map.set("title", _jm_f_200)
-        _jm_obj_35_map.set("writeOnly", _jm_f_201)
-        _jm_obj_38_map.set("$anchor", _jm_f_202)
-        _jm_obj_38_map.set("$comment", _jm_f_203)
-        _jm_obj_38_map.set("$defs", _jm_f_204)
-        _jm_obj_38_map.set("$dynamicAnchor", _jm_f_205)
-        _jm_obj_38_map.set("$dynamicRef", _jm_f_206)
-        _jm_obj_38_map.set("$id", _jm_f_207)
-        _jm_obj_38_map.set("$ref", _jm_f_208)
-        _jm_obj_38_map.set("$schema", _jm_f_209)
-        _jm_obj_38_map.set("$vocabulary", _jm_f_210)
-        _jm_obj_38_map.set("default", _jm_f_211)
-        _jm_obj_38_map.set("deprecated", _jm_f_212)
-        _jm_obj_38_map.set("description", _jm_f_213)
-        _jm_obj_38_map.set("examples", _jm_f_214)
-        _jm_obj_38_map.set("readOnly", _jm_f_215)
-        _jm_obj_38_map.set("title", _jm_f_216)
-        _jm_obj_38_map.set("writeOnly", _jm_f_217)
-        _jm_obj_41_map.set("$anchor", _jm_f_218)
-        _jm_obj_41_map.set("$comment", _jm_f_219)
-        _jm_obj_41_map.set("$defs", _jm_f_220)
-        _jm_obj_41_map.set("$dynamicAnchor", _jm_f_221)
-        _jm_obj_41_map.set("$dynamicRef", _jm_f_222)
-        _jm_obj_41_map.set("$id", _jm_f_223)
-        _jm_obj_41_map.set("$ref", _jm_f_224)
-        _jm_obj_41_map.set("$schema", _jm_f_225)
-        _jm_obj_41_map.set("$vocabulary", _jm_f_226)
-        _jm_obj_41_map.set("default", _jm_f_227)
-        _jm_obj_41_map.set("deprecated", _jm_f_228)
-        _jm_obj_41_map.set("description", _jm_f_229)
-        _jm_obj_41_map.set("examples", _jm_f_230)
-        _jm_obj_41_map.set("readOnly", _jm_f_231)
-        _jm_obj_41_map.set("title", _jm_f_232)
-        _jm_obj_41_map.set("writeOnly", _jm_f_233)
+        _jm_obj_8_map.set("contentEncoding", _jm_f_16)
+        _jm_obj_8_map.set("contentMediaType", _jm_f_17)
+        _jm_obj_8_map.set("contentSchema", _jm_f_18)
+        _jm_obj_8_map.set("format", _jm_f_19)
+        _jm_obj_8_map.set("maxLength", _jm_f_20)
+        _jm_obj_8_map.set("minLength", _jm_f_21)
+        _jm_obj_8_map.set("pattern", _jm_f_22)
+        _jm_obj_9_map.set("contains", _jm_f_23)
+        _jm_obj_9_map.set("items", _jm_f_24)
+        _jm_obj_9_map.set("maxContains", _jm_f_25)
+        _jm_obj_9_map.set("maxItems", _jm_f_26)
+        _jm_obj_9_map.set("minContains", _jm_f_27)
+        _jm_obj_9_map.set("minItems", _jm_f_28)
+        _jm_obj_9_map.set("prefixItems", _jm_f_29)
+        _jm_obj_9_map.set("unevaluatedItems", _jm_f_30)
+        _jm_obj_9_map.set("uniqueItems", _jm_f_31)
+        _jm_obj_10_map.set("additionalProperties", _jm_f_32)
+        _jm_obj_10_map.set("dependentRequired", _jm_f_33)
+        _jm_obj_10_map.set("dependentSchemas", _jm_f_34)
+        _jm_obj_10_map.set("maxProperties", _jm_f_35)
+        _jm_obj_10_map.set("minProperties", _jm_f_36)
+        _jm_obj_10_map.set("patternProperties", _jm_f_37)
+        _jm_obj_10_map.set("properties", _jm_f_38)
+        _jm_obj_10_map.set("propertyNames", _jm_f_39)
+        _jm_obj_10_map.set("required", _jm_f_40)
+        _jm_obj_10_map.set("unevaluatedProperties", _jm_f_41)
+        _jm_obj_15_map.set("allOf", _jm_f_42)
+        _jm_obj_15_map.set("anyOf", _jm_f_43)
+        _jm_obj_15_map.set("const", _jm_f_44)
+        _jm_obj_15_map.set("else", _jm_f_45)
+        _jm_obj_15_map.set("enum", _jm_f_46)
+        _jm_obj_15_map.set("if", _jm_f_47)
+        _jm_obj_15_map.set("not", _jm_f_48)
+        _jm_obj_15_map.set("oneOf", _jm_f_49)
+        _jm_obj_15_map.set("then", _jm_f_50)
+        _jm_obj_16_map.set("$anchor", _jm_f_51)
+        _jm_obj_16_map.set("$comment", _jm_f_52)
+        _jm_obj_16_map.set("$defs", _jm_f_53)
+        _jm_obj_16_map.set("$dynamicAnchor", _jm_f_54)
+        _jm_obj_16_map.set("$dynamicRef", _jm_f_55)
+        _jm_obj_16_map.set("$id", _jm_f_56)
+        _jm_obj_16_map.set("$ref", _jm_f_57)
+        _jm_obj_16_map.set("$schema", _jm_f_58)
+        _jm_obj_16_map.set("$vocabulary", _jm_f_59)
+        _jm_obj_16_map.set("allOf", _jm_f_60)
+        _jm_obj_16_map.set("anyOf", _jm_f_61)
+        _jm_obj_16_map.set("const", _jm_f_62)
+        _jm_obj_16_map.set("default", _jm_f_63)
+        _jm_obj_16_map.set("deprecated", _jm_f_64)
+        _jm_obj_16_map.set("description", _jm_f_65)
+        _jm_obj_16_map.set("else", _jm_f_66)
+        _jm_obj_16_map.set("enum", _jm_f_67)
+        _jm_obj_16_map.set("examples", _jm_f_68)
+        _jm_obj_16_map.set("if", _jm_f_69)
+        _jm_obj_16_map.set("not", _jm_f_70)
+        _jm_obj_16_map.set("oneOf", _jm_f_71)
+        _jm_obj_16_map.set("readOnly", _jm_f_72)
+        _jm_obj_16_map.set("then", _jm_f_73)
+        _jm_obj_16_map.set("title", _jm_f_74)
+        _jm_obj_16_map.set("writeOnly", _jm_f_75)
+        _jm_obj_19_map.set("$anchor", _jm_f_76)
+        _jm_obj_19_map.set("$comment", _jm_f_77)
+        _jm_obj_19_map.set("$defs", _jm_f_78)
+        _jm_obj_19_map.set("$dynamicAnchor", _jm_f_79)
+        _jm_obj_19_map.set("$dynamicRef", _jm_f_80)
+        _jm_obj_19_map.set("$id", _jm_f_81)
+        _jm_obj_19_map.set("$ref", _jm_f_82)
+        _jm_obj_19_map.set("$schema", _jm_f_83)
+        _jm_obj_19_map.set("$vocabulary", _jm_f_84)
+        _jm_obj_19_map.set("additionalProperties", _jm_f_85)
+        _jm_obj_19_map.set("default", _jm_f_86)
+        _jm_obj_19_map.set("dependentRequired", _jm_f_87)
+        _jm_obj_19_map.set("dependentSchemas", _jm_f_88)
+        _jm_obj_19_map.set("deprecated", _jm_f_89)
+        _jm_obj_19_map.set("description", _jm_f_90)
+        _jm_obj_19_map.set("examples", _jm_f_91)
+        _jm_obj_19_map.set("maxProperties", _jm_f_92)
+        _jm_obj_19_map.set("minProperties", _jm_f_93)
+        _jm_obj_19_map.set("patternProperties", _jm_f_94)
+        _jm_obj_19_map.set("properties", _jm_f_95)
+        _jm_obj_19_map.set("propertyNames", _jm_f_96)
+        _jm_obj_19_map.set("readOnly", _jm_f_97)
+        _jm_obj_19_map.set("required", _jm_f_98)
+        _jm_obj_19_map.set("title", _jm_f_99)
+        _jm_obj_19_map.set("unevaluatedProperties", _jm_f_100)
+        _jm_obj_19_map.set("writeOnly", _jm_f_101)
+        _jm_obj_26_map.set("$anchor", _jm_f_102)
+        _jm_obj_26_map.set("$comment", _jm_f_103)
+        _jm_obj_26_map.set("$defs", _jm_f_104)
+        _jm_obj_26_map.set("$dynamicAnchor", _jm_f_105)
+        _jm_obj_26_map.set("$dynamicRef", _jm_f_106)
+        _jm_obj_26_map.set("$id", _jm_f_107)
+        _jm_obj_26_map.set("$ref", _jm_f_108)
+        _jm_obj_26_map.set("$schema", _jm_f_109)
+        _jm_obj_26_map.set("$vocabulary", _jm_f_110)
+        _jm_obj_26_map.set("contains", _jm_f_111)
+        _jm_obj_26_map.set("default", _jm_f_112)
+        _jm_obj_26_map.set("deprecated", _jm_f_113)
+        _jm_obj_26_map.set("description", _jm_f_114)
+        _jm_obj_26_map.set("examples", _jm_f_115)
+        _jm_obj_26_map.set("items", _jm_f_116)
+        _jm_obj_26_map.set("maxContains", _jm_f_117)
+        _jm_obj_26_map.set("maxItems", _jm_f_118)
+        _jm_obj_26_map.set("minContains", _jm_f_119)
+        _jm_obj_26_map.set("minItems", _jm_f_120)
+        _jm_obj_26_map.set("prefixItems", _jm_f_121)
+        _jm_obj_26_map.set("readOnly", _jm_f_122)
+        _jm_obj_26_map.set("title", _jm_f_123)
+        _jm_obj_26_map.set("unevaluatedItems", _jm_f_124)
+        _jm_obj_26_map.set("uniqueItems", _jm_f_125)
+        _jm_obj_26_map.set("writeOnly", _jm_f_126)
+        _jm_obj_29_map.set("$anchor", _jm_f_127)
+        _jm_obj_29_map.set("$comment", _jm_f_128)
+        _jm_obj_29_map.set("$defs", _jm_f_129)
+        _jm_obj_29_map.set("$dynamicAnchor", _jm_f_130)
+        _jm_obj_29_map.set("$dynamicRef", _jm_f_131)
+        _jm_obj_29_map.set("$id", _jm_f_132)
+        _jm_obj_29_map.set("$ref", _jm_f_133)
+        _jm_obj_29_map.set("$schema", _jm_f_134)
+        _jm_obj_29_map.set("$vocabulary", _jm_f_135)
+        _jm_obj_29_map.set("contentEncoding", _jm_f_136)
+        _jm_obj_29_map.set("contentMediaType", _jm_f_137)
+        _jm_obj_29_map.set("contentSchema", _jm_f_138)
+        _jm_obj_29_map.set("default", _jm_f_139)
+        _jm_obj_29_map.set("deprecated", _jm_f_140)
+        _jm_obj_29_map.set("description", _jm_f_141)
+        _jm_obj_29_map.set("examples", _jm_f_142)
+        _jm_obj_29_map.set("format", _jm_f_143)
+        _jm_obj_29_map.set("maxLength", _jm_f_144)
+        _jm_obj_29_map.set("minLength", _jm_f_145)
+        _jm_obj_29_map.set("pattern", _jm_f_146)
+        _jm_obj_29_map.set("readOnly", _jm_f_147)
+        _jm_obj_29_map.set("title", _jm_f_148)
+        _jm_obj_29_map.set("writeOnly", _jm_f_149)
+        _jm_obj_32_map.set("$anchor", _jm_f_150)
+        _jm_obj_32_map.set("$comment", _jm_f_151)
+        _jm_obj_32_map.set("$defs", _jm_f_152)
+        _jm_obj_32_map.set("$dynamicAnchor", _jm_f_153)
+        _jm_obj_32_map.set("$dynamicRef", _jm_f_154)
+        _jm_obj_32_map.set("$id", _jm_f_155)
+        _jm_obj_32_map.set("$ref", _jm_f_156)
+        _jm_obj_32_map.set("$schema", _jm_f_157)
+        _jm_obj_32_map.set("$vocabulary", _jm_f_158)
+        _jm_obj_32_map.set("default", _jm_f_159)
+        _jm_obj_32_map.set("deprecated", _jm_f_160)
+        _jm_obj_32_map.set("description", _jm_f_161)
+        _jm_obj_32_map.set("examples", _jm_f_162)
+        _jm_obj_32_map.set("exclusiveMaximum", _jm_f_163)
+        _jm_obj_32_map.set("exclusiveMinimum", _jm_f_164)
+        _jm_obj_32_map.set("maximum", _jm_f_165)
+        _jm_obj_32_map.set("minimum", _jm_f_166)
+        _jm_obj_32_map.set("multipleOf", _jm_f_167)
+        _jm_obj_32_map.set("readOnly", _jm_f_168)
+        _jm_obj_32_map.set("title", _jm_f_169)
+        _jm_obj_32_map.set("writeOnly", _jm_f_170)
+        _jm_obj_35_map.set("$anchor", _jm_f_171)
+        _jm_obj_35_map.set("$comment", _jm_f_172)
+        _jm_obj_35_map.set("$defs", _jm_f_173)
+        _jm_obj_35_map.set("$dynamicAnchor", _jm_f_174)
+        _jm_obj_35_map.set("$dynamicRef", _jm_f_175)
+        _jm_obj_35_map.set("$id", _jm_f_176)
+        _jm_obj_35_map.set("$ref", _jm_f_177)
+        _jm_obj_35_map.set("$schema", _jm_f_178)
+        _jm_obj_35_map.set("$vocabulary", _jm_f_179)
+        _jm_obj_35_map.set("default", _jm_f_180)
+        _jm_obj_35_map.set("deprecated", _jm_f_181)
+        _jm_obj_35_map.set("description", _jm_f_182)
+        _jm_obj_35_map.set("examples", _jm_f_183)
+        _jm_obj_35_map.set("exclusiveMaximum", _jm_f_184)
+        _jm_obj_35_map.set("exclusiveMinimum", _jm_f_185)
+        _jm_obj_35_map.set("maximum", _jm_f_186)
+        _jm_obj_35_map.set("minimum", _jm_f_187)
+        _jm_obj_35_map.set("multipleOf", _jm_f_188)
+        _jm_obj_35_map.set("readOnly", _jm_f_189)
+        _jm_obj_35_map.set("title", _jm_f_190)
+        _jm_obj_35_map.set("writeOnly", _jm_f_191)
+        _jm_obj_38_map.set("$anchor", _jm_f_192)
+        _jm_obj_38_map.set("$comment", _jm_f_193)
+        _jm_obj_38_map.set("$defs", _jm_f_194)
+        _jm_obj_38_map.set("$dynamicAnchor", _jm_f_195)
+        _jm_obj_38_map.set("$dynamicRef", _jm_f_196)
+        _jm_obj_38_map.set("$id", _jm_f_197)
+        _jm_obj_38_map.set("$ref", _jm_f_198)
+        _jm_obj_38_map.set("$schema", _jm_f_199)
+        _jm_obj_38_map.set("$vocabulary", _jm_f_200)
+        _jm_obj_38_map.set("default", _jm_f_201)
+        _jm_obj_38_map.set("deprecated", _jm_f_202)
+        _jm_obj_38_map.set("description", _jm_f_203)
+        _jm_obj_38_map.set("examples", _jm_f_204)
+        _jm_obj_38_map.set("readOnly", _jm_f_205)
+        _jm_obj_38_map.set("title", _jm_f_206)
+        _jm_obj_38_map.set("writeOnly", _jm_f_207)
+        _jm_obj_41_map.set("$anchor", _jm_f_208)
+        _jm_obj_41_map.set("$comment", _jm_f_209)
+        _jm_obj_41_map.set("$defs", _jm_f_210)
+        _jm_obj_41_map.set("$dynamicAnchor", _jm_f_211)
+        _jm_obj_41_map.set("$dynamicRef", _jm_f_212)
+        _jm_obj_41_map.set("$id", _jm_f_213)
+        _jm_obj_41_map.set("$ref", _jm_f_214)
+        _jm_obj_41_map.set("$schema", _jm_f_215)
+        _jm_obj_41_map.set("$vocabulary", _jm_f_216)
+        _jm_obj_41_map.set("default", _jm_f_217)
+        _jm_obj_41_map.set("deprecated", _jm_f_218)
+        _jm_obj_41_map.set("description", _jm_f_219)
+        _jm_obj_41_map.set("examples", _jm_f_220)
+        _jm_obj_41_map.set("readOnly", _jm_f_221)
+        _jm_obj_41_map.set("title", _jm_f_222)
+        _jm_obj_41_map.set("writeOnly", _jm_f_223)
         check_model_map.set("", json_model_1)
         check_model_map.set("URI-REFERENCE", json_model_2)
         check_model_map.set("core", json_model_3)

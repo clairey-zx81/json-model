@@ -9,63 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-var _jm_obj_0_mup = new Map()
-var _jm_obj_1_map = new Map()
-var _jm_obj_2_mup = new Map()
 var check_model_map = new Map()
-
-// check _jm_obj_0_mup_a (.'$O0'.a)
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$O0'.a
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$O0'.a]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_b (.'$O0'.b)
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'$O0'.b
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$O0'.b]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_c (.'$O0'.c)
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'$O0'.c
-    res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$O0'.c]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_d (.'$O0'.d)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$O0'.d
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0.0 strict float [.'$O0'.d]", path])
-    }
-    return res;
-}
-
 
 // object .'$O0'
 function _jm_obj_0(val, path, rep)
@@ -76,22 +20,72 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_mup.get(prop)))
+        if (prop == "a")
         {
-            // handle 4 mandatory props
-            if (pfun !== undefined)
+            // handle must a property
+            must_count += 1;
+            // .'$O0'.a
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_0 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.'$O0']", (path ? lpath_0 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["not a bool [.'$O0'.a]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.a]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "b")
+        {
+            // handle must b property
+            must_count += 1;
+            // .'$O0'.b
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$O0'.b]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.b]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "c")
+        {
+            // handle must c property
+            must_count += 1;
+            // .'$O0'.c
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["not null [.'$O0'.c]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.c]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "d")
+        {
+            // handle must d property
+            must_count += 1;
+            // .'$O0'.d
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.'$O0'.d]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O0'.d]", (path ? lpath_0 : null)])
+                return false;
             }
         }
         else
@@ -148,59 +142,6 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// check _jm_obj_1_map_a (.'$O1'.a)
-function _jm_f_4(val, path, rep)
-{
-    let res;
-    // .'$O1'.a
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$O1'.a]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_b (.'$O1'.b)
-function _jm_f_5(val, path, rep)
-{
-    let res;
-    // .'$O1'.b
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$O1'.b]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_c (.'$O1'.c)
-function _jm_f_6(val, path, rep)
-{
-    let res;
-    // .'$O1'.c
-    res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$O1'.c]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_1_map_d (.'$O1'.d)
-function _jm_f_7(val, path, rep)
-{
-    let res;
-    // .'$O1'.d
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0.0 strict float [.'$O1'.d]", path])
-    }
-    return res;
-}
-
-
 // object .'$O1'
 function _jm_obj_1(val, path, rep)
 {
@@ -210,7 +151,6 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
@@ -231,12 +171,63 @@ function _jm_obj_1(val, path, rep)
                 return false;
             }
         }
-        else if ((pfun = _jm_obj_1_map.get(prop)))
+        else if (prop == "a")
         {
-            // handle 4 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_1 : null), rep))
+            // handle may a property
+            // .'$O1'.a
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$O1']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["not a bool [.'$O1'.a]", (path ? lpath_1 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$O1'.a]", (path ? lpath_1 : null)])
+                return false;
+            }
+        }
+        else if (prop == "b")
+        {
+            // handle may b property
+            // .'$O1'.b
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$O1'.b]", (path ? lpath_1 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$O1'.b]", (path ? lpath_1 : null)])
+                return false;
+            }
+        }
+        else if (prop == "c")
+        {
+            // handle may c property
+            // .'$O1'.c
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["not null [.'$O1'.c]", (path ? lpath_1 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$O1'.c]", (path ? lpath_1 : null)])
+                return false;
+            }
+        }
+        else if (prop == "d")
+        {
+            // handle may d property
+            // .'$O1'.d
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.'$O1'.d]", (path ? lpath_1 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$O1'.d]", (path ? lpath_1 : null)])
                 return false;
             }
         }
@@ -273,59 +264,6 @@ function json_model_3(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_mup_a (.'$O2'.a)
-function _jm_f_8(val, path, rep)
-{
-    let res;
-    // .'$O2'.a
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$O2'.a]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_b (.'$O2'.b)
-function _jm_f_9(val, path, rep)
-{
-    let res;
-    // .'$O2'.b
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 strict int [.'$O2'.b]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_c (.'$O2'.c)
-function _jm_f_10(val, path, rep)
-{
-    let res;
-    // .'$O2'.c
-    res = val === null;
-    if (! res)
-    {
-        rep !== null && rep.push(["not null [.'$O2'.c]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_d (.'$O2'.d)
-function _jm_f_11(val, path, rep)
-{
-    let res;
-    // .'$O2'.d
-    res = ((typeof val === 'number' || val instanceof Number)) && val >= 0.0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0.0 strict float [.'$O2'.d]", path])
-    }
-    return res;
-}
-
-
 // object .'$O2'
 function _jm_obj_2(val, path, rep)
 {
@@ -335,22 +273,72 @@ function _jm_obj_2(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_2_mup.get(prop)))
+        if (prop == "a")
         {
-            // handle 4 mandatory props
-            if (pfun !== undefined)
+            // handle must a property
+            must_count += 1;
+            // .'$O2'.a
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_2 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.'$O2']", (path ? lpath_2 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["not a bool [.'$O2'.a]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.a]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "b")
+        {
+            // handle must b property
+            must_count += 1;
+            // .'$O2'.b
+            res = ((typeof pval === 'number' || pval instanceof Number) && Number.isInteger(pval)) && pval >= 0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0 strict int [.'$O2'.b]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.b]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "c")
+        {
+            // handle must c property
+            must_count += 1;
+            // .'$O2'.c
+            res = pval === null;
+            if (! res)
+            {
+                rep !== null && rep.push(["not null [.'$O2'.c]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.c]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "d")
+        {
+            // handle must d property
+            must_count += 1;
+            // .'$O2'.d
+            res = ((typeof pval === 'number' || pval instanceof Number)) && pval >= 0.0;
+            if (! res)
+            {
+                rep !== null && rep.push(["not a 0.0 strict float [.'$O2'.d]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$O2'.d]", (path ? lpath_2 : null)])
+                return false;
             }
         }
         else if (prop == "y")
@@ -463,18 +451,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_0_mup.set("a", _jm_f_0)
-        _jm_obj_0_mup.set("b", _jm_f_1)
-        _jm_obj_0_mup.set("c", _jm_f_2)
-        _jm_obj_0_mup.set("d", _jm_f_3)
-        _jm_obj_1_map.set("a", _jm_f_4)
-        _jm_obj_1_map.set("b", _jm_f_5)
-        _jm_obj_1_map.set("c", _jm_f_6)
-        _jm_obj_1_map.set("d", _jm_f_7)
-        _jm_obj_2_mup.set("a", _jm_f_8)
-        _jm_obj_2_mup.set("b", _jm_f_9)
-        _jm_obj_2_mup.set("c", _jm_f_10)
-        _jm_obj_2_mup.set("d", _jm_f_11)
         check_model_map.set("", json_model_1)
         check_model_map.set("O0", json_model_2)
         check_model_map.set("O1", json_model_3)

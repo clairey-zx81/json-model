@@ -9,7 +9,6 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-var _jm_obj_2_mup = new Map()
 var check_model_map = new Map()
 
 // check $T (.'$T')
@@ -189,59 +188,6 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-// check _jm_obj_2_mup_a (.a)
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .a
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.a]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_b (.b)
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .b
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.b]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_c (.c)
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .c
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.c]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_2_mup_d (.d)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .d
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.d]", path])
-    }
-    return res;
-}
-
-
 // object .
 function _jm_obj_2(val, path, rep)
 {
@@ -250,22 +196,73 @@ function _jm_obj_2(val, path, rep)
         rep !== null && rep.push(["not an object [.]", path])
         return false;
     }
-    let pfun;
+    let res;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_2_mup.get(prop)))
+        if (prop == "a")
         {
-            // handle 4 mandatory props
-            if (pfun !== undefined)
+            // handle must a property
+            must_count += 1;
+            // .a
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_2 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.]", (path ? lpath_2 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["unexpected _cst_01 [.a]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.a]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "b")
+        {
+            // handle must b property
+            must_count += 1;
+            // .b
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.b]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.b]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "c")
+        {
+            // handle must c property
+            must_count += 1;
+            // .c
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.c]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.c]", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (prop == "d")
+        {
+            // handle must d property
+            must_count += 1;
+            // .d
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.d]", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.d]", (path ? lpath_2 : null)])
+                return false;
             }
         }
         else
@@ -323,10 +320,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_2_mup.set("a", _jm_f_0)
-        _jm_obj_2_mup.set("b", _jm_f_1)
-        _jm_obj_2_mup.set("c", _jm_f_2)
-        _jm_obj_2_mup.set("d", _jm_f_3)
         check_model_map.set("", json_model_1)
         check_model_map.set("T", json_model_2)
         check_model_map.set("X", json_model_3)

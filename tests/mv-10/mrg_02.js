@@ -9,7 +9,6 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-var _jm_obj_0_mup = new Map()
 var _jm_obj_2_mup = new Map()
 var check_model_map = new Map()
 
@@ -26,59 +25,6 @@ function json_model_2(val, path, rep)
     return res;
 }
 
-// check _jm_obj_0_mup_a (.'$R'.a)
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$R'.a
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$R'.a]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_b (.'$R'.b)
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'$R'.b
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$R'.b]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_c (.'$R'.c)
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'$R'.c
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$R'.c]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_d (.'$R'.d)
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'$R'.d
-    res = ((typeof val === 'string' || val instanceof String)) && val == "cst_01";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _cst_01 [.'$R'.d]", path])
-    }
-    return res;
-}
-
-
 // object .'$R'
 function _jm_obj_0(val, path, rep)
 {
@@ -87,22 +33,73 @@ function _jm_obj_0(val, path, rep)
         rep !== null && rep.push(["not an object [.'$R']", path])
         return false;
     }
-    let pfun;
+    let res;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_mup.get(prop)))
+        if (prop == "a")
         {
-            // handle 4 mandatory props
-            if (pfun !== undefined)
+            // handle must a property
+            must_count += 1;
+            // .'$R'.a
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_0 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.'$R']", (path ? lpath_0 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["unexpected _cst_01 [.'$R'.a]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$R'.a]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "b")
+        {
+            // handle must b property
+            must_count += 1;
+            // .'$R'.b
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.'$R'.b]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$R'.b]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "c")
+        {
+            // handle must c property
+            must_count += 1;
+            // .'$R'.c
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.'$R'.c]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$R'.c]", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "d")
+        {
+            // handle must d property
+            must_count += 1;
+            // .'$R'.d
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "cst_01";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _cst_01 [.'$R'.d]", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$R'.d]", (path ? lpath_0 : null)])
+                return false;
             }
         }
         else
@@ -233,7 +230,7 @@ function json_model_4(val, path, rep)
 }
 
 // check _jm_obj_2_mup_a (.a)
-function _jm_f_4(val, path, rep)
+function _jm_f_0(val, path, rep)
 {
     let res;
     // .a
@@ -246,7 +243,7 @@ function _jm_f_4(val, path, rep)
 }
 
 // check _jm_obj_2_mup_b (.b)
-function _jm_f_5(val, path, rep)
+function _jm_f_1(val, path, rep)
 {
     let res;
     // .b
@@ -259,7 +256,7 @@ function _jm_f_5(val, path, rep)
 }
 
 // check _jm_obj_2_mup_c (.c)
-function _jm_f_6(val, path, rep)
+function _jm_f_2(val, path, rep)
 {
     let res;
     // .c
@@ -272,7 +269,7 @@ function _jm_f_6(val, path, rep)
 }
 
 // check _jm_obj_2_mup_d (.d)
-function _jm_f_7(val, path, rep)
+function _jm_f_3(val, path, rep)
 {
     let res;
     // .d
@@ -285,7 +282,7 @@ function _jm_f_7(val, path, rep)
 }
 
 // check _jm_obj_2_mup_e (.e)
-function _jm_f_8(val, path, rep)
+function _jm_f_4(val, path, rep)
 {
     let res;
     // .e
@@ -298,7 +295,7 @@ function _jm_f_8(val, path, rep)
 }
 
 // check _jm_obj_2_mup_f (.f)
-function _jm_f_9(val, path, rep)
+function _jm_f_5(val, path, rep)
 {
     let res;
     // .f
@@ -400,16 +397,12 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_0_mup.set("a", _jm_f_0)
-        _jm_obj_0_mup.set("b", _jm_f_1)
-        _jm_obj_0_mup.set("c", _jm_f_2)
-        _jm_obj_0_mup.set("d", _jm_f_3)
-        _jm_obj_2_mup.set("a", _jm_f_4)
-        _jm_obj_2_mup.set("b", _jm_f_5)
-        _jm_obj_2_mup.set("c", _jm_f_6)
-        _jm_obj_2_mup.set("d", _jm_f_7)
-        _jm_obj_2_mup.set("e", _jm_f_8)
-        _jm_obj_2_mup.set("f", _jm_f_9)
+        _jm_obj_2_mup.set("a", _jm_f_0)
+        _jm_obj_2_mup.set("b", _jm_f_1)
+        _jm_obj_2_mup.set("c", _jm_f_2)
+        _jm_obj_2_mup.set("d", _jm_f_3)
+        _jm_obj_2_mup.set("e", _jm_f_4)
+        _jm_obj_2_mup.set("f", _jm_f_5)
         check_model_map.set("", json_model_1)
         check_model_map.set("T", json_model_2)
         check_model_map.set("R", json_model_5)

@@ -11,7 +11,6 @@ const JSON_MODEL_VERSION = "2.0b0";
 
 const _jm_re_0_re = new runtime.RX("^\\..+$", "")
 const _jm_re_1_re = new runtime.RX("^([#~$%@|&+^/*=]|[<>!]=?)$", "")
-var _jm_obj_0_mup = new Map()
 var check_model_map = new Map()
 
 // object .'$'
@@ -78,19 +77,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_mup_$ (.'$')
-function _jm_f_0(val, path, rep)
-{
-    let res;
-    // .'$'
-    res = _jm_obj_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'$']", path])
-    }
-    return res;
-}
-
 const _jm_re_0 = (s) => _jm_re_0_re.exec(s) !== null
 
 const _jm_re_1 = (s) => _jm_re_1_re.exec(s) !== null
@@ -131,46 +117,6 @@ function _jm_obj_2(val, path, rep)
     return true;
 }
 
-// check _jm_obj_0_mup_% (.'%')
-function _jm_f_1(val, path, rep)
-{
-    let res;
-    // .'%'
-    res = _jm_obj_2(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected object [.'%']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_@ (.'@')
-function _jm_f_2(val, path, rep)
-{
-    let res;
-    // .'@'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "$Model";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _$Model [.'@']", path])
-    }
-    return res;
-}
-
-// check _jm_obj_0_mup_~ (.'~')
-function _jm_f_3(val, path, rep)
-{
-    let res;
-    // .'~'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "https://json-model.org/models/l10n";
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", path])
-    }
-    return res;
-}
-
-
 // object .
 function _jm_obj_0(val, path, rep)
 {
@@ -180,22 +126,72 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    let pfun;
     let must_count = 0;
     for(const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
-        if ((pfun = _jm_obj_0_mup.get(prop)))
+        if (prop == "$")
         {
-            // handle 4 mandatory props
-            if (pfun !== undefined)
+            // handle must $ property
+            must_count += 1;
+            // .'$'
+            res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
+            if (! res)
             {
-                must_count += 1;
-                if (! pfun(pval, (path ? lpath_0 : null), rep))
-                {
-                    rep !== null && rep.push(["invalid mandatory prop value [.]", (path ? lpath_0 : null)])
-                    return false;
-                }
+                rep !== null && rep.push(["unexpected object [.'$']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "~")
+        {
+            // handle must ~ property
+            must_count += 1;
+            // .'~'
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "https://json-model.org/models/l10n";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _https://json-model.org/models/l10n [.'~']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'~']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "%")
+        {
+            // handle must % property
+            must_count += 1;
+            // .'%'
+            res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected object [.'%']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'%']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else if (prop == "@")
+        {
+            // handle must @ property
+            must_count += 1;
+            // .'@'
+            res = ((typeof pval === 'string' || pval instanceof String)) && pval == "$Model";
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected _$Model [.'@']", (path ? lpath_0 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'@']", (path ? lpath_0 : null)])
+                return false;
             }
         }
         else if (prop == "#")
@@ -268,10 +264,6 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        _jm_obj_0_mup.set("$", _jm_f_0)
-        _jm_obj_0_mup.set("%", _jm_f_1)
-        _jm_obj_0_mup.set("@", _jm_f_2)
-        _jm_obj_0_mup.set("~", _jm_f_3)
         check_model_map.set("", json_model_1)
     }
 }
