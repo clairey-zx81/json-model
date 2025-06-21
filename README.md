@@ -144,7 +144,7 @@ and the JavaScript model validation is 20% faster than the C++ schema validation
 
 ## More Information
 
-See the [JSON Model Tutorial](./TUTO.md) for an hands-on overview of JSON Model.
+See the [JSON Model Tutorial](./TUTO.md) for a hands-on overview of JSON Model.
 
 JSON Model design is presented research papers and reports:
 
