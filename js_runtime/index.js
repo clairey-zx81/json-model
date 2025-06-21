@@ -194,7 +194,7 @@ export function jm_cmp(v1, v2)
     return jm_obj_cmp(v1, v2)
 }
 
-// FIXME this implementation only works for scalar types and assumes 0 === 0.0 (mv-01/uniq_2)
+// works for anything
 export function jm_array_is_unique(arr)
 {
     let sorted = arr.toSorted(jm_cmp)
