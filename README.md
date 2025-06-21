@@ -135,7 +135,7 @@ description using JSON Model in C, JS and Python and JSON Schema Blaze implement
 an average collected on thousands of runs, in _fast_ (no reporting) mode, on the same laptop:
 
 - JSON Model C: _208_ µs/check (about ⅕ ms)
-- JSON Model JS: _755_ µs/check (under 1 ms)
+- JSON Model JS: _755_ µs/check (about ¾ ms)
 - JSON Schema C++ Blaze: _952_ µs/check (under 1 ms)
 - JSON Model Python: _4,886_ µs/check (under 5 ms)
 
