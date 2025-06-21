@@ -2,6 +2,8 @@
 
 ## Current Tasks
 
+- [ ] js-backend: cleanup map and set
+- [ ] js-backend: `let` vs `var` consistency?
 - [ ] python: rerun style and type checks
 - [ ] tests: rerun tests
 - [ ] tests: with multiple regex engine
