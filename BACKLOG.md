@@ -2,30 +2,24 @@
 
 ## Current Tasks
 
-- [x] command: regex engine selection
-- [x] c-backend: add `re2` support
-- [x] c-backend: default to `re2`
-- [x] js-backend: add `re2` (backend, node only) support
-- [x] command: allow `-I` and `-L` for C compilation
-- [x] static: re optimize `^...` using starts with when possible (idea from blaze paper)
-- [x] static: re optimize `...$` and `^...$`
-- [x] pr: collect cloc about compiler (parts) and runtimes
+- [ ] python: rerun style and type checks
+- [ ] tests: rerun tests
 - [ ] tests: with multiple regex engine
+- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.model.json`)
 - [ ] doc: document `re2` support for C
-- [ ] design: rewrite reuse path?
+- [ ] design: rewrite reuse path? rather force defs?
 - [ ] use: js/ts type export?
 - [ ] use: py type dataclass/pydantic export?
 - [ ] use: test with corrector?
+- [ ] static: sort list of models? option?
 - [ ] js-backend: warn about loose
 - [ ] tuto: add further reading pointers in the conclusion
-- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`.
+- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
-- [ ] python: rerun style and type checks
 - [ ] ts-backend: js sharing?
 - [ ] models: update JSON model meta-model with regex extension…
-- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.model.json`)
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
@@ -51,6 +45,7 @@
 - [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data?
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] php-backend: should it stoop so low?
+- [ ] perf: geo, ansible meta, openapi
 
 ## To Do
 
@@ -66,7 +61,6 @@
 - [ ] c-backend: add arr and obj to cst management?
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
-- [ ] design: allow regular extension to use references `/...($XXX).../R`
 - [ ] design: should it allow unexpected ints as constants?
 - [ ] dynamic: JSON IR to lambda?!
 - [ ] backend: add JSON output?
@@ -334,7 +328,7 @@
 - [x] optim: remove unfeasible `!=`
 - [x] python: refactoring, drop `Validator` class
 - [x] python: refactoring, remove `defines.py` and `validator.py`
-- [x] design: improve meta model with more predefs? regex recursion extension? `"/^/($REGEX)/\$/v"`
+- [x] design: regex recursion extension `"/^/($REGEX)/\$/X"`
 - [x] design: more use-case related predefs: `"$EMAIL"`, `"$URI"`
 - [x] c-backend: get rid of `mktime` for fast date validation
 - [x] design: add `$EXREG' for JSON Model extended regex
@@ -357,3 +351,11 @@
 - [x] docs: add a tutorial tour
 - [x] js-backend: add official npm module on `npmjs`.
 - [x] design: add `"$DATETIME"` and `"$TIME"`
+- [x] command: regex engine selection
+- [x] c-backend: add `re2` support
+- [x] c-backend: default to `re2`
+- [x] js-backend: add `re2` (backend, node only) support
+- [x] command: allow `-I` and `-L` for C compilation
+- [x] static: re optimize `^...` using starts with when possible (idea from blaze paper)
+- [x] static: re optimize `...$` and `^...$`
+- [x] pr: collect cloc about compiler (parts) and runtimes
