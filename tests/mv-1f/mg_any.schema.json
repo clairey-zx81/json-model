@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "foo": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "^\\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\\d|3[01])$": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "properties": {
+    "a": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "b": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "c": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "a",
+    "b"
+  ],
+  "additionalProperties": false
+}

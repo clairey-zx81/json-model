@@ -450,69 +450,84 @@ def merge_objects(models: list[ModelObject], path: ModelPath) -> JsonObject|str:
     must, may, refs, regs, others = split_object(m0, path + [0])
 
     for i, m in enumerate(models[1:]):
+
         lpath = path + [i + 1]
         mu, ma, rf, rg, ot = split_object(m, lpath)
+
         # combine all properties
         # merge MUST
         for prop, mod in mu.items():
             lppath = path + [prop]
             if prop in must:
-                if not same_model(mod, must[prop]):
+                mumod = must[prop]
+                if mumod != "$ANY" and mod != "$ANY" and not same_model(mod, mumod):
                     raise ModelError(f"incompatible must property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
-                # else pass
+                # else keep best
+                if mod != "$ANY" and mumod == "$ANY":
+                    must[prop] = mod
             elif prop in may:
-                if not same_model(mod, may[prop]):
+                mamod = may[prop]
+                if mamod != "$ANY" and mod != "$ANY" and not same_model(mod, mamod):
                     raise ModelError(f"incompatible must property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
-                must[prop] = mod
+                must[prop] = mod if mod != "$ANY" else mamod
                 del may[prop]
-            else:
+            else:  # new mandatory property
                 must[prop] = mod
+
         # merge MAY
         for prop, mod in ma.items():
             lppath = path + [prop]
             if prop in must:
-                if not same_model(mod, must[prop]):  # ???
+                mumod = must[prop]
+                if mod != "$ANY" and "mumod" != "$ANY" and not same_model(mod, must[prop]):  # ???
                     raise ModelError(f"incompatible may property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
-                # else pass
+                # else keep best
+                if mod != "$ANY" and mumod == "$ANY":
+                    must[prop] = mod
             elif prop in may:
-                if not same_model(mod, may[prop]):
+                mamod = may[prop]
+                if mod != "$ANY" and mamod != "$ANY" and not same_model(mod, mamod):
                     raise ModelError(f"incompatible may property {prop} while merging: "
                                      f"{m0} / {m} {lppath}")
-                # else pass
-            else:
+                # else keep best
+                if mod != "$ANY" and mamod == "$ANY":
+                    may[prop] = mod
+            else:  # new optional property
                 may[prop] = mod
+
         # merge MAYBE
-        for prop, mod in rf.items():
-            lppath = path + [prop]
-            # FIXME are the same $ available???
-            if prop in refs:
-                if not same_model(mod, refs[prop]):
-                    raise ModelError(f"incompatible refs property {prop} while merging: "
-                                     f"{m0} / {m} {lppath}")
-                # else pass
-            else:
-                refs[prop] = mod
-        for prop, mod in rg.items():
-            lppath = path + [prop]
-            # FIXME are the same $ available???
-            if prop in regs:
-                if not same_model(mod, regs[prop]):
-                    raise ModelError(f"incompatible regs property {prop} while merging: "
-                                     f"{m0} / {m} {lppath}")
-                # else pass
-            else:
-                regs[prop] = mod
+        def mergeMaybe(dst, src, cat: str, path: ModelPath):
+            for prop, mod in src.items():
+                lppath = path + [prop]
+                if prop in dst:
+                    dstmod = dst[prop]
+                    if mod != "$ANY" and dstmod != "$ANY" and not same_model(mod, dstmod):
+                        raise ModelError(f"incompatible {cat} property {prop} while merging:"
+                                         f"{m0} / {m} {lppath}")
+                    # else keep best
+                    if mod != "$ANY" and dstmod == "$ANY":
+                        dst[prop] = mod
+                else:  # new property
+                    dst[prop] = mod
+
+        mergeMaybe(refs, rf, "refs", path)
+        mergeMaybe(regs, rg, "regs", path)
+
         # merge OTHERS
         if "" in ot:
+            mod = ot[""]
             if "" in others:
-                if not same_model(ot[""], others[""]):
+                omod = others[""]
+                if mod != "$ANY" and omod != "$ANY" and not same_model(mod, omod):
                     raise ModelError("incompatible catchall while merging: "
                                      f"{m0} / {m} [{lpath}.'']")
-                # else pass
-            else:
+                # else keep best
+                if mod != "$ANY" and omod == "$ANY":
+                    others[""] = mod
+            else:  # new catchall
                 others = ot
 
     return unsplit_object(must, may, refs, regs, others)

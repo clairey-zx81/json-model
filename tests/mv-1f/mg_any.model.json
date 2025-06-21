@@ -1,0 +1,7 @@
+{
+  "#": "merge $ANY to stricter",
+  "+": [
+    {"a": 1, "?b": 1, "?c": "$ANY", "/foo/": 1, "$DATE": 1},
+    {"a": "$ANY", "b": "$ANY", "?c": 1, "/foo/": "$ANY", "$DATE": "$ANY"}
+  ]
+}

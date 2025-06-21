@@ -2,6 +2,7 @@
 
 ## Current Tasks
 
+- [x] design: allow merge to handle `$ANY` values on one side
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
 - [ ] python: rerun style and type checks
