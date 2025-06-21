@@ -1,0 +1,13 @@
+{
+  "#": "OpenAPI 3.1.1 with JSON Schema (fuzzy)",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/openapi-311-fuzzy",
+    "openapi": "$https://json-model.org/models/openapi-311"
+  },
+  "%": {
+    "#": "override standard schema with the fuzzy version",
+    "$openapi#schema": "$https://json-model.org/models/json-schema-draft-2020-12-fuzzy"
+  },
+  "@": "$openapi"
+}

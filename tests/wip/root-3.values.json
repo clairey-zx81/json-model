@@ -1,0 +1,17 @@
+[
+  [ true,  {"rt": {"id": 1, "name": "Susie"}} ],
+  [ false, {"rt": {"id": 1}} ],
+  [ false, {"rt": {"name": "Calvin"}} ],
+  [ false, {"rt": {"id": 1, "name": "Hobbes", "age": 3}} ],
+  [ false, {"rt": {}} ],
+  [ false, {"rt": {"id": 0, "name": "Calvin"}} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
