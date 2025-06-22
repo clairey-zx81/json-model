@@ -11,6 +11,7 @@
 
 typedef enum {
     expect_nothing,
+    expect_anything,
     expect_fail,
     expect_pass
 } process_mode_t;
@@ -80,8 +81,10 @@ process_value(const char *name, const json_t * value,
     valid = checker(value, NULL, NULL);
     bool unexpected = (mode == expect_fail && valid) || (mode == expect_pass && !valid);
 
-    if (mode == expect_nothing)  // just show
+    if (mode == expect_nothing)  // just show, no index
         fprintf(stdout, "%s: %s", fname, valid ? "PASS" : "FAIL");
+    else if (mode == expect_anything)  // just show, including index
+        fprintf(stdout, "%s[%zu]: %s", fname, index, valid ? "PASS" : "FAIL");
     else if (unexpected)
         fprintf(stdout, "%s[%zu]: ERROR unexpected %s", fname, index, valid ? "PASS" : "FAIL");
     else  // as expected
@@ -117,6 +120,7 @@ process_value(const char *name, const json_t * value,
             double avg = sum / loop;
             double stdev = sqrt(sum2 / loop - avg * avg);
 
+            // FIXME could drop name and index in some cases
             fprintf(stderr, "%s.%s[%zu] rep %s %.03f ± %.03f µs/check (%.03f)\n",
                     fname, name, index, valid ? "PASS": "FAIL", avg, stdev, empty);
         }
@@ -273,7 +277,7 @@ int main(int argc, char* argv[])
                                        JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
                                        &error)))
             {
-                if (!process_value(name, value, argv[i], count, expect_nothing, report, loop))
+                if (!process_value(name, value, argv[i], count, expect_anything, report, loop))
                     errors++;
                 count++;
                 json_decref(value);
