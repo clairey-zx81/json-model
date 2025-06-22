@@ -121,5 +121,6 @@
   - py: for convenient data structure documentation (?!)
   - ORM, tables, pydantic, dataclass, python types…
 - extensions: derive models for distinct usages?
+- provide with default values for initialization
 
 - rewrite: compare with dynamic reference JSON Schema use case.
