@@ -1,10 +1,11 @@
 {
   "#": "Root 1",
   "$": {
-    "root": "$./root-0"
+    "root": "$./root-0",
+    "Root": "$root#Root"
   },
   "%": {
     "$root#Root.id": "=1"
   },
-  "@": "$root#Root"
+  "@": "$Root"
 }

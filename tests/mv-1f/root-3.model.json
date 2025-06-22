@@ -1,7 +1,7 @@
 {
   "#": "Root 3",
   "$": {
-    "foo": "./root-2"
+    "foo": "$./root-2"
   },
   "%": {
     "$foo#root": "$./root-1"

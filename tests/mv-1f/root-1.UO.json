@@ -1,0 +1,35 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "root": {
+        "#": "JsonModel 4 with defs",
+        "$": "Symbol 4",
+        "@": "$Root"
+      },
+      "Root": "$root#Root",
+      "#": "Symbol 1",
+      "": "./root-1.model.json"
+    },
+    "@": "$Root"
+  },
+  "$root#Root",
+  {
+    "#": "JsonModel 4 with defs",
+    "$": {
+      "Root": {
+        "id": "=1",
+        "name": "",
+        "#": "JsonModel 5"
+      },
+      "#": "Symbol 4",
+      "": "./root-0"
+    },
+    "@": "$Root"
+  },
+  {
+    "id": "=1",
+    "name": "",
+    "#": "JsonModel 5"
+  }
+]

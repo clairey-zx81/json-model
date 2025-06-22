@@ -3,6 +3,9 @@
 ## Current Tasks
 
 - [x] design: allow merge to handle `$ANY` values on one side
+- [x] design: import definitions with `<` in `%`
+- [ ] model: warn on url-looking definitions
+- [ ] frontend: add support for `jsonl`
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
 - [ ] python: rerun style and type checks

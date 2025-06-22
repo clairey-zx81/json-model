@@ -68,11 +68,40 @@
   }
   ```
 
+## Trafo
+
+- how to import automatically all indirect models into the current name space?
+
+  `~ * / + - ! # @ < > , . ; : $ = _ `
+
+  ```json
+  {
+    "~": "./my-model",
+    "$": {
+      "": "./myself",
+      "external": "$./other",
+      "???": [ "$external", ... ]
+    }
+  }
+  ```
+
+  or is it a transformation?
+
+  ```json
+  {
+    "%": {
+      "<": [ "$URL" ]
+    }
+  }
+  ```
+
 ## Merge
 
-- merge allow to merge something / ANY by keeping stricter one
+- [x] merge allow to merge something / ANY by keeping stricter one (see ansible meta model)
 
 ## Usability use cases
+
+- def only models are ok
 
 - manage (related) models:
   - in files

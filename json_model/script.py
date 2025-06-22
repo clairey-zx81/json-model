@@ -20,7 +20,7 @@ from .runtime.support import _path as json_path
 
 def process_model(model: JsonModel, *,
                   check: bool = True, merge: bool = True, optimize: bool = True,
-                  debug: bool = False):
+                  debug: int = 0):
     """Apply necessary preprocessing to JsonModel."""
 
     # initial sanity check
@@ -64,7 +64,7 @@ def process_model(model: JsonModel, *,
 
 def model_from_json(
         mjson: Jsonable, *, auto: bool = False,
-        debug: bool = False, murl: str|None = None,
+        debug: int = 0, murl: str|None = None,
         check: bool = True, merge: bool = True, optimize: bool = True,
         loose_int: bool|None = None, loose_float: bool|None = None,
         resolver: Resolver|None = None) -> JsonModel:
@@ -89,7 +89,7 @@ def model_from_json(
                 log.info(f"auto adding url map: {upref} -> {fpref}")
                 resolver._maps[upref] = fpref
 
-    jm = JsonModel(mjson, resolver, murl, debug=debug,
+    jm = JsonModel(mjson, resolver, url=murl, debug=debug,
                    loose_int=loose_int, loose_float=loose_float)
 
     if check or merge or optimize:
@@ -98,7 +98,7 @@ def model_from_json(
     return jm
 
 
-def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
+def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
                    check: bool = True, merge: bool = True, optimize: bool = True,
                    loose_int: bool|None = None, loose_float: bool|None = None,
                    resolver: Resolver|None = None, follow: bool = True) -> JsonModel:
@@ -116,7 +116,7 @@ def model_from_url(murl: str, *, auto: bool = False, debug: bool = False,
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
                    loose_int: bool|None = None, loose_float: bool|None = None,
-                   debug: bool = False, murl: str|None = None) -> JsonModel:
+                   debug: int = 0, murl: str|None = None) -> JsonModel:
     """JsonModel instanciation from a string."""
 
     return model_from_json(json.loads(mstring), auto=auto, debug=debug, murl=murl,
@@ -140,29 +140,29 @@ def model_checker(jm: JsonModel, *, debug: bool = False) -> EntryCheckFun:
 
 
 def model_checker_from_json(
-            mjson: Jsonable, *, auto: bool = False, debug: bool = False,
+            mjson: Jsonable, *, auto: bool = False, debug: int = 0,
             resolver: Resolver|None = None,
             loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_json(mjson, auto=auto, debug=debug, resolver=resolver,
                          loose_int=loose_int, loose_float=loose_float)
-    return model_checker(jm, debug=debug)
+    return model_checker(jm, debug=debug > 0)
 
 
 def model_checker_from_url(
-            murl: str, *, auto: bool = False, debug: bool = False,
+            murl: str, *, auto: bool = False, debug: int = 0,
             resolver: Resolver|None = None, follow: bool = True,
             loose_int: bool|None = None, loose_float: bool|None = None,
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
                         loose_int=loose_int, loose_float=loose_float)
-    return model_checker(jm, debug=debug)
+    return model_checker(jm, debug=debug > 0)
 
 
 def create_model(murl: str, resolver: Resolver, *,
-                 auto: bool = False, follow: bool = True, debug: bool = False,
+                 auto: bool = False, follow: bool = True, debug: int = 0,
                  loose_int: bool|None = None, loose_float: bool|None = None) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
@@ -228,7 +228,7 @@ def jmc_script():
 
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
-    arg("--debug", "-d", action="store_true", help="set debugging mode")
+    arg("--debug", "-d", action="count", help="increase debugging verbosity")
     arg("--verbose", "-v", action="store_true", help="more verbose")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
 

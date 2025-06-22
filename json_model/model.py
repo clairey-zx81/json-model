@@ -220,6 +220,7 @@ class JsonModel:
         self._init_pc: dict[str, ModelType] = {}
         self._name: ModelRename = {}
         self._rewrite: dict[str, ModelTrafo] = {}
+        self._imports: list[str] = []
 
         if debug:
             log.debug(f"{self._id}: model for {url} "
@@ -284,13 +285,21 @@ class JsonModel:
             model = self.rename(model, [], True)
             assert isinstance(model, dict)
 
+            # reference imports
+            if "<" in model_pc:
+                self._imports = model_pc["<"]
+
             # extract rewrites
             # TODO check name syntax? $Path#To#Def.path.to.prop
             self._rewrite = {
                 name: rw
                     for name, rw in model_pc.items()
-                        if isinstance(name, str) and not name.startswith(".") and not name == "#"
+                        if isinstance(name, str) and
+                            not name.startswith(".") and
+                            name not in ("#", "<")
             }
+
+            log.warning(f"rewrite={self._rewrite}")
 
             # save initial definition
             self._init_pc = model_pc
@@ -344,6 +353,22 @@ class JsonModel:
             self._spec = None
 
         self._model = model
+
+        # import definitions
+        if self._imports:
+            log.info(f"importing model definitions from {self._imports}")
+            assert isinstance(self._imports, list) and \
+                all(isinstance(s, str) and s and s[0] == "$" for s in self._imports), \
+                f"imports must be an array of references"
+            for i, ref in enumerate(self._imports):
+                jsub = self.resolveRef(ref, ["%", "~", i], False)
+                if len(jsub._defs) > 0:
+                    for name, jm in jsub._defs.items():
+                        if name in self._defs:
+                            raise ModelError(f"cannot override definition {name} in {self._url} from {ref}")
+                        self._defs[name] = jm
+                else:
+                    log.warning(f"no definition to import from {ref}")
 
         if self._is_root:
             # loading twice, rewriting may add references…
@@ -440,7 +465,7 @@ class JsonModel:
         # log.debug(f"{self._id}: root url")
         if self._isUrlRef(self._model):
             # if the root schema is a string, there was no definitions nor rewrites!
-            assert len(self._defs) == 0 and isinstance(self._model, str)
+            # ??? assert len(self._defs) == 0 and isinstance(self._model, str)
             self.override(follow(self._model, []))
 
         names = list(self._defs.keys())
@@ -713,6 +738,8 @@ class JsonModel:
                 return jm.resolveRef("$" + others, path + [name], create) if others else jm
         else:
             if not create:
+                if self._debug:
+                    log.debug(f"{self._id}: ref={ref} model={self._model} defs={list(self._defs.keys())}")
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
@@ -745,9 +772,10 @@ class JsonModel:
 
         # actual resolution
         while jm._isRef(model):
+            jm_id = jm._id  # entry id
             assert isinstance(model, str)  # pyright hint
             if self._debug >= 3:
-                log.debug(f"{self._id}: RR {model} in {jm._id}")
+                log.debug(f"{self._id}: [{jm._id}] RR ref loop on {model}")
             if jm._isUrlRef(model):
                 # detect recursion
                 if model in followed:
@@ -760,14 +788,19 @@ class JsonModel:
                 else:
                     url, model = model[1:], None  # will stop resolution loop
                 jm = jm.load(url, path)
-            else:
+            else:  # reference to a definition
+                if self._debug >= 3:
+                    log.debug(f"{self._id}: [{jm._id}] RR to RD for {model} at {path}")
                 jm = jm.resolveDef(model, path, create)
-                # special case for "$#"
-                if model == jm._model:
+                # if self._debug >= 3:
+                #     log.debug(f"{self._id}: [{jm._id}] after RD")
+
+                # special case for "$#" which leads to a direct recursion
+                if jm._id == jm_id and model == jm._model:
                     if model == "$#":
                         break
                     else:
-                        raise ModelError(f"resolution cycle on {model}")
+                        raise ModelError(f"{self._id}: (jm={jm._id}) resolution cycle on {model}")
                 model = jm._model
 
             if self._debug >= 3:
@@ -787,7 +820,8 @@ class JsonModel:
         """Move all local references to the root scope."""
         if self._debug >= 2:
             log.debug(f"{self._id}: scoping {root} ({visited} / {references})")
-            log.debug(f" - symbols: {symbols}")
+            if self._debug >= 3:
+                log.debug(f"{self._id}: scope in symbols: {symbols}")
 
         # prevent infinite recursion
         mid = ("m", self._id)
@@ -899,7 +933,7 @@ class JsonModel:
         """Parse "$Foo.foo.0.bla" reference and simple json path."""
         if self._debug:
             log.debug(f"{self._id}: parsePath at {path}: {tpath}")
-        assert tpath and tpath[0] == "$"
+        assert tpath and tpath[0] == "$", f"tpath must be a reference: {tpath}"
         if "." in tpath:
             name, jpath = tpath.split(".", 1)
             if jpath == "":
@@ -907,7 +941,7 @@ class JsonModel:
             xpath = [int(i) if re.match(r"\d+$", i) else i for i in jpath.split(".")]
         else:
             name, xpath = tpath, []
-        log.debug(f"parsePath name={name} xpath={xpath}")
+        log.debug(f"{self._id}: parsePath name={name} xpath={xpath}")
         return (self.resolveRef(name, path, True), xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):

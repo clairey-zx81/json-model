@@ -1,0 +1,76 @@
+[
+  {
+    "#": "JsonModel 1 with defs",
+    "$": {
+      "foo": {
+        "#": "JsonModel 3 with defs",
+        "$": "Symbol 3",
+        "@": "$Foo"
+      },
+      "#": "Symbol 1",
+      "": "./root-3.model.json"
+    },
+    "@": "$foo#Foo"
+  },
+  {
+    "#": "JsonModel 3 with defs",
+    "$": {
+      "root": {
+        "@": "$Root",
+        "#": "JsonModel 8",
+        "$": {
+          "Root": {
+            "id": "=0",
+            "name": ""
+          },
+          "#": "Symbol 8",
+          "": "./root-0"
+        }
+      },
+      "Foo": {
+        "rt": "$root#Root",
+        "#": "JsonModel 5"
+      },
+      "#": "Symbol 3",
+      "": "./root-2"
+    },
+    "@": "$Foo"
+  },
+  {
+    "rt": "$root#Root",
+    "#": "JsonModel 5"
+  },
+  {
+    "#": "JsonModel 8 with defs",
+    "$": {
+      "root": {
+        "#": "JsonModel 11 with defs",
+        "$": "Symbol 11",
+        "@": "$Root"
+      },
+      "Root": "$root#Root",
+      "#": "Symbol 8",
+      "": "./root-1"
+    },
+    "@": "$Root"
+  },
+  "$root#Root",
+  {
+    "#": "JsonModel 11 with defs",
+    "$": {
+      "Root": {
+        "id": "=1",
+        "name": "",
+        "#": "JsonModel 12"
+      },
+      "#": "Symbol 11",
+      "": "./root-0"
+    },
+    "@": "$Root"
+  },
+  {
+    "id": "=1",
+    "name": "",
+    "#": "JsonModel 12"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  [ true,  "a", "a" ],
+  [ true,  "b", "b" ],
+  [ true,  "c", "c" ],
+  [ false, "a", "oops" ],
+  [ false, "b", "oops" ],
+  [ false, "c", "oops" ]
+]
