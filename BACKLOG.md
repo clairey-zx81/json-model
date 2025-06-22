@@ -4,11 +4,15 @@
 
 - [x] design: allow merge to handle `$ANY` values on one side
 - [x] design: import definitions with `<` in `%`
-- [ ] model: warn on url-looking definitions
-- [ ] frontend: add support for `jsonl`
+- [x] command: check loose option propagation
+- [x] c-frontend: add support for `jsonl`
+- [ ] static: optimize open must-onlyi (may) prop checks by dropping loop
+- [ ] js-frontend: add support for `jsonl`
+- [ ] py-frontend: add support for `jsonl`
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
 - [ ] python: rerun style and type checks
+- [ ] model: warn on url-looking definitions
 - [ ] tests: rerun tests
 - [ ] tests: with multiple regex engine
 - [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.model.json`)
@@ -52,6 +56,7 @@
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] php-backend: should it stoop so low?
 - [ ] perf: geo, ansible meta, openapi
+- [ ] python: refactor preproc vs compile vs codegen…
 
 ## To Do
 

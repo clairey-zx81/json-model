@@ -164,6 +164,7 @@ class JsonModel:
     def __init__(self,
                  model: ModelType,
                  resolver: Resolver,
+                 *,
                  url: str = "",
                  head: JsonModel|None = None,
                  scope: Symbols|None = None,
@@ -322,7 +323,8 @@ class JsonModel:
             # TODO restrict names?
             # extract actual definitions
             self._defs.update({
-                n: JsonModel(m, resolver, self._url + "#" + n, self._head, self._defs, debug,
+                n: JsonModel(m, resolver, url=self._url + "#" + n,
+                             head=self._head, scope=self._defs, debug=self._debug,
                              loose_int=self._loose_int, loose_float=self._loose_float)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
@@ -396,7 +398,9 @@ class JsonModel:
         # build a *new* model: distinct refs to the same url are treated independently
         # because each may be rewritten independently.
         # If you want to share, add an explicit definition to a url and use it afterwards.
-        return JsonModel(j, self._resolver, url, None if is_head else self._head, None, self._debug)
+        return JsonModel(j, self._resolver, url=url, head=None if is_head else self._head,
+                         scope=None, debug=self._debug,
+                         loose_int=self._loose_int, loose_float=self._loose_float)
 
     def allLoads(self):
         """Load externals, switch un-named externals to local definitions."""
@@ -743,8 +747,9 @@ class JsonModel:
                 raise ModelError(f"{self._id}: cannot find definition for \"{name}\" ({path})")
             # creation only allowed while rewriting, as new defs may be added _after_ a reference
             log.info(f"{self._id}: creating empty definition \"{name}\"")
-            self._defs[name] = JsonModel(None, self._resolver, self._url + "#" + name,
-                                         self._head, self._defs, self._debug)
+            self._defs[name] = JsonModel(None, self._resolver, url=self._url + "#" + name,
+                                         head=self._head, scope=self._defs, debug=self._debug,
+                                         loose_int=self._loose_int, loose_float=self._loose_float)
             return self._defs[name]
 
     def resolveRef(self, model: Jsonable, path: ModelPath, create: bool = False) -> JsonModel:
@@ -949,12 +954,14 @@ class JsonModel:
 
     def _applyTrafo(self, j: Jsonable, trafo: ModelTrafo, path: ModelPath):
         """Apply this transformation on j."""
+
         if not isinstance(trafo, dict) or "/" not in trafo and "*" not in trafo:
             return trafo
         assert self._isTrafo(trafo)
         assert isinstance(trafo, dict)  # pyright hint
         if self._debug:
-            log.debug(f"applyTrafo trafo={trafo} on j={j}")
+            log.debug(f"{self._id}: applyTrafo trafo={trafo} on j={j} [{path}]")
+
         if "/" in trafo:
             sub = trafo["/"]
             # handle scalars
@@ -975,6 +982,7 @@ class JsonModel:
                     raise ModelError(f"cannot remove list from {tname(j)}")
             else:
                 raise ModelError("expecting a remove list")
+
         if "*" in trafo:
             add = trafo["*"]
             if isinstance(add, list):
@@ -992,6 +1000,7 @@ class JsonModel:
                     raise ModelError(f"cannot add object to {tname(j)} at {path}")
             else:
                 raise ModelError(f"unexpected add type at {path}")
+
         return j
 
     def _applyTrafoAtPath(self, jm: JsonModel, tpath: ModelPath,
@@ -1034,7 +1043,8 @@ class JsonModel:
             if last:  # apply!
                 log.debug(f"{jm._id}: applying on p={p} in j={j} trafo={trafo}")
                 j[p] = self._applyTrafo(j[p], trafo, path)  # type: ignore
-                # log.debug(f"j[p] = {j[p]}")
+                if self._debug >= 3:
+                    log.debug(f"{self._id}: after trafo j[p] = {j[p]}")
             else:  # move forward
                 log.debug(f"{jm._id}: moving forward on p={p}")
                 j = j[p]  # type: ignore
