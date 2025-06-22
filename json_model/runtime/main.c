@@ -160,6 +160,7 @@ int main(int argc, char* argv[])
     char *name = "";
     bool report = false;
     bool test = false;
+    bool jsonl = false;
     bool list = false;
     int loop = 1;
 
@@ -173,6 +174,7 @@ int main(int argc, char* argv[])
         { "time", required_argument, NULL, 'T' },
         { "fast", no_argument, NULL, 1000 },
         { "slow", no_argument, NULL, 1001 },
+        { "jsonl", no_argument, NULL, 1002 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -213,11 +215,21 @@ int main(int argc, char* argv[])
                 jm_is_valid_regex = jm_is_valid_regex_slow;
                 jm_is_valid_date = jm_is_valid_date_slow;
                 break;
+            case 1002:
+                jsonl = true;
+                break;
             case '?':
             default:
                 fprintf(stdout, "unexpected option encountered\n");
                 return 1;
         }
+    }
+
+    // option consistency
+    if (jsonl && test)
+    {
+        fprintf(stderr, "Value input format cannot be both jsonl and test\n");
+        return 1;
     }
 
     // initialization
@@ -243,72 +255,110 @@ int main(int argc, char* argv[])
     for (int i = optind; i < argc; i++)
     {
         json_error_t error;
+        json_t *value;
 
-        // read and parse JSON file
-        json_t *value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
-        if (value == NULL)
+        if (jsonl)
         {
-            fprintf(stdout, "%s: ERROR (%s at %d:%d)\n",
-                    argv[i], error.text, error.line, error.column);
-            errors++;
-            continue;
-        }
+            FILE *input = fopen(argv[i], "r");
+            int count = 0;
 
-        if (test)
-        {
-            if (!json_is_array(value))
+            if (input == NULL)
             {
-                fprintf(stdout, "%s: ERROR not a JSON array in test mode\n", argv[i]);
+                fprintf(stderr, "%s: ERROR while opening file\n", argv[i]);
                 errors++;
                 continue;
             }
 
-            size_t index;
-            json_t *val;
-            json_array_foreach(value, index, val)
+            while ((value = json_loadf(input,
+                                       JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
+                                       &error)))
             {
-                if (json_is_string(val))
-                    // skip string comments
-                    continue;
+                if (!process_value(name, value, argv[i], count, expect_nothing, report, loop))
+                    errors++;
+                count++;
+                json_decref(value);
+            }
 
-                // else must be an array (size is 0 for non-arrays)
-                size_t size = json_array_size(val);
-                if (!(size == 2 || size == 3))
+            if (value == NULL)  // if not EOF, it is probably an error
+            {
+                unsigned char c;
+                if (fread(&c, 1, 1, input) != 0)
                 {
-                    fprintf(stdout,
-                            "%s[%zu]: ERROR not a 2 or 3-tuple\n",
-                            argv[i], index);
+                    fprintf(stdout, "%s: ERROR (%s at %d:%d)\n",
+                            argv[i], error.text, error.line, error.column);
                     errors++;
                     continue;
                 }
-
-                const json_t
-                    *first = json_array_get(val, 0),
-                    *second = json_array_get(val, 1);
-
-                if (!json_is_boolean(first) || (size == 3 && !json_is_string(second)))
-                {
-                    fprintf(stdout,
-                            "%s[%zu]: ERROR first element not boolean or second not string\n",
-                            argv[i], index);
-                    errors++;
-                    continue;
-                }
-
-                const char *tname = size == 3 ? json_string_value(second) : name;
-                const json_t *value = size == 3 ? json_array_get(val, 2) : second;
-                process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
-
-                if (!process_value(tname, value, argv[i], index, mode, report, loop))
-                    errors++;
             }
         }
         else
-            if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop))
+        {
+            // read and parse JSON file
+            json_t *value = json_load_file(argv[i], JSON_DECODE_ANY|JSON_ALLOW_NUL, &error);
+            if (value == NULL)
+            {
+                fprintf(stdout, "%s: ERROR (%s at %d:%d)\n",
+                        argv[i], error.text, error.line, error.column);
                 errors++;
+                continue;
+            }
 
-        // free json value
-        json_decref(value);
+            if (test)
+            {
+                if (!json_is_array(value))
+                {
+                    fprintf(stdout, "%s: ERROR not a JSON array in test mode\n", argv[i]);
+                    errors++;
+                    continue;
+                }
+
+                size_t index;
+                json_t *val;
+                json_array_foreach(value, index, val)
+                {
+                    if (json_is_string(val))
+                        // skip string comments
+                        continue;
+
+                    // else must be an array (size is 0 for non-arrays)
+                    size_t size = json_array_size(val);
+                    if (!(size == 2 || size == 3))
+                    {
+                        fprintf(stdout,
+                                "%s[%zu]: ERROR not a 2 or 3-tuple\n",
+                                argv[i], index);
+                        errors++;
+                        continue;
+                    }
+
+                    const json_t
+                        *first = json_array_get(val, 0),
+                        *second = json_array_get(val, 1);
+
+                    if (!json_is_boolean(first) || (size == 3 && !json_is_string(second)))
+                    {
+                        fprintf(stdout,
+                                "%s[%zu]: ERROR first element not boolean or second not string\n",
+                                argv[i], index);
+                        errors++;
+                        continue;
+                    }
+
+                    const char *tname = size == 3 ? json_string_value(second) : name;
+                    const json_t *value = size == 3 ? json_array_get(val, 2) : second;
+                    process_mode_t mode = json_is_true(first) ? expect_pass : expect_fail;
+
+                    if (!process_value(tname, value, argv[i], index, mode, report, loop))
+                        errors++;
+                }
+            }
+            else
+                if (!process_value(name, value, argv[i], 0, expect_nothing, report, loop))
+                    errors++;
+
+            // free json value
+            json_decref(value);
+        }
     }
 
     CHECK_free();
