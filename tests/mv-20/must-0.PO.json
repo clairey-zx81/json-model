@@ -1,0 +1,6 @@
+{
+  "name": "",
+  "born": "$DATE",
+  "": "$ANY",
+  "#": "JsonModel 1"
+}

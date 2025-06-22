@@ -1,0 +1,9 @@
+[
+  {
+    "name": "",
+    "?born": "$DATE",
+    "?useless": "$ANY",
+    "": "$ANY",
+    "#": "JsonModel 1"
+  }
+]

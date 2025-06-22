@@ -1,0 +1,16 @@
+[
+  [ true,  {"name": "Susie", "born": "2000-10-14"} ],
+  [ true,  {"name": "Calvin", "born": "2000-03-20", "what": "ever"} ],
+  [ false, {"name": "Hobbes"} ],
+  [ false, {"born": "2020-07-29"} ],
+  [ false, {"what": ["ever"]} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

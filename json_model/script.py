@@ -228,7 +228,7 @@ def jmc_script():
 
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
-    arg("--debug", "-d", action="count", help="increase debugging verbosity")
+    arg("--debug", "-d", default=0, action="count", help="increase debugging verbosity")
     arg("--verbose", "-v", action="store_true", help="more verbose")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
 
@@ -474,11 +474,13 @@ def jmc_script():
     elif args.op == "C":
         assert args.format in ("py", "c", "js"), f"valid output language {args.format}"
 
+        # compile to source
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine)
         source = str(code)
 
+        # source to executable
         if args.format == "c" and args.gen in ("exec", "module"):
             clang_compile(source, args)
         elif args.gen != "none":
@@ -486,6 +488,7 @@ def jmc_script():
             if args.output != "-" and args.gen == "exec":
                 os.chmod(args.output, 0o755)
 
+        # import for checks
         if args.format == "py" and args.values:
             env = {}
             exec(source, env)

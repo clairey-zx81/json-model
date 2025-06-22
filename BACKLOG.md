@@ -6,7 +6,7 @@
 - [x] design: import definitions with `<` in `%`
 - [x] command: check loose option propagation
 - [x] c-frontend: add support for `jsonl`
-- [ ] static: optimize open must-onlyi (may) prop checks by dropping loop
+- [x] static: optimize open must/may prop checks by dropping loop
 - [ ] js-frontend: add support for `jsonl`
 - [ ] py-frontend: add support for `jsonl`
 - [ ] js-backend: cleanup map and set

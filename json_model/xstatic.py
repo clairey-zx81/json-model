@@ -450,6 +450,55 @@ class CodeGenerator:
             prop_map[p] = self._getName(jm, pid)
         self._code.pmap(name, prop_map)
 
+    def _openMuMaObject(self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
+                        mpath: ModelPath, oname: str, res: str, val: str, vpath: str) -> Block:
+        """Optimize `{"x": ..., "": "?y": ..., "$ANY"}`."""
+
+        assert isinstance(must, dict)
+        gen = self._lang
+        smpath = json_path(mpath)
+
+        code = (
+            gen.lcom("check must only props") +
+            gen.if_stmt(gen.not_op(gen.is_a(val, dict)),
+                        self._gen_fail(f"not an object [{smpath}]", vpath))
+        )
+
+        # value checks?
+        if any(m != "$ANY" for m in must.values()) or any(m != "$ANY" for m in may.values()):
+            code += (
+                gen.json_var("pval", declare=True) +
+                gen.bool_var(res, declare=True)
+            )
+
+        for prop, pmodel in must.items():
+            code += gen.if_stmt(
+                        gen.not_op(gen.has_prop(val, prop)),
+                        self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
+            if pmodel != "$ANY":
+                code += (
+                    gen.json_var("pval", gen.obj_prop_val(val, gen.esc(prop))) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    gen.if_stmt(
+                        gen.not_op(res),
+                        self._gen_fail(f"unexpected value for mandatory prop <{prop}> [{smpath}]",
+                                       vpath))
+                )
+
+        for prop, pmodel in may.items():
+            if pmodel != "$ANY":
+                code += gen.if_stmt(gen.has_prop(val, prop),
+                    gen.json_var("pval", gen.obj_prop_val(val, gen.esc(prop))) +
+                    self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
+                    gen.if_stmt(
+                        gen.not_op(res),
+                        self._gen_fail(f"unexpected value for optional prop <{prop}> [{smpath}]",
+                                       vpath))
+                )
+            # else covered by catchall
+
+        return code + gen.ret(gen.const(True))
+
     def _compileObject(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                        oname: str, res: str, val: str, vpath: str) -> Block:
         """Generate the body of a function which checks an actual object."""
@@ -481,7 +530,11 @@ class CodeGenerator:
             elif oth == { "": "$ANY" }:  # any object (empty must/may/defs/regs)
                 code += gen.lcom("accept any object") + gen.ret(gen.const(True))
                 return code
-            # else cannot optimize early
+            # only check values, fine code will be generated below
+
+        # shortcut for open object with simple props only
+        if not defs and not regs and (must or may) and oth == {"": "$ANY"}:
+            return self._openMuMaObject(jm, must, may, mpath, oname, res, val, vpath)
 
         # path + [ prop ]
         lpath = gen.ident("lpath")
@@ -1087,7 +1140,7 @@ class CodeGenerator:
 
                     # call object check and possibly report
                     code += gen.bool_var(res, gen.check_call(objid, val, vpath))
-                    code += self._gen_report(res, f"unexpected object [{smpath}]", vpath)
+                    code += self._gen_report(res, f"unexpected element [{smpath}]", vpath)
 
                     # record object function for path
                     self._paths[tuple(mpath)] = objid

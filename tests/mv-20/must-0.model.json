@@ -1,0 +1,6 @@
+{
+  "#": "open with only some mandatory properties",
+  "name": "",
+  "born": "$DATE",
+  "": "$ANY"
+}

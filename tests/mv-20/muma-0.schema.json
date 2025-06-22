@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "born": {
+      "type": "string",
+      "format": "date"
+    },
+    "useless": true
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": true
+}

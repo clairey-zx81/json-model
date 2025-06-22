@@ -1,0 +1,6 @@
+{
+  "name": "",
+  "?born": "$DATE",
+  "?useless": "$ANY",
+  "": "$ANY"
+}
