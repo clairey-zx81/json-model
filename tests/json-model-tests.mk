@@ -42,6 +42,9 @@ F.jsc   = $(F.root:%=%.js.check)
 # all generated
 F.gen   = $(F.json) $(F.UO) $(F.PO) $(F.EO) $(F.c) $(F.py) $(F.cc) $(F.pyc) $(F.js) $(F.jsc)
 
+.PHONY: all
+all: $(F.gen)
+
 .PHONY: js clean.js
 js: $(F.js) $(F.jsc)
 
