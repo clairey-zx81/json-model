@@ -1,0 +1,330 @@
+{
+  "#": "JSON Model for https://json.schemastore.org/lazygit.json",
+  "$": {
+    "color": { "|": [
+      "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "bold",
+      "default", "reverse", "underline", "strikethrough", "/^#[0-9a-fA-F]{6}$/" ]
+    },
+    "colorArray": { "@": [ "$color" ], ">=": 1, "!": true },
+    "keybinding": { "|": [ null, "" ] },
+    "custom-commands-prompts-type-property": {
+      "|": [ "input", "confirm", "menu", "menuFromCommand" ]
+    },
+    "custom-commands-prompts-title-property": "",
+    "custom-commands-prompts-key-property": "",
+    "neString": { "@": "", ">=": 1},
+    "stringArray": { "@": [ "$neString" ], "!": true },
+    "Prompts": {
+      "^": [
+        {
+          "type": "input",
+          "title": "$custom-commands-prompts-title-property",
+          "key": "$custom-commands-prompts-key-property",
+          "?initialValue": "",
+          "?suggestions": {
+            "^": [
+              {
+                "preset": {
+                  "|": ["authors", "branches", "files", "refs", "remotes", "remoteBranches", "tags"]
+                }
+              },
+              { "command": "" }
+            ]
+          }
+        },
+        {
+          "type": "confirm",
+          "title": "$custom-commands-prompts-title-property",
+          "key": "$custom-commands-prompts-key-property",
+          "?body": ""
+        },
+        {
+          "type": "menu",
+          "title": "$custom-commands-prompts-title-property",
+          "key": "$custom-commands-prompts-key-property",
+          "options": {
+            "@": [
+              {
+                "value": "$neString",
+                "?description": "",
+                "?name": ""
+              }
+            ],
+            "!": true
+          }
+        },
+        {
+          "type": "menuFromCommand",
+          "title": "$custom-commands-prompts-title-property",
+          "key": "$custom-commands-prompts-key-property",
+          "command": "",
+          "?filter": "",
+          "?valueFormat": "",
+          "?labelFormat": ""
+        }
+      ]
+    }
+  },
+  "?gui": {
+    "?windowSize": { "|": [ "normal", "half", "full" ] },
+    "?scrollHeight": 1,
+    "?scrollPastBottom": true,
+    "?sidePanelWidth": { "@": 0.0, "<=": 1.0 },
+    "?expandFocusedSidePanel": true,
+    "?mainPanelSplitMode": { "|": [ "horizontal", "flexible", "vertical" ] },
+    "?language": { "|": [ "auto", "en", "zh-CN", "zh-TW", "pl", "nl", "ja", "ko", "ru" ] },
+    "?timeFormat": "",
+    "?shortTimeFormat": "",
+    "?theme": {
+      "?activeBorderColor": "$colorArray",
+      "?inactiveBorderColor": "$colorArray",
+      "?searchingActiveBorderColor": "$colorArray",
+      "?optionsTextColor": "$colorArray",
+      "?selectedLineBgColor": "$colorArray",
+      "?selectedRangeBgColor": "$colorArray",
+      "?cherryPickedCommitBgColor": "$colorArray",
+      "?cherryPickedCommitFgColor": "$colorArray",
+      "?unstagedChangesColor": "$colorArray",
+      "?defaultFgColor": "$colorArray"
+    },
+    "?commitLength": { "?show": true },
+    "?mouseEvents": true,
+    "?skipDiscardChangeWarning": true,
+    "?skipStashWarning": true,
+    "?showFileTree": true,
+    "?showListFooter": true,
+    "?showRandomTip": true,
+    "?showBranchCommitHash": true,
+    "?showBottomLine": true,
+    "?showCommandLog": true,
+    "?nerdFontsVersion": { "|": [ "2", "3", "" ] },
+    "?commandLogSize": 0,
+    "?splitDiff": { "|": [ "auto", "always" ] },
+    "?skipRewordInEditorWarning": true,
+    "?border": { "|": [ "single", "double", "rounded", "hidden" ] },
+    "?animateExplosion": true,
+    "?authorColors": { "/./": "$color" },
+    "?branchColors": { "/./": "$color" }
+  },
+  "?git": {
+    "?paging": {
+      "?colorArg": { "|": [ "always", "never" ] },
+      "?useConfig": true,
+      "?pager": { "@": "", ">=": 1 }
+    },
+    "?commit": { "?signOff": true },
+    "?merging": {
+      "?manualCommit": true,
+      "?args": ""
+    },
+    "?log": {
+      "?order": { "|": [ "date-order", "author-date-order", "topo-order", "default" ] },
+      "?showGraph": { "|": [ "always", "never", "when-maximised" ] },
+      "?showWholeGraph": true
+    },
+    "?skipHookPrefix": "",
+    "?mainBranches": "$stringArray",
+    "?autoFetch": true,
+    "?autoRefresh": true,
+    "?fetchAll": true,
+    "?branchLogCmd": "",
+    "?allBranchesLogCmd": "",
+    "?overrideGpg": true,
+    "?disableForcePushing": true,
+    "?parseEmoji": true,
+    "?diffContextSize": 0,
+    "?commitPrefixes": {
+      "/./": {
+        "pattern": "$neString",
+        "replace": "$neString"
+      }
+    }
+  },
+  "?os": {
+    "?copyToClipboardCmd": "",
+    "?editPreset": {
+      "|": ["vim", "nvim", "emacs", "nano", "vscode", "sublime", "bbedit", "kakoune", "helix", "xcode", ""]
+    },
+    "?edit": "",
+    "?editAtLine": "",
+    "?editAtLineAndWait": "",
+    "?open": "",
+    "?openLink": ""
+  },
+  "?refresher": {
+    "?refreshInterval": 0,
+    "?fetchInterval": 0
+  },
+  "?update": {
+    "?method": { "|": [ "prompt", "background", "never" ] },
+    "?days": 0
+  },
+  "?confirmOnQuit": true,
+  "?quitOnTopLevelReturn": true,
+  "?disableStartupPopups": true,
+  "?notARepository": { "|": [ "prompt", "create", "skip", "quit" ] },
+  "?promptToReturnFromSubprocess": true,
+  "?keybinding": {
+    "?universal": {
+      "?quit": "$keybinding",
+      "?quit-alt1": "$keybinding",
+      "?return": "$keybinding",
+      "?quitWithoutChangingDirectory": "$keybinding",
+      "?togglePanel": "$keybinding",
+      "?prevItem": "$keybinding",
+      "?nextItem": "$keybinding",
+      "?prevItem-alt": "$keybinding",
+      "?nextItem-alt": "$keybinding",
+      "?prevPage": "$keybinding",
+      "?nextPage": "$keybinding",
+      "?gotoTop": "$keybinding",
+      "?gotoBottom": "$keybinding",
+      "?scrollLeft": "$keybinding",
+      "?scrollRight": "$keybinding",
+      "?prevBlock": "$keybinding",
+      "?nextBlock": "$keybinding",
+      "?prevBlock-alt": "$keybinding",
+      "?nextBlock-alt": "$keybinding",
+      "?jumpToBlock": [ "$ANY" ],
+      "?nextMatch": "$keybinding",
+      "?prevMatch": "$keybinding",
+      "?optionMenu": null,
+      "?optionMenu-alt1": "$keybinding",
+      "?select": "$keybinding",
+      "?goInto": "$keybinding",
+      "?openRecentRepos": "$keybinding",
+      "?confirm": "$keybinding",
+      "?remove": "$keybinding",
+      "?new": "$keybinding",
+      "?edit": "$keybinding",
+      "?openFile": "$keybinding",
+      "?scrollUpMain": "$keybinding",
+      "?scrollDownMain": "$keybinding",
+      "?scrollUpMain-alt1": "$keybinding",
+      "?scrollDownMain-alt1": "$keybinding",
+      "?scrollUpMain-alt2": "$keybinding",
+      "?scrollDownMain-alt2": "$keybinding",
+      "?executeCustomCommand": "$keybinding",
+      "?createRebaseOptionsMenu": "$keybinding",
+      "?pushFiles": "$keybinding",
+      "?pullFiles": "$keybinding",
+      "?refresh": "$keybinding",
+      "?createPatchOptionsMenu": "$keybinding",
+      "?nextTab": "$keybinding",
+      "?prevTab": "$keybinding",
+      "?nextScreenMode": "$keybinding",
+      "?prevScreenMode": "$keybinding",
+      "?undo": "$keybinding",
+      "?redo": "$keybinding",
+      "?filteringMenu": "$keybinding",
+      "?diffingMenu": "$keybinding",
+      "?diffingMenu-alt": "$keybinding",
+      "?copyToClipboard": "$keybinding",
+      "?submitEditorText": "$keybinding",
+      "?extrasMenu": "$keybinding",
+      "?toggleWhitespaceInDiffView": "$keybinding",
+      "?increaseContextInDiffView": "$keybinding",
+      "?decreaseContextInDiffView": "$keybinding"
+    },
+    "?status": {
+      "?checkForUpdate": "$keybinding",
+      "?recentRepos": "$keybinding"
+    },
+    "?files": {
+      "?commitChanges": "$keybinding",
+      "?commitChangesWithoutHook": "$keybinding",
+      "?amendLastCommit": "$keybinding",
+      "?commitChangesWithEditor": "$keybinding",
+      "?ignoreFile": "$keybinding",
+      "?refreshFiles": "$keybinding",
+      "?stashAllChanges": "$keybinding",
+      "?viewStashOptions": "$keybinding",
+      "?toggleStagedAll": "$keybinding",
+      "?viewResetOptions": "$keybinding",
+      "?fetch": "$keybinding",
+      "?toggleTreeView": "$keybinding",
+      "?openMergeTool": "$keybinding",
+      "?openStatusFilter": "$keybinding"
+    },
+    "?branches": {
+      "?createPullRequest": "$keybinding",
+      "?viewPullRequestOptions": "$keybinding",
+      "?checkoutBranchByName": "$keybinding",
+      "?forceCheckoutBranch": "$keybinding",
+      "?rebaseBranch": "$keybinding",
+      "?renameBranch": "$keybinding",
+      "?mergeIntoCurrentBranch": "$keybinding",
+      "?viewGitFlowOptions": "$keybinding",
+      "?fastForward": "$keybinding",
+      "?createTag": "$keybinding",
+      "?pushTag": "$keybinding",
+      "?setUpstream": "$keybinding",
+      "?fetchRemote": "$keybinding"
+    },
+    "?commits": {
+      "?squashDown": "$keybinding",
+      "?renameCommit": "$keybinding",
+      "?renameCommitWithEditor": "$keybinding",
+      "?viewResetOptions": "$keybinding",
+      "?markCommitAsFixup": "$keybinding",
+      "?createFixupCommit": "$keybinding",
+      "?squashAboveCommits": "$keybinding",
+      "?moveDownCommit": "$keybinding",
+      "?moveUpCommit": "$keybinding",
+      "?amendToCommit": "$keybinding",
+      "?pickCommit": "$keybinding",
+      "?revertCommit": "$keybinding",
+      "?cherryPickCopy": "$keybinding",
+      "?cherryPickCopyRange": "$keybinding",
+      "?pasteCommits": "$keybinding",
+      "?tagCommit": "$keybinding",
+      "?checkoutCommit": "$keybinding",
+      "?resetCherryPick": "$keybinding",
+      "?copyCommitMessageToClipboard": "$keybinding",
+      "?openLogMenu": "$keybinding",
+      "?viewBisectOptions": "$keybinding"
+    },
+    "?stash": {
+      "?popStash": "$keybinding",
+      "?renameStash": "$keybinding"
+    },
+    "?commitFiles": {
+      "?checkoutCommitFile": "$keybinding"
+    },
+    "?main": {
+      "?toggleDragSelect": "$keybinding",
+      "?toggleDragSelect-alt": "$keybinding",
+      "?toggleSelectHunk": "$keybinding",
+      "?pickBothHunks": "$keybinding"
+    },
+    "?submodules": {
+      "?init": "$keybinding",
+      "?update": "$keybinding",
+      "?bulkMenu": "$keybinding"
+    }
+  },
+  "?services": {
+    "/./": "/^[^:]+:[^:]+$/"
+  },
+  "?customCommands": {
+    "@": [
+      {
+        "key": "$keybinding",
+        "command": "",
+        "context": { "|": [ "status", "files", "worktrees", "localBranches", "remotes",
+              "remoteBranches", "tags", "commits", "reflogCommits", "subCommits", "commitFiles",
+               "stash", "global" ] },
+        "?subprocess": true,
+        "?prompts": [ "$Prompts" ],
+        "?loadingText": "",
+        "?description": "",
+        "?stream": true,
+        "?showOutput": true,
+        "?after": {
+          "?checkForConflicts": true
+        }
+      }
+    ],
+    "!": true
+  }
+}
