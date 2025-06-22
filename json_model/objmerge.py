@@ -31,7 +31,8 @@ def _mergeInlining(jm: JsonModel):
                 log.debug(f"{jm._id} inline from {jmr._id}")
                 if jm._defs._id != jmr._defs._id:  # if not in same name space
                     if jm._loose_int != jmr._loose_int or jm._loose_float != jmr._loose_float:
-                        log.warning("should not combine models with distinct int/float looseness")
+                        log.warning("should not combine models with distinct int/float looseness: "
+                                    f"{jm._url} and {jmr._url}")
                     # substitute local references
                     def subRefRwt(m, p):
                         return jmr._defs.gget(m) if jmr._isRef(m) else m
