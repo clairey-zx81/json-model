@@ -318,18 +318,19 @@
       "?min_ansible_container_version": ""
     },
     "GalaxyInfoModelStandalone": {
+      "#": "standalone info has 3 mandatory props",
       "+": [
         { "standalone": "=true" },
         "$GalaxyInfoModelLoose",
         "$GalaxyInfoModelCollection",
-        { "author": "$ANY", "license": "$ANY", "min_ansible_license": "$ANY" }
+        { "author": "$ANY", "license": "$ANY", "min_ansible_version": "$ANY" }
       ]
     },
     "GalaxyInfoModel": {
       "#": "hmmmm, property standalone should probably be required…",
       "|": [
         "$GalaxyInfoModelStandalone",
-        { "+": [ { "standalone": "=false" }, "$GalaxyInfoModelLoose" ] },
+        { "+": [ { "standalone": "=false" }, "$GalaxyInfoModelLoose", "$GalaxyInfoModelCollection" ] },
         { "+": [ "$GalaxyInfoModelLoose", "$GalaxyInfoModelCollection" ] }
       ]
     },
@@ -358,7 +359,7 @@
     "AnsibleMetaObj": {
       "?allow_duplicates": true,
       "?collections": "$collections",
-      "?dependencies": { "|": [ "", "$DependencyModel" ] },
+      "?dependencies": [ { "|": [ "", "$DependencyModel" ] } ],
       "?galaxy_info": "$GalaxyInfoModel"
     },
     "AnsibleMeta": {
