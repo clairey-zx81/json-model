@@ -95,6 +95,10 @@
   }
   ```
 
+## Arrays
+
+- implement the _prefixItems_ semantics?
+
 ## Merge
 
 - [x] merge allow to merge something / ANY by keeping stricter one (see ansible meta model)
