@@ -175,22 +175,151 @@
     "geometry": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Point"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Point"
+            },
+            "coordinates": {
+              "$ref": "#/$defs/position"
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         },
         {
-          "$ref": "#/$defs/MultiPoint"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "MultiPoint"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/position"
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         },
         {
-          "$ref": "#/$defs/LineString"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "LineString"
+            },
+            "coordinates": {
+              "$ref": "#/$defs/coord_array"
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         },
         {
-          "$ref": "#/$defs/MultiLineString"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "MultiLineString"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/coord_array"
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         },
         {
-          "$ref": "#/$defs/Polygon"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Polygon"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/linear_ring"
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         },
         {
-          "$ref": "#/$defs/MultiPolygon"
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "MultiPolygon"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/linear_ring"
+                }
+              }
+            },
+            "bbox": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "additionalProperties": true
         }
       ]
     },
@@ -217,7 +346,7 @@
         "type",
         "geometries"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "Feature": {
       "type": "object",
@@ -271,7 +400,7 @@
         "geometry",
         "properties"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "FeatureCollection": {
       "type": "object",
@@ -296,7 +425,7 @@
         "type",
         "features"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   },
   "oneOf": [

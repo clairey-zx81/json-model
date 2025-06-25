@@ -37,24 +37,32 @@
       "?bbox": [ -1.0 ]
     },
     "geometry": {
-      "^": [ "$Point", "$MultiPoint", "$LineString", "$MultiLineString", "$Polygon", "$MultiPolygon" ]
+      "+": [
+        { "": "$ANY" },
+        { "^": [ "$Point", "$MultiPoint", "$LineString",
+                 "$MultiLineString", "$Polygon", "$MultiPolygon" ]
+        }
+      ]
     },
     "GeometryCollection": {
       "type": "GeometryCollection",
       "geometries": [ "$geometry" ],
-      "?bbox": [ -1.0 ]
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
     },
     "Feature": {
       "type": "Feature",
       "geometry": { "|": [ null, "$geometry", "$GeometryCollection" ] },
       "properties": { "|": [ null, { "": "$ANY" } ] },
       "?id": { "|": [ "", -1.0 ] },
-      "?bbox": [ -1.0 ]
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
     },
     "FeatureCollection": {
       "type": "FeatureCollection",
       "features": [ "$Feature" ],
-      "?bbox": [ -1.0 ]
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
     }
   },
   "^": [ "$geometry", "$GeometryCollection", "$Feature", "$FeatureCollection" ]

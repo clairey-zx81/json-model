@@ -267,7 +267,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Point']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Point']", path);
     }
     return res;
 }
@@ -404,7 +404,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$MultiPoint']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiPoint']", path);
     }
     return res;
 }
@@ -522,7 +522,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$LineString']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$LineString']", path);
     }
     return res;
 }
@@ -659,7 +659,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$MultiLineString']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiLineString']", path);
     }
     return res;
 }
@@ -796,7 +796,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Polygon']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Polygon']", path);
     }
     return res;
 }
@@ -952,9 +952,596 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_5(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$MultiPolygon']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$MultiPolygon']", path);
     }
     return res;
+}
+
+// object .'$geometry'.'|'.0
+static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.0]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.0]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.0.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "Point") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected Point [.'$geometry'.'|'.0.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.0]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.0]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.0.coordinates
+    res = json_model_2(pval, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $position [.'$geometry'.'|'.0.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.0]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.0.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_14_idx;
+            json_t *arr_14_item;
+            json_array_foreach(pval, arr_14_idx, arr_14_item)
+            {
+                jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, path, NULL };
+                // .'$geometry'.'|'.0.bbox.0
+                res = json_is_number(arr_14_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.0.bbox.0]", (path ? &arr_14_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.0.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.0]", path);
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$geometry'.'|'.1
+static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.1]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.1]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.1.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPoint") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected MultiPoint [.'$geometry'.'|'.1.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.1]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.1]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.1.coordinates
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_15_idx;
+        json_t *arr_15_item;
+        json_array_foreach(pval, arr_15_idx, arr_15_item)
+        {
+            jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, path, NULL };
+            // .'$geometry'.'|'.1.coordinates.0
+            res = json_model_2(arr_15_item, (path ? &arr_15_lpath : NULL), rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $position [.'$geometry'.'|'.1.coordinates.0]", (path ? &arr_15_lpath : NULL));
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.1.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.1]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.1.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_16_idx;
+            json_t *arr_16_item;
+            json_array_foreach(pval, arr_16_idx, arr_16_item)
+            {
+                jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, path, NULL };
+                // .'$geometry'.'|'.1.bbox.0
+                res = json_is_number(arr_16_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.1.bbox.0]", (path ? &arr_16_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.1.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.1]", path);
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$geometry'.'|'.2
+static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.2]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.2]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.2.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "LineString") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected LineString [.'$geometry'.'|'.2.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.2]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.2]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.2.coordinates
+    res = json_model_3(pval, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $coord_array [.'$geometry'.'|'.2.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.2]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.2.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_17_idx;
+            json_t *arr_17_item;
+            json_array_foreach(pval, arr_17_idx, arr_17_item)
+            {
+                jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, path, NULL };
+                // .'$geometry'.'|'.2.bbox.0
+                res = json_is_number(arr_17_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.2.bbox.0]", (path ? &arr_17_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.2.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.2]", path);
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$geometry'.'|'.3
+static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.3]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.3]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.3.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiLineString") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected MultiLineString [.'$geometry'.'|'.3.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.3]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.3]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.3.coordinates
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_18_idx;
+        json_t *arr_18_item;
+        json_array_foreach(pval, arr_18_idx, arr_18_item)
+        {
+            jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, path, NULL };
+            // .'$geometry'.'|'.3.coordinates.0
+            res = json_model_3(arr_18_item, (path ? &arr_18_lpath : NULL), rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $coord_array [.'$geometry'.'|'.3.coordinates.0]", (path ? &arr_18_lpath : NULL));
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.3.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.3]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.3.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_19_idx;
+            json_t *arr_19_item;
+            json_array_foreach(pval, arr_19_idx, arr_19_item)
+            {
+                jm_path_t arr_19_lpath = (jm_path_t) { NULL, arr_19_idx, path, NULL };
+                // .'$geometry'.'|'.3.bbox.0
+                res = json_is_number(arr_19_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.3.bbox.0]", (path ? &arr_19_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.3.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.3]", path);
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$geometry'.'|'.4
+static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.4]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.4]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.4.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "Polygon") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected Polygon [.'$geometry'.'|'.4.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.4]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.4]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.4.coordinates
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_20_idx;
+        json_t *arr_20_item;
+        json_array_foreach(pval, arr_20_idx, arr_20_item)
+        {
+            jm_path_t arr_20_lpath = (jm_path_t) { NULL, arr_20_idx, path, NULL };
+            // .'$geometry'.'|'.4.coordinates.0
+            res = json_model_4(arr_20_item, (path ? &arr_20_lpath : NULL), rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [.'$geometry'.'|'.4.coordinates.0]", (path ? &arr_20_lpath : NULL));
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.4.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.4]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.4.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_21_idx;
+            json_t *arr_21_item;
+            json_array_foreach(pval, arr_21_idx, arr_21_item)
+            {
+                jm_path_t arr_21_lpath = (jm_path_t) { NULL, arr_21_idx, path, NULL };
+                // .'$geometry'.'|'.4.bbox.0
+                res = json_is_number(arr_21_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.4.bbox.0]", (path ? &arr_21_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.4.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.4]", path);
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$geometry'.'|'.5
+static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    // check must only props
+    if (! json_is_object(val))
+    {
+        if (rep) jm_report_add_entry(rep, "not an object [.'$geometry'.'|'.5]", path);
+        return false;
+    }
+    json_t * pval;
+    bool res;
+    if (! (json_object_get(val, "type") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$geometry'.'|'.5]", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$geometry'.'|'.5.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "MultiPolygon") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected MultiPolygon [.'$geometry'.'|'.5.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$geometry'.'|'.5]", path);
+        return false;
+    }
+    if (! (json_object_get(val, "coordinates") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <coordinates> [.'$geometry'.'|'.5]", path);
+        return false;
+    }
+    pval = json_object_get(val, "coordinates");
+    // .'$geometry'.'|'.5.coordinates
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_22_idx;
+        json_t *arr_22_item;
+        json_array_foreach(pval, arr_22_idx, arr_22_item)
+        {
+            jm_path_t arr_22_lpath = (jm_path_t) { NULL, arr_22_idx, path, NULL };
+            // .'$geometry'.'|'.5.coordinates.0
+            res = json_is_array(arr_22_item);
+            if (res)
+            {
+                size_t arr_23_idx;
+                json_t *arr_23_item;
+                json_array_foreach(arr_22_item, arr_23_idx, arr_23_item)
+                {
+                    jm_path_t arr_23_lpath = (jm_path_t) { NULL, arr_23_idx, (path ? &arr_22_lpath : NULL), NULL };
+                    // .'$geometry'.'|'.5.coordinates.0.0
+                    res = json_model_4(arr_23_item, ((path ? &arr_22_lpath : NULL) ? &arr_23_lpath : NULL), rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $linear_ring [.'$geometry'.'|'.5.coordinates.0.0]", ((path ? &arr_22_lpath : NULL) ? &arr_23_lpath : NULL));
+                    }
+                    if (! res)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.5.coordinates.0]", (path ? &arr_22_lpath : NULL));
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.5.coordinates]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <coordinates> [.'$geometry'.'|'.5]", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$geometry'.'|'.5.bbox
+        res = json_is_array(pval);
+        if (res)
+        {
+            size_t arr_24_idx;
+            json_t *arr_24_item;
+            json_array_foreach(pval, arr_24_idx, arr_24_item)
+            {
+                jm_path_t arr_24_lpath = (jm_path_t) { NULL, arr_24_idx, path, NULL };
+                // .'$geometry'.'|'.5.bbox.0
+                res = json_is_number(arr_24_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$geometry'.'|'.5.bbox.0]", (path ? &arr_24_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
+            }
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$geometry'.'|'.5.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$geometry'.'|'.5]", path);
+            return false;
+        }
+    }
+    return true;
 }
 
 static jm_check_fun_t _jm_map_0(json_t *val)
@@ -1000,125 +1587,102 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$GeometryCollection'
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$GeometryCollection']", path);
         return false;
     }
+    json_t * pval;
     bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (! (json_object_get(val, "type") != NULL))
     {
-        jm_path_t lpath_6 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$GeometryCollection']", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$GeometryCollection'.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "GeometryCollection") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected GeometryCollection [.'$GeometryCollection'.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$GeometryCollection']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "geometries") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometries> [.'$GeometryCollection']", path);
+        return false;
+    }
+    pval = json_object_get(val, "geometries");
+    // .'$GeometryCollection'.geometries
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_25_idx;
+        json_t *arr_25_item;
+        json_array_foreach(pval, arr_25_idx, arr_25_item)
         {
-            // handle must type property
-            must_count += 1;
-            // .'$GeometryCollection'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "GeometryCollection") == 0;
+            jm_path_t arr_25_lpath = (jm_path_t) { NULL, arr_25_idx, path, NULL };
+            // .'$GeometryCollection'.geometries.0
+            res = json_model_11(arr_25_item, (path ? &arr_25_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected GeometryCollection [.'$GeometryCollection'.type]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GeometryCollection'.type]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "geometries") == 0)
-        {
-            // handle must geometries property
-            must_count += 1;
-            // .'$GeometryCollection'.geometries
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_14_idx;
-                json_t *arr_14_item;
-                json_array_foreach(pval, arr_14_idx, arr_14_item)
-                {
-                    jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_6 : NULL), NULL };
-                    // .'$GeometryCollection'.geometries.0
-                    res = json_model_11(arr_14_item, ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL), rep);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'$GeometryCollection'.geometries.0]", ((path ? &lpath_6 : NULL) ? &arr_14_lpath : NULL));
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'$GeometryCollection'.geometries.0]", (path ? &arr_25_lpath : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GeometryCollection'.geometries]", (path ? &lpath_6 : NULL));
+                break;
             }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$GeometryCollection'.geometries]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "bbox") == 0)
-        {
-            // handle may bbox property
-            // .'$GeometryCollection'.bbox
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_15_idx;
-                json_t *arr_15_item;
-                json_array_foreach(pval, arr_15_idx, arr_15_item)
-                {
-                    jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_6 : NULL), NULL };
-                    // .'$GeometryCollection'.bbox.0
-                    res = json_is_number(arr_15_item);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", ((path ? &lpath_6 : NULL) ? &arr_15_lpath : NULL));
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GeometryCollection'.bbox]", (path ? &lpath_6 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$GeometryCollection'.bbox]", (path ? &lpath_6 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$GeometryCollection']", (path ? &lpath_6 : NULL));
-            return false;
         }
     }
-    if (must_count != 2)
+    if (! res)
     {
-        if (rep != NULL)
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GeometryCollection'.geometries]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometries> [.'$GeometryCollection']", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$GeometryCollection'.bbox
+        res = json_is_array(pval);
+        if (res)
         {
-            if (! (json_object_get(val, "geometries") != NULL))
+            size_t arr_26_idx;
+            json_t *arr_26_item;
+            json_array_foreach(pval, arr_26_idx, arr_26_item)
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometries> [.'$GeometryCollection']", path);
-            }
-            if (! (json_object_get(val, "type") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$GeometryCollection']", path);
+                jm_path_t arr_26_lpath = (jm_path_t) { NULL, arr_26_idx, path, NULL };
+                // .'$GeometryCollection'.bbox.0
+                res = json_is_number(arr_26_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$GeometryCollection'.bbox.0]", (path ? &arr_26_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
             }
         }
-        return false;
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$GeometryCollection'.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$GeometryCollection']", path);
+            return false;
+        }
     }
     return true;
 }
@@ -1128,16 +1692,16 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$GeometryCollection'
-    res = _jm_obj_6(val, path, rep);
+    res = _jm_obj_12(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$GeometryCollection']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$GeometryCollection']", path);
     }
     return res;
 }
 
 // object .'$Feature'.properties.'|'.1
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1149,204 +1713,178 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$Feature'
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$Feature']", path);
         return false;
     }
+    json_t * pval;
     bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (! (json_object_get(val, "type") != NULL))
     {
-        jm_path_t lpath_7 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Feature']", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$Feature'.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "Feature") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected Feature [.'$Feature'.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$Feature']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "geometry") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometry> [.'$Feature']", path);
+        return false;
+    }
+    pval = json_object_get(val, "geometry");
+    // .'$Feature'.geometry
+    // .'$Feature'.geometry.'|'.0
+    res = json_is_null(pval);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.geometry.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$Feature'.geometry.'|'.1
+        res = json_model_11(pval, path, rep);
+        if (! res)
         {
-            // handle must type property
-            must_count += 1;
-            // .'$Feature'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "Feature") == 0;
+            if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'$Feature'.geometry.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$Feature'.geometry.'|'.2
+            res = json_model_12(pval, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected Feature [.'$Feature'.type]", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Feature'.type]", (path ? &lpath_7 : NULL));
-                return false;
+                if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path);
             }
         }
-        else if (strcmp(prop, "geometry") == 0)
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.geometry.'|']", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <geometry> [.'$Feature']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "properties") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <properties> [.'$Feature']", path);
+        return false;
+    }
+    pval = json_object_get(val, "properties");
+    // .'$Feature'.properties
+    // .'$Feature'.properties.'|'.0
+    res = json_is_null(pval);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.properties.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$Feature'.properties.'|'.1
+        res = _jm_obj_14(pval, path, rep);
+        if (! res)
         {
-            // handle must geometry property
-            must_count += 1;
-            // .'$Feature'.geometry
-            // .'$Feature'.geometry.'|'.0
-            res = json_is_null(pval);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$Feature'.properties.'|'.1]", path);
+        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.properties.'|']", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <properties> [.'$Feature']", path);
+        return false;
+    }
+    if (json_object_get(val, "id") != NULL)
+    {
+        pval = json_object_get(val, "id");
+        // .'$Feature'.id
+        // .'$Feature'.id.'|'.0
+        res = json_is_string(pval);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected string [.'$Feature'.id.'|'.0]", path);
+        }
+        if (! res)
+        {
+            // .'$Feature'.id.'|'.1
+            res = json_is_number(pval);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.geometry.'|'.0]", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                // .'$Feature'.geometry.'|'.1
-                res = json_model_11(pval, (path ? &lpath_7 : NULL), rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected $geometry [.'$Feature'.geometry.'|'.1]", (path ? &lpath_7 : NULL));
-                }
-                if (! res)
-                {
-                    // .'$Feature'.geometry.'|'.2
-                    res = json_model_12(pval, (path ? &lpath_7 : NULL), rep);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", (path ? &lpath_7 : NULL));
-                    }
-                }
-            }
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.geometry.'|']", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Feature'.geometry]", (path ? &lpath_7 : NULL));
-                return false;
+                if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.id.'|'.1]", path);
             }
         }
-        else if (strcmp(prop, "properties") == 0)
+        if (res)
         {
-            // handle must properties property
-            must_count += 1;
-            // .'$Feature'.properties
-            // .'$Feature'.properties.'|'.0
-            res = json_is_null(pval);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not null [.'$Feature'.properties.'|'.0]", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                // .'$Feature'.properties.'|'.1
-                res = _jm_obj_8(pval, (path ? &lpath_7 : NULL), rep);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "unexpected object [.'$Feature'.properties.'|'.1]", (path ? &lpath_7 : NULL));
-                }
-            }
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.properties.'|']", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$Feature'.properties]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "id") == 0)
-        {
-            // handle may id property
-            // .'$Feature'.id
-            // .'$Feature'.id.'|'.0
-            res = json_is_string(pval);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$Feature'.id.'|'.0]", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                // .'$Feature'.id.'|'.1
-                res = json_is_number(pval);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.id.'|'.1]", (path ? &lpath_7 : NULL));
-                }
-            }
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.id.'|']", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Feature'.id]", (path ? &lpath_7 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "bbox") == 0)
-        {
-            // handle may bbox property
-            // .'$Feature'.bbox
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_16_idx;
-                json_t *arr_16_item;
-                json_array_foreach(pval, arr_16_idx, arr_16_item)
-                {
-                    jm_path_t arr_16_lpath = (jm_path_t) { NULL, arr_16_idx, (path ? &lpath_7 : NULL), NULL };
-                    // .'$Feature'.bbox.0
-                    res = json_is_number(arr_16_item);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.bbox.0]", ((path ? &lpath_7 : NULL) ? &arr_16_lpath : NULL));
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Feature'.bbox]", (path ? &lpath_7 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$Feature'.bbox]", (path ? &lpath_7 : NULL));
-                return false;
-            }
+            if (rep) jm_report_free_entries(rep);
         }
         else
         {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$Feature']", (path ? &lpath_7 : NULL));
+            if (rep) jm_report_add_entry(rep, "no model matched [.'$Feature'.id.'|']", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <id> [.'$Feature']", path);
             return false;
         }
     }
-    if (must_count != 3)
+    if (json_object_get(val, "bbox") != NULL)
     {
-        if (rep != NULL)
+        pval = json_object_get(val, "bbox");
+        // .'$Feature'.bbox
+        res = json_is_array(pval);
+        if (res)
         {
-            if (! (json_object_get(val, "geometry") != NULL))
+            size_t arr_27_idx;
+            json_t *arr_27_item;
+            json_array_foreach(pval, arr_27_idx, arr_27_item)
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <geometry> [.'$Feature']", path);
-            }
-            if (! (json_object_get(val, "properties") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <properties> [.'$Feature']", path);
-            }
-            if (! (json_object_get(val, "type") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$Feature']", path);
+                jm_path_t arr_27_lpath = (jm_path_t) { NULL, arr_27_idx, path, NULL };
+                // .'$Feature'.bbox.0
+                res = json_is_number(arr_27_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$Feature'.bbox.0]", (path ? &arr_27_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
             }
         }
-        return false;
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Feature'.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$Feature']", path);
+            return false;
+        }
     }
     return true;
 }
@@ -1356,134 +1894,111 @@ static bool json_model_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$Feature'
-    res = _jm_obj_7(val, path, rep);
+    res = _jm_obj_13(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Feature']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Feature']", path);
     }
     return res;
 }
 
 // object .'$FeatureCollection'
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
+    // check must only props
     if (! json_is_object(val))
     {
         if (rep) jm_report_add_entry(rep, "not an object [.'$FeatureCollection']", path);
         return false;
     }
+    json_t * pval;
     bool res;
-    int64_t must_count = 0;
-    const char *prop;
-    json_t *pval;
-    json_object_foreach((json_t *) val, prop, pval)
+    if (! (json_object_get(val, "type") != NULL))
     {
-        jm_path_t lpath_8 = (jm_path_t) { prop, 0, path, NULL };
-        if (strcmp(prop, "type") == 0)
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$FeatureCollection']", path);
+        return false;
+    }
+    pval = json_object_get(val, "type");
+    // .'$FeatureCollection'.type
+    res = json_is_string(pval) && strcmp(json_string_value(pval), "FeatureCollection") == 0;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected FeatureCollection [.'$FeatureCollection'.type]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <type> [.'$FeatureCollection']", path);
+        return false;
+    }
+    if (! (json_object_get(val, "features") != NULL))
+    {
+        if (rep) jm_report_add_entry(rep, "missing mandatory prop <features> [.'$FeatureCollection']", path);
+        return false;
+    }
+    pval = json_object_get(val, "features");
+    // .'$FeatureCollection'.features
+    res = json_is_array(pval);
+    if (res)
+    {
+        size_t arr_28_idx;
+        json_t *arr_28_item;
+        json_array_foreach(pval, arr_28_idx, arr_28_item)
         {
-            // handle must type property
-            must_count += 1;
-            // .'$FeatureCollection'.type
-            res = json_is_string(pval) && strcmp(json_string_value(pval), "FeatureCollection") == 0;
+            jm_path_t arr_28_lpath = (jm_path_t) { NULL, arr_28_idx, path, NULL };
+            // .'$FeatureCollection'.features.0
+            res = json_model_13(arr_28_item, (path ? &arr_28_lpath : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected FeatureCollection [.'$FeatureCollection'.type]", (path ? &lpath_8 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$FeatureCollection'.type]", (path ? &lpath_8 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "features") == 0)
-        {
-            // handle must features property
-            must_count += 1;
-            // .'$FeatureCollection'.features
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_17_idx;
-                json_t *arr_17_item;
-                json_array_foreach(pval, arr_17_idx, arr_17_item)
-                {
-                    jm_path_t arr_17_lpath = (jm_path_t) { NULL, arr_17_idx, (path ? &lpath_8 : NULL), NULL };
-                    // .'$FeatureCollection'.features.0
-                    res = json_model_13(arr_17_item, ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL), rep);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected $Feature [.'$FeatureCollection'.features.0]", ((path ? &lpath_8 : NULL) ? &arr_17_lpath : NULL));
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
+                if (rep) jm_report_add_entry(rep, "unexpected $Feature [.'$FeatureCollection'.features.0]", (path ? &arr_28_lpath : NULL));
             }
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$FeatureCollection'.features]", (path ? &lpath_8 : NULL));
+                break;
             }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid mandatory prop value [.'$FeatureCollection'.features]", (path ? &lpath_8 : NULL));
-                return false;
-            }
-        }
-        else if (strcmp(prop, "bbox") == 0)
-        {
-            // handle may bbox property
-            // .'$FeatureCollection'.bbox
-            res = json_is_array(pval);
-            if (res)
-            {
-                size_t arr_18_idx;
-                json_t *arr_18_item;
-                json_array_foreach(pval, arr_18_idx, arr_18_item)
-                {
-                    jm_path_t arr_18_lpath = (jm_path_t) { NULL, arr_18_idx, (path ? &lpath_8 : NULL), NULL };
-                    // .'$FeatureCollection'.bbox.0
-                    res = json_is_number(arr_18_item);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", ((path ? &lpath_8 : NULL) ? &arr_18_lpath : NULL));
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$FeatureCollection'.bbox]", (path ? &lpath_8 : NULL));
-            }
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'$FeatureCollection'.bbox]", (path ? &lpath_8 : NULL));
-                return false;
-            }
-        }
-        else
-        {
-            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$FeatureCollection']", (path ? &lpath_8 : NULL));
-            return false;
         }
     }
-    if (must_count != 2)
+    if (! res)
     {
-        if (rep != NULL)
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$FeatureCollection'.features]", path);
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected value for mandatory prop <features> [.'$FeatureCollection']", path);
+        return false;
+    }
+    if (json_object_get(val, "bbox") != NULL)
+    {
+        pval = json_object_get(val, "bbox");
+        // .'$FeatureCollection'.bbox
+        res = json_is_array(pval);
+        if (res)
         {
-            if (! (json_object_get(val, "features") != NULL))
+            size_t arr_29_idx;
+            json_t *arr_29_item;
+            json_array_foreach(pval, arr_29_idx, arr_29_item)
             {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <features> [.'$FeatureCollection']", path);
-            }
-            if (! (json_object_get(val, "type") != NULL))
-            {
-                if (rep) jm_report_add_entry(rep, "missing mandatory prop <type> [.'$FeatureCollection']", path);
+                jm_path_t arr_29_lpath = (jm_path_t) { NULL, arr_29_idx, path, NULL };
+                // .'$FeatureCollection'.bbox.0
+                res = json_is_number(arr_29_item);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", (path ? &arr_29_lpath : NULL));
+                }
+                if (! res)
+                {
+                    break;
+                }
             }
         }
-        return false;
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$FeatureCollection'.bbox]", path);
+        }
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected value for optional prop <bbox> [.'$FeatureCollection']", path);
+            return false;
+        }
     }
     return true;
 }
@@ -1493,10 +2008,10 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$FeatureCollection'
-    res = _jm_obj_9(val, path, rep);
+    res = _jm_obj_15(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$FeatureCollection']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$FeatureCollection']", path);
     }
     return res;
 }
@@ -1580,12 +2095,12 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, json_model_5 };
-        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, json_model_6 };
-        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, json_model_7 };
-        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, json_model_8 };
-        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, json_model_9 };
-        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, json_model_10 };
+        _jm_map_0_tab[0] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Point" } }, _jm_obj_6 };
+        _jm_map_0_tab[1] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPoint" } }, _jm_obj_7 };
+        _jm_map_0_tab[2] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "LineString" } }, _jm_obj_8 };
+        _jm_map_0_tab[3] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiLineString" } }, _jm_obj_9 };
+        _jm_map_0_tab[4] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "Polygon" } }, _jm_obj_10 };
+        _jm_map_0_tab[5] = (jm_constmap_t) { (jm_constant_t) { cst_is_string, { .s = "MultiPolygon" } }, _jm_obj_11 };
         jm_sort_constmap(_jm_map_0_tab, 6);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "position", json_model_2 };

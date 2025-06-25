@@ -89,12 +89,64 @@
     },
     "geometry": {
       "|": [
-        "$Point",
-        "$MultiPoint",
-        "$LineString",
-        "$MultiLineString",
-        "$Polygon",
-        "$MultiPolygon"
+        {
+          "type": "Point",
+          "coordinates": "$position",
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        },
+        {
+          "type": "MultiPoint",
+          "coordinates": [
+            "$position"
+          ],
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        },
+        {
+          "type": "LineString",
+          "coordinates": "$coord_array",
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        },
+        {
+          "type": "MultiLineString",
+          "coordinates": [
+            "$coord_array"
+          ],
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        },
+        {
+          "type": "Polygon",
+          "coordinates": [
+            "$linear_ring"
+          ],
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        },
+        {
+          "type": "MultiPolygon",
+          "coordinates": [
+            [
+              "$linear_ring"
+            ]
+          ],
+          "?bbox": [
+            -1.0
+          ],
+          "": "$ANY"
+        }
       ],
       "#": "JsonModel 11 (JSON_MODEL_LOOSE_FLOAT)"
     },
@@ -106,6 +158,7 @@
       "?bbox": [
         -1.0
       ],
+      "": "$ANY",
       "#": "JsonModel 12 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "Feature": {
@@ -134,6 +187,7 @@
       "?bbox": [
         -1.0
       ],
+      "": "$ANY",
       "#": "JsonModel 13 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "FeatureCollection": {
@@ -144,6 +198,7 @@
       "?bbox": [
         -1.0
       ],
+      "": "$ANY",
       "#": "JsonModel 14 (JSON_MODEL_LOOSE_FLOAT)"
     },
     "#": "Symbol 1",
