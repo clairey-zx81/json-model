@@ -264,7 +264,7 @@ int main(int argc, char* argv[])
         if (jsonl)
         {
             FILE *input = fopen(argv[i], "r");
-            int count = 0;
+            int count = 1;
 
             if (input == NULL)
             {
