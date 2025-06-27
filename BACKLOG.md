@@ -7,6 +7,7 @@
 - [x] command: check loose option propagation
 - [x] c-frontend: add support for `jsonl`
 - [x] static: optimize open must/may prop checks by dropping loop
+- [ ] optim: merge `&` of objects in some cases?
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
 - [ ] js-frontend: add support for `jsonl`
 - [ ] py-frontend: add support for `jsonl`
