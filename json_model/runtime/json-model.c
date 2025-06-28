@@ -525,15 +525,13 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
         return false;
     }
 
-    // optional millis
+    // optional millis (3, sometimes more, let us be nice)
     if (time[idx] == '.') {
         idx++;
         if (!isdigit(time[idx++]))
             return false;
-        if (!isdigit(time[idx++]))
-            return false;
-        if (!isdigit(time[idx++]))
-            return false;
+        while (isdigit(time[idx]))
+            idx++;
     }
 
     // optional timezone
