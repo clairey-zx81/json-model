@@ -316,7 +316,7 @@ int main(int argc, char* argv[])
         {
             double start = now();
             for (int i = 0; i < nvalues; i++)
-                checker(values[i], NULL, NULL)
+                checker(values[i], NULL, NULL);
             double delay = now() - start;
             sum += delay;
             sum2 += delay * delay;
