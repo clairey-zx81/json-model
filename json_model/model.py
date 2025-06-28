@@ -994,7 +994,8 @@ class JsonModel:
                 if isinstance(j, dict):
                     for k, v in add.items():
                         if k in j:
-                            raise ModelError(f"cannot overwrite property {k} at {path}, remove first")
+                            # raise ModelError(f"cannot overwrite property {k} at {path}, remove first")
+                            log.warning(f"overwriting property {k} at {path}"
                         j[k] = v
                 else:
                     raise ModelError(f"cannot add object to {tname(j)} at {path}")
