@@ -304,17 +304,26 @@ int main(int argc, char* argv[])
 
         // validate in fast mode
         int npass = 0, nfail = 0;
-        double start = now();
-        for (int i = 0; i < nvalues; i++)
-            if (checker(values[i], NULL, NULL))
-                npass++;
-            else
-                nfail++;
-        double end = now();
+        double sum = 0.0, sum2 = 0.0;
+        for (int n = loop; n; n--)
+        {
+            double start = now();
+            for (int i = 0; i < nvalues; i++)
+                if (checker(values[i], NULL, NULL))
+                    npass++;
+                else
+                    nfail++;
+            double delay = now() - start;
+            sum += delay;
+            sum2 += delay * delay;
+        }
+
+        double avg = sum / loop;
+        double stdev = sqrt(sum2 / loop - avg * avg);
 
         // report
-        fprintf(stderr, "validation: pass=%d fail=%d %.03f µs\n", npass, nfail, end-start);
-        fprintf(stdout, "%lld\n", (long long int) (1000.0 * (end - start)));
+        fprintf(stderr, "validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
+        fprintf(stdout, "%lld\n", (long long int) (1000.0 * avg));
         return nfail ? 1 : 0;
     }
 
