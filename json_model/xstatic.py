@@ -1107,7 +1107,7 @@ class CodeGenerator:
 
                     code += \
                         gen.bool_var(res, expr if expr else gen.const(True)) + \
-                        gen.if_stmt(res, loop) if expr else body
+                        gen.if_stmt(res, loop) if expr else loop
 
                 else:
                     # non empty list of models, aka tuple
