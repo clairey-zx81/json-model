@@ -255,7 +255,8 @@ class CodeGenerator:
             return elim + gen.bool_var(res, gen.const(False))
 
         # initial model check
-        code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath)
+        code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath,
+                                         constrained=cmp_props)
 
         # shortcut if nothing to check
         if not cmp_props and not has_unique:
@@ -313,9 +314,13 @@ class CodeGenerator:
                     checks.append(gen.num_cmp(fval, op, gen.const(vop)))
 
         assert checks
-        log.debug(f"checks={checks}")
-        code += gen.if_stmt(res, cvars + gen.bool_var(res, gen.and_op(*checks)))
-        code += self._gen_report(res, f"constraints failed [{smpath}]", vpath)
+        if self._debug:
+            log.debug(f"checks={checks}")
+
+        code += gen.if_stmt(res,
+            cvars + gen.bool_var(res, gen.and_op(*checks)) +
+            self._gen_report(res, f"constraints failed [{smpath}]", vpath))
+
         return code
 
     def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
@@ -930,7 +935,8 @@ class CodeGenerator:
         return code
 
     def _compileModel(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                      res: str, val: str, vpath: str, known: set[str]|None = None) -> Block:
+                      res: str, val: str, vpath: str, known: set[str]|None = None,
+                      constrained: bool = False) -> Block:
         # TODO break each level into a separate function and let the compiler inline
         # known = expression already verified
         log.debug(f"mpath={mpath} model={model} res={res} val={val} vpath={vpath}")
@@ -944,9 +950,11 @@ class CodeGenerator:
             case None:
                 code += gen.bool_var(res, gen.is_a(val, None)) + \
                     self._gen_report(res, f"not null [{smpath}]", vpath)
+
             case bool():
                 code += gen.bool_var(res, gen.is_a(val, bool)) + \
                     self._gen_report(res, f"not a bool [{smpath}]", vpath)
+
             case int():
                 expr = gen.is_a(val, int, jm._loose_int)
                 if known is not None:
@@ -973,6 +981,7 @@ class CodeGenerator:
                     code += gen.bool_var(res, expr) + \
                         self._gen_report(res,
                             f"not a {model} {looseness} int [{smpath}]", vpath)
+
             case float():
                 expr = gen.is_a(val, float, jm._loose_float)
                 if known is not None:
@@ -998,6 +1007,7 @@ class CodeGenerator:
                     looseness = "loose" if jm._loose_float else "strict"
                     code += gen.bool_var(res, expr) + \
                         self._gen_report(res, f"not a {model} {looseness} float [{smpath}]", vpath)
+
             case str():
                 expr = gen.is_a(val, str)
                 if known is not None:
@@ -1063,20 +1073,25 @@ class CodeGenerator:
                 if self._report:
                     smodel = model if model else "string"
                     code += self._gen_report(res, f"unexpected {smodel} [{smpath}]", vpath)
+
             case list():
                 expr = gen.is_a(val, list)
                 smpath = json_path(mpath)
+
                 if known is not None:
                     if expr in known:
                         expr = None
                     if expr is not None:
                         known.add(expr)
-                if len(model) == 0:
+
+                if len(model) == 0:  # []
                     length = gen.num_cmp(gen.arr_len(val), "=", gen.const(0))
                     expr = gen.and_op(expr, length) if expr else length
                     code += gen.bool_var(res, expr)
                     # SHORT RES?
-                elif len(model) == 1:
+
+                elif len(model) == 1:  # homogeneous vector
+
                     if model[0] == "$ANY":
                         loop = gen.lcom("accept any array") + gen.nope()
                     else:
@@ -1090,27 +1105,74 @@ class CodeGenerator:
                             gen.if_stmt(gen.not_op(res), gen.brk())
                         )
 
-                    code += gen.bool_var(res, expr if expr else gen.const(True)) + \
-                        gen.if_stmt(res, loop)
+                    code += \
+                        gen.bool_var(res, expr if expr else gen.const(True)) + \
+                        gen.if_stmt(res, loop) if expr else body
+
                 else:
-                    length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
-                    expr = gen.and_op(expr, length) if expr else length
-                    code += gen.bool_var(res, expr)
+                    # non empty list of models, aka tuple
                     lpath = gen.ident("lpath")
                     lpath_ref = gen.path_lvar(lpath, vpath)
-                    # body = gen.path_var(lpath, declare=True)
-                    body = []
-                    for i, m in reversed(list(enumerate(model))):
-                        body = gen.if_stmt(
-                            res,
-                            gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) +
-                            # FIXME generated variable reference…
-                            self._compileModel(
-                                jm, model[i], mpath + [i],
-                                res, gen.arr_item_val(val, i), lpath_ref) +
-                            body)
-                    code += body
-                code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
+                    if not constrained:
+                        length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
+                        expr = gen.and_op(expr, length) if expr else length
+                        code += gen.bool_var(res, expr)
+                        # else inside a @ with constraints, so we do not check the len
+                        # body = gen.path_var(lpath, declare=True)
+                        body = []
+                        for i, m in reversed(list(enumerate(model))):
+                            body = gen.if_stmt(
+                                res,
+                                gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) +
+                                # FIXME generated variable reference…
+                                self._compileModel(
+                                    jm, model[i], mpath + [i],
+                                    res, gen.arr_item_val(val, i), lpath_ref) +
+                                body)
+                        code += \
+                            gen.bool_var(res, expr if expr else gen.const(True)) + \
+                            gen.if_stmt(res, body) if expr else body
+                    else:
+                        # assume varlen tuple: [ A, B, C* ]
+                        arlen = gen.ident("len")
+                        code += gen.path_var(lpath, None, declare=True)
+                        body = []
+
+                        # last model for repeats
+                        lmodel, start = model[-1], len(model)-1
+
+                        if lmodel != "$ANY":
+                            idx = gen.ident("idx")
+                            body += gen.int_loop(idx, start, arlen,
+                                gen.path_var(lpath, gen.path_val(vpath, idx, False)) +
+                                self._compileModel(jm, lmodel, mpath + [start], res,
+                                                   gen.arr_item_val(val, idx), lpath_ref) +
+                                gen.if_stmt(gen.not_op(res), gen.brk())
+                            )
+
+                        for i, m in reversed(list(enumerate(model[:-1]))):
+                            ith_check = \
+                                gen.if_stmt(gen.num_cmp(arlen, ">", i),
+                                    gen.path_var(lpath, gen.path_val(vpath, i, False)) +
+                                    self._compileModel(jm, m, mpath + [i], res,
+                                                       gen.arr_item_val(val, i), lpath_ref))
+                            if body:
+                                body = ith_check + gen.if_stmt(res, body)
+                            else:
+                                body = ith_check
+
+                        # compute len before checking array items
+                        body = gen.int_var(arlen, gen.arr_len(val), declare=True) + body
+
+                        if lmodel == "$ANY":
+                            body += gen.lcom("no array tail value checks needed")
+
+                        code += \
+                            gen.bool_var(res, expr if expr else gen.const(True)) + \
+                            gen.if_stmt(res, body) if expr else body
+
+                    code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
+
             case dict():
                 assert isinstance(model, dict)  # pyright hint
                 assert "+" not in model, "merge must have been preprocessed"
@@ -1144,6 +1206,7 @@ class CodeGenerator:
 
                     # record object function for path
                     self._paths[tuple(mpath)] = objid
+
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
 

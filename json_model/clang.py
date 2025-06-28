@@ -290,6 +290,11 @@ class CLangJansson(Language):
             f"json_object_foreach((json_t *) {obj}, {key}, {val})"
         ] + self.indent(body)
 
+    def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
+        return [
+            f"for ({self._int} {idx} = {start}; {idx} < {end}; {idx}++)"
+        ] + self.indent(body)
+
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         if true and false:
             return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)

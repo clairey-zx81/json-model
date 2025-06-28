@@ -153,6 +153,9 @@ class Python(Language):
         return [ f"for {key}, {val} in {obj}.items():" ] + \
             self.indent([ f"assert isinstance({key}, str)" ] + body)
 
+    def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
+        return [ f"for {idx} in range({start}, {end}):" ] + self.indent(body)
+
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         if true and false:
             return [ f"if {cond}:" ] + self.indent(true) + ["else:"] + self.indent(false)

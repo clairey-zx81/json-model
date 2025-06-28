@@ -203,15 +203,18 @@ class JavaScript(Language):
         indented = super().indent(block, sep)
         return ([ "{" ] + indented + [ "}" ]) if sep else indented
 
+    def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
+        return [
+            f"for (let {idx} = {start}; {idx} < {end}; {idx}++)"
+        ] + self.indent(body)
+
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         # forEach: KO, cannot break
-        return [
-            f"for (let {idx} = 0; {idx} < {arr}.length; {idx}++)"
-        ] + self.indent([ f"let {val} = {arr}[{idx}]" ] + body)
+        return self.int_loop(idx, "0", f"{arr}.length", [ f"let {val} = {arr}[{idx}]" ] + body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         return [
-            f"for(const [{key}, {val}] of Object.entries({obj}))"
+            f"for (const [{key}, {val}] of Object.entries({obj}))"
         ] + self.indent(body)
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:

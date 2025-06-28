@@ -478,21 +478,25 @@ class Language:
         """Indent a block."""
         return [ (self._indent + line) for line in filter(lambda s: s is not None, block) ]
 
+    def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
+        """Loop over integers from start to end (excluded)."""
+        raise NotImplementedError("int_loop")
+
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         """Loop over all items of an array."""
-        raise NotImplementedError("see derived classes")
+        raise NotImplementedError("arr_loop")
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         """Loop over all property-values pairs of an object."""
-        raise NotImplementedError("see derived classes")
+        raise NotImplementedError("obj_loop")
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
         """Generate a if-then[-else] statement."""
-        raise NotImplementedError("see derived classes")
+        raise NotImplementedError("if_stmt")
 
     def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
         """Generate a multi-if[-else] statement."""
-        raise NotImplementedError("see derived classes")
+        raise NotImplementedError("mif_stmt")
 
     #
     # PROPERTY MAPPING : property value (constant string) to check function
