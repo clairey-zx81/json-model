@@ -166,6 +166,7 @@ int main(int argc, char* argv[])
     bool test = false;
     bool jsonl = false;
     bool list = false;
+    bool jsonschema_benchmark = false;
     int loop = 1;
 
     const struct option options[] = {
@@ -179,6 +180,7 @@ int main(int argc, char* argv[])
         { "fast", no_argument, NULL, 1000 },
         { "slow", no_argument, NULL, 1001 },
         { "jsonl", no_argument, NULL, 1002 },
+        { "jsonschema-benchmark", no_argument, NULL, 1003 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -222,6 +224,10 @@ int main(int argc, char* argv[])
             case 1002:
                 jsonl = true;
                 break;
+            case 1003:
+                jsonl = true;
+                jsonschema_benchmark = true;
+                break;
             case '?':
             default:
                 fprintf(stdout, "unexpected option encountered\n");
@@ -255,6 +261,62 @@ int main(int argc, char* argv[])
     }
 
     int errors = 0;
+
+    // for https://github.com/sourcemeta-research/jsonschema-benchmark
+    if (jsonschema_benchmark)
+    {
+        const jm_check_fun_t checker = CHECK_fun(name);
+        if (checker == NULL)
+        {
+            fprintf(stderr, "no validation function found for %s\n", name);
+            return 1;
+        }
+
+        size_t size = 1024;
+        int nvalues = 0;
+        json_t **values = (json_t **) malloc(sizeof(json_t *) * size);
+
+        // load jsonl
+        for (int i = optind; i < argc; i++)
+        {
+            FILE *input = fopen(argv[i], "r");
+
+            if (input == NULL)
+            {
+                fprintf(stderr, "%s: ERROR while opening file\n", argv[i]);
+                errors++;
+                continue;
+            }
+
+            json_error_t error;
+            json_t *value;
+            while ((value = json_loadf(input,
+                                       JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
+                                       &error)))
+            {
+                if (nvalues == size) {
+                    size *= 2;
+                    values = (json_t **) realloc(values, sizeof(json_t *) * size);
+                }
+                values[nvalues++] = value;
+            }
+        }
+
+        // validate in fast mode
+        int npass = 0, nfail = 0;
+        double start = now();
+        for (int i = 0; i < nvalues; i++)
+            if (checker(values[i], NULL, NULL))
+                npass++;
+            else
+                nfail++;
+        double end = now();
+
+        // report
+        fprintf(stderr, "validation: pass=%d fail=%d %.03f µs\n", npass, nfail, end-start);
+        fprintf(stdout, "%lld\n", (long long int) (1000.0 * (end - start)));
+        return nfail ? 1 : 0;
+    }
 
     for (int i = optind; i < argc; i++)
     {
