@@ -302,17 +302,21 @@ int main(int argc, char* argv[])
             }
         }
 
-        // validate in fast mode
+        // run once in for counting
         int npass = 0, nfail = 0;
+        for (int i = 0; i < nvalues; i++)
+            if (checker(values[i], NULL, NULL))
+                npass++;
+            else
+                nfail++;
+
+        // collect performance data over a loop
         double sum = 0.0, sum2 = 0.0;
         for (int n = loop; n; n--)
         {
             double start = now();
             for (int i = 0; i < nvalues; i++)
-                if (checker(values[i], NULL, NULL))
-                    npass++;
-                else
-                    nfail++;
+                checker(values[i], NULL, NULL)
             double delay = now() - start;
             sum += delay;
             sum2 += delay * delay;
