@@ -791,7 +791,7 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
 
 static bool is_email_char(int c)
 {
-    return isalnum(c) || c == '_' || c == '.';
+    return isalnum(c) || c == '_' || c == '.' || c == '-';
 }
 
 // ...@... for ASCII and UTF-8
