@@ -521,15 +521,6 @@ jmc -r Person-0.model.js hobbes.json moe.json
 
 ## Running with C, JS or Python
 
-The JSON Model compiler can generate C, JavaScript or Python validation code, ready to be
-imported for checking values:
-
-```sh
-jmc -o person.o Person-2            # C object file
-jmc -o person.mjs Person-2          # JavaScript Module
-jmc -o person.py --module Person-2  # Python Module
-```
-
 The JSON Model compiler also allows to create actual test executables or scripts which can be used
 for validation or performance testing, including option `-T` to loop over a value so as to
 compute the average and standard deviation times in µs.
@@ -583,6 +574,15 @@ Python is _slow_, a typical ratio to compiled C is 25:1.
 Because the `-r` option is not used, there are no reporting overheads.
 For JS standard deviation is quite high, which could be induced by
 occasional garbage collection.
+
+The JSON Model compiler can also generate C, JavaScript or Python validation code
+ready to be imported for checking values:
+
+```sh
+jmc -o person.o Person-2            # C object file
+jmc -o person.mjs Person-2          # JavaScript Module
+jmc -o person.py --module Person-2  # Python Module
+```
 
 ## Exporting to and Importing from JSON Schema
 
