@@ -8,6 +8,7 @@
 - [x] c-frontend: add support for `jsonl`
 - [x] static: optimize open must/may prop checks by dropping loop
 - [x] static: implement varlen
+- [ ] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`?
 - [ ] optim: merge `&` of objects in some cases?
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
 - [ ] js-frontend: add support for `jsonl`
