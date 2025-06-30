@@ -521,9 +521,9 @@ jmc -r Person-0.model.js hobbes.json moe.json
 
 ## Running with C, JS or Python
 
-The JSON Model compiler also allows to create actual test executables or scripts which can be used
-for validation or performance testing, including option `-T` to loop over a value so as to
-compute the average and standard deviation times in µs.
+The JSON Model compiler allows to create actual test executables or scripts for
+direct validation or performance testing, including option `-T` to loop over
+a value so as to compute the average and standard deviation times in µs.
 
 - C executable (assuming that [cre2](https://github.com/marcomaggi/cre2) is available in
   `/usr/local`):
