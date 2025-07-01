@@ -157,6 +157,82 @@ process_value(const char *name, const json_t * value,
     return !unexpected;
 }
 
+#if defined(JSONSCHEMA_BENCHMARK)
+// for https://github.com/sourcemeta-research/jsonschema-benchmark
+static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, int loop)
+{
+    int errors = 0;
+
+    const jm_check_fun_t checker = CHECK_fun(name);
+    if (checker == NULL)
+    {
+        fprintf(stderr, "no validation function found for %s\n", name);
+        exit(2);
+    }
+
+    size_t size = 1024;
+    int nvalues = 0;
+    json_t **values = (json_t **) malloc(sizeof(json_t *) * size);
+
+    // load jsonl
+    for (int i = optind; i < argc; i++)
+    {
+        FILE *input = fopen(argv[i], "r");
+
+        if (input == NULL)
+        {
+            fprintf(stderr, "%s: ERROR while opening file\n", argv[i]);
+            exit(3);
+        }
+
+        json_error_t error;
+        json_t *value;
+        while ((value = json_loadf(input,
+                                   JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
+                                   &error)))
+        {
+            if (nvalues == size) {
+                size *= 2;
+                values = (json_t **) realloc(values, sizeof(json_t *) * size);
+            }
+            values[nvalues++] = value;
+        }
+    }
+
+    // run once in for counting
+    int npass = 0, nfail = 0;
+    double cold_start = now();
+    for (int i = 0; i < nvalues; i++)
+        if (checker(values[i], NULL, NULL))
+            npass++;
+        else
+            nfail++;
+    double cold_delay = now() - cold_start;
+
+    // collect performance data over a loop
+    double sum = 0.0, sum2 = 0.0;
+    for (int n = loop; n; n--)
+    {
+        double start = now();
+        for (int i = 0; i < nvalues; i++)
+            checker(values[i], NULL, NULL);
+        double delay = now() - start;
+        sum += delay;
+        sum2 += delay * delay;
+    }
+
+    double avg = sum / loop;
+    double stdev = sqrt(sum2 / loop - avg * avg);
+
+    // report
+    fprintf(stderr, "validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
+    fprintf(stdout, "%lld,%lld\n",
+            (long long int) (1000 * cold_delay), (long long int) (1000 * avg));
+
+    exit(nfail ? 1 : 0);
+}
+#endif // JSONSCHEMA_BENCHMARK
+
 int main(int argc, char* argv[])
 {
     // get options
@@ -262,73 +338,15 @@ int main(int argc, char* argv[])
 
     int errors = 0;
 
-    // for https://github.com/sourcemeta-research/jsonschema-benchmark
     if (jsonschema_benchmark)
     {
-        const jm_check_fun_t checker = CHECK_fun(name);
-        if (checker == NULL)
-        {
-            fprintf(stderr, "no validation function found for %s\n", name);
-            return 1;
-        }
-
-        size_t size = 1024;
-        int nvalues = 0;
-        json_t **values = (json_t **) malloc(sizeof(json_t *) * size);
-
-        // load jsonl
-        for (int i = optind; i < argc; i++)
-        {
-            FILE *input = fopen(argv[i], "r");
-
-            if (input == NULL)
-            {
-                fprintf(stderr, "%s: ERROR while opening file\n", argv[i]);
-                errors++;
-                continue;
-            }
-
-            json_error_t error;
-            json_t *value;
-            while ((value = json_loadf(input,
-                                       JSON_DISABLE_EOF_CHECK|JSON_DECODE_ANY|JSON_ALLOW_NUL,
-                                       &error)))
-            {
-                if (nvalues == size) {
-                    size *= 2;
-                    values = (json_t **) realloc(values, sizeof(json_t *) * size);
-                }
-                values[nvalues++] = value;
-            }
-        }
-
-        // run once in for counting
-        int npass = 0, nfail = 0;
-        for (int i = 0; i < nvalues; i++)
-            if (checker(values[i], NULL, NULL))
-                npass++;
-            else
-                nfail++;
-
-        // collect performance data over a loop
-        double sum = 0.0, sum2 = 0.0;
-        for (int n = loop; n; n--)
-        {
-            double start = now();
-            for (int i = 0; i < nvalues; i++)
-                checker(values[i], NULL, NULL);
-            double delay = now() - start;
-            sum += delay;
-            sum2 += delay * delay;
-        }
-
-        double avg = sum / loop;
-        double stdev = sqrt(sum2 / loop - avg * avg);
-
-        // report
-        fprintf(stderr, "validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
-        fprintf(stdout, "%lld\n", (long long int) (1000.0 * avg));
-        return nfail ? 1 : 0;
+#if defined(JSONSCHEMA_BENCHMARK)
+        jsonschema_benchmark_run(argc, argv, name, loop);
+#else
+        fprintf(stderr,
+                "jsonschema benchmark unavailable, recompile with -D JSONSCHEMA_BENCHMARK\n");
+        return 3;
+#endif  // JSONSCHEMA_BENCHMARK
     }
 
     for (int i = optind; i < argc; i++)
