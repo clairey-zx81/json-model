@@ -192,8 +192,10 @@ def clang_compile(c_code: str, args):
     d_engine = "-DREGEX_ENGINE_PCRE2" if args.regex_engine == "pcre2" else "-DREGEX_ENGINE_RE2"
     cppflags = args.cppflags or \
         f"-I{rt_dir} -I/usr/local/linclude -DCHECK_FUNCTION_NAME=check_model {d_engine}"
+    if args.define:
+        cppflags = " ".join(f"-D{d}" for d in args.define) + " " + cppflags
     if args.include:
-        cppflags = " -I".join([""] + args.include) + " " + cppflags
+        cppflags = " ".join(f"-I {i}" for i in args.include) + " " + cppflags
     ldflags = args.ldflags or \
         (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
     if args.library:
@@ -278,6 +280,7 @@ def jmc_script():
     arg("--ldflags", type=str, help="override C linker flags for executable")
     arg("--include", "-I", nargs="*", default=[], help="add include directory")
     arg("--library", "-L", nargs="*", default=[], help="add library directory")
+    arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
 
     # testing mode, expected results on values
     arg("--name", "-n", default="", help="name of validation submodel, default is \"\" (root)")
