@@ -9,6 +9,7 @@
 - [x] static: optimize open must/may prop checks by dropping loop
 - [x] static: implement varlen
 - [x] py-frontend: add support for `jsonl`
+- [x] js-frontend: add support for `jsonl`
 - [ ] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`?
 - [ ] optim: merge `&` of objects in some cases?
 - [ ] model: fix rw issue in `openapi-311-fuzzy`

@@ -73,7 +73,7 @@ export default async function main(checker_init, checker, checker_free)
       'test': { type: 'boolean', short: 't' },
       're2': { type: 'boolean' },
       'regexp': { type: 'boolean' },
-      // TODO 'jsonl': { type: 'boolean' },
+      'jsonl': { type: 'boolean' },
     }
 
     const args = parseArgs({options, allowPositionals: true})
@@ -109,8 +109,14 @@ export default async function main(checker_init, checker, checker_free)
     for (const fname of args.positionals)
     {
         try {
-            const data = await fs.readFile(fname, { encoding: 'UTF-8'})
-            const value = JSON.parse(data)
+            const data = await fs.readFile(fname, {encoding: 'UTF-8'})
+            const value = (
+                args.values.jsonl ?
+                    args.values.test ?
+                        data.split("\n").slice(0, -1).map(s => [null, JSON.parse(s)])
+                      : data.split("\n").slice(0, -1).map(s => JSON.parse(s))
+                  : JSON.parse(data)
+            )
 
             if (args.values.test) {
                 if (!Array.isArray(value)) {
