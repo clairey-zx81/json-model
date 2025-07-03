@@ -308,6 +308,7 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
+    ap.add_argument("--jsonl", action="store_true", default=False, help="assume JSONL files")
     # ap.add_argument("--jsonl", "-j", action="store_true", help="assume jsonl files")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
@@ -325,9 +326,16 @@ def main(jm_fun, jm_map, jmc_version):
 
     for fn in args.values:
         try:
-            with open(fn) as f:
-                value = json.load(f)
-            values = value if args.test else [ [ None, value ] ]
+
+            # load adata
+            if args.jsonl:
+                with open(fn) as f:
+                    values = [[None, json.loads(l)] for l in f]
+            else:
+                with open(fn) as f:
+                    value = json.load(f)
+                values = value if args.test else [ [ None, value ] ]
+
             for i, tvect in enumerate(values):
 
                 if isinstance(tvect, str):  # ignore strings as comments
