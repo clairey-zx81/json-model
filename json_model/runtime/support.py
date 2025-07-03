@@ -309,7 +309,8 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
     ap.add_argument("--jsonl", action="store_true", default=False, help="assume JSONL files")
-    # ap.add_argument("--jsonl", "-j", action="store_true", help="assume jsonl files")
+    ap.add_argument("--jsonschema-benchmark", action="store_true", default=False,
+                    help="specific JSON Schema Benchmark run")
     ap.add_argument("values", nargs="*", help="JSON files")
     args = ap.parse_args()
 
@@ -322,19 +323,54 @@ def main(jm_fun, jm_map, jmc_version):
         print(f"Python from JSON Model compiler version {jmc_version}")
         sys.exit(0)
 
+    if args.jsonschema_benchmark:
+        args.jsonl = True
+
     errors = 0
 
     for fn in args.values:
         try:
 
-            # load adata
+            # load json data
             if args.jsonl:
                 with open(fn) as f:
-                    values = [[None, json.loads(l)] for l in f]
+                    values = [json.loads(l) for l in f]
+                if args.test:
+                    values = [[None, j] for j in values]
             else:
                 with open(fn) as f:
                     value = json.load(f)
                 values = value if args.test else [ [ None, value ] ]
+
+            if args.jsonschema_benchmark:
+
+                checker = jm_fun(args.name)
+
+                # cold run
+                cold_start = time.clock_gettime(0)
+                for j in values:
+                    if not checker(j, None, None):
+                        errors += 1
+                cold_delay = 1000000.0 * (time.clock_gettime(0) - cold_start)
+
+                # warm run
+                sum1, sum2 = 0.0, 0.0
+                for _ in range(args.time):
+                    start = time.clock_gettime(0)
+                    for j in values:
+                        checker(j, None, None)
+                    delay = 1000000.0 * (time.clock_gettime(0) - start)
+                    sum1 += delay
+                    sum2 += delay * delay
+
+                # result
+                avg = sum1 / args.time
+                stdev = math.sqrt( sum2 / args.time - avg * avg)
+                print(f"{avg:.03f} ± {stdev:.03f} µs/batch", file=sys.stderr)
+
+                # cold-run-ns,warm-run-ns
+                print(f"{int(1000 * cold_delay)},{int(1000 * avg)}")
+                sys.exit(1 if errors else 0)
 
             for i, tvect in enumerate(values):
 
