@@ -322,34 +322,32 @@ def main(jm_fun, jm_map, jmc_version):
     if args.version:
         print(f"Python from JSON Model compiler version {jmc_version}")
         sys.exit(0)
-
     if args.jsonschema_benchmark:
         args.jsonl = True
 
     errors = 0
 
     for fn in args.values:
-        try:
 
+        try:
             # load json data
             if args.jsonl:
                 with open(fn) as f:
                     values = [json.loads(l) for l in f]
-                if args.test:
-                    values = [[None, j] for j in values]
             else:
                 with open(fn) as f:
                     value = json.load(f)
                 values = value if args.test else [ [ None, value ] ]
 
+            # benckmarking
             if args.jsonschema_benchmark:
 
                 checker = jm_fun(args.name)
 
                 # cold run
                 cold_start = time.clock_gettime(0)
-                for j in values:
-                    if not checker(j, None, None):
+                for v in values:
+                    if not checker(v, None, None):
                         errors += 1
                 cold_delay = 1000000.0 * (time.clock_gettime(0) - cold_start)
 
@@ -371,6 +369,11 @@ def main(jm_fun, jm_map, jmc_version):
                 # cold-run-ns,warm-run-ns
                 print(f"{int(1000 * cold_delay)},{int(1000 * avg)}")
                 sys.exit(1 if errors else 0)
+
+            # else usual runs
+
+            if args.jsonl:
+                values = [[None, j] for j in values]
 
             for i, tvect in enumerate(values):
 
