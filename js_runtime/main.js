@@ -62,28 +62,78 @@ function processing(fname, index, value, checker, name, expected, report, times,
     return error
 }
 
+function jsonschema_benchmark(values, checker, times)
+{
+    let errors = 0
+
+    // cold run
+    const cold_start = performance.now()
+    for (const v of values)
+        if (checker(v, "", null))
+            errors++
+    const cold_delay = performance.now() - cold_start  // ms
+
+    const WARMUP_MAX_TIME = 10.0  // seconds
+    const WARMUP_ITERATIONS = 100  // unless too long
+    const max_iterations = Math.ceil(1000.0 * WARMUP_MAX_TIME / cold_delay)
+
+    // warm-up so as to trigger JIT
+    const warmup_iterations = Math.min(WARMUP_ITERATIONS, max_iterations)
+    console.error(`warmup iterations: ${warmup_iterations}`)
+    for (let i = 0; i < warmup_iterations; i++)
+        for (const v of values)
+            checker(v, '', null)
+
+    // warm run
+    let sum1 = 0.0, sum2 = 0.0
+    for (let i = 0; i < times; i++)
+    {
+        let start = performance.now()
+        for (const v of values)
+            checker(v, "", null)
+        let delay = performance.now() - start  // ms
+        sum1 += delay
+        sum2 += delay * delay
+    }
+
+    // results
+    let avg = sum1 / times
+    let stdev = Math.sqrt(sum2 / times - avg * avg)
+    console.error(`validation pass=${values.length - errors} fail=${errors}`,
+                  `${(1000.0 * avg).toFixed(3)} ± ${(1000.0 * stdev).toFixed(3)} µs/batch`)
+
+    console.log((1000000.0 * cold_delay).toFixed(0) + ',' + (1000000.0 * avg).toFixed(0))
+    process.exit(errors ? 1 : 0)
+}
+
 export default async function main(checker_init, checker, checker_free)
 {
     checker_init()
 
     const options = {
       'verbose': { type: 'boolean', short: 'v' },
-      'times': { type: 'string', short: 'T' },
+      'time': { type: 'string', short: 'T' },
       'report': { type: 'boolean', short: 'r' },
       'test': { type: 'boolean', short: 't' },
       're2': { type: 'boolean' },
       'regexp': { type: 'boolean' },
       'jsonl': { type: 'boolean' },
+      'jsonschema-benchmark': { type: 'boolean', short: 'B' },
     }
 
     const args = parseArgs({options, allowPositionals: true})
 
+    const benchmarking = args.values["jsonschema-benchmark"]
+
+    if (benchmarking)
+        args.values.jsonl = true
+
     let errors = 0
-    let times = args.values.times !== undefined ? Number(args.values.times) : 1
+    let times = args.values.time !== undefined ? Number(args.values.time) : 1
 
     if (isNaN(times))
     {
-        console.log(`Unexpected --times: ${args.values.times}`)
+        console.log(`Unexpected --time: ${args.values.time}`)
         process.exit(1);
     }
 
@@ -117,6 +167,9 @@ export default async function main(checker_init, checker, checker_free)
                       : data.split("\n").slice(0, -1).map(s => JSON.parse(s))
                   : JSON.parse(data)
             )
+
+            if (benchmarking)
+                jsonschema_benchmark(value, checker, times)
 
             if (args.values.test) {
                 if (!Array.isArray(value)) {
