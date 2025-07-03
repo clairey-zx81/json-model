@@ -66,6 +66,8 @@ function jsonschema_benchmark(values, checker, times)
 {
     let errors = 0
 
+    console.log(`values: ${values.length}`)
+
     // cold run
     const cold_start = performance.now()
     for (const v of values)
@@ -124,12 +126,13 @@ export default async function main(checker_init, checker, checker_free)
     const args = parseArgs({options, allowPositionals: true})
 
     const benchmarking = args.values["jsonschema-benchmark"]
-
     if (benchmarking)
         args.values.jsonl = true
+    if (!benchmarking && args.values.jsonl)
+        args.values.test = true
 
     let errors = 0
-    let times = args.values.time !== undefined ? Number(args.values.time) : 1
+    const times = args.values.time !== undefined ? Number(args.values.time) : 1
 
     if (isNaN(times))
     {
