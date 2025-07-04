@@ -364,7 +364,8 @@ def main(jm_fun, jm_map, jmc_version):
                 # result
                 avg = sum1 / args.time
                 stdev = math.sqrt( sum2 / args.time - avg * avg)
-                print(f"{avg:.03f} ± {stdev:.03f} µs/batch", file=sys.stderr)
+                print(f"validation: pass={len(values)-errors} fail={errors} "
+                      f"{avg:.03f} ± {stdev:.03f} µs/batch", file=sys.stderr)
 
                 # cold-run-ns,warm-run-ns
                 print(f"{int(1000 * cold_delay)},{int(1000 * avg)}")
