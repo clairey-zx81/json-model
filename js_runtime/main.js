@@ -69,7 +69,7 @@ function jsonschema_benchmark(values, checker, times)
     // cold run
     const cold_start = performance.now()
     for (const v of values)
-        if (checker(v, "", null))
+        if (!checker(v, "", null))
             errors++
     const cold_delay = performance.now() - cold_start  // ms
 
