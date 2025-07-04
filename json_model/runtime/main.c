@@ -225,7 +225,7 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
     double stdev = sqrt(sum2 / loop - avg * avg);
 
     // report
-    fprintf(stderr, "validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
+    fprintf(stderr, "C validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
     fprintf(stdout, "%lld,%lld\n",
             (long long int) (1000 * cold_delay), (long long int) (1000 * avg));
 

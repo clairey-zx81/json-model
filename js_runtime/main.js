@@ -66,8 +66,6 @@ function jsonschema_benchmark(values, checker, times)
 {
     let errors = 0
 
-    console.log(`values: ${values.length}`)
-
     // cold run
     const cold_start = performance.now()
     for (const v of values)
@@ -101,8 +99,8 @@ function jsonschema_benchmark(values, checker, times)
     // results
     let avg = sum1 / times
     let stdev = Math.sqrt(sum2 / times - avg * avg)
-    console.error(`validation pass=${values.length - errors} fail=${errors}`,
-                  `${(1000.0 * avg).toFixed(3)} ± ${(1000.0 * stdev).toFixed(3)} µs/batch`)
+    console.error(`js validation: pass=${values.length - errors} fail=${errors}`,
+                  `${(1000.0 * avg).toFixed(3)} ± ${(1000.0 * stdev).toFixed(3)} µs`)
 
     console.log((1000000.0 * cold_delay).toFixed(0) + ',' + (1000000.0 * avg).toFixed(0))
     process.exit(errors ? 1 : 0)
