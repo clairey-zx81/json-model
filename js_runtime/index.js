@@ -197,7 +197,7 @@ export function jm_cmp(v1, v2)
 // works for anything
 export function jm_array_is_unique(arr)
 {
-    let sorted = arr.toSorted(jm_cmp)
+    let sorted = arr.length > 2 ? arr.toSorted(jm_cmp) : arr
     for (let i = 0; i < sorted.length - 1; i++)
         if (jm_cmp(sorted[i], sorted[i+1]) == 0)
             return false
