@@ -16,7 +16,7 @@ typedef enum {
     expect_pass
 } process_mode_t;
 
-// return µs
+// return cputime µs
 static double now(void)
 {
     struct timespec ts;
@@ -199,6 +199,14 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
         }
     }
 
+    // evaluate empty run
+    int count = 0;
+    double empty_start = now();
+    for (int i = 0; i < nvalues; i++)
+        if (values[i] != NULL)
+            count++;
+    double empty_delay = now() - empty_start;
+
     // run once in for counting
     int npass = 0, nfail = 0;
     double cold_start = now();
@@ -225,7 +233,8 @@ static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, i
     double stdev = sqrt(sum2 / loop - avg * avg);
 
     // report
-    fprintf(stderr, "C validation: pass=%d fail=%d %.03f ± %.03f µs\n", npass, nfail, avg, stdev);
+    fprintf(stderr, "C validation: pass=%d fail=%d %.03f ± %.03f µs [%.03f]\n",
+            npass, nfail, avg, stdev, empty_delay);
     fprintf(stdout, "%lld,%lld\n",
             (long long int) (1000 * cold_delay), (long long int) (1000 * avg));
 
