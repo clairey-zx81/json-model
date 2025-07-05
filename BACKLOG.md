@@ -2,42 +2,28 @@
 
 ## Current Tasks
 
-- [x] design: allow merge to handle `$ANY` values on one side
-- [x] design: import definitions with `<` in `%`
-- [x] command: check loose option propagation
-- [x] c-frontend: add support for `jsonl`
-- [x] static: optimize open must/may prop checks by dropping loop
-- [x] static: implement varlen
-- [x] py-frontend: add support for `jsonl`
-- [x] js-frontend: add support for `jsonl`
-- [x] py-frontend: add specific `--jsonschema-benchmark` option
-- [x] js-frontend: add specific `--jsonschema-benchmark` option
-- [ ] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`?
-- [ ] optim: merge `&` of objects in some cases?
+- [ ] model: warn on url-looking definitions
+- [ ] python: rerun style and type checks
+- [ ] tests: rerun tests
+- [ ] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
-- [ ] js-frontend: add support for `jsonl`
-- [ ] py-frontend: add support for `jsonl`
+- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data?
+- [ ] js-backend: warn about loose
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
-- [ ] python: rerun style and type checks
-- [ ] model: warn on url-looking definitions
-- [ ] tests: rerun tests
-- [ ] tests: with multiple regex engine
-- [ ] tests: improve meta model for constants, predefs and regex (`rwt/json-model.model.json`)
 - [ ] doc: document `re2` support for C
 - [ ] design: rewrite reuse path? rather force defs?
+- [ ] tests: with multiple regex engine
 - [ ] use: js/ts type export?
 - [ ] use: py type dataclass/pydantic export?
 - [ ] use: test with corrector?
 - [ ] static: sort list of models? option?
-- [ ] js-backend: warn about loose
+- [ ] optim: merge `&` of objects in some cases?
 - [ ] tuto: add further reading pointers in the conclusion
-- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
 - [ ] ts-backend: js sharing?
-- [ ] models: update JSON model meta-model with regex extension…
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction is `ConstMap`?
@@ -52,15 +38,14 @@
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
-- [ ] design: add `$URI-REF`?
+- [ ] design: add `$URI-REF` or similar?
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
-- [ ] command: write a man-page or similar
+- [ ] command: write a man-page or similar?
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
-- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data?
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] php-backend: should it stoop so low?
 - [ ] perf: geo, ansible meta, openapi
@@ -167,6 +152,7 @@
 - [ ] js/ts-backend: look at JSON Schema implementations?
 - [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
+- [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
 - [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
@@ -379,3 +365,14 @@
 - [x] static: re optimize `^...` using starts with when possible (idea from blaze paper)
 - [x] static: re optimize `...$` and `^...$`
 - [x] pr: collect cloc about compiler (parts) and runtimes
+- [x] design: allow merge to handle `$ANY` values on one side
+- [x] design: import definitions with `<` in `%`
+- [x] command: check loose option propagation
+- [x] c-frontend: add support for `jsonl`
+- [x] static: optimize open must/may prop checks by dropping loop
+- [x] static: implement varlen
+- [x] py-frontend: add support for `jsonl`
+- [x] js-frontend: add support for `jsonl`
+- [x] py-frontend: add specific `--jsonschema-benchmark` option
+- [x] js-frontend: add specific `--jsonschema-benchmark` option
+- [x] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`? NO.
