@@ -52,7 +52,7 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$rec'.'|'.1
         res = _jm_obj_0(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected object [.'$rec'.'|'.1]", path))
+            rep is None or rep.append(("unexpected element [.'$rec'.'|'.1]", path))
     if res:
         rep is None or rep.clear()
     else:
