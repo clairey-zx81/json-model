@@ -272,7 +272,8 @@ def jmc_script():
         help="do not generate anything")
 
     # TODO cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js"], help="output language")
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "plpgsql"],
+        help="output language")
 
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
@@ -357,6 +358,10 @@ def jmc_script():
             args.format, args.op = "js", "C"
             if args.gen is None:
                 args.gen = "module"
+        elif args.output.endswith(".sql"):
+            args.format, args.op = "plpgsql", "C"
+            if args.gen is None:
+                args.gen = "module"
         elif args.output.endswith(".schema.json"):
             args.format, args.op = "json", "E"
         elif args.output.endswith(".model.json"):
@@ -386,7 +391,7 @@ def jmc_script():
     elif args.op == "C":
         if args.format is None:
             args.format = "py"
-        elif args.format not in ("py", "c", "js"):
+        elif args.format not in ("py", "c", "js", "plpgsql"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
@@ -394,9 +399,9 @@ def jmc_script():
         sys.exit(1)
 
     if args.values and (args.op not in "C" or args.format != "py"):
-        log.error(f"Testing JSON values requires -X for Python: {args.op} {args.format}")
+        log.error(f"Testing JSON values requires -C for Python: {args.op} {args.format}")
         sys.exit(1)
-    if args.gen == "source" and (args.op not in "C" or args.format not in ("py", "c", "js")):
+    if args.gen == "source" and (args.op not in "C" or args.format not in ("py", "c", "js", "plpgsql")):
         log.error(f"Showing code requires -C for Python, C or JS: {args.op} {args.format}")
         sys.exit(1)
 
@@ -475,7 +480,7 @@ def jmc_script():
         show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "C":
-        assert args.format in ("py", "c", "js"), f"valid output language {args.format}"
+        assert args.format in ("py", "c", "js", "plpgsql"), f"valid output language {args.format}"
 
         # compile to source
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",

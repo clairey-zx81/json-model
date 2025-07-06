@@ -1366,6 +1366,9 @@ def xstatic_compile(
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, relib=relib or "re")
+    elif lang == "plpgsql":
+        from .plpgsql import PLpgSQL
+        language = PLpgSQL(debug=debug, with_report=report, relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

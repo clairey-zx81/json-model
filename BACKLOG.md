@@ -2,12 +2,18 @@
 
 ## Current Tasks
 
+- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data (wip)
+- [ ] sql-backend: add generic entry function
+- [ ] sql-backend: add testing capability
+- [ ] sql-backend: add necessary support function
+- [ ] sql-backend: implement basic regex
+- [ ] sql-backend: implement extended regex
+- [ ] sql-backend: package support as an extension
 - [ ] model: warn on url-looking definitions
 - [ ] python: rerun style and type checks
 - [ ] tests: rerun tests
 - [ ] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
-- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data?
 - [ ] js-backend: warn about loose
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
