@@ -3,9 +3,9 @@
 ## Current Tasks
 
 - [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data (wip)
-- [ ] sql-backend: add generic entry function
+- [x] sql-backend: add generic entry function
 - [ ] sql-backend: add testing capability
-- [ ] sql-backend: add necessary support function
+- [ ] sql-backend: add necessary support function (wip)
 - [ ] sql-backend: implement basic regex
 - [ ] sql-backend: implement extended regex
 - [ ] sql-backend: package support as an extension
