@@ -18,7 +18,7 @@ class PLpgSQL(Language):
         super().__init__(
             "PLpgSQL",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             eq="=", ne="<>",
+             eq="=", ne="<>", indent="  ",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
              check_t="jm_check_fun_t", json_t="JSONB",
@@ -216,17 +216,16 @@ class PLpgSQL(Language):
     def report(self, msg: str, path: Var) -> Block:
         return [
             f"IF rep IS NOT NULL THEN",
-            f"    CALL jm_report_add_entry(rep, {self.esc(msg)}, {path});",
-            f"    RAISE EXCEPTION 'not implemented yet';",
+            f"  CALL jm_report_add_entry(rep, {self.esc(msg)}, {path});",
             f"END IF;"
         ] if self._with_report else []
 
     def clean_report(self) -> Block:
         return [
             "IF rep IS NOT NULL THEN",
-            "    CALL jm_report_free_entries(rep);",
+            "  CALL jm_report_free_entries(rep);",
             "END IF;"
-        ]
+        ] if self._with_report else []
 
     #
     # path management
@@ -350,9 +349,9 @@ class PLpgSQL(Language):
             f"CREATE OR REPLACE FUNCTION {name}(name TEXT)",
             r"RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$",
             r"DECLARE",
-            f"    map JSONB := {self.json_cst(pmap)};",
+            f"  map JSONB := {self.json_cst(pmap)};",
             r"BEGIN",
-            r"    RETURN map->>name;",
+            r"  RETURN map->>name;",
             r"END;",
             r"$$ LANGUAGE plpgsql;",
         ]

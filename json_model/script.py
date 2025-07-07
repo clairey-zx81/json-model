@@ -359,9 +359,7 @@ def jmc_script():
             if args.gen is None:
                 args.gen = "module"
         elif args.output.endswith(".sql"):
-            args.format, args.op = "plpgsql", "C"
-            if args.gen is None:
-                args.gen = "module"
+            args.format, args.op, args.gen = "plpgsql", "C", "module"
         elif args.output.endswith(".schema.json"):
             args.format, args.op = "json", "E"
         elif args.output.endswith(".model.json"):

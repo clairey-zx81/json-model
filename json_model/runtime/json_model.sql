@@ -10,7 +10,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res BOOLEAN;
 BEGIN
-  RAISE NOTICE 'jm_call: calling %', fun;
+  -- RAISE NOTICE 'jm_call: calling %', fun;
   EXECUTE FORMAT('SELECT %s($1, $2, $3)', fun)
     INTO res
     USING val, path, rep;

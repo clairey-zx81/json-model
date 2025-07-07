@@ -160,6 +160,12 @@ $(F.out): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
+%.sql: %.model.json
+	$(JMC.cmd) -v -o $@ $<
+
+%.values.csv: %.values.json
+	../values2csv.py $< $@
+
 #
 # Generated JSON Schema checks
 #
