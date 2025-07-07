@@ -161,7 +161,7 @@ $(F.out): json-model.o main.o
 	fi
 
 %.sql: %.model.json
-	$(JMC.cmd) -v -o $@ $<
+	$(JMC.cmd) --no-reporting -o $@ $<
 
 %.values.csv: %.values.json
 	../values2csv.py $< $@
