@@ -166,6 +166,9 @@ $(F.out): json-model.o main.o
 %.values.csv: %.values.json
 	../values2csv.py $< $@
 
+%.sql.check: %.sql %.values.csv
+	psql -f $< -f ../testcsv.sql < $*.values.csv > $@
+
 #
 # Generated JSON Schema checks
 #

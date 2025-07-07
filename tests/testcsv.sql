@@ -9,7 +9,7 @@ CREATE TEMPORARY TABLE json_model_test(
     jval JSONB NOT NULL
 );
 
-\copy json_model_test(expect, name, jval) FROM './dst_03.values.csv' WITH (FORMAT csv, NULL '\\n')
+\copy json_model_test(expect, name, jval) FROM PSTDIN WITH (FORMAT csv, NULL '\\n')
 
 SELECT
   COUNT(*) FILTER (WHERE expect = check_model(jval, name, NULL)) AS ok,
