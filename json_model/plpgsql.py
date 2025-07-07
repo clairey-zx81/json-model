@@ -18,10 +18,11 @@ class PLpgSQL(Language):
         super().__init__(
             "PLpgSQL",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
+             eq="=", ne="<>",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
              check_t="jm_check_fun_t", json_t="JSONB",
-             path_t="ARRAY", float_t="FLOAT8", str_t="TEXT", match_t="BOOLEAN",
+             path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="BOOLEAN",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
@@ -63,7 +64,7 @@ class PLpgSQL(Language):
         elif tval is int:
             is_an_int = self.is_num(var)
             if not loose:
-                is_an_int += " AND ({var})::INT8 = {var}"
+                is_an_int += f" AND ({var})::INT8 = {var}::FLOAT8"
             return is_an_int
         elif tval is float:
             # FIXME int vs float?
@@ -93,7 +94,7 @@ class PLpgSQL(Language):
             return super().const(val)
 
     def has_prop(self, var: Var, prop: str) -> BoolExpr:
-        return f"{var} ? {self.esc(prop)})"
+        return f"{var} ? {self.esc(prop)}"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"{var}"
@@ -201,7 +202,10 @@ class PLpgSQL(Language):
         return code
 
     def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
-        return self.var(var, val, self._int if declare else None)
+        return self.var(var, val, self._int_t if declare else None)
+
+    def inc_var(self, var: Var) -> Block:
+        return [f"{var} := {var} + 1;"]
 
     #
     # reporting
@@ -212,7 +216,7 @@ class PLpgSQL(Language):
     def report(self, msg: str, path: Var) -> Block:
         return [
             f"IF rep IS NOT NULL THEN",
-            f"    -- jm_report_add_entry(rep, {self.esc(msg)}, {path});",
+            f"    CALL jm_report_add_entry(rep, {self.esc(msg)}, {path});",
             f"    RAISE EXCEPTION 'not implemented yet';",
             f"END IF;"
         ] if self._with_report else []
@@ -220,7 +224,7 @@ class PLpgSQL(Language):
     def clean_report(self) -> Block:
         return [
             "IF rep IS NOT NULL THEN",
-            "    jm_report_free_entries(rep);",
+            "    CALL jm_report_free_entries(rep);",
             "END IF;"
         ]
 
@@ -229,7 +233,7 @@ class PLpgSQL(Language):
     #
     def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
-        return f"{pvar} || '.' || {pseg}" if self._with_path else None
+        return f"array_append({pvar}, {pseg})" if self._with_path else None
 
     def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
         return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"
@@ -327,7 +331,7 @@ class PLpgSQL(Language):
 
     def sub_strfun(self, fname: str, body: Block) -> Block:
         return [
-            f"CREATE OR REPLACE FUNCTION {fname}(val TEXT, path TEXT, rep ARRAY)",
+            f"CREATE OR REPLACE FUNCTION {fname}(val TEXT, path TEXT[], rep jm_report_entry[])",
             r"RETURNING BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + [ "$$ LANGUAGE PLpgSQL;"]
 
@@ -406,7 +410,7 @@ class PLpgSQL(Language):
 
     def sub_fun(self, name: str, body: Block) -> Block:
         return [
-            f"CREATE OR REPLACE FUNCTION {name}(val JSONB, path TEXT, rep TEXT)",
+            f"CREATE OR REPLACE FUNCTION {name}(val JSONB, path TEXT[], rep jm_report_entry[])",
             "RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + ["$$ LANGUAGE PLpgSQL;"]
 
