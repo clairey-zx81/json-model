@@ -1,0 +1,54 @@
+-- complain if script is sourced in psql, rather than via CREATE EXTENSION
+-- \echo Use "CREATE EXTENSION json_model;" to load this file. \quit
+
+CREATE OR REPLACE FUNCTION jm_call(fun TEXT, val JSONB, vpath TEXT, rep TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res BOOLEAN;
+BEGIN
+  EXECUTE FORMAT('SELECT %s($1, $2, $3)', fun)
+    INTO res
+    USING val, vpath, rep;
+  RETURN res;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION jm_is_valid_date(val TEXT, vpath TEXT, rep TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+    PERFORM val::DATE;
+    RETURN TRUE;
+EXCEPTION
+    WHEN data_exception THEN
+        RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION jm_is_valid_datetime(val TEXT, vpath TEXT, rep TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+    PERFORM val::TIMESTAMP;
+    RETURN TRUE;
+EXCEPTION
+    WHEN data_exception THEN
+        RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION jm_is_valid_regex(val TEXT, vpath TEXT, rep TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+    PERFORM '' ~ val;
+    RETURN TRUE;
+EXCEPTION
+    WHEN data_exception THEN
+        RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION jm_is_valid_url(val TEXT, vpath TEXT, rep TEXT)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+    RETURN val ~ E'^((https?|file)://.*|\\.)';
+END;
+$$ LANGUAGE plpgsql;
