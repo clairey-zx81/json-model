@@ -9,6 +9,7 @@
 - [ ] sql-backend: implement basic regex
 - [ ] sql-backend: implement extended regex
 - [ ] sql-backend: package support as an extension
+- [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions
 - [ ] python: rerun style and type checks
 - [ ] tests: rerun tests
