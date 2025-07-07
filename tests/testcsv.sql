@@ -15,3 +15,11 @@ SELECT
   COUNT(*) FILTER (WHERE expect = check_model(jval, name, NULL)) AS ok,
   COUNT(*) AS total
 FROM json_model_test;
+
+SELECT jid, ck
+FROM json_model_test
+  CROSS JOIN check_model(jval, name, NULL) AS ck
+WHERE ck IS NULL OR expect <> ck;
+
+SELECT jid, expect, check_model(jval, name, NULL) AS réel
+FROM json_model_test;
