@@ -40,8 +40,7 @@ class PLpgSQL(Language):
         return code
 
     def file_footer(self, exe: bool = True) -> Block:
-        return ["-- TODO footer"]
-        # return [""] + self.file_load("plpgsql_entry.sql")
+        return [""] + self.file_load("plpgsql_entry.sql")
 
     #
     # inlined type test expressions about JSON data
@@ -85,7 +84,7 @@ class PLpgSQL(Language):
         return self.esc(json.dumps(j))
 
     def json_cst(self, j: Jsonable) -> JsonExpr:
-        return f"JSONB '{json.dumps(j, separators=(',', ':')).translate(_json_sec_table)}'"
+        return f"JSONB '{json.dumps(j, separators=(',', ':')).translate(self._json_esc_table)}'"
 
     def const(self, val: Jsonable) -> Expr:
         if isinstance(val, (list, dict)):
@@ -329,7 +328,7 @@ class PLpgSQL(Language):
     def sub_strfun(self, fname: str, body: Block) -> Block:
         return [
             f"CREATE OR REPLACE FUNCTION {fname}(val TEXT, path TEXT, rep ARRAY)",
-            r"RETURNING BOOL CALLED ON NULL INPUT IMMUTABLE AS $$",
+            r"RETURNING BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + [ "$$ LANGUAGE PLpgSQL;"]
 
 
@@ -337,13 +336,22 @@ class PLpgSQL(Language):
     # Property Map
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [f"-- def_pmap name={name}"]
+        return []
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [f"-- ini_pmap name={name}"]
+        return []
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return [f"-- sub_pmap name={name}"]
+        return [
+            f"CREATE OR REPLACE FUNCTION {name}(name TEXT)",
+            r"RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$",
+            r"DECLARE",
+            f"    map JSONB := {self.json_cst(pmap)};",
+            r"BEGIN",
+            r"    RETURN map->>name;",
+            r"END;",
+            r"$$ LANGUAGE plpgsql;",
+        ]
 
     def def_cset(self, name: str, constants: ConstList) -> Block:
         return [f"-- def_cset name={name}"]
@@ -399,7 +407,7 @@ class PLpgSQL(Language):
     def sub_fun(self, name: str, body: Block) -> Block:
         return [
             f"CREATE OR REPLACE FUNCTION {name}(val JSONB, path TEXT, rep TEXT)",
-            "    RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE AS $$",
+            "RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + ["$$ LANGUAGE PLpgSQL;"]
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
