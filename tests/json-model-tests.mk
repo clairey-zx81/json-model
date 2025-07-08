@@ -69,6 +69,10 @@ check:
 clean:
 	$(RM) *.o *.out *.mjs *.mpy
 
+.PHONY: clean.sql
+clean.sql:
+	$(RM) *.sql *.sql.check *.values.csv
+
 .PHONY: json
 json: $(F.json)
 
