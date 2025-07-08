@@ -1359,16 +1359,16 @@ def xstatic_compile(
     # target language
     if lang == "py":
         from .python import Python
-        language = Python(debug=debug, with_report=report, relib=relib or "re2")
+        language = Python(debug=debug, with_report=report, with_path=report, relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug, with_report=report, relib=relib or "re2")
+        language = CLangJansson(debug=debug, with_report=report, with_path=report, relib=relib or "re2")
     elif lang == "js":
         from .javascript import JavaScript
-        language = JavaScript(debug=debug, with_report=report, relib=relib or "re")
+        language = JavaScript(debug=debug, with_report=report, with_path=report, relib=relib or "re")
     elif lang == "plpgsql":
         from .plpgsql import PLpgSQL
-        language = PLpgSQL(debug=debug, with_report=report, relib=relib or "re")
+        language = PLpgSQL(debug=debug, with_report=report, with_path=report, relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

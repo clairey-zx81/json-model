@@ -54,7 +54,8 @@ class Language:
 
         # parameter consistency
         if with_path and not with_report:
-            log.warning(f"path collection but no reporting")
+            log.warning(f"path collection but no reporting, removing path")
+            with_path = False
 
         # keep parameters
         self._name = name  # language name
