@@ -11,15 +11,18 @@ CREATE TEMPORARY TABLE json_model_test(
 
 \copy json_model_test(expect, name, jval) FROM PSTDIN WITH (FORMAT csv, NULL '\\n')
 
+\echo # working tests
 SELECT
-  COUNT(*) FILTER (WHERE expect = check_model(jval, name, NULL)) AS ok,
+  COUNT(*) FILTER (WHERE expect = check_model(jval, name, NULL)) AS success,
   COUNT(*) AS total
 FROM json_model_test;
 
+\echo # bad tests
 SELECT jid, ck
 FROM json_model_test
   CROSS JOIN check_model(jval, name, NULL) AS ck
 WHERE ck IS NULL OR expect <> ck;
 
-SELECT jid, expect, check_model(jval, name, NULL) AS réel
+\echo # all results
+SELECT jid, expect, check_model(jval, name, NULL) AS result
 FROM json_model_test;

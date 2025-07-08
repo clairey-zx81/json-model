@@ -170,7 +170,7 @@ $(F.out): json-model.o main.o
 %.values.csv: %.values.json
 	../values2csv.py $< $@
 
-%.sql.check: %.sql %.values.csv
+%.sql.check: %.sql %.values.csv ../testcsv.sql
 	psql -f $< -f ../testcsv.sql < $*.values.csv > $@
 
 #
