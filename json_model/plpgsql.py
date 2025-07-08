@@ -244,7 +244,7 @@ class PLpgSQL(Language):
         return [
             f"{_DECL}{idx} INT8;",
             f"{_DECL}{val} JSONB;",
-            f"FOR {idx} IN 1 .. JSONB_ARRAY_LENGTH({arr}) LOOP",
+            f"FOR {idx} IN 0 .. JSONB_ARRAY_LENGTH({arr}) - 1 LOOP",
         ] + self.indent([f"{val} := {arr} -> {idx};" ] + body) + [ "END LOOP;" ]
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
