@@ -62,6 +62,7 @@ function processing(fname, index, value, checker, name, expected, report, times,
     return error
 }
 
+// for https://github.com/sourcemeta-research/jsonschema-benchmark
 function jsonschema_benchmark(values, checker, times)
 {
     let errors = 0
@@ -88,17 +89,17 @@ function jsonschema_benchmark(values, checker, times)
     let sum1 = 0.0, sum2 = 0.0
     for (let i = 0; i < times; i++)
     {
-        let start = performance.now()
+        const start = performance.now()
         for (const v of values)
             checker(v, "", null)
-        let delay = performance.now() - start  // ms
+        const delay = performance.now() - start  // ms
         sum1 += delay
         sum2 += delay * delay
     }
 
     // results
-    let avg = sum1 / times
-    let stdev = Math.sqrt(sum2 / times - avg * avg)
+    const avg = sum1 / times
+    const stdev = Math.sqrt(sum2 / times - avg * avg)
     console.error(`js validation: pass=${values.length - errors} fail=${errors}`,
                   `${(1000.0 * avg).toFixed(3)} ± ${(1000.0 * stdev).toFixed(3)} µs`)
 

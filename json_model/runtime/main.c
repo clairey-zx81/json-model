@@ -161,8 +161,6 @@ process_value(const char *name, const json_t * value,
 // for https://github.com/sourcemeta-research/jsonschema-benchmark
 static void jsonschema_benchmark_run(int argc, char *argv[], const char *name, int loop)
 {
-    int errors = 0;
-
     const jm_check_fun_t checker = CHECK_fun(name);
     if (checker == NULL)
     {
