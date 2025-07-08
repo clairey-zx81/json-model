@@ -30,17 +30,23 @@ F.JO    = $(F.root:%=%.JO.json)
 F.PO    = $(F.root:%=%.PO.json)
 F.EO    = $(F.root:%=%.schema.json)
 
-# C and Python generation
+# code generation
 F.c     = $(F.root:%=%.c)
 F.py    = $(F.root:%=%.py)
 F.js    = $(F.root:%=%.js)
 F.out   = $(F.root:%=%.out)
+F.sql   = $(F.root:%=%.sql)
+# test results
 F.cc    = $(F.root:%=%.c.check)
 F.pyc   = $(F.root:%=%.py.check)
 F.jsc   = $(F.root:%=%.js.check)
+F.sqlc  = $(F.root:%=%.sql.check)
 
 # all generated
-F.gen   = $(F.json) $(F.UO) $(F.PO) $(F.EO) $(F.c) $(F.py) $(F.cc) $(F.pyc) $(F.js) $(F.jsc)
+F.gen   = \
+    $(F.json) $(F.UO) $(F.PO) $(F.EO) \
+    $(F.c) $(F.py) $(F.cc) $(F.sql) \
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc)
 
 .PHONY: all
 all: $(F.gen)
@@ -69,7 +75,9 @@ check:
 clean:
 	$(RM) *.o *.out *.mjs *.mpy
 
-.PHONY: clean.sql
+.PHONY: sql clean.sql
+sql: $(F.sql) $(F.sqlc)
+
 clean.sql:
 	$(RM) *.sql *.sql.check *.values.csv
 
@@ -172,6 +180,13 @@ $(F.out): json-model.o main.o
 
 %.sql.check: %.sql %.values.csv ../testcsv.sql
 	psql -f $< -f ../testcsv.sql < $*.values.csv > $@
+	success=$$(tail -1 $@ | grep OK)
+	if [ "$$success" ] ; then
+	  exit 0;
+	else
+	  echo "ERROR on $@"
+	  exit 1;
+	fi
 
 #
 # Generated JSON Schema checks

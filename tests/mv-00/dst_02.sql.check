@@ -1,0 +1,21 @@
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TABLE
+COPY 18
+UPDATE 18
+# working tests
+┌─────────┬───────┐
+│ success │ total │
+├─────────┼───────┤
+│      18 │    18 │
+└─────────┴───────┘
+(1 row)
+
+# OK

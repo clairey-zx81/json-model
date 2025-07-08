@@ -1,0 +1,15 @@
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TABLE
+COPY 6
+UPDATE 6
+# working tests
+┌─────────┬───────┐
+│ success │ total │
+├─────────┼───────┤
+│       6 │     6 │
+└─────────┴───────┘
+(1 row)
+
+# OK
