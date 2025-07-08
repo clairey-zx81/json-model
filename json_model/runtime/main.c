@@ -20,7 +20,7 @@ typedef enum {
 static double now(void)
 {
     struct timespec ts;
-    if (clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts))
+    if (clock_gettime(CLOCK_REALTIME, &ts))
     {
         fprintf(stderr, "cannot get time (%d): %s\n", errno, strerror(errno));
         exit(2);

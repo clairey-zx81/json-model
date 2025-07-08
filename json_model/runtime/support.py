@@ -345,11 +345,11 @@ def main(jm_fun, jm_map, jmc_version):
                 checker = jm_fun(args.name)
 
                 # cold run in µs
-                cold_start = time.clock_gettime(0)
+                cold_start = time.clock_gettime(time.CLOCK_REALTIME)
                 for v in values:
                     if not checker(v, None, None):
                         errors += 1
-                cold_delay = 1_000_000.0 * (time.clock_gettime(0) - cold_start)
+                cold_delay = 1_000_000.0 * (time.clock_gettime(time.CLOCK_REALTIME) - cold_start)
 
                 # more runs to trigger a potential JIT?
                 # NOTE probaly useless: JIT should be triggered by previous loop
@@ -360,10 +360,10 @@ def main(jm_fun, jm_map, jmc_version):
                 # warm run in µs
                 sum1, sum2 = 0.0, 0.0
                 for _ in range(args.time):
-                    start = time.clock_gettime(0)
+                    start = time.clock_gettime(time.CLOCK_REALTIME)
                     for j in values:
                         checker(j, None, None)
-                    delay = 1_000_000.0 * (time.clock_gettime(0) - start)
+                    delay = 1_000_000.0 * (time.clock_gettime(time.CLOCK_REALTIME) - start)
                     sum1 += delay
                     sum2 += delay * delay
 
