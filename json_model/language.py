@@ -572,7 +572,7 @@ class Language:
 
     def def_re(self, name: str, regex: str, opts: str) -> Block:
         """Define a new (static) regex."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def ini_re(self, name: str, regex: str, opts: str) -> Block:
         """Initialize a regex."""

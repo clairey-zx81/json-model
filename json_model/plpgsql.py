@@ -215,16 +215,16 @@ class PLpgSQL(Language):
 
     def report(self, msg: str, path: Var) -> Block:
         return [
-            f"IF rep IS NOT NULL THEN",
+            r"IF rep IS NOT NULL THEN",
             f"  CALL jm_report_add_entry(rep, {self.esc(msg)}, {path});",
-            f"END IF;"
+            r"END IF;"
         ] if self._with_report else []
 
     def clean_report(self) -> Block:
         return [
-            "IF rep IS NOT NULL THEN",
-            "  CALL jm_report_free_entries(rep);",
-            "END IF;"
+            r"IF rep IS NOT NULL THEN",
+            r"  CALL jm_report_free_entries(rep);",
+            r"END IF;"
         ] if self._with_report else []
 
     #
@@ -275,12 +275,13 @@ class PLpgSQL(Language):
             code += self.indent(true)
             op = "ELSEIF"
         if false:
-            if op != "IF":
-                code += [ "ELSE" ]
-                code += self.indent(false)
+            if cond_true:
+                code += ["ELSE"] + self.indent(false) + ["END IF;"]
             else:
                 code += false
-        return code + ["END IF;"]
+        else:
+            code += ["END IF;"]
+        return code
 
     #
     # (Extended) Regular Expressions
@@ -288,14 +289,17 @@ class PLpgSQL(Language):
     def regroup(self, name: str, pattern: str = ".*") -> str:
         return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
 
-    def def_re(self, name: str, regex: str, opts: str) -> Block:
-        return [f"-- def_re name={name} regex={regex} opts={opts}"]
-
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
+        return [
+            f"-- regex={regex} opts={opts}",
+            f"CREATE OR REPLACE FUNCTION {name}(val TEXT, path TEXT[], rep jm_report_entry[])",
+            r"RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
+            r"BEGIN",
+            f"  RETURN regexp_like(val, {self.esc(regex)}, {self.esc(opts)});",
+            r"END;",
+            r"$$ LANGUAGE plpgsql;",
+        ]
         return [f"-- sub_re name={name} regex={regex} opts={opts}"]
-
-    def ini_re(self, name: str, regex: str, opts: str) -> Block:
-        return [f"-- ini_re name={name} regex={regex} opts={opts}"]
 
     def del_re(self, name: str, regex: str, opts: str) -> Block:
         return [f"-- del_re name={name} regex={regex} opts={opts}"]
