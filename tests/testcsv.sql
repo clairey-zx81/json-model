@@ -13,14 +13,17 @@ CREATE TEMPORARY TABLE json_model_test(
 \copy json_model_test(expect, name, jval) FROM PSTDIN WITH (FORMAT csv, NULL '\\n')
 
 UPDATE json_model_test
-SET checked = check_model(jval, name, NULL);
+SET
+  jid = jid - 1,
+  checked = check_model(jval, name, NULL);
 
-\echo # working tests
+\echo # count working tests
 SELECT
   COUNT(*) FILTER (WHERE expect = checked) AS success,
   COUNT(*) AS total
 FROM json_model_test;
 
+-- any errors?
 SELECT COUNT(*) = 0 AS okay
 FROM json_model_test
 WHERE checked IS NULL OR expect <> checked \gset
@@ -37,5 +40,9 @@ WHERE checked IS NULL OR expect <> checked;
 SELECT jid, expect, checked
 FROM json_model_test;
 
-\echo # KO
+SELECT JSONB_AGG(TO_JSONB(jid) ORDER BY jid) AS failed
+FROM json_model_test
+WHERE checked IS NULL OR expect <> checked \gset
+
+\echo # KO :failed
 \endif
