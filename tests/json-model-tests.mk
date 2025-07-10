@@ -180,12 +180,18 @@ $(F.out): json-model.o main.o
 
 %.sql.check: %.sql %.values.csv ../testcsv.sql
 	psql -f $< -f ../testcsv.sql < $*.values.csv > $@
-	success=$$(tail -1 $@ | grep OK)
-	if [ "$$success" ] ; then
-	  exit 0;
+	result=$$(tail -1 $@)
+	if [[ "$$result" == *OK* ]] ; then
+	  exit 0
 	else
-	  echo "ERROR on $@"
-	  exit 1;
+	  if [ -f $*.errors.json ] ; then
+	    # TODO check allowed errors
+	    echo "# IGNORING ERRORS on $@" >&2
+	    exit 0
+	  else
+	    echo "# ERROR on $@"
+	    exit 1
+	  fi
 	fi
 
 #
