@@ -36,9 +36,9 @@ SELECT jid, checked
 FROM json_model_test
 WHERE checked IS NULL OR expect <> checked;
 
-\echo # all results
-SELECT jid, expect, checked
-FROM json_model_test;
+-- \echo # all results
+-- SELECT jid, expect, checked
+-- FROM json_model_test;
 
 SELECT JSONB_AGG(TO_JSONB(jid) ORDER BY jid) AS failed
 FROM json_model_test

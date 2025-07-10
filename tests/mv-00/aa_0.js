@@ -45,9 +45,17 @@ function json_model_1(val, path, rep)
             }
             if (! res)
             {
+                rep !== null && rep.push(["not array or unexpected array [.0]", (path ? arr_0_lpath : null)])
+            }
+            if (! res)
+            {
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.]", path])
     }
     return res;
 }

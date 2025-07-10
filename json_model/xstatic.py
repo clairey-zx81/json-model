@@ -1171,7 +1171,7 @@ class CodeGenerator:
                             gen.bool_var(res, expr if expr else gen.const(True)) + \
                             gen.if_stmt(res, body) if expr else body
 
-                    code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
+                code += self._gen_report(res, f"not array or unexpected array [{smpath}]", vpath)
 
             case dict():
                 assert isinstance(model, dict)  # pyright hint

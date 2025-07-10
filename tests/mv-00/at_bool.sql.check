@@ -4,7 +4,7 @@ CREATE FUNCTION
 CREATE TABLE
 COPY 8
 UPDATE 8
-# working tests
+# count working tests
 ┌─────────┬───────┐
 │ success │ total │
 ├─────────┼───────┤

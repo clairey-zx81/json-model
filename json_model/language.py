@@ -523,11 +523,11 @@ class Language:
     #
     def def_cset(self, name: str, constants: ConstList) -> Block:
         """Declare a constant set."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         """Initialize a constant set with constants."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         """Test whether variable value belongs to constant set."""

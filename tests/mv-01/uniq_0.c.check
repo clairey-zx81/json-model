@@ -2,4 +2,4 @@ uniq_0.values.json[0]: PASS
 uniq_0.values.json[1]: PASS
 uniq_0.values.json[2]: PASS
 uniq_0.values.json[3]: FAIL (.: constraints failed [.]; .: non unique array)
-uniq_0.values.json[4]: FAIL (.: constraints failed [.]; .: not array or unexpected array [.'@']; .0: not a 1 strict int [.'@'.0])
+uniq_0.values.json[4]: FAIL (.: not array or unexpected array [.'@']; .0: not a 1 strict int [.'@'.0])

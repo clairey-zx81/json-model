@@ -50,9 +50,17 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (! res)
             {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.0]", (path ? &arr_0_lpath : NULL));
+            }
+            if (! res)
+            {
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.]", path);
     }
     return res;
 }

@@ -13,6 +13,9 @@ def tojson(v):
 
 out = []
 for v in values:
+    if isinstance(v, str):
+        continue
+    assert isinstance(v, list)
     if len(v) == 2:
         out.append((v[0], '', tojson(v[1])))
     else:

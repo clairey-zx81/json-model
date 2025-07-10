@@ -47,10 +47,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         res = jm_array_is_unique(val, path, rep);
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
     return res;
 }

@@ -29,10 +29,10 @@ function json_model_1(val, path, rep)
     if (res)
     {
         res = runtime.jm_array_is_unique(val, path, rep);
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.]", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.]", path])
+        }
     }
     return res;
 }

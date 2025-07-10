@@ -360,38 +360,24 @@ class PLpgSQL(Language):
             r"$$ LANGUAGE plpgsql;",
         ]
 
-    def def_cset(self, name: str, constants: ConstList) -> Block:
-        return [f"-- def_cset name={name}"]
-
-    def ini_cset(self, name: str, constants: ConstList) -> Block:
-        return [f"-- ini_cset name={name}"]
-
     def sub_cset(self, name: str, constants: ConstList) -> Block:
-        return [f"-- sub_cset name={name}"]
+        return [
+            f"CREATE OR REPLACE FUNCTION {name}(value JSONB)",
+            r"RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
+            r"DECLARE",
+            f"  constants JSONB = {self.json_cst(constants)};",
+            r"BEGIN",
+            r"  RETURN constants @> value;",
+            r"END;",
+            r"$$ LANGUAGE plpgsql;"
+        ]
 
     def _var_cst(self, var: Var, vtype: type|None) -> Expr:
-        if vtype is None or vtype == type(None):
-            return "(jm_constant_t) { cst_is_null, { .s = NULL } }"
-        elif vtype is bool:
-            return f"(jm_constant_t) {{ cst_is_bool, {{ .b = {self.value(var, bool)} }} }}"
-        elif vtype is int:
-            return f"(jm_constant_t) {{ cst_is_integer, {{ .i = {self.value(var, int)} }} }}"
-        elif vtype is float:
-            return f"(jm_constant_t) {{ cst_is_float, {{ .f = {self.value(var, float)} }} }}"
-        elif vtype is str:
-            return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.value(var, str)} }} }}"
-        else:
-            raise NotImplementedError(f"type {vtype}")
+        return var;
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         """Tell whether JSON variable var value of potential types is in set name."""
-        types = set(type(c) for c in constants)
-        if len(types) == 1:
-            tcs = types.pop()
-            val = self._var_cst(var, tcs)
-            return f"{self.is_a(var, tcs)} && jm_search_cst(&{val}, {name}, {len(constants)});"
-        else:  # multi type managed in a generated function
-            return f"{name}_test({var})"
+        return f"{name}({var})"
 
     def _cst(self, value: Jsonable) -> str:
         match value:
