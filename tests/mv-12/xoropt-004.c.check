@@ -1,0 +1,13 @@
+xoropt-004.values.json[0]: PASS
+xoropt-004.values.json[1]: PASS
+xoropt-004.values.json[2]: PASS
+xoropt-004.values.json[3]: PASS
+xoropt-004.values.json[4]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .Calvin: unexpected $NONE [.'|'.1.'/a/']; .: unexpected element [.'|'.0]; .b: unexpected prop [.'|'.0])
+xoropt-004.values.json[5]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[6]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[7]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[8]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[9]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[10]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[11]: FAIL (.: unexpected type [.'|'])
+xoropt-004.values.json[12]: FAIL (.: unexpected type [.'|'])

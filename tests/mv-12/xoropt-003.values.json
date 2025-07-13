@@ -1,0 +1,14 @@
+[
+  [ true,  true ],
+  [ true,  false ],
+  [ true,  42 ],
+  [ true,  3.1415927 ],
+  [ true,  "Susie" ],
+  [ false, null ],
+  [ false, 0 ],
+  [ false, -42 ],
+  [ false, -4.2 ],
+  [ false, "CALVIN" ],
+  [ false, [] ],
+  [ false, {} ]
+]

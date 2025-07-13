@@ -116,7 +116,7 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         // handle other props
@@ -142,7 +142,7 @@ function json_model_8(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$O']", path])
+        rep !== null && rep.push(["unexpected element [.'$O']", path])
     }
     return res;
 }

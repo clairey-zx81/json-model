@@ -23,7 +23,7 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (_jm_re_0(prop, path, rep))
@@ -68,7 +68,7 @@ function _jm_obj_1(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
         if (prop == "a")
@@ -123,7 +123,7 @@ function json_model_1(val, path, rep)
         res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected object [.'|'.0]", path])
+            rep !== null && rep.push(["unexpected element [.'|'.0]", path])
         }
         if (! res)
         {
@@ -131,7 +131,7 @@ function json_model_1(val, path, rep)
             res = _jm_obj_0(val, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'|'.1]", path])
+                rep !== null && rep.push(["unexpected element [.'|'.1]", path])
             }
         }
         if (res)
