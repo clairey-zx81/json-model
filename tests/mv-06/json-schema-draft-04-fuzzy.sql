@@ -148,7 +148,7 @@ BEGIN
   IF val ? 'multipleOf' THEN
     pval := val -> 'multipleOf';
     -- .'$schema'.multipleOf
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval::FLOAT8) > 0.0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -188,7 +188,7 @@ BEGIN
   IF val ? 'maxLength' THEN
     pval := val -> 'maxLength';
     -- .'$schema'.maxLength
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -196,7 +196,7 @@ BEGIN
   IF val ? 'minLength' THEN
     pval := val -> 'minLength';
     -- .'$schema'.minLength
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -230,7 +230,7 @@ BEGIN
   IF val ? 'maxItems' THEN
     pval := val -> 'maxItems';
     -- .'$schema'.maxItems
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -238,7 +238,7 @@ BEGIN
   IF val ? 'minItems' THEN
     pval := val -> 'minItems';
     -- .'$schema'.minItems
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -254,7 +254,7 @@ BEGIN
   IF val ? 'maxProperties' THEN
     pval := val -> 'maxProperties';
     -- .'$schema'.maxProperties
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -262,7 +262,7 @@ BEGIN
   IF val ? 'minProperties' THEN
     pval := val -> 'minProperties';
     -- .'$schema'.minProperties
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;

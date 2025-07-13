@@ -18,7 +18,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$li0'.0
-      res := JSONB_TYPEOF(arr_0_item) = 'number' AND (arr_0_item)::INT8 = arr_0_item::FLOAT8 AND (arr_0_item::INT8) >= 0;
+      res := JSONB_TYPEOF(arr_0_item) = 'number' AND (arr_0_item)::INT8 = (arr_0_item)::FLOAT8 AND (arr_0_item)::INT8 >= 0;
       IF NOT res THEN
         EXIT;
       END IF;
@@ -90,7 +90,7 @@ BEGIN
     FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_3_item := val -> arr_3_idx;
       -- .'$lf0'.0
-      res := JSONB_TYPEOF(arr_3_item) = 'number' AND (arr_3_item::FLOAT8) >= 0.0;
+      res := JSONB_TYPEOF(arr_3_item) = 'number' AND (arr_3_item)::FLOAT8 >= 0.0;
       IF NOT res THEN
         EXIT;
       END IF;

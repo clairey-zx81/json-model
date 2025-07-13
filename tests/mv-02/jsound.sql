@@ -191,7 +191,7 @@ BEGIN
     res := JSONB_TYPEOF(val) = 'boolean';
     IF NOT res THEN
       -- .'$atomic'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8;
+      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
       IF NOT res THEN
         -- .'$atomic'.'|'.3
         res := JSONB_TYPEOF(val) = 'number';
@@ -258,7 +258,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Atomic'.fractionDigits
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -270,7 +270,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Atomic'.length
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -306,7 +306,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Atomic'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -342,7 +342,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Atomic'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -378,7 +378,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Atomic'.totalDigits
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -657,14 +657,14 @@ BEGIN
     ELSEIF prop = 'minLength' THEN
       -- handle may minLength property
       -- .'$Array'.minLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$Array'.maxLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -1,0 +1,19 @@
+[
+  "string of length 2 or 3",
+  [ true,  "12" ],
+  [ true,  "123" ],
+  [ false, "" ],
+  [ false, "1" ],
+  [ false, "1234" ],
+  [ false, "Susie" ],
+  [ false, "Hobbes" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

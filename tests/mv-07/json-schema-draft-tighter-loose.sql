@@ -568,7 +568,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$tight#String'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -580,7 +580,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$tight#String'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -864,7 +864,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$tight#Array'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -876,7 +876,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$tight#Array'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -3268,7 +3268,7 @@ BEGIN
       FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_3_item := val -> arr_3_idx;
         -- .'$tight#enum'.'|'.1.0
-        res := JSONB_TYPEOF(arr_3_item) = 'number' AND (arr_3_item)::INT8 = arr_3_item::FLOAT8;
+        res := JSONB_TYPEOF(arr_3_item) = 'number' AND (arr_3_item)::INT8 = (arr_3_item)::FLOAT8;
         IF NOT res THEN
           EXIT;
         END IF;
@@ -3535,7 +3535,7 @@ BEGIN
     res := JSONB_TYPEOF(val) = 'boolean';
     IF NOT res THEN
       -- .'$tight#const'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8;
+      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
       IF NOT res THEN
         -- .'$tight#const'.'|'.3
         res := JSONB_TYPEOF(val) = 'number';
@@ -4505,7 +4505,7 @@ BEGIN
         FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_7_item := pval -> arr_7_idx;
           -- .'$tight#EnumInt'.enum.0
-          res := JSONB_TYPEOF(arr_7_item) = 'number' AND (arr_7_item)::INT8 = arr_7_item::FLOAT8;
+          res := JSONB_TYPEOF(arr_7_item) = 'number' AND (arr_7_item)::INT8 = (arr_7_item)::FLOAT8;
           IF NOT res THEN
             EXIT;
           END IF;
@@ -5227,7 +5227,7 @@ BEGIN
       -- handle must const property
       must_count := must_count + 1;
       -- .'$tight#ConstInt'.const
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

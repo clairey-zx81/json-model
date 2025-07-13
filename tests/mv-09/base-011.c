@@ -29,10 +29,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         int64_t ival_0 = json_integer_value(val);
         res = ival_0 <= 10 && ival_0 >= 1;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
     return res;
 }

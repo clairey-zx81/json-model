@@ -580,7 +580,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$nonNegativeInteger'
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -799,7 +799,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$validation'.multipleOf
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) > 0.0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1883,7 +1883,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.multipleOf
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) > 0.0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

@@ -18,7 +18,7 @@ BEGIN
     res := JSONB_TYPEOF(val) = 'boolean';
     IF NOT res THEN
       -- .'$const'.'|'.2
-      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8;
+      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;
       IF NOT res THEN
         -- .'$const'.'|'.3
         res := JSONB_TYPEOF(val) = 'number';
@@ -62,7 +62,7 @@ BEGIN
       FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_1_item := val -> arr_1_idx;
         -- .'$enum'.'|'.1.0
-        res := JSONB_TYPEOF(arr_1_item) = 'number' AND (arr_1_item)::INT8 = arr_1_item::FLOAT8;
+        res := JSONB_TYPEOF(arr_1_item) = 'number' AND (arr_1_item)::INT8 = (arr_1_item)::FLOAT8;
         IF NOT res THEN
           EXIT;
         END IF;
@@ -139,14 +139,14 @@ BEGIN
     ELSEIF prop = 'minLength' THEN
       -- handle may minLength property
       -- .'$stringKeywords'.minLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = 'maxLength' THEN
       -- handle may maxLength property
       -- .'$stringKeywords'.maxLength
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -213,7 +213,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$arrayKeywords'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -225,7 +225,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$arrayKeywords'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -888,7 +888,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$String'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -900,7 +900,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$String'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1191,7 +1191,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Array'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1203,7 +1203,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Array'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

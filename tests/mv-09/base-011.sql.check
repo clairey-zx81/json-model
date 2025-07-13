@@ -1,0 +1,20 @@
+CREATE FUNCTION
+CREATE FUNCTION
+TRUNCATE TABLE
+CREATE FUNCTION
+CREATE TABLE
+COPY 21
+UPDATE 21
+# count working tests
+ success | total 
+---------+-------
+      20 |    21
+(1 row)
+
+# bad tests
+ jid | checked 
+-----+---------
+  14 | t
+(1 row)
+
+# KO [14]

@@ -1,0 +1,16 @@
+[
+  "model: [\"\", 0, true, 0.0]",
+  [ true,  ["", 0, false, 0.0] ],
+  [ true,  ["Susie", 42, true, 3.1415927] ],
+  [ false, ["Susie", 42, true] ],
+  [ false, ["Susie", 42, true, 3.1415927, null] ],
+  [ false, [] ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

@@ -13,7 +13,7 @@ BEGIN
   -- .
   -- .'@'
   -- .'@'.'|'.0
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 1;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
   IF NOT res THEN
     -- .'@'.'|'.1
     res := JSONB_TYPEOF(val) = 'string';

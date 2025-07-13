@@ -22,7 +22,7 @@ BEGIN
       -- handle must a property
       must_count := must_count + 1;
       -- .'|'.1.a
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -63,7 +63,7 @@ BEGIN
       -- handle must a property
       must_count := must_count + 1;
       -- .'|'.0.a
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 0;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -71,7 +71,7 @@ BEGIN
       -- handle must b property
       must_count := must_count + 1;
       -- .'|'.0.b
-      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = pval::FLOAT8 AND (pval::INT8) >= 1;
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
       END IF;

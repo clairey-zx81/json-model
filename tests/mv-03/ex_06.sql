@@ -64,7 +64,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ex5#EX05a'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

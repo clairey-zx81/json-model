@@ -426,7 +426,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -438,7 +438,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -450,7 +450,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -474,7 +474,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -486,7 +486,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -498,7 +498,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -522,7 +522,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.multipleOf
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) > 0.0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

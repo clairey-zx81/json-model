@@ -279,7 +279,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -291,7 +291,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -303,7 +303,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.maxProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -327,7 +327,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -339,7 +339,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -351,7 +351,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.minProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = val::FLOAT8 AND (val::INT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -375,7 +375,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.multipleOf
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) > 0.0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

@@ -1,0 +1,17 @@
+[
+  [ true,  {"nom": "Susie"} ],
+  [ true,  {"nom": "Susie", "age": 18} ],
+  [ true,  {"nom": "Susie", "what": "ever"} ],
+  [ true,  {"nom": "Susie", "age": 18, "also": "this"} ],
+  [ false, {} ],
+  [ false, {"what": "ever"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

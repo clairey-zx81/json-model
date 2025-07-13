@@ -11,7 +11,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$pos'
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0.0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

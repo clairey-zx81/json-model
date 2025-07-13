@@ -540,7 +540,7 @@ BEGIN
   IF val ? 'multipleOf' THEN
     pval := val -> 'multipleOf';
     -- .'$schema#ObjectSchema'.multipleOf
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval::FLOAT8) > 0.0;
+    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::FLOAT8 > 0.0;
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -887,7 +887,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema#nonNegativeInteger'
-  res := JSONB_TYPEOF(val) = 'number' AND (val::FLOAT8) >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
