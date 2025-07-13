@@ -1,0 +1,20 @@
+[
+  [ true,  {"movie": {"t": "fr", "titre": "Bonjour"}} ],
+  [ true,  {"movie": {"t": "en", "title": "Hello"}} ],
+  [ true,  {"movie": {"t": "de", "Title": "Gutten Tag"}} ],
+  [ true,  {"movie": {"t": "ru", "suti": "Привет"}} ],
+  [ false, {"movie": {"t": "it", "titola": "Buongiorno"}} ],
+  [ false, {"movie": {"t": "fr", "titre": "Bonjour", "un": "expected"}} ],
+  [ false, {"movie": {"t": "fr", "titre": "Bonjour"}, "un": "expected"} ],
+  [ false, {"movie": {"a": "b"}} ],
+  [ false, {"a": "b"} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

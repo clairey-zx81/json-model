@@ -1,0 +1,19 @@
+[
+  [ true,  -42 ],
+  [ true,  "Susie" ],
+  [ true,  {"X": "Susie"} ],
+  [ true,  {"Y": "Calvin"} ],
+  [ true,  {"X": "Susie", "Z": "Hobbes"} ],
+  [ true,  {"Y": "Calvin", "Z": "Hobbes"} ],
+  [ false, {"X": "Susie", "Y": "Calvin" } ],
+  [ false, {"Z": "Hobbes"} ],
+  [ false, {} ],
+  [ false, {"X": "Susie", "un": "expected"} ],
+  [ false, {"Y": "Calvin", "xlii": 42} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

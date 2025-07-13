@@ -1,0 +1,18 @@
+xoropt-014.values.json[0]: PASS
+xoropt-014.values.json[1]: PASS
+xoropt-014.values.json[2]: PASS
+xoropt-014.values.json[3]: PASS
+xoropt-014.values.json[4]: FAIL (.: unexpected element [.]; .movie: invalid mandatory prop value [.movie]; .movie: tag <t> value not found [.movie.'|'])
+xoropt-014.values.json[5]: FAIL (.: unexpected element [.]; .movie: invalid mandatory prop value [.movie]; .movie.un: unexpected prop [.movie.'|'.0])
+xoropt-014.values.json[6]: FAIL (.: unexpected element [.]; .un: unexpected prop [.])
+xoropt-014.values.json[7]: FAIL (.: unexpected element [.]; .movie: invalid mandatory prop value [.movie]; .movie: tag prop <t> is missing [.movie.'|'])
+xoropt-014.values.json[8]: FAIL (.: unexpected element [.]; .a: unexpected prop [.])
+xoropt-014.values.json[9]: FAIL (.: unexpected element [.]; .: missing mandatory prop <movie> [.])
+xoropt-014.values.json[10]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[11]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[12]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[13]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[14]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[15]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[16]: FAIL (.: unexpected element [.]; .: not an object [.])
+xoropt-014.values.json[17]: FAIL (.: unexpected element [.]; .: not an object [.])
