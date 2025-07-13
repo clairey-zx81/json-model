@@ -1,8 +1,8 @@
 loose.values.json[1]: PASS
 loose.values.json[2]: PASS
-loose.values.json[3]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
-loose.values.json[4]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
-loose.values.json[5]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
-loose.values.json[6]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
-loose.values.json[7]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
-loose.values.json[8]: FAIL (.: unexpected object [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[3]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[4]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[5]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[6]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[7]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])
+loose.values.json[8]: FAIL (.: unexpected element [.]; .li: invalid mandatory prop value [.li]; .li: not a 0 loose int [.li])

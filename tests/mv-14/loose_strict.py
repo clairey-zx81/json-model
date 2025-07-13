@@ -58,7 +58,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$loose'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$loose']", path))
+        rep is None or rep.append(("unexpected element [.'$loose']", path))
     return res
 
 # object .'$strict'
@@ -97,7 +97,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$strict'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$strict']", path))
+        rep is None or rep.append(("unexpected element [.'$strict']", path))
     return res
 
 # object .'$combined'
@@ -148,7 +148,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$combined'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$combined']", path))
+        rep is None or rep.append(("unexpected element [.'$combined']", path))
     return res
 
 # check $ (.)

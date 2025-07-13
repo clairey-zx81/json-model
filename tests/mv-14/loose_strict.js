@@ -21,7 +21,7 @@ function _jm_obj_0(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (prop == "li")
@@ -68,7 +68,7 @@ function json_model_5(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$loose']", path])
+        rep !== null && rep.push(["unexpected element [.'$loose']", path])
     }
     return res;
 }
@@ -83,7 +83,7 @@ function _jm_obj_1(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
         if (prop == "si")
@@ -130,7 +130,7 @@ function json_model_6(val, path, rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$strict']", path])
+        rep !== null && rep.push(["unexpected element [.'$strict']", path])
     }
     return res;
 }
@@ -145,7 +145,7 @@ function _jm_obj_2(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
         if (prop == "li")
@@ -212,7 +212,7 @@ function json_model_4(val, path, rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$combined']", path])
+        rep !== null && rep.push(["unexpected element [.'$combined']", path])
     }
     return res;
 }
