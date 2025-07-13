@@ -1,7 +1,17 @@
-date.0.true.json: PASS
-date.1.true.json: PASS
-date.2.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date not a date ! (Invalid isoformat string: 'not a date !'))
-date.3.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date mercredi 29 juillet 2020 (Invalid isoformat string: 'mercredi 29 juillet 2020'))
-date.4.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 2025-02-29 (day is out of range for month))
-date.5.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 2000-13-01 (month must be in 1..12))
-date.6.false.json: FAIL (.: unexpected $DATE [.]; .: invalid date 1970-10-42 (day is out of range for month))
+date.values.json[0]: PASS
+date.values.json[1]: PASS
+date.values.json[2]: FAIL (.: unexpected $DATE [.]; .: invalid date not a date ! (Invalid isoformat string: 'not a date !'))
+date.values.json[3]: FAIL (.: unexpected $DATE [.]; .: invalid date mercredi 29 juillet 2020 (Invalid isoformat string: 'mercredi 29 juillet 2020'))
+date.values.json[4]: FAIL (.: unexpected $DATE [.]; .: invalid date 2025-02-29 (day is out of range for month))
+date.values.json[5]: FAIL (.: unexpected $DATE [.]; .: invalid date 2000-13-01 (month must be in 1..12))
+date.values.json[6]: FAIL (.: unexpected $DATE [.]; .: invalid date 1970-10-42 (day is out of range for month))
+date.values.json[7]: FAIL (.: unexpected $DATE [.]; .: incompatible type NoneType for date)
+date.values.json[8]: FAIL (.: unexpected $DATE [.]; .: incompatible type bool for date)
+date.values.json[9]: FAIL (.: unexpected $DATE [.]; .: incompatible type bool for date)
+date.values.json[10]: FAIL (.: unexpected $DATE [.]; .: incompatible type int for date)
+date.values.json[11]: FAIL (.: unexpected $DATE [.]; .: incompatible type float for date)
+date.values.json[12]: FAIL (.: unexpected $DATE [.]; .: invalid date unexpected (Invalid isoformat string: 'unexpected'))
+date.values.json[13]: FAIL (.: unexpected $DATE [.]; .: incompatible type list for date)
+date.values.json[14]: FAIL (.: unexpected $DATE [.]; .: incompatible type list for date)
+date.values.json[15]: FAIL (.: unexpected $DATE [.]; .: incompatible type dict for date)
+date.values.json[16]: FAIL (.: unexpected $DATE [.]; .: incompatible type dict for date)

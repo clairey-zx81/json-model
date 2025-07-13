@@ -1,0 +1,7 @@
+[
+  [ true,  [] ],
+  [ true,  [ null, false, 42, 3.14159, "whatever", [], {} ] ],
+  [ false, {} ],
+  [ false, "not an empty array" ],
+  [ false, null ]
+]

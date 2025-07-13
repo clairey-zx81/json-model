@@ -1,0 +1,19 @@
+[
+  [ true,  "2020-07-29" ],
+  [ true,  "1970-10-14" ],
+  [ false, "not a date !" ],
+  [ false, "mercredi 29 juillet 2020" ],
+  [ false, "2025-02-29" ],
+  [ false, "2000-13-01" ],
+  [ false, "1970-10-42" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]
