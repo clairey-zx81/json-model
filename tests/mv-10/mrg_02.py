@@ -104,7 +104,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$R'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$R']", path))
+        rep is None or rep.append(("unexpected element [.'$R']", path))
     return res
 
 # object .'$Z'
@@ -155,7 +155,7 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Z'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Z']", path))
+        rep is None or rep.append(("unexpected element [.'$Z']", path))
     return res
 
 # check _jm_obj_2_mup_a (.a)
@@ -256,7 +256,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.]", path))
+        rep is None or rep.append(("unexpected element [.]", path))
     return res
 
 
