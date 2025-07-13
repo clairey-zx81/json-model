@@ -21,7 +21,7 @@ function _jm_obj_0(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (prop == "a")
@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
     is_0 = _jm_obj_0(val, path, rep);
     if (! is_0)
     {
-        rep !== null && rep.push(["unexpected object [.'^'.1]", path])
+        rep !== null && rep.push(["unexpected element [.'^'.1]", path])
     }
     res = ! is_0;
     if (res)

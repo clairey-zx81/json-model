@@ -1,2 +1,11 @@
-and_str00.0.true.json: PASS
-and_str00.1.false.json: FAIL (.: not all model match [.'&']; .: unexpected /[a-z]/ [.'&'.0])
+and_str00.values.json[0]: PASS
+and_str00.values.json[1]: FAIL (.: not all model match [.'&']; .: unexpected /[a-z]/ [.'&'.0])
+and_str00.values.json[2]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[3]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[4]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[5]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[6]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[7]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[8]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[9]: FAIL (.: not all model match [.'&'])
+and_str00.values.json[10]: FAIL (.: not all model match [.'&'])

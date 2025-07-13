@@ -1,7 +1,7 @@
 or_10.values.json[0]: PASS
 or_10.values.json[1]: PASS
-or_10.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .misc: unexpected prop [.'|'.1]; .: unexpected object [.'|'.0]; .: expecting empty object [.'|'.0])
-or_10.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected object [.'|'.1]; .nom: unexpected prop [.'|'.1]; .: unexpected object [.'|'.0]; .: expecting empty object [.'|'.0])
+or_10.values.json[2]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .misc: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .: expecting empty object [.'|'.0])
+or_10.values.json[3]: FAIL (.: no model matched [.'|']; .: unexpected element [.'|'.1]; .nom: unexpected prop [.'|'.1]; .: unexpected element [.'|'.0]; .: expecting empty object [.'|'.0])
 or_10.values.json[4]: FAIL (.: unexpected type [.'|'])
 or_10.values.json[5]: FAIL (.: unexpected type [.'|'])
 or_10.values.json[6]: FAIL (.: unexpected type [.'|'])

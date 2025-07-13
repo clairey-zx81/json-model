@@ -135,7 +135,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = _jm_obj_1(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected object [.'$A'.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$A'.'|'.0]", path);
         }
         if (! res)
         {
@@ -143,7 +143,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_0(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'$A'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'$A'.'|'.1]", path);
             }
         }
         if (res)
@@ -276,7 +276,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = _jm_obj_3(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected object [.'$B'.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.0]", path);
         }
         if (! res)
         {
@@ -284,7 +284,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_2(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'$B'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'$B'.'|'.1]", path);
             }
         }
         if (res)
@@ -417,7 +417,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = _jm_obj_5(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected object [.'$C'.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'$C'.'|'.0]", path);
         }
         if (! res)
         {
@@ -425,7 +425,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_4(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'$C'.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'$C'.'|'.1]", path);
             }
         }
         if (res)
@@ -760,7 +760,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         res = _jm_obj_9(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected object [.'|'.0]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.0]", path);
         }
         if (! res)
         {
@@ -768,7 +768,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_8(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'|'.1]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.1]", path);
             }
             if (! res)
             {
@@ -776,7 +776,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 res = _jm_obj_7(val, path, rep);
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "unexpected object [.'|'.2]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.2]", path);
                 }
                 if (! res)
                 {
@@ -784,7 +784,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                     res = _jm_obj_6(val, path, rep);
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected object [.'|'.3]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected element [.'|'.3]", path);
                     }
                 }
             }
