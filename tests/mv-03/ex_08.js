@@ -46,7 +46,7 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_url(prop))
@@ -80,7 +80,7 @@ function json_model_4(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$map']", path])
+        rep !== null && rep.push(["unexpected element [.'$map']", path])
     }
     return res;
 }

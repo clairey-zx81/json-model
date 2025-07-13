@@ -62,10 +62,10 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         int64_t ival_0 = json_array_size(val);
         res = ival_0 <= 3 && ival_0 >= 2;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.'$position']", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$position']", path);
+        }
     }
     return res;
 }
@@ -104,10 +104,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         int64_t ival_1 = json_array_size(val);
         res = ival_1 >= 2;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.'$coord_array']", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$coord_array']", path);
+        }
     }
     return res;
 }
@@ -146,10 +146,10 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         int64_t ival_2 = json_array_size(val);
         res = ival_2 >= 4;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.'$linear_ring']", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$linear_ring']", path);
+        }
     }
     return res;
 }

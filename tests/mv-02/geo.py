@@ -43,8 +43,8 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         ival_0: int = len(val)
         res = ival_0 <= 3 and ival_0 >= 2
-    if not res:
-        rep is None or rep.append(("constraints failed [.'$position']", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.'$position']", path))
     return res
 
 # check $coord_array (.'$coord_array')
@@ -67,8 +67,8 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 2
-    if not res:
-        rep is None or rep.append(("constraints failed [.'$coord_array']", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.'$coord_array']", path))
     return res
 
 # check $linear_ring (.'$linear_ring')
@@ -91,8 +91,8 @@ def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         ival_2: int = len(val)
         res = ival_2 >= 4
-    if not res:
-        rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.'$linear_ring']", path))
     return res
 
 # object .'$Point'

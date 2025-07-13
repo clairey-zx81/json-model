@@ -49,7 +49,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+--
+-- constant maps initialization
+--
+TRUNCATE jm_constant_maps;
 
+
+--
+-- JSON Model checking entry point
+--
 -- TODO INOUT rep?
 CREATE OR REPLACE FUNCTION check_model(val JSONB, name TEXT, rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$

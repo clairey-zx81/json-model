@@ -43,10 +43,10 @@ function json_model_1(val, path, rep)
     if (res)
     {
         res = runtime.jm_check_constraint(val, ">=", 10, path, rep);
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.]", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.]", path])
+        }
     }
     return res;
 }

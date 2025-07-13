@@ -46,10 +46,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         res = jm_check_constraint(val, op_ge, &(jm_constant_t) { cst_is_integer, { .i = 10 } }, path, rep);
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
     return res;
 }

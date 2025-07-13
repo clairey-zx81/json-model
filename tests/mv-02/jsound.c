@@ -200,7 +200,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = _jm_obj_1(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected object [.'$Schema'.metadata]", (path ? &lpath_0 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema'.metadata]", (path ? &lpath_0 : NULL));
             }
             if (! res)
             {
@@ -236,7 +236,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Schema']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Schema']", path);
     }
     return res;
 }
@@ -638,7 +638,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Atomic']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Atomic']", path);
     }
     return res;
 }
@@ -781,7 +781,7 @@ static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_3(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Object']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Object']", path);
     }
     return res;
 }
@@ -910,7 +910,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_4(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Fields']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Fields']", path);
     }
     return res;
 }
@@ -1049,7 +1049,7 @@ static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_5(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Array']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Array']", path);
     }
     return res;
 }
@@ -1187,7 +1187,7 @@ static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_6(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$Union']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$Union']", path);
     }
     return res;
 }

@@ -24,7 +24,7 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
         if (prop == "name")
@@ -124,7 +124,7 @@ function _jm_obj_0(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (prop == "types")
@@ -168,7 +168,7 @@ function _jm_obj_0(val, path, rep)
             res = _jm_obj_1(pval, (path ? lpath_0 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'$Schema'.metadata]", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected element [.'$Schema'.metadata]", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -204,7 +204,7 @@ function json_model_2(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Schema']", path])
+        rep !== null && rep.push(["unexpected element [.'$Schema']", path])
     }
     return res;
 }
@@ -517,7 +517,7 @@ function _jm_obj_2(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
         if (prop == "kind")
@@ -593,7 +593,7 @@ function json_model_6(val, path, rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Atomic']", path])
+        rep !== null && rep.push(["unexpected element [.'$Atomic']", path])
     }
     return res;
 }
@@ -608,7 +608,7 @@ function _jm_obj_3(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_3 = path ? path.concat([prop]) : null;
         if (prop == "kind")
@@ -733,7 +733,7 @@ function json_model_7(val, path, rep)
     res = _jm_obj_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object']", path])
+        rep !== null && rep.push(["unexpected element [.'$Object']", path])
     }
     return res;
 }
@@ -748,7 +748,7 @@ function _jm_obj_4(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_4 = path ? path.concat([prop]) : null;
         if (prop == "name")
@@ -860,7 +860,7 @@ function json_model_8(val, path, rep)
     res = _jm_obj_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Fields']", path])
+        rep !== null && rep.push(["unexpected element [.'$Fields']", path])
     }
     return res;
 }
@@ -875,7 +875,7 @@ function _jm_obj_5(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_5 = path ? path.concat([prop]) : null;
         if (prop == "kind")
@@ -997,7 +997,7 @@ function json_model_9(val, path, rep)
     res = _jm_obj_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Array']", path])
+        rep !== null && rep.push(["unexpected element [.'$Array']", path])
     }
     return res;
 }
@@ -1012,7 +1012,7 @@ function _jm_obj_6(val, path, rep)
     }
     let res;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_6 = path ? path.concat([prop]) : null;
         if (prop == "name")
@@ -1132,7 +1132,7 @@ function json_model_10(val, path, rep)
     res = _jm_obj_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Union']", path])
+        rep !== null && rep.push(["unexpected element [.'$Union']", path])
     }
     return res;
 }

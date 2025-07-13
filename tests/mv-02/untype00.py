@@ -42,8 +42,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("no model matched [.'@'.'|']", path))
     if res:
         res = check_constraint(val, ">=", 10, path, rep)
-    if not res:
-        rep is None or rep.append(("constraints failed [.]", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.]", path))
     return res
 
 
