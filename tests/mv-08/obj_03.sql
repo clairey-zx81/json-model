@@ -79,7 +79,7 @@ BEGIN
     FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_1_item := val -> arr_1_idx;
       -- .'$foo#ls0'.0
-      res := jm_is_valid_date(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(arr_1_item) = 'string'AND jm_is_valid_date(JSON_VALUE(arr_1_item, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;

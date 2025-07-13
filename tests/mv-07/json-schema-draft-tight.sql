@@ -132,7 +132,7 @@ BEGIN
     IF prop = 'pattern' THEN
       -- handle may pattern property
       -- .'$stringKeywords'.pattern
-      res := jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), false, NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -361,7 +361,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$objectKeywords'.patternProperties.'$REGEX'
       res := json_model_25(pval, NULL, rep);
@@ -671,7 +671,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$metas'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -987,7 +987,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$String'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1165,7 +1165,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$String'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1374,7 +1374,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Array'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1793,7 +1793,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Object'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1967,7 +1967,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Object'.patternProperties.'$REGEX'
       res := json_model_25(pval, NULL, rep);
@@ -2281,7 +2281,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Integer'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2635,7 +2635,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Number'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -2989,7 +2989,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Bool'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3319,7 +3319,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Null'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3649,7 +3649,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$AllOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -3979,7 +3979,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$AnyOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4309,7 +4309,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$OneOf'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4639,7 +4639,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Enum'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4969,7 +4969,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Const'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -5299,7 +5299,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Ref'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -5489,7 +5489,7 @@ BEGIN
       -- handle must $ref property
       must_count := must_count + 1;
       -- .'$Ref'.'$ref'
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5629,7 +5629,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$DynRef'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -5819,7 +5819,7 @@ BEGIN
       -- handle must $dynamicRef property
       must_count := must_count + 1;
       -- .'$DynRef'.'$dynamicRef'
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

@@ -1,0 +1,15 @@
+[
+  [ true,  {"bibi": []} ],
+  [ true,  {"bibi": [{"bibi": []}]} ],
+  [ true,  {"bibi": [{"bibi": []}, {"bibi": []}]} ],
+  [ false, {"bibi": {}} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "bibi" ],
+  [ false, [] ],
+  [ false, ["bibi"] ]
+]

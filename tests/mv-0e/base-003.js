@@ -38,7 +38,7 @@ function json_model_1(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.]", path])
+        rep !== null && rep.push(["unexpected element [.]", path])
     }
     return res;
 }

@@ -29,10 +29,10 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         double fval_0 = json_real_value(val);
         res = fval_0 < 100 && fval_0 >= 0;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);
+        }
     }
     return res;
 }

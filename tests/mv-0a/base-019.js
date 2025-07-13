@@ -26,10 +26,10 @@ function json_model_1(val, path, rep)
     {
         let fval_0 = val;
         res = fval_0 < 100 && fval_0 >= 0;
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.]", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.]", path])
+        }
     }
     return res;
 }

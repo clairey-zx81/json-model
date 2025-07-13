@@ -329,7 +329,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

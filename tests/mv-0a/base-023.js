@@ -38,10 +38,10 @@ function json_model_1(val, path, rep)
             {
                 let ival_0 = val.length;
                 res = ival_0 <= 5;
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["constraints failed [.'&'.1]", path])
+                if (! res)
+                {
+                    rep !== null && rep.push(["constraints failed [.'&'.1]", path])
+                }
             }
         }
     }

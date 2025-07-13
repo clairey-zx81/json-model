@@ -33,8 +33,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         fval_0: float = val
         res = fval_0 < 100 and fval_0 >= 0
-    if not res:
-        rep is None or rep.append(("constraints failed [.]", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.]", path))
     return res
 
 

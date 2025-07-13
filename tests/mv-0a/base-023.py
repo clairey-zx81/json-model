@@ -41,8 +41,8 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
             if res:
                 ival_0: int = len(val)
                 res = ival_0 <= 5
-            if not res:
-                rep is None or rep.append(("constraints failed [.'&'.1]", path))
+                if not res:
+                    rep is None or rep.append(("constraints failed [.'&'.1]", path))
     if res:
         rep is None or rep.clear()
     else:

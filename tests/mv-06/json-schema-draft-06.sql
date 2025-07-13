@@ -152,7 +152,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.'$schema'
-  res := jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -426,7 +426,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -438,7 +438,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -450,7 +450,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.maxProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -474,7 +474,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minItems
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -486,7 +486,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minLength
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -498,7 +498,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.minProperties
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -558,7 +558,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -575,7 +575,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$ObjectSchema'.patternProperties.'$REGEX'
       res := json_model_8(pval, NULL, rep);

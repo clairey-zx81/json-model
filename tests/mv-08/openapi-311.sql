@@ -43,7 +43,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$OpenAPI'.jsonSchemaDialect
-  res := jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -361,7 +361,7 @@ BEGIN
     ELSEIF prop = 'url' THEN
       -- handle may url property
       -- .'$Contact'.url
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -433,7 +433,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$License'.'|'.1.url
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -564,7 +564,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$Server'.url
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1193,7 +1193,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.'$ref'
-  res := jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1729,7 +1729,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$ExternalDocumentation'.url
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -3915,7 +3915,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Schema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4447,7 +4447,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Schema'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4464,7 +4464,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Schema'.patternProperties.'$REGEX'
       res := json_model_60(pval, NULL, rep);
@@ -5149,7 +5149,7 @@ BEGIN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
       -- .'$SS-oic'.openIdConnectUrl
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5236,7 +5236,7 @@ BEGIN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
       -- .'$SecurityScheme'.'|'.4.openIdConnectUrl
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5619,7 +5619,7 @@ BEGIN
       -- handle must authorizationUrl property
       must_count := must_count + 1;
       -- .'$OAuthFlow'.authorizationUrl
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5627,7 +5627,7 @@ BEGIN
       -- handle must tokenUrl property
       must_count := must_count + 1;
       -- .'$OAuthFlow'.tokenUrl
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5642,7 +5642,7 @@ BEGIN
     ELSEIF prop = 'refreshUrl' THEN
       -- handle may refreshUrl property
       -- .'$OAuthFlow'.refreshUrl
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5872,7 +5872,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema#nonNegativeInteger'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::FLOAT8 >= 0;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6055,7 +6055,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_url(prop, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -6551,7 +6551,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6568,7 +6568,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.patternProperties.'$REGEX'
       res := json_model_60(pval, NULL, rep);

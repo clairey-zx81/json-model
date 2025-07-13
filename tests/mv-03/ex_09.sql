@@ -109,7 +109,7 @@ BEGIN
   res := json_model_8(val, path, rep);
   IF NOT res THEN
     -- .'$ex08#EX08'.'|'.1
-    res := jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+    res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     IF NOT res THEN
       -- .'$ex08#EX08'.'|'.2
       res := json_model_6(val, path, rep);

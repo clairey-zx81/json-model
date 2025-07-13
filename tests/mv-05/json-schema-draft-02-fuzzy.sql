@@ -189,7 +189,7 @@ BEGIN
   IF val ? 'pattern' THEN
     pval := val -> 'pattern';
     -- .'$schema'.pattern
-    res := jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), false, path, rep);
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_regex(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

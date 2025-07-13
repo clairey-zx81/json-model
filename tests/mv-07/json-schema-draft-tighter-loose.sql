@@ -592,7 +592,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$tight#String'.pattern
-  res := jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), false, path, rep);
+  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1184,7 +1184,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF jm_is_valid_regex(prop, false, NULL, rep) THEN
+    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$tight#Object'.patternProperties.'$REGEX'
       res := json_model_26(pval, NULL, rep);
@@ -3748,7 +3748,7 @@ BEGIN
       -- handle must $ref property
       must_count := must_count + 1;
       -- .'$tight#Ref'.'$ref'
-      res := jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;

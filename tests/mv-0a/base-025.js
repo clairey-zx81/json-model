@@ -32,16 +32,16 @@ function json_model_1(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'@']", path])
+        rep !== null && rep.push(["unexpected element [.'@']", path])
     }
     if (res)
     {
         let ival_0 = Object.keys(val).length;
         res = ival_0 <= 3 && ival_0 >= 2;
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.]", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.]", path])
+        }
     }
     return res;
 }
