@@ -1,0 +1,11 @@
+str_1.values.json[0]: PASS
+str_1.values.json[1]: PASS
+str_1.values.json[2]: PASS
+str_1.values.json[3]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[4]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[5]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[6]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[7]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[8]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[9]: FAIL (.: unexpected $STRING [.])
+str_1.values.json[10]: FAIL (.: unexpected $STRING [.])
