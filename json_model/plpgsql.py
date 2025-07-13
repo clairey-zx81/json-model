@@ -21,7 +21,7 @@ class PLpgSQL(Language):
              eq="=", ne="<>", indent="  ",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
-             check_t="jm_check_fun_t", json_t="JSONB",
+             check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="BOOLEAN",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
@@ -62,12 +62,8 @@ class PLpgSQL(Language):
         elif tval is bool:
             return f"JSONB_TYPEOF({var}) = 'boolean'"
         elif tval is int:
-            is_an_int = self.is_num(var)
-            if not loose:
-                is_an_int += f" AND ({var})::INT8 = {var}::FLOAT8"
-            return is_an_int
+            return self.is_num(var) + f" AND ({var})::INT8 = ({var})::FLOAT8"
         elif tval is float:
-            # FIXME int vs float?
             return self.is_num(var)
         elif tval is Number:
             return self.is_num(var)
@@ -97,23 +93,24 @@ class PLpgSQL(Language):
         return f"{var} ? {self.esc(prop)}"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
-        val = var if is_str else f"{var}"
+        val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
+        cktype = "" if is_str else (self.is_a(var, str) + " AND ")
         if name == "$UUID":
-            return f"jm_is_valid_uuid({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_uuid({val}, {path}, rep)"
         elif name == "$DATE":
-            return f"jm_is_valid_date({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_date({val}, {path}, rep)"
         elif name == "$TIME":
-            return f"jm_is_valid_time({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_time({val}, {path}, rep)"
         elif name == "$DATETIME":
-            return f"jm_is_valid_datetime({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_datetime({val}, {path}, rep)"
         elif name == "$REGEX":
-            return f"jm_is_valid_regex({val}, false, {path}, rep)"
+            return cktype + f"jm_is_valid_regex({val}, {path}, rep)"
         elif name == "$EXREG":
-            return f"jm_is_valid_regex({val}, true, {path}, rep)"
+            return cktype + f"jm_is_valid_extreg({val}, {path}, rep)"
         elif name in ("$URL", "$URI"):
-            return f"jm_is_valid_url({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_url({val}, {path}, rep)"
         elif name == "$EMAIL":
-            return f"jm_is_valid_email({val}, {path}, rep)"
+            return cktype + f"jm_is_valid_email({val}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
     
@@ -122,13 +119,13 @@ class PLpgSQL(Language):
         if tvar is type(None):
             return "NULL"
         elif tvar is bool:
-            return f"({var}::BOOL)"
+            return f"({var})::BOOL"
         elif tvar is int:
-            return f"({var}::INT8)"
+            return f"({var})::INT8"
         elif tvar is float:
-            return f"({var}::FLOAT8)"
+            return f"({var})::FLOAT8"
         elif tvar is Number:
-            return f"({var}::FLOAT8)"
+            return f"({var})::FLOAT8"
         elif tvar is str:
             return f"JSON_VALUE({var}, '$' RETURNING TEXT)"  # WTF?
         else:
@@ -137,20 +134,20 @@ class PLpgSQL(Language):
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
         return f"{arr} -> {idx}"
 
-    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
-        return f"{obj} -> {prop}"
+    def obj_prop_val(self, obj: Var, val: Expr, is_var: bool = False) -> Expr:
+        return f"{obj} -> {val}" if is_var else f"{obj} -> {self.esc(val)}"
 
     #
     # inlined length computation
     #
     def obj_len(self, var: Var) -> IntExpr:
-        return f"jm_object_length({var})"
+        return f"jm_object_size({var})"
 
     def arr_len(self, var: Var) -> IntExpr:
         return f"JSONB_ARRAY_LENGTH({var})"
 
     def str_len(self, var: Var) -> IntExpr:
-        return f"LENGTH{var})"
+        return f"LENGTH({var})"
 
     def any_len(self, var: Var) -> IntExpr:
         return f"jm_any_length({var})"
@@ -161,8 +158,14 @@ class PLpgSQL(Language):
     def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
         return f"CASE WHEN ({cond}) THEN ({true}) ELSE ({false}) END"
 
-    def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
-        return f"FIXME ({fun} = {name}({prop}))"
+    def assign_expr(self) -> bool:
+        return False
+
+    def has_prop_fun(self, prop: str, name: str) -> Expr:
+        return f"{name}({prop}) IS NOT NULL"
+
+    def get_prop_fun(self, prop: str, name: str) -> Expr:
+        return f"{name}({prop})"
 
     def str_start(self, val: str, string: str) -> BoolExpr:
         return f"STARTS_WITH({val}, {self.esc(string)})"
@@ -171,15 +174,19 @@ class PLpgSQL(Language):
         sstr = self.esc(string)
         return "TODO"
 
-    def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
-        return super().check_call(fun, val, path, is_str)
+    def check_call(self, fun: str, val: Expr, path: Var, *,
+                   is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
+        if is_raw:
+            val = f"TO_JSONB({val})"
+        return f"jm_call({fun}, {val}, {path}, rep)" if is_ptr else \
+               f"{fun}({val}, {path}, rep)"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"jm_array_is_unique({val}, {path}, rep)"
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"jm_check_constraint({val}, '{op}', &{self._cst(vop)}, {path}, rep)"
+        return f"jm_check_constraint({val}, '{op}', {self._cst(vop)}, {path}, rep)"
 
     #
     # simple instructions
@@ -257,7 +264,7 @@ class PLpgSQL(Language):
     def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
         return [
             f"{_DECL}{idx} INT8;",
-            f"FOR {idx} IN {start} .. {end}+1 LOOP",
+            f"FOR {idx} IN {start} .. {end}-1 LOOP",
         ] + self.indent(body) + [ "END LOOP;" ]
 
     def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
@@ -342,12 +349,6 @@ class PLpgSQL(Language):
     #
     # Property Map
     #
-    def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return []
-
-    def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        return []
-
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         return [
             f"CREATE OR REPLACE FUNCTION {name}(name TEXT)",
@@ -382,15 +383,13 @@ class PLpgSQL(Language):
     def _cst(self, value: Jsonable) -> str:
         match value:
             case None:
-                return "(jm_constant_t) { cst_is_null, { .s = NULL } }"
+                return "NULL"
             case bool(b):
-                return f"(jm_constant_t) {{ cst_is_bool, {{ .b = {self.const(b)} }} }}"
-            case int(i):
-                return f"(jm_constant_t) {{ cst_is_integer, {{ .i = {i} }} }}"
-            case float(f):
-                return f"(jm_constant_t) {{ cst_is_float, {{ .f = {f} }} }}"
-            case str(s):
-                return f"(jm_constant_t) {{ cst_is_string, {{ .s = {self.esc(s)} }} }}"
+                return "true" if value else "false"
+            case int()|float():
+                return str(value)
+            case str():
+                return self.esc(val)
             case _:
                 raise Exception(f"unexpected constant value: {value}")
 
@@ -403,20 +402,24 @@ class PLpgSQL(Language):
             "RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + ["$$ LANGUAGE PLpgSQL;"]
 
-    def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"-- def_cmap name={name}" ]
-
-    def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"-- sub_cmap name={name}" ]
-
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
-        return [ f"-- ini_cmap name={name}" ]
+        sname = self.esc(name)
+        code = [ f"  ({sname}, {self.json_cst(tv)}, {self.esc(val)})"
+                    for tv, val in mapping.items() ]
+        for i in range(len(code) - 1):
+            code[i] += ","
+        return [ f"INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES" ] + code + [";"]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return f"{name}({tag})"
+        return f"jm_cmap_get({self.esc(name)}, {tag})"
 
     def gen_init(self, init: Block) -> Block:
-        return []
+        return [
+            "--",
+            "-- constant maps initialization",
+            "--",
+            "TRUNCATE jm_constant_maps;",
+        ] + init
 
     def gen_free(self, free: Block) -> Block:
         return []

@@ -154,8 +154,9 @@ class CLangJansson(Language):
     def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
         return f"json_array_get({arr}, {idx})"
 
-    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
-        return f"json_object_get({obj}, {prop})"
+    def obj_prop_val(self, obj: Var, prop: Expr, is_prop: bool = False) -> Expr:
+        return f"json_object_get({obj}, {prop})" if is_prop else \
+               f"json_object_get({obj}, {self.esc(prop)})"
 
     #
     # inlined length computation
@@ -178,7 +179,7 @@ class CLangJansson(Language):
     def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
         return f"(({cond}) ? ({true}) : ({false}))"
 
-    def prop_fun(self, fun: str, prop: str, name: str) -> Expr:
+    def assign_prop_fun(self, fun: str, prop: str, name: str) -> Expr:
         return f"({fun} = {name}({prop}))"
 
     def str_start(self, val: str, string: str) -> BoolExpr:
@@ -189,11 +190,12 @@ class CLangJansson(Language):
         return f"strlen({val}) >= strlen({sstr}) && " \
                f"strcmp({val} + strlen({val}) - strlen({sstr}), {sstr}) == 0"
 
-    def check_call(self, fun: str, val: Expr, path: Var, is_str: bool = False) -> BoolExpr:
-        if is_str:
+    def check_call(self, fun: str, val: Expr, path: Var, *,
+                   is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
+        if is_raw:
             return f"jm_check_fun_string({fun}, {val}, {path}, rep)"
         else:
-            return super().check_call(fun, val, path, is_str)
+            return super().check_call(fun, val, path, is_ptr=is_ptr, is_raw=is_raw)
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"jm_array_is_unique({val}, {path}, rep)"

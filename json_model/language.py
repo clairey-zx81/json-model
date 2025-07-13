@@ -232,7 +232,7 @@ class Language:
         """Get array item for an index."""
         return f"{arr}[{idx}]"
 
-    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
+    def obj_prop_val(self, obj: Var, prop: Var, is_var: bool = False) -> Expr:
         """Get object property value."""
         raise NotImplementedError(f"obj_prop_val")
 
@@ -285,8 +285,13 @@ class Language:
         """Model check call for a string value."""
         return f"{name}({val}, {path}, rep)"
 
-    def check_call(self, name: Var, val: JsonExpr, path: Var, is_str: bool = False) -> BoolExpr:
-        """Model check call for a JSON value."""
+    def check_call(self, name: Var, val: JsonExpr, path: Var, *,
+                   is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
+        """Model check call for a JSON value.
+
+        is_ptr: the name is a function pointer, not a direct function
+        is_raw: value is a raw (string) value, not a json
+        """
         return f"{name}({val}, {path}, rep)"
 
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
@@ -349,9 +354,21 @@ class Language:
         """String comparison."""
         return self.num_cmp(e1, op, e2)
 
-    def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
-        """Get check value fonction for a property."""
-        raise NotImplementedError("prop_fun")
+    def assign_expr(self) -> bool:
+        """Whether there is an assign expression in the language."""
+        return True
+
+    def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+        """Get check value fonction for a property and tell whether it got one."""
+        raise NotImplementedError("prop_fun with assign expression")
+
+    def has_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
+        """Whether property has a check function in the map."""
+        raise NotImplementedError("has_prop_fun")
+
+    def get_prop_fun(self, prop: str, mapname: str) -> Expr:
+        """get check function for property."""
+        raise NotImplementedError("has_prop_fun")
 
     #
     # for JSON values
@@ -504,7 +521,7 @@ class Language:
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Define a new (property) map."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Generate a subroutine for the property map."""
@@ -512,7 +529,7 @@ class Language:
 
     def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Initialize a map."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
         """Remove initial stuff for a property map."""
@@ -603,11 +620,11 @@ class Language:
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Declare a new constant map."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Initialize constant mapping."""
-        raise NotImplementedError("see derived classes")
+        return []
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         """Generate support function for mapping."""

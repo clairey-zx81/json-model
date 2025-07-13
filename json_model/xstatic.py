@@ -82,7 +82,7 @@ class CodeGenerator:
         for sname, ref in remap.items():
             checks += gen.match_val("match", rname, sname, "extract")
             checks += gen.if_stmt(
-                gen.not_op(self._dollarExpr(jm, ref, "extract", path, True)),
+                gen.not_op(self._dollarExpr(jm, ref, "extract", path, is_raw=True)),
                 gen.ret(gen.const(False)))
         checks += gen.ret(gen.const(True))
         code += checks
@@ -181,17 +181,18 @@ class CodeGenerator:
         # FIXME return val.translate({"{": "{{", "\\": "\\\\", "\"": "\\\""})
         return "FESC"
 
-    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, is_prop: bool = False):
+    def _dollarExpr(self, jm: JsonModel, ref: str, val: str, vpath: str, *, is_raw: bool = False):
+        """Generate a call to check for a $REF."""
         # FIXME C val is may be a char*, not a json_t*.
         assert ref and ref[0] == "$"
         if ref in MODEL_PREDEFS:  # inline predefs
             # TODO improve
-            return self._lang.predef(val, ref, vpath, is_prop)
+            return self._lang.predef(val, ref, vpath, is_raw)
             # return (self.MODEL_PREDEFS[ref](val, vpath) +
             #         (f" or _rep(f\"invalid {ref} at {{{vpath}}}\", rep)" if self._report else ""))
         else:
             fun = self._getNameRef(jm, ref, [])
-            return self._lang.check_call(fun, val, vpath, is_prop)
+            return self._lang.check_call(fun, val, vpath, is_ptr=False, is_raw=is_raw)
 
     def _compileConstraint(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
                            res: str, val: str, vpath: str):
@@ -379,11 +380,11 @@ class CodeGenerator:
 
         # FIXME None tag value?!
         tag = self._lang.ident("tag")
-        itag = gen.json_var(tag, gen.obj_prop_val(val, self._esc(tag_name)), True)
+        itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
 
         fun = self._lang.ident("fun")
         ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
-        icall = gen.bool_var(res, gen.check_call(fun, val, vpath))
+        icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
 
         code += (
             gen.if_stmt(res,
@@ -482,7 +483,7 @@ class CodeGenerator:
                         self._gen_fail(f"missing mandatory prop <{prop}> [{smpath}]", vpath))
             if pmodel != "$ANY":
                 code += (
-                    gen.json_var("pval", gen.obj_prop_val(val, gen.esc(prop))) +
+                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
                     gen.if_stmt(
                         gen.not_op(res),
@@ -493,7 +494,7 @@ class CodeGenerator:
         for prop, pmodel in may.items():
             if pmodel != "$ANY":
                 code += gen.if_stmt(gen.has_prop(val, prop),
-                    gen.json_var("pval", gen.obj_prop_val(val, gen.esc(prop))) +
+                    gen.json_var("pval", gen.obj_prop_val(val, prop, False)) +
                     self._compileModel(jm, pmodel, mpath + [prop], res, "pval", vpath) +
                     gen.if_stmt(
                         gen.not_op(res),
@@ -586,15 +587,26 @@ class CodeGenerator:
                 if prop_must == candidate:
                     self._propmap_gen(jm, must, prop_must, mpath)
 
-                # use map
-                mu_expr = gen.prop_fun(pfun, prop, prop_must)
-                mu_code = (
-                    gen.lcom(f"handle {len(must)} mandatory props") +
-                    gen.if_stmt(gen.is_def(pfun),
-                        gen.inc_var(must_c) +
-                        gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref)),
-                            self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref)))
+                mu_prop_code = (
+                    gen.inc_var(must_c) +
+                    gen.if_stmt(gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
+                        self._gen_fail(f"invalid mandatory prop value [{smpath}]", lpath_ref))
                 )
+
+                # use map
+                if gen.assign_expr():
+                    mu_expr = gen.assign_prop_fun(pfun, prop, prop_must)
+                    mu_code = (
+                        gen.lcom(f"handle {len(must)} mandatory props") +
+                        gen.if_stmt(gen.is_def(pfun), mu_prop_code)
+                    )
+                else:
+                    mu_expr = gen.has_prop_fun(prop, prop_must)
+                    mu_code = (
+                        gen.lcom(f"handle {len(must)} mandatory props") +
+                        gen.fun_var(pfun, gen.get_prop_fun(prop, prop_must)) +
+                        mu_prop_code
+                    )
 
                 multi_if += [(mu_expr, mu_code)]
 
@@ -623,20 +635,31 @@ class CodeGenerator:
                 if prop_may == candidate:
                     self._propmap_gen(jm, may, prop_may, mpath)
 
-                ma_expr = gen.prop_fun(pfun, prop, prop_may)
-                ma_code = (
-                    gen.lcom(f"handle {len(may)} may props") +
-                    gen.if_stmt(gen.and_op(gen.is_def(pfun),
-                                           gen.not_op(gen.check_call(pfun, pval, lpath_ref))),
-                        self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
-                )
+                if gen.assign_expr():
+                    ma_expr = gen.assign_prop_fun(pfun, prop, prop_may)
+                    ma_code = (
+                        gen.lcom(f"handle {len(may)} may props") +
+                        gen.if_stmt(
+                            gen.and_op(gen.is_def(pfun),
+                                gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True))),
+                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
+                    )
+                else:
+                    ma_expr = gen.has_prop_fun(prop, prop_may)
+                    ma_code = (
+                        gen.lcom(f"handle {len(may)} may props") +
+                        gen.fun_var(pfun, gen.get_prop_fun(prop, prop_may)) +
+                        gen.if_stmt(
+                            gen.not_op(gen.check_call(pfun, pval, lpath_ref, is_ptr=True)),
+                            self._gen_fail(f"invalid optional prop value [{smpath}]", lpath_ref))
+                    )
 
                 multi_if += [(ma_expr, ma_code)]
 
         # $* is inlined expr (FIXME inlining does not work with vpath)
         for d, m in defs.items():
             ref = "$" + d
-            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, True)  # FIXME lpath &lpath?
+            dl_expr = self._dollarExpr(jm, ref, prop, lpath_ref, is_raw=True)  # FIXME lpath &lpath?
             dl_code = gen.lcom(f"handle {len(defs)} key props") + \
                 self._compileModel(jm, m, mpath + [ref], res, pval, lpath_ref) + \
                 self._gen_short_expr(res)
@@ -1129,9 +1152,7 @@ class CodeGenerator:
                                     jm, model[i], mpath + [i],
                                     res, gen.arr_item_val(val, i), lpath_ref) +
                                 body)
-                        code += \
-                            gen.bool_var(res, expr if expr else gen.const(True)) + \
-                            gen.if_stmt(res, body) if expr else body
+                        code += body
                     else:
                         # assume varlen tuple: [ A, B, C* ]
                         arlen = gen.ident("len")

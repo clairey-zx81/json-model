@@ -2,13 +2,14 @@
 
 ## Current Tasks
 
-- [ ] sql-backend: generate PL/pgSQL functions to validate JSONB data (wip)
+- [x] sql-backend: generate PL/pgSQL functions to validate JSONB data
 - [x] sql-backend: add generic entry function
-- [ ] sql-backend: add testing capability
-- [ ] sql-backend: add necessary support function (wip)
-- [ ] sql-backend: implement basic regex
+- [x] sql-backend: add testing capability
+- [x] sql-backend: add necessary support function (nearly)
+- [x] sql-backend: implement basic regex
 - [ ] sql-backend: implement extended regex
 - [ ] sql-backend: package support as an extension
+- [ ] tests: add sql and sql.check to pytest
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions
 - [ ] python: rerun style and type checks

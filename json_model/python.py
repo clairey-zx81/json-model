@@ -104,8 +104,9 @@ class Python(Language):
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("python_free.py", free)
 
-    def obj_prop_val(self, obj: Var, prop: Var) -> Expr:
-        return f"{obj}.get({prop}, UNDEFINED)"
+    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> Expr:
+        return f"{obj}.get({prop}, UNDEFINED)" if is_var else \
+               f"{obj}.get({self.esc(prop)}, UNDEFINED)"
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{self.esc(prop)} in {obj}"
@@ -122,7 +123,7 @@ class Python(Language):
     def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
         return f"{true} if {cond} else {false}"
 
-    def prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+    def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
 
     def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
