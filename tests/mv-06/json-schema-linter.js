@@ -100,23 +100,19 @@ function json_model_3(val, path, rep)
     if (res)
     {
         // .'$enum'.'|'.0
-        res = true;
-        if (res)
+        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
         {
-            for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
+            let arr_2_item = val[arr_2_idx]
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            // .'$enum'.'|'.0.0
+            res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
+            if (! res)
             {
-                let arr_2_item = val[arr_2_idx]
-                let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
-                // .'$enum'.'|'.0.0
-                res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
-                if (! res)
-                {
-                    rep !== null && rep.push(["unexpected string [.'$enum'.'|'.0.0]", (path ? arr_2_lpath : null)])
-                }
-                if (! res)
-                {
-                    break;
-                }
+                rep !== null && rep.push(["unexpected string [.'$enum'.'|'.0.0]", (path ? arr_2_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
             }
         }
         if (! res)
@@ -126,23 +122,19 @@ function json_model_3(val, path, rep)
         if (! res)
         {
             // .'$enum'.'|'.1
-            res = true;
-            if (res)
+            for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
             {
-                for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+                let arr_1_item = val[arr_1_idx]
+                let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+                // .'$enum'.'|'.1.0
+                res = (typeof arr_1_item === 'number' || arr_1_item instanceof Number) && Number.isInteger(arr_1_item);
+                if (! res)
                 {
-                    let arr_1_item = val[arr_1_idx]
-                    let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
-                    // .'$enum'.'|'.1.0
-                    res = (typeof arr_1_item === 'number' || arr_1_item instanceof Number) && Number.isInteger(arr_1_item);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["not a -1 strict int [.'$enum'.'|'.1.0]", (path ? arr_1_lpath : null)])
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
+                    rep !== null && rep.push(["not a -1 strict int [.'$enum'.'|'.1.0]", (path ? arr_1_lpath : null)])
+                }
+                if (! res)
+                {
+                    break;
                 }
             }
             if (! res)
@@ -152,23 +144,19 @@ function json_model_3(val, path, rep)
             if (! res)
             {
                 // .'$enum'.'|'.2
-                res = true;
-                if (res)
+                for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
                 {
-                    for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
+                    let arr_0_item = val[arr_0_idx]
+                    let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+                    // .'$enum'.'|'.2.0
+                    res = (typeof arr_0_item === 'boolean' || arr_0_item instanceof Boolean);
+                    if (! res)
                     {
-                        let arr_0_item = val[arr_0_idx]
-                        let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-                        // .'$enum'.'|'.2.0
-                        res = (typeof arr_0_item === 'boolean' || arr_0_item instanceof Boolean);
-                        if (! res)
-                        {
-                            rep !== null && rep.push(["not a bool [.'$enum'.'|'.2.0]", (path ? arr_0_lpath : null)])
-                        }
-                        if (! res)
-                        {
-                            break;
-                        }
+                        rep !== null && rep.push(["not a bool [.'$enum'.'|'.2.0]", (path ? arr_0_lpath : null)])
+                    }
+                    if (! res)
+                    {
+                        break;
                     }
                 }
                 if (! res)
@@ -230,7 +218,7 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if (prop == "pattern")
@@ -310,7 +298,7 @@ function json_model_5(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$stringKeywords']", path])
+        rep !== null && rep.push(["unexpected element [.'$stringKeywords']", path])
     }
     return res;
 }
@@ -421,7 +409,7 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let pfun;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
         if ((pfun = _jm_obj_1_map.get(prop)))
@@ -450,7 +438,7 @@ function json_model_6(val, path, rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$arrayKeywords']", path])
+        rep !== null && rep.push(["unexpected element [.'$arrayKeywords']", path])
     }
     return res;
 }
@@ -464,7 +452,7 @@ function _jm_obj_3(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_3 = path ? path.concat([prop]) : null;
         // handle other props
@@ -491,7 +479,7 @@ function _jm_obj_4(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_4 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_regex(prop, false))
@@ -526,7 +514,7 @@ function _jm_obj_2(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
         if (prop == "properties")
@@ -536,7 +524,7 @@ function _jm_obj_2(val, path, rep)
             res = _jm_obj_3(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected element [.'$objectKeywords'.properties]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
@@ -599,7 +587,7 @@ function _jm_obj_2(val, path, rep)
             res = _jm_obj_4(pval, (path ? lpath_2 : null), rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected object [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected element [.'$objectKeywords'.patternProperties]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
@@ -624,7 +612,7 @@ function json_model_7(val, path, rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$objectKeywords']", path])
+        rep !== null && rep.push(["unexpected element [.'$objectKeywords']", path])
     }
     return res;
 }
@@ -638,7 +626,7 @@ function _jm_obj_5(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_5 = path ? path.concat([prop]) : null;
         if (prop == "minimum")
@@ -688,7 +676,7 @@ function json_model_8(val, path, rep)
     res = _jm_obj_5(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$numberKeywords']", path])
+        rep !== null && rep.push(["unexpected element [.'$numberKeywords']", path])
     }
     return res;
 }
@@ -715,7 +703,7 @@ function _jm_obj_7(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_7 = path ? path.concat([prop]) : null;
         // handle other props
@@ -741,7 +729,7 @@ function _jm_f_7(val, path, rep)
     res = _jm_obj_7(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$metas'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$metas'.'$defs']", path])
     }
     return res;
 }
@@ -794,7 +782,7 @@ function _jm_obj_8(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_8 = path ? path.concat([prop]) : null;
         // handle other props
@@ -820,7 +808,7 @@ function _jm_f_11(val, path, rep)
     res = _jm_obj_8(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$metas'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$metas'.definitions]", path])
     }
     return res;
 }
@@ -894,7 +882,7 @@ function _jm_obj_6(val, path, rep)
     }
     let res;
     let pfun;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_6 = path ? path.concat([prop]) : null;
         if ((pfun = _jm_obj_6_map.get(prop)))
@@ -937,7 +925,7 @@ function json_model_9(val, path, rep)
     res = _jm_obj_6(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$metas']", path])
+        rep !== null && rep.push(["unexpected element [.'$metas']", path])
     }
     return res;
 }
@@ -964,7 +952,7 @@ function _jm_obj_10(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_10 = path ? path.concat([prop]) : null;
         // handle other props
@@ -990,7 +978,7 @@ function _jm_f_17(val, path, rep)
     res = _jm_obj_10(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$String'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$String'.'$defs']", path])
     }
     return res;
 }
@@ -1043,7 +1031,7 @@ function _jm_obj_11(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_11 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1069,7 +1057,7 @@ function _jm_f_21(val, path, rep)
     res = _jm_obj_11(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$String'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$String'.definitions]", path])
     }
     return res;
 }
@@ -1195,7 +1183,7 @@ function _jm_obj_9(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_9 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -1265,7 +1253,7 @@ function json_model_10(val, path, rep)
     res = _jm_obj_9(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$String']", path])
+        rep !== null && rep.push(["unexpected element [.'$String']", path])
     }
     return res;
 }
@@ -1292,7 +1280,7 @@ function _jm_obj_13(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_13 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1318,7 +1306,7 @@ function _jm_f_31(val, path, rep)
     res = _jm_obj_13(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Array'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Array'.'$defs']", path])
     }
     return res;
 }
@@ -1384,7 +1372,7 @@ function _jm_obj_14(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_14 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1410,7 +1398,7 @@ function _jm_f_36(val, path, rep)
     res = _jm_obj_14(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Array'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Array'.definitions]", path])
     }
     return res;
 }
@@ -1566,7 +1554,7 @@ function _jm_obj_12(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_12 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -1636,7 +1624,7 @@ function json_model_11(val, path, rep)
     res = _jm_obj_12(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Array']", path])
+        rep !== null && rep.push(["unexpected element [.'$Array']", path])
     }
     return res;
 }
@@ -1663,7 +1651,7 @@ function _jm_obj_16(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_16 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1689,7 +1677,7 @@ function _jm_f_47(val, path, rep)
     res = _jm_obj_16(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Object'.'$defs']", path])
     }
     return res;
 }
@@ -1755,7 +1743,7 @@ function _jm_obj_17(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_17 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1781,7 +1769,7 @@ function _jm_f_52(val, path, rep)
     res = _jm_obj_17(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Object'.definitions]", path])
     }
     return res;
 }
@@ -1838,7 +1826,7 @@ function _jm_obj_18(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_18 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_regex(prop, false))
@@ -1872,7 +1860,7 @@ function _jm_f_56(val, path, rep)
     res = _jm_obj_18(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object'.patternProperties]", path])
+        rep !== null && rep.push(["unexpected element [.'$Object'.patternProperties]", path])
     }
     return res;
 }
@@ -1886,7 +1874,7 @@ function _jm_obj_19(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_19 = path ? path.concat([prop]) : null;
         // handle other props
@@ -1912,7 +1900,7 @@ function _jm_f_57(val, path, rep)
     res = _jm_obj_19(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object'.properties]", path])
+        rep !== null && rep.push(["unexpected element [.'$Object'.properties]", path])
     }
     return res;
 }
@@ -1973,7 +1961,7 @@ function _jm_obj_15(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_15 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -2043,7 +2031,7 @@ function json_model_12(val, path, rep)
     res = _jm_obj_15(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Object']", path])
+        rep !== null && rep.push(["unexpected element [.'$Object']", path])
     }
     return res;
 }
@@ -2070,7 +2058,7 @@ function _jm_obj_21(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_21 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2096,7 +2084,7 @@ function _jm_f_61(val, path, rep)
     res = _jm_obj_21(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Integer'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Integer'.'$defs']", path])
     }
     return res;
 }
@@ -2149,7 +2137,7 @@ function _jm_obj_22(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_22 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2175,7 +2163,7 @@ function _jm_f_65(val, path, rep)
     res = _jm_obj_22(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Integer'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Integer'.definitions]", path])
     }
     return res;
 }
@@ -2274,7 +2262,7 @@ function _jm_obj_20(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_20 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -2344,7 +2332,7 @@ function json_model_13(val, path, rep)
     res = _jm_obj_20(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Integer']", path])
+        rep !== null && rep.push(["unexpected element [.'$Integer']", path])
     }
     return res;
 }
@@ -2371,7 +2359,7 @@ function _jm_obj_24(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_24 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2397,7 +2385,7 @@ function _jm_f_73(val, path, rep)
     res = _jm_obj_24(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Number'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Number'.'$defs']", path])
     }
     return res;
 }
@@ -2450,7 +2438,7 @@ function _jm_obj_25(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_25 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2476,7 +2464,7 @@ function _jm_f_77(val, path, rep)
     res = _jm_obj_25(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Number'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Number'.definitions]", path])
     }
     return res;
 }
@@ -2575,7 +2563,7 @@ function _jm_obj_23(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_23 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -2645,7 +2633,7 @@ function json_model_14(val, path, rep)
     res = _jm_obj_23(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Number']", path])
+        rep !== null && rep.push(["unexpected element [.'$Number']", path])
     }
     return res;
 }
@@ -2672,7 +2660,7 @@ function _jm_obj_27(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_27 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2698,7 +2686,7 @@ function _jm_f_85(val, path, rep)
     res = _jm_obj_27(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Bool'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Bool'.'$defs']", path])
     }
     return res;
 }
@@ -2751,7 +2739,7 @@ function _jm_obj_28(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_28 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2777,7 +2765,7 @@ function _jm_f_89(val, path, rep)
     res = _jm_obj_28(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Bool'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Bool'.definitions]", path])
     }
     return res;
 }
@@ -2850,7 +2838,7 @@ function _jm_obj_26(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_26 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -2920,7 +2908,7 @@ function json_model_15(val, path, rep)
     res = _jm_obj_26(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Bool']", path])
+        rep !== null && rep.push(["unexpected element [.'$Bool']", path])
     }
     return res;
 }
@@ -2947,7 +2935,7 @@ function _jm_obj_30(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_30 = path ? path.concat([prop]) : null;
         // handle other props
@@ -2973,7 +2961,7 @@ function _jm_f_95(val, path, rep)
     res = _jm_obj_30(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Null'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Null'.'$defs']", path])
     }
     return res;
 }
@@ -3026,7 +3014,7 @@ function _jm_obj_31(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_31 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3052,7 +3040,7 @@ function _jm_f_99(val, path, rep)
     res = _jm_obj_31(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Null'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Null'.definitions]", path])
     }
     return res;
 }
@@ -3125,7 +3113,7 @@ function _jm_obj_29(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_29 = path ? path.concat([prop]) : null;
         if (prop == "type")
@@ -3195,7 +3183,7 @@ function json_model_16(val, path, rep)
     res = _jm_obj_29(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Null']", path])
+        rep !== null && rep.push(["unexpected element [.'$Null']", path])
     }
     return res;
 }
@@ -3222,7 +3210,7 @@ function _jm_obj_33(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_33 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3248,7 +3236,7 @@ function _jm_f_105(val, path, rep)
     res = _jm_obj_33(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AllOf'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$AllOf'.'$defs']", path])
     }
     return res;
 }
@@ -3301,7 +3289,7 @@ function _jm_obj_34(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_34 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3327,7 +3315,7 @@ function _jm_f_109(val, path, rep)
     res = _jm_obj_34(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AllOf'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$AllOf'.definitions]", path])
     }
     return res;
 }
@@ -3400,7 +3388,7 @@ function _jm_obj_32(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_32 = path ? path.concat([prop]) : null;
         if (prop == "allOf")
@@ -3470,7 +3458,7 @@ function json_model_17(val, path, rep)
     res = _jm_obj_32(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AllOf']", path])
+        rep !== null && rep.push(["unexpected element [.'$AllOf']", path])
     }
     return res;
 }
@@ -3497,7 +3485,7 @@ function _jm_obj_36(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_36 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3523,7 +3511,7 @@ function _jm_f_115(val, path, rep)
     res = _jm_obj_36(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AnyOf'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$AnyOf'.'$defs']", path])
     }
     return res;
 }
@@ -3576,7 +3564,7 @@ function _jm_obj_37(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_37 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3602,7 +3590,7 @@ function _jm_f_119(val, path, rep)
     res = _jm_obj_37(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AnyOf'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$AnyOf'.definitions]", path])
     }
     return res;
 }
@@ -3675,7 +3663,7 @@ function _jm_obj_35(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_35 = path ? path.concat([prop]) : null;
         if (prop == "anyOf")
@@ -3745,7 +3733,7 @@ function json_model_18(val, path, rep)
     res = _jm_obj_35(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$AnyOf']", path])
+        rep !== null && rep.push(["unexpected element [.'$AnyOf']", path])
     }
     return res;
 }
@@ -3772,7 +3760,7 @@ function _jm_obj_39(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_39 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3798,7 +3786,7 @@ function _jm_f_125(val, path, rep)
     res = _jm_obj_39(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$OneOf'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$OneOf'.'$defs']", path])
     }
     return res;
 }
@@ -3851,7 +3839,7 @@ function _jm_obj_40(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_40 = path ? path.concat([prop]) : null;
         // handle other props
@@ -3877,7 +3865,7 @@ function _jm_f_129(val, path, rep)
     res = _jm_obj_40(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$OneOf'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$OneOf'.definitions]", path])
     }
     return res;
 }
@@ -3950,7 +3938,7 @@ function _jm_obj_38(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_38 = path ? path.concat([prop]) : null;
         if (prop == "oneOf")
@@ -4020,7 +4008,7 @@ function json_model_19(val, path, rep)
     res = _jm_obj_38(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$OneOf']", path])
+        rep !== null && rep.push(["unexpected element [.'$OneOf']", path])
     }
     return res;
 }
@@ -4047,7 +4035,7 @@ function _jm_obj_42(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_42 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4073,7 +4061,7 @@ function _jm_f_135(val, path, rep)
     res = _jm_obj_42(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Enum'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Enum'.'$defs']", path])
     }
     return res;
 }
@@ -4126,7 +4114,7 @@ function _jm_obj_43(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_43 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4152,7 +4140,7 @@ function _jm_f_139(val, path, rep)
     res = _jm_obj_43(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Enum'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Enum'.definitions]", path])
     }
     return res;
 }
@@ -4225,7 +4213,7 @@ function _jm_obj_41(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_41 = path ? path.concat([prop]) : null;
         if (prop == "enum")
@@ -4295,7 +4283,7 @@ function json_model_20(val, path, rep)
     res = _jm_obj_41(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Enum']", path])
+        rep !== null && rep.push(["unexpected element [.'$Enum']", path])
     }
     return res;
 }
@@ -4322,7 +4310,7 @@ function _jm_obj_45(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_45 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4348,7 +4336,7 @@ function _jm_f_145(val, path, rep)
     res = _jm_obj_45(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Const'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Const'.'$defs']", path])
     }
     return res;
 }
@@ -4401,7 +4389,7 @@ function _jm_obj_46(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_46 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4427,7 +4415,7 @@ function _jm_f_149(val, path, rep)
     res = _jm_obj_46(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Const'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Const'.definitions]", path])
     }
     return res;
 }
@@ -4500,7 +4488,7 @@ function _jm_obj_44(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_44 = path ? path.concat([prop]) : null;
         if (prop == "const")
@@ -4570,7 +4558,7 @@ function json_model_21(val, path, rep)
     res = _jm_obj_44(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Const']", path])
+        rep !== null && rep.push(["unexpected element [.'$Const']", path])
     }
     return res;
 }
@@ -4597,7 +4585,7 @@ function _jm_obj_48(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_48 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4623,7 +4611,7 @@ function _jm_f_155(val, path, rep)
     res = _jm_obj_48(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Ref'.'$defs']", path])
+        rep !== null && rep.push(["unexpected element [.'$Ref'.'$defs']", path])
     }
     return res;
 }
@@ -4676,7 +4664,7 @@ function _jm_obj_49(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_49 = path ? path.concat([prop]) : null;
         // handle other props
@@ -4702,7 +4690,7 @@ function _jm_f_159(val, path, rep)
     res = _jm_obj_49(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Ref'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$Ref'.definitions]", path])
     }
     return res;
 }
@@ -4775,7 +4763,7 @@ function _jm_obj_47(val, path, rep)
     let res;
     let pfun;
     let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_47 = path ? path.concat([prop]) : null;
         if (prop == "$ref")
@@ -4845,7 +4833,7 @@ function json_model_22(val, path, rep)
     res = _jm_obj_47(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$Ref']", path])
+        rep !== null && rep.push(["unexpected element [.'$Ref']", path])
     }
     return res;
 }
@@ -5023,46 +5011,29 @@ function json_model_24(val, path, rep)
 // object .'$RootSchema'.'&'.0
 function _jm_obj_50(val, path, rep)
 {
+    // check must only props
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$RootSchema'.'&'.0]", path])
         return false;
     }
+    let pval;
     let res;
-    let must_count = 0;
-    for(const [prop, pval] of Object.entries(val))
+    if (! val.hasOwnProperty("$schema"))
     {
-        let lpath_50 = path ? path.concat([prop]) : null;
-        if (prop == "$schema")
-        {
-            // handle must $schema property
-            must_count += 1;
-            // .'$RootSchema'.'&'.0.'$schema'
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$RootSchema'.'&'.0.'$schema']", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$RootSchema'.'&'.0.'$schema']", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            // accept any other props
-        }
+        rep !== null && rep.push(["missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path])
+        return false;
     }
-    if (must_count != 1)
+    pval = val["$schema"];
+    // .'$RootSchema'.'&'.0.'$schema'
+    res = (typeof pval === 'string' || pval instanceof String);
+    if (! res)
     {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("$schema"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <$schema> [.'$RootSchema'.'&'.0.'']", path])
-            }
-        }
+        rep !== null && rep.push(["unexpected string [.'$RootSchema'.'&'.0.'$schema']", path])
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path])
         return false;
     }
     return true;
@@ -5080,7 +5051,7 @@ function json_model_25(val, path, rep)
         res = _jm_obj_50(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected object [.'$RootSchema'.'&'.0]", path])
+            rep !== null && rep.push(["unexpected element [.'$RootSchema'.'&'.0]", path])
         }
         if (res)
         {

@@ -363,6 +363,10 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OpenAPI'.security]", path);
+    }
     return res;
 }
 
@@ -391,6 +395,10 @@ static bool _jm_f_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OpenAPI'.servers]", path);
+    }
     return res;
 }
 
@@ -418,6 +426,10 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$OpenAPI'.tags]", path);
     }
     return res;
 }
@@ -1252,6 +1264,10 @@ static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
                         break;
                     }
                 }
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$ServerVariable'.enum]", (path ? &lpath_8 : NULL));
             }
             if (! res)
             {
@@ -2153,6 +2169,10 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$PathItem'.parameters]", path);
+    }
     return res;
 }
 
@@ -2219,6 +2239,10 @@ static bool _jm_f_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$PathItem'.servers]", path);
     }
     return res;
 }
@@ -2469,6 +2493,10 @@ static bool _jm_f_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Operation'.parameters]", path);
+    }
     return res;
 }
 
@@ -2541,6 +2569,10 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Operation'.security]", path);
+    }
     return res;
 }
 
@@ -2568,6 +2600,10 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Operation'.servers]", path);
     }
     return res;
 }
@@ -2609,6 +2645,10 @@ static bool _jm_f_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Operation'.tags]", path);
     }
     return res;
 }
@@ -6241,6 +6281,10 @@ static bool _jm_f_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // accept any array
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Schema'.enum]", path);
+    }
     return res;
 }
 
@@ -6266,6 +6310,10 @@ static bool _jm_f_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // accept any array
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$Schema'.examples]", path);
     }
     return res;
 }
@@ -8460,6 +8508,10 @@ static bool _jm_obj_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         if (! res)
         {
+            if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$SecurityRequirement'.'']", (path ? &lpath_81 : NULL));
+        }
+        if (! res)
+        {
             return false;
         }
     }
@@ -8595,6 +8647,10 @@ static bool json_model_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
         }
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#simpleTypesArray'.'@']", path);
+    }
     if (res)
     {
         int64_t ival_0 = json_array_size(val);
@@ -8632,6 +8688,10 @@ static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#stringArray'.'@']", path);
     }
     if (res)
     {
@@ -8682,6 +8742,10 @@ static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#schemaArray'.'@']", path);
     }
     if (res)
     {
@@ -9159,6 +9223,10 @@ static bool _jm_f_153(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         // accept any array
     }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#ObjectSchema'.enum]", path);
+    }
     return res;
 }
 
@@ -9171,6 +9239,10 @@ static bool _jm_f_154(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         // accept any array
+    }
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$schema#ObjectSchema'.examples]", path);
     }
     return res;
 }

@@ -9,10 +9,10 @@ dolsha.values.json[7]: PASS
 dolsha.values.json[8]: PASS
 dolsha.values.json[9]: PASS
 dolsha.values.json[10]: PASS
-dolsha.values.json[11]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[12]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[13]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[14]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[15]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[16]: FAIL (.: unexpected object [.]; .: not an object [.])
-dolsha.values.json[17]: FAIL (.: unexpected object [.]; .un: unexpected prop [.])
+dolsha.values.json[11]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[12]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[13]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[14]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[15]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[16]: FAIL (.: unexpected element [.]; .: not an object [.])
+dolsha.values.json[17]: FAIL (.: unexpected element [.]; .un: unexpected prop [.])

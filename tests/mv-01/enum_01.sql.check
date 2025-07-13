@@ -10,11 +10,9 @@ CREATE TABLE
 COPY 14
 UPDATE 14
 # count working tests
-┌─────────┬───────┐
-│ success │ total │
-├─────────┼───────┤
-│      14 │    14 │
-└─────────┴───────┘
+ success | total 
+---------+-------
+      14 |    14
 (1 row)
 
 # OK

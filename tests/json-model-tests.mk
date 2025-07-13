@@ -179,7 +179,7 @@ $(F.out): json-model.o main.o
 	../values2csv.py $< $@
 
 %.sql.check: %.sql %.values.csv ../testcsv.sql
-	psql -f $< -f ../testcsv.sql < $*.values.csv > $@
+	psql --no-psqlrc -f $< -f ../testcsv.sql < $*.values.csv > $@
 	result=$$(tail -1 $@)
 	if [[ "$$result" == *OK* ]] ; then
 	  exit 0
@@ -201,6 +201,14 @@ F.schema    = $(F.root:%=%.schema.json)
 
 .PHONY: check.schema
 check.schema: $(F.sXc)
+
+# helpers
+%.ALL:
+	$(MAKE) $*.model.json $*.schema.json \
+	    $*.c $*.c.check $*.py $*.py.check $*.js $*.js.check $*.sql $*.sql.check
+
+%.CLEAN:
+	$(RM) $*.schema.json $*.c $*.c.check $*.py $*.py.check $*.js $*.js.check $*.sql $*.sql.check
 
 #
 # JSON model value checks with generated JSON schemas

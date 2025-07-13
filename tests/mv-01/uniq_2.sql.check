@@ -6,20 +6,16 @@ CREATE TABLE
 COPY 20
 UPDATE 20
 # count working tests
-┌─────────┬───────┐
-│ success │ total │
-├─────────┼───────┤
-│      18 │    20 │
-└─────────┴───────┘
+ success | total 
+---------+-------
+      18 |    20
 (1 row)
 
 # bad tests
-┌─────┬─────────┐
-│ jid │ checked │
-├─────┼─────────┤
-│   3 │ f       │
-│   9 │ f       │
-└─────┴─────────┘
+ jid | checked 
+-----+---------
+   3 | f
+   9 | f
 (2 rows)
 
 # KO [3, 9]

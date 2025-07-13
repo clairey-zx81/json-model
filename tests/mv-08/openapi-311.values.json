@@ -1,0 +1,15 @@
+[
+  [ true,  {"openapi": "3.1.45927", "info": {"title": "Hello", "version": "acme"}} ],
+  [ false, {"openapi": "3.2.0", "info": {"title": "Hello", "version": "acme"}} ],
+  [ false, {"openapi": "3.1.0", "info": {"title": 42, "version": "acme"}} ],
+  [ false, {"openapi": "3.1.0", "info": {"title": "Hello", "version": 1}} ],
+  [ false, {"openapi": "3.1.0"} ],
+  [ false, {"info": {"title": "Hello", "version": "acme"}} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

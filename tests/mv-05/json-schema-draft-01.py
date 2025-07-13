@@ -130,8 +130,8 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         ival_0: int = len(val)
         res = ival_0 >= 1
-    if not res:
-        rep is None or rep.append(("constraints failed [.enum]", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.enum]", path))
     return res
 
 # check _jm_obj_0_map_extends (.extends)
@@ -331,7 +331,7 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .properties
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.properties]", path))
+        rep is None or rep.append(("unexpected element [.properties]", path))
     return res
 
 # check _jm_obj_0_map_requires (.requires)
@@ -426,7 +426,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.]", path))
+        rep is None or rep.append(("unexpected element [.]", path))
     return res
 
 

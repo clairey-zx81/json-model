@@ -40,11 +40,9 @@ CREATE TABLE
 COPY 3
 UPDATE 3
 # count working tests
-┌─────────┬───────┐
-│ success │ total │
-├─────────┼───────┤
-│       3 │     3 │
-└─────────┴───────┘
+ success | total 
+---------+-------
+       3 |     3
 (1 row)
 
 # OK

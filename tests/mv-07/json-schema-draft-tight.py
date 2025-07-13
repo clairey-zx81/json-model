@@ -84,44 +84,38 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected type [.'$enum'.'|']", path))
     if res:
         # .'$enum'.'|'.0
-        res = True
-        if res:
-            for arr_2_idx, arr_2_item in enumerate(val):
-                arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
-                # .'$enum'.'|'.0.0
-                res = isinstance(arr_2_item, str)
-                if not res:
-                    rep is None or rep.append(("unexpected string [.'$enum'.'|'.0.0]", arr_2_lpath if path is not None else None))
-                if not res:
-                    break
+        for arr_2_idx, arr_2_item in enumerate(val):
+            arr_2_lpath: Path = (path + [ arr_2_idx ]) if path is not None else None
+            # .'$enum'.'|'.0.0
+            res = isinstance(arr_2_item, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$enum'.'|'.0.0]", arr_2_lpath if path is not None else None))
+            if not res:
+                break
         if not res:
             rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.0]", path))
         if not res:
             # .'$enum'.'|'.1
-            res = True
-            if res:
-                for arr_1_idx, arr_1_item in enumerate(val):
-                    arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
-                    # .'$enum'.'|'.1.0
-                    res = isinstance(arr_1_item, int) and not isinstance(arr_1_item, bool)
-                    if not res:
-                        rep is None or rep.append(("not a -1 strict int [.'$enum'.'|'.1.0]", arr_1_lpath if path is not None else None))
-                    if not res:
-                        break
+            for arr_1_idx, arr_1_item in enumerate(val):
+                arr_1_lpath: Path = (path + [ arr_1_idx ]) if path is not None else None
+                # .'$enum'.'|'.1.0
+                res = isinstance(arr_1_item, int) and not isinstance(arr_1_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1 strict int [.'$enum'.'|'.1.0]", arr_1_lpath if path is not None else None))
+                if not res:
+                    break
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.1]", path))
             if not res:
                 # .'$enum'.'|'.2
-                res = True
-                if res:
-                    for arr_0_idx, arr_0_item in enumerate(val):
-                        arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-                        # .'$enum'.'|'.2.0
-                        res = isinstance(arr_0_item, bool)
-                        if not res:
-                            rep is None or rep.append(("not a bool [.'$enum'.'|'.2.0]", arr_0_lpath if path is not None else None))
-                        if not res:
-                            break
+                for arr_0_idx, arr_0_item in enumerate(val):
+                    arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+                    # .'$enum'.'|'.2.0
+                    res = isinstance(arr_0_item, bool)
+                    if not res:
+                        rep is None or rep.append(("not a bool [.'$enum'.'|'.2.0]", arr_0_lpath if path is not None else None))
+                    if not res:
+                        break
                 if not res:
                     rep is None or rep.append(("not array or unexpected array [.'$enum'.'|'.2]", path))
         if res:
@@ -205,7 +199,7 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$stringKeywords'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$stringKeywords']", path))
+        rep is None or rep.append(("unexpected element [.'$stringKeywords']", path))
     return res
 
 # check _jm_obj_1_map_additionalItems (.'$arrayKeywords'.additionalItems)
@@ -307,7 +301,7 @@ def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$arrayKeywords'
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$arrayKeywords']", path))
+        rep is None or rep.append(("unexpected element [.'$arrayKeywords']", path))
     return res
 
 # check _jm_obj_2_map_additionalProperties (.'$objectKeywords'.additionalProperties)
@@ -365,7 +359,7 @@ def _jm_f_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$objectKeywords'.patternProperties
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$objectKeywords'.patternProperties]", path))
+        rep is None or rep.append(("unexpected element [.'$objectKeywords'.patternProperties]", path))
     return res
 
 # object .'$objectKeywords'.properties
@@ -392,7 +386,7 @@ def _jm_f_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$objectKeywords'.properties
     res = _jm_obj_4(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$objectKeywords'.properties]", path))
+        rep is None or rep.append(("unexpected element [.'$objectKeywords'.properties]", path))
     return res
 
 # check _jm_obj_2_map_propertyNames (.'$objectKeywords'.propertyNames)
@@ -457,7 +451,7 @@ def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$objectKeywords'
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$objectKeywords']", path))
+        rep is None or rep.append(("unexpected element [.'$objectKeywords']", path))
     return res
 
 # object .'$numberKeywords'
@@ -498,7 +492,7 @@ def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$numberKeywords'
     res = _jm_obj_5(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$numberKeywords']", path))
+        rep is None or rep.append(("unexpected element [.'$numberKeywords']", path))
     return res
 
 # check _jm_obj_6_map_$anchor (.'$metas'.'$anchor')
@@ -543,7 +537,7 @@ def _jm_f_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$metas'.'$defs'
     res = _jm_obj_7(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$metas'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$metas'.'$defs']", path))
     return res
 
 # check _jm_obj_6_map_$dynamicAnchor (.'$metas'.'$dynamicAnchor')
@@ -601,7 +595,7 @@ def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$metas'.'$vocabulary'
     res = _jm_obj_8(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$metas'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$metas'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_6_map_default (.'$metas'.default)
@@ -637,7 +631,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$metas'.definitions
     res = _jm_obj_9(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$metas'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$metas'.definitions]", path))
     return res
 
 # check _jm_obj_6_map_deprecated (.'$metas'.deprecated)
@@ -732,7 +726,7 @@ def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$metas'
     res = _jm_obj_6(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$metas']", path))
+        rep is None or rep.append(("unexpected element [.'$metas']", path))
     return res
 
 # check _jm_obj_10_map_$anchor (.'$String'.'$anchor')
@@ -777,7 +771,7 @@ def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$String'.'$defs'
     res = _jm_obj_11(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$String'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$String'.'$defs']", path))
     return res
 
 # check _jm_obj_10_map_$dynamicAnchor (.'$String'.'$dynamicAnchor')
@@ -835,7 +829,7 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$String'.'$vocabulary'
     res = _jm_obj_12(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$String'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$String'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_10_map_default (.'$String'.default)
@@ -871,7 +865,7 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$String'.definitions
     res = _jm_obj_13(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$String'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$String'.definitions]", path))
     return res
 
 # check _jm_obj_10_map_deprecated (.'$String'.deprecated)
@@ -1020,7 +1014,7 @@ def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$String'
     res = _jm_obj_10(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$String']", path))
+        rep is None or rep.append(("unexpected element [.'$String']", path))
     return res
 
 # check _jm_obj_14_map_$anchor (.'$Array'.'$anchor')
@@ -1065,7 +1059,7 @@ def _jm_f_53(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Array'.'$defs'
     res = _jm_obj_15(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Array'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Array'.'$defs']", path))
     return res
 
 # check _jm_obj_14_map_$dynamicAnchor (.'$Array'.'$dynamicAnchor')
@@ -1123,7 +1117,7 @@ def _jm_f_57(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Array'.'$vocabulary'
     res = _jm_obj_16(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Array'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Array'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_14_map_additionalItems (.'$Array'.additionalItems)
@@ -1168,7 +1162,7 @@ def _jm_f_60(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Array'.definitions
     res = _jm_obj_17(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Array'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Array'.definitions]", path))
     return res
 
 # check _jm_obj_14_map_deprecated (.'$Array'.deprecated)
@@ -1344,7 +1338,7 @@ def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Array'
     res = _jm_obj_14(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Array']", path))
+        rep is None or rep.append(("unexpected element [.'$Array']", path))
     return res
 
 # check _jm_obj_18_map_$anchor (.'$Object'.'$anchor')
@@ -1389,7 +1383,7 @@ def _jm_f_76(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'.'$defs'
     res = _jm_obj_19(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Object'.'$defs']", path))
     return res
 
 # check _jm_obj_18_map_$dynamicAnchor (.'$Object'.'$dynamicAnchor')
@@ -1447,7 +1441,7 @@ def _jm_f_80(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'.'$vocabulary'
     res = _jm_obj_20(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Object'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_18_map_additionalProperties (.'$Object'.additionalProperties)
@@ -1492,7 +1486,7 @@ def _jm_f_83(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'.definitions
     res = _jm_obj_21(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Object'.definitions]", path))
     return res
 
 # check _jm_obj_18_map_deprecated (.'$Object'.deprecated)
@@ -1580,7 +1574,7 @@ def _jm_f_90(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'.patternProperties
     res = _jm_obj_22(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object'.patternProperties]", path))
+        rep is None or rep.append(("unexpected element [.'$Object'.patternProperties]", path))
     return res
 
 # object .'$Object'.properties
@@ -1607,7 +1601,7 @@ def _jm_f_91(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'.properties
     res = _jm_obj_23(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object'.properties]", path))
+        rep is None or rep.append(("unexpected element [.'$Object'.properties]", path))
     return res
 
 # check _jm_obj_18_map_propertyNames (.'$Object'.propertyNames)
@@ -1716,7 +1710,7 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Object'
     res = _jm_obj_18(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Object']", path))
+        rep is None or rep.append(("unexpected element [.'$Object']", path))
     return res
 
 # check _jm_obj_24_map_$anchor (.'$Integer'.'$anchor')
@@ -1761,7 +1755,7 @@ def _jm_f_100(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Integer'.'$defs'
     res = _jm_obj_25(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Integer'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Integer'.'$defs']", path))
     return res
 
 # check _jm_obj_24_map_$dynamicAnchor (.'$Integer'.'$dynamicAnchor')
@@ -1819,7 +1813,7 @@ def _jm_f_104(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Integer'.'$vocabulary'
     res = _jm_obj_26(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Integer'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Integer'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_24_map_default (.'$Integer'.default)
@@ -1855,7 +1849,7 @@ def _jm_f_106(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Integer'.definitions
     res = _jm_obj_27(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Integer'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Integer'.definitions]", path))
     return res
 
 # check _jm_obj_24_map_deprecated (.'$Integer'.deprecated)
@@ -1985,7 +1979,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Integer'
     res = _jm_obj_24(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Integer']", path))
+        rep is None or rep.append(("unexpected element [.'$Integer']", path))
     return res
 
 # check _jm_obj_28_map_$anchor (.'$Number'.'$anchor')
@@ -2030,7 +2024,7 @@ def _jm_f_118(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Number'.'$defs'
     res = _jm_obj_29(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Number'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Number'.'$defs']", path))
     return res
 
 # check _jm_obj_28_map_$dynamicAnchor (.'$Number'.'$dynamicAnchor')
@@ -2088,7 +2082,7 @@ def _jm_f_122(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Number'.'$vocabulary'
     res = _jm_obj_30(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Number'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Number'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_28_map_default (.'$Number'.default)
@@ -2124,7 +2118,7 @@ def _jm_f_124(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Number'.definitions
     res = _jm_obj_31(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Number'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Number'.definitions]", path))
     return res
 
 # check _jm_obj_28_map_deprecated (.'$Number'.deprecated)
@@ -2254,7 +2248,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Number'
     res = _jm_obj_28(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Number']", path))
+        rep is None or rep.append(("unexpected element [.'$Number']", path))
     return res
 
 # check _jm_obj_32_map_$anchor (.'$Bool'.'$anchor')
@@ -2299,7 +2293,7 @@ def _jm_f_136(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Bool'.'$defs'
     res = _jm_obj_33(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Bool'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Bool'.'$defs']", path))
     return res
 
 # check _jm_obj_32_map_$dynamicAnchor (.'$Bool'.'$dynamicAnchor')
@@ -2357,7 +2351,7 @@ def _jm_f_140(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Bool'.'$vocabulary'
     res = _jm_obj_34(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Bool'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Bool'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_32_map_default (.'$Bool'.default)
@@ -2393,7 +2387,7 @@ def _jm_f_142(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Bool'.definitions
     res = _jm_obj_35(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Bool'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Bool'.definitions]", path))
     return res
 
 # check _jm_obj_32_map_deprecated (.'$Bool'.deprecated)
@@ -2505,7 +2499,7 @@ def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Bool'
     res = _jm_obj_32(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Bool']", path))
+        rep is None or rep.append(("unexpected element [.'$Bool']", path))
     return res
 
 # check _jm_obj_36_map_$anchor (.'$Null'.'$anchor')
@@ -2550,7 +2544,7 @@ def _jm_f_152(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Null'.'$defs'
     res = _jm_obj_37(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Null'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Null'.'$defs']", path))
     return res
 
 # check _jm_obj_36_map_$dynamicAnchor (.'$Null'.'$dynamicAnchor')
@@ -2608,7 +2602,7 @@ def _jm_f_156(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Null'.'$vocabulary'
     res = _jm_obj_38(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Null'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Null'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_36_map_default (.'$Null'.default)
@@ -2644,7 +2638,7 @@ def _jm_f_158(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Null'.definitions
     res = _jm_obj_39(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Null'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Null'.definitions]", path))
     return res
 
 # check _jm_obj_36_map_deprecated (.'$Null'.deprecated)
@@ -2756,7 +2750,7 @@ def json_model_16(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Null'
     res = _jm_obj_36(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Null']", path))
+        rep is None or rep.append(("unexpected element [.'$Null']", path))
     return res
 
 # check _jm_obj_40_map_$anchor (.'$AllOf'.'$anchor')
@@ -2801,7 +2795,7 @@ def _jm_f_168(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AllOf'.'$defs'
     res = _jm_obj_41(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AllOf'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$AllOf'.'$defs']", path))
     return res
 
 # check _jm_obj_40_map_$dynamicAnchor (.'$AllOf'.'$dynamicAnchor')
@@ -2859,7 +2853,7 @@ def _jm_f_172(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AllOf'.'$vocabulary'
     res = _jm_obj_42(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AllOf'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$AllOf'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_40_map_default (.'$AllOf'.default)
@@ -2895,7 +2889,7 @@ def _jm_f_174(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AllOf'.definitions
     res = _jm_obj_43(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AllOf'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$AllOf'.definitions]", path))
     return res
 
 # check _jm_obj_40_map_deprecated (.'$AllOf'.deprecated)
@@ -3007,7 +3001,7 @@ def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AllOf'
     res = _jm_obj_40(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AllOf']", path))
+        rep is None or rep.append(("unexpected element [.'$AllOf']", path))
     return res
 
 # check _jm_obj_44_map_$anchor (.'$AnyOf'.'$anchor')
@@ -3052,7 +3046,7 @@ def _jm_f_184(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AnyOf'.'$defs'
     res = _jm_obj_45(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AnyOf'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$AnyOf'.'$defs']", path))
     return res
 
 # check _jm_obj_44_map_$dynamicAnchor (.'$AnyOf'.'$dynamicAnchor')
@@ -3110,7 +3104,7 @@ def _jm_f_188(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AnyOf'.'$vocabulary'
     res = _jm_obj_46(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AnyOf'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$AnyOf'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_44_map_default (.'$AnyOf'.default)
@@ -3146,7 +3140,7 @@ def _jm_f_190(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AnyOf'.definitions
     res = _jm_obj_47(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AnyOf'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$AnyOf'.definitions]", path))
     return res
 
 # check _jm_obj_44_map_deprecated (.'$AnyOf'.deprecated)
@@ -3258,7 +3252,7 @@ def json_model_18(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$AnyOf'
     res = _jm_obj_44(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$AnyOf']", path))
+        rep is None or rep.append(("unexpected element [.'$AnyOf']", path))
     return res
 
 # check _jm_obj_48_map_$anchor (.'$OneOf'.'$anchor')
@@ -3303,7 +3297,7 @@ def _jm_f_200(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OneOf'.'$defs'
     res = _jm_obj_49(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$OneOf'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$OneOf'.'$defs']", path))
     return res
 
 # check _jm_obj_48_map_$dynamicAnchor (.'$OneOf'.'$dynamicAnchor')
@@ -3361,7 +3355,7 @@ def _jm_f_204(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OneOf'.'$vocabulary'
     res = _jm_obj_50(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$OneOf'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$OneOf'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_48_map_default (.'$OneOf'.default)
@@ -3397,7 +3391,7 @@ def _jm_f_206(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OneOf'.definitions
     res = _jm_obj_51(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$OneOf'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$OneOf'.definitions]", path))
     return res
 
 # check _jm_obj_48_map_deprecated (.'$OneOf'.deprecated)
@@ -3509,7 +3503,7 @@ def json_model_19(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$OneOf'
     res = _jm_obj_48(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$OneOf']", path))
+        rep is None or rep.append(("unexpected element [.'$OneOf']", path))
     return res
 
 # check _jm_obj_52_map_$anchor (.'$Enum'.'$anchor')
@@ -3554,7 +3548,7 @@ def _jm_f_216(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Enum'.'$defs'
     res = _jm_obj_53(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Enum'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Enum'.'$defs']", path))
     return res
 
 # check _jm_obj_52_map_$dynamicAnchor (.'$Enum'.'$dynamicAnchor')
@@ -3612,7 +3606,7 @@ def _jm_f_220(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Enum'.'$vocabulary'
     res = _jm_obj_54(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Enum'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Enum'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_52_map_default (.'$Enum'.default)
@@ -3648,7 +3642,7 @@ def _jm_f_222(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Enum'.definitions
     res = _jm_obj_55(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Enum'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Enum'.definitions]", path))
     return res
 
 # check _jm_obj_52_map_deprecated (.'$Enum'.deprecated)
@@ -3760,7 +3754,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Enum'
     res = _jm_obj_52(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Enum']", path))
+        rep is None or rep.append(("unexpected element [.'$Enum']", path))
     return res
 
 # check _jm_obj_56_map_$anchor (.'$Const'.'$anchor')
@@ -3805,7 +3799,7 @@ def _jm_f_232(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Const'.'$defs'
     res = _jm_obj_57(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Const'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Const'.'$defs']", path))
     return res
 
 # check _jm_obj_56_map_$dynamicAnchor (.'$Const'.'$dynamicAnchor')
@@ -3863,7 +3857,7 @@ def _jm_f_236(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Const'.'$vocabulary'
     res = _jm_obj_58(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Const'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Const'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_56_map_default (.'$Const'.default)
@@ -3899,7 +3893,7 @@ def _jm_f_238(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Const'.definitions
     res = _jm_obj_59(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Const'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Const'.definitions]", path))
     return res
 
 # check _jm_obj_56_map_deprecated (.'$Const'.deprecated)
@@ -4011,7 +4005,7 @@ def json_model_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Const'
     res = _jm_obj_56(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Const']", path))
+        rep is None or rep.append(("unexpected element [.'$Const']", path))
     return res
 
 # check _jm_obj_60_map_$anchor (.'$Ref'.'$anchor')
@@ -4056,7 +4050,7 @@ def _jm_f_248(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Ref'.'$defs'
     res = _jm_obj_61(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Ref'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$Ref'.'$defs']", path))
     return res
 
 # check _jm_obj_60_map_$dynamicAnchor (.'$Ref'.'$dynamicAnchor')
@@ -4114,7 +4108,7 @@ def _jm_f_252(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Ref'.'$vocabulary'
     res = _jm_obj_62(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Ref'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$Ref'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_60_map_default (.'$Ref'.default)
@@ -4150,7 +4144,7 @@ def _jm_f_254(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Ref'.definitions
     res = _jm_obj_63(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Ref'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$Ref'.definitions]", path))
     return res
 
 # check _jm_obj_60_map_deprecated (.'$Ref'.deprecated)
@@ -4262,7 +4256,7 @@ def json_model_22(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$Ref'
     res = _jm_obj_60(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$Ref']", path))
+        rep is None or rep.append(("unexpected element [.'$Ref']", path))
     return res
 
 # check _jm_obj_64_map_$anchor (.'$DynRef'.'$anchor')
@@ -4307,7 +4301,7 @@ def _jm_f_264(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$DynRef'.'$defs'
     res = _jm_obj_65(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$DynRef'.'$defs']", path))
+        rep is None or rep.append(("unexpected element [.'$DynRef'.'$defs']", path))
     return res
 
 # check _jm_obj_64_map_$dynamicAnchor (.'$DynRef'.'$dynamicAnchor')
@@ -4365,7 +4359,7 @@ def _jm_f_268(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$DynRef'.'$vocabulary'
     res = _jm_obj_66(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$DynRef'.'$vocabulary']", path))
+        rep is None or rep.append(("unexpected element [.'$DynRef'.'$vocabulary']", path))
     return res
 
 # check _jm_obj_64_map_default (.'$DynRef'.default)
@@ -4401,7 +4395,7 @@ def _jm_f_270(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$DynRef'.definitions
     res = _jm_obj_67(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$DynRef'.definitions]", path))
+        rep is None or rep.append(("unexpected element [.'$DynRef'.definitions]", path))
     return res
 
 # check _jm_obj_64_map_deprecated (.'$DynRef'.deprecated)
@@ -4513,7 +4507,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$DynRef'
     res = _jm_obj_64(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$DynRef']", path))
+        rep is None or rep.append(("unexpected element [.'$DynRef']", path))
     return res
 
 # check $ObjectSchema (.'$ObjectSchema')
@@ -4621,31 +4615,22 @@ def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
 
 # object .'$RootSchema'.'&'.0
 def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$RootSchema'.'&'.0]", path))
         return False
+    pval: Jsonable
     res: bool
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_68: Path = (path + [ prop ]) if path is not None else None
-        if prop == "$schema":
-            # handle must $schema property
-            must_count += 1
-            # .'$RootSchema'.'&'.0.'$schema'
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$RootSchema'.'&'.0.'$schema']", lpath_68 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$RootSchema'.'&'.0.'$schema']", lpath_68 if path is not None else None))
-                return False
-        else:
-            # accept any other props
-            pass
-    if must_count != 1:
-        if rep is not None:
-            if not "$schema" in val:
-                rep is None or rep.append(("missing mandatory prop <$schema> [.'$RootSchema'.'&'.0.'']", path))
+    if not "$schema" in val:
+        rep is None or rep.append(("missing mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path))
+        return False
+    pval = val.get("$schema", UNDEFINED)
+    # .'$RootSchema'.'&'.0.'$schema'
+    res = isinstance(pval, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$RootSchema'.'&'.0.'$schema']", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <$schema> [.'$RootSchema'.'&'.0]", path))
         return False
     return True
 
@@ -4658,7 +4643,7 @@ def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$RootSchema'.'&'.0
         res = _jm_obj_68(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected object [.'$RootSchema'.'&'.0]", path))
+            rep is None or rep.append(("unexpected element [.'$RootSchema'.'&'.0]", path))
         if res:
             # .'$RootSchema'.'&'.1
             res = json_model_24(val, path, rep)

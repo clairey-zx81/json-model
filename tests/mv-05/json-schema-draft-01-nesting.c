@@ -196,10 +196,10 @@ static bool _jm_f_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
     {
         int64_t ival_0 = json_array_size(val);
         res = ival_0 >= 1;
-    }
-    if (! res)
-    {
-        if (rep) jm_report_add_entry(rep, "constraints failed [.'$schema'.enum]", path);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "constraints failed [.'$schema'.enum]", path);
+        }
     }
     return res;
 }
@@ -510,7 +510,7 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$schema'.properties]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema'.properties]", path);
     }
     return res;
 }
@@ -682,7 +682,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$schema']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$schema']", path);
     }
     return res;
 }

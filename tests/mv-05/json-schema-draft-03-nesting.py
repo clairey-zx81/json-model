@@ -138,7 +138,7 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.dependencies
     res = _jm_obj_1(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$schema'.dependencies]", path))
+        rep is None or rep.append(("unexpected element [.'$schema'.dependencies]", path))
     return res
 
 # check _jm_obj_0_map_description (.'$schema'.description)
@@ -192,8 +192,8 @@ def _jm_f_9(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
-    if not res:
-        rep is None or rep.append(("constraints failed [.'$schema'.enum]", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.'$schema'.enum]", path))
     return res
 
 # check _jm_obj_0_map_exclusiveMaximum (.'$schema'.exclusiveMaximum)
@@ -376,7 +376,7 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.patternProperties
     res = _jm_obj_2(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$schema'.patternProperties]", path))
+        rep is None or rep.append(("unexpected element [.'$schema'.patternProperties]", path))
     return res
 
 # object .'$schema'.properties
@@ -403,7 +403,7 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'.properties
     res = _jm_obj_3(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$schema'.properties]", path))
+        rep is None or rep.append(("unexpected element [.'$schema'.properties]", path))
     return res
 
 # check _jm_obj_0_map_required (.'$schema'.required)
@@ -503,7 +503,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$schema'
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.'$schema']", path))
+        rep is None or rep.append(("unexpected element [.'$schema']", path))
     return res
 
 # check $ (.)
@@ -554,8 +554,8 @@ def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not array or unexpected array [.'$schema#distinctSchemaArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
-    if not res:
-        rep is None or rep.append(("constraints failed [.'$schema#distinctSchemaArray']", path))
+        if not res:
+            rep is None or rep.append(("constraints failed [.'$schema#distinctSchemaArray']", path))
     return res
 
 

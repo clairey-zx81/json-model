@@ -1,11 +1,11 @@
 rec_02.values.json[0]: PASS
 rec_02.values.json[1]: PASS
 rec_02.values.json[2]: PASS
-rec_02.values.json[3]: FAIL (.: unexpected object [.]; .bla: unexpected prop [.])
-rec_02.values.json[4]: FAIL (.: unexpected object [.]; .foo: invalid optional prop value [.foo]; .foo: unexpected $foo [.foo]; .foo: unexpected object [.]; .foo: not an object [.])
-rec_02.values.json[5]: FAIL (.: unexpected object [.]; .: not an object [.])
-rec_02.values.json[6]: FAIL (.: unexpected object [.]; .: not an object [.])
-rec_02.values.json[7]: FAIL (.: unexpected object [.]; .: not an object [.])
-rec_02.values.json[8]: FAIL (.: unexpected object [.]; .: not an object [.])
-rec_02.values.json[9]: FAIL (.: unexpected object [.]; .: not an object [.])
-rec_02.values.json[10]: FAIL (.: unexpected object [.]; .: not an object [.])
+rec_02.values.json[3]: FAIL (.: unexpected element [.]; .bla: unexpected prop [.])
+rec_02.values.json[4]: FAIL (.: unexpected element [.]; .foo: invalid optional prop value [.foo]; .foo: unexpected $foo [.foo]; .foo: unexpected element [.]; .foo: not an object [.])
+rec_02.values.json[5]: FAIL (.: unexpected element [.]; .: not an object [.])
+rec_02.values.json[6]: FAIL (.: unexpected element [.]; .: not an object [.])
+rec_02.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
+rec_02.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
+rec_02.values.json[9]: FAIL (.: unexpected element [.]; .: not an object [.])
+rec_02.values.json[10]: FAIL (.: unexpected element [.]; .: not an object [.])

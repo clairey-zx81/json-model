@@ -59,10 +59,10 @@ function json_model_3(val, path, rep)
     {
         let ival_0 = val.length;
         res = ival_0 >= 1;
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
+        }
     }
     return res;
 }
@@ -114,10 +114,10 @@ function json_model_5(val, path, rep)
     {
         let ival_1 = val.length;
         res = runtime.jm_array_is_unique(val, path, rep) && ival_1 >= 1;
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.'$arrayTypes']", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$arrayTypes']", path])
+        }
     }
     return res;
 }
@@ -300,7 +300,7 @@ function _jm_obj_1(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_1 = path ? path.concat([prop]) : null;
         // handle other props
@@ -326,7 +326,7 @@ function _jm_f_13(val, path, rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$ObjectSchema'.definitions]", path])
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.definitions]", path])
     }
     return res;
 }
@@ -340,7 +340,7 @@ function _jm_obj_2(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
         // handle other props
@@ -402,7 +402,7 @@ function _jm_f_14(val, path, rep)
     res = _jm_obj_2(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$ObjectSchema'.dependencies]", path])
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependencies]", path])
     }
     return res;
 }
@@ -452,10 +452,10 @@ function _jm_f_17(val, path, rep)
     {
         let ival_2 = val.length;
         res = runtime.jm_array_is_unique(val, path, rep) && ival_2 >= 1;
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["constraints failed [.'$ObjectSchema'.enum]", path])
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$ObjectSchema'.enum]", path])
+        }
     }
     return res;
 }
@@ -725,7 +725,7 @@ function _jm_obj_3(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_3 = path ? path.concat([prop]) : null;
         if (runtime.jm_is_valid_regex(prop, false))
@@ -759,7 +759,7 @@ function _jm_f_36(val, path, rep)
     res = _jm_obj_3(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$ObjectSchema'.patternProperties]", path])
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.patternProperties]", path])
     }
     return res;
 }
@@ -773,7 +773,7 @@ function _jm_obj_4(val, path, rep)
         return false;
     }
     let res;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_4 = path ? path.concat([prop]) : null;
         // handle other props
@@ -799,7 +799,7 @@ function _jm_f_37(val, path, rep)
     res = _jm_obj_4(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$ObjectSchema'.properties]", path])
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.properties]", path])
     }
     return res;
 }
@@ -954,7 +954,7 @@ function _jm_obj_0(val, path, rep)
         return false;
     }
     let pfun;
-    for(const [prop, pval] of Object.entries(val))
+    for (const [prop, pval] of Object.entries(val))
     {
         let lpath_0 = path ? path.concat([prop]) : null;
         if ((pfun = _jm_obj_0_map.get(prop)))
@@ -983,7 +983,7 @@ function json_model_6(val, path, rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected object [.'$ObjectSchema']", path])
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema']", path])
     }
     return res;
 }

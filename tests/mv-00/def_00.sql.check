@@ -7,11 +7,9 @@ CREATE TABLE
 COPY 5
 UPDATE 5
 # count working tests
-┌─────────┬───────┐
-│ success │ total │
-├─────────┼───────┤
-│       5 │     5 │
-└─────────┴───────┘
+ success | total 
+---------+-------
+       5 |     5
 (1 row)
 
 # OK

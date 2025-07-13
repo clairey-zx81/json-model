@@ -1,0 +1,9 @@
+json-schema-draft-01-fuzzy.values.json[1]: PASS
+json-schema-draft-01-fuzzy.values.json[2]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[3]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[4]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[5]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[6]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[7]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[8]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])
+json-schema-draft-01-fuzzy.values.json[9]: FAIL (.: unexpected $schema [.]; .: unexpected element [.'$schema']; .: not an object [.'$schema'])

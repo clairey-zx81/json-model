@@ -96,6 +96,8 @@ def _jm_f_4(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $SecurityRequirement [.'$OpenAPI'.security.0]", arr_0_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$OpenAPI'.security]", path))
     return res
 
 # check _jm_obj_0_map_servers (.'$OpenAPI'.servers)
@@ -112,6 +114,8 @@ def _jm_f_5(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Server [.'$OpenAPI'.servers.0]", arr_1_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$OpenAPI'.servers]", path))
     return res
 
 # check _jm_obj_0_map_tags (.'$OpenAPI'.tags)
@@ -128,6 +132,8 @@ def _jm_f_6(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Tag [.'$OpenAPI'.tags.0]", arr_2_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$OpenAPI'.tags]", path))
     return res
 
 # object .'$OpenAPI'.webhooks
@@ -626,6 +632,8 @@ def _jm_obj_8(val: Jsonable, path: Path, rep: Report) -> bool:
                         rep is None or rep.append(("unexpected string [.'$ServerVariable'.enum.0]", arr_3_lpath if (lpath_8 if path is not None else None) is not None else None))
                     if not res:
                         break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$ServerVariable'.enum]", lpath_8 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid optional prop value [.'$ServerVariable'.enum]", lpath_8 if path is not None else None))
                 return False
@@ -1180,6 +1188,8 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$PathItem'.parameters.0.'|']", arr_4_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$PathItem'.parameters]", path))
     return res
 
 # check _jm_obj_21_map_patch (.'$PathItem'.patch)
@@ -1223,6 +1233,8 @@ def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Operation [.'$PathItem'.servers.0]", arr_5_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$PathItem'.servers]", path))
     return res
 
 # check _jm_obj_21_map_summary (.'$PathItem'.summary)
@@ -1378,6 +1390,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("no model matched [.'$Operation'.parameters.0.'|']", arr_6_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Operation'.parameters]", path))
     return res
 
 # check _jm_obj_22_map_requestBody (.'$Operation'.requestBody)
@@ -1422,6 +1436,8 @@ def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $SecurityRequirement [.'$Operation'.security.0]", arr_7_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Operation'.security]", path))
     return res
 
 # check _jm_obj_22_map_servers (.'$Operation'.servers)
@@ -1438,6 +1454,8 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Server [.'$Operation'.servers.0]", arr_8_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Operation'.servers]", path))
     return res
 
 # check _jm_obj_22_map_summary (.'$Operation'.summary)
@@ -1463,6 +1481,8 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$Operation'.tags.0]", arr_9_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Operation'.tags]", path))
     return res
 
 
@@ -3708,6 +3728,8 @@ def _jm_f_93(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # accept any array
         pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Schema'.enum]", path))
     return res
 
 # check _jm_obj_59_map_example (.'$Schema'.example)
@@ -3727,6 +3749,8 @@ def _jm_f_95(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # accept any array
         pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Schema'.examples]", path))
     return res
 
 # check _jm_obj_59_map_exclusiveMaximum (.'$Schema'.exclusiveMaximum)
@@ -5082,6 +5106,8 @@ def _jm_obj_83(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not res:
                     break
         if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$SecurityRequirement'.'']", lpath_81 if path is not None else None))
+        if not res:
             return False
     return True
 
@@ -5168,6 +5194,8 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $simpleTypes [.'$schema#simpleTypesArray'.'@'.0]", arr_11_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#simpleTypesArray'.'@']", path))
     if res:
         ival_0: int = len(val)
         res = is_unique_array(val, path, rep) and ival_0 >= 1
@@ -5190,6 +5218,8 @@ def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected string [.'$schema#stringArray'.'@'.0]", arr_12_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#stringArray'.'@']", path))
     if res:
         res = is_unique_array(val, path, rep)
         if not res:
@@ -5220,6 +5250,8 @@ def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
                 rep is None or rep.append(("unexpected $Schema [.'$schema#schemaArray'.'@'.0]", arr_13_lpath if path is not None else None))
             if not res:
                 break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#schemaArray'.'@']", path))
     if res:
         ival_1: int = len(val)
         res = ival_1 >= 1
@@ -5537,6 +5569,8 @@ def _jm_f_153(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # accept any array
         pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#ObjectSchema'.enum]", path))
     return res
 
 # check _jm_obj_85_map_examples (.'$schema#ObjectSchema'.examples)
@@ -5547,6 +5581,8 @@ def _jm_f_154(val: Jsonable, path: Path, rep: Report) -> bool:
     if res:
         # accept any array
         pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$schema#ObjectSchema'.examples]", path))
     return res
 
 # check _jm_obj_85_map_exclusiveMaximum (.'$schema#ObjectSchema'.exclusiveMaximum)

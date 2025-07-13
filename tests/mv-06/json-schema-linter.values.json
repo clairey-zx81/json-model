@@ -1,0 +1,12 @@
+[
+  "sanity check with simplistic schemas and non schemas",
+  [ true,  {"$schema": "must be there"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.14159 ],
+  [ false, "not a schema" ],
+  [ false, [] ],
+  [ false, ["not", "a", "schema" ] ]
+]

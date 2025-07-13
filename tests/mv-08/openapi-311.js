@@ -109,6 +109,10 @@ function _jm_f_4(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$OpenAPI'.security]", path])
+    }
     return res;
 }
 
@@ -136,6 +140,10 @@ function _jm_f_5(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$OpenAPI'.servers]", path])
+    }
     return res;
 }
 
@@ -162,6 +170,10 @@ function _jm_f_6(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$OpenAPI'.tags]", path])
     }
     return res;
 }
@@ -969,6 +981,10 @@ function _jm_obj_8(val, path, rep)
                         break;
                     }
                 }
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["not array or unexpected array [.'$ServerVariable'.enum]", (path ? lpath_8 : null)])
             }
             if (! res)
             {
@@ -1841,6 +1857,10 @@ function _jm_f_24(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$PathItem'.parameters]", path])
+    }
     return res;
 }
 
@@ -1906,6 +1926,10 @@ function _jm_f_28(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$PathItem'.servers]", path])
     }
     return res;
 }
@@ -2147,6 +2171,10 @@ function _jm_f_36(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Operation'.parameters]", path])
+    }
     return res;
 }
 
@@ -2218,6 +2246,10 @@ function _jm_f_39(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Operation'.security]", path])
+    }
     return res;
 }
 
@@ -2244,6 +2276,10 @@ function _jm_f_40(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Operation'.servers]", path])
     }
     return res;
 }
@@ -2284,6 +2320,10 @@ function _jm_f_42(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Operation'.tags]", path])
     }
     return res;
 }
@@ -5820,6 +5860,10 @@ function _jm_f_93(val, path, rep)
     {
         // accept any array
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Schema'.enum]", path])
+    }
     return res;
 }
 
@@ -5845,6 +5889,10 @@ function _jm_f_95(val, path, rep)
     if (res)
     {
         // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$Schema'.examples]", path])
     }
     return res;
 }
@@ -7988,6 +8036,10 @@ function _jm_obj_83(val, path, rep)
         }
         if (! res)
         {
+            rep !== null && rep.push(["not array or unexpected array [.'$SecurityRequirement'.'']", (path ? lpath_81 : null)])
+        }
+        if (! res)
+        {
             return false;
         }
     }
@@ -8120,6 +8172,10 @@ function json_model_53(val, path, rep)
             }
         }
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#simpleTypesArray'.'@']", path])
+    }
     if (res)
     {
         let ival_0 = val.length;
@@ -8156,6 +8212,10 @@ function json_model_54(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#stringArray'.'@']", path])
     }
     if (res)
     {
@@ -8205,6 +8265,10 @@ function json_model_57(val, path, rep)
                 break;
             }
         }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#schemaArray'.'@']", path])
     }
     if (res)
     {
@@ -8674,6 +8738,10 @@ function _jm_f_153(val, path, rep)
     {
         // accept any array
     }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.enum]", path])
+    }
     return res;
 }
 
@@ -8686,6 +8754,10 @@ function _jm_f_154(val, path, rep)
     if (res)
     {
         // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.examples]", path])
     }
     return res;
 }
