@@ -224,13 +224,17 @@ def clibjm(tmp_dir):
     src_lib = f"{src_dir}/json-model.c"
     src_main = f"{src_dir}/main.c"
 
-    from json_model.script import DEFAULT_CC, DEFAULT_CFLAGS, DEFAULT_LDFLAGS
+    from json_model.script import (
+        DEFAULT_CC, DEFAULT_CFLAGS, DEFAULT_LDFLAGS_CRE2 as DEFAULT_LDFLAGS
+    )
 
-    # compilation settings
+    # compilation settings with re2
     cc = os.environ.get("CC", DEFAULT_CC)
     cppflags = os.environ.get("CPPFLAGS", f"-I{src_dir} -DCHECK_FUNCTION_NAME=check_model")
+    cppflags += " -DREGEX_ENGINE_RE2"
     cflags = os.environ.get("CFLAGS", DEFAULT_CFLAGS)
     ldflags = os.environ.get("LDFLAGS", f"{jm_main} {jm_lib} " + DEFAULT_LDFLAGS)
+
 
     # compile library once
     with filelock.FileLock(jm_lock):

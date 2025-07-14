@@ -8,11 +8,13 @@ char *jm_version_string = "<unknown>";
 
 // regular expression engine
 #if defined(REGEX_ENGINE_PCRE2)
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include <pcre2.h>
+#  define PCRE2_CODE_UNIT_WIDTH 8
+#  include <pcre2.h>
 #elif defined(REGEX_ENGINE_RE2)
-#include <stddef.h>
-#include <cre2.h>
+#  include <stddef.h>
+#  include <cre2.h>
+#else
+#  error missing regex engine definition
 #endif
 
 /*
@@ -136,7 +138,7 @@ jm_json_cmp(const json_t *v1, const json_t *v2)
 }
 
 #if defined(_WIN64)
-#define qsort_r qsort_s
+#  define qsort_r qsort_s
 #endif
 
 #if defined(_WIN64) || defined(__APPLE__)
