@@ -4,11 +4,11 @@
 --
 -- JSON_MODEL_VERSION is 2.0b0
 
--- regex=^[a-z]+$ opts=
+-- regex=^[a-z]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[a-z]+$', '');
+  RETURN regexp_like(val, '^[a-z]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 

@@ -4,27 +4,27 @@
 --
 -- JSON_MODEL_VERSION is 2.0b0
 
--- regex=[A-Z] opts=
+-- regex=[A-Z] opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '[A-Z]', '');
+  RETURN regexp_like(val, '[A-Z]', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=[a-z] opts=
+-- regex=[a-z] opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '[a-z]', '');
+  RETURN regexp_like(val, '[a-z]', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=[0-9] opts=
+-- regex=[0-9] opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '[0-9]', '');
+  RETURN regexp_like(val, '[0-9]', 'n');
 END;
 $$ LANGUAGE plpgsql;
 

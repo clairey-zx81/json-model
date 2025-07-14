@@ -58,7 +58,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -307,7 +307,7 @@ BEGIN
   IF val ? '$schema' THEN
     pval := val -> '$schema';
     -- .'$schema#ObjectSchema'.'$schema'
-    res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
+    res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), path, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;

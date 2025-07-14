@@ -4,11 +4,11 @@
 --
 -- JSON_MODEL_VERSION is 2.0b0
 
--- regex=^S opts=i
+-- regex=^S opts=ni
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^S', 'i');
+  RETURN regexp_like(val, '^S', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 

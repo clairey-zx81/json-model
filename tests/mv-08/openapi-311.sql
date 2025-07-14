@@ -4,11 +4,11 @@
 --
 -- JSON_MODEL_VERSION is 2.0b0
 
--- regex=^3\.1\.\d+(-.+)?$ opts=
+-- regex=^3\.1\.\d+(-.+)?$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^3\.1\.\d+(-.+)?$', '');
+  RETURN regexp_like(val, '^3\.1\.\d+(-.+)?$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -43,7 +43,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$OpenAPI'.jsonSchemaDialect
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -361,7 +361,7 @@ BEGIN
     ELSEIF prop = 'url' THEN
       -- handle may url property
       -- .'$Contact'.url
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -399,11 +399,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^x\-.*$ opts=
+-- regex=^x\-.*$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^x\-.*$', '');
+  RETURN regexp_like(val, '^x\-.*$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -433,7 +433,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$License'.'|'.1.url
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -564,7 +564,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$Server'.url
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1193,7 +1193,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$PathItem'.'$ref'
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1729,7 +1729,7 @@ BEGIN
       -- handle must url property
       must_count := must_count + 1;
       -- .'$ExternalDocumentation'.url
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2823,11 +2823,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[1-5](\d\d|XX)$ opts=
+-- regex=^[1-5](\d\d|XX)$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[1-5](\d\d|XX)$', '');
+  RETURN regexp_like(val, '^[1-5](\d\d|XX)$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -3915,7 +3915,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Schema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -4447,7 +4447,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Schema'.pattern
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -4464,7 +4464,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$Schema'.patternProperties.'$REGEX'
       res := json_model_60(pval, NULL, rep);
@@ -5001,11 +5001,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=bearer opts=i
+-- regex=bearer opts=ni
 CREATE OR REPLACE FUNCTION _jm_re_3(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, 'bearer', 'i');
+  RETURN regexp_like(val, 'bearer', 'ni');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -5149,7 +5149,7 @@ BEGIN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
       -- .'$SS-oic'.openIdConnectUrl
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5236,7 +5236,7 @@ BEGIN
       -- handle must openIdConnectUrl property
       must_count := must_count + 1;
       -- .'$SecurityScheme'.'|'.4.openIdConnectUrl
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5619,7 +5619,7 @@ BEGIN
       -- handle must authorizationUrl property
       must_count := must_count + 1;
       -- .'$OAuthFlow'.authorizationUrl
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5627,7 +5627,7 @@ BEGIN
       -- handle must tokenUrl property
       must_count := must_count + 1;
       -- .'$OAuthFlow'.tokenUrl
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -5642,7 +5642,7 @@ BEGIN
     ELSEIF prop = 'refreshUrl' THEN
       -- handle may refreshUrl property
       -- .'$OAuthFlow'.refreshUrl
-      res := JSONB_TYPEOF(pval) = 'string'AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND jm_is_valid_url(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -6055,7 +6055,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -6551,7 +6551,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$schema#ObjectSchema'.pattern
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -6568,7 +6568,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$schema#ObjectSchema'.patternProperties.'$REGEX'
       res := json_model_60(pval, NULL, rep);

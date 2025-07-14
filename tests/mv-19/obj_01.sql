@@ -25,11 +25,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[0-9]+$ opts=
+-- regex=^[0-9]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[0-9]+$', '');
+  RETURN regexp_like(val, '^[0-9]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 

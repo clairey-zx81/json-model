@@ -130,7 +130,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$core'.'$schema'
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -147,7 +147,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$core'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -811,7 +811,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$validation'.pattern
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1089,7 +1089,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$applicator'.patternProperties.'$REGEX'
       res := json_model_16(pval, NULL, rep);
@@ -1406,7 +1406,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.'$schema'
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_url(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1423,7 +1423,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_url(prop, NULL, rep) THEN
+    IF jm_is_valid_url(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$ObjectSchema'.'$vocabulary'.'$URI'
       res := JSONB_TYPEOF(pval) = 'boolean';
@@ -1919,7 +1919,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.pattern
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_regex(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1936,7 +1936,7 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF JSONB_TYPEOF(prop) = 'string'AND jm_is_valid_regex(prop, NULL, rep) THEN
+    IF jm_is_valid_regex(prop, NULL, rep) THEN
       -- handle 1 key props
       -- .'$ObjectSchema'.patternProperties.'$REGEX'
       res := json_model_16(pval, NULL, rep);
