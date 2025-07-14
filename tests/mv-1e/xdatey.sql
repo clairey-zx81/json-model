@@ -4,26 +4,25 @@
 --
 -- JSON_MODEL_VERSION is 2.0b0
 
--- regex=^X-(?<s0>.*)-Y$ opts=n
+-- regex=^X-(.*)-Y$ opts=n
 CREATE OR REPLACE FUNCTION _jm_xre_0_re(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^X-(?<s0>.*)-Y$', 'n');
+  RETURN regexp_like(val, '^X-(.*)-Y$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION _jm_xre_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  _extract TEXT;
-  match BOOLEAN;
+  extract TEXT;
+  match TEXT[];
 BEGIN
-  match := FALSE;
-  IF NOT match THEN
+  match := regexp_match(val, '^X-(.*)-Y$', 'n');
+  IF match IS NULL THEN
     RETURN FALSE;
   END IF;
-  -- TODO
-  _extract := NULL;
+  extract := match[1];
   IF NOT jm_is_valid_date(extract, path, rep) THEN
     RETURN FALSE;
   END IF;

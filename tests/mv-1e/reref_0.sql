@@ -25,31 +25,29 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex='(?<s0>\w+)'.*'(?<s1>\w+)' opts=n
+-- regex='(\w+)'.*'(\w+)' opts=n
 CREATE OR REPLACE FUNCTION _jm_xre_0_re(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '''(?<s0>\w+)''.*''(?<s1>\w+)''', 'n');
+  RETURN regexp_like(val, '''(\w+)''.*''(\w+)''', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION _jm_xre_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  _extract TEXT;
-  match BOOLEAN;
+  extract TEXT;
+  match TEXT[];
 BEGIN
-  match := FALSE;
-  IF NOT match THEN
+  match := regexp_match(val, '''(\w+)''.*''(\w+)''', 'n');
+  IF match IS NULL THEN
     RETURN FALSE;
   END IF;
-  -- TODO
-  _extract := NULL;
+  extract := match[1];
   IF NOT json_model_2(TO_JSONB(extract), path, rep) THEN
     RETURN FALSE;
   END IF;
-  -- TODO
-  _extract := NULL;
+  extract := match[2];
   IF NOT json_model_2(TO_JSONB(extract), path, rep) THEN
     RETURN FALSE;
   END IF;

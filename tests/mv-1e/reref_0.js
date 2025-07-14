@@ -10,7 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
 let _jm_cst_0 = new Set()
-const _jm_xre_0_re_re = new runtime.RX("'(?<s0>\\w+)'.*'(?<s1>\\w+)'", "")
+const _jm_xre_0_re_re = new runtime.RX("'(?<s1>\\w+)'.*'(?<s2>\\w+)'", "")
 var check_model_map = new Map()
 
 // check $character (.'$character')
@@ -36,12 +36,12 @@ function _jm_xre_0(val, path, rep)
     {
         return false;
     }
-    extract = match.groups["s0"]
+    extract = match.groups["s1"]
     if (! json_model_2(extract, path, rep))
     {
         return false;
     }
-    extract = match.groups["s1"]
+    extract = match.groups["s2"]
     if (! json_model_2(extract, path, rep))
     {
         return false;

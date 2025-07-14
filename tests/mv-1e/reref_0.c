@@ -50,14 +50,14 @@ static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
     {
         return false;
     }
-    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s0");
+    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_check_fun_string(json_model_2, extract, path, rep))
     {
         return false;
     }
-    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
+    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s2");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_check_fun_string(json_model_2, extract, path, rep))
@@ -99,7 +99,7 @@ const char *check_model_init(void)
         _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "Calvin" } };
         _jm_cst_0[2] = (jm_constant_t) { cst_is_string, { .s = "Hobbes" } };
         jm_sort_cst(_jm_cst_0, 3);
-        _jm_xre_0_re_re2 = cre2_new("'(?P<s0>\\w+)'.*'(?P<s1>\\w+)'", strlen("'(?P<s0>\\w+)'.*'(?P<s1>\\w+)'"), NULL);
+        _jm_xre_0_re_re2 = cre2_new("'(?P<s1>\\w+)'.*'(?P<s2>\\w+)'", strlen("'(?P<s1>\\w+)'.*'(?P<s2>\\w+)'"), NULL);
         if (cre2_error_code(_jm_xre_0_re_re2))
             return cre2_error_string(_jm_xre_0_re_re2);
         _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;

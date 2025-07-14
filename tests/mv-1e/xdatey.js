@@ -9,7 +9,7 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2.0b0";
 
-const _jm_xre_0_re_re = new runtime.RX("^X-(?<s0>.*)-Y$", "")
+const _jm_xre_0_re_re = new runtime.RX("^X-(?<s1>.*)-Y$", "")
 var check_model_map = new Map()
 
 const _jm_xre_0_re = (s) => _jm_xre_0_re_re.exec(s) !== null
@@ -22,7 +22,7 @@ function _jm_xre_0(val, path, rep)
     {
         return false;
     }
-    extract = match.groups["s0"]
+    extract = match.groups["s1"]
     if (! runtime.jm_is_valid_date(extract, path, rep))
     {
         return false;

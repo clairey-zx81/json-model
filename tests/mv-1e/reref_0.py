@@ -41,10 +41,10 @@ def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
     match = _jm_xre_0_re_reco.search(val)
     if not match:
         return False
-    extract = match.groupdict()["s0"]
+    extract = match.groupdict()["s1"]
     if not json_model_2(extract, path, rep):
         return False
-    extract = match.groupdict()["s1"]
+    extract = match.groupdict()["s2"]
     if not json_model_2(extract, path, rep):
         return False
     return True
@@ -71,7 +71,7 @@ def check_model_init():
         global _jm_cst_0
         _jm_cst_0 = {'Calvin', 'Hobbes', 'Susie'}
         global _jm_xre_0_re_reco, _jm_xre_0_re
-        _jm_xre_0_re_reco = re.compile("'(?<s0>\\w+)'.*'(?<s1>\\w+)'")
+        _jm_xre_0_re_reco = re.compile("'(?<s1>\\w+)'.*'(?<s2>\\w+)'")
         _jm_xre_0_re = lambda s, p, r: _jm_xre_0_re_reco.search(s) is not None
         global check_model_map
         check_model_map = {

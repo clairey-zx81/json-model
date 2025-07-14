@@ -3,7 +3,7 @@
   [ true,  "X-1970-10-14-Y" ],
   [ true,  "X-1970-03-20-Y" ],
   [ false, "X-2025-02-30-Y" ],
-  [ false, "X-Today-Y" ],
+  [ false, "X-aujourd'hui-Y" ],
   [ false, "2020-07-29" ],
   [ false, "" ],
   [ false, null ],

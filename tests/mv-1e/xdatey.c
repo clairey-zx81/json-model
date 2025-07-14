@@ -35,7 +35,7 @@ static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
     {
         return false;
     }
-    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s0");
+    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
     strncpy(extract, matches[match_index].data, matches[match_index].length);
     extract[matches[match_index].length] = '\0';
     if (! jm_is_valid_date(extract, path, rep))
@@ -72,7 +72,7 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        _jm_xre_0_re_re2 = cre2_new("^X-(?P<s0>.*)-Y$", strlen("^X-(?P<s0>.*)-Y$"), NULL);
+        _jm_xre_0_re_re2 = cre2_new("^X-(?P<s1>.*)-Y$", strlen("^X-(?P<s1>.*)-Y$"), NULL);
         if (cre2_error_code(_jm_xre_0_re_re2))
             return cre2_error_string(_jm_xre_0_re_re2);
         _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;
