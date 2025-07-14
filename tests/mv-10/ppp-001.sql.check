@@ -1,9 +1,13 @@
-COPY 13
-UPDATE 13
-# count working tests
- success | total 
----------+-------
-      13 |    13
-(1 row)
-
-# OK
+ppp-001.values.json[0]: PASS
+ppp-001.values.json[1]: FAIL
+ppp-001.values.json[2]: FAIL
+ppp-001.values.json[3]: FAIL
+ppp-001.values.json[4]: FAIL
+ppp-001.values.json[5]: FAIL
+ppp-001.values.json[6]: FAIL
+ppp-001.values.json[7]: FAIL
+ppp-001.values.json[8]: FAIL
+ppp-001.values.json[9]: FAIL
+ppp-001.values.json[10]: FAIL
+ppp-001.values.json[11]: FAIL
+ppp-001.values.json[12]: FAIL

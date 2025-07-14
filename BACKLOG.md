@@ -10,10 +10,11 @@
 - [x] tests: add sql to pytest
 - [x] tests: parallelize sql checks in makefile
 - [x] sql-backend: implement extended regex
-- [ ] tests: add sql.check to pytest
-- [ ] tests: parallelize sql checks in pytest
+- [x] tests: add sql.check to pytest
+- [x] tests: parallelize sql checks in pytest
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension
+- [ ] sql-backend: reduce extension loading verbosity
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions

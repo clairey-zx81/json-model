@@ -1,15 +1,12 @@
-COPY 12
-UPDATE 12
-# count working tests
- success | total 
----------+-------
-      11 |    12
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   5 | t
-(1 row)
-
-# KO [5]
+xor_04.values.json[0]: PASS
+xor_04.values.json[1]: PASS
+xor_04.values.json[2]: PASS
+xor_04.values.json[3]: FAIL
+xor_04.values.json[4]: FAIL
+xor_04.values.json[5]: ERROR unexpected PASS
+xor_04.values.json[6]: FAIL
+xor_04.values.json[7]: FAIL
+xor_04.values.json[8]: FAIL
+xor_04.values.json[9]: FAIL
+xor_04.values.json[10]: FAIL
+xor_04.values.json[11]: FAIL

@@ -1,15 +1,10 @@
-COPY 10
-UPDATE 10
-# count working tests
- success | total 
----------+-------
-       9 |    10
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   4 | t
-(1 row)
-
-# KO [4]
+int_1_s.values.json[0]: PASS
+int_1_s.values.json[1]: PASS
+int_1_s.values.json[2]: FAIL
+int_1_s.values.json[3]: FAIL
+int_1_s.values.json[4]: ERROR unexpected PASS
+int_1_s.values.json[5]: FAIL
+int_1_s.values.json[6]: FAIL
+int_1_s.values.json[7]: FAIL
+int_1_s.values.json[8]: FAIL
+int_1_s.values.json[9]: FAIL

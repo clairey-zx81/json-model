@@ -1,9 +1,23 @@
-COPY 23
-UPDATE 23
-# count working tests
- success | total 
----------+-------
-      23 |    23
-(1 row)
-
-# OK
+xor_ob00.values.json[0]: PASS
+xor_ob00.values.json[1]: PASS
+xor_ob00.values.json[2]: PASS
+xor_ob00.values.json[3]: PASS
+xor_ob00.values.json[4]: FAIL
+xor_ob00.values.json[5]: FAIL
+xor_ob00.values.json[6]: FAIL
+xor_ob00.values.json[7]: FAIL
+xor_ob00.values.json[8]: FAIL
+xor_ob00.values.json[9]: FAIL
+xor_ob00.values.json[10]: FAIL
+xor_ob00.values.json[11]: FAIL
+xor_ob00.values.json[12]: FAIL
+xor_ob00.values.json[13]: FAIL
+xor_ob00.values.json[14]: FAIL
+xor_ob00.values.json[15]: FAIL
+xor_ob00.values.json[16]: FAIL
+xor_ob00.values.json[17]: FAIL
+xor_ob00.values.json[18]: FAIL
+xor_ob00.values.json[19]: FAIL
+xor_ob00.values.json[20]: FAIL
+xor_ob00.values.json[21]: FAIL
+xor_ob00.values.json[22]: FAIL

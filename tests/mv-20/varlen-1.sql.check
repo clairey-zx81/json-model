@@ -1,9 +1,16 @@
-COPY 16
-UPDATE 16
-# count working tests
- success | total 
----------+-------
-      16 |    16
-(1 row)
-
-# OK
+varlen-1.values.json[0]: PASS
+varlen-1.values.json[1]: PASS
+varlen-1.values.json[2]: PASS
+varlen-1.values.json[3]: PASS
+varlen-1.values.json[4]: FAIL
+varlen-1.values.json[5]: FAIL
+varlen-1.values.json[6]: FAIL
+varlen-1.values.json[7]: FAIL
+varlen-1.values.json[8]: FAIL
+varlen-1.values.json[9]: FAIL
+varlen-1.values.json[10]: FAIL
+varlen-1.values.json[11]: FAIL
+varlen-1.values.json[12]: FAIL
+varlen-1.values.json[13]: FAIL
+varlen-1.values.json[14]: FAIL
+varlen-1.values.json[15]: FAIL

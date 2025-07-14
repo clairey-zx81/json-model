@@ -1,9 +1,23 @@
-COPY 23
-UPDATE 23
-# count working tests
- success | total 
----------+-------
-      23 |    23
-(1 row)
-
-# OK
+bang-000.values.json[0]: PASS
+bang-000.values.json[1]: PASS
+bang-000.values.json[2]: FAIL
+bang-000.values.json[3]: FAIL
+bang-000.values.json[4]: FAIL
+bang-000.values.json[5]: FAIL
+bang-000.values.json[6]: FAIL
+bang-000.values.json[7]: FAIL
+bang-000.values.json[8]: FAIL
+bang-000.values.json[9]: FAIL
+bang-000.values.json[10]: FAIL
+bang-000.values.json[11]: FAIL
+bang-000.values.json[12]: FAIL
+bang-000.values.json[13]: FAIL
+bang-000.values.json[14]: FAIL
+bang-000.values.json[15]: FAIL
+bang-000.values.json[16]: FAIL
+bang-000.values.json[17]: FAIL
+bang-000.values.json[18]: FAIL
+bang-000.values.json[19]: FAIL
+bang-000.values.json[20]: FAIL
+bang-000.values.json[21]: FAIL
+bang-000.values.json[22]: FAIL

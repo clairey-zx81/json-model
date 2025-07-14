@@ -1,16 +1,9 @@
-COPY 9
-UPDATE 9
-# count working tests
- success | total 
----------+-------
-       7 |     9
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   2 | t
-   3 | t
-(2 rows)
-
-# KO [2, 3]
+opt_ls.values.json[0]: PASS
+opt_ls.values.json[1]: PASS
+opt_ls.values.json[2]: ERROR unexpected PASS
+opt_ls.values.json[3]: ERROR unexpected PASS
+opt_ls.values.json[4]: FAIL
+opt_ls.values.json[5]: FAIL
+opt_ls.values.json[6]: FAIL
+opt_ls.values.json[7]: FAIL
+opt_ls.values.json[8]: FAIL

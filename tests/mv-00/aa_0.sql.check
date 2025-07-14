@@ -1,9 +1,7 @@
-COPY 7
-UPDATE 7
-# count working tests
- success | total 
----------+-------
-       7 |     7
-(1 row)
-
-# OK
+aa_0.values.json[0]: PASS
+aa_0.values.json[1]: PASS
+aa_0.values.json[2]: PASS
+aa_0.values.json[3]: PASS
+aa_0.values.json[4]: FAIL
+aa_0.values.json[5]: FAIL
+aa_0.values.json[6]: FAIL

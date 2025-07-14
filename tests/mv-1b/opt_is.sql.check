@@ -1,16 +1,8 @@
-COPY 8
-UPDATE 8
-# count working tests
- success | total 
----------+-------
-       6 |     8
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   2 | t
-   3 | t
-(2 rows)
-
-# KO [2, 3]
+opt_is.values.json[0]: PASS
+opt_is.values.json[1]: PASS
+opt_is.values.json[2]: ERROR unexpected PASS
+opt_is.values.json[3]: ERROR unexpected PASS
+opt_is.values.json[4]: FAIL
+opt_is.values.json[5]: FAIL
+opt_is.values.json[6]: FAIL
+opt_is.values.json[7]: FAIL

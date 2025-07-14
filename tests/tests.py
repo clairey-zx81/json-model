@@ -29,6 +29,7 @@ EXPECT: dict[str, int] = {
     "mv-01:models": 10,
     "mv-01:values": 100,
     "mv-01:errors.js": 2,
+    "mv-01:errors.sql": 2,
     # chunk 02
     "mv-02:js2json": 1,
     "mv-02:models": 10,
@@ -113,6 +114,7 @@ EXPECT: dict[str, int] = {
     "mv-16:models": 11,
     "mv-16:values": 100,
     "mv-16:errors.js": 1,
+    "mv-16:errors.sql": 1,
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 145,
@@ -130,6 +132,7 @@ EXPECT: dict[str, int] = {
     "mv-1a:models": 10,
     "mv-1a:values": 132,
     "mv-1a:errors.js": 2,
+    "mv-1a:errors.sql": 2,
     # chunk 1B
     "mv-1b:models": 10,
     "mv-1b:values": 68,
@@ -146,7 +149,7 @@ EXPECT: dict[str, int] = {
     "mv-1e:models": 10,
     "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
-    "mv-1e:errors.sql": 1,
+    "mv-1e:errors.sql": 2,
     # chunk 1F
     "mv-1f:models": 9,
     "mv-1f:values": 136,
@@ -425,7 +428,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
             for line in os.popen(f"{fexec} {vfiles}"):
                 nvalues += 1
-                assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
+                assert re.search(r"(\.true\.json(\[\d+])?: PASS|\.false\.json(\[\d+])?: FAIL)$", line) is not None, \
                     f"result as expected: {line}"
 
             with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
@@ -475,13 +478,13 @@ def test_sta_c(directory, clibjm):
     assert os.path.isfile(jm_lib), "available support lib"
     assert os.path.isfile(jm_main), "available support main"
 
-    def generate_exec(fname: str):
+    def gen_exec(fname: str):
         fexec = f"{tmp_dir}/{path2file(fname)}.out"
         status = os.system(f"{cc} {cppflags} {cflags} {fname} {ldflags} -o {fexec}")
         assert status == 0, f"{fname} compilation success"
         return fexec
 
-    check_values(directory, "sta-c", ".c", ".c.check", generate_exec)
+    check_values(directory, "sta-c", ".c", ".c.check", gen_exec)
 
 
 def test_sta_py(directory):
@@ -493,6 +496,10 @@ def test_sta_js(directory):
     """Check generated JS scripts with test value files."""
     check_values(directory, "sta-js", ".js", ".js.check", lambda f: f)
 
+def test_sta_sql(directory):
+    """Check generated SQL scripts with test value files."""
+    check_values(directory, "sta-sql", ".sql", ".sql.check",
+                 lambda f: f"./test_sql.sh {f}")
 
 #
 # DYNAMIC CHECKS AGAINST VALUES

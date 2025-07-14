@@ -1,10 +1,4 @@
-INSERT 0 2
-COPY 4
-UPDATE 4
-# count working tests
- success | total 
----------+-------
-       4 |     4
-(1 row)
-
-# OK
+dis_03.values.json[0]: PASS
+dis_03.values.json[1]: PASS
+dis_03.values.json[2]: FAIL
+dis_03.values.json[3]: FAIL

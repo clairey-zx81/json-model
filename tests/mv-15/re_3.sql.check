@@ -1,9 +1,16 @@
-COPY 16
-UPDATE 16
-# count working tests
- success | total 
----------+-------
-      16 |    16
-(1 row)
-
-# OK
+re_3.values.json[0]: PASS
+re_3.values.json[1]: PASS
+re_3.values.json[2]: PASS
+re_3.values.json[3]: PASS
+re_3.values.json[4]: PASS
+re_3.values.json[5]: FAIL
+re_3.values.json[6]: FAIL
+re_3.values.json[7]: FAIL
+re_3.values.json[8]: FAIL
+re_3.values.json[9]: FAIL
+re_3.values.json[10]: FAIL
+re_3.values.json[11]: FAIL
+re_3.values.json[12]: FAIL
+re_3.values.json[13]: FAIL
+re_3.values.json[14]: FAIL
+re_3.values.json[15]: FAIL

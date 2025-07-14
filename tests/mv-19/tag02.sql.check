@@ -1,10 +1,12 @@
-INSERT 0 2
-COPY 12
-UPDATE 12
-# count working tests
- success | total 
----------+-------
-      12 |    12
-(1 row)
-
-# OK
+tag02.values.json[0]: PASS
+tag02.values.json[1]: PASS
+tag02.values.json[2]: FAIL
+tag02.values.json[3]: FAIL
+tag02.values.json[4]: FAIL
+tag02.values.json[5]: FAIL
+tag02.values.json[6]: FAIL
+tag02.values.json[7]: FAIL
+tag02.values.json[8]: FAIL
+tag02.values.json[9]: FAIL
+tag02.values.json[10]: FAIL
+tag02.values.json[11]: FAIL

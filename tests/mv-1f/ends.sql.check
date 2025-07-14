@@ -1,9 +1,12 @@
-COPY 12
-UPDATE 12
-# count working tests
- success | total 
----------+-------
-      12 |    12
-(1 row)
-
-# OK
+ends.values.json[0]: PASS
+ends.values.json[1]: PASS
+ends.values.json[2]: FAIL
+ends.values.json[3]: FAIL
+ends.values.json[4]: FAIL
+ends.values.json[5]: FAIL
+ends.values.json[6]: FAIL
+ends.values.json[7]: FAIL
+ends.values.json[8]: FAIL
+ends.values.json[9]: FAIL
+ends.values.json[10]: FAIL
+ends.values.json[11]: FAIL

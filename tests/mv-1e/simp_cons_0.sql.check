@@ -1,15 +1,8 @@
-COPY 8
-UPDATE 8
-# count working tests
- success | total 
----------+-------
-       7 |     8
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   1 | t
-(1 row)
-
-# KO [1]
+simp_cons_0.values.json[0]: PASS
+simp_cons_0.values.json[1]: ERROR unexpected PASS
+simp_cons_0.values.json[2]: FAIL
+simp_cons_0.values.json[3]: FAIL
+simp_cons_0.values.json[4]: FAIL
+simp_cons_0.values.json[5]: FAIL
+simp_cons_0.values.json[6]: FAIL
+simp_cons_0.values.json[7]: FAIL

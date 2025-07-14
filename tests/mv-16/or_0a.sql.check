@@ -1,9 +1,11 @@
-COPY 11
-UPDATE 11
-# count working tests
- success | total 
----------+-------
-      11 |    11
-(1 row)
-
-# OK
+or_0a.values.json[0]: PASS
+or_0a.values.json[1]: PASS
+or_0a.values.json[2]: PASS
+or_0a.values.json[3]: PASS
+or_0a.values.json[4]: FAIL
+or_0a.values.json[5]: FAIL
+or_0a.values.json[6]: FAIL
+or_0a.values.json[7]: FAIL
+or_0a.values.json[8]: FAIL
+or_0a.values.json[9]: FAIL
+or_0a.values.json[10]: FAIL

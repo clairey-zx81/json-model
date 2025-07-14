@@ -1,15 +1,24 @@
-COPY 24
-UPDATE 24
-# count working tests
- success | total 
----------+-------
-      23 |    24
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-  13 | t
-(1 row)
-
-# KO [13]
+pDATETIME.values.json[0]: PASS
+pDATETIME.values.json[1]: PASS
+pDATETIME.values.json[2]: PASS
+pDATETIME.values.json[3]: PASS
+pDATETIME.values.json[4]: PASS
+pDATETIME.values.json[5]: PASS
+pDATETIME.values.json[6]: PASS
+pDATETIME.values.json[7]: PASS
+pDATETIME.values.json[8]: PASS
+pDATETIME.values.json[9]: PASS
+pDATETIME.values.json[10]: FAIL
+pDATETIME.values.json[11]: FAIL
+pDATETIME.values.json[12]: FAIL
+pDATETIME.values.json[13]: ERROR unexpected PASS
+pDATETIME.values.json[14]: FAIL
+pDATETIME.values.json[15]: FAIL
+pDATETIME.values.json[16]: FAIL
+pDATETIME.values.json[17]: FAIL
+pDATETIME.values.json[18]: FAIL
+pDATETIME.values.json[19]: FAIL
+pDATETIME.values.json[20]: FAIL
+pDATETIME.values.json[21]: FAIL
+pDATETIME.values.json[22]: FAIL
+pDATETIME.values.json[23]: FAIL

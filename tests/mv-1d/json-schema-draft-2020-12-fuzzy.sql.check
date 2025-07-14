@@ -1,9 +1,9 @@
-COPY 9
-UPDATE 9
-# count working tests
- success | total 
----------+-------
-       9 |     9
-(1 row)
-
-# OK
+json-schema-draft-2020-12-fuzzy.values.json[0]: PASS
+json-schema-draft-2020-12-fuzzy.values.json[1]: PASS
+json-schema-draft-2020-12-fuzzy.values.json[2]: PASS
+json-schema-draft-2020-12-fuzzy.values.json[3]: FAIL
+json-schema-draft-2020-12-fuzzy.values.json[4]: FAIL
+json-schema-draft-2020-12-fuzzy.values.json[5]: FAIL
+json-schema-draft-2020-12-fuzzy.values.json[6]: FAIL
+json-schema-draft-2020-12-fuzzy.values.json[7]: FAIL
+json-schema-draft-2020-12-fuzzy.values.json[8]: FAIL

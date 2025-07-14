@@ -1,9 +1,12 @@
-COPY 12
-UPDATE 12
-# count working tests
- success | total 
----------+-------
-      12 |    12
-(1 row)
-
-# OK
+francais.values.json[0]: PASS
+francais.values.json[1]: PASS
+francais.values.json[2]: PASS
+francais.values.json[3]: PASS
+francais.values.json[4]: PASS
+francais.values.json[5]: PASS
+francais.values.json[6]: PASS
+francais.values.json[7]: PASS
+francais.values.json[8]: PASS
+francais.values.json[9]: FAIL
+francais.values.json[10]: FAIL
+francais.values.json[11]: FAIL

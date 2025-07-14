@@ -178,28 +178,11 @@ $(F.out): json-model.o main.o
 %.values.csv: %.values.json
 	../values2csv.py $< $@
 
-%.sql.check: %.sql %.values.csv ../testcsv.sql
-	db="jm_test_$$$$"
-	createdb $$db
-	psql --no-psqlrc \
-	  -f ../../json_model/runtime/json_model.sql \
-	  -f $< \
-	  -f ../testcsv.sql \
-	  $$db < $*.values.csv | egrep -v "^(CREATE|DROP|TRUNCATE)"> $@
-	result=$$(tail -1 $@)
-	dropdb $$db
-	if [[ "$$result" == *OK* ]] ; then
-	  exit 0
-	else
-	  if [ -f $*.errors.json ] ; then
-	    # TODO check allowed errors
-	    echo "# IGNORING ERRORS on $@" >&2
-	    exit 0
-	  else
-	    echo "# ERROR on $@"
-	    exit 1
-	  fi
-	fi
+%.sql.check: %.sql %.values.json ../test_sql_csv.sql ../test_sql.sh
+	shopt -s nullglob
+	../test_sql.sh $< $*.*.true.json $*.*.false.json $*.values.json > $@
+	status=$$?
+	# TODO check for errors to ignore
 
 #
 # Generated JSON Schema checks

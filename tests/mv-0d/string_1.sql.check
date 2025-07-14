@@ -1,9 +1,11 @@
-COPY 11
-UPDATE 11
-# count working tests
- success | total 
----------+-------
-      11 |    11
-(1 row)
-
-# OK
+string_1.values.json[0]: PASS
+string_1.values.json[1]: PASS
+string_1.values.json[2]: PASS
+string_1.values.json[3]: FAIL
+string_1.values.json[4]: FAIL
+string_1.values.json[5]: FAIL
+string_1.values.json[6]: FAIL
+string_1.values.json[7]: FAIL
+string_1.values.json[8]: FAIL
+string_1.values.json[9]: FAIL
+string_1.values.json[10]: FAIL

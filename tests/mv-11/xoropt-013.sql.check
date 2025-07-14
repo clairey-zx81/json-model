@@ -1,9 +1,15 @@
-COPY 15
-UPDATE 15
-# count working tests
- success | total 
----------+-------
-      15 |    15
-(1 row)
-
-# OK
+xoropt-013.values.json[0]: PASS
+xoropt-013.values.json[1]: PASS
+xoropt-013.values.json[2]: PASS
+xoropt-013.values.json[3]: PASS
+xoropt-013.values.json[4]: FAIL
+xoropt-013.values.json[5]: FAIL
+xoropt-013.values.json[6]: FAIL
+xoropt-013.values.json[7]: FAIL
+xoropt-013.values.json[8]: FAIL
+xoropt-013.values.json[9]: FAIL
+xoropt-013.values.json[10]: FAIL
+xoropt-013.values.json[11]: FAIL
+xoropt-013.values.json[12]: FAIL
+xoropt-013.values.json[13]: FAIL
+xoropt-013.values.json[14]: FAIL

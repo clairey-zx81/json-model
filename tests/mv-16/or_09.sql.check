@@ -1,15 +1,9 @@
-COPY 9
-UPDATE 9
-# count working tests
- success | total 
----------+-------
-       8 |     9
-(1 row)
-
-# bad tests
- jid | checked 
------+---------
-   5 | t
-(1 row)
-
-# KO [5]
+or_09.values.json[0]: PASS
+or_09.values.json[1]: PASS
+or_09.values.json[2]: FAIL
+or_09.values.json[3]: FAIL
+or_09.values.json[4]: FAIL
+or_09.values.json[5]: ERROR unexpected PASS
+or_09.values.json[6]: FAIL
+or_09.values.json[7]: FAIL
+or_09.values.json[8]: FAIL

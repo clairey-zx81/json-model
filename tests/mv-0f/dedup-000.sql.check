@@ -1,9 +1,11 @@
-COPY 11
-UPDATE 11
-# count working tests
- success | total 
----------+-------
-      11 |    11
-(1 row)
-
-# OK
+dedup-000.values.json[0]: PASS
+dedup-000.values.json[1]: PASS
+dedup-000.values.json[2]: PASS
+dedup-000.values.json[3]: PASS
+dedup-000.values.json[4]: FAIL
+dedup-000.values.json[5]: FAIL
+dedup-000.values.json[6]: FAIL
+dedup-000.values.json[7]: FAIL
+dedup-000.values.json[8]: FAIL
+dedup-000.values.json[9]: FAIL
+dedup-000.values.json[10]: FAIL

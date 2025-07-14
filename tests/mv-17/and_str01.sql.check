@@ -1,9 +1,2 @@
-COPY 2
-UPDATE 2
-# count working tests
- success | total 
----------+-------
-       2 |     2
-(1 row)
-
-# OK
+and_str01.values.json[0]: FAIL
+and_str01.values.json[1]: FAIL

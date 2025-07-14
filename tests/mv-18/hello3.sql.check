@@ -1,9 +1,3 @@
-COPY 3
-UPDATE 3
-# count working tests
- success | total 
----------+-------
-       3 |     3
-(1 row)
-
-# OK
+hello3.values.json[0]: PASS
+hello3.values.json[1]: PASS
+hello3.values.json[2]: FAIL

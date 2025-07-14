@@ -1,9 +1,24 @@
-COPY 24
-UPDATE 24
-# count working tests
- success | total 
----------+-------
-      24 |    24
-(1 row)
-
-# OK
+obj_03.values.json[0]: PASS
+obj_03.values.json[1]: PASS
+obj_03.values.json[2]: PASS
+obj_03.values.json[3]: FAIL
+obj_03.values.json[4]: FAIL
+obj_03.values.json[5]: FAIL
+obj_03.values.json[6]: FAIL
+obj_03.values.json[7]: FAIL
+obj_03.values.json[8]: FAIL
+obj_03.values.json[9]: FAIL
+obj_03.values.json[10]: FAIL
+obj_03.values.json[11]: FAIL
+obj_03.values.json[12]: FAIL
+obj_03.values.json[13]: FAIL
+obj_03.values.json[14]: FAIL
+obj_03.values.json[15]: FAIL
+obj_03.values.json[16]: FAIL
+obj_03.values.json[17]: FAIL
+obj_03.values.json[18]: FAIL
+obj_03.values.json[19]: FAIL
+obj_03.values.json[20]: FAIL
+obj_03.values.json[21]: FAIL
+obj_03.values.json[22]: FAIL
+obj_03.values.json[23]: FAIL

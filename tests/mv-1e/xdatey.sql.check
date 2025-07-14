@@ -1,9 +1,15 @@
-COPY 15
-UPDATE 15
-# count working tests
- success | total 
----------+-------
-      15 |    15
-(1 row)
-
-# OK
+xdatey.values.json[0]: PASS
+xdatey.values.json[1]: PASS
+xdatey.values.json[2]: PASS
+xdatey.values.json[3]: FAIL
+xdatey.values.json[4]: FAIL
+xdatey.values.json[5]: FAIL
+xdatey.values.json[6]: FAIL
+xdatey.values.json[7]: FAIL
+xdatey.values.json[8]: FAIL
+xdatey.values.json[9]: FAIL
+xdatey.values.json[10]: FAIL
+xdatey.values.json[11]: FAIL
+xdatey.values.json[12]: FAIL
+xdatey.values.json[13]: FAIL
+xdatey.values.json[14]: FAIL

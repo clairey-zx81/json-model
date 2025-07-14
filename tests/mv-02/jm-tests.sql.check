@@ -1,9 +1,19 @@
-COPY 18
-UPDATE 18
-# count working tests
- success | total 
----------+-------
-      18 |    18
-(1 row)
-
-# OK
+jm-tests.0.true.json[0]: PASS
+jm-tests.values.json[0]: PASS
+jm-tests.values.json[1]: PASS
+jm-tests.values.json[2]: PASS
+jm-tests.values.json[3]: FAIL
+jm-tests.values.json[4]: FAIL
+jm-tests.values.json[5]: FAIL
+jm-tests.values.json[6]: FAIL
+jm-tests.values.json[7]: FAIL
+jm-tests.values.json[8]: FAIL
+jm-tests.values.json[9]: PASS
+jm-tests.values.json[10]: PASS
+jm-tests.values.json[11]: PASS
+jm-tests.values.json[12]: FAIL
+jm-tests.values.json[13]: FAIL
+jm-tests.values.json[14]: FAIL
+jm-tests.values.json[15]: FAIL
+jm-tests.values.json[16]: FAIL
+jm-tests.values.json[17]: FAIL

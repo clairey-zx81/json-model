@@ -1,9 +1,10 @@
-COPY 10
-UPDATE 10
-# count working tests
- success | total 
----------+-------
-      10 |    10
-(1 row)
-
-# OK
+ansiblelint-meta.values.json[0]: PASS
+ansiblelint-meta.values.json[1]: PASS
+ansiblelint-meta.values.json[2]: FAIL
+ansiblelint-meta.values.json[3]: FAIL
+ansiblelint-meta.values.json[4]: FAIL
+ansiblelint-meta.values.json[5]: FAIL
+ansiblelint-meta.values.json[6]: FAIL
+ansiblelint-meta.values.json[7]: FAIL
+ansiblelint-meta.values.json[8]: FAIL
+ansiblelint-meta.values.json[9]: FAIL

@@ -1,9 +1,6 @@
-COPY 6
-UPDATE 6
-# count working tests
- success | total 
----------+-------
-       6 |     6
-(1 row)
-
-# OK
+eq_false.values.json[0]: PASS
+eq_false.values.json[1]: FAIL
+eq_false.values.json[2]: FAIL
+eq_false.values.json[3]: FAIL
+eq_false.values.json[4]: FAIL
+eq_false.values.json[5]: FAIL

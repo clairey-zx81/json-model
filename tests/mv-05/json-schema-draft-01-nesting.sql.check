@@ -1,9 +1,9 @@
-COPY 9
-UPDATE 9
-# count working tests
- success | total 
----------+-------
-       9 |     9
-(1 row)
-
-# OK
+json-schema-draft-01-nesting.values.json[0]: PASS
+json-schema-draft-01-nesting.values.json[1]: FAIL
+json-schema-draft-01-nesting.values.json[2]: FAIL
+json-schema-draft-01-nesting.values.json[3]: FAIL
+json-schema-draft-01-nesting.values.json[4]: FAIL
+json-schema-draft-01-nesting.values.json[5]: FAIL
+json-schema-draft-01-nesting.values.json[6]: FAIL
+json-schema-draft-01-nesting.values.json[7]: FAIL
+json-schema-draft-01-nesting.values.json[8]: FAIL

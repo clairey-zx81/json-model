@@ -1,9 +1,5 @@
-COPY 5
-UPDATE 5
-# count working tests
- success | total 
----------+-------
-       5 |     5
-(1 row)
-
-# OK
+eq_3p14.values.json[0]: PASS
+eq_3p14.values.json[1]: PASS
+eq_3p14.values.json[2]: PASS
+eq_3p14.values.json[3]: FAIL
+eq_3p14.values.json[4]: FAIL

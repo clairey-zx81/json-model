@@ -1,9 +1,13 @@
-COPY 13
-UPDATE 13
-# count working tests
- success | total 
----------+-------
-      13 |    13
-(1 row)
-
-# OK
+streq.values.json[0]: PASS
+streq.values.json[1]: FAIL
+streq.values.json[2]: FAIL
+streq.values.json[3]: FAIL
+streq.values.json[4]: FAIL
+streq.values.json[5]: FAIL
+streq.values.json[6]: FAIL
+streq.values.json[7]: FAIL
+streq.values.json[8]: FAIL
+streq.values.json[9]: FAIL
+streq.values.json[10]: FAIL
+streq.values.json[11]: FAIL
+streq.values.json[12]: FAIL

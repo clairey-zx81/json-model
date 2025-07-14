@@ -1,9 +1,4 @@
-COPY 4
-UPDATE 4
-# count working tests
- success | total 
----------+-------
-       4 |     4
-(1 row)
-
-# OK
+enum_04.values.json[0]: PASS
+enum_04.values.json[1]: FAIL
+enum_04.values.json[2]: FAIL
+enum_04.values.json[3]: FAIL

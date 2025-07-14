@@ -1,10 +1,32 @@
-INSERT 0 3
-COPY 32
-UPDATE 32
-# count working tests
- success | total 
----------+-------
-      32 |    32
-(1 row)
-
-# OK
+opt_07.values.json[0]: PASS
+opt_07.values.json[1]: PASS
+opt_07.values.json[2]: PASS
+opt_07.values.json[3]: PASS
+opt_07.values.json[4]: PASS
+opt_07.values.json[5]: PASS
+opt_07.values.json[6]: FAIL
+opt_07.values.json[7]: FAIL
+opt_07.values.json[8]: FAIL
+opt_07.values.json[9]: FAIL
+opt_07.values.json[10]: FAIL
+opt_07.values.json[11]: FAIL
+opt_07.values.json[12]: FAIL
+opt_07.values.json[13]: FAIL
+opt_07.values.json[14]: FAIL
+opt_07.values.json[15]: FAIL
+opt_07.values.json[16]: FAIL
+opt_07.values.json[17]: FAIL
+opt_07.values.json[18]: FAIL
+opt_07.values.json[19]: FAIL
+opt_07.values.json[20]: FAIL
+opt_07.values.json[21]: FAIL
+opt_07.values.json[22]: FAIL
+opt_07.values.json[23]: FAIL
+opt_07.values.json[24]: FAIL
+opt_07.values.json[25]: FAIL
+opt_07.values.json[26]: FAIL
+opt_07.values.json[27]: FAIL
+opt_07.values.json[28]: FAIL
+opt_07.values.json[29]: FAIL
+opt_07.values.json[30]: FAIL
+opt_07.values.json[31]: FAIL

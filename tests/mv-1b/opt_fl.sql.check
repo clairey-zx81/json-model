@@ -1,9 +1,4 @@
-COPY 4
-UPDATE 4
-# count working tests
- success | total 
----------+-------
-       4 |     4
-(1 row)
-
-# OK
+opt_fl.values.json[0]: PASS
+opt_fl.values.json[1]: PASS
+opt_fl.values.json[2]: FAIL
+opt_fl.values.json[3]: FAIL

@@ -1,9 +1,13 @@
-COPY 13
-UPDATE 13
-# count working tests
- success | total 
----------+-------
-      13 |    13
-(1 row)
-
-# OK
+base-004.values.json[0]: PASS
+base-004.values.json[1]: FAIL
+base-004.values.json[2]: FAIL
+base-004.values.json[3]: FAIL
+base-004.values.json[4]: FAIL
+base-004.values.json[5]: FAIL
+base-004.values.json[6]: FAIL
+base-004.values.json[7]: FAIL
+base-004.values.json[8]: FAIL
+base-004.values.json[9]: FAIL
+base-004.values.json[10]: FAIL
+base-004.values.json[11]: FAIL
+base-004.values.json[12]: FAIL

@@ -1,9 +1,1 @@
-COPY 1
-UPDATE 1
-# count working tests
- success | total 
----------+-------
-       1 |     1
-(1 row)
-
-# OK
+json-model-moschin.values.json[0]: PASS
