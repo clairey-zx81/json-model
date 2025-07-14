@@ -12,13 +12,13 @@
 - [x] sql-backend: implement extended regex
 - [x] tests: add sql.check to pytest
 - [x] tests: parallelize sql checks in pytest
+- [ ] python: rerun style and type checks
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: reduce extension loading verbosity
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions
-- [ ] python: rerun style and type checks
 - [ ] tests: rerun tests
 - [ ] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
