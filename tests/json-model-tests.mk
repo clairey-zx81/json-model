@@ -48,9 +48,6 @@ F.gen   = \
     $(F.c) $(F.py) $(F.cc) $(F.sql) \
     $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc)
 
-# FIXME
-.NOTPARALLEL: $(F.sqlc)
-
 .PHONY: all
 all: $(F.gen)
 
@@ -182,8 +179,15 @@ $(F.out): json-model.o main.o
 	../values2csv.py $< $@
 
 %.sql.check: %.sql %.values.csv ../testcsv.sql
-	psql --no-psqlrc -f $< -f ../testcsv.sql < $*.values.csv > $@
+	db="jm_test_$$$$"
+	createdb $$db
+	psql --no-psqlrc \
+	  -f ../../json_model/runtime/json_model.sql \
+	  -f $< \
+	  -f ../testcsv.sql \
+	  $$db < $*.values.csv | egrep -v "^(CREATE|DROP|TRUNCATE)"> $@
 	result=$$(tail -1 $@)
+	dropdb $$db
 	if [[ "$$result" == *OK* ]] ; then
 	  exit 0
 	else

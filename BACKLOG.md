@@ -8,11 +8,11 @@
 - [x] sql-backend: add necessary support function (nearly)
 - [x] sql-backend: implement basic regex
 - [x] tests: add sql to pytest
+- [x] tests: parallelize sql checks in makefile
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: implement extended regex
 - [ ] sql-backend: package support as an extension
 - [ ] tests: add sql.check to pytest
-- [ ] tests: parallelize sql checks in makefile
 - [ ] tests: parallelize sql checks in pytest
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions
