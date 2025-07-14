@@ -27,13 +27,15 @@
         "?webhooks": {
           "": "$PathItem"
         },
-        "?component": "$Components",
-        "?security": "$SecurityRequirement",
+        "?components": "$Components",
+        "?security": [
+          "$SecurityRequirement"
+        ],
         "?tags": [
           "$Tag"
         ],
         "?externalDocs": "$ExternalDocumentation",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "?jsonModelVersion": "$URL",
         "#": "JsonModel 4"
       },
@@ -45,14 +47,14 @@
         "?contact": "$Contact",
         "?license": "$License",
         "version": "",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 5"
       },
       "Contact": {
         "?name": "",
         "?url": "$URL",
         "?email": "",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 6"
       },
       "License": {
@@ -76,7 +78,7 @@
         "?variables": {
           "": "$ServerVariable"
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 8"
       },
       "ServerVariable": {
@@ -85,7 +87,7 @@
         ],
         "default": "",
         "?description": "",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 9"
       },
       "Components": {
@@ -161,7 +163,7 @@
             ]
           }
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "?models": {
           "": "$Model"
         },
@@ -169,7 +171,7 @@
       },
       "Paths": {
         "/^//": "$PathItem",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 11"
       },
       "PathItem": {
@@ -195,7 +197,7 @@
             ]
           }
         ],
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 12"
       },
       "Operation": {
@@ -236,13 +238,13 @@
         "?servers": [
           "$Server"
         ],
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 13"
       },
       "ExternalDocumentation": {
         "?description": "",
         "url": "$URL",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 14"
       },
       "parameterShare": {
@@ -250,7 +252,7 @@
         "?required": true,
         "?deprecated": true,
         "?allowEmptyValue": true,
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 15"
       },
       "commonParameter": {
@@ -267,7 +269,7 @@
         "?required": true,
         "?deprecated": true,
         "?allowEmptyValue": true,
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 16"
       },
       "Style": {
@@ -333,7 +335,7 @@
               }
             },
             "?model": "$Model",
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           },
           {
             "name": "",
@@ -352,7 +354,7 @@
             "?content": {
               "": "$MediaType"
             },
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           }
         ],
         "#": "JsonModel 20"
@@ -363,7 +365,7 @@
           "": "$MediaType"
         },
         "?required": true,
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 21"
       },
       "MediaType": {
@@ -379,7 +381,7 @@
         "?encoding": {
           "": "$Encoding"
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "?model": "$Model",
         "#": "JsonModel 22"
       },
@@ -396,7 +398,7 @@
         "?style": "$Style",
         "?explode": true,
         "?allowReserved": true,
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 23"
       },
       "Responses": {
@@ -412,7 +414,7 @@
             "$Reference"
           ]
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 24"
       },
       "Response": {
@@ -436,7 +438,7 @@
             ]
           }
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 25"
       },
       "Callback": {
@@ -446,7 +448,7 @@
             "$Reference"
           ]
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 26"
       },
       "Example": {
@@ -454,7 +456,7 @@
         "?description": "",
         "?value": "$ANY",
         "?externalValue": "",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 27"
       },
       "Expression": "",
@@ -468,7 +470,7 @@
             "?requestBody": "$ANY",
             "?description": "",
             "?server": "$Server",
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           },
           {
             "operationId": "",
@@ -478,7 +480,7 @@
             "?requestBody": "$ANY",
             "?description": "",
             "?server": "$Server",
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           }
         ],
         "#": "JsonModel 29"
@@ -503,7 +505,7 @@
               }
             },
             "?model": "$Model",
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           },
           {
             "?description": "",
@@ -513,7 +515,7 @@
             "?content": {
               "": "$MediaType"
             },
-            "/^x\\-.*$/": "$ANY"
+            "/^x-/": "$ANY"
           }
         ],
         "#": "JsonModel 30"
@@ -522,7 +524,7 @@
         "name": "",
         "?description": "",
         "?externalDocs": "$ExternalDocumentation",
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 31"
       },
       "Reference": {
@@ -532,8 +534,8 @@
         "#": "JsonModel 32"
       },
       "schema": {
-        "#": "JsonModel 42 with defs",
-        "$": "Symbol 42",
+        "#": "JsonModel 47 with defs",
+        "$": "Symbol 47",
         "@": "$NONE",
         "~": "https://json-model.org/models/json-model"
       },
@@ -543,7 +545,7 @@
         "?mapping": {
           "": ""
         },
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 35"
       },
       "XML": {
@@ -552,12 +554,11 @@
         "?prefix": "",
         "?attribute": true,
         "?wrapped": true,
-        "/^x\\-.*$/": "$ANY",
+        "/^x-/": "$ANY",
         "#": "JsonModel 36"
       },
-      "SecurityScheme": {
-        "type": "",
-        "?description": "",
+      "SS-apikey": {
+        "type": "_apiKey",
         "name": "",
         "in": {
           "|": [
@@ -566,20 +567,78 @@
             "cookie"
           ]
         },
-        "scheme": "",
-        "?bearerFormat": "",
-        "flows": "$OAuthFlows",
-        "openIdConnectUrl": "",
-        "/^x\\-.*$/": "$ANY",
         "#": "JsonModel 37"
+      },
+      "SS-http": {
+        "type": "_http",
+        "scheme": "",
+        "#": "JsonModel 38"
+      },
+      "SS-http-bearer": {
+        "type": "_http",
+        "scheme": "/bearer/i",
+        "?bearerFormat": "",
+        "#": "JsonModel 39"
+      },
+      "SS-oauth2": {
+        "type": "_oauth2",
+        "flows": "$OAuthFlows",
+        "#": "JsonModel 40"
+      },
+      "SS-oic": {
+        "type": "_openIdConnect",
+        "openIdConnectUrl": "$URL",
+        "#": "JsonModel 41"
+      },
+      "SecurityScheme": {
+        "|": [
+          {
+            "type": "_apiKey",
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "cookie"
+              ]
+            },
+            "?description": ""
+          },
+          {
+            "type": "_http",
+            "scheme": "/bearer/i",
+            "?bearerFormat": "",
+            "?description": ""
+          },
+          {
+            "type": "_http",
+            "scheme": "",
+            "?description": ""
+          },
+          {
+            "type": "_oauth2",
+            "flows": "$OAuthFlows",
+            "?description": ""
+          },
+          {
+            "type": "_openIdConnect",
+            "openIdConnectUrl": "$URL",
+            "?description": ""
+          },
+          {
+            "?description": "",
+            "/^x-/": "$ANY"
+          }
+        ],
+        "#": "JsonModel 42"
       },
       "OAuthFlows": {
         "?implicit": "$OAuthFlow",
         "?password": "$OAuthFlow",
         "?clientCredentials": "$OAuthFlow",
         "?authorizationCode": "$OAuthFlow",
-        "/^x\\-.*$/": "$ANY",
-        "#": "JsonModel 38"
+        "/^x-/": "$ANY",
+        "#": "JsonModel 43"
       },
       "OAuthFlow": {
         "authorizationUrl": "$URL",
@@ -588,22 +647,22 @@
         "scopes": {
           "": ""
         },
-        "/^x\\-.*$/": "$ANY",
-        "#": "JsonModel 39"
+        "/^x-/": "$ANY",
+        "#": "JsonModel 44"
       },
       "SecurityRequirement": {
         "": [
           ""
         ],
-        "#": "JsonModel 40"
+        "#": "JsonModel 45"
       },
       "Extension": {
-        "/^x\\-.*$/": "$ANY",
-        "#": "JsonModel 41"
+        "/^x-/": "$ANY",
+        "#": "JsonModel 46"
       },
       "model": {
-        "#": "JsonModel 60 with defs",
-        "$": "Symbol 60",
+        "#": "JsonModel 65 with defs",
+        "$": "Symbol 65",
         "@": "$RootModel",
         "~": "https://json-model.org/models/json-model"
       },
@@ -624,13 +683,15 @@
     "?webhooks": {
       "": "$PathItem"
     },
-    "?component": "$Components",
-    "?security": "$SecurityRequirement",
+    "?components": "$Components",
+    "?security": [
+      "$SecurityRequirement"
+    ],
     "?tags": [
       "$Tag"
     ],
     "?externalDocs": "$ExternalDocumentation",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "?jsonModelVersion": "$URL",
     "#": "JsonModel 4"
   },
@@ -642,14 +703,14 @@
     "?contact": "$Contact",
     "?license": "$License",
     "version": "",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 5"
   },
   {
     "?name": "",
     "?url": "$URL",
     "?email": "",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 6"
   },
   {
@@ -673,7 +734,7 @@
     "?variables": {
       "": "$ServerVariable"
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 8"
   },
   {
@@ -682,7 +743,7 @@
     ],
     "default": "",
     "?description": "",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 9"
   },
   {
@@ -758,7 +819,7 @@
         ]
       }
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "?models": {
       "": "$Model"
     },
@@ -766,7 +827,7 @@
   },
   {
     "/^//": "$PathItem",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 11"
   },
   {
@@ -792,7 +853,7 @@
         ]
       }
     ],
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 12"
   },
   {
@@ -833,13 +894,13 @@
     "?servers": [
       "$Server"
     ],
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 13"
   },
   {
     "?description": "",
     "url": "$URL",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 14"
   },
   {
@@ -847,7 +908,7 @@
     "?required": true,
     "?deprecated": true,
     "?allowEmptyValue": true,
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 15"
   },
   {
@@ -864,7 +925,7 @@
     "?required": true,
     "?deprecated": true,
     "?allowEmptyValue": true,
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 16"
   },
   {
@@ -930,7 +991,7 @@
           }
         },
         "?model": "$Model",
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       },
       {
         "name": "",
@@ -949,7 +1010,7 @@
         "?content": {
           "": "$MediaType"
         },
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       }
     ],
     "#": "JsonModel 20"
@@ -960,7 +1021,7 @@
       "": "$MediaType"
     },
     "?required": true,
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 21"
   },
   {
@@ -976,7 +1037,7 @@
     "?encoding": {
       "": "$Encoding"
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "?model": "$Model",
     "#": "JsonModel 22"
   },
@@ -993,7 +1054,7 @@
     "?style": "$Style",
     "?explode": true,
     "?allowReserved": true,
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 23"
   },
   {
@@ -1009,7 +1070,7 @@
         "$Reference"
       ]
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 24"
   },
   {
@@ -1033,7 +1094,7 @@
         ]
       }
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 25"
   },
   {
@@ -1043,7 +1104,7 @@
         "$Reference"
       ]
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 26"
   },
   {
@@ -1051,7 +1112,7 @@
     "?description": "",
     "?value": "$ANY",
     "?externalValue": "",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 27"
   },
   "",
@@ -1065,7 +1126,7 @@
         "?requestBody": "$ANY",
         "?description": "",
         "?server": "$Server",
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       },
       {
         "operationId": "",
@@ -1075,7 +1136,7 @@
         "?requestBody": "$ANY",
         "?description": "",
         "?server": "$Server",
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       }
     ],
     "#": "JsonModel 29"
@@ -1100,7 +1161,7 @@
           }
         },
         "?model": "$Model",
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       },
       {
         "?description": "",
@@ -1110,7 +1171,7 @@
         "?content": {
           "": "$MediaType"
         },
-        "/^x\\-.*$/": "$ANY"
+        "/^x-/": "$ANY"
       }
     ],
     "#": "JsonModel 30"
@@ -1119,7 +1180,7 @@
     "name": "",
     "?description": "",
     "?externalDocs": "$ExternalDocumentation",
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 31"
   },
   {
@@ -1134,7 +1195,7 @@
     "?mapping": {
       "": ""
     },
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 35"
   },
   {
@@ -1143,12 +1204,11 @@
     "?prefix": "",
     "?attribute": true,
     "?wrapped": true,
-    "/^x\\-.*$/": "$ANY",
+    "/^x-/": "$ANY",
     "#": "JsonModel 36"
   },
   {
-    "type": "",
-    "?description": "",
+    "type": "_apiKey",
     "name": "",
     "in": {
       "|": [
@@ -1157,20 +1217,78 @@
         "cookie"
       ]
     },
-    "scheme": "",
-    "?bearerFormat": "",
-    "flows": "$OAuthFlows",
-    "openIdConnectUrl": "",
-    "/^x\\-.*$/": "$ANY",
     "#": "JsonModel 37"
+  },
+  {
+    "type": "_http",
+    "scheme": "",
+    "#": "JsonModel 38"
+  },
+  {
+    "type": "_http",
+    "scheme": "/bearer/i",
+    "?bearerFormat": "",
+    "#": "JsonModel 39"
+  },
+  {
+    "type": "_oauth2",
+    "flows": "$OAuthFlows",
+    "#": "JsonModel 40"
+  },
+  {
+    "type": "_openIdConnect",
+    "openIdConnectUrl": "$URL",
+    "#": "JsonModel 41"
+  },
+  {
+    "|": [
+      {
+        "type": "_apiKey",
+        "name": "",
+        "in": {
+          "|": [
+            "query",
+            "header",
+            "cookie"
+          ]
+        },
+        "?description": ""
+      },
+      {
+        "type": "_http",
+        "scheme": "/bearer/i",
+        "?bearerFormat": "",
+        "?description": ""
+      },
+      {
+        "type": "_http",
+        "scheme": "",
+        "?description": ""
+      },
+      {
+        "type": "_oauth2",
+        "flows": "$OAuthFlows",
+        "?description": ""
+      },
+      {
+        "type": "_openIdConnect",
+        "openIdConnectUrl": "$URL",
+        "?description": ""
+      },
+      {
+        "?description": "",
+        "/^x-/": "$ANY"
+      }
+    ],
+    "#": "JsonModel 42"
   },
   {
     "?implicit": "$OAuthFlow",
     "?password": "$OAuthFlow",
     "?clientCredentials": "$OAuthFlow",
     "?authorizationCode": "$OAuthFlow",
-    "/^x\\-.*$/": "$ANY",
-    "#": "JsonModel 38"
+    "/^x-/": "$ANY",
+    "#": "JsonModel 43"
   },
   {
     "authorizationUrl": "$URL",
@@ -1179,21 +1297,21 @@
     "scopes": {
       "": ""
     },
-    "/^x\\-.*$/": "$ANY",
-    "#": "JsonModel 39"
+    "/^x-/": "$ANY",
+    "#": "JsonModel 44"
   },
   {
     "": [
       ""
     ],
-    "#": "JsonModel 40"
+    "#": "JsonModel 45"
   },
   {
-    "/^x\\-.*$/": "$ANY",
-    "#": "JsonModel 41"
+    "/^x-/": "$ANY",
+    "#": "JsonModel 46"
   },
   {
-    "#": "JsonModel 42 with defs",
+    "#": "JsonModel 47 with defs",
     "$": {
       "URI-REFERENCE": "",
       "core": {
@@ -1210,7 +1328,7 @@
         "?$defs": {
           "": "$Schema"
         },
-        "#": "JsonModel 44 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 49 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "meta": {
         "?title": "",
@@ -1222,22 +1340,22 @@
         "?examples": [
           "$ANY"
         ],
-        "#": "JsonModel 45 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 50 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "content": {
         "?contentEncoding": "",
         "?contentMediaType": "",
         "?contentSchema": "$Schema",
-        "#": "JsonModel 46 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 51 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "unevaluated": {
         "?unevaluatedItems": "$Schema",
         "?unevaluatedProperties": "$Schema",
-        "#": "JsonModel 47 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 52 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "format": {
         "?format": "",
-        "#": "JsonModel 48 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 53 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypes": {
         "|": [
@@ -1249,7 +1367,7 @@
           "object",
           "string"
         ],
-        "#": "JsonModel 49 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 54 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypesArray": {
         "@": [
@@ -1257,14 +1375,14 @@
         ],
         ">=": 1,
         "!": true,
-        "#": "JsonModel 50 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 55 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "stringArray": {
         "@": [
           ""
         ],
         "!": true,
-        "#": "JsonModel 51 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 56 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "nonNegativeInteger": 0,
       "validation": {
@@ -1297,14 +1415,14 @@
         "?dependentRequired": {
           "": "$stringArray"
         },
-        "#": "JsonModel 53 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 58 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "schemaArray": {
         "@": [
           "$Schema"
         ],
         ">=": 1,
-        "#": "JsonModel 54 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 59 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "applicator": {
         "?prefixItems": "$schemaArray",
@@ -1328,7 +1446,7 @@
         "?allOf": "$schemaArray",
         "?anyOf": "$schemaArray",
         "?oneOf": "$schemaArray",
-        "#": "JsonModel 55 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 60 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "ObjectSchema": {
         "?$id": "$URI-REFERENCE",
@@ -1409,16 +1527,16 @@
         "?contentEncoding": "",
         "?contentMediaType": "",
         "?contentSchema": "$Schema",
-        "#": "JsonModel 56 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 61 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": {
         "|": [
           true,
           "$ObjectSchema"
         ],
-        "#": "JsonModel 57 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 62 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
-      "#": "Symbol 42",
+      "#": "Symbol 47",
       "": "https://json-model.org/models/json-schema-draft-2020-12"
     },
     "@": "$NONE",
@@ -1439,7 +1557,7 @@
     "?$defs": {
       "": "$Schema"
     },
-    "#": "JsonModel 44 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 49 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?title": "",
@@ -1451,22 +1569,22 @@
     "?examples": [
       "$ANY"
     ],
-    "#": "JsonModel 45 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 50 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?contentEncoding": "",
     "?contentMediaType": "",
     "?contentSchema": "$Schema",
-    "#": "JsonModel 46 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 51 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?unevaluatedItems": "$Schema",
     "?unevaluatedProperties": "$Schema",
-    "#": "JsonModel 47 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 52 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?format": "",
-    "#": "JsonModel 48 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 53 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
@@ -1478,7 +1596,7 @@
       "object",
       "string"
     ],
-    "#": "JsonModel 49 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 54 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
@@ -1486,14 +1604,14 @@
     ],
     ">=": 1,
     "!": true,
-    "#": "JsonModel 50 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 55 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       ""
     ],
     "!": true,
-    "#": "JsonModel 51 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 56 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   0,
   {
@@ -1526,14 +1644,14 @@
     "?dependentRequired": {
       "": "$stringArray"
     },
-    "#": "JsonModel 53 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 58 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       "$Schema"
     ],
     ">=": 1,
-    "#": "JsonModel 54 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 59 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?prefixItems": "$schemaArray",
@@ -1557,7 +1675,7 @@
     "?allOf": "$schemaArray",
     "?anyOf": "$schemaArray",
     "?oneOf": "$schemaArray",
-    "#": "JsonModel 55 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 60 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?$id": "$URI-REFERENCE",
@@ -1638,18 +1756,18 @@
     "?contentEncoding": "",
     "?contentMediaType": "",
     "?contentSchema": "$Schema",
-    "#": "JsonModel 56 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 61 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
       true,
       "$ObjectSchema"
     ],
-    "#": "JsonModel 57 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 62 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   "$model#Model",
   {
-    "#": "JsonModel 60 with defs",
+    "#": "JsonModel 65 with defs",
     "$": {
       "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
       "Val": {
@@ -1660,13 +1778,13 @@
           -1.0,
           ""
         ],
-        "#": "JsonModel 62"
+        "#": "JsonModel 67"
       },
       "Any": "$ANY",
       "None": "$NONE",
       "Common": {
         "?#": "",
-        "#": "JsonModel 65"
+        "#": "JsonModel 70"
       },
       "Array": [
         "$Model"
@@ -1682,36 +1800,36 @@
         },
         "/^(=|!=|\u2260)$/": "$Val",
         "?!": true,
-        "#": "JsonModel 67"
+        "#": "JsonModel 72"
       },
       "Or": {
         "_|": [
           "$Model"
         ],
-        "#": "JsonModel 68"
+        "#": "JsonModel 73"
       },
       "And": {
         "_&": [
           "$Model"
         ],
-        "#": "JsonModel 69"
+        "#": "JsonModel 74"
       },
       "Xor": {
         "_^": [
           "$Model"
         ],
-        "#": "JsonModel 70"
+        "#": "JsonModel 75"
       },
       "Add": {
         "_+": [
           "$Model"
         ],
-        "#": "JsonModel 71"
+        "#": "JsonModel 76"
       },
       "Obj": {
         "": "$Model",
         "/^[@|&^+/*]$/": "$NONE",
-        "#": "JsonModel 72"
+        "#": "JsonModel 77"
       },
       "Elem": {
         "|": [
@@ -1758,7 +1876,7 @@
             "": "$Model"
           }
         ],
-        "#": "JsonModel 73"
+        "#": "JsonModel 78"
       },
       "Trafo": {
         "|": [
@@ -1792,7 +1910,7 @@
             "?/": "$ANY"
           }
         ],
-        "#": "JsonModel 74"
+        "#": "JsonModel 79"
       },
       "Scalar": {
         "|": [
@@ -1806,7 +1924,7 @@
           "=-1.0",
           ""
         ],
-        "#": "JsonModel 75"
+        "#": "JsonModel 80"
       },
       "Model": {
         "|": [
@@ -1814,20 +1932,20 @@
           "$Array",
           "$Elem"
         ],
-        "#": "JsonModel 76"
+        "#": "JsonModel 81"
       },
       "Defs": {
         "?": "$Url",
         "/.+/": "$Model",
-        "#": "JsonModel 77"
+        "#": "JsonModel 82"
       },
       "Rename": {
         "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-        "#": "JsonModel 78"
+        "#": "JsonModel 83"
       },
       "Rewrite": {
         "/^\\$.*$/": "$Trafo",
-        "#": "JsonModel 79"
+        "#": "JsonModel 84"
       },
       "RootOnly": {
         "?~": "$Url",
@@ -1841,7 +1959,7 @@
           "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
           "/^\\$.*$/": "$Trafo"
         },
-        "#": "JsonModel 80"
+        "#": "JsonModel 85"
       },
       "Root": {
         "|": [
@@ -1954,7 +2072,7 @@
             "": "$Model"
           }
         ],
-        "#": "JsonModel 81"
+        "#": "JsonModel 86"
       },
       "RootModel": {
         "|": [
@@ -1962,9 +2080,9 @@
           "$Array",
           "$Root"
         ],
-        "#": "JsonModel 82"
+        "#": "JsonModel 87"
       },
-      "#": "Symbol 60",
+      "#": "Symbol 65",
       "": "https://json-model.org/models/json-model"
     },
     "@": "$RootModel",
@@ -1979,13 +2097,13 @@
       -1.0,
       ""
     ],
-    "#": "JsonModel 62"
+    "#": "JsonModel 67"
   },
   "$ANY",
   "$NONE",
   {
     "?#": "",
-    "#": "JsonModel 65"
+    "#": "JsonModel 70"
   },
   [
     "$Model"
@@ -2001,36 +2119,36 @@
     },
     "/^(=|!=|\u2260)$/": "$Val",
     "?!": true,
-    "#": "JsonModel 67"
+    "#": "JsonModel 72"
   },
   {
     "_|": [
       "$Model"
     ],
-    "#": "JsonModel 68"
+    "#": "JsonModel 73"
   },
   {
     "_&": [
       "$Model"
     ],
-    "#": "JsonModel 69"
+    "#": "JsonModel 74"
   },
   {
     "_^": [
       "$Model"
     ],
-    "#": "JsonModel 70"
+    "#": "JsonModel 75"
   },
   {
     "_+": [
       "$Model"
     ],
-    "#": "JsonModel 71"
+    "#": "JsonModel 76"
   },
   {
     "": "$Model",
     "/^[@|&^+/*]$/": "$NONE",
-    "#": "JsonModel 72"
+    "#": "JsonModel 77"
   },
   {
     "|": [
@@ -2077,7 +2195,7 @@
         "": "$Model"
       }
     ],
-    "#": "JsonModel 73"
+    "#": "JsonModel 78"
   },
   {
     "|": [
@@ -2111,7 +2229,7 @@
         "?/": "$ANY"
       }
     ],
-    "#": "JsonModel 74"
+    "#": "JsonModel 79"
   },
   {
     "|": [
@@ -2125,7 +2243,7 @@
       "=-1.0",
       ""
     ],
-    "#": "JsonModel 75"
+    "#": "JsonModel 80"
   },
   {
     "|": [
@@ -2133,20 +2251,20 @@
       "$Array",
       "$Elem"
     ],
-    "#": "JsonModel 76"
+    "#": "JsonModel 81"
   },
   {
     "?": "$Url",
     "/.+/": "$Model",
-    "#": "JsonModel 77"
+    "#": "JsonModel 82"
   },
   {
     "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
-    "#": "JsonModel 78"
+    "#": "JsonModel 83"
   },
   {
     "/^\\$.*$/": "$Trafo",
-    "#": "JsonModel 79"
+    "#": "JsonModel 84"
   },
   {
     "?~": "$Url",
@@ -2160,7 +2278,7 @@
       "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
       "/^\\$.*$/": "$Trafo"
     },
-    "#": "JsonModel 80"
+    "#": "JsonModel 85"
   },
   {
     "|": [
@@ -2273,7 +2391,7 @@
         "": "$Model"
       }
     ],
-    "#": "JsonModel 81"
+    "#": "JsonModel 86"
   },
   {
     "|": [
@@ -2281,6 +2399,6 @@
       "$Array",
       "$Root"
     ],
-    "#": "JsonModel 82"
+    "#": "JsonModel 87"
   }
 ]

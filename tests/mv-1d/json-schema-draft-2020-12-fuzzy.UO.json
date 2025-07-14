@@ -412,11 +412,11 @@
         },
         "?$recursiveAnchor": "",
         "?$recursiveRef": "",
-        "#": "JsonModel 19"
+        "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "fuzzy": {
         "": "$ANY",
-        "#": "JsonModel 20"
+        "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "#": "Symbol 3",
       "": "https://json-model.org/models/json-schema-draft-2020-12"
@@ -674,10 +674,10 @@
     },
     "?$recursiveAnchor": "",
     "?$recursiveRef": "",
-    "#": "JsonModel 19"
+    "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "": "$ANY",
-    "#": "JsonModel 20"
+    "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   }
 ]

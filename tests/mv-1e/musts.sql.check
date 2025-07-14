@@ -1,0 +1,15 @@
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+TRUNCATE TABLE
+CREATE FUNCTION
+CREATE TABLE
+COPY 19
+UPDATE 19
+# count working tests
+ success | total 
+---------+-------
+      19 |    19
+(1 row)
+
+# OK

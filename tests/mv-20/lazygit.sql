@@ -13,11 +13,11 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- regex=^#[0-9a-fA-F]{6}$ opts=
+-- regex=^#[0-9a-fA-F]{6}$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^#[0-9a-fA-F]{6}$', '');
+  RETURN regexp_like(val, '^#[0-9a-fA-F]{6}$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -943,11 +943,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=. opts=
+-- regex=. opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '.', '');
+  RETURN regexp_like(val, '.', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -4038,11 +4038,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[^:]+:[^:]+$ opts=
+-- regex=^[^:]+:[^:]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[^:]+:[^:]+$', '');
+  RETURN regexp_like(val, '^[^:]+:[^:]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 

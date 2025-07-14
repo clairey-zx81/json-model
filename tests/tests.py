@@ -43,24 +43,28 @@ EXPECT: dict[str, int] = {
     "mv-04:values": 98,
     # chunk 05
     "mv-05:models": 9,
-    "mv-05:values": 0,
+    "mv-05:values": 81,
     # chunk 06
+    # FIXME schema missing Schema
     "mv-06:models": 8,
-    "mv-06:values": 0,
+    "mv-06:values": 72,
     # chunk 07
+    # FIXME schema missing Schema
     "mv-07:models": 5,
-    "mv-07:values": 0,
+    "mv-07:values": 45,
     # chunk 08
     "mv-08:models": 9,
-    "mv-08:values": 116,
+    "mv-08:values": 129,
     # chunk 09
     "mv-09:models": 10,
-    "mv-09:values": 45,
+    "mv-09:values": 141,
     "mv-09:errors.js": 2,
+    "mv-09:errors.sql": 2,
     # chunk 0A
     "mv-0a:models": 10,
-    "mv-0a:values": 74,
+    "mv-0a:values": 131,
     "mv-0a:errors.js": 1,
+    "mv-0a:errors.sql": 1,
     # chunk 0B
     "mv-0b:models": 7,
     "mv-0b:values": 82,
@@ -68,6 +72,7 @@ EXPECT: dict[str, int] = {
     "mv-0c:models": 5,
     "mv-0c:values": 50,
     "mv-0c:errors.js": 1,
+    "mv-0c:errors.sql": 1,
     # chunk 0D
     "mv-0d:models": 10,
     "mv-0d:values": 112,
@@ -82,33 +87,37 @@ EXPECT: dict[str, int] = {
     "mv-10:models": 9,
     "mv-10:values": 120,
     # chunk 11
-    "mv-11:models": 9,
-    "mv-11:values": 0,
+    "mv-11:models": 8,
+    "mv-11:values": 140,
     # chunk 12
     "mv-12:models": 10,
-    "mv-12:values": 0,
+    "mv-12:values": 124,
     # chunk 13
     "mv-13:js2json": 2,
     "mv-13:models": 12,
-    "mv-13:values": 81,
+    "mv-13:values": 91,
     "mv-13:errors.js": 1,
+    "mv-13:errors.sql": 1,
     # chunk 14
     "mv-14:models": 12,
     "mv-14:values": 84,
     "mv-14:errors.js": 6,
+    "mv-14:errors.sql": 6,
     # chunk 15
     "mv-15:js2json": 2,
     "mv-15:models": 12,
-    "mv-15:values": 102,
+    "mv-15:values": 133,
     "mv-15:errors.js": 1,
+    "mv-15:errors.sql": 1,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
     "mv-16:errors.js": 1,
     # chunk 17
     "mv-17:models": 12,
-    "mv-17:values": 136,
+    "mv-17:values": 145,
     "mv-17:errors.js": 2,
+    "mv-17:errors.sql": 2,
     # chunk 18
     "mv-18:js2json": 3,
     "mv-18:yaml2json": 1,
@@ -125,22 +134,25 @@ EXPECT: dict[str, int] = {
     "mv-1b:models": 10,
     "mv-1b:values": 68,
     "mv-1b:errors.js": 13,
+    "mv-1b:errors.sql": 13,
     # chunk 1C
     "mv-1c:models": 6,
-    "mv-1c:values": 64,
+    "mv-1c:values": 77,
     # chunk 1D
+    # FIXME schema missing Schema
     "mv-1d:models": 5,
-    "mv-1d:values": 0,
+    "mv-1d:values": 45,
     # chunk 1E
     "mv-1e:models": 10,
     "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
+    "mv-1e:errors.sql": 1,
     # chunk 1F
-    "mv-1f:models": 1,
-    "mv-1f:values": 25,
+    "mv-1f:models": 9,
+    "mv-1f:values": 136,
     # chunk 20
-    "mv-20:models": 3,
-    "mv-20:values": 5,
+    "mv-20:models": 8,
+    "mv-20:values": 98,
     # miscellaneous tests
     "bads:models": 54,
     # tests json models of json schema versions
@@ -207,7 +219,7 @@ def tmp_dir():
     # could cleanup
 
 
-@pytest.fixture(params=["py", "c", "js"])
+@pytest.fixture(params=["py", "c", "js", "sql"])
 def language(request):
     return request.param
 
@@ -370,9 +382,13 @@ def test_lang(directory, language):
     resolver = Resolver(None, dirmap(directory))
     suffix = f".{language}"
 
+    # default are different for PL/pgSQL
+    report = True if language != "sql" else False
+
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
-        return str(xstatic_compile(jm, "check_model", lang=language))
+        code = xstatic_compile(jm, "check_model", lang=language, map_threshold=5, report=report)
+        return str(code)
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)
 
@@ -558,7 +574,8 @@ def test_dyn_json_schema(directory):
                 "mv-00", "mv-01", "mv-03", "mv-04", "mv-0c",
                 "mv-08", "mv-09", "mv-0a", "mv-13", "mv-14",
                 "mv-15", "mv-16", "mv-17", "mv-19", "mv-1a",
-                "mv-1b", "mv-1c", "mv-1e", "ref",
+                "mv-1b", "mv-1c", "mv-1e", "mv-1f", "mv-20",
+                "ref",
             }:
         pytest.mark.skip(reason="wip")
         return

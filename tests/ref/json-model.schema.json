@@ -445,6 +445,13 @@
           "properties": {
             "#": {
               "type": "string"
+            },
+            "<": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^\\$"
+              }
             }
           },
           "additionalProperties": false
@@ -512,6 +519,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false
@@ -571,6 +585,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false
@@ -627,6 +648,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false
@@ -683,6 +711,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false
@@ -739,6 +774,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false
@@ -792,6 +834,13 @@
               "properties": {
                 "#": {
                   "type": "string"
+                },
+                "<": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\$"
+                  }
                 }
               },
               "additionalProperties": false

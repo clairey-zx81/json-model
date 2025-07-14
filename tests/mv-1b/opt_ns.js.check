@@ -2,4 +2,4 @@ opt_ns.values.json[1]: PASS
 opt_ns.values.json[2]: ERROR unexpected PASS
 opt_ns.values.json[3]: ERROR unexpected PASS
 opt_ns.values.json[4]: ERROR unexpected PASS
-opt_ns.values.json[5]: FAIL (.: unexpected object [.]; .i: invalid mandatory prop value [.i]; .i: not a -1 strict int [.i])
+opt_ns.values.json[5]: FAIL (.: unexpected element [.]; .i: invalid mandatory prop value [.i]; .i: not a -1 strict int [.i])

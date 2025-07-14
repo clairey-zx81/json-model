@@ -2,11 +2,11 @@ opt_nl.values.json[1]: PASS
 opt_nl.values.json[2]: PASS
 opt_nl.values.json[3]: PASS
 opt_nl.values.json[4]: PASS
-opt_nl.values.json[5]: FAIL (.: unexpected object [.]; .i: invalid mandatory prop value [.i]; .i: not a -1 loose int [.i])
-opt_nl.values.json[6]: FAIL (.: unexpected object [.]; .: not an object [.])
-opt_nl.values.json[7]: FAIL (.: unexpected object [.]; .: not an object [.])
-opt_nl.values.json[8]: FAIL (.: unexpected object [.]; .: not an object [.])
-opt_nl.values.json[9]: FAIL (.: unexpected object [.]; .: not an object [.])
-opt_nl.values.json[10]: FAIL (.: unexpected object [.]; .: not an object [.])
-opt_nl.values.json[11]: FAIL (.: unexpected object [.]; .: missing mandatory prop <i> [.]; .: missing mandatory prop <f> [.])
-opt_nl.values.json[12]: FAIL (.: unexpected object [.]; .not: unexpected prop [.])
+opt_nl.values.json[5]: FAIL (.: unexpected element [.]; .i: invalid mandatory prop value [.i]; .i: not a -1 loose int [.i])
+opt_nl.values.json[6]: FAIL (.: unexpected element [.]; .: not an object [.])
+opt_nl.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
+opt_nl.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
+opt_nl.values.json[9]: FAIL (.: unexpected element [.]; .: not an object [.])
+opt_nl.values.json[10]: FAIL (.: unexpected element [.]; .: not an object [.])
+opt_nl.values.json[11]: FAIL (.: unexpected element [.]; .: missing mandatory prop <i> [.]; .: missing mandatory prop <f> [.])
+opt_nl.values.json[12]: FAIL (.: unexpected element [.]; .not: unexpected prop [.])

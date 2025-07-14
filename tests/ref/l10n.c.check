@@ -1,0 +1,10 @@
+l10n.values.json[0]: PASS
+l10n.values.json[1]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[2]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[3]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[4]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[5]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[6]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
+l10n.values.json[9]: FAIL (.: unexpected element [.]; .: missing mandatory prop <~> [.]; .: missing mandatory prop <@> [.]; .: missing mandatory prop <%> [.]; .: missing mandatory prop <$> [.])

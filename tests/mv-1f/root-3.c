@@ -102,7 +102,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_0(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$foo#Foo']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$foo#Foo']", path);
     }
     return res;
 }
@@ -186,7 +186,7 @@ static bool json_model_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
     res = _jm_obj_1(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected object [.'$foo#root#root#Root']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected element [.'$foo#root#root#Root']", path);
     }
     return res;
 }

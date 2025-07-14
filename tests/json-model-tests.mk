@@ -48,6 +48,9 @@ F.gen   = \
     $(F.c) $(F.py) $(F.cc) $(F.sql) \
     $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc)
 
+# FIXME
+.NOTPARALLEL: $(F.sqlc)
+
 .PHONY: all
 all: $(F.gen)
 

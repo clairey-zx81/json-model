@@ -11,7 +11,7 @@ DECLARE
   res bool;
 BEGIN
   -- .
-  res := JSONB_TYPEOF(val) = 'string'AND jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND jm_is_valid_date(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

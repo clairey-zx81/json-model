@@ -106,7 +106,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'$'
             res = _jm_obj_1(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected object [.'$']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'$']", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'$']", lpath_0 if path is not None else None))
                 return False
@@ -126,7 +126,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .'%'
             res = _jm_obj_2(pval, lpath_0 if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected object [.'%']", lpath_0 if path is not None else None))
+                rep is None or rep.append(("unexpected element [.'%']", lpath_0 if path is not None else None))
             if not res:
                 rep is None or rep.append(("invalid mandatory prop value [.'%']", lpath_0 if path is not None else None))
                 return False
@@ -171,7 +171,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     # .
     res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("unexpected object [.]", path))
+        rep is None or rep.append(("unexpected element [.]", path))
     return res
 
 

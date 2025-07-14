@@ -1,0 +1,19 @@
+[
+  [ true,
+    {
+      "$": {"": "https://test", "Model": "$https://json-model.org/models/json-model" },
+      "~": "https://json-model.org/models/l10n",
+      "%": {".ceci-est-un-commentaire": "#"},
+      "@": "$Model"
+    }
+  ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ]
+]

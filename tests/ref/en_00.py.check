@@ -1,0 +1,9 @@
+en_00.values.json[0]: PASS
+en_00.values.json[1]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[2]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[3]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[4]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[5]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[6]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[7]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])
+en_00.values.json[8]: FAIL (.: no model matched [.'|']; .: not a 0.0 strict float [.'|'.1]; .: not a 0 strict int [.'|'.0])

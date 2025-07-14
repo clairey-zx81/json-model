@@ -1,0 +1,4 @@
+[
+  [ true,  { "#": "no merge no trafo", "@": "_Susie" } ],
+  [ false, { "+": [ {"a": 1, "b": 0}, {}, {"c": "", "d": true} ] } ]
+]

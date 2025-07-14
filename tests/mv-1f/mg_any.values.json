@@ -1,0 +1,17 @@
+[
+  [ true,  {"a": 42, "b": 42} ],
+  [ true,  {"a": 42, "b": 42, "c": 18} ],
+  [ true,  {"a": 42, "b": 42, "foobla": 18} ],
+  [ true,  {"a": 42, "b": 42, "2020-07-29": 18} ],
+  [ false, {"a": 42} ],
+  [ false, {"b": 42} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "unexpected"] ]
+]

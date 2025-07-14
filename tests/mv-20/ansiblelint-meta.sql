@@ -5784,11 +5784,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[a-z][-a-z0-9_]+$ opts=
+-- regex=^[a-z][-a-z0-9_]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[a-z][-a-z0-9_]+$', '');
+  RETURN regexp_like(val, '^[a-z][-a-z0-9_]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -5817,11 +5817,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[a-z][a-z0-9_]+$ opts=
+-- regex=^[a-z][a-z0-9_]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_1(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[a-z][a-z0-9_]+$', '');
+  RETURN regexp_like(val, '^[a-z][a-z0-9_]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
@@ -6740,11 +6740,11 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^[a-z_]+\.[a-z_]+$ opts=
+-- regex=^[a-z_]+\.[a-z_]+$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_2(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
-  RETURN regexp_like(val, '^[a-z_]+\.[a-z_]+$', '');
+  RETURN regexp_like(val, '^[a-z_]+\.[a-z_]+$', 'n');
 END;
 $$ LANGUAGE plpgsql;
 
