@@ -251,7 +251,7 @@ class JavaScript(Language):
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         return self.var(var, val, "String")
 
-    def match_re(self, rname: str, val: str) -> Expr:
+    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
         return f"{rname}_re.exec({val})"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:

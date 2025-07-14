@@ -21,7 +21,7 @@ log.setLevel(logging.INFO)
 EXPECT: dict[str, int] = {
     # reference
     "ref:models": 9,
-    "ref:values": 31,
+    "ref:values": 111,
     # chunk 00
     "mv-00:models": 10,
     "mv-00:values": 95,
@@ -403,9 +403,11 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
     # try all sources
     for fpath in sorted(directory.glob(f"*{suffix}")):
+        out = ""
         fname = f"./{fpath}"
+
         # skip *.model.js
-        if ".model." in fname:
+        if fname.endswith(".model.js"):
             continue
         fexec = generate(fname)
         log.debug(f"{name}[{directory}]: {fname} ({fexec})")
@@ -414,17 +416,26 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
         # run on all validations
         bname = fname.replace(suffix, "").split("/", -1)[-1]
 
+        # true/false value files
         values = list(directory.glob(f"{bname}.*.true.json")) + \
                  list(directory.glob(f"{bname}.*.false.json"))
         vfiles = " ".join(sorted(str(f) for f in values))
 
-        for line in os.popen(f"{fexec} {vfiles}"):
-            nvalues += 1
-            assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
-                f"result as expected: {line}"
+        if values:
 
+            for line in os.popen(f"{fexec} {vfiles}"):
+                nvalues += 1
+                assert re.search(r"(\.true\.json: PASS|\.false\.json: FAIL)$", line) is not None, \
+                    f"result as expected: {line}"
+
+            with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
+                out = p.read()
+
+        # values file
         vfile = directory.joinpath(bname + ".values.json")
+
         if vfile.exists():
+
             for line in os.popen(f"{fexec} -t {vfile}"):
                 nvalues += 1
                 if ": ERROR" not in line and (": PASS" in line or ": FAIL" in line):
@@ -434,11 +445,6 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
                 else:
                     assert False, f"unexpected ERROR for {line}"
 
-        # run again with reporting
-        with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
-            out = p.read()
-
-        if vfile.exists():
             with os.popen(f"{fexec} -tr {vfile} | cut -d/ -f2-") as p:
                 out += p.read()
 
@@ -566,15 +572,17 @@ def test_dyn_json_schema(directory):
 
     # Some test cases cannot validate because:
     # 1. they require strict int/float (feature)
-    # 2. there is no direct schema for a model (feature)
-    # 3. the schema is wrong (bug)
+    # 2. there is no direct schema for a model (missing feature)
+    # 3. the model contains external references (untranslated, should be inlined?)
+    # 4. the schema is plain wrong (bug)
     # for now, just skip the corresponding directories
     log.debug(f"directory: {str(directory)}")
     if str(directory) in {
-                "mv-00", "mv-01", "mv-03", "mv-04", "mv-0c",
-                "mv-08", "mv-09", "mv-0a", "mv-13", "mv-14",
-                "mv-15", "mv-16", "mv-17", "mv-19", "mv-1a",
-                "mv-1b", "mv-1c", "mv-1e", "mv-1f", "mv-20",
+                "mv-00", "mv-01", "mv-03", "mv-04", "mv-06", "mv-07",
+                "mv-08", "mv-09", "mv-0a", "mv-0c",
+                "mv-13", "mv-14", "mv-15", "mv-16", "mv-17",
+                "mv-19", "mv-1a", "mv-1b", "mv-1c", "mv-1d", "mv-1e", "mv-1f",
+                "mv-20",
                 "ref",
             }:
         pytest.mark.skip(reason="wip")

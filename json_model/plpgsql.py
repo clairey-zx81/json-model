@@ -22,7 +22,7 @@ class PLpgSQL(Language):
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
              check_t="TEXT", json_t="JSONB",
-             path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="BOOLEAN",
+             path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
              eoi=";", relib=relib, debug=debug,
              set_caps=[type(None), bool, int, float, str])
 
@@ -294,7 +294,7 @@ class PLpgSQL(Language):
     # (Extended) Regular Expressions
     #
     def regroup(self, name: str, pattern: str = ".*") -> str:
-        return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
+        return f"({pattern})"
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         # trigger _usual_ newline sensitive matching which is not the default with pg
@@ -311,19 +311,18 @@ class PLpgSQL(Language):
         ]
 
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = True) -> Block:
-        return [ f"{_DECL}_{var} TEXT;" ]
+        return [ f"{_DECL}{var} TEXT;" ]
 
-    def match_re(self, rname: str, val: str) -> Expr:
-        return "FALSE"
+    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
+        if "s" not in opts:
+            opts = "n" + opts
+        return f"regexp_match({val}, {self.esc(regex)}, {self.esc(opts)})"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
-        return [
-            "-- TODO",
-            f"_{dname} := NULL;"
-        ]
+        return [ f"{dname} := {mname}[{sname[1:]}];" ]
 
-    def def_strfun(self, fname: str) -> Block:
-        return []
+    def match_ko(self, mname: str) -> BoolExpr:
+        return f"{mname} IS NULL"
 
     def _plbody(self, body: Block) -> Block:
         """Generate a full DECLARE/BEGIN/END; PL/pgSQL function body."""

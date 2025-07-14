@@ -432,6 +432,9 @@ class Language:
         """Assign and possibly declare a match result variable."""
         return self.var(var, val, self._match_t if declare else None)
 
+    def match_ko(self, var: Var) -> BoolExpr:
+        return self.not_op(var)
+
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         """Declare a variable for a matching result extracted from val."""
         # the value is just as a length helper
@@ -599,7 +602,7 @@ class Language:
         """Free a regex."""
         return []
 
-    def match_re(self, name: str, var: str) -> BoolExpr:
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         """Get a match result for string variable var value."""
         raise NotImplementedError("see derived classes")
 

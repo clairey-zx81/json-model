@@ -9,11 +9,12 @@
 - [x] sql-backend: implement basic regex
 - [x] tests: add sql to pytest
 - [x] tests: parallelize sql checks in makefile
-- [ ] design: add import `<` with scalar
-- [ ] sql-backend: implement extended regex
-- [ ] sql-backend: package support as an extension
+- [x] sql-backend: implement extended regex
 - [ ] tests: add sql.check to pytest
 - [ ] tests: parallelize sql checks in pytest
+- [ ] design: add import `<` with scalar
+- [ ] sql-backend: package support as an extension
+- [ ] schema: inline external reference to generate valid schemas
 - [ ] design: add predefs for `$UUIDx`…
 - [ ] model: warn on url-looking definitions
 - [ ] python: rerun style and type checks

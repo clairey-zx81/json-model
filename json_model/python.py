@@ -241,7 +241,7 @@ class Python(Language):
             f"{name} = None"
         ]
 
-    def match_re(self, name: str, val: str) -> Expr:
+    def match_re(self, name: str, val: str, regex: str, opts: str) -> Expr:
         return f"{name}_reco.search({val})"
 
     def match_val(self, mname: str, rname: str, sname: str, dest: str) -> Block:

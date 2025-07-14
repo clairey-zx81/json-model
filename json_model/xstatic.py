@@ -71,12 +71,14 @@ class CodeGenerator:
         self._generated_maps.clear()
 
     def _exreg(self, jm: JsonModel, name: str, rname: str, remap: dict[str, str],
-               path: str) -> Block:
+               regex: str, opts: str, path: str) -> Block:
         """Generate post regex code for extended regular expression."""
         gen = self._lang
-        code = gen.match_str_var(rname, "extract", "val", declare=True) + \
-            gen.match_var("match", gen.match_re(rname, "val"), declare=True) + \
-            gen.if_stmt(gen.not_op("match"), gen.ret(gen.const(False)))
+        code = (
+            gen.match_str_var(rname, "extract", "val", declare=True) +
+            gen.match_var("match", gen.match_re(rname, "val", regex, opts), declare=True) +
+            gen.if_stmt(gen.match_ko("match"), gen.ret(gen.const(False)))
+        )
         checks = []
         # sname is the name of the substring
         for sname, ref in remap.items():
@@ -97,6 +99,7 @@ class CodeGenerator:
         if regex not in self._regs:
 
             remap: dict[str, str] = {}
+            nparen: int = 0
 
             # extract and check actual pattern
             try:
@@ -111,17 +114,25 @@ class CodeGenerator:
 
                     # match name to reference
                     def subref(match):
-                        log.debug(f"subref match={match}")
-                        name = f"s{len(remap)}"
-                        matched = match.group(0)[1:-1]
-                        if ":" in matched:
-                            dollar, pattern = matched.split(":", 1)
-                        else:
-                            dollar, pattern = matched, ".*"
-                        remap[name] = dollar
-                        return gen.regroup(name, pattern)
+                        # log.debug(f"subref match={match}")
+                        nonlocal nparen
+                        nparen += 1
+                        name = f"s{nparen}"
+                        matched = match.group(0)
+                        if len(matched) > 1:
+                            matched = matched[1:-1]
+                            if ":" in matched:
+                                dollar, pattern = matched.split(":", 2)
+                            else:
+                                dollar, pattern = matched, ".*"
+                            remap[name] = dollar
+                            return gen.regroup(name, pattern)
+                        else:  # no substitution
+                            return matched
 
-                    pattern = re.sub(r"\(\$\w+(:[^)]*)?\)", subref, pattern)
+                    # FIXME this is possibly wrong
+                    # we want both to count grouping parenthesis and ($FOO) pattern extensions
+                    pattern = re.sub(r"\((\$\w+(:[^)]*)?\))?", subref, pattern)
 
                 # statically check re validity by trying to compile it
                 if self._lang._relib == "re2":
@@ -139,7 +150,7 @@ class CodeGenerator:
             if remap:
                 fun = gen.ident(self._prefix + "xre")
                 self._code.regex(fun + "_re", pattern, ropts)
-                self._exreg(jm, fun, fun + "_re", remap, path)
+                self._exreg(jm, fun, fun + "_re", remap, pattern, ropts, path)
             else:
                 fun = gen.ident(self._prefix + "re")
                 self._code.regex(fun, pattern, ropts)

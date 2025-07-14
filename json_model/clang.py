@@ -403,7 +403,7 @@ class CLangJansson(Language):
                 f"cre2_string_t matches[{rname}_nn];",
             ]
 
-    def match_re(self, rname: str, val: str) -> Expr:
+    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
         if self._relib == "pcre2":
             return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
                    f" 0, 0, {rname}_data, NULL) != 0"
