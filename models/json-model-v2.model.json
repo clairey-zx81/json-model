@@ -58,7 +58,7 @@
     "RootOnly": {
       "?~": "$Url",
       "?$": { "+": [ "$Common", "$Defs" ] },
-      "?%": { "+": [ "$Common", "$Rename", "$Rewrite" ] }
+      "?%": { "+": [ "$Common", "$Rename", "$Rewrite", {"?<": ["/^\\$/"]} ] }
     },
     "Root": { "+": [ "$RootOnly", "$Elem" ] },
     "RootModel": { "|": [ "$Scalar", "$Array", "$Root" ] }

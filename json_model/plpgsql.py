@@ -172,7 +172,7 @@ class PLpgSQL(Language):
 
     def str_end(self, val: str, string: str) -> BoolExpr:
         sstr = self.esc(string)
-        return "TODO"
+        return f"RIGHT({val}, {len(string)}) = {self.esc(string)}"
 
     def check_call(self, fun: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
@@ -297,6 +297,9 @@ class PLpgSQL(Language):
         return f"(?P<{name}>{pattern})" if self._relib == "re2" else super().regroup(name, pattern)
 
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
+        # trigger _usual_ newline sensitive matching which is not the default with pg
+        if "s" not in opts:
+            opts = "n" + opts
         return [
             f"-- regex={regex} opts={opts}",
             f"CREATE OR REPLACE FUNCTION {name}(val TEXT, path TEXT[], rep jm_report_entry[])",
@@ -306,20 +309,18 @@ class PLpgSQL(Language):
             r"END;",
             r"$$ LANGUAGE plpgsql;",
         ]
-        return [f"-- sub_re name={name} regex={regex} opts={opts}"]
 
-    def del_re(self, name: str, regex: str, opts: str) -> Block:
-        return [f"-- del_re name={name} regex={regex} opts={opts}"]
-
-    # TODO add rname
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = True) -> Block:
-        return [f"-- match_str_var rname={rname}…"]
+        return [ f"{_DECL}_{var} TEXT;" ]
 
     def match_re(self, rname: str, val: str) -> Expr:
-        return "TODO:match_re"
+        return "FALSE"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
-        return [f"-- match_val rname={rname}…"]
+        return [
+            "-- TODO",
+            f"_{dname} := NULL;"
+        ]
 
     def def_strfun(self, fname: str) -> Block:
         return []
@@ -342,7 +343,7 @@ class PLpgSQL(Language):
     def sub_strfun(self, fname: str, body: Block) -> Block:
         return [
             f"CREATE OR REPLACE FUNCTION {fname}(val TEXT, path TEXT[], rep jm_report_entry[])",
-            r"RETURNING BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
+            r"RETURNS BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + [ "$$ LANGUAGE PLpgSQL;"]
 
 

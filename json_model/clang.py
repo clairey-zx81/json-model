@@ -386,7 +386,7 @@ class CLangJansson(Language):
             ]
 
     # TODO add rname
-    def match_str_var(self, rname: str, var: str, val: str, declare: bool = True) -> Block:
+    def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         assert declare
         if self._relib == "pcre2":
             return [

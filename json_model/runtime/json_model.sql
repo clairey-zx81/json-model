@@ -76,6 +76,22 @@ EXCEPTION
 END;
 $$ LANGUAGE plpgsql;
 
+-- $TIME
+CREATE OR REPLACE FUNCTION
+  jm_is_valid_time(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  IF val IS NULL THEN
+    RETURN FALSE;
+  END IF;
+  PERFORM val::TIME;
+  RETURN TRUE;
+EXCEPTION
+  WHEN data_exception THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
 -- $REGEX
 CREATE OR REPLACE FUNCTION
   jm_is_valid_regex(val TEXT, path TEXT[], rep jm_report_entry[])
@@ -121,6 +137,15 @@ CREATE OR REPLACE FUNCTION
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN val IS NOT NULL AND val ~ '^((https?|file)://|\.)\S*$';
+END;
+$$ LANGUAGE plpgsql;
+
+-- $EMAIL
+CREATE OR REPLACE FUNCTION
+  jm_is_valid_email(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN val IS NOT NULL AND val ~ '^[_A-Za-z0-9_.]+@[_A-Za-z0-9_.]+$';
 END;
 $$ LANGUAGE plpgsql;
 

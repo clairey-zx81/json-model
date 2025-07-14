@@ -1387,7 +1387,7 @@ def xstatic_compile(
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report, relib=relib or "re")
-    elif lang == "plpgsql":
+    elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
         language = PLpgSQL(debug=debug, with_report=report, with_path=report, relib=relib or "re")
     else:

@@ -248,7 +248,7 @@ class JavaScript(Language):
     def match_var(self, var: str, val: Expr, declare: bool) -> Block:
         return self.var(var, val, "Array")
 
-    def match_str_var(self, var: str, val: str, declare: bool = True) -> Block:
+    def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         return self.var(var, val, "String")
 
     def match_re(self, rname: str, val: str) -> Expr:
