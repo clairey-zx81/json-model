@@ -299,10 +299,6 @@ class Language:
         """
         return f"{name}({val}, {path}, rep)"
 
-    def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
-        """Ternary operator."""
-        raise NotImplementedError("ternary")
-
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         """Check uniqueness."""
         raise NotImplementedError("check_unique")

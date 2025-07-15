@@ -155,9 +155,6 @@ class PLpgSQL(Language):
     #
     # misc expressions
     #
-    def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:  # type: ignore
-        return f"CASE WHEN ({cond}) THEN ({true}) ELSE ({false}) END"
-
     def assign_expr(self) -> bool:
         return False
 

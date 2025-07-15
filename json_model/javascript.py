@@ -23,11 +23,11 @@ class JavaScript(Language):
              true="true", false="false", null="null", relib=relib,
              check_t="object", json_t="object", int_t="Number", float_t="Number",
              path_t="?", str_t="String", match_t="bool",
-             eoi=";", set_caps=[type(None), bool, int, float, str])
+             eoi=";", set_caps=(type(None), bool, int, float, str))  # type: ignore
 
         assert self._relib in ("re", "re2"), f"unsupported regex engine: {self._relib}"
 
-        self._json_esc_table: str.maketrans(_ESC_TABLE)
+        self._json_esc_table = str.maketrans(_ESC_TABLE)
 
     #
     # file
@@ -67,7 +67,7 @@ class JavaScript(Language):
         elif tval is bool:
             return f"(typeof {var} === 'boolean' || {var} instanceof Boolean)"
         elif tval is int:
-            return self.is_num(var) + f" && Number.isInteger({var})"
+            return self.is_num(var) + f" && Number.isInteger({var})"  # type: ignore
         elif tval is float:
             return self.is_num(var)
         elif tval is Number:
@@ -82,6 +82,8 @@ class JavaScript(Language):
         elif tval is dict:
             # well, nearly everything is an object in JS, including null and arrays
             return f"Object.prototype.toString.call({var}) === '[object Object]'"
+        else:
+            raise Exception(f"unexpected type for json: {tval.__name__}")
 
     def _json_str(self, j) -> str:
         return '"' + json.dumps(j).translate(self._json_esc_table) + '"'
@@ -89,17 +91,17 @@ class JavaScript(Language):
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
 
-    def const(self, val: Jsonable) -> Expr:
-        if isinstance(val, (list, dict)):
-            return self.json_cst(val)
+    def const(self, c: Jsonable) -> Expr:
+        if isinstance(c, (list, dict)):
+            return self.json_cst(c)
         else:
-            return super().const(val)
+            return super().const(c)
 
-    def obj_prop_val(self, obj: Var, prop: Expr, is_prop: bool = False) -> Expr:
-        return f"{obj}[{prop}]" if is_prop else f"{obj}[{self.esc(prop)}]"
+    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
+        return f"{obj}[{prop}]" if is_var else f"{obj}[{self.esc(prop)}]"  # type: ignore
 
-    def has_prop(self, var: Var, prop: str) -> BoolExpr:
-        return f"{var}.hasOwnProperty({self.esc(prop)})"
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"{obj}.hasOwnProperty({self.esc(prop)})"
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
@@ -140,17 +142,14 @@ class JavaScript(Language):
     #
     # misc expressions
     #
-    def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
-        return f"(({cond}) ? ({true}) : ({false}))"
+    def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> JsonExpr:
+        return f"({fun} = {mapname}.get({prop}))"
 
-    def assign_prop_fun(self, fun: str, prop: str, name: str) -> Expr:
-        return f"({fun} = {name}.get({prop}))"
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        return f"{val}.startsWith({self.esc(start)})"
 
-    def str_start(self, val: str, string: str) -> BoolExpr:
-        return f"{val}.startsWith({self.esc(string)})"
-
-    def str_end(self, val: str, string: str) -> BoolExpr:
-        return f"{val}.endsWith({self.esc(string)})"
+    def str_end(self, val: str, end: str) -> BoolExpr:
+        return f"{val}.endsWith({self.esc(end)})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"runtime.jm_array_is_unique({val}, {path}, rep)"
@@ -185,7 +184,7 @@ class JavaScript(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
         return f"{pvar} ? {pvar}.concat([{pseg}]) : null" if self._with_path else "null"
 
@@ -244,23 +243,20 @@ class JavaScript(Language):
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         return [ f"const {name} = (s) => {name}_re.exec(s) !== null" ]
 
-    def match_var(self, var: str, val: Expr, declare: bool) -> Block:
+    def match_var(self, var: str, val: Expr|None = None, declare: bool = False) -> Block:
         return self.var(var, val, "Array")
 
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         return self.var(var, val, "String")
 
-    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
-        return f"{rname}_re.exec({val})"
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
+        return f"{name}_re.exec({var})"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
         return [ f"{dname} = {mname}.groups[{self.esc(sname)}]" ]
 
-    def def_strfun(self, fname: str) -> Block:
-        return []
-
-    def sub_strfun(self, fname: str, body: Block) -> Block:
-        return [ f"function {fname}(val, path, rep)" ] + self.indent(body)
+    def sub_strfun(self, name: str, body: Block) -> Block:
+        return [ f"function {name}(val, path, rep)" ] + self.indent(body)
 
     #
     # Property Map

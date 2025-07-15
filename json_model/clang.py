@@ -175,9 +175,6 @@ class CLangJansson(Language):
     #
     # misc expressions
     #
-    def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
-        return f"(({cond}) ? ({true}) : ({false}))"
-
     def assign_prop_fun(self, fun: str, prop: str, name: str) -> Expr:
         return f"({fun} = {name}({prop}))"
 

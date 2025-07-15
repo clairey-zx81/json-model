@@ -120,9 +120,6 @@ class Python(Language):
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
 
-    def ternary(self, cond: BoolExpr, true: BoolExpr, false: BoolExpr) -> BoolExpr:
-        return f"{true} if {cond} else {false}"
-
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
         return f"{fun} := {mapname}.get({prop})"
 
