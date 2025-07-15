@@ -267,7 +267,7 @@ class CLangJansson(Language):
         else:
             return None
 
-    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"({rvar} ? &{lvar} : NULL)" if self._with_path else "NULL"
 
     #

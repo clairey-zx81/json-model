@@ -189,7 +189,7 @@ class JavaScript(Language):
         # note: segment is a variable name for a prop or an integer
         return f"{pvar} ? {pvar}.concat([{pseg}]) : null" if self._with_path else "null"
 
-    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"({rvar} ? {lvar} : null)" if self._with_path else "null"
 
     #

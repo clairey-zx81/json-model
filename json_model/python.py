@@ -136,7 +136,7 @@ class Python(Language):
         pvar = f"({pvar})" if " if " in pvar else pvar
         return f"({pvar} + [ {pseg} ]) if {pvar} is not None else None" if self._with_path else "None"
 
-    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         # avoid nested if expressions
         rvar = f"({rvar})" if " if " in rvar else rvar
         lvar = f"({lvar})" if " if " in lvar else lvar

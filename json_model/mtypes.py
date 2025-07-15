@@ -29,7 +29,7 @@ type Compiler = typing.Callable[[ModelType, str], CheckFun|None]
 type ModelCheckFun = typing.Callable[[ValueType, JsonPath], bool]
 
 JsonModel = typing.NewType("JsonModel", None)
-type Symbols = dict[str, JsonModel]
+type Symbols = typing.MutableMapping[str, JsonModel]
 type JsonSchema = bool|dict[str, Jsonable]
 # del JsonModel
 

@@ -239,7 +239,7 @@ class PLpgSQL(Language):
         # note: segment is a variable name for a prop or an integer
         return f"array_append({pvar}, {pseg})" if self._with_path else None
 
-    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"
 
     #

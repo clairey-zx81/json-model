@@ -8,11 +8,12 @@ type Var = str
 
 # typed expressions
 type JsonExpr = str
-type BoolExpr = str
-type IntExpr = str
+type BoolExpr = str|bool
+type IntExpr = str|int
 type FloatExpr = str
-type NumExpr = str
+type NumExpr = str|int
 type StrExpr = str
+type PathExpr = Var|str
 # all value expressions
 type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
 
@@ -49,7 +50,7 @@ class Language:
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True,
-            with_comment: bool = True, set_caps: list[type|None] = (str,),
+            with_comment: bool = True, set_caps: tuple[type] = (str,),
         ):
 
         # parameter consistency
@@ -218,6 +219,12 @@ class Language:
         else:
             return str(c)
 
+    def true(self) -> BoolExpr:
+        return self.const(True)  # pyright: ignore
+
+    def false(self) -> BoolExpr:
+        return self.const(False)  # pyright: ignore
+
     #
     # inline json scalar value extraction
     #
@@ -228,11 +235,11 @@ class Language:
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
+    def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         """Get array item for an index."""
         return f"{arr}[{idx}]"
 
-    def obj_prop_val(self, obj: Var, prop: Var, is_var: bool = False) -> Expr:
+    def obj_prop_val(self, obj: Var, prop: Var, is_var: bool = False) -> JsonExpr:
         """Get object property value."""
         raise NotImplementedError("obj_prop_val")
 
@@ -477,7 +484,7 @@ class Language:
         """Append a segment variable/value to path."""
         raise NotImplementedError("see derived classes")
 
-    def path_lvar(self, lvar: Var, rvar: Var) -> Expr:
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         # avoid nested if expressions
         raise NotImplementedError("see derived classes")
 
