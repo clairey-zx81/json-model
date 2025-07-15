@@ -287,7 +287,13 @@ class JsonModel:
 
             # reference imports
             if "<" in model_pc:
-                self._imports = model_pc["<"]
+                imports = model_pc["<"]
+                if isinstance(imports, str):
+                    imports = [imports]
+                else:
+                    assert (isinstance(imports, list) and
+                            all(map(lambda i: isinstance(i, str), imports)))
+                self._imports = imports  # type: ignore
 
             # extract rewrites
             # TODO check name syntax? $Path#To#Def.path.to.prop
@@ -381,8 +387,8 @@ class JsonModel:
             # probably it would be enough to rewrite only the changed externals,
             # but which one were changed is not visible from here so we load again
             # everything, just in case.
-            for mid in reversed(list(self._head._models.keys())):
-                jm = self._head._models[mid]
+            for mid in reversed(list(self._head._models.keys())):  # pyright: ignore
+                jm = self._head._models[mid]  # pyright: ignore
                 if jm._is_root:
                     jm.allLoads()
             self.scope(self._globs, [], set(), {})
@@ -431,7 +437,8 @@ class JsonModel:
                 log.debug(f"{self._id}: loading {url}")
                 followed.add(url)
                 jm = self.load(url, path)
-                log.debug(f"{self._id}: head models: {[mid for mid in sorted(self._head._models.keys())]}")
+                log.debug(f"{self._id}: head models: "
+                          f"{[mid for mid in sorted(self._head._models.keys())]}")  # pyright: ignore
 
                 # handle sequence of fragments
                 while frag:
@@ -469,6 +476,7 @@ class JsonModel:
         if self._isUrlRef(self._model):
             # if the root schema is a string, there was no definitions nor rewrites!
             # ??? assert len(self._defs) == 0 and isinstance(self._model, str)
+            assert isinstance(self._model, str)  # pyright helper
             self.override(follow(self._model, []))
 
         names = list(self._defs.keys())
@@ -547,10 +555,10 @@ class JsonModel:
         if verbose:
             data["init"] = self._init_md
         if self._is_head:
-            assert isinstance(self._models, dict)  # pyright hint
+            assert self._models is not None and isinstance(self._models, dict)  # pyright hint
             data["dependents"] = {
-                mid: self._head._models[mid]._url
-                    for mid in sorted(self._head._models.keys())
+                mid: self._head._models[mid]._url  # pyright: ignore
+                    for mid in sorted(self._head._models)  # pyright: ignore
             }
             if recurse:
                 data["globals"] = {
@@ -1044,7 +1052,7 @@ class JsonModel:
                 log.debug(f"{jm._id}: applying on p={p} in j={j} trafo={trafo}")
                 j[p] = self._applyTrafo(j[p], trafo, path)  # type: ignore
                 if self._debug >= 3:
-                    log.debug(f"{self._id}: after trafo j[p] = {j[p]}")
+                    log.debug(f"{self._id}: after trafo j[p] = {j[p]}")  # pyright: ignore
             else:  # move forward
                 log.debug(f"{jm._id}: moving forward on p={p}")
                 j = j[p]  # type: ignore
