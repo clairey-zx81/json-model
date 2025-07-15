@@ -13,7 +13,8 @@
 - [x] tests: add sql.check to pytest
 - [x] tests: parallelize sql checks in pytest
 - [x] tuto: add PL/pgSQL entry
-- [ ] python: rerun style and type checks
+- [x] python: rerun type check (some ignore added, but a few fixes as well)
+- [ ] python: rerun style check
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension

@@ -235,7 +235,7 @@ class PLpgSQL(Language):
     #
     def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
-        return f"array_append({pvar}, {pseg})" if self._with_path else None  # pyright: ignore
+        return f"array_append({pvar}, {pseg})" if self._with_path else "NULL"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"

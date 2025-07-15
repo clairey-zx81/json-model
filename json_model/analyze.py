@@ -171,7 +171,7 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
         try:
             check(jm, validFlt, "JSON Model Structural Validity")
         except AssertionError as e:
-            log.error(e, exc_info=jm._debug)
+            log.error(e, exc_info=jm._debug > 0)
             is_valid = False
             if jm._debug:
                 raise

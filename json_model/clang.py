@@ -25,13 +25,13 @@ class CLangJansson(Language):
              path_t="jm_path_t", float_t="double", str_t="char *",
              match_t="bool" if relib == "pcre2" else "int",
              eoi=";", relib=relib, debug=debug,
-             set_caps=[type(None), bool, int, float, str])
+             set_caps=(type(None), bool, int, float, str))  # type: ignore
 
         assert relib in ("pcre2", "re2"), f"regex engine {relib} is not supported, try: pcre2/re2"
 
         # we keep 2 ints: "int64_t" and "int"
         self._int: str = int_t
-        self._json_esc_table: str.maketrans(_ESC_TABLE)
+        self._json_esc_table = str.maketrans(_ESC_TABLE)
 
     #
     # file
@@ -95,6 +95,8 @@ class CLangJansson(Language):
             return f"json_is_array({var})"
         elif tval is dict:
             return f"json_is_object({var})"
+        else:
+            raise Exception(f"unexpected type for json: {tval.__name__}")
 
     def _json_str(self, j) -> str:
         return '"' + json.dumps(j).translate(self._json_esc_table) + '"'
@@ -102,14 +104,14 @@ class CLangJansson(Language):
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return f"json_loads({self._json_str(j)}, JSON_DECODE_ANY|JSON_ALLOW_NUL, NULL)"
 
-    def const(self, val: Jsonable) -> Expr:
-        if isinstance(val, (list, dict)):
-            return self.json_cst(val)
+    def const(self, c: Jsonable) -> Expr:
+        if isinstance(c, (list, dict)):
+            return self.json_cst(c)
         else:
-            return super().const(val)
+            return super().const(c)
 
-    def has_prop(self, var: Var, prop: str) -> BoolExpr:
-        return f"json_object_get({var}, {self.esc(prop)}) != NULL"
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"json_object_get({obj}, {self.esc(prop)}) != NULL"
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
@@ -150,12 +152,12 @@ class CLangJansson(Language):
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
+    def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return f"json_array_get({arr}, {idx})"
 
-    def obj_prop_val(self, obj: Var, prop: Expr, is_prop: bool = False) -> Expr:
-        return f"json_object_get({obj}, {prop})" if is_prop else \
-               f"json_object_get({obj}, {self.esc(prop)})"
+    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
+        return f"json_object_get({obj}, {prop})" if is_var else \
+               f"json_object_get({obj}, {self.esc(prop)})"  # type: ignore
 
     #
     # inlined length computation
@@ -175,23 +177,23 @@ class CLangJansson(Language):
     #
     # misc expressions
     #
-    def assign_prop_fun(self, fun: str, prop: str, name: str) -> Expr:
-        return f"({fun} = {name}({prop}))"
+    def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+        return f"({fun} = {mapname}({prop}))"
 
-    def str_start(self, val: str, string: str) -> BoolExpr:
-        return f"strncmp({val}, {self.esc(string)}, strlen({self.esc(string)})) == 0"
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        return f"strncmp({val}, {self.esc(start)}, strlen({self.esc(start)})) == 0"
 
-    def str_end(self, val: str, string: str) -> BoolExpr:
-        sstr = self.esc(string)
+    def str_end(self, val: str, end: str) -> BoolExpr:
+        sstr = self.esc(end)
         return f"strlen({val}) >= strlen({sstr}) && " \
                f"strcmp({val} + strlen({val}) - strlen({sstr}), {sstr}) == 0"
 
-    def check_call(self, fun: str, val: Expr, path: Var, *,
+    def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         if is_raw:
-            return f"jm_check_fun_string({fun}, {val}, {path}, rep)"
+            return f"jm_check_fun_string({name}, {val}, {path}, rep)"
         else:
-            return super().check_call(fun, val, path, is_ptr=is_ptr, is_raw=is_raw)
+            return super().check_call(name, val, path, is_ptr=is_ptr, is_raw=is_raw)  # type: ignore
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"jm_array_is_unique({val}, {path}, rep)"
@@ -256,13 +258,13 @@ class CLangJansson(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
         if self._with_path:
             return (f"(jm_path_t) {{ {pseg}, 0, {pvar}, NULL }}" if is_prop else
                     f"(jm_path_t) {{ NULL, {pseg}, {pvar}, NULL }}")
         else:
-            return None
+            return "NULL"
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"({rvar} ? &{lvar} : NULL)" if self._with_path else "NULL"
@@ -399,13 +401,13 @@ class CLangJansson(Language):
                 f"cre2_string_t matches[{rname}_nn];",
             ]
 
-    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         if self._relib == "pcre2":
-            return f"pcre2_match({rname}_code, (PCRE2_SPTR) {val}, PCRE2_ZERO_TERMINATED," \
-                   f" 0, 0, {rname}_data, NULL) != 0"
+            return f"pcre2_match({name}_code, (PCRE2_SPTR) {var}, PCRE2_ZERO_TERMINATED," \
+                   f" 0, 0, {name}_data, NULL) != 0"
         else:
-            return f"cre2_match({rname}_re2, {val}, strlen({val}), 0, strlen({val}), " \
-                   f"CRE2_UNANCHORED, matches, {rname}_nn) != 0"
+            return f"cre2_match({name}_re2, {var}, strlen({var}), 0, strlen({var}), " \
+                   f"CRE2_UNANCHORED, matches, {name}_nn) != 0"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
         if self._relib == "pcre2":
@@ -423,11 +425,11 @@ class CLangJansson(Language):
                 f"{dname}[matches[match_index].length] = '\\0';",
             ]
 
-    def def_strfun(self, fname: str) -> Block:
-        return [ f"static bool {fname}(const char *, jm_path_t *, jm_report_t *);" ]
+    def def_strfun(self, name: str) -> Block:
+        return [ f"static bool {name}(const char *, jm_path_t *, jm_report_t *);" ]
 
-    def sub_strfun(self, fname: str, body: Block) -> Block:
-        return [ f"static bool {fname}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
+    def sub_strfun(self, name: str, body: Block) -> Block:
+        return [ f"static bool {name}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
                     self.indent(body)
 
     #

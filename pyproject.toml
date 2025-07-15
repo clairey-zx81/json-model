@@ -12,12 +12,6 @@ json_model = ["runtime/*", "data/*"]
 include = ["json_model"]
 exclude = ["tests/*", "models/*"]
 
-[tool.ruff.lint]
-exclude = [ "*/data/*", "*/WIP/*" ]
-
-[tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["F401"]
-
 [project]
 name = "json_model"
 authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
@@ -41,3 +35,12 @@ jmc = "json_model:jmc_script"
 
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
+
+[tool.ruff.lint]
+exclude = [ "*/data/*", "*/WIP/*" ]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.pyright]
+exclude = [ "json_model/data/", "json_model/WIP/" ]
