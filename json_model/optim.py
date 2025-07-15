@@ -46,7 +46,7 @@ def normalizeModels(models: list[ModelType]) -> int:
                 nmodel = None
         if nmodel != IGNORE:
             changes += 1
-            models[idx] = nmodel
+            models[idx] = nmodel  # type: ignore
 
     return changes
 
@@ -66,7 +66,7 @@ def xor_to_or(jm: JsonModel):
 
             # constant-only enum case
             if all(consts[i][0] for i in range(len(xor))):
-                if len(ConstSet([consts[i][1] for i in range(len(xor))])) == len(xor):
+                if len(ConstSet([consts[i][1] for i in range(len(xor))])) == len(xor):  # type: ignore
                     changes += 1
                     del model["^"]
                     model["|"] = xor
@@ -339,9 +339,9 @@ def partial_eval(jm: JsonModel):
                 if "!=" in model:
                     if isinstance(model["!="], (int, float)):
                         nev = float(model["!="])
-                    if nev < gev or lev < nev:
-                        changes += 1
-                        del model["!="]
+                        if gev is not None and nev < gev or lev is not None and lev < nev:
+                            changes += 1
+                            del model["!="]
                 # TODO could do other cases about str?
         return model
 
