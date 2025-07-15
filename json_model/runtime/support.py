@@ -9,7 +9,8 @@ import math
 from json_model.runtime.types import Jsonable, JsonScalar, Report, Path, CheckFun
 
 # special undefined value
-UNDEFINED: object = object()
+def UNDEFINED(v, p, r):
+    raise Exception("must not be called")
 
 # extract type name
 def _tname(value: Jsonable) -> str:
@@ -17,12 +18,14 @@ def _tname(value: Jsonable) -> str:
 
 # maybe add message to report
 def _rep(msg: str, rep: Report) -> bool:
-    rep is None or rep.append(msg)
+    _ = rep is None or rep.append((msg, []))
     return False
 
 # generate path for display
 def _path(path: Path) -> str:
     """Show path as a JSON Path (RFC9535), with proper escaping when necessary."""
+    if path is None:
+        return ""
 
     def esc(item: str|int) -> str:
         if isinstance(item, int):
@@ -41,18 +44,18 @@ def _path(path: Path) -> str:
 def typed_eq(v1: Jsonable, v2: Jsonable):
     if type(v1) is not type(v2):
         return False
-    if isinstance(v1, None):
+    if v1 is None:
         return True
     elif isinstance(v1, (bool, int, float, str)):
         return v1 == v2
     elif isinstance(v1, list):
-        return len(v1) == len(v2) and all(typed_eq(i1, i2) for i1, i2 in zip(v1, v2))
+        return len(v1) == len(v2) and all(typed_eq(i1, i2) for i1, i2 in zip(v1, v2))  # pyright: ignore
     else:
         assert isinstance(v1, dict)
-        if len(v1) != len(v2) or set(v1.keys()) != set(v2.keys()):
+        if len(v1) != len(v2) or set(v1.keys()) != set(v2.keys()):  # type: ignore
             return False
         # same props, compare values
-        return all(typed_eq(v1[p], v2[p]) for p in v1.keys())
+        return all(typed_eq(v1[p], v2[p]) for p in v1)  # pyright: ignore
 
 
 class Const:
@@ -88,16 +91,16 @@ class ConstSet(MutableSet[JsonScalar]):
         return len(self._set)
 
     def __iter__(self):
-        return [ item._val for item in self._set ]
+        return map(lambda i: i._val, self._set)
 
     def __contains__(self, item):
         return Const(item) in self._set
 
-    def add(self, item):
-        self._set.add(Const(item))
+    def add(self, value):
+        self._set.add(Const(value))
 
-    def discard(self, item):
-        self._set.discard(Const(item))
+    def discard(self, value):
+        self._set.discard(Const(value))
 
 
 class ConstMap(MutableMapping[JsonScalar, CheckFun]):
@@ -111,7 +114,7 @@ class ConstMap(MutableMapping[JsonScalar, CheckFun]):
 
     def __getitem__(self, key):
         if isinstance(key, (list, dict)):
-            return UNDEFINED
+            return UNDEFINED  # pyright: ignore
         else:
             return self._map[Const(key)]
 
@@ -119,7 +122,7 @@ class ConstMap(MutableMapping[JsonScalar, CheckFun]):
         del self._map[Const(key)]
 
     def __iter__(self):
-        return [ (k._val, v) for k, v in self._map.items() ]
+        return map(lambda k: k._val, self._map)
 
     def __len__(self):
         return self._map.__len__()
@@ -128,43 +131,43 @@ class ConstMap(MutableMapping[JsonScalar, CheckFun]):
 # PREDEFS HELPERS
 #
 
-def is_valid_date(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_date(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.date.fromisoformat(value)
             return True
         except Exception as e:
-            rep is None or rep.append((f"invalid date {value} ({e})", path))
+            _ = rep is None or rep.append((f"invalid date {value} ({e})", path))
             return False
-    rep is None or rep.append((f"incompatible type {_tname(value)} for date", path))
+    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for date", path))
     return False
 
 
-def is_valid_time(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_time(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.time.fromisoformat(value)
             return True
         except Exception as e:
-            rep is None or rep.append((f"invalid time {value} ({e})", path))
+            _ = rep is None or rep.append((f"invalid time {value} ({e})", path))
             return False
-    rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
+    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for time", path))
     return False
 
 
-def is_valid_datetime(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_datetime(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             datetime.datetime.fromisoformat(value)
             return True
         except Exception as e:
-            rep is None or rep.append((f"invalid datetime {value} ({e})", path))
+            _ = rep is None or rep.append((f"invalid datetime {value} ({e})", path))
             return False
-    rep is None or rep.append((f"incompatible type {_tname(value)} for datetime", path))
+    _ = rep is None or rep.append((f"incompatible type {_tname(value)} for datetime", path))
     return False
 
 
-def value_len(value: Jsonable, path: str) -> None|bool|int|float:
+def value_len(value: Jsonable, path: Path) -> None|bool|int|float:
     match value:
         case str()|list()|dict():
             return len(value)
@@ -176,51 +179,51 @@ def value_len(value: Jsonable, path: str) -> None|bool|int|float:
 _UUID_RE = r"(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
 _UUID_SEARCH = re.compile(_UUID_RE).search
 
-def is_valid_uuid(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_uuid(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         if _UUID_SEARCH(value) is not None:
             return True
         else:
-            rep is None or rep.append((f"str not an uuid {value}", path))
+            _ = rep is None or rep.append((f"str not an uuid {value}", path))
             return False
     else:
-        rep is None or rep.append((f"incompatible type {_tname(value)} for uuid", path))
+        _ = rep is None or rep.append((f"incompatible type {_tname(value)} for uuid", path))
         return False
 
 
-def is_valid_url(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_url(value: Jsonable, path: Path, rep: Report = None) -> bool:
     # NOTE urllib.parse accepts any garbage…
     # NOTE simple_host required to accept "localhost"
     # FIXME file:// is not a url…
     valid = isinstance(value, str) and validators.url(value, simple_host=True) is True
     if not valid:
-        rep is None or rep.append((f"invalid url {value}", path))
+        _ = rep is None or rep.append((f"invalid url {value}", path))
     return valid
 
 
-def is_valid_email(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_email(value: Jsonable, path: Path, rep: Report = None) -> bool:
     valid = isinstance(value, str) and validators.email(value) is True
     if not valid:
-        rep is None or rep.append((f"invalid email {value}", path))
+        _ = rep is None or rep.append((f"invalid email {value}", path))
     return valid
 
 
 # quite inefficient but safe
-def is_valid_regex(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_regex(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         try:
             re.compile(value)
             return True
         except Exception as e:
-            rep is None or rep.append((f"regex {value} compile error ({e})", path))
+            _ = rep is None or rep.append((f"regex {value} compile error ({e})", path))
             return False
     # other types cannot be valid regex
-    rep is None or rep.append((f"incompatible type for regex: {_tname(value)}", path))
+    _ = rep is None or rep.append((f"incompatible type for regex: {_tname(value)}", path))
     return False
 
 
 # extension: accept inlined reference syntax ($FOO:...)
-def is_valid_exreg(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_valid_exreg(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):
         # remplace references with named subpattern
         count = 0
@@ -232,20 +235,20 @@ def is_valid_exreg(value: Jsonable, path: str, rep: Report = None) -> bool:
     return is_valid_regex(value, path, rep)
 
 
-def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
+def is_unique_array(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, list):
         # that costs but works in all cases…
         unique = len(set(json.dumps(i, sort_keys=True) for i in value)) == len(value)
         if not unique:
-            rep is None or rep.append(("non unique array", path))
+            _ = rep is None or rep.append(("non unique array", path))
         return unique
     # other types cannot be unique
-    rep is None or rep.append(("non array for unique", path))
+    _ = rep is None or rep.append(("non array for unique", path))
     return False
 
-def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, rep: Report) -> bool:
+def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: Path, rep: Report) -> bool:
     if value is None or isinstance(value, bool):
-        rep is None or \
+        _ = rep is None or \
             rep.append((f"unexpected type {_tname(value)} for {op} constraint", path))
     # get comparison value depending on constant cst type
     if isinstance(cst, int):
@@ -253,12 +256,15 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
             cval = len(value)
         elif isinstance(value, (int, float)):
             cval = value
-        # else nothing
+        else:
+            _ = rep is None or \
+                rep.append((f"unexpected type {_tname(value)} for {op} int constraint", path))
+            return False
     elif isinstance(cst, float):
         if isinstance(value, (int, float)):
             cval = value
         else:  # list, dict, str
-            rep is None or \
+            _ = rep is None or \
                 rep.append((f"unexpected type {_tname(value)} for {op} float constraint", path))
             return False
     else:
@@ -266,7 +272,7 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
         if isinstance(value, str):
             cval = value
         else:  # dict, list, int, float
-            rep is None or \
+            _ = rep is None or \
                 rep.append((f"unexpected type {_tname(value)} for {op} str constraint", path))
             return False
     # actual comparison
@@ -275,13 +281,13 @@ def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, re
     elif op == "!=":
         cmp = cval != cst
     elif op == "<=":
-        cmp = cval <= cst
+        cmp = cval <= cst  # pyright: ignore
     elif op == "<":
-        cmp = cval < cst
+        cmp = cval < cst  # pyright: ignore
     elif op == ">=":
-        cmp = cval >= cst
+        cmp = cval >= cst  # pyright: ignore
     elif op == ">":
-        cmp = cval > cst
+        cmp = cval > cst  # pyright: ignore
     else:
         assert False, f"unexpected operator: {op}"
     if not cmp and rep is not None:

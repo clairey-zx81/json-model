@@ -1,14 +1,15 @@
 -- complain if script is sourced in psql, rather than via CREATE EXTENSION
 -- \echo Use "CREATE EXTENSION json_model;" to load this file. \quit
 
-DROP TYPE IF EXISTS jm_report_entry CASCADE;
+-- DROP TYPE IF EXISTS jm_report_entry CASCADE;
+-- DROP TABLE IF EXISTS jm_constant_maps;
+
 CREATE TYPE jm_report_entry AS (message TEXT, path TEXT[]);
 -- _jm_report_entry is jm_report_entry[]
 
 --
 -- constant maps for object tags
 --
-DROP TABLE IF EXISTS jm_constant_maps;
 CREATE TABLE jm_constant_maps(
   mapname TEXT NOT NULL,
   tagval JSONB NOT NULL,
