@@ -197,7 +197,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                         schema["minProperties"] = v + 1
                         schema["minItems"] = v + 1
                     if "<=" in model and isinstance(model["<="], int):
-                        v = int(model[">="])
+                        v = int(model["<="])
                         schema["maximum"] = v
                         schema["maxLength"] = v
                         schema["maxProperties"] = v
