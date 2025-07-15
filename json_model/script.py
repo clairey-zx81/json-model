@@ -77,7 +77,7 @@ def model_from_json(
     if auto and (isinstance(mjson, dict) and "$" in mjson and \
             isinstance(mjson["$"], dict) and "" in mjson["$"]):
         url = mjson["$"][""]
-        assert isinstance(url, str), f".\"$\"."" expects a string: {tname(url)}"
+        assert isinstance(url, str), ".\"$\"." f" expects a string: {tname(url)}"
         fn = re.sub(r"(\.model)?(\.js(on)?|\.yaml)?$", "", murl)  # drop suffix
         if debug:
             log.debug(f"url={url} fn={fn}")

@@ -1,4 +1,4 @@
-from .language import Language, Code, Block, Var, PropMap, ConstList
+from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar
 from .mtypes import Number
 
@@ -32,7 +32,7 @@ class Python(Language):
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
         assert loose is None or tval in (int, float, Number)
-        if tval is None or tval == type(None):
+        if tval is None or tval is type(None):
             return f"{var} is None"
         elif tval is int:
             is_an_int = f"isinstance({var}, int) and not isinstance({var}, bool)"
@@ -82,7 +82,7 @@ class Python(Language):
         code += [
             r"from typing import Callable",
             f"import {self._relib} as re",
-            f"from json_model.runtime import *",
+            r"from json_model.runtime import *",
             f"__version__ = {self.esc(self._version)}",
             "",
         ]

@@ -361,7 +361,7 @@ class JsonModel:
             log.info(f"importing model definitions from {self._imports}")
             assert isinstance(self._imports, list) and \
                 all(isinstance(s, str) and s and s[0] == "$" for s in self._imports), \
-                f"imports must be an array of references"
+                "imports must be an array of references"
             for i, ref in enumerate(self._imports):
                 jsub = self.resolveRef(ref, ["%", "~", i], False)
                 if len(jsub._defs) > 0:

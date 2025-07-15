@@ -2,13 +2,12 @@
 # Analyses
 #
 import re
-import typing
-from .mtypes import CheckFun, UnknownModel, ModelPath, ModelType, ModelFilter
+from .mtypes import UnknownModel, ModelPath, ModelType, ModelFilter
 from .utils import log, CONST_RE, is_regex
 from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 
-JsonModel = typing.NewType("JsonModel", None)
+# JsonModel = typing.NewType("JsonModel", None)
 type Constants = bool|int|float|str
 type ModelRef = list[str]
 

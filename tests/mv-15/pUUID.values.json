@@ -1,7 +1,7 @@
 [
   [ true,  "deadbeef-dead-beef-0123-456789abcdef" ],
   [ true,  "DEADbeef-dead-BEEF-0123-456789aBcDef" ],
-  [ false, "not a uuid" ],
+  [ false, "not-a-valid-uuid" ],
   [ false, "" ],
   [ false, "DEADbeef-dead-BEEF-0123-456789aBcDef " ],
   [ false, { "uuid": "76f3b5b8-34d0-42b7-b8c9-060f4983e839" } ],

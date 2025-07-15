@@ -1,17 +1,16 @@
 # experimental static (ecstatic?) compiler
 
-from typing import Callable
 import re
 import json
 
 from .mtypes import ModelType, ModelArray, ModelObject, ModelError, ModelPath, Symbols
-from .mtypes import Jsonable, Number
+from .mtypes import Jsonable, Number, JsonScalar
 from .utils import split_object, model_in_models, all_model_type, constant_value
 from .utils import log, tname, MODEL_PREDEFS
 from .runtime.support import _path as json_path
 from .analyze import ultimate_type, disjunct_analyse
 from .model import JsonModel
-from .language import Language, Code, Block, BoolExpr
+from .language import Language, Code, Block, BoolExpr, PropMap
 
 
 class CodeGenerator:

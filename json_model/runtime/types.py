@@ -1,6 +1,8 @@
 #
 # type declarations for python jm runtime
 #
+from typing import Callable
+
 type JsonScalar = None|bool|int|float|str
 type Jsonable = JsonScalar|list[Jsonable]|dict[str, Jsonable]
 

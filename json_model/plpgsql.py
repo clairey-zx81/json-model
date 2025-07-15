@@ -1,8 +1,7 @@
 import json
-from .language import Language, Block, Var, Block, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
+from .language import Language, Block, Var, PropMap, ConstList
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
-from .utils import UUID_RE
 
 _DECL = "%PL_DECL% "
 _ESC_TABLE = { "'": "''" }
@@ -171,7 +170,6 @@ class PLpgSQL(Language):
         return f"STARTS_WITH({val}, {self.esc(string)})"
 
     def str_end(self, val: str, string: str) -> BoolExpr:
-        sstr = self.esc(string)
         return f"RIGHT({val}, {len(string)}) = {self.esc(string)}"
 
     def check_call(self, fun: str, val: Expr, path: Var, *,
@@ -374,7 +372,7 @@ class PLpgSQL(Language):
         ]
 
     def _var_cst(self, var: Var, vtype: type|None) -> Expr:
-        return var;
+        return var
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         """Tell whether JSON variable var value of potential types is in set name."""
@@ -384,12 +382,12 @@ class PLpgSQL(Language):
         match value:
             case None:
                 return "NULL"
-            case bool(b):
+            case bool():
                 return "true" if value else "false"
             case int()|float():
                 return str(value)
             case str():
-                return self.esc(val)
+                return self.esc(value)
             case _:
                 raise Exception(f"unexpected constant value: {value}")
 
@@ -408,7 +406,7 @@ class PLpgSQL(Language):
                     for tv, val in mapping.items() ]
         for i in range(len(code) - 1):
             code[i] += ","
-        return [ f"INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES" ] + code + [";"]
+        return [ "INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES" ] + code + [";"]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
         return f"jm_cmap_get({self.esc(name)}, {tag})"

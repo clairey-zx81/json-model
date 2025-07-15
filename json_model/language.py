@@ -54,7 +54,7 @@ class Language:
 
         # parameter consistency
         if with_path and not with_report:
-            log.warning(f"path collection but no reporting, removing path")
+            log.warning("path collection but no reporting, removing path")
             with_path = False
 
         # keep parameters
@@ -149,19 +149,19 @@ class Language:
     #
     def is_num(self, var: Var) -> BoolExpr:
         """Is JSON variable a number?"""
-        raise NotImplementedError(f"is_num")
+        raise NotImplementedError("is_num")
 
     def is_def(self, var: Var) -> BoolExpr:
         """Is JSON variable defined?"""
-        raise NotImplementedError(f"is_def")
+        raise NotImplementedError("is_def")
 
     def is_scalar(self, var: Var) -> BoolExpr:
         """Is JSON variable a scalar?"""
-        raise NotImplementedError(f"is_scalar")
+        raise NotImplementedError("is_scalar")
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
         """Is JSON variable of this type?"""
-        raise NotImplementedError(f"is_a")
+        raise NotImplementedError("is_a")
 
     #
     # predefs
@@ -234,18 +234,18 @@ class Language:
 
     def obj_prop_val(self, obj: Var, prop: Var, is_var: bool = False) -> Expr:
         """Get object property value."""
-        raise NotImplementedError(f"obj_prop_val")
+        raise NotImplementedError("obj_prop_val")
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         """Tell whether an object as a property."""
-        raise NotImplementedError(f"has_prop")
+        raise NotImplementedError("has_prop")
 
     #
     # inlined length computation
     #
     def any_len(self, var: Var) -> IntExpr:
         """Get length of variable."""
-        raise NotImplementedError(f"any_len")
+        raise NotImplementedError("any_len")
 
     def obj_len(self, var: Var) -> IntExpr:
         """Get number of properties of an object."""

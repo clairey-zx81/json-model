@@ -1,4 +1,3 @@
-from typing import Callable
 from collections.abc import MutableMapping, MutableSet
 import datetime
 import time
@@ -182,7 +181,7 @@ def is_valid_uuid(value: Jsonable, path: str, rep: Report = None) -> bool:
         if _UUID_SEARCH(value) is not None:
             return True
         else:
-            rep is None or rep.append((f"str not an uuid", path))
+            rep is None or rep.append((f"str not an uuid {value}", path))
             return False
     else:
         rep is None or rep.append((f"incompatible type {_tname(value)} for uuid", path))
@@ -238,10 +237,10 @@ def is_unique_array(value: Jsonable, path: str, rep: Report = None) -> bool:
         # that costs but works in all cases…
         unique = len(set(json.dumps(i, sort_keys=True) for i in value)) == len(value)
         if not unique:
-            rep is None or rep.append((f"non unique array", path))
+            rep is None or rep.append(("non unique array", path))
         return unique
     # other types cannot be unique
-    rep is None or rep.append((f"non array for unique", path))
+    rep is None or rep.append(("non array for unique", path))
     return False
 
 def check_constraint(value: Jsonable, op: str, cst: int|float|str, path: str, rep: Report) -> bool:
@@ -334,7 +333,7 @@ def main(jm_fun, jm_map, jmc_version):
             # load json data
             if args.jsonl:
                 with open(fn) as f:
-                    values = [json.loads(l) for l in f]
+                    values = [json.loads(r) for r in f]
             else:
                 with open(fn) as f:
                     value = json.load(f)

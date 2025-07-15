@@ -1,8 +1,7 @@
 import json
-from .language import Language, Block, Var, Block, PropMap, ConstList
-from .language import JsonExpr, BoolExpr, IntExpr, FloatExpr, NumExpr, StrExpr, PathExpr, Expr
+from .language import Language, Block, Var, PropMap, ConstList
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
 from .mtypes import Jsonable, JsonScalar, Number
-from .utils import UUID_RE
 
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
@@ -393,13 +392,13 @@ class CLangJansson(Language):
                 f"const PCRE2_SIZE {var}_size = strlen({val});",
                 f"char {var}[{var}_size];",
                 f"PCRE2_SIZE {var}_len;",
-                f"int rc;"
+                r"int rc;"
             ]
         else:  # var is dname
             return [
                 f"size_t {var}_size = strlen({val}) + 1;",
                 f"char {var}[{var}_size];",
-                f"int match_index;",
+                r"int match_index;",
                 f"cre2_string_t matches[{rname}_nn];",
             ]
 
@@ -417,8 +416,8 @@ class CLangJansson(Language):
                 f"{dname}_len = {dname}_size;",
                 f"rc = pcre2_substring_copy_byname({rname}_data, (PCRE2_SPTR) {self.esc(sname)}," \
                 f" (PCRE2_UCHAR *) {dname}, &{dname}_len);",
-                f"if (rc != 0)",
-                f"    return false;",
+                r"if (rc != 0)",
+                r"    return false;",
             ]
         else:
             return [
@@ -481,7 +480,7 @@ class CLangJansson(Language):
         return code
 
     def _var_cst(self, var: Var, vtype: type|None) -> Expr:
-        if vtype is None or vtype == type(None):
+        if vtype is None or vtype is type(None):
             return "(jm_constant_t) { cst_is_null, { .s = NULL } }"
         elif vtype is bool:
             return f"(jm_constant_t) {{ cst_is_bool, {{ .b = {self.value(var, bool)} }} }}"
