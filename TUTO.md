@@ -595,6 +595,7 @@ psql \
 
 cat > test_values.sql <<EOF
 ```
+
 ```pgsql
 CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
 \copy json_values(name, data) FROM PSTDIN
@@ -603,6 +604,7 @@ SELECT
   CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS check
 FROM json_values;
 ```
+
 ```sh
 EOF
 
