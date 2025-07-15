@@ -595,7 +595,7 @@ psql \
 
 cat > test_values.sql <<EOF
 ```
-```sql
+```pgsql
 CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
 \copy json_values(name, data) FROM PSTDIN
 SELECT
