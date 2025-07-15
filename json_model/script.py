@@ -64,7 +64,7 @@ def process_model(model: JsonModel, *,
 
 def model_from_json(
         mjson: Jsonable, *, auto: bool = False,
-        debug: int = 0, murl: str|None = None,
+        debug: int = 0, murl: str = "",
         check: bool = True, merge: bool = True, optimize: bool = True,
         loose_int: bool|None = None, loose_float: bool|None = None,
         resolver: Resolver|None = None) -> JsonModel:
@@ -116,7 +116,7 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
                    loose_int: bool|None = None, loose_float: bool|None = None,
-                   debug: int = 0, murl: str|None = None) -> JsonModel:
+                   debug: int = 0, murl: str = "") -> JsonModel:
     """JsonModel instanciation from a string."""
 
     return model_from_json(json.loads(mstring), auto=auto, debug=debug, murl=murl,
@@ -450,7 +450,7 @@ def jmc_script():
     # OUTPUT
     # TODO check overwrite?!
     output = open(args.output, "w") if args.output != "-" and args.format != "out" else sys.stdout
-    checker = None
+    checker = None  # pyright: ignore
 
     # convert json to a string using prettyprint options
     def json2str(j: Jsonable) -> str:
@@ -503,7 +503,7 @@ def jmc_script():
             exec(source, env)
             env[args.entry + "_init"]()
 
-            def checker(v: Jsonable, model: str, rep: Report = None):
+            def checker(v: Jsonable, model: str, rep: Report = None) -> bool:
                 return env[args.entry](v, model, rep)
 
     elif args.op == "E":

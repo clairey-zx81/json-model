@@ -27,7 +27,7 @@ class JsonURLCache:
         if cache_dir is not None:
             self._cache_dir = cache_dir
         elif "JSON_MODEL_CACHEDIR" in os.environ:
-            self._cache_dir = os.environ.get("JSON_MODEL_CACHEDIR")
+            self._cache_dir = os.environ["JSON_MODEL_CACHEDIR"]
         else:
             self._cache_dir = os.environ.get("HOME", ".") + "/.cache/json-model"
 
