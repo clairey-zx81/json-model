@@ -19,12 +19,13 @@ dev: venv
 .PHONY: clean
 clean:
 	$(RM) $~
+	find . -type d -name __pycache__ | xargs $(RM) -r
+	$(MAKE) -C tests clean
 
 .PHONY: clean.dev
 clean.dev: clean
 	$(RM) -r venv $(MODULE).egg-info build dist node_modules
 	$(RM) package-lock.json
-	find tests -type d -name __pycache__ | xargs $(RM) -r
 
 .PHONY: check.src
 check.src: check.flake8 check.ruff check.pyright
