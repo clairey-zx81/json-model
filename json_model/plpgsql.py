@@ -23,7 +23,7 @@ class PLpgSQL(Language):
              check_t="TEXT", json_t="JSONB",
              path_t="TEXT[]", float_t="FLOAT8", str_t="TEXT", match_t="TEXT[]",
              eoi=";", relib=relib, debug=debug,
-             set_caps=[type(None), bool, int, float, str])
+             set_caps=(type(None), bool, int, float, str))  # type: ignore
 
         assert relib in ("re"), f"regex engine {relib} is not supported, try: re"
 
@@ -61,7 +61,7 @@ class PLpgSQL(Language):
         elif tval is bool:
             return f"JSONB_TYPEOF({var}) = 'boolean'"
         elif tval is int:
-            return self.is_num(var) + f" AND ({var})::INT8 = ({var})::FLOAT8"
+            return self.is_num(var) + f" AND ({var})::INT8 = ({var})::FLOAT8"  # pyright: ignore
         elif tval is float:
             return self.is_num(var)
         elif tval is Number:
@@ -72,6 +72,8 @@ class PLpgSQL(Language):
             return f"JSONB_TYPEOF({var}) = 'array'"
         elif tval is dict:
             return f"JSONB_TYPEOF({var}) = 'object'"
+        else:
+            raise Exception(f"unexpected tval: {tval.__name__}")
 
     def esc(self, s: str) -> StrExpr:
         return "'" + s.translate(self._json_esc_table) + "'"
@@ -82,18 +84,18 @@ class PLpgSQL(Language):
     def json_cst(self, j: Jsonable) -> JsonExpr:
         return f"JSONB '{json.dumps(j, separators=(',', ':')).translate(self._json_esc_table)}'"
 
-    def const(self, val: Jsonable) -> Expr:
-        if isinstance(val, (list, dict)):
-            return self.json_cst(val)
+    def const(self, c: Jsonable) -> Expr:
+        if isinstance(c, (list, dict)):
+            return self.json_cst(c)
         else:
-            return super().const(val)
+            return super().const(c)
 
-    def has_prop(self, var: Var, prop: str) -> BoolExpr:
-        return f"{var} ? {self.esc(prop)}"
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"{obj} ? {self.esc(prop)}"
 
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"JSON_VALUE({var}, '$' RETURNING TEXT)"
-        cktype = "" if is_str else (self.is_a(var, str) + " AND ")
+        cktype = "" if is_str else (self.is_a(var, str) + " AND ")  # pyright: ignore
         if name == "$UUID":
             return cktype + f"jm_is_valid_uuid({val}, {path}, rep)"
         elif name == "$DATE":
@@ -130,12 +132,11 @@ class PLpgSQL(Language):
         else:
             raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
 
-    def arr_item_val(self, arr: Var, idx: IntExpr) -> Expr:
+    def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
         return f"{arr} -> {idx}"
 
-    def obj_prop_val(self, obj: Var, val: Expr, is_var: bool = False) -> Expr:
-        return f"{obj} -> {val}" if is_var else f"{obj} -> {self.esc(val)}"
-
+    def obj_prop_val(self, obj: Var, prop: str|Var, is_var: bool = False) -> JsonExpr:
+        return f"{obj} -> {prop}" if is_var else f"{obj} -> {self.esc(prop)}"
     #
     # inlined length computation
     #
@@ -154,30 +155,30 @@ class PLpgSQL(Language):
     #
     # misc expressions
     #
-    def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:
+    def ternary(self, cond: BoolExpr, true: Expr, false: Expr) -> Expr:  # type: ignore
         return f"CASE WHEN ({cond}) THEN ({true}) ELSE ({false}) END"
 
     def assign_expr(self) -> bool:
         return False
 
-    def has_prop_fun(self, prop: str, name: str) -> Expr:
-        return f"{name}({prop}) IS NOT NULL"
+    def has_prop_fun(self, prop: str, mapname: str) -> BoolExpr:
+        return f"{mapname}({prop}) IS NOT NULL"
 
-    def get_prop_fun(self, prop: str, name: str) -> Expr:
-        return f"{name}({prop})"
+    def get_prop_fun(self, prop: str, mapname: str) -> Expr:
+        return f"{mapname}({prop})"
 
-    def str_start(self, val: str, string: str) -> BoolExpr:
-        return f"STARTS_WITH({val}, {self.esc(string)})"
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        return f"STARTS_WITH({val}, {self.esc(start)})"
 
-    def str_end(self, val: str, string: str) -> BoolExpr:
-        return f"RIGHT({val}, {len(string)}) = {self.esc(string)}"
+    def str_end(self, val: str, end: str) -> BoolExpr:
+        return f"RIGHT({val}, {len(end)}) = {self.esc(end)}"
 
-    def check_call(self, fun: str, val: Expr, path: Var, *,
+    def check_call(self, name: str, val: Expr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
         if is_raw:
             val = f"TO_JSONB({val})"
-        return f"jm_call({fun}, {val}, {path}, rep)" if is_ptr else \
-               f"{fun}({val}, {path}, rep)"
+        return f"jm_call({name}, {val}, {path}, rep)" if is_ptr else \
+               f"{name}({val}, {path}, rep)"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"jm_array_is_unique({val}, {path}, rep)"
@@ -189,8 +190,8 @@ class PLpgSQL(Language):
     #
     # simple instructions
     #
-    def ret(self, val: Expr) -> Block:
-        return [ f"RETURN {val};"]
+    def ret(self, res: Expr) -> Block:
+        return [ f"RETURN {res};"]
 
     def brk(self) -> Block:
         return [ "EXIT;" ]
@@ -235,9 +236,9 @@ class PLpgSQL(Language):
     #
     # path management
     #
-    def path_val(self, pvar: Var, pseg: str, is_prop: bool) -> PathExpr:
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
         # note: segment is a variable name for a prop or an integer
-        return f"array_append({pvar}, {pseg})" if self._with_path else None
+        return f"array_append({pvar}, {pseg})" if self._with_path else None  # pyright: ignore
 
     def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
         return f"(CASE WHEN {rvar} IS NOT NULL THEN {lvar} ELSE NULL END)" if self._with_path else "NULL"
@@ -311,16 +312,16 @@ class PLpgSQL(Language):
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = True) -> Block:
         return [ f"{_DECL}{var} TEXT;" ]
 
-    def match_re(self, rname: str, val: str, regex: str, opts: str) -> Expr:
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         if "s" not in opts:
             opts = "n" + opts
-        return f"regexp_match({val}, {self.esc(regex)}, {self.esc(opts)})"
+        return f"regexp_match({var}, {self.esc(regex)}, {self.esc(opts)})"
 
     def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
         return [ f"{dname} := {mname}[{sname[1:]}];" ]
 
-    def match_ko(self, mname: str) -> BoolExpr:
-        return f"{mname} IS NULL"
+    def match_ko(self, var: str) -> BoolExpr:
+        return f"{var} IS NULL"
 
     def _plbody(self, body: Block) -> Block:
         """Generate a full DECLARE/BEGIN/END; PL/pgSQL function body."""
@@ -337,9 +338,9 @@ class PLpgSQL(Language):
             code = ["DECLARE"] + self.indent(decls) + code
         return code
 
-    def sub_strfun(self, fname: str, body: Block) -> Block:
+    def sub_strfun(self, name: str, body: Block) -> Block:
         return [
-            f"CREATE OR REPLACE FUNCTION {fname}(val TEXT, path TEXT[], rep jm_report_entry[])",
+            f"CREATE OR REPLACE FUNCTION {name}(val TEXT, path TEXT[], rep jm_report_entry[])",
             r"RETURNS BOOL CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
         ] + self._plbody(body) + [ "$$ LANGUAGE PLpgSQL;"]
 
@@ -352,7 +353,7 @@ class PLpgSQL(Language):
             f"CREATE OR REPLACE FUNCTION {name}(name TEXT)",
             r"RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$",
             r"DECLARE",
-            f"  map JSONB := {self.json_cst(pmap)};",
+            f"  map JSONB := {self.json_cst(pmap)};",  # pyright: ignore
             r"BEGIN",
             r"  RETURN map->>name;",
             r"END;",
@@ -364,7 +365,7 @@ class PLpgSQL(Language):
             f"CREATE OR REPLACE FUNCTION {name}(value JSONB)",
             r"RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",
             r"DECLARE",
-            f"  constants JSONB = {self.json_cst(constants)};",
+            f"  constants JSONB = {self.json_cst(constants)};",  # pyright: ignore
             r"BEGIN",
             r"  RETURN constants @> value;",
             r"END;",
