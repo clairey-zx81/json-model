@@ -17,8 +17,6 @@ type PathExpr = Var|str
 # all value expressions
 type Expr = JsonExpr|BoolExpr|IntExpr|FloatExpr|NumExpr|StrExpr
 
-type PathExpr = str
-
 # actual code
 type Block = list[str]
 
@@ -46,7 +44,7 @@ class Language:
             lcom: str = "#", relib: str = "re2",
             true: str = "True", false: str = "False", null: str = "None",
             check_t: str = "CheckFun", json_t: str = "Jsonable", path_t: str = "Path",
-            match_t: str = None,
+            match_t: str|None = None,
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
             with_path: bool = True, with_report: bool = True,
@@ -181,9 +179,9 @@ class Language:
                 name = "$ANY"
         # else full type checks
         if name == "$ANY":
-            return self.const(True)
+            return self.true()
         elif name == "$NONE":
-            return self.const(False)
+            return self.false()
         elif name == "$NULL":
             return self.is_a(var, None)
         elif name in ("$BOOL", "$BOOLEAN"):
@@ -196,7 +194,7 @@ class Language:
         elif name in ("$FLOAT", "$F32", "$F64"):
             return self.is_a(var, float)
         elif name == "$NUMBER":
-            return self.is_a(var, Number)
+            return self.is_a(var, Number)  # type: ignore
         elif name == "$STRING":
             return self.is_a(var, str)
         elif name in ("$DATE", "$TIME", "$DATETIME", "$URL",
@@ -277,7 +275,7 @@ class Language:
         if tval is int:
             return self.value(val, int)
         elif tval is str:
-            return self.str_len(self.value(val, str))
+            return self.str_len(self.value(val, str))  # type: ignore
         elif tval is list:
             return self.arr_len(val)
         elif tval is dict:
@@ -318,16 +316,17 @@ class Language:
     #
     def not_op(self, e: BoolExpr) -> BoolExpr:
         """Not logical operator."""
-        e = self.paren(e) if "=" in e or self._and in e or self._or in e else e
+        e = self.paren(e) if "=" in e or self._and in e or self._or in e else e  # type: ignore
         return f"{self._not} {e}"
 
     def and_op(self, *exprs: BoolExpr) -> BoolExpr:
         """And logical operator."""
-        return f" {self._and} ".join(self.paren(e) if self._or in e else e for e in exprs)
+        return f" {self._and} ".join(self.paren(e) if self._or in e else e  # type: ignore
+                                        for e in exprs)
 
     def or_op(self, *exprs: BoolExpr) -> BoolExpr:
         """Or logical operator."""
-        return f" {self._or} ".join(exprs)
+        return f" {self._or} ".join(exprs)  # type: ignore
 
     def paren(self, e: Expr) -> Expr:
         """Parenthesize an expression."""
