@@ -1,5 +1,5 @@
 from .language import Language, Block, Var, PropMap, ConstList
-from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar
+from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr
 from .mtypes import Number
 
 
@@ -104,18 +104,18 @@ class Python(Language):
     def gen_free(self, free: Block) -> Block:
         return self.file_subs("python_free.py", free)
 
-    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> Expr:
+    def obj_prop_val(self, obj: Var, prop: str|StrExpr, is_var: bool = False) -> JsonExpr:
         return f"{obj}.get({prop}, UNDEFINED)" if is_var else \
                f"{obj}.get({self.esc(prop)}, UNDEFINED)"
 
     def has_prop(self, obj: Var, prop: str) -> BoolExpr:
         return f"{self.esc(prop)} in {obj}"
 
-    def str_start(self, val: str, string: str) -> BoolExpr:
-        return f"{val}.startswith({self.esc(string)})"
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        return f"{val}.startswith({self.esc(start)})"
 
-    def str_end(self, val: str, string: str) -> BoolExpr:
-        return f"{val}.endswith({self.esc(string)})"
+    def str_end(self, val: str, end: str) -> BoolExpr:
+        return f"{val}.endswith({self.esc(end)})"
 
     def any_len(self, var: Var) -> IntExpr:
         return f"len({var})"
@@ -197,7 +197,7 @@ class Python(Language):
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         # generate a deterministic initialization
-        dset = str(sorted(list(constants)))
+        dset = str(sorted(list(constants)))  # pyright: ignore
         dset = f"{{{dset[1:-1]}}}"
         return [ f"global {name}", f"{name} = {dset}" ]
 
@@ -241,12 +241,12 @@ class Python(Language):
             f"{name} = None"
         ]
 
-    def match_re(self, name: str, val: str, regex: str, opts: str) -> Expr:
-        return f"{name}_reco.search({val})"
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
+        return f"{name}_reco.search({var})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dest: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
         return [
-            f"{dest} = {mname}.groupdict()[{self.esc(sname)}]"
+            f"{dname} = {mname}.groupdict()[{self.esc(sname)}]"
         ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
