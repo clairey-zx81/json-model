@@ -19,6 +19,7 @@ dev: venv
 .PHONY: clean
 clean:
 	$(RM) $~
+	$(RM) -r .pytest_cache/ .ruff_cache/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
 
