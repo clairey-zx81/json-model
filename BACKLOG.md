@@ -12,6 +12,9 @@
 - [x] sql-backend: implement extended regex
 - [x] tests: add sql.check to pytest
 - [x] tests: parallelize sql checks in pytest
+- [x] tuto: add PL/pgSQL entry
+- [ ] demo: add PL/pgSQL entry
+- [ ] sql-backend: fix generated code under `--reporting`
 - [ ] python: rerun style and type checks
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension

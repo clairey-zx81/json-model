@@ -1,6 +1,10 @@
 #! /bin/bash
 
 # installation
+python -m venv venv
+source venv/bin/activate
+pip install git+https://github.com/clairey-zx81/json-model.git
+# deactivate
 jmc --version
 
 # person model
@@ -51,6 +55,24 @@ jmc -o person.js Person-2    # JavaScript script
 
 jmc -o person.py Person-2    # Python script
 ./person.py -T 100000 hobbes.json
+
+jmc -o person.sql Person-2   # PL/pgSQL functions
+psql \
+  -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
+  -f person.sql
+
+cat > test_values.sql <<EOF
+CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
+\copy json_values(name, data) FROM PSTDIN
+SELECT
+  name AS id,
+  CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS check
+FROM json_values;
+EOF
+
+for f in [a-z]*.json ; do
+  echo -e "$f\t$(jq -c < $f)"
+done | psql -f test_values.sql
 
 # exporting to, importing from JSON Schema
 jmc -E -F yaml Person-2

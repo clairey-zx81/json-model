@@ -519,7 +519,7 @@ jmc -r Person-0.model.yaml hobbes.json moe.json
 jmc -r Person-0.model.js hobbes.json moe.json
 ```
 
-## Running with C, JS or Python
+## Running with C, JS, Python or PL/pgSQL
 
 The JSON Model compiler allows to create actual test executables or scripts for
 direct validation or performance testing, including option `-T` to loop over
@@ -570,10 +570,11 @@ a value so as to compute the average and standard deviation times in µs.
 Some comments about these representative performance figures:
 As JavaScript JIT and its underlying regex engine are quite good,
 a typical JS-to-C performance ratio is 4:1.
-Python is _slow_, a typical ratio to compiled C is 25:1. 
+Python is _slow_, a typical ratio to compiled C is 25:1.
 Because the `-r` option is not used, there are no reporting overheads.
 For JS standard deviation is quite high, which could be induced by
 occasional garbage collection.
+
 
 The JSON Model compiler can also generate C, JavaScript or Python validation code
 ready to be imported for checking values:
@@ -582,7 +583,38 @@ ready to be imported for checking values:
 jmc -o person.o Person-2            # C object file
 jmc -o person.mjs Person-2          # JavaScript Module
 jmc -o person.py --module Person-2  # Python Module
+jmc -o person.sql Person-2          # PL/pgSQL functions
 ```
+
+Here is an example of checking a value inside Postgres:
+
+```sh
+psql \
+  -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
+  -f person.sql
+
+cat > test_values.sql <<EOF
+```
+```sql
+CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
+\copy json_values(name, data) FROM PSTDIN
+SELECT
+  name AS id,
+  CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS check
+FROM json_values;
+```
+```sh
+EOF
+
+for f in [a-z]*.json ; do
+  echo -e "$f\t$(jq -c < $f)"
+done | psql -f test_values.sql
+```
+
+| **id**      | **check** |
+|:---         |       ---:|
+| hobbes.json |      PASS |
+| moe.json    |      FAIL |
 
 ## Exporting to and Importing from JSON Schema
 

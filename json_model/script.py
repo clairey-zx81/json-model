@@ -259,7 +259,7 @@ def jmc_script():
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
     arg("--no-sort", "-ns", dest="sort", action="store_false", help="unsorted JSON keys")
     arg("--indent", "-i", type=int, default=2, help="JSON indentation")
-    arg("--reporting", action="store_true", default=True,
+    arg("--reporting", action="store_true", default=None,
         help="add reporting capabilities (default)")
     arg("--no-reporting", dest="reporting", action="store_false",
         help="remove reporting capabilities")
@@ -371,6 +371,9 @@ def jmc_script():
             args.format = "py"
         if args.gen is None:
             args.gen = "none"
+
+    if args.reporting is None:
+        args.reporting = False if args.format == "plpgsql" else True
 
     if args.op is None:
         args.op = "P"
