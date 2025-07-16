@@ -4,14 +4,16 @@ import sys
 import json
 import csv
 
+type Json = None|bool|int|float|list[Json]|dict[str, Json]
+
 if len(sys.argv) >= 2 and sys.argv[1] != "-":
     with open(sys.argv[1]) as f:
         values = json.load(f)
 else:
     values = json.load(sys.stdin)
 
-#print(f"values = {values}")
-def tojson(v):
+def tojson(v: Json):
+    """Convert value to a JSON string."""
     return json.dumps(v, separators=(",", ":"))
 
 out = []
@@ -20,7 +22,7 @@ for v in values:
         continue
     assert isinstance(v, list)
     if len(v) == 2:
-        out.append((v[0], '', tojson(v[1])))
+        out.append((v[0], "", tojson(v[1])))
     else:
         out.append((v[0], v[1], tojson(v[2])))
 

@@ -36,6 +36,11 @@ jmc = "json_model:jmc_script"
 [project.urls]
 repository = "https://github.com/clairey-zx81/json-model"
 
+[tool.ruff]
+line-length = 100
+indent-width = 4
+target-version = "py312"
+
 [tool.ruff.lint]
 exclude = [ "*/data/*", "*/WIP/*" ]
 
@@ -43,4 +48,7 @@ exclude = [ "*/data/*", "*/WIP/*" ]
 "__init__.py" = ["F401"]
 
 [tool.pyright]
+exclude = [ "json_model/data/", "json_model/WIP/" ]
+
+[tool.mypy]
 exclude = [ "json_model/data/", "json_model/WIP/" ]

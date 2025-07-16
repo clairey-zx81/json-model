@@ -164,7 +164,7 @@ class CodeGenerator:
                  val: JsonExpr|StrExpr, path: PathExpr, is_str: bool = False) -> BoolExpr:
         """Generate an inlined regex check expression on a value."""
         gen = self._lang
-        sval: StrExpr = val if is_str else gen.value(val, str)  # pyright: ignore
+        sval: StrExpr = val if is_str else gen.value(val, str)  # type: ignore
 
         # optimized versions
         if re.match(r"^/\^?.\*\$?/[mis]?$", regex):
@@ -222,7 +222,7 @@ class CodeGenerator:
         smpath = json_path(mpath)
         gen = self._lang
 
-        tmodel = ultimate_type(jm, model["@"])  # pyright: ignore
+        tmodel = ultimate_type(jm, model["@"])  # type: ignore
         assert tmodel in (bool, int, float, str, list, dict, type(None), None)
 
         # get which props are set
@@ -265,7 +265,7 @@ class CodeGenerator:
         # TODO add to "optimize.py"
         if elim:
             log.warning(f"unfeasible model [{smpath}]")
-            return elim + gen.bool_var(res, gen.false())  # pyright: ignore
+            return elim + gen.bool_var(res, gen.false())  # type: ignore
 
         # initial model check
         code: Block = self._compileModel(jm, model["@"], mpath + ["@"], res, val, vpath,
@@ -283,7 +283,7 @@ class CodeGenerator:
                 checks.append(gen.is_a(val, list))
                 checks.append(gen.check_unique(val, vpath))
             for op in sorted(cmp_props):
-                checks.append(gen.check_constraint(op, model[op], val, vpath))  # pyright: ignore
+                checks.append(gen.check_constraint(op, model[op], val, vpath))  # type: ignore
         else:
             # optimized known-type-specific code
             # NOTE we know that constraints make sense for the target type
@@ -302,15 +302,17 @@ class CodeGenerator:
                     assert tmodel is float
                     fval = gen.ident("fval")
                     cvars += gen.flt_var(fval,
-                        gen.value(val, Number if jm._loose_float else float), declare=True)  # pyright: ignore
+                        gen.value(val,
+                            Number if jm._loose_float else float), declare=True)  # type: ignore
             if has_flt:
                 if tmodel is float and not has_int:
                     fval = gen.ident("fval")
-                    cvars += gen.flt_var(fval, gen.value(val, Number if jm._loose_float else float),  # pyright: ignore
+                    cvars += gen.flt_var(fval, gen.value(val,
+                                         Number if jm._loose_float else float),  # type: ignore
                                          declare=True)
                 elif tmodel is int:
                     fval = gen.ident("fval")
-                    cvars += gen.flt_var(fval, gen.value(val, Number), declare=True)  # pyright: ignore
+                    cvars += gen.flt_var(fval, gen.value(val, Number), declare=True)  # type: ignore
                 # else cannot happen
             if has_str:
                 assert tmodel is str  # redundant sanity check
@@ -320,13 +322,13 @@ class CodeGenerator:
                 vop = model[op]
                 if isinstance(vop, int):
                     if tmodel is float:
-                        checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # pyright: ignore
+                        checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
                     else:
-                        checks.append(gen.num_cmp(ival, op, gen.const(vop)))  # pyright: ignore
+                        checks.append(gen.num_cmp(ival, op, gen.const(vop)))  # type: ignore
                 elif isinstance(vop, str):
-                    checks.append(gen.str_cmp(sval, op, gen.const(vop)))  # pyright: ignore
+                    checks.append(gen.str_cmp(sval, op, gen.const(vop)))  # type: ignore
                 elif isinstance(vop, float):
-                    checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # pyright: ignore
+                    checks.append(gen.num_cmp(fval, op, gen.const(vop)))  # type: ignore
 
         assert checks
         if self._debug:
@@ -343,7 +345,7 @@ class CodeGenerator:
         """Generate optimized disjunction check, return None if failed."""
 
         assert isinstance(model, dict) and "|" in model and isinstance(model["|"], list)
-        dis = disjunct_analyse(jm, model, mpath)  # pyright: ignore
+        dis = disjunct_analyse(jm, model, mpath)  # type: ignore
         log.debug(f"disjunct at {mpath}: dis={dis}")
         if dis is None:
             return None
@@ -470,8 +472,9 @@ class CodeGenerator:
         self._code.pmap(name, prop_map)
 
     def _openMuMaObject(self, jm: JsonModel, must: dict[str, ModelType], may: dict[str, ModelType],
-                        mpath: ModelPath, oname: str, res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
-        """Optimize `{"x": ..., "": "?y": ..., "$ANY"}`."""
+                        mpath: ModelPath, oname: str,
+                        res: Var, val: JsonExpr, vpath: PathExpr) -> Block:
+        """Optimize `{"x": ..., "": "?y": ..., "": "$ANY"}`."""
 
         assert isinstance(must, dict)
         gen = self._lang
@@ -1010,12 +1013,12 @@ class CodeGenerator:
                         expr = gen.true()
                 elif model == 0:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_int else int),  # pyright: ignore
+                        gen.value(val, Number if jm._loose_int else int),  # type: ignore
                                   ">=", gen.const(0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_int else int),  # pyright: ignore
+                        gen.value(val, Number if jm._loose_int else int),  # type: ignore
                                   ">=", gen.const(1))
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
@@ -1039,12 +1042,12 @@ class CodeGenerator:
                         expr = gen.true()
                 elif model == 0.0:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_float else float),  # pyright: ignore
+                        gen.value(val, Number if jm._loose_float else float),  # type: ignore
                                   ">=", gen.const(0.0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 elif model == 1.0:
                     compare = gen.num_cmp(
-                        gen.value(val, Number if jm._loose_float else float),  # pyright: ignore
+                        gen.value(val, Number if jm._loose_float else float),  # type: ignore
                                   ">", gen.const(0.0))
                     expr = gen.and_op(expr, compare) if expr else compare
                 else:
@@ -1068,7 +1071,8 @@ class CodeGenerator:
                             known.add(expr)
                     code += gen.bool_var(res, expr if expr else gen.true())
                 elif model[0] == "_":
-                    compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model[1:]))  # pyright: ignore
+                    compare = gen.str_cmp(gen.value(val, str), "=",  # type: ignore
+                                          gen.const(model[1:]))  # type: ignore
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += gen.bool_var(res, expr)
                 elif model[0] == "=":
@@ -1095,7 +1099,7 @@ class CodeGenerator:
                     elif isinstance(value, float):
                         ttest = gen.is_a(val, float, jm._loose_float)
                         expr = gen.num_cmp(
-                            gen.value(val, Number if jm._loose_float else float),  # pyright: ignore
+                            gen.value(val, Number if jm._loose_float else float),  # type: ignore
                                       "=", gen.const(value))
                         if ttest not in known:
                             expr = gen.and_op(ttest, expr)
@@ -1114,7 +1118,8 @@ class CodeGenerator:
                     call = self._regExpr(jm, model, val, vpath)
                     code += gen.bool_var(res, gen.and_op(expr, call) if expr else call)
                 else:  # simple string
-                    compare = gen.str_cmp(gen.value(val, str), "=", gen.const(model))  # pyright: ignore
+                    compare = gen.str_cmp(gen.value(val, str), "=",  # type: ignore
+                                          gen.const(model))  # type: ignore
                     expr = gen.and_op(expr, compare) if expr else compare
                     code += gen.bool_var(res, expr)
                 if self._report:
@@ -1148,7 +1153,8 @@ class CodeGenerator:
                         loop = gen.arr_loop(val, idx, item,
                                 gen.path_var(lpath, gen.path_val(vpath, idx, False), True) +
                                 self._compileModel(jm, model[0], mpath + [0],
-                                                   res, item, gen.path_lvar(lpath, vpath)) +  # pyright: ignore
+                                                   res, item,
+                                                   gen.path_lvar(lpath, vpath)) +  # type: ignore
                                 gen.if_stmt(gen.not_op(res), gen.brk()))
 
                     code += (
@@ -1159,7 +1165,7 @@ class CodeGenerator:
                 else:
                     # non empty list of models, aka tuple
                     lpath = gen.ident("lpath")
-                    lpath_ref: PathExpr = gen.path_lvar(lpath, vpath)  # pyright: ignore
+                    lpath_ref: PathExpr = gen.path_lvar(lpath, vpath)  # type: ignore
                     if not constrained:
                         length = gen.num_cmp(gen.arr_len(val), "=", gen.const(len(model)))
                         expr = gen.and_op(expr, length) if expr else length
@@ -1284,7 +1290,7 @@ class CodeGenerator:
 
         log.debug(f"name ref: gref={gref} globs={self._globs} names={self._names}")
         if gref not in self._names:
-            jm = self._globs[gref]  # pyright: ignore
+            jm = self._globs[gref]  # type: ignore
             if jm._id not in self._compiled:
                 self._to_compile[jm._id] = (jm, gref)
             self._names[gref] = f"json_model_{jm._id}"
@@ -1353,9 +1359,9 @@ class CodeGenerator:
             dn = f"${n}"
             # special handling of the resolution gives another model
             # eg "foo": "$bla"
-            if dn in self._globs and self._globs[dn]._id != jm._id:  # pyright: ignore
+            if dn in self._globs and self._globs[dn]._id != jm._id:  # type: ignore
                 # skip compilation and point to other function
-                entries[n] = f"json_model_{self._globs[dn]._id}"  # pyright: ignore
+                entries[n] = f"json_model_{self._globs[dn]._id}"  # type: ignore
             else:
                 # actual compilation of a new function
                 entries[n] = f"json_model_{jm._id}"
@@ -1405,22 +1411,26 @@ def xstatic_compile(
     # target language
     if lang == "py":
         from .python import Python
-        language = Python(debug=debug, with_report=report, with_path=report, relib=relib or "re2")
+        language = Python(debug=debug, with_report=report, with_path=report,
+                          relib=relib or "re2")
     elif lang == "c":
         from .clang import CLangJansson
-        language = CLangJansson(debug=debug, with_report=report, with_path=report, relib=relib or "re2")
+        language = CLangJansson(debug=debug, with_report=report, with_path=report,
+                                relib=relib or "re2")
     elif lang == "js":
         from .javascript import JavaScript
-        language = JavaScript(debug=debug, with_report=report, with_path=report, relib=relib or "re")
+        language = JavaScript(debug=debug,
+                              with_report=report, with_path=report, relib=relib or "re")
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
-        language = PLpgSQL(debug=debug, with_report=report, with_path=report, relib=relib or "re")
+        language = PLpgSQL(debug=debug,
+                           with_report=report, with_path=report, relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 
     # cource code generator
-    gen = CodeGenerator(model._globs, language, fname, prefix=prefix, execute=execute,  # type: ignore
-                        map_threshold=map_threshold, map_share=map_share,
+    gen = CodeGenerator(model._globs, language, fname, prefix=prefix,  # type: ignore
+                        execute=execute, map_threshold=map_threshold, map_share=map_share,
                         debug=debug, report=report)
 
     # generate

@@ -14,7 +14,8 @@
 - [x] tests: parallelize sql checks in pytest
 - [x] tuto: add PL/pgSQL entry
 - [x] python: rerun type check (some ignore added, but a few fixes as well)
-- [ ] python: rerun style check
+- [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
+- [ ] js: allow to run with nvm stable?
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension

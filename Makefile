@@ -29,7 +29,7 @@ clean.dev: clean
 	$(RM) package-lock.json
 
 .PHONY: check.src
-check.src: check.flake8 check.ruff check.pyright
+check.src: check.ruff check.pyright
 
 .PHONY: check
 check: check.src check.tests
