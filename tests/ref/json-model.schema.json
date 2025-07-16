@@ -6,6 +6,10 @@
       "type": "string",
       "pattern": "^((file|https?)://.+|\\./.*|\\.\\./.*)$"
     },
+    "Ref": {
+      "type": "string",
+      "pattern": "^\\$"
+    },
     "Val": {
       "anyOf": [
         {
@@ -147,6 +151,28 @@
     "Elem": {
       "anyOf": [
         {
+          "$ref": "#/$defs/Constraint"
+        },
+        {
+          "$ref": "#/$defs/Or"
+        },
+        {
+          "$ref": "#/$defs/And"
+        },
+        {
+          "$ref": "#/$defs/Xor"
+        },
+        {
+          "$ref": "#/$defs/Add"
+        },
+        {
+          "$ref": "#/$defs/Obj"
+        }
+      ]
+    },
+    "Element": {
+      "anyOf": [
+        {
           "type": "object",
           "patternProperties": {
             "^(<=|>=|<|>|\u2265|\u2264)$": {
@@ -271,6 +297,38 @@
       ]
     },
     "Trafo": {
+      "description": "remove and/or add stuff",
+      "type": "object",
+      "properties": {
+        "/": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Scalar"
+            },
+            {
+              "type": "array",
+              "items": true
+            }
+          ]
+        },
+        "*": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": true
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/Model"
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Transformation": {
       "anyOf": [
         {
           "$ref": "#/$defs/Model"
@@ -278,9 +336,19 @@
         {
           "type": "object",
           "properties": {
-            "/": true,
             "#": {
               "type": "string"
+            },
+            "/": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Scalar"
+                },
+                {
+                  "type": "array",
+                  "items": true
+                }
+              ]
             },
             "*": {
               "anyOf": [
@@ -297,36 +365,6 @@
               ]
             }
           },
-          "required": [
-            "/"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "*": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": true
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": {
-                    "$ref": "#/$defs/Model"
-                  }
-                }
-              ]
-            },
-            "#": {
-              "type": "string"
-            },
-            "/": true
-          },
-          "required": [
-            "*"
-          ],
           "additionalProperties": false
         }
       ]
@@ -371,7 +409,7 @@
           "$ref": "#/$defs/Array"
         },
         {
-          "$ref": "#/$defs/Elem"
+          "$ref": "#/$defs/Element"
         }
       ]
     },
@@ -403,12 +441,32 @@
       "type": "object",
       "patternProperties": {
         "^\\$.*$": {
-          "$ref": "#/$defs/Trafo"
+          "$ref": "#/$defs/Transformation"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Import": {
+      "type": "object",
+      "properties": {
+        "<": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Ref"
+              }
+            }
+          ]
         }
       },
       "additionalProperties": false
     },
     "RootOnly": {
+      "description": "symbols that can only appear at the model's root",
       "type": "object",
       "properties": {
         "~": {
@@ -439,7 +497,7 @@
               "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
             },
             "^\\$.*$": {
-              "$ref": "#/$defs/Trafo"
+              "$ref": "#/$defs/Transformation"
             }
           },
           "properties": {
@@ -447,11 +505,17 @@
               "type": "string"
             },
             "<": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "pattern": "^\\$"
-              }
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Ref"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/Ref"
+                  }
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -513,7 +577,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -521,11 +585,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -579,7 +649,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -587,11 +657,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -642,7 +718,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -650,11 +726,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -705,7 +787,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -713,11 +795,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -768,7 +856,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -776,11 +864,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -828,7 +922,7 @@
                   "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
                 },
                 "^\\$.*$": {
-                  "$ref": "#/$defs/Trafo"
+                  "$ref": "#/$defs/Transformation"
                 }
               },
               "properties": {
@@ -836,11 +930,17 @@
                   "type": "string"
                 },
                 "<": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "pattern": "^\\$"
-                  }
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
                 }
               },
               "additionalProperties": false

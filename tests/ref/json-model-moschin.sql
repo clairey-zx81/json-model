@@ -11,7 +11,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Model'
-  res := json_model_25(val, path, rep);
+  res := json_model_29(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -29,20 +29,20 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model#RootModel (.'$Model#RootModel')
-CREATE OR REPLACE FUNCTION json_model_25(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_29(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$Model#RootModel'
   -- .'$Model#RootModel'.'|'.0
-  res := json_model_18(val, path, rep);
+  res := json_model_21(val, path, rep);
   IF NOT res THEN
     -- .'$Model#RootModel'.'|'.1
-    res := json_model_9(val, path, rep);
+    res := json_model_10(val, path, rep);
     IF NOT res THEN
       -- .'$Model#RootModel'.'|'.2
-      res := json_model_24(val, path, rep);
+      res := json_model_28(val, path, rep);
     END IF;
   END IF;
   RETURN res;
@@ -50,7 +50,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model#Array (.'$Model#Array')
-CREATE OR REPLACE FUNCTION json_model_9(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -63,7 +63,7 @@ BEGIN
     FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
       arr_0_item := val -> arr_0_idx;
       -- .'$Model#Array'.0
-      res := json_model_19(arr_0_item, NULL, rep);
+      res := json_model_22(arr_0_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -83,7 +83,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- check $Model#Scalar (.'$Model#Scalar')
-CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -102,27 +102,27 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model#Model (.'$Model#Model')
-CREATE OR REPLACE FUNCTION json_model_19(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_22(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
   -- .'$Model#Model'
   -- .'$Model#Model'.'|'.0
-  res := json_model_18(val, path, rep);
+  res := json_model_21(val, path, rep);
   IF NOT res THEN
     -- .'$Model#Model'.'|'.1
-    res := json_model_9(val, path, rep);
+    res := json_model_10(val, path, rep);
     IF NOT res THEN
       -- .'$Model#Model'.'|'.2
-      res := json_model_16(val, path, rep);
+      res := json_model_18(val, path, rep);
     END IF;
   END IF;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.5.'.schema'
+-- object .'$Model#Element'.'|'.5.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -142,7 +142,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$Model#Elem'.'|'.5
+-- object .'$Model#Element'.'|'.5
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -156,29 +156,29 @@ BEGIN
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     IF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.5.'#'
+      -- .'$Model#Element'.'|'.5.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.5.'.schema'
+      -- .'$Model#Element'.'|'.5.'.schema'
       res := _jm_obj_1(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_0(prop, path, rep) THEN
       -- handle 1 re props
-      -- .'$Model#Elem'.'|'.5.'/^[@|&^+/*]$/'
+      -- .'$Model#Element'.'|'.5.'/^[@|&^+/*]$/'
       res := FALSE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSE
       -- handle other props
-      -- .'$Model#Elem'.'|'.5.''
-      res := json_model_19(pval, NULL, rep);
+      -- .'$Model#Element'.'|'.5.''
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -188,7 +188,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.4.'.schema'
+-- object .'$Model#Element'.'|'.4.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -200,7 +200,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.4
+-- object .'$Model#Element'.'|'.4
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -219,13 +219,13 @@ BEGIN
     IF prop = '+' THEN
       -- handle must + property
       must_count := must_count + 1;
-      -- .'$Model#Elem'.'|'.4.'+'
+      -- .'$Model#Element'.'|'.4.'+'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_1_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_1_item := pval -> arr_1_idx;
-          -- .'$Model#Elem'.'|'.4.'+'.0
-          res := json_model_19(arr_1_item, NULL, rep);
+          -- .'$Model#Element'.'|'.4.'+'.0
+          res := json_model_22(arr_1_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -236,14 +236,14 @@ BEGIN
       END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.4.'#'
+      -- .'$Model#Element'.'|'.4.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.4.'.schema'
+      -- .'$Model#Element'.'|'.4.'.schema'
       res := _jm_obj_3(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
@@ -259,7 +259,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.3.'.schema'
+-- object .'$Model#Element'.'|'.3.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_5(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -271,7 +271,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.3
+-- object .'$Model#Element'.'|'.3
 CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -290,13 +290,13 @@ BEGIN
     IF prop = '^' THEN
       -- handle must ^ property
       must_count := must_count + 1;
-      -- .'$Model#Elem'.'|'.3.'^'
+      -- .'$Model#Element'.'|'.3.'^'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_2_item := pval -> arr_2_idx;
-          -- .'$Model#Elem'.'|'.3.'^'.0
-          res := json_model_19(arr_2_item, NULL, rep);
+          -- .'$Model#Element'.'|'.3.'^'.0
+          res := json_model_22(arr_2_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -307,14 +307,14 @@ BEGIN
       END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.3.'#'
+      -- .'$Model#Element'.'|'.3.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.3.'.schema'
+      -- .'$Model#Element'.'|'.3.'.schema'
       res := _jm_obj_5(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
@@ -330,7 +330,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.2.'.schema'
+-- object .'$Model#Element'.'|'.2.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -342,7 +342,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.2
+-- object .'$Model#Element'.'|'.2
 CREATE OR REPLACE FUNCTION _jm_obj_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -361,13 +361,13 @@ BEGIN
     IF prop = '&' THEN
       -- handle must & property
       must_count := must_count + 1;
-      -- .'$Model#Elem'.'|'.2.'&'
+      -- .'$Model#Element'.'|'.2.'&'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_3_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_3_item := pval -> arr_3_idx;
-          -- .'$Model#Elem'.'|'.2.'&'.0
-          res := json_model_19(arr_3_item, NULL, rep);
+          -- .'$Model#Element'.'|'.2.'&'.0
+          res := json_model_22(arr_3_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -378,14 +378,14 @@ BEGIN
       END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.2.'#'
+      -- .'$Model#Element'.'|'.2.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.2.'.schema'
+      -- .'$Model#Element'.'|'.2.'.schema'
       res := _jm_obj_7(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
@@ -401,7 +401,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.1.'.schema'
+-- object .'$Model#Element'.'|'.1.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -413,7 +413,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.1
+-- object .'$Model#Element'.'|'.1
 CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -432,13 +432,13 @@ BEGIN
     IF prop = '|' THEN
       -- handle must | property
       must_count := must_count + 1;
-      -- .'$Model#Elem'.'|'.1.'|'
+      -- .'$Model#Element'.'|'.1.'|'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         FOR arr_4_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_4_item := pval -> arr_4_idx;
-          -- .'$Model#Elem'.'|'.1.'|'.0
-          res := json_model_19(arr_4_item, NULL, rep);
+          -- .'$Model#Element'.'|'.1.'|'.0
+          res := json_model_22(arr_4_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -449,14 +449,14 @@ BEGIN
       END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.1.'#'
+      -- .'$Model#Element'.'|'.1.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.1.'.schema'
+      -- .'$Model#Element'.'|'.1.'.schema'
       res := _jm_obj_9(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
@@ -472,7 +472,7 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Elem'.'|'.0.'.schema'
+-- object .'$Model#Element'.'|'.0.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_11(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
@@ -500,7 +500,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- object .'$Model#Elem'.'|'.0
+-- object .'$Model#Element'.'|'.0
 CREATE OR REPLACE FUNCTION _jm_obj_10(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
@@ -517,56 +517,56 @@ BEGIN
     IF prop = '@' THEN
       -- handle must @ property
       must_count := must_count + 1;
-      -- .'$Model#Elem'.'|'.0.'@'
-      res := json_model_19(pval, NULL, rep);
+      -- .'$Model#Element'.'|'.0.'@'
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Elem'.'|'.0.'#'
+      -- .'$Model#Element'.'|'.0.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Elem'.'|'.0.'.schema'
+      -- .'$Model#Element'.'|'.0.'.schema'
       res := _jm_obj_11(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '!' THEN
       -- handle may ! property
-      -- .'$Model#Elem'.'|'.0.'!'
+      -- .'$Model#Element'.'|'.0.'!'
       res := JSONB_TYPEOF(pval) = 'boolean';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.mo' THEN
       -- handle may .mo property
-      -- .'$Model#Elem'.'|'.0.'.mo'
+      -- .'$Model#Element'.'|'.0.'.mo'
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.in' THEN
       -- handle may .in property
-      -- .'$Model#Elem'.'|'.0.'.in'
-      res := json_model_19(pval, NULL, rep);
+      -- .'$Model#Element'.'|'.0.'.in'
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF _jm_re_1(prop, path, rep) THEN
       -- handle 2 re props
-      -- .'$Model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
-      -- .'$Model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.0
+      -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
+      -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.0
       res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8;
       IF NOT res THEN
-        -- .'$Model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.1
+        -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.1
         res := JSONB_TYPEOF(pval) = 'number';
         IF NOT res THEN
-          -- .'$Model#Elem'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.2
+          -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.2
           res := JSONB_TYPEOF(pval) = 'string';
         END IF;
       END IF;
@@ -575,8 +575,8 @@ BEGIN
       END IF;
     ELSEIF _jm_re_2(prop, path, rep) THEN
       -- handle 2 re props
-      -- .'$Model#Elem'.'|'.0.'/^(=|!=|≠)$/'
-      res := json_model_5(pval, NULL, rep);
+      -- .'$Model#Element'.'|'.0.'/^(=|!=|≠)$/'
+      res := json_model_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -591,31 +591,31 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Model#Elem (.'$Model#Elem')
-CREATE OR REPLACE FUNCTION json_model_16(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Model#Element (.'$Model#Element')
+CREATE OR REPLACE FUNCTION json_model_18(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$Model#Elem'
+  -- .'$Model#Element'
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
-    -- .'$Model#Elem'.'|'.0
+    -- .'$Model#Element'.'|'.0
     res := _jm_obj_10(val, path, rep);
     IF NOT res THEN
-      -- .'$Model#Elem'.'|'.1
+      -- .'$Model#Element'.'|'.1
       res := _jm_obj_8(val, path, rep);
       IF NOT res THEN
-        -- .'$Model#Elem'.'|'.2
+        -- .'$Model#Element'.'|'.2
         res := _jm_obj_6(val, path, rep);
         IF NOT res THEN
-          -- .'$Model#Elem'.'|'.3
+          -- .'$Model#Element'.'|'.3
           res := _jm_obj_4(val, path, rep);
           IF NOT res THEN
-            -- .'$Model#Elem'.'|'.4
+            -- .'$Model#Element'.'|'.4
             res := _jm_obj_2(val, path, rep);
             IF NOT res THEN
-              -- .'$Model#Elem'.'|'.5
+              -- .'$Model#Element'.'|'.5
               res := _jm_obj_0(val, path, rep);
             END IF;
           END IF;
@@ -628,7 +628,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model#Val (.'$Model#Val')
-CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_6(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -712,7 +712,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.5.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -736,16 +736,8 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^\$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_4(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^\$', 'n');
-END;
-$$ LANGUAGE plpgsql;
-
 -- regex=^\..+$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_5(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_4(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^\..+$', 'n');
@@ -753,7 +745,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- regex=^([#|&^+/*@~=$%]|[<>!]=?)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_6(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_5(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^([#|&^+/*@~=$%]|[<>!]=?)$', 'n');
@@ -761,7 +753,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- regex=^\$.*$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_7(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_6(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^\$.*$', 'n');
@@ -799,33 +791,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.5.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_5_item := pval -> arr_5_idx;
-          -- .'$Model#Root'.'|'.5.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_5_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_5_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.5.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.5.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_5_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_5_item := pval -> arr_5_idx;
+            -- .'$Model#Root'.'|'.5.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_5_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.5.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.5.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -906,7 +902,7 @@ BEGIN
     ELSE
       -- handle other props
       -- .'$Model#Root'.'|'.5.''
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -964,7 +960,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.4.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1019,33 +1015,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.4.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_7_item := pval -> arr_7_idx;
-          -- .'$Model#Root'.'|'.4.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_7_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_7_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.4.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.4.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_7_item := pval -> arr_7_idx;
+            -- .'$Model#Root'.'|'.4.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_7_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.4.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1094,7 +1094,7 @@ BEGIN
         FOR arr_6_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_6_item := pval -> arr_6_idx;
           -- .'$Model#Root'.'|'.4.'+'.0
-          res := json_model_19(arr_6_item, NULL, rep);
+          res := json_model_22(arr_6_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1197,7 +1197,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.3.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1252,33 +1252,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.3.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_9_item := pval -> arr_9_idx;
-          -- .'$Model#Root'.'|'.3.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_9_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_9_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.3.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.3.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_9_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_9_item := pval -> arr_9_idx;
+            -- .'$Model#Root'.'|'.3.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_9_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.3.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1327,7 +1331,7 @@ BEGIN
         FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_8_item := pval -> arr_8_idx;
           -- .'$Model#Root'.'|'.3.'^'.0
-          res := json_model_19(arr_8_item, NULL, rep);
+          res := json_model_22(arr_8_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1430,7 +1434,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.2.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1485,33 +1489,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.2.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_11_item := pval -> arr_11_idx;
-          -- .'$Model#Root'.'|'.2.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_11_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_11_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.2.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.2.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_11_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_11_item := pval -> arr_11_idx;
+            -- .'$Model#Root'.'|'.2.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_11_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.2.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1560,7 +1568,7 @@ BEGIN
         FOR arr_10_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_10_item := pval -> arr_10_idx;
           -- .'$Model#Root'.'|'.2.'&'.0
-          res := json_model_19(arr_10_item, NULL, rep);
+          res := json_model_22(arr_10_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1663,7 +1671,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.1.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1718,33 +1726,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.1.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_13_item := pval -> arr_13_idx;
-          -- .'$Model#Root'.'|'.1.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_13_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_13_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.1.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.1.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_13_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_13_item := pval -> arr_13_idx;
+            -- .'$Model#Root'.'|'.1.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_13_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.1.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1793,7 +1805,7 @@ BEGIN
         FOR arr_12_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_12_item := pval -> arr_12_idx;
           -- .'$Model#Root'.'|'.1.'|'.0
-          res := json_model_19(arr_12_item, NULL, rep);
+          res := json_model_22(arr_12_item, NULL, rep);
           IF NOT res THEN
             EXIT;
           END IF;
@@ -1920,7 +1932,7 @@ BEGIN
     ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 1 re props
       -- .'$Model#Root'.'|'.0.'$'.'/.+/'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -1987,33 +1999,37 @@ BEGIN
     ELSEIF prop = '<' THEN
       -- handle may < property
       -- .'$Model#Root'.'|'.0.'%'.'<'
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_14_item := pval -> arr_14_idx;
-          -- .'$Model#Root'.'|'.0.'%'.'<'.0
-          -- "/^\\$/"
-          res := JSONB_TYPEOF(arr_14_item) = 'string' AND _jm_re_4(JSON_VALUE(arr_14_item, '$' RETURNING TEXT), NULL, rep);
-          IF NOT res THEN
-            EXIT;
-          END IF;
-        END LOOP;
+      -- .'$Model#Root'.'|'.0.'%'.'<'.'|'.0
+      res := json_model_5(pval, NULL, rep);
+      IF NOT res THEN
+        -- .'$Model#Root'.'|'.0.'%'.'<'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          FOR arr_14_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+            arr_14_item := pval -> arr_14_idx;
+            -- .'$Model#Root'.'|'.0.'%'.'<'.'|'.1.0
+            res := json_model_5(arr_14_item, NULL, rep);
+            IF NOT res THEN
+              EXIT;
+            END IF;
+          END LOOP;
+        END IF;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.0.'%'.'/^\\..+$/'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_6(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_5(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_7(prop, path, rep) THEN
+    ELSEIF _jm_re_6(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
-      res := json_model_17(pval, NULL, rep);
+      res := json_model_20(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2044,7 +2060,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$Model#Root'.'|'.0.'.in'
-  res := json_model_19(val, path, rep);
+  res := json_model_22(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -2125,7 +2141,7 @@ BEGIN
       -- handle must @ property
       must_count := must_count + 1;
       -- .'$Model#Root'.'|'.0.'@'
-      res := json_model_19(pval, NULL, rep);
+      res := json_model_22(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2154,7 +2170,7 @@ BEGIN
     ELSEIF _jm_re_2(prop, path, rep) THEN
       -- handle 2 re props
       -- .'$Model#Root'.'|'.0.'/^(=|!=|≠)$/'
-      res := json_model_5(pval, NULL, rep);
+      res := json_model_6(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
@@ -2170,7 +2186,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- check $Model#Root (.'$Model#Root')
-CREATE OR REPLACE FUNCTION json_model_24(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION json_model_28(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2206,7 +2222,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^((file|https?)://.+|\./.*|\.\./.*)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_8(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_7(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^((file|https?)://.+|\./.*|\.\./.*)$', 'n');
@@ -2221,13 +2237,46 @@ DECLARE
 BEGIN
   -- .'$Model#Url'
   -- "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
+  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_7(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  RETURN res;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- regex=^\$ opts=n
+CREATE OR REPLACE FUNCTION _jm_re_8(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  RETURN regexp_like(val, '^\$', 'n');
+END;
+$$ LANGUAGE plpgsql;
+
+-- check $Model#Ref (.'$Model#Ref')
+CREATE OR REPLACE FUNCTION json_model_5(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+BEGIN
+  -- .'$Model#Ref'
+  -- "/^\\$/"
   res := JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Trafo'.'|'.2.'*'.'|'.1
+-- object .'$Model#Transformation'.'|'.1.'.schema'
 CREATE OR REPLACE FUNCTION _jm_obj_49(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  -- accept any object
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Model#Transformation'.'|'.1.'*'.'|'.1
+CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -2239,8 +2288,8 @@ BEGIN
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
     -- handle other props
-    -- .'$Model#Trafo'.'|'.2.'*'.'|'.1.''
-    res := json_model_19(pval, NULL, rep);
+    -- .'$Model#Transformation'.'|'.1.'*'.'|'.1.''
+    res := json_model_22(pval, NULL, rep);
     IF NOT res THEN
       RETURN FALSE;
     END IF;
@@ -2249,164 +2298,60 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Model#Trafo'.'|'.2.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_50(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  -- accept any object
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Model#Trafo'.'|'.2
+-- object .'$Model#Transformation'.'|'.1
 CREATE OR REPLACE FUNCTION _jm_obj_48(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  must_count int;
   prop TEXT;
   pval JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  must_count := 0;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '*' THEN
-      -- handle must * property
-      must_count := must_count + 1;
-      -- .'$Model#Trafo'.'|'.2.'*'
-      -- .'$Model#Trafo'.'|'.2.'*'.'|'.0
-      res := JSONB_TYPEOF(pval) = 'array';
-      IF res THEN
-        -- accept any array
-        NULL;
-      END IF;
-      IF NOT res THEN
-        -- .'$Model#Trafo'.'|'.2.'*'.'|'.1
-        res := _jm_obj_49(pval, NULL, rep);
-      END IF;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '#' THEN
+    IF prop = '#' THEN
       -- handle may # property
-      -- .'$Model#Trafo'.'|'.2.'#'
+      -- .'$Model#Transformation'.'|'.1.'#'
       res := JSONB_TYPEOF(pval) = 'string';
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '.schema' THEN
       -- handle may .schema property
-      -- .'$Model#Trafo'.'|'.2.'.schema'
-      res := _jm_obj_50(pval, NULL, rep);
+      -- .'$Model#Transformation'.'|'.1.'.schema'
+      res := _jm_obj_49(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '/' THEN
       -- handle may / property
-      -- .'$Model#Trafo'.'|'.2.'/'
-      res := TRUE;
+      -- .'$Model#Transformation'.'|'.1.'/'
+      -- .'$Model#Transformation'.'|'.1.'/'.'|'.0
+      res := json_model_21(pval, NULL, rep);
       IF NOT res THEN
-        RETURN FALSE;
+        -- .'$Model#Transformation'.'|'.1.'/'.'|'.1
+        res := JSONB_TYPEOF(pval) = 'array';
+        IF res THEN
+          -- accept any array
+          NULL;
+        END IF;
       END IF;
-    ELSE
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Model#Trafo'.'|'.1.'.schema'
-CREATE OR REPLACE FUNCTION _jm_obj_52(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  -- accept any object
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Model#Trafo'.'|'.1.'*'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_53(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .'$Model#Trafo'.'|'.1.'*'.'|'.1.''
-    res := json_model_19(pval, NULL, rep);
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
-  RETURN TRUE;
-END;
-$$ LANGUAGE PLpgSQL;
-
--- object .'$Model#Trafo'.'|'.1
-CREATE OR REPLACE FUNCTION _jm_obj_51(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  must_count int;
-  prop TEXT;
-  pval JSONB;
-BEGIN
-  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
-    RETURN FALSE;
-  END IF;
-  must_count := 0;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF prop = '/' THEN
-      -- handle must / property
-      must_count := must_count + 1;
-      -- .'$Model#Trafo'.'|'.1.'/'
-      res := TRUE;
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '#' THEN
-      -- handle may # property
-      -- .'$Model#Trafo'.'|'.1.'#'
-      res := JSONB_TYPEOF(pval) = 'string';
-      IF NOT res THEN
-        RETURN FALSE;
-      END IF;
-    ELSEIF prop = '.schema' THEN
-      -- handle may .schema property
-      -- .'$Model#Trafo'.'|'.1.'.schema'
-      res := _jm_obj_52(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
     ELSEIF prop = '*' THEN
       -- handle may * property
-      -- .'$Model#Trafo'.'|'.1.'*'
-      -- .'$Model#Trafo'.'|'.1.'*'.'|'.0
+      -- .'$Model#Transformation'.'|'.1.'*'
+      -- .'$Model#Transformation'.'|'.1.'*'.'|'.0
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
         -- accept any array
         NULL;
       END IF;
       IF NOT res THEN
-        -- .'$Model#Trafo'.'|'.1.'*'.'|'.1
-        res := _jm_obj_53(pval, NULL, rep);
+        -- .'$Model#Transformation'.'|'.1.'*'.'|'.1
+        res := _jm_obj_50(pval, NULL, rep);
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2415,29 +2360,22 @@ BEGIN
       RETURN FALSE;
     END IF;
   END LOOP;
-  IF must_count <> 1 THEN
-    RETURN FALSE;
-  END IF;
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
 
--- check $Model#Trafo (.'$Model#Trafo')
-CREATE OR REPLACE FUNCTION json_model_17(val JSONB, path TEXT[], rep jm_report_entry[])
+-- check $Model#Transformation (.'$Model#Transformation')
+CREATE OR REPLACE FUNCTION json_model_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- .'$Model#Trafo'
-  -- .'$Model#Trafo'.'|'.0
-  res := json_model_19(val, path, rep);
+  -- .'$Model#Transformation'
+  -- .'$Model#Transformation'.'|'.0
+  res := json_model_22(val, path, rep);
   IF NOT res THEN
-    -- .'$Model#Trafo'.'|'.1
-    res := _jm_obj_51(val, path, rep);
-    IF NOT res THEN
-      -- .'$Model#Trafo'.'|'.2
-      res := _jm_obj_48(val, path, rep);
-    END IF;
+    -- .'$Model#Transformation'.'|'.1
+    res := _jm_obj_48(val, path, rep);
   END IF;
   RETURN res;
 END;

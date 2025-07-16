@@ -5,6 +5,7 @@
     "#": "Definitions, without predefs of any kind",
     "": "https://json-model.org/models/json-model",
     "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+    "Ref": "/^\\$/",
     "Val": { "|":  [ null, true, -1, -1.0, "" ] },
     "Any": { "&": [ ] },
     "None": { "|": [ ] },
@@ -21,46 +22,27 @@
     "Xor": { "_^": [ "$Model" ] },
     "Add": { "_+": [ "$Model" ] },
     "Obj": { "": "$Model", "/^[@|&^+/*]$/": "$None" },
-    "Elem": {
-      "+": [
-        "$Common",
-        { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] }
-      ]
-    },
+    "Elem": { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] },
+    "Element": { "+": [ "$Common", "$Elem" ] },
     "Trafo": {
-      "|": [
-        "$Model",
-        {
-          "+": [
-            "$Common",
-            {
-              "|": [
-                {
-                  "#": "FIXME Any? reduce?!",
-                  "_/": "$Any",
-                  "?*": { "|": [ [ "$Any" ], { "": "$Model" } ] }
-                },
-                {
-                  "_*": { "|": [ [ "$Any" ], { "": "$Model" } ] },
-                  "?/": "$Any"
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      "#": "remove and/or add stuff",
+      "?/": { "|": [ "$Scalar", [ "$Any" ] ] },
+      "?*": { "|": [ [ "$Any" ], { "": "$Model" } ] }
     },
+    "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },
     "Scalar": { "|": [ "=null", "=true", "=0", "=1", "=-1", "=0.0", "=1.0", "=-1.0", "" ] },
-    "Model": { "|": [ "$Scalar", "$Array", "$Elem" ] },
+    "Model": { "|": [ "$Scalar", "$Array", "$Element" ] },
     "Defs": { "?": "$Url", "/.+/": "$Model" },
     "Rename": { "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/" },
-    "Rewrite": { "/^\\$.*$/": "$Trafo" },
+    "Rewrite": { "/^\\$.*$/": "$Transformation" },
+    "Import": { "?<": { "|": [ "$Ref", [ "$Ref" ] ] } },
     "RootOnly": {
+      "#": "symbols that can only appear at the model's root",
       "?~": "$Url",
       "?$": { "+": [ "$Common", "$Defs" ] },
-      "?%": { "+": [ "$Common", "$Rename", "$Rewrite", {"?<": ["/^\\$/"]} ] }
+      "?%": { "+": [ "$Common", "$Rename", "$Rewrite", "$Import" ] }
     },
-    "Root": { "+": [ "$RootOnly", "$Elem" ] },
+    "Root": { "+": [ "$RootOnly", "$Element" ] },
     "RootModel": { "|": [ "$Scalar", "$Array", "$Root" ] }
   },
   "@": "$RootModel"

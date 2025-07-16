@@ -15,9 +15,9 @@
 - [x] tuto: add PL/pgSQL entry
 - [x] python: rerun type check (some ignore added, but a few fixes as well)
 - [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
+- [x] design: add import `<` with scalar
 - [ ] js: allow to run with nvm stable?
 - [ ] sql-backend: fix generated code under `--reporting`
-- [ ] design: add import `<` with scalar
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: reduce extension loading verbosity
 - [ ] schema: inline external reference to generate valid schemas

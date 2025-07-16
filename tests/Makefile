@@ -11,7 +11,7 @@ clean: $(D.clean)
 	$(RM) -r __pycache__ .pytest_cache
 
 PYTEST  = pytest --log-level=debug --capture=tee-sys --durations=5
-PYTOPT	= -v -n auto
+PYTOPT	= -n auto
 
 .PHONY: check.pytest
 check.pytest:
