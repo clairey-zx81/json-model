@@ -16,7 +16,7 @@
 - [x] python: rerun type check (some ignore added, but a few fixes as well)
 - [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
 - [x] design: add import `<` with scalar
-- [ ] js: allow to run with nvm stable?
+- [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: reduce extension loading verbosity
