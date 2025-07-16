@@ -1,0 +1,14 @@
+[
+  [ true,  "https://json-model.org/models/json-model" ],
+  [ true,  "./url_looking.model.json" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ],
+  [ false, {} ],
+  [ false, {"un": "expected"} ]
+]

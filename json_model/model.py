@@ -305,7 +305,7 @@ class JsonModel:
                             name not in ("#", "<")
             }
 
-            log.warning(f"rewrite={self._rewrite}")
+            # log.warning(f"rewrite={self._rewrite}")
 
             # save initial definition
             self._init_pc = model_pc
@@ -334,6 +334,12 @@ class JsonModel:
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })
+            # warn about possibly missing $
+            for name, value in self._defs.items():
+                m = value._model
+                if isinstance(m, str) and re.search("^((https?|file)://|\\.)", m):
+                    log.warning(f"url-looking {name}: "
+                                "add missing $ or prefix with _ for string constants")
             # keep initial definitions
             self._init_dl = dollar
         else:

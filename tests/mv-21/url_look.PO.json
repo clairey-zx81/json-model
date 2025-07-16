@@ -1,0 +1,13 @@
+{
+  "|": [
+    "https://json-model.org/models/json-model",
+    "./url_looking.model.json"
+  ],
+  "#": "JsonModel 1",
+  "$": {
+    "u1": "https://json-model.org/models/json-model",
+    "u2": "./url_looking.model.json",
+    "#": "Symbol 1",
+    "": "./url_look"
+  }
+}

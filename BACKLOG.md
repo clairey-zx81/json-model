@@ -2,27 +2,12 @@
 
 ## Current Tasks
 
-- [x] sql-backend: generate PL/pgSQL functions to validate JSONB data
-- [x] sql-backend: add generic entry function
-- [x] sql-backend: add testing capability
-- [x] sql-backend: add necessary support function (nearly)
-- [x] sql-backend: implement basic regex
-- [x] tests: add sql to pytest
-- [x] tests: parallelize sql checks in makefile
-- [x] sql-backend: implement extended regex
-- [x] tests: add sql.check to pytest
-- [x] tests: parallelize sql checks in pytest
-- [x] tuto: add PL/pgSQL entry
-- [x] python: rerun type check (some ignore added, but a few fixes as well)
-- [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
-- [x] design: add import `<` with scalar
-- [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
+- [x] model: warn on url-looking definitions
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: reduce extension loading verbosity
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] design: add predefs for `$UUIDx`…
-- [ ] model: warn on url-looking definitions
 - [ ] tests: rerun tests
 - [ ] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
@@ -394,3 +379,18 @@
 - [x] py-frontend: add specific `--jsonschema-benchmark` option
 - [x] js-frontend: add specific `--jsonschema-benchmark` option
 - [x] design: add more predefs such as `OBJECT` or `ANYOBJECT`, `ARRAY` or `ANYARRAY`? NO.
+- [x] sql-backend: generate PL/pgSQL functions to validate JSONB data
+- [x] sql-backend: add generic entry function
+- [x] sql-backend: add testing capability
+- [x] sql-backend: add necessary support function (nearly)
+- [x] sql-backend: implement basic regex
+- [x] tests: add sql to pytest
+- [x] tests: parallelize sql checks in makefile
+- [x] sql-backend: implement extended regex
+- [x] tests: add sql.check to pytest
+- [x] tests: parallelize sql checks in pytest
+- [x] tuto: add PL/pgSQL entry
+- [x] python: rerun type check (some ignore added, but a few fixes as well)
+- [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
+- [x] design: add import `<` with scalar
+- [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
