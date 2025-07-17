@@ -55,6 +55,10 @@ jmc -o person.js Person-2    # JavaScript script
 jmc -o person.py Person-2    # Python script
 ./person.py -T 100000 hobbes.json
 
+# using from C, JS, Python or PL/pgSQL
+jmc -o person.o Person-2
+jmc -o person.mjs Person-2
+jmc -o person.py --module Person-2
 jmc -o person.sql Person-2   # PL/pgSQL functions
 psql \
   -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \

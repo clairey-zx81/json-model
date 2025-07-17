@@ -209,7 +209,7 @@ def clang_compile(c_code: str, args):
         if args.gen == "exec":
             command = f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}"
         else:
-            command = "{cc} {cppflags} {cflags} -o {output} -c {tmp.name}"
+            command = f"{cc} {cppflags} {cflags} -o {output} -c {tmp.name}"
         status = os.system(command)
         assert status == 0, f"C compilation succeeded: {command}"
 

@@ -519,7 +519,7 @@ jmc -r Person-0.model.yaml hobbes.json moe.json
 jmc -r Person-0.model.js hobbes.json moe.json
 ```
 
-## Running with C, JS, Python or PL/pgSQL
+## Running with C, JS, Python
 
 The JSON Model compiler allows to create actual test executables or scripts for
 direct validation or performance testing, including option `-T` to loop over
@@ -575,6 +575,8 @@ Because the `-r` option is not used, there are no reporting overheads.
 For JS standard deviation is quite high, which could be induced by
 occasional garbage collection.
 
+## Running from C, JS, Python or PL/pgSQL
+
 The JSON Model compiler can also generate C, JavaScript, Python or PL/pgSQL
 validation code ready to be imported for checking values:
 
@@ -585,12 +587,15 @@ jmc -o person.py --module Person-2  # Python Module
 jmc -o person.sql Person-2          # PL/pgSQL functions
 ```
 
-Here is an example of checking JSONB values inside Postgres:
+Here is an example of checking JSONB values inside Postgres, by importing
+JSON Model runtime and generated code:
 
 ```sh
 psql \
   -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
   -f person.sql
+
+And then invoking `check_model` for name `''` (empty name is the root model):
 
 cat > test_values.sql <<EOF
 ```
@@ -599,7 +604,7 @@ CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
 \copy json_values(name, data) FROM PSTDIN
 SELECT
   name AS id,
-  CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS check
+  CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS test
 FROM json_values;
 ```
 ```sh
@@ -610,7 +615,7 @@ for f in [a-z]*.json ; do
 done | psql -f test_values.sql
 ```
 
-| **id**      | **check** |
+| **id**      | **test** |
 |:---         |       ---:|
 | hobbes.json |      PASS |
 | moe.json    |      FAIL |
