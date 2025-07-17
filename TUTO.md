@@ -594,9 +594,11 @@ JSON Model runtime and generated code:
 psql \
   -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
   -f person.sql
+```
 
 And then invoking `check_model` for name `''` (empty name is the root model):
 
+```sh
 cat > test_values.sql <<EOF
 ```
 ```pgsql
