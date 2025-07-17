@@ -1,6 +1,6 @@
 [
   [ true,  "https://json-model.org/models/json-model" ],
-  [ true,  "./url_looking.model.json" ],
+  [ true,  "file://./url_looking.model.json" ],
   [ false, null ],
   [ false, true ],
   [ false, false ],

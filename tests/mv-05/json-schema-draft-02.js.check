@@ -1,4 +1,5 @@
-json-schema-draft-02.values.json[1]: PASS
+json-schema-draft-02.values.json[0]: PASS
+json-schema-draft-02.values.json[1]: FAIL (.: unexpected element [.]; .: not an object [.])
 json-schema-draft-02.values.json[2]: FAIL (.: unexpected element [.]; .: not an object [.])
 json-schema-draft-02.values.json[3]: FAIL (.: unexpected element [.]; .: not an object [.])
 json-schema-draft-02.values.json[4]: FAIL (.: unexpected element [.]; .: not an object [.])
@@ -6,4 +7,3 @@ json-schema-draft-02.values.json[5]: FAIL (.: unexpected element [.]; .: not an 
 json-schema-draft-02.values.json[6]: FAIL (.: unexpected element [.]; .: not an object [.])
 json-schema-draft-02.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
 json-schema-draft-02.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
-json-schema-draft-02.values.json[9]: FAIL (.: unexpected element [.]; .: not an object [.])

@@ -618,13 +618,17 @@ class JsonModel:
             model["~"] = self._spec._url
         return model
 
-    def toSchema(self, recurse: bool = True) -> JsonSchema:
+    def toSchema(self, recurse: bool = True, path: ModelPath|None = None) -> JsonSchema:
         from . import convert
         schema: JsonSchema
         model = copy.deepcopy(self._model)
+        changed = False
+        if path is None:
+            path = []
 
-        # try to replace key references
+        # try to replace some key references
         def keyFlt(model: ModelType, path: ModelPath) -> bool:
+            nonlocal changed
             if isinstance(model, dict):
                 for key in list(model.keys()):
                     lpath = path + [key]
@@ -632,19 +636,20 @@ class JsonModel:
                         jm = self.resolveRef(key, lpath)
                         if isinstance(jm._model, str):
                             m = jm._model
-                        else:  # give up, will fail later anyway
-                            raise Exception(f"cannot replace {key} at {lpath}")
+                        else:
+                            log.warning(f"cannot replace {key} at {lpath}, try rough approximation")
+                            m = "/^.*$/s"
                     else:
                         m = key
                     match m:
-                        case ""|"$STRING":
+                        case ""|"$STRING":  # whatever
                             m = ""
                         case "$URL"|"$URI":
                             log.warning(f"approximating $URL/$URI key at {lpath}")
                             m = r"/[:/#]/"  # hmmm…
                         case "$REGEX"|"$EXREG":
                             log.warning(f"approximating $REGEX/$EXREG key at {lpath}")
-                            m = ""
+                            m = "/^.*$/s"
                         case "$DATE":
                             log.warning(f"approximating $DATE key at {lpath}")
                             m = "/" + WEAK_DATE_RE + "/"
@@ -653,10 +658,12 @@ class JsonModel:
                             m = "/^[a-z0-9_.]+@[a-z0-9_.]+$/i"
                         case _:
                             if m[0] == "_":
-                                m = "?" + m[1:]
-                            elif m[0] not in ("/", "$"):
+                                m = "!" + m[1:]
+                            elif m[0] not in ("/", "$", "="):
                                 m = "?" + m
                     if m != key and (m == "" or m[0] == "/"):
+                        changed = True
+                        log.info(f"replacing {key} with {m} at {lpath}")
                         assert m not in model, f"cannot overwrite key {m} at {lpath}"
                         model[m] = model[key]
                         del model[key]
@@ -664,8 +671,11 @@ class JsonModel:
 
         model = recModel(model, keyFlt, noRwt)
 
+        if changed:
+            log.debug(f"filtered model={model}")
+
         # convert root model
-        schema = convert.model2schema(model)
+        schema = convert.model2schema(model, path, self._defs)
 
         # root specific, only when there are defs though
         if recurse and self._defs:
@@ -686,11 +696,12 @@ class JsonModel:
                 root["description"] = schema["description"]
                 del schema["description"]
             root["$defs"] = {  # type: ignore
-                name: jm.toSchema(False)
+                name: jm.toSchema(False, ["$", name])
                     for name, jm in self._defs.items()
             }
             root.update(schema)
             schema = root
+
         return schema  # type: ignore
 
     #

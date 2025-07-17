@@ -127,22 +127,53 @@ static bool json_model_43(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_44(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_84(const json_t *val, jm_path_t *path, jm_report_t *rep);
-static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_93(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_80(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_4_re2 = NULL;
 static int _jm_re_4_nn = 0;
 static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_5_re2 = NULL;
 static int _jm_re_5_nn = 0;
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool json_model_89(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_73(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_74(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_re_6_re2 = NULL;
 static int _jm_re_6_nn = 0;
 static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool json_model_80(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_86(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_7_re2 = NULL;
+static int _jm_re_7_nn = 0;
+static bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep);
 static bool json_model_68(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_8_re2 = NULL;
+static int _jm_re_8_nn = 0;
+static bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool json_model_70(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_xre_0_re_re2 = NULL;
+static int _jm_xre_0_re_nn = 0;
+static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_xre_0(const char *, jm_path_t *, jm_report_t *);
+static cre2_regexp_t *_jm_xre_1_re_re2 = NULL;
+static int _jm_xre_1_re_nn = 0;
+static bool _jm_xre_1_re(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool _jm_xre_1(const char *, jm_path_t *, jm_report_t *);
+static bool json_model_71(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_9_re2 = NULL;
+static int _jm_re_9_nn = 0;
+static bool _jm_re_9(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_92(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_cst_4_test(const json_t *);
 static jm_constant_t _jm_cst_4[8];
-static bool json_model_83(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_75(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constant_t _jm_cst_5[24];
+static bool json_model_67(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static cre2_regexp_t *_jm_re_10_re2 = NULL;
+static int _jm_re_10_nn = 0;
+static bool _jm_re_10(const char *s, jm_path_t *path, jm_report_t *rep);
+static bool json_model_69(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
 
@@ -6127,7 +6158,7 @@ static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$openapi#Model'
-    res = json_model_84(val, path, rep);
+    res = json_model_93(val, path, rep);
     if (! res)
     {
         if (rep) jm_report_add_entry(rep, "unexpected $model#Model [.'$openapi#Model']", path);
@@ -6136,20 +6167,20 @@ static bool json_model_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $openapi#model#Model (.'$openapi#model#Model')
-static bool json_model_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_93(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$openapi#model#Model'
     // .'$openapi#model#Model'.'|'.0
-    res = json_model_83(val, path, rep);
+    res = json_model_92(val, path, rep);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Scalar [.'$openapi#model#Model'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "unexpected $ScalarModel [.'$openapi#model#Model'.'|'.0]", path);
     }
     if (! res)
     {
         // .'$openapi#model#Model'.'|'.1
-        res = json_model_72(val, path, rep);
+        res = json_model_80(val, path, rep);
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$openapi#model#Model'.'|'.1]", path);
@@ -6157,7 +6188,7 @@ static bool json_model_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (! res)
         {
             // .'$openapi#model#Model'.'|'.2
-            res = json_model_80(val, path, rep);
+            res = json_model_89(val, path, rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Element [.'$openapi#model#Model'.'|'.2]", path);
@@ -6176,7 +6207,7 @@ static bool json_model_84(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $openapi#model#Array (.'$openapi#model#Array')
-static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$openapi#model#Array'
@@ -6189,7 +6220,7 @@ static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             jm_path_t arr_11_lpath = (jm_path_t) { NULL, arr_11_idx, path, NULL };
             // .'$openapi#model#Array'.0
-            res = json_model_84(arr_11_item, (path ? &arr_11_lpath : NULL), rep);
+            res = json_model_93(arr_11_item, (path ? &arr_11_lpath : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Array'.0]", (path ? &arr_11_lpath : NULL));
@@ -6205,12 +6236,6 @@ static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
         if (rep) jm_report_add_entry(rep, "not array or unexpected array [.'$openapi#model#Array']", path);
     }
     return res;
-}
-
-static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Element'.'|'.5
@@ -6242,14 +6267,14 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_4(prop, path, rep))
+        else if (jm_check_fun_string(json_model_86, prop, (path ? &lpath_61 : NULL), rep))
         {
-            // handle 1 re props
-            // .'$openapi#model#Element'.'|'.5.'/^[@|&^+/*]$/'
-            res = false;
+            // handle 1 key props
+            // .'$openapi#model#Element'.'|'.5.'$Prop'
+            res = json_model_93(pval, (path ? &lpath_61 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $NONE [.'$openapi#model#Element'.'|'.5.'/^[@|&^+/*]$/']", (path ? &lpath_61 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.5.'$Prop']", (path ? &lpath_61 : NULL));
             }
             if (! res)
             {
@@ -6258,17 +6283,8 @@ static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         else
         {
-            // handle other props
-            // .'$openapi#model#Element'.'|'.5.''
-            res = json_model_84(pval, (path ? &lpath_61 : NULL), rep);
-            if (! res)
-            {
-                if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.5.'']", (path ? &lpath_61 : NULL));
-            }
-            if (! res)
-            {
-                return false;
-            }
+            if (rep) jm_report_add_entry(rep, "unexpected prop [.'$openapi#model#Element'.'|'.5]", (path ? &lpath_61 : NULL));
+            return false;
         }
     }
     return true;
@@ -6303,7 +6319,7 @@ static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_12_lpath = (jm_path_t) { NULL, arr_12_idx, (path ? &lpath_62 : NULL), NULL };
                     // .'$openapi#model#Element'.'|'.4.'+'.0
-                    res = json_model_84(arr_12_item, ((path ? &lpath_62 : NULL) ? &arr_12_lpath : NULL), rep);
+                    res = json_model_93(arr_12_item, ((path ? &lpath_62 : NULL) ? &arr_12_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.4.'+'.0]", ((path ? &lpath_62 : NULL) ? &arr_12_lpath : NULL));
@@ -6388,7 +6404,7 @@ static bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_13_lpath = (jm_path_t) { NULL, arr_13_idx, (path ? &lpath_63 : NULL), NULL };
                     // .'$openapi#model#Element'.'|'.3.'^'.0
-                    res = json_model_84(arr_13_item, ((path ? &lpath_63 : NULL) ? &arr_13_lpath : NULL), rep);
+                    res = json_model_93(arr_13_item, ((path ? &lpath_63 : NULL) ? &arr_13_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.3.'^'.0]", ((path ? &lpath_63 : NULL) ? &arr_13_lpath : NULL));
@@ -6473,7 +6489,7 @@ static bool _jm_obj_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_14_lpath = (jm_path_t) { NULL, arr_14_idx, (path ? &lpath_64 : NULL), NULL };
                     // .'$openapi#model#Element'.'|'.2.'&'.0
-                    res = json_model_84(arr_14_item, ((path ? &lpath_64 : NULL) ? &arr_14_lpath : NULL), rep);
+                    res = json_model_93(arr_14_item, ((path ? &lpath_64 : NULL) ? &arr_14_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.2.'&'.0]", ((path ? &lpath_64 : NULL) ? &arr_14_lpath : NULL));
@@ -6558,7 +6574,7 @@ static bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 {
                     jm_path_t arr_15_lpath = (jm_path_t) { NULL, arr_15_idx, (path ? &lpath_65 : NULL), NULL };
                     // .'$openapi#model#Element'.'|'.1.'|'.0
-                    res = json_model_84(arr_15_item, ((path ? &lpath_65 : NULL) ? &arr_15_lpath : NULL), rep);
+                    res = json_model_93(arr_15_item, ((path ? &lpath_65 : NULL) ? &arr_15_lpath : NULL), rep);
                     if (! res)
                     {
                         if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.1.'|'.0]", ((path ? &lpath_65 : NULL) ? &arr_15_lpath : NULL));
@@ -6614,16 +6630,16 @@ static bool _jm_obj_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
+static bool _jm_re_4(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_4_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
 static bool _jm_re_5(const char *s, jm_path_t *path, jm_report_t *rep)
 {
     size_t slen = strlen(s);
     return cre2_match(_jm_re_5_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
-}
-
-static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep)
-{
-    size_t slen = strlen(s);
-    return cre2_match(_jm_re_6_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
 // object .'$openapi#model#Element'.'|'.0
@@ -6646,7 +6662,7 @@ static bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
             // handle must @ property
             must_count += 1;
             // .'$openapi#model#Element'.'|'.0.'@'
-            res = json_model_84(pval, (path ? &lpath_66 : NULL), rep);
+            res = json_model_93(pval, (path ? &lpath_66 : NULL), rep);
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected $Model [.'$openapi#model#Element'.'|'.0.'@']", (path ? &lpath_66 : NULL));
@@ -6687,55 +6703,28 @@ static bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop, path, rep))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 2 re props
-            // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'
-            // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.0
-            res = json_is_integer(pval);
+            // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
+            res = json_model_73(pval, (path ? &lpath_66 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.0]", (path ? &lpath_66 : NULL));
-            }
-            if (! res)
-            {
-                // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.1
-                res = json_is_real(pval);
-                if (! res)
-                {
-                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.1]", (path ? &lpath_66 : NULL));
-                }
-                if (! res)
-                {
-                    // .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.2
-                    res = json_is_string(pval);
-                    if (! res)
-                    {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|'.2]", (path ? &lpath_66 : NULL));
-                    }
-                }
-            }
-            if (res)
-            {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>|≥|≤)$/'.'|']", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $CmpValue [.'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/']", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_6(prop, path, rep))
+        else if (_jm_re_5(prop, path, rep))
         {
             // handle 2 re props
-            // .'$openapi#model#Element'.'|'.0.'/^(=|!=|≠)$/'
-            res = json_model_68(pval, (path ? &lpath_66 : NULL), rep);
+            // .'$openapi#model#Element'.'|'.0.'/^(=|!=)$/'
+            res = json_model_74(pval, (path ? &lpath_66 : NULL), rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $Val [.'$openapi#model#Element'.'|'.0.'/^(=|!=|≠)$/']", (path ? &lpath_66 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected $EqValue [.'$openapi#model#Element'.'|'.0.'/^(=|!=)$/']", (path ? &lpath_66 : NULL));
             }
             if (! res)
             {
@@ -6763,7 +6752,7 @@ static bool _jm_obj_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // check $openapi#model#Element (.'$openapi#model#Element')
-static bool json_model_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static bool json_model_89(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$openapi#model#Element'
@@ -6837,48 +6826,144 @@ static bool json_model_80(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-// check $openapi#model#Val (.'$openapi#model#Val')
-static bool json_model_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
+static bool json_model_73(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$openapi#model#Val'
-    // .'$openapi#model#Val'.'|'.0
-    res = json_is_null(val);
+    // .'$openapi#model#CmpValue'
+    // .'$openapi#model#CmpValue'.'|'.0
+    res = json_is_integer(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not null [.'$openapi#model#Val'.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$openapi#model#CmpValue'.'|'.0]", path);
     }
     if (! res)
     {
-        // .'$openapi#model#Val'.'|'.1
-        res = json_is_boolean(val);
+        // .'$openapi#model#CmpValue'.'|'.1
+        res = json_is_real(val);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "not a bool [.'$openapi#model#Val'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$openapi#model#CmpValue'.'|'.1]", path);
         }
         if (! res)
         {
-            // .'$openapi#model#Val'.'|'.2
-            res = json_is_integer(val);
+            // .'$openapi#model#CmpValue'.'|'.2
+            res = json_is_string(val);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "not a -1 strict int [.'$openapi#model#Val'.'|'.2]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#model#CmpValue'.'|'.2]", path);
+            }
+        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#CmpValue'.'|']", path);
+    }
+    return res;
+}
+
+// check $openapi#model#EqValue (.'$openapi#model#EqValue')
+static bool json_model_74(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#EqValue'
+    // .'$openapi#model#EqValue'.'|'.0
+    res = json_is_null(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "not null [.'$openapi#model#EqValue'.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$openapi#model#EqValue'.'|'.1
+        res = json_is_boolean(val);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "not a bool [.'$openapi#model#EqValue'.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$openapi#model#EqValue'.'|'.2
+            res = json_model_73(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $CmpValue [.'$openapi#model#EqValue'.'|'.2]", path);
+            }
+        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#EqValue'.'|']", path);
+    }
+    return res;
+}
+
+static bool _jm_re_6(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_6_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $openapi#model#Prop (.'$openapi#model#Prop')
+static bool json_model_86(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#Prop'
+    // .'$openapi#model#Prop'.'|'.0
+    // "/^[?!]/"
+    res = json_is_string(val) && _jm_re_6(json_string_value(val), path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^[?!]/ [.'$openapi#model#Prop'.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$openapi#model#Prop'.'|'.1
+        res = json_model_70(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $StrConst [.'$openapi#model#Prop'.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$openapi#model#Prop'.'|'.2
+            res = json_model_71(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Regex [.'$openapi#model#Prop'.'|'.2]", path);
             }
             if (! res)
             {
-                // .'$openapi#model#Val'.'|'.3
-                res = json_is_real(val);
+                // .'$openapi#model#Prop'.'|'.3
+                res = json_model_68(val, path, rep);
                 if (! res)
                 {
-                    if (rep) jm_report_add_entry(rep, "not a -1.0 strict float [.'$openapi#model#Val'.'|'.3]", path);
+                    if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$openapi#model#Prop'.'|'.3]", path);
                 }
                 if (! res)
                 {
-                    // .'$openapi#model#Val'.'|'.4
-                    res = json_is_string(val);
+                    // .'$openapi#model#Prop'.'|'.4
+                    res = json_model_72(val, path, rep);
                     if (! res)
                     {
-                        if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#model#Val'.'|'.4]", path);
+                        if (rep) jm_report_add_entry(rep, "unexpected $Name [.'$openapi#model#Prop'.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$openapi#model#Prop'.'|'.5
+                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected _ [.'$openapi#model#Prop'.'|'.5]", path);
+                        }
                     }
                 }
             }
@@ -6890,7 +6975,193 @@ static bool json_model_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     else
     {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Val'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Prop'.'|']", path);
+    }
+    return res;
+}
+
+static bool _jm_re_7(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_7_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $openapi#model#Ref (.'$openapi#model#Ref')
+static bool json_model_68(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#Ref'
+    // "/^\\$/"
+    res = json_is_string(val) && _jm_re_7(json_string_value(val), path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^\\$/ [.'$openapi#model#Ref']", path);
+    }
+    return res;
+}
+
+static bool _jm_re_8(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_8_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $openapi#model#StrConst (.'$openapi#model#StrConst')
+static bool json_model_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#StrConst'
+    // "/^[_a-zA-Z0-9]/"
+    res = json_is_string(val) && _jm_re_8(json_string_value(val), path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^[_a-zA-Z0-9]/ [.'$openapi#model#StrConst']", path);
+    }
+    return res;
+}
+
+static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_xre_0_re_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
+{
+    size_t extract_size = strlen(val) + 1;
+    char extract[extract_size];
+    int match_index;
+    cre2_string_t matches[_jm_xre_0_re_nn];
+    int match = cre2_match(_jm_xre_0_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_0_re_nn) != 0;
+    if (! match)
+    {
+        return false;
+    }
+    match_index = cre2_find_named_capturing_groups(_jm_xre_0_re_re2, "s1");
+    strncpy(extract, matches[match_index].data, matches[match_index].length);
+    extract[matches[match_index].length] = '\0';
+    if (! jm_is_valid_regex(extract, false, path, rep))
+    {
+        return false;
+    }
+    return true;
+}
+
+static bool _jm_xre_1_re(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_xre_1_re_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+static bool _jm_xre_1(const char *val, jm_path_t *path, jm_report_t *rep)
+{
+    size_t extract_size = strlen(val) + 1;
+    char extract[extract_size];
+    int match_index;
+    cre2_string_t matches[_jm_xre_1_re_nn];
+    int match = cre2_match(_jm_xre_1_re_re2, val, strlen(val), 0, strlen(val), CRE2_UNANCHORED, matches, _jm_xre_1_re_nn) != 0;
+    if (! match)
+    {
+        return false;
+    }
+    match_index = cre2_find_named_capturing_groups(_jm_xre_1_re_re2, "s1");
+    strncpy(extract, matches[match_index].data, matches[match_index].length);
+    extract[matches[match_index].length] = '\0';
+    if (! jm_is_valid_regex(extract, true, path, rep))
+    {
+        return false;
+    }
+    return true;
+}
+
+// check $openapi#model#Regex (.'$openapi#model#Regex')
+static bool json_model_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#Regex'
+    res = json_is_string(val);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected type [.'$openapi#model#Regex'.'|']", path);
+    }
+    if (res)
+    {
+        // .'$openapi#model#Regex'.'|'.0
+        // "/^/($EXREG)/[a-z]*X[a-z]*$/X"
+        res = _jm_xre_1(json_string_value(val), path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected /^/($EXREG)/[a-z]*X[a-z]*$/X [.'$openapi#model#Regex'.'|'.0]", path);
+        }
+        if (! res)
+        {
+            // .'$openapi#model#Regex'.'|'.1
+            // "/^/($REGEX)/[a-z]*$/X"
+            res = _jm_xre_0(json_string_value(val), path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected /^/($REGEX)/[a-z]*$/X [.'$openapi#model#Regex'.'|'.1]", path);
+            }
+        }
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Regex'.'|']", path);
+        }
+    }
+    return res;
+}
+
+static bool _jm_re_9(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_9_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $openapi#model#Name (.'$openapi#model#Name')
+static bool json_model_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#Name'
+    // "/^\\..+$/"
+    res = json_is_string(val) && _jm_re_9(json_string_value(val), path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^\\..+$/ [.'$openapi#model#Name']", path);
+    }
+    return res;
+}
+
+// check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
+static bool json_model_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#ScalarModel'
+    // .'$openapi#model#ScalarModel'.'|'.0
+    res = json_model_75(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $ValModel [.'$openapi#model#ScalarModel'.'|'.0]", path);
+    }
+    if (! res)
+    {
+        // .'$openapi#model#ScalarModel'.'|'.1
+        res = json_model_76(val, path, rep);
+        if (! res)
+        {
+            if (rep) jm_report_add_entry(rep, "unexpected $StrModel [.'$openapi#model#ScalarModel'.'|'.1]", path);
+        }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#ScalarModel'.'|']", path);
     }
     return res;
 }
@@ -6902,40 +7173,116 @@ static bool _jm_cst_4_test(const json_t *val)
   return jm_search_cst(&cst, _jm_cst_4, 8);
 }
 
-// check $openapi#model#Scalar (.'$openapi#model#Scalar')
-static bool json_model_83(const json_t *val, jm_path_t *path, jm_report_t *rep)
+// check $openapi#model#ValModel (.'$openapi#model#ValModel')
+static bool json_model_75(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$openapi#model#Scalar'
+    // .'$openapi#model#ValModel'
     res = jm_json_is_scalar(val) && _jm_cst_4_test(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#model#Scalar'.'|']", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#model#ValModel'.'|']", path);
+    }
+    return res;
+}
+
+// check $openapi#model#StrModel (.'$openapi#model#StrModel')
+static bool json_model_76(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#StrModel'
+    // .'$openapi#model#StrModel'.'|'.0
+    res = json_model_70(val, path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected $StrConst [.'$openapi#model#StrModel'.'|'.0]", path);
     }
     if (! res)
     {
-        res = json_is_string(val);
+        // .'$openapi#model#StrModel'.'|'.1
+        res = json_model_69(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected type [.'$openapi#model#Scalar'.'|']", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $ValConst [.'$openapi#model#StrModel'.'|'.1]", path);
         }
-        if (res)
+        if (! res)
         {
-            // .'$openapi#model#Scalar'.'|'.0
-            res = true;
+            // .'$openapi#model#StrModel'.'|'.2
+            res = json_model_71(val, path, rep);
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected string [.'$openapi#model#Scalar'.'|'.0]", path);
+                if (rep) jm_report_add_entry(rep, "unexpected $Regex [.'$openapi#model#StrModel'.'|'.2]", path);
             }
-            if (res)
+            if (! res)
             {
-                if (rep) jm_report_free_entries(rep);
-            }
-            else
-            {
-                if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#Scalar'.'|']", path);
+                // .'$openapi#model#StrModel'.'|'.3
+                res = json_model_67(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $PreDef [.'$openapi#model#StrModel'.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // .'$openapi#model#StrModel'.'|'.4
+                    res = json_model_68(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$openapi#model#StrModel'.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$openapi#model#StrModel'.'|'.5
+                        res = json_is_string(val) && strcmp(json_string_value(val), "") == 0;
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected _ [.'$openapi#model#StrModel'.'|'.5]", path);
+                        }
+                    }
+                }
             }
         }
+    }
+    if (res)
+    {
+        if (rep) jm_report_free_entries(rep);
+    }
+    else
+    {
+        if (rep) jm_report_add_entry(rep, "no model matched [.'$openapi#model#StrModel'.'|']", path);
+    }
+    return res;
+}
+
+
+// check $openapi#model#PreDef (.'$openapi#model#PreDef')
+static bool json_model_67(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#PreDef'
+    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_5, 24);;
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$openapi#model#PreDef'.'|']", path);
+    }
+    return res;
+}
+
+static bool _jm_re_10(const char *s, jm_path_t *path, jm_report_t *rep)
+{
+    size_t slen = strlen(s);
+    return cre2_match(_jm_re_10_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
+}
+
+// check $openapi#model#ValConst (.'$openapi#model#ValConst')
+static bool json_model_69(const json_t *val, jm_path_t *path, jm_report_t *rep)
+{
+    bool res;
+    // .'$openapi#model#ValConst'
+    // "/^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/"
+    res = json_is_string(val) && _jm_re_10(json_string_value(val), path, rep);
+    if (! res)
+    {
+        if (rep) jm_report_add_entry(rep, "unexpected /^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/ [.'$openapi#model#ValConst']", path);
     }
     return res;
 }
@@ -7064,18 +7411,38 @@ const char *check_model_init(void)
         _jm_cst_3[1] = (jm_constant_t) { cst_is_string, { .s = "header" } };
         _jm_cst_3[2] = (jm_constant_t) { cst_is_string, { .s = "cookie" } };
         jm_sort_cst(_jm_cst_3, 3);
-        _jm_re_4_re2 = cre2_new("^[@|&^+/*]$", strlen("^[@|&^+/*]$"), NULL);
+        _jm_re_4_re2 = cre2_new("^(<=|>=|<|>)$", strlen("^(<=|>=|<|>)$"), NULL);
         if (cre2_error_code(_jm_re_4_re2))
             return cre2_error_string(_jm_re_4_re2);
         _jm_re_4_nn = cre2_num_capturing_groups(_jm_re_4_re2) + 1;
-        _jm_re_5_re2 = cre2_new("^(<=|>=|<|>|≥|≤)$", strlen("^(<=|>=|<|>|≥|≤)$"), NULL);
+        _jm_re_5_re2 = cre2_new("^(=|!=)$", strlen("^(=|!=)$"), NULL);
         if (cre2_error_code(_jm_re_5_re2))
             return cre2_error_string(_jm_re_5_re2);
         _jm_re_5_nn = cre2_num_capturing_groups(_jm_re_5_re2) + 1;
-        _jm_re_6_re2 = cre2_new("^(=|!=|≠)$", strlen("^(=|!=|≠)$"), NULL);
+        _jm_re_6_re2 = cre2_new("^[?!]", strlen("^[?!]"), NULL);
         if (cre2_error_code(_jm_re_6_re2))
             return cre2_error_string(_jm_re_6_re2);
         _jm_re_6_nn = cre2_num_capturing_groups(_jm_re_6_re2) + 1;
+        _jm_re_7_re2 = cre2_new("^\\$", strlen("^\\$"), NULL);
+        if (cre2_error_code(_jm_re_7_re2))
+            return cre2_error_string(_jm_re_7_re2);
+        _jm_re_7_nn = cre2_num_capturing_groups(_jm_re_7_re2) + 1;
+        _jm_re_8_re2 = cre2_new("^[_a-zA-Z0-9]", strlen("^[_a-zA-Z0-9]"), NULL);
+        if (cre2_error_code(_jm_re_8_re2))
+            return cre2_error_string(_jm_re_8_re2);
+        _jm_re_8_nn = cre2_num_capturing_groups(_jm_re_8_re2) + 1;
+        _jm_xre_0_re_re2 = cre2_new("^/(?P<s1>.*)/[a-z]*$", strlen("^/(?P<s1>.*)/[a-z]*$"), NULL);
+        if (cre2_error_code(_jm_xre_0_re_re2))
+            return cre2_error_string(_jm_xre_0_re_re2);
+        _jm_xre_0_re_nn = cre2_num_capturing_groups(_jm_xre_0_re_re2) + 1;
+        _jm_xre_1_re_re2 = cre2_new("^/(?P<s1>.*)/[a-z]*X[a-z]*$", strlen("^/(?P<s1>.*)/[a-z]*X[a-z]*$"), NULL);
+        if (cre2_error_code(_jm_xre_1_re_re2))
+            return cre2_error_string(_jm_xre_1_re_re2);
+        _jm_xre_1_re_nn = cre2_num_capturing_groups(_jm_xre_1_re_re2) + 1;
+        _jm_re_9_re2 = cre2_new("^\\..+$", strlen("^\\..+$"), NULL);
+        if (cre2_error_code(_jm_re_9_re2))
+            return cre2_error_string(_jm_re_9_re2);
+        _jm_re_9_nn = cre2_num_capturing_groups(_jm_re_9_re2) + 1;
         // initialize sorted set _jm_cst_4
         _jm_cst_4[0] = (jm_constant_t) { cst_is_null, { .s = NULL } };
         _jm_cst_4[1] = (jm_constant_t) { cst_is_bool, { .b = true } };
@@ -7086,6 +7453,36 @@ const char *check_model_init(void)
         _jm_cst_4[6] = (jm_constant_t) { cst_is_float, { .f = 1.0 } };
         _jm_cst_4[7] = (jm_constant_t) { cst_is_float, { .f = -1.0 } };
         jm_sort_cst(_jm_cst_4, 8);
+        // initialize sorted set _jm_cst_5
+        _jm_cst_5[0] = (jm_constant_t) { cst_is_string, { .s = "$DATE" } };
+        _jm_cst_5[1] = (jm_constant_t) { cst_is_string, { .s = "$TIME" } };
+        _jm_cst_5[2] = (jm_constant_t) { cst_is_string, { .s = "$DATETIME" } };
+        _jm_cst_5[3] = (jm_constant_t) { cst_is_string, { .s = "$URL" } };
+        _jm_cst_5[4] = (jm_constant_t) { cst_is_string, { .s = "$URI" } };
+        _jm_cst_5[5] = (jm_constant_t) { cst_is_string, { .s = "$UUID" } };
+        _jm_cst_5[6] = (jm_constant_t) { cst_is_string, { .s = "$EMAIL" } };
+        _jm_cst_5[7] = (jm_constant_t) { cst_is_string, { .s = "$REGEX" } };
+        _jm_cst_5[8] = (jm_constant_t) { cst_is_string, { .s = "$EXREG" } };
+        _jm_cst_5[9] = (jm_constant_t) { cst_is_string, { .s = "$NULL" } };
+        _jm_cst_5[10] = (jm_constant_t) { cst_is_string, { .s = "$BOOL" } };
+        _jm_cst_5[11] = (jm_constant_t) { cst_is_string, { .s = "$FLOAT" } };
+        _jm_cst_5[12] = (jm_constant_t) { cst_is_string, { .s = "$F32" } };
+        _jm_cst_5[13] = (jm_constant_t) { cst_is_string, { .s = "$F64" } };
+        _jm_cst_5[14] = (jm_constant_t) { cst_is_string, { .s = "$NUMBER" } };
+        _jm_cst_5[15] = (jm_constant_t) { cst_is_string, { .s = "$INT" } };
+        _jm_cst_5[16] = (jm_constant_t) { cst_is_string, { .s = "$INTEGER" } };
+        _jm_cst_5[17] = (jm_constant_t) { cst_is_string, { .s = "$I32" } };
+        _jm_cst_5[18] = (jm_constant_t) { cst_is_string, { .s = "$I64" } };
+        _jm_cst_5[19] = (jm_constant_t) { cst_is_string, { .s = "$U32" } };
+        _jm_cst_5[20] = (jm_constant_t) { cst_is_string, { .s = "$U64" } };
+        _jm_cst_5[21] = (jm_constant_t) { cst_is_string, { .s = "$STRING" } };
+        _jm_cst_5[22] = (jm_constant_t) { cst_is_string, { .s = "$NONE" } };
+        _jm_cst_5[23] = (jm_constant_t) { cst_is_string, { .s = "$ANY" } };
+        jm_sort_cst(_jm_cst_5, 24);
+        _jm_re_10_re2 = cre2_new("^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$", strlen("^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$"), NULL);
+        if (cre2_error_code(_jm_re_10_re2))
+            return cre2_error_string(_jm_re_10_re2);
+        _jm_re_10_nn = cre2_num_capturing_groups(_jm_re_10_re2) + 1;
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "openapi", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);
@@ -7121,6 +7518,24 @@ void check_model_free(void)
         cre2_delete(_jm_re_6_re2);
         _jm_re_6_re2 = NULL;
         _jm_re_6_nn = 0;
+        cre2_delete(_jm_re_7_re2);
+        _jm_re_7_re2 = NULL;
+        _jm_re_7_nn = 0;
+        cre2_delete(_jm_re_8_re2);
+        _jm_re_8_re2 = NULL;
+        _jm_re_8_nn = 0;
+        cre2_delete(_jm_xre_0_re_re2);
+        _jm_xre_0_re_re2 = NULL;
+        _jm_xre_0_re_nn = 0;
+        cre2_delete(_jm_xre_1_re_re2);
+        _jm_xre_1_re_re2 = NULL;
+        _jm_xre_1_re_nn = 0;
+        cre2_delete(_jm_re_9_re2);
+        _jm_re_9_re2 = NULL;
+        _jm_re_9_nn = 0;
+        cre2_delete(_jm_re_10_re2);
+        _jm_re_10_re2 = NULL;
+        _jm_re_10_nn = 0;
     }
 }
 

@@ -1,4 +1,4 @@
-loose_strict.values.json[1]: PASS
-loose_strict.values.json[2]: FAIL (.: unexpected $combined [.]; .: unexpected element [.'$combined']; .si: invalid mandatory prop value [.'$combined'.si]; .si: not a 0 strict int [.'$combined'.si])
+loose_strict.values.json[0]: PASS
+loose_strict.values.json[1]: FAIL (.: unexpected $combined [.]; .: unexpected element [.'$combined']; .si: invalid mandatory prop value [.'$combined'.si]; .si: not a 0 strict int [.'$combined'.si])
+loose_strict.values.json[2]: FAIL (.: unexpected $combined [.]; .: unexpected element [.'$combined']; .li: invalid mandatory prop value [.'$combined'.li]; .li: not a 0 strict int [.'$combined'.li])
 loose_strict.values.json[3]: FAIL (.: unexpected $combined [.]; .: unexpected element [.'$combined']; .li: invalid mandatory prop value [.'$combined'.li]; .li: not a 0 strict int [.'$combined'.li])
-loose_strict.values.json[5]: FAIL (.: unexpected $combined [.]; .: unexpected element [.'$combined']; .li: invalid mandatory prop value [.'$combined'.li]; .li: not a 0 strict int [.'$combined'.li])

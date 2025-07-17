@@ -1,5 +1,5 @@
-from .mtypes import ModelType, ModelPath, JsonSchema, Jsonable
-from .utils import is_cst, cst
+from .mtypes import ModelType, ModelPath, JsonSchema, Jsonable, Symbols, JsonModel
+from .utils import is_cst, cst, log
 
 #
 # MODEL TO SCHEMA CONVERSION
@@ -41,8 +41,8 @@ PREDEF_FORMATS = {
     "$URI": "uri",
 }
 
-def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
-    """Convert model to schema."""
+def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
+    """Recursive model to schema conversion."""
 
     schema: Jsonable = {}
 
@@ -59,7 +59,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 schema["exclusiveMinimum"] = 0.0
         case int():
             schema["type"] = "integer"
-            # FIXME should check for option
+            # FIXME should check for option?
             if model == 0:
                 schema["minimum"] = 0
             elif model == 1:
@@ -87,6 +87,8 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                 try:
                     pattern, ropts = model[1:].rsplit("/", 1)
                     assert ropts == "" or ropts.isalpha(), f"invalid regex options: {ropts}"
+                    if "X" in ropts:
+                        raise Exception(f"unsupported X regex extension at {path}")
                     pattern = f"(?{ropts}){pattern}" if ropts else pattern
                 except Exception as e:
                     raise Exception(f"invalid regex {model}: {e}")
@@ -96,13 +98,13 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
         case list():
             if len(model) == 1:
                 schema["type"] = "array"
-                schema["items"] = model2schema(model[0], path + [0])
+                schema["items"] = _m2s(model[0], path + [0], defs)
             elif len(model) > 1:
                 # tuple: prefixItems/items?
                 schema["type"] = "array"
                 pitems = []
                 for i, item in enumerate(model):
-                    pitems.append(model2schema(item, path + [i]))
+                    pitems.append(_m2s(item, path + [i], defs))
                 schema["prefixItems"] = pitems
                 schema["items"] = False
                 # needed to ensure that all prefix items are there
@@ -122,7 +124,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
 
             # constraint...
             if "@" in model:
-                subschema = model2schema(model["@"], path + ["@"])
+                subschema = _m2s(model["@"], path + ["@"], defs)
                 if isinstance(subschema, dict):
                     schema.update(**subschema)
                 else:
@@ -139,6 +141,17 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                             schema["maxLength"] = model["<="]
                         if ">=" in model:
                             schema["minLength"] = model[">="]
+                        if "=" in model:
+                            eq = model["="]
+                            if isinstance(eq, int):
+                                schema["minLength"] = eq
+                                schema["maxLength"] = eq
+                            elif isinstance(eq, str):
+                                schema["const"] = eq
+                            else:
+                                log.warning(f"ignoring '=' constraint at [path]")
+                        if "!=" in model:
+                            schema["not"] = {"const": model["!="]}
                         # FIXME extension? remove?
                         # if "mime" in model:
                         #     schema["contentEncoding"] = model["mime"]
@@ -156,25 +169,64 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                             schema["exclusiveMinimum"] = model[">"]
                         if ".mo" in model:  # model extension
                             schema["multipleOf"] = model[".mo"]
+                        if "=" in model:
+                            eq = model["="]
+                            if isinstance(eq, (int, float)):
+                                if "const" in schema:
+                                    if schema["const"] != eq:
+                                        return False
+                                    else:
+                                        pass  # redundant
+                                else:
+                                    schema["const"] = eq
+                            elif isinstance(eq, str):
+                                return False
+                        if "!=" in model:
+                            assert "not" not in schema  # FIXME allOf?
+                            schema["not"] = {"const": model["!="]}
                     # contraints on object
                     if schema["type"] == "object":
                         if "<=" in model:
                             schema["maxProperties"] = model["<="]
+                        if "<" in model:
+                            schema["maxProperties"] = model["<"] - 1
                         if ">=" in model:
                             schema["minProperties"] = model[">="]
+                        if ">" in model:
+                            schema["minProperties"] = model[">"] + 1
+                        if "=" in model:
+                            eq = model["="]
+                            if isinstance(eq, int):
+                                schema["minProperties"] = eq
+                                schema["maxProperties"] = eq
+                            else:
+                                schema["const"] = eq  # probably infeasible
+                        if "!=" in model:
+                            assert "not" not in schema  # FIXME allOf?
+                            schema["not"] = {"const": model["!="]}
                     # constraints on array
                     if schema["type"] == "array":
                         if ".in" in model:  # model extension
-                            schema["contains"] = model2schema(model[".in"])
+                            schema["contains"] = _m2s(model[".in"], defs)
                             if "<=" in model:
                                 schema["maxContains"] = model["<="]
+                            if "<" in model:
+                                schema["maxContains"] = model["<"] - 1
                             if ">=" in model:
                                 schema["minContains"] = model[">="]
+                            if ">" in model:
+                                schema["minContains"] = model[">"] + 1
+                            # TODO
                         # else:
+                        # FIXME check comparison value types!
                         if "<=" in model:
                             schema["maxItems"] = model["<="]
+                        if "<" in model:
+                            schema["maxItems"] = model["<"] - 1
                         if ">=" in model:
                             schema["minItems"] = model[">="]
+                        if ">" in model:
+                            schema["minItems"] = model[">"] + 1
                         if "!" in model:
                             v = model["!"]
                             assert isinstance(v, bool)
@@ -222,18 +274,18 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
             elif "&" in model:
                 models = model["&"]
                 assert isinstance(models, list)  # pyright hint
-                schema["allOf"] = [model2schema(m, path + ["&", i]) for i, m in enumerate(models)]
+                schema["allOf"] = [_m2s(m, path + ["&", i], defs) for i, m in enumerate(models)]
             elif "^" in model:
                 models = model["^"]
                 assert isinstance(models, list)  # pyright hint
-                schema["oneOf"] = [model2schema(m, path + ["^", i]) for i, m in enumerate(models)]
+                schema["oneOf"] = [_m2s(m, path + ["^", i], defs) for i, m in enumerate(models)]
             elif "|" in model:
                 models = model["|"]
                 assert isinstance(models, list)
                 if all(map(is_cst, models)):  # all choices are constants
                     schema["enum"] = list(map(cst, models))  # pyright: ignore
                 else:
-                    schema["anyOf"] = [model2schema(m, path + ["|", i])
+                    schema["anyOf"] = [_m2s(m, path + ["|", i], defs)
                                        for i, m in enumerate(models)]
             elif "+" in model:
                 assert False, f"+ must have been removed by preprocessing {path + ['+']}"
@@ -249,12 +301,12 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                     if prop in ("~", "#", "$", "%"):
                         continue
                     if prop == "":
-                        addProp = model2schema(val, lpath)
+                        addProp = _m2s(val, lpath, defs)
                     elif prop[0] in ("_", "!"):
                         required.append(prop[1:])
-                        properties[prop[1:]] = model2schema(val, lpath)
+                        properties[prop[1:]] = _m2s(val, lpath, defs)
                     elif prop[0] == "?":
-                        properties[prop[1:]] = model2schema(val, lpath)
+                        properties[prop[1:]] = _m2s(val, lpath, defs)
                     elif prop[0] == "/":
                         try:
                             pattern, ropts = prop[1:].rsplit("/", 1)
@@ -265,15 +317,15 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
                         if "patternProperties" not in schema:
                             schema["patternProperties"] = {}
                         assert isinstance(schema["patternProperties"], dict)
-                        schema["patternProperties"][pattern] = model2schema(val, lpath)
+                        schema["patternProperties"][pattern] = _m2s(val, lpath, defs)
                         if addProp is None:
                             addProp = False
                     elif prop[0] == "$":
                         # NOTE should be ok if simple enough so that constant propagation removed it
-                        raise Exception(f"JSON Schema: no support for property ref at {lpath}")
+                        raise Exception(f"JSON Schema: no support for property ref {prop} at {lpath}")
                     else:  # standard property
                         required.append(prop)
-                        properties[prop] = model2schema(val, lpath)
+                        properties[prop] = _m2s(val, lpath, defs)
 
                 # merge into schema
                 if properties:
@@ -298,3 +350,7 @@ def model2schema(model: ModelType, path: ModelPath = []) -> JsonSchema:
             schema["not"] = True
 
     return schema
+
+def model2schema(model: JsonModel, path: ModelPath, defs: Symbols) -> JsonSchema:
+    """Entry point to convert a model to a Schema."""
+    return _m2s(model, path, defs)

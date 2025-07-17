@@ -320,9 +320,12 @@
         },
         "patternProperties": {
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/Schema"
-          }
+          "patternProperties": {
+            "(?s)^.*$": {
+              "$ref": "#/$defs/Schema"
+            }
+          },
+          "additionalProperties": false
         },
         "propertyNames": {
           "$ref": "#/$defs/Schema"
@@ -1004,9 +1007,12 @@
             },
             "patternProperties": {
               "type": "object",
-              "additionalProperties": {
-                "$ref": "#/$defs/Schema"
-              }
+              "patternProperties": {
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Schema"
+                }
+              },
+              "additionalProperties": false
             },
             "propertyNames": {
               "$ref": "#/$defs/Schema"

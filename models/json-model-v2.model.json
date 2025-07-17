@@ -2,38 +2,55 @@
   "#": "Self-Validating JSON Model",
   "~": "https://json-model.org/models/json-model",
   "$": {
-    "#": "Definitions, without predefs of any kind",
+    "#": "use minimal predefs",
     "": "https://json-model.org/models/json-model",
     "Url": "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/",
+    "PreDef": {
+      "|": [
+        "_$DATE", "_$TIME", "_$DATETIME", "_$URL", "_$URI",
+        "_$UUID", "_$EMAIL", "_$REGEX", "_$EXREG",
+        "_$NULL", "_$BOOL", "_$FLOAT", "_$F32", "_$F64", "_$NUMBER",
+        "_$INT", "_$INTEGER", "_$I32", "_$I64", "_$U32", "_$U64", "_$STRING",
+        "_$NONE", "_$ANY"
+      ]
+    },
     "Ref": "/^\\$/",
-    "Val": { "|":  [ null, true, -1, -1.0, "" ] },
+    "ValConst": "/^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/",
+    "StrConst": "/^[_a-zA-Z0-9]/",
+    "Regex": { "|": [ "/^/($EXREG)/[a-z]*X[a-z]*$/X", "/^/($REGEX)/[a-z]*$/X" ] },
+    "Name": "/^\\..+$/",
+    "CmpValue": { "|": [ -1, -1.0, "" ] },
+    "EqValue": { "|":  [ null, true, "$CmpValue" ] },
+    "ValModel": { "|": [ "=null", "=true", "=0", "=1", "=-1", "=0.0", "=1.0", "=-1.0" ] },
+    "StrModel": { "|": [ "$StrConst", "$ValConst", "$Regex", "$PreDef", "$Ref", "_" ] },
     "Any": { "&": [ ] },
     "None": { "|": [ ] },
     "Common": { "?#": "" },
     "Array": [ "$Model" ],
     "Constraint": {
       "_@": "$Model",
-      "/^(<=|>=|<|>|≥|≤)$/": { "|": [ -1, -1.0, "" ] },
-      "/^(=|!=|≠)$/": "$Val",
+      "/^(<=|>=|<|>)$/": "$CmpValue",
+      "/^(=|!=)$/": "$EqValue",
       "?!": true
     },
     "Or": { "_|": [ "$Model" ] },
     "And": { "_&": [ "$Model" ] },
     "Xor": { "_^": [ "$Model" ] },
     "Add": { "_+": [ "$Model" ] },
-    "Obj": { "": "$Model", "/^[@|&^+/*]$/": "$None" },
+    "Prop": { "|": [ "/^[?!]/", "$StrConst", "$Regex", "$Ref", "$Name", "_" ] },
+    "Obj": { "$Prop": "$Model" },
     "Elem": { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] },
     "Element": { "+": [ "$Common", "$Elem" ] },
     "Trafo": {
       "#": "remove and/or add stuff",
-      "?/": { "|": [ "$Scalar", [ "$Any" ] ] },
+      "?/": { "|": [ "$EqValue", [ "$Any" ] ] },
       "?*": { "|": [ [ "$Any" ], { "": "$Model" } ] }
     },
     "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },
-    "Scalar": { "|": [ "=null", "=true", "=0", "=1", "=-1", "=0.0", "=1.0", "=-1.0", "" ] },
-    "Model": { "|": [ "$Scalar", "$Array", "$Element" ] },
-    "Defs": { "?": "$Url", "/.+/": "$Model" },
-    "Rename": { "/^\\..+$/": "/^([#|&^+/*@~=$%]|[<>!]=?)$/" },
+    "ScalarModel": { "|": [ "$ValModel", "$StrModel" ] },
+    "Model": { "|": [ "$ScalarModel", "$Array", "$Element" ] },
+    "Defs": { "?": "$Url", "/./": "$Model" },
+    "Rename": { "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/" },
     "Rewrite": { "/^\\$.*$/": "$Transformation" },
     "Import": { "?<": { "|": [ "$Ref", [ "$Ref" ] ] } },
     "RootOnly": {
@@ -43,7 +60,7 @@
       "?%": { "+": [ "$Common", "$Rename", "$Rewrite", "$Import" ] }
     },
     "Root": { "+": [ "$RootOnly", "$Element" ] },
-    "RootModel": { "|": [ "$Scalar", "$Array", "$Root" ] }
+    "RootModel": { "|": [ "$ScalarModel", "$Array", "$Root" ] }
   },
   "@": "$RootModel"
 }

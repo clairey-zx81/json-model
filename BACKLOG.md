@@ -2,14 +2,15 @@
 
 ## Current Tasks
 
-- [x] model: warn on url-looking definitions
+- [x] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
+- [x] tests: fix test vector numbering to count actual tests, not items
+- [x] schema: improve generation with some constraints
+- [ ] tests: fix `mv-0a/base-021.model.json` issue with C json-model
+- [ ] schema: inline external reference to generate valid schemas
+- [ ] schema: generate valid schema from JSON Model meta-model
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] sql-backend: package support as an extension
-- [ ] sql-backend: reduce extension loading verbosity
-- [ ] schema: inline external reference to generate valid schemas
 - [ ] design: add predefs for `$UUIDx`…
-- [ ] tests: rerun tests
-- [ ] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
 - [ ] js-backend: warn about loose
 - [ ] js-backend: cleanup map and set
@@ -394,3 +395,5 @@
 - [x] python: rerun style check (ruff, drop microsoft uncooperative flake8)
 - [x] design: add import `<` with scalar
 - [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
+- [x] sql-backend: reduce extension loading verbosity
+- [x] model: warn on url-looking definitions

@@ -416,9 +416,9 @@ int main(int argc, char* argv[])
                     continue;
                 }
 
-                size_t index;
+                size_t _, index = 0;
                 json_t *val;
-                json_array_foreach(value, index, val)
+                json_array_foreach(value, _, val)
                 {
                     if (json_is_string(val))
                         // skip string comments
@@ -454,6 +454,8 @@ int main(int argc, char* argv[])
 
                     if (!process_value(tname, value, argv[i], index, mode, report, loop))
                         errors++;
+
+                    index++;
                 }
             }
             else

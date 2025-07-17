@@ -1164,9 +1164,12 @@
         },
         "patternProperties": {
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/schema#Schema"
-          }
+          "patternProperties": {
+            "(?s)^.*$": {
+              "$ref": "#/$defs/schema#Schema"
+            }
+          },
+          "additionalProperties": false
         },
         "dependentSchemas": {
           "type": "object",

@@ -23,6 +23,6 @@ json-model.values.json[21]: FAIL
 json-model.values.json[22]: FAIL
 json-model.values.json[23]: FAIL
 json-model.values.json[24]: FAIL
-json-model.values.json[25]: PASS
-json-model.values.json[26]: PASS
+json-model.values.json[25]: FAIL
+json-model.values.json[26]: FAIL
 json-model.values.json[27]: PASS

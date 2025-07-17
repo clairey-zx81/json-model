@@ -35,10 +35,10 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$u2'
-    res = json_is_string(val) && strcmp(json_string_value(val), "./url_looking.model.json") == 0;
+    res = json_is_string(val) && strcmp(json_string_value(val), "file://./url_looking.model.json") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected ./url_looking.model.json [.'$u2']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected file://./url_looking.model.json [.'$u2']", path);
     }
     return res;
 }
@@ -72,7 +72,7 @@ const char *check_model_init(void)
         jm_version_string = JSON_MODEL_VERSION;
         // initialize sorted set _jm_cst_0
         _jm_cst_0[0] = (jm_constant_t) { cst_is_string, { .s = "https://json-model.org/models/json-model" } };
-        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "./url_looking.model.json" } };
+        _jm_cst_0[1] = (jm_constant_t) { cst_is_string, { .s = "file://./url_looking.model.json" } };
         jm_sort_cst(_jm_cst_0, 2);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "u1", json_model_2 };

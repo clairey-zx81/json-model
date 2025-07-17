@@ -178,10 +178,10 @@ export default async function main(checker_init, checker, checker_free)
                     errors++
                     console.log(`${fname}: ERROR expecting an array`)
                 }
-                for (let index = 0; index < value.length; index++)
-                {
-                    let item = value[index]
 
+                let index = 0
+                for (const item of value)
+                {
                     if (typeof item === 'string' || item instanceof String)  // skip comments
                         continue
                     if (!Array.isArray(item) || (item.length < 2 || item.length > 3)) {
@@ -209,6 +209,8 @@ export default async function main(checker_init, checker, checker_free)
 
                     errors += processing(fname, index, val, checker, name,
                                          expect, args.values.report, times, empty)
+
+                    index += 1
                 }
             }
             else

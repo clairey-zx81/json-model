@@ -1,4 +1,5 @@
-json-schema-draft-tighter.values.json[1]: PASS
+json-schema-draft-tighter.values.json[0]: PASS
+json-schema-draft-tighter.values.json[1]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
 json-schema-draft-tighter.values.json[2]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
 json-schema-draft-tighter.values.json[3]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
 json-schema-draft-tighter.values.json[4]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
@@ -6,4 +7,3 @@ json-schema-draft-tighter.values.json[5]: FAIL (.: unexpected $RootSchema [.]; .
 json-schema-draft-tighter.values.json[6]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
 json-schema-draft-tighter.values.json[7]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
 json-schema-draft-tighter.values.json[8]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])
-json-schema-draft-tighter.values.json[9]: FAIL (.: unexpected $RootSchema [.]; .: not all model match [.'$RootSchema'.'&']; .: unexpected element [.'$RootSchema'.'&'.0]; .: not an object [.'$RootSchema'.'&'.0])

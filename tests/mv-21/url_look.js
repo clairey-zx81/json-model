@@ -30,10 +30,10 @@ function json_model_3(val, path, rep)
 {
     let res;
     // .'$u2'
-    res = ((typeof val === 'string' || val instanceof String)) && val == "./url_looking.model.json";
+    res = ((typeof val === 'string' || val instanceof String)) && val == "file://./url_looking.model.json";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected ./url_looking.model.json [.'$u2']", path])
+        rep !== null && rep.push(["unexpected file://./url_looking.model.json [.'$u2']", path])
     }
     return res;
 }
@@ -63,7 +63,7 @@ export function check_model_init()
         initialized = true;
         runtime.jm_set_rx(RegExp)
         _jm_cst_0.add("https://json-model.org/models/json-model")
-        _jm_cst_0.add("./url_looking.model.json")
+        _jm_cst_0.add("file://./url_looking.model.json")
         check_model_map.set("", json_model_1)
         check_model_map.set("u1", json_model_2)
         check_model_map.set("u2", json_model_3)

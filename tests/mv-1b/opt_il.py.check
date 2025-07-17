@@ -1,4 +1,4 @@
+opt_il.values.json[0]: PASS
 opt_il.values.json[1]: PASS
-opt_il.values.json[2]: PASS
+opt_il.values.json[2]: FAIL (.: not a -1 loose int [.'@'])
 opt_il.values.json[3]: FAIL (.: not a -1 loose int [.'@'])
-opt_il.values.json[4]: FAIL (.: not a -1 loose int [.'@'])

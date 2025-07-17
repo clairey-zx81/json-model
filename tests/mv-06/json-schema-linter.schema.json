@@ -153,9 +153,12 @@
         },
         "patternProperties": {
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/Schema"
-          }
+          "patternProperties": {
+            "(?s)^.*$": {
+              "$ref": "#/$defs/Schema"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -449,9 +452,12 @@
         },
         "patternProperties": {
           "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/Schema"
-          }
+          "patternProperties": {
+            "(?s)^.*$": {
+              "$ref": "#/$defs/Schema"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [

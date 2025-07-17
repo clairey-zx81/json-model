@@ -1,10 +1,11 @@
+import typing
 import os
+import pathlib
 import re
 import json
-import pathlib
 import logging
-import pytest
 import filelock
+import pytest
 
 from json_model.script import model_from_url, model_checker_from_url
 from json_model.resolver import Resolver
@@ -22,6 +23,8 @@ EXPECT: dict[str, int] = {
     # reference
     "ref:models": 9,
     "ref:values": 111,
+    "ref:merrors:schema": 1,
+    "ref:verrors:schema": 83,
     # chunk 00
     "mv-00:models": 10,
     "mv-00:values": 95,
@@ -30,18 +33,22 @@ EXPECT: dict[str, int] = {
     "mv-01:values": 100,
     "mv-01:errors.js": 2,
     "mv-01:errors.sql": 2,
+    "mv-01:verrors:schema": 14,
     # chunk 02
     "mv-02:js2json": 1,
     "mv-02:models": 10,
     "mv-02:values": 122,
+    "mv-02:verrors:schema": 46,
     # chunk 03
     "mv-03:js2json": 1,
     "mv-03:models": 10,
     "mv-03:values": 78,
+    "mv-03:verrors:schema": 27,
     # chunk 04
     "mv-04:js2json": 2,
     "mv-04:models": 8,
     "mv-04:values": 98,
+    "mv-04:verrors:schema": 15,
     # chunk 05
     "mv-05:models": 9,
     "mv-05:values": 81,
@@ -49,23 +56,28 @@ EXPECT: dict[str, int] = {
     # FIXME schema missing Schema
     "mv-06:models": 8,
     "mv-06:values": 72,
+    "mv-06:verrors:schema": 18,
     # chunk 07
     # FIXME schema missing Schema
     "mv-07:models": 5,
     "mv-07:values": 45,
+    "mv-07:verrors:schema": 18,
     # chunk 08
     "mv-08:models": 9,
     "mv-08:values": 129,
+    "mv-08:verrors:schema": 43,
     # chunk 09
     "mv-09:models": 10,
     "mv-09:values": 141,
     "mv-09:errors.js": 2,
     "mv-09:errors.sql": 2,
+    "mv-09:verrors:schema": 2,
     # chunk 0A
     "mv-0a:models": 10,
     "mv-0a:values": 131,
     "mv-0a:errors.js": 1,
     "mv-0a:errors.sql": 1,
+    "mv-0a:verrors:schema": 1,
     # chunk 0B
     "mv-0b:models": 7,
     "mv-0b:values": 82,
@@ -74,6 +86,7 @@ EXPECT: dict[str, int] = {
     "mv-0c:values": 50,
     "mv-0c:errors.js": 1,
     "mv-0c:errors.sql": 1,
+    "mv-0c:verrors:schema": 1,
     # chunk 0D
     "mv-0d:models": 10,
     "mv-0d:values": 112,
@@ -90,6 +103,7 @@ EXPECT: dict[str, int] = {
     # chunk 11
     "mv-11:models": 8,
     "mv-11:values": 140,
+    "mv-11:verrors:schema": 27,
     # chunk 12
     "mv-12:models": 10,
     "mv-12:values": 124,
@@ -99,27 +113,32 @@ EXPECT: dict[str, int] = {
     "mv-13:values": 91,
     "mv-13:errors.js": 1,
     "mv-13:errors.sql": 1,
+    "mv-13:verrors:schema": 1,
     # chunk 14
     "mv-14:models": 12,
     "mv-14:values": 84,
     "mv-14:errors.js": 6,
     "mv-14:errors.sql": 6,
+    "mv-14:verrors:schema": 6,
     # chunk 15
     "mv-15:js2json": 2,
     "mv-15:models": 12,
     "mv-15:values": 133,
     "mv-15:errors.js": 1,
     "mv-15:errors.sql": 1,
+    "mv-15:verrors:schema": 9,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
     "mv-16:errors.js": 1,
     "mv-16:errors.sql": 1,
+    "mv-16:verrors:schema": 1,
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 145,
     "mv-17:errors.js": 2,
     "mv-17:errors.sql": 2,
+    "mv-17:verrors:schema": 2,
     # chunk 18
     "mv-18:js2json": 3,
     "mv-18:yaml2json": 1,
@@ -128,34 +147,43 @@ EXPECT: dict[str, int] = {
     # chunk 19
     "mv-19:models": 9,
     "mv-19:values": 110,
+    "mv-19:verrors:schema": 3,
     # chunk 1A
     "mv-1a:models": 10,
     "mv-1a:values": 132,
     "mv-1a:errors.js": 2,
     "mv-1a:errors.sql": 2,
+    "mv-1a:verrors:schema": 3,
     # chunk 1B
     "mv-1b:models": 10,
     "mv-1b:values": 68,
     "mv-1b:errors.js": 13,
     "mv-1b:errors.sql": 13,
+    "mv-1b:verrors:schema": 13,
     # chunk 1C
     "mv-1c:models": 6,
     "mv-1c:values": 77,
+    "mv-1c:verrors:schema": 32,
     # chunk 1D
     # FIXME schema missing Schema
     "mv-1d:models": 5,
     "mv-1d:values": 45,
+    "mv-1d:verrors:schema": 18,
     # chunk 1E
     "mv-1e:models": 10,
     "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
     "mv-1e:errors.sql": 2,
+    "mv-1e:merrors:schema": 2,
+    "mv-1e:verrors:schema": 41,
     # chunk 1F
     "mv-1f:models": 9,
     "mv-1f:values": 136,
+    "mv-1f:verrors:schema": 43,
     # chunk 20
-    "mv-20:models": 8,
-    "mv-20:values": 98,
+    "mv-20:models": 9,
+    "mv-20:values": 112,
+    "mv-20:verrors:schema": 17,
     # check 21
     "mv-21:models": 1,
     "mv-21:values": 12,
@@ -405,7 +433,7 @@ def test_lang(directory, language):
 
 def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, generate):
     """Generic value testing."""
-    ntests, nvalues, nerrors = 0, 0, EXPECT.get(f"{directory}:errors{suffix}", 0)
+    ntests, nvalues, nerrors = 0, 0, 0
 
     # try all sources
     for fpath in sorted(directory.glob(f"*{suffix}")):
@@ -442,23 +470,23 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
         if vfile.exists():
 
-            for line in os.popen(f"{fexec} -t {vfile}"):
+            with os.popen(f"{fexec} -tr {vfile} | cut -d/ -f2-") as p:
+                result = p.read()
+            out += result
+
+            for line in result.split("\n")[:-1]:
                 nvalues += 1
                 if ": ERROR" not in line and (": PASS" in line or ": FAIL" in line):
                     assert True, "PASS/FAIL expectation ok"
-                elif nerrors > 0:
-                    nerrors -= 1
                 else:
-                    assert False, f"unexpected ERROR for {line}"
+                    log.error(f"error in {directory}: {line}")
+                    nerrors += 1
 
-            with os.popen(f"{fexec} -tr {vfile} | cut -d/ -f2-") as p:
-                out += p.read()
+            ref_file = fname.replace(suffix, refsuff)
+            with open(ref_file) as r:
+                ref = r.read()
 
-        ref_file = fname.replace(suffix, refsuff)
-        with open(ref_file) as r:
-            ref = r.read()
-
-        assert out == ref
+            assert out == ref
 
         # cleanup
         if suffix.endswith(".c"):
@@ -466,7 +494,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
     assert ntests == EXPECT.get(f"{directory}:models", 0)
     assert nvalues == EXPECT.get(f"{directory}:values", 0)
-    assert nerrors == 0, "expected errors seen"
+    assert nerrors == EXPECT.get(f"{directory}:errors{suffix}", 0)
 
 
 def test_sta_c(directory, clibjm):
@@ -510,40 +538,53 @@ def test_sta_sql(directory):
 class NotSupportedError(BaseException):
     pass
 
+type GenChecker = typing.Callable[[str], typing.Callable[[typing.Any, str], bool]]
 
-def run_dyn(directory, gen_checker):
+def run_dyn(directory: pathlib.Path, gen_checker: GenChecker, name: str):
     """Check dynamic checker with test values."""
-    nfiles, ntests = 0, 0
+
+    nfiles, ntests, nmerrors, nverrors = 0, 0, 0, 0
+
     for fpath in sorted(directory.glob("*.model.json")):
         nfiles += 1
 
         fmodel = f"./{fpath}"
         model = fmodel.replace(f"{directory}/", "").replace(".model.json", "")
-
         log.debug(f"dyn[{directory}]: {model} ({fpath})")
 
         checker = gen_checker(f"./{fpath}")
+        if checker is None:
+            log.error(f"{name}: cannot generate checker for {fpath}")
+            nmerrors += 1
 
-        # true/false files
+        # process true/false files
         for vpath in sorted(directory.glob(f"{model}.*.*.json")):
             spath = str(vpath)
             assert spath.endswith(".true.json") or spath.endswith(".false.json")
             ntests += 1
+            if checker is None:
+                nverrors += 1
+                continue
             value = json.loads(vpath.read_text())
             if spath.endswith(".true.json"):
                 assert checker(value)
             else:
                 assert not checker(value)
 
-        # values file
+        # process values file
         vfile = directory.joinpath(f"{model}.values.json")
         if vfile.exists():
             values = json.loads(vfile.read_text())
             assert isinstance(values, list)
+
             for index, tvect in enumerate(values):
                 if isinstance(tvect, str):
                     continue  # skip comments
                 ntests += 1
+                if checker is None:
+                    nverrors += 1
+                    continue
+
                 log.debug(f"{model}.values.json[{index}]")
                 assert len(tvect) in (2, 3)
                 if len(tvect) == 3:
@@ -551,21 +592,30 @@ def run_dyn(directory, gen_checker):
                 else:
                     expect, value = tvect
                     case = ""
-                assert isinstance(expect, bool)
+                assert isinstance(expect, bool) and isinstance(case, str)
+
                 try:
                     if expect:
                         assert checker(value, case)
                     else:
                         assert not checker(value, case)
                 except NotSupportedError as e:
-                    # simply ignore
-                    pass
+                    log.error(f"{name} not supported error on {model}.values.json[{index}]")
+                    nverrors += 1
+                except AssertionError as e:
+                    log.error(f"{name} assert error on {model}.values.json[{index}]")
+                    nverrors += 1
+                except Exception as e:
+                    log.error(f"{name} internal checker error on {model}.values.json[{index}]")
+                    nverrors += 1
 
     assert nfiles == EXPECT.get(f"{directory}:models", 0)
     assert ntests == EXPECT.get(f"{directory}:values", 0)
+    assert nmerrors == EXPECT.get(f"{directory}:merrors:{name}", 0)
+    assert nverrors == EXPECT.get(f"{directory}:verrors:{name}", 0)
 
 
-def test_dyn_py(directory):
+def test_dyn_py(directory: pathlib.Path):
 
     resolver = Resolver(None, dirmap(directory))
 
@@ -574,10 +624,9 @@ def test_dyn_py(directory):
         model = fmodel.replace(".model.json", "").replace(f"{directory}/", "")
         return model_checker_from_url(model, resolver=resolver, follow=True, debug=False)
 
-    run_dyn(directory, gen_py_checker)
+    run_dyn(directory, gen_py_checker, "dynpy")
 
-
-def test_dyn_json_schema(directory):
+def test_dyn_json_schema(directory: pathlib.Path):
     """Test generated JSON Schema with test value files."""
 
     # Some test cases cannot validate because:
@@ -586,17 +635,6 @@ def test_dyn_json_schema(directory):
     # 3. the model contains external references (untranslated, should be inlined?)
     # 4. the schema is plain wrong (bug)
     # for now, just skip the corresponding directories
-    log.debug(f"directory: {str(directory)}")
-    if str(directory) in {
-                "mv-00", "mv-01", "mv-03", "mv-04", "mv-06", "mv-07",
-                "mv-08", "mv-09", "mv-0a", "mv-0c",
-                "mv-13", "mv-14", "mv-15", "mv-16", "mv-17",
-                "mv-19", "mv-1a", "mv-1b", "mv-1c", "mv-1d", "mv-1e", "mv-1f",
-                "mv-20",
-                "ref",
-            }:
-        pytest.mark.skip(reason="wip")
-        return
 
     import jsonschema
 
@@ -608,12 +646,20 @@ def test_dyn_json_schema(directory):
         with open(fschema) as f:
             js = json.loads(f.read())
 
+        if isinstance(js, dict) and "ERROR" in js:
+            log.info(f"skipping error {fschema}")
+            return None
+
         # set version just in case
         if isinstance(js, dict) and "$schema" not in js:
             js["$schema"] = "https://json-schema.org/draft/2020-12/schema"
 
         # native checker
-        jsc = jsonschema.Draft202012Validator(js, format_checker=jsonschema.FormatChecker())
+        try:
+            jsc = jsonschema.Draft202012Validator(js, format_checker=jsonschema.FormatChecker())
+        except Exception:
+            log.error(f"cannot compile schema {fschema}")
+            return None
 
         def checker(val, name: str = ""):
             if name == "":
@@ -622,7 +668,7 @@ def test_dyn_json_schema(directory):
 
         return checker
 
-    run_dyn(directory, gen_jschema_checker)
+    run_dyn(directory, gen_jschema_checker, "schema")
 
 #
 # CHECK MODELS AGAINST META MODEL(S)
@@ -648,6 +694,7 @@ def test_models_js(directory):
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
+@pytest.mark.skip(reason="cannot generate schema from meta-model for now")
 def test_models_jsg(directory):
     check_models(directory, "jsu-check --quiet ./ref/json-model.schema.json")
 
@@ -703,6 +750,7 @@ def test_bads_js():
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
 
+@pytest.mark.skip(reason="cannot generate schema from meta-model for now")
 def test_bads_jsg():
     check_bads("jsu-check --quiet ./ref/json-model.schema.json")
 

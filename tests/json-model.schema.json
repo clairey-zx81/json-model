@@ -15,8 +15,8 @@
       "enum": [ null, true, -1, 0, 1, -1.0, 0.0, 1.0, "" ]
     },
     "stringModel": {
-      "$comment": "TODO improve with regex?",
       "type": "string",
+      "pattern": "(?s)^(/.*/[Xa-z]*|=(null|true|false|-?\\d+.*)|\\$.*|[_a-zA-Z0-9].*)$",
       "minLength": 1
     },
     "cmpValue": {
@@ -142,8 +142,11 @@
             "^\\.": { "type": "string" }
           },
           "additionalProperties": {
-            "$comment": "TODO probably not true, to be improved",
-            "$ref": "#/$defs/Model"
+            "$comment": "TODO improve",
+            "anyOf": [
+              { "$ref": "#/$defs/Model" },
+              { "?*": "$ANY", "?/": "$ANY", "?#": {"type": "string"} }
+            ]
           }
         }
       }

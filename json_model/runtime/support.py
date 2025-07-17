@@ -388,7 +388,8 @@ def main(jm_fun, jm_map, jmc_version):
             if args.jsonl:
                 values = [[None, j] for j in values]
 
-            for i, tvect in enumerate(values):
+            index = 0
+            for tvect in values:
 
                 if isinstance(tvect, str):  # ignore strings as comments
                     continue
@@ -405,7 +406,7 @@ def main(jm_fun, jm_map, jmc_version):
                 else:
                     expect, name, val = tvect
 
-                info = "" if expect is None else f"[{i}]"
+                info = "" if expect is None else f"[{index}]"
 
                 try:
                     checker: CheckFun = jm_fun(name)
@@ -473,6 +474,8 @@ def main(jm_fun, jm_map, jmc_version):
                     print(f"{fn}{info}: FAIL ({msg})")
                 else:
                     print(f"{fn}{info}: FAIL")
+
+                index += 1
 
         except Exception as e:
             log.debug(e, exc_info=args.debug)

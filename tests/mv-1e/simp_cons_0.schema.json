@@ -1,4 +1,5 @@
 {
   "type": "number",
-  "exclusiveMinimum": 0.0
+  "exclusiveMinimum": 0.0,
+  "const": 42
 }

@@ -36,9 +36,9 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$u2'
-    res = isinstance(val, str) and val == "./url_looking.model.json"
+    res = isinstance(val, str) and val == "file://./url_looking.model.json"
     if not res:
-        rep is None or rep.append(("unexpected ./url_looking.model.json [.'$u2']", path))
+        rep is None or rep.append(("unexpected file://./url_looking.model.json [.'$u2']", path))
     return res
 
 
@@ -61,7 +61,7 @@ def check_model_init():
     if not initialized:
         initialized = True
         global _jm_cst_0
-        _jm_cst_0 = {'./url_looking.model.json', 'https://json-model.org/models/json-model'}
+        _jm_cst_0 = {'file://./url_looking.model.json', 'https://json-model.org/models/json-model'}
         global check_model_map
         check_model_map = {
             "": json_model_1,

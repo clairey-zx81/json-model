@@ -696,12 +696,12 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 okay &= *c == ']';  // else final ] not found!
                 break;
             case '{':  // {123} or {12,34} or {12,}
-                c++;  // next char
-                okay &= isdigit(*c);  // must be a number
+                c++;  // to digit
+                okay = okay && isdigit(*c);  // must be a number
                 while (isdigit(*c))
                     c++;
                 if (*c == ',') {  // second part, may be empty
-                    c++;  // first char
+                    c++;  // skip , to digit
                     while (isdigit(*c))
                         c++;
                 }

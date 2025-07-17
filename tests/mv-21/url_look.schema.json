@@ -7,11 +7,11 @@
       "const": "https://json-model.org/models/json-model"
     },
     "u2": {
-      "const": "./url_looking.model.json"
+      "const": "file://./url_looking.model.json"
     }
   },
   "enum": [
     "https://json-model.org/models/json-model",
-    "./url_looking.model.json"
+    "file://./url_looking.model.json"
   ]
 }

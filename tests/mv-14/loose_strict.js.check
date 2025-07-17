@@ -1,4 +1,4 @@
-loose_strict.values.json[1]: PASS
+loose_strict.values.json[0]: PASS
+loose_strict.values.json[1]: ERROR unexpected PASS
 loose_strict.values.json[2]: ERROR unexpected PASS
 loose_strict.values.json[3]: ERROR unexpected PASS
-loose_strict.values.json[5]: ERROR unexpected PASS

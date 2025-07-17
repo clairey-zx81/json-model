@@ -1,5 +1,6 @@
+pattern_0.values.json[0]: PASS
 pattern_0.values.json[1]: PASS
-pattern_0.values.json[2]: PASS
+pattern_0.values.json[2]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[3]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[4]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[5]: FAIL (.: unexpected /^[A-Z].*/ [.])
@@ -11,4 +12,3 @@ pattern_0.values.json[10]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[11]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[12]: FAIL (.: unexpected /^[A-Z].*/ [.])
 pattern_0.values.json[13]: FAIL (.: unexpected /^[A-Z].*/ [.])
-pattern_0.values.json[14]: FAIL (.: unexpected /^[A-Z].*/ [.])

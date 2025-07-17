@@ -23,7 +23,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$u2'
-  res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = './url_looking.model.json';
+  res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'file://./url_looking.model.json';
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -31,7 +31,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  constants JSONB = JSONB '["https://json-model.org/models/json-model","./url_looking.model.json"]';
+  constants JSONB = JSONB '["https://json-model.org/models/json-model","file://./url_looking.model.json"]';
 BEGIN
   RETURN constants @> value;
 END;

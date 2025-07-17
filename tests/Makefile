@@ -5,6 +5,7 @@ SHELL   = /bin/bash
 D.subs  = $(wildcard mv-*) bads ref
 D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
+D.gen = $(D.subs:%=%.gen)
 
 .PHONY: clean
 clean: $(D.clean)
@@ -20,9 +21,6 @@ check.pytest:
 .PHONY: check
 check: check.pytest
 
-.PHONY: check.gen
-check.gen: $(D.check)
-
 .PHONY: %.check
 %.check:
 	$(MAKE) -C $* check
@@ -30,3 +28,13 @@ check.gen: $(D.check)
 .PHONY: %.clean
 %.clean:
 	$(MAKE) -C $* clean
+
+.PHONY: check.check
+check.check: $(D.check)
+
+.PHONY: gen
+gen: $(D.gen)
+
+.PHONY: %.gen
+%.gen:
+	$(MAKE) -C $* gen

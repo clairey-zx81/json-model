@@ -1,8 +1,9 @@
+base-016.values.json[0]: PASS
 base-016.values.json[1]: PASS
 base-016.values.json[2]: PASS
 base-016.values.json[3]: PASS
 base-016.values.json[4]: PASS
-base-016.values.json[5]: PASS
+base-016.values.json[5]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
 base-016.values.json[6]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
 base-016.values.json[7]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
 base-016.values.json[8]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
@@ -10,4 +11,3 @@ base-016.values.json[9]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2
 base-016.values.json[10]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
 base-016.values.json[11]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
 base-016.values.json[12]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])
-base-016.values.json[13]: FAIL (.: no model matched [.'|']; .: not a bool [.'|'.2]; .: unexpected string [.'|'.1]; .: not null [.'|'.0])

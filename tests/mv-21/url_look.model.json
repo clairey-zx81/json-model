@@ -2,7 +2,7 @@
   "#": "trigger a warning on url-looking definitions",
   "$": {
     "u1": "https://json-model.org/models/json-model",
-    "u2": "./url_looking.model.json"
+    "u2": "file://./url_looking.model.json"
   },
   "|": [ "$u1", "$u2" ]
 }

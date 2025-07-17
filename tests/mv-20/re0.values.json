@@ -1,0 +1,16 @@
+[
+  [ true,  "aaa" ],
+  [ true,  "XXXXaaa777" ],
+  [ false, "aa" ],
+  [ false, "aXa" ],
+  [ false, "aYaXaZa" ],
+  [ false, "" ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, [] ],
+  [ false, [1, "aaa expected"] ],
+  [ false, {"aaa": "aaa"} ]
+]
