@@ -575,9 +575,8 @@ Because the `-r` option is not used, there are no reporting overheads.
 For JS standard deviation is quite high, which could be induced by
 occasional garbage collection.
 
-
-The JSON Model compiler can also generate C, JavaScript or Python validation code
-ready to be imported for checking values:
+The JSON Model compiler can also generate C, JavaScript, Python or PL/pgSQL
+validation code ready to be imported for checking values:
 
 ```sh
 jmc -o person.o Person-2            # C object file

@@ -35,7 +35,6 @@ jmc --loose-number Town beijing.json shanghai.json
 jmc University psl.json
 
 # playing with constraints
-
 jmc -r Tournament musketeers.json 3_musketeers.json
 
 # transforming models
@@ -60,15 +59,6 @@ jmc -o person.sql Person-2   # PL/pgSQL functions
 psql \
   -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
   -f person.sql
-
-cat > test_values.sql <<EOF
-CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
-\copy json_values(name, data) FROM PSTDIN
-SELECT
-  name AS id,
-  CASE WHEN check_model(data, '', NULL) THEN 'PASS' ELSE 'FAIL' END AS check
-FROM json_values;
-EOF
 
 for f in [a-z]*.json ; do
   echo -e "$f\t$(jq -c < $f)"

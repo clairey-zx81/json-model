@@ -2,16 +2,12 @@
 
 ## Current Tasks
 
-- [x] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
-- [x] tests: fix test vector numbering to count actual tests, not items
-- [x] schema: improve generation with some constraints
-- [ ] tests: fix `mv-0a/base-021.model.json` issue with C json-model
-- [ ] schema: inline external reference to generate valid schemas
 - [ ] schema: generate valid schema from JSON Model meta-model
-- [ ] sql-backend: fix generated code under `--reporting`
-- [ ] sql-backend: package support as an extension
-- [ ] design: add predefs for `$UUIDx`…
+- [ ] schema: inline external reference to generate valid schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
+- [ ] sql-backend: package support as an extension
+- [ ] sql-backend: fix generated code under `--reporting`
+- [ ] design: add predefs for `$UUIDx`…
 - [ ] js-backend: warn about loose
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
@@ -20,7 +16,7 @@
 - [ ] tests: with multiple regex engine
 - [ ] use: js/ts type export?
 - [ ] use: py type dataclass/pydantic export?
-- [ ] use: test with corrector?
+- [ ] use: test with corrector? ref? kiva?
 - [ ] static: sort list of models? option?
 - [ ] optim: merge `&` of objects in some cases?
 - [ ] tuto: add further reading pointers in the conclusion
@@ -397,3 +393,7 @@
 - [x] js: ~allow to run with nvm stable?~ nope, nvm is a shell function, must use path
 - [x] sql-backend: reduce extension loading verbosity
 - [x] model: warn on url-looking definitions
+- [x] tests: improve meta model for constants, predefs and regex/X (`rwt/json-model.model.json`)
+- [x] tests: fix test vector numbering to count actual tests, not items
+- [x] schema: improve generation with some constraints
+- [x] tests: fix `mv-0a/base-021.model.json` issue with C json-model
