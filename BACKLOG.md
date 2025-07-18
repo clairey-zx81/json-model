@@ -2,6 +2,8 @@
 
 ## Current Tasks
 
+- [x] tuto: add further reading pointers in the conclusion
+- [ ] static: keep some model comments in generated code
 - [ ] schema: generate valid schema from JSON Model meta-model
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
@@ -19,7 +21,6 @@
 - [ ] use: test with corrector? ref? kiva?
 - [ ] static: sort list of models? option?
 - [ ] optim: merge `&` of objects in some cases?
-- [ ] tuto: add further reading pointers in the conclusion
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
@@ -62,7 +63,6 @@
 - [ ] py-backend: multi-type enum `enum_05`
 - [ ] optim: more constraint simplifications, eg redundant `<` and `<=`.
 - [ ] static: if loose, cast all int constants to double?
-- [ ] static: keep model comments in generated code?
 - [ ] c-backend: add arr and obj to cst management?
 - [ ] c-backend: more separate headers to avoid unused warnings.
 - [ ] c-backend: add a common prefix to all internal functions.
