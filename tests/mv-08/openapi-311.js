@@ -2748,6 +2748,7 @@ function json_model_14(val, path, rep)
 function json_model_15(val, path, rep)
 {
     let res;
+    // serialization styles
     // .'$Style'
     res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
@@ -5175,6 +5176,7 @@ function _jm_obj_55(val, path, rep)
 function json_model_28(val, path, rep)
 {
     let res;
+    // more or less a parameter but without name and in
     // .'$Header'
     res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
@@ -5412,6 +5414,7 @@ function json_model_30(val, path, rep)
 function json_model_45(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_60(val, path, rep);

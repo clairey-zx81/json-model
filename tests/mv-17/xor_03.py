@@ -25,6 +25,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # (any xor m) is (not m)
     # .
     # not-case xor list
     is_0: bool

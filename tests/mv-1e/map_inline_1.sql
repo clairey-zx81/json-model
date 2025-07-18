@@ -80,6 +80,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- inline up to 3 must/may properties
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

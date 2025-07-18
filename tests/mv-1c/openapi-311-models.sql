@@ -2165,6 +2165,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- serialization styles
   -- .'$openapi#Style'
   res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(val);
   RETURN res;
@@ -3283,6 +3284,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- more or less a parameter but without name and in
   -- .'$openapi#Header'
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN

@@ -979,6 +979,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model for JSON Schema Draft 06 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     // .'@'
     res = json_model_8(val, path, rep);

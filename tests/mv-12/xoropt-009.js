@@ -89,6 +89,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // NOT ^ to | because both empty objects are ok
     // .
     // generic xor list
     let xc_0 = 0;

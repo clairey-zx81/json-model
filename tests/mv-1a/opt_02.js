@@ -15,6 +15,7 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     let res;
+    // flatten and xor to or test
     // .
     // .'|'.0
     res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;

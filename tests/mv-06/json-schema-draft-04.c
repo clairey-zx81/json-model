@@ -897,6 +897,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     res = _jm_obj_0(val, path, rep);
     if (! res)

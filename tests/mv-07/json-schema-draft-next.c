@@ -2771,6 +2771,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     // .'@'
     res = json_model_16(val, path, rep);

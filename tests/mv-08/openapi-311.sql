@@ -1949,6 +1949,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- serialization styles
   -- .'$Style'
   res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
   RETURN res;
@@ -3632,6 +3633,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- more or less a parameter but without name and in
   -- .'$Header'
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
@@ -3777,6 +3779,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
   -- .'$schema'
   -- .'$schema'.'@'
   res := json_model_60(val, path, rep);

@@ -1231,6 +1231,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- remove and/or add stuff
   -- .'$Trafo'
   res := _jm_obj_13(val, path, rep);
   RETURN res;
@@ -1733,6 +1734,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- symbols that can only appear at the model's root
   -- .'$RootOnly'
   res := _jm_obj_21(val, path, rep);
   RETURN res;

@@ -18,6 +18,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- xor to or simplification, float vs string
   -- .
   -- .'|'.0
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;

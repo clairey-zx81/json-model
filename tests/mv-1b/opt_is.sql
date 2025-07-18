@@ -10,6 +10,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON_MODEL_STRICT_INT
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8;

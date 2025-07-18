@@ -15,6 +15,7 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     let res;
+    // (any xor m) is (not m)
     // .
     // not-case xor list
     let is_0;

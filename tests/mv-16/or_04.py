@@ -30,6 +30,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
     # .
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:

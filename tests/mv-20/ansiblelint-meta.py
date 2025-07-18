@@ -2482,6 +2482,7 @@ def json_model_48(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $any_platform (.'$any_platform')
 def json_model_49(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     # .'$any_platform'
     # .'$any_platform'.'|'.0
     res = json_model_2(val, path, rep)
@@ -4953,6 +4954,7 @@ def _jm_obj_95(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $GalaxyInfoModelLoose (.'$GalaxyInfoModelLoose')
 def json_model_52(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # some $URL should be added?
     # .'$GalaxyInfoModelLoose'
     res = _jm_obj_95(val, path, rep)
     if not res:
@@ -5508,6 +5510,7 @@ def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $GalaxyInfoModel (.'$GalaxyInfoModel')
 def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # hmmmm, property standalone should probably be required…
     # .'$GalaxyInfoModel'
     # .'$GalaxyInfoModel'.'|'.0
     res = json_model_53(val, path, rep)
@@ -5704,6 +5707,7 @@ def _jm_obj_99(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $DependencyModelLoose (.'$DependencyModelLoose')
 def json_model_57(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79  Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     # .'$DependencyModelLoose'
     res = _jm_obj_99(val, path, rep)
     if not res:
@@ -5776,6 +5780,7 @@ def _jm_obj_103(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $DependencyModel (.'$DependencyModel')
 def json_model_58(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # add non-exclusive mandatory role, src or name props
     # .'$DependencyModel'
     res = True
     if res:
@@ -5894,6 +5899,7 @@ def json_model_59(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $AnsibleMeta (.'$AnsibleMeta')
 def json_model_60(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # why null?
     # .'$AnsibleMeta'
     # .'$AnsibleMeta'.'|'.0
     res = val is None

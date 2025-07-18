@@ -4231,6 +4231,7 @@ static bool json_model_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
     res = json_model_2(val, path, rep);
@@ -8445,6 +8446,7 @@ static bool _jm_obj_95(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // some $URL should be added?
     // .'$GalaxyInfoModelLoose'
     res = _jm_obj_95(val, path, rep);
     if (! res)
@@ -9312,6 +9314,7 @@ static bool _jm_obj_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // hmmmm, property standalone should probably be required…
     // .'$GalaxyInfoModel'
     // .'$GalaxyInfoModel'.'|'.0
     res = json_model_53(val, path, rep);
@@ -9649,6 +9652,7 @@ static bool _jm_obj_99(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79  Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     // .'$DependencyModelLoose'
     res = _jm_obj_99(val, path, rep);
     if (! res)
@@ -9755,6 +9759,7 @@ static bool _jm_obj_103(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // add non-exclusive mandatory role, src or name props
     // .'$DependencyModel'
     res = true;
     if (res)
@@ -9958,6 +9963,7 @@ static bool json_model_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // why null?
     // .'$AnsibleMeta'
     // .'$AnsibleMeta'.'|'.0
     res = json_is_null(val);

@@ -3,7 +3,7 @@
 ## Current Tasks
 
 - [x] tuto: add further reading pointers in the conclusion
-- [ ] static: keep some model comments in generated code
+- [x] static: keep some model comments in generated code
 - [ ] schema: generate valid schema from JSON Model meta-model
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`

@@ -25,6 +25,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # equivalent to =0
     # .
     # remove duplicate xor list
     is_0: bool

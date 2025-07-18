@@ -100,6 +100,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- exclusive properties: a ^ b
   -- .
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN

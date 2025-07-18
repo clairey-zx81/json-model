@@ -49,6 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # regex property… beware that \d character class does not seem to be supported by re2
     # .
     res = _jm_obj_0(val, path, rep)
     if not res:

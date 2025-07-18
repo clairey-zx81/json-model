@@ -19,6 +19,7 @@ DECLARE
   res bool;
   is_0 bool;
 BEGIN
+  -- not a word
   -- .
   -- not-case xor list
   -- .'^'.1

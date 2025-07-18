@@ -3973,6 +3973,7 @@ function json_model_48(val, path, rep)
 function json_model_49(val, path, rep)
 {
     let res;
+    // FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
     // .'$any_platform'
     // .'$any_platform'.'|'.0
     res = json_model_2(val, path, rep);
@@ -8118,6 +8119,7 @@ function _jm_obj_95(val, path, rep)
 function json_model_52(val, path, rep)
 {
     let res;
+    // some $URL should be added?
     // .'$GalaxyInfoModelLoose'
     res = _jm_obj_95(val, path, rep);
     if (! res)
@@ -8964,6 +8966,7 @@ function _jm_obj_98(val, path, rep)
 function json_model_54(val, path, rep)
 {
     let res;
+    // hmmmm, property standalone should probably be required…
     // .'$GalaxyInfoModel'
     // .'$GalaxyInfoModel'.'|'.0
     res = json_model_53(val, path, rep);
@@ -9294,6 +9297,7 @@ function _jm_obj_99(val, path, rep)
 function json_model_57(val, path, rep)
 {
     let res;
+    // See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79  Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
     // .'$DependencyModelLoose'
     res = _jm_obj_99(val, path, rep);
     if (! res)
@@ -9400,6 +9404,7 @@ function _jm_obj_103(val, path, rep)
 function json_model_58(val, path, rep)
 {
     let res;
+    // add non-exclusive mandatory role, src or name props
     // .'$DependencyModel'
     res = true;
     if (res)
@@ -9600,6 +9605,7 @@ function json_model_59(val, path, rep)
 function json_model_60(val, path, rep)
 {
     let res;
+    // why null?
     // .'$AnsibleMeta'
     // .'$AnsibleMeta'.'|'.0
     res = val === null;

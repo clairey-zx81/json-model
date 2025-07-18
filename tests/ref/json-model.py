@@ -1144,6 +1144,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Trafo (.'$Trafo')
 def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # remove and/or add stuff
     # .'$Trafo'
     res = _jm_obj_13(val, path, rep)
     if not res:
@@ -1606,6 +1607,7 @@ def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $RootOnly (.'$RootOnly')
 def json_model_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # symbols that can only appear at the model's root
     # .'$RootOnly'
     res = _jm_obj_21(val, path, rep)
     if not res:

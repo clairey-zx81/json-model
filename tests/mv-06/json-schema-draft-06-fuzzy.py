@@ -26,6 +26,7 @@ check_model_map: PropMap
 # check $schema (.'$schema')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON Model for JSON Schema Draft 06 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     # .'$schema'
     # .'$schema'.'@'
     res = json_model_10(val, path, rep)

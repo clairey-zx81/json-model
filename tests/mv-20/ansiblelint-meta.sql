@@ -3024,6 +3024,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- FIXME: name is not mandatory, not sure it makes much sense… versions should be unique?
   -- .'$any_platform'
   -- .'$any_platform'.'|'.0
   res := json_model_2(val, path, rep);
@@ -6028,6 +6029,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- some $URL should be added?
   -- .'$GalaxyInfoModelLoose'
   res := _jm_obj_95(val, path, rep);
   RETURN res;
@@ -6725,6 +6727,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- hmmmm, property standalone should probably be required…
   -- .'$GalaxyInfoModel'
   -- .'$GalaxyInfoModel'.'|'.0
   res := json_model_53(val, path, rep);
@@ -6937,6 +6940,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- See https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#role-dependencies and https://github.com/ansible/ansible/blob/devel/lib/ansible/playbook/role/metadata.py#L79  Other keys are treated as role [parameters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#passing-different-parameters).
   -- .'$DependencyModelLoose'
   res := _jm_obj_99(val, path, rep);
   RETURN res;
@@ -7021,6 +7025,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- add non-exclusive mandatory role, src or name props
   -- .'$DependencyModel'
   res := TRUE;
   IF res THEN
@@ -7130,6 +7135,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- why null?
   -- .'$AnsibleMeta'
   -- .'$AnsibleMeta'.'|'.0
   res := JSONB_TYPEOF(val) = 'null';

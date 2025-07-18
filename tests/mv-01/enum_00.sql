@@ -54,6 +54,7 @@ DECLARE
   xc_0 int;
   xr_0 bool;
 BEGIN
+  -- p1 optimized to | and root xor should rejects 'Bad'
   -- .
   -- generic xor list
   xc_0 := 0;

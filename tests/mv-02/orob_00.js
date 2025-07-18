@@ -113,6 +113,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // no discriminant or
     // .
     res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)

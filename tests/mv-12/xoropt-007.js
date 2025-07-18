@@ -143,6 +143,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // ^ cannot be |
     // .
     // generic xor list
     let xc_0 = 0;

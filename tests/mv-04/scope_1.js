@@ -66,6 +66,7 @@ function json_model_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // a string with a lower case later or a digit
     // .
     // .'|'.0
     res = json_model_3(val, path, rep);

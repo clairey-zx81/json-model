@@ -2438,6 +2438,7 @@ function json_model_16(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
     // .
     // .'@'
     res = json_model_16(val, path, rep);

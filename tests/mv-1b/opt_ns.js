@@ -84,6 +84,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON_MODEL_STRICT_NUMBER
     // .
     res = _jm_obj_0(val, path, rep);
     if (! res)

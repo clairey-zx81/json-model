@@ -168,6 +168,7 @@ static jm_check_fun_t _jm_map_0(json_t *val)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // boolean tag
     // .
     res = json_is_object(val);
     if (res)

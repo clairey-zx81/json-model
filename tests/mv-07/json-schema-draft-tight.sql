@@ -307,6 +307,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- not included: contains…
   -- .'$arrayKeywords'
   res := _jm_obj_1(val, path, rep);
   RETURN res;
@@ -512,6 +513,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- not included: dependentRequired…
   -- .'$objectKeywords'
   res := _jm_obj_2(val, path, rep);
   RETURN res;
@@ -558,6 +560,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- not included: exclusive*, multipleOf…
   -- .'$numberKeywords'
   res := _jm_obj_5(val, path, rep);
   RETURN res;
@@ -874,6 +877,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- there is a trick with $schema… in RootSchema below
   -- .'$metas'
   res := _jm_obj_6(val, path, rep);
   RETURN res;
@@ -5858,6 +5862,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- we could use ^ instead of | below
   -- .'$ObjectSchema'
   -- .'$ObjectSchema'.'|'.0
   res := json_model_16(val, path, rep);
@@ -5968,6 +5973,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- keyword $schema is mandatory at the root, and optional elsewhere
   -- .'$RootSchema'
   res := TRUE;
   IF res THEN

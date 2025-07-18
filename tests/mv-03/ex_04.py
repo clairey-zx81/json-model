@@ -25,6 +25,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # to serve as an external reference
     # .
     # .'@'
     res = isinstance(val, str) and val == "Susie"

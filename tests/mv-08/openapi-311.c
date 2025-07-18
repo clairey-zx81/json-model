@@ -3085,6 +3085,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // serialization styles
     // .'$Style'
     res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);;
     if (! res)
@@ -5584,6 +5585,7 @@ static bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // more or less a parameter but without name and in
     // .'$Header'
     res = json_is_object(val);
     if (! res)
@@ -5825,6 +5827,7 @@ static bool json_model_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_60(val, path, rep);

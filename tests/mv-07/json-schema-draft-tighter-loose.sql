@@ -58,6 +58,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- keyword $schema is mandatory at the root, and optional elsewhere
   -- .'$tight#RootSchema'
   res := TRUE;
   IF res THEN
@@ -78,6 +79,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- we could use ^ instead of | below
   -- .'$tight#ObjectSchema'
   -- .'$tight#ObjectSchema'.'|'.0
   res := json_model_18(val, path, rep);
@@ -376,6 +378,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- there is a trick with $schema… in RootSchema below
   -- .'$tight#metas'
   res := _jm_obj_1(val, path, rep);
   RETURN res;

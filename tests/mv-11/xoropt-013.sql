@@ -98,6 +98,7 @@ DECLARE
   xc_0 int;
   xr_0 bool;
 BEGIN
+  -- NOT ^ to |
   -- .
   -- generic xor list
   xc_0 := 0;

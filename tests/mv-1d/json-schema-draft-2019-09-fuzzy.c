@@ -29,6 +29,7 @@ const size_t check_model_map_size = 2;
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model for JSON Schema 2019-09 (aka 08) [JSON_MODEL_LOOSE_NUMBER]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_18(val, path, rep);

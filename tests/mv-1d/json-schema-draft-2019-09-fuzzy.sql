@@ -10,6 +10,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON Model for JSON Schema 2019-09 (aka 08) [JSON_MODEL_LOOSE_NUMBER]
   -- .'$schema'
   -- .'$schema'.'@'
   res := json_model_18(val, path, rep);

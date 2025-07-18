@@ -337,6 +337,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON Model for JSON Schema Draft 02 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
   -- .'$schema'
   res := _jm_obj_0(val, path, rep);
   RETURN res;

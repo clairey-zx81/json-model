@@ -28,6 +28,7 @@ const size_t check_model_map_size = 2;
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Schema Draft Next as of 2023 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_18(val, path, rep);

@@ -490,6 +490,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $schema (.'$schema')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON Model for JSON Schema Draft 04 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
     # .'$schema'
     res = _jm_obj_0(val, path, rep)
     if not res:

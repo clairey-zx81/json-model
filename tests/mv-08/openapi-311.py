@@ -1746,6 +1746,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Style (.'$Style')
 def json_model_15(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # serialization styles
     # .'$Style'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
@@ -3276,6 +3277,7 @@ def _jm_obj_55(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Header (.'$Header')
 def json_model_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # more or less a parameter but without name and in
     # .'$Header'
     res = isinstance(val, dict)
     if not res:
@@ -3421,6 +3423,7 @@ def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $schema (.'$schema')
 def json_model_45(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
     # .'$schema'
     # .'$schema'.'@'
     res = json_model_60(val, path, rep)

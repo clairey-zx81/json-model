@@ -18,6 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON_MODEL_SIGNED_INT
     // .
     // .'@'
     res = json_is_integer(val) && json_integer_value(val) >= 1;

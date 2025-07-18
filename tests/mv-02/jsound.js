@@ -589,6 +589,7 @@ function _jm_obj_2(val, path, rep)
 function json_model_6(val, path, rep)
 {
     let res;
+    // could there be derived atomics as well?
     // .'$Atomic'
     res = _jm_obj_2(val, path, rep);
     if (! res)
@@ -993,6 +994,7 @@ function _jm_obj_5(val, path, rep)
 function json_model_9(val, path, rep)
 {
     let res;
+    // WTF about 'content'?
     // .'$Array'
     res = _jm_obj_5(val, path, rep);
     if (! res)
@@ -1128,6 +1130,7 @@ function _jm_obj_6(val, path, rep)
 function json_model_10(val, path, rep)
 {
     let res;
+    // jsound.jsound.json does not say that it is a type…
     // .'$Union'
     res = _jm_obj_6(val, path, rep);
     if (! res)

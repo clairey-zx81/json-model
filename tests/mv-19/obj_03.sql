@@ -45,6 +45,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- regex property… beware that \d character class does not seem to be supported by re2
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

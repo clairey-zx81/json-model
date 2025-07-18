@@ -43,6 +43,7 @@ function json_model_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // trigger a warning on url-looking definitions
     // .
     res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)

@@ -61,6 +61,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # a string with a lower case later or a digit
     # .
     # .'|'.0
     res = json_model_3(val, path, rep)

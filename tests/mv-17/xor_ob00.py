@@ -359,6 +359,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # 4 property combinations: ac ad bc bd
     # .
     res = isinstance(val, dict)
     if not res:

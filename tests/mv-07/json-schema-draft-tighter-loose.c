@@ -353,6 +353,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$tight#RootSchema'
     res = true;
     if (res)
@@ -388,6 +389,7 @@ static bool json_model_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // we could use ^ instead of | below
     // .'$tight#ObjectSchema'
     // .'$tight#ObjectSchema'.'|'.0
     res = json_model_18(val, path, rep);
@@ -819,6 +821,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // there is a trick with $schema… in RootSchema below
     // .'$tight#metas'
     res = _jm_obj_1(val, path, rep);
     if (! res)

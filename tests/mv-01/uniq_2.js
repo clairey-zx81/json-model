@@ -15,6 +15,7 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     let res;
+    // require generic unique implementation
     // .
     // .'@'
     res = Array.isArray(val);

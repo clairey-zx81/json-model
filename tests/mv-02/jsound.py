@@ -387,6 +387,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Atomic (.'$Atomic')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # could there be derived atomics as well?
     # .'$Atomic'
     res = _jm_obj_2(val, path, rep)
     if not res:
@@ -633,6 +634,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Array (.'$Array')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # WTF about 'content'?
     # .'$Array'
     res = _jm_obj_5(val, path, rep)
     if not res:
@@ -714,6 +716,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $Union (.'$Union')
 def json_model_10(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # jsound.jsound.json does not say that it is a type…
     # .'$Union'
     res = _jm_obj_6(val, path, rep)
     if not res:

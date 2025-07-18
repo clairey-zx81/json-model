@@ -2147,6 +2147,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
   -- .
   -- .'@'
   res := json_model_16(val, path, rep);

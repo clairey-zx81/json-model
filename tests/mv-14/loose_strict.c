@@ -72,6 +72,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON_MODEL_LOOSE_INT
     // .'$loose'
     res = _jm_obj_0(val, path, rep);
     if (! res)
@@ -136,6 +137,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON_MODEL_STRICT_INT
     // .'$strict'
     res = _jm_obj_1(val, path, rep);
     if (! res)

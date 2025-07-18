@@ -11,6 +11,7 @@ DECLARE
   res bool;
   is_0 bool;
 BEGIN
+  -- (any xor m) is (not m)
   -- .
   -- not-case xor list
   -- .'^'.1

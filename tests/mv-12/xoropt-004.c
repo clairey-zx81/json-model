@@ -124,6 +124,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // ^ to | optimization
     // .
     res = json_is_object(val);
     if (! res)

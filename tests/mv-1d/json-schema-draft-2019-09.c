@@ -2638,6 +2638,7 @@ static bool json_model_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model for JSON Schema 2019-09 (aka 08) [JSON_MODEL_LOOSE_NUMBER]
     // .
     // .'@'
     res = json_model_16(val, path, rep);

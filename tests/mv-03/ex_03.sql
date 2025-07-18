@@ -10,6 +10,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- to serve as an external reference
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie';

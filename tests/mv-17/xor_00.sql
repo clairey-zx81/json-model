@@ -11,6 +11,7 @@ DECLARE
   res bool;
   is_0 bool;
 BEGIN
+  -- equivalent to =0
   -- .
   -- remove duplicate xor list
   res := TRUE;

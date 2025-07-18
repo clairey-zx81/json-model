@@ -45,6 +45,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # trigger a warning on url-looking definitions
     # .
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
     if not res:

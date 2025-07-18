@@ -182,6 +182,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- exemple d'un rapport
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

@@ -298,6 +298,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $arrayKeywords (.'$arrayKeywords')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # not included: contains…
     # .'$arrayKeywords'
     res = _jm_obj_1(val, path, rep)
     if not res:
@@ -448,6 +449,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $objectKeywords (.'$objectKeywords')
 def json_model_7(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # not included: dependentRequired…
     # .'$objectKeywords'
     res = _jm_obj_2(val, path, rep)
     if not res:
@@ -489,6 +491,7 @@ def _jm_obj_5(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $numberKeywords (.'$numberKeywords')
 def json_model_8(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # not included: exclusive*, multipleOf…
     # .'$numberKeywords'
     res = _jm_obj_5(val, path, rep)
     if not res:
@@ -723,6 +726,7 @@ def _jm_obj_6(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $metas (.'$metas')
 def json_model_9(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # there is a trick with $schema… in RootSchema below
     # .'$metas'
     res = _jm_obj_6(val, path, rep)
     if not res:
@@ -4513,6 +4517,7 @@ def json_model_23(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ObjectSchema (.'$ObjectSchema')
 def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # we could use ^ instead of | below
     # .'$ObjectSchema'
     # .'$ObjectSchema'.'|'.0
     res = json_model_16(val, path, rep)
@@ -4637,6 +4642,7 @@ def _jm_obj_68(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $RootSchema (.'$RootSchema')
 def json_model_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$RootSchema'
     res = True
     if res:

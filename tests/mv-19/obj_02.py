@@ -49,6 +49,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # minimal regex prop
     # .
     res = _jm_obj_0(val, path, rep)
     if not res:

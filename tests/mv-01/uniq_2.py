@@ -25,6 +25,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # require generic unique implementation
     # .
     # .'@'
     res = isinstance(val, list)

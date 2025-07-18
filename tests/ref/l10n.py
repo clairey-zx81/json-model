@@ -76,7 +76,16 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
     for prop, pval in val.items():
         assert isinstance(prop, str)
         lpath_2: Path = (path + [ prop ]) if path is not None else None
-        if _jm_re_0(prop, path, rep):
+        if prop == "#":
+            # handle may # property
+            # .'%'.'#'
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'%'.'#']", lpath_2 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid optional prop value [.'%'.'#']", lpath_2 if path is not None else None))
+                return False
+        elif _jm_re_0(prop, path, rep):
             # handle 1 re props
             # .'%'.'/^\\..+$/'
             # "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
@@ -123,6 +132,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
         elif prop == "%":
             # handle must % property
             must_count += 1
+            # dot-prefixed arbitrary key, one or two char keyword values
             # .'%'
             res = _jm_obj_2(pval, lpath_0 if path is not None else None, rep)
             if not res:
@@ -168,6 +178,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON Model Subset for Localization Renames
     # .
     res = _jm_obj_0(val, path, rep)
     if not res:

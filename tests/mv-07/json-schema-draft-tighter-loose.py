@@ -86,6 +86,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $tight#RootSchema (.'$tight#RootSchema')
 def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # keyword $schema is mandatory at the root, and optional elsewhere
     # .'$tight#RootSchema'
     res = True
     if res:
@@ -107,6 +108,7 @@ def json_model_27(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $tight#ObjectSchema (.'$tight#ObjectSchema')
 def json_model_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # we could use ^ instead of | below
     # .'$tight#ObjectSchema'
     # .'$tight#ObjectSchema'.'|'.0
     res = json_model_18(val, path, rep)
@@ -370,6 +372,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $tight#metas (.'$tight#metas')
 def json_model_11(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # there is a trick with $schema… in RootSchema below
     # .'$tight#metas'
     res = _jm_obj_1(val, path, rep)
     if not res:

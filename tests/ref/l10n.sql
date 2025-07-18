@@ -72,7 +72,14 @@ BEGIN
     RETURN FALSE;
   END IF;
   FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    IF _jm_re_0(prop, path, rep) THEN
+    IF prop = '#' THEN
+      -- handle may # property
+      -- .'%'.'#'
+      res := JSONB_TYPEOF(pval) = 'string';
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSEIF _jm_re_0(prop, path, rep) THEN
       -- handle 1 re props
       -- .'%'.'/^\\..+$/'
       -- "/^([#~$%@|&+^/*=]|[<>!]=?)$/"
@@ -121,6 +128,7 @@ BEGIN
     ELSEIF prop = '%' THEN
       -- handle must % property
       must_count := must_count + 1;
+      -- dot-prefixed arbitrary key, one or two char keyword values
       -- .'%'
       res := _jm_obj_2(pval, NULL, rep);
       IF NOT res THEN
@@ -158,6 +166,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON Model Subset for Localization Renames
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

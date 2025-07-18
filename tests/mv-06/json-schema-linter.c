@@ -639,6 +639,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // not included: contains…
     // .'$arrayKeywords'
     res = _jm_obj_1(val, path, rep);
     if (! res)
@@ -820,6 +821,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // not included: dependentRequired, min/maxProps…
     // .'$objectKeywords'
     res = _jm_obj_2(val, path, rep);
     if (! res)
@@ -886,6 +888,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // not included: exclusive*, multipleOf…
     // .'$numberKeywords'
     res = _jm_obj_5(val, path, rep);
     if (! res)
@@ -1149,6 +1152,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // there is a trick with $schema… in RootSchema below
     // .'$metas'
     res = _jm_obj_6(val, path, rep);
     if (! res)
@@ -5205,6 +5209,7 @@ static bool json_model_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // we could use ^ instead of | below
     // .'$ObjectSchema'
     // .'$ObjectSchema'.'|'.0
     res = json_model_16(val, path, rep);
@@ -5406,6 +5411,7 @@ static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$RootSchema'
     res = true;
     if (res)

@@ -6,6 +6,7 @@
     "Model": "$https://json-model.org/models/json-model"
   },
   "%": {
+    "#": "ré-écritures des mots clefs en français",
     ".model": "@",
     ".defs": "$",
     ".trafo": "%",

@@ -3009,6 +3009,7 @@ function json_model_20(val, path, rep)
 function json_model_17(val, path, rep)
 {
     let res;
+    // serialization styles
     // .'$openapi#Style'
     res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_2.has(val);
     if (! res)
@@ -4698,6 +4699,7 @@ function _jm_obj_49(val, path, rep)
 function json_model_30(val, path, rep)
 {
     let res;
+    // more or less a parameter but without name and in
     // .'$openapi#Header'
     res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)

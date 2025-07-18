@@ -43,6 +43,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- open with only some mandatory properties
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

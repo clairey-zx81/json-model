@@ -27,6 +27,7 @@ static bool _jm_re_0(const char *s, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // xor to or simplification, float vs string
     // .
     // .'|'.0
     res = json_is_real(val) && json_real_value(val) >= 0.0;

@@ -748,6 +748,7 @@ static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // props: a/b a/c b/c
     // .
     res = json_is_object(val);
     if (! res)

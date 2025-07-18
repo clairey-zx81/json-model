@@ -634,6 +634,7 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // could there be derived atomics as well?
     // .'$Atomic'
     res = _jm_obj_2(val, path, rep);
     if (! res)
@@ -1045,6 +1046,7 @@ static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // WTF about 'content'?
     // .'$Array'
     res = _jm_obj_5(val, path, rep);
     if (! res)
@@ -1183,6 +1185,7 @@ static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // jsound.jsound.json does not say that it is a type…
     // .'$Union'
     res = _jm_obj_6(val, path, rep);
     if (! res)

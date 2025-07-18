@@ -10,6 +10,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- require generic unique implementation
   -- .
   -- .'@'
   res := JSONB_TYPEOF(val) = 'array';

@@ -112,7 +112,22 @@ static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
     json_object_foreach((json_t *) val, prop, pval)
     {
         jm_path_t lpath_2 = (jm_path_t) { prop, 0, path, NULL };
-        if (_jm_re_0(prop, path, rep))
+        if (strcmp(prop, "#") == 0)
+        {
+            // handle may # property
+            // .'%'.'#'
+            res = json_is_string(pval);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected string [.'%'.'#']", (path ? &lpath_2 : NULL));
+            }
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "invalid optional prop value [.'%'.'#']", (path ? &lpath_2 : NULL));
+                return false;
+            }
+        }
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'%'.'/^\\..+$/'
@@ -187,6 +202,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
         {
             // handle must % property
             must_count += 1;
+            // dot-prefixed arbitrary key, one or two char keyword values
             // .'%'
             res = _jm_obj_2(pval, (path ? &lpath_0 : NULL), rep);
             if (! res)
@@ -266,6 +282,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // JSON Model Subset for Localization Renames
     // .
     res = _jm_obj_0(val, path, rep);
     if (! res)

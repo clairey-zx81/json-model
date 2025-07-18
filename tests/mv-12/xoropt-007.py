@@ -103,6 +103,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # ^ cannot be |
     # .
     # generic xor list
     xc_0: int = 0

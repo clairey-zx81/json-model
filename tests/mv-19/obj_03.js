@@ -53,6 +53,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // regex property… beware that \d character class does not seem to be supported by re2
     // .
     res = _jm_obj_0(val, path, rep);
     if (! res)

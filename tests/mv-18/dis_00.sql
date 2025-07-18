@@ -136,6 +136,7 @@ DECLARE
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
+  -- string discriminant
   -- .
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN

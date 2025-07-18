@@ -35,6 +35,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- deux chaînes constantes et deux re, séparation possible ; constantes matchent re…
   -- .
   res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
   IF NOT res THEN

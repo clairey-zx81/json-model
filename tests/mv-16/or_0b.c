@@ -27,6 +27,7 @@ static bool _jm_cst_0_test(const json_t *val)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // mixed type constants
     // .
     res = jm_json_is_scalar(val) && _jm_cst_0_test(val);
     if (! res)

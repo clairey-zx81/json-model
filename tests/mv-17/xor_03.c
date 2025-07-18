@@ -18,6 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // (any xor m) is (not m)
     // .
     // not-case xor list
     bool is_0;

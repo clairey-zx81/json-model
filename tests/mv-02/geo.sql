@@ -1267,6 +1267,7 @@ DECLARE
   xc_0 int;
   xr_0 bool;
 BEGIN
+  -- Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946) JSON_MODEL_LOOSE_FLOAT
   -- .
   -- generic xor list
   xc_0 := 0;

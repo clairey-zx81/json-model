@@ -55,6 +55,7 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $loose (.'$loose')
 def json_model_5(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON_MODEL_LOOSE_INT
     # .'$loose'
     res = _jm_obj_0(val, path, rep)
     if not res:
@@ -94,6 +95,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $strict (.'$strict')
 def json_model_6(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON_MODEL_STRICT_INT
     # .'$strict'
     res = _jm_obj_1(val, path, rep)
     if not res:

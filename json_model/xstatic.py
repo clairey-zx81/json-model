@@ -1259,6 +1259,10 @@ class CodeGenerator:
                     # record object function for path
                     self._paths[tuple(mpath)] = objid
 
+                if "#" in model:
+                    comment = model["#"].replace("\n", " ")
+                    code = gen.lcom(comment) + code
+
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")
 

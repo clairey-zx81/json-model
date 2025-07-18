@@ -93,7 +93,22 @@ function _jm_obj_2(val, path, rep)
     for (const [prop, pval] of Object.entries(val))
     {
         let lpath_2 = path ? path.concat([prop]) : null;
-        if (_jm_re_0(prop, path, rep))
+        if (prop == "#")
+        {
+            // handle may # property
+            // .'%'.'#'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'%'.'#']", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'%'.'#']", (path ? lpath_2 : null)])
+                return false;
+            }
+        }
+        else if (_jm_re_0(prop, path, rep))
         {
             // handle 1 re props
             // .'%'.'/^\\..+$/'
@@ -166,6 +181,7 @@ function _jm_obj_0(val, path, rep)
         {
             // handle must % property
             must_count += 1;
+            // dot-prefixed arbitrary key, one or two char keyword values
             // .'%'
             res = _jm_obj_2(pval, (path ? lpath_0 : null), rep);
             if (! res)
@@ -245,6 +261,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON Model Subset for Localization Renames
     // .
     res = _jm_obj_0(val, path, rep);
     if (! res)

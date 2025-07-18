@@ -565,6 +565,7 @@ function _jm_obj_7(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // 4 property combinations: ac ad bc bd
     // .
     res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)

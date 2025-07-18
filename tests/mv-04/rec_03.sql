@@ -54,6 +54,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- Recursion test 03
   -- .
   res := _jm_obj_0(val, path, rep);
   RETURN res;

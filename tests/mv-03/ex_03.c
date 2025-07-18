@@ -18,6 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // to serve as an external reference
     // .
     // .'@'
     res = json_is_string(val) && strcmp(json_string_value(val), "Susie") == 0;

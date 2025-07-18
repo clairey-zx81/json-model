@@ -1930,6 +1930,7 @@ def json_model_20(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $openapi#Style (.'$openapi#Style')
 def json_model_17(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # serialization styles
     # .'$openapi#Style'
     res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_2
     if not res:
@@ -2986,6 +2987,7 @@ def _jm_obj_49(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $openapi#Header (.'$openapi#Header')
 def json_model_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # more or less a parameter but without name and in
     # .'$openapi#Header'
     res = isinstance(val, dict)
     if not res:

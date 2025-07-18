@@ -446,6 +446,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- could there be derived atomics as well?
   -- .'$Atomic'
   res := _jm_obj_2(val, path, rep);
   RETURN res;
@@ -685,6 +686,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- WTF about 'content'?
   -- .'$Array'
   res := _jm_obj_5(val, path, rep);
   RETURN res;
@@ -765,6 +767,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- jsound.jsound.json does not say that it is a type…
   -- .'$Union'
   res := _jm_obj_6(val, path, rep);
   RETURN res;

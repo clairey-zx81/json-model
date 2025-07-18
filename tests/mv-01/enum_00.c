@@ -49,6 +49,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // p1 optimized to | and root xor should rejects 'Bad'
     // .
     // generic xor list
     int64_t xc_0 = 0;

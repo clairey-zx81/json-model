@@ -15,6 +15,7 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON_MODEL_LOOSE_FLOAT
     // .
     // .'@'
     res = (typeof val === 'number' || val instanceof Number);

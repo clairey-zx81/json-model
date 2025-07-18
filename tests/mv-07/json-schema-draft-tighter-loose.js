@@ -94,6 +94,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_27(val, path, rep)
 {
     let res;
+    // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$tight#RootSchema'
     res = true;
     if (res)
@@ -129,6 +130,7 @@ function json_model_27(val, path, rep)
 function json_model_25(val, path, rep)
 {
     let res;
+    // we could use ^ instead of | below
     // .'$tight#ObjectSchema'
     // .'$tight#ObjectSchema'.'|'.0
     res = json_model_18(val, path, rep);
@@ -550,6 +552,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_11(val, path, rep)
 {
     let res;
+    // there is a trick with $schema… in RootSchema below
     // .'$tight#metas'
     res = _jm_obj_1(val, path, rep);
     if (! res)

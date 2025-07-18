@@ -1764,6 +1764,7 @@ function _jm_obj_13(val, path, rep)
 function json_model_26(val, path, rep)
 {
     let res;
+    // remove and/or add stuff
     // .'$Trafo'
     res = _jm_obj_13(val, path, rep);
     if (! res)
@@ -2514,6 +2515,7 @@ function _jm_obj_21(val, path, rep)
 function json_model_34(val, path, rep)
 {
     let res;
+    // symbols that can only appear at the model's root
     // .'$RootOnly'
     res = _jm_obj_21(val, path, rep);
     if (! res)

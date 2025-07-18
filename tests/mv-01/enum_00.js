@@ -44,6 +44,7 @@ function json_model_3(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // p1 optimized to | and root xor should rejects 'Bad'
     // .
     // generic xor list
     let xc_0 = 0;

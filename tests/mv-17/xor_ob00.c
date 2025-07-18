@@ -586,6 +586,7 @@ static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // 4 property combinations: ac ad bc bd
     // .
     res = json_is_object(val);
     if (! res)

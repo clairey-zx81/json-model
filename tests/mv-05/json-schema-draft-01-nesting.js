@@ -635,6 +635,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_3(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema Draft 01 [JSON_MODEL_STRICT_INT, JSON_MODEL_LOOSE_FLOAT]
     // .'$schema'
     res = _jm_obj_0(val, path, rep);
     if (! res)

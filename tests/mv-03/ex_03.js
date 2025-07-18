@@ -15,6 +15,7 @@ var check_model_map = new Map()
 function json_model_2(val, path, rep)
 {
     let res;
+    // to serve as an external reference
     // .
     // .'@'
     res = ((typeof val === 'string' || val instanceof String)) && val == "Susie";

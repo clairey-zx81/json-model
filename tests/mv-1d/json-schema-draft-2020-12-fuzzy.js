@@ -16,6 +16,7 @@ var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_18(val, path, rep);

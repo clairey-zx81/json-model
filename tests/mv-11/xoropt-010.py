@@ -117,6 +117,7 @@ def _jm_obj_2(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # ^ to |
     # .
     res = isinstance(val, dict)
     if not res:

@@ -80,6 +80,7 @@ static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // a string with a lower case later or a digit
     // .
     // .'|'.0
     res = json_model_3(val, path, rep);

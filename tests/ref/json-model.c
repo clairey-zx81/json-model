@@ -1926,6 +1926,7 @@ static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // remove and/or add stuff
     // .'$Trafo'
     res = _jm_obj_13(val, path, rep);
     if (! res)
@@ -2708,6 +2709,7 @@ static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // symbols that can only appear at the model's root
     // .'$RootOnly'
     res = _jm_obj_21(val, path, rep);
     if (! res)

@@ -19,6 +19,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // flatten and xor to or test
     // .
     res = jm_json_is_scalar(val) && json_is_integer(val) && jm_search_cst(&(jm_constant_t) { cst_is_integer, { .i = json_integer_value(val) } }, _jm_cst_0, 3);;
     if (! res)

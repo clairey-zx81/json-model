@@ -1023,6 +1023,7 @@ function json_model_7(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .
     // .'@'
     res = json_model_7(val, path, rep);

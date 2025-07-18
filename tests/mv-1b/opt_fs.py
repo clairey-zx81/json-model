@@ -25,6 +25,7 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # JSON_MODEL_STRICT_FLOAT
     # .
     # .'@'
     res = isinstance(val, float)

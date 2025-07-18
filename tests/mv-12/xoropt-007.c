@@ -150,6 +150,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // ^ cannot be |
     // .
     // generic xor list
     int64_t xc_0 = 0;

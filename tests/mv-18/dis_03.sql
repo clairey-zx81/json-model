@@ -95,6 +95,7 @@ DECLARE
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
+  -- boolean tag
   -- .
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN

@@ -33,6 +33,11 @@
           "pattern": "^([#~$%@|&+^/*=]|[<>!]=?)$"
         }
       },
+      "properties": {
+        "#": {
+          "type": "string"
+        }
+      },
       "additionalProperties": false
     },
     "@": {

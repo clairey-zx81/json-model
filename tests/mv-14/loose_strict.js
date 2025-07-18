@@ -64,6 +64,7 @@ function _jm_obj_0(val, path, rep)
 function json_model_5(val, path, rep)
 {
     let res;
+    // JSON_MODEL_LOOSE_INT
     // .'$loose'
     res = _jm_obj_0(val, path, rep);
     if (! res)
@@ -126,6 +127,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_6(val, path, rep)
 {
     let res;
+    // JSON_MODEL_STRICT_INT
     // .'$strict'
     res = _jm_obj_1(val, path, rep);
     if (! res)

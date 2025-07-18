@@ -46,6 +46,7 @@ def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
+    # p1 optimized to | and root xor should rejects 'Bad'
     # .
     # generic xor list
     xc_0: int = 0

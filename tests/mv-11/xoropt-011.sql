@@ -112,6 +112,7 @@ DECLARE
   tag_0 JSONB;
   fun_0 TEXT;
 BEGIN
+  -- ^ to | on constants
   -- .
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN

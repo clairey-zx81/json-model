@@ -16,6 +16,7 @@ var check_model_map = new Map()
 function json_model_3(val, path, rep)
 {
     let res;
+    // JSON Model for JSON Schema Draft 07 [JSON_MODEL_LOOSE_INT, JSON_MODEL_LOOSE_FLOAT]
     // .'$schema'
     // .'$schema'.'@'
     res = json_model_9(val, path, rep);

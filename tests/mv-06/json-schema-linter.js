@@ -434,6 +434,7 @@ function _jm_obj_1(val, path, rep)
 function json_model_6(val, path, rep)
 {
     let res;
+    // not included: contains…
     // .'$arrayKeywords'
     res = _jm_obj_1(val, path, rep);
     if (! res)
@@ -608,6 +609,7 @@ function _jm_obj_2(val, path, rep)
 function json_model_7(val, path, rep)
 {
     let res;
+    // not included: dependentRequired, min/maxProps…
     // .'$objectKeywords'
     res = _jm_obj_2(val, path, rep);
     if (! res)
@@ -672,6 +674,7 @@ function _jm_obj_5(val, path, rep)
 function json_model_8(val, path, rep)
 {
     let res;
+    // not included: exclusive*, multipleOf…
     // .'$numberKeywords'
     res = _jm_obj_5(val, path, rep);
     if (! res)
@@ -921,6 +924,7 @@ function _jm_obj_6(val, path, rep)
 function json_model_9(val, path, rep)
 {
     let res;
+    // there is a trick with $schema… in RootSchema below
     // .'$metas'
     res = _jm_obj_6(val, path, rep);
     if (! res)
@@ -4842,6 +4846,7 @@ function json_model_22(val, path, rep)
 function json_model_23(val, path, rep)
 {
     let res;
+    // we could use ^ instead of | below
     // .'$ObjectSchema'
     // .'$ObjectSchema'.'|'.0
     res = json_model_16(val, path, rep);
@@ -5043,6 +5048,7 @@ function _jm_obj_50(val, path, rep)
 function json_model_25(val, path, rep)
 {
     let res;
+    // keyword $schema is mandatory at the root, and optional elsewhere
     // .'$RootSchema'
     res = true;
     if (res)

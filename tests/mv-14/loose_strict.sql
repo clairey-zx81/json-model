@@ -43,6 +43,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON_MODEL_LOOSE_INT
   -- .'$loose'
   res := _jm_obj_0(val, path, rep);
   RETURN res;
@@ -88,6 +89,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
+  -- JSON_MODEL_STRICT_INT
   -- .'$strict'
   res := _jm_obj_1(val, path, rep);
   RETURN res;

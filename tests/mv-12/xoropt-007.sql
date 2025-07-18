@@ -92,6 +92,7 @@ DECLARE
   xc_0 int;
   xr_0 bool;
 BEGIN
+  -- ^ cannot be |
   -- .
   -- generic xor list
   xc_0 := 0;

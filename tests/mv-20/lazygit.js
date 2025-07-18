@@ -5010,6 +5010,7 @@ function _jm_obj_7(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
+    // JSON Model for https://json.schemastore.org/lazygit.json
     // .
     res = _jm_obj_7(val, path, rep);
     if (! res)
