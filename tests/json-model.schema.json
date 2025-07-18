@@ -136,7 +136,13 @@
           "description": "renames and rewrites",
           "type": "object",
           "properties": {
-            "#": {"type": "string"}
+            "#": {"type": "string"},
+            "<": {
+              "anyOf": [
+                { "type": "string", "pattern": "^\\$" },
+                { "type": "array", "items": { "type": "string", "pattern": "^\\$" } }
+              ]
+            }
           },
           "patternProperties": {
             "^\\.": { "type": "string" }
