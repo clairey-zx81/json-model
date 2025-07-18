@@ -13,7 +13,7 @@
   },
   "type": "object",
   "patternProperties": {
-    "(?s)^.*$": {
+    "(^X$|^XX$|^XXX$)": {
       "type": "number",
       "minimum": 0.0
     }

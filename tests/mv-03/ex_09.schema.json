@@ -11,7 +11,7 @@
     "EX09": {
       "type": "object",
       "patternProperties": {
-        "[:/#]": {
+        "^((https?|file)://.*|\\..*)$": {
           "$ref": "#/$defs/ex08#VAL"
         }
       },

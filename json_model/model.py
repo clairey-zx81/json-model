@@ -6,8 +6,7 @@ import json
 
 from .mtypes import ModelPath, ModelTrafo, ModelRename, ModelDefs, ModelType
 from .mtypes import ModelError, Jsonable, JsonSchema, JsonObject
-from .utils import log, tname
-from .utils import WEAK_DATE_RE, UUID_RE
+from .utils import log, tname, PREDEF_RE, UUID_RE
 from .recurse import recModel, allFlt, noRwt, _recModel
 from .resolver import Resolver
 
@@ -135,7 +134,7 @@ class JsonModel:
         "DATE": r"/^\d\d\d\d-\d?\d-\d?\d$/",  # FIXME
         "TIME": r"/^[T ]?\d\d:\d\d:\d\d(\.\d\d\d)?(Z|[-+]\d\d(:?\d\d)?$/",  # FIXME
         "DATETIME": "",  # FIXME
-        "UUID": UUID_RE,
+        "UUID": "/^" + UUID_RE + "$/",
         "REGEX": "",  # FIXME
         "EXREG": "",
         "URI": r"^\w+:.*$/",  # TODO improve
@@ -637,30 +636,27 @@ class JsonModel:
                         if isinstance(jm._model, str):
                             m = jm._model
                         else:
-                            log.warning(f"cannot replace {key} at {lpath}, try rough approximation")
-                            m = "/^.*$/s"
+                            log.info(f"tring re for prop ref {key} at {lpath}")
+                            pattern = convert.propRefRegex(jm, jm._model, lpath)
+                            if pattern is not None:
+                                if pattern == "":  # special case
+                                    m = pattern
+                                else:
+                                    m = r"/" + pattern + r"/"
+                            else:
+                                log.warning(f"cannot replace {key} at {lpath}, rough approximation")
+                                # this may lead to an invalid schema
+                                m = "/^.*$/s"
                     else:
                         m = key
-                    match m:
-                        case ""|"$STRING":  # whatever
-                            m = ""
-                        case "$URL"|"$URI":
-                            log.warning(f"approximating $URL/$URI key at {lpath}")
-                            m = r"/[:/#]/"  # hmmm…
-                        case "$REGEX"|"$EXREG":
-                            log.warning(f"approximating $REGEX/$EXREG key at {lpath}")
-                            m = "/^.*$/s"
-                        case "$DATE":
-                            log.warning(f"approximating $DATE key at {lpath}")
-                            m = "/" + WEAK_DATE_RE + "/"
-                        case "$EMAIL":
-                            log.warning(f"approximating $EMAIL key at {lpath}")
-                            m = "/^[a-z0-9_.]+@[a-z0-9_.]+$/i"
-                        case _:
-                            if m[0] == "_":
-                                m = "!" + m[1:]
-                            elif m[0] not in ("/", "$", "="):
-                                m = "?" + m
+                    if m == "":
+                        pass
+                    elif m in PREDEF_RE:
+                        m = r"/^" + PREDEF_RE[m] + "$/"
+                    elif m[0] == "_":
+                        m = "!" + m[1:]
+                    elif m[0] not in ("/", "$", "="):
+                        m = "?" + m
                     if m != key and (m == "" or m[0] == "/"):
                         changed = True
                         log.info(f"replacing {key} with {m} at {lpath}")

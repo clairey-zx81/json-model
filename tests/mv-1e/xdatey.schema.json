@@ -1,3 +1,4 @@
 {
-  "ERROR": "invalid regex /^X-($DATE)-Y$/X: unsupported X regex extension at []"
+  "type": "string",
+  "pattern": "^X-(.*)-Y$"
 }

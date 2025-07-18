@@ -145,7 +145,7 @@
         "patternProperties": {
           "type": "object",
           "patternProperties": {
-            "(?s)^.*$": {
+            "^(?s).*$": {
               "$ref": "#/$defs/Schema"
             }
           },

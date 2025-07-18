@@ -12,7 +12,7 @@
     "map": {
       "type": "object",
       "patternProperties": {
-        "[:/#]": {
+        "^((https?|file)://.*|\\..*)$": {
           "$ref": "#/$defs/VAL"
         }
       },

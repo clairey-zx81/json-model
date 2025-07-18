@@ -23,8 +23,7 @@ EXPECT: dict[str, int] = {
     # reference
     "ref:models": 9,
     "ref:values": 111,
-    "ref:merrors:schema": 1,
-    "ref:verrors:schema": 83,
+    "ref:verrors:schema": 56,
     # chunk 00
     "mv-00:models": 10,
     "mv-00:values": 95,
@@ -43,7 +42,7 @@ EXPECT: dict[str, int] = {
     "mv-03:js2json": 1,
     "mv-03:models": 10,
     "mv-03:values": 78,
-    "mv-03:verrors:schema": 27,
+    "mv-03:verrors:schema": 26,
     # chunk 04
     "mv-04:js2json": 2,
     "mv-04:models": 8,
@@ -147,7 +146,6 @@ EXPECT: dict[str, int] = {
     # chunk 19
     "mv-19:models": 9,
     "mv-19:values": 110,
-    "mv-19:verrors:schema": 3,
     # chunk 1A
     "mv-1a:models": 10,
     "mv-1a:values": 132,
@@ -174,8 +172,7 @@ EXPECT: dict[str, int] = {
     "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
     "mv-1e:errors.sql": 2,
-    "mv-1e:merrors:schema": 2,
-    "mv-1e:verrors:schema": 41,
+    "mv-1e:verrors:schema": 15,
     # chunk 1F
     "mv-1f:models": 9,
     "mv-1f:values": 136,
@@ -694,7 +691,6 @@ def test_models_js(directory):
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
-@pytest.mark.skip(reason="cannot generate schema from meta-model for now")
 def test_models_jsg(directory):
     check_models(directory, "jsu-check --quiet ./ref/json-model.schema.json")
 
@@ -750,7 +746,6 @@ def test_bads_js():
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
 
-@pytest.mark.skip(reason="cannot generate schema from meta-model for now")
 def test_bads_jsg():
     check_bads("jsu-check --quiet ./ref/json-model.schema.json")
 

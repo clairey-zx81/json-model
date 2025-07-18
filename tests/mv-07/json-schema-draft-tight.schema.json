@@ -168,7 +168,7 @@
         "patternProperties": {
           "type": "object",
           "patternProperties": {
-            "(?s)^.*$": {
+            "^(?s).*$": {
               "$ref": "#/$defs/Schema"
             }
           },
@@ -209,7 +209,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -277,7 +277,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -391,7 +391,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -492,7 +492,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -568,7 +568,7 @@
         "patternProperties": {
           "type": "object",
           "patternProperties": {
-            "(?s)^.*$": {
+            "^(?s).*$": {
               "$ref": "#/$defs/Schema"
             }
           },
@@ -601,7 +601,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -678,7 +678,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -755,7 +755,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -826,7 +826,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -897,7 +897,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -968,7 +968,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -1039,7 +1039,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -1110,7 +1110,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -1181,7 +1181,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -1253,7 +1253,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },
@@ -1325,7 +1325,7 @@
         "$vocabulary": {
           "type": "object",
           "patternProperties": {
-            "[:/#]": {
+            "^((https?|file)://.*|\\..*)$": {
               "type": "boolean"
             }
           },

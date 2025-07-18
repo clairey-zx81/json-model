@@ -1,5 +1,6 @@
+import re
 from .mtypes import ModelType, ModelPath, JsonSchema, Jsonable, Symbols, JsonModel
-from .utils import is_cst, cst, log
+from .utils import is_cst, cst, log, PREDEF_RE
 
 #
 # MODEL TO SCHEMA CONVERSION
@@ -40,6 +41,66 @@ PREDEF_FORMATS = {
     "$EMAIL": "email",
     "$URI": "uri",
 }
+
+def unExreg(pat: str, opts: str) -> str:
+    """Convert extended regex to standard regex."""
+    opts = re.sub("X", "", opts)
+    pat = re.sub(r"\(\$\w+:", "(", pat)  # explicit re
+    pat = re.sub(r"\$\w+", ".*", pat)    # remaining implicit re
+    return pat, opts
+
+def propRefRegex(jm: JsonModel, model: ModelType, path: ModelPath) -> str|None:
+    """Try to handle a property refererence in some cases as a regex."""
+    if isinstance(model, dict) and "|" in model:
+        # try to build a regex
+        alts = []
+        for index, alt in enumerate(model["|"]):
+            lpath = path + ["|", index]
+
+            # resolve and recurse if needed, with some shortcuts
+            changed = True
+            while isinstance(alt, str) and changed:
+                changed = False
+                if alt == "":
+                    return ""  # shortcut for default, any strings are ok
+                if alt[0] == "$" and alt not in PREDEF_TYPES:
+                    ja = jm.resolveRef(alt, path)
+                    alt, changed = ja._model, True
+
+            if not isinstance(alt, str):
+                salts = propRefRegex(jm, alt, lpath)
+                if salts is not None:
+                    if salts == "":
+                        return ""
+                    else:
+                        alts.append(salts)
+                        continue
+                else:  # let caller do a rough approximation
+                    log.debug(f"cannot handle prop ref at {lpath}")
+                    return None
+
+            if alt in PREDEF_RE:
+                alts.append(PREDEF_RE[alt])
+                continue
+
+            # string constant and regex
+            if re.match(r"[_a-zA-Z0-9]", alt):
+                if alt[0] == "_":
+                    alt = alt[1:]
+                alt = re.escape(alt)
+                alts.append(f"^{alt}$")
+            elif alt[0] == "/":
+                alt, opts = alt[1:].rsplit("/", 1)
+                if "X" in opts:
+                    alt, opts = unExreg(alt, opts)
+                alts.append(f"(?{opts}){alt}" if opts else alt)
+            else:
+                log.debug(f"cannot handle prop ref at {lpath}")
+
+        return "(" + "|".join(alts) + ")"
+    else:  # not a |
+        log.debug(f"cannot handle prop ref at {path}")
+        return None
 
 def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
     """Recursive model to schema conversion."""
@@ -88,7 +149,7 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                     pattern, ropts = model[1:].rsplit("/", 1)
                     assert ropts == "" or ropts.isalpha(), f"invalid regex options: {ropts}"
                     if "X" in ropts:
-                        raise Exception(f"unsupported X regex extension at {path}")
+                        pattern, ropts = unExreg(pattern, ropts)
                     pattern = f"(?{ropts}){pattern}" if ropts else pattern
                 except Exception as e:
                     raise Exception(f"invalid regex {model}: {e}")

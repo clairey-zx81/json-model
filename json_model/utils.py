@@ -23,10 +23,29 @@ MODEL_PREDEFS = {
     # TODO $URI-REF, $DOMAIN…
 }
 
-WEAK_DATE_RE = r"^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])$"
+ANY_STR_RE = r"(?s).*"
+WEAK_DATE_RE = r"\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12]\d|3[01])"
+WEAK_TIME_RE = r"([01]?[0-9]|2[0-4]):[0-5]?[0-9]:[0-5]?[0-9](\.\d+)?"
+TZ_RE = r"(Z|[-+]\d+)?"
+UUID_RE = r"(?i)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 CONST_RE = r"^=(null|true|false|-?\d+(\.\d+)?([eE]-?\d+)?)$"
 JSKW_RE = r"^([#~$%@|&+^/*=]|[<>!]=?)$"
-UUID_RE = r"(?i)^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+URL_RE = r"((https?|file)://.*|\..*)"
+EMAIL_RE = r"[-_a-zA-Z0-9.]+@[-_a-zA-Z0-9.]+"
+
+# (approximate) regular expressions for some predefs
+PREDEF_RE = {
+    "$STRING": ANY_STR_RE,
+    "$DATE": WEAK_DATE_RE,
+    "$TIME": WEAK_TIME_RE,
+    "$DATETIME": WEAK_DATE_RE + "[ T]" + WEAK_TIME_RE + TZ_RE,
+    "$UUID": UUID_RE,
+    "$REGEX": ANY_STR_RE,
+    "$EXREG": ANY_STR_RE,
+    "$URL": URL_RE,
+    "$URI": URL_RE,
+    "$EMAIL": EMAIL_RE,
+}
 
 def tname(m) -> str:
     return type(m).__name__ if m is not None else "null"
