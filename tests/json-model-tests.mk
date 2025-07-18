@@ -7,8 +7,8 @@ JMC = jmc
 JMC.opts    = --check --quiet
 JMC.cmd = \
 	$(JMC) $(JMC.opts) \
-        -m "https://json-model.org/models ../../models" \
-        -m "https://json-model.org/tests ."
+        -m "https://json-model.org/models/ ../../models/" \
+        -m "https://json-model.org/tests/ ./"
 
 # JSON Schema Checker
 JSC = jsu-check --quiet
@@ -200,27 +200,4 @@ check.schema: $(F.sXc)
 %.CLEAN:
 	$(RM) $*.schema.json $*.c $*.c.check $*.py $*.py.check $*.js $*.js.check $*.sql $*.sql.check
 
-#
-# JSON model value checks with generated JSON schemas
-#
-# this is not perfect:
-# - models distinguish between floats and ints, schema not really.
-# - the json schema library used does not seem to implement "format" checks.
-# - the implementation is _very_ slow.
-#
-
-# default case
-# %.jcheck.out: %.schema.json
-# 	shopt -s nullglob
-# 	set -o pipefail
-# 	nrefs=$$(egrep '"\$$(\.|https:)' $*.model.json | wc -l)
-# 	iserr=$$(grep '"ERROR": ' $< | wc -l)
-# 	if [ $$nrefs == "0" -a $$iserr == "0" ] ; then
-# 	  $(JSC) $< $*.*.true.json $*.*.false.json | sort > $@
-# 	elif [ $$nrefs != "0" ] ; then
-# 	  echo "json schema check skipped, $$nrefs external not supported" > $@
-# 	elif [ $$iserr != "0" ] ; then
-# 	  echo "json schema check skipped, ERROR reported in generated schema" > $@
-# 	else
-# 	  exit 1
-# 	fi
+# TODO JSON Schema checks on test values?

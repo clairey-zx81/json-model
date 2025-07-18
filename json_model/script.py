@@ -110,7 +110,8 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
     mjson = resolver(murl, follow=follow)
 
     return model_from_json(mjson, murl=murl, auto=auto, debug=debug, resolver=resolver,
-                           loose_int=loose_int, loose_float=loose_float)
+                           loose_int=loose_int, loose_float=loose_float,
+                           check=check, merge=merge, optimize=optimize)
 
 
 def model_from_str(mstring: str, *, auto: bool = False,
@@ -163,11 +164,12 @@ def model_checker_from_url(
 
 def create_model(murl: str, resolver: Resolver, *,
                  auto: bool = False, follow: bool = True, debug: int = 0,
+                 check: bool = True, merge: bool = True, optimize: bool = True,
                  loose_int: bool|None = None, loose_float: bool|None = None) -> JsonModel:
     """JsonModel instanciation without preprocessing."""
     return model_from_url(murl, auto=auto, follow=follow, debug=debug, resolver=resolver,
                           loose_int=loose_int, loose_float=loose_float,
-                          check=False, merge=False, optimize=False)
+                          check=check, merge=merge, optimize=optimize)
 
 DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast"
@@ -272,7 +274,7 @@ def jmc_script():
         help="do not generate anything")
 
     # TODO cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "plpgsql"],
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "plpgsql"], default=None,
         help="output language")
 
     arg("--cc", type=str, help="override default C language compiler")
@@ -433,7 +435,9 @@ def jmc_script():
     # CREATE FROM FILE OR URL
     try:
         model = create_model(args.model, resolver, auto=args.auto, debug=args.debug,
-                             loose_int=args.loose_int, loose_float=args.loose_float, follow=False)
+                             loose_int=args.loose_int, loose_float=args.loose_float,
+                             check=args.check, merge=args.op != "N", optimize=args.optimize,
+                             follow=False)
     except BaseException as e:
         log.error(e)
         if args.debug:

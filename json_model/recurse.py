@@ -70,6 +70,10 @@ def _recModel(
                     assert isinstance(k, str), f"% props are strings {lpath}"
                     if k == "#":
                         assert isinstance(v, str), f"# is a string {lpath}"
+                    elif k == "<":
+                        is_ref = lambda s: isinstance(s, str) and s and s[0] == "$"
+                        assert is_ref(v) or isinstance(v, list) and all(map(is_ref, v)), \
+                            "%.< is a reference or list of references"
                     elif k.startswith("."):  # rename
                         assert isinstance(v, str), f"rename to a string {lpath + [k]}"
                         assert v in ALL_KEYWORDS, f"rename to a valid keyword {lpath + [k]}"

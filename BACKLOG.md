@@ -5,9 +5,10 @@
 - [x] tuto: add further reading pointers in the conclusion
 - [x] static: keep some model comments in generated code
 - [x] schema: generate valid schema from JSON Model meta-model
+- [x] python: fix internal checker on test cases
 - [ ] schema: inline external reference to generate valid schemas
-- [ ] python: fix internal checker
 - [ ] tests: reorganize tests cases in smaller thematic directories
+- [ ] tests: review allowed exceptions on schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: fix generated code under `--reporting`
