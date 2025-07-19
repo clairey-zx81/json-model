@@ -3,6 +3,7 @@
 -- see https://github.com/clairey-zx81/json-model
 --
 -- JSON_MODEL_VERSION is 2.0b0
+CREATE EXTENSION IF NOT EXISTS json_model;
 
 CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$

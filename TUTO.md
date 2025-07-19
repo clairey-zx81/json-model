@@ -591,9 +591,8 @@ Here is an example of checking JSONB values inside Postgres, by importing
 JSON Model runtime and generated code:
 
 ```sh
-psql \
-  -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
-  -f person.sql
+sudo make -C json_model/runtime install  # install runtime
+psql -f person.sql                       # load runtime and model checking functions
 ```
 
 And then invoking `check_model` for name `''` (empty name is the root model):

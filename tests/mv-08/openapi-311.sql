@@ -3,6 +3,7 @@
 -- see https://github.com/clairey-zx81/json-model
 --
 -- JSON_MODEL_VERSION is 2.0b0
+CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- regex=^3\.1\.\d+(-.+)?$ opts=n
 CREATE OR REPLACE FUNCTION _jm_re_0(val TEXT, path TEXT[], rep jm_report_entry[])

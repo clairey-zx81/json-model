@@ -3,6 +3,7 @@
 -- see https://github.com/clairey-zx81/json-model
 --
 -- JSON_MODEL_VERSION is 2.0b0
+CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- check $bla (.'$bla')
 CREATE OR REPLACE FUNCTION json_model_3(val JSONB, path TEXT[], rep jm_report_entry[])

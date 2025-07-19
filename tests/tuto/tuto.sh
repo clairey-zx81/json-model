@@ -60,9 +60,7 @@ jmc -o person.o Person-2
 jmc -o person.mjs Person-2
 jmc -o person.py --module Person-2
 jmc -o person.sql Person-2   # PL/pgSQL functions
-psql \
-  -f venv/lib/python3.12/site-packages/json_model/runtime/json_model.sql \
-  -f person.sql
+psql -f person.sql
 
 for f in [a-z]*.json ; do
   echo -e "$f\t$(jq -c < $f)"

@@ -3,6 +3,7 @@
 -- see https://github.com/clairey-zx81/json-model
 --
 -- JSON_MODEL_VERSION is 2.0b0
+CREATE EXTENSION IF NOT EXISTS json_model;
 
 -- object .movie.'|'.0
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])

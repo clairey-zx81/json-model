@@ -1,5 +1,5 @@
 -- complain if script is sourced in psql, rather than via CREATE EXTENSION
--- \echo Use "CREATE EXTENSION json_model;" to load this file. \quit
+\echo Use "CREATE EXTENSION json_model;" to load this file. \quit
 
 -- DROP TYPE IF EXISTS jm_report_entry CASCADE;
 -- DROP TABLE IF EXISTS jm_constant_maps;

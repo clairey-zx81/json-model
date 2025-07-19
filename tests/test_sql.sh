@@ -38,7 +38,7 @@ createdb $db || {
 }
 
 # load runtime and model checking functions
-psql --no-psqlrc -q -f "$dir"/../json_model/runtime/json_model.sql -f $sql $db >&2
+psql --no-psqlrc -q -f $sql $db >&2
 status=$?
 
 function json2csv()

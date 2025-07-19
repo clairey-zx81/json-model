@@ -1,0 +1,2 @@
+comment = 'JSON Model PL/pgSQL Runtime - JSON value validation'
+default_version = '1.0'
