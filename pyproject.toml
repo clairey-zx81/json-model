@@ -43,6 +43,7 @@ target-version = "py312"
 
 [tool.ruff.lint]
 exclude = [ "*/data/*", "*/WIP/*" ]
+ignore = ["E731"]
 
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]

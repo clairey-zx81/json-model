@@ -42,7 +42,7 @@ PREDEF_FORMATS = {
     "$URI": "uri",
 }
 
-def unExreg(pat: str, opts: str) -> str:
+def unExreg(pat: str, opts: str) -> tuple[str, str]:
     """Convert extended regex to standard regex."""
     opts = re.sub("X", "", opts)
     pat = re.sub(r"\(\$\w+:", "(", pat)  # explicit re
@@ -54,6 +54,7 @@ def propRefRegex(jm: JsonModel, model: ModelType, path: ModelPath) -> str|None:
     if isinstance(model, dict) and "|" in model:
         # try to build a regex
         alts = []
+        assert isinstance(model["|"], list)
         for index, alt in enumerate(model["|"]):
             lpath = path + ["|", index]
 
@@ -64,7 +65,7 @@ def propRefRegex(jm: JsonModel, model: ModelType, path: ModelPath) -> str|None:
                 if alt == "":
                     return ""  # shortcut for default, any strings are ok
                 if alt[0] == "$" and alt not in PREDEF_TYPES:
-                    ja = jm.resolveRef(alt, path)
+                    ja = jm.resolveRef(alt, path)  # type: ignore
                     alt, changed = ja._model, True
 
             if not isinstance(alt, str):
@@ -210,7 +211,7 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                             elif isinstance(eq, str):
                                 schema["const"] = eq
                             else:
-                                log.warning(f"ignoring '=' constraint at [path]")
+                                log.warning(f"ignoring '=' constraint at {path}")
                         if "!=" in model:
                             schema["not"] = {"const": model["!="]}
                         # FIXME extension? remove?
@@ -248,12 +249,16 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                     # contraints on object
                     if schema["type"] == "object":
                         if "<=" in model:
+                            assert isinstance(model["<="], int)
                             schema["maxProperties"] = model["<="]
                         if "<" in model:
+                            assert isinstance(model["<"], int)
                             schema["maxProperties"] = model["<"] - 1
                         if ">=" in model:
+                            assert isinstance(model[">="], int)
                             schema["minProperties"] = model[">="]
                         if ">" in model:
+                            assert isinstance(model[">"], int)
                             schema["minProperties"] = model[">"] + 1
                         if "=" in model:
                             eq = model["="]
@@ -268,25 +273,33 @@ def _m2s(model: ModelType, path: ModelPath, defs: Symbols) -> JsonSchema:
                     # constraints on array
                     if schema["type"] == "array":
                         if ".in" in model:  # model extension
-                            schema["contains"] = _m2s(model[".in"], defs)
+                            schema["contains"] = _m2s(model[".in"], path, defs)
                             if "<=" in model:
+                                assert isinstance(model["<="], int)
                                 schema["maxContains"] = model["<="]
                             if "<" in model:
+                                assert isinstance(model["<"], int)
                                 schema["maxContains"] = model["<"] - 1
                             if ">=" in model:
+                                assert isinstance(model[">="], int)
                                 schema["minContains"] = model[">="]
                             if ">" in model:
+                                assert isinstance(model[">"], int)
                                 schema["minContains"] = model[">"] + 1
                             # TODO
                         # else:
                         # FIXME check comparison value types!
                         if "<=" in model:
+                            assert isinstance(model["<="], int)
                             schema["maxItems"] = model["<="]
                         if "<" in model:
+                            assert isinstance(model["<"], int)
                             schema["maxItems"] = model["<"] - 1
                         if ">=" in model:
+                            assert isinstance(model[">="], int)
                             schema["minItems"] = model[">="]
                         if ">" in model:
+                            assert isinstance(model[">"], int)
                             schema["minItems"] = model[">"] + 1
                         if "!" in model:
                             v = model["!"]

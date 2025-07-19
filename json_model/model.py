@@ -637,7 +637,7 @@ class JsonModel:
                             m = jm._model
                         else:
                             log.info(f"tring re for prop ref {key} at {lpath}")
-                            pattern = convert.propRefRegex(jm, jm._model, lpath)
+                            pattern = convert.propRefRegex(jm, jm._model, lpath)  # type: ignore
                             if pattern is not None:
                                 if pattern == "":  # special case
                                     m = pattern
@@ -671,7 +671,7 @@ class JsonModel:
             log.debug(f"filtered model={model}")
 
         # convert root model
-        schema = convert.model2schema(model, path, self._defs)
+        schema = convert.model2schema(model, path, self._defs)  # type: ignore
 
         # root specific, only when there are defs though
         if recurse and self._defs:

@@ -6,14 +6,17 @@
 - [x] static: keep some model comments in generated code
 - [x] schema: generate valid schema from JSON Model meta-model
 - [x] python: fix internal checker on test cases
+- [x] js-backend: warn about strict/loose
+- [x] sql-backend: warn about strict/loose
 - [ ] schema: inline external reference to generate valid schemas
+- [ ] python: separate python interface in some file
+- [ ] python: check python interface consistency
 - [ ] tests: reorganize tests cases in smaller thematic directories
 - [ ] tests: review allowed exceptions on schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
 - [ ] sql-backend: package support as an extension
 - [ ] sql-backend: fix generated code under `--reporting`
 - [ ] design: add predefs for `$UUIDx`…
-- [ ] js-backend: warn about loose
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
 - [ ] doc: document `re2` support for C

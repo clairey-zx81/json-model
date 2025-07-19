@@ -17,6 +17,12 @@ from . import optim, analyze, objmerge
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
 
+LANG = {
+  "c": "C",
+  "py": "Python",
+  "js": "JavaScript",
+  "plpgsql": "PL/pgSQL",
+}
 
 def process_model(model: JsonModel, *,
                   check: bool = True, merge: bool = True, optimize: bool = True,
@@ -487,6 +493,9 @@ def jmc_script():
     elif args.op == "C":
         assert args.format in ("py", "c", "js", "plpgsql"), f"valid output language {args.format}"
 
+        if args.format in ("plpgsql", "js") and (not model._loose_int or not model._loose_float):
+            log.warning(f"{args.model}: {LANG[args.format]} backend does not support strict numbers")
+
         # compile to source
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
@@ -511,10 +520,8 @@ def jmc_script():
                 return env[args.entry](v, model, rep)
 
     elif args.op == "E":
-        mm = model._init_md
-        if isinstance(mm, dict) and "#" in mm and isinstance(comment := mm["#"], str):
-            if "JSON_MODEL_LOOSE" not in comment:
-                log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
+        if not model._loose_int or not model._loose_float:
+            log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
         schema: JsonSchema
         try:
             schema = model.toSchema()
