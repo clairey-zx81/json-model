@@ -335,7 +335,7 @@ def jmc_script():
     args = ap.parse_args()
 
     if args.version:
-        print(pkg_version("json-model"))
+        print(pkg_version("json_model_compiler"))
         sys.exit(0)
 
     # format/operation/gen guessing
