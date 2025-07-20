@@ -601,7 +601,7 @@ And then invoking `check_model` for name `''` (empty name is the root model):
 ```sh
 cat > test_values.sql <<EOF
 ```
-```pgsql
+```sql
 CREATE TEMPORARY TABLE json_values(name TEXT PRIMARY KEY, data JSONB);
 \copy json_values(name, data) FROM PSTDIN
 SELECT

@@ -5,7 +5,10 @@
 - [x] sql-backend: package support as an extension
 - [x] pr: register `json-model.org` domain
 - [x] doc: bootstrap jmc manpage with pandoc
-- [ ] pr: setup official web page
+- [x] pr: setup official http/https web page
+- [x] pr: improve official web page with docsify
+- [ ] pr: add documentation page
+- [ ] pr: add reference / spec page
 - [ ] doc: complete jmc manpage
 - [ ] command: add bash completion
 - [ ] schema: inline external reference to generate valid schemas

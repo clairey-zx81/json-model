@@ -1,4 +1,4 @@
-# JSON Model Tools
+# JSON Model Compiler
 
 JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.
 
@@ -17,7 +17,7 @@ source venv/bin/activate
 pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
-## JSON Model Compiler
+## JMC Command
 
 Command `jmc` options include:
 

@@ -66,3 +66,9 @@ check.tests: dev
 publish.js:
 	npm publish --dry-run ./js_runtime
 	echo npm publish ./js_runtime
+
+.PHONY: publish.site
+publish.site:
+	rsync -avL --progress ./site/. $(SITE):public_html/sw/json-model/.
+	ssh $(SITE) chmod a+rx public_html/sw/json-model public_html/sw/json-model/models
+	ssh $(SITE) chmod a+r public_html/sw/json-model/* public_html/sw/json-model/models/*
