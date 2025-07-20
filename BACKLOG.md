@@ -7,6 +7,9 @@
 - [x] doc: bootstrap jmc manpage with pandoc
 - [x] pr: setup official http/https web page
 - [x] pr: improve official web page with docsify
+- [x] optim: simplify int constraints
+- [x] optim: simplify some property regex
+- [ ] optim: simplify float constraints
 - [ ] pr: add documentation page
 - [ ] pr: add reference / spec page
 - [ ] doc: complete jmc manpage
@@ -156,7 +159,7 @@
 - [ ] frontend: loop load/valid for perf
 - [ ] perf: reuse blaze data set where possible (implies schema to model)
 - [ ] design: conditionals or not conditionals… eg for interfaces?
-      if not in the description language, it should be easy to express outside.
+  if not in the description language, it should be easy to express outside.
 - [ ] doc: create a clean documentation, following Diátaxis (tuto | howto / explain | reference).
 - [ ] doc: setup mkdocs
 - [ ] doc: tutorial which mimics [json schema](https://tour.json-schema.org/)?
@@ -164,7 +167,7 @@
 - [ ] feature: use actual JSON path spec for transformations with a filter for applying changes
 - [ ] pr: register `json-model.org`? use `github.io`?
 - [ ] pr: article submission about data structure trafo? validation performance? high-level IR?
-      perf is important because value validation is pure (useless) in-depth overhead in practice.
+  perf is important because value validation is pure (useless) in-depth overhead in practice.
 - [ ] perf: two phase check, without collection and with collection if needed.
 - [ ] perf: no reasons/path collection and run with collection only when bad.
 - [ ] schema: handle includes? inline?!

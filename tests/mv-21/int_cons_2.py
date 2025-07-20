@@ -22,19 +22,42 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 check_model_map: PropMap
 
+# check $forty-two (.'$forty-two')
+def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$forty-two'
+    res = isinstance(val, int) and not isinstance(val, bool) and val == 42
+    if not res:
+        rep is None or rep.append(("unexpected =42 [.'$forty-two']", path))
+    return res
+
+# check $positif (.'$positif')
+def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$positif'
+    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    if not res:
+        rep is None or rep.append(("not a 0 strict int [.'$positif']", path))
+    return res
+
+# object .
+def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.]", path))
+        return False
+    if len(val) == 0:
+        return True
+    else:
+        rep is None or rep.append(("expecting empty object [.]", path))
+        return False
+
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # .'@'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
+    res = _jm_obj_0(val, path, rep)
     if not res:
-        rep is None or rep.append(("not a 1 strict int [.'@']", path))
-    if res:
-        ival_0: int = val
-        res = ival_0 <= 10
-        if not res:
-            rep is None or rep.append(("constraints failed [.]", path))
+        rep is None or rep.append(("unexpected element [.]", path))
     return res
 
 
@@ -49,6 +72,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
+            "forty-two": json_model_2,
+            "positif": json_model_3,
         }
 
 # differed module cleanup

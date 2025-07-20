@@ -186,7 +186,7 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
 _UTYPE = {
     "$ANY": None,
     "$NULL": type(None),
-    "$BOOL": bool,
+    "$BOOL": bool, "$BOOLEAN": bool,
     "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
     "$F32": float, "$F64": float, "$NUMBER": float,
     "$STRING": str,

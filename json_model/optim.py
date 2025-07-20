@@ -13,7 +13,7 @@ def real_equal(i, j) -> bool:  # avoid True == 1 and 0.0 == 0…
 
 def minl(model: ModelType, models: list[ModelType]) -> bool:
     return any(map(lambda m: real_equal(m, model), models))
- 
+
 # remove one occurence from list of models
 def mdell(model: ModelType, models: list[ModelType]) -> bool:
     index = -1
@@ -23,7 +23,7 @@ def mdell(model: ModelType, models: list[ModelType]) -> bool:
     if index != -1:
         del models[index]
     return index != -1
-        
+
 def normalizeModels(models: list[ModelType]) -> int:
     """Replace model predefs in the list with their canonic form."""
     IGNORE = object()
@@ -351,11 +351,136 @@ def partial_eval(jm: JsonModel):
 
     return changes > 0
 
+def simplify(jm: JsonModel):
+    """Simplify properties and constraints in some case."""
+
+    changes: int = 0
+
+    def simpRwt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        if isinstance(model, dict):
+            for old, new in [ ("//", ""), ("/^$/", "?")]:
+                # FIXME in some corner case the simplification may be wrong…
+                if old in model and new not in model:
+                    model[new] = model[old]
+                    del model[old]
+            if "@" in model:
+                ultimate = ultimate_type(jm, model)
+                if ultimate in (None, float):  # keep safe
+                    return model
+                # else keep int, str, list, dict
+                # detect redundant or infeasible int constraints
+                le = None if "<=" not in model or not isinstance(model["<="], int) else model["<="]
+                lt = None if "<" not in model or not isinstance(model["<"], int) else model["<"]
+                eq = None if "=" not in model or not isinstance(model["="], int) else model["="]
+                ne = None if "!=" not in model or not isinstance(model["!="], int) else model["!="]
+                ge = None if ">=" not in model or not isinstance(model[">="], int) else model[">="]
+                gt = None if ">" not in model or not isinstance(model[">"], int) else model[">"]
+                # replace gt/lt by ge/le
+                if lt is not None:
+                    le = lt - 1 if le is None or le >= lt else le
+                    lt = None
+                    del model["<"]
+                    changes += 1
+                if gt is not None:
+                    ge = gt + 1 if ge is None or ge <= gt else ge
+                    gt = None
+                    del model[">"]
+                    changes += 1
+                # boolean and null cannot have int comparisons
+                if ultimate in (type(None), bool) and \
+                        (ge is not None or le is not None or eq is not None or ne is not None):
+                    changes += 1
+                    return "$NONE"
+                # ge/le consistency and simplification
+                if ge is not None and le is not None:
+                    if le < ge:
+                        changes += 1
+                        return "$NONE"
+                    if le == ge:
+                        changes += 1
+                        eq, le, ge = le, None, None
+                # eq consistency and redundancy
+                if eq is not None:
+                    if le is not None:
+                        if eq > le:
+                            changes += 1
+                            return "$NONE"
+                        le = None
+                        del model["<="]
+                        changes += 1
+                    if ge is not None:
+                        if eq < ge:
+                            changes += 1
+                            return "$NONE"
+                        ge = None
+                        del model[">="]
+                        changes += 1
+                    if ne is not None:
+                        if eq == ne:
+                            changes += 1
+                            return "$NONE"
+                        ne = None
+                        del model["!="]
+                        changes += 1
+                # ne redundancy
+                if ne is not None:
+                    if le is not None:
+                        if ne > le:
+                            changes += 1
+                            ne = None
+                            del model["!="]
+                    if ge is not None:
+                        if ne < ge:
+                            changes += 1
+                            ne = None
+                            del model["!="]
+                # integer target
+                if isinstance(model["@"], str) and model["@"] in ("$INT", "$INTEGER"):
+                    changes += 1
+                    model["@"] = -1
+                if isinstance(model["@"], int):
+                    target = model["@"]
+                    if eq is not None:
+                        changes += 1
+                        if eq < target:
+                            return "$NONE"
+                        else:
+                            return f"={eq}"
+                    if ge is not None:
+                        if ge == 1 and target != 1:
+                            changes += 1
+                            model["@"] = 1
+                            ge = None
+                        elif ge == 0 and target == -1:
+                            changes += 1
+                            model["@"] = 0
+                            ge = None
+                    if le is not None:
+                        if target >= 0 and target > le:
+                            changes += 1
+                            return "$NONE"
+                # update possibly changed values
+                if le is not None:
+                    model["<="] = le
+                elif "<=" in model:
+                    del model["<="]
+                if ge is not None:
+                    model[">="] = ge
+                elif ">=" in model:
+                    del model[">="]
+        return model
+
+    jm._model = recModel(jm._model, allFlt, simpRwt)
+
+    return changes > 0
+
 def optimize(jm: JsonModel):
     changed = True
     while changed:
         changed = False
         changed |= const_prop(jm)
+        changed |= simplify(jm)
         changed |= partial_eval(jm)
         changed |= flatten(jm)
         changed |= xor_to_or(jm)

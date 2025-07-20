@@ -1,0 +1,10 @@
+[
+  [ true,  "positif", 42 ],
+  [ false, "positif", -1 ],
+  [ false, "positif", null ],
+  [ false, "positif", "+18" ],
+  [ true,  "forty-two", 42 ],
+  [ false, "forty-two", 18 ],
+  [ false, "forty-two", null ],
+  [ false, "forty-two", "+42" ]
+]

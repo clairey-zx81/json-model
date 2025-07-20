@@ -1,0 +1,9 @@
+{
+  "#": "JsonModel 1",
+  "$": {
+    "forty-two": "=42",
+    "positif": 0,
+    "#": "Symbol 1",
+    "": "./int_cons_2"
+  }
+}

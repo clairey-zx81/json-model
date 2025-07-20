@@ -14,10 +14,10 @@ DECLARE
 BEGIN
   -- .
   -- .'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
+  res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
-    ival_0 := (val)::INT8;
-    res := ival_0 <= 10;
+    ival_0 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
+    res := ival_0 = 10;
   END IF;
   RETURN res;
 END;

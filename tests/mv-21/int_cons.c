@@ -20,15 +20,15 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .
     // .'@'
-    res = json_is_integer(val) && json_integer_value(val) >= 1;
+    res = json_is_string(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.'@']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected string [.'@']", path);
     }
     if (res)
     {
-        int64_t ival_0 = json_integer_value(val);
-        res = ival_0 <= 10;
+        int64_t ival_0 = mbstowcs(NULL, json_string_value(val), 0);
+        res = ival_0 == 10;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);

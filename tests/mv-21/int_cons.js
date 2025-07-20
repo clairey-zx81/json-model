@@ -17,15 +17,15 @@ function json_model_1(val, path, rep)
     let res;
     // .
     // .'@'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
+    res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["not a 1 strict int [.'@']", path])
+        rep !== null && rep.push(["unexpected string [.'@']", path])
     }
     if (res)
     {
-        let ival_0 = val;
-        res = ival_0 <= 10;
+        let ival_0 = val.length;
+        res = ival_0 == 10;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.]", path])
