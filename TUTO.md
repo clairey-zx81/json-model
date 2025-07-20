@@ -593,6 +593,7 @@ JSON Model runtime and generated code:
 
 ```sh
 sudo make -C json_model/runtime install  # install runtime
+# OR: sudo pgxn install json_model
 psql -f person.sql                       # load runtime and model checking functions
 ```
 

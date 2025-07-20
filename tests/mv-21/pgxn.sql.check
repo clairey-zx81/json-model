@@ -1,3 +1,4 @@
+pgxn.0.true.json[0]: PASS
 pgxn.values.json[0]: PASS
 pgxn.values.json[1]: FAIL
 pgxn.values.json[2]: FAIL

@@ -22,6 +22,7 @@ clean:
 	$(RM) -r .pytest_cache/ .ruff_cache/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
+	$(MAKE) -C json_model/runtime clean
 
 .PHONY: clean.dev
 clean.dev: clean

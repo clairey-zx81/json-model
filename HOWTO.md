@@ -6,10 +6,12 @@
 
 ## How to use JSON Model in my _Postgres_ database?
 
-1. install the `json_model` Postgres extension:
+1. install the `json_model` Postgres extension, from source _or_
+   from [pgxn](https://pgxn.org/dist/json_model/):
 
    ```sh
    sudo make -C json_model/runtime install
+   sudo pgxn install json_model
    ```
 
 2. compile a model to PL/pgSQL:

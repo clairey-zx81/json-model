@@ -426,12 +426,12 @@ def simplify(jm: JsonModel):
                 # ne redundancy
                 if ne is not None:
                     if le is not None:
-                        if ne > le:
+                        if ne > le:  # type: ignore
                             changes += 1
                             ne = None
                             del model["!="]
                     if ge is not None:
-                        if ne < ge:
+                        if ne < ge:  # type: ignore
                             changes += 1
                             ne = None
                             del model["!="]

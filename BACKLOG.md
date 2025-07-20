@@ -10,6 +10,7 @@
 - [x] optim: simplify int constraints
 - [x] optim: simplify some property regex
 - [x] model: add `pgxn` model
+- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: allow comments starting with `#`, not just `#`?
@@ -69,7 +70,6 @@
 - [ ] c-backend: multithreading? one one value??
 - [ ] pr: provide a docker.
 - [ ] pr: deb and rpm packaging? github package distribution?
-- [ ] pr: register as official pgxs extension
 
 ## Re Do
 

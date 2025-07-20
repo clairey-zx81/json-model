@@ -1,0 +1,30 @@
+{
+  "name": "json_model",
+  "abstract": "PL/pgSQL Runtime for JSON Model",
+  "description": "This runtime is needed by JSON Model generated PL/pgSQL code to validate JSON values.",
+  "version": "2.0.0-alpha3",
+  "maintainer": "Fabien et Claire <maintainers@json-model.org>",
+  "license": "unrestricted",
+  "provides": {
+     "json_model": {
+       "file": "json_model--1.0.sql",
+       "version": "2.0.0-alpha3"
+     }
+  },
+  "resources": {
+    "bugtracker": {
+      "web": "https://github.com/clairey-zx81/json-model/issues"
+    },
+    "repository": {
+      "url":  "https://github.com/clairey-zx81/json-model.git",
+      "web":  "https://github.com/clairey-zx81/json-model",
+      "type": "git"
+    }
+  },
+  "generated_by": "Fabien",
+  "meta-spec": {
+    "version": "1.0.0",
+    "url": "https://pgxn.org/meta/spec.txt"
+  },
+  "tags": [ "JSON", "JSON Model", "data validation", "data type" ]
+}
