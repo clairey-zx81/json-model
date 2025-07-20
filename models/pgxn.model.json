@@ -2,6 +2,7 @@
   "#": "JSON Model for PGXN (PostgreSQL Extension Network) (https://pgxn.org/spec/)",
   "~": "https://json-model.org/models/json-model",
   "$": {
+    "": "https://json-model.org/models/pgxn",
     "neStr": "/./",
     "neStrList": { "@": [ "$neStr" ], "!": true, ">=": 1 },
     "License": {

@@ -167,7 +167,7 @@
         "#": "JsonModel 16"
       },
       "#": "Symbol 1",
-      "": "./pgxn.model.json"
+      "": "https://json-model.org/models/pgxn"
     },
     "~": "https://json-model.org/models/json-model"
   },
