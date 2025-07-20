@@ -9,3 +9,4 @@ dist
 package-lock.json
 node_modules/
 *.values.csv
+jmc.1

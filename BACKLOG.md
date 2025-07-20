@@ -4,8 +4,10 @@
 
 - [x] sql-backend: package support as an extension
 - [x] pr: register `json-model.org` domain
+- [x] doc: bootstrap jmc manpage with pandoc
 - [ ] pr: setup official web page
-- [ ] doc: jmc md to pandoc manpage
+- [ ] doc: complete jmc manpage
+- [ ] command: add bash completion
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] python: separate python interface in some file
 - [ ] python: check python interface consistency

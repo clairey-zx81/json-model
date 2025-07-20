@@ -18,7 +18,7 @@ dev: venv
 
 .PHONY: clean
 clean:
-	$(RM) $~
+	$(RM) $~ jmc.1
 	$(RM) -r .pytest_cache/ .ruff_cache/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
@@ -27,6 +27,12 @@ clean:
 clean.dev: clean
 	$(RM) -r venv $(MODULE).egg-info build dist node_modules
 	$(RM) package-lock.json
+
+jmc.1: jmc.md
+	{
+	  echo '.TH JMC "1" "July 2025" "JSON Model Compiler" "User Commands"'
+	  pandoc -t man $< | sed -e '5s/^\.IP/.PP/'
+	} > $@
 
 .PHONY: check.src
 check.src: check.ruff check.pyright
