@@ -3,6 +3,9 @@
 ## Current Tasks
 
 - [x] sql-backend: package support as an extension
+- [x] pr: register `json-model.org` domain
+- [ ] pr: setup official web page
+- [ ] doc: jmc md to pandoc manpage
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] python: separate python interface in some file
 - [ ] python: check python interface consistency
@@ -52,6 +55,17 @@
 - [ ] perf: geo, ansible meta, openapi
 - [ ] python: refactor preproc vs compile vs codegen…
 - [ ] c-backend: multithreading? one one value??
+- [ ] pr: provide a docker.
+- [ ] pr: deb and rpm packaging? github package distribution?
+- [ ] pr: register as official pgxs extension
+
+## Re Do
+
+- [ ] pr: publish python jmc package (and separate runtime?)
+- [ ] pr: publish js runtime package
+- [ ] pr: publish pgxn package
+- [ ] pr: publish other packages?
+- [ ] pr: renew domain
 
 ## To Do
 
@@ -163,7 +177,6 @@
 - [ ] service: json to lang conversion API :-)
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
-- [ ] pr: provide a docker.
 - [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
 
 ## Done

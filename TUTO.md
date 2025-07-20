@@ -539,7 +539,8 @@ a value so as to compute the average and standard deviation times in µs.
 
 - NodeJS script:
 
-  First, let us install the needed runtime with:
+  First, let us install the needed in the current node environment
+  [JS runtime](https://www.npmjs.com/package/json_model_runtime) with `npm`:
 
   ```
   npm install json_model_runtime
