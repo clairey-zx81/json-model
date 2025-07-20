@@ -184,11 +184,11 @@ def valid(jm: JsonModel, path: ModelPath = [], root: bool = True) -> bool:
 
 # ultimate type of predefs
 _UTYPE = {
-    "$ANY": None,
+    "$ANY": None, "$NONE": None,
     "$NULL": type(None),
     "$BOOL": bool, "$BOOLEAN": bool,
-    "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INTEGER": int,
-    "$F32": float, "$F64": float, "$NUMBER": float,
+    "$I32": int, "$U32": int, "$I64": int, "$U64": int, "$INT": int, "$INTEGER": int,
+    "$F32": float, "$F64": float, "$FLOAT": float, "$NUMBER": float,
     "$STRING": str,
     "$URL": str, "$URI": str, "$EMAIL": str,
     "$REGEX": str, "$EXREG": str,
