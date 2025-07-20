@@ -5,7 +5,9 @@
   "description": "JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.",
   "author": "",
   "license": "CC0-1.0",
-  "engines": { "node": ">= 20.0.0" },
+  "engines": {
+    "node": ">= 20.0.0"
+  },
   "dependencies": {
     "json_model_runtime": "file:js_runtime",
     "re2": "^1.22.1"
