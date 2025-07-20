@@ -8,7 +8,7 @@ import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType, Symbols
 
-__version__ = pkg_version("json_model")
+__version__ = pkg_version("json_model_compiler")
 
 log = logging.getLogger("json-model")
 # log.setLevel(logging.DEBUG)

@@ -13,7 +13,7 @@ include = ["json_model", "json_model.runtime", "json_model.data"]
 exclude = ["tests/*", "models/*"]
 
 [project]
-name = "json_model"
+name = "json_model_compiler"
 authors = [ { name = "Fabien Coelho" }, { name = "Claire Yannou-Medrala" } ]
 description = "JSON Model Tools"
 readme = "README.md"
