@@ -19,7 +19,7 @@ dev: venv
 .PHONY: clean
 clean:
 	$(RM) $~ jmc.1
-	$(RM) -r .pytest_cache/ .ruff_cache/
+	$(RM) -r .pytest_cache/ .ruff_cache/ dist/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
 	$(MAKE) -C json_model/runtime clean
@@ -73,3 +73,10 @@ publish.site:
 	rsync -avL --progress ./site/. $(SITE):public_html/sw/json-model/.
 	ssh $(SITE) chmod a+rx public_html/sw/json-model public_html/sw/json-model/models
 	ssh $(SITE) chmod a+r public_html/sw/json-model/* public_html/sw/json-model/models/*
+
+.PHONY: publish.py
+publish.py: dev
+	source venv/bin/activate
+	python -m build
+	twine check dist/*
+	echo "# twine upload dist/*"

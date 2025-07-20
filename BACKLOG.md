@@ -12,6 +12,9 @@
 - [x] model: add `pgxn` model
 - [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
 - [x] doc: complete jmc manpage
+- [x] pr: publish python `json_model` package
+- [ ] schema: inline external reference to generate valid schemas
+- [ ] pr: provide a docker
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: allow comments starting with `#`, not just `#`?
@@ -19,7 +22,6 @@
 - [ ] pr: add documentation page
 - [ ] pr: add reference / spec page
 - [ ] command: add bash completion
-- [ ] schema: inline external reference to generate valid schemas
 - [ ] python: separate python interface in some file
 - [ ] python: check python interface consistency
 - [ ] tests: reorganize tests cases in smaller thematic directories
@@ -55,7 +57,7 @@
 - [ ] tests: allow options for specific tests from pytest
 - [ ] tests: improve schema tests by allowing more cases
 - [ ] static: improve failure reporting of extended regex
-- [ ] design: add `$URI-REF` or similar?
+- [ ] design: add `$URI-REF` or similar? `$PATH`?
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
 - [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
@@ -68,12 +70,11 @@
 - [ ] perf: geo, ansible meta, openapi
 - [ ] python: refactor preproc vs compile vs codegen…
 - [ ] c-backend: multithreading? one one value??
-- [ ] pr: provide a docker.
 - [ ] pr: deb and rpm packaging? github package distribution?
 
 ## Re Do
 
-- [ ] pr: publish python jmc package (and separate runtime?)
+- [ ] pr: publish python jmc package
 - [ ] pr: publish js runtime package
 - [ ] pr: publish pgxn package
 - [ ] pr: publish other packages?

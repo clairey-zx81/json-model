@@ -9,7 +9,7 @@ include-package-data = true
 json_model = ["runtime/*", "data/*"]
 
 [tool.setuptools.packages.find]
-include = ["json_model"]
+include = ["json_model", "json_model.runtime", "json_model.data"]
 exclude = ["tests/*", "models/*"]
 
 [project]
@@ -20,13 +20,14 @@ readme = "README.md"
 requires-python = ">=3.12"  # for "type"
 license = "CC0-1.0"
 classifiers = [ "Topic :: Software Development" ]
-version = "2.0-beta"
-dependencies = [ "requests", "google-re2", "pyyaml", "validators" ]
+version = "2.0-beta0"
+dependencies = [ "requests", "google-re2", "pyyaml", "validators", "json-schema-utils" ]
 
 [project.optional-dependencies]
 dev = [
   "flake8", "ruff", "pyright", "pytest", "pytest-xdist[psutils]", "filelock", "ipython",
-  "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
+  "json_schema_utils"
+  # "JsonSchemaUtils@git+https://github.com/zx80/json-schema-utils"
 ]
 dist = [ "build", "wheel", "twine" ]
 
