@@ -1,0 +1,12 @@
+pgxn.values.json[0]: PASS
+pgxn.values.json[1]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[2]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[3]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[4]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[5]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[6]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[7]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[9]: FAIL (.: unexpected element [.]; .: not an object [.])
+pgxn.values.json[10]: FAIL (.: unexpected element [.]; .: missing mandatory prop <version> [.]; .: missing mandatory prop <provides> [.]; .: missing mandatory prop <name> [.]; .: missing mandatory prop <meta-spec> [.]; .: missing mandatory prop <maintainer> [.]; .: missing mandatory prop <license> [.]; .: missing mandatory prop <abstract> [.])
+pgxn.values.json[11]: FAIL (.: unexpected element [.]; .un: unexpected prop [.])

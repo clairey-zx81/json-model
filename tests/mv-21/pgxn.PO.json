@@ -1,0 +1,172 @@
+{
+  "name": "$neStr",
+  "version": "",
+  "abstract": "",
+  "maintainer": {
+    "|": [
+      "$neStr",
+      "$neStrList"
+    ]
+  },
+  "license": {
+    "^": [
+      "$License",
+      "$LicenseList",
+      {
+        "": "$URL"
+      }
+    ]
+  },
+  "provides": {
+    "": "$Provide"
+  },
+  "meta-spec": {
+    "version": "_1.0.0",
+    "?url": "$URL",
+    "/^[Xx]_/": "$ANY"
+  },
+  "?url": "$URL",
+  "?description": "",
+  "?generated_by": "",
+  "?tags": "$neStrList",
+  "?no_index": {
+    "?file": "$neStrList",
+    "?directory": "$neStrList"
+  },
+  "?prereqs": "$Prereqs",
+  "?release_status": "$Status",
+  "?resources": "$Resources",
+  "/^[Xx]_/": "$ANY",
+  "#": "JsonModel 1",
+  "$": {
+    "neStr": "/./",
+    "neStrList": {
+      "@": [
+        "$neStr"
+      ],
+      "!": true,
+      ">=": 1,
+      "#": "JsonModel 3"
+    },
+    "License": {
+      "|": [
+        "agpl_3",
+        "apache_1_1",
+        "apache_2_0",
+        "artistic_1",
+        "artistic_2",
+        "bsd",
+        "freebsd",
+        "gfdl_1_2",
+        "gfdl_1_3",
+        "gpl_1",
+        "gpl_2",
+        "gpl_3",
+        "lgpl_2_1",
+        "lgpl_3_0",
+        "mit",
+        "mozilla_1_0",
+        "mozilla_1_1",
+        "openssl",
+        "perl_5",
+        "postgresql",
+        "qpl_1_0",
+        "ssleay",
+        "sun",
+        "zlib",
+        "open_source",
+        "restricted",
+        "unrestricted",
+        "unknown"
+      ],
+      "#": "JsonModel 4"
+    },
+    "LicenseList": {
+      "@": [
+        "$License"
+      ],
+      "!": true,
+      ">=": 1,
+      "#": "JsonModel 5"
+    },
+    "Provide": {
+      "file": "",
+      "version": "$Version",
+      "?abstract": "",
+      "?docfile": "",
+      "/^[Xx]_/": "$ANY",
+      "#": "JsonModel 6"
+    },
+    "Status": {
+      "|": [
+        "stable",
+        "testing",
+        "unstable"
+      ],
+      "#": "JsonModel 7"
+    },
+    "Resources": {
+      "?homepage": "$URL",
+      "?bugtracker": {
+        "?web": "$URL",
+        "?mailto": "$EMAIL",
+        "/^[Xx]_/": "$ANY"
+      },
+      "?repository": {
+        "?url": "$URL",
+        "?web": "$URL",
+        "?type": "/./"
+      },
+      "#": "JsonModel 8"
+    },
+    "SemVer": "/^\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*$/",
+    "Version": {
+      "|": [
+        "$SemVer",
+        "=0"
+      ],
+      "#": "JsonModel 10"
+    },
+    "Ops": "/^(<=|<|>=|>|!=|==)$/",
+    "VersionRange": "/^\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*)\\s*(,\\s*(<=|<|>=|>|!=|==)\\s*(\\d+\\.\\d+\\.\\d+[-_A-Za-z0-9]*))*\\s*$/",
+    "Phase": {
+      "|": [
+        "configure",
+        "build",
+        "test",
+        "runtime",
+        "develop"
+      ],
+      "#": "JsonModel 13"
+    },
+    "Relation": {
+      "|": [
+        "requires",
+        "recommends",
+        "suggests",
+        "conflicts"
+      ],
+      "#": "JsonModel 14"
+    },
+    "Prereq": {
+      "": {
+        "|": [
+          "$Version",
+          "$VersionRange"
+        ]
+      },
+      "#": "JsonModel 15"
+    },
+    "Prereqs": {
+      "$Phase": {
+        "$Relation": "$Prereq",
+        "/^[Xx]_/": "$ANY"
+      },
+      "/^[Xx]_/": "$ANY",
+      "#": "JsonModel 16"
+    },
+    "#": "Symbol 1",
+    "": "./pgxn"
+  },
+  "~": "https://json-model.org/models/json-model"
+}
