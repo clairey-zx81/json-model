@@ -12,14 +12,17 @@ For integrating JSON Model in a project, see [HowTo](HOWTO.md).
 ## Installing the Tool
 
 First, let us create a directory and install a Python virtual environment with the JSON Model
-Compiler. In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
+Compiler and JSON Schema Utils (for JSON Schema import).
+In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
 
 ```sh
 mkdir json-model-tutorial
 cd json-model-tutorial
 python -m venv venv
 source venv/bin/activate
-pip install git+https://github.com/clairey-zx81/json-model.git
+pip install json_model_compiler json_schema_utils
+# pip install git+https://github.com/clairey-zx81/json-model.git
+# pip install git+https://github.com/zx80/json-schema-utils.git
 ```
 
 Check that the `jmc` command is indeed available by asking for its version:

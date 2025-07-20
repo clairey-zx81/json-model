@@ -9,12 +9,15 @@ This implementation is given to the _Public Domain_.
 ## Tool Installation
 
 Proof-of-concept compiler to test JSON Model is available as Python a command
-which can be installed with `pip` directly from GitHub:
+which can be installed with `pip` from
+[PyPI](https://pypi.org/project/json-model-compiler/) or directly from
+[GitHub](https://github.com/clairey-zx81/json-model/):
 
 ```shell
 python -m venv venv
 source venv/bin/activate
-pip install git+https://github.com/clairey-zx81/json-model.git
+pip install json_model_compiler
+# OR: pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 
 ## JMC Command
