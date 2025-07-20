@@ -12,7 +12,7 @@
 - [x] model: add `pgxn` model
 - [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
 - [x] doc: complete jmc manpage
-- [x] pr: publish python `json_model` package
+- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] pr: provide a docker
 - [ ] design: compile exreg to regex when possible
@@ -382,7 +382,7 @@
 - [x] backend: add `path` and `rep` to str functions
 - [x] tests: fix strange issue with `make check` in `mv-03`
 - [x] docs: add a tutorial tour
-- [x] js-backend: add official npm module on `npmjs`.
+- [x] js-backend: add official [npm module](https://www.npmjs.com/package/json_model_runtime) on `npmjs`.
 - [x] design: add `"$DATETIME"` and `"$TIME"`
 - [x] command: regex engine selection
 - [x] c-backend: add `re2` support

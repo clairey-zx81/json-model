@@ -173,3 +173,9 @@ JSON Model design is presented in research papers and reports:
   Mines Paris - PSL, May 2023
 
   JSON Model version 0.
+
+## JSON Model Distribution
+
+- [PYPI Package](https://pypi.org/project/json-model-compiler/)
+- [JS Runtime](https://www.npmjs.com/package/json_model_runtime)
+- [Postgres Runtime](https://pgxn.org/dist/json_model/)
