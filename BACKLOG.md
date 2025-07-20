@@ -11,13 +11,13 @@
 - [x] optim: simplify some property regex
 - [x] model: add `pgxn` model
 - [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
+- [x] doc: complete jmc manpage
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: allow comments starting with `#`, not just `#`?
 - [ ] optim: simplify float constraints
 - [ ] pr: add documentation page
 - [ ] pr: add reference / spec page
-- [ ] doc: complete jmc manpage
 - [ ] command: add bash completion
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] python: separate python interface in some file
