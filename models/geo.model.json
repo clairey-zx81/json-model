@@ -3,6 +3,7 @@
  "~": "https://json-model.org/models/json-model",
  "$": {
     "#": "should all position be either 2 or 3 for consistency?",
+    "": "https://json-model.org/models/geo",
     "position": { "@": [ -1.0 ], ">=": 2, "<=": 3 },
     "coord_array": { "@": [ "$position" ], ">=": 2 },
     "linear_ring": { "@": [ "$position" ], ">=": 4 },
