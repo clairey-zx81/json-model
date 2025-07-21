@@ -1,10 +1,10 @@
-# JSON Model Compiler
+# JSON Model
 
 JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.
 
-Version 2 is work-in-progress design, implementation and tests.
+Version 2 is work-in-progress design, compiler implementation and tests.
 
-This implementation is given to the _Public Domain_.
+This implementation is dedicated to the _Public Domain_.
 
 ## Tool Installation
 
@@ -30,7 +30,7 @@ Command `jmc` options include:
   - `-C`: compile to Python, C, JS or PL/pgSQL.
   - `-U`: dump all models.
   - `-J`: dump json IR.
-- `-O`: optimize model: const prop, partial eval, xor to or, flatten…
+- `-O`: optimize model: constant propagation, partial evaluation, xor to or conversion, flattening…
   (this is the default, `-nO` to disable)
 - `-o output`: file output instead of standard
 - `-F format`: select `json` or `yaml` for output
