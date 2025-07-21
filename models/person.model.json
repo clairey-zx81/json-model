@@ -1,4 +1,5 @@
 {
+  "#": "A Person",
   "name": "/./",
   "age": 0,
   "?friends": [ "/./" ]

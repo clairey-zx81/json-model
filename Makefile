@@ -18,7 +18,7 @@ dev: venv
 
 .PHONY: clean
 clean:
-	$(RM) $~ jmc.1
+	$(RM) $~ jmc.1 site/MODELS.md
 	$(RM) -r .pytest_cache/ .ruff_cache/ dist/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
@@ -68,8 +68,18 @@ publish.js:
 	npm publish --dry-run ./js_runtime
 	echo npm publish ./js_runtime
 
+site/MODELS.md: Makefile models/
+	{
+	  echo "# JSON Model Examples"
+	  echo
+	  for model in models/*.model.json ; do
+	    title=$$(jq -r '."#"' < $$model | sed 's/\s*.JSON_MODEL.*//')
+	    echo "- [$$title]($$model ':ignore')"
+	  done
+	} > $@
+
 .PHONY: publish.site
-publish.site:
+publish.site: site/MODELS.md
 	rsync -avL --progress ./site/. $(SITE):public_html/sw/json-model/.
 	ssh $(SITE) chmod a+rx public_html/sw/json-model public_html/sw/json-model/models
 	ssh $(SITE) chmod a+r public_html/sw/json-model/* public_html/sw/json-model/models/*

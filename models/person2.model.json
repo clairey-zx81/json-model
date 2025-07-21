@@ -1,6 +1,7 @@
 {
+  "#": "A Person with a Reference",
   "$": {
-    "person": "$https://www.cri.minesparis.psl.eu/~/coelho/person.model.json"
+    "person": "$https://json-model.org/models/person.model.json"
   },
   "@": "$person"
 }

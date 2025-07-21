@@ -7,7 +7,8 @@
 - [x] pr: bootstrap doc
 - [x] pr: bootstrap api
 - [x] pr: add cover page
-- [ ] pr: add front page to `models`
+- [x] pr: add front page to `models`
+- [ ] pr: fix http requests without `.model.json` suffix
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
