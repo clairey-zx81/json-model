@@ -4,11 +4,11 @@
 
 - [x] pr: howto entry about installation
 - [x] pr: bootstrap spec
+- [x] pr: bootstrap doc
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
 - [ ] pr: complete spec
-- [ ] pr: bootstrap doc
 - [ ] pr: complete doc
 - [ ] site: add front page to `models`
 - [ ] schema: inline external reference to generate valid schemas

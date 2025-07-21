@@ -714,7 +714,8 @@ with a short (32 lines) transformation model, see
 
 ## References
 
+- [JSON Model official web site](https://json-model.org/)
 - [JSON Model on GitHub](https://github.com/clairey-zx81/json-model)
 - [ADBIS 2024 Paper](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf)
 - [DBA 2023 Paper](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf)
-- [Initial Design Technical Report](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf)
+- [Initial Design 2023 Report](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf)
