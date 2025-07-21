@@ -3,8 +3,10 @@
 # installation
 python -m venv venv
 source venv/bin/activate
-pip install json_model_compiler json_schema_utils
+pip install json-model-compiler json-schema-utils
+# direct from sources:
 # pip install git+https://github.com/clairey-zx81/json-model.git
+# pip install git+https://github.com/zx89/json-schema-utils.git
 # deactivate
 jmc --version
 

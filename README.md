@@ -16,7 +16,7 @@ which can be installed with `pip` from
 ```shell
 python -m venv venv
 source venv/bin/activate
-pip install json_model_compiler
+pip install json-model-compiler
 # OR: pip install git+https://github.com/clairey-zx81/json-model.git
 ```
 

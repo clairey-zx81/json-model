@@ -20,7 +20,7 @@ mkdir json-model-tutorial
 cd json-model-tutorial
 python -m venv venv
 source venv/bin/activate
-pip install json_model_compiler json_schema_utils
+pip install json-model-compiler json-schema-utils
 # pip install git+https://github.com/clairey-zx81/json-model.git
 # pip install git+https://github.com/zx80/json-schema-utils.git
 ```
