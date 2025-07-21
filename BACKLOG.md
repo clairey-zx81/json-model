@@ -5,12 +5,15 @@
 - [x] pr: howto entry about installation
 - [x] pr: bootstrap spec
 - [x] pr: bootstrap doc
+- [x] pr: bootstrap api
+- [x] pr: add cover page
+- [ ] pr: add front page to `models`
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
 - [ ] pr: complete spec
 - [ ] pr: complete doc
-- [ ] site: add front page to `models`
+- [ ] pr: complete api
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] command: add --static compilation option to avoid dependencies?
 - [ ] pr: provide a non-root docker
