@@ -9,6 +9,9 @@
 - [x] pr: add cover page
 - [x] pr: add front page to `models`
 - [x] pr: fix http requests without `.model.json` suffix (cri conf)
+- [x] pr: provide a non-root docker
+- [ ] pr: publish the docker image
+- [ ] command: add --static compilation option to avoid dependencies?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
@@ -16,9 +19,6 @@
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] schema: inline external reference to generate valid schemas
-- [ ] command: add --static compilation option to avoid dependencies?
-- [ ] pr: provide a non-root docker
-- [ ] pr: publish the docker image
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: allow comments starting with `#`, not just `#`?
