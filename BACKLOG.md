@@ -2,19 +2,14 @@
 
 ## Current Tasks
 
-- [x] sql-backend: package support as an extension
-- [x] pr: register `json-model.org` domain
-- [x] doc: bootstrap jmc manpage with pandoc
-- [x] pr: setup official http/https web page
-- [x] pr: improve official web page with docsify
-- [x] optim: simplify int constraints
-- [x] optim: simplify some property regex
-- [x] model: add `pgxn` model
-- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
-- [x] doc: complete jmc manpage
-- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
+- [x] pr: howto entry about installation
+- [ ] pr: howto entry about python projects
+- [ ] pr: howto entry about javascript projects
+- [ ] pr: howto entry about C executable
 - [ ] schema: inline external reference to generate valid schemas
-- [ ] pr: provide a docker
+- [ ] command: add --static compilation option to avoid dependencies?
+- [ ] pr: provide a non-root docker
+- [ ] pr: publish the docker image
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: allow comments starting with `#`, not just `#`?
@@ -430,3 +425,14 @@
 - [x] python: fix internal checker on test cases
 - [x] js-backend: warn about strict/loose
 - [x] sql-backend: warn about strict/loose
+- [x] sql-backend: package support as an extension
+- [x] pr: register `json-model.org` domain
+- [x] doc: bootstrap jmc manpage with pandoc
+- [x] pr: setup official http/https web page
+- [x] pr: improve official web page with docsify
+- [x] optim: simplify int constraints
+- [x] optim: simplify some property regex
+- [x] model: add `pgxn` model
+- [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
+- [x] doc: complete jmc manpage
+- [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)

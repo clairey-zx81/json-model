@@ -1,10 +1,38 @@
 # JSON Model How To …
 
+## How to install the JSON Model Compiler ?
+
+The `jmc` command can be install in a Python virtual environment from
+[PyPI](https://pypi.org/project/json-model-compiler/) or from
+[sources](https://github.com/clairey-zx81/json-model):
+
+1. PyPI venv:
+
+  ```sh
+  python -m venv venv
+  source venv/bin/activate
+  pip install json-model-compiler
+  ```
+
+2. Source venv:
+
+  ```sh
+  python -m venv venv
+  source venv/bin/activate
+  pip install git+https://github.com/clairey-zx81/json-model.git
+  ```
+
+3. Docker:
+
+TODO
+
 ## How to use JSON Model in my _Python_ project?
 
 ## How to use JSON Model in my _JavaScript_ project?
 
 ## How to use JSON Model in my _Postgres_ database?
+
+Assuming that the `jmc` command is available:
 
 1. install the `json_model` Postgres extension, from source _or_
    from [pgxn](https://pgxn.org/dist/json_model/):
