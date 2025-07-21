@@ -11,6 +11,7 @@
 - [x] pr: fix http requests without `.model.json` suffix (cri conf)
 - [x] pr: provide a non-root docker
 - [ ] pr: publish the docker image
+- [ ] pr: use docker for demo? for tuto? docker version tutorial?
 - [ ] command: add --static compilation option to avoid dependencies?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
