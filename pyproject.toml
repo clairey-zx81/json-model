@@ -35,7 +35,10 @@ dist = [ "build", "wheel", "twine" ]
 jmc = "json_model:jmc_script"
 
 [project.urls]
-repository = "https://github.com/clairey-zx81/json-model"
+homepage = "https://json-model.org/"
+documentation = "https://json-model.org/"
+repository = "https://github.com/clairey-zx81/json-model.git"
+issues = "https://github.com/clairey-zx81/json-model/issues"
 
 [tool.ruff]
 line-length = 100
