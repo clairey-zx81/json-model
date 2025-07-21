@@ -35,4 +35,6 @@ There are not cycles or references, a JSON data structure is only a tree.
 
 ## Model Transformations
 
+## Self-Validating Meta-Model
+
 ## References
