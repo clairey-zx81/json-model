@@ -1,5 +1,12 @@
 #! /bin/bash
 #
-# run jmc command in docker under current uid/gid
+# run jmc command in docker
 #
-docker run --name awesome_jmc --user $UID:$GID -v .:/workspace --rm -it zx80/jmc "$@"
+
+docker="docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it"
+
+if [ "$#" -eq 1 -a "$1" = "shell" ] ; then
+  exec $docker --entrypoint /bin/bash zx80/jmc
+else
+  exec $docker zx80/jmc "$@"
+fi

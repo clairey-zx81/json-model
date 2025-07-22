@@ -5,7 +5,6 @@ LABEL description="JSON Model Compiler"
 RUN apt update ; \
     apt upgrade -y ; \
     apt install -y --no-install-recommends --fix-missing \
-	    adduser \
         vim git ca-certificates libtool m4 time automake make pkgconf gcc g++ texinfo jq curl \
         libpcre2-dev libre2-dev libjansson-dev \
         python3 python-is-python3 python3-venv python3-pip ; \
@@ -29,6 +28,7 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 # setup python environment, native pip complains about direct installations otherwise
 RUN python -m venv venv ; \
     venv/bin/pip install -U pip
+ENV PATH=/app/venv/bin:$PATH
 
 # nodejs >= 20.0.0
 ENV NVM_DIR=/usr/local/nvm
@@ -39,11 +39,12 @@ RUN . $NVM_DIR/nvm.sh && \
     nvm alias default stable && \
     nvm use default
 RUN ln -s $NVM_DIR/versions/node/v* $NVM_DIR/versions/node/stable
+# NOTE NODE_PATH is ignored by "import" on node :-/
 ENV NODE_PATH=/app/node_modules
 ENV PATH=$NVM_DIR/versions/node/stable/bin:$PATH
 
 # js runtime
-RUN echo '{"name":"jmc-benchmark","type":"module"}' | jq > package.json
+RUN echo '{"name":"zx80-jmc","type":"module"}' | jq > package.json
 RUN npm install re2
 
 # actual application stuff
@@ -54,14 +55,18 @@ RUN npm install re2
 RUN git clone https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/js_runtime
+RUN ls -la node_modules
 # RUN rm -rf ./json-model  # not if editable
 
 RUN git clone https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
 # RUN rm -rf ./json-schema-utils
 
+RUN echo "# reset default prompt\nexport PS1='zx80/jmc> '" >> /etc/bash.bashrc
+RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" >> /etc/vim/vimrc.local
+
 # setup docker entry point and utils
-RUN mkdir /workspace
-WORKDIR /workspace
+RUN mkdir /app/workspace
+WORKDIR /app/workspace
 ENV JSON_MODEL_CACHEDIR=/tmp
 ENTRYPOINT ["/app/venv/bin/jmc"]

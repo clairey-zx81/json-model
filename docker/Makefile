@@ -12,8 +12,8 @@ SHELL   = /bin/bash
 clean:
 	$(RM) .build
 
-.PHONY: cleaner.docker
-cleaner.docker: clean
+.PHONY: docker.clean
+docker.clean: clean
 	docker image prune -f
 	docker container prune -f
 	docker image rm -f $$(docker image ls | grep '^<none>' | tr -s " " " " | cut -d' ' -f 3) jmc
@@ -24,7 +24,6 @@ cleaner.docker: clean
 #
 .PHONY: docker.build
 docker.build: .build
-
 .build: Dockerfile
 	docker build -t zx80/jmc -f Dockerfile . && touch $@
 

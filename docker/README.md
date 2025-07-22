@@ -10,13 +10,20 @@ script.
 docker build -t jmc .
 ```
 
+## Shell Run
+
+```sh
+docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --entrypoint /bin/bash jmc
+# enjoy a shell with jmc and access to local files
+```
+
 ## Raw Run
 
 ```sh
-docker run --name awesome_jmc --user $UID:$GID -v .:/workspace --rm -it jmc …
+docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it jmc …
 ```
 
-## Convenient `jmc` Wrapper
+## Convenient `jmc` Command Wrapper
 
 Create a `jmc` executable file:
 
@@ -25,7 +32,7 @@ Create a `jmc` executable file:
 #
 # run jmc command in docker under current uid/gid
 #
-docker run --name awesome_jmc --user $UID:$GID -v .:/workspace --rm -it jmc "$@"
+docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it jmc "$@"
 ```
 
 :warning: Only run with relative downward path under the current directory
