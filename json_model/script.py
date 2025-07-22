@@ -293,7 +293,7 @@ def jmc_script():
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
     arg("--ldflags", type=str, help="override C linker flags for executable")
-    arg("--static", help="trigger static link")
+    arg("--static", action="store_true", default=False, help="trigger static link")
     arg("--include", "-I", nargs="*", default=[], help="add include directory")
     arg("--library", "-L", nargs="*", default=[], help="add library directory")
     arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
