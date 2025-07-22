@@ -10,7 +10,7 @@ jmc [-h] [--version] [--debug] [--verbose] [--quiet]
     [--loose-int] [--strict-int] [--loose-float] [--strict-float] [--loose-number] [--strict-number]
     [--check] [-[-no]-optimize] [-[-no]-reporting]
     [--format {json,yaml,py,c,js,plpgsql}] [-[-no]-sort] [--indent INDENT]
-    [--executable] [--module] [--code] [--no-gen]
+    [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
     [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
     [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
@@ -65,19 +65,21 @@ Here are the most useful options:
 ### Output
 
 - `--output FILE` or `-o FILE`: output file, the suffix of which is used
-  for setting the default format.
+  for setting the default format and generation.
 - `--format FMT` or `-F FMT`: output language, to override defaults.
+- `--gen GEN`: whether to generate an `exec`utable, a `module`, source `code` or `none`,
+  to overide defaults.
 - `--entry ENTRY`: name of the entry function to generate.
 - `--map-threshold THRESHOLD`: maximum number of props to inline property checks in objects.
 - `--map-share`: whether to share common maps, may result in smaller generated code.
-- `--executable` vs `--module`: whether to generate an executable (with a main) or just a module.
 
 ### C Compilation
 
 - `--cc COMPILER`: compiler to use, defaut is `cc`.
 - `--{cpp,c,ld}flags ...`: set raw cpp, cc or ld flags.
-- `-I DIR` `-D VAR=VAL`: cpp include path and definitions
+- `-I DIR` `-D VAR=VAL`: cpp include path and definitions.
 - `-L DIR`: ld link path.
+- `--static`: generate a statically linked executable.
 
 ### Testing
 

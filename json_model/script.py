@@ -181,7 +181,7 @@ DEFAULT_CC = "cc"
 DEFAULT_CFLAGS = "-Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast"
 DEFAULT_LDFLAGS_PCRE2 = "-ljansson -lpcre2-8 -lm"
 # pkgconf --libs cre2
-DEFAULT_LDFLAGS_CRE2 = "-L/usr/local/lib -ljansson -lcre2 -lpthread -lre2 -lm"
+DEFAULT_LDFLAGS_CRE2 = "-L/usr/local/lib -ljansson -lcre2 -lpthread -lre2 -lm -lstdc++"
 
 def clang_compile(c_code: str, args):
     """Generate an actual executable or object file."""
@@ -208,6 +208,8 @@ def clang_compile(c_code: str, args):
         (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
     if args.library:
         ldflags = " -L".join([""] + args.library) + " " + ldflags
+    if args.static:
+        ldflags += " --static"
 
     output = "a.out" if args.output == "-" else args.output
 
@@ -215,7 +217,7 @@ def clang_compile(c_code: str, args):
         tmp.write(c_code.encode("UTF-8"))
         tmp.flush()
         if args.gen == "exec":
-            command = f"{cc} {cppflags} {cflags} -o {output} {main} {lib} {tmp.name} {ldflags}"
+            command = f"{cc} {cppflags} {cflags} -o {output} {lib} {tmp.name} {main} {ldflags}"
         else:
             command = f"{cc} {cppflags} {cflags} -o {output} -c {tmp.name}"
         status = os.system(command)
@@ -272,11 +274,15 @@ def jmc_script():
     arg("--no-reporting", dest="reporting", action="store_false",
         help="remove reporting capabilities")
 
-    arg("--executable", dest="gen", default=None, action="store_const", const="exec",
+    generate = ap.add_mutually_exclusive_group()
+    gen = generate.add_argument
+    gen("--generate", "--gen", dest="gen", choices=["exec", "module", "source", "none"],
+        help="select what to generate")
+    gen("--exec", "--executable", dest="gen", action="store_const", const="exec", default=None,
         help="generate an executable")
-    arg("--module", dest="gen", action="store_const", const="module", help="generate a module")
-    arg("--code", dest="gen", action="store_const", const="source", help="generate source code")
-    arg("--no-gen", "-ng", dest="gen", action="store_const", const="none",
+    gen("--module", dest="gen", action="store_const", const="module", help="generate a module")
+    gen("--code", dest="gen", action="store_const", const="code", help="generate source code")
+    gen("--no-gen", "-ng", dest="gen", action="store_const", const="none",
         help="do not generate anything")
 
     # TODO cpp ts rs go…
@@ -287,6 +293,7 @@ def jmc_script():
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
     arg("--ldflags", type=str, help="override C linker flags for executable")
+    arg("--static", help="trigger static link")
     arg("--include", "-I", nargs="*", default=[], help="add include directory")
     arg("--library", "-L", nargs="*", default=[], help="add library directory")
     arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
