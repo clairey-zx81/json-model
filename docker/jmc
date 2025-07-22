@@ -2,4 +2,4 @@
 #
 # run jmc command in docker under current uid/gid
 #
-docker run --user $UID:$GID -v .:/workspace --rm -it zx80/jmc "$@"
+docker run --name awesome_jmc --user $UID:$GID -v .:/workspace --rm -it zx80/jmc "$@"
