@@ -5,8 +5,8 @@ LABEL description="JSON Model Compiler"
 RUN apt update ; \
     apt upgrade -y ; \
     apt install -y --no-install-recommends --fix-missing \
-        vim git ca-certificates libtool m4 time automake make pkgconf gcc g++ texinfo jq curl \
-        libpcre2-dev libre2-dev libjansson-dev \
+        git ca-certificates libtool m4 time automake make pkgconf gcc g++ texinfo jq curl \
+        nano vim libpcre2-dev libre2-dev libjansson-dev \
         python3 python-is-python3 python3-venv python3-pip ; \
     apt clean
 
