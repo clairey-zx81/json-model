@@ -1,0 +1,5 @@
+#! /bin/bash
+#
+# run jmc command in docker under current uid/gid
+#
+docker run --user $UID:$GID -v .:/workspace --rm -it zx80/jmc "$@"

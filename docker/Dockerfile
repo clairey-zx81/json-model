@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 LABEL description="JSON Model Compiler"
 
-# system update and installs
+# system update, installs, cleanup
 RUN apt update ; \
     apt upgrade -y ; \
     apt install -y --no-install-recommends --fix-missing \
@@ -10,6 +10,10 @@ RUN apt update ; \
         libpcre2-dev libre2-dev libjansson-dev \
         python3 python-is-python3 python3-venv python3-pip ; \
     apt clean
+
+# application directory
+RUN mkdir /app
+WORKDIR /app
 
 # compile cre2 into /usr/local
 RUN git clone https://github.com/marcomaggi/cre2.git
@@ -20,14 +24,11 @@ RUN cd cre2 ; \
     make install ; \
     cd .. ; \
     rm -rf cre2
+ENV LD_LIBRARY_PATH=/usr/local/lib
 
 # setup python environment, native pip complains about direct installations otherwise
-RUN python -m venv /venv ; \
-    /venv/bin/pip install -U pip
-
-# application
-RUN mkdir /app
-WORKDIR /app
+RUN python -m venv venv ; \
+    venv/bin/pip install -U pip
 
 # nodejs >= 20.0.0
 ENV NVM_DIR=/usr/local/nvm
@@ -48,14 +49,19 @@ RUN npm install re2
 # actual application stuff
 # direct install json-model and json-schema-utils from github
 # pip install json-model-compiler json-schema-utils
+# npm install json_model_runtime
+
 RUN git clone https://github.com/clairey-zx81/json-model.git
-# RUN git clone https://github.com/zx80/json-schema-utils.git
-
-RUN /venv/bin/pip install -e ./json-model
-# ./json-schema-utils
+RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/js_runtime
+# RUN rm -rf ./json-model  # not if editable
 
-# setup benchmarking scripts
-COPY . /app
-ENV LD_LIBRARY_PATH=/usr/local/lib
-ENTRYPOINT ["/app/in_docker_jmc.sh"]
+RUN git clone https://github.com/zx80/json-schema-utils.git
+RUN /app/venv/bin/pip install -e ./json-schema-utils
+# RUN rm -rf ./json-schema-utils
+
+# setup docker entry point and utils
+RUN mkdir /workspace
+WORKDIR /workspace
+ENV JSON_MODEL_CACHEDIR=/tmp
+ENTRYPOINT ["/app/venv/bin/jmc"]

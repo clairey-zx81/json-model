@@ -25,12 +25,12 @@ cleaner.docker: clean
 .PHONY: docker.build
 docker.build: .build
 
-.build: Dockerfile ./in_docker_jmc.sh
+.build: Dockerfile
 	docker build -t zx80/jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
 docker.run: .build
-	@echo docker run -v .:/workspace -it --rm --entrypoint /bin/bash zx80/jmc
+	@echo docker run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash zx80/jmc
 
 .PHONY: docker.status
 docker.status:
