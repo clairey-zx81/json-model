@@ -11,6 +11,7 @@
 - [x] pr: fix http requests without `.model.json` suffix (cri conf)
 - [x] pr: provide a non-root docker
 - [x] pr: publish the docker image `zx80/jmc:2.0b1`
+- [ ] pr: add docker compose for postgres testing?
 - [ ] pr: use docker for demo? for tuto? docker version tutorial?
 - [ ] command: add --static compilation option to avoid dependencies?
 - [ ] pr: howto entry about python projects
