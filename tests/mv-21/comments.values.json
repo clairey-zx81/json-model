@@ -1,0 +1,19 @@
+[
+  [ true,  {"hello": "Susie", "world": "!"} ],
+  [ true,  {"hello": "Calvin", "world": "!…"} ],
+  [ false, {"hello": 12, "world": "!"} ],
+  [ false, {"hello": "Hobbes", "world": "?"} ],
+  [ false, {"hello": "Hobbes", "world": null} ],
+  [ false, {} ],
+  [ false, {"hello": "Susie"} ],
+  [ false, {"world": "!Susie"} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

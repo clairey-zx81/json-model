@@ -1,0 +1,18 @@
+{
+  "description": "This is a\nmultiline\ncomment.",
+  "type": "object",
+  "properties": {
+    "hello": {
+      "type": "string"
+    },
+    "world": {
+      "type": "string",
+      "pattern": "^!"
+    }
+  },
+  "required": [
+    "hello",
+    "world"
+  ],
+  "additionalProperties": false
+}
