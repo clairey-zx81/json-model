@@ -25,11 +25,11 @@ docker.clean: clean
 .PHONY: docker.build
 docker.build: .build
 .build: Dockerfile
-	docker build -t zx80/jmc -f Dockerfile . && touch $@
+	docker build -t jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
 docker.run: .build
-	@echo docker run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash zx80/jmc
+	@echo docker run --user $$UID:$$GID -v .:/workspace -it --rm --entrypoint /bin/bash jmc
 
 .PHONY: docker.status
 docker.status:
@@ -37,3 +37,18 @@ docker.status:
 	docker system df
 	docker container ps -a
 	docker image ls -a
+
+docker.tag: .build
+	# tag latest
+	docker tag jmc zx80/jmc:latest
+	# tag package version
+	gitvers=$$(git rev-parse --short=8 HEAD)
+	docker tag jmc zx80/jmc:$$gitvers
+	# git commit
+	version=$$(./jmc --version| tr -d '\012\015')
+	docker tag jmc zx80/jmc:$$version
+
+.PHONY: docker.push
+docker.push: docker.tag
+	docker push zx80/jmc:latest
+	docker push zx80/jmc:$$gitvers
