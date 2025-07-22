@@ -18,12 +18,18 @@ mkdir json-model-tutorial
 cd json-model-tutorial
 ```
 
-Running the compiler to generate source code only requires a Python virtual environment.
-However, running the generated codes requires a few dependencies which are less easy
-to install and may not be readily available on some platform.
-In order to simplify handling these dependencies, this tutorial relies on an Ubuntu-based
-**Docker image** (next subsection), but the advanced user can proceed with installing the
-**Python venv** and additional system packages when needed.
+Running the compiler to generate source code and validate values with the Python backend
+only requires a Python virtual environment.
+However, running other generated codes requires a few dependencies which are less easy
+to install and may not be readily available on some platforms.
+
+To simplify handling these dependencies, we provide an Ubuntu-based **Docker image**
+(next subsection), but it is also possible to proceed with installing the
+**Python venv** (following subsection) and possibly additional system packages when needed.
+
+Both environments work for most of the tutorial sections below, so feel free to choose whichever
+seems more familiar. The docker image allows to also run directly the C and JS generated codes.
+Running the PL/pgSQL code requires a working Postgres server, which is _not_ discussed here.
 
 ### Docker Image Installation
 
@@ -53,7 +59,9 @@ In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
 ```sh
 python -m venv venv
 source venv/bin/activate
+# released versions:
 pip install json-model-compiler json-schema-utils
+# OR from sources:
 # pip install git+https://github.com/clairey-zx81/json-model.git
 # pip install git+https://github.com/zx80/json-schema-utils.git
 ```
