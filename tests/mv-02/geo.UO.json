@@ -203,7 +203,7 @@
         "#": "JsonModel 14 (JSON_MODEL_LOOSE_FLOAT)"
       },
       "#": "Symbol 1",
-      "": "./geo.model.json"
+      "": "https://json-model.org/models/geo"
     },
     "~": "https://json-model.org/models/json-model"
   },
