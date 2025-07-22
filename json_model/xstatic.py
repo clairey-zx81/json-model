@@ -1260,8 +1260,7 @@ class CodeGenerator:
                     self._paths[tuple(mpath)] = objid
 
                 if "#" in model:
-                    comment = model["#"].replace("\n", " ")  # type: ignore
-                    code = gen.lcom(comment) + code
+                    code = gen.lcom(model["#"]) + code  # type: ignore
 
             case _:
                 raise ModelError(f"unexpected model type: {tname(model)}")

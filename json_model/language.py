@@ -391,9 +391,12 @@ class Language:
         raise NotImplementedError("var")
 
     def lcom(self, text: str = "") -> Block:
-        """Generate a line comment."""
+        """Generate lines comment."""
         if self._with_comment:
-            return [ f"{self._lcom} {text}" if text else self._lcom ]
+            if text:
+                return [ f"{self._lcom} {t}" for t in re.split(r"[\n\r\f]", text) ]
+            else:
+                return [ self._lcom ]
         else:
             return []
 
