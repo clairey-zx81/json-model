@@ -10,10 +10,11 @@
 - [x] pr: add front page to `models`
 - [x] pr: fix http requests without `.model.json` suffix (cri conf)
 - [x] pr: provide a non-root docker
+- [x] command: add --static compilation option to avoid dependencies?
 - [x] pr: publish the docker image `zx80/jmc:2.0b1`
 - [x] pr: use docker for tuto
 - [ ] pr: add docker compose for postgres testing?
-- [ ] command: add --static compilation option to avoid dependencies?
+- [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
