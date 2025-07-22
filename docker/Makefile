@@ -50,5 +50,6 @@ docker.tag: .build
 
 .PHONY: docker.push
 docker.push: docker.tag
+	# if needed: docker login
 	docker push zx80/jmc:latest
 	docker push zx80/jmc:$$gitvers
