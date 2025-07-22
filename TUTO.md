@@ -1,12 +1,12 @@
 # JSON Model Tutorial
 
-JSON Model is a JSON language to describe JSON data structures.
-Its objective is similar to [JSON Schema](https://json-schema.org/), but with
-a user-friendly, compact and intuitive syntax which relies on type inference,
-so that simple objects are typically described with sample values.
+[JSON Model](https://json-model.org/) is a JSON language to describe JSON data
+structures. Its objective is similar to [JSON Schema](https://json-schema.org/),
+but with a user-friendly, compact and intuitive syntax which relies on type
+inference, so that simple objects are typically described with sample values.
 
 This tutorial aims at learning briefly the JSON Model syntax and how to use
-the `jmc` command for validating values directly.
+the [`jmc` command](jmc.md) for validating values directly.
 For integrating JSON Model in a project, see [HowTo](HOWTO.md).
 
 ## Installing JSON Model Compiler
@@ -21,22 +21,21 @@ cd json-model-tutorial
 Running the compiler to generate source code only requires a Python virtual environment.
 However, running the generated codes requires a few dependencies which are less easy
 to install and may not be readily available on some platform.
-
 In order to simplify handling these dependencies, this tutorial relies on an Ubuntu-based
-docker image (next subsection), but the advance user can proceed with installing the venv
-and additional system packages.
+**Docker image** (next subsection), but the advanced user can proceed with installing the
+**Python venv** and additional system packages when needed.
 
-### Docker Image
+### Docker Image Installation
 
-For the wary user, download and start the `zx80/jmc` docker image, from a terminal or from
-your docker desktop client:
+For the wary user, download and start the `zx80/jmc` docker image, from your docker
+desktop client or from a terminal:
 
 ```sh
 docker pull zx80/jmc:latest
 docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --entrypoint /bin/bash zx80/jmc
 ```
 
-This should give your a shell prompt open in the current directory.
+This should give your a shell prompt open in the current directory with your permissions.
 Check that the `jmc` command works:
 
 ```sh
@@ -66,8 +65,8 @@ jmc --version
 ```
 
 Add the example values and models discussed below in this directory for testing,
-with the available terminal editor (`vi`) in the VM or with any editor on the
-host system.
+with the available terminal editor (`nano`, `vi`) in the Docker or with any available
+editor on the host system.
 
 ## JSON – JavaScript Object Notation
 
