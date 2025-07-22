@@ -9,15 +9,49 @@ This tutorial aims at learning briefly the JSON Model syntax and how to use
 the `jmc` command for validating values directly.
 For integrating JSON Model in a project, see [HowTo](HOWTO.md).
 
-## Installing the Tool
+## Installing JSON Model Compiler
 
-First, let us create a directory and install a Python virtual environment with the JSON Model
-Compiler and JSON Schema Utils (for JSON Schema import).
-In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
+First, let us create a directory for playing with the compiler:
 
 ```sh
 mkdir json-model-tutorial
 cd json-model-tutorial
+```
+
+Running the compiler to generate source code only requires a Python virtual environment.
+However, running the generated codes requires a few dependencies which are less easy
+to install and may not be readily available on some platform.
+
+In order to simplify handling these dependencies, this tutorial relies on an Ubuntu-based
+docker image (next subsection), but the advance user can proceed with installing the venv
+and additional system packages.
+
+### Docker Image
+
+For the wary user, download and start the `zx80/jmc` docker image, from a terminal or from
+your docker desktop client:
+
+```sh
+docker pull zx80/jmc:latest
+docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --entrypoint /bin/bash zx80/jmc
+```
+
+This should give your a shell prompt open in the current directory.
+Check that the `jmc` command works:
+
+```sh
+jmc --version
+```
+
+Type `exit` when you want to stop playing with the application.
+
+### Python Venv Installation
+
+For the advanced user, create a Python virtual environment with the JSON Model Compiler
+and JSON Schema Utils (for JSON Schema importations).
+In a Linux, MacOS or Windows with WSL terminal, install the latest version with:
+
+```sh
 python -m venv venv
 source venv/bin/activate
 pip install json-model-compiler json-schema-utils
@@ -31,7 +65,9 @@ Check that the `jmc` command is indeed available by asking for its version:
 jmc --version
 ```
 
-Add the example values and models discussed below in this directory for testing.
+Add the example values and models discussed below in this directory for testing,
+with the available terminal editor (`vi`) in the VM or with any editor on the
+host system.
 
 ## JSON – JavaScript Object Notation
 
