@@ -4,11 +4,7 @@ from .mtypes import Number
 
 
 class Python(Language):
-    """Python language support.
-
-    Most Python code generation is actually inherited from Language,
-    so this class in minimal.
-    """
+    """Python language support."""
 
     def __init__(self, *, relib: str = "re2",
                  debug: bool = False, with_report: bool = True, with_path: bool = True):
