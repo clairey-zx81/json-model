@@ -13,6 +13,8 @@
 - [x] command: add --static compilation option to avoid dependencies?
 - [x] pr: publish the docker image `zx80/jmc:2.0b1`
 - [x] pr: use docker for tuto
+- [x] docker: allow to execute stuff inside the docker
+- [ ] pl-backend: add a Perl backend (wip)
 - [ ] pr: add docker compose for postgres testing?
 - [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
