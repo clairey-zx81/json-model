@@ -12,10 +12,13 @@
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] pr: add docker compose for postgres testing?
+- [ ] pr: write `everything.model.json` for illustration
+- [ ] pr: write `optimizations.model.json` for illustration
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
-- [ ] design: allow comments starting with `#`, not just `#`
+- [ ] design: object comments starting with `#`, not just `#`
+- [ ] design: array comments `# …` to be ignored
 - [ ] optim: simplify float constraints
 - [ ] command: add bash completion
 - [ ] python: separate python interface in some file
