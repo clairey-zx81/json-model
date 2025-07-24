@@ -2,20 +2,8 @@
 
 ## Current Tasks
 
-- [x] pr: howto entry about installation
-- [x] pr: bootstrap spec
-- [x] pr: bootstrap doc
-- [x] pr: bootstrap api
-- [x] pr: add cover page
-- [x] pr: add front page to `models`
-- [x] pr: fix http requests without `.model.json` suffix (cri conf)
-- [x] pr: provide a non-root docker
-- [x] command: add --static compilation option to avoid dependencies?
-- [x] pr: publish the docker image `zx80/jmc:2.0b1`
-- [x] pr: use docker for tuto
-- [x] docker: allow to execute stuff inside the docker
 - [ ] pl-backend: add a Perl backend (wip)
-- [ ] pr: add docker compose for postgres testing?
+- [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
@@ -23,13 +11,12 @@
 - [ ] pr: complete spec
 - [ ] pr: complete doc
 - [ ] pr: complete api
+- [ ] pr: add docker compose for postgres testing?
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
-- [ ] design: allow comments starting with `#`, not just `#`?
+- [ ] design: allow comments starting with `#`, not just `#`
 - [ ] optim: simplify float constraints
-- [ ] pr: add documentation page
-- [ ] pr: add reference / spec page
 - [ ] command: add bash completion
 - [ ] python: separate python interface in some file
 - [ ] python: check python interface consistency
@@ -83,11 +70,13 @@
 
 ## Re Do
 
+- [ ] pr: publish web page
 - [ ] pr: publish python jmc package
 - [ ] pr: publish js runtime package
 - [ ] pr: publish pgxn package
-- [ ] pr: publish other packages?
+- [ ] pr: publish docker image
 - [ ] pr: renew domain
+- [ ] pr: check jsonschema-benchmark integration
 
 ## To Do
 
@@ -450,3 +439,15 @@
 - [x] pr: register as an [official pgxs extension](https://pgxn.org/dist/json_model/).
 - [x] doc: complete jmc manpage
 - [x] pr: publish as a [python package](https://pypi.org/project/json-model-compiler/)
+- [x] pr: howto entry about installation
+- [x] pr: bootstrap spec
+- [x] pr: bootstrap doc
+- [x] pr: bootstrap api
+- [x] pr: add cover page
+- [x] pr: add front page to `models`
+- [x] pr: fix http requests without `.model.json` suffix (cri conf)
+- [x] pr: provide a non-root docker
+- [x] command: add --static compilation option to avoid dependencies?
+- [x] pr: publish the docker image `zx80/jmc:2.0b1`
+- [x] pr: use docker for tuto
+- [x] docker: allow to execute stuff inside the docker
