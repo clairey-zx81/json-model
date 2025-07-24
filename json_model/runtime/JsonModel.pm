@@ -31,6 +31,8 @@ our @EXPORT = qw(
     jm_is_valid_regex
     jm_is_valid_exreg
     jm_is_valid_uuid
+    jm_obj_size
+    jm_any_len
     jm_is_unique_array
     jm_starts_with
     jm_ends_with
@@ -194,6 +196,26 @@ sub jm_is_valid_exreg($$$)
 {
     my ($e, $p, $r) = @_;
     return jm_is_valid_regex($e, $p, $r);
+}
+
+#
+# LENGTH
+#
+
+sub jm_obj_size($)
+{
+    my ($o) = @_;
+    return scalar keys %$o;
+}
+
+sub jm_any_len($)
+{
+    my ($x) = $@;
+    my $t = jm_type($x);
+    return jm_obj_size($x) if $t eq "object";
+    return length @$x if $t eq "array";
+    return length $x if $t eq "string";
+    die "unexpected type $t for length";
 }
 
 #
