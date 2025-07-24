@@ -56,6 +56,9 @@ The wrapper script allows 3 modes:
 
   ```sh
   ./jmc shell
+  jsu-model schema.json > model.json
+  jmc -o model.out model.json
+  ./model.out -T 1000 hobbes.json
   ```
 
 ## Direct Docker Commands
