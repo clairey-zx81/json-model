@@ -143,9 +143,7 @@ is added automatically):
 
 ```sh
 jmc -r Person-0 moe.json
-```
-```
-moe.json: FAIL (.: unexpected object [.]; .friend: unexpected prop [.])
+# moe.json: FAIL (.: unexpected object [.]; .friend: unexpected prop [.])
 ```
 
 The validation rejects the property at path `.friend` because it is not allowed
@@ -388,10 +386,8 @@ The first one is valid but the second is rejected:
 
 ```sh
 jmc Town beijing.json shanghai.json
-```
-```
-beijing.json: PASS
-shanghai.json: FAIL (.: unexpected object [.]; .pop: invalid mandatory prop value [.pop]; .pop: not a 1 strict int [.pop])
+# beijing.json: PASS
+# shanghai.json: FAIL (.: unexpected object [.]; .pop: invalid mandatory prop value [.pop]; .pop: not a 1 strict int [.pop])
 ```
 
 This behavior can be loosen with option `--loose-number`, or by adding a special
@@ -481,10 +477,8 @@ May or may not validate:
 
 ```sh
 jmc -r Tournament musketeers.json 3_musketeers.json
-```
-```
-musketeers.json: PASS
-3_musketeers.json: FAIL (.: constraints failed [.])
+# musketeers.json: PASS
+# 3_musketeers.json: FAIL (.: constraints failed [.])
 ```
 
 ## Transforming Models
@@ -577,10 +571,8 @@ a value so as to compute the average and standard deviation times in µs.
   ```sh
   jmc -o person.out Person-2
   ./person.out -T 1000000 hobbes.json
-  ```
-  ```
-  hobbes.json: 0.152 ± 0.058 µs/check (0.152)
-  hobbes.json: PASS
+  # hobbes.json: 0.152 ± 0.058 µs/check (0.152)
+  # hobbes.json: PASS
   ```
 
 - NodeJS script:
@@ -597,10 +589,8 @@ a value so as to compute the average and standard deviation times in µs.
   ```sh
   jmc -o person.js Person-2
   ./person.js -T 1000000 hobbes.json
-  ```
-  ```
-  hobbes.json: 0.536 ± 0.962 µs (0.032)
-  hobbes.json: PASS
+  # hobbes.json: 0.536 ± 0.962 µs (0.032)
+  # hobbes.json: PASS
   ```
 
 - Python script:
@@ -608,10 +598,8 @@ a value so as to compute the average and standard deviation times in µs.
   ```sh
   jmc -o person.py Person-2
   ./person.py -T 1000000 hobbes.json
-  ```
-  ```
-  hobbes.json: 9.386 ± 0.972 µs/call (0.050)
-  hobbes.json: PASS
+  # hobbes.json: 9.386 ± 0.972 µs/call (0.050)
+  # hobbes.json: PASS
   ```
 
 Some comments about these representative performance figures:
