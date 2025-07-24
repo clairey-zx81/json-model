@@ -54,7 +54,7 @@ RUN npm install re2
 
 RUN git clone https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
-RUN npm install file:./json-model/js_runtime
+RUN npm install file:./json-model/json_model/runtime/js
 RUN ls -la node_modules
 # RUN rm -rf ./json-model  # not if editable
 

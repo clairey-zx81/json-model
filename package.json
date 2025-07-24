@@ -9,7 +9,7 @@
     "node": ">= 20.0.0"
   },
   "dependencies": {
-    "json_model_runtime": "file:js_runtime",
+    "json_model_runtime": "file:json_model/runtime/js",
     "re2": "^1.22.1"
   }
 }

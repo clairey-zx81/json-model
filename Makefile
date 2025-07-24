@@ -65,8 +65,8 @@ check.tests: dev
 
 .PHONY: publish.js
 publish.js:
-	npm publish --dry-run ./js_runtime
-	echo npm publish ./js_runtime
+	npm publish --dry-run ./json_model/runtime/js
+	echo npm publish ./json_model/runtime/js
 
 site/MODELS.md: Makefile models/
 	{
