@@ -4,9 +4,10 @@
 
 Following the [diátaxis](https://diataxis.fr/) approach, this project provides:
 
-- a [tutorial](TUTO.md) about JSON Model and the `jmc` command.
+- a [tutorial](TUTO.md) about JSON Model and the `jmc` command,
+  using [docker](https://hub.docker.com/r/zx80/jmc) for testing.
 - a [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a project.
-- explanations and discussions: ([introduction](README.md), …
+- explanations and discussions: ([introduction](README.md), [docker](DOCKER.md), …).
 - references about [JSON Model](SPEC.md) and the [`jmc` command](jmc.md).
 
 ## Research Papers
