@@ -26,7 +26,7 @@ chmod a+rx ./jmc
 
 The wrapper script allows 3 modes:
 
-- :boat: **compiler**: execute the `jmc` command inside the current directory:
+- :cherries: **compiler**: execute the `jmc` command inside the current directory:
 
   ```sh
   ./jmc model.json hobbes.json                  # PASS or FAIL…
