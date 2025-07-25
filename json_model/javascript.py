@@ -6,11 +6,7 @@ from .mtypes import Jsonable, JsonScalar, Number
 _ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
 
 class JavaScript(Language):
-    """Generate JSON value checker in JavaScript.
-
-    This implementation relies on inheritance for many methods, thanks to the root
-    class heavy parameterization about operators, end-of-instruction and the like.
-    """
+    """JavaScript Code Generator."""
 
     def __init__(self, *,
                  debug: bool = False, relib: str = "re",

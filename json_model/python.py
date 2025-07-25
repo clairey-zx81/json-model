@@ -4,7 +4,7 @@ from .mtypes import Number
 
 
 class Python(Language):
-    """Python language support."""
+    """Python language Code Generator."""
 
     def __init__(self, *, relib: str = "re2",
                  debug: bool = False, with_report: bool = True, with_path: bool = True):

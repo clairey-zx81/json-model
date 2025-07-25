@@ -7,7 +7,7 @@ _DECL = "%PL_DECL% "
 _ESC_TABLE = { "'": "''" }
 
 class PLpgSQL(Language):
-    """Generate JSON value checker in PL/pgSQL."""
+    """PL/pgSQL Code Generator."""
 
     def __init__(self, *,
                  debug: bool = False,
