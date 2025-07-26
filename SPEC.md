@@ -25,9 +25,7 @@ There are not cycles or references, a JSON data structure is only a tree.
 
 ## Type Inference
 
-## Scalars
-
-## Constraints
+## Constants and Constraints
 
 ## Definitions and Scope
 
