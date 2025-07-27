@@ -36,7 +36,7 @@ class Language:
     def __init__(self,
             name: str, *,
             debug: bool = False,
-            # operators and separators
+            # operators, separators, types…
             eq: str = "==", ne: str = "!=",
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
             not_op: str = "not", and_op: str = "and", or_op: str = "or",
@@ -109,6 +109,10 @@ class Language:
         ident = prefix + "_" + str(self._idcounts[prefix])
         self._idcounts[prefix] += 1
         return ident
+
+    def is_a_var(self, expr: Expr) -> bool:
+        """Return whether expression is just a variable name."""
+        return expr != self._null and re.search(r"^[_a-zA-Z]\w+$", expr) is not None  # type: ignore
 
     #
     # SOURCE FILE MANAGEMENT
@@ -447,7 +451,7 @@ class Language:
 
     def iand_op(self, res: Var, e: BoolExpr) -> Block:
         """And-update boolean variable."""
-        return [ "{var} &= {e}{self.eoi}" ]
+        return [ "{var} &= {e}{self._eoi}" ]
 
     def inc_var(self, var: Var) -> Block:
         """Increment integer variable."""

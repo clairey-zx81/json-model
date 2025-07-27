@@ -1,0 +1,8 @@
+at_bool.values.json[0]: PASS
+at_bool.values.json[1]: PASS
+at_bool.values.json[2]: FAIL
+at_bool.values.json[3]: FAIL
+at_bool.values.json[4]: FAIL
+at_bool.values.json[5]: FAIL
+at_bool.values.json[6]: FAIL
+at_bool.values.json[7]: FAIL

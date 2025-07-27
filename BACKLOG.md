@@ -2,7 +2,9 @@
 
 ## Current Tasks
 
-- [ ] pl-backend: add a Perl backend (wip)
+- [x] pl-backend: add a Perl backend
+- [x] tests: add pl tests
+- [ ] backends: generate a short version string for internal tests
 - [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] pr: add pl to tuto
 - [ ] pr: add pl to readme
@@ -18,7 +20,7 @@
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
-- [ ] backends: generate a short version string for internal tests
+- [ ] pl-backend: fix reporting
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] schema: inline external reference to generate valid schemas

@@ -36,17 +36,19 @@ F.py    = $(F.root:%=%.py)
 F.js    = $(F.root:%=%.js)
 F.out   = $(F.root:%=%.out)
 F.sql   = $(F.root:%=%.sql)
+F.pl    = $(F.root:%=%.pl)
 # test results
 F.cc    = $(F.root:%=%.c.check)
 F.pyc   = $(F.root:%=%.py.check)
 F.jsc   = $(F.root:%=%.js.check)
 F.sqlc  = $(F.root:%=%.sql.check)
+F.plc   = $(F.root:%=%.pl.check)
 
 # all generated
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.EO) \
-    $(F.c) $(F.py) $(F.cc) $(F.sql) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc)
+    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) \
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc)
 
 .PHONY: all
 all: $(F.gen)
@@ -56,6 +58,12 @@ js: $(F.js) $(F.jsc)
 
 clean.js:
 	$(RM) $(F.js) $(F.jsc)
+
+.PHONY: pl clean.pl
+pl: $(F.pl) $(F.plc)
+
+clean.pl:
+	$(RM) $(F.pl) $(F.plc)
 
 -include local.mk
 
@@ -127,6 +135,9 @@ CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
 LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
 endif
 
+#
+# C Backend
+#
 json-model.o: ../../json_model/runtime/json-model.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
@@ -148,6 +159,9 @@ $(F.out): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
+#
+# Python Backend
+#
 %.py: %.model.json
 	$(JMC.cmd) -v -o $@ ./$<
 	chmod a+rx $@
@@ -160,6 +174,9 @@ $(F.out): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
+#
+# JavaScript Backend
+#
 %.js: %.model.json
 	$(JMC.cmd) -v -o $@ $<
 	chmod a+rx $@
@@ -172,6 +189,9 @@ $(F.out): json-model.o main.o
 	    $< -tr $*.values.json >> $@
 	fi
 
+#
+# PL/pgSQL Backend
+#
 %.sql: %.model.json
 	$(JMC.cmd) --no-reporting -o $@ $<
 
@@ -185,6 +205,27 @@ $(F.out): json-model.o main.o
 	# TODO check for errors to ignore
 
 #
+# Perl Backend
+#
+%.pl: %.model.json
+	$(JMC.cmd) --no-reporting -o $@ $<
+
+# NOTE no -r for now
+# TODO check for specific pl error
+%.pl.check: %.pl %.values.json
+	shopt -s nullglob
+	set -o pipefail
+	./$< $*.*.{true,false}.json | sort > $@
+	if [ -f $*.values.json ] ; then
+	    $< -t $*.values.json >> $@
+	    status=$$?
+	fi
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
+	fi
+	exit $$status
+
+#
 # Generated JSON Schema checks
 #
 F.schema    = $(F.root:%=%.schema.json)
@@ -195,9 +236,18 @@ check.schema: $(F.sXc)
 # helpers
 %.ALL:
 	$(MAKE) $*.model.json $*.schema.json \
-	    $*.c $*.c.check $*.py $*.py.check $*.js $*.js.check $*.sql $*.sql.check
+	    $*.c $*.c.check \
+	    $*.py $*.py.check \
+	    $*.js $*.js.check \
+	    $*.sql $*.sql.check \
+	    $*.pl $*.pl.check
 
 %.CLEAN:
-	$(RM) $*.schema.json $*.c $*.c.check $*.py $*.py.check $*.js $*.js.check $*.sql $*.sql.check
+	$(RM) $*.schema.json \
+	    $*.c $*.c.check \
+	    $*.py $*.py.check \
+	    $*.js $*.js.check \
+	    $*.sql $*.sql.check \
+	    $*.pl $*.pl.check
 
 # TODO JSON Schema checks on test values?

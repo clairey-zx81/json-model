@@ -32,6 +32,7 @@ EXPECT: dict[str, int] = {
     "mv-01:values": 100,
     "mv-01:errors.js": 2,
     "mv-01:errors.sql": 2,
+    "mv-01:errors.pl": 2,
     "mv-01:verrors:schema": 14,
     # chunk 02
     "mv-02:js2json": 1,
@@ -70,12 +71,14 @@ EXPECT: dict[str, int] = {
     "mv-09:values": 141,
     "mv-09:errors.js": 2,
     "mv-09:errors.sql": 2,
+    "mv-09:errors.pl": 2,
     "mv-09:verrors:schema": 2,
     # chunk 0A
     "mv-0a:models": 10,
     "mv-0a:values": 131,
     "mv-0a:errors.js": 1,
     "mv-0a:errors.sql": 1,
+    "mv-0a:errors.pl": 1,
     "mv-0a:verrors:schema": 1,
     # chunk 0B
     "mv-0b:models": 7,
@@ -85,6 +88,7 @@ EXPECT: dict[str, int] = {
     "mv-0c:values": 50,
     "mv-0c:errors.js": 1,
     "mv-0c:errors.sql": 1,
+    "mv-0c:errors.pl": 1,
     "mv-0c:verrors:schema": 1,
     # chunk 0D
     "mv-0d:models": 10,
@@ -112,12 +116,14 @@ EXPECT: dict[str, int] = {
     "mv-13:values": 91,
     "mv-13:errors.js": 1,
     "mv-13:errors.sql": 1,
+    "mv-13:errors.pl": 1,
     "mv-13:verrors:schema": 1,
     # chunk 14
     "mv-14:models": 12,
     "mv-14:values": 84,
     "mv-14:errors.js": 6,
     "mv-14:errors.sql": 6,
+    "mv-14:errors.pl": 6,
     "mv-14:verrors:schema": 6,
     # chunk 15
     "mv-15:js2json": 2,
@@ -125,18 +131,21 @@ EXPECT: dict[str, int] = {
     "mv-15:values": 133,
     "mv-15:errors.js": 1,
     "mv-15:errors.sql": 1,
+    "mv-15:errors.pl": 1,
     "mv-15:verrors:schema": 9,
     # chunk 16
     "mv-16:models": 11,
     "mv-16:values": 100,
     "mv-16:errors.js": 1,
     "mv-16:errors.sql": 1,
+    "mv-16:errors.pl": 1,
     "mv-16:verrors:schema": 1,
     # chunk 17
     "mv-17:models": 12,
     "mv-17:values": 145,
     "mv-17:errors.js": 2,
     "mv-17:errors.sql": 2,
+    "mv-17:errors.pl": 2,
     "mv-17:verrors:schema": 2,
     # chunk 18
     "mv-18:js2json": 3,
@@ -151,12 +160,14 @@ EXPECT: dict[str, int] = {
     "mv-1a:values": 132,
     "mv-1a:errors.js": 2,
     "mv-1a:errors.sql": 2,
+    "mv-1a:errors.pl": 2,
     "mv-1a:verrors:schema": 3,
     # chunk 1B
     "mv-1b:models": 10,
     "mv-1b:values": 68,
     "mv-1b:errors.js": 13,
     "mv-1b:errors.sql": 13,
+    "mv-1b:errors.pl": 13,
     "mv-1b:verrors:schema": 13,
     # chunk 1C
     "mv-1c:models": 6,
@@ -172,10 +183,11 @@ EXPECT: dict[str, int] = {
     "mv-1e:values": 151,
     "mv-1e:errors.js": 1,
     "mv-1e:errors.sql": 2,
+    "mv-1e:errors.pl": 1,
     "mv-1e:verrors:schema": 15,
     # chunk 1F
     "mv-1f:models": 9,
-    "mv-1f:values": 136,
+    "mv-1f:values": 137,
     "mv-1f:verrors:schema": 43,
     # chunk 20
     "mv-20:models": 9,
@@ -468,7 +480,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
         if vfile.exists():
 
-            with os.popen(f"{fexec} -tr {vfile} | cut -d/ -f2-") as p:
+            with os.popen(f"{fexec} -t -r {vfile} | cut -d/ -f2-") as p:
                 result = p.read()
             out += result
 
@@ -529,6 +541,10 @@ def test_sta_sql(directory):
     """Check generated SQL scripts with test value files."""
     check_values(directory, "sta-sql", ".sql", ".sql.check",
                  lambda f: f"./test_sql.sh {f}")
+
+def test_sta_pl(directory):
+    """Check generated Perl scripts with test value files."""
+    check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f)
 
 #
 # DYNAMIC CHECKS AGAINST VALUES
@@ -688,6 +704,10 @@ def test_models_py(directory):
 
 def test_models_js(directory):
     check_models(directory, "./ref/json-model.js")
+
+@pytest.mark.skip(reason="wip…")
+def test_models_pl(directory):
+    check_models(directory, "./ref/json-model.pl")
 
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")

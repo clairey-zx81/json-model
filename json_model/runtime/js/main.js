@@ -112,13 +112,14 @@ export default async function main(checker_init, checker, checker_free)
     checker_init()
 
     const options = {
+      // TODO --help --list
       'verbose': { type: 'boolean', short: 'v' },
       'time': { type: 'string', short: 'T' },
       'report': { type: 'boolean', short: 'r' },
       'test': { type: 'boolean', short: 't' },
+      'jsonl': { type: 'boolean', short: 'L' },
       're2': { type: 'boolean' },
       'regexp': { type: 'boolean' },
-      'jsonl': { type: 'boolean' },
       'jsonschema-benchmark': { type: 'boolean', short: 'B' },
     }
 

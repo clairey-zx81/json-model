@@ -2,6 +2,7 @@
   [ true,  "Susie" ],
   [ true,  "Hello Susie" ],
   [ false, "Susie!" ],
+  [ false, "usie" ],
   [ false, "" ],
   [ false, null ],
   [ false, true ],

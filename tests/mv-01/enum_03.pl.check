@@ -1,0 +1,7 @@
+enum_03.values.json[0]: PASS
+enum_03.values.json[1]: PASS
+enum_03.values.json[2]: FAIL
+enum_03.values.json[3]: FAIL
+enum_03.values.json[4]: FAIL
+enum_03.values.json[5]: FAIL
+enum_03.values.json[6]: FAIL

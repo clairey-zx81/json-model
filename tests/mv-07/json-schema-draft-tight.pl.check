@@ -1,0 +1,9 @@
+json-schema-draft-tight.values.json[0]: PASS
+json-schema-draft-tight.values.json[1]: FAIL
+json-schema-draft-tight.values.json[2]: FAIL
+json-schema-draft-tight.values.json[3]: FAIL
+json-schema-draft-tight.values.json[4]: FAIL
+json-schema-draft-tight.values.json[5]: FAIL
+json-schema-draft-tight.values.json[6]: FAIL
+json-schema-draft-tight.values.json[7]: FAIL
+json-schema-draft-tight.values.json[8]: FAIL

@@ -1,0 +1,8 @@
+loose.values.json[0]: PASS
+loose.values.json[1]: PASS
+loose.values.json[2]: FAIL
+loose.values.json[3]: FAIL
+loose.values.json[4]: FAIL
+loose.values.json[5]: FAIL
+loose.values.json[6]: FAIL
+loose.values.json[7]: FAIL

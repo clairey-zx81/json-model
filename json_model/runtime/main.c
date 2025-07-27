@@ -260,10 +260,10 @@ int main(int argc, char* argv[])
         { "report", no_argument, NULL, 'r' },
         { "test", no_argument, NULL, 't' },
         { "time", required_argument, NULL, 'T' },
+        { "jsonl", no_argument, NULL, 'L' },
         { "fast", no_argument, NULL, 1000 },
         { "slow", no_argument, NULL, 1001 },
-        { "jsonl", no_argument, NULL, 1002 },
-        { "jsonschema-benchmark", no_argument, NULL, 1003 },
+        { "jsonschema-benchmark", no_argument, NULL, 1002 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -296,6 +296,9 @@ int main(int argc, char* argv[])
             case 'T':
                 loop = atoi(optarg);
                 break;
+            case 'L':
+                jsonl = true;
+                break;
             case 1000:
                 jm_is_valid_regex = jm_is_valid_regex_fast;
                 jm_is_valid_date = jm_is_valid_date_fast;
@@ -305,9 +308,6 @@ int main(int argc, char* argv[])
                 jm_is_valid_date = jm_is_valid_date_slow;
                 break;
             case 1002:
-                jsonl = true;
-                break;
-            case 1003:
                 jsonl = true;
                 jsonschema_benchmark = true;
                 break;

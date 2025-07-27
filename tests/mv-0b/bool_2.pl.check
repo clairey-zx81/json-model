@@ -1,0 +1,11 @@
+bool_2.values.json[0]: PASS
+bool_2.values.json[1]: PASS
+bool_2.values.json[2]: FAIL
+bool_2.values.json[3]: FAIL
+bool_2.values.json[4]: FAIL
+bool_2.values.json[5]: FAIL
+bool_2.values.json[6]: FAIL
+bool_2.values.json[7]: FAIL
+bool_2.values.json[8]: FAIL
+bool_2.values.json[9]: FAIL
+bool_2.values.json[10]: FAIL

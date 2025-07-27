@@ -1,5 +1,5 @@
 [
-  "list of distint anything",
+  "list of distinct anything",
   [ true,  [] ],
   [ true,  [null] ],
   [ true,  [null, 1] ],

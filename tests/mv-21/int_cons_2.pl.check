@@ -1,0 +1,8 @@
+int_cons_2.values.json[0]: PASS
+int_cons_2.values.json[1]: FAIL
+int_cons_2.values.json[2]: FAIL
+int_cons_2.values.json[3]: FAIL
+int_cons_2.values.json[4]: PASS
+int_cons_2.values.json[5]: FAIL
+int_cons_2.values.json[6]: FAIL
+int_cons_2.values.json[7]: FAIL

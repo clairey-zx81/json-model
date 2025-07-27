@@ -1,1 +1,17 @@
-comments.values.json: ERROR (SyntaxError: Expected ',' or ']' after array element in JSON at position 506 (line 20 column 1))
+comments.values.json[0]: PASS
+comments.values.json[1]: PASS
+comments.values.json[2]: FAIL (.: unexpected element [.]; .hello: invalid mandatory prop value [.hello]; .hello: unexpected string [.hello])
+comments.values.json[3]: FAIL (.: unexpected element [.]; .world: invalid mandatory prop value [.world]; .world: unexpected /^!/ [.world])
+comments.values.json[4]: FAIL (.: unexpected element [.]; .world: invalid mandatory prop value [.world]; .world: unexpected /^!/ [.world])
+comments.values.json[5]: FAIL (.: unexpected element [.]; .: missing mandatory prop <world> [.]; .: missing mandatory prop <hello> [.])
+comments.values.json[6]: FAIL (.: unexpected element [.]; .: missing mandatory prop <world> [.])
+comments.values.json[7]: FAIL (.: unexpected element [.]; .: missing mandatory prop <hello> [.])
+comments.values.json[8]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[9]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[10]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[11]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[12]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[13]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[14]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[15]: FAIL (.: unexpected element [.]; .: not an object [.])
+comments.values.json[16]: FAIL (.: unexpected element [.]; .: not an object [.])

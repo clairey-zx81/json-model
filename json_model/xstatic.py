@@ -1422,12 +1422,16 @@ def xstatic_compile(
                                 relib=relib or "re2")
     elif lang == "js":
         from .javascript import JavaScript
-        language = JavaScript(debug=debug,
-                              with_report=report, with_path=report, relib=relib or "re")
+        language = JavaScript(debug=debug, with_report=report, with_path=report,
+                              relib=relib or "re")
+    elif lang == "pl":
+        from .perl import Perl
+        language = Perl(debug=debug, with_report=report, with_path=report,
+                        relib=relib or "re2")
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
-        language = PLpgSQL(debug=debug,
-                           with_report=report, with_path=report, relib=relib or "re")
+        language = PLpgSQL(debug=debug, with_report=report, with_path=report,
+                           relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

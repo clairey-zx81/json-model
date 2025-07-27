@@ -1,0 +1,10 @@
+strict.values.json[0]: PASS
+strict.values.json[1]: ERROR, unexpected PASS
+strict.values.json[2]: FAIL
+strict.values.json[3]: FAIL
+strict.values.json[4]: FAIL
+strict.values.json[5]: FAIL
+strict.values.json[6]: FAIL
+strict.values.json[7]: FAIL
+strict.values.json[8]: FAIL
+strict.values.json[9]: FAIL

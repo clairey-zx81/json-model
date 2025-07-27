@@ -1,0 +1,9 @@
+rec_01.values.json[0]: PASS
+rec_01.values.json[1]: PASS
+rec_01.values.json[2]: PASS
+rec_01.values.json[3]: FAIL
+rec_01.values.json[4]: FAIL
+rec_01.values.json[5]: FAIL
+rec_01.values.json[6]: FAIL
+rec_01.values.json[7]: FAIL
+rec_01.values.json[8]: FAIL

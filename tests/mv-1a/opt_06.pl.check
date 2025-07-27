@@ -1,0 +1,10 @@
+opt_06.values.json[0]: PASS
+opt_06.values.json[1]: PASS
+opt_06.values.json[2]: FAIL
+opt_06.values.json[3]: FAIL
+opt_06.values.json[4]: ERROR, unexpected PASS
+opt_06.values.json[5]: FAIL
+opt_06.values.json[6]: FAIL
+opt_06.values.json[7]: FAIL
+opt_06.values.json[8]: FAIL
+opt_06.values.json[9]: FAIL

@@ -314,7 +314,7 @@ def main(jm_fun, jm_map, jmc_version):
     ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
-    ap.add_argument("--jsonl", action="store_true", default=False, help="assume JSONL files")
+    ap.add_argument("--jsonl", "-L", action="store_true", default=False, help="assume JSONL files")
     ap.add_argument("--jsonschema-benchmark", action="store_true", default=False,
                     help="specific JSON Schema Benchmark run")
     ap.add_argument("values", nargs="*", help="JSON files")
