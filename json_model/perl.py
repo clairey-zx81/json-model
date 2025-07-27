@@ -321,9 +321,10 @@ class Perl(Language):
         return self.sub_fun(name, body)
 
     def _escRegEx(self, regex: str) -> str:
-        regex = regex.replace("/", r"\/")
-        # $ followed by a name is interpreted as a variable in a regex…
-        regex = re.sub(r"(\$(\w+|%))", r"\\\1", regex)
+        # we do not want an open / in the regex
+        regex = re.sub(r"([^\\])/", r"\1\\/", regex)
+        # $ followed by a name is interpreted as a variable in a regex, we must backslash some…
+        regex = re.sub(r"(\$(\w+|%|]))", r"\\\1", regex)
         return regex
 
     # EMPTY: def_re ini_re del_re
