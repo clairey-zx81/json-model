@@ -7,7 +7,7 @@ const require = createRequire(import.meta.url);
 // see https://github.com/clairey-zx81/json-model
 //
 import * as runtime from "json_model_runtime"
-const JSON_MODEL_VERSION = "2.0b1";
+const JSON_MODEL_VERSION = "2";
 
 var _jm_obj_1_map = new Map()
 let _jm_cst_0 = new Set()

@@ -36,6 +36,7 @@ class Language:
     def __init__(self,
             name: str, *,
             debug: bool = False,
+            short_version: bool = False,
             # operators, separators, types…
             eq: str = "==", ne: str = "!=",
             ge: str = ">=", gt: str = ">", le: str = "<=", lt: str = "<",
@@ -59,6 +60,7 @@ class Language:
         # keep parameters
         self._name = name  # language name
         self._debug = debug
+        self._short_version = short_version
         self._with_path = with_path and with_report
         self._with_report = with_report
         self._with_comment = with_comment
@@ -99,9 +101,10 @@ class Language:
         self._re_used: bool = False          # whether regular expressions are used
         self.set_caps = tuple(set_caps)      # constant types in a set
 
-    #
-    # variables
-    #
+    def version(self) -> str:
+        """Version string in generated code."""
+        return self._version.split(".", 1)[0] if self._short_version else self._version
+
     def ident(self, prefix: str) -> Var:
         """Return a new identifier using prefix."""
         if prefix not in self._idcounts:

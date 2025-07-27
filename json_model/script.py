@@ -274,6 +274,8 @@ def jmc_script():
         help="add reporting capabilities (default)")
     arg("--no-reporting", dest="reporting", action="store_false",
         help="remove reporting capabilities")
+    arg("--short-version", action="store_true", default=False,
+        help="generate a short version in output code")
 
     generate = ap.add_mutually_exclusive_group()
     gen = generate.add_argument
@@ -518,7 +520,8 @@ def jmc_script():
         # compile to source
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
-                               debug=args.debug, report=args.reporting, relib=args.regex_engine)
+                               debug=args.debug, report=args.reporting, relib=args.regex_engine,
+                               short_version=args.short_version)
         source = str(code)
 
         # source to executable

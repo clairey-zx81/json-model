@@ -79,7 +79,7 @@ class Python(Language):
             r"from typing import Callable",
             f"import {self._relib} as re",
             r"from json_model.runtime import *",
-            f"__version__ = {self.esc(self._version)}",
+            f"__version__ = {self.esc(self.version())}",
             "",
         ]
         code += self.file_load("python_entry.py")  # too early?

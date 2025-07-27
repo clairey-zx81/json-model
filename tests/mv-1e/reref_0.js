@@ -7,7 +7,7 @@ const require = createRequire(import.meta.url);
 // see https://github.com/clairey-zx81/json-model
 //
 import * as runtime from "json_model_runtime"
-const JSON_MODEL_VERSION = "2.0b1";
+const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
 const _jm_xre_0_re_re = new runtime.RX("'(?<s1>\\w+)'.*'(?<s2>\\w+)'", "")

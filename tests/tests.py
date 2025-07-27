@@ -431,7 +431,8 @@ def test_lang(directory, language):
 
     def generate_language(fmodel: str):
         jm = model_from_url(fmodel, resolver=resolver, auto=True, follow=True)
-        code = xstatic_compile(jm, "check_model", lang=language, map_threshold=5, report=report)
+        code = xstatic_compile(jm, "check_model", lang=language,
+            map_threshold=5, report=report, short_version=True)
         return str(code)
 
     check_generated(directory, f"lang-{language}", f".{language}", generate_language)

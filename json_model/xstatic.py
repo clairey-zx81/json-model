@@ -1399,6 +1399,7 @@ def xstatic_compile(
         map_share: bool = False,
         debug: bool = False,
         report: bool = True,
+        short_version: bool = False,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -1410,6 +1411,7 @@ def xstatic_compile(
     - map_share: share generated property maps.
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
+    - short_version: in generated code
     """
     # target language
     if lang == "py":
@@ -1434,6 +1436,9 @@ def xstatic_compile(
                            relib=relib or "re")
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
+
+    # cold override
+    language._short_version = short_version
 
     # cource code generator
     gen = CodeGenerator(model._globs, language, fname, prefix=prefix,  # type: ignore

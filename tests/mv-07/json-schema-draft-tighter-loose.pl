@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use re::engine::RE2;
 use JsonModel;
-use constant JMC_VERSION => '2.0b1';
+use constant JMC_VERSION => '2';
 
 
 my %_jm_obj_1_map;

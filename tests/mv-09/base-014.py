@@ -6,7 +6,7 @@
 from typing import Callable
 import re2 as re
 from json_model.runtime import *
-__version__ = "2.0b1"
+__version__ = "2"
 
 def check_model_fun(name: str) -> CheckFun:
     """Return check function for JSON model name."""

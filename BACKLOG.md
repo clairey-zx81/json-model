@@ -4,7 +4,7 @@
 
 - [x] pl-backend: add a Perl backend
 - [x] tests: add pl tests
-- [ ] backends: generate a short version string for internal tests
+- [x] backends: generate a short version string for internal tests
 - [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] pr: add pl to tuto
 - [ ] pr: add pl to readme

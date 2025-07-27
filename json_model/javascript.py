@@ -32,7 +32,7 @@ class JavaScript(Language):
         code: Block = self.file_load("javascript_exe.js") if exe else []
         code += super().file_header(exe)
         code += self.file_load("javascript_head.js")
-        code += [ f"const JSON_MODEL_VERSION = {self.esc(self._version)};" ]
+        code += [ f"const JSON_MODEL_VERSION = {self.esc(self.version())};" ]
         return code
 
     def file_footer(self, exe: bool = True) -> Block:

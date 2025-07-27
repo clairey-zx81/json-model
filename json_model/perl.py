@@ -120,7 +120,7 @@ class Perl(Language):
             code.append("use re::engine::RE2;")
         code += [
             r"use JsonModel;",
-            f"use constant JMC_VERSION => {self.esc(self._version)};",
+            f"use constant JMC_VERSION => {self.esc(self.version())};",
             "",
         ]
         if not exe:
