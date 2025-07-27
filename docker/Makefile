@@ -22,10 +22,11 @@ docker.clean: clean
 #
 # DOCKER
 #
+NOCACHE = --no-cache
 .PHONY: docker.build
 docker.build: .build
 .build: Dockerfile
-	docker build -t jmc -f Dockerfile . && touch $@
+	docker build $(NOCACHE) -t jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
 docker.run: .build
