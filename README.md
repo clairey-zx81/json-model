@@ -132,7 +132,7 @@ format validations, on a laptop:
 - JSON Model JS: _791_ µs/check (under 1 ms)
 - JSON Schema C++ Blaze: _1252_ µs/check (over 1 ms)
 - JSON Model Python: _4,433_ µs/check (over 4 ms)
-- JSON Model Perl: TODO
+- JSON Model Perl: _24,275_ µs/check (about 25 ms)
 
 On this benchmark, JSON Model Compiler outperforms the fastest JSON Schema library 6:1,
 and the JavaScript model validation is faster than the C++ schema validation.
