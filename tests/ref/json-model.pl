@@ -1533,7 +1533,7 @@ sub json_model_30($$$)
 sub _jm_re_9($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^([#|&^+\/*@~=$%]|[<>!]=?)$/;
+    my $res = $val =~ /^([#|&^+\/*@~=\$%]|[<>!]=?)$/;
     return $res;
 }
 

@@ -29,7 +29,6 @@
   "?uniqueItems": true,
   "?maxProperties": 0,
   "?minProperties": 0,
-  "?uniqueItems": true,
   "?required": "$stringArray",
   "?additionalProperties": {"|": [true, "$Schema"]},
   "?definitions": {"": "$Schema"},

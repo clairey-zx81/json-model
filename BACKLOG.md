@@ -5,6 +5,8 @@
 - [x] pl-backend: add a Perl backend
 - [x] tests: add pl tests
 - [x] backends: generate a short version string for internal tests
+- [x] tests: fix `test_models_pl`
+- [ ] pl-frontend: expand `--help`
 - [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] pr: add pl to tuto
 - [ ] pr: add pl to readme
@@ -21,6 +23,7 @@
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pl-backend: fix reporting
+- [ ] script: detect and reject duplicated keywords in models
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] schema: inline external reference to generate valid schemas

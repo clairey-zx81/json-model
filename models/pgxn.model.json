@@ -59,7 +59,6 @@
     "?generated_by": "",
     "?tags": "$neStrList",
     "?no_index": { "?file": "$neStrList", "?directory": "$neStrList" },
-    "?prereqs": {},
     "?release_status": "$Status",
     "?resources": "$Resources",
     "?prereqs": "$Prereqs",

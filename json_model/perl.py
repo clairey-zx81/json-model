@@ -1,3 +1,5 @@
+import re
+
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import BoolExpr, JsonExpr, Expr, IntExpr, PathExpr, JsonScalar, StrExpr, NumExpr
 from .mtypes import Number, Jsonable
@@ -319,7 +321,10 @@ class Perl(Language):
         return self.sub_fun(name, body)
 
     def _escRegEx(self, regex: str) -> str:
-        return regex.replace("/", r"\/")
+        regex = regex.replace("/", r"\/")
+        # $ followed by a name is interpreted as a variable in a regex…
+        regex = re.sub(r"(\$(\w+|%))", r"\\\1", regex)
+        return regex
 
     # EMPTY: def_re ini_re del_re
     def sub_re(self, name: str, regex: str, opts: str) -> Block:

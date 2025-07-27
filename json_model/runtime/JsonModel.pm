@@ -548,14 +548,29 @@ sub jm_main($$$)
 
         # read and parse contents
         my $json;
-        if ($jsonl) {
-            $json = [ map decode_json_nonref split /\n/, $contents ];
-        }
-        else {
-            $json = decode_json_nonref $contents;
-            $json = [[ undef, $json ]] unless $test;
+        eval {
+            if ($jsonl) {
+                $json = [ map decode_json_nonref split /\n/, $contents ];
+            }
+            else {
+                $json = decode_json_nonref $contents;
+                $json = [[ undef, $json ]] unless $test;
+            }
+        };
+        if ($@) {
+            my $message = $@;
+            $message =~ tr/\n\r\f/ /;
+            $message =~ s/\s+$//;
+            $message =~ s/ at \/.*? line \d+\.//;
+            print "$file: ERROR (JSON error: $message)\n";
+            if ($test) {
+                warn "skipping non-json file: $file\n";
+                $errors++;
+            }
+            next;
         }
 
+        # jsonschema benchmark code
         if ($js_bench)
         {
             # adjust list to match benchmarking function expectations

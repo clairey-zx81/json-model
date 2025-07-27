@@ -33,7 +33,6 @@
       "?contains": "$Schema",
 	  "?maxProperties": 0,
 	  "?minProperties": 0,
-	  "?uniqueItems": true,
 	  "?required": [""],
 	  "?additionalProperties": "$Schema",
 	  "?definitions": {"": "$Schema"},

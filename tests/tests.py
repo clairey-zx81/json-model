@@ -706,7 +706,6 @@ def test_models_py(directory):
 def test_models_js(directory):
     check_models(directory, "./ref/json-model.js")
 
-@pytest.mark.skip(reason="wip…")
 def test_models_pl(directory):
     check_models(directory, "./ref/json-model.pl")
 
