@@ -399,7 +399,7 @@ sub jm_ends_with($$)
 # see https://github.com/sourcemeta-research/jsonschema-benchmark
 sub jsonschema_benchmark($$$$)
 {
-    my ($checker, $jsons, $display, $time) = @_;
+    my ($checker, $jsons, $file, $time) = @_;
     my $errors = 0;
 
     $time = 1 unless defined $time and $time > 0;
@@ -441,7 +441,8 @@ sub jsonschema_benchmark($$$$)
     my $stdev = sqrt($sum2 / $time - $avg * $avg);
 
     # show rounded results
-    printf STDERR "$display: %.03f ± %.03f µs\n", $avg, $stdev;
+    my $pass = @$jsons - $errors;
+    printf STDERR "$file pl validation: pass=$pass fail=$errors %.03f ± %.03f µs\n", $avg, $stdev;
     my ($ns_cold, $ns_warm) = (int($cold_delay * 1E9 + 0.5), int($avg * 1E3 + 0.5));
     print "$ns_cold,$ns_warm\n";
 
@@ -550,7 +551,7 @@ sub jm_main($$$)
         my $json;
         eval {
             if ($jsonl) {
-                $json = [ map decode_json_nonref split /\n/, $contents ];
+                $json = [ map { decode_json_nonref $_ } split /\n/, $contents ];
             }
             else {
                 $json = decode_json_nonref $contents;
@@ -580,14 +581,18 @@ sub jm_main($$$)
             next;
         }
 
+        # remap jsonl to test
+        $json = [map { [undef, $_] } @$json ] if $jsonl;
+
         # else standard value/values processing
         die "expecting a list" unless jm_type($json) eq "array";
         my $index = 0;
         for my $item (@$json) {
-            next if jm_type($item) eq "string";
+            my $titem = jm_type $item;
+            next if $titem eq "string";
 
             # extract test case
-            die "expecting a tuple" unless jm_type($item) eq "array";
+            die "expecting a tuple, got $titem" unless $titem eq "array";
             die "bad tuple length" unless 2 <= @$item <= 3;
             my ($e, $n, $j);
             if (@$item == 3) {
