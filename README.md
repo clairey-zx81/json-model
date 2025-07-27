@@ -17,7 +17,7 @@ Command `jmc` options include:
 - main operations (default depends on other options, final guess is preprocess):
   - `-P`: preprocess model.
   - `-E`: export model to JSON Schema version draft 2020-12, if possible.
-  - `-C`: compile to Python, C, JS or PL/pgSQL.
+  - `-C`: compile to Python, C, JS, PL/pgSQL, Perl.
   - `-U`: dump all models.
   - `-J`: dump json IR.
 - `-O`: optimize model: constant propagation, partial evaluation, xor to or conversion, flattening…
@@ -132,6 +132,7 @@ format validations, on a laptop:
 - JSON Model JS: _791_ µs/check (under 1 ms)
 - JSON Schema C++ Blaze: _1252_ µs/check (over 1 ms)
 - JSON Model Python: _4,433_ µs/check (over 4 ms)
+- JSON Model Perl: TODO
 
 On this benchmark, JSON Model Compiler outperforms the fastest JSON Schema library 6:1,
 and the JavaScript model validation is faster than the C++ schema validation.

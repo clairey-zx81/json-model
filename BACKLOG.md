@@ -8,8 +8,8 @@
 - [x] tests: fix `test_models_pl`
 - [x] command: reject models and values with duplicated props by default
 - [x] pr: add pl to docker
-- [ ] pr: add pl to tuto
-- [ ] pr: add pl to readme
+- [x] pr: add pl to tuto
+- [x] pr: add pl to readme
 - [ ] pr: add pl to howto
 - [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] \*-frontend: reject json with duplicated props
