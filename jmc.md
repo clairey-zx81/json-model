@@ -9,7 +9,7 @@ jmc [-h] [--version] [--debug] [--verbose] [--quiet]
     [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}] [--allow-duplicates]
     [--loose-int] [--strict-int] [--loose-float] [--strict-float] [--loose-number] [--strict-number]
     [--check] [-[-no]-optimize] [-[-no]-reporting]
-    [--format {json,yaml,py,c,js,plpgsql}] [-[-no]-sort] [--indent INDENT]
+    [--format {json,yaml,py,c,js,plpgsql,pl}] [-[-no]-sort] [--indent INDENT]
     [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
     [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
@@ -22,12 +22,13 @@ jmc [-h] [--version] [--debug] [--verbose] [--quiet]
 # DESCRIPTION
 
 JSON Model Compiler command processes a [JSON Model](https://json-model.org/) to
-generate modules or scripts in C, JS, Python, PL/pgSQL, or a more-or-less equivalent JSON Schema.
+generate modules or scripts in C, JS, Python, PL/pgSQL, Perl, or a more-or-less equivalent
+JSON Schema.
 
 # ARGUMENTS
 
-- `model`: model to process.
-- `values...`: list of value files to check.
+- `model`: model to process, a local file or a URL.
+- `values...`: list of  value files to check.
 
 # OPTIONS
 

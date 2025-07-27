@@ -7,7 +7,8 @@ RUN apt update ; \
     apt install -y --no-install-recommends --fix-missing \
         git ca-certificates libtool m4 time automake make pkgconf gcc g++ texinfo jq curl less \
         nano vim libpcre2-dev libre2-dev libjansson-dev \
-        python3 python-is-python3 python3-venv python3-pip ; \
+        python3 python-is-python3 python3-venv python3-pip \
+        perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl ; \
     apt clean
 
 # application directory
@@ -56,7 +57,7 @@ RUN git clone https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/json_model/runtime/js
 RUN ls -la node_modules
-# RUN rm -rf ./json-model  # not if editable
+# RUN rm -rf ./json-model  # not if editable (-e above)
 
 RUN git clone https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
@@ -69,4 +70,5 @@ RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" 
 RUN mkdir /app/workspace
 WORKDIR /app/workspace
 ENV JSON_MODEL_CACHEDIR=/tmp
+ENV PERLLIB=/app/json-model/json_model/runtime
 ENTRYPOINT ["/app/venv/bin/jmc"]

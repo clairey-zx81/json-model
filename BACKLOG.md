@@ -7,13 +7,14 @@
 - [x] backends: generate a short version string for internal tests
 - [x] tests: fix `test_models_pl`
 - [x] command: reject models and values with duplicated props by default
-- [ ] pr: add pl to docker
+- [x] pr: add pl to docker
 - [ ] pr: add pl to tuto
 - [ ] pr: add pl to readme
 - [ ] pr: add pl to howto
 - [ ] pr: add jmc-pl to jsonschema-benchmark
 - [ ] \*-frontend: reject json with duplicated props
 - [ ] pl-frontend: expand `--help`
+- [ ] docker: add `help` to docker wrapper
 - [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
@@ -89,6 +90,8 @@
 - [ ] python: refactor preproc vs compile vs codegen…
 - [ ] c-backend: multithreading? one one value??
 - [ ] pr: deb and rpm packaging? github package distribution?
+- [ ] pl-backend: run perltidy?
+- [ ] docker: improve caching/no-caching of some commands
 
 ## Re Do
 

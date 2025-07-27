@@ -33,6 +33,7 @@ The wrapper script allows 3 modes:
   ./jmc -o model.out model.json                 # generate executable from C
   ./jmc --loose-number -o model.js model.json   # generate javascript script
   ./jmc -o model.py model.json                  # generate python script
+  ./jmc -o model.pl model.json                  # generate perl script
   ```
 
   :warning: Only run with relative downward path under the current directory
@@ -45,12 +46,17 @@ The wrapper script allows 3 modes:
   where dependencies are readily available:
 
   ```sh
-  ./jmc exec ./model.out -T 1000 hobbes.json
-  ./jmc exec ./model.js -T 1000 hobbes.json
-  ./jmc exec ./model.py -T 1000 hobbes.json
+  ./jmc exec ./model.out hobbes.json
+  ./jmc exec ./model.js hobbes.json
+  ./jmc exec ./model.py hobbes.json
+  ./jmc exec ./model.pl hobbes.json
   ```
 
   :warning: you must use an **explicit** relative path to the executable.
+
+  :+1: the generated executable have various options available for performance testing.
+  Try `-T 1000` to repeat validation _1000_ times on a value and collect average and standard
+  deviation µs. Try `--help` to check for available options.
 
 - :shell: **shell**: enjoy a shell with `jmc` and `jsu-*` commands available in the local directory:
 
