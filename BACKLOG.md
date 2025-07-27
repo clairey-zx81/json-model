@@ -4,6 +4,9 @@
 
 - [ ] pl-backend: add a Perl backend (wip)
 - [ ] pr: add jmc-pl to jsonschema-benchmark
+- [ ] pr: add pl to tuto
+- [ ] pr: add pl to readme
+- [ ] pr: add pl to howto
 - [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
@@ -14,7 +17,14 @@
 - [ ] pr: add docker compose for postgres testing?
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
+- [ ] pr: write `transformation.model.json` for illustration
+- [ ] backends: generate a short version string for internal tests
+- [ ] predefs: implement `$I32 $I64 $U32 $U64`
+- [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] schema: inline external reference to generate valid schemas
+- [ ] xstatic: use threshold limit for cset as well
+- [ ] xstatic: any array, skip empty code
+- [ ] backend: add check constraint variants per constant type?
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: object comments starting with `#`, not just `#`
