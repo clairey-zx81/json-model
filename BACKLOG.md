@@ -91,7 +91,8 @@
 - [ ] c-backend: multithreading? one one value??
 - [ ] pr: deb and rpm packaging? github package distribution?
 - [ ] pl-backend: run perltidy?
-- [ ] docker: improve caching/no-caching of some commands
+- [ ] docker: improve caching/no-caching of some commands (eg force weekly rebuild?).
+- [ ] pl-backend: check perl module package generation.
 
 ## Re Do
 
