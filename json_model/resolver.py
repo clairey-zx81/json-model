@@ -5,7 +5,7 @@ import yaml
 
 from .mtypes import ModelError, ModelPath, Jsonable
 from .url_cache import JsonURLCache
-from .utils import log
+from .utils import log, json_loads
 
 JSON_SUFFIX = ["", ".json", ".model", ".model.json"]
 YAML_SUFFIX = [".yaml", ".model.yaml", ".yml", ".model.yml"]
@@ -20,6 +20,7 @@ JS_TOKEN = r"(?s)(-?\d+(\.\d*)?([eE]-?\d+)?|\w+|" + \
            r'"([^"]*(\\")?)*"|' + r"'([^']*(\\')?)*'|\s+|\W)"
 
 def jsob2json(string: str) -> str:
+    """Parse a js object string and return a json string."""
     tokens: list[str] = []
     for mtoken in re.finditer(JS_TOKEN, string):
         token = mtoken.group(0)
@@ -38,10 +39,16 @@ class Resolver:
     - `maps`: url to directory mapping for testing.
     """
 
-    def __init__(self, cache_dir: str|None = None, maps: dict[str, str]|None = None):
+    def __init__(self,
+                 cache_dir: str|None = None,
+                 maps: dict[str, str]|None = None,
+                 *,
+                 allow_duplicates: bool = False,
+            ):
         self._cache = JsonURLCache(cache_dir)
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
+        self._allow_duplicates = allow_duplicates
 
     def __call__(self, url: str, *, path: ModelPath = [], follow: bool = True):
         """Resolve an external reference."""
@@ -50,7 +57,7 @@ class Resolver:
 
         if url == "-":  # no caching, cannot read same input twice?
             log.info("reading: stdin")
-            return json.load(sys.stdin)
+            return json_loads(sys.stdin.read, allow_duplicates=self._allow_duplicates)
 
         # possibly follow mappings
         if follow:
@@ -92,7 +99,8 @@ class Resolver:
                         # guess content type
                         if fn.endswith(".json") or re.match(JSON_RE, content):
                             # try JSON
-                            self._jsons[url] = j = json.loads(content)
+                            self._jsons[url] = j = \
+                                json_loads(content, allow_duplicates=self._allow_duplicates)
                         else:  # try yaml
                             self._jsons[url] = j = yaml.full_load(content)
                         return j

@@ -3,6 +3,7 @@
 #
 import sys
 import re
+import json
 from importlib.metadata import version as pkg_version
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
@@ -621,3 +622,17 @@ def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: Mod
         else:
             raise ModelError(f"unexpected model type ({mt.__name__}) {mpath}")
     return True
+
+def json_loads(j: str, *, allow_duplicates: bool = False) -> Jsonable:
+    """Load JSON, possibly rejecting duplicated keys."""
+    if allow_duplicates:
+        dict_nodups = None
+    else:
+        def dict_nodups(pairs):
+            d = {}
+            for (k, v) in pairs:
+                if k in d:
+                    raise ValueError(f"duplicated key {k} found while building JSON object")
+                d[k] = v
+            return d
+    return json.loads(j, object_pairs_hook=dict_nodups)

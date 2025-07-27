@@ -6,11 +6,14 @@
 - [x] tests: add pl tests
 - [x] backends: generate a short version string for internal tests
 - [x] tests: fix `test_models_pl`
-- [ ] pl-frontend: expand `--help`
-- [ ] pr: add jmc-pl to jsonschema-benchmark
+- [x] command: reject models and values with duplicated props by default
+- [ ] pr: add pl to docker
 - [ ] pr: add pl to tuto
 - [ ] pr: add pl to readme
 - [ ] pr: add pl to howto
+- [ ] pr: add jmc-pl to jsonschema-benchmark
+- [ ] \*-frontend: reject json with duplicated props
+- [ ] pl-frontend: expand `--help`
 - [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects

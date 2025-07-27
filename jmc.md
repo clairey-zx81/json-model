@@ -6,7 +6,7 @@ jmc - JSON Model Compiler
 
 ```
 jmc [-h] [--version] [--debug] [--verbose] [--quiet]
-    [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
+    [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}] [--allow-duplicates]
     [--loose-int] [--strict-int] [--loose-float] [--strict-float] [--loose-number] [--strict-number]
     [--check] [-[-no]-optimize] [-[-no]-reporting]
     [--format {json,yaml,py,c,js,plpgsql}] [-[-no]-sort] [--indent INDENT]
@@ -49,6 +49,7 @@ Here are the most useful options:
 - `--maps "URL PATH"` or `-m …`: map remote urls to a local path.
 - `--auto` or `-a`: infer url to path mapping from declared model URL (`.$.""`).
 - `--check`: whether to check the model for errors at various stages.
+- `--allow-duplicates`: accept JSON with objects containing duplicated properties.
 
 ### Processing
 

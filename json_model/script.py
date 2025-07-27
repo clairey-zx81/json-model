@@ -9,7 +9,7 @@ from importlib.resources import files
 import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
-from .utils import log, tname
+from .utils import log, tname, json_loads
 from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile
@@ -124,10 +124,11 @@ def model_from_url(murl: str, *, auto: bool = False, debug: int = 0,
 def model_from_str(mstring: str, *, auto: bool = False,
                    check: bool = True, merge: bool = True, optimize: bool = True,
                    loose_int: bool|None = None, loose_float: bool|None = None,
-                   debug: int = 0, murl: str = "") -> JsonModel:
+                   debug: int = 0, murl: str = "", allow_duplicates: bool = False) -> JsonModel:
     """JsonModel instanciation from a string."""
 
-    return model_from_json(json.loads(mstring), auto=auto, debug=debug, murl=murl,
+    return model_from_json(json_loads(mstring, allow_duplicates=allow_duplicates),
+                           auto=auto, debug=debug, murl=murl,
                            loose_int=loose_int, loose_float=loose_float,
                            check=check, merge=merge, optimize=optimize)
 
@@ -161,7 +162,7 @@ def model_checker_from_json(
 def model_checker_from_url(
             murl: str, *, auto: bool = False, debug: int = 0,
             resolver: Resolver|None = None, follow: bool = True,
-            loose_int: bool|None = None, loose_float: bool|None = None,
+            loose_int: bool|None = None, loose_float: bool|None = None
         ) -> EntryCheckFun:
     """Return an executable model checker from a URL."""
     jm = model_from_url(murl, auto=auto, debug=debug, resolver=resolver, follow=follow,
@@ -245,7 +246,9 @@ def jmc_script():
     arg("--verbose", "-v", action="store_true", help="more verbose")
     arg("--quiet", "-q", dest="verbose", action="store_false", help="less verbose")
 
-    # input options
+    # input options about JM
+    arg("--allow-duplicates", "-ad", action="store_true", default=False,
+        help="allow duplicated properties in parsed model, probably a bad idea.""")
     arg("--maps", "-m", action="append", default=[], help="URL mappings")
     arg("--auto", "-a", action="store_true", help="automatic URL mapping")
 
@@ -452,7 +455,7 @@ def jmc_script():
         assert " " in m, f"valid map require a space: {m}"
         k, v = m.split(" ", 1)
         maps[k] = v
-    resolver = Resolver(None, maps)
+    resolver = Resolver(None, maps, allow_duplicates=args.allow_duplicates)
 
     log.info(f"processing {args.model}")
 
@@ -578,7 +581,7 @@ def jmc_script():
         assert checker
         with open(fn) as fh:
             try:
-                value = json.load(fh)
+                value = json_loads(fh.read(), allow_duplicates=args.allow_duplicates)
                 if args.test_vector:
                     assert isinstance(value, list), "array test vector"
                     for idx, test in enumerate(value):
