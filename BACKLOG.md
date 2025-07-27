@@ -101,6 +101,7 @@
 - [ ] pr: publish js runtime package
 - [ ] pr: publish pgxn package
 - [ ] pr: publish docker image
+- [ ] pr: publish perl package
 - [ ] pr: renew domain
 - [ ] pr: check jsonschema-benchmark integration
 
