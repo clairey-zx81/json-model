@@ -28,6 +28,7 @@
 - [ ] design: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
 - [ ] design: object comments starting with `#`, not just `#`
+- [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] design: array comments `# …` to be ignored
 - [ ] optim: simplify float constraints
 - [ ] command: add bash completion
