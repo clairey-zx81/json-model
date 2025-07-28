@@ -2,21 +2,16 @@
 
 ## Current Tasks
 
-- [x] pl-backend: add a Perl backend
-- [x] tests: add pl tests
-- [x] backends: generate a short version string for internal tests
-- [x] tests: fix `test_models_pl`
-- [x] command: reject models and values with duplicated props by default
-- [x] pr: add pl to docker
-- [x] pr: add pl to tuto
-- [x] pr: add pl to readme
-- [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
-- [x] pr: add jmc-pl to jsonschema-benchmark
-- [x] docker: add `help` and `run` to docker wrapper
-- [x] pr: review readme for docker?
+- [ ] pl-frontend: expand `--help`
+- [ ] design: object comments starting with `#`, not just `#`
+- [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
+- [ ] design: array comments `# …` to be ignored
+- [ ] pr: update `models/*` to take advantage of multi-comments
+- [ ] pr: write `everything.model.json` for illustration
+- [ ] pr: write `optimizations.model.json` for illustration
+- [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: add pl to howto
 - [ ] \*-frontend: reject json with duplicated props
-- [ ] pl-frontend: expand `--help`
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
@@ -24,22 +19,15 @@
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] pr: add docker compose for postgres testing?
-- [ ] pr: write `everything.model.json` for illustration
-- [ ] pr: write `optimizations.model.json` for illustration
-- [ ] pr: write `transformation.model.json` for illustration
 - [ ] pl-backend: fix reporting
-- [ ] script: detect and reject duplicated keywords in models
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] xstatic: use threshold limit for cset as well
 - [ ] xstatic: any array, skip empty code
 - [ ] backend: add check constraint variants per constant type?
-- [ ] design: compile exreg to regex when possible
+- [ ] xstatic: compile exreg to regex when possible
 - [ ] xstatic: add option support to property regex?
-- [ ] design: object comments starting with `#`, not just `#`
-- [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
-- [ ] design: array comments `# …` to be ignored
 - [ ] optim: simplify float constraints
 - [ ] command: add bash completion
 - [ ] python: separate python interface in some file
@@ -479,3 +467,15 @@
 - [x] pr: publish the docker image `zx80/jmc:2.0b1`
 - [x] pr: use docker for tuto
 - [x] docker: allow to execute stuff inside the docker
+- [x] pl-backend: add a Perl backend
+- [x] tests: add pl tests
+- [x] backends: generate a short version string for internal tests
+- [x] tests: fix `test_models_pl`
+- [x] command: reject models and values with duplicated props by default
+- [x] pr: add pl to docker
+- [x] pr: add pl to tuto
+- [x] pr: add pl to readme
+- [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
+- [x] pr: add jmc-pl to jsonschema-benchmark
+- [x] docker: add `help` and `run` to docker wrapper
+- [x] pr: review readme for docker
