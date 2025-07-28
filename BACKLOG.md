@@ -11,7 +11,7 @@
 - [x] pr: add pl to tuto
 - [x] pr: add pl to readme
 - [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
-- [ ] pr: add jmc-pl to jsonschema-benchmark
+- [x] pr: add jmc-pl to jsonschema-benchmark
 - [ ] pr: add pl to howto
 - [ ] \*-frontend: reject json with duplicated props
 - [ ] pl-frontend: expand `--help`
