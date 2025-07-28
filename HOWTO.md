@@ -27,7 +27,7 @@ The `jmc` command can be install in a Python virtual environment from
 3. Docker install the [image](https://hub.docker.com/r/zx80/jmc) and its
    [convenient wrapper](https://github.com/clairey-zx81/json-model/blob/main/docker/jmc):
 
-   ```
+   ```sh
    docker pull zx80/jmc
    curl -o ./jmc https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/docker/jmc
    chmod a+rx ./jmc
