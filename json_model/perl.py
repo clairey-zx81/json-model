@@ -120,13 +120,13 @@ class Perl(Language):
         code += [ "use strict;", "use warnings;" ]
         if self._relib == "re2":
             code.append("use re::engine::RE2;")
+        if not exe:
+            code += self.file_load("perl_pkg.pl")
         code += [
             r"use JsonModel;",
             f"use constant JMC_VERSION => {self.esc(self.version())};",
             "",
         ]
-        if not exe:
-            code += self.file_load("perl_pkg.pl")
         return code
 
     def file_footer(self, exe: bool = True) -> Block:

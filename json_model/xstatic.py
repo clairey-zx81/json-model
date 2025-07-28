@@ -29,7 +29,8 @@ class CodeGenerator:
 
     def __init__(self, globs: Symbols, language: Language, fname: str = "check_model", *,
                  prefix: str = "", map_threshold: int = 3, map_share: bool = False,
-                 execute: bool = True, report: bool = True, path: bool = True, debug: bool = False):
+                 execute: bool = True, report: bool = True, path: bool = True,
+                 package: str|None = None, debug: bool = False):
 
         super().__init__()
 
@@ -40,9 +41,10 @@ class CodeGenerator:
         self._map_share = map_share
         self._report = report
         self._path = path
+        self._package = package
         self._debug = debug
 
-        self._code = Code(language, fname, executable=execute)
+        self._code = Code(language, fname, executable=execute, package=package)
 
         # identifiers and functions
         # ident-prefix -> next number to use to ensure unique identifiers
@@ -1400,6 +1402,7 @@ def xstatic_compile(
         debug: bool = False,
         report: bool = True,
         short_version: bool = False,
+        package: str|None = None,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -1411,7 +1414,8 @@ def xstatic_compile(
     - map_share: share generated property maps.
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
-    - short_version: in generated code
+    - short_version: in generated code.
+    - package: namespace to use (Perl module name, Pg schema name).
     """
     # target language
     if lang == "py":
@@ -1430,10 +1434,12 @@ def xstatic_compile(
         from .perl import Perl
         language = Perl(debug=debug, with_report=report, with_path=report,
                         relib=relib or "re2")
+        package = package or "Model"
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
         language = PLpgSQL(debug=debug, with_report=report, with_path=report,
                            relib=relib or "re")
+        package = package or "public"
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 
@@ -1443,7 +1449,7 @@ def xstatic_compile(
     # cource code generator
     gen = CodeGenerator(model._globs, language, fname, prefix=prefix,  # type: ignore
                         execute=execute, map_threshold=map_threshold, map_share=map_share,
-                        debug=debug, report=report)
+                        debug=debug, report=report, package=package)
 
     # generate
     code = gen.compileJsonModelHead(model)

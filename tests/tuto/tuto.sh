@@ -57,7 +57,11 @@ jmc -o person.pl Person-2    # Perl script
 jmc -o person.o Person-2
 jmc -o person.mjs Person-2
 jmc -o person.py --module Person-2
+
 jmc -o person.pm Person-2
+export PERLLIB=$PERLLIB:.
+./test_perl.pl
+
 jmc -o person.sql Person-2
 psql -f person.sql
 

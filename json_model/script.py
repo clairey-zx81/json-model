@@ -4,6 +4,7 @@ import re
 import json
 import yaml
 import logging
+from pathlib import Path
 from importlib.metadata import version as pkg_version
 from importlib.resources import files
 import tempfile
@@ -267,6 +268,7 @@ def jmc_script():
 
     # output options
     arg("--output", "-o", default="-", help="output file")
+    arg("--package", "-p", default=None, help="generated module name, if appropriate")
     arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
     arg("--regex-engine", "-re", default=None, choices=["re", "re2", "pcre2"],
         help="select regular expression engine (default depends on target language)")
@@ -387,6 +389,8 @@ def jmc_script():
             args.format, args.op = "pl", "C"
             if args.gen is None:
                 args.gen = "module"
+            if args.package is None:
+                args.package = Path(args.output).stem
         elif args.output.endswith(".sql"):
             args.format, args.op, args.gen = "plpgsql", "C", "module"
         elif args.output.endswith(".schema.json"):
@@ -524,7 +528,7 @@ def jmc_script():
         code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
-                               short_version=args.short_version)
+                               short_version=args.short_version, package=args.package)
         source = str(code)
 
         # source to executable

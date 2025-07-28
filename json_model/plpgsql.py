@@ -36,7 +36,10 @@ class PLpgSQL(Language):
         code: Block = super().file_header(exe)
         code += [
             f"-- JSON_MODEL_VERSION is {self.version()}",
-            r"CREATE EXTENSION IF NOT EXISTS json_model;"
+            r"CREATE EXTENSION IF NOT EXISTS json_model;",
+            # FIXME
+            # r"CREATE SCHEMA IF NOT EXISTS CHECK_PACKAGE_NAME;",
+            # r"SET search_path TO CHECK_PACKAGE_NAME, \"$user\", public;",
         ]
         return code
 

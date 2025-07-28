@@ -666,11 +666,18 @@ class Code:
 
     - `language`: language generator
     - `entry`: name of the entry function
+    - `executable`: generate a script or a module
+    - `package`: generated name space
     """
 
-    def __init__(self, lang: Language, entry: str = "check_model", executable: bool = True):
+    def __init__(self,
+                lang: Language,
+                entry: str = "check_model",
+                executable: bool = True,
+                package: str|None = None):
         self._lang = lang              # generated language abstraction
         self._entry = entry            # entry function name/prefix
+        self._package = package        # generated name space
         self._executable = executable  # executable (shebang, main) vs module
         self._defs: Block = []         # definitions and declarations
         self._inis: Block = []         # initialization code
@@ -751,8 +758,11 @@ class Code:
                 self._subs, inis, dels, self._lang.file_footer(self._executable)):
             if code and block:
                 code += [""]
-            code += [ line.replace("CHECK_FUNCTION_NAME", self._entry)
-                        for line in block ]
+            code += [
+                line.replace("CHECK_FUNCTION_NAME", self._entry)
+                    .replace("CHECK_PACKAGE_NAME", self._package or "")
+                        for line in block
+            ]
 
         # generate source code, skipping none instructions if any
         return self._lang._isep.join(filter(lambda s: s is not None, code)) + "\n"

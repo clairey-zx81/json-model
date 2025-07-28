@@ -3,6 +3,8 @@
 ## Current Tasks
 
 - [x] pl-frontend: expand `--help`
+- [x] pr: add pl to howto
+- [ ] sql-backend: handle package as schema name
 - [ ] design: object comments starting with `#`, not just `#`
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] design: array comments `# …` to be ignored
@@ -10,7 +12,6 @@
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
-- [ ] pr: add pl to howto
 - [ ] \*-frontend: reject json with duplicated props
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
