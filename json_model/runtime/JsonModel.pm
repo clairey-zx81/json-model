@@ -532,6 +532,10 @@ sub jm_main($$$)
         "jsonschema-benchmark" => \$js_bench,
     );
 
+    # option fix and warnings
+    $jsonl = 1 if $js_bench;  # jsb => jsonl
+    warn "$0: option --report is not implemented yet\n" if $report;
+
     # loop over value files
     for my $file (@ARGV)
     {
@@ -563,11 +567,13 @@ sub jm_main($$$)
             $message =~ tr/\n\r\f/ /;
             $message =~ s/\s+$//;
             $message =~ s/ at \/.*? line \d+\.//;
-            print "$file: ERROR (JSON error: $message)\n";
             if ($test) {
-                warn "skipping non-json file: $file\n";
-                $errors++;
+                print "$file: ERROR (JSON error: $message)\n";
             }
+            else {
+                warn "$file: ERROR (JSON error: $message)\n";
+            }
+            $errors++;
             next;
         }
 
