@@ -5,13 +5,18 @@
 
 docker="docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it"
 
-if [ "$#" -eq 1 -a "$1" = "shell" ] ; then
+if [ "$#" -ge 1 -a "$1" = "help" ] ; then
+  echo "$0 [ help | run | exec | shell ] …"
+elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
   exec $docker --entrypoint /bin/bash zx80/jmc "$@"
 elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
   exe=$2
   shift 2
   exec $docker --entrypoint "$exe" zx80/jmc "$@"
+elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
+  shift 1
+  exec $docker zx80/jmc "$@"
 else
   exec $docker zx80/jmc "$@"
 fi

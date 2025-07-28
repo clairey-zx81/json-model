@@ -40,7 +40,9 @@ The wrapper script allows 3 modes:
   so that files are found through the virtual mount inside the docker:
 
   :warning: note that generated executable and scripts require dependencies (dynamic libraries,
-  Python or JS packages…) that may or may not be available on the host.
+  Python, JS or Perl packages…) that may or may not be available on the host.
+
+  :+1: invoking the compilation is also triggered with `run`: `./jmc run model.json hobbes.json`
 
 - :arrow_forward: **execution**: execute generated code in the docker environment,
   where dependencies are readily available:
@@ -80,7 +82,7 @@ The `jmc` wrapper runs the following commands:
 - **execution**:
 
   ```sh
-  docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it ./model.out hobbes.json
+  docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --entrypoint ./model.out jmc hobbes.json
   ```
 
 - **shell**:

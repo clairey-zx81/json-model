@@ -12,11 +12,11 @@
 - [x] pr: add pl to readme
 - [x] pl-backend: fix `--jsonl` loading and improve jsonschema-benchmark output
 - [x] pr: add jmc-pl to jsonschema-benchmark
+- [x] docker: add `help` and `run` to docker wrapper
+- [x] pr: review readme for docker?
 - [ ] pr: add pl to howto
 - [ ] \*-frontend: reject json with duplicated props
 - [ ] pl-frontend: expand `--help`
-- [ ] docker: add `help` to docker wrapper
-- [ ] pr: review readme for docker?
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects
 - [ ] pr: howto entry about C executable
