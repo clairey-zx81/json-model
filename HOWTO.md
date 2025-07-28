@@ -1,6 +1,6 @@
 # JSON Model How To …
 
-## How to install the JSON Model Compiler ?
+## … install the JSON Model Compiler ?
 
 The `jmc` command can be install in a Python virtual environment from
 [PyPI](https://pypi.org/project/json-model-compiler/) or from
@@ -34,13 +34,13 @@ The `jmc` command can be install in a Python virtual environment from
    ./jmc --version
    ```
 
-## How to use JSON Model in my _Python_ project (static)?
+## … use JSON Model in my _Python_ code (static)?
 
-## How to use JSON Model in my _Python_ project (dynamic)?
+## … use JSON Model in my _Python_ code (dynamic)?
 
-## How to use JSON Model in my _JavaScript_ project?
+## … use JSON Model in my _JavaScript_ code?
 
-## How to use JSON Model in my _Perl_ projetc?
+## … use JSON Model in my _Perl_ code?
 
 Assuming that the `jmc` command is available:
 
@@ -59,14 +59,13 @@ Assuming that the `jmc` command is available:
    #! /usr/bin/perl -w
    use JSON::MaybeXS;
    use Model;          # your pm file
-
    check_model_init();
    my $value = decode_json('{"hello": "world!"}');
    my $valid = check_model($value, "", undef);
    check_model_free();
    ```
 
-## How to use JSON Model in my _Postgres_ database?
+## … use JSON Model in my _Postgres_ database?
 
 Assuming that the `jmc` command is available:
 
@@ -96,5 +95,6 @@ Assuming that the `jmc` command is available:
    SELECT check_model(JSONB '3.14', '', NULL);  # TRUE or FALSE…
    ```
 
-## How to … ?
+## … get an Answer?
 
+Feel free to [open an issue](https://github.com/clairey-zx81/json-model/issues) for any question.
