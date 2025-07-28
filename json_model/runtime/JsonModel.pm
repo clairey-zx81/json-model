@@ -21,6 +21,7 @@ use List::Util qw( min );
 use JSON::MaybeXS qw( decode_json is_bool );
 use Getopt::Long qw(:config no_ignore_case);
 use Time::HiRes 'time';
+use Pod::Usage;
 
 # automatic export
 use Exporter 'import';
@@ -513,6 +514,90 @@ sub decode_json_nonref($)
     return decode_json($j, 1);
 }
 
+#
+# POD
+#
+
+=pod
+
+=head1 NAME
+
+B<JsonModel> - Perl Runtime for JSON Model
+
+=head1 SYNOPSIS
+
+script.pl
+    [--help] [--version] [--list]
+    [--name] [--test] [--jsonl] [--time=TIME] [--report]
+    value.json ...
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--help>|B<-h>
+
+Show some help and exit.
+
+=item B<--man>|B<-m>
+
+Show full man page and exit.
+
+=item B<--version>|B<-v>
+
+Show version and exit.
+
+=item B<--list>|B<-l>
+
+List available named models and exit.
+
+=item B<--name=NAME>|B<-n NAME>
+
+Check values with this model.
+
+=item B<--test>|B<-t>
+
+Assume test vector file format: JSON list of 3-tuples (expected result, model name, JSON value).
+Using C<null> as expect means no expectation.
+
+=item B<--jsonl>
+
+Assume JSON list format (one value per line).
+
+=item B<--time=TIME>|B<-T TIME>
+
+Run with performance loop, report average and standard deviation per file.
+
+=item B<--report>|B<-r>
+
+Report reason on rejections.
+
+=back
+
+=head1 ARGUMENTS
+
+JSON Test files to consider.
+
+Returns an error status on bad options or on validation expectation errors.
+
+=head1 OUTPUT
+
+For each file and possibly line/test in file, report I<PASS> if validation succeeded
+(as expected), I<FAIL> if failed (as expected), I<ERROR> on unexpected result.
+
+=head1 REFERENCES
+
+See L<https://json-model.org/>.
+
+=cut
+
+sub jm_doc
+{
+    my ($v, $m) = @_;
+    pod2usage(-input => 'JsonModel.pm', -pathlist => $ENV{PERLLIB},
+              -message => $m, -verbose => $v, -exitval => $m ? 1 : 0);
+}
+
 sub jm_main($$$)
 {
     my ($checker, $map, $version) = @_;
@@ -522,7 +607,8 @@ sub jm_main($$$)
     my ($name, $test, $jsonl, $time, $report, $js_bench) = ("", 0, 0, 0, 0, 0);
     GetOptions(
         "version" => sub { print "version: $version\n"; exit 0 },
-        "help" => sub { print "$0 help: https://json-model.org\n"; exit 0 },
+        "help" => sub { jm_doc(1) },
+        "man" => sub { jm_doc(2) },
         "list|l" => sub { print "names: ", (sort keys %$map), "\n"; exit 0 },
         "report|r" => \$report,
         "name=s" => \$name,

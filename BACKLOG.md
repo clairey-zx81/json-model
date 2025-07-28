@@ -2,7 +2,7 @@
 
 ## Current Tasks
 
-- [ ] pl-frontend: expand `--help`
+- [x] pl-frontend: expand `--help`
 - [ ] design: object comments starting with `#`, not just `#`
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] design: array comments `# …` to be ignored
