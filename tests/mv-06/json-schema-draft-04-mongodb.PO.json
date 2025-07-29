@@ -1,0 +1,121 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "schema": {
+      "?title": "",
+      "?description": "",
+      "?multipleOf": 1.0,
+      "?maximum": -1.0,
+      "?exclusiveMaximum": true,
+      "?minimum": -1.0,
+      "?exclusiveMinimum": true,
+      "?maxLength": 0,
+      "?minLength": 0,
+      "?pattern": "$REGEX",
+      "?additionalItems": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?items": {
+        "|": [
+          "$Schema",
+          "$schemaArray"
+        ]
+      },
+      "?maxItems": 0,
+      "?minItems": 0,
+      "?uniqueItems": true,
+      "?maxProperties": 0,
+      "?minProperties": 0,
+      "?required": "$stringArray",
+      "?additionalProperties": {
+        "|": [
+          true,
+          "$Schema"
+        ]
+      },
+      "?properties": {
+        "": "$Schema"
+      },
+      "?patternProperties": {
+        "": "$Schema"
+      },
+      "?dependencies": {
+        "": {
+          "|": [
+            "$Schema",
+            "$stringArray"
+          ]
+        }
+      },
+      "?enum": {
+        "@": [
+          "$ANY"
+        ],
+        ">=": 1,
+        "!": true
+      },
+      "?type": {
+        "|": [
+          "$simpleTypes",
+          "$typeArray"
+        ]
+      },
+      "?allOf": "$schemaArray",
+      "?anyOf": "$schemaArray",
+      "?oneOf": "$schemaArray",
+      "?not": "$Schema",
+      "?bsonType": {
+        "|": [
+          "$bsonType",
+          [
+            "$bsonType"
+          ]
+        ]
+      },
+      "#": "JsonModel 3 (JSON_MODEL_LOOSE_FLOAT)",
+      "$": {
+        "": "https://json-model.org/models/json-schema-draft-04",
+        "schemaArray": {
+          "@": [
+            "$Schema"
+          ],
+          ">=": 1
+        },
+        "simpleTypes": {
+          "|": [
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object"
+          ]
+        },
+        "stringArray": {
+          "@": [
+            ""
+          ],
+          ">=": 1,
+          "!": true
+        },
+        "typeArray": {
+          "@": [
+            "$simpleTypes"
+          ],
+          ">=": 1,
+          "!": true
+        },
+        "Schema": "$#"
+      },
+      "~": "https://json-model.org/models/json-model"
+    },
+    "#": "Symbol 1",
+    "": "https://json-model.org/models/json-schema-draft-04-mongodb"
+  },
+  "@": "$schema",
+  "~": "https://json-model.org/models/json-model"
+}

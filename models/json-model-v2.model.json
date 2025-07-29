@@ -1,5 +1,6 @@
 {
   "#": "Self-Validating JSON Model v2",
+  "#.doc": "see [JSON Model](https://json-model.org)",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "#": "use minimal predefs",

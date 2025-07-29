@@ -68,18 +68,26 @@ publish.js:
 	npm publish --dry-run ./json_model/runtime/js
 	echo npm publish ./json_model/runtime/js
 
+#
+# Docsify Web Site: https://json-model.org/
+#
 site/MODELS.md: Makefile models/
 	{
 	  echo "# JSON Model Examples"
 	  echo
 	  for model in models/*.model.json ; do
 	    title=$$(jq -r '."#"' < $$model | sed 's/\s*.JSON_MODEL.*//')
-	    echo "- [$$title]($$model ':ignore')"
+	    doc=$$(jq -r '."#.doc"' < $$model)
+	    if [ "$$doc" = "null" ] ; then doc="" ; else doc=" – $$doc" ; fi
+	    echo "- [$$title]($$model ':ignore')$$doc"
 	  done
 	} > $@
 
+.PHONY: build.site
+build.site: site/MODELS.md
+
 .PHONY: publish.site
-publish.site: site/MODELS.md
+publish.site: build.site
 	rsync -avL --progress ./site/. $(SITE):public_html/sw/json-model/.
 	ssh $(SITE) chmod a+rx public_html/sw/json-model public_html/sw/json-model/models
 	ssh $(SITE) chmod a+r public_html/sw/json-model/* public_html/sw/json-model/models/*

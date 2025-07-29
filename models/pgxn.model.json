@@ -1,5 +1,6 @@
 {
-  "#": "JSON Model for PGXN (PostgreSQL Extension Network) (https://pgxn.org/spec/)",
+  "#": "JSON Model for PGXN",
+  "#.doc": "see [PostgreSQL Extension Network](https://pgxn.org/spec/)",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/pgxn",

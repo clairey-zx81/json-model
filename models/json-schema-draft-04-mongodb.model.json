@@ -1,0 +1,29 @@
+{
+  "#": "MongoDB uses JSON Schema Draft 4 (2013) with extensions and omissions",
+  "#.doc": "This model illustrates how to transform an existing model to build a new one.",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-schema-draft-04-mongodb",
+    "#": "reuse model for draft 4 schema",
+    "schema": "$https://json-model.org/models/json-schema-draft-04"
+  },
+  "%": {
+    "$schema#simpleTypes.|": {
+      "#": "type integer is not allowed",
+      "/": "integer"
+    },
+    "$schema#bsonType": {
+      "#": "add a definition for BSON types",
+      "|": [
+        "null", "bool", "string", "object", "array", "double", "int", "long", "decimal", 
+        "binData", "objectId", "date", "regex", "javascript", "timestamp", "minKey", "maxKey"
+      ]
+    },
+    "$schema#": {
+      "#": "remove and add properties to draft 04 root model",
+      "/": ["?$ref", "?$schema", "?default", "?definitions", "?format", "?id"],
+      "*": { "?bsonType": { "|": [ "$bsonType", [ "$bsonType" ] ] } }
+    }
+  },
+  "@": "$schema"
+}

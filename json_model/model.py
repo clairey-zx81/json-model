@@ -983,7 +983,8 @@ class JsonModel:
         else:
             name, xpath = tpath, []
         log.debug(f"{self._id}: parsePath name={name} xpath={xpath}")
-        return (self.resolveRef(name, path, True), xpath)
+        jm = self.resolveRef(name, path, True)
+        return (jm, xpath)
 
     def _isTrafo(self, trafo: ModelTrafo):
         return isinstance(trafo, dict) and set(trafo.keys()).issubset({"#", "/", "*"})
@@ -1007,7 +1008,7 @@ class JsonModel:
                 if isinstance(j, list):
                     for i in sub:
                         if i not in j:
-                            raise ModelError(f"cannot remove item {i} from object at {path}")
+                            raise ModelError(f"cannot remove item {i} from list at {path}")
                         j.remove(i)
                 elif isinstance(j, dict):
                     for i in sub:
@@ -1015,9 +1016,9 @@ class JsonModel:
                             raise ModelError(f"cannot remove item {i} from object at {path}")
                         del j[i]
                 else:
-                    raise ModelError(f"cannot remove list from {tname(j)}")
+                    raise ModelError(f"cannot remove list from {tname(j)} at {path}")
             else:
-                raise ModelError("expecting a remove list")
+                raise ModelError(f"expecting a remove list at {path}")
 
         if "*" in trafo:
             add = trafo["*"]

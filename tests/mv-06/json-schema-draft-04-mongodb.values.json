@@ -1,0 +1,19 @@
+[
+  [ true,  { "bsonType": "double" } ],
+  [ true,  { "bsonType": ["int", "decimal"] } ],
+  [ true,  { "type": "string", "bsonType": "string" } ],
+  [ true,  { "type": "boolean", "bsonType": "bool", "description": "booleans…" } ],
+  [ false, { "type": "integer" } ],
+  [ false, { "$ref": "#Foo" } ],
+  [ false, { "$schema": "mongodb" } ],
+  [ false, { "type": "string", "format": "date" } ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]
