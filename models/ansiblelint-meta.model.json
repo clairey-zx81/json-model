@@ -1,5 +1,6 @@
 {
-  "#": "JSON Model for Ansible Meta v1/v2 manually derived from schema (2025-06-22)",
+  "#": "JSON Model for Ansible Meta v1/v2",
+  "#.doc": " manually derived from schema (2025-06-22)",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "AIXPlatformModel": {

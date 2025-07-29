@@ -1,5 +1,6 @@
 {
-  "#": "JSON Model for https://json.schemastore.org/lazygit.json",
+  "#": "JSON Model for Lazy Git",
+  "#.doc": "see [schema](https://json.schemastore.org/lazygit.json)",
   "$": {
     "color": { "|": [
       "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white", "bold",

@@ -1,5 +1,6 @@
 {
-  "#": "OpenAPI v3.1.1 (2024-10-24, https://spec.openapis.org/oas/v3.1.1)",
+  "#": "OpenAPI v3.1.1",
+  "#.doc": "version 2024-10-24, see [spec](https://spec.openapis.org/oas/v3.1.1)",
   "~": "https://json-model.org/models/json-model",
   "$": {
     "": "https://json-model.org/models/openapi-311",
