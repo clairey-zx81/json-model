@@ -10,6 +10,8 @@
 - [x] frontends: add `--no-report`
 - [x] pr: howto entry about python code
 - [x] pr: update `models/*` to take advantage of multi-comments
+- [x] pr: ask for pause account
+- [ ] pr: publish pl runtime on cpan
 - [ ] sql-backend: handle package as schema name
 - [ ] command: allow jsonl values
 - [ ] pr: write `everything.model.json` for illustration
