@@ -14,6 +14,7 @@
         "_$NONE", "_$ANY"
       ]
     },
+    "Comment": "/^#/",
     "Ref": "/^\\$/",
     "ValConst": "/^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/",
     "StrConst": "/^[_a-zA-Z0-9]/",
@@ -25,8 +26,8 @@
     "StrModel": { "|": [ "$StrConst", "$ValConst", "$Regex", "$PreDef", "$Ref", "_" ] },
     "Any": { "&": [ ] },
     "None": { "|": [ ] },
-    "Common": { "?#": "" },
-    "Array": [ "$Model" ],
+    "Common": { "$Comment": "" },
+    "Array": [ { "|": ["$Model", "$Comment"] } ],
     "Constraint": {
       "_@": "$Model",
       "/^(<=|>=|<|>)$/": "$CmpValue",

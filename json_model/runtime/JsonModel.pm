@@ -568,9 +568,9 @@ Assume JSON list format (one value per line).
 
 Run with performance loop, report average and standard deviation per file.
 
-=item B<--report>|B<-r>
+=item B<--report>|B<-r> vs B<--no-report>
 
-Report reason on rejections.
+Report reason on rejections, or not.
 
 =back
 
@@ -605,12 +605,13 @@ sub jm_main($$$)
 
     # options
     my ($name, $test, $jsonl, $time, $report, $js_bench) = ("", 0, 0, 0, 0, 0);
+    my ($no_report);
     GetOptions(
         "version" => sub { print "version: $version\n"; exit 0 },
         "help" => sub { jm_doc(1) },
         "man" => sub { jm_doc(2) },
         "list|l" => sub { print "names: ", (sort keys %$map), "\n"; exit 0 },
-        "report|r" => \$report,
+        "report|r!" => \$report,
         "name=s" => \$name,
         "test|t" => \$test,
         "time|T=i" => \$time,

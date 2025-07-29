@@ -116,6 +116,7 @@ export default async function main(checker_init, checker, checker_free)
       'verbose': { type: 'boolean', short: 'v' },
       'time': { type: 'string', short: 'T' },
       'report': { type: 'boolean', short: 'r' },
+      'no-report': { type: 'boolean' },
       'test': { type: 'boolean', short: 't' },
       'jsonl': { type: 'boolean', short: 'L' },
       're2': { type: 'boolean' },
@@ -130,6 +131,8 @@ export default async function main(checker_init, checker, checker_free)
         args.values.jsonl = true
     if (!benchmarking && args.values.jsonl)
         args.values.test = true
+    if (args.values.no_report)
+        args.values.report = false
 
     let errors = 0
     const times = args.values.time !== undefined ? Number(args.values.time) : 1

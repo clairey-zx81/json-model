@@ -1,0 +1,29 @@
+{
+  "#": "trivial and non trivial comments",
+  "$": {
+    "#": "two definitions",
+    "#.P": "definition of P",
+    "P": {
+      "#": "an int",
+      "#.x": "hello world",
+      "@": 0
+    },
+    "#.Q": "definition of Q",
+    "Q": [ "# some ints", "$P", "# are welcome", "# just a list" ]
+  },
+  "#.o": "root is also an object",
+  "?o": {
+    "#": "an object",
+    "#.p": "this is an interesting property!",
+    "?p": "$P",
+    "#.q": "this is also quite interesting",
+    "?q": "$Q",
+    "#.t": "and this one as well",
+    "?t": [
+      "# a tuple of stuff",
+      true,
+      "# and more",
+      0
+    ]
+  }
+}

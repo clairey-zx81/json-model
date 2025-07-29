@@ -4,10 +4,12 @@
 
 - [x] pl-frontend: expand `--help`
 - [x] pr: add pl to howto
+- [x] design: object comments starting with `#`, not just `#`
+- [x] design: array comments `# …` to be ignored
+- [x] frontends: add `--no-report`
 - [ ] sql-backend: handle package as schema name
-- [ ] design: object comments starting with `#`, not just `#`
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
-- [ ] design: array comments `# …` to be ignored
+- [ ] command: allow jsonl values
 - [ ] pr: update `models/*` to take advantage of multi-comments
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration

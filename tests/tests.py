@@ -194,9 +194,9 @@ EXPECT: dict[str, int] = {
     "mv-20:values": 112,
     "mv-20:verrors:schema": 17,
     # check 21
-    "mv-21:models": 5,
-    "mv-21:values": 64,
-    "mv-21:verrors:schema": 8,
+    "mv-21:models": 6,
+    "mv-21:values": 104,
+    "mv-21:verrors:schema": 33,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -442,7 +442,8 @@ def test_lang(directory, language):
 # STATIC CHECK MODELS AGAINST VALUES
 #
 
-def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, generate):
+def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str,
+                 generate: typing.Callable[[str], str], opts: str = ""):
     """Generic value testing."""
     ntests, nvalues, nerrors = 0, 0, 0
 
@@ -468,12 +469,12 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
         if values:
 
-            for line in os.popen(f"{fexec} {vfiles}"):
+            for line in os.popen(f"{fexec} {opts} --no-report {vfiles}"):
                 nvalues += 1
                 assert re.search(r"(\.true\.json(\[\d+])?: PASS|\.false\.json(\[\d+])?: FAIL)$", line) is not None, \
                     f"result as expected: {line}"
 
-            with os.popen(f"{fexec} -r {vfiles} | cut -d/ -f2-") as p:
+            with os.popen(f"{fexec} {opts} {vfiles} | cut -d/ -f2-") as p:
                 out = p.read()
 
         # values file
@@ -481,7 +482,7 @@ def check_values(directory: pathlib.Path, name: str, suffix: str, refsuff: str, 
 
         if vfile.exists():
 
-            with os.popen(f"{fexec} -t -r {vfile} | cut -d/ -f2-") as p:
+            with os.popen(f"{fexec} {opts} -t {vfile} | cut -d/ -f2-") as p:
                 result = p.read()
             out += result
 
@@ -526,17 +527,17 @@ def test_sta_c(directory, clibjm):
         assert status == 0, f"{fname} compilation success"
         return fexec
 
-    check_values(directory, "sta-c", ".c", ".c.check", gen_exec)
+    check_values(directory, "sta-c", ".c", ".c.check", gen_exec, "-r")
 
 
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
-    check_values(directory, "sta-py", ".py", ".py.check", lambda f: f)
+    check_values(directory, "sta-py", ".py", ".py.check", lambda f: f, "-r")
 
 
 def test_sta_js(directory):
     """Check generated JS scripts with test value files."""
-    check_values(directory, "sta-js", ".js", ".js.check", lambda f: f)
+    check_values(directory, "sta-js", ".js", ".js.check", lambda f: f, "-r")
 
 def test_sta_sql(directory):
     """Check generated SQL scripts with test value files."""

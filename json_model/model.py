@@ -213,7 +213,7 @@ class JsonModel:
         self._debug = debug
 
         # copy parameter which may be modified
-        model = copy.deepcopy(model)
+        model = self.noComment(copy.deepcopy(model))
 
         # %: names and rewrites
         self._init_pc: dict[str, ModelType] = {}
@@ -543,6 +543,22 @@ class JsonModel:
         if self._debug:
             kept = " ".join(str(mid) for mid in sorted(keep))
             log.debug(f"{self._id}: unload {len(self._models)}/{total} models kept ({kept})")
+
+    def noComment(self, model: ModelType):
+        """Remove non trivial comments."""
+
+        def rmComments(m: ModelType, p: ModelPath):
+            if isinstance(m, list):
+                return list(filter(lambda i: not isinstance(i, str) or not i.startswith("#"), m))
+            elif isinstance(m, dict):
+                for p in list(m):
+                    if p != "#" and p.startswith("#"):
+                        del m[p]
+                return m
+            else:
+                return m
+
+        return recModel(model, allFlt, rmComments)
 
     #
     # Display

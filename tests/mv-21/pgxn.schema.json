@@ -292,14 +292,14 @@
       },
       "additionalProperties": false
     },
-    "prereqs": {
-      "$ref": "#/$defs/Prereqs"
-    },
     "release_status": {
       "$ref": "#/$defs/Status"
     },
     "resources": {
       "$ref": "#/$defs/Resources"
+    },
+    "prereqs": {
+      "$ref": "#/$defs/Prereqs"
     }
   },
   "required": [

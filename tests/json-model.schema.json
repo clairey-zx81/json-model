@@ -6,8 +6,8 @@
     "common": {
       "title": "Common Object Stuff",
       "type": "object",
-      "properties": {
-        "#": { "type": "string" }
+      "patternProperties": {
+        "^#": { "type": "string" }
       }
     },
     "simpleModel": {
@@ -24,14 +24,19 @@
     },
     "arrayModel": {
       "type": "array",
-      "items": { "$ref": "#/$defs/Model" }
+      "items": {
+        "anyOf": [
+          { "$ref": "#/$defs/Model" },
+          { "type": "string", "pattern": "^#" }
+        ]
+      }
     },
     "simpleObject": {
       "type": "object",
       "$ref": "#/$defs/common",
       "$comment": "handle specials to ensure oneOf",
-      "patternProperties": { "^[@|^&+]$": false },
-      "properties": { "$": true, "%": true, "~": true, "#": true },
+      "patternProperties": { "^[@|^&+]$": false, "^#": true },
+      "properties": { "$": true, "%": true, "~": true },
       "additionalProperties": { "$ref": "#/$defs/Model" }
     },
     "andModel": {
@@ -39,8 +44,9 @@
       "$ref": "#/$defs/common",
       "properties": {
         "&": { "$ref": "#/$defs/arrayModel" },
-        "$": true, "%": true, "~": true, "#": true
+        "$": true, "%": true, "~": true
       },
+      "patternProperties": { "^#": true },
       "additionalProperties": false,
       "required": [ "&" ]
     },
@@ -49,8 +55,9 @@
       "$ref": "#/$defs/common",
       "properties": {
         "|": { "$ref": "#/$defs/arrayModel" },
-        "$": true, "%": true, "~": true, "#": true
+        "$": true, "%": true, "~": true
       },
+      "patternProperties": { "^#": true },
       "additionalProperties": false,
       "required": [ "|" ]
     },
@@ -59,8 +66,9 @@
       "$ref": "#/$defs/common",
       "properties": {
         "^": { "$ref": "#/$defs/arrayModel" },
-        "$": true, "%": true, "~": true, "#": true
+        "$": true, "%": true, "~": true
       },
+      "patternProperties": { "^#": true },
       "additionalProperties": false,
       "required": [ "^" ]
     },
@@ -69,8 +77,9 @@
       "$ref": "#/$defs/common",
       "properties": {
         "+": { "$ref": "#/$defs/arrayModel" },
-        "$": true, "%": true, "~": true, "#": true
+        "$": true, "%": true, "~": true
       },
+      "patternProperties": { "^#": true },
       "additionalProperties": false,
       "required": [ "+" ]
     },
@@ -86,8 +95,9 @@
         "<": { "$ref": "#/$defs/cmpValue" },
         ">": { "$ref": "#/$defs/cmpValue" },
         "!": { "type": "boolean" },
-        "$": true, "%": true, "~": true, "#": true
+        "$": true, "%": true, "~": true
       },
+      "patternProperties": { "^#": true },
       "additionalProperties": false,
       "required": [ "@" ]
     },
@@ -127,16 +137,15 @@
           "description": "local definitions",
           "type": "object",
           "properties": {
-            "#": {"type": "string"},
             "": {"type": "string"}
-           },
+          },
+          "patternProperties": { "^#": {"type": "string"} },
           "additionalProperties": { "$ref": "#/$defs/Model" }
         },
         "%": {
           "description": "renames and rewrites",
           "type": "object",
           "properties": {
-            "#": {"type": "string"},
             "<": {
               "anyOf": [
                 { "type": "string", "pattern": "^\\$" },
@@ -145,7 +154,8 @@
             }
           },
           "patternProperties": {
-            "^\\.": { "type": "string" }
+            "^\\.": { "type": "string" },
+            "^#": { "type": "string" }
           },
           "additionalProperties": {
             "$comment": "TODO improve",

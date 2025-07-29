@@ -636,3 +636,12 @@ def json_loads(j: str, *, allow_duplicates: bool = False) -> Jsonable:
                 d[k] = v
             return d
     return json.loads(j, object_pairs_hook=dict_nodups)
+
+def is_obj_model(model: ModelType, keywords: set[str]) -> bool:
+    """Whether object model is restricted to these keywords and possibly comments."""
+    if not isinstance(model, dict):
+        return False
+    for prop in model:
+        if not prop.startswith("#") and prop not in keywords:
+            return False
+    return True

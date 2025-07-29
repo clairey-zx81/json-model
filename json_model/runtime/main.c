@@ -264,6 +264,7 @@ int main(int argc, char* argv[])
         { "fast", no_argument, NULL, 1000 },
         { "slow", no_argument, NULL, 1001 },
         { "jsonschema-benchmark", no_argument, NULL, 1002 },
+        { "no-report", no_argument, NULL, 1003 },
         { NULL, 0, NULL, 0 }
     };
 
@@ -310,6 +311,9 @@ int main(int argc, char* argv[])
             case 1002:
                 jsonl = true;
                 jsonschema_benchmark = true;
+                break;
+            case 1003:
+                report = false;
                 break;
             case '?':
             default:

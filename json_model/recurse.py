@@ -5,7 +5,7 @@
 # TODO allow extending the parameterization
 #
 from .mtypes import ModelType, ModelPath, ModelFilter, ModelRewrite, ModelError
-from .utils import log
+from .utils import log, is_obj_model
 
 ROOT_KEYWORDS = {"~", "$", "%"}
 # .mo and .in are extensions
@@ -33,7 +33,7 @@ def _recModel(
 
     # actual recursion
     if isinstance(model, list):
-        return [_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)]
+        return rwt([_recModel(m, path + [i], flt, rwt, keys, False) for i, m in enumerate(model)], path)
     elif isinstance(model, dict):
         mkeys: list[str] = list(model.keys())
         for prop in mkeys:
@@ -44,7 +44,7 @@ def _recModel(
                 okprops = {prop} | ANYWHERE_KEYWORDS | CONSTRAINT_KEYWORDS
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(mkeys) - okprops), f"@ restricts other keywords {lpath}"
+                assert is_obj_model(model, okprops), f"@ restricts other keywords {lpath}"
                 model[prop] = _recModel(val, lpath, flt, rwt, keys, False)
             elif prop in NO_MODEL_KEYWORDS:
                 # some sanity checks in passing

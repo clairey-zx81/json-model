@@ -11,11 +11,14 @@ shift
 
 while [[ $1 == -* ]] ; do
   case $1 in
-    -t)
+    --test|-t)
       format=t
       ;;
-    -r)
+    --report|-r)
       report=1
+      ;;
+    --no-report)
+      report=
       ;;
     -tr)
       format=t

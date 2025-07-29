@@ -308,10 +308,14 @@ def main(jm_fun, jm_map, jmc_version):
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--debug", "-d", action="store_true", help="set verbose mode")
-    ap.add_argument("--name", "-n", default="", help="select model by name")
+    ap.add_argument("--name", "-n", default="",
+                    help="select model by name, default is empty for root model")
     ap.add_argument("--list", "-l", action="store_true", help="show available model names and exit")
     ap.add_argument("--version", "-v", action="store_true", help="show JSON Model compiler version")
-    ap.add_argument("--report", "-r", action="store_true", help="show error locations on failure")
+    ap.add_argument("--report", "-r", default=False, action="store_true",
+                    help="show error locations on failure")
+    ap.add_argument("--no-report", dest="report", action="store_false",
+                    help="no not show error locations on failure")
     ap.add_argument("--time", "-T", type=int, default=1, help="report performance measures")
     ap.add_argument("--test", "-t", action="store_true", help="assume test vector JSON files")
     ap.add_argument("--jsonl", "-L", action="store_true", default=False, help="assume JSONL files")

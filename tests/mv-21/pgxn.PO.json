@@ -33,9 +33,9 @@
     "?file": "$neStrList",
     "?directory": "$neStrList"
   },
-  "?prereqs": "$Prereqs",
   "?release_status": "$Status",
   "?resources": "$Resources",
+  "?prereqs": "$Prereqs",
   "/^[Xx]_/": "$ANY",
   "#": "JsonModel 1",
   "$": {

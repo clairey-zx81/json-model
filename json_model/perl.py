@@ -322,9 +322,11 @@ class Perl(Language):
 
     def _escRegEx(self, regex: str) -> str:
         # we do not want an open / in the regex
+        # FIXME repeated for //
+        regex = re.sub(r"([^\\])/", r"\1\\/", regex)
         regex = re.sub(r"([^\\])/", r"\1\\/", regex)
         # $ followed by a name is interpreted as a variable in a regex, we must backslash some…
-        regex = re.sub(r"(\$(\w+|%|]))", r"\\\1", regex)
+        regex = re.sub(r"(\$(\w+|%|]|@))", r"\\\1", regex)
         return regex
 
     # EMPTY: def_re ini_re del_re
