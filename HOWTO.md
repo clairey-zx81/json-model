@@ -36,6 +36,26 @@ The `jmc` command can be install in a Python virtual environment from
 
 ## … use JSON Model in my _Python_ code (static)?
 
+Assuming that the `jmc` command is available, which means that both the compiler and
+runtime are in your Python environment.
+
+1. Generate a Python script or module:
+
+   ```sh
+   jmc -o model.py model.json           # python script, run from shell
+   jmc -o Model.py --module model.json  # python module to `import`
+   ```
+
+2. Example Python module usage, assuming that the generated `Model.py` is in your Python path:
+
+   ```python
+   import Model
+   Model.check_model_init()
+   hobbes = {"name": "Hobbes", "birth": "2020-07-29"}
+   valid = Model.check_model(hobbes, "", None)
+   Model.check_model_free()
+   ```
+
 ## … use JSON Model in my _Python_ code (dynamic)?
 
 ## … use JSON Model in my _JavaScript_ code?
@@ -44,7 +64,7 @@ The `jmc` command can be install in a Python virtual environment from
 
 Assuming that the `jmc` command is available:
 
-1. Add the `JsonModel.pm` file to you Perl path (eg `PERLLIB` environment variable).
+1. Add the generated `JsonModel.pm` file to you Perl path (eg `PERLLIB` environment variable).
 
 2. Generate a Perl script or module:
 

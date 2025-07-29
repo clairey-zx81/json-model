@@ -4,23 +4,26 @@
 
 - [x] pl-frontend: expand `--help`
 - [x] pr: add pl to howto
+- [x] pl-backend: check perl module package generation.
 - [x] design: object comments starting with `#`, not just `#`
 - [x] design: array comments `# …` to be ignored
 - [x] frontends: add `--no-report`
+- [x] pr: howto entry about python code
 - [ ] sql-backend: handle package as schema name
-- [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] command: allow jsonl values
 - [ ] pr: update `models/*` to take advantage of multi-comments
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
-- [ ] \*-frontend: reject json with duplicated props
+- [ ] frontends: reject json with duplicated props
+- [ ] pr: howto entry about python dyn code
 - [ ] pr: howto entry about python projects
-- [ ] pr: howto entry about javascript projects
-- [ ] pr: howto entry about C executable
+- [ ] pr: howto entry about javascript projects/code
+- [ ] pr: howto entry about C executable/code
 - [ ] pr: complete spec
 - [ ] pr: complete doc
 - [ ] pr: complete api
+- [ ] c-backend: header file for generated code?
 - [ ] pr: add docker compose for postgres testing?
 - [ ] pl-backend: fix reporting
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
@@ -84,7 +87,7 @@
 - [ ] pr: deb and rpm packaging? github package distribution?
 - [ ] pl-backend: run perltidy?
 - [ ] docker: improve caching/no-caching of some commands (eg force weekly rebuild?).
-- [ ] pl-backend: check perl module package generation.
+- [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 
 ## Re Do
 

@@ -2,8 +2,8 @@
 clean:
 	$(RM) person.out person.c person.o \
 	    person.js person.mjs \
-	    person.py \
+	    person.py Person.py \
 	    person.sql \
 	    person.schema.json \
-        person.pl person.pm
+	    person.pl person.pm
 	$(RM) -r venv

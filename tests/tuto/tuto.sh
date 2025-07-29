@@ -56,11 +56,12 @@ jmc -o person.pl Person-2    # Perl script
 # using from C, JS, Python, Perl or PL/pgSQL
 jmc -o person.o Person-2
 jmc -o person.mjs Person-2
-jmc -o person.py --module Person-2
+jmc -o Person.py --module Person-2
+./test_python_module.py
 
 jmc -o person.pm Person-2
 export PERLLIB=$PERLLIB:.
-./test_perl.pl
+./test_perl_module.pl
 
 jmc -o person.sql Person-2
 psql -f person.sql
