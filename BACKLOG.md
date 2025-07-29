@@ -9,9 +9,9 @@
 - [x] design: array comments `# …` to be ignored
 - [x] frontends: add `--no-report`
 - [x] pr: howto entry about python code
+- [x] pr: update `models/*` to take advantage of multi-comments
 - [ ] sql-backend: handle package as schema name
 - [ ] command: allow jsonl values
-- [ ] pr: update `models/*` to take advantage of multi-comments
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
