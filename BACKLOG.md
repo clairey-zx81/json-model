@@ -11,6 +11,8 @@
 - [x] pr: howto entry about python code
 - [x] pr: update `models/*` to take advantage of multi-comments
 - [x] pr: ask for pause account
+- [ ] pr: ship man page
+- [ ] pl-backend: move to subdir + jsb PR update
 - [ ] pr: publish pl runtime on cpan
 - [ ] sql-backend: handle package as schema name
 - [ ] command: allow jsonl values
