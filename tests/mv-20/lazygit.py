@@ -3313,7 +3313,7 @@ def _jm_obj_7(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # JSON Model for https://json.schemastore.org/lazygit.json
+    # JSON Model for Lazy Git
     # .
     res = _jm_obj_7(val, path, rep)
     if not res:

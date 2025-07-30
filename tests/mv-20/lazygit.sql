@@ -4183,7 +4183,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- JSON Model for https://json.schemastore.org/lazygit.json
+  -- JSON Model for Lazy Git
   -- .
   res := _jm_obj_7(val, path, rep);
   RETURN res;

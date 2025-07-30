@@ -1182,7 +1182,7 @@ def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946) JSON_MODEL_LOOSE_FLOAT
+    # Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
     # generic xor list
     xc_0: int = 0

@@ -1,0 +1,74 @@
+{
+ "#": "Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT",
+ "#.doc": "see [specification](https://datatracker.ietf.org/doc/html/rfc7946)",
+ "#.note": "avoid merge operator so that geometry submodels are named, for pydantic export",
+ "~": "https://json-model.org/models/json-model",
+ "$": {
+    "#": "should all position be either 2 or 3 for consistency?",
+    "": "https://json-model.org/models/geo",
+    "position": { "@": [ -1.0 ], ">=": 2, "<=": 3 },
+    "coord_array": { "@": [ "$position" ], ">=": 2 },
+    "linear_ring": { "@": [ "$position" ], ">=": 4 },
+    "Point": {
+      "type": "Point",
+      "coordinates": "$position",
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "MultiPoint": {
+      "type": "MultiPoint",
+      "coordinates": [ "$position" ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "LineString": {
+      "type": "LineString",
+      "coordinates": "$coord_array",
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "MultiLineString": {
+      "type": "MultiLineString",
+      "coordinates": [ "$coord_array" ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "Polygon": {
+      "type": "Polygon",
+      "coordinates": [ "$linear_ring" ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "MultiPolygon": {
+      "type": "MultiPolygon",
+      "coordinates": [ [ "$linear_ring" ] ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "geometry": {
+      "^": [ "$Point", "$MultiPoint", "$LineString",
+             "$MultiLineString", "$Polygon", "$MultiPolygon" ]
+    },
+    "GeometryCollection": {
+      "type": "GeometryCollection",
+      "geometries": [ "$geometry" ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "Feature": {
+      "type": "Feature",
+      "geometry": { "|": [ null, "$geometry", "$GeometryCollection" ] },
+      "properties": { "|": [ null, { "": "$ANY" } ] },
+      "?id": { "|": [ "", -1.0 ] },
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    },
+    "FeatureCollection": {
+      "type": "FeatureCollection",
+      "features": [ "$Feature" ],
+      "?bbox": [ -1.0 ],
+      "": "$ANY"
+    }
+  },
+  "^": [ "$geometry", "$GeometryCollection", "$Feature", "$FeatureCollection" ]
+}

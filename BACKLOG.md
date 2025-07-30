@@ -13,6 +13,10 @@
 - [x] pr: ask for pause account
 - [x] pr: ship man page with `--doc` option
 - [x] pl-backend: move to subdir + jsb PR update
+- [x] export: simple stuff to python pydantic
+- [ ] pr: readme pydantic export example
+- [ ] pr: tuto pydantic export example
+- [ ] test: some pydantic exports
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
@@ -64,7 +68,7 @@
 - [ ] ts-backend: js sharing?
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
-- [ ] py-backend: heterogeneous disjunction is `ConstMap`?
+- [ ] py-backend: heterogeneous disjunction with `ConstMap`?
 - [ ] py-backend: unique for scalars (`set` only works for str)
 - [ ] c-backend: optimize unique for scalar types using `constant_t`
 - [ ] c-backend: remove path build under no reporting code gen
@@ -87,7 +91,6 @@
 - [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
 - [ ] php-backend: should it stoop so low?
 - [ ] perf: geo, ansible meta, openapi
-- [ ] python: refactor preproc vs compile vs codegen…
 - [ ] c-backend: multithreading? one one value??
 - [ ] pr: deb and rpm packaging? github package distribution?
 - [ ] pl-backend: run perltidy?
@@ -491,3 +494,4 @@
 - [x] pr: add jmc-pl to jsonschema-benchmark
 - [x] docker: add `help` and `run` to docker wrapper
 - [x] pr: review readme for docker
+- [x] python: refactor preproc vs compile vs codegen…

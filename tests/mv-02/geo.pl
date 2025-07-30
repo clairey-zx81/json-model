@@ -1389,7 +1389,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946) JSON_MODEL_LOOSE_FLOAT
+    # Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
     # generic xor list
     my $xc_0 = 0;

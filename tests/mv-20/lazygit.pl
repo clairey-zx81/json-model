@@ -3813,7 +3813,7 @@ sub json_model_1($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # JSON Model for https://json.schemastore.org/lazygit.json
+    # JSON Model for Lazy Git
     # .
     $res = _jm_obj_7($val, $path, $rep);
     return $res;

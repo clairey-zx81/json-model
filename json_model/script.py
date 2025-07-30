@@ -18,6 +18,7 @@ from .xstatic import xstatic_compile
 from . import optim, analyze, objmerge
 from .runtime.types import EntryCheckFun, Report
 from .runtime.support import _path as json_path
+from .export import model2python
 
 LANG = {
   "c": "C",
@@ -334,7 +335,7 @@ def jmc_script():
 
     operation = ap.add_mutually_exclusive_group()
     ope = operation.add_argument
-    ope("--op", choices=["P", "U", "J", "N", "E", "C"],
+    ope("--op", choices=["P", "U", "J", "N", "E", "C"], default=None,
         help="select operation")
     ope("--preproc", "-P", dest="op", action="store_const", const="P",
         help="preprocess model")
@@ -371,56 +372,58 @@ def jmc_script():
         sys.exit(0)
 
     # format/operation/gen guessing
-    if args.output != "-" and args.op is None and args.format is None:
+    if args.output != "-":
         if args.output.endswith(".c"):
-            args.format, args.op = "c", "C"
+            args.format = args.format or "c"
+            args.op = args.op or "C"
         if args.output.endswith(".o"):
-            args.format, args.op = "c", "C"
-            if args.gen is None:
-                args.gen = "module"
+            args.format = args.format or "c"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
         elif args.output.endswith(".out"):
-            args.format, args.op = "c", "C"
-            if args.gen is None:
-                args.gen = "exec"
+            args.format = args.format or "c"
+            args.op = args.op or "C"
+            args.gen = args.gen or "exec"
         elif args.output.endswith(".py"):
-            args.format, args.op = "py", "C"
-            if args.gen is None:
-                args.gen = "exec"
+            args.format = args.format or "py"
+            args.op = args.op or "C"
+            args.gen = args.gen or "exec"
         elif args.output.endswith(".mpy"):
-            args.format, args.op = "py", "C"
-            if args.gen is None:
-                args.gen = "module"
+            args.format = args.format or "py"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
         elif args.output.endswith(".js"):
-            args.format, args.op = "js", "C"
-            if args.gen is None:
-                args.gen = "exec"
+            args.format = args.format or "js"
+            args.op = args.op or "C"
+            args.gen = args.gen or "exec"
         elif args.output.endswith(".mjs"):
-            args.format, args.op = "js", "C"
-            if args.gen is None:
-                args.gen = "module"
+            args.format = args.format or "js"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
         elif args.output.endswith(".pl"):
-            args.format, args.op = "pl", "C"
-            if args.gen is None:
-                args.gen = "exec"
+            args.format = args.format or "pl"
+            args.op = args.op or "C"
+            args.gen = args.gen or "exec"
         elif args.output.endswith(".pm"):
-            args.format, args.op = "pl", "C"
-            if args.gen is None:
-                args.gen = "module"
-            if args.package is None:
-                args.package = Path(args.output).stem
+            args.format = args.format or "pl"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
+            args.package = args.package or Path(args.output).stem
         elif args.output.endswith(".sql"):
-            args.format, args.op, args.gen = "plpgsql", "C", "module"
+            args.format = args.format or "plpgsql"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
         elif args.output.endswith(".schema.json"):
-            args.format, args.op = "json", "E"
+            args.format = args.format or "json"
+            args.op = args.op or "E"
         elif args.output.endswith(".model.json"):
-            args.format, args.op = "json", "P"
-    elif args.values:
-        if args.op is None:
-            args.op = "C"
-        if args.format is None:
-            args.format = "py"
-        if args.gen is None:
-            args.gen = "none"
+            args.format = args.format or "json"
+            args.op = args.op or "P"
+
+    if args.values:
+        args.op = args.op or "C"
+        args.format = args.format or "py"
+        args.gen = args.gen or "none"
 
     if args.reporting is None:
         args.reporting = False if args.format == "plpgsql" else True
@@ -433,16 +436,19 @@ def jmc_script():
         args.gen = "source" if args.op in "C" and not args.values else "module"
 
     # option/parameter consistency and defaults
-    if args.op in "PUJNE":
-        if args.format is None:
-            args.format = "json"
-        elif args.format not in ("json", "yaml"):
+    if args.op in "PUJN":
+        args.format = args.format or "json"
+        if args.format not in ("json", "yaml"):
+            log.error(f"unexpected format {args.format} for operation {args.op}")
+            sys.exit(1)
+    elif args.op == "E":
+        args.format = args.format or "json"
+        if args.format not in ("json", "yaml", "py"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     elif args.op == "C":
-        if args.format is None:
-            args.format = "py"
-        elif args.format not in ("py", "c", "js", "pl", "plpgsql"):
+        args.format = args.format or "py"
+        if args.format not in ("py", "c", "js", "pl", "plpgsql"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
@@ -566,15 +572,23 @@ def jmc_script():
                 return env[args.entry](v, model, rep)
 
     elif args.op == "E":
-        if not model._loose_int or not model._loose_float:
-            log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
-        schema: JsonSchema
-        try:
-            schema = model.toSchema()
-        except Exception as e:
-            log.error(e, exc_info=args.debug)
-            schema = {"ERROR": str(e)}
-        print(json2str(schema), file=output)
+        if args.format in ("json", "yaml"):
+            if not model._loose_int or not model._loose_float:
+                log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
+            schema: JsonSchema
+            try:
+                schema = model.toSchema()
+            except Exception as e:
+                log.error(e, exc_info=args.debug)
+                schema = {"ERROR": str(e)}
+            print(json2str(schema), file=output)
+        elif args.format == "py":
+            code = [
+                "# Pydantic classes generated by JSON Model Compiler",
+                f"# for {args.model}",
+                "# see https://json-model.org/",
+            ] + model2python(model)
+            print("\n".join(code), file=output)
     else:
         raise Exception(f"operation not implemented yet: {args.op}")
 

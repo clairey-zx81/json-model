@@ -1956,7 +1956,7 @@ function json_model_14(val, path, rep)
 function json_model_1(val, path, rep)
 {
     let res;
-    // Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946) JSON_MODEL_LOOSE_FLOAT
+    // Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     // .
     // generic xor list
     let xc_0 = 0;

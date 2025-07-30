@@ -2020,7 +2020,7 @@ static bool json_model_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // Geo JSON Model (https://datatracker.ietf.org/doc/html/rfc7946) JSON_MODEL_LOOSE_FLOAT
+    // Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     // .
     // generic xor list
     int64_t xc_0 = 0;
