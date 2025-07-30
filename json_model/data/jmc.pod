@@ -213,6 +213,43 @@ generate a report about why a value failed. Default is just to say PASS or FAIL.
 
 =back
 
+=head1 OPERATIONS
+
+This section describes the main operations implemented by the compiler:
+
+=head2 Preprocessing
+
+The optimized proprocessed JSON Model is shown with C<-P -o preprocessed.json>.
+
+=head2 Compilation
+
+The compiler can generate code to actualy validate JSON data as:
+
+=over
+
+=item B<native> C source (C<-o model.c>), object file (C<-o model.o>) or
+compiled executable (C<-o model.out>).
+
+=item B<scripts> with Python (C<-o model.py>), JavaScript (C<-o model.js>) or Perl (C<-o model.pl>).
+
+=item B<modules> with Python (C<-o model.py --module>), JavaScript
+(C<-o model.mjs>), Perl (C<-o model.pm>) or PL/pgSQL (C<-o model.sql>),
+ready to be imported and used in the corresponding language.
+
+=back
+
+=head2 Export
+
+The compiler can export models to other data type declaration formats:
+
+=over
+
+=item B<JSON Schema> in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
+
+=item B<Python Pydantic> classes C<-E -o Models.py>).
+
+=back
+
 =head1 AUTHORS
 
 Fabien Coelho (Mines Paris - PSL) and Claire Yannou-Medrala (MESR).
