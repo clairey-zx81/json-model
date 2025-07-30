@@ -12,7 +12,7 @@
 - [x] pr: update `models/*` to take advantage of multi-comments
 - [x] pr: ask for pause account
 - [x] pr: ship man page with `--doc` option
-- [ ] pl-backend: move to subdir + jsb PR update
+- [x] pl-backend: move to subdir + jsb PR update
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
