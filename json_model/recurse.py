@@ -63,7 +63,7 @@ def _recModel(
                 okprops = {prop, "#"}
                 if root:
                     okprops.update(ROOT_KEYWORDS)
-                assert not (set(mkeys) - okprops), f"{prop} restricts other keywords {lpath}"
+                assert is_obj_model(model, okprops), f"{prop} restricts other keywords {lpath}"
             elif prop == "%":  # renames and rewrites
                 assert root and isinstance(val, dict), f"% transformations at root {lpath}"
                 for k, v in val.items():
