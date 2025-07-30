@@ -8,7 +8,7 @@ jmc - JSON Model Compiler
 
 =head1 SYNOPSIS
 
- jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,synopsis,help,man}]
+ jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}]
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
      [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--check]
