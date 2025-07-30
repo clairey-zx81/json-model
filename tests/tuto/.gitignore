@@ -4,6 +4,7 @@ person.pl
 person.pm
 person.py
 Person.py
+PersonModels.py
 person.sql
 person.c
 person.o

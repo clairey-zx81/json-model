@@ -668,7 +668,37 @@ done | psql -f test_values.sql
 | hobbes.json |      PASS |
 | moe.json    |      FAIL |
 
-## Exporting to and Importing from JSON Schema
+## Exporting to Pydantic
+
+In the Python ecosystem, [pydantic](https://pydantic.dev/) allows to create typed data
+classes very simply using type hints.
+
+Let us export a model to pydantic with the `-E` export task:
+
+```sh
+jmc -E -F PersonModels.py Person-2
+```
+
+The generated file provide predeclared classes and types based on all named
+definitions:
+
+```python
+import datetime
+import pydantic
+
+type Name = str
+
+class Person(pydantic.BaseModel):
+    name: Name
+    birth: datetime.date
+    friends: list[Name]|None = None
+
+PI: float = 3.141592653589793238462643
+```
+
+Note that not all constraints and types are implemented.
+
+## Exporting to _and_ Importing from JSON Schema
 
 Because of its simple structure, most models can be mapped simply to equivalent schemas.
 The conversion currently does not handle external references, though.

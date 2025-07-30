@@ -14,8 +14,9 @@
 - [x] pr: ship man page with `--doc` option
 - [x] pl-backend: move to subdir + jsb PR update
 - [x] export: simple stuff to python pydantic
+- [x] pr: tuto pydantic export example
+- [x] export: use pydantic predefs and the class syntax
 - [ ] pr: readme pydantic export example
-- [ ] pr: tuto pydantic export example
 - [ ] test: some pydantic exports
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts

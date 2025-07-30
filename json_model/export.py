@@ -36,12 +36,16 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
                 return f"str = {json.dumps(s)}" if advanced else "str"
             elif s[0] == "$":
                 if s == "$DATE":
-                    return "date" if advanced else "str"
+                    return "datetime.date" if advanced else "str"
                 elif s == "$DATETIME":
-                    return "datetime" if advanced else "str"
+                    return "datetime.datetime" if advanced else "str"
                 elif s == "$TIME":
-                    return "time" if advanced else "str"
-                elif s in ("$REGEX", "$EXREG", "$URL", "$URI", "$EMAIL"):
+                    return "datetime.time" if advanced else "str"
+                elif s == "$EMAIL":
+                    return "pydantic.EmailStr" if advanced else "str"
+                elif s == "$UUID":
+                    return "uuid.UUID" if advanced else "str"
+                elif s in ("$REGEX", "$EXREG", "$URL", "$URI"):
                     return "str"
                 elif s == "$ANY":
                     return "Any"
@@ -67,9 +71,17 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
             return None
         case bool():
             return "bool"
-        case int():
+        case int(i):
+            if i == 1:
+                return "pydantic.PositiveInt" if advanced else "int"
+            elif i == 0:
+                return "pydantic.NonNegativeInt" if advanced else "int"
             return "int"
-        case float():
+        case float(f):
+            if f == 1.0:
+                return "pydantic.PositiveFloat" if advanced else "float"
+            if f == 0.0:
+                return "pydantic.NonNegativeFloat" if advanced else "float"
             return "float"
         case list(l):
             if len(l) == 0:
@@ -119,7 +131,7 @@ def m2py(name: str, model: ModelType) -> Block:
         return [f"type {name} = Any  # &"]
 
     others: Block = []
-    code: Block = ["@dataclass", f"class {name}:"]
+    code: Block = [f"class {name}(pydantic.BaseModel):"]
     opt: bool = False
     has_extra: bool = False
 
@@ -171,9 +183,10 @@ def m2py(name: str, model: ModelType) -> Block:
 
 def model2python(model: JsonModel) -> Block:
     code: Block = [
-        "import pydantic",
-        "from pydantic.dataclasses import dataclass",
         "from typing import Any",
+        "import uuid",
+        "import datetime",
+        "import pydantic",
     ]
     for name, jm in model._defs.items():
         code += [""] + m2py(name, jm._model)
