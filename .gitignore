@@ -11,3 +11,4 @@ node_modules/
 *.values.csv
 jmc.1
 site/MODELS.md
+site/JMC.md

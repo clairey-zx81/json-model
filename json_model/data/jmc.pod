@@ -1,0 +1,242 @@
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+jmc - JSON Model Compiler
+
+=head1 SYNOPSIS
+
+ jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,synopsis,help,man}]
+     [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
+     [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
+     [--strict-float] [--loose-number] [--strict-number] [--check]
+     [-[-no]-optimize] [-[-no]-reporting]
+     [--format {json,yaml,py,c,js,plpgsql,pl}] [-[-no]-sort] [--indent INDENT]
+     [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
+     [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
+     [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
+     [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
+     [--map-threshold MAP_THRESHOLD] [--map-share]
+     [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
+     [--output OUTPUT] model [values ...]
+
+=head1 DESCRIPTION
+
+JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
+generate modules or scripts in C, JS, Python, PL/pgSQL, Perl, or a more-or-less equivalent
+JSON Schema.
+
+=head1 ARGUMENTS
+
+=over
+
+=item B<model>
+
+model to process, a local file or a URL.
+
+=item B<values...>
+
+list of  value files to check.
+
+=back
+
+=head1 OPTIONS
+
+Here are the most useful options:
+
+=head2 Metadata
+
+=over
+
+=item B<--help>/B<-h>
+
+show auto-generated synopsis and exit.
+
+=item B<--version>
+
+show command version and exit.
+
+=item B<--doc {pod,syn,help,man}>
+
+show help in some format and exit.
+
+=back
+
+=head2 Verbosity
+
+=over
+
+=item B<--verbose>/B<-v>
+
+set verbose mode.
+
+=item B<--quiet>
+
+set quiet mode, only show warnings.
+
+=item B<--debug>
+
+set debug mode, which is very verbose.
+
+=back
+
+=head2 Input
+
+=over
+
+=item B<--maps "URL PATH">/B<-m …>
+
+map remote urls to a local path.
+
+=item B<--auto>/B<-a>
+
+infer url to path mapping from declared model URL (C<.$."">).
+
+=item B<--check>
+
+whether to check the model for errors at various stages.
+
+=item B<--allow-duplicates>: accept JSON with objects containing duplicated properties.
+
+=back
+
+=head2 Processing
+
+=over
+
+=item B<--op {P,U,J,N,E,C}>
+
+operation to run (preproc, dump, jdump, nope, export, compile).
+
+=item B<--{loose,strict}-{int,float,number}>
+
+whether to assume loose JSON numbers,
+i.e. accept I<42.0> as an integer or I<42> as a float. Default is strict, but
+JS and PL/pgSQL backends are always loose due to the language and type capabilities.
+
+=item B<--re RELIB>
+
+regular expression library to use, default is to use B<re2> when available,
+else the internal library.
+
+=item B<--optimize>/B<-O>
+
+whether to optimize the model (partial eval, constraint simplifications, flattening,
+dead code elimination, xor to or conversion…).
+
+=back
+
+=head2 Output
+
+=over
+
+=item B<--output FILE>/B<-o FILE>
+
+output file, the suffix of which is used for setting the default format and generation.
+
+=item B<--format FMT>/B<-F FMT>
+
+output language, to override defaults.
+
+=item B<--gen GEN>
+
+whether to generate an B<exec>utable, a B<module>, source B<code> or nothing B<none>,
+to overide defaults.
+
+=item B<--entry ENTRY>
+
+name of the entry function to generate.
+
+=item B<--package PKG>
+
+name of package for generated module, if appliable.
+
+=item B<--map-threshold THRESHOLD>
+
+maximum number of props to inline property checks in objects.
+
+=item B<--map-share>
+
+whether to share common maps, may result in smaller generated code.
+
+=back
+
+=head2 C Compilation
+
+=over
+
+=item B<--cc COMPILER>
+
+compiler to use, defaut is C<cc>.
+
+=item B<--{cpp,c,ld}flags ...>
+
+set raw C<cpp>, C<cc> or C<ld> flags.
+
+=item B<-I DIR> B<-D VAR=VAL>
+
+cpp include path and definitions.
+
+=item B<-L DIR>
+
+C<ld> link path.
+
+=item B<--static>
+
+generate a statically linked executable.
+
+=back
+
+=head2 Testing
+
+When testing values:
+
+=over
+
+=item B<--name NAME>/B<-n NAME>
+
+name of model to use, default is empty string for the root model.
+
+=item B<--test-vector>
+
+assume a test vector input format for tested values.
+
+=item B<--none>/B<--true>/B<--false>
+
+expected result of test values, return an error status if unexpected values are encountered.
+
+=item B<--report>
+
+generate a report about why a value failed. Default is just to say PASS or FAIL.
+
+=back
+
+=head1 AUTHORS
+
+Fabien Coelho (Mines Paris - PSL) and Claire Yannou-Medrala (MESR).
+
+=head1 REPORTING BUGS
+
+Report bugs to L<JSON Model Issues|https://github.com/clairey-zx81/json-model/issues>.
+
+=head1 COPYRIGHT
+
+This software is dedicated to the public domain.
+
+=head1 SEE ALSO
+
+=over
+
+=item L<JSON Model on GitHub|https://github.com/clairey-zx81/json-model>
+
+=item L<ADBIS 2024 Paper|https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf>
+
+=item L<DBA 2023 Paper|https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf>
+
+=item L<Initial Design 2023 Technical Report|https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf>
+
+=back
+
+=cut

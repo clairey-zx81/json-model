@@ -5,6 +5,7 @@ import sys
 import re
 import json
 from importlib.metadata import version as pkg_version
+from importlib.resources import files as data_files
 import logging
 from .mtypes import ModelType, ModelPath, ModelError, ModelObject
 from .mtypes import Jsonable, JsonObject, ValueType, Symbols
@@ -645,3 +646,6 @@ def is_obj_model(model: ModelType, keywords: set[str]) -> bool:
         if not prop.startswith("#") and prop not in keywords:
             return False
     return True
+
+def load_data_file(fn: str) -> str:
+    return data_files("json_model.data").joinpath(fn).read_text()

@@ -18,7 +18,7 @@ dev: venv
 
 .PHONY: clean
 clean:
-	$(RM) $~ jmc.1 site/MODELS.md
+	$(RM) $~ jmc.1 site/MODELS.md site/JMC.md
 	$(RM) -r .pytest_cache/ .ruff_cache/ dist/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
@@ -28,12 +28,6 @@ clean:
 clean.dev: clean
 	$(RM) -r venv $(MODULE).egg-info build dist node_modules
 	$(RM) package-lock.json
-
-jmc.1: jmc.md
-	{
-	  echo '.TH JMC "1" "July 2025" "JSON Model Compiler" "User Commands"'
-	  pandoc -t man $< | sed -e '5s/^\.IP/.PP/'
-	} > $@
 
 .PHONY: check.src
 check.src: check.ruff check.pyright
@@ -83,8 +77,17 @@ site/MODELS.md: Makefile models/
 	  done
 	} > $@
 
+site/JMC.md: json_model/data/jmc.pod
+	pod2markdown $< > $@
+
+jmc.1: json_model/data/jmc.pod dev
+	source venv/bin/activate
+	version=$$(jmc --version)
+	year=$$(date +%Y)
+	pod2man $< | sed "s/^\.TH JMC 1.*/.TH JMC 1 $$year \"v$$version\" \"User Documentation\"/" > $@
+
 .PHONY: build.site
-build.site: site/MODELS.md
+build.site: site/MODELS.md site/JMC.md
 
 .PHONY: publish.site
 publish.site: build.site

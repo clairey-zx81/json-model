@@ -7,10 +7,11 @@ import logging
 from pathlib import Path
 from importlib.metadata import version as pkg_version
 from importlib.resources import files
+import subprocess
 import tempfile
 
 from .mtypes import Jsonable, JsonSchema, ModelError
-from .utils import log, tname, json_loads
+from .utils import log, tname, json_loads, load_data_file
 from .resolver import Resolver
 from .model import JsonModel
 from .xstatic import xstatic_compile
@@ -241,6 +242,10 @@ def jmc_script():
     )
     arg = ap.add_argument
 
+    # documentation
+    arg("--doc", choices=["pod", "syn", "help", "man"], default=None,
+        help="show documentation and exit")
+
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")
     arg("--debug", "-d", default=0, action="count", help="increase debugging verbosity")
@@ -351,6 +356,18 @@ def jmc_script():
 
     if args.version:
         print(pkg_version("json_model_compiler"))
+        sys.exit(0)
+
+    # POD - Plain Old Documentation
+    if args.doc:
+        # Alas, Python does not provide any help to write man pages for the user
+        pod = load_data_file("jmc.pod")
+        if args.doc == "pod":
+            print(pod)
+        else:
+            v = "2" if args.doc == "man" else "1" if args.doc == "help" else "0"
+            f = "Pod::Text::Termcap" if args.doc == "man" else "Pod::Text"
+            subprocess.run(["pod2usage", "-v", v, "-formatter", f], input=pod.encode("utf8"))
         sys.exit(0)
 
     # format/operation/gen guessing

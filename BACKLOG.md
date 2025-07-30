@@ -11,9 +11,10 @@
 - [x] pr: howto entry about python code
 - [x] pr: update `models/*` to take advantage of multi-comments
 - [x] pr: ask for pause account
-- [ ] pr: ship man page
+- [x] pr: ship man page with `--doc` option
 - [ ] pl-backend: move to subdir + jsb PR update
 - [ ] pr: publish pl runtime on cpan
+- [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
 - [ ] command: allow jsonl values
 - [ ] pr: write `everything.model.json` for illustration
@@ -92,6 +93,7 @@
 - [ ] pl-backend: run perltidy?
 - [ ] docker: improve caching/no-caching of some commands (eg force weekly rebuild?).
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
+- [ ] py-backend: package independent runtime?
 
 ## Re Do
 

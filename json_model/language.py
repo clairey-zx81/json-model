@@ -1,7 +1,6 @@
 import re
-from importlib.resources import files as data_files
 from .mtypes import Jsonable, JsonScalar, Number
-from .utils import log, __version__
+from .utils import log, __version__, load_data_file
 
 # name
 type Var = str
@@ -122,7 +121,7 @@ class Language:
     #
     def file_load(self, fn: str) -> Block:
         """Load a source file."""
-        code = data_files("json_model.data").joinpath(fn).read_text().split("\n")
+        code = load_data_file(fn).split("\n")
         # remove empty trailing lines
         while code and re.match(r"^\s*$", code[-1]):
             code = code[:-1]
