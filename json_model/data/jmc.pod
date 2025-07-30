@@ -4,7 +4,7 @@
 
 =head1 NAME
 
-jmc - JSON Model Compiler
+B<jmc> - JSON Model Compiler
 
 =head1 SYNOPSIS
 
@@ -24,7 +24,7 @@ jmc - JSON Model Compiler
 
 =head1 DESCRIPTION
 
-JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
+The JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
 generate modules or scripts in C, JS, Python, PL/pgSQL, Perl, or a more-or-less equivalent
 JSON Schema.
 
@@ -106,15 +106,15 @@ whether to check the model for errors at various stages.
 
 =over
 
-=item B<--op {P,U,J,N,E,C}>
+=item B<--op {P,E,C,U,J,N}>
 
-operation to run (preproc, dump, jdump, nope, export, compile).
+operation to run (preprocessing, export, compile, dump, jdump, none).
 
 =item B<--{loose,strict}-{int,float,number}>
 
-whether to assume loose JSON numbers,
-i.e. accept I<42.0> as an integer or I<42> as a float. Default is strict, but
-JS and PL/pgSQL backends are always loose due to the language and type capabilities.
+whether to assume loose JSON numbers, i.e. accept I<42.0> as an integer or I<42> as a float.
+Default is strict, but JS and PL/pgSQL backends are always loose due to the language and
+type capabilities.
 
 =item B<--re RELIB>
 
