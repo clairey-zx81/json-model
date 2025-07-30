@@ -70,5 +70,5 @@ RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" 
 RUN mkdir /app/workspace
 WORKDIR /app/workspace
 ENV JSON_MODEL_CACHEDIR=/tmp
-ENV PERLLIB=/app/json-model/json_model/runtime
+ENV PERLLIB=/app/json-model/json_model/runtime/pl
 ENTRYPOINT ["/app/venv/bin/jmc"]
