@@ -181,7 +181,7 @@ def m2py(name: str, model: ModelType) -> Block:
         code.append("    model_config = pydantic.ConfigDict(extra=\"allow\")")
     return others + code
 
-def model2python(model: JsonModel) -> Block:
+def model2python(model: JsonModel, root: str|None = "RootModel") -> Block:
     code: Block = [
         "from typing import Any",
         "import uuid",
@@ -190,4 +190,6 @@ def model2python(model: JsonModel) -> Block:
     ]
     for name, jm in model._defs.items():
         code += [""] + m2py(name, jm._model)
+    if root is not None:
+        code += [""] + m2py(root, model._model)
     return code

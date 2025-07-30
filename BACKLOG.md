@@ -16,7 +16,9 @@
 - [x] export: simple stuff to python pydantic
 - [x] pr: tuto pydantic export example
 - [x] export: use pydantic predefs and the class syntax
-- [ ] pr: readme pydantic export example
+- [x] pr: readme pydantic export example
+- [x] export: possible generate the root model
+- [ ] export: improve pydantic, do not generate bad fields
 - [ ] test: some pydantic exports
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts

@@ -676,11 +676,11 @@ classes very simply using type hints.
 Let us export a model to pydantic with the `-E` export task:
 
 ```sh
-jmc -E -F PersonModels.py Person-2
+jmc -E -F PersonModels.py -n Root Person-2
 ```
 
 The generated file provide predeclared classes and types based on all named
-definitions:
+definitions, plus the root model if appropriate:
 
 ```python
 import datetime
@@ -694,6 +694,8 @@ class Person(pydantic.BaseModel):
     friends: list[Name]|None = None
 
 PI: float = 3.141592653589793238462643
+
+type Root = Person
 ```
 
 Note that not all constraints and types are implemented.

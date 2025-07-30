@@ -58,7 +58,7 @@ jmc -o person.o Person-2
 jmc -o person.mjs Person-2
 jmc -o Person.py --module Person-2
 ./test_python_module.py
-jmc -o PersonModels.py -E Person2  # pydantic
+jmc -o PersonModels.py -E -n Root Person2  # pydantic
 
 jmc -o person.pm Person-2
 export PERLLIB=$PERLLIB:.
