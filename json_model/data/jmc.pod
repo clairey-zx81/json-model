@@ -26,7 +26,7 @@ B<jmc> - JSON Model Compiler
 
 The JSON Model Compiler command processes a L<JSON Model|https://json-model.org/> to
 generate modules or scripts in C, JS, Python, PL/pgSQL, Perl, or a more-or-less equivalent
-JSON Schema.
+JSON Schema or pydantic type declarations.
 
 =head1 ARGUMENTS
 
