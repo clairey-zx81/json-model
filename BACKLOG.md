@@ -22,7 +22,7 @@
   see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
-- [ ] design: transformation rename, `~` with a map? move path to path?
+- [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] pr: review readme in depth
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts
