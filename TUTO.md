@@ -700,7 +700,7 @@ type Root = Person
 
 Note that not all constraints and types are implemented.
 
-## Exporting to _and_ Importing from JSON Schema
+## Exporting to and Importing from JSON Schema
 
 Because of its simple structure, most models can be mapped simply to equivalent schemas.
 The conversion currently does not handle external references, though.
