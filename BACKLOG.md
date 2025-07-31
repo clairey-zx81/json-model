@@ -18,6 +18,8 @@
 - [x] export: use pydantic predefs and the class syntax
 - [x] pr: readme pydantic export example
 - [x] export: possible generate the root model
+- [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson)?
+  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] pr: publish pl runtime on cpan
@@ -213,7 +215,6 @@
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
-- [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson).
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
 - [ ] go-backend: encoding/json vs various faster replacements…
 - [ ] ruby-backend: for rails people?
