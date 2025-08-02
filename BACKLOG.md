@@ -18,8 +18,9 @@
 - [x] export: use pydantic predefs and the class syntax
 - [x] pr: readme pydantic export example
 - [x] export: possible generate the root model
-- [ ] java-backend: see [jackson](https://github.com/FasterXML/jackson)?
+- [x] java-backend: jackson gson ~jsonp moshi~
   see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
+- [ ] java-backend: add code generator and runtime, with abstracted json representation
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
@@ -105,6 +106,7 @@
 - [ ] docker: improve caching/no-caching of some commands (eg force weekly rebuild?).
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] py-backend: package independent runtime?
+- [ ] java-backend: packaging? maven?
 
 ## Re Do
 
