@@ -41,6 +41,16 @@ public class Jackson extends JSON<Object>
         }
     }
 
+    public String toJSON(Object o) throws JSON.Exception
+    {
+        try {
+            return mapper.writeValueAsString((JsonNode) o);
+        }
+        catch (JsonProcessingException e) {
+            throw new JSON.Exception("jackson error: " + e);
+        }
+    }
+
     public boolean isNull(Object o)
     {
         return ((JsonNode) o).isNull();

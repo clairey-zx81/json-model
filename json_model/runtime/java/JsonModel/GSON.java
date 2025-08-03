@@ -28,6 +28,11 @@ public class GSON extends JSON<Object>
         return gson.fromJson(reader, type);
     }
 
+    public String toJSON(Object o) throws JSON.Exception
+    {
+        return gson.toJson(o);
+    }
+
     public boolean isNull(Object o)
     {
         return o == null;        
