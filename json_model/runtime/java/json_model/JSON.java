@@ -51,6 +51,12 @@ public abstract class JSON<T>
 
     public abstract boolean isString(T o);
     public abstract String asString(T o);
+
+    public boolean isScalar(T o)
+    {
+        return isString(o) || isNumber(o) || isBoolean(o) || isNull(o);
+    }
+
     public abstract boolean isArray(T o);
     public abstract int arrayLength(T o);
     public abstract T arrayItem(T o, int index);

@@ -1,5 +1,8 @@
 public void free()
 {
-    super.free();
+    if (initialized)
+    {
+        super.free();
 CODE_BLOCK
+    }
 }

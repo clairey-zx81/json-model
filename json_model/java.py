@@ -37,7 +37,9 @@ class Java(Language):
             # package?
             "import json_model.*;",
             "import java.util.Map;",
+            "import java.util.Set;",
             "import java.util.HashMap;",
+            "import java.util.HashSet;",
             "import java.util.Iterator;",
             "import java.util.regex.Pattern;",
             "import java.util.regex.Matcher;",
@@ -194,7 +196,7 @@ class Java(Language):
         return f"{val}.endsWith({self.esc(start)})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
-        return f"array_is_unique({val}, {path}, rep)"
+        return f"rt.array_is_unique({val}, {path}, rep)"
 
     CMP_OPS = {
         "=": "Runtime.Operator.EQ",
@@ -207,7 +209,7 @@ class Java(Language):
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"check_constraint({val}, {CMP_OPS[op]}, &{self._cst(vop)}, {path}, rep)"
+        return f"rt.check_constraint({val}, {CMP_OPS[op]}, &{self._cst(vop)}, {path}, rep)"
 
     #
     # inline comparison expressions for strings
@@ -380,19 +382,19 @@ class Java(Language):
     def def_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"Set<Object> {name}_set;" ]
 
-    def del_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+    def del_cset(self, name: str, constants: ConstList) -> BoolExpr:
         return [ f"{name}_set = null;" ]
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         return f"{name}_set.contains({var})"
 
     def _cst(self, value: Jsonable) -> str:
-        return f"self.esc(json.dumps(cst))"
+        return self.esc(json.dumps(value))
 
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         code = [ f"{name}_set = new HashSet<Object>();" ]
         for cst in constants:
-            code.append(f"{name}_set.add(json.toJSON({self._cst(cst)}));")
+            code.append(f"{name}_set.add(json.fromJSON({self._cst(cst)}));")
         return code
 
     def sub_fun(self, name: str, body: Block) -> Block:

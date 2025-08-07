@@ -11,21 +11,22 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class at_bool extends ModelChecker
+public class enum_04 extends ModelChecker
 {
     static public final String VERSION = "2.0b1";
 
-    public Map<String, Checker> at_bool_map_pmap;
+    Set<Object> _jm_cst_0_set;
+    public Map<String, Checker> enum_04_map_pmap;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // .
-        res = json.isBoolean(val);
+        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a bool [.]", path);
+            if (rep != null) rep.addEntry("value not in enum [.'|']", path);
         }
         return res;
     }
@@ -36,8 +37,12 @@ public class at_bool extends ModelChecker
         if (!initialized)
         {
             try {
-            at_bool_map_pmap = new HashMap<String, Checker>();
-            at_bool_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            _jm_cst_0_set = new HashSet<Object>();
+            _jm_cst_0_set.add(json.fromJSON("200"));
+            _jm_cst_0_set.add(json.fromJSON("201"));
+            _jm_cst_0_set.add(json.fromJSON("204"));
+            enum_04_map_pmap = new HashMap<String, Checker>();
+            enum_04_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -51,18 +56,19 @@ public class at_bool extends ModelChecker
         if (initialized)
         {
             super.free();
-            at_bool_map_pmap = null;
+            _jm_cst_0_set = null;
+            enum_04_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return at_bool_map_pmap.get(name);
+        return enum_04_map_pmap.get(name);
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new at_bool();
-        Main.main("at_bool", checker, VERSION, args);
+        ModelChecker checker = new enum_04();
+        Main.main("enum_04", checker, VERSION, args);
     }
 }

@@ -1,18 +1,9 @@
 dst_03.values.json[0]: PASS
-dst_03.values.json[0]: 33.120 ± 0.000 µs [0.140]
 dst_03.values.json[1]: PASS
-dst_03.values.json[1]: 39.753 ± 0.000 µs [0.185]
 dst_03.values.json[2]: FAIL (b: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; b: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dst_03.values.json[2]: 54.567 ± 0.000 µs [0.171]
 dst_03.values.json[3]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dst_03.values.json[3]: 29.868 ± 0.000 µs [0.127]
 dst_03.values.json[4]: FAIL (a: not a 0 strict int [.'|'.0.a]; a: invalid mandatory prop value [.'|'.0.a]; : unexpected element [.'|'.0]; a: not a 0 strict int [.'|'.1.a]; a: invalid mandatory prop value [.'|'.1.a]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dst_03.values.json[4]: 26.633 ± 0.000 µs [0.118]
 dst_03.values.json[5]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; c: unexpected string [.'|'.1.c]; c: invalid mandatory prop value [.'|'.1.c]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dst_03.values.json[5]: 32.002 ± 0.000 µs [0.111]
 dst_03.values.json[6]: FAIL (: unexpected type [.'|'])
-dst_03.values.json[6]: 2.548 ± 0.000 µs [0.112]
 dst_03.values.json[7]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : missing mandatory prop <c> [.'|'.1]; : unexpected element [.'|'.1]; : no model matched [.'|'])
-dst_03.values.json[7]: 21.800 ± 0.000 µs [0.112]
 dst_03.values.json[8]: FAIL (: unexpected type [.'|'])
-dst_03.values.json[8]: 2.568 ± 0.000 µs [0.108]

@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class aa_0 extends ModelChecker
+public class uniq_1 extends ModelChecker
 {
     static public final String VERSION = "2.0b1";
 
-    public Map<String, Checker> aa_0_map_pmap;
+    public Map<String, Checker> uniq_1_map_pmap;
 
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
@@ -33,31 +33,10 @@ public class aa_0 extends ModelChecker
                 Object arr_0_item = arr_0_item_loop.next();
                 Path arr_0_lpath = new Path(arr_0_idx, path);
                 // .0
-                res = json.isArray(arr_0_item);
-                if (res)
-                {
-                    int arr_1_idx = -1;
-                    Iterator<Object> arr_1_item_loop = json.arrayIterator(arr_0_item);
-                    while (arr_1_item_loop.hasNext())
-                    {
-                        arr_1_idx++;
-                        Object arr_1_item = arr_1_item_loop.next();
-                        Path arr_1_lpath = new Path(arr_1_idx, (path != null ? arr_0_lpath : null));
-                        // .0.0
-                        res = json.isString(arr_1_item);
-                        if (! res)
-                        {
-                            if (rep != null) rep.addEntry("unexpected string [.0.0]", ((path != null ? arr_0_lpath : null) != null ? arr_1_lpath : null));
-                        }
-                        if (! res)
-                        {
-                            break;
-                        }
-                    }
-                }
+                res = json.isString(arr_0_item);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not array or unexpected array [.0]", (path != null ? arr_0_lpath : null));
+                    if (rep != null) rep.addEntry("unexpected string [.0]", (path != null ? arr_0_lpath : null));
                 }
                 if (! res)
                 {
@@ -78,8 +57,8 @@ public class aa_0 extends ModelChecker
         if (!initialized)
         {
             try {
-            aa_0_map_pmap = new HashMap<String, Checker>();
-            aa_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            uniq_1_map_pmap = new HashMap<String, Checker>();
+            uniq_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -93,18 +72,18 @@ public class aa_0 extends ModelChecker
         if (initialized)
         {
             super.free();
-            aa_0_map_pmap = null;
+            uniq_1_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return aa_0_map_pmap.get(name);
+        return uniq_1_map_pmap.get(name);
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new aa_0();
-        Main.main("aa_0", checker, VERSION, args);
+        ModelChecker checker = new uniq_1();
+        Main.main("uniq_1", checker, VERSION, args);
     }
 }

@@ -4,7 +4,9 @@
 //
 import json_model.*;
 import java.util.Map;
+import java.util.Set;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -46,18 +48,25 @@ public class def_00 extends ModelChecker
     {
         if (!initialized)
         {
+            try {
             def_00_map_pmap = new HashMap<String, Checker>();
             def_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             def_00_map_pmap.put("pos", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+                super.init(json);
+            }
+            catch (Exception e) {
+                throw new Error("cannot initialized model checker: " + e);
+            }
         }
-    
-        super.init(json);
     }
 
     public void free()
     {
-        super.free();
+        if (initialized)
+        {
+            super.free();
             def_00_map_pmap = null;
+        }
     }
 
     public Checker get(String name)

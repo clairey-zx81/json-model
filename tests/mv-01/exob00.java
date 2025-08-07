@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class dst_03 extends ModelChecker
+public class exob00 extends ModelChecker
 {
     static public final String VERSION = "2.0b1";
 
-    public Map<String, Checker> dst_03_map_pmap;
+    public Map<String, Checker> exob00_map_pmap;
 
     // object .'|'.1
     public boolean _jm_obj_0(Object val, Path path, Report rep)
@@ -33,55 +33,59 @@ public class dst_03 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_0 = new Path(prop, path);
-            if (prop.compareTo("a") == 0)
+            if (prop.compareTo("b") == 0)
             {
-                // handle must a property
+                // handle must b property
                 must_count += 1;
-                // .'|'.1.a
+                // .'|'.1.b
                 res = json.isInteger(pval) && json.asLong(pval) >= 0;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.b]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.a]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.b]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
-            else if (prop.compareTo("c") == 0)
+            else if (prop.compareTo("a") == 0)
             {
-                // handle must c property
-                must_count += 1;
-                // .'|'.1.c
-                res = json.isString(pval);
+                // handle may a property
+                // .'|'.1.a
+                res = false;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected string [.'|'.1.c]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $NONE [.'|'.1.a]", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("invalid mandatory prop value [.'|'.1.c]", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'|'.1.a]", (path != null ? lpath_0 : null));
                     return false;
                 }
             }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'|'.1]", (path != null ? lpath_0 : null));
-                return false;
+                // handle other props
+                // .'|'.1.''
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.1.'']", (path != null ? lpath_0 : null));
+                }
+                if (! res)
+                {
+                    return false;
+                }
             }
         }
-        if (must_count != 2)
+        if (must_count != 1)
         {
             if (rep != null)
             {
-                if (! json.objectHasProp(val, "a"))
+                if (! json.objectHasProp(val, "b"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.1]", path);
-                }
-                if (! json.objectHasProp(val, "c"))
-                {
-                    if (rep != null) rep.addEntry("missing mandatory prop <c> [.'|'.1]", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <b> [.'|'.1.'']", path);
                 }
             }
             return false;
@@ -121,10 +125,34 @@ public class dst_03 extends ModelChecker
                     return false;
                 }
             }
+            else if (prop.compareTo("b") == 0)
+            {
+                // handle may b property
+                // .'|'.0.b
+                res = false;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $NONE [.'|'.0.b]", (path != null ? lpath_1 : null));
+                }
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("invalid optional prop value [.'|'.0.b]", (path != null ? lpath_1 : null));
+                    return false;
+                }
+            }
             else
             {
-                if (rep != null) rep.addEntry("unexpected prop [.'|'.0]", (path != null ? lpath_1 : null));
-                return false;
+                // handle other props
+                // .'|'.0.''
+                res = json.isInteger(pval) && json.asLong(pval) >= 0;
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("not a 0 strict int [.'|'.0.'']", (path != null ? lpath_1 : null));
+                }
+                if (! res)
+                {
+                    return false;
+                }
             }
         }
         if (must_count != 1)
@@ -133,7 +161,7 @@ public class dst_03 extends ModelChecker
             {
                 if (! json.objectHasProp(val, "a"))
                 {
-                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0]", path);
+                    if (rep != null) rep.addEntry("missing mandatory prop <a> [.'|'.0.'']", path);
                 }
             }
             return false;
@@ -145,6 +173,7 @@ public class dst_03 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
+        // exclusive properties: a ^ b
         // .
         res = json.isObject(val);
         if (! res)
@@ -186,8 +215,8 @@ public class dst_03 extends ModelChecker
         if (!initialized)
         {
             try {
-            dst_03_map_pmap = new HashMap<String, Checker>();
-            dst_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            exob00_map_pmap = new HashMap<String, Checker>();
+            exob00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);
             }
             catch (Exception e) {
@@ -201,18 +230,18 @@ public class dst_03 extends ModelChecker
         if (initialized)
         {
             super.free();
-            dst_03_map_pmap = null;
+            exob00_map_pmap = null;
         }
     }
 
     public Checker get(String name)
     {
-        return dst_03_map_pmap.get(name);
+        return exob00_map_pmap.get(name);
     }
 
     static public void main(String[] args) throws Exception
     {
-        ModelChecker checker = new dst_03();
-        Main.main("dst_03", checker, VERSION, args);
+        ModelChecker checker = new exob00();
+        Main.main("exob00", checker, VERSION, args);
     }
 }

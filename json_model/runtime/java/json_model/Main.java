@@ -141,7 +141,7 @@ public class Main
 
         String json_lib = "Jackson";
         String model_name = "";
-        int time = 1;
+        int time = 0;
         boolean
             report = false,
             jsbench = false,

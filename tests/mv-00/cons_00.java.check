@@ -1,12 +1,6 @@
 cons_00.values.json[0]: FAIL ()
-cons_00.values.json[0]: 21.755 ± 0.000 µs [0.390]
 cons_00.values.json[1]: FAIL ()
-cons_00.values.json[1]: 2.653 ± 0.000 µs [0.410]
 cons_00.values.json[2]: FAIL ()
-cons_00.values.json[2]: 4.011 ± 0.000 µs [0.441]
 cons_00.values.json[3]: FAIL ()
-cons_00.values.json[3]: 2.009 ± 0.000 µs [0.143]
 cons_00.values.json[4]: FAIL ()
-cons_00.values.json[4]: 1.950 ± 0.000 µs [0.158]
 cons_00.values.json[5]: FAIL ()
-cons_00.values.json[5]: 2.113 ± 0.000 µs [0.262]
