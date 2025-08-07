@@ -56,10 +56,10 @@ public abstract class JSON<T>
     public abstract T arrayItem(T o, int index);
     public abstract Iterator<? extends T> arrayIterator(T o);
 
-    public T[] asArray(T o)
+    public Object[] asArray(T o)
     {
         int length = arrayLength(o);
-        T[] array = (T[]) java.lang.reflect.Array.newInstance(o.getClass().getComponentType(), length);
+        Object[] array = new Object[length];
         for (int i = 0; i < length; i++)
             array[i] = arrayItem(o, i);
         return array;

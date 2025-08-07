@@ -201,7 +201,7 @@ public class Main
             else if (json_lib.equals("Jackson"))
                 json_lib = "json_model.Jackson";
             // else keep as is
-            json = (JSON) Class.forName(json_lib).newInstance();
+            json = (JSON) Class.forName(json_lib).getDeclaredConstructor().newInstance();
         }
         catch (Exception e) {
             exit(1, "unexpected JSON library: " + json_lib + " (" + e + ")");

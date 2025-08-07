@@ -4,6 +4,7 @@ import java.time.format.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Arrays;
+import java.net.URI;
 import java.net.URL;
 
 public class Runtime
@@ -87,7 +88,7 @@ public class Runtime
     public boolean is_valid_url(String s)
     {
         try {
-            new URL(s);
+            new URI(s).toURL();
             return true;
         }
         catch (Exception e) {
