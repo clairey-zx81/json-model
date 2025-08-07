@@ -1,0 +1,36 @@
+dst_02.values.json[0]: PASS
+dst_02.values.json[0]: 35.992 ± 0.000 µs [0.156]
+dst_02.values.json[1]: PASS
+dst_02.values.json[1]: 34.358 ± 0.000 µs [0.138]
+dst_02.values.json[2]: PASS
+dst_02.values.json[2]: 43.965 ± 0.000 µs [0.110]
+dst_02.values.json[3]: PASS
+dst_02.values.json[3]: 47.890 ± 0.000 µs [0.087]
+dst_02.values.json[4]: PASS
+dst_02.values.json[4]: 59.686 ± 0.000 µs [0.096]
+dst_02.values.json[5]: PASS
+dst_02.values.json[5]: 72.298 ± 0.000 µs [0.093]
+dst_02.values.json[6]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; c: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; c: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; b: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; b: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; b: unexpected prop [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[6]: 84.684 ± 0.000 µs [0.218]
+dst_02.values.json[7]: FAIL (e: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; d: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; d: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; e: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; d: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; d: unexpected prop [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[7]: 66.891 ± 0.000 µs [0.110]
+dst_02.values.json[8]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; c: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; c: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; b: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; b: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; b: unexpected prop [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[8]: 58.980 ± 0.000 µs [0.102]
+dst_02.values.json[9]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; d: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; d: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; b: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; b: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; b: unexpected prop [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[9]: 57.816 ± 0.000 µs [0.094]
+dst_02.values.json[10]: FAIL (: missing mandatory prop <d> [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <e> [.'|'.1]; : unexpected element [.'|'.1]; : missing mandatory prop <f> [.'|'.2]; : unexpected element [.'|'.2]; b: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; b: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; b: unexpected prop [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[10]: 121.974 ± 0.000 µs [0.096]
+dst_02.values.json[11]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; c: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; c: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; f: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; f: unexpected prop [.'|'.4]; : unexpected element [.'|'.4]; : missing mandatory prop <a> [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[11]: 60.359 ± 0.000 µs [0.095]
+dst_02.values.json[12]: FAIL (: unexpected type [.'|'])
+dst_02.values.json[12]: 2.190 ± 0.000 µs [0.090]
+dst_02.values.json[13]: FAIL (: unexpected type [.'|'])
+dst_02.values.json[13]: 3.168 ± 0.000 µs [0.098]
+dst_02.values.json[14]: FAIL (: unexpected type [.'|'])
+dst_02.values.json[14]: 2.062 ± 0.000 µs [0.098]
+dst_02.values.json[15]: FAIL (: unexpected type [.'|'])
+dst_02.values.json[15]: 2.061 ± 0.000 µs [0.096]
+dst_02.values.json[16]: FAIL (: unexpected type [.'|'])
+dst_02.values.json[16]: 2.094 ± 0.000 µs [0.095]
+dst_02.values.json[17]: FAIL (: missing mandatory prop <a> [.'|'.0]; : missing mandatory prop <b> [.'|'.0]; : missing mandatory prop <d> [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : missing mandatory prop <b> [.'|'.1]; : missing mandatory prop <e> [.'|'.1]; : unexpected element [.'|'.1]; : missing mandatory prop <a> [.'|'.2]; : missing mandatory prop <b> [.'|'.2]; : missing mandatory prop <f> [.'|'.2]; : unexpected element [.'|'.2]; : missing mandatory prop <a> [.'|'.3]; : missing mandatory prop <c> [.'|'.3]; : missing mandatory prop <d> [.'|'.3]; : unexpected element [.'|'.3]; : missing mandatory prop <a> [.'|'.4]; : missing mandatory prop <c> [.'|'.4]; : missing mandatory prop <e> [.'|'.4]; : unexpected element [.'|'.4]; : missing mandatory prop <a> [.'|'.5]; : missing mandatory prop <c> [.'|'.5]; : missing mandatory prop <f> [.'|'.5]; : unexpected element [.'|'.5]; : no model matched [.'|'])
+dst_02.values.json[17]: 52.030 ± 0.000 µs [0.108]

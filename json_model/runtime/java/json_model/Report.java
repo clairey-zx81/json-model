@@ -53,11 +53,11 @@ public class Report
         for (Entry e: entries)
         {
             if (sep)
-                sb.append("), (");
+                sb.append("; ");
             else
                 sep = true;
             sb.append(e.toString());
         }
-        return "(" + sb.toString() + ")";
+        return sb.toString();
     }
 }

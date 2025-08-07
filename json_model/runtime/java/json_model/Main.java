@@ -125,7 +125,7 @@ public class Main
         throws JSON.Exception
     {
         // option management
-        Getopt g = new Getopt(program, args, "hvln:rtT:", new LongOpt[] {
+        Getopt g = new Getopt(program, args, "hvlj:n:rtLT:", new LongOpt[] {
             new LongOpt("help", LongOpt.NO_ARGUMENT, null, 'h'),
             new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'v'),
             new LongOpt("list", LongOpt.NO_ARGUMENT, null, 'l'),
@@ -272,15 +272,15 @@ public class Main
                         String name;
                         Object val;
 
-                        if (vector.length == 0) {
-                            expect = json.asBoolean(json.arrayItem(vector, 0));
+                        if (vector.length == 2) {
+                            expect = json.asBoolean(vector[0]);
                             name = "";
-                            val = json.arrayItem(vector, 1);
+                            val = vector[1];
                         }
                         else {
-                            expect = json.asBoolean(json.arrayItem(vector, 0));
-                            name = json.asString(json.arrayItem(vector, 1));
-                            val = json.arrayItem(vector, 2);
+                            expect = json.asBoolean(vector[0]);
+                            name = json.asString(vector[1]);
+                            val = vector[2];
                         }
                         String display = fname + "[" + index + "]";
                         if (process(val, display, name, checker, expect, time, report))

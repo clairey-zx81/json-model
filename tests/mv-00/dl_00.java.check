@@ -1,0 +1,26 @@
+dl_00.values.json[0]: PASS
+dl_00.values.json[0]: 9.936 ± 0.000 µs [0.319]
+dl_00.values.json[1]: PASS
+dl_00.values.json[1]: 2.712 ± 0.000 µs [0.489]
+dl_00.values.json[2]: PASS
+dl_00.values.json[2]: 49.308 ± 0.000 µs [0.355]
+dl_00.values.json[3]: PASS
+dl_00.values.json[3]: 31.070 ± 0.000 µs [0.234]
+dl_00.values.json[4]: PASS
+dl_00.values.json[4]: 36.651 ± 0.000 µs [0.184]
+dl_00.values.json[5]: PASS
+dl_00.values.json[5]: 51.359 ± 0.000 µs [0.253]
+dl_00.values.json[6]: PASS
+dl_00.values.json[6]: 76.676 ± 0.000 µs [0.184]
+dl_00.values.json[7]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$rec'.'|'.1]; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[7]: 14.069 ± 0.000 µs [0.338]
+dl_00.values.json[8]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$rec'.'|'.1]; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[8]: 6.292 ± 0.000 µs [0.195]
+dl_00.values.json[9]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$rec'.'|'.1]; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[9]: 6.196 ± 0.000 µs [0.180]
+dl_00.values.json[10]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$rec'.'|'.1]; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[10]: 5.823 ± 0.000 µs [0.157]
+dl_00.values.json[11]: FAIL (: not a bool [.'$rec'.'|'.0]; : not an object [.'$rec'.'|'.1]; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[11]: 14.452 ± 0.000 µs [0.359]
+dl_00.values.json[12]: FAIL (: not a bool [.'$rec'.'|'.0]; invalid: not a bool [.'$rec'.'|'.0]; invalid: not an object [.'$rec'.'|'.1]; invalid: unexpected element [.'$rec'.'|'.1]; invalid: no model matched [.'$rec'.'|']; invalid: unexpected $rec [.'$rec'.'|'.1.'']; : unexpected element [.'$rec'.'|'.1]; : no model matched [.'$rec'.'|']; : unexpected $rec [.])
+dl_00.values.json[12]: 36.606 ± 0.000 µs [0.219]

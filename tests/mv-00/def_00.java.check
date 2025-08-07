@@ -1,0 +1,10 @@
+def_00.values.json[0]: PASS
+def_00.values.json[0]: 26.809 ± 0.000 µs [0.454]
+def_00.values.json[1]: PASS
+def_00.values.json[1]: 4.132 ± 0.000 µs [0.412]
+def_00.values.json[2]: FAIL (: not a 0.0 strict float [.'$pos']; : unexpected $pos [.])
+def_00.values.json[2]: 24.936 ± 0.000 µs [0.443]
+def_00.values.json[3]: FAIL (: not a 0.0 strict float [.'$pos']; : unexpected $pos [.])
+def_00.values.json[3]: 6.559 ± 0.000 µs [0.205]
+def_00.values.json[4]: FAIL (: not a 0.0 strict float [.'$pos']; : unexpected $pos [.])
+def_00.values.json[4]: 6.337 ± 0.000 µs [0.149]

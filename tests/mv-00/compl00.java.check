@@ -1,0 +1,20 @@
+compl00.values.json[0]: PASS
+compl00.values.json[0]: 14.148 ± 0.000 µs [0.364]
+compl00.values.json[1]: PASS
+compl00.values.json[1]: 2.836 ± 0.000 µs [0.236]
+compl00.values.json[2]: PASS
+compl00.values.json[2]: 2.764 ± 0.000 µs [0.116]
+compl00.values.json[3]: PASS
+compl00.values.json[3]: 3.329 ± 0.000 µs [0.146]
+compl00.values.json[4]: PASS
+compl00.values.json[4]: 3.417 ± 0.000 µs [0.169]
+compl00.values.json[5]: PASS
+compl00.values.json[5]: 3.415 ± 0.000 µs [0.184]
+compl00.values.json[6]: PASS
+compl00.values.json[6]: 3.362 ± 0.000 µs [0.148]
+compl00.values.json[7]: PASS
+compl00.values.json[7]: 2.951 ± 0.000 µs [0.439]
+compl00.values.json[8]: PASS
+compl00.values.json[8]: 18.322 ± 0.000 µs [0.220]
+compl00.values.json[9]: FAIL (: not one model match [.'^'])
+compl00.values.json[9]: 40.885 ± 0.000 µs [0.461]
