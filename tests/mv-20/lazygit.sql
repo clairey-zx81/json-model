@@ -4210,7 +4210,6 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"menuFromCommand"', '_jm_obj_6')
 ;
 
-
 --
 -- JSON Model checking entry point
 --

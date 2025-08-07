@@ -5764,7 +5764,6 @@ void check_model_free(void)
     }
 }
 
-
 /*
  * # API
  *

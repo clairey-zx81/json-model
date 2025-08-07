@@ -130,7 +130,7 @@ class Perl(Language):
         return code
 
     def file_footer(self, exe: bool = True) -> Block:
-        code: Block = self.file_load("perl_entry.pl") + [ "" ]
+        code: Block = [ "" ] + self.file_load("perl_entry.pl") + [ "" ]
         code += self.file_load("perl_main.pl") if exe else [ "1;" ]
         return code
 

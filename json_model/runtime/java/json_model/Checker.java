@@ -1,6 +1,6 @@
-package JsonModel;
+package json_model;
 
-interface Checker
+public interface Checker
 {                                                                                 
     public boolean call(Object o, Path p, Report r);                                                
 }                                                                                                   

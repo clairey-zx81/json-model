@@ -1,2 +1,0 @@
-// direct recursion
-{ "": "$#" }

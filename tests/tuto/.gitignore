@@ -10,3 +10,4 @@ person.c
 person.o
 person.out
 person.schema.json
+Person.java

@@ -6832,7 +6832,6 @@ $$ LANGUAGE plpgsql;
 --
 TRUNCATE jm_constant_maps;
 
-
 --
 -- JSON Model checking entry point
 --

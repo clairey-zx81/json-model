@@ -157,7 +157,6 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB 'false', 'json_model_3')
 ;
 
-
 --
 -- JSON Model checking entry point
 --

@@ -1,4 +1,4 @@
-package JsonModel;
+package json_model;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +10,16 @@ import java.io.Reader;
  */
 public abstract class JSON<T>
 {
+    enum JType {
+        NULL,
+        BOOLEAN,
+        INTEGER,
+        NUMBER,
+        STRING,
+        ARRAY,
+        OBJECT
+    }
+
     public static class Exception extends java.lang.Exception
     {
         public Exception(String s) {
@@ -45,8 +55,39 @@ public abstract class JSON<T>
     public abstract int arrayLength(T o);
     public abstract T arrayItem(T o, int index);
     public abstract Iterator<? extends T> arrayIterator(T o);
+
+    public T[] asArray(T o)
+    {
+        int length = arrayLength(o);
+        T[] array = (T[]) java.lang.reflect.Array.newInstance(o.getClass().getComponentType(), length);
+        for (int i = 0; i < length; i++)
+            array[i] = arrayItem(o, i);
+        return array;
+    }
+
     public abstract boolean isObject(T o);
     public abstract int objectSize(T o);
     public abstract T objectValue(T o, String prop);
+    public abstract boolean objectHasProp(T o, String prop);
     public abstract Iterator<String> objectIterator(T o);
+
+    // inefficient default
+    public JType type(T o)
+    {
+        if (isNull(o))
+            return JType.NULL;
+        if (isBoolean(o))
+            return JType.BOOLEAN;
+        if (isInteger(o))
+            return JType.INTEGER;
+        if (isDouble(o))
+            return JType.NUMBER;
+        if (isString(o))
+            return JType.STRING;
+        if (isArray(o))
+            return JType.ARRAY;
+        if (isObject(o))
+            return JType.OBJECT;
+        throw new Error("unexpected object: " + o);
+    }
 }

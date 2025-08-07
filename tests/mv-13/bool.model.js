@@ -1,2 +1,0 @@
-/* accepte les booléens */
-true

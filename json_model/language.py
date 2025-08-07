@@ -99,6 +99,7 @@ class Language:
         self._idcounts: dict[str, int] = {}  # per-prefix ident count for unicity
         self._re_used: bool = False          # whether regular expressions are used
         self.set_caps = tuple(set_caps)      # constant types in a set
+        self.reindent = False
 
     def version(self) -> str:
         """Version string in generated code."""
@@ -744,6 +745,16 @@ class Code:
         self.defs(self._lang.def_strfun(name))
         self.subs(self._lang.sub_strfun(name, body))
 
+    def _code(self, code: Block, indent: bool = False):
+        """Process one code block."""
+        if indent:
+            code = self._lang.indent(code, False)
+        return [
+            line.replace("CHECK_FUNCTION_NAME", self._entry)
+                .replace("CHECK_PACKAGE_NAME", self._package or "")
+                    for line in code
+        ]
+
     def __str__(self):
         """Gather everything to generate the full source code."""
 
@@ -752,16 +763,14 @@ class Code:
         dels = self._lang.gen_free(self._dels)
 
         # reduce with empty lines between parts
-        code: Block = []
-        for block in (self._lang.file_header(self._executable), self._defs,
-                self._subs, inis, dels, self._lang.file_footer(self._executable)):
+        code: Block = self._code(self._lang.file_header(self._executable))
+
+        for block in (self._defs, self._subs, inis, dels):
             if code and block:
                 code += [""]
-            code += [
-                line.replace("CHECK_FUNCTION_NAME", self._entry)
-                    .replace("CHECK_PACKAGE_NAME", self._package or "")
-                        for line in block
-            ]
+            code += self._code(block, self._lang.reindent)
+
+        code += self._code(self._lang.file_footer(self._executable))
 
         # generate source code, skipping none instructions if any
         return self._lang._isep.join(filter(lambda s: s is not None, code)) + "\n"

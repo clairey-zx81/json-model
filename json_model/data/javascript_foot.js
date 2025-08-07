@@ -1,3 +1,4 @@
+
 export function CHECK_FUNCTION_NAME(val, name, rep)
 {
     let checker = CHECK_FUNCTION_NAME_map.get(name)

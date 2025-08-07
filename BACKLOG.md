@@ -20,16 +20,17 @@
 - [x] export: possible generate the root model
 - [x] java-backend: jackson gson ~jsonp moshi~
   see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
-- [ ] java-backend: add code generator and runtime, with abstracted json representation
+- [x] java-backend: add code generator and runtime, with abstracted json representation
+- [ ] java-backend: pass validation tests
+- [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] pr: update example re in tuto
-- [ ] pr: review readme in depth
+- [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: publish pl runtime on cpan
 - [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
-- [ ] command: allow jsonl values
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration

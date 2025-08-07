@@ -1,4 +1,4 @@
-package JsonModel;
+package json_model;
 
 import java.time.format.*;
 import java.util.regex.Pattern;
@@ -8,6 +8,10 @@ import java.net.URL;
 
 public class Runtime
 {
+    enum Operator {
+        EQ, NE, LE, LT, GE, GT
+    }
+
     private JSON json;
 
     public Runtime(JSON json)
@@ -118,7 +122,7 @@ public class Runtime
     }
 
     // FIXME inefficient, although n log n
-    public boolean array_is_unique(Object o)
+    public boolean array_is_unique(Object o, Path path, Report rep)
     {
         int length = json.arrayLength(o);
         if (length < 2)
@@ -142,5 +146,84 @@ public class Runtime
             if (array[i].equals(array[i+1]))
                 return false;
         return true;
+    }
+
+    public long any_int(Object o)
+    {
+        if (json.isArray(o))
+            return json.arrayLength(o);
+        if (json.isObject(o))
+            return json.objectSize(o);
+        if (json.isString(o))
+            return json.asString(o).length();
+        return json.asLong(o);
+    }
+
+    public boolean check_constraint(Object val, Operator op, Object cst, Path path, Report rep)
+        throws Exception
+    {
+        JSON.JType
+            tc = json.type(cst),
+            tv = json.type(val);
+
+        switch (tc) {
+            case JSON.JType.INTEGER:
+                long vi = any_int(val), ci = json.asLong(cst);
+                switch (op) {
+                    case Operator.EQ:
+                        return vi == ci;
+                    case Operator.NE:
+                        return vi != ci;
+                    case Operator.LE:
+                        return vi <= ci;
+                    case Operator.LT:
+                        return vi < ci;
+                    case Operator.GE:
+                        return vi >= ci;
+                    case Operator.GT:
+                        return vi > ci;
+                    default:
+                        throw new Exception("unexpected comparison operator " + op);
+                }
+            case JSON.JType.NUMBER:
+                double cd = json.asNumber(cst), vd = json.asNumber(val);
+                switch (op) {
+                    case Operator.EQ:
+                        return vd == cd;
+                    case Operator.NE:
+                        return vd != cd;
+                    case Operator.LE:
+                        return vd <= cd;
+                    case Operator.LT:
+                        return vd < cd;
+                    case Operator.GE:
+                        return vd >= cd;
+                    case Operator.GT:
+                        return vd > cd;
+                    default:
+                        throw new Exception("unexpected comparison operator " + op);
+                }
+            case JSON.JType.STRING:
+                String cs = json.asString(cst), vs = json.asString(val);
+                int cmp = vs.compareTo(cs);
+                switch (op) {
+                    case Operator.EQ:
+                        return cmp == 0;
+                    case Operator.NE:
+                        return cmp != 0;
+                    case Operator.LE:
+                        return cmp <= 0;
+                    case Operator.LT:
+                        return cmp < 0;
+                    case Operator.GE:
+                        return cmp >= 0;
+                    case Operator.GT:
+                        return cmp > 0;
+                    default:
+                        throw new Exception("unexpected comparison operator " + op);
+                }
+            default:
+                throw new Exception("not implemented yet for json type " + tc);
+        }
     }
 }

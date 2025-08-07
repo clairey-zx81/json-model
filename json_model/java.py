@@ -1,0 +1,420 @@
+import json
+from .language import Language, Block, Var, PropMap, ConstList
+from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
+from .mtypes import Jsonable, JsonScalar, Number
+
+_ESC_TABLE = { '"': r'\"', "\\": "\\\\" }
+
+class Java(Language):
+    """Generate JSON value checker in Java with GSON or Jackson.
+    """
+
+    def __init__(self, *,
+                 debug: bool = False,
+                 with_path: bool = True, with_report: bool = True, with_comment: bool = True,
+                 relib: str = "re", int_t: str = "long"):
+
+        super().__init__(
+            "Java",
+             with_path=with_path, with_report=with_report, with_comment=with_comment,
+             not_op="!", and_op="&&", or_op="||", lcom="//",
+             true="true", false="false", null="null", check_t="Checker", json_t="Object",
+             path_t="Path", float_t="double", str_t="String", bool_t="boolean", int_t="long",
+             match_t="boolean", eoi=";", relib=relib, debug=debug,
+             set_caps=(type(None), bool, int, float, str))  # type: ignore
+
+        assert relib in ("re"), f"regex engine {relib} is not supported"
+
+        self._json_esc_table = str.maketrans(_ESC_TABLE)
+        self.reindent = True
+
+    #
+    # file
+    #
+    def file_header(self, exe: bool = True) -> Block:
+        code: Block = super().file_header(exe)
+        code += [
+            # package?
+            "import json_model.*;",
+            "import java.util.Map;",
+            "import java.util.HashMap;",
+            "import java.util.Iterator;",
+            "import java.util.regex.Pattern;",
+            "import java.util.regex.Matcher;",
+            "",
+            "public class CHECK_FUNCTION_NAME extends ModelChecker",
+            "{",
+            f"    static public final String VERSION = \"{self._version}\";",
+        ]
+        return code
+
+    def file_footer(self, exe: bool = True) -> Block:
+        code = [
+            "",
+            "    public Checker get(String name)",
+            "    {",
+            f"        return CHECK_FUNCTION_NAME_map_pmap.get(name);",
+            "    }",
+        ]
+        if exe:
+            code += [
+                "",
+                "    static public void main(String[] args) throws Exception",
+                "    {",
+                "        ModelChecker checker = new CHECK_FUNCTION_NAME();",
+                "        Main.main(\"CHECK_FUNCTION_NAME\", checker, VERSION, args);",
+                "    }",
+            ]
+        return code + [ "}" ]
+
+    #
+    # inlined type test expressions about JSON data
+    #
+    def is_num(self, var: Var) -> BoolExpr:
+        return f"json.isNumber({var})"
+
+    def is_scalar(self, var: Var) -> BoolExpr:
+        return f"json.isScalar({var})"
+
+    def is_def(self, var: Var) -> BoolExpr:
+        return f"{varl} != null"
+
+    def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
+        assert loose is None or tval in (int, float, Number)
+        if tval is None or tval is type(None):
+            return f"json.isNull({var})"
+        elif tval is bool:
+            return f"json.isBoolean({var})"
+        elif tval is int:
+            is_an_int = f"json.isInteger({var})"
+            if loose:
+                is_an_int = (
+                    "(" + is_an_int + " || " +
+                    f"(json.isDouble({var}) && "
+                        f"json.asDouble({var}) == ((long) json.asDouble({var}))))")
+            return is_an_int
+        elif tval is float:
+            return self.is_num(var) if loose else f"json.isDouble({var})"
+        elif tval is Number:
+            return self.is_num(var)
+        elif tval is str:
+            return f"json.isString({var})"
+        elif tval is list:
+            return f"json.isArray({var})"
+        elif tval is dict:
+            return f"json.isObject({var})"
+        else:
+            raise Exception(f"unexpected type for json: {tval.__name__}")
+
+    def _json_str(self, j) -> str:
+        return '"' + json.dumps(j).translate(self._json_esc_table) + '"'
+
+    def json_cst(self, j: Jsonable) -> JsonExpr:
+        return f"json.fromJSON({self._json_str(j)})"
+
+    def const(self, c: Jsonable) -> Expr:
+        if isinstance(c, (list, dict)):
+            return self.json_cst(c)
+        else:
+            return super().const(c)
+
+    def has_prop(self, obj: Var, prop: str) -> BoolExpr:
+        return f"json.objectHasProp({obj}, {self.esc(prop)})"
+
+    # FIXME path? reporting?
+    def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
+        val = var if is_str else f"json.asString({var})"
+        if name == "$UUID":
+            return f"rt.is_valid_uuid({val})"
+        elif name == "$DATE":
+            return f"rt.is_valid_date({val})"
+        elif name == "$TIME":
+            return f"rt.is_valid_time({val})"
+        elif name == "$DATETIME":
+            return f"rt.is_valid_datetime({val})"
+        elif name == "$REGEX":
+            return f"rt.is_valid_regex({val})"
+        elif name == "$EXREG":
+            return f"rt.is_valid_exreg({val})"
+        elif name in ("$URL", "$URI"):
+            return f"rt.is_valid_url({val})"
+        elif name == "$EMAIL":
+            return f"rt.is_valid_email({val})"
+        elif name == "$JSON":
+            return f"rt.is_valid_json({val})"
+        else:
+            return super().predef(var, name, path, is_str)
+
+    def value(self, var: Var, tvar: type) -> Expr:
+        """Known type value extraction."""
+        if tvar is type(None):
+            return "NULL"
+        elif tvar is bool:
+            return f"json.asBoolean({var})"
+        elif tvar is int:
+            return f"json.asLong({var})"
+        elif tvar is float:
+            return f"json.asDouble({var})"
+        elif tvar is Number:  # NOTE this cast from int if necessary
+            return f"json.asNumber({var})"
+        elif tvar is str:
+            return f"json.asString({var})"
+        else:
+            raise Exception(f"unexpected type for value extraction: {tvar.__name__}")
+
+    def arr_item_val(self, arr: Var, idx: IntExpr) -> JsonExpr:
+        return f"json.arrayItem({arr}, {idx})"
+
+    def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
+        return f"json.objectValue({obj}, {prop})" if is_var else \
+               f"json_objectValue({obj}, {self.esc(prop)})"  # type: ignore
+
+    #
+    # inlined length computation
+    #
+    def obj_len(self, var: Var) -> IntExpr:
+        return f"json.objectSize({var})"
+
+    def arr_len(self, var: Var) -> IntExpr:
+        return f"json.arrayLength({var})"
+
+    def str_len(self, var: Var) -> IntExpr:
+        return f"{var}.length()"
+
+    #
+    # misc expressions
+    #
+    def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
+        return f"({fun} = {mapname}({prop}))"
+
+    def str_start(self, val: str, start: str) -> BoolExpr:
+        return f"{val}.startsWith({self.esc(start)})"
+
+    def str_end(self, val: str, end: str) -> BoolExpr:
+        return f"{val}.endsWith({self.esc(start)})"
+
+    def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
+        return f"array_is_unique({val}, {path}, rep)"
+
+    CMP_OPS = {
+        "=": "Runtime.Operator.EQ",
+        "!=": "Runtime.Operator.NE",
+        "<=": "Runtime.Operator.LE",
+        "<": "Runtime.Operator.LT",
+        ">=": "Runtime.Operator.GE",
+        ">": "Runtime.Operator.GT",
+    }
+
+    def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
+        """Call inefficient type-unaware constraint check."""
+        return f"check_constraint({val}, {CMP_OPS[op]}, &{self._cst(vop)}, {path}, rep)"
+
+    #
+    # inline comparison expressions for strings
+    # this is locale-unaware
+    #
+    def str_cmp(self, e1: StrExpr, op: str, e2: StrExpr) -> BoolExpr:
+        assert op in ("=", "!=", "<", "<=", ">=", ">")
+        if op == "=":
+            return f"{e1}.compareTo({e2}) == 0"
+        elif op == "!=":
+            return f"{e1}.compareTo({e2}) != 0"
+        elif op == ">=":
+            return f"{e1}.compareTo({e2}) >= 0"
+        elif op == ">":
+            return f"{e1}.compareTo({e2}) > 0"
+        elif op == "<=":
+            return f"{e1}.compareTo({e2}) <= 0"
+        elif op == "<":
+            return f"{e1}.compareTo({e2}) < 0"
+        else:
+            raise Exception(f"str_cmp unexpected operator {op}")
+
+    #
+    # simple instructions
+    #
+    def nope(self) -> Block:
+        return []
+
+    def var(self, var: Var, val: Expr|None, tname: str|None) -> Block:
+        assign = f" = {val}" if val else ""
+        decl = f"{tname} " if tname else ""
+        return [ f"{decl}{var}{assign}{self._eoi}" ]
+
+    def int_var(self, var: Var, val: IntExpr|None = None, declare: bool = False) -> Block:
+        return self.var(var, val, self._int_t if declare else None)
+
+    #
+    # reporting
+    #
+    def is_reporting(self) -> BoolExpr:
+        return "rep != null"
+
+    def report(self, msg: str, path: Var) -> Block:
+        return ([ f"if (rep != null) rep.addEntry({self.esc(msg)}, {path});" ]
+                if self._with_report else [])
+
+    def clean_report(self) -> Block:
+        return [ "if (rep != null) rep.clearEntries();" ] if self._with_report else []
+
+    #
+    # path management
+    #
+    def path_val(self, pvar: Var, pseg: str|int, is_prop: bool) -> PathExpr:
+        # note: segment is a variable name for a prop or an integer
+        if self._with_path:
+            return f"new Path({pseg}, {pvar})"
+        else:
+            return "null"
+
+    def path_lvar(self, lvar: Var, rvar: Var) -> PathExpr:
+        return f"({rvar} != null ? {lvar} : null)" if self._with_path else "null"
+
+    #
+    # blocks
+    #
+    def indent(self, block: Block, sep: bool = True) -> Block:
+        indented = super().indent(block, sep)
+        return ([ "{" ] + indented + [ "}" ]) if sep else indented
+
+    def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
+        return [
+            f"int {idx} = -1;",
+            f"Iterator<{self._json_t}> {val}_loop = json.arrayIterator({arr});",
+            f"while ({val}_loop.hasNext())",
+        ] + self.indent([
+            f"{idx}++;",
+            f"{self._json_t} {val} = {val}_loop.next();"
+        ] + body)
+
+    def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
+        return [
+            f"Iterator<String> {key}_loop = json.objectIterator({obj});",
+            f"while ({key}_loop.hasNext())",
+        ] + self.indent([
+            f"String {key} = {key}_loop.next();",
+            f"{self._json_t} {val} = json.objectValue({obj}, {key});",
+        ] + body)
+
+    def int_loop(self, idx: Var, start: IntExpr, end: IntExpr, body: Block) -> Block:
+        return [
+            f"for (int {idx} = {start}; {idx} < {end}; {idx}++)"
+        ] + self.indent(body)
+
+    def if_stmt(self, cond: BoolExpr, true: Block, false: Block = []) -> Block:
+        if true and false:
+            return [ f"if ({cond})" ] + self.indent(true) + ["else"] + self.indent(false)
+        elif true:
+            return [ f"if ({cond})" ] + self.indent(true)
+        else:
+            return [ f"if (!({cond}))" ] + self.indent(false)
+
+    def mif_stmt(self, cond_true: list[tuple[BoolExpr, Block]], false: Block = []) -> Block:
+        code, op = [], "if"
+        for cond, true in cond_true:
+            code += [ f"{op} ({cond})" ]
+            code += self.indent(true)
+            op = "else if"
+        if false:
+            if op != "if":
+                code += [ "else" ]
+                code += self.indent(false)
+            else:
+                code += false
+        return code
+
+    #
+    # (Extended) Regular Expressions
+    #
+    def def_re(self, name: str, regex: str, opts: str) -> Block:
+        return [ f"public Pattern {name}_pat = null;" ]
+
+    def sub_re(self, name: str, regex: str, opts: str) -> Block:
+        return [
+            f"public boolean {name}(String val, Path path, Report rep)",
+            r"{",
+            f"    return {name}_pat.matcher(val).find();",
+            r"}",
+        ]
+
+    def ini_re(self, name: str, regex: str, opts: str) -> Block:
+        sregex = self.esc((f"(?{opts})" if opts else "") + regex)
+        return [ f"{name}_pat = Pattern.compile({sregex});" ]
+
+    def del_re(self, name: str, regex: str, opts: str) -> Block:
+        return [ f"{name}_pat = null;" ]
+
+    def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
+        assert declare
+        return [ f"Matcher {name}_match;" ]
+
+    def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
+        return [ f"(({name}_match = {name}_pat.match({var})) != null)" ]
+
+    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+        return [ f"String {dname} = {mname}_match.group({self.esc(sname)});" ]
+
+    def sub_strfun(self, name: str, body: Block) -> Block:
+        return [ f"public boolean {name}(String val, Path path, Report rep)" ] + \
+                    self.indent(body)
+
+    #
+    # Property Map
+    #
+    def _checker(self, name: str) -> str:
+        """Create a checker wrapper around a check function."""
+        return f"new Checker() {{ public boolean call(Object o, Path p, Report r) {{ return {name}(o, p, r);}} }}"
+
+    def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        return [ f"{'public ' if public else ''}Map<String, Checker> {name}_pmap;" ]
+
+    def ini_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        code = [ f"{name}_pmap = new HashMap<String, Checker>();" ]
+        for p, f in pmap.items():
+            code += [ f"{name}_pmap.put({self.esc(p)}, {self._checker(f)});" ]
+        return code
+
+    def del_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        return [ f"{name}_pmap = null;" ]
+
+    def def_cset(self, name: str, constants: ConstList) -> Block:
+        return [ f"Set<Object> {name}_set;" ]
+
+    def del_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        return [ f"{name}_set = null;" ]
+
+    def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
+        return f"{name}_set.contains({var})"
+
+    def _cst(self, value: Jsonable) -> str:
+        return f"self.esc(json.dumps(cst))"
+
+    def ini_cset(self, name: str, constants: ConstList) -> Block:
+        code = [ f"{name}_set = new HashSet<Object>();" ]
+        for cst in constants:
+            code.append(f"{name}_set.add(json.toJSON({self._cst(cst)}));")
+        return code
+
+    def sub_fun(self, name: str, body: Block) -> Block:
+        return [ f"public boolean {name}(Object val, Path path, Report rep)" ] + self.indent(body)
+
+    def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return [ f"Map<Object, Checker> {name}_cmap;" ]
+
+    def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        code = [ f"{name}_cmap = new HashMap<Object, Checker>();" ]
+        for k, v in mapping.items():
+            code += [ f"{name}_cmap.put({self._cst(k)}, {self._checker(v)});" ]
+        return code
+
+    def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
+        return [ f"{name}_cmap = null;" ]
+
+    def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
+        return f"{name}_cmap.get({tag}, null)"
+
+    def gen_init(self, init: Block) -> Block:
+        return self.file_subs("java_init.java", init)
+
+    def gen_free(self, free: Block) -> Block:
+        return self.file_subs("java_free.java", free)

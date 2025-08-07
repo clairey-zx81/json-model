@@ -1,7 +1,13 @@
 .PHONY: clean
 clean:
-	$(RM) *.class JsonModel/*.class
+	$(RM) *.class json_model/*.class json-model.jar
 
 .PHONY: compile
 compile:
-	javac JsonModel/*.java
+	javac json_model/*.java
+
+.PHONY: jar
+jar: json-model.jar
+
+json-model.jar: compile
+	jar cf $@ json_model/*.class

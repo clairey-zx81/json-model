@@ -1323,7 +1323,6 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"MultiPolygon"', '_jm_obj_11')
 ;
 
-
 --
 -- JSON Model checking entry point
 --

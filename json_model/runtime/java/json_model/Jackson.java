@@ -1,4 +1,4 @@
-package JsonModel;
+package json_model;
 
 import java.util.List;
 import java.util.Map;
@@ -145,6 +145,11 @@ public class Jackson extends JSON<Object>
     public Object objectValue(Object o, String prop)
     {
         return ((JsonNode) o).get(prop);
+    }
+
+    public boolean objectHasProp(Object o, String prop)
+    {
+        return ((JsonNode) o).get(prop) != null;
     }
 
     public Iterator<String> objectIterator(Object o)

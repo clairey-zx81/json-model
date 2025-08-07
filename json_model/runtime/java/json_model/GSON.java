@@ -1,4 +1,4 @@
-package JsonModel;
+package json_model;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,10 @@ import java.util.Iterator;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.*;
+import com.google.gson.GsonBuilder;
+import com.google.gson.ToNumberPolicy;
+import com.google.gson.Strictness;
+import com.google.gson.Gson;
 
 /* https://github.com/google/gson */
 public class GSON extends JSON<Object>
@@ -126,6 +129,11 @@ public class GSON extends JSON<Object>
     public Object objectValue(Object o, String prop)
     {
         return ((Map<String, Object>) o).get(prop);
+    }
+
+    public boolean objectHasProp(Object o, String prop)
+    {
+        return ((Map<String, Object>) o).containsKey(prop);
     }
 
     public Iterator<String> objectIterator(Object o)

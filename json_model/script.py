@@ -21,11 +21,12 @@ from .runtime.support import _path as json_path
 from .export import model2python
 
 LANG = {
-  "c": "C",
   "py": "Python",
+  "c": "C",
   "js": "JavaScript",
-  "pl": "Perl",
   "plpgsql": "PL/pgSQL",
+  "pl": "Perl",
+  "java": "Java",
 }
 
 def process_model(model: JsonModel, *,
@@ -275,7 +276,7 @@ def jmc_script():
     # output options
     arg("--output", "-o", default="-", help="output file")
     arg("--package", "-p", default=None, help="generated module name, if appropriate")
-    arg("--entry", "-e", default="check_model", help="name prefix of generated functions")
+    arg("--entry", "-e", help="name prefix of generated functions")
     arg("--regex-engine", "-re", default=None, choices=["re", "re2", "pcre2"],
         help="select regular expression engine (default depends on target language)")
     arg("--sort", "-s", action="store_true", default=False, help="sorted JSON keys")
@@ -300,9 +301,10 @@ def jmc_script():
         help="do not generate anything")
 
     # TODO cpp ts rs go…
-    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "pl", "plpgsql"],
+    arg("--format", "-F", choices=["json", "yaml", "py", "c", "js", "plpgsql", "pl", "java"],
         default=None, help="output language")
 
+    # C-specific options
     arg("--cc", type=str, help="override default C language compiler")
     arg("--cflags", type=str, help="override C compiler flags")
     arg("--cppflags", type=str, help="override C pre-processor flags")
@@ -322,6 +324,7 @@ def jmc_script():
         help="test values for false")
     arg("--test-vector", "-tv", action="store_true", default=False,
         help="read values from a test vector file")
+    # TODO jsonl
     arg("--report", "-r", action="store_true", default=False, help="report reasons on fail")
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
@@ -361,7 +364,7 @@ def jmc_script():
 
     # POD - Plain Old Documentation
     if args.doc:
-        # Alas, Python does not provide any help to write man pages for the user
+        # Python does not provide any help to write man pages for the user
         pod = load_data_file("jmc.pod")
         if args.doc == "pod":
             print(pod)
@@ -400,6 +403,10 @@ def jmc_script():
             args.format = args.format or "js"
             args.op = args.op or "C"
             args.gen = args.gen or "module"
+        elif args.output.endswith(".sql"):
+            args.format = args.format or "plpgsql"
+            args.op = args.op or "C"
+            args.gen = args.gen or "module"
         elif args.output.endswith(".pl"):
             args.format = args.format or "pl"
             args.op = args.op or "C"
@@ -409,16 +416,19 @@ def jmc_script():
             args.op = args.op or "C"
             args.gen = args.gen or "module"
             args.package = args.package or Path(args.output).stem
-        elif args.output.endswith(".sql"):
-            args.format = args.format or "plpgsql"
+        elif args.output.endswith(".java"):
+            args.format = args.format or "java"
             args.op = args.op or "C"
-            args.gen = args.gen or "module"
+            args.gen = args.gen or "exec"
+            args.entry = args.entry or Path(args.output).stem
         elif args.output.endswith(".schema.json"):
             args.format = args.format or "json"
             args.op = args.op or "E"
         elif args.output.endswith(".model.json"):
             args.format = args.format or "json"
             args.op = args.op or "P"
+
+    args.entry = args.entry or "check_model"
 
     if args.values:
         args.op = args.op or "C"
@@ -448,18 +458,18 @@ def jmc_script():
             sys.exit(1)
     elif args.op == "C":
         args.format = args.format or "py"
-        if args.format not in ("py", "c", "js", "pl", "plpgsql"):
+        if args.format not in ("py", "c", "js", "plpgsql", "pl", "java"):
             log.error(f"unexpected format {args.format} for operation {args.op}")
             sys.exit(1)
     else:  # pragma: no cover
         log.error(f"unexpected operation {args.op}")
         sys.exit(1)
 
-    if args.values and (args.op not in "C" or args.format != "py"):
+    if args.values and (args.op != "C" or args.format != "py"):
         log.error(f"Testing JSON values requires -C for Python: {args.op} {args.format}")
         sys.exit(1)
-    if args.gen == "source" and (args.op not in "C" or args.format not in ("py", "c", "js", "pl", "plpgsql")):
-        log.error(f"Showing code requires -C for Python, C, JS and Perl: {args.op} {args.format}")
+    if args.gen == "source" and (args.op != "C" or args.format not in ("py", "c", "js", "plpgsql", "pl", "java")):
+        log.error(f"Showing code requires -C for C, Java, JavaScript, Perl, Python and PL/pgSQL: {args.op} {args.format}")
         sys.exit(1)
 
     # strict/loose numbers
@@ -539,10 +549,10 @@ def jmc_script():
         show = model.toModel(True)
         print(json2str(show), file=output)
     elif args.op == "C":
-        assert args.format in ("py", "c", "js", "pl", "plpgsql"), \
+        assert args.format in ("py", "c", "js", "plpgsql", "pl", "java"), \
             f"valid output language {args.format}"
 
-        # FIXME pl?
+        # FIXME PL/pgSQL?
         if args.format in ("plpgsql", "js", "pl") and \
                 (not model._loose_int or not model._loose_float):
             log.warning(f"{args.model}: {LANG[args.format]} backend does not support strict numbers")
