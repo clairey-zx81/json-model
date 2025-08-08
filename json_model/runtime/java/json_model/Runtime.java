@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class Runtime
 {
-    enum Operator {
+    public enum Operator {
         EQ, NE, LE, LT, GE, GT
     }
 
@@ -161,7 +161,6 @@ public class Runtime
     }
 
     public boolean check_constraint(Object val, Operator op, Object cst, Path path, Report rep)
-        throws Exception
     {
         JSON.JType
             tc = json.type(cst),
@@ -184,7 +183,7 @@ public class Runtime
                     case Operator.GT:
                         return vi > ci;
                     default:
-                        throw new Exception("unexpected comparison operator " + op);
+                        throw new Error("unexpected comparison operator " + op);
                 }
             case JSON.JType.NUMBER:
                 double cd = json.asNumber(cst), vd = json.asNumber(val);
@@ -202,7 +201,7 @@ public class Runtime
                     case Operator.GT:
                         return vd > cd;
                     default:
-                        throw new Exception("unexpected comparison operator " + op);
+                        throw new Error("unexpected comparison operator " + op);
                 }
             case JSON.JType.STRING:
                 String cs = json.asString(cst), vs = json.asString(val);
@@ -221,10 +220,10 @@ public class Runtime
                     case Operator.GT:
                         return cmp > 0;
                     default:
-                        throw new Exception("unexpected comparison operator " + op);
+                        throw new Error("unexpected comparison operator " + op);
                 }
             default:
-                throw new Exception("not implemented yet for json type " + tc);
+                throw new Error("not implemented yet for json type " + tc);
         }
     }
 }

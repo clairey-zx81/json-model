@@ -40,7 +40,7 @@ static bool json_model_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         if (res)
         {
-            jm_path_t lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
+            lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .'$R'.1
             res = json_model_5(json_array_get(val, 1), (path ? &lpath_0 : NULL), rep);
             if (! res)

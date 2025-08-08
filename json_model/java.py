@@ -79,7 +79,7 @@ class Java(Language):
         return f"json.isScalar({var})"
 
     def is_def(self, var: Var) -> BoolExpr:
-        return f"{varl} != null"
+        return f"{var} != null"
 
     def is_a(self, var: Var, tval: type|None, loose: bool|None = None) -> BoolExpr:
         assert loose is None or tval in (int, float, Number)
@@ -112,7 +112,7 @@ class Java(Language):
         return '"' + json.dumps(j).translate(self._json_esc_table) + '"'
 
     def json_cst(self, j: Jsonable) -> JsonExpr:
-        return f"json.fromJSON({self._json_str(j)})"
+        return f"json.safeJSON({self._json_str(j)})"
 
     def const(self, c: Jsonable) -> Expr:
         if isinstance(c, (list, dict)):
@@ -169,7 +169,12 @@ class Java(Language):
 
     def obj_prop_val(self, obj: Var, prop: Expr, is_var: bool = False) -> JsonExpr:
         return f"json.objectValue({obj}, {prop})" if is_var else \
-               f"json_objectValue({obj}, {self.esc(prop)})"  # type: ignore
+               f"json.objectValue({obj}, {self.esc(prop)})"  # type: ignore
+
+    def check_call(self, name: Var, val: JsonExpr, path: Var, *,
+                   is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
+        return f"{name}.call({val}, {path}, rep)" if is_ptr else \
+               f"{name}({val}, {path}, rep)"
 
     #
     # inlined length computation
@@ -187,7 +192,7 @@ class Java(Language):
     # misc expressions
     #
     def assign_prop_fun(self, fun: str, prop: str, mapname: str) -> BoolExpr:
-        return f"({fun} = {mapname}({prop}))"
+        return f"({fun} = {mapname}_pmap.get({prop})) != null"
 
     def str_start(self, val: str, start: str) -> BoolExpr:
         return f"{val}.startsWith({self.esc(start)})"
@@ -199,17 +204,17 @@ class Java(Language):
         return f"rt.array_is_unique({val}, {path}, rep)"
 
     CMP_OPS = {
-        "=": "Runtime.Operator.EQ",
-        "!=": "Runtime.Operator.NE",
-        "<=": "Runtime.Operator.LE",
-        "<": "Runtime.Operator.LT",
-        ">=": "Runtime.Operator.GE",
-        ">": "Runtime.Operator.GT",
+        "=": "json_model.Runtime.Operator.EQ",
+        "!=": "json_model.Runtime.Operator.NE",
+        "<=": "json_model.Runtime.Operator.LE",
+        "<": "json_model.Runtime.Operator.LT",
+        ">=": "json_model.Runtime.Operator.GE",
+        ">": "json_model.Runtime.Operator.GT",
     }
 
     def check_constraint(self, op: str, vop: int|float|str, val: JsonExpr, path: Var) -> BoolExpr:
         """Call inefficient type-unaware constraint check."""
-        return f"rt.check_constraint({val}, {CMP_OPS[op]}, &{self._cst(vop)}, {path}, rep)"
+        return f"rt.check_constraint({val}, {self.CMP_OPS[op]}, {self.json_cst(vop)}, {path}, rep)"
 
     #
     # inline comparison expressions for strings
@@ -388,13 +393,10 @@ class Java(Language):
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         return f"{name}_set.contains({var})"
 
-    def _cst(self, value: Jsonable) -> str:
-        return self.esc(json.dumps(value))
-
     def ini_cset(self, name: str, constants: ConstList) -> Block:
         code = [ f"{name}_set = new HashSet<Object>();" ]
         for cst in constants:
-            code.append(f"{name}_set.add(json.fromJSON({self._cst(cst)}));")
+            code.append(f"{name}_set.add({self.json_cst(cst)});")
         return code
 
     def sub_fun(self, name: str, body: Block) -> Block:
@@ -406,14 +408,14 @@ class Java(Language):
     def ini_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         code = [ f"{name}_cmap = new HashMap<Object, Checker>();" ]
         for k, v in mapping.items():
-            code += [ f"{name}_cmap.put({self._cst(k)}, {self._checker(v)});" ]
+            code += [ f"{name}_cmap.put({self.json_cst(k)}, {self._checker(v)});" ]
         return code
 
     def del_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ f"{name}_cmap = null;" ]
 
     def get_cmap(self, name: str, tag: Var, ttag: type) -> Expr:
-        return f"{name}_cmap.get({tag}, null)"
+        return f"{name}_cmap.get({tag})"
 
     def gen_init(self, init: Block) -> Block:
         return self.file_subs("java_init.java", init)

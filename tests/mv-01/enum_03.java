@@ -38,9 +38,9 @@ public class enum_03 extends ModelChecker
         {
             try {
             _jm_cst_0_set = new HashSet<Object>();
-            _jm_cst_0_set.add(json.fromJSON("\"Calvin\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Susie\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Hobbes\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Calvin\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Susie\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Hobbes\""));
             enum_03_map_pmap = new HashMap<String, Checker>();
             enum_03_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
                 super.init(json);

@@ -94,17 +94,17 @@ public class enum_00 extends ModelChecker
         {
             try {
             _jm_cst_0_set = new HashSet<Object>();
-            _jm_cst_0_set.add(json.fromJSON("\"Susie\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Calvin\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Hobbes\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Moe\""));
-            _jm_cst_0_set.add(json.fromJSON("\"Bad\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Susie\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Calvin\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Hobbes\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Moe\""));
+            _jm_cst_0_set.add(json.safeJSON("\"Bad\""));
             _jm_cst_1_set = new HashSet<Object>();
-            _jm_cst_1_set.add(json.fromJSON("\"Castafiore\""));
-            _jm_cst_1_set.add(json.fromJSON("\"Haddock\""));
-            _jm_cst_1_set.add(json.fromJSON("\"Milou\""));
-            _jm_cst_1_set.add(json.fromJSON("\"Tintin\""));
-            _jm_cst_1_set.add(json.fromJSON("\"Bad\""));
+            _jm_cst_1_set.add(json.safeJSON("\"Castafiore\""));
+            _jm_cst_1_set.add(json.safeJSON("\"Haddock\""));
+            _jm_cst_1_set.add(json.safeJSON("\"Milou\""));
+            _jm_cst_1_set.add(json.safeJSON("\"Tintin\""));
+            _jm_cst_1_set.add(json.safeJSON("\"Bad\""));
             enum_00_map_pmap = new HashMap<String, Checker>();
             enum_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             enum_00_map_pmap.put("p1", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });

@@ -420,7 +420,7 @@ def jmc_script():
             args.format = args.format or "java"
             args.op = args.op or "C"
             args.gen = args.gen or "exec"
-            args.entry = args.entry or Path(args.output).stem
+            args.entry = args.entry or Path(args.output).stem.replace("-", "_")
         elif args.output.endswith(".schema.json"):
             args.format = args.format or "json"
             args.op = args.op or "E"

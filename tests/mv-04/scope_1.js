@@ -30,7 +30,7 @@ function json_model_4(val, path, rep)
         }
         if (res)
         {
-            let lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null;
             // .'$R'.1
             res = json_model_5(val[1], (path ? lpath_0 : null), rep);
             if (! res)

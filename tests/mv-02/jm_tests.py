@@ -45,7 +45,7 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                     if not res:
                         rep is None or rep.append(("not a bool [.0.'|'.1.0]", lpath_1 if (arr_0_lpath if path is not None else None) is not None else None))
                     if res:
-                        lpath_1: Path = ((arr_0_lpath if path is not None else None) + [ 1 ]) if (arr_0_lpath if path is not None else None) is not None else None
+                        lpath_1 = ((arr_0_lpath if path is not None else None) + [ 1 ]) if (arr_0_lpath if path is not None else None) is not None else None
                         # .0.'|'.1.1
                         res = True
                         if not res:
@@ -62,13 +62,13 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
                         if not res:
                             rep is None or rep.append(("not a bool [.0.'|'.2.0]", lpath_0 if (arr_0_lpath if path is not None else None) is not None else None))
                         if res:
-                            lpath_0: Path = ((arr_0_lpath if path is not None else None) + [ 1 ]) if (arr_0_lpath if path is not None else None) is not None else None
+                            lpath_0 = ((arr_0_lpath if path is not None else None) + [ 1 ]) if (arr_0_lpath if path is not None else None) is not None else None
                             # .0.'|'.2.1
                             res = isinstance(arr_0_item[1], str)
                             if not res:
                                 rep is None or rep.append(("unexpected string [.0.'|'.2.1]", lpath_0 if (arr_0_lpath if path is not None else None) is not None else None))
                             if res:
-                                lpath_0: Path = ((arr_0_lpath if path is not None else None) + [ 2 ]) if (arr_0_lpath if path is not None else None) is not None else None
+                                lpath_0 = ((arr_0_lpath if path is not None else None) + [ 2 ]) if (arr_0_lpath if path is not None else None) is not None else None
                                 # .0.'|'.2.2
                                 res = True
                                 if not res:

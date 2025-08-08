@@ -72,7 +72,7 @@ function json_model_1(val, path, rep)
         }
         if (res)
         {
-            let lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = json_model_6(val[1], (path ? lpath_0 : null), rep);
             if (! res)
@@ -81,7 +81,7 @@ function json_model_1(val, path, rep)
             }
             if (res)
             {
-                let lpath_0 = path ? path.concat([2]) : null;
+                lpath_0 = path ? path.concat([2]) : null;
                 // .2
                 res = json_model_3(val[2], (path ? lpath_0 : null), rep);
                 if (! res)

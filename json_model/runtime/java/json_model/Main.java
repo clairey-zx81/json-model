@@ -83,7 +83,7 @@ public class Main
 
         // no performance measure
         if (time <= 0)
-            return expect != valid;
+            return expect != null && expect != valid;
 
         // performance measure overhead estimation
         double empty = 0.0;  // µs

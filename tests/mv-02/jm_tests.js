@@ -45,7 +45,7 @@ function json_model_1(val, path, rep)
                     }
                     if (res)
                     {
-                        let lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
+                        lpath_1 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
                         // .0.'|'.1.1
                         res = true;
                         if (! res)
@@ -73,7 +73,7 @@ function json_model_1(val, path, rep)
                         }
                         if (res)
                         {
-                            let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
+                            lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([1]) : null;
                             // .0.'|'.2.1
                             res = (typeof arr_0_item[1] === 'string' || arr_0_item[1] instanceof String);
                             if (! res)
@@ -82,7 +82,7 @@ function json_model_1(val, path, rep)
                             }
                             if (res)
                             {
-                                let lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([2]) : null;
+                                lpath_0 = (path ? arr_0_lpath : null) ? (path ? arr_0_lpath : null).concat([2]) : null;
                                 // .0.'|'.2.2
                                 res = true;
                                 if (! res)

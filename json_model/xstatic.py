@@ -1178,7 +1178,7 @@ class CodeGenerator:
                         for i, m in reversed(list(enumerate(model))):
                             body = gen.if_stmt(
                                 res,
-                                gen.path_var(lpath, gen.path_val(vpath, i, False), declare=True) +
+                                gen.path_var(lpath, gen.path_val(vpath, i, False), declare=i==0) +
                                 # FIXME generated variable reference…
                                 self._compileModel(
                                     jm, model[i], mpath + [i],

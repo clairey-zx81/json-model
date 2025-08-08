@@ -80,7 +80,7 @@ function json_model_1(val, path, rep)
         }
         if (res)
         {
-            let lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = ((typeof val[1] === 'string' || val[1] instanceof String)) && val[1] == "Susie";
             if (! res)
@@ -89,7 +89,7 @@ function json_model_1(val, path, rep)
             }
             if (res)
             {
-                let lpath_0 = path ? path.concat([2]) : null;
+                lpath_0 = path ? path.concat([2]) : null;
                 // .2
                 res = ((typeof val[2] === 'string' || val[2] instanceof String)) && val[2] == "Susie";
                 if (! res)
@@ -98,7 +98,7 @@ function json_model_1(val, path, rep)
                 }
                 if (res)
                 {
-                    let lpath_0 = path ? path.concat([3]) : null;
+                    lpath_0 = path ? path.concat([3]) : null;
                     // .3
                     res = ((typeof val[3] === 'string' || val[3] instanceof String)) && val[3] == "Susie";
                     if (! res)

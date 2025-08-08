@@ -28,6 +28,18 @@ public abstract class JSON<T>
     }
 
     public abstract T fromJSON(String json) throws Exception;
+
+    /** no exception version, for generated json */
+    public T safeJSON(String json)
+    {
+        try {
+            return fromJSON(json);
+        }
+        catch (Exception e) {
+            throw new Error("unexpected exception while converting from json: " + e);
+        }
+    }
+
     public abstract T fromJSON(Reader reader) throws Exception;
     public abstract String toJSON(T o) throws Exception;
     public abstract boolean isNull(T o);

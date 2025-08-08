@@ -1,0 +1,46 @@
+geo.values.json[0]: FAIL (: constraints failed [.'$position'])
+geo.values.json[1]: FAIL (: constraints failed [.'$position'])
+geo.values.json[2]: FAIL (: constraints failed [.'$position'])
+geo.values.json[3]: PASS
+geo.values.json[4]: PASS
+geo.values.json[5]: PASS
+geo.values.json[6]: FAIL (: constraints failed [.'$position'])
+geo.values.json[7]: FAIL (: constraints failed [.'$position'])
+geo.values.json[8]: FAIL (0: not a -1.0 loose float [.'$position'.'@'.0]; : not array or unexpected array [.'$position'.'@'])
+geo.values.json[9]: FAIL (: not array or unexpected array [.'$position'.'@'])
+geo.values.json[10]: FAIL (: not array or unexpected array [.'$position'.'@'])
+geo.values.json[11]: FAIL (: not array or unexpected array [.'$position'.'@'])
+geo.values.json[12]: FAIL (: not array or unexpected array [.'$position'.'@'])
+geo.values.json[13]: FAIL (: not array or unexpected array [.'$position'.'@'])
+geo.values.json[14]: FAIL (: constraints failed [.'$coord_array'])
+geo.values.json[15]: FAIL (: constraints failed [.'$coord_array'])
+geo.values.json[16]: PASS
+geo.values.json[17]: PASS
+geo.values.json[18]: PASS
+geo.values.json[19]: FAIL (: not array or unexpected array [.'$coord_array'.'@'])
+geo.values.json[20]: FAIL (: not array or unexpected array [.'$coord_array'.'@'])
+geo.values.json[21]: FAIL (: not array or unexpected array [.'$coord_array'.'@'])
+geo.values.json[22]: FAIL (: constraints failed [.'$linear_ring'])
+geo.values.json[23]: FAIL (: constraints failed [.'$linear_ring'])
+geo.values.json[24]: FAIL (: constraints failed [.'$linear_ring'])
+geo.values.json[25]: FAIL (: constraints failed [.'$linear_ring'])
+geo.values.json[26]: PASS
+geo.values.json[27]: PASS
+geo.values.json[28]: FAIL (: not array or unexpected array [.'$linear_ring'.'@'])
+geo.values.json[29]: FAIL (: not array or unexpected array [.'$linear_ring'.'@'])
+geo.values.json[30]: FAIL (: not array or unexpected array [.'$linear_ring'.'@'])
+geo.values.json[31]: PASS
+geo.values.json[32]: PASS
+geo.values.json[33]: PASS
+geo.values.json[34]: FAIL (coord: unexpected prop [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[35]: FAIL (: missing mandatory prop <coordinates> [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[36]: FAIL (: missing mandatory prop <coordinates> [.'$Point']; : missing mandatory prop <type> [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[37]: FAIL (: not an object [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[38]: FAIL (: not an object [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[39]: FAIL (: not an object [.'$Point']; : unexpected element [.'$Point'])
+geo.values.json[40]: PASS
+geo.values.json[41]: FAIL (type: unexpected MultiPoint [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type]; : unexpected element [.'$MultiPoint'])
+geo.values.json[42]: FAIL (type: unexpected MultiPoint [.'$MultiPoint'.type]; type: invalid mandatory prop value [.'$MultiPoint'.type]; : unexpected element [.'$MultiPoint'])
+geo.values.json[43]: PASS
+geo.values.json[44]: FAIL (coordinates: constraints failed [.'$coord_array']; coordinates: unexpected $coord_array [.'$LineString'.coordinates]; coordinates: invalid mandatory prop value [.'$LineString'.coordinates]; : unexpected element [.'$LineString'])
+geo.values.json[45]: FAIL (type: unexpected LineString [.'$LineString'.type]; type: invalid mandatory prop value [.'$LineString'.type]; : unexpected element [.'$LineString'])
