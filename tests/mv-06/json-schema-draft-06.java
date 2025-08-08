@@ -199,7 +199,7 @@ public class json_schema_draft_06 extends ModelChecker
     {
         boolean res;
         // .'$ObjectSchema'.'$schema'
-        res = rt.is_valid_url(json.asString(val));
+        res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$ObjectSchema'.'$schema']", path);
@@ -677,7 +677,7 @@ public class json_schema_draft_06 extends ModelChecker
     {
         boolean res;
         // .'$ObjectSchema'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$ObjectSchema'.pattern]", path);

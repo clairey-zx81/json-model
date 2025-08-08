@@ -1,0 +1,4 @@
+opt_fs.values.json[0]: PASS
+opt_fs.values.json[1]: FAIL (: not a -1.0 strict float [.'@'])
+opt_fs.values.json[2]: FAIL (: not a -1.0 strict float [.'@'])
+opt_fs.values.json[3]: FAIL (: not a -1.0 strict float [.'@'])

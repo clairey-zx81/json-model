@@ -87,7 +87,7 @@ def _jm_obj_1(val: Jsonable, path: Path, rep: Report) -> bool:
                 if not res:
                     rep is None or rep.append(("not a bool [.o.t.0]", lpath_2 if (lpath_1 if path is not None else None) is not None else None))
                 if res:
-                    lpath_2: Path = ((lpath_1 if path is not None else None) + [ 1 ]) if (lpath_1 if path is not None else None) is not None else None
+                    lpath_2 = ((lpath_1 if path is not None else None) + [ 1 ]) if (lpath_1 if path is not None else None) is not None else None
                     # .o.t.1
                     res = isinstance(pval[1], int) and not isinstance(pval[1], bool) and pval[1] >= 0
                     if not res:

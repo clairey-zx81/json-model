@@ -121,7 +121,7 @@ static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 if (res)
                 {
-                    jm_path_t lpath_2 = (jm_path_t) { NULL, 1, (path ? &lpath_1 : NULL), NULL };
+                    lpath_2 = (jm_path_t) { NULL, 1, (path ? &lpath_1 : NULL), NULL };
                     // .o.t.1
                     res = json_is_integer(json_array_get(pval, 1)) && json_integer_value(json_array_get(pval, 1)) >= 0;
                     if (! res)

@@ -41,6 +41,12 @@ public abstract class JSON<T>
     }
 
     public abstract T fromJSON(Reader reader) throws Exception;
+
+    public T strToJSON(String s)
+    {
+        return (T) s;
+    }
+
     public abstract String toJSON(T o) throws Exception;
     public abstract boolean isNull(T o);
     public abstract boolean isBoolean(T o);

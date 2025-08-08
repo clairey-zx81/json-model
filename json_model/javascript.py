@@ -248,7 +248,7 @@ class JavaScript(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"{name}_re.exec({var})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
         return [ f"{dname} = {mname}.groups[{self.esc(sname)}]" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:

@@ -1,0 +1,5 @@
+opt_sl.values.json[0]: PASS
+opt_sl.values.json[1]: PASS
+opt_sl.values.json[2]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])
+opt_sl.values.json[3]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])
+opt_sl.values.json[4]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])

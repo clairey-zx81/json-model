@@ -433,7 +433,7 @@ public class json_schema_draft_next_fuzzy extends ModelChecker
         {
             pval = json.objectValue(val, "$schema");
             // .'$schema#ObjectSchema'.'$schema'
-            res = rt.is_valid_url(json.asString(pval));
+            res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $URI [.'$schema#ObjectSchema'.'$schema']", path);

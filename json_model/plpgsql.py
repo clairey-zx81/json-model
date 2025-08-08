@@ -318,7 +318,7 @@ class PLpgSQL(Language):
             opts = "n" + opts
         return f"regexp_match({var}, {self.esc(regex)}, {self.esc(opts)})"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
         return [ f"{dname} := {mname}[{sname[1:]}];" ]
 
     def match_ko(self, var: str) -> BoolExpr:

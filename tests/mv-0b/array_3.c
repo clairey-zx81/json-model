@@ -31,7 +31,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
         }
         if (res)
         {
-            jm_path_t lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
+            lpath_0 = (jm_path_t) { NULL, 1, path, NULL };
             // .1
             res = json_is_integer(json_array_get(val, 1)) && json_integer_value(json_array_get(val, 1)) >= 0;
             if (! res)
@@ -40,7 +40,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (res)
             {
-                jm_path_t lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
+                lpath_0 = (jm_path_t) { NULL, 2, path, NULL };
                 // .2
                 res = json_is_real(json_array_get(val, 2)) && json_real_value(json_array_get(val, 2)) >= 0.0;
                 if (! res)
@@ -49,7 +49,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
                 }
                 if (res)
                 {
-                    jm_path_t lpath_0 = (jm_path_t) { NULL, 3, path, NULL };
+                    lpath_0 = (jm_path_t) { NULL, 3, path, NULL };
                     // .3
                     res = json_is_string(json_array_get(val, 3));
                     if (! res)

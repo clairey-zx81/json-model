@@ -35,7 +35,7 @@ public class ex_08 extends ModelChecker
     {
         boolean res;
         // .'$KEY'
-        res = rt.is_valid_url(json.asString(val));
+        res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URL [.'$KEY']", path);
@@ -108,7 +108,7 @@ public class ex_08 extends ModelChecker
         if (! res)
         {
             // .'$EX08'.'|'.1
-            res = rt.is_valid_url(json.asString(val));
+            res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $URL [.'$EX08'.'|'.1]", path);

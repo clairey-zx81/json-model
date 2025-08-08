@@ -67,7 +67,7 @@ public class obj_02 extends ModelChecker
                 Object arr_1_item = arr_1_item_loop.next();
                 Path arr_1_lpath = new Path(arr_1_idx, path);
                 // .'$ls0'.0
-                res = rt.is_valid_url(json.asString(arr_1_item));
+                res = json.isString(arr_1_item) && rt.is_valid_url(json.asString(arr_1_item));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$ls0'.0]", (path != null ? arr_1_lpath : null));

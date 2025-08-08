@@ -425,7 +425,7 @@ public class json_schema_draft_02_nesting extends ModelChecker
     {
         boolean res;
         // .'$schema'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$schema'.pattern]", path);

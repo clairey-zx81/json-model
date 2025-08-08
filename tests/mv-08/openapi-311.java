@@ -73,7 +73,7 @@ public class openapi_311 extends ModelChecker
     {
         boolean res;
         // .'$OpenAPI'.jsonSchemaDialect
-        res = rt.is_valid_url(json.asString(val));
+        res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URL [.'$OpenAPI'.jsonSchemaDialect]", path);
@@ -558,7 +558,7 @@ public class openapi_311 extends ModelChecker
             {
                 // handle may url property
                 // .'$Contact'.url
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Contact'.url]", (path != null ? lpath_3 : null));
@@ -662,7 +662,7 @@ public class openapi_311 extends ModelChecker
                 // handle must url property
                 must_count += 1;
                 // .'$License'.'|'.1.url
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$License'.'|'.1.url]", (path != null ? lpath_4 : null));
@@ -887,7 +887,7 @@ public class openapi_311 extends ModelChecker
                 // handle must url property
                 must_count += 1;
                 // .'$Server'.url
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Server'.url]", (path != null ? lpath_6 : null));
@@ -1829,7 +1829,7 @@ public class openapi_311 extends ModelChecker
     {
         boolean res;
         // .'$PathItem'.'$ref'
-        res = rt.is_valid_url(json.asString(val));
+        res = json.isString(val) && rt.is_valid_url(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $URI [.'$PathItem'.'$ref']", path);
@@ -2522,7 +2522,7 @@ public class openapi_311 extends ModelChecker
                 // handle must url property
                 must_count += 1;
                 // .'$ExternalDocumentation'.url
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$ExternalDocumentation'.url]", (path != null ? lpath_24 : null));
@@ -4505,7 +4505,7 @@ public class openapi_311 extends ModelChecker
             String prop = prop_loop.next();
             Object pval = json.objectValue(val, prop);
             Path lpath_47 = new Path(prop, path);
-            if (json_model_26(prop, (path != null ? lpath_47 : null), rep))
+            if (json_model_26(json.strToJSON(prop), (path != null ? lpath_47 : null), rep))
             {
                 // handle 1 key props
                 // .'$Callback'.'$Expression'
@@ -6380,7 +6380,7 @@ public class openapi_311 extends ModelChecker
     {
         boolean res;
         // .'$Schema'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$Schema'.pattern]", path);
@@ -7372,7 +7372,7 @@ public class openapi_311 extends ModelChecker
                 // handle must openIdConnectUrl property
                 must_count += 1;
                 // .'$SS-oic'.openIdConnectUrl
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$SS-oic'.openIdConnectUrl]", (path != null ? lpath_71 : null));
@@ -7510,7 +7510,7 @@ public class openapi_311 extends ModelChecker
                 // handle must openIdConnectUrl property
                 must_count += 1;
                 // .'$SecurityScheme'.'|'.4.openIdConnectUrl
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$SecurityScheme'.'|'.4.openIdConnectUrl]", (path != null ? lpath_73 : null));
@@ -8182,7 +8182,7 @@ public class openapi_311 extends ModelChecker
                 // handle must authorizationUrl property
                 must_count += 1;
                 // .'$OAuthFlow'.authorizationUrl
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$OAuthFlow'.authorizationUrl]", (path != null ? lpath_79 : null));
@@ -8198,7 +8198,7 @@ public class openapi_311 extends ModelChecker
                 // handle must tokenUrl property
                 must_count += 1;
                 // .'$OAuthFlow'.tokenUrl
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$OAuthFlow'.tokenUrl]", (path != null ? lpath_79 : null));
@@ -8229,7 +8229,7 @@ public class openapi_311 extends ModelChecker
             {
                 // handle may refreshUrl property
                 // .'$OAuthFlow'.refreshUrl
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$OAuthFlow'.refreshUrl]", (path != null ? lpath_79 : null));
@@ -9325,7 +9325,7 @@ public class openapi_311 extends ModelChecker
     {
         boolean res;
         // .'$schema#ObjectSchema'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$schema#ObjectSchema'.pattern]", path);

@@ -1,0 +1,40 @@
+more_comments.values.json[0]: PASS
+more_comments.values.json[1]: PASS
+more_comments.values.json[2]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[3]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[4]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[5]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[6]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[7]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[8]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[9]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[10]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[11]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[12]: FAIL (: not a 0 strict int [.'$P'])
+more_comments.values.json[13]: PASS
+more_comments.values.json[14]: PASS
+more_comments.values.json[15]: PASS
+more_comments.values.json[16]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[17]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[18]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[19]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[20]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[21]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[22]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[23]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[24]: FAIL (: not array or unexpected array [.'$Q'])
+more_comments.values.json[25]: PASS
+more_comments.values.json[26]: PASS
+more_comments.values.json[27]: PASS
+more_comments.values.json[28]: PASS
+more_comments.values.json[29]: FAIL (p: unexpected prop [.]; : unexpected element [.])
+more_comments.values.json[30]: FAIL (o: not an object [.o]; o: unexpected element [.o]; o: invalid optional prop value [.o]; : unexpected element [.])
+more_comments.values.json[31]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[32]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[33]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[34]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[35]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[36]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[37]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[38]: FAIL (: not an object [.]; : unexpected element [.])
+more_comments.values.json[39]: FAIL (: not an object [.]; : unexpected element [.])

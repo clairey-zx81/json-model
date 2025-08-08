@@ -1,0 +1,8 @@
+int_cons_2.values.json[0]: PASS
+int_cons_2.values.json[1]: FAIL (: not a 0 strict int [.'$positif'])
+int_cons_2.values.json[2]: FAIL (: not a 0 strict int [.'$positif'])
+int_cons_2.values.json[3]: FAIL (: not a 0 strict int [.'$positif'])
+int_cons_2.values.json[4]: PASS
+int_cons_2.values.json[5]: FAIL (: unexpected =42 [.'$forty-two'])
+int_cons_2.values.json[6]: FAIL (: unexpected =42 [.'$forty-two'])
+int_cons_2.values.json[7]: FAIL (: unexpected =42 [.'$forty-two'])

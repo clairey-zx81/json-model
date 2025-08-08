@@ -82,11 +82,13 @@ class CodeGenerator:
         )
         checks = []
         # sname is the name of the substring
+        first = True
         for sname, ref in remap.items():
-            checks += gen.match_val("match", rname, sname, "extract")
+            checks += gen.match_val("match", rname, sname, "extract", declare=first)
             checks += gen.if_stmt(
                 gen.not_op(self._dollarExpr(jm, ref, "extract", path, is_raw=True)),
                 gen.ret(gen.false()))
+            first = False
         checks += gen.ret(gen.true())
         code += checks
 

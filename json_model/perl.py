@@ -340,7 +340,7 @@ class Perl(Language):
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
         return f"${var} =~ /{self._escRegEx(regex)}/{opts}"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
         return [ f"${dname} = $+{{{self.esc(sname)}}};" ]
 
     # constants map

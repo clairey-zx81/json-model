@@ -1,0 +1,16 @@
+varlen-1.values.json[0]: PASS
+varlen-1.values.json[1]: PASS
+varlen-1.values.json[2]: PASS
+varlen-1.values.json[3]: PASS
+varlen-1.values.json[4]: FAIL (: constraints failed [.])
+varlen-1.values.json[5]: FAIL (: constraints failed [.])
+varlen-1.values.json[6]: FAIL (: constraints failed [.])
+varlen-1.values.json[7]: FAIL (0: unexpected string [.'@'.0]; : not array or unexpected array [.'@'])
+varlen-1.values.json[8]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[9]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[10]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[11]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[12]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[13]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[14]: FAIL (: not array or unexpected array [.'@'])
+varlen-1.values.json[15]: FAIL (: not array or unexpected array [.'@'])

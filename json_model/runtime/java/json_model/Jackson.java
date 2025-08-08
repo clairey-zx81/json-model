@@ -9,6 +9,7 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.TextNode;
 
 /* https://github.com/FasterXML/jackson
  *
@@ -39,6 +40,11 @@ public class Jackson extends JSON<Object>
         catch (IOException e) {
             throw new JSON.Exception("io error: " + e);
         }
+    }
+
+    public Object strToJSON(String s)
+    {
+        return new TextNode(s);
     }
 
     public String toJSON(Object o) throws JSON.Exception

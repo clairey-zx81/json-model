@@ -125,26 +125,28 @@ class Java(Language):
 
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
-        val = var if is_str else f"json.asString({var})"
-        isstr = self.is_a(var, str)
+        isstr, val = "", var
+        if not is_str:
+            isstr = self.is_a(var, str) + " && "
+            val = f"json.asString({var})"
         if name == "$UUID":
-            return f"{isstr} && rt.is_valid_uuid({val})"
+            return f"{isstr}rt.is_valid_uuid({val})"
         elif name == "$DATE":
-            return f"{isstr} && rt.is_valid_date({val})"
+            return f"{isstr}rt.is_valid_date({val})"
         elif name == "$TIME":
-            return f"{isstr} && rt.is_valid_time({val})"
+            return f"{isstr}rt.is_valid_time({val})"
         elif name == "$DATETIME":
-            return f"{isstr} && rt.is_valid_datetime({val})"
+            return f"{isstr}rt.is_valid_datetime({val})"
         elif name == "$REGEX":
-            return f"{isstr} && rt.is_valid_regex({val})"
+            return f"{isstr}rt.is_valid_regex({val})"
         elif name == "$EXREG":
-            return f"{isstr} && rt.is_valid_exreg({val})"
+            return f"{isstr}rt.is_valid_exreg({val})"
         elif name in ("$URL", "$URI"):
-            return f"{isstr} && rt.is_valid_url({val})"
+            return f"{isstr}rt.is_valid_url({val})"
         elif name == "$EMAIL":
-            return f"{isstr} && rt.is_valid_email({val})"
+            return f"{isstr}rt.is_valid_email({val})"
         elif name == "$JSON":
-            return f"{isstr} && rt.is_valid_json({val})"
+            return f"{isstr}rt.is_valid_json({val})"
         else:
             return super().predef(var, name, path, is_str)
 
@@ -174,6 +176,7 @@ class Java(Language):
 
     def check_call(self, name: Var, val: JsonExpr, path: Var, *,
                    is_ptr: bool = False, is_raw: bool = False) -> BoolExpr:
+        val = f"json.strToJSON({val})" if is_raw else val
         return f"{name}.call({val}, {path}, rep)" if is_ptr else \
                f"{name}({val}, {path}, rep)"
 
@@ -199,7 +202,7 @@ class Java(Language):
         return f"{val}.startsWith({self.esc(start)})"
 
     def str_end(self, val: str, end: str) -> BoolExpr:
-        return f"{val}.endsWith({self.esc(start)})"
+        return f"{val}.endsWith({self.esc(end)})"
 
     def check_unique(self, val: JsonExpr, path: Var) -> BoolExpr:
         return f"rt.array_is_unique({val}, {path}, rep)"
@@ -354,13 +357,14 @@ class Java(Language):
 
     def match_str_var(self, rname: str, var: str, val: str, declare: bool = False) -> Block:
         assert declare
-        return [ f"Matcher {name}_match;" ]
+        return [ f"Matcher {rname}_match;" ]
 
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
-        return [ f"(({name}_match = {name}_pat.match({var})) != null)" ]
+        return f"({name}_match = {name}_pat.matcher({var})).find()"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
-        return [ f"String {dname} = {mname}_match.group({self.esc(sname)});" ]
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
+        decl = "String " if declare else ""
+        return [ f"{decl}{dname} = {rname}_match.group({self.esc(sname)});" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
         return [ f"public boolean {name}(String val, Path path, Report rep)" ] + \

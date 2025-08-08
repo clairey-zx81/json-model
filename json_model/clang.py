@@ -409,7 +409,7 @@ class CLangJansson(Language):
             return f"cre2_match({name}_re2, {var}, strlen({var}), 0, strlen({var}), " \
                    f"CRE2_UNANCHORED, matches, {name}_nn) != 0"
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
         if self._relib == "pcre2":
             return [
                 f"{dname}_len = {dname}_size;",

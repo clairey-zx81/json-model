@@ -22,7 +22,7 @@ public class obj_04 extends ModelChecker
     {
         boolean res;
         // .'$bla'
-        res = rt.is_valid_date(json.asString(val));
+        res = json.isString(val) && rt.is_valid_date(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $DATE [.'$bla']", path);

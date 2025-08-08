@@ -129,7 +129,7 @@ public class obj_03 extends ModelChecker
                 Object arr_1_item = arr_1_item_loop.next();
                 Path arr_1_lpath = new Path(arr_1_idx, path);
                 // .'$foo#ls0'.0
-                res = rt.is_valid_date(json.asString(arr_1_item));
+                res = json.isString(arr_1_item) && rt.is_valid_date(json.asString(arr_1_item));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $DATE [.'$foo#ls0'.0]", (path != null ? arr_1_lpath : null));

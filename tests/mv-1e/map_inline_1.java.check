@@ -1,0 +1,17 @@
+map_inline_1.values.json[0]: PASS
+map_inline_1.values.json[1]: PASS
+map_inline_1.values.json[2]: PASS
+map_inline_1.values.json[3]: PASS
+map_inline_1.values.json[4]: FAIL (: missing mandatory prop <mu3> [.]; : unexpected element [.])
+map_inline_1.values.json[5]: FAIL (: missing mandatory prop <mu2> [.]; : unexpected element [.])
+map_inline_1.values.json[6]: FAIL (: missing mandatory prop <mu1> [.]; : unexpected element [.])
+map_inline_1.values.json[7]: FAIL (: missing mandatory prop <mu1> [.]; : missing mandatory prop <mu2> [.]; : missing mandatory prop <mu3> [.]; : unexpected element [.])
+map_inline_1.values.json[8]: FAIL (un: unexpected prop [.]; : unexpected element [.])
+map_inline_1.values.json[9]: FAIL (no: unexpected prop [.]; : unexpected element [.])
+map_inline_1.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[12]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[13]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[14]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[15]: FAIL (: not an object [.]; : unexpected element [.])
+map_inline_1.values.json[16]: FAIL (: not an object [.]; : unexpected element [.])

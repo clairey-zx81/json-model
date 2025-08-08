@@ -149,7 +149,7 @@ public class ex_09 extends ModelChecker
         if (! res)
         {
             // .'$ex08#EX08'.'|'.1
-            res = rt.is_valid_url(json.asString(val));
+            res = json.isString(val) && rt.is_valid_url(json.asString(val));
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $URL [.'$ex08#EX08'.'|'.1]", path);

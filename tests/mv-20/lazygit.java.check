@@ -1,0 +1,10 @@
+lazygit.values.json[0]: PASS
+lazygit.values.json[1]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[2]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[3]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[4]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[5]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[6]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[7]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
+lazygit.values.json[9]: FAIL (un: unexpected prop [.]; : unexpected element [.])

@@ -1,0 +1,17 @@
+comments.values.json[0]: PASS
+comments.values.json[1]: PASS
+comments.values.json[2]: FAIL (hello: unexpected string [.hello]; hello: invalid mandatory prop value [.hello]; : unexpected element [.])
+comments.values.json[3]: FAIL (world: unexpected /^!/ [.world]; world: invalid mandatory prop value [.world]; : unexpected element [.])
+comments.values.json[4]: FAIL (world: unexpected /^!/ [.world]; world: invalid mandatory prop value [.world]; : unexpected element [.])
+comments.values.json[5]: FAIL (: missing mandatory prop <hello> [.]; : missing mandatory prop <world> [.]; : unexpected element [.])
+comments.values.json[6]: FAIL (: missing mandatory prop <world> [.]; : unexpected element [.])
+comments.values.json[7]: FAIL (: missing mandatory prop <hello> [.]; : unexpected element [.])
+comments.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[9]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[12]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[13]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[14]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[15]: FAIL (: not an object [.]; : unexpected element [.])
+comments.values.json[16]: FAIL (: not an object [.]; : unexpected element [.])

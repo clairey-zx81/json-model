@@ -113,7 +113,7 @@ function _jm_obj_1(val, path, rep)
                 }
                 if (res)
                 {
-                    let lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null;
+                    lpath_2 = (path ? lpath_1 : null) ? (path ? lpath_1 : null).concat([1]) : null;
                     // .o.t.1
                     res = ((typeof pval[1] === 'number' || pval[1] instanceof Number) && Number.isInteger(pval[1])) && pval[1] >= 0;
                     if (! res)

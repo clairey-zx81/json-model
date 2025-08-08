@@ -803,7 +803,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
     {
         boolean res;
         // .'$tight#String'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$tight#String'.pattern]", path);
@@ -4567,7 +4567,7 @@ public class json_schema_draft_tighter_loose extends ModelChecker
                 // handle must $ref property
                 must_count += 1;
                 // .'$tight#Ref'.'$ref'
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$tight#Ref'.'$ref']", (path != null ? lpath_41 : null));

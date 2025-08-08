@@ -1,0 +1,5 @@
+opt_ns.values.json[0]: PASS
+opt_ns.values.json[1]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])
+opt_ns.values.json[2]: FAIL (f: not a -1.0 strict float [.f]; f: invalid mandatory prop value [.f]; : unexpected element [.])
+opt_ns.values.json[3]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])
+opt_ns.values.json[4]: FAIL (i: not a -1 strict int [.i]; i: invalid mandatory prop value [.i]; : unexpected element [.])

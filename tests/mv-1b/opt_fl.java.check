@@ -1,0 +1,4 @@
+opt_fl.values.json[0]: PASS
+opt_fl.values.json[1]: PASS
+opt_fl.values.json[2]: FAIL (: not a -1.0 loose float [.'@'])
+opt_fl.values.json[3]: FAIL (: not a -1.0 loose float [.'@'])

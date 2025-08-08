@@ -288,7 +288,7 @@ def _jm_xre_0(val: str, path: Path, rep: Report) -> bool:
     match = _jm_xre_0_re_reco.search(val)
     if not match:
         return False
-    extract = match.groupdict()["s1"]
+    extract: str = match.groupdict()["s1"]
     if not is_valid_regex(extract, path, rep):
         return False
     return True
@@ -299,7 +299,7 @@ def _jm_xre_1(val: str, path: Path, rep: Report) -> bool:
     match = _jm_xre_1_re_reco.search(val)
     if not match:
         return False
-    extract = match.groupdict()["s1"]
+    extract: str = match.groupdict()["s1"]
     if not is_valid_exreg(extract, path, rep):
         return False
     return True

@@ -618,7 +618,7 @@ class Language:
         """Get a match result for string variable var value."""
         raise NotImplementedError("see derived classes")
 
-    def match_val(self, mname: str, rname: str, sname: str, dname: str) -> Block:
+    def match_val(self, mname: str, rname: str, sname: str, dname: str, declare: bool = False) -> Block:
         """Assign match "name" to variable sname."""
         raise NotImplementedError("see derived classes")
 

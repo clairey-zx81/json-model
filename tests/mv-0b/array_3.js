@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
         }
         if (res)
         {
-            let lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = ((typeof val[1] === 'number' || val[1] instanceof Number) && Number.isInteger(val[1])) && val[1] >= 0;
             if (! res)
@@ -37,7 +37,7 @@ function json_model_1(val, path, rep)
             }
             if (res)
             {
-                let lpath_0 = path ? path.concat([2]) : null;
+                lpath_0 = path ? path.concat([2]) : null;
                 // .2
                 res = ((typeof val[2] === 'number' || val[2] instanceof Number)) && val[2] >= 0.0;
                 if (! res)
@@ -46,7 +46,7 @@ function json_model_1(val, path, rep)
                 }
                 if (res)
                 {
-                    let lpath_0 = path ? path.concat([3]) : null;
+                    lpath_0 = path ? path.concat([3]) : null;
                     // .3
                     res = (typeof val[3] === 'string' || val[3] instanceof String);
                     if (! res)

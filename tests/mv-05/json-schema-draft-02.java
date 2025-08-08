@@ -481,7 +481,7 @@ public class json_schema_draft_02 extends ModelChecker
     {
         boolean res;
         // .pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.pattern]", path);

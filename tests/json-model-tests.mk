@@ -37,18 +37,24 @@ F.js    = $(F.root:%=%.js)
 F.out   = $(F.root:%=%.out)
 F.sql   = $(F.root:%=%.sql)
 F.pl    = $(F.root:%=%.pl)
+F.java  = $(F.root:%=%.java)
+F.class  = $(F.root:%=%.class)
 # test results
 F.cc    = $(F.root:%=%.c.check)
 F.pyc   = $(F.root:%=%.py.check)
 F.jsc   = $(F.root:%=%.js.check)
 F.sqlc  = $(F.root:%=%.sql.check)
 F.plc   = $(F.root:%=%.pl.check)
+F.jvc   = $(F.root:%=%.java.check)
+
+DASHED  = $(wildcard *-*.model.json)
+FD.java = $(subst -,_,$(DASHED:%.model.json=%.java))
 
 # all generated
 F.gen   = \
     $(F.json) $(F.UO) $(F.PO) $(F.EO) \
-    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) \
-    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc)
+    $(F.c) $(F.py) $(F.cc) $(F.sql) $(F.pl) $(F.java) \
+    $(F.pyc) $(F.js) $(F.jsc) $(F.sqlc) $(F.plc) $(F.jvc)
 
 .PHONY: all
 all: $(F.gen)
@@ -81,7 +87,7 @@ check:
 
 .PHONY: clean
 clean:
-	$(RM) *.o *.out *.mjs *.mpy
+	$(RM) *.o *.out *.mjs *.mpy *.class $(FD.java)
 
 .PHONY: sql clean.sql
 sql: $(F.sql) $(F.sqlc)
@@ -226,6 +232,52 @@ $(F.out): json-model.o main.o
 	exit $$status
 
 #
+# Java Backend
+#
+
+JAVAC   = javac
+JAVA    = java
+J.opt   = -r
+
+.PHONY: clean.java
+clean.java:
+	$(RM) $(F.java) $(F.jvc) *.class *.java
+
+.PHONY: java
+java: $(F.java) $(F.jvc)
+
+%.java: %.model.json
+	$(JMC.cmd) -o $@ $<
+	status=$$?
+	java_name=$*
+	java_name=$${java_name//-/_}
+	[ $* != $$java_name ] && ln -s $@ $$java_name.java
+	exit $$status
+
+%.class: %.java
+	java_name=$*
+	java_name=$${java_name//-/_}
+	javac $$java_name.java
+	status=$$?
+	[ $* != $$java_name ] && ln -s $$java_name.class $@
+	exit $$status
+
+%.java.check: %.class %.values.json
+	shopt -s nullglob
+	set -o pipefail
+	java_name=$*
+	java_name=$${java_name//-/_}
+	$(JAVA) $$java_name $(J.opt) $*.*.{true,false}.json | sort > $@
+	if [ -f $*.values.json ] ; then
+	    $(JAVA) $$java_name $(J.opt) -t $*.values.json >> $@
+	    status=$$?
+	fi
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
+	fi
+	exit $$status
+
+#
 # Generated JSON Schema checks
 #
 F.schema    = $(F.root:%=%.schema.json)
@@ -240,7 +292,8 @@ check.schema: $(F.sXc)
 	    $*.py $*.py.check \
 	    $*.js $*.js.check \
 	    $*.sql $*.sql.check \
-	    $*.pl $*.pl.check
+	    $*.pl $*.pl.check \
+	    $*.java $*.java.check
 
 %.CLEAN:
 	$(RM) $*.schema.json \
@@ -248,6 +301,7 @@ check.schema: $(F.sXc)
 	    $*.py $*.py.check \
 	    $*.js $*.js.check \
 	    $*.sql $*.sql.check \
-	    $*.pl $*.pl.check
+	    $*.pl $*.pl.check \
+	    $*.java $*.java.check
 
 # TODO JSON Schema checks on test values?

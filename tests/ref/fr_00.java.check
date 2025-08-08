@@ -1,0 +1,9 @@
+fr_00.values.json[0]: PASS
+fr_00.values.json[1]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[2]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[3]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[4]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[5]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[6]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[7]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])
+fr_00.values.json[8]: FAIL (: not a 0 strict int [.'|'.0]; : not a 0.0 strict float [.'|'.1]; : no model matched [.'|'])

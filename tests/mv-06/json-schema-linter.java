@@ -246,7 +246,7 @@ public class json_schema_linter extends ModelChecker
             {
                 // handle may pattern property
                 // .'$stringKeywords'.pattern
-                res = rt.is_valid_regex(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_regex(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $REGEX [.'$stringKeywords'.pattern]", (path != null ? lpath_0 : null));
@@ -1211,7 +1211,7 @@ public class json_schema_linter extends ModelChecker
     {
         boolean res;
         // .'$String'.pattern
-        res = rt.is_valid_regex(json.asString(val));
+        res = json.isString(val) && rt.is_valid_regex(json.asString(val));
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected $REGEX [.'$String'.pattern]", path);
@@ -4952,7 +4952,7 @@ public class json_schema_linter extends ModelChecker
                 // handle must $ref property
                 must_count += 1;
                 // .'$Ref'.'$ref'
-                res = rt.is_valid_url(json.asString(pval));
+                res = json.isString(pval) && rt.is_valid_url(json.asString(pval));
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected $URL [.'$Ref'.'$ref']", (path != null ? lpath_47 : null));

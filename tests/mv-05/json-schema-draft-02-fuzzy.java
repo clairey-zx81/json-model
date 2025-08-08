@@ -375,7 +375,7 @@ public class json_schema_draft_02_fuzzy extends ModelChecker
         {
             pval = json.objectValue(val, "pattern");
             // .'$schema'.pattern
-            res = rt.is_valid_regex(json.asString(pval));
+            res = json.isString(pval) && rt.is_valid_regex(json.asString(pval));
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected $REGEX [.'$schema'.pattern]", path);

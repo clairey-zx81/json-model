@@ -1,0 +1,12 @@
+name_age.values.json[0]: PASS
+name_age.values.json[1]: PASS
+name_age.values.json[2]: FAIL (: missing mandatory prop <age> [.]; : unexpected element [.])
+name_age.values.json[3]: FAIL (nom: unexpected prop [.]; : unexpected element [.])
+name_age.values.json[4]: FAIL (: missing mandatory prop <age> [.]; : missing mandatory prop <name> [.]; : unexpected element [.])
+name_age.values.json[5]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[6]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[7]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[9]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
+name_age.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])

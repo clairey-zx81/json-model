@@ -54,12 +54,26 @@ public class Runtime
     }
 
     static public final DateTimeFormatter[] TIMES = {
-        DateTimeFormatter.ISO_LOCAL_TIME
+        DateTimeFormatter.ISO_LOCAL_TIME,
+        DateTimeFormatter.ISO_OFFSET_TIME
     };
+
+    static public final Pattern
+        TIME1 = Pattern.compile("^([01][0-9]|2[0-3])[0-5][0-9][0-5][0-9](\\.[0-9]*)?$"),
+        TIME2 = Pattern.compile("^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]*)?([-+][01][0-9])?$");
 
     public boolean is_valid_time(String s)
     {
-        return _try_dt_parsing(s, TIMES);
+        if (s.length() == 0)
+            return false;
+        if (s.startsWith("T"))
+            s = s.substring(1);
+        if (_try_dt_parsing(s, TIMES))
+            return true;
+        // java is not very good at times
+        if (TIME1.matcher(s).find())
+            return true;
+        return TIME2.matcher(s).find();
     }
 
     public boolean is_valid_regex(String s)
@@ -73,8 +87,9 @@ public class Runtime
         }
     }
 
-    static public final Pattern EXREG1 = Pattern.compile("\\($\\w+\\)");
-    static public final Pattern EXREG2 = Pattern.compile("\\($\\w+:(.*?)\\)");
+    static public final Pattern
+        EXREG1 = Pattern.compile("\\($\\w+\\)"),
+        EXREG2 = Pattern.compile("\\($\\w+:(.*?)\\)");
 
     public boolean is_valid_exreg(String s)
     {
@@ -96,7 +111,7 @@ public class Runtime
         }
     }
 
-    static public final Pattern EMAIL = Pattern.compile("^[-.\\w]+@[-.\\w]$");
+    static public final Pattern EMAIL = Pattern.compile("^[-.\\w]+@[-.\\w]+$");
 
     public boolean is_valid_email(String s)
     {
@@ -125,6 +140,8 @@ public class Runtime
     // FIXME inefficient, although n log n
     public boolean array_is_unique(Object o, Path path, Report rep)
     {
+        if (!json.isArray(o))
+            return false;
         int length = json.arrayLength(o);
         if (length < 2)
             return true;
