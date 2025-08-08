@@ -22,8 +22,9 @@
   see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
 - [x] java-backend: add code generator and runtime, with abstracted json representation
 - [x] java-backend: pass validation tests with jackson
-- [ ] java-backend: pass validation tests with gson
+- [x] java-backend: pass validation tests with gson
 - [ ] java-backend: fix `mv-0a/base-18` unique
+- [ ] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
 - [ ] test: enable java tests with pytest
 - [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
