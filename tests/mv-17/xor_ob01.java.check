@@ -1,0 +1,15 @@
+xor_ob01.values.json[0]: PASS
+xor_ob01.values.json[1]: PASS
+xor_ob01.values.json[2]: PASS
+xor_ob01.values.json[3]: PASS
+xor_ob01.values.json[4]: FAIL (z: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; z: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; z: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; a: unexpected prop [.'|'.3]; : unexpected element [.'|'.3]; : no model matched [.'|'])
+xor_ob01.values.json[5]: FAIL (b: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; b: unexpected prop [.'|'.1]; : unexpected element [.'|'.1]; : missing mandatory prop <a> [.'|'.2]; : unexpected element [.'|'.2]; : missing mandatory prop <c> [.'|'.3]; : unexpected element [.'|'.3]; : no model matched [.'|'])
+xor_ob01.values.json[6]: FAIL (c: unexpected prop [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : unexpected element [.'|'.1]; c: unexpected prop [.'|'.2]; : unexpected element [.'|'.2]; : missing mandatory prop <b> [.'|'.3]; : unexpected element [.'|'.3]; : no model matched [.'|'])
+xor_ob01.values.json[7]: FAIL (: missing mandatory prop <a> [.'|'.0]; : unexpected element [.'|'.0]; : missing mandatory prop <a> [.'|'.1]; : missing mandatory prop <c> [.'|'.1]; : unexpected element [.'|'.1]; : missing mandatory prop <a> [.'|'.2]; : missing mandatory prop <b> [.'|'.2]; : unexpected element [.'|'.2]; : missing mandatory prop <b> [.'|'.3]; : missing mandatory prop <c> [.'|'.3]; : unexpected element [.'|'.3]; : no model matched [.'|'])
+xor_ob01.values.json[8]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[9]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[10]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[11]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[12]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[13]: FAIL (: unexpected type [.'|'])
+xor_ob01.values.json[14]: FAIL (: unexpected type [.'|'])

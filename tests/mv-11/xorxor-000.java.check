@@ -1,0 +1,8 @@
+xorxor-000.values.json[0]: PASS
+xorxor-000.values.json[1]: PASS
+xorxor-000.values.json[2]: PASS
+xorxor-000.values.json[3]: PASS
+xorxor-000.values.json[4]: PASS
+xorxor-000.values.json[5]: FAIL (: not null [.'$X'.'|'.0]; : not a bool [.'$X'.'|'.1]; : not a 1 strict int [.'$X'.'|'.2]; : not a 1.0 strict float [.'$X'.'|'.3]; : no model matched [.'$X'.'|']; : unexpected $X [.'^'.0]; 0: not null [.'$X'.'|'.0]; 0: not a bool [.'$X'.'|'.1]; 0: not a 1 strict int [.'$X'.'|'.2]; 0: not a 1.0 strict float [.'$X'.'|'.3]; 0: no model matched [.'$X'.'|']; 0: unexpected $X [.'^'.1.0]; : not array or unexpected array [.'^'.1]; : not one model match [.'^'])
+xorxor-000.values.json[6]: FAIL (: not null [.'$X'.'|'.0]; : not a bool [.'$X'.'|'.1]; : not a 1 strict int [.'$X'.'|'.2]; : not a 1.0 strict float [.'$X'.'|'.3]; : no model matched [.'$X'.'|']; : unexpected $X [.'^'.0]; : not array or unexpected array [.'^'.1]; : not one model match [.'^'])
+xorxor-000.values.json[7]: FAIL (: not null [.'$X'.'|'.0]; : not a bool [.'$X'.'|'.1]; : not a 1 strict int [.'$X'.'|'.2]; : not a 1.0 strict float [.'$X'.'|'.3]; : no model matched [.'$X'.'|']; : unexpected $X [.'^'.0]; : not array or unexpected array [.'^'.1]; : not one model match [.'^'])

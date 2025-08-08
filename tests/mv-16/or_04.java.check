@@ -1,0 +1,6 @@
+or_04.values.json[0]: PASS
+or_04.values.json[1]: PASS
+or_04.values.json[2]: FAIL (: value not in enum [.'|']; : unexpected /[0-9]/ [.'|'.0]; : unexpected /[a-z]/ [.'|'.1]; : no model matched [.'|'])
+or_04.values.json[3]: FAIL (: value not in enum [.'|']; : unexpected type [.'|'])
+or_04.values.json[4]: FAIL (: value not in enum [.'|']; : unexpected type [.'|'])
+or_04.values.json[5]: FAIL (: value not in enum [.'|']; : unexpected type [.'|'])

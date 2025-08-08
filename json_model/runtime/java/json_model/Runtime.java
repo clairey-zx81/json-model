@@ -115,7 +115,7 @@ public class Runtime
     }
 
     static public final Pattern UUID =
-        Pattern.compile("^[0-9a-fA-F]{8}(-[0-9a-fA-F]){3}[0-9a-fA-F]{12}$");
+        Pattern.compile("^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$");
 
     public boolean is_valid_uuid(String s)
     {

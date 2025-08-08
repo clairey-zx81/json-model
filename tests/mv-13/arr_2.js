@@ -28,7 +28,7 @@ function json_model_1(val, path, rep)
         }
         if (res)
         {
-            let lpath_0 = path ? path.concat([1]) : null;
+            lpath_0 = path ? path.concat([1]) : null;
             // .1
             res = ((typeof val[1] === 'number' || val[1] instanceof Number) && Number.isInteger(val[1])) && val[1] >= 0;
             if (! res)

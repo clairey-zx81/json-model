@@ -1,0 +1,8 @@
+arr_2.values.json[0]: PASS
+arr_2.values.json[1]: FAIL (: not array or unexpected array [.])
+arr_2.values.json[2]: FAIL (: not array or unexpected array [.])
+arr_2.values.json[3]: FAIL (: not array or unexpected array [.])
+arr_2.values.json[4]: FAIL (: not array or unexpected array [.])
+arr_2.values.json[5]: FAIL (: not array or unexpected array [.])
+arr_2.values.json[6]: FAIL (0: not a bool [.0]; : not array or unexpected array [.])
+arr_2.values.json[7]: FAIL (1: not a 0 strict int [.1]; : not array or unexpected array [.])

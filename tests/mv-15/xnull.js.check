@@ -1,0 +1,10 @@
+xnull.values.json[0]: PASS
+xnull.values.json[1]: FAIL (.: not null [.])
+xnull.values.json[2]: FAIL (.: not null [.])
+xnull.values.json[3]: FAIL (.: not null [.])
+xnull.values.json[4]: FAIL (.: not null [.])
+xnull.values.json[5]: FAIL (.: not null [.])
+xnull.values.json[6]: FAIL (.: not null [.])
+xnull.values.json[7]: FAIL (.: not null [.])
+xnull.values.json[8]: FAIL (.: not null [.])
+xnull.values.json[9]: FAIL (.: not null [.])

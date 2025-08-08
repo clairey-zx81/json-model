@@ -1,0 +1,13 @@
+xoropt-007.values.json[0]: PASS
+xoropt-007.values.json[1]: PASS
+xoropt-007.values.json[2]: FAIL (: missing mandatory prop <a> [.'^'.0]; : unexpected element [.'^'.0]; : missing mandatory prop <b> [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[3]: FAIL (: not one model match [.'^'])
+xoropt-007.values.json[4]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[5]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[6]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[7]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[8]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[9]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[10]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[11]: FAIL (: not an object [.'^'.0]; : unexpected element [.'^'.0]; : not an object [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])
+xoropt-007.values.json[12]: FAIL (un: unexpected prop [.'^'.0]; : unexpected element [.'^'.0]; un: unexpected prop [.'^'.1]; : unexpected element [.'^'.1]; : not one model match [.'^'])

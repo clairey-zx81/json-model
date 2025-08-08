@@ -126,24 +126,25 @@ class Java(Language):
     # FIXME path? reporting?
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         val = var if is_str else f"json.asString({var})"
+        isstr = self.is_a(var, str)
         if name == "$UUID":
-            return f"rt.is_valid_uuid({val})"
+            return f"{isstr} && rt.is_valid_uuid({val})"
         elif name == "$DATE":
-            return f"rt.is_valid_date({val})"
+            return f"{isstr} && rt.is_valid_date({val})"
         elif name == "$TIME":
-            return f"rt.is_valid_time({val})"
+            return f"{isstr} && rt.is_valid_time({val})"
         elif name == "$DATETIME":
-            return f"rt.is_valid_datetime({val})"
+            return f"{isstr} && rt.is_valid_datetime({val})"
         elif name == "$REGEX":
-            return f"rt.is_valid_regex({val})"
+            return f"{isstr} && rt.is_valid_regex({val})"
         elif name == "$EXREG":
-            return f"rt.is_valid_exreg({val})"
+            return f"{isstr} && rt.is_valid_exreg({val})"
         elif name in ("$URL", "$URI"):
-            return f"rt.is_valid_url({val})"
+            return f"{isstr} && rt.is_valid_url({val})"
         elif name == "$EMAIL":
-            return f"rt.is_valid_email({val})"
+            return f"{isstr} && rt.is_valid_email({val})"
         elif name == "$JSON":
-            return f"rt.is_valid_json({val})"
+            return f"{isstr} && rt.is_valid_json({val})"
         else:
             return super().predef(var, name, path, is_str)
 
