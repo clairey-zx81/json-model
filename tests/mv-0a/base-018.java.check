@@ -1,0 +1,24 @@
+base-018.values.json[0]: PASS
+base-018.values.json[1]: PASS
+base-018.values.json[2]: PASS
+base-018.values.json[3]: PASS
+base-018.values.json[4]: PASS
+base-018.values.json[5]: PASS
+base-018.values.json[6]: PASS
+base-018.values.json[7]: PASS
+base-018.values.json[8]: FAIL (: constraints failed [.])
+base-018.values.json[9]: FAIL (: constraints failed [.])
+base-018.values.json[10]: FAIL (: constraints failed [.])
+base-018.values.json[11]: FAIL (: constraints failed [.])
+base-018.values.json[12]: FAIL (: constraints failed [.])
+base-018.values.json[13]: FAIL (: constraints failed [.])
+base-018.values.json[14]: FAIL (: constraints failed [.])
+base-018.values.json[15]: ERROR unexpected PASS
+base-018.values.json[16]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[17]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[18]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[19]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[20]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[21]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[22]: FAIL (: not array or unexpected array [.'@'])
+base-018.values.json[23]: FAIL (: not array or unexpected array [.'@'])

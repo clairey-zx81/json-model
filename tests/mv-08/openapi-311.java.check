@@ -1,0 +1,13 @@
+openapi-311.values.json[0]: PASS
+openapi-311.values.json[1]: FAIL (openapi: unexpected /^3\.1\.\d+(-.+)?$/ [.'$OpenAPI'.openapi]; openapi: invalid mandatory prop value [.'$OpenAPI'.openapi]; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[2]: FAIL (info, title: unexpected string [.'$Info'.title]; info, title: invalid mandatory prop value [.'$Info'.title]; info: unexpected element [.'$Info']; info: unexpected $Info [.'$OpenAPI'.info]; info: invalid mandatory prop value [.'$OpenAPI'.info]; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[3]: FAIL (info, version: unexpected string [.'$Info'.version]; info, version: invalid mandatory prop value [.'$Info'.version]; info: unexpected element [.'$Info']; info: unexpected $Info [.'$OpenAPI'.info]; info: invalid mandatory prop value [.'$OpenAPI'.info]; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[4]: FAIL (: missing mandatory prop <info> [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[5]: FAIL (: missing mandatory prop <openapi> [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[6]: FAIL (: missing mandatory prop <info> [.'$OpenAPI']; : missing mandatory prop <openapi> [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[7]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[8]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[9]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[10]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[11]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])
+openapi-311.values.json[12]: FAIL (: not an object [.'$OpenAPI']; : unexpected element [.'$OpenAPI']; : unexpected $OpenAPI [.])

@@ -1,0 +1,13 @@
+dis-001.values.json[0]: PASS
+dis-001.values.json[1]: PASS
+dis-001.values.json[2]: FAIL (: missing mandatory prop <b> [.]; : unexpected element [.])
+dis-001.values.json[3]: FAIL (: missing mandatory prop <a> [.]; : unexpected element [.])
+dis-001.values.json[4]: FAIL (c: unexpected prop [.]; : unexpected element [.])
+dis-001.values.json[5]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[6]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[7]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[9]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])
+dis-001.values.json[12]: FAIL (: not an object [.]; : unexpected element [.])

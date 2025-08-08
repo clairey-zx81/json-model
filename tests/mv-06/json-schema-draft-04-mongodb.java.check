@@ -1,0 +1,17 @@
+json-schema-draft-04-mongodb.values.json[0]: PASS
+json-schema-draft-04-mongodb.values.json[1]: PASS
+json-schema-draft-04-mongodb.values.json[2]: PASS
+json-schema-draft-04-mongodb.values.json[3]: PASS
+json-schema-draft-04-mongodb.values.json[4]: FAIL (type: value not in enum [.'$schema#simpleTypes'.'|']; type: unexpected $simpleTypes [.'$schema'.type.'|'.0]; type: not array or unexpected array [.'$schema#typeArray'.'@']; type: unexpected $typeArray [.'$schema'.type.'|'.1]; type: no model matched [.'$schema'.type.'|']; type: invalid optional prop value [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[5]: FAIL ($ref: unexpected prop [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[6]: FAIL ($schema: unexpected prop [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[7]: FAIL (format: unexpected prop [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[8]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[9]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[10]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[11]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[12]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[13]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[14]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[15]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])
+json-schema-draft-04-mongodb.values.json[16]: FAIL (: not an object [.'$schema']; : unexpected element [.'$schema']; : unexpected $schema [.])

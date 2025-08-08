@@ -1,0 +1,9 @@
+json-schema-draft-tighter-loose.values.json[0]: PASS
+json-schema-draft-tighter-loose.values.json[1]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[2]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[3]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[4]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[5]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[6]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[7]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])
+json-schema-draft-tighter-loose.values.json[8]: FAIL (: not an object [.'$tight#RootSchema'.'&'.0]; : unexpected element [.'$tight#RootSchema'.'&'.0]; : not all model match [.'$tight#RootSchema'.'&']; : unexpected $tight#RootSchema [.])

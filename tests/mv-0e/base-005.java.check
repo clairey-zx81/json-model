@@ -1,0 +1,14 @@
+base-005.values.json[0]: PASS
+base-005.values.json[1]: PASS
+base-005.values.json[2]: FAIL (: missing mandatory prop <b> [.]; : unexpected element [.])
+base-005.values.json[3]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[4]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[5]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[6]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[7]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[8]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[9]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[10]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[11]: FAIL (: not an object [.]; : unexpected element [.])
+base-005.values.json[12]: FAIL (un: unexpected prop [.]; : unexpected element [.])
+base-005.values.json[13]: FAIL (un: unexpected prop [.]; : unexpected element [.])
