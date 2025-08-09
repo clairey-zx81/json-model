@@ -185,6 +185,7 @@ EXPECT: dict[str, int] = {
     "mv-1e:errors.js": 1,
     "mv-1e:errors.sql": 2,
     "mv-1e:errors.pl": 1,
+    "mv-1e:errors.java": 2,
     "mv-1e:verrors:schema": 15,
     # chunk 1F
     "mv-1f:models": 9,
@@ -548,6 +549,11 @@ def test_sta_sql(directory):
 def test_sta_pl(directory):
     """Check generated Perl scripts with test value files."""
     check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f)
+
+def test_sta_java(directory, tmp_dir):
+    """Check generated Java programs with test value files."""
+    check_values(directory, "sta-java", ".java", ".java.check",
+                 lambda f: f"./test_java.sh {f}", "-r")
 
 #
 # DYNAMIC CHECKS AGAINST VALUES

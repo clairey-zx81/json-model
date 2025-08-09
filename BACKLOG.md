@@ -24,7 +24,9 @@
 - [x] java-backend: pass validation tests with jackson
 - [x] java-backend: pass validation tests with gson
 - [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
-- [ ] test: enable java tests with pytest (wip)
+- [x] test: enable java tests with pytest
+- [ ] command: allow direct java compilation with some conventions
+- [ ] pr: java-backend maven packaging and publication
 - [ ] java-backend: fix `mv-0a/base-18` unique
 - [ ] pr: add java to docker
 - [ ] command: add `--jsonl` support
@@ -34,6 +36,7 @@
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: publish pl runtime on cpan
+- [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
 - [ ] pr: write `everything.model.json` for illustration
@@ -112,7 +115,6 @@
 - [ ] docker: improve caching/no-caching of some commands (eg force weekly rebuild?).
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] py-backend: package independent runtime?
-- [ ] java-backend: packaging? maven?
 
 ## Re Do
 
@@ -122,6 +124,7 @@
 - [ ] pr: publish pgxn package
 - [ ] pr: publish docker image
 - [ ] pr: publish perl package
+- [ ] pr: publish java package
 - [ ] pr: renew domain
 - [ ] pr: check jsonschema-benchmark integration
 

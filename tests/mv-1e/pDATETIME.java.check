@@ -1,10 +1,10 @@
 pDATETIME.values.json[0]: PASS
 pDATETIME.values.json[1]: PASS
-pDATETIME.values.json[2]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
-pDATETIME.values.json[3]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
-pDATETIME.values.json[4]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
-pDATETIME.values.json[5]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
-pDATETIME.values.json[6]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
+pDATETIME.values.json[2]: PASS
+pDATETIME.values.json[3]: PASS
+pDATETIME.values.json[4]: PASS
+pDATETIME.values.json[5]: PASS
+pDATETIME.values.json[6]: PASS
 pDATETIME.values.json[7]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
 pDATETIME.values.json[8]: ERROR unexpected FAIL (: unexpected $DATETIME [.])
 pDATETIME.values.json[9]: PASS

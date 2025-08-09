@@ -35,12 +35,13 @@ public class Runtime
 
     static public final DateTimeFormatter[] DATETIMES = {
         DateTimeFormatter.ISO_INSTANT,
-        DateTimeFormatter.ISO_LOCAL_DATE_TIME
+        DateTimeFormatter.ISO_LOCAL_DATE_TIME,
+        DateTimeFormatter.ISO_OFFSET_DATE_TIME
     };
 
     public boolean is_valid_datetime(String s)
     {
-        return _try_dt_parsing(s, DATETIMES);
+        return _try_dt_parsing(s.replace(" ", "T"), DATETIMES);
     }
 
     static public final DateTimeFormatter[] DATES = {
