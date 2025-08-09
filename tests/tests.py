@@ -79,6 +79,7 @@ EXPECT: dict[str, int] = {
     "mv-0a:errors.js": 1,
     "mv-0a:errors.sql": 1,
     "mv-0a:errors.pl": 1,
+    "mv-0a:errors.java": 1,
     "mv-0a:verrors:schema": 1,
     # chunk 0B
     "mv-0b:models": 7,
@@ -693,6 +694,7 @@ def test_dyn_json_schema(directory: pathlib.Path):
 def check_models(directory, jmchecker: str):
     ntests = 0
     models = " ".join(map(str, sorted(directory.glob(f"*.model.json"))))
+    log.error(f"{jmchecker} {models}")
     for line in os.popen(f"{jmchecker} {models}"):
         ntests += 1
         assert ": PASS" in line
@@ -709,6 +711,9 @@ def test_models_js(directory):
 
 def test_models_pl(directory):
     check_models(directory, "./ref/json-model.pl")
+
+def test_models_java(directory):
+    check_models(directory, "./test_java.sh ./ref/json-model.java")
 
 def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
