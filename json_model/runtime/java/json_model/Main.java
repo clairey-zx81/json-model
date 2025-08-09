@@ -242,7 +242,16 @@ public class Main
             }
             else
             {
-                Object value = json.fromJSON(String.join("", contents));
+                Object value;
+
+                try {
+                    value = json.fromJSON(String.join("", contents));
+                }
+                catch (Exception e) {
+                    String msg = e.toString().replace("\n", " ").replace("\r", " ");
+                    System.out.println(fname + ": ERROR while parsing JSON (" + msg + ")");
+                    continue;
+                }
 
                 if (test)
                 {

@@ -748,14 +748,14 @@ def check_bads(jmchecker: str):
     ntests = 0
     bads_dir = pathlib.Path("./bads")
     nbad_models = " ".join(map(str, sorted(bads_dir.glob(f"[a-z]*.model.json"))))
-    xbad_models = " ".join(map(str, sorted(bads_dir.glob(f"X*.model.json"))))
-    _bad_models = " ".join(map(str, sorted(bads_dir.glob(f"_*.model.json"))))
     for line in os.popen(f"{jmchecker} {nbad_models}"):
         ntests += 1
         assert ": FAIL" in line
+    _bad_models = " ".join(map(str, sorted(bads_dir.glob(f"_*.model.json"))))
     for line in os.popen(f"{jmchecker} {_bad_models}"):
         ntests += 1
         assert ": PASS" in line
+    xbad_models = " ".join(map(str, sorted(bads_dir.glob(f"X*.model.json"))))
     for line in os.popen(f"{jmchecker} {xbad_models}"):
         ntests += 1
         assert ": ERROR" in line
@@ -769,6 +769,12 @@ def test_bads_py():
 
 def test_bads_js():
     check_bads("./ref/json-model.js")
+
+def test_bads_pl():
+    check_bads("./ref/json-model.js")
+
+def test_bads_java():
+    check_bads("./test_java.sh ./ref/json-model.java")
 
 def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
