@@ -44,6 +44,7 @@ class Java(Language):
             "import java.util.regex.Pattern;",
             "import java.util.regex.Matcher;",
             "",
+            "@SuppressWarnings(\"unchecked\")",
             "public class CHECK_FUNCTION_NAME extends ModelChecker",
             "{",
             f"    static public final String VERSION = \"{self._version}\";",
