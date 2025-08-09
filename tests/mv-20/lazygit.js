@@ -984,9 +984,9 @@ function json_model_10(val, path, rep)
     res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        let tag_0 = val["type"];
-        if (tag_0 !== undefined)
+        if (val.hasOwnProperty("type"))
         {
+            let tag_0 = val["type"];
             let fun_0 = _jm_map_0.get(tag_0);
             if (fun_0 !== undefined)
             {

@@ -166,8 +166,8 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
             # .movie
             res = isinstance(pval, dict)
             if res:
-                tag_0: Jsonable = pval.get("t", UNDEFINED)
-                if tag_0 != UNDEFINED:
+                if "t" in pval:
+                    tag_0: Jsonable = pval.get("t", UNDEFINED)
                     fun_0: CheckFun = _jm_map_0.get(tag_0, UNDEFINED)
                     if fun_0 != UNDEFINED:
                         res = fun_0(pval, lpath_0 if path is not None else None, rep)

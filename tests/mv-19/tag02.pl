@@ -117,9 +117,9 @@ sub json_model_1($$$)
     $res = jm_is_object($val);
     if ($res)
     {
-        my $tag_0 = $$val{'t'};
-        if (defined($tag_0))
+        if (exists $$val{'t'})
         {
+            my $tag_0 = $$val{'t'};
             my $fun_0 = $_jm_map_0{$tag_0};
             if (defined($fun_0))
             {

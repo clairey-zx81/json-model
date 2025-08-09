@@ -236,9 +236,9 @@ public class jsound extends ModelChecker
         res = json.isObject(val);
         if (res)
         {
-            Object tag_0 = json.objectValue(val, "kind");
-            if (tag_0 != null)
+            if (json.objectHasProp(val, "kind"))
             {
+                Object tag_0 = json.objectValue(val, "kind");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {

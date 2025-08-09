@@ -168,9 +168,9 @@ sub json_model_3($$$)
     $res = jm_is_object($val);
     if ($res)
     {
-        my $tag_0 = $$val{'kind'};
-        if (defined($tag_0))
+        if (exists $$val{'kind'})
         {
+            my $tag_0 = $$val{'kind'};
             my $fun_0 = $_jm_map_0{$tag_0};
             if (defined($fun_0))
             {

@@ -244,9 +244,9 @@ public class dis_00 extends ModelChecker
         res = json.isObject(val);
         if (res)
         {
-            Object tag_0 = json.objectValue(val, "tag");
-            if (tag_0 != null)
+            if (json.objectHasProp(val, "tag"))
             {
+                Object tag_0 = json.objectValue(val, "tag");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {

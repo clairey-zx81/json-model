@@ -258,9 +258,9 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             res = json_is_object(pval);
             if (res)
             {
-                json_t * tag_0 = json_object_get(pval, "t");
-                if (tag_0 != NULL)
+                if (json_object_get(pval, "t") != NULL)
                 {
+                    json_t * tag_0 = json_object_get(pval, "t");
                     jm_check_fun_t fun_0 = _jm_map_0(tag_0);
                     if (fun_0 != NULL)
                     {

@@ -241,9 +241,9 @@ function _jm_obj_0(val, path, rep)
             res = Object.prototype.toString.call(pval) === '[object Object]';
             if (res)
             {
-                let tag_0 = pval["t"];
-                if (tag_0 !== undefined)
+                if (pval.hasOwnProperty("t"))
                 {
+                    let tag_0 = pval["t"];
                     let fun_0 = _jm_map_0.get(tag_0);
                     if (fun_0 !== undefined)
                     {

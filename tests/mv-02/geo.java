@@ -1599,9 +1599,9 @@ public class geo extends ModelChecker
         res = json.isObject(val);
         if (res)
         {
-            Object tag_0 = json.objectValue(val, "type");
-            if (tag_0 != null)
+            if (json.objectHasProp(val, "type"))
             {
+                Object tag_0 = json.objectValue(val, "type");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {

@@ -23,8 +23,9 @@
 - [x] java-backend: add code generator and runtime, with abstracted json representation
 - [x] java-backend: pass validation tests with jackson
 - [x] java-backend: pass validation tests with gson
+- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
 - [ ] java-backend: fix `mv-0a/base-18` unique
-- [ ] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
+- [ ] pr: add java to docker
 - [ ] test: enable java tests with pytest
 - [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)

@@ -141,8 +141,8 @@ BEGIN
   -- .'$Type'
   res := JSONB_TYPEOF(val) = 'object';
   IF res THEN
-    tag_0 := val -> 'kind';
-    IF tag_0 IS NOT NULL THEN
+    IF val ? 'kind' THEN
+      tag_0 := val -> 'kind';
       fun_0 := jm_cmap_get('_jm_map_0', tag_0);
       IF fun_0 IS NOT NULL THEN
         res := jm_call(fun_0, val, path, rep);

@@ -398,7 +398,6 @@ class CodeGenerator:
 
         code += gen.bool_var(res, gen.is_a(val, dict))
 
-        # FIXME None tag value?!
         tag = self._lang.ident("tag")
         itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
 
@@ -406,10 +405,11 @@ class CodeGenerator:
         ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
         icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
 
+        # FIXME has_prop gets the tag value in C, so this means 2 get. alternate strategy?
         code += (
             gen.if_stmt(res,
-                itag +
-                gen.if_stmt(gen.is_def(tag),
+                gen.if_stmt(gen.has_prop(val, tag_name),
+                    itag +
                     ifun +
                     gen.if_stmt(gen.is_def(fun),
                         icall,

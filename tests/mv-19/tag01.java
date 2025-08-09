@@ -197,9 +197,9 @@ public class tag01 extends ModelChecker
         res = json.isObject(val);
         if (res)
         {
-            Object tag_0 = json.objectValue(val, "t");
-            if (tag_0 != null)
+            if (json.objectHasProp(val, "t"))
             {
+                Object tag_0 = json.objectValue(val, "t");
                 Checker fun_0 = _jm_map_0_cmap.get(tag_0);
                 if (fun_0 != null)
                 {
