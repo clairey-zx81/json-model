@@ -229,6 +229,26 @@ def clang_compile(c_code: str, args):
         status = os.system(command)
         assert status == 0, f"C compilation succeeded: {command}"
 
+def java_compile(java_code: str, args):
+    """Compile java source."""
+    tmp_dir = os.environ.get("TMPDIR", "/dev/shm")
+    output = Path(args.output or "XXX.java")
+    out_dir = Path(output).parent
+
+    # CAUTION java files must be named after their class name
+    java_file = (Path(tmp_dir) / output.stem).with_suffix(".java")
+    with open(java_file, "w") as f:
+        f.write(java_code)
+
+    javac = args.javac or "javac"
+    jflags = args.jflags or ""
+    command = f"{javac} -d {out_dir} {jflags} {java_file}"
+    status = os.system(command)
+
+    # cleanup and check
+    java_file.unlink()
+    assert status == 0, f"Java compilation succeeded: {command}"
+
 def jmc_script():
 
     import argparse
@@ -314,6 +334,10 @@ def jmc_script():
     arg("--library", "-L", nargs="*", default=[], help="add library directory")
     arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
 
+    # TODO java-specific options
+    arg("--javac", type=str, help="override default Java language compiler")
+    arg("--jflags", type=str, help="add Java compiler flags")
+
     # testing mode, expected results on values
     arg("--name", "-n", default="", help="name of validation submodel, default is \"\" (root)")
     arg("--none", dest="expect", action="store_const", const=None, default=None,
@@ -379,6 +403,7 @@ def jmc_script():
         if args.output.endswith(".c"):
             args.format = args.format or "c"
             args.op = args.op or "C"
+            args.gen = args.gen or "source"
         if args.output.endswith(".o"):
             args.format = args.format or "c"
             args.op = args.op or "C"
@@ -419,7 +444,16 @@ def jmc_script():
         elif args.output.endswith(".java"):
             args.format = args.format or "java"
             args.op = args.op or "C"
+            args.gen = args.gen or "source"
+            args.entry = args.entry or Path(args.output).stem.replace("-", "_")
+        elif args.output.endswith(".class"):
+            args.format = args.format or "java"
+            args.op = args.op or "C"
             args.gen = args.gen or "exec"
+            stem = Path(args.output).stem
+            if "-" in stem:
+                log.error(f"java class files cannot contain '-': {args.output}")
+                sys.exit(1)
             args.entry = args.entry or Path(args.output).stem.replace("-", "_")
         elif args.output.endswith(".schema.json"):
             args.format = args.format or "json"
@@ -482,6 +516,8 @@ def jmc_script():
             args.loose_float = args.loose_number
         else:
             log.warning("keeping float strictness as already set")
+
+    with_main = args.gen == "exec" or args.gen == "source" and args.format == "java"
 
     # debug
     log.setLevel(logging.DEBUG if args.debug else logging.INFO if args.verbose else logging.WARNING)
@@ -558,15 +594,17 @@ def jmc_script():
             log.warning(f"{args.model}: {LANG[args.format]} backend does not support strict numbers")
 
         # compile to source
-        code = xstatic_compile(model, args.entry, lang=args.format, execute=args.gen == "exec",
+        code = xstatic_compile(model, args.entry, lang=args.format, execute=with_main,
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
                                short_version=args.short_version, package=args.package)
         source = str(code)
 
-        # source to executable
+        # source to executable for C and java
         if args.format == "c" and args.gen in ("exec", "module"):
             clang_compile(source, args)
+        elif args.format == "java" and args.gen in ("exec", "module"):
+            java_compile(source, args)
         elif args.gen != "none":
             print(source, file=output, end="", flush=True)
             if args.output != "-" and args.gen == "exec":
