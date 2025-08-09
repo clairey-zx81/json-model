@@ -1,6 +1,5 @@
 import sys
 import re
-import json
 import yaml
 
 from .mtypes import ModelError, ModelPath, Jsonable

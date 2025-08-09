@@ -83,15 +83,15 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
             if f == 0.0:
                 return "pydantic.NonNegativeFloat" if advanced else "float"
             return "float"
-        case list(l):
-            if len(l) == 0:
+        case list(lm):
+            if len(lm) == 0:
                 return None
-            elif len(l) == 1:
-                return f"list[{m2type(l[0], advanced)}]"
+            elif len(lm) == 1:
+                return f"list[{m2type(lm[0], advanced)}]"
             else:
-                l = [m2type(i) for i in l]
-                if all(map(lambda i: i is not None, l)):
-                    return f"tuple[{', '.join(l)}]"
+                lt = [m2type(i) for i in lm]
+                if all(map(lambda i: i is not None, lt)):
+                    return f"tuple[{', '.join(lt)}]"
                 else:
                     return "list[Any]"
             return None
@@ -99,9 +99,9 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
             if "@" in d:
                 return m2type(d["@"], advanced)
             if "|" in d or "^" in d:
-                l = d["|" if "|" in d else "^"]
-                assert isinstance(l, list)
-                return ml2type(l)
+                lm = d["|" if "|" in d else "^"]
+                assert isinstance(lm, list)
+                return ml2type(lm)
             if "&" in d:
                 # TODO be more precise!
                 return "Any"
@@ -125,8 +125,8 @@ def m2py(name: str, model: ModelType) -> Block:
                 return [f"type {name} = {mtype}"]
         return [f"type {name} = Any"]
     if "|" in model  or "^" in model:
-        l = model["|" if "|" in model else "^"]
-        return [f"type {name} = {ml2type(l)}  # alt"]
+        lm = model["|" if "|" in model else "^"]
+        return [f"type {name} = {ml2type(lm)}  # alt"]
     if "&" in model:
         return [f"type {name} = Any  # &"]
 

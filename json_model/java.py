@@ -56,7 +56,7 @@ class Java(Language):
             "",
             "    public Checker get(String name)",
             "    {",
-            f"        return CHECK_FUNCTION_NAME_map_pmap.get(name);",
+            "        return CHECK_FUNCTION_NAME_map_pmap.get(name);",
             "    }",
         ]
         if exe:
