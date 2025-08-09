@@ -559,7 +559,7 @@ jmc -r Person-0.model.yaml hobbes.json moe.json
 jmc -r Person-0.model.js hobbes.json moe.json
 ```
 
-## Running with C, JS, Python or Perl
+## Running with C, JS, Python, Perl or Java
 
 The JSON Model compiler allows to create actual test executables or scripts for
 direct validation or performance testing, including option `-T` to loop over
@@ -604,6 +604,8 @@ a value so as to compute the average and standard deviation times in µs.
 
 - Perl script:
 
+  Assuming that the JsonModel.pm module is available in your `PERLLIB`:
+
   ```sh
   jmc -o person.pl Person-2
   ./person.pl -T 100000 hobbes.json
@@ -611,16 +613,30 @@ a value so as to compute the average and standard deviation times in µs.
   # hobbes.json: PASS
   ```
 
+- Java VM code:
+
+  Assuming that the required classes are available in your `CLASSPATH`:
+
+  ```sh
+  jmc -o Person.java Person-2
+  javac Person.java
+  # OR jmc -o Person.class Person-2
+  java Person -T 100000 hobbes.json
+  # hobbes.json: 1.896 ± 10.703 µs [0.033]
+  # hobbes.json: PASS
+  ```
+
 Some comments about these representative performance figures:
 As JavaScript JIT and its underlying regex engine are quite good,
 a typical JS-to-C performance ratio is 4:1.
+Java-to-C ratio is 12:1, the runtime is not well optimized.
 Python is _slow_, a typical ratio to compiled C is 25:1.
 Perl is even slower, this backend is not well optimized.
 Because the `-r` option is not used, there are no reporting overheads.
 For JS standard deviation is quite high, which could be induced by
 occasional garbage collection.
 
-## Running from C, JS, Python, Perl or PL/pgSQL
+## Running from C, JS, Python, Perl, Java or PL/pgSQL
 
 The JSON Model compiler can also generate C, JavaScript, Python or PL/pgSQL
 validation code ready to be imported for checking values:
@@ -630,6 +646,7 @@ jmc -o person.o Person-2            # C object file
 jmc -o person.mjs Person-2          # JavaScript Module
 jmc -o person.py --module Person-2  # Python Module
 jmc -o person.pm Person-2           # Perl Module
+jmc -o Person.java Person-2         # Java class
 jmc -o person.sql Person-2          # PL/pgSQL functions
 ```
 

@@ -26,6 +26,8 @@
 - [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
 - [x] test: enable java tests with pytest
 - [x] command: allow direct java compilation
+- [x] pr: update tuto with some Java
+- [ ] java-backend: use package
 - [ ] java-fe: add help stuff
 - [ ] pr: java-backend maven packaging and publication
 - [ ] java-backend: fix `mv-0a/base-18` unique
