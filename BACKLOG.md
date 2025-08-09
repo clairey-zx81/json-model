@@ -29,7 +29,9 @@
 - [x] pr: update tuto with some Java
 - [ ] java-backend: use package
 - [ ] java-fe: add help stuff
+- [ ] pr: publish pl runtime on cpan
 - [ ] pr: java-backend maven packaging and publication
+- [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
 - [ ] pr: add java to docker
 - [ ] command: add `--jsonl` support
@@ -38,7 +40,6 @@
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
-- [ ] pr: publish pl runtime on cpan
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: sync version number for all published parts
 - [ ] sql-backend: handle package as schema name
