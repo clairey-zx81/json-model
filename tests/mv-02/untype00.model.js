@@ -1,0 +1,6 @@
+// use type-sensitive get_value function in generated code?
+{
+  "#": "constraint is either on value or on length",
+  "@": { "|": [ 1, "$STRING" ] },
+  ">=": 10
+}
