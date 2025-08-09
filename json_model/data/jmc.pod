@@ -13,10 +13,11 @@ B<jmc> - JSON Model Compiler
      [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--check]
      [-[-no]-optimize] [-[-no]-reporting]
-     [--format {json,yaml,py,c,js,plpgsql,pl}] [-[-no]-sort] [--indent INDENT]
+     [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
      [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
+     [--javac JAVAC] [--jflags JFLAGS]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold MAP_THRESHOLD] [--map-share]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
@@ -186,6 +187,20 @@ C<ld> link path.
 =item B<--static>
 
 generate a statically linked executable.
+
+=back
+
+=head2 Java Compilation
+
+=over
+
+=item B<--javac JAVAC>
+
+Java compiler.
+
+=item B<--jflags JFLAGS>
+
+Java compiler flags.
 
 =back
 
