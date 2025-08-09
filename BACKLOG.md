@@ -27,6 +27,7 @@
 - [x] test: enable java tests with pytest
 - [x] command: allow direct java compilation
 - [x] pr: update tuto with some Java
+- [ ] command: fix handling of stdin for a model
 - [ ] java-backend: use package
 - [ ] java-fe: add help stuff
 - [ ] pr: publish pl runtime on cpan

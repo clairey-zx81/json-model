@@ -56,7 +56,7 @@ class Resolver:
 
         if url == "-":  # no caching, cannot read same input twice?
             log.info("reading: stdin")
-            return json_loads(sys.stdin.read, allow_duplicates=self._allow_duplicates)
+            return json_loads(sys.stdin.read(), allow_duplicates=self._allow_duplicates)
 
         # possibly follow mappings
         if follow:
