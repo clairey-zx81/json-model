@@ -101,3 +101,19 @@ publish.py: dev
 	python -m build
 	twine check dist/*
 	echo "# twine upload dist/*"
+
+.PHONY: publish.docker
+publish.docker:
+	# TODO docker push
+
+.PHONY: publish.perl
+publish.perl:
+	# TODO CPAN upload
+
+.PHONY: publish.js
+publish.js:
+	# TODO npm upload
+
+.PHONY: publish.java
+publish.java:
+	# TODO java maven central upload

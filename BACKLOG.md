@@ -33,6 +33,7 @@
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
+- [ ] dev: complete publish task in root makefile
 - [ ] pr: add java to docker
 - [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
