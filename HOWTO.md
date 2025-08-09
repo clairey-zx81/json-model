@@ -58,7 +58,11 @@ runtime are in your Python environment.
 
 ## … use JSON Model in my _Python_ code (dynamic)?
 
+:warning: :construction_worker: :construction:
+
 ## … use JSON Model in my _JavaScript_ code?
+
+:warning: :construction_worker: :construction:
 
 ## … use JSON Model in my _Perl_ code?
 
@@ -73,7 +77,8 @@ Assuming that the `jmc` command is available:
    jmc -o Model.pm model.json   # perl module to `use`
    ```
 
-3. Example usage for Perl module, assuming that the `Model.pm` file is in your Perl path:
+3. Example usage for Perl module, assuming that the generated `Model.pm` file
+   is in your Perl path:
 
    ```perl
    #! /usr/bin/perl -w
@@ -114,6 +119,10 @@ Assuming that the `jmc` command is available:
    ```sql
    SELECT check_model(JSONB '3.14', '', NULL);  # TRUE or FALSE…
    ```
+
+## … use JSON Model in my _Java_ code?
+
+:warning: :construction_worker: :construction:
 
 ## … get an Answer?
 
