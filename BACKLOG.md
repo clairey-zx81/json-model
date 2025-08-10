@@ -27,10 +27,10 @@
 - [x] test: enable java tests with pytest
 - [x] command: allow direct java compilation
 - [x] pr: update tuto with some Java
-- [ ] command: fix handling of stdin for a model
+- [x] command: fix handling of stdin for a model
+- [ ] pr: publish pl runtime on cpan (wip)
 - [ ] java-backend: use package
 - [ ] java-fe: add help stuff
-- [ ] pr: publish pl runtime on cpan
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique

@@ -604,7 +604,7 @@ a value so as to compute the average and standard deviation times in µs.
 
 - Perl script:
 
-  Assuming that the JsonModel.pm module is available in your `PERLLIB`:
+  Assuming that the `JSON::JsonModel` module is available in your `PERLLIB`:
 
   ```sh
   jmc -o person.pl Person-2

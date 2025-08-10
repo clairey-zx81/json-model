@@ -1,22 +1,18 @@
 #
 # Perl Runtime for JSON Model
 #
-# ubuntu apt install:
-# - libre-engine-re2-perl
-# - libjson-maybexs-perl
-# - libcpanel-json-xs-perl
-# - libdatetime-hires-perl
-#
-# TODO add minimal pod
-#
 
-package JsonModel;
+package JSON::JsonModel;
 
+use 5.006;
 use strict;
 use warnings;
 
-# replace regex engine
-use re::engine::RE2;
+# no Carp, this modules runs with automatically generated code, all issues are ours?
+
+our $VERSION = 1.999003;
+
+use re::engine::RE2;   # replace regex engine
 use List::Util qw( min );
 use JSON::MaybeXS qw( decode_json is_bool );
 use Getopt::Long qw(:config no_ignore_case);
@@ -27,8 +23,6 @@ use Pod::Usage;
 use Exporter 'import';
 our @ISA = qw( Exporter );
 our @EXPORT = qw(
-    TRUE
-    FALSE
     jm_type
     jm_is_null
     jm_is_boolean
@@ -55,9 +49,8 @@ our @EXPORT = qw(
     jm_main
 );
 
-# TODO remove if unused
-use constant TRUE => decode_json("true", 1);
-use constant FALSE => decode_json("false", 1);
+# use constant TRUE => decode_json("true", 1);
+# use constant FALSE => decode_json("false", 1);
 
 # WTF
 sub jm_raw_is_numeric($)
@@ -220,7 +213,7 @@ sub jm_is_valid_regex($$$)
     return $@ eq "";
 }
 
-# FIXME $EXTREG
+# $EXTREG FIXME to be improved
 sub jm_is_valid_exreg($$$)
 {
     my ($e, $p, $r) = @_;
@@ -231,12 +224,14 @@ sub jm_is_valid_exreg($$$)
 # LENGTH
 #
 
+# number of properties of an object
 sub jm_obj_size($)
 {
     my ($o) = @_;
     return scalar keys %$o;
 }
 
+# get an integer out of nearly anything
 sub jm_any_len($)
 {
     my ($x) = @_;
@@ -330,6 +325,7 @@ sub jm_is_unique_array($$$)
     return $@ eq "";  # no exceptions means no equal items where found
 }
 
+# handle constraints
 sub jm_check_constraint($$$$$)
 {
     my ($val, $op, $cst, $path, $rep) = @_;
@@ -522,14 +518,39 @@ sub decode_json_nonref($)
 
 =head1 NAME
 
-B<JsonModel> - Perl Runtime for JSON Model
+JSON::JsonModel - Perl Runtime for JSON Model
 
 =head1 SYNOPSIS
 
-script.pl
+For a generated script in File C<acme.pl>:
+
+  acme.pl
     [--help] [--version] [--list]
     [--name] [--test] [--jsonl] [--time=TIME] [--report]
     value.json ...
+
+For a generated module in File C<Acme.pm>:
+
+  use JSON::MaybeXS;
+  use Acme;
+  check_model_init();
+  $json_value = ...;
+  $valid = check_model($json_value, "", undef);
+  check_model_free();
+
+=head1 DESCRIPTION
+
+This runtime is used by L<JSON Model|https://json-model.org/> generated scripts
+or modules to validate whether a JSON value conforms to a model.
+A model describes the expected JSON datastructure with a JSON syntax.
+It is a kind of type declaration for JSON values, with some features which go
+beyond the typical type system.
+
+Use C<jmc>, the L<JSON Model Compiler|https://json-model.org/#/JMC> to generate
+a Perl script or module.
+
+The reminder of this page describes the I<script> behavior and available options.
+Look at the L<SEE ALSO> section below for further reading.
 
 =head1 OPTIONS
 
@@ -553,11 +574,11 @@ List available named models and exit.
 
 =item B<--name=NAME>|B<-n NAME>
 
-Check values with this model.
+Check values against this named model.
 
 =item B<--test>|B<-t>
 
-Assume test vector file format: JSON list of 3-tuples (expected result, model name, JSON value).
+Assume test vector file format: JSON array of 3-tuples (expected result, model name, JSON value).
 Using C<null> as expect means no expectation.
 
 =item B<--jsonl>
@@ -576,7 +597,7 @@ Report reason on rejections, or not.
 
 =head1 ARGUMENTS
 
-JSON Test files to consider.
+JSON files to consider.
 
 Returns an error status on bad options or on validation expectation errors.
 
@@ -585,12 +606,54 @@ Returns an error status on bad options or on validation expectation errors.
 For each file and possibly line/test in file, report I<PASS> if validation succeeded
 (as expected), I<FAIL> if failed (as expected), I<ERROR> on unexpected result.
 
-=head1 REFERENCES
+=head1 EXAMPLE
 
-See L<https://json-model.org/>.
+Generate a Perl script to validate JSON strings which contain a valid date:
+
+  echo '"$DATE"' | jmc -o date.pl
+
+The generated script expect JSON file names arguments to validate their contents,
+with C<-> standing for standard input:
+
+  echo '"2020-07-29"' | date.pl -  # PASS
+  echo '"2025-02-29"' | date.pl -  # FAIL - no Feb 29th in 2025
+  echo '[1, "array"]' | date.pl -  # FAIL - not even a string
+
+=head1 VERSION
+
+Version 2.0b3.
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command:
+
+    perldoc JSON::JsonModel
+
+Please report any bugs or feature requests to
+L<JSON Model Issues on GitHub|https://github.com/clairey-zx81/json-model/issues>.
+
+=head1 LICENSE AND COPYRIGHT
+
+The authors have dedicated the work to the Commons by waiving all of their
+rights to the work worldwide under copyright law and all related or
+neighboring legal rights the had in the work, to the extent allowable by
+law.
+
+Works under CC0 do not require attribution, but it is polite to do so.
+When citing the work, you should not imply endorsement by the authors.
+
+=head1 SEE ALSO
+
+See L<JSON Model Tutorial|https://json-model.org/#/TUTO> for an introduction.
+
+See L<JSON Model HOWTO|https://json-model.org/#/HOWTO> for integrating models
+in a (Perl) project.
+
+See more references on the L<JSON Model|https://json-model.org/> web site.
 
 =cut
 
+# extract and display documentation, then exit.
 sub jm_doc
 {
     my ($v, $m) = @_;
@@ -598,6 +661,7 @@ sub jm_doc
               -message => $m, -verbose => $v, -exitval => $m ? 1 : 0);
 }
 
+# script main with shared option management
 sub jm_main($$$)
 {
     my ($checker, $map, $version) = @_;
@@ -607,7 +671,11 @@ sub jm_main($$$)
     my ($name, $test, $jsonl, $time, $report, $js_bench) = ("", 0, 0, 0, 0, 0);
     my ($no_report);
     GetOptions(
-        "version" => sub { print "version: $version\n"; exit 0 },
+        "version" => sub {
+            $version .= " (with runtime: $VERSION)" if $version ne $VERSION;
+            print "version: $version\n";
+            exit 0;
+        },
         "help" => sub { jm_doc(1) },
         "man" => sub { jm_doc(2) },
         "list|l" => sub { print "names: ", (sort keys %$map), "\n"; exit 0 },

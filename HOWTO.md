@@ -68,7 +68,7 @@ runtime are in your Python environment.
 
 Assuming that the `jmc` command is available:
 
-1. Add the generated `JsonModel.pm` file to you Perl path (eg `PERLLIB` environment variable).
+1. Add `JSON::JsonModel.pm` file to you Perl path (eg `PERLLIB` environment variable).
 
 2. Generate a Perl script or module:
 
@@ -83,7 +83,7 @@ Assuming that the `jmc` command is available:
    ```perl
    #! /usr/bin/perl -w
    use JSON::MaybeXS;
-   use Model;          # your pm file
+   use Model;          # your generated perl module
    check_model_init();
    my $value = decode_json('{"hello": "world!"}');
    my $valid = check_model($value, "", undef);

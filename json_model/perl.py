@@ -123,7 +123,7 @@ class Perl(Language):
         if not exe:
             code += self.file_load("perl_pkg.pl")
         code += [
-            r"use JsonModel;",
+            r"use JSON::JsonModel;",
             f"use constant JMC_VERSION => {self.esc(self.version())};",
             "",
         ]
