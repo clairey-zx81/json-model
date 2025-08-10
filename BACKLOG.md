@@ -30,6 +30,7 @@
 - [x] command: fix handling of stdin for a model
 - [x] pr: publish pl runtime on cpan
 - [ ] java-backend: use package
+- [ ] java-backend: allow to use env to control JSON lib selection
 - [ ] java-fe: add help stuff
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
