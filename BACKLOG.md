@@ -28,7 +28,7 @@
 - [x] command: allow direct java compilation
 - [x] pr: update tuto with some Java
 - [x] command: fix handling of stdin for a model
-- [ ] pr: publish pl runtime on cpan (wip)
+- [x] pr: publish pl runtime on cpan
 - [ ] java-backend: use package
 - [ ] java-fe: add help stuff
 - [ ] pr: java-backend maven packaging and publication

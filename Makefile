@@ -108,7 +108,8 @@ publish.docker:
 
 .PHONY: publish.perl
 publish.perl:
-	# TODO CPAN upload
+	# cpan-upload -u ZXHZ json_model/runtime/pl/JSON-JsonModel-<version>.tar.gz
+	# web: https://pause.perl.org/ + auth + upload file
 
 .PHONY: publish.js
 publish.js:
