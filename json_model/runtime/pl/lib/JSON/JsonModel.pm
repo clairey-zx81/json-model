@@ -657,7 +657,7 @@ See more references on the L<JSON Model|https://json-model.org/> web site.
 sub jm_doc
 {
     my ($v, $m) = @_;
-    pod2usage(-input => 'JsonModel.pm', -pathlist => $ENV{PERLLIB},
+    pod2usage(-input => 'JSON/JsonModel.pm', -pathlist => $ENV{PERLLIB},
               -message => $m, -verbose => $v, -exitval => $m ? 1 : 0);
 }
 
