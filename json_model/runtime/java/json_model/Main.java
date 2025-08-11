@@ -12,6 +12,9 @@ import gnu.getopt.LongOpt;
 
 public class Main
 {
+    static public final String DEFAULT_JSON_LIB = "Jackson";
+    static public final String JSON_LIB_ENV = "JSON_MODEL_JAVA_JSON_LIB";
+
     static void exit(int status, String message)
     {
         if (message != null && status > 0)
@@ -139,7 +142,8 @@ public class Main
             new LongOpt("jsonschema-benchmark", LongOpt.NO_ARGUMENT, null, 1002)
         });
 
-        String json_lib = "Jackson";
+        Map<String, String> env = System.getenv();
+        String json_lib = env.containsKey(JSON_LIB_ENV) ? env.get(JSON_LIB_ENV) : DEFAULT_JSON_LIB;
         String model_name = "";
         int time = 0;
         boolean

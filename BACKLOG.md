@@ -29,8 +29,8 @@
 - [x] pr: update tuto with some Java
 - [x] command: fix handling of stdin for a model
 - [x] pr: publish pl runtime on cpan
+- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
 - [ ] java-backend: use package
-- [ ] java-backend: allow to use env to control JSON lib selection
 - [ ] java-fe: add help stuff
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
