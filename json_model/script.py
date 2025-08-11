@@ -288,9 +288,9 @@ def jmc_script():
         help="use loose floats")
     arg("--strict-float", "-sf", dest="loose_float", action="store_false",
         help="use strict floats (default)")
-    arg("--loose-number", "-ln", action="store_true", default=None,
+    arg("--loose-number", "--loose", "-ln", action="store_true", default=None,
         help="use loose integer and float numbers")
-    arg("--strict-number", "-sn", dest="loose_number", action="store_false",
+    arg("--strict-number", "--strict", "-sn", dest="loose_number", action="store_false",
         help="use strict integer and float numbers (default)")
 
     # output options
