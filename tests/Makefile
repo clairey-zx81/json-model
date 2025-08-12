@@ -31,6 +31,7 @@ check: check.pytest
 .PHONY: check.check
 check.check:
 	$(MAKE) TARGET=check $(D.check)
+	$(MAKE) clean
 
 .PHONY: gen
 gen:
