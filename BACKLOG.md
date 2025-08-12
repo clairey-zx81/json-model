@@ -2,9 +2,9 @@
 
 ## Current Tasks
 
+- [x] pr: add java to docker
 - [ ] design: add `$JSON` predef for all
 - [ ] design: review `$URI` and other predefs
-- [ ] pr: add java to docker
 - [ ] pr: add java to tuto
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?

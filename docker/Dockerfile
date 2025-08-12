@@ -1,3 +1,6 @@
+#
+# JSON Model Compiler Multi-Language Environment
+#
 FROM ubuntu:24.04
 LABEL description="JSON Model Compiler"
 
@@ -8,8 +11,13 @@ RUN apt update ; \
         git ca-certificates libtool m4 time automake make pkgconf gcc g++ texinfo jq curl less \
         nano vim libpcre2-dev libre2-dev libjansson-dev \
         python3 python-is-python3 python3-venv python3-pip \
-        perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl ; \
+        perl libre-engine-re2-perl libjson-maybexs-perl libcpanel-json-xs-perl libdatetime-hires-perl \
+        openjdk-21-jdk openjdk-21-jre default-jdk libgetopt-java maven \
+        locales ; \
     apt clean
+
+# set unicode
+RUN locale-gen C.UTF-8
 
 # application directory
 RUN mkdir /app
@@ -63,6 +71,21 @@ RUN git clone https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
 # RUN rm -rf ./json-schema-utils
 
+# java runtime, direct download with hardcoded version
+ENV java=/app/json-model/json_model/runtime/java
+RUN for artifact in \
+        com.google.code.gson:gson:2.13.1 \
+        com.fasterxml.jackson.core:jackson-core:2.19.2 \
+        com.fasterxml.jackson.core:jackson-databind:2.19.2 \
+        com.fasterxml.jackson.core:jackson-annotations:2.19.2 \
+        ; \
+    do \
+        mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
+    done
+ENV CLASSPATH=.:/app/workspace:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar
+RUN make -C $java jar
+
+# convenient shell and vi environment
 RUN echo "# reset default prompt\nexport PS1='zx80/jmc> '" >> /etc/bash.bashrc
 RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" >> /etc/vim/vimrc.local
 
