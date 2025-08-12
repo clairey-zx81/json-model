@@ -158,11 +158,25 @@ public class Main
             switch (c)
             {
                 case 'h':
-                    exit(0, program + " help: ...");
+                    exit(0,
+                         program + " help about JSON Schema validation generated Java program:\n" +
+                         "Options:\n" +
+                         "  --help: show this help and exit\n" +
+                         "  --version: show JSON Model compiler version and exit\n" +
+                         "  --list: show list of available models and exit\n" +
+                         "  --json LIB: JSON java library to use (GSON or Jackson)\n" +
+                         "  --name NAME: name of model for validation\n" +
+                         "  --time N: number of iterations for collecting performance data\n" +
+                         "  -[-no]-report: whether to report reasons for failure, default is no\n" +
+                         "  --test: values files are test vectors\n" +
+                         "  --jsonl: value files are in jsonl format\n" +
+                         "Arguments: JSON value files\n" +
+                         "For more information, see https://json-model.org/"
+                    );
                 case 'v':
                     exit(0, program + " version: " + version);
                 case 'l':
-                    exit(0, program + " models: ...");
+                    exit(0, program + " models: FIXME not implemented yet");
                 case 'j':
                     json_lib = g.getOptarg();
                     break;

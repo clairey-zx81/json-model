@@ -30,8 +30,10 @@
 - [x] command: fix handling of stdin for a model
 - [x] pr: publish pl runtime on cpan
 - [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
-- [ ] java-backend: use package
-- [ ] java-fe: add help stuff
+- [x] java-fe: add help stuff
+- [ ] java-fe: add list stuff
+- [ ] java-backend: use package if set
+- [ ] sql-backend: handle package as schema name if set
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
@@ -45,7 +47,6 @@
 - [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: sync version number for all published parts
-- [ ] sql-backend: handle package as schema name
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
