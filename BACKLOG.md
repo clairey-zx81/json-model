@@ -7,16 +7,16 @@
 - [x] pr: add java to tuto
 - [x] pr: fix java utf8 with docker
 - [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
+- [ ] pr: java-backend maven packaging and publication (wip)
+- [ ] command: add `--jsonl` support
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
-- [ ] pr: sync version number for all published parts for _2.0_ release
-- [ ] pr: ensure that validation runs in docker?
+- [ ] pr: sync version number for **all** published parts for _2.0_ release
+- [ ] qa: ensure that full validation runs in docker zx80/jmc?
 - [ ] dev: complete publish task in root makefile
-- [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
-- [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?

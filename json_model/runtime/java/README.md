@@ -1,11 +1,11 @@
 # JSON Model JAVA Runtime
 
-Todo: publish on maven.
+- Namespace: `org.json-model`
+- Artifact: `json-model`
+- Version: keep in sync with JSON Model Compiler
+- Package: `json_model`
 
-## GSON
+## JSON Implementations
 
-See [sources](https://github.com/google/gson).
-
-## Jackson
-
-See [sources](https://github.com/FasterXML/jackson).
+- [GSON](https://github.com/google/gson).
+- [Jackson](https://github.com/FasterXML/jackson).
