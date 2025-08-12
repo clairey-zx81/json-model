@@ -10,7 +10,7 @@ use warnings;
 
 # no Carp, this modules runs with automatically generated code, all issues are ours?
 
-our $VERSION = 1.999003;
+our $VERSION = 1.999004;  # aka 2.0b4
 
 use re::engine::RE2;   # replace regex engine
 use List::Util qw( min );
@@ -632,7 +632,7 @@ with C<-> standing for standard input:
 
 =head1 VERSION
 
-Version 2.0b3.
+Version 2.0b4.
 
 =head1 SUPPORT
 

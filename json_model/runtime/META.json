@@ -2,13 +2,13 @@
   "name": "json_model",
   "abstract": "PL/pgSQL Runtime for JSON Model",
   "description": "This runtime is needed by JSON Model generated PL/pgSQL code to validate JSON values.",
-  "version": "2.0.0-alpha3",
+  "version": "2.0.0-beta4",
   "maintainer": "Fabien et Claire <maintainers@json-model.org>",
   "license": "unrestricted",
   "provides": {
      "json_model": {
        "file": "json_model--1.0.sql",
-       "version": "2.0.0-alpha3"
+       "version": "2.0.0-beta4"
      }
   },
   "resources": {
