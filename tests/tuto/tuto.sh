@@ -35,6 +35,7 @@ jmc -r Tournament musketeers.json 3_musketeers.json
 
 echo "# transforming models"
 jmc Person-3 hobbes.json bastille.json
+jmc -j Person-3 persons.jsonl
 
 echo "# prefering yaml or js"
 jmc -r Person-0.model.json hobbes.json moe.json

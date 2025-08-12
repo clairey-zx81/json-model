@@ -348,7 +348,8 @@ def jmc_script():
         help="test values for false")
     arg("--test-vector", "-tv", action="store_true", default=False,
         help="read values from a test vector file")
-    # TODO jsonl
+    arg("--jsonl", "-j", action="store_true", default=False,
+        help="accept value file in JSONL format")
     arg("--report", "-r", action="store_true", default=False, help="report reasons on fail")
     arg("--no-report", "-nr", dest="report", action="store_false",
         help="fast mode, do not give reasons")
@@ -664,8 +665,16 @@ def jmc_script():
         assert checker
         with open(fn) as fh:
             try:
-                value = json_loads(fh.read(), allow_duplicates=args.allow_duplicates)
-                if args.test_vector:
+                contents = fh.read()
+                # parse JSON
+                if args.jsonl:
+                    lines = contents.split("\n")[:-1]
+                    value = [ [ None, json_loads(line, allow_duplicates=args.allow_duplicates) ]
+                                for line in lines ]
+                else:
+                    value = json_loads(contents, allow_duplicates=args.allow_duplicates)
+                # process values
+                if args.test_vector or args.jsonl:
                     assert isinstance(value, list), "array test vector"
                     for idx, test in enumerate(value):
 
@@ -677,7 +686,8 @@ def jmc_script():
                         else:
                             assert len(test) == 3
                             expect, model, val = test
-                        assert isinstance(expect, bool) and isinstance(model, str), "test format"
+                        assert expect is None or isinstance(expect, bool), "expect is null or bool"
+                        assert isinstance(model, str), "model name is a string"
 
                         if not _process(checker, model, val, f"{fn}[{idx}]", expect, output):
                             nerrors += 1

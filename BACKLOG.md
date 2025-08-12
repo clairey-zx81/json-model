@@ -8,8 +8,8 @@
 - [x] pr: fix java utf8 with docker
 - [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
 - [x] pr: docker tuto script fix pull
+- [x] command: add `--jsonl` support
 - [ ] pr: java-backend maven packaging and publication (wip)
-- [ ] command: add `--jsonl` support
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
@@ -33,6 +33,7 @@
 - [ ] pr: complete spec
 - [ ] pr: complete doc
 - [ ] pr: complete api
+- [ ] api: web interface with caching and security
 - [ ] c-backend: header file for generated code?
 - [ ] pr: add docker compose for postgres testing?
 - [ ] pl-backend: fix reporting
