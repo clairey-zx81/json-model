@@ -14,7 +14,7 @@ our $VERSION = 1.999004;  # aka 2.0b4
 
 use re::engine::RE2;   # replace regex engine
 use List::Util qw( min );
-use JSON::MaybeXS qw( decode_json is_bool );
+use JSON::MaybeXS qw( decode_json from_json is_bool );
 use Getopt::Long qw(:config no_ignore_case);
 use Time::HiRes 'time';
 use Pod::Usage;
@@ -209,7 +209,7 @@ sub jm_is_valid_json($$$)
 {
     my ($j) = @_;
     eval {
-        decode_json_nonref($j)
+        from_json($j, { allow_nonref => 1 })
     };
     return $@ eq "";
 }

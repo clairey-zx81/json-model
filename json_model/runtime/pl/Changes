@@ -2,5 +2,5 @@ Revision history for JSON::JsonModel
 
 2.0b3   2025-08-10
         First version, released on an unsuspecting world, as a Perl module.
-2.0b4   2025-08-?
+2.0b4   2025-08-13
         Add $JSON predef.

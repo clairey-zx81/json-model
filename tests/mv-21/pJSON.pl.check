@@ -19,8 +19,8 @@ pJSON.values.json[17]: PASS
 pJSON.values.json[18]: PASS
 pJSON.values.json[19]: PASS
 pJSON.values.json[20]: PASS
-pJSON.values.json[21]: ERROR, unexpected FAIL
-pJSON.values.json[22]: ERROR, unexpected FAIL
+pJSON.values.json[21]: PASS
+pJSON.values.json[22]: PASS
 pJSON.values.json[23]: PASS
 pJSON.values.json[24]: FAIL
 pJSON.values.json[25]: FAIL
