@@ -428,7 +428,7 @@ static bool json_model_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        int64_t ival_1 = mbstowcs(NULL, json_string_value(val), 0);
+        int64_t ival_1 = jm_str_len(json_string_value(val));
         res = ival_1 >= 1;
         if (! res)
         {
@@ -2076,7 +2076,7 @@ static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (res)
             {
-                int64_t ival_2 = mbstowcs(NULL, json_string_value(pval), 0);
+                int64_t ival_2 = jm_str_len(json_string_value(pval));
                 res = ival_2 >= 1;
                 if (! res)
                 {

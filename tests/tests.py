@@ -200,6 +200,9 @@ EXPECT: dict[str, int] = {
     "mv-21:values": 192,
     "mv-21:errors.pl": 2,
     "mv-21:verrors:schema": 88,
+    # mv-22
+    "mv-22:models": 1,
+    "mv-22:values": 23,
     # miscellaneous tests
     "bads:models": 58,
     # tests json models of json schema versions
@@ -243,7 +246,7 @@ def file_is_newer(f1: str, f2: str) -> bool:
         "./mv-14", "./mv-15", "./mv-16", "./mv-17",
         "./mv-18", "./mv-19", "./mv-1a", "./mv-1b",
         "./mv-1c", "./mv-1d", "./mv-1e", "./mv-1f",
-        "./mv-20", "./mv-21",
+        "./mv-20", "./mv-21", "./mv-22",
     ]
 )
 def directory(request):

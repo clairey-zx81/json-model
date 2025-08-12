@@ -27,7 +27,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        int64_t ival_0 = mbstowcs(NULL, json_string_value(val), 0);
+        int64_t ival_0 = jm_str_len(json_string_value(val));
         res = ival_0 == 10;
         if (! res)
         {

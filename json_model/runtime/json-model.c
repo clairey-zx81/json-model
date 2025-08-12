@@ -387,6 +387,16 @@ jm_search_constmap(const jm_constant_t *val, const jm_constmap_t *array, size_t 
 }
 
 size_t
+jm_str_len(const char *s)
+{
+    size_t count = 0;
+    while (*s) {
+        count += (*s++ & 0xc0) != 0x80;
+    }
+    return count;
+}
+
+size_t
 jm_any_len(json_t *val)
 {
     if (json_is_object(val))
@@ -394,7 +404,7 @@ jm_any_len(json_t *val)
     else if (json_is_array(val))
         return json_array_size(val);
     else if (json_is_string(val))
-        return mbstowcs(NULL, json_string_value(val), 0);
+        return jm_str_len(json_string_value(val));
     // panic
     return 0;
 }

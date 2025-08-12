@@ -18,6 +18,7 @@ const size_t check_model_map_size = 1;
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
+    // 4 character string
     // .
     // .'@'
     res = json_is_string(val);
@@ -28,7 +29,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         int64_t ival_0 = jm_str_len(json_string_value(val));
-        res = ival_0 <= 3 && ival_0 >= 2;
+        res = ival_0 == 4;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.]", path);

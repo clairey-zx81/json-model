@@ -51,7 +51,7 @@ static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
             must_count += 1;
             // .'|'.5.v
             // "/./s"
-            res = json_is_string(pval) && mbstowcs(NULL, json_string_value(pval), 0) > 0;
+            res = json_is_string(pval) && jm_str_len(json_string_value(pval)) > 0;
             if (! res)
             {
                 if (rep) jm_report_add_entry(rep, "unexpected /./s [.'|'.5.v]", (path ? &lpath_0 : NULL));
