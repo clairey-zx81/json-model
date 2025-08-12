@@ -112,11 +112,17 @@ publish.docker:
 
 .PHONY: publish.perl
 publish.perl:
+	perl json_model/runtime/pl/Makefile.PL
+	$(MAKE) -C json_model/runtime/pl dist
 	# cpan-upload -u ZXHZ json_model/runtime/pl/JSON-JsonModel-<version>.tar.gz
-	# web: https://pause.perl.org/ + auth + upload file
+	# web: https://pause.perl.org/ + ZXHZ auth + upload file
+	# $(MAKE) -C json_model/runtime/pl clean
+	# $(RM) json_model/runtime/pl/Makefile.old
 
 .PHONY: publish.js
 publish.js:
+	cd json_model/runtime/js
+	npm publish --access public --tag latest
 	# TODO npm upload
 
 .PHONY: publish.java
