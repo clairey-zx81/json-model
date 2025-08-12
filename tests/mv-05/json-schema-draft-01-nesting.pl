@@ -6,7 +6,7 @@
 use strict;
 use warnings;
 use re::engine::RE2;
-use JsonModel;
+use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
