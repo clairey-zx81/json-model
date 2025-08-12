@@ -7,9 +7,9 @@
 - [x] pr: add java to tuto
 - [x] pr: fix java utf8 with docker
 - [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
+- [x] pr: docker tuto script fix pull
 - [ ] pr: java-backend maven packaging and publication (wip)
 - [ ] command: add `--jsonl` support
-- [ ] pr: docker tuto script fix pull
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
