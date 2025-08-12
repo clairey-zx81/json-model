@@ -10,14 +10,14 @@ class Java(Language):
     """
 
     def __init__(self, *,
-                 debug: bool = False,
+                 debug: bool = False, with_package: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
                  relib: str = "re", int_t: str = "long"):
 
         super().__init__(
             "Java",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             not_op="!", and_op="&&", or_op="||", lcom="//",
+             with_package=with_package, not_op="!", and_op="&&", or_op="||", lcom="//",
              true="true", false="false", null="null", check_t="Checker", json_t="Object",
              path_t="Path", float_t="double", str_t="String", bool_t="boolean", int_t="long",
              match_t="boolean", eoi=";", relib=relib, debug=debug,
@@ -33,8 +33,10 @@ class Java(Language):
     #
     def file_header(self, exe: bool = True) -> Block:
         code: Block = super().file_header(exe)
+        if self._with_package:
+            code += [ "", "package CHECK_PACKAGE_NAME;" ]
         code += [
-            # package?
+            "",
             "import json_model.*;",
             "import java.util.Map;",
             "import java.util.Set;",
@@ -47,7 +49,7 @@ class Java(Language):
             "@SuppressWarnings(\"unchecked\")",
             "public class CHECK_FUNCTION_NAME extends ModelChecker",
             "{",
-            f"    static public final String VERSION = \"{self._version}\";",
+            f"    static public final String VERSION = \"{self.version()}\";",
         ]
         return code
 

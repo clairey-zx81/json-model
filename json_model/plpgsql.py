@@ -12,12 +12,12 @@ class PLpgSQL(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 relib: str = "re", int_t: str = "INT8"):
+                 with_package: bool = False, relib: str = "re", int_t: str = "INT8"):
 
         super().__init__(
             "PLpgSQL",
              with_path=with_path, with_report=with_report, with_comment=with_comment,
-             eq="=", ne="<>", indent="  ",
+             with_package=with_package, eq="=", ne="<>", indent="  ",
              not_op="NOT", and_op="AND", or_op="OR", lcom="--",
              true="TRUE", false="FALSE", null="NULL",
              check_t="TEXT", json_t="JSONB",
@@ -37,10 +37,13 @@ class PLpgSQL(Language):
         code += [
             f"-- JSON_MODEL_VERSION is {self.version()}",
             r"CREATE EXTENSION IF NOT EXISTS json_model;",
-            # FIXME
-            # r"CREATE SCHEMA IF NOT EXISTS CHECK_PACKAGE_NAME;",
-            # r"SET search_path TO CHECK_PACKAGE_NAME, \"$user\", public;",
         ]
+        if self._with_package:
+            code += [
+                "",
+                "CREATE SCHEMA IF NOT EXISTS CHECK_PACKAGE_NAME;",
+                "SET search_path TO CHECK_PACKAGE_NAME, \"$user\", public;",
+            ]
         return code
 
     def file_footer(self, exe: bool = True) -> Block:

@@ -1417,7 +1417,7 @@ def xstatic_compile(
     - report: whether to generate code to report rejection reasons.
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
-    - package: namespace to use (Perl module name, Pg schema name).
+    - package: namespace to use (Perl module, Pg schema name, Java package).
     """
     # target language
     if lang == "py":
@@ -1435,16 +1435,18 @@ def xstatic_compile(
     elif lang in ("plpgsql", "sql"):
         from .plpgsql import PLpgSQL
         language = PLpgSQL(debug=debug, with_report=report, with_path=report,
-                           relib=relib or "re")
+                           relib=relib or "re", with_package=package is not None)
         package = package or "public"
     elif lang == "pl":
         from .perl import Perl
-        language = Perl(debug=debug, with_report=report, with_path=report, relib=relib or "re2")
+        language = Perl(debug=debug, with_report=report, with_path=report, relib=relib or "re2",
+                        with_package=package is not None)
         package = package or "Model"
     elif lang == "java":
         # package?
         from .java import Java
-        language = Java(debug=debug, with_report=report, with_path=report, relib=relib or "re")
+        language = Java(debug=debug, with_report=report, with_path=report, relib=relib or "re",
+                        with_package=package is not None)
     else:
         raise NotImplementedError(f"no support yet for language: {lang}")
 

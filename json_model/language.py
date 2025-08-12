@@ -47,7 +47,7 @@ class Language:
             match_t: str|None = None,
             float_t: str = "float", int_t: str = "int", bool_t: str = "bool", str_t: str = "str",
             # options
-            with_path: bool = True, with_report: bool = True,
+            with_path: bool = True, with_report: bool = True, with_package: bool = False,
             with_comment: bool = True, set_caps: tuple[type] = (str,),
         ):
 
@@ -63,6 +63,7 @@ class Language:
         self._with_path = with_path and with_report
         self._with_report = with_report
         self._with_comment = with_comment
+        self._with_package = with_package
 
         # comparison operators
         self._eq = eq

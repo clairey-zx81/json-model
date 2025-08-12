@@ -31,9 +31,9 @@
 - [x] pr: publish pl runtime on cpan
 - [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
 - [x] java-fe: add help stuff
+- [x] java-backend: use package if set
+- [x] sql-backend: handle package as schema name if set
 - [ ] java-fe: add list stuff
-- [ ] java-backend: use package if set
-- [ ] sql-backend: handle package as schema name if set
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
