@@ -4,9 +4,10 @@
 
 - [x] pr: add java to docker
 - [x] \*-backend: add `$JSON` predef for all
+- [x] pr: add java to tuto
+- [x] pr: fix java utf8 with docker
 - [ ] pl-backend: fix utf8 file handling (see `mv-21/pJSON`)
 - [ ] design: review `$URI` and other predefs
-- [ ] pr: add java to tuto
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: sync version number for all published parts for _2.0_ release

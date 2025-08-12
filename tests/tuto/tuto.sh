@@ -79,7 +79,7 @@ jmc -o person.pm Person-2
 
 echo "## SQL"
 jmc -o person.sql Person-2
-type psql && {
+type psql > /dev/null 2>&1 && {
     psql -f person.sql
 
     for f in [a-z]*.json ; do

@@ -18,6 +18,7 @@ RUN apt update ; \
 
 # set unicode
 RUN locale-gen C.UTF-8
+ENV LANG=C.UTF-8
 
 # application directory
 RUN mkdir /app
