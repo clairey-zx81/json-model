@@ -104,6 +104,11 @@ public class empty_cons_0 extends ModelChecker
         return empty_cons_0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return empty_cons_0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new empty_cons_0();

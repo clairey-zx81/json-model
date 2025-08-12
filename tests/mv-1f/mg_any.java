@@ -185,6 +185,11 @@ public class mg_any extends ModelChecker
         return mg_any_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return mg_any_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new mg_any();

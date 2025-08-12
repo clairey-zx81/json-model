@@ -744,6 +744,11 @@ public class json_schema_draft_01 extends ModelChecker
         return json_schema_draft_01_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return json_schema_draft_01_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new json_schema_draft_01();

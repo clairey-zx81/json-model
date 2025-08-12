@@ -70,6 +70,11 @@ public class enum_05 extends ModelChecker
         return enum_05_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return enum_05_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new enum_05();

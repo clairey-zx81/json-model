@@ -92,6 +92,11 @@ public class uniq_0 extends ModelChecker
         return uniq_0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return uniq_0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new uniq_0();

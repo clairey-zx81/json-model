@@ -134,6 +134,11 @@ public class enum_01 extends ModelChecker
         return enum_01_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return enum_01_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new enum_01();

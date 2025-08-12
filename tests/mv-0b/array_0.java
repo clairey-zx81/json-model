@@ -62,6 +62,11 @@ public class array_0 extends ModelChecker
         return array_0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return array_0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new array_0();

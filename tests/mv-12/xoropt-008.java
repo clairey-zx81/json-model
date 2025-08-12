@@ -275,6 +275,11 @@ public class xoropt_008 extends ModelChecker
         return xoropt_008_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return xoropt_008_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new xoropt_008();

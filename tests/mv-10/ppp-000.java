@@ -134,6 +134,11 @@ public class ppp_000 extends ModelChecker
         return ppp_000_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return ppp_000_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new ppp_000();

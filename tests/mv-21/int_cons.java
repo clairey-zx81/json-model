@@ -72,6 +72,11 @@ public class int_cons extends ModelChecker
         return int_cons_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return int_cons_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new int_cons();

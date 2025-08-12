@@ -62,6 +62,11 @@ public class bool_2 extends ModelChecker
         return bool_2_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return bool_2_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new bool_2();

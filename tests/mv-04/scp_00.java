@@ -129,6 +129,11 @@ public class scp_00 extends ModelChecker
         return scp_00_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return scp_00_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new scp_00();

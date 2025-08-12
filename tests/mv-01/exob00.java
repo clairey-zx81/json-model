@@ -241,6 +241,11 @@ public class exob00 extends ModelChecker
         return exob00_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return exob00_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new exob00();

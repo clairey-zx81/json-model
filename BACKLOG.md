@@ -2,51 +2,23 @@
 
 ## Current Tasks
 
-- [x] pl-frontend: expand `--help`
-- [x] pr: add pl to howto
-- [x] pl-backend: check perl module package generation.
-- [x] design: object comments starting with `#`, not just `#`
-- [x] design: array comments `# …` to be ignored
-- [x] frontends: add `--no-report`
-- [x] pr: howto entry about python code
-- [x] pr: update `models/*` to take advantage of multi-comments
-- [x] pr: ask for pause account
-- [x] pr: ship man page with `--doc` option
-- [x] pl-backend: move to subdir + jsb PR update
-- [x] export: simple stuff to python pydantic
-- [x] pr: tuto pydantic export example
-- [x] export: use pydantic predefs and the class syntax
-- [x] pr: readme pydantic export example
-- [x] export: possible generate the root model
-- [x] java-backend: jackson gson ~jsonp moshi~
-  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
-- [x] java-backend: add code generator and runtime, with abstracted json representation
-- [x] java-backend: pass validation tests with jackson
-- [x] java-backend: pass validation tests with gson
-- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
-- [x] test: enable java tests with pytest
-- [x] command: allow direct java compilation
-- [x] pr: update tuto with some Java
-- [x] command: fix handling of stdin for a model
-- [x] pr: publish pl runtime on cpan
-- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
-- [x] java-fe: add help stuff
-- [x] java-backend: use package if set
-- [x] sql-backend: handle package as schema name if set
-- [ ] java-fe: add list stuff
+- [ ] design: add `$JSON` predef for all
+- [ ] design: review `$URI` and other predefs
+- [ ] pr: add java to docker
+- [ ] pr: add java to tuto
+- [ ] pr: update example re in tuto
+- [ ] pr: review readme in depth, what is the introductory story?
+- [ ] pr: sync version number for all published parts for _2.0_ release
+- [ ] pr: ensure that validation runs in docker?
+- [ ] dev: complete publish task in root makefile
 - [ ] pr: java-backend maven packaging and publication
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] java-backend: fix `mv-0a/base-18` unique
-- [ ] dev: complete publish task in root makefile
-- [ ] pr: add java to docker
 - [ ] command: add `--jsonl` support
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
-- [ ] pr: update example re in tuto
-- [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: submit jsonschema-benchmark java PR
-- [ ] pr: sync version number for all published parts
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
@@ -521,3 +493,35 @@
 - [x] docker: add `help` and `run` to docker wrapper
 - [x] pr: review readme for docker
 - [x] python: refactor preproc vs compile vs codegen…
+- [x] pl-frontend: expand `--help`
+- [x] pr: add pl to howto
+- [x] pl-backend: check perl module package generation.
+- [x] design: object comments starting with `#`, not just `#`
+- [x] design: array comments `# …` to be ignored
+- [x] frontends: add `--no-report`
+- [x] pr: howto entry about python code
+- [x] pr: update `models/...` to take advantage of multi-comments
+- [x] pr: ask for pause account
+- [x] pr: ship man page with `--doc` option
+- [x] pl-backend: move to subdir + jsb PR update
+- [x] export: simple stuff to python pydantic
+- [x] pr: tuto pydantic export example
+- [x] export: use pydantic predefs and the class syntax
+- [x] pr: readme pydantic export example
+- [x] export: possible generate the root model
+- [x] java-backend: jackson gson ~jsonp moshi~
+  see [perfs](https://github.com/fabienrenaud/java-json-benchmark)
+- [x] java-backend: add code generator and runtime, with abstracted json representation
+- [x] java-backend: pass validation tests with jackson
+- [x] java-backend: pass validation tests with gson
+- [x] java-backend: fix `mv-18/dis_0[13]` `mv-19/tag01` `mv-1a/opt_07` GSON/Jackson diff
+- [x] test: enable java tests with pytest
+- [x] command: allow direct java compilation
+- [x] pr: update tuto with some Java
+- [x] command: fix handling of stdin for a model
+- [x] pr: publish pl runtime on cpan
+- [x] java-backend: env `JSON_MODEL_JAVA_JSON_LIB` can control JSON lib selection
+- [x] java-fe: add help stuff
+- [x] java-backend: use package if set
+- [x] sql-backend: handle package as schema name if set
+- [x] java-fe: implement list option

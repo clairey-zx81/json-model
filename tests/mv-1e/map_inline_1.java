@@ -200,6 +200,11 @@ public class map_inline_1 extends ModelChecker
         return map_inline_1_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return map_inline_1_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new map_inline_1();

@@ -241,6 +241,11 @@ public class more_comments extends ModelChecker
         return more_comments_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return more_comments_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new more_comments();

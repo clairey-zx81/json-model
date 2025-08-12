@@ -72,6 +72,11 @@ public class simp_cons_0 extends ModelChecker
         return simp_cons_0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return simp_cons_0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new simp_cons_0();

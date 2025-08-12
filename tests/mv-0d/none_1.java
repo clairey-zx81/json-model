@@ -62,6 +62,11 @@ public class none_1 extends ModelChecker
         return none_1_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return none_1_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new none_1();

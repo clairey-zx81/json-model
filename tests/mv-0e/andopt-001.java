@@ -84,6 +84,11 @@ public class andopt_001 extends ModelChecker
         return andopt_001_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return andopt_001_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new andopt_001();

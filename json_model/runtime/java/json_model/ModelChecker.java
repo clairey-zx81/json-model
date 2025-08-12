@@ -1,5 +1,7 @@
 package json_model;
 
+import java.util.Set;
+
 public abstract class ModelChecker
 {
     protected boolean initialized;
@@ -44,4 +46,7 @@ public abstract class ModelChecker
 
     /* get checker by name */
     public abstract Checker get(String name);
+
+    /* return available models */
+    public abstract Set<String> models();
 }

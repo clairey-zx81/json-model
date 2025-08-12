@@ -4262,6 +4262,11 @@ public class json_model_moschin extends ModelChecker
         return json_model_moschin_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return json_model_moschin_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new json_model_moschin();

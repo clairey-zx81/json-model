@@ -64,6 +64,11 @@ public class opt_is extends ModelChecker
         return opt_is_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return opt_is_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new opt_is();

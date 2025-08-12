@@ -62,6 +62,11 @@ public class an_email extends ModelChecker
         return an_email_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return an_email_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new an_email();

@@ -71,6 +71,11 @@ public class re0 extends ModelChecker
         return re0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return re0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new re0();

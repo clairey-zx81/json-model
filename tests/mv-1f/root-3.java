@@ -226,6 +226,11 @@ public class root_3 extends ModelChecker
         return root_3_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return root_3_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new root_3();

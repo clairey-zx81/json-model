@@ -129,6 +129,11 @@ public class one_mm extends ModelChecker
         return one_mm_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return one_mm_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new one_mm();

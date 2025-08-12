@@ -62,6 +62,11 @@ public class or_09 extends ModelChecker
         return or_09_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return or_09_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new or_09();

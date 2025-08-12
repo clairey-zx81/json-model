@@ -86,6 +86,10 @@ jmc.1: json_model/data/jmc.pod dev
 	year=$$(date +%Y)
 	pod2man $< | sed "s/^\.TH JMC 1.*/.TH JMC 1 $$year \"v$$version\" \"User Documentation\"/" > $@
 
+#
+# PUBLICATION
+#
+
 .PHONY: build.site
 build.site: site/MODELS.md site/JMC.md
 

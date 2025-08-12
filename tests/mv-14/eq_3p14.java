@@ -62,6 +62,11 @@ public class eq_3p14 extends ModelChecker
         return eq_3p14_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return eq_3p14_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new eq_3p14();

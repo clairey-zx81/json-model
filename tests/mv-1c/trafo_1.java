@@ -148,6 +148,11 @@ public class trafo_1 extends ModelChecker
         return trafo_1_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return trafo_1_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new trafo_1();

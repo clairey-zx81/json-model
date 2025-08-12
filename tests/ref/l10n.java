@@ -328,6 +328,11 @@ public class l10n extends ModelChecker
         return l10n_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return l10n_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new l10n();

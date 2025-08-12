@@ -491,6 +491,11 @@ public class pmap_shared_1 extends ModelChecker
         return pmap_shared_1_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return pmap_shared_1_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new pmap_shared_1();

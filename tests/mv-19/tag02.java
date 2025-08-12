@@ -234,6 +234,11 @@ public class tag02 extends ModelChecker
         return tag02_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return tag02_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new tag02();

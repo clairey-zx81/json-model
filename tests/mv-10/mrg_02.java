@@ -445,6 +445,11 @@ public class mrg_02 extends ModelChecker
         return mrg_02_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return mrg_02_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new mrg_02();

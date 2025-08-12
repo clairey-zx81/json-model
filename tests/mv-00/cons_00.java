@@ -60,6 +60,11 @@ public class cons_00 extends ModelChecker
         return cons_00_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return cons_00_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new cons_00();

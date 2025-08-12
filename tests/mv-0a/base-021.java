@@ -71,6 +71,11 @@ public class base_021 extends ModelChecker
         return base_021_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return base_021_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new base_021();

@@ -104,6 +104,11 @@ public class aa_0 extends ModelChecker
         return aa_0_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return aa_0_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new aa_0();

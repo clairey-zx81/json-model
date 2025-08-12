@@ -62,6 +62,11 @@ public class and_str01 extends ModelChecker
         return and_str01_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return and_str01_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new and_str01();

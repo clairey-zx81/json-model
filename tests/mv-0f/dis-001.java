@@ -134,6 +134,11 @@ public class dis_001 extends ModelChecker
         return dis_001_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return dis_001_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new dis_001();

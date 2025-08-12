@@ -63,6 +63,11 @@ public class streq extends ModelChecker
         return streq_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return streq_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new streq();

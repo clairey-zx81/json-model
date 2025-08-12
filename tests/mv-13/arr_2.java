@@ -82,6 +82,11 @@ public class arr_2 extends ModelChecker
         return arr_2_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return arr_2_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new arr_2();

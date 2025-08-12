@@ -62,6 +62,11 @@ public class eval_01 extends ModelChecker
         return eval_01_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return eval_01_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new eval_01();

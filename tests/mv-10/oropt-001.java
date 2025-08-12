@@ -62,6 +62,11 @@ public class oropt_001 extends ModelChecker
         return oropt_001_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return oropt_001_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new oropt_001();

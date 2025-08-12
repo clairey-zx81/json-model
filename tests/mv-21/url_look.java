@@ -97,6 +97,11 @@ public class url_look extends ModelChecker
         return url_look_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return url_look_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new url_look();

@@ -209,6 +209,11 @@ public class bang_000 extends ModelChecker
         return bang_000_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return bang_000_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new bang_000();

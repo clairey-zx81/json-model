@@ -42,6 +42,10 @@ json: $(F.json)
 %.model.json: %.model.yaml
 	$(JMC) -N ./$< > $@
 
+.PHONY: java
+java:
+	# skip
+
 # test that --check rejects **all** bads
 bads.check.out:
 	shopt -s nullglob

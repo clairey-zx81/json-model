@@ -308,6 +308,11 @@ public class dis_02 extends ModelChecker
         return dis_02_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return dis_02_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new dis_02();

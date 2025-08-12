@@ -134,6 +134,11 @@ public class name_age extends ModelChecker
         return name_age_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return name_age_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new name_age();

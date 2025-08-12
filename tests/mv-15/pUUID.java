@@ -62,6 +62,11 @@ public class pUUID extends ModelChecker
         return pUUID_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return pUUID_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new pUUID();

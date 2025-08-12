@@ -62,6 +62,11 @@ public class float_m1 extends ModelChecker
         return float_m1_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return float_m1_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new float_m1();

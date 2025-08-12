@@ -193,6 +193,11 @@ public class orob_00 extends ModelChecker
         return orob_00_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return orob_00_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new orob_00();

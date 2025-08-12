@@ -62,6 +62,11 @@ public class eq_null extends ModelChecker
         return eq_null_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return eq_null_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new eq_null();

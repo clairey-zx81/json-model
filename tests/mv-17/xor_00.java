@@ -86,6 +86,11 @@ public class xor_00 extends ModelChecker
         return xor_00_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return xor_00_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new xor_00();

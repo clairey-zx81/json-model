@@ -62,6 +62,11 @@ public class opt_05 extends ModelChecker
         return opt_05_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return opt_05_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new opt_05();

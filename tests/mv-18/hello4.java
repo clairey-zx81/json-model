@@ -134,6 +134,11 @@ public class hello4 extends ModelChecker
         return hello4_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return hello4_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new hello4();

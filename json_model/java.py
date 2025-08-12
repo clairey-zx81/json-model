@@ -60,6 +60,11 @@ class Java(Language):
             "    {",
             "        return CHECK_FUNCTION_NAME_map_pmap.get(name);",
             "    }",
+            "",
+            "    public Set<String> models()",
+            "    {",
+            "        return CHECK_FUNCTION_NAME_map_pmap.keySet();",
+            "    }",
         ]
         if exe:
             code += [

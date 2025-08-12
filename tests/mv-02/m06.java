@@ -62,6 +62,11 @@ public class m06 extends ModelChecker
         return m06_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return m06_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new m06();

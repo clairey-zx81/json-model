@@ -1,3 +1,7 @@
+/*
+ * JSON Model Main for generated Java programs.
+*/
+
 package json_model;
 
 import java.lang.Math;
@@ -96,8 +100,6 @@ public class Main
         }
         empty /= time;
 
-        // no warmup?
-
         // performance loop
         double sum = 0.0, sum2 = 0.0;
         for (int i = time; i > 0; i--) {
@@ -109,7 +111,7 @@ public class Main
             sum2 += delay * delay;
         }
 
-        // show performance result
+        // compute and show performance result
         double
             avg = sum / time,
             stddev = Math.sqrt(sum2 / time - avg * avg);
@@ -139,6 +141,7 @@ public class Main
             new LongOpt("no-report", LongOpt.NO_ARGUMENT, null, 1003),
             new LongOpt("test", LongOpt.NO_ARGUMENT, null, 't'),
             new LongOpt("jsonl", LongOpt.NO_ARGUMENT, null, 'L'),
+            // NOTE intentionaly undocumented
             new LongOpt("jsonschema-benchmark", LongOpt.NO_ARGUMENT, null, 1002)
         });
 
@@ -147,6 +150,7 @@ public class Main
         String model_name = "";
         int time = 0;
         boolean
+            list = false,
             report = false,
             jsbench = false,
             test = false,
@@ -176,7 +180,8 @@ public class Main
                 case 'v':
                     exit(0, program + " version: " + version);
                 case 'l':
-                    exit(0, program + " models: FIXME not implemented yet");
+                    list = true;  // deferred
+                    break;
                 case 'j':
                     json_lib = g.getOptarg();
                     break;
@@ -226,6 +231,14 @@ public class Main
             return;
         }
         checker.init(json);
+
+        // show list of available models
+        if (list) {
+            StringBuffer sb = new StringBuffer(program + " models:");
+            for (String name: checker.models())
+                sb.append(" " + name);
+            exit(0, sb.toString());
+        }
 
         // process arguments
         int errors = 0;

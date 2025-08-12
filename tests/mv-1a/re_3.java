@@ -142,6 +142,11 @@ public class re_3 extends ModelChecker
         return re_3_map_pmap.get(name);
     }
 
+    public Set<String> models()
+    {
+        return re_3_map_pmap.keySet();
+    }
+
     static public void main(String[] args) throws Exception
     {
         ModelChecker checker = new re_3();

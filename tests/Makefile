@@ -1,14 +1,17 @@
 SHELL   = /bin/bash
 .ONESHELL:
 
-# TODO only pytest driven tests?
+# relevant validation sub directories
 D.subs  = $(wildcard mv-*) bads ref
+
 D.check = $(D.subs:%=%.check)
 D.clean = $(D.subs:%=%.clean)
 D.gen = $(D.subs:%=%.gen)
+D.java = $(D.subs:%=%.java)
 
 .PHONY: clean
-clean: $(D.clean)
+clean:
+	$(MAKE) TARGET=clean $(D.clean)
 	$(RM) -r __pycache__ .pytest_cache
 
 PYTEST  = pytest --log-level=debug --capture=tee-sys --durations=5
@@ -18,23 +21,21 @@ PYTOPT	= -n auto
 check.pytest:
 	$(PYTEST) $(PYTOPT) tests.py
 
+.PHONY: %.$(TARGET)
+%.$(TARGET):
+	$(MAKE) -C $* $(TARGET)
+
 .PHONY: check
 check: check.pytest
 
-.PHONY: %.check
-%.check:
-	$(MAKE) -C $* check
-
-.PHONY: %.clean
-%.clean:
-	$(MAKE) -C $* clean
-
 .PHONY: check.check
-check.check: $(D.check)
+check.check:
+	$(MAKE) TARGET=check $(D.check)
 
 .PHONY: gen
-gen: $(D.gen)
+gen:
+	$(MAKE) TARGET=gen $(D.gen)
 
-.PHONY: %.gen
-%.gen:
-	$(MAKE) -C $* gen
+.PHONY: java
+java:
+	$(MAKE) TARGET=java $(D.java)
