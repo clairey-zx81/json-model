@@ -14,6 +14,7 @@ PREDEF_TYPES = {
     "$REGEX": "string",
     "$EXREG": "string",
     "$UUID": "string",
+    "$JSON": "string",
     "$URL": "string",
     "$URI": "string",
     "$EMAIL": "string",
@@ -40,6 +41,7 @@ PREDEF_FORMATS = {
     "$UUID": "uuid",
     "$EMAIL": "email",
     "$URI": "uri",
+    # "$JSON": "?",
 }
 
 def unExreg(pat: str, opts: str) -> tuple[str, str]:

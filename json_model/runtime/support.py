@@ -208,6 +208,18 @@ def is_valid_email(value: Jsonable, path: Path, rep: Report = None) -> bool:
     return valid
 
 
+def is_valid_json(value: Jsonable, path: Path, rep: Report = None) -> bool:
+    if isinstance(value, str):
+        try:
+            json.loads(value)
+            return True
+        except Exception as e:
+            _ = rep is None or rep.append(("invalid json string", path))
+            return False
+    _ = rep is None or rep.append((f"incompatible type for json: {_tname(value)}", path))
+    return False
+
+
 # quite inefficient but safe
 def is_valid_regex(value: Jsonable, path: Path, rep: Report = None) -> bool:
     if isinstance(value, str):

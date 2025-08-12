@@ -193,7 +193,7 @@ _UTYPE = {
     "$URL": str, "$URI": str, "$EMAIL": str,
     "$REGEX": str, "$EXREG": str,
     "$DATE": str, "$TIME": str, "$DATETIME": str,
-    "$UUID": str,
+    "$UUID": str, "$JSON": str,
 }
 
 
@@ -269,6 +269,7 @@ _UMODEL = {
     "$UUID": "$UUID",
     "$URI": "$URI",
     "$EMAIL": "$EMAIL",
+    "$JSON": "$JSON",
     # to be continued…
 }
 

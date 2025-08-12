@@ -3,7 +3,8 @@
 ## Current Tasks
 
 - [x] pr: add java to docker
-- [ ] design: add `$JSON` predef for all
+- [x] \*-backend: add `$JSON` predef for all
+- [ ] pl-backend: fix utf8 file handling (see `mv-21/pJSON`)
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: add java to tuto
 - [ ] pr: update example re in tuto

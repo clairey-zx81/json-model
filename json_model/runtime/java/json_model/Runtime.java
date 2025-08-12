@@ -122,6 +122,8 @@ public class Runtime
     public boolean is_valid_json(String s)
     {
         try {
+            if (s.equals(""))
+                return false;
             json.fromJSON(s);
             return true;
         }

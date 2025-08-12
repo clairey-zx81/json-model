@@ -89,7 +89,7 @@ export function jm_is_valid_uuid(uuid, path, rep)
 // return whether url is a valid url ($URL)
 export function jm_is_valid_url(url, path, rep)
 {
-    if (typeof url !== 'string' && ! url instanceof String)
+    if (typeof url !== 'string' && !(url instanceof String))
         return false
 
     try {
@@ -106,6 +106,20 @@ export function jm_is_valid_email(email, path, rep)
 {
     return ((typeof email === 'string' || email instanceof String) &&
             /^[_a-zA-Z0-9.]+@[_a-zA-Z0-9.]+$/.exec(email) !== null)
+}
+
+// return whether string is valid json ($JSON)
+export function jm_is_valid_json(val, path, rep)
+{
+    if (typeof val !== 'string' && !(val instanceof String))
+        return false
+    try {
+        JSON.parse(val)
+        return true
+    }
+    catch (e) {
+        return false
+    }
 }
 
 // work around js abysmal type (?) system

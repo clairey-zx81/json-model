@@ -139,6 +139,7 @@ class JsonModel:
         "EXREG": "",
         "URI": r"^\w+:.*$/",  # TODO improve
         "EMAIL": r"^(?i)[a-z0-9_.]+@[a-z0-9_.]+$",
+        "JSON": "",
         # to be continued…
         # o = optional
         "oBOOL": {"|": [None, "$BOOL"]},

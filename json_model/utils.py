@@ -21,7 +21,7 @@ MODEL_PREDEFS = {
     "$FLOAT", "$F32", "$F64", "$NUMBER",
     "$STRING", "$DATE", "$TIME", "$DATETIME",
     "$URL", "$REGEX", "$EXREG", "$UUID",
-    "$URI", "$EMAIL",
+    "$URI", "$EMAIL", "$JSON",
     # TODO $URI-REF, $DOMAIN…
 }
 

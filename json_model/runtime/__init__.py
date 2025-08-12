@@ -25,6 +25,7 @@ from .support import (
     is_valid_url,
     is_valid_email,
     is_valid_uuid,
+    is_valid_json,
     is_unique_array,
     check_constraint,
     value_len,

@@ -34,6 +34,7 @@ our @EXPORT = qw(
     jm_is_object
     jm_is_valid_url
     jm_is_valid_email
+    jm_is_valid_json
     jm_is_valid_date
     jm_is_valid_time
     jm_is_valid_datetime
@@ -201,6 +202,16 @@ sub jm_is_valid_uuid($$$)
 {
     my ($u) = @_;
     return $u =~ /^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i;
+}
+
+# $JSON
+sub jm_is_valid_json($$$)
+{
+    my ($j) = @_;
+    eval {
+        decode_json_nonref($j)
+    };
+    return $@ eq "";
 }
 
 # $REGEX

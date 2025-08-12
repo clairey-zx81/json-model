@@ -119,6 +119,8 @@ class PLpgSQL(Language):
             return cktype + f"jm_is_valid_url({val}, {path}, rep)"
         elif name == "$EMAIL":
             return cktype + f"jm_is_valid_email({val}, {path}, rep)"
+        elif name == "$JSON":
+            return cktype + f"jm_is_valid_json({val}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
     

@@ -618,18 +618,19 @@ jm_is_valid_regex_slow(const char *pattern, bool extended, jm_path_t *path, jm_r
 {
     if (!pattern)
         return false;
+    bool valid = false;
 #if defined(REGEX_ENGINE_PCRE2)
     int err_code;
     PCRE2_SIZE err_offset;
     pcre2_code *code =
         pcre2_compile((PCRE2_SPTR) pattern, PCRE2_ZERO_TERMINATED,
                       PCRE2_UCP|PCRE2_UTF, &err_code, &err_offset, NULL);
-    bool valid = code != NULL;
+    valid = code != NULL;
     if (code)
         pcre2_code_free(code);
 #elif defined(REGEX_ENGINE_RE2)
     cre2_regexp_t *rx = cre2_new(pattern, strlen(pattern), NULL);
-    bool valid = cre2_error_code(rx) == 0;
+    valid = cre2_error_code(rx) == 0;
     cre2_delete(rx);
 #endif
     return valid;
@@ -762,7 +763,7 @@ jm_is_valid_regex_fast(const char *pattern, bool extended, jm_path_t *path, jm_r
                 paren--;
                 okay &= paren >= 0;
                 break;
-            default:
+            default:  // ignore
         }
         c++;
     }
@@ -814,6 +815,158 @@ jm_is_valid_email(const char *email, jm_path_t *path, jm_report_t *rep)
     while (is_email_char(*c))
         c++;
     return *c == '\0';
+}
+
+// fast UTF-8 JSON scanner
+static const char * valid_json(const char *);
+static const char * valid_json_string(const char *);
+
+#define skip_blanks(s) while (isspace(*s)) s++
+
+static const char * valid_json_object(const char *s)
+{
+    // skip leading {
+    s++;
+    skip_blanks(s);
+    if (*s == '}')
+        return s + 1;
+    while (*s)
+    {
+        s = valid_json_string(s);
+        if (s == NULL)
+            return NULL;
+        skip_blanks(s);
+        if (*s++ != ':')
+            return NULL;
+        s = valid_json(s);
+        if (s == NULL)
+            return NULL;
+        skip_blanks(s);
+        if (*s == ',')
+        {
+            s++;
+            skip_blanks(s);
+        }
+        else
+            break;
+    }
+    return *s == '}' ? s + 1 : NULL;
+}
+
+static const char * valid_json_array(const char *s)
+{
+    // skip leading [
+    s++;
+    skip_blanks(s);
+    if (*s == ']')
+        return s + 1;
+    while (*s)
+    {
+        s = valid_json(s);
+        if (s == NULL)
+            return NULL;
+        skip_blanks(s);
+        if (*s == ',')
+        {
+            s++;
+            skip_blanks(s);
+        }
+        else
+            break;
+    }
+    return *s == ']' ? s + 1 : NULL;
+}
+
+static const char * valid_json_string(const char *s)
+{
+    if (*s != '"')
+        return NULL;
+    s++;
+    // proceed inside the string
+    while (*s && *s != '"')
+    {
+        if (*s == '\\')
+        {
+            s++;
+            if (! *s)
+                return NULL;
+            if (*s == 'u') {  // handle \uXXXX
+                s++;
+                if (!isxdigit(*s++)) return NULL;
+                if (!isxdigit(*s++)) return NULL;
+                if (!isxdigit(*s++)) return NULL;
+                if (!isxdigit(*s++)) return NULL;
+            }
+            // NOTE we do not need to check utf8 encoding if the file was loaded
+        }
+        s++;
+    }
+    // check expected end of string
+    if (*s == '"')
+        return s + 1;
+    return NULL;
+}
+
+static const char * valid_json_number(const char *s)
+{
+    // skip optional sign
+    if (*s == '-' || *s == '+')
+        s++;
+    if (!isdigit(*s))
+        return NULL;
+    s++;  // first digit
+    while (isdigit(*s))
+        s++;
+    if (*s == '.')  // optional rational part
+    {
+        s++;
+        while (isdigit(*s))
+            s++;
+    }
+    if (*s == 'e' || *s == 'E')  // optional exponent
+    {
+        s++;
+        if (*s == '-' || *s == '+')
+            s++;
+        if (!isdigit(*s))
+            return NULL;
+        s++;
+        while (isdigit(*s))
+            s++;
+    }
+    return s;
+}
+
+static const char * valid_json(const char *s)
+{
+    skip_blanks(s);
+    if (! *s)
+        return NULL;
+    if (*s == '"')
+        return valid_json_string(s);
+    if (*s == '{')
+        return valid_json_object(s);
+    if (*s == '[')
+        return valid_json_array(s);
+    if (*s == '-' || *s == '+' || ('0' <= *s && *s <= '9'))
+        return valid_json_number(s);
+    if (strncmp(s, "null", 4) == 0 || strncmp(s, "true", 4) == 0)
+        return s + 4;
+    if (strncmp(s, "false", 5) == 0)
+        return s + 5;
+    return NULL;
+}
+
+bool
+jm_is_valid_json(const char *json, jm_path_t *path, jm_report_t *rep)
+{
+    if (!json)
+        return false;
+    const char * s = valid_json(json);
+    if (s == NULL)
+        return false;
+    skip_blanks(s);
+    return *s == '\0';
 }
 
 // generic constraint check.

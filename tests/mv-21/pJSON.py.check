@@ -1,0 +1,42 @@
+pJSON.values.json[0]: PASS
+pJSON.values.json[1]: PASS
+pJSON.values.json[2]: PASS
+pJSON.values.json[3]: PASS
+pJSON.values.json[4]: PASS
+pJSON.values.json[5]: PASS
+pJSON.values.json[6]: PASS
+pJSON.values.json[7]: PASS
+pJSON.values.json[8]: PASS
+pJSON.values.json[9]: PASS
+pJSON.values.json[10]: PASS
+pJSON.values.json[11]: PASS
+pJSON.values.json[12]: PASS
+pJSON.values.json[13]: PASS
+pJSON.values.json[14]: PASS
+pJSON.values.json[15]: PASS
+pJSON.values.json[16]: PASS
+pJSON.values.json[17]: PASS
+pJSON.values.json[18]: PASS
+pJSON.values.json[19]: PASS
+pJSON.values.json[20]: PASS
+pJSON.values.json[21]: PASS
+pJSON.values.json[22]: PASS
+pJSON.values.json[23]: PASS
+pJSON.values.json[24]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[25]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[26]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[27]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[28]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[29]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[30]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[31]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[32]: FAIL (.: unexpected $JSON [.]; .: invalid json string)
+pJSON.values.json[33]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: NoneType)
+pJSON.values.json[34]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: bool)
+pJSON.values.json[35]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: bool)
+pJSON.values.json[36]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: int)
+pJSON.values.json[37]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: float)
+pJSON.values.json[38]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: list)
+pJSON.values.json[39]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: list)
+pJSON.values.json[40]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: dict)
+pJSON.values.json[41]: FAIL (.: unexpected $JSON [.]; .: incompatible type for json: dict)

@@ -45,7 +45,7 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
                     return "pydantic.EmailStr" if advanced else "str"
                 elif s == "$UUID":
                     return "uuid.UUID" if advanced else "str"
-                elif s in ("$REGEX", "$EXREG", "$URL", "$URI"):
+                elif s in ("$REGEX", "$EXREG", "$URL", "$URI", "$JSON"):
                     return "str"
                 elif s == "$ANY":
                     return "Any"

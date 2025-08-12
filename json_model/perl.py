@@ -105,6 +105,8 @@ class Perl(Language):
             return is_str_and + f"jm_is_valid_uuid({var}, {path}, $rep)"
         elif name == "$EMAIL":
             return is_str_and + f"jm_is_valid_email({var}, {path}, $rep)"
+        elif name == "$JSON":
+            return is_str_and + f"jm_is_valid_json({var}, {path}, $rep)"
         else:
             return super().predef(var, name, path, is_str)
 

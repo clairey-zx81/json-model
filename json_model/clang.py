@@ -52,7 +52,7 @@ class CLangJansson(Language):
         code += [
             "",
             r"#include <json-model.h>",
-            f"#define JSON_MODEL_VERSION {self.esc(self._version)}"
+            f"#define JSON_MODEL_VERSION {self.esc(self.version())}"
         ]
         return code
 
@@ -132,6 +132,8 @@ class CLangJansson(Language):
             return f"jm_is_valid_url({val}, {path}, rep)"
         elif name == "$EMAIL":
             return f"jm_is_valid_email({val}, {path}, rep)"
+        elif name == "$JSON":
+            return f"jm_is_valid_json({val}, {path}, rep)"
         else:
             return super().predef(var, name, path, is_str)
     

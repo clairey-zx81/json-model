@@ -132,6 +132,22 @@ EXCEPTION
 END;
 $$ LANGUAGE plpgsql;
 
+-- $JSON
+CREATE OR REPLACE FUNCTION
+  jm_is_valid_json(val TEXT, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+BEGIN
+  IF val IS NULL THEN
+    RETURN FALSE;
+  END IF;
+  PERFORM val::JSON;
+  RETURN TRUE;
+EXCEPTION
+  WHEN data_exception THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql;
+
 -- $URL (loose)
 CREATE OR REPLACE FUNCTION
   jm_is_valid_url(val TEXT, path TEXT[], rep jm_report_entry[])

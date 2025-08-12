@@ -118,6 +118,8 @@ class JavaScript(Language):
             return f"runtime.jm_is_valid_url({val})"
         elif name == "$EMAIL":
             return f"runtime.jm_is_valid_email({val})"
+        elif name == "$JSON":
+            return f"runtime.jm_is_valid_json({val})"
         else:
             return super().predef(var, name, path, is_str)
     
