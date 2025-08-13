@@ -133,9 +133,6 @@ publish.js:
 
 .PHONY: publish.java
 publish.java:
-	$(MAKE) -C $(RT.dir)/java mvn.jar
-	# see generated jar under $(RT.dir)/java/target
-	# this was just the beginning!
-	# then, generate a zip file which must contain plenty of PGP-signed stuff
+	$(MAKE) -C $(RT.dir)/java zip
 	# see https://central.sonatype.org/publish/requirements/
 	# upload zip on https://central.sonatype.com/publishing as org.json-model:json-model:VERSION
