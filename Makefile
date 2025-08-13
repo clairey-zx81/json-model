@@ -108,23 +108,34 @@ publish.py: dev
 
 .PHONY: publish.docker
 publish.docker:
-	# TODO docker push
+	# $(MAKE) -C docker docker.push
+
+RT.dir  = json_model/runtime
+
+.PHONY: publish.sql
+publish.sql:
+	$(MAKE) -C $(RT.dir) json_model.tgz
+	# upload to https://manager.pgxn.org/
 
 .PHONY: publish.perl
 publish.perl:
-	perl json_model/runtime/pl/Makefile.PL
-	$(MAKE) -C json_model/runtime/pl dist
-	# cpan-upload -u ZXHZ json_model/runtime/pl/JSON-JsonModel-<version>.tar.gz
+	perl $(RT.dir)/pl/Makefile.PL
+	$(MAKE) -C $(RT.dir)/pl dist
+	## cpan-upload -u ZXHZ $(RT.dir)/pl/JSON-JsonModel-<version>.tar.gz
 	# web: https://pause.perl.org/ + ZXHZ auth + upload file
-	# $(MAKE) -C json_model/runtime/pl clean
-	# $(RM) json_model/runtime/pl/Makefile.old
+	# $(MAKE) -C $(RT.dir)/pl clean
+	# $(RM) $(RT.dir)/pl/Makefile.old
 
 .PHONY: publish.js
 publish.js:
-	cd json_model/runtime/js
+	cd $(RT.dir)/js
 	npm publish --access public --tag latest
-	# TODO npm upload
 
 .PHONY: publish.java
 publish.java:
-	# TODO java maven central upload
+	$(MAKE) -C $(RT.dir)/java mvn.jar
+	# see generated jar under $(RT.dir)/java/target
+	# this was just the beginning!
+	# then, generate a zip file which must contain plenty of PGP-signed stuff
+	# see https://central.sonatype.org/publish/requirements/
+	# upload zip on https://central.sonatype.com/publishing as org.json-model:json-model:VERSION
