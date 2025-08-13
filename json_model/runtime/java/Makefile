@@ -54,12 +54,12 @@ $(JMV).zip: mvn.jar src.jar doc.jar
 	cp target/$(JMV).jar "$$dir"/
 	cp $(JMV)-sources.jar "$$dir"/
 	cp $(JMV)-javadoc.jar "$$dir"/
-	# compute md5 & sha1
+	# compute md5 & sha1 & signature
 	for file in "$$dir"/*.{jar,pom} ; do
-	  md5sum $$file | cut -d' ' -f1 > $$file.md5
-	  sha1sum $$file | cut -d' ' -f1 > $$file.sha1
+	  md5sum "$$file" | cut -d' ' -f1 > "$$file".md5
+	  sha1sum "$$file" | cut -d' ' -f1 > "$$file".sha1
+	  gpg -ab "$$file"
+	  gpg --verify "$$file".asc
 	done
-	# sign
-	gpg -ab "$$dir"/*.{jar,pom}
 	# zip
 	zip -r $@ org/

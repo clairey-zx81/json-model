@@ -21,9 +21,23 @@
   </licenses>
 
   <organization>
-    <name>CRI, Mines Paris, PSL</name>
+    <name>CRI, Mines Paris - PSL</name>
     <url>https://www.cri.minesparis.psl.eu/</url>
   </organization>
+
+  <developers>
+    <developer>
+      <id>fabien</id>
+      <name>Fabien Coelho</name>
+      <email>fabien.coelho@minesparis.psl.eu</email>
+      <url>https://www.cri.minesparis.psl.eu/~coelho/</url>
+      <organization>CRI, Mines Paris - PSL</organization>
+      <timezone>Europe/Paris</timezone>
+      <properties>
+        <picUrl>https://www.cri.minesparis.psl.eu/~coelho/assets/fabien_large.jpg</picUrl>
+      </properties>
+    </developer>
+  </developers>
 
   <scm>
     <url>https://github.com/clairey-zx81/json-model</url>
