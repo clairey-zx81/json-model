@@ -1,7 +1,3 @@
-/*
- * JSON Model Main for generated Java programs.
-*/
-
 package json_model;
 
 import java.lang.Math;
@@ -14,11 +10,18 @@ import java.util.HashMap;
 import gnu.getopt.Getopt;  // old school :-)
 import gnu.getopt.LongOpt;
 
+/**
+ * JSON Model Main stuff for generated Java programs.
+ */
 public class Main
 {
+    /** Default JSON library */
     static public final String DEFAULT_JSON_LIB = "Jackson";
+
+    /** Environment variable for JSON library */
     static public final String JSON_LIB_ENV = "JSON_MODEL_JAVA_JSON_LIB";
 
+    /** Exit with a message */
     static void exit(int status, String message)
     {
         if (message != null && status > 0)
@@ -28,6 +31,11 @@ public class Main
         System.exit(status);
     }
 
+    /**
+     * JSON Schema Benchmark specific function.
+     *
+     * @see <a href="https://github.com/sourcemeta-research/jsonschema-benchmark">Bench</a>
+     */
     static int jsonschema_benchmark(Object[] values, ModelChecker checker, String display, int time)
         throws JSON.Exception
     {
@@ -73,6 +81,7 @@ public class Main
         return errors;
     }
 
+    /** Process one value and report */
     static boolean process(
         Object value, String display, String name, ModelChecker checker,
         Boolean expect, int time, boolean report)
@@ -126,6 +135,7 @@ public class Main
         return expect != null && expect != valid;
     }
 
+    /** Actual program entry */
     static public void main(String program, ModelChecker checker, String version, String[] args)
         throws JSON.Exception
     {

@@ -7,19 +7,26 @@ import java.util.Arrays;
 import java.net.URI;
 import java.net.URL;
 
+/**
+ * JSON Model Java Runtime: the actual runtime.
+ */
 public class Runtime
 {
+    /** Comparison operators */
     public enum Operator {
         EQ, NE, LE, LT, GE, GT
     }
 
+    /** JSON library interface */
     private JSON json;
 
+    /** Runtime constructor */
     public Runtime(JSON json)
     {
         this.json = json;
     }
 
+    /** Date/Time parsers helper */
     public boolean _try_dt_parsing(String s, DateTimeFormatter[] formats)
     {
         for (DateTimeFormatter format: formats)
@@ -33,36 +40,43 @@ public class Runtime
         return false;
     }
 
+    /** DateTime parsing helper */
     static public final DateTimeFormatter[] DATETIMES = {
         DateTimeFormatter.ISO_INSTANT,
         DateTimeFormatter.ISO_LOCAL_DATE_TIME,
         DateTimeFormatter.ISO_OFFSET_DATE_TIME
     };
 
+    /** Is it a datetime? */
     public boolean is_valid_datetime(String s)
     {
         return _try_dt_parsing(s.replace(" ", "T"), DATETIMES);
     }
 
+    /** Date parsing helper */
     static public final DateTimeFormatter[] DATES = {
         DateTimeFormatter.ISO_LOCAL_DATE,
         DateTimeFormatter.BASIC_ISO_DATE
     };
 
+    /** Is it a date? */
     public boolean is_valid_date(String s)
     {
         return _try_dt_parsing(s, DATES);
     }
 
+    /** Time parsing helper */
     static public final DateTimeFormatter[] TIMES = {
         DateTimeFormatter.ISO_LOCAL_TIME,
         DateTimeFormatter.ISO_OFFSET_TIME
     };
 
+    /** Also try parsing time with regular expressions... */
     static public final Pattern
         TIME1 = Pattern.compile("^([01][0-9]|2[0-3])[0-5][0-9][0-5][0-9](\\.[0-9]*)?$"),
         TIME2 = Pattern.compile("^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]*)?([-+][01][0-9])?$");
 
+    /** Is it a time? */
     public boolean is_valid_time(String s)
     {
         if (s.length() == 0)
@@ -77,6 +91,7 @@ public class Runtime
         return TIME2.matcher(s).find();
     }
 
+    /** Is it a regular expression? */
     public boolean is_valid_regex(String s)
     {
         try {
@@ -88,10 +103,12 @@ public class Runtime
         }
     }
 
+    /** Normalization helpers for Extended Regular Expressions */
     static public final Pattern
         EXREG1 = Pattern.compile("\\($\\w+\\)"),
         EXREG2 = Pattern.compile("\\($\\w+:(.*?)\\)");
 
+    /** Is it an extended regular expression? */
     public boolean is_valid_exreg(String s)
     {
         Matcher r1 = EXREG1.matcher(s);
@@ -101,6 +118,7 @@ public class Runtime
         return is_valid_regex(s);
     }
 
+    /** Is it a URL? */
     public boolean is_valid_url(String s)
     {
         try {
@@ -112,13 +130,16 @@ public class Runtime
         }
     }
 
+    /** Email helper */
     static public final Pattern EMAIL = Pattern.compile("^[-.\\w]+@[-.\\w]+$");
 
+    /** Is it an email? */
     public boolean is_valid_email(String s)
     {
         return EMAIL.matcher(s).find();
     }
 
+    /** It it JSON? */
     public boolean is_valid_json(String s)
     {
         try {
@@ -132,15 +153,19 @@ public class Runtime
         } 
     }
 
+    /** UUID helper */
     static public final Pattern UUID =
         Pattern.compile("^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$");
 
+    /** Is it a UUID? */
     public boolean is_valid_uuid(String s)
     {
         return UUID.matcher(s).find();
     }
 
     // FIXME inefficient, although n log n
+    // FIXME object comparison does not work
+    /** Is it a unique array? */
     public boolean array_is_unique(Object o, Path path, Report rep)
     {
         if (!json.isArray(o))
@@ -169,6 +194,7 @@ public class Runtime
         return true;
     }
 
+    /** Get an int out of a JSON thing */
     public long any_int(Object o)
     {
         if (json.isArray(o))
@@ -180,6 +206,7 @@ public class Runtime
         return json.asLong(o);
     }
 
+    /** Generic constraint check */
     public boolean check_constraint(Object val, Operator op, Object cst, Path path, Report rep)
     {
         JSON.JType

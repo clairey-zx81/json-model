@@ -2,13 +2,21 @@ package json_model;
 
 import java.util.Set;
 
+/**
+ * Root class for generated JSON model checkers.
+ */
 public abstract class ModelChecker
 {
+    /** Whether the model is initialized */
     protected boolean initialized;
+
+    /** JSON Model actual runtime */
     protected Runtime rt;
+
+    /** JSON library interface */
     protected JSON json;
 
-    /* empty constructor, real initialization is in init() */
+    /** Empty constructor, real initialization is in init() */
     public ModelChecker()
     {
         this.initialized = false;
@@ -16,7 +24,7 @@ public abstract class ModelChecker
         this.rt = null;
     }
 
-    /* instance initialization */
+    /** Instance initialization */
     public void init(JSON json)
     {
         this.json = json;
@@ -24,7 +32,7 @@ public abstract class ModelChecker
         this.initialized = true;
     }
 
-    /* instance cleanup */
+    /** Instance cleanup */
     public void free()
     {
         this.initialized = false;
@@ -32,7 +40,7 @@ public abstract class ModelChecker
         this.rt = null;
     }
 
-    /* check this JSON value */
+    /** Check this JSON value */
     public boolean check(Object value, String name, Report rep) throws JSON.Exception
     {
         if (!initialized)
@@ -44,9 +52,9 @@ public abstract class ModelChecker
         return checker.call(value, path, rep);
     }
 
-    /* get checker by name */
+    /** Get checker by name */
     public abstract Checker get(String name);
 
-    /* return available models */
+    /** Get available models */
     public abstract Set<String> models();
 }

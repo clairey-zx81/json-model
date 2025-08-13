@@ -11,9 +11,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
-/* https://github.com/FasterXML/jackson
+/**
+ * Jackson JSON abstraction.
  *
- * compilation needs core and bindings; running needs annotations as well.
+ * @see <a href="https://github.com/FasterXML/jackson">Jackson</a>
  */
 public class Jackson extends JSON<Object>
 {

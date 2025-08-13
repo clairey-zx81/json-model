@@ -1,12 +1,18 @@
 package json_model;
 
-// simplistic linked list
+/** Simplistic JSON path representation as a linked list */
 public class Path
 {
+    /** Previous path segment */
     protected Path previous = null;
+
+    /** Array index, or -1 if not an array */
     protected int index = -1;
+
+    /** Object property, or null if not an object */
     protected String property = null;
 
+    /** Constructor for an array */
     public Path(int index, Path previous)
     {
         this.previous = previous;
@@ -14,6 +20,7 @@ public class Path
         // assert index >= 0
     }
 
+    /** Constructor for an object */
     public Path(String property, Path previous)
     {
         this.previous = previous;
@@ -21,8 +28,10 @@ public class Path
         // assert property != null
     }
 
+    /** Empty constructor */
     public Path() {}
 
+    /** Export as an array */
     public Object[] toArray()
     {
         int size = 0;

@@ -11,7 +11,11 @@ import com.google.gson.ToNumberPolicy;
 import com.google.gson.Strictness;
 import com.google.gson.Gson;
 
-/* https://github.com/google/gson */
+/**
+ * GSON checker abstraction.
+ *
+ * @see <a href="https://github.com/google/gson">GSON</a>
+ */
 public class GSON extends JSON<Object>
 {
     private static Type type = new TypeToken<Object>() {}.getType();  // deep voodoo
