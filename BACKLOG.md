@@ -9,7 +9,7 @@
 - [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
 - [x] pr: docker tuto script fix pull
 - [x] command: add `--jsonl` support
-- [ ] pr: java-backend maven packaging and publication (wip)
+- [x] pr: java-backend maven packaging and publication
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
