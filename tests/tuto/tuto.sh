@@ -5,7 +5,7 @@ jmc --version
 
 echo "# person model v0"
 jmc Person-0 hobbes.json
-jmc -r Person-0 moe.json
+jmc -r Person-0 moe.json elysee.json
 
 echo "# person model v1, constraining strings"
 jmc -r Person-1 hobbes.json moe.json elysee.json
@@ -34,8 +34,8 @@ echo "# playing with constraints"
 jmc -r Tournament musketeers.json 3_musketeers.json
 
 echo "# transforming models"
-jmc Person-3 hobbes.json bastille.json
-jmc -j Person-3 persons.jsonl
+jmc -r Person-3 hobbes.json bastille.json
+jmc -rj Person-3 persons.jsonl
 
 echo "# prefering yaml or js"
 jmc -r Person-0.model.json hobbes.json moe.json

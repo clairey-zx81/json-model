@@ -173,9 +173,9 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 
 ```json
 {
-  "name": "/^\\w+( \\w+)*$/",
+  "name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
   "birth": "$DATE",
-  "?friends": [ "/^\\w+( \\w+)*$/" ]
+  "?friends": [ "/^\\p{L}+([-' ]\\p{L}+)*$/" ]
 }
 ```
 
@@ -196,7 +196,7 @@ with file `Person-2.model.json`:
 {
   "#": "Model for a Person",
   "$": {
-    "Name": "/^\\w+( \\w+)*$/",
+    "Name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
     "Person": {
       "name": "$Name",
       "birth": "$DATE",
@@ -255,7 +255,7 @@ Then value file `cm1.json`:
 
 ```json
 {
-  "name": "CM1",
+  "name": "Cours moyen un",
   "students": [
     { "name": "Susie", "birth": "2016-10-14" },
     { "name": "Calvin", "birth": "2016-03-20" }
@@ -284,7 +284,7 @@ Hence, with file `Loose.model.json`:
 
 ```json
 {
-  "$": { "Name": "/^\\w+( \\w+)*$/" },
+  "$": { "Name": "/^\\p{L}+([-' ]\\p{L}+)*$/" },
   "name": "$Name",
   "birth": "$DATE",
   "?friends": [ "$Name" ],
@@ -366,7 +366,7 @@ Let us consider the model in file `Town.model.json`, which defines a town object
 
 ```json
 {
-  "name": "/^\\w+( \\w+)*$/",
+  "name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
   "pop": 1,
   "coord": { "lat": -1.0, "lon": -1.0 }
 }

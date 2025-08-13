@@ -10,8 +10,8 @@
 - [x] pr: docker tuto script fix pull
 - [x] command: add `--jsonl` support
 - [x] pr: java-backend maven packaging and publication
+- [x] pr: update example re in tuto
 - [ ] design: review `$URI` and other predefs
-- [ ] pr: update example re in tuto
 - [ ] pr: review readme in depth, what is the introductory story?
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
 - [ ] qa: ensure that full validation runs in docker zx80/jmc?

@@ -1,7 +1,7 @@
 {
   "#": "Model for a person",
   "$": {
-    "Name": "/^\\w+( \\w+)*$/",
+    "Name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
     "Person": {
       "name": "$Name",
       "birth": "$DATE",

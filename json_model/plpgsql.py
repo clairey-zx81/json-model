@@ -1,3 +1,4 @@
+import re
 import json
 from .language import Language, Block, Var, PropMap, ConstList
 from .language import JsonExpr, BoolExpr, IntExpr, StrExpr, PathExpr, Expr
@@ -301,8 +302,13 @@ class PLpgSQL(Language):
     def regroup(self, name: str, pattern: str = ".*") -> str:
         return f"({pattern})"
 
+    def _regex(self, regex: str) -> str:
+        # character classes are not supported by Postgres?
+        return re.sub(r"\\p\{L\}", r"\\w", regex)
+
     def sub_re(self, name: str, regex: str, opts: str) -> Block:
         # trigger _usual_ newline sensitive matching which is not the default with pg
+        regex = self._regex(regex)
         if "s" not in opts:
             opts = "n" + opts
         return [
@@ -319,6 +325,7 @@ class PLpgSQL(Language):
         return [ f"{_DECL}{var} TEXT;" ]
 
     def match_re(self, name: str, var: str, regex: str, opts: str) -> BoolExpr:
+        regex = self._regex(regex)
         if "s" not in opts:
             opts = "n" + opts
         return f"regexp_match({var}, {self.esc(regex)}, {self.esc(opts)})"
