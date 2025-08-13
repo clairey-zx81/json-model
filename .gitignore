@@ -13,3 +13,4 @@ node_modules/
 jmc.1
 site/MODELS.md
 site/JMC.md
+local.mk

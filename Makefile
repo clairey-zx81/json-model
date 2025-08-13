@@ -57,11 +57,6 @@ check.tests: dev
 	source venv/bin/activate
 	$(MAKE) -C tests check
 
-.PHONY: publish.js
-publish.js:
-	npm publish --dry-run ./json_model/runtime/js
-	echo npm publish ./json_model/runtime/js
-
 #
 # Docsify Web Site: https://json-model.org/
 #
@@ -89,6 +84,7 @@ jmc.1: json_model/data/jmc.pod dev
 #
 # PUBLICATION
 #
+-include local.mk
 
 .PHONY: build.site
 build.site: site/MODELS.md site/JMC.md
@@ -110,7 +106,7 @@ publish.py: dev
 publish.docker:
 	# $(MAKE) -C docker docker.push
 
-RT.dir  = json_model/runtime
+RT.dir  = ./json_model/runtime
 
 .PHONY: publish.sql
 publish.sql:
@@ -128,8 +124,8 @@ publish.perl:
 
 .PHONY: publish.js
 publish.js:
-	cd $(RT.dir)/js
-	npm publish --access public --tag latest
+	npm publish --dry-run $(RT.dir)/js
+	echo npm publish --access public --tag latest $(RT.dir)/js
 
 .PHONY: publish.java
 publish.java:
