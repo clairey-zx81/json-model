@@ -2,18 +2,9 @@
 
 ## Current Tasks
 
-- [x] pr: add java to docker
-- [x] \*-backend: add `$JSON` predef for all
-- [x] pr: add java to tuto
-- [x] pr: fix java utf8 with docker
-- [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
-- [x] pr: docker tuto script fix pull
-- [x] command: add `--jsonl` support
-- [x] pr: java-backend maven packaging and publication
-- [x] pr: update example re in tuto
+- [ ] pr: sync version number for **all** published parts for _2.0_ release
 - [ ] design: review `$URI` and other predefs
 - [ ] pr: review readme in depth, what is the introductory story?
-- [ ] pr: sync version number for **all** published parts for _2.0_ release
 - [ ] qa: ensure that full validation runs in docker zx80/jmc?
 - [ ] dev: complete publish task in root makefile
 - [ ] pr: tuto add perl and java environment directives? dependencies?
@@ -109,8 +100,8 @@
 - [ ] pr: publish docker image
 - [ ] pr: publish perl package
 - [ ] pr: publish java package
-- [ ] pr: renew domain
 - [ ] pr: check jsonschema-benchmark integration
+- [ ] pr: renew domain
 
 ## To Do
 
@@ -529,3 +520,12 @@
 - [x] java-backend: use package if set
 - [x] sql-backend: handle package as schema name if set
 - [x] java-fe: implement list option
+- [x] pr: add java to docker
+- [x] \*-backend: add `$JSON` predef for all
+- [x] pr: add java to tuto
+- [x] pr: fix java utf8 with docker
+- [x] pl-backend: fix utf8 JSON handling `mv-21/pJSON`
+- [x] pr: docker tuto script fix pull
+- [x] command: add `--jsonl` support
+- [x] pr: java-backend maven packaging and publication
+- [x] pr: update example re in tuto
