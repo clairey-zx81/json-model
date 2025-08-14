@@ -7,17 +7,20 @@
 - [x] java-backend: fix `mv-0a/base-18` unique
 - [x] qa: rerun all pytest checks
 - [x] qa: rerun all source checks
-- [ ] pr: sync version number for **all** published parts for _2.0_ release
-- [ ] design: review `$URI` and other predefs
-- [ ] qa: ensure that full validation runs in docker zx80/jmc
-- [ ] pr: tuto add perl and java environment directives? dependencies?
-- [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
-- [ ] test: some pydantic exports
-- [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
-- [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: write `everything.model.json` for illustration
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
+- [ ] qa: ensure that full validation runs in docker zx80/jmc
+- [ ] pr: sync version number for **all** published parts for _2.0_ release
+- [ ] design: review `$URI` and other predefs
+- [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
+- [ ] design: add predefs for `$UUIDx`…
+- [ ] design: check `$BOOL` vs `$BOOLEAN` support
+- [ ] predefs: implement `$I32 $I64 $U32 $U64`
+- [ ] pr: tuto add perl and java environment directives? dependencies?
+- [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
+- [ ] test: some pydantic exports
+- [ ] pr: submit jsonschema-benchmark java PR
 - [ ] frontends: reject json with duplicated props
 - [ ] pr: howto entry about python dyn code
 - [ ] pr: howto entry about python projects
@@ -29,9 +32,6 @@
 - [ ] api: web interface with caching and security
 - [ ] c-backend: header file for generated code?
 - [ ] pr: add docker compose for postgres testing?
-- [ ] pl-backend: fix reporting
-- [ ] predefs: implement `$I32 $I64 $U32 $U64`
-- [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] xstatic: use threshold limit for cset as well
 - [ ] xstatic: any array, skip empty code
@@ -45,13 +45,14 @@
 - [ ] tests: reorganize tests cases in smaller thematic directories
 - [ ] tests: review allowed exceptions on schemas
 - [ ] model: fix rw issue in `openapi-311-fuzzy`
+- [ ] pl-backend: fix reporting
 - [ ] sql-backend: fix generated code under `--reporting`
-- [ ] design: add predefs for `$UUIDx`…
 - [ ] js-backend: cleanup map and set
 - [ ] js-backend: `let` vs `var` consistency?
 - [ ] doc: document `re2` support for C
 - [ ] design: rewrite reuse path? rather force defs?
 - [ ] tests: with multiple regex engine
+- [ ] tests: with multiple java json libs
 - [ ] use: js/ts type export?
 - [ ] use: py type dataclass/pydantic export?
 - [ ] use: test with corrector? ref? kiva?
@@ -78,8 +79,7 @@
 - [ ] design: add `$URI-REF` or similar? `$PATH`?
 - [ ] c-backend: add reporting to predef failures?
 - [ ] c-backend: generate thread-safe code? option? this currently would require malloc'ed stuff
-- [ ] static: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
-- [ ] command: write a man-page or similar?
+- [ ] backend: what about a specialize IR [Blaze](https://arxiv.org/abs/2503.02770)?
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
@@ -490,6 +490,7 @@
 - [x] docker: add `help` and `run` to docker wrapper
 - [x] pr: review readme for docker
 - [x] python: refactor preproc vs compile vs codegen…
+- [x] command: write a man-page or similar?
 - [x] pl-frontend: expand `--help`
 - [x] pr: add pl to howto
 - [x] pl-backend: check perl module package generation.
