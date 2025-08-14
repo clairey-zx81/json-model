@@ -24,7 +24,7 @@ chmod a+rx ./jmc
 
 :warning: Review the script before executing it!
 
-The wrapper script allows 3 modes:
+The wrapper script allows 4 modes:
 
 - :cherries: **compiler**: execute the `jmc` command inside the current directory:
 
@@ -60,7 +60,8 @@ The wrapper script allows 3 modes:
   Try `-T 1000` to repeat validation _1000_ times on a value and collect average and standard
   deviation µs. Try `--help` to check for available options.
 
-- :shell: **shell**: enjoy a shell with `jmc` and `jsu-*` commands available in the local directory:
+- :shell: **shell**: enjoy a shell with `jmc` and `jsu-*` commands available in the local directory
+  under your id.
 
   ```sh
   ./jmc shell
@@ -68,6 +69,8 @@ The wrapper script allows 3 modes:
   jmc -o model.out model.json
   ./model.out -T 1000 hobbes.json
   ```
+
+- **root**: start a shell in the docker with root permissions.
 
 ## Direct Docker Commands
 
