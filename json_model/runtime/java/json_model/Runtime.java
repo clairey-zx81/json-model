@@ -4,6 +4,8 @@ import java.time.format.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.net.URI;
 import java.net.URL;
 
@@ -18,10 +20,10 @@ public class Runtime
     }
 
     /** JSON library interface */
-    private JSON json;
+    private JSON<Object> json;
 
     /** Runtime constructor */
-    public Runtime(JSON json)
+    public Runtime(JSON<Object> json)
     {
         this.json = json;
     }
@@ -163,8 +165,79 @@ public class Runtime
         return UUID.matcher(s).find();
     }
 
-    // FIXME inefficient, although n log n
-    // FIXME object comparison does not work
+    /** JSON thing total order */
+    int jcmp(Object o1, Object o2)
+    {
+        int t1 = json.type(o1), t2 = json.type(o2);
+        if (t1 != t2)
+            return t2 - t1;
+        // same type, do typed comparison
+        if (t1 == JSON.NULL)
+            return 0;
+        if (t1 == JSON.BOOLEAN)
+            if (json.asBoolean(o1))
+                return json.asBoolean(o2) ? 0 : 1;
+            else
+                return json.asBoolean(o2) ? -1 : 0;
+        if (t1 == JSON.INTEGER) {
+            long i1 = json.asLong(o1), i2 = json.asLong(o2);
+            return i1 < i2 ? -1 : i1 == i2 ? 0 : 1;
+        }
+        if (t1 == JSON.NUMBER) {
+            double d1 = json.asDouble(o1), d2 = json.asDouble(o2);
+            return d1 < d2 ? -1 : d1 == d2 ? 0 : 1;
+        }
+        if (t1 == JSON.STRING) {
+            String s1 = json.asString(o1), s2 = json.asString(o2);
+            return s1.compareTo(s2);
+        }
+        if (t1 == JSON.ARRAY) {
+            int len1 = json.arrayLength(o1), len2 = json.arrayLength(o2);
+            if (len1 != len2)
+                return len2 - len1;
+            // same length, compare items
+            for (int i = 0; i < len1 ; i++) {
+                int cmp = jcmp(json.arrayItem(o1, i), json.arrayItem(o2, i));
+                if (cmp != 0)
+                    return cmp;
+            }
+            return 0;
+        }
+        // both objects
+        if (t1 == JSON.OBJECT) {
+            int len1 = json.objectSize(o1), len2 = json.objectSize(o2);
+            if (len1 != len2)
+                return len2 - len1;
+            // same size
+            String[] p1 = new String[len1], p2 = new String[len1];
+            Iterator<String>
+                i1 = json.objectIterator(o1),
+                i2 = json.objectIterator(o2);
+            for (int i = 0; i < len1; i++) {
+                p1[i] = i1.next();
+                p2[i] = i2.next();
+            }
+            Arrays.sort(p1);
+            Arrays.sort(p2);
+            // lexicographic property name comparison
+            for (int i = 0; i < len1; i++) {
+                int cmp = p1[i].compareTo(p2[i]);
+                if (cmp != 0)
+                    return cmp;
+            }
+            // same properties, look at first differing values
+            for (int i = 0; i < len1; i++) {
+                Object
+                    v1 = json.objectValue(o1, p1[i]),
+                    v2 = json.objectValue(o2, p2[i]);
+                int cmp = jcmp(v1, v2);
+                if (cmp != 0)
+                    return cmp;
+            }
+        }
+        return 0;
+    }
+
     /** Is it a unique array? */
     public boolean array_is_unique(Object o, Path path, Report rep)
     {
@@ -174,23 +247,26 @@ public class Runtime
         if (length < 2)
             return true;
 
-        // extract array of strings
-        String[] array = new String[length];
-        try {
-            for (int i = 0; i < length ; i++)
-                array[i] = json.toJSON(json.arrayItem(o, i));
-        }
-        catch (JSON.Exception e) {
-            return false;
-        }
+        // extract array of things
+        Object[] array = new Object[length];
+        for (int i = 0; i < length; i++)
+            array[i] = json.arrayItem(o, i);
 
         // sort
-        Arrays.sort(array);
+        Arrays.sort(
+            array,
+            new Comparator<Object>() {
+                public int compare(Object o1, Object o2) {
+                    return jcmp(o1, o2);
+                }
+            }
+        );
 
         // equal neighbors?
         for (int i = 0; i < length - 1; i++)
-            if (array[i].equals(array[i+1]))
+            if (this.jcmp(array[i], array[i+1]) == 0)
                 return false;
+
         return true;
     }
 
@@ -209,12 +285,10 @@ public class Runtime
     /** Generic constraint check */
     public boolean check_constraint(Object val, Operator op, Object cst, Path path, Report rep)
     {
-        JSON.JType
-            tc = json.type(cst),
-            tv = json.type(val);
+        int tc = json.type(cst), tv = json.type(val);
 
         switch (tc) {
-            case JSON.JType.INTEGER:
+            case JSON.INTEGER:
                 long vi = any_int(val), ci = json.asLong(cst);
                 switch (op) {
                     case Operator.EQ:
@@ -232,7 +306,7 @@ public class Runtime
                     default:
                         throw new Error("unexpected comparison operator " + op);
                 }
-            case JSON.JType.NUMBER:
+            case JSON.NUMBER:
                 double cd = json.asNumber(cst), vd = json.asNumber(val);
                 switch (op) {
                     case Operator.EQ:
@@ -250,7 +324,7 @@ public class Runtime
                     default:
                         throw new Error("unexpected comparison operator " + op);
                 }
-            case JSON.JType.STRING:
+            case JSON.STRING:
                 String cs = json.asString(cst), vs = json.asString(val);
                 int cmp = vs.compareTo(cs);
                 switch (op) {

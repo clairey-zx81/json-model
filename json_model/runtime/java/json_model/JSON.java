@@ -14,15 +14,13 @@ public abstract class JSON<T>
 {
 
     /** All JSON types */
-    enum JType {
-        NULL,
-        BOOLEAN,
-        INTEGER,
-        NUMBER,
-        STRING,
-        ARRAY,
-        OBJECT
-    }
+    static public final int NULL = 1;
+    static public final int BOOLEAN = 2;
+    static public final int INTEGER = 3;
+    static public final int NUMBER = 4;
+    static public final int STRING = 5;
+    static public final int ARRAY = 6;
+    static public final int OBJECT = 7;
 
     /** Internal exception for JSON errors */
     public static class Exception extends java.lang.Exception
@@ -144,22 +142,22 @@ public abstract class JSON<T>
     public abstract Iterator<String> objectIterator(T o);
 
     /** Get JSON thing type */
-    public JType type(T o)
+    public int type(T o)
     {
         if (isNull(o))
-            return JType.NULL;
+            return NULL;
         if (isBoolean(o))
-            return JType.BOOLEAN;
+            return BOOLEAN;
         if (isInteger(o))
-            return JType.INTEGER;
+            return INTEGER;
         if (isDouble(o))
-            return JType.NUMBER;
+            return NUMBER;
         if (isString(o))
-            return JType.STRING;
+            return STRING;
         if (isArray(o))
-            return JType.ARRAY;
+            return ARRAY;
         if (isObject(o))
-            return JType.OBJECT;
+            return OBJECT;
         throw new Error("unexpected object: " + o);
     }
 }
