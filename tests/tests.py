@@ -812,6 +812,8 @@ def json_schema_test_suite(version, fmodel):
     checker = model_checker_from_url(fmodel, auto=True)
     # run all tests
     path = pathlib.Path(f"./JSON-Schema-Test-Suite/tests/{version}")
+    if not path.is_dir():
+        pytest.skip("missing test suite directory")
     for jstest in path.glob("*.json"):
         log.info(f"considering file {jstest}")
         with open(jstest) as f:
