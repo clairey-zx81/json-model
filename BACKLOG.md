@@ -5,9 +5,10 @@
 - [x] dev: complete publish task in root makefile
 - [x] pr: review readme, what is the introductory story?
 - [x] java-backend: fix `mv-0a/base-18` unique
+- [x] qa: rerun all pytest checks
+- [x] qa: rerun all source checks
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
 - [ ] design: review `$URI` and other predefs
-- [ ] qa: rerun all checks
 - [ ] qa: ensure that full validation runs in docker zx80/jmc
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)

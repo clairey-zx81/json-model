@@ -627,7 +627,7 @@ def _structurally_distinct_models(lm: list[ModelType], defs: Symbols, mpath: Mod
 def json_loads(j: str, *, allow_duplicates: bool = False) -> Jsonable:
     """Load JSON, possibly rejecting duplicated keys."""
     if allow_duplicates:
-        dict_nodups = None
+        dict_nodups = None  # type: ignore
     else:
         def dict_nodups(pairs):
             d = {}

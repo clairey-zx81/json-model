@@ -135,7 +135,7 @@ class Java(Language):
     def predef(self, var: Var, name: str, path: Var, is_str: bool = False) -> BoolExpr:
         isstr, val = "", var
         if not is_str:
-            isstr = self.is_a(var, str) + " && "
+            isstr = self.is_a(var, str) + " && "  # type: ignore
             val = f"json.asString({var})"
         if name == "$UUID":
             return f"{isstr}rt.is_valid_uuid({val})"
@@ -400,7 +400,7 @@ class Java(Language):
     def def_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"Set<Object> {name}_set;" ]
 
-    def del_cset(self, name: str, constants: ConstList) -> BoolExpr:
+    def del_cset(self, name: str, constants: ConstList) -> Block:
         return [ f"{name}_set = null;" ]
 
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:

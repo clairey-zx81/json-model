@@ -13,13 +13,13 @@ def ml2type(models: list[ModelType]) -> str|None:
     lpyd = [m2type(m) for m in models]
     if all(map(lambda i: i is not None, lpyd)):
         # all got something
-        if any(map(lambda i: " = " in i, lpyd)):
+        if any(map(lambda i: " = " in i, lpyd)):  # type: ignore
             # cannot combine constants,
             # let us retry with simpler expectations
             lpyd = [m2type(m, False) for m in models]
             # merge
             lpyd = set(lpyd)
-        return "|".join(lpyd)
+        return "|".join(lpyd)  # type: ignore
     else:
         return "Any"
 
@@ -91,7 +91,7 @@ def m2type(model: ModelType, advanced: bool = True) -> str|None:
             else:
                 lt = [m2type(i) for i in lm]
                 if all(map(lambda i: i is not None, lt)):
-                    return f"tuple[{', '.join(lt)}]"
+                    return f"tuple[{', '.join(lt)}]"  # type: ignore
                 else:
                     return "list[Any]"
             return None
@@ -126,6 +126,7 @@ def m2py(name: str, model: ModelType) -> Block:
         return [f"type {name} = Any"]
     if "|" in model  or "^" in model:
         lm = model["|" if "|" in model else "^"]
+        assert isinstance(lm, list)
         return [f"type {name} = {ml2type(lm)}  # alt"]
     if "&" in model:
         return [f"type {name} = Any  # &"]

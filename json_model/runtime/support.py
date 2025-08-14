@@ -213,7 +213,7 @@ def is_valid_json(value: Jsonable, path: Path, rep: Report = None) -> bool:
         try:
             json.loads(value)
             return True
-        except Exception as e:
+        except Exception:
             _ = rep is None or rep.append(("invalid json string", path))
             return False
     _ = rep is None or rep.append((f"incompatible type for json: {_tname(value)}", path))

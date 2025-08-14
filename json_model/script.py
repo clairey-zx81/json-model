@@ -693,7 +693,7 @@ def jmc_script():
                             nerrors += 1
 
                 else:  # direct value testing
-                    if not _process(checker, args.name, value, fn, args.expect, output):
+                    if not _process(checker, args.name, value, fn, args.expect, output):  # type: ignore
                         nerrors += 1
             except Exception as e:
                 nerrors += 1

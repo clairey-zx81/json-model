@@ -552,9 +552,9 @@ class JsonModel:
             if isinstance(m, list):
                 return list(filter(lambda i: not isinstance(i, str) or not i.startswith("#"), m))
             elif isinstance(m, dict):
-                for p in list(m):
-                    if p != "#" and p.startswith("#"):
-                        del m[p]
+                for prop in list(m):
+                    if prop != "#" and prop.startswith("#"):
+                        del m[prop]
                 return m
             else:
                 return m
