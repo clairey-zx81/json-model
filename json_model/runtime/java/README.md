@@ -9,3 +9,8 @@
 
 - [GSON](https://github.com/google/gson).
 - [Jackson](https://github.com/FasterXML/jackson).
+
+## TODO or not
+
+- Add more JSON implementations?
+- Use more templating?
