@@ -37,7 +37,8 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 
 # setup python environment, native pip complains about direct installations otherwise
 RUN python -m venv venv ; \
-    venv/bin/pip install -U pip
+    venv/bin/pip install -U pip ; \
+    venv/bin/pip install pytest pytest-xdist[psutils] filelock
 ENV PATH=/app/venv/bin:$PATH
 
 # nodejs >= 20.0.0
@@ -90,9 +91,14 @@ RUN make -C $java jar
 RUN echo "# reset default prompt\nexport PS1='zx80/jmc> '" >> /etc/bash.bashrc
 RUN echo "syntax on\nset expandtab\nset tabstop=4\nset shiftwidth=4\nset ruler" >> /etc/vim/vimrc.local
 
+# fix perms to allow any uid to read/write
+RUN find /app -type d -print | xargs chmod a+rwx
+RUN find /app -type f -print | xargs chmod a+rw
+
 # setup docker entry point and utils
 RUN mkdir /app/workspace
 WORKDIR /app/workspace
+ENV TMPDIR=/tmp
 ENV JSON_MODEL_CACHEDIR=/tmp
 ENV PERLLIB=/app/json-model/json_model/runtime/pl
 ENTRYPOINT ["/app/venv/bin/jmc"]
