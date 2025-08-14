@@ -2,9 +2,9 @@
 
 ## Current Tasks
 
+- [x] pr: review readme, what is the introductory story?
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
 - [ ] design: review `$URI` and other predefs
-- [ ] pr: review readme in depth, what is the introductory story?
 - [ ] qa: ensure that full validation runs in docker zx80/jmc?
 - [ ] dev: complete publish task in root makefile
 - [ ] pr: tuto add perl and java environment directives? dependencies?

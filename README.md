@@ -1,13 +1,16 @@
 # JSON Model
 
 JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.
-Version 2 is work-in-progress design, compiler implementation and tests.
 
-This implementation is dedicated to the _Public Domain_.
+This reference implementation allows to generate code in Python, C, JavaScript,
+PL/pgSQL, Perl and Java to check a JSON value matches agains a JSON model,
+and to export models to JSON Schema or Pydantic.
+
+It is dedicated to the _Public Domain_.
 
 ## JMC Command
 
-JSON Model proof-of-concept optimizing compiler can be installed as a
+JSON Model optimizing compiler (`jmc`) can be installed as a
 [Python package](https://pypi.org/project/json-model-compiler/) or a
 [Docker image](https://hub.docker.com/r/zx80/jmc), see
 [Installation HOWTO](HOWTO.md#installing-json-model-compiler).
@@ -16,12 +19,11 @@ Command `jmc` options include:
 
 - main operations (default depends on other options, final guess is preprocess):
   - `-P`: preprocess model.
-  - `-E`: export model to (Pydantic or JSON Schema version draft 2020-12)
-  - `-C`: compile to Python, C, JS, PL/pgSQL, Perl.
+  - `-C`: compile to Python, C, JS, PL/pgSQL, Perl, Java.
+  - `-E`: export to JSON Schema version draft 2020-12 or Pydantic.
 - `-O`: optimize model: constant propagation, partial evaluation, xor to or conversion, flattening…
   (this is the default, `-nO` to disable)
 - `-o output`: file output instead of standard
-- `-F format`: select `json` or `yaml` for output
 - …
 
 For instance, let's consider a JSON model in file `person.model.json`:
@@ -34,27 +36,6 @@ For instance, let's consider a JSON model in file `person.model.json`:
 }
 ```
 
-- to _export_ this model as a JSON schema in the YaML format:
-
-  ```sh
-  jmc -E -F yaml person.model.json
-  ```
-  ```yaml
-  description: A person with a birth date
-  type: object
-  properties:
-    name:
-      type: string
-      pattern: (?i)^[a-z]+$
-    born:
-      type: string
-      format: date
-  required:
-  - name
-  - born
-  additionalProperties: false
-  ```
-
 - to check directly sample JSON values against it (with the Python backend):
 
   ```sh
@@ -65,7 +46,7 @@ For instance, let's consider a JSON model in file `person.model.json`:
   oops.json: FAIL (.: not an expected object [.]; .: missing mandatory prop <born> [.])
   ```
 
-- to actually compile an executable for checking a model (with the C backend),
+- to compile an executable for checking a model (with the C backend),
   and use it for validating values:
 
   ```sh
@@ -87,6 +68,27 @@ For instance, let's consider a JSON model in file `person.model.json`:
   hobbes.json.[0] nop PASS 0.056 ± 0.423 µs/check (0.174)
   hobbes.json.[0] rep PASS 0.071 ± 0.443 µs/check (0.174)
   hobbes.json: PASS
+  ```
+
+- to _export_ this model as a JSON schema in the YaML format:
+
+  ```sh
+  jmc -E -F yaml person.model.json
+  ```
+  ```yaml
+  description: A person with a birth date
+  type: object
+  properties:
+    name:
+      type: string
+      pattern: (?i)^[a-z]+$
+    born:
+      type: string
+      format: date
+  required:
+  - name
+  - born
+  additionalProperties: false
   ```
 
 ## JSON Model Python API
@@ -122,12 +124,13 @@ print("reasons:", reasons)
 ## JSON Model Validation Performance
 
 Preliminary performance tests below compare validation times for a _large_ 500 KB JSON OpenAPI
-description using JSON Model in C, JS and Python and JSON Schema Blaze 9.6.1 implementation,
-with an average collected on one thousand runs, in _fast_ (no reporting) mode, including
-format validations, on a laptop:
+description using JSON Model compiled to C, JS, Java, Python, Perl and
+JSON Schema Blaze 9.6.1 implementation, with an average collected on one thousand runs,
+in _fast_ (no reporting) mode, including format validations, on a laptop:
 
 - JSON Model C: _204_ µs/check (about ⅕ ms)
 - JSON Model JS: _791_ µs/check (under 1 ms)
+- JSON Model Java: _1252_ µs/check (over 1 ms)
 - JSON Schema C++ Blaze: _1252_ µs/check (over 1 ms)
 - JSON Model Python: _4,433_ µs/check (over 4 ms)
 - JSON Model Perl: _24,275_ µs/check (about 25 ms)
@@ -165,7 +168,9 @@ JSON Model design is presented in research papers and reports:
 
 ## JSON Model Distribution
 
-- [Docker Image](https://hub.docker.com/r/zx80/jmc)
 - [PYPI Package](https://pypi.org/project/json-model-compiler/)
+- [Docker Image](https://hub.docker.com/r/zx80/jmc)
 - [JS Runtime](https://www.npmjs.com/package/json_model_runtime)
 - [Postgres Runtime](https://pgxn.org/dist/json_model/)
+- [Perl Runtime](https://metacpan.org/pod/JSON::JsonModel)
+- [Java Runtime](https://central.sonatype.com/artifact/org.json-model/json-model)
