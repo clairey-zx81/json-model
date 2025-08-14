@@ -12,3 +12,13 @@ See `publish.*` targets in `Makefile`.
 - Postgres extension on [PGXN](https://pgxn.org/user/fabien)
 - Docker image on [Docker](https://hub.docker.com/u/zx80)
 - Website on [CRI Web](https://www.cri.minesparis.psl.eu/)
+
+## Hardcoded Versions
+
+- [pyproject](./pyproject.toml)
+- [pom](./json_model/runtime/java/pom.xml)
+- [pm](./json_model/runtime/pl/JSON/JsonModel.pm) (twice)
+- [pg](./json_model/META.json) (twice)
+- [js](./json_model/runtime/js/package.json)
+- docker tag is extracted from `jmc`
+- git tag?
