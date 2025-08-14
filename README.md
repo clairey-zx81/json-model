@@ -3,7 +3,7 @@
 JSON Model is a compact and intuitive JSON syntax to describe JSON data structures.
 
 This reference implementation allows to generate code in Python, C, JavaScript,
-PL/pgSQL, Perl and Java to check a JSON value matches agains a JSON model,
+PL/pgSQL, Perl and Java for checking a JSON value against a JSON model,
 and to export models to JSON Schema or Pydantic.
 
 It is dedicated to the _Public Domain_.
