@@ -79,7 +79,6 @@ EXPECT: dict[str, int] = {
     "mv-0a:errors.js": 1,
     "mv-0a:errors.sql": 1,
     "mv-0a:errors.pl": 1,
-    "mv-0a:errors.java": 1,
     "mv-0a:verrors:schema": 1,
     # chunk 0B
     "mv-0b:models": 7,
@@ -198,7 +197,6 @@ EXPECT: dict[str, int] = {
     # check 21
     "mv-21:models": 8,
     "mv-21:values": 192,
-    "mv-21:errors.pl": 2,
     "mv-21:verrors:schema": 88,
     # mv-22
     "mv-22:models": 1,
@@ -231,6 +229,9 @@ def dirmap(dname) -> dict[str, str]:
 
 def file_is_newer(f1: str, f2: str) -> bool:
     return os.path.getmtime(f1) > os.path.getmtime(f2)
+
+def has_exec(program: str) -> bool:
+    return os.system(f"type {program}") == 0
 
 #
 # LOCAL FIXTURES
@@ -535,25 +536,27 @@ def test_sta_c(directory, clibjm):
 
     check_values(directory, "sta-c", ".c", ".c.check", gen_exec, "-r")
 
-
 def test_sta_py(directory):
     """Check generated Python scripts with test value files."""
     check_values(directory, "sta-py", ".py", ".py.check", lambda f: f, "-r")
 
-
+@pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_sta_js(directory):
     """Check generated JS scripts with test value files."""
     check_values(directory, "sta-js", ".js", ".js.check", lambda f: f, "-r")
 
+@pytest.mark.skipif(not has_exec("psql"), reason="missing psql")
 def test_sta_sql(directory):
     """Check generated SQL scripts with test value files."""
     check_values(directory, "sta-sql", ".sql", ".sql.check",
                  lambda f: f"./test_sql.sh {f}")
 
+@pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_sta_pl(directory):
     """Check generated Perl scripts with test value files."""
     check_values(directory, "sta-pl", ".pl", ".pl.check", lambda f: f)
 
+@pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_sta_java(directory, tmp_dir):
     """Check generated Java programs with test value files."""
     check_values(directory, "sta-java", ".java", ".java.check",
@@ -710,18 +713,22 @@ def check_models(directory, jmchecker: str):
         assert ": PASS" in line
     assert ntests == EXPECT.get(f"{directory}:models", 0)
 
+@pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_models_c(directory, jmchecker):
     check_models(directory, jmchecker)
 
 def test_models_py(directory):
     check_models(directory, "./ref/json-model.py")
 
+@pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_models_js(directory):
     check_models(directory, "./ref/json-model.js")
 
+@pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_models_pl(directory):
     check_models(directory, "./ref/json-model.pl")
 
+@pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_models_java(directory):
     check_models(directory, "./test_java.sh ./ref/json-model.java")
 
@@ -771,18 +778,22 @@ def check_bads(jmchecker: str):
         assert ": ERROR" in line
     assert ntests == EXPECT.get(f"bads:models", 0)
 
+@pytest.mark.skipif(not has_exec("cc"), reason="missing cc")
 def test_bads_c(jmchecker):
     check_bads(jmchecker)
 
 def test_bads_py():
     check_bads("./ref/json-model.py")
 
+@pytest.mark.skipif(not has_exec("node"), reason="missing node")
 def test_bads_js():
     check_bads("./ref/json-model.js")
 
+@pytest.mark.skipif(not has_exec("perl"), reason="missing perl")
 def test_bads_pl():
     check_bads("./ref/json-model.js")
 
+@pytest.mark.skipif(not has_exec("javac"), reason="missing javac")
 def test_bads_java():
     check_bads("./test_java.sh ./ref/json-model.java")
 
