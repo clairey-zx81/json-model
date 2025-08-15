@@ -9,7 +9,7 @@
 - [x] qa: rerun all source checks
 - [x] qa: ensure that full validation runs in docker zx80/jmc
 - [x] src: restructure runtime per language
-- [ ] pr: write `everything.model.json` for illustration
+- [ ] pr: write `everything.model.json` for illustration (wip)
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
