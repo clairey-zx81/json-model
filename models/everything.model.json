@@ -1,7 +1,14 @@
 {
-  "#": "A model to illustrate design features",
-  "#.meta": "use ~ to provide the meta model for this model",
+  "#": "A model to illustrate most design features",
+  "#.~": "use ~ to provide the meta model for this model",
   "~": "https://json-model.org/models/json-model",
+  "$": {
+    "#": "a few definitions",
+    "A": "_A",
+    "B": "$A",
+    "ab": { "a": 0, "b": 0 },
+    "cd": { "c": 0, "d": 0 }
+  },
   "?predefs": {
     "#": "predefined models",
     "#.str": "constrainted strings",
@@ -90,7 +97,8 @@
     "?a0": [ 0 ],
     "?a1": [ "" ],
     "?a2": [ "$DATE" ],
-    "?a3": [ "# commented array", true ]
+    "?a3": [ "# commented array", true ],
+    "?a4": [ "$ANY" ]
   },
   "?tuple": {
     "#": "tuple items have a type",
@@ -103,23 +111,24 @@
   "?object": {
     "#": "object map property names to values",
     "#.0": "empty object",
-    "?e0": {},
+    "?o0": {},
     "#.1": "mandatory properties",
-    "?e1": { "a": 0, "_b": 0, "!c": 0 },
+    "?o1": { "a": 0, "_b": 0, "!c": 0 },
     "#.2": "optional properties: constants, regex, reference, whatever",
-    "?e2": { "?a": 0 },
-    "?e3": { "/^a/": 0 },
-    "?e4": { "$DATE": 0 },
-    "?e5": { "": "0" },
+    "?o2": { "?a": 0 },
+    "?o3": { "/^a/": 0 },
+    "?o4": { "$DATE": "" },
+    "?o5": { "": 0 },
     "#.x": "any object",
-    "?e6": { "": "$ANY" }
+    "?o6": { "": "$ANY" }
   },
   "#.cons": "constructed models",
   "?enum": {
     "#": "an enumeration only contains constants",
     "?e0": { "|": [ "=true", "=false" ] },
     "?e1": { "|": [ "=200", "=201", "=204" ] },
-    "?e2": { "|": [ "_Susie", "_Calvin", "_Hobbes" ] }
+    "?e2": { "|": [ "_Susie", "_Calvin", "_Hobbes" ] },
+    "?e3": { "|": [ "_Susie", "=42", "=true", "=null" ] }
   },
   "?or": {
     "#": "soft alternative, first match",
@@ -130,8 +139,10 @@
   "?xor": {
     "#": "hard alternative, only one must match",
     "?x0": { "^": [ true, -1 ] },
+    "?x1": { "^": [ "/^a/", "/z$/" ] },
     "#.not": "not this model",
-    "?x1": { "^": [ "$ANY", 0 ] }
+    "?x2": { "^": [ -1, 0 ] },
+    "?x3": { "^": [ "$ANY", 0 ] }
   },
   "?and": {
     "#": "conjunction, all must match",
@@ -177,10 +188,5 @@
     "?css2": { "@": "", ">": "A", "<": "Z" },
     "#.!": "unique applies to arrays only",
     "?cua0": { "@": [ 0 ], "!": true }
-  },
-  "#.definitions": "use the root $ property to name models and use them with a $-reference",
-  "$": {
-    "a": "_A",
-    "b": "$a"
   }
 }
