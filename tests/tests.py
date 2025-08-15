@@ -283,7 +283,7 @@ def clibjm(tmp_dir):
     jm_lib = f"{tmp_dir}/json-model.o"
     jm_main = f"{tmp_dir}/main.o"
 
-    src_dir = "../json_model/runtime"
+    src_dir = "../json_model/runtime/c"
     src_lib = f"{src_dir}/json-model.c"
     src_main = f"{src_dir}/main.c"
 

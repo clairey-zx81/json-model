@@ -196,8 +196,8 @@ def clang_compile(c_code: str, args):
 
     # source files
     rt_dir = files("json_model.runtime")
-    lib = rt_dir.joinpath("json-model.c")
-    main = rt_dir.joinpath("main.c")
+    lib = rt_dir.joinpath("c/json-model.c")
+    main = rt_dir.joinpath("c/main.c")
 
     # compiler setings
     env = os.environ.get
@@ -205,11 +205,11 @@ def clang_compile(c_code: str, args):
     cflags = args.cflags or env("CFLAGS", DEFAULT_CFLAGS)
     d_engine = "-DREGEX_ENGINE_PCRE2" if args.regex_engine == "pcre2" else "-DREGEX_ENGINE_RE2"
     cppflags = args.cppflags or \
-        f"-I{rt_dir} -I/usr/local/linclude -DCHECK_FUNCTION_NAME=check_model {d_engine}"
+        f"-I{rt_dir}/c -I/usr/local/linclude -DCHECK_FUNCTION_NAME=check_model {d_engine}"
     if args.define:
         cppflags = " ".join(f"-D{d}" for d in args.define) + " " + cppflags
     if args.include:
-        cppflags = " ".join(f"-I {i}" for i in args.include) + " " + cppflags
+        cppflags = " ".join(f"-I{i}" for i in args.include) + " " + cppflags
     ldflags = args.ldflags or \
         (DEFAULT_LDFLAGS_PCRE2 if args.regex_engine == "pcre2" else DEFAULT_LDFLAGS_CRE2)
     if args.library:

@@ -2,10 +2,14 @@
 
 ## CLOC
 
-- Compiler: 5400 py-locs, including 850 for the 3 code generators (C, Python and JavaScript)
-- C runtime: 1250 c-locs
-- Python runtime: 375 py-locs
-- JS runtime: 350 js-locs
+- Compiler (including 6 code generators): 6900 py-locs
+- Runtimes
+  - Python: 430 py-locs
+  - C: 1500 c-locs
+  - JS: 430 js-locs
+  - Perl: 690 pl-locs
+  - PL/pgSQL: 230 sql-locs
+  - Java: 1200 java-locs
 
 ## Files
 
@@ -15,6 +19,9 @@
   - [python](./python.py) Python code generator
   - [clang](./clang.py) C code generator
   - [javascript](./javascript.py) JS code generator
+  - [plpgsql](./plpgsql.py) PL/pgSQL code generator
+  - [perl](./perl.py) Perl code generator
+  - [java](./java.py) Java code generator
 - [resolver](./resolver.py)
   [url_cache](./url_cache.py) URL management
 - [script](./script.py) frontend
@@ -27,6 +34,4 @@
   [recurse](./recurse.py)
   various utilities
 - [data/](./data/) partial source code helpers for code generation
-- [runtime/](./runtime/) C and Python runtimes
-- [../js_runtime/](../js_runtime/) JS runtime as a npm module
-
+- [runtime/](./runtime/) C, Python, JavaScript, Perl, PL/pgSQL and Java runtimes

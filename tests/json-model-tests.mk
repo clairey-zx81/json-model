@@ -123,14 +123,19 @@ schema: $(F.EO)
 %.schema.json: %.model.json
 	$(JMC.cmd) -EO -ns ./$< > $@
 
+#
+# C Backend
+#
 # regular expression library for C generated code
 RELIB    = re2
 
 %.c: %.model.json
 	$(JMC.cmd) -re $(RELIB) -o $@ ./$<
 
+RT.c    = ../../json_model/runtime/c
+
 CC        = gcc
-CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I../../json_model/runtime
+CPPFLAGS  = -DCHECK_FUNCTION_NAME=check_model -I$(RT.c)
 CFLAGS    = -Wall -Wno-address -Wno-c23-extensions -Wno-unused-variable -Wno-unused-function -Ofast
 
 ifeq ($(RELIB), pcre2)
@@ -141,13 +146,10 @@ CPPFLAGS  += -I/usr/local/include -DREGEX_ENGINE_RE2
 LDFLAGS   = -L/usr/local/lib json-model.o -ljansson -lcre2 -lpthread -lre2 main.o -lm
 endif
 
-#
-# C Backend
-#
-json-model.o: ../../json_model/runtime/json-model.c
+json-model.o: $(RT.c)/json-model.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
-main.o: ../../json_model/runtime/main.c
+main.o: $(RT.c)/main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ -c $<
 
 $(F.out): json-model.o main.o
