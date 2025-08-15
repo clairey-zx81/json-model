@@ -13,6 +13,7 @@
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
+- [ ] command: add cache management options, eg cleaning, ignore…
 - [ ] design: review `$URI` and other predefs
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] design: add predefs for `$UUIDx`…
