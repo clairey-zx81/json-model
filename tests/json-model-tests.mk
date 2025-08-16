@@ -159,7 +159,7 @@ $(F.out): json-model.o main.o
 %.out: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< $(LDFLAGS) -o $@
 
-%.c.check: %.out
+%.c.check: %.out %.values.json
 	shopt -s nullglob
 	set -o pipefail
 	$< -r $*.*.{true,false}.json | sort > $@
@@ -174,7 +174,7 @@ $(F.out): json-model.o main.o
 	$(JMC.cmd) -v -o $@ ./$<
 	chmod a+rx $@
 
-%.py.check: %.py
+%.py.check: %.py %.values.json
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
@@ -189,7 +189,7 @@ $(F.out): json-model.o main.o
 	$(JMC.cmd) -v -o $@ $<
 	chmod a+rx $@
 
-%.js.check: %.js
+%.js.check: %.js %.values.json
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@

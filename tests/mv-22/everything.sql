@@ -396,7 +396,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_0 := JSONB_ARRAY_LENGTH(val);
-    res := ival_0 = 10;
+    res := ival_0 = 3;
   END IF;
   RETURN res;
 END;
@@ -426,7 +426,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_1 := JSONB_ARRAY_LENGTH(val);
-    res := ival_1 <> 10 AND ival_1 <= 15 AND ival_1 >= 5;
+    res := ival_1 <> 4 AND ival_1 <= 5 AND ival_1 >= 2;
   END IF;
   RETURN res;
 END;
@@ -456,7 +456,7 @@ BEGIN
   END IF;
   IF res THEN
     ival_2 := JSONB_ARRAY_LENGTH(val);
-    res := ival_2 <= 14 AND ival_2 >= 6;
+    res := ival_2 <= 4 AND ival_2 >= 3;
   END IF;
   RETURN res;
 END;
@@ -486,7 +486,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   IF res THEN
     ival_3 := (val)::INT8;
-    res := ival_3 <> 10 AND ival_3 <= 15 AND ival_3 >= 5;
+    res := ival_3 <> 10 AND ival_3 <= 12 AND ival_3 >= 8;
   END IF;
   RETURN res;
 END;
@@ -504,7 +504,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
   IF res THEN
     ival_4 := (val)::INT8;
-    res := ival_4 <= 14 AND ival_4 >= 6;
+    res := ival_4 <= 9 AND ival_4 >= 8;
   END IF;
   RETURN res;
 END;
@@ -540,7 +540,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   IF res THEN
     fval_1 := (val)::FLOAT8;
-    res := fval_1 <> 10 AND fval_1 <= 15 AND fval_1 >= 5;
+    res := fval_1 <> 10 AND fval_1 <= 12 AND fval_1 >= 8;
   END IF;
   RETURN res;
 END;
@@ -558,7 +558,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   IF res THEN
     fval_2 := (val)::FLOAT8;
-    res := fval_2 < 15 AND fval_2 > 5;
+    res := fval_2 < 10 AND fval_2 > 7;
   END IF;
   RETURN res;
 END;
@@ -567,22 +567,11 @@ $$ LANGUAGE PLpgSQL;
 -- object .constraints.cio0.'@'
 CREATE OR REPLACE FUNCTION _jm_obj_7(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .constraints.cio0.'@'.''
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
+  -- accept any object
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -599,7 +588,7 @@ BEGIN
   res := _jm_obj_7(val, path, rep);
   IF res THEN
     ival_5 := jm_object_size(val);
-    res := ival_5 = 10;
+    res := ival_5 = 2;
   END IF;
   RETURN res;
 END;
@@ -608,22 +597,11 @@ $$ LANGUAGE PLpgSQL;
 -- object .constraints.cio1.'@'
 CREATE OR REPLACE FUNCTION _jm_obj_8(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .constraints.cio1.'@'.''
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
+  -- accept any object
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -640,7 +618,7 @@ BEGIN
   res := _jm_obj_8(val, path, rep);
   IF res THEN
     ival_6 := jm_object_size(val);
-    res := ival_6 <> 10 AND ival_6 <= 15 AND ival_6 >= 5;
+    res := ival_6 <> 2 AND ival_6 <= 3 AND ival_6 >= 1;
   END IF;
   RETURN res;
 END;
@@ -649,22 +627,11 @@ $$ LANGUAGE PLpgSQL;
 -- object .constraints.cio2.'@'
 CREATE OR REPLACE FUNCTION _jm_obj_9(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-  prop TEXT;
-  pval JSONB;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
   END IF;
-  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
-    -- handle other props
-    -- .constraints.cio2.'@'.''
-    res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
-    IF NOT res THEN
-      RETURN FALSE;
-    END IF;
-  END LOOP;
+  -- accept any object
   RETURN TRUE;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -681,7 +648,7 @@ BEGIN
   res := _jm_obj_9(val, path, rep);
   IF res THEN
     ival_7 := jm_object_size(val);
-    res := ival_7 <= 14 AND ival_7 >= 6;
+    res := ival_7 <= 4 AND ival_7 >= 3;
   END IF;
   RETURN res;
 END;
@@ -717,7 +684,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
     ival_9 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
-    res := ival_9 <> 10 AND ival_9 <= 15 AND ival_9 >= 5;
+    res := ival_9 <> 10 AND ival_9 <= 12 AND ival_9 >= 8;
   END IF;
   RETURN res;
 END;
@@ -735,7 +702,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
     ival_10 := LENGTH(JSON_VALUE(val, '$' RETURNING TEXT));
-    res := ival_10 <= 14 AND ival_10 >= 6;
+    res := ival_10 <= 9 AND ival_10 >= 8;
   END IF;
   RETURN res;
 END;
@@ -908,21 +875,13 @@ CREATE OR REPLACE FUNCTION _jm_f_28(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  arr_7_idx INT8;
-  arr_7_item JSONB;
 BEGIN
   -- .constraints.cua0
   -- .constraints.cua0.'@'
   res := JSONB_TYPEOF(val) = 'array';
   IF res THEN
-    FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_7_item := val -> arr_7_idx;
-      -- .constraints.cua0.'@'.0
-      res := JSONB_TYPEOF(arr_7_item) = 'number' AND (arr_7_item)::INT8 = (arr_7_item)::FLOAT8 AND (arr_7_item)::INT8 >= 0;
-      IF NOT res THEN
-        EXIT;
-      END IF;
-    END LOOP;
+    -- accept any array
+    NULL;
   END IF;
   IF res THEN
     res := jm_array_is_unique(val, path, rep);
@@ -2775,8 +2734,8 @@ DECLARE
   res bool;
   prop TEXT;
   pval JSONB;
-  arr_8_idx INT8;
-  arr_8_item JSONB;
+  arr_7_idx INT8;
+  arr_7_item JSONB;
   ival_11 int;
   len_0 int;
   idx_0 INT8;
@@ -2799,10 +2758,10 @@ BEGIN
       -- .tuple.t1.'@'
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
-        FOR arr_8_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-          arr_8_item := pval -> arr_8_idx;
+        FOR arr_7_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+          arr_7_item := pval -> arr_7_idx;
           -- .tuple.t1.'@'.0
-          res := JSONB_TYPEOF(arr_8_item) = 'number' AND (arr_8_item)::INT8 = (arr_8_item)::FLOAT8 AND (arr_8_item)::INT8 >= 0;
+          res := JSONB_TYPEOF(arr_7_item) = 'number' AND (arr_7_item)::INT8 = (arr_7_item)::FLOAT8 AND (arr_7_item)::INT8 >= 0;
           IF NOT res THEN
             EXIT;
           END IF;

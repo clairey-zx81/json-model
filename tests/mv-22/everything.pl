@@ -449,7 +449,7 @@ sub _jm_f_4($$$)
     if ($res)
     {
         my $ival_0 = scalar @$val;
-        $res = $ival_0 == 10;
+        $res = $ival_0 == 3;
     }
     return $res;
 }
@@ -478,7 +478,7 @@ sub _jm_f_5($$$)
     if ($res)
     {
         my $ival_1 = scalar @$val;
-        $res = $ival_1 != 10 && $ival_1 <= 15 && $ival_1 >= 5;
+        $res = $ival_1 != 4 && $ival_1 <= 5 && $ival_1 >= 2;
     }
     return $res;
 }
@@ -507,7 +507,7 @@ sub _jm_f_6($$$)
     if ($res)
     {
         my $ival_2 = scalar @$val;
-        $res = $ival_2 <= 14 && $ival_2 >= 6;
+        $res = $ival_2 <= 4 && $ival_2 >= 3;
     }
     return $res;
 }
@@ -533,7 +533,7 @@ sub _jm_f_8($$$)
     if ($res)
     {
         my $ival_3 = $val;
-        $res = $ival_3 != 10 && $ival_3 <= 15 && $ival_3 >= 5;
+        $res = $ival_3 != 10 && $ival_3 <= 12 && $ival_3 >= 8;
     }
     return $res;
 }
@@ -549,7 +549,7 @@ sub _jm_f_9($$$)
     if ($res)
     {
         my $ival_4 = $val;
-        $res = $ival_4 <= 14 && $ival_4 >= 6;
+        $res = $ival_4 <= 9 && $ival_4 >= 8;
     }
     return $res;
 }
@@ -581,7 +581,7 @@ sub _jm_f_11($$$)
     if ($res)
     {
         my $fval_1 = $val;
-        $res = $fval_1 != 10 && $fval_1 <= 15 && $fval_1 >= 5;
+        $res = $fval_1 != 10 && $fval_1 <= 12 && $fval_1 >= 8;
     }
     return $res;
 }
@@ -597,7 +597,7 @@ sub _jm_f_12($$$)
     if ($res)
     {
         my $fval_2 = $val;
-        $res = $fval_2 < 15 && $fval_2 > 5;
+        $res = $fval_2 < 10 && $fval_2 > 7;
     }
     return $res;
 }
@@ -610,18 +610,7 @@ sub _jm_obj_7($$$)
     {
         return 0;
     }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .constraints.cio0.'@'.''
-        $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
-    }
+    # accept any object
     return 1;
 }
 
@@ -636,7 +625,7 @@ sub _jm_f_13($$$)
     if ($res)
     {
         my $ival_5 = jm_obj_size($val);
-        $res = $ival_5 == 10;
+        $res = $ival_5 == 2;
     }
     return $res;
 }
@@ -649,18 +638,7 @@ sub _jm_obj_8($$$)
     {
         return 0;
     }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .constraints.cio1.'@'.''
-        $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
-    }
+    # accept any object
     return 1;
 }
 
@@ -675,7 +653,7 @@ sub _jm_f_14($$$)
     if ($res)
     {
         my $ival_6 = jm_obj_size($val);
-        $res = $ival_6 != 10 && $ival_6 <= 15 && $ival_6 >= 5;
+        $res = $ival_6 != 2 && $ival_6 <= 3 && $ival_6 >= 1;
     }
     return $res;
 }
@@ -688,18 +666,7 @@ sub _jm_obj_9($$$)
     {
         return 0;
     }
-    my $res;
-    scalar keys %$val;
-    while (my ($prop, $pval) = each %$val)
-    {
-        # handle other props
-        # .constraints.cio2.'@'.''
-        $res = jm_is_integer($pval) && $pval >= 0;
-        if (! $res)
-        {
-            return 0;
-        }
-    }
+    # accept any object
     return 1;
 }
 
@@ -714,7 +681,7 @@ sub _jm_f_15($$$)
     if ($res)
     {
         my $ival_7 = jm_obj_size($val);
-        $res = $ival_7 <= 14 && $ival_7 >= 6;
+        $res = $ival_7 <= 4 && $ival_7 >= 3;
     }
     return $res;
 }
@@ -746,7 +713,7 @@ sub _jm_f_17($$$)
     if ($res)
     {
         my $ival_9 = length $val;
-        $res = $ival_9 != 10 && $ival_9 <= 15 && $ival_9 >= 5;
+        $res = $ival_9 != 10 && $ival_9 <= 12 && $ival_9 >= 8;
     }
     return $res;
 }
@@ -762,7 +729,7 @@ sub _jm_f_18($$$)
     if ($res)
     {
         my $ival_10 = length $val;
-        $res = $ival_10 <= 14 && $ival_10 >= 6;
+        $res = $ival_10 <= 9 && $ival_10 >= 8;
     }
     return $res;
 }
@@ -921,16 +888,8 @@ sub _jm_f_28($$$)
     $res = jm_is_array($val);
     if ($res)
     {
-        for my $arr_7_idx (0 .. $#$val)
-        {
-            my $arr_7_item = $$val[$arr_7_idx];
-            # .constraints.cua0.'@'.0
-            $res = jm_is_integer($arr_7_item) && $arr_7_item >= 0;
-            if (! $res)
-            {
-                last;
-            }
-        }
+        # accept any array
+        ;
     }
     if ($res)
     {
@@ -2801,11 +2760,11 @@ sub _jm_obj_36($$$)
             $res = jm_is_array($pval);
             if ($res)
             {
-                for my $arr_8_idx (0 .. $#$pval)
+                for my $arr_7_idx (0 .. $#$pval)
                 {
-                    my $arr_8_item = $$pval[$arr_8_idx];
+                    my $arr_7_item = $$pval[$arr_7_idx];
                     # .tuple.t1.'@'.0
-                    $res = jm_is_integer($arr_8_item) && $arr_8_item >= 0;
+                    $res = jm_is_integer($arr_7_item) && $arr_7_item >= 0;
                     if (! $res)
                     {
                         last;

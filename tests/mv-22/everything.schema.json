@@ -791,16 +791,16 @@
         },
         "cii1": {
           "type": "integer",
-          "minimum": 5,
-          "maximum": 15,
+          "minimum": 8,
+          "maximum": 12,
           "not": {
             "const": 10
           }
         },
         "cii2": {
           "type": "integer",
-          "minimum": 6,
-          "maximum": 14
+          "minimum": 8,
+          "maximum": 9
         },
         "cin0": {
           "type": "number",
@@ -809,8 +809,8 @@
         },
         "cin1": {
           "type": "number",
-          "minimum": 5,
-          "maximum": 15,
+          "minimum": 8,
+          "maximum": 12,
           "not": {
             "const": 10
           }
@@ -818,8 +818,8 @@
         "cin2": {
           "type": "number",
           "minimum": 0.0,
-          "exclusiveMaximum": 15,
-          "exclusiveMinimum": 5
+          "exclusiveMaximum": 10,
+          "exclusiveMinimum": 7
         },
         "cis0": {
           "type": "string",
@@ -828,16 +828,16 @@
         },
         "cis1": {
           "type": "string",
-          "maxLength": 15,
-          "minLength": 5,
+          "maxLength": 12,
+          "minLength": 8,
           "not": {
             "const": 10
           }
         },
         "cis2": {
           "type": "string",
-          "maxLength": 14,
-          "minLength": 6
+          "maxLength": 9,
+          "minLength": 8
         },
         "cia0": {
           "type": "array",
@@ -852,8 +852,8 @@
             "type": "integer",
             "minimum": 0
           },
-          "maxItems": 15,
-          "minItems": 5
+          "maxItems": 5,
+          "minItems": 2
         },
         "cia2": {
           "type": "array",
@@ -861,38 +861,29 @@
             "type": "integer",
             "minimum": 0
           },
-          "maxItems": 14,
-          "minItems": 6
+          "maxItems": 4,
+          "minItems": 3
         },
         "cio0": {
           "type": "object",
-          "additionalProperties": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "minProperties": 10,
-          "maxProperties": 10
+          "additionalProperties": true,
+          "minProperties": 2,
+          "maxProperties": 2
         },
         "cio1": {
           "type": "object",
-          "additionalProperties": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "maxProperties": 15,
-          "minProperties": 5,
+          "additionalProperties": true,
+          "maxProperties": 3,
+          "minProperties": 1,
           "not": {
-            "const": 10
+            "const": 2
           }
         },
         "cio2": {
           "type": "object",
-          "additionalProperties": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "maxProperties": 14,
-          "minProperties": 6
+          "additionalProperties": true,
+          "maxProperties": 4,
+          "minProperties": 3
         },
         "cni0": {
           "type": "integer",
@@ -946,10 +937,7 @@
         },
         "cua0": {
           "type": "array",
-          "items": {
-            "type": "integer",
-            "minimum": 0
-          },
+          "items": true,
           "uniqueItems": true
         }
       },
