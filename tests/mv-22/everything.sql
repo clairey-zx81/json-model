@@ -713,15 +713,9 @@ CREATE OR REPLACE FUNCTION _jm_f_19(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_3 FLOAT8;
 BEGIN
   -- .constraints.cni0
-  -- .constraints.cni0.'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  IF res THEN
-    fval_3 := (val)::FLOAT8;
-    res := fval_3 = 42.0;
-  END IF;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 42;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -731,14 +725,16 @@ CREATE OR REPLACE FUNCTION _jm_f_20(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_4 FLOAT8;
+  ival_11 int;
+  fval_3 FLOAT8;
 BEGIN
   -- .constraints.cni1
   -- .constraints.cni1.'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
   IF res THEN
-    fval_4 := (val)::FLOAT8;
-    res := fval_4 <> 42.0;
+    ival_11 := (val)::INT8;
+    fval_3 := (val)::FLOAT8;
+    res := fval_3 <> 42.0 AND ival_11 <= 99;
   END IF;
   RETURN res;
 END;
@@ -749,15 +745,9 @@ CREATE OR REPLACE FUNCTION _jm_f_21(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_5 FLOAT8;
 BEGIN
   -- .constraints.cni2
-  -- .constraints.cni2.'@'
-  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 0;
-  IF res THEN
-    fval_5 := (val)::FLOAT8;
-    res := fval_5 < 43.0 AND fval_5 > 42.0;
-  END IF;
+  res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 = 42;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -767,14 +757,14 @@ CREATE OR REPLACE FUNCTION _jm_f_22(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_6 FLOAT8;
+  fval_4 FLOAT8;
 BEGIN
   -- .constraints.cnn0
   -- .constraints.cnn0.'@'
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   IF res THEN
-    fval_6 := (val)::FLOAT8;
-    res := fval_6 = 42.1;
+    fval_4 := (val)::FLOAT8;
+    res := fval_4 = 42.1;
   END IF;
   RETURN res;
 END;
@@ -785,14 +775,14 @@ CREATE OR REPLACE FUNCTION _jm_f_23(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_7 FLOAT8;
+  fval_5 FLOAT8;
 BEGIN
   -- .constraints.cnn1
   -- .constraints.cnn1.'@'
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   IF res THEN
-    fval_7 := (val)::FLOAT8;
-    res := fval_7 <> 42.1 AND fval_7 <= 99.9 AND fval_7 >= 0.1;
+    fval_5 := (val)::FLOAT8;
+    res := fval_5 <> 42.5 AND fval_5 <= 43.0 AND fval_5 >= 42.0;
   END IF;
   RETURN res;
 END;
@@ -803,14 +793,14 @@ CREATE OR REPLACE FUNCTION _jm_f_24(val JSONB, path TEXT[], rep jm_report_entry[
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  fval_8 FLOAT8;
+  fval_6 FLOAT8;
 BEGIN
   -- .constraints.cnn2
   -- .constraints.cnn2.'@'
   res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 >= 0.0;
   IF res THEN
-    fval_8 := (val)::FLOAT8;
-    res := fval_8 < 43.0 AND fval_8 > 42.0;
+    fval_6 := (val)::FLOAT8;
+    res := fval_6 < 43.0 AND fval_6 > 42.0;
   END IF;
   RETURN res;
 END;
@@ -846,7 +836,7 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF res THEN
     sval_1 := JSON_VALUE(val, '$' RETURNING TEXT);
-    res := sval_1 <> 'Hobbes';
+    res := sval_1 <> 'Hobbes' AND sval_1 <= 'Z' AND sval_1 >= 'A';
   END IF;
   RETURN res;
 END;
@@ -2736,10 +2726,10 @@ DECLARE
   pval JSONB;
   arr_7_idx INT8;
   arr_7_item JSONB;
-  ival_11 int;
+  ival_12 int;
   len_0 int;
   idx_0 INT8;
-  ival_12 int;
+  ival_13 int;
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
     RETURN FALSE;
@@ -2768,8 +2758,8 @@ BEGIN
         END LOOP;
       END IF;
       IF res THEN
-        ival_11 := JSONB_ARRAY_LENGTH(pval);
-        res := ival_11 = 1;
+        ival_12 := JSONB_ARRAY_LENGTH(pval);
+        res := ival_12 = 1;
       END IF;
       IF NOT res THEN
         RETURN FALSE;
@@ -2830,8 +2820,8 @@ BEGIN
         END IF;
       END IF;
       IF res THEN
-        ival_12 := JSONB_ARRAY_LENGTH(pval);
-        res := ival_12 >= 2;
+        ival_13 := JSONB_ARRAY_LENGTH(pval);
+        res := ival_13 >= 2;
       END IF;
       IF NOT res THEN
         RETURN FALSE;

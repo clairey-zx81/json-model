@@ -1131,20 +1131,10 @@ static bool _jm_f_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .constraints.cni0
-    // .constraints.cni0.'@'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    res = json_is_integer(val) && json_integer_value(val) == 42;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cni0.'@']", path);
-    }
-    if (res)
-    {
-        double fval_3 = json_number_value(val);
-        res = fval_3 == 42.0;
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cni0]", path);
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected =42 [.constraints.cni0]", path);
     }
     return res;
 }
@@ -1155,15 +1145,16 @@ static bool _jm_f_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .constraints.cni1
     // .constraints.cni1.'@'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    res = json_is_integer(val) && json_integer_value(val) >= 1;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cni1.'@']", path);
+        if (rep) jm_report_add_entry(rep, "not a 1 strict int [.constraints.cni1.'@']", path);
     }
     if (res)
     {
-        double fval_4 = json_number_value(val);
-        res = fval_4 != 42.0;
+        int64_t ival_11 = json_integer_value(val);
+        double fval_3 = json_number_value(val);
+        res = fval_3 != 42.0 && ival_11 <= 99;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cni1]", path);
@@ -1177,20 +1168,10 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .constraints.cni2
-    // .constraints.cni2.'@'
-    res = json_is_integer(val) && json_integer_value(val) >= 0;
+    res = json_is_integer(val) && json_integer_value(val) == 42;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "not a 0 strict int [.constraints.cni2.'@']", path);
-    }
-    if (res)
-    {
-        double fval_5 = json_number_value(val);
-        res = fval_5 < 43.0 && fval_5 > 42.0;
-        if (! res)
-        {
-            if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cni2]", path);
-        }
+        if (rep) jm_report_add_entry(rep, "unexpected =42 [.constraints.cni2]", path);
     }
     return res;
 }
@@ -1208,8 +1189,8 @@ static bool _jm_f_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        double fval_6 = json_real_value(val);
-        res = fval_6 == 42.1;
+        double fval_4 = json_real_value(val);
+        res = fval_4 == 42.1;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn0]", path);
@@ -1231,8 +1212,8 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        double fval_7 = json_real_value(val);
-        res = fval_7 != 42.1 && fval_7 <= 99.9 && fval_7 >= 0.1;
+        double fval_5 = json_real_value(val);
+        res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn1]", path);
@@ -1254,8 +1235,8 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     }
     if (res)
     {
-        double fval_8 = json_real_value(val);
-        res = fval_8 < 43.0 && fval_8 > 42.0;
+        double fval_6 = json_real_value(val);
+        res = fval_6 < 43.0 && fval_6 > 42.0;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.cnn2]", path);
@@ -1301,7 +1282,7 @@ static bool _jm_f_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (res)
     {
         char * sval_1 = json_string_value(val);
-        res = strcmp(sval_1, "Hobbes") != 0;
+        res = strcmp(sval_1, "Hobbes") != 0 && strcmp(sval_1, "Z") <= 0 && strcmp(sval_1, "A") >= 0;
         if (! res)
         {
             if (rep) jm_report_add_entry(rep, "constraints failed [.constraints.css1]", path);
@@ -3930,8 +3911,8 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (res)
             {
-                int64_t ival_11 = json_array_size(pval);
-                res = ival_11 == 1;
+                int64_t ival_12 = json_array_size(pval);
+                res = ival_12 == 1;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.tuple.t1]", (path ? &lpath_30 : NULL));
@@ -4067,8 +4048,8 @@ static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
             }
             if (res)
             {
-                int64_t ival_12 = json_array_size(pval);
-                res = ival_12 >= 2;
+                int64_t ival_13 = json_array_size(pval);
+                res = ival_13 >= 2;
                 if (! res)
                 {
                     if (rep) jm_report_add_entry(rep, "constraints failed [.tuple.t4]", (path ? &lpath_30 : NULL));

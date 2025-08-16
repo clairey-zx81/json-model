@@ -1055,20 +1055,10 @@ public class everything extends ModelChecker
     {
         boolean res;
         // .constraints.cni0
-        // .constraints.cni0.'@'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cni0.'@']", path);
-        }
-        if (res)
-        {
-            double fval_3 = json.asNumber(val);
-            res = fval_3 == 42.0;
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("constraints failed [.constraints.cni0]", path);
-            }
+            if (rep != null) rep.addEntry("unexpected =42 [.constraints.cni0]", path);
         }
         return res;
     }
@@ -1079,15 +1069,16 @@ public class everything extends ModelChecker
         boolean res;
         // .constraints.cni1
         // .constraints.cni1.'@'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        res = json.isInteger(val) && json.asLong(val) >= 1;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cni1.'@']", path);
+            if (rep != null) rep.addEntry("not a 1 strict int [.constraints.cni1.'@']", path);
         }
         if (res)
         {
-            double fval_4 = json.asNumber(val);
-            res = fval_4 != 42.0;
+            long ival_11 = json.asLong(val);
+            double fval_3 = json.asNumber(val);
+            res = fval_3 != 42.0 && ival_11 <= 99;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cni1]", path);
@@ -1101,20 +1092,10 @@ public class everything extends ModelChecker
     {
         boolean res;
         // .constraints.cni2
-        // .constraints.cni2.'@'
-        res = json.isInteger(val) && json.asLong(val) >= 0;
+        res = json.isInteger(val) && json.asLong(val) == 42;
         if (! res)
         {
-            if (rep != null) rep.addEntry("not a 0 strict int [.constraints.cni2.'@']", path);
-        }
-        if (res)
-        {
-            double fval_5 = json.asNumber(val);
-            res = fval_5 < 43.0 && fval_5 > 42.0;
-            if (! res)
-            {
-                if (rep != null) rep.addEntry("constraints failed [.constraints.cni2]", path);
-            }
+            if (rep != null) rep.addEntry("unexpected =42 [.constraints.cni2]", path);
         }
         return res;
     }
@@ -1132,8 +1113,8 @@ public class everything extends ModelChecker
         }
         if (res)
         {
-            double fval_6 = json.asDouble(val);
-            res = fval_6 == 42.1;
+            double fval_4 = json.asDouble(val);
+            res = fval_4 == 42.1;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn0]", path);
@@ -1155,8 +1136,8 @@ public class everything extends ModelChecker
         }
         if (res)
         {
-            double fval_7 = json.asDouble(val);
-            res = fval_7 != 42.1 && fval_7 <= 99.9 && fval_7 >= 0.1;
+            double fval_5 = json.asDouble(val);
+            res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn1]", path);
@@ -1178,8 +1159,8 @@ public class everything extends ModelChecker
         }
         if (res)
         {
-            double fval_8 = json.asDouble(val);
-            res = fval_8 < 43.0 && fval_8 > 42.0;
+            double fval_6 = json.asDouble(val);
+            res = fval_6 < 43.0 && fval_6 > 42.0;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.cnn2]", path);
@@ -1225,7 +1206,7 @@ public class everything extends ModelChecker
         if (res)
         {
             String sval_1 = json.asString(val);
-            res = sval_1.compareTo("Hobbes") != 0;
+            res = sval_1.compareTo("Hobbes") != 0 && sval_1.compareTo("Z") <= 0 && sval_1.compareTo("A") >= 0;
             if (! res)
             {
                 if (rep != null) rep.addEntry("constraints failed [.constraints.css1]", path);
@@ -3854,8 +3835,8 @@ public class everything extends ModelChecker
                 }
                 if (res)
                 {
-                    long ival_11 = json.arrayLength(pval);
-                    res = ival_11 == 1;
+                    long ival_12 = json.arrayLength(pval);
+                    res = ival_12 == 1;
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("constraints failed [.tuple.t1]", (path != null ? lpath_30 : null));
@@ -3991,8 +3972,8 @@ public class everything extends ModelChecker
                 }
                 if (res)
                 {
-                    long ival_12 = json.arrayLength(pval);
-                    res = ival_12 >= 2;
+                    long ival_13 = json.arrayLength(pval);
+                    res = ival_13 >= 2;
                     if (! res)
                     {
                         if (rep != null) rep.addEntry("constraints failed [.tuple.t4]", (path != null ? lpath_30 : null));

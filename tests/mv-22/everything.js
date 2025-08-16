@@ -1011,20 +1011,10 @@ function _jm_f_19(val, path, rep)
 {
     let res;
     // .constraints.cni0
-    // .constraints.cni0.'@'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.constraints.cni0.'@']", path])
-    }
-    if (res)
-    {
-        let fval_3 = val;
-        res = fval_3 == 42.0;
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.constraints.cni0]", path])
-        }
+        rep !== null && rep.push(["unexpected =42 [.constraints.cni0]", path])
     }
     return res;
 }
@@ -1035,15 +1025,16 @@ function _jm_f_20(val, path, rep)
     let res;
     // .constraints.cni1
     // .constraints.cni1.'@'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 1;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.constraints.cni1.'@']", path])
+        rep !== null && rep.push(["not a 1 strict int [.constraints.cni1.'@']", path])
     }
     if (res)
     {
-        let fval_4 = val;
-        res = fval_4 != 42.0;
+        let ival_11 = val;
+        let fval_3 = val;
+        res = fval_3 != 42.0 && ival_11 <= 99;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.constraints.cni1]", path])
@@ -1057,20 +1048,10 @@ function _jm_f_21(val, path, rep)
 {
     let res;
     // .constraints.cni2
-    // .constraints.cni2.'@'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val == 42;
     if (! res)
     {
-        rep !== null && rep.push(["not a 0 strict int [.constraints.cni2.'@']", path])
-    }
-    if (res)
-    {
-        let fval_5 = val;
-        res = fval_5 < 43.0 && fval_5 > 42.0;
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.constraints.cni2]", path])
-        }
+        rep !== null && rep.push(["unexpected =42 [.constraints.cni2]", path])
     }
     return res;
 }
@@ -1088,8 +1069,8 @@ function _jm_f_22(val, path, rep)
     }
     if (res)
     {
-        let fval_6 = val;
-        res = fval_6 == 42.1;
+        let fval_4 = val;
+        res = fval_4 == 42.1;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.constraints.cnn0]", path])
@@ -1111,8 +1092,8 @@ function _jm_f_23(val, path, rep)
     }
     if (res)
     {
-        let fval_7 = val;
-        res = fval_7 != 42.1 && fval_7 <= 99.9 && fval_7 >= 0.1;
+        let fval_5 = val;
+        res = fval_5 != 42.5 && fval_5 <= 43.0 && fval_5 >= 42.0;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.constraints.cnn1]", path])
@@ -1134,8 +1115,8 @@ function _jm_f_24(val, path, rep)
     }
     if (res)
     {
-        let fval_8 = val;
-        res = fval_8 < 43.0 && fval_8 > 42.0;
+        let fval_6 = val;
+        res = fval_6 < 43.0 && fval_6 > 42.0;
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.constraints.cnn2]", path])
@@ -1181,7 +1162,7 @@ function _jm_f_26(val, path, rep)
     if (res)
     {
         let sval_1 = val;
-        res = sval_1 != "Hobbes";
+        res = sval_1 != "Hobbes" && sval_1 <= "Z" && sval_1 >= "A";
         if (! res)
         {
             rep !== null && rep.push(["constraints failed [.constraints.css1]", path])
@@ -3729,8 +3710,8 @@ function _jm_obj_36(val, path, rep)
             }
             if (res)
             {
-                let ival_11 = pval.length;
-                res = ival_11 == 1;
+                let ival_12 = pval.length;
+                res = ival_12 == 1;
                 if (! res)
                 {
                     rep !== null && rep.push(["constraints failed [.tuple.t1]", (path ? lpath_30 : null)])
@@ -3866,8 +3847,8 @@ function _jm_obj_36(val, path, rep)
             }
             if (res)
             {
-                let ival_12 = pval.length;
-                res = ival_12 >= 2;
+                let ival_13 = pval.length;
+                res = ival_13 >= 2;
                 if (! res)
                 {
                     rep !== null && rep.push(["constraints failed [.tuple.t4]", (path ? lpath_30 : null)])

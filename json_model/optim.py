@@ -351,8 +351,9 @@ def partial_eval(jm: JsonModel):
 
     return changes > 0
 
+# FIXME probably some corner case issues
 def simplify(jm: JsonModel):
-    """Simplify properties and constraints in some case."""
+    """Simplify properties and constraints in some cases."""
 
     changes: int = 0
 
@@ -365,9 +366,11 @@ def simplify(jm: JsonModel):
                     model[new] = model[old]
                     del model[old]
             if "@" in model:
+                # FIXME
                 ultimate = ultimate_type(jm, model)
                 if ultimate in (None, float):  # keep safe
                     return model
+                # bool is an error?
                 # else keep int, str, list, dict
                 # str constraints? should be handled elsewhere?
                 if ultimate in (None, bool, int, float, list, dict):
@@ -466,9 +469,13 @@ def simplify(jm: JsonModel):
                             ne = None
                             del model["!="]
                 # integer target
-                if isinstance(model["@"], str) and model["@"] in ("$INT", "$INTEGER"):
+                # TODO set maxint?
+                if isinstance(model["@"], str) and model["@"] in ("$INT", "$INTEGER", "$I32", "$I64"):
                     changes += 1
                     model["@"] = -1
+                elif isinstance(model["@"], str) and model["@"] in ("$U32", "$U64"):
+                    changes += 1
+                    model["@"] = 0
                 if isinstance(model["@"], int):
                     target = model["@"]
                     if eq is not None:
@@ -493,11 +500,11 @@ def simplify(jm: JsonModel):
                 # update possibly changed values
                 if le is not None:
                     model["<="] = le
-                elif "<=" in model:
+                elif "<=" in model and isinstance(model["<="], (int, float)):
                     del model["<="]
                 if ge is not None:
                     model[">="] = ge
-                elif ">=" in model:
+                elif ">=" in model and isinstance(model["<="], (int, float)):
                     del model[">="]
         return model
 

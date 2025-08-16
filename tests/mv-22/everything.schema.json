@@ -886,22 +886,18 @@
           "minProperties": 3
         },
         "cni0": {
-          "type": "integer",
-          "minimum": 0,
-          "const": 42.0
+          "const": 42
         },
         "cni1": {
           "type": "integer",
-          "minimum": 0,
+          "minimum": 1,
+          "maximum": 99,
           "not": {
             "const": 42.0
           }
         },
         "cni2": {
-          "type": "integer",
-          "minimum": 0,
-          "exclusiveMaximum": 43.0,
-          "exclusiveMinimum": 42.0
+          "const": 42
         },
         "cnn0": {
           "type": "number",
@@ -910,10 +906,10 @@
         },
         "cnn1": {
           "type": "number",
-          "minimum": 0.1,
-          "maximum": 99.9,
+          "minimum": 42.0,
+          "maximum": 43.0,
           "not": {
-            "const": 42.1
+            "const": 42.5
           }
         },
         "cnn2": {
@@ -928,6 +924,8 @@
         },
         "css1": {
           "type": "string",
+          "maxLength": "Z",
+          "minLength": "A",
           "not": {
             "const": "Hobbes"
           }

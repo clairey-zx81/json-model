@@ -740,13 +740,7 @@ sub _jm_f_19($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .constraints.cni0
-    # .constraints.cni0.'@'
-    $res = jm_is_integer($val) && $val >= 0;
-    if ($res)
-    {
-        my $fval_3 = $val;
-        $res = $fval_3 == 42.0;
-    }
+    $res = jm_is_integer($val) && $val == 42;
     return $res;
 }
 
@@ -757,11 +751,12 @@ sub _jm_f_20($$$)
     my $res;
     # .constraints.cni1
     # .constraints.cni1.'@'
-    $res = jm_is_integer($val) && $val >= 0;
+    $res = jm_is_integer($val) && $val >= 1;
     if ($res)
     {
-        my $fval_4 = $val;
-        $res = $fval_4 != 42.0;
+        my $ival_11 = $val;
+        my $fval_3 = $val;
+        $res = $fval_3 != 42.0 && $ival_11 <= 99;
     }
     return $res;
 }
@@ -772,13 +767,7 @@ sub _jm_f_21($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .constraints.cni2
-    # .constraints.cni2.'@'
-    $res = jm_is_integer($val) && $val >= 0;
-    if ($res)
-    {
-        my $fval_5 = $val;
-        $res = $fval_5 < 43.0 && $fval_5 > 42.0;
-    }
+    $res = jm_is_integer($val) && $val == 42;
     return $res;
 }
 
@@ -792,8 +781,8 @@ sub _jm_f_22($$$)
     $res = jm_is_numeric($val) && $val >= 0.0;
     if ($res)
     {
-        my $fval_6 = $val;
-        $res = $fval_6 == 42.1;
+        my $fval_4 = $val;
+        $res = $fval_4 == 42.1;
     }
     return $res;
 }
@@ -808,8 +797,8 @@ sub _jm_f_23($$$)
     $res = jm_is_numeric($val) && $val >= 0.0;
     if ($res)
     {
-        my $fval_7 = $val;
-        $res = $fval_7 != 42.1 && $fval_7 <= 99.9 && $fval_7 >= 0.1;
+        my $fval_5 = $val;
+        $res = $fval_5 != 42.5 && $fval_5 <= 43.0 && $fval_5 >= 42.0;
     }
     return $res;
 }
@@ -824,8 +813,8 @@ sub _jm_f_24($$$)
     $res = jm_is_numeric($val) && $val >= 0.0;
     if ($res)
     {
-        my $fval_8 = $val;
-        $res = $fval_8 < 43.0 && $fval_8 > 42.0;
+        my $fval_6 = $val;
+        $res = $fval_6 < 43.0 && $fval_6 > 42.0;
     }
     return $res;
 }
@@ -857,7 +846,7 @@ sub _jm_f_26($$$)
     if ($res)
     {
         my $sval_1 = $val;
-        $res = $sval_1 ne 'Hobbes';
+        $res = $sval_1 ne 'Hobbes' && $sval_1 le 'Z' && $sval_1 ge 'A';
     }
     return $res;
 }
@@ -2773,8 +2762,8 @@ sub _jm_obj_36($$$)
             }
             if ($res)
             {
-                my $ival_11 = scalar @$pval;
-                $res = $ival_11 == 1;
+                my $ival_12 = scalar @$pval;
+                $res = $ival_12 == 1;
             }
             if (! $res)
             {
@@ -2855,8 +2844,8 @@ sub _jm_obj_36($$$)
             }
             if ($res)
             {
-                my $ival_12 = scalar @$pval;
-                $res = $ival_12 >= 2;
+                my $ival_13 = scalar @$pval;
+                $res = $ival_13 >= 2;
             }
             if (! $res)
             {

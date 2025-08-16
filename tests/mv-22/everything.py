@@ -649,15 +649,9 @@ def _jm_f_18(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_19(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .constraints.cni0
-    # .constraints.cni0.'@'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cni0.'@']", path))
-    if res:
-        fval_3: float = val
-        res = fval_3 == 42.0
-        if not res:
-            rep is None or rep.append(("constraints failed [.constraints.cni0]", path))
+        rep is None or rep.append(("unexpected =42 [.constraints.cni0]", path))
     return res
 
 # check _jm_obj_6_map_cni1 (.constraints.cni1)
@@ -665,12 +659,13 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .constraints.cni1
     # .constraints.cni1.'@'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cni1.'@']", path))
+        rep is None or rep.append(("not a 1 strict int [.constraints.cni1.'@']", path))
     if res:
-        fval_4: float = val
-        res = fval_4 != 42.0
+        ival_11: int = val
+        fval_3: float = val
+        res = fval_3 != 42.0 and ival_11 <= 99
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cni1]", path))
     return res
@@ -679,15 +674,9 @@ def _jm_f_20(val: Jsonable, path: Path, rep: Report) -> bool:
 def _jm_f_21(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .constraints.cni2
-    # .constraints.cni2.'@'
-    res = isinstance(val, int) and not isinstance(val, bool) and val >= 0
+    res = isinstance(val, int) and not isinstance(val, bool) and val == 42
     if not res:
-        rep is None or rep.append(("not a 0 strict int [.constraints.cni2.'@']", path))
-    if res:
-        fval_5: float = val
-        res = fval_5 < 43.0 and fval_5 > 42.0
-        if not res:
-            rep is None or rep.append(("constraints failed [.constraints.cni2]", path))
+        rep is None or rep.append(("unexpected =42 [.constraints.cni2]", path))
     return res
 
 # check _jm_obj_6_map_cnn0 (.constraints.cnn0)
@@ -699,8 +688,8 @@ def _jm_f_22(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn0.'@']", path))
     if res:
-        fval_6: float = val
-        res = fval_6 == 42.1
+        fval_4: float = val
+        res = fval_4 == 42.1
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn0]", path))
     return res
@@ -714,8 +703,8 @@ def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn1.'@']", path))
     if res:
-        fval_7: float = val
-        res = fval_7 != 42.1 and fval_7 <= 99.9 and fval_7 >= 0.1
+        fval_5: float = val
+        res = fval_5 != 42.5 and fval_5 <= 43.0 and fval_5 >= 42.0
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn1]", path))
     return res
@@ -729,8 +718,8 @@ def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     if not res:
         rep is None or rep.append(("not a 0.0 strict float [.constraints.cnn2.'@']", path))
     if res:
-        fval_8: float = val
-        res = fval_8 < 43.0 and fval_8 > 42.0
+        fval_6: float = val
+        res = fval_6 < 43.0 and fval_6 > 42.0
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.cnn2]", path))
     return res
@@ -760,7 +749,7 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.constraints.css1.'@']", path))
     if res:
         sval_1: str = val
-        res = sval_1 != "Hobbes"
+        res = sval_1 != "Hobbes" and sval_1 <= "Z" and sval_1 >= "A"
         if not res:
             rep is None or rep.append(("constraints failed [.constraints.css1]", path))
     return res
@@ -2441,8 +2430,8 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t1.'@']", lpath_30 if path is not None else None))
             if res:
-                ival_11: int = len(pval)
-                res = ival_11 == 1
+                ival_12: int = len(pval)
+                res = ival_12 == 1
                 if not res:
                     rep is None or rep.append(("constraints failed [.tuple.t1]", lpath_30 if path is not None else None))
             if not res:
@@ -2522,8 +2511,8 @@ def _jm_obj_36(val: Jsonable, path: Path, rep: Report) -> bool:
             if not res:
                 rep is None or rep.append(("not array or unexpected array [.tuple.t4.'@']", lpath_30 if path is not None else None))
             if res:
-                ival_12: int = len(pval)
-                res = ival_12 >= 2
+                ival_13: int = len(pval)
+                res = ival_13 >= 2
                 if not res:
                     rep is None or rep.append(("constraints failed [.tuple.t4]", lpath_30 if path is not None else None))
             if not res:
