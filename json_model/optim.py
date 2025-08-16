@@ -369,14 +369,44 @@ def simplify(jm: JsonModel):
                 if ultimate in (None, float):  # keep safe
                     return model
                 # else keep int, str, list, dict
+                # str constraints? should be handled elsewhere?
+                if ultimate in (None, bool, int, float, list, dict):
+                    for op in ("<=", "<", "=", "!=", ">", ">="):
+                        if op in model and isinstance(model[op], str):
+                            # raise ModelError("str constraint for non str model")
+                            log.warning(f"unexpected str constraint at {path}")
+                            changes += 1
+                            return "$NONE"
                 # detect redundant or infeasible int constraints
-                le = None if "<=" not in model or not isinstance(model["<="], int) else model["<="]
-                lt = None if "<" not in model or not isinstance(model["<"], int) else model["<"]
-                eq = None if "=" not in model or not isinstance(model["="], int) else model["="]
-                ne = None if "!=" not in model or not isinstance(model["!="], int) else model["!="]
-                ge = None if ">=" not in model or not isinstance(model[">="], int) else model[">="]
-                gt = None if ">" not in model or not isinstance(model[">"], int) else model[">"]
-                # replace gt/lt by ge/le
+                le = None if "<=" not in model or not isinstance(model["<="], (int, float)) else model["<="]
+                lt = None if "<" not in model or not isinstance(model["<"], (int, float)) else model["<"]
+                eq = None if "=" not in model or not isinstance(model["="], (int, float)) else model["="]
+                ne = None if "!=" not in model or not isinstance(model["!="], (int, float)) else model["!="]
+                ge = None if ">=" not in model or not isinstance(model[">="], (int, float)) else model[">="]
+                gt = None if ">" not in model or not isinstance(model[">"], (int, float)) else model[">"]
+                # handle floats for int constraints
+                if isinstance(le, float):
+                    le = int(le)
+                if isinstance(lt, float):
+                    lt = int(lt) if int(lt) == lt else int(lt + 1.0)
+                if isinstance(ge, float):
+                    ge = int(ge) if int(ge) == ge else int(ge + 1.0)
+                if isinstance(gt, float):
+                    gt = int(gt)
+                if isinstance(eq, float):
+                    if int(eq) != eq:  # infeasible constraint
+                        changes += 1
+                        return "$NONE"
+                    else:
+                        eq = int(eq)
+                if isinstance(ne, float):
+                    if int(ne) != ne:  # always feasible
+                        changes += 1
+                        ne = None
+                        del model["ne"]
+                    else:
+                        ne = int(ne)
+                # replace int gt/lt by int ge/le
                 if lt is not None:
                     le = lt - 1 if le is None or le >= lt else le
                     lt = None
