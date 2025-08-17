@@ -74,8 +74,6 @@
         "EXREG": {
           "type": "string"
         },
-        "ANY": true,
-        "NONE": false,
         "UUID": {
           "type": "string",
           "format": "uuid"
@@ -133,12 +131,14 @@
         },
         "STRING": {
           "type": "string"
-        }
+        },
+        "ANY": true,
+        "NONE": false
       },
       "additionalProperties": false
     },
     "null": {
-      "description": "3 representations of null",
+      "description": "null: inference, predefs, constants",
       "type": "object",
       "properties": {
         "n0": {
@@ -154,7 +154,7 @@
       "additionalProperties": false
     },
     "bool": {
-      "description": "booleans: inference, predefs, constants",
+      "description": "booleans: inference, predefs, constants, enum",
       "type": "object",
       "properties": {
         "b0": {
@@ -171,6 +171,12 @@
         },
         "b4": {
           "const": false
+        },
+        "b5": {
+          "enum": [
+            false,
+            true
+          ]
         }
       },
       "additionalProperties": false
@@ -779,6 +785,34 @@
               "additionalProperties": false
             }
           ]
+        },
+        "m4": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "b": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "c": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "d": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false

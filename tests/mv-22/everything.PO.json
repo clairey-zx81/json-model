@@ -7,8 +7,6 @@
     "?JSON": "$JSON",
     "?REGEX": "$REGEX",
     "?EXREG": "$EXREG",
-    "?ANY": "$ANY",
-    "?NONE": "$NONE",
     "?UUID": "$UUID",
     "?URL": "$URL",
     "?URI": "$URI",
@@ -26,21 +24,29 @@
     "?F32": "$F32",
     "?F64": "$F64",
     "?NUMBER": "$NUMBER",
-    "?STRING": "$STRING"
+    "?STRING": "$STRING",
+    "?ANY": "$ANY",
+    "?NONE": "$NONE"
   },
   "?null": {
-    "#": "3 representations of null",
+    "#": "null: inference, predefs, constants",
     "?n0": null,
     "?n1": "$NULL",
     "?n2": "=null"
   },
   "?bool": {
-    "#": "booleans: inference, predefs, constants",
+    "#": "booleans: inference, predefs, constants, enum",
     "?b0": true,
     "?b1": "$BOOL",
     "?b2": "$BOOLEAN",
     "?b3": "=true",
-    "?b4": "=false"
+    "?b4": "=false",
+    "?b5": {
+      "|": [
+        "=false",
+        "=true"
+      ]
+    }
   },
   "?int": {
     "#": "integers: inference, predefs, constants",
@@ -287,6 +293,12 @@
           "d": 1
         }
       ]
+    },
+    "?m4": {
+      "a": 0,
+      "b": 0,
+      "c": 0,
+      "d": 0
     }
   },
   "?constraints": {
@@ -402,7 +414,9 @@
     },
     "?css1": {
       "@": "",
-      "!=": "Hobbes"
+      "!=": "Hobbes",
+      ">=": "A",
+      "<=": "Z"
     },
     "?css2": {
       "@": "",
