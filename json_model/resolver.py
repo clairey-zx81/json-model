@@ -43,8 +43,9 @@ class Resolver:
                  maps: dict[str, str]|None = None,
                  *,
                  allow_duplicates: bool = False,
+                 cache_ignore: bool = False,
             ):
-        self._cache = JsonURLCache(cache_dir)
+        self._cache = JsonURLCache(cache_dir, cache_ignore)
         self._maps: dict[str, str] = maps if maps else {}
         self._jsons: dict[str, Jsonable] = {}
         self._allow_duplicates = allow_duplicates
@@ -111,3 +112,7 @@ class Resolver:
             log.info(f"downloading: {url}")
             self._jsons[url] = j = self._cache.load(url)
             return j
+
+    def clear(self):
+        """Clear underlying cache."""
+        self._cache.clear()

@@ -4,6 +4,7 @@
 
 import os
 import hashlib
+import re
 import urllib.parse
 import requests
 import json
@@ -17,13 +18,14 @@ class JsonURLCache:
 
     # FIXME should invalidate old cache entries?
 
-    def __init__(self, cache_dir: str|None = None):
+    def __init__(self, cache_dir: str|None = None, ignore: bool = False):
 
         # loader
         self._requests = requests.Session()
-        self._cache_dir: str
+        self._ignore = ignore
 
         # cache retrieved url
+        self._cache_dir: str
         if cache_dir is not None:
             self._cache_dir = cache_dir
         elif "JSON_MODEL_CACHEDIR" in os.environ:
@@ -49,6 +51,9 @@ class JsonURLCache:
 
     def load(self, url: str):
         """Load JSON URL."""
+
+        if self._ignore:
+            return self.getJSON(url)
 
         # hmmm… basically remove fragment
         up = urllib.parse.urlparse(url)
@@ -76,7 +81,13 @@ class JsonURLCache:
         j = self.getJSON(u)
         self._cache[u] = j
         with open(hfile, "w") as f:
-            # sort_keys?
             json.dump(j, f, sort_keys=True, indent=2)
 
         return j
+
+    def clear(self):
+        """Clear caches."""
+        self._cache.clear()
+        for file in os.listdir(self._cache_dir):
+            if re.match(r"[0-9a-f]{64}$", file):
+                os.unlink(self._cache_dir + "/" + file)

@@ -378,6 +378,11 @@ def jmc_script():
     ope("--compile", "-C", dest="op", action="store_const", const="C",
         help="code generation")
 
+    # url cache management
+    arg("--cache-dir", default=None, help="set cache directory")
+    arg("--cache-ignore", default=False, action="store_true", help="ignore cache contents")
+    arg("--cache-clear", default=False, action="store_true", help="cleanup cache contents and exit")
+
     # parameters
     arg("model", default="-", nargs="?", help="JSON model source (file or url or \"-\" for stdin)")
     arg("values", nargs="*", help="JSON values to testing")
@@ -529,7 +534,11 @@ def jmc_script():
         assert " " in m, f"valid map require a space: {m}"
         k, v = m.split(" ", 1)
         maps[k] = v
-    resolver = Resolver(None, maps, allow_duplicates=args.allow_duplicates)
+    resolver = Resolver(args.cache_dir, maps, allow_duplicates=args.allow_duplicates,
+                        cache_ignore=args.cache_ignore)
+    if args.cache_clear:
+        resolver.clear()
+        sys.exit(0)
 
     log.info(f"processing {args.model}")
 
