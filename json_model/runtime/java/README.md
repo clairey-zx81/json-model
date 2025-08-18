@@ -9,6 +9,8 @@
 
 - [GSON](https://github.com/google/gson).
 - [Jackson](https://github.com/FasterXML/jackson).
+- [JSONP](https://jakarta.ee/specifications/jsonp/2.0/)
+  [Leadpony Joy](https://github.com/leadpony/joy/releases/tag/v2.1.0)
 
 ## TODO or not
 

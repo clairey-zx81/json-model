@@ -11,9 +11,7 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
 BEGIN
-  -- non feasible constraints
   -- .
-  -- no string constraints on numbers
   res := FALSE;
   RETURN res;
 END;

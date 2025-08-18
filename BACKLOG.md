@@ -11,6 +11,8 @@
 - [x] src: restructure runtime per language
 - [x] pr: write `everything.model.json` for illustration and test
 - [x] command: add cache management options, eg cleaning, ignore…
+- [x] java-backend: jsonp tested with joy
+- [ ] java bugs: `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues because int/float
 - [ ] design: force static information on `@` constraints for optimizations
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration

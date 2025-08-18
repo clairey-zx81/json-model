@@ -178,7 +178,7 @@ public class Main
                          "  --help: show this help and exit\n" +
                          "  --version: show JSON Model compiler version and exit\n" +
                          "  --list: show list of available models and exit\n" +
-                         "  --json LIB: JSON java library to use (GSON or Jackson)\n" +
+                         "  --json LIB: JSON java library to use (GSON, Jackson, JSONP)\n" +
                          "  --name NAME: name of model for validation\n" +
                          "  --time N: number of iterations for collecting performance data\n" +
                          "  -[-no]-report: whether to report reasons for failure, default is no\n" +
@@ -233,7 +233,9 @@ public class Main
                 json_lib = "json_model.GSON";
             else if (json_lib.equals("Jackson"))
                 json_lib = "json_model.Jackson";
-            // else keep as is
+            else if (json_lib.equals("JSONP"))
+                json_lib = "json_model.JSONP";
+            // else keep as is and cross fingers
             json = (JSON) Class.forName(json_lib).getDeclaredConstructor().newInstance();
         }
         catch (Exception e) {

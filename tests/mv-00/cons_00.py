@@ -25,10 +25,10 @@ check_model_map: PropMap
 # check $ (.)
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # non feasible constraints
     # .
-    # no string constraints on numbers
     res = False
+    if not res:
+        rep is None or rep.append(("unexpected $NONE [.]", path))
     return res
 
 

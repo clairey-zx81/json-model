@@ -80,11 +80,14 @@ RUN for artifact in \
         com.fasterxml.jackson.core:jackson-core:2.19.2 \
         com.fasterxml.jackson.core:jackson-databind:2.19.2 \
         com.fasterxml.jackson.core:jackson-annotations:2.19.2 \
+        jakarta.json:jakarta.json-api:2.0.2 \
+        org.leadpony.joy:joy-classic:2.1.0 \
+        org.leadpony.joy:joy-core:2.1.0 \
         ; \
     do \
         mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
     done
-ENV CLASSPATH=.:/app/workspace:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar
+ENV CLASSPATH=.:/app/workspace:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar:$java/jakarta.json-api-2.0.2.jar:$java/joy-classic-2.1.0.jar:$java/joy-core-2.1.0.jar
 RUN make -C $java jar
 
 # convenient shell and vi environment

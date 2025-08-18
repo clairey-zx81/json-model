@@ -15,10 +15,12 @@ var check_model_map = new Map()
 function json_model_1(val, path, rep)
 {
     let res;
-    // non feasible constraints
     // .
-    // no string constraints on numbers
     res = false;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $NONE [.]", path])
+    }
     return res;
 }
 

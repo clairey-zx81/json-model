@@ -23,10 +23,12 @@ public class cons_00 extends ModelChecker
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
-        // non feasible constraints
         // .
-        // no string constraints on numbers
         res = false;
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("unexpected $NONE [.]", path);
+        }
         return res;
     }
     
