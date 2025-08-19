@@ -8,6 +8,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.IOException;
 
+// WTF?!
+// import javax.json.*;
 import jakarta.json.*;
 
 /**

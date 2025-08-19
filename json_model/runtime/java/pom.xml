@@ -46,9 +46,15 @@
   <!-- it is unclear what minimal version should be set for compiling and dependencies -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>21</java.version>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-    <java.version>21</java.version>
+    <maven.compiler.version>3.13.0</maven.compiler.version>
+    <getopt.version>1.0.13</getopt.version>
+    <gson.version>2.13.1</gson.version>
+    <jackson.version>2.19.2</jackson.version>
+    <jakarta.version>2.0.2</jakarta.version>
+    <johnzon.version>2.0.2</johnzon.version>
   </properties>
 
   <!--
@@ -61,56 +67,59 @@
     <dependency>
       <groupId>gnu.getopt</groupId>
       <artifactId>java-getopt</artifactId>
-      <version>[1.0.13,)</version>
+      <version>[${getopt.version},)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
-      <version>[2.13.1,)</version>
+      <version>[${gson.version},)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>[2.19.2,)</version>
+      <version>[${jackson.version},)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>[2.19.2,)</version>
+      <version>[${jackson.version},)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-      <version>[2.19.2,)</version>
+      <version>[${jackson.version},)</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
     <!-- JSONP interface and a compliant implementation -->
+    <!-- WTF, javax.json seems to depend on org.glassfish stuff? -->
+    <!--
+      <dependency>
+        <groupId>javax.json</groupId>
+        <artifactId>javax.json-api</artifactId>
+        <version>[${json-api.version},)</version>
+        <scope>provided</scope>
+      </dependency>
+    -->
     <dependency>
       <groupId>jakarta.json</groupId>
       <artifactId>jakarta.json-api</artifactId>
-      <version>2.0.2</version>
-      <type>jar</type>
+      <version>[${jakarta.version},)</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.leadpony.joy</groupId>
-      <artifactId>joy-classic</artifactId>
-      <version>2.1.0</version>
+      <groupId>org.apache.johnzon</groupId>
+      <artifactId>johnzon-core</artifactId>
+      <version>[${johnzon.version},)</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.leadpony.joy</groupId>
-      <artifactId>joy-core</artifactId>
-      <version>2.1.0</version>
     </dependency>
   </dependencies>
 
@@ -121,7 +130,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
+        <version>${maven.compiler.version}</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
