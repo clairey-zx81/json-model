@@ -426,7 +426,7 @@ language, other variant may be used which should support at least the re2 subset
 
 Regular expressions are extended with option `X` (capital letter x) to allow references
 to string models with the following syntax: `($name:regex)`, where the regular expression
-after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*). 
+after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
 
 ## Model Transformations
 
@@ -499,15 +499,15 @@ The following edition rules apply, in order, depending on the type of the target
     - `*` value must be a object, which is merged into the target object.
       If a property already exists, this is an error and must be rejected.
   - if the target is a JSON array (not necessarily a model for an array):
-    - `/`: may be a integer or a list of integers.
-      Array items at these indexes are removed.
-      It the array is too short, this is an error and must be rejected.
-    - `~`: this is an error and must be rejected
+    - `/`: may be value or a list of value.
+      Array items equal to these values are removed.
+      If a value is not found, this is an error and must be rejected.
+    - `~`: this is an error and must be rejected.
     - `*`: if the value is an array, append these items to the target array.
       if the value is something else, appends this to the array.
   - if the target is a JSON scalar: this is an error and must be rejected.
 - if the transformation value is a model (i.e. an object without any `/ ~ *` property),
-  the target is _replaced_ by the value, in place.
+  the target value is _replaced_ by this value, in place.
 
 For instance,
 
@@ -532,31 +532,31 @@ and _before_ merge pre-processing.
 In the above specification, there are several requirements for having _one_ known type
 for a model:
 
-- merge operands are objects or or-op of objects (recursively).
-- propertie defined with a reference are strings. 
-- constraint target must have a known type.
+- merge operands are simple objects or or/xor-op of objects (recursively).
+- properties defined using a reference must be strings.
+- constrained targets must have a known type.
 
 This typing lattice is based on the following 3-level latice:
 
 - \(\top\) (top) is `"$ANY"`
-- define types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
+- defined types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
 - \(\bottom\) (bottom) is `"$NONE"`, i.e. no possible value.
 
-All model elements are typed with the following rules, starting from leaves:
+All model elements are typed with the following rules:
 
 - _null_,  _"$NULL"_ and _"=null"_ are `null`.
 - _true_, _"$BOOL"_, _"$BOOLEAN"_, _"=true"_ and _"=false"_ are `bool`.
 - integer/number definitions, constants and predefs are `number`.
 - _""_, _"/regex/"_, _"$STRING"_, string constants, other predefs are `string`.
-- arrays and tuples models are `array`.
+- array and tuple models are `array`.
 - simple object models are `object`.
 
 They are then propagated along definitions and composition objects:
 
-- definitions are typed as their values
-- references are typed as the corresponding definition
+- definitions are typed as their values,
+  and references are typed as the corresponding definition
 - or (`|`), xor (`^`) operators:
-  - if all models have the **same** type, the composition has this type.
+  - if all listed models have the **same** type, the composition has this type.
   - if composed models have different types, the type is _top_.
   - if the list of models is empty, the type is _bottom_.
 - and (`&`) operator:
@@ -564,7 +564,7 @@ They are then propagated along definitions and composition objects:
   - if composed models have different types, the type is _bottom_.
   - if the list is empty, the type is _top_.
 - merge (`+`) operator has type `object`.
-- constraint target (`@`) are types as their target.
+- constraint with a target (`@`) are types as the target.
 
 Fixed point: in case of unresolved recursion, assume _top_.
 
