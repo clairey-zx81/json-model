@@ -10,14 +10,17 @@
       "|": [
         "_$DATE", "_$TIME", "_$DATETIME", "_$URL", "_$URI",
         "_$UUID", "_$EMAIL", "_$REGEX", "_$EXREG",
-        "_$NULL", "_$BOOL", "_$FLOAT", "_$F32", "_$F64", "_$NUMBER",
-        "_$INT", "_$INTEGER", "_$I32", "_$I64", "_$U32", "_$U64", "_$STRING",
+        "_$NULL", "_$BOOL", "_$FLOAT", "_$F16", "_$F32", "_$F64", "_$NUMBER",
+        "_$INT", "_$INTEGER", "$I8", "$I16", "_$I32", "_$I64", "$U8", "$U16", "_$U32", "_$U64",
+        "_$STRING",
         "_$NONE", "_$ANY"
       ]
     },
-    "Comment": "/^#/",
-    "Ref": "/^\\$/",
-    "ValConst": "/^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/",
+    "Identifier": "/^./",
+    "ArrayComment": "/^#/",
+    "ObjectComment": { "#": "", "/^#./s": "$ANY" },
+    "Ref": "/^\\$./",
+    "ValConst": "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
     "StrConst": "/^[_a-zA-Z0-9]/",
     "Regex": { "|": [ "/^/($EXREG)/[a-z]*X[a-z]*$/X", "/^/($REGEX)/[a-z]*$/X" ] },
     "Name": "/^\\..+$/",
@@ -27,8 +30,8 @@
     "StrModel": { "|": [ "$StrConst", "$ValConst", "$Regex", "$PreDef", "$Ref", "_" ] },
     "Any": { "&": [ ] },
     "None": { "|": [ ] },
-    "Common": { "$Comment": "" },
-    "Array": [ { "|": ["$Model", "$Comment"] } ],
+    "Array": [ { "|": ["$Model", "$ArrayComment"] } ],
+    "Common": "$ObjectComment",
     "Constraint": {
       "_@": "$Model",
       "/^(<=|>=|<|>)$/": "$CmpValue",
@@ -44,14 +47,15 @@
     "Elem": { "|": [ "$Constraint", "$Or", "$And", "$Xor", "$Add", "$Obj" ] },
     "Element": { "+": [ "$Common", "$Elem" ] },
     "Trafo": {
-      "#": "remove and/or add stuff",
+      "#": "remove, rename or add stuff",
       "?/": { "|": [ "$EqValue", [ "$Any" ] ] },
-      "?*": { "|": [ [ "$Any" ], { "": "$Model" } ] }
+      "?~": { "": "" },
+      "?*": { "|": [ [ "$Any" ], { "": "$Model" }, "$Any" ] }
     },
     "Transformation": { "|": [ "$Model", { "+": [ "$Common", "$Trafo" ] } ] },
     "ScalarModel": { "|": [ "$ValModel", "$StrModel" ] },
     "Model": { "|": [ "$ScalarModel", "$Array", "$Element" ] },
-    "Defs": { "?": "$Url", "/./": "$Model" },
+    "Defs": { "?": "$Url", "$Identifier": "$Model" },
     "Rename": { "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/" },
     "Rewrite": { "/^\\$.*$/": "$Transformation" },
     "Import": { "?<": { "|": [ "$Ref", [ "$Ref" ] ] } },

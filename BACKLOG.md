@@ -13,6 +13,8 @@
 - [x] command: add cache management options, eg cleaning, ignore…
 - [x] java-backend: jsonp tested with joy
 - [x] java-backend: jsonp with johnzon, same issues compared to joy…
+- [x] design: check `$BOOL` vs `$BOOLEAN` support
+- [x] pr: complete spec
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] design: force static information on `@` constraints for optimizations
 - [ ] pr: write `optimizations.model.json` for illustration
@@ -21,18 +23,17 @@
 - [ ] design: review `$URI` and other predefs
 - [ ] design: transformation rename, `~` with a map? move path to path? eg mandatory to optional?
 - [ ] design: add predefs for `$UUIDx`…
-- [ ] design: check `$BOOL` vs `$BOOLEAN` support
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
 - [ ] test: some pydantic exports
 - [ ] pr: submit jsonschema-benchmark java PR
+- [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
 - [ ] pr: howto entry about python dyn code
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects/code
 - [ ] pr: howto entry about C executable/code
-- [ ] pr: complete spec
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] api: web interface with caching and security
