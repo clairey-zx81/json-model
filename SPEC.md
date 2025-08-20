@@ -123,7 +123,7 @@ objects eg:
   "#.eg": [
     { "status": 200, "message": "Ok" },
     { "status": 418, "message": "I'm a teapot" },
-    { "status": 451; "message": "Unavailable for Legal Reasons." }
+    { "status": 451, "message": "Unavailable for Legal Reasons." }
   ],
   "#.md": "# Status Object\n\nUse this for `HTTP` request status."
 }
@@ -538,9 +538,9 @@ for a model:
 
 This typing lattice is based on the following 3-level latice:
 
-- \(\top\) (top) is `"$ANY"`
+- $\top$ (top) is `"$ANY"`
 - defined types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
-- \(\bottom\) (bottom) is `"$NONE"`, i.e. no possible value.
+- $\bottom$ (bottom) is `"$NONE"`, i.e. no possible value.
 
 All model elements are typed with the following rules:
 
