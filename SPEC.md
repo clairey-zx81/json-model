@@ -1,7 +1,7 @@
 # JSON Model Specification v2
 
-JSON Model aims at describying JSON data structures, so in that sense it is a cross-language
-JSON-specific type declaration written in JSON or YAML.
+JSON Model aims at describing JSON data structures:
+it is a cross-language JSON-specific type declaration written in JSON. 
 
 Some features go beyond the traditional _structural_ typing of programming language type
 declarations, for instance by using constants and regular expressions.
@@ -10,7 +10,7 @@ This is a semi-formal specification of JSON Model.
 
 The JSON Model syntax primarily relies on type inference to express types, and
 uses symbolic properties (`| ^ & + @ = != < <= > >= ! $ % ~`) and
-string sentinel characters (`_ ! ? = . $ /`) for advanced features.
+string sentinel characters (`! ? = _ . $ /`) for advanced features.
 
 ## JSON Summary
 
@@ -19,7 +19,7 @@ text serialization format linked to the JavaScript ecosystem.
 JSON values are built recursively from:
 
 - symbols: `null`, `true`, `false`.
-- numbers, mixing integers and floats: _-42_, _3.1415927E00_
+- numbers, mixing integers and floats: _-42_, _31.415927E-1_
 - unicode text: `"Hello Susie!"`, with backslash escaping and special character such as `\n`.
 - arrays of JSON values: `[ …, … ]`
 - objects mapping string properties to JSON values: `{ "foo": …, "bla": … }`
@@ -28,7 +28,7 @@ It must be noted that:
 
 - there are no comments.
 - there are no cycles or references, a JSON value is only a tree.
-- there is no limit set on integer or float precision.
+- there is no limit set on integer or float precisions.
 - there is no way to represent _NaN_ and _Infinity_ floats.
 
 By default, JSON Model assumes a 64 bit size for integers and floats.
@@ -54,8 +54,6 @@ Moreover, strings can also be specified with a regex:
 - `"/regex/options"`: a string matching the regex with some options,
   eg _/^susie$/i_ for an ignore-case _Susie_ string.
 
-And a model can be defined with a name and referenced with `"$name"`.
-
 ### Arrays
 
 - `[]`: empty array/tuple.
@@ -79,17 +77,18 @@ Is the same as JSON model `[ 0 ]`.
 - `{}`: empty object (no properties).
 - `{"…": …, "…": …}`: an object with property specifications.
 
-Property values are the models of the expected associated values.
+Property values are the models of the expected values associated to the property.
 
 Property names are matched as follow:
 
 - `"!XXX"`: mandatory properties directly provided after the `!`.
-  String constants are _also_ valid mandatory properties.
+  String constants are _also_ valid mandatory properties, see below.
 - `"?XXX"`: optional properties directly provided after the `?`.
 - `"/.../"`: optional property names matching a regular expression:
   eg `{"/^a/": ""}` means property names starting with _a_ must have string values.
-- `"$XXX"`: optional property reference to a **string** definition.
+- `"$XXX"`: optional property reference to a **string** definition, see below.
 - `""` catch all property: any property name matches.
+  This is consistent with `""` standing for any string.
 - property names starting with other characters are reserved for future uses and must be rejected.
 
 :warning: Named properties **must** be distinct one from the other,
@@ -109,7 +108,7 @@ The matching search **should** follow the specification order within these class
 if the language JSON representation allows it.
 However, a model **should nots** rely on the fact that the specification order is preserved
 for its expected semantics.
-This allows to direct optimization by putting more likely properties ahead of the check.
+This allows to hint optimization by putting more likely properties ahead of the check.
 
 ### Comment Properties
 
@@ -209,7 +208,7 @@ In addition, the following string predefs are defined:
   a date, time or timestamp ([RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339)).
 - `"$EMAIL"`: an email address, eg _susie@json-model.org_.
 - `"$JSON"`: a valid JSON value, eg _123_ or _{"Susie": "Derkins"}_.
-- `"$REGEX"`: a valid _re2_ regular expression, eg _^[a-z]+$_.
+- `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
 - `"$EXREG"`: an extended regular expression, see below.
 
 Any other all-capital ASCII character (and digit) definition names must be rejected
@@ -368,7 +367,7 @@ the number of properties (size) of the object.
 Implementations may choose to manage constraints dynamically, but the static typing constraints
 applies.
 
-## Root Special Keywords
+## Root Keywords
 
 Additional one-letter symbols can _only_ appear at the root of a JSON model:
 
@@ -395,11 +394,11 @@ For instance:
 defines `"$entier"` as a synonym for integers, and `"$mot"` as a string matching the regex.
 
 Definitions allow recursivity.
-Names are restricted to simple identifiers (letters, numbers, underline, dash).
-
-The special empty string `""` name allows to declare the URL-identifier of the model itself.
-
+Names are restricted to simple identifiers (letters, numbers, underline, dash…).
 Beware that all-capital ASCII identifiers are reserved for predefs.
+
+The special empty string `""` proprety allows to declare the URL-identifier of the
+model itself.
 
 ## References and Imports
 
@@ -508,21 +507,6 @@ The following edition rules apply, in order, depending on the type of the target
 - if the transformation value is a model (i.e. an object without any `/ ~ *` property),
   the target value is _replaced_ by this value, in place.
 
-For instance,
-
-```json
-{
-  "$": {
-    "#": "the root model of JSON Model meta-model",
-    "Model": "$https://json-model.org/models/json-model"
-  },
-  "%": {
-    "#": "add or replace Comments definition in the target model",
-    "$Model#Comments": { "?#": "", "/^#.+/": "$ANY" }
-  }
-}
-```
-
 These additions and editions are performed _after_ property renamings and imports,
 and _before_ merge pre-processing.
 
@@ -537,8 +521,8 @@ for a model:
 
 This typing lattice is based on the following 3-level latice:
 
-- $\top$ (top) is `"$ANY"`
-- defined types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
+- $\top$ (top) is `"$ANY"`.
+- known types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
 - $\perp$ (bottom) is `"$NONE"`, i.e. no possible value.
 
 All model elements are typed with the following rules:
@@ -565,7 +549,8 @@ They are then propagated along definitions and composition objects:
 - merge (`+`) operator has type `object`.
 - constraint with a target (`@`) are types as the target.
 
-Fixed point: in case of unresolved recursion, assume _top_.
+Fixed point: in case of unresolved recursion, do not bother and assume _top_,
+i.e. the type is unknown.
 
 ## Comments
 
@@ -607,6 +592,10 @@ JSON Model meta-model is available [here](https://json-model.org/models/json-mod
       "y": { "?y": "$y" },
       "#.z": "the mandatory prop means that no finite value can satisfy this model",
       "z": { "!z": "$z" },
+      "#.µ": "indirect fix point",
+      "µ": { "|": [ "$µ", "" ] },
+      "#.d": "direct unspecified fix point",
+      "d": "$d"
     }
   }
   ```
