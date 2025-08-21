@@ -605,6 +605,7 @@ JSON Model meta-model is available [here](https://json-model.org/models/json-mod
 ### Future directions
 
 - discuss other transformations? mv/cp?
+  eg promote an optional prop to mandatory, or the reverse?
 - expand constrained models?
 
 ### From JSON Model v1 to v2.
