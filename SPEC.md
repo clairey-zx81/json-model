@@ -105,13 +105,16 @@ property specifications are **not** cumulative.
 3. reference properties.
 4. catch all property.
 
-The matching search must follow the specification order if the language JSON
-representation allows it.
+The matching search **should** follow the specification order within these classes
+if the language JSON representation allows it.
+However, a model **should nots** rely on the fact that the specification order is preserved
+for its expected semantics.
+This allows to direct optimization by putting more likely properties ahead of the check.
 
 ### Comment Properties
 
-Property names starting with `#` are comments and must be ignored,
-together with their arbitrary values.
+Property names starting with `#` are comments and **must** be ignored,
+together with their arbitrary values (bar type constraints).
 They may appear within simple, composition, constraint, definition and transformation
 objects eg:
 
@@ -476,7 +479,7 @@ While importing, homonymous definitions are invalid and must be rejected.
 
 Model editions are specified with properties which are references possibly followed
 by a JSON path, allowing to point to a JSON element in the model, and either a value
-with special properties `/ ~ *` to remove, rename or add sub elements, or anything else
+with special properties `/ *` to remove or add sub elements, or anything else
 taken as-is, but which must not be an object with any of the special properties.
 
 - Addition/replacement on a `"$External#name"` reference to a definition:
@@ -493,17 +496,13 @@ The following edition rules apply, in order, depending on the type of the target
     - `/` value may be a string or a list of strings.
       All properties of these names are removed.
       If a property does not exist, this is an error and must be rejected.
-    - `~` value must be an object with string values.
-      All properties named as the property are rename as the target of the property.
-      If a property does not exist, this is an error and must be rejected.
     - `*` value must be a object, which is merged into the target object.
       If a property already exists, this is an error and must be rejected.
   - if the target is a JSON array (not necessarily a model for an array):
-    - `/`: may be value or a list of value.
+    - `/`: may be value or a list of values.
       Array items equal to these values are removed.
       If a value is not found, this is an error and must be rejected.
-    - `~`: this is an error and must be rejected.
-    - `*`: if the value is an array, append these items to the target array.
+    - `*`: if the value is an array, append its items to the target array.
       if the value is something else, appends this to the array.
   - if the target is a JSON scalar: this is an error and must be rejected.
 - if the transformation value is a model (i.e. an object without any `/ ~ *` property),
@@ -577,7 +576,47 @@ Fixed point: in case of unresolved recursion, assume _top_.
 
 JSON Model meta-model is available [here](https://json-model.org/models/json-model).
 
+## Unfeasible models
+
+- statically unfeasible constraints
+
+  ```json
+  {
+    "#": "a JSON value cannot be both a string and an integer",
+    "&": [ "", 0 ]
+  }
+  ```
+
+- dynamically unfeasible constraints (without knowledge of regex semantics)"
+
+  ```json
+  {
+    "#": "a string cannot both starts with `a` and `b`",
+    "&": [ "/^a/", "/^b/" ]
+  }
+  ```
+
+- feasible vs unfeasible recursions
+
+  ```json
+  {
+    "$": {
+      "#.x": "this is feasible because the array may be empty",
+      "x": [ "$x" ],
+      "#.y": "this is feasible because the property is optional",
+      "y": { "?y": "$y" },
+      "#.z": "the mandatory prop means that no finite value can satisfy this model",
+      "z": { "!z": "$z" },
+    }
+  }
+  ```
+
 ## Changes
+
+### Future directions
+
+- discuss other transformations? mv/cp?
+- expand constrained models?
 
 ### From JSON Model v1 to v2.
 
