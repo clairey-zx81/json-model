@@ -539,7 +539,7 @@ This typing lattice is based on the following 3-level latice:
 
 - $\top$ (top) is `"$ANY"`
 - defined types are: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
-- $\bottom$ (bottom) is `"$NONE"`, i.e. no possible value.
+- $\perp$ (bottom) is `"$NONE"`, i.e. no possible value.
 
 All model elements are typed with the following rules:
 
