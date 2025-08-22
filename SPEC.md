@@ -84,6 +84,20 @@ must be treated as errors and rejected.
 Note that the symbol renaming feature may allow property names starting with a `.`,
 which must be translated into the regular symbol before processing.
 
+### Regular Expression Models
+
+Regular expression are specified in string with the `/` sentinel: `"/regex/options"`
+are the strings which match the _regex_ under the provided _options_.
+For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
+
+- Regular expressions should be restricted to efficient regex such as `re2`.
+  However, depending on the availibility of such regular expression engine on the target
+  environment, other variant may be used which should support at least the re2 subset.
+
+- Model regular expressions are extended with option `X` (capital letter x) to allow references
+  to string models with the following syntax: `($name:regex)`, where the regular expression
+  after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
+
 ### Predefined Models
 
 String models with a `$` reference with a capitalized ASCII name are special **predefined** models:
@@ -118,20 +132,6 @@ In addition, the following string predefs are defined:
 
 Any other all-capital ASCII character (and digit) definition names must be rejected
 as they are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
-
-### Regular Expression Models
-
-Regular expression are specified in string with the `/` sentinel: `"/regex/options"`
-are the strings which match the _regex_ under the provided _options_.
-For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
-
-- Regular expressions should be restricted to efficient regex such as `re2`.
-  However, depending on the availibility of such regular expression engine on the target
-  environment, other variant may be used which should support at least the re2 subset.
-
-- Model regular expressions are extended with option `X` (capital letter x) to allow references
-  to string models with the following syntax: `($name:regex)`, where the regular expression
-  after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
 
 ## Array and Tuple Models
 
