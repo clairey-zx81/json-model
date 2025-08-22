@@ -624,15 +624,18 @@ a value so as to compute the average and standard deviation times in µs.
   jmc -o Person.java Person-2
   javac Person.java
   # OR jmc -o Person.class Person-2
-  java Person -T 100000 hobbes.json
-  # hobbes.json: 1.896 ± 10.703 µs [0.033]
+  java Person -j GSON -T 100000 hobbes.json
+  # hobbes.json: 1.556 ± 8.610 µs [0.035]
   # hobbes.json: PASS
   ```
+
+  Three Java JSON libraries are currently supported:
+  Jackson, JSONP (with Johnzon or Joy implementations) and GSON.
 
 Some comments about these representative performance figures:
 As JavaScript JIT and its underlying regex engine are quite good,
 a typical JS-to-C performance ratio is 4:1.
-Java-to-C ratio is 12:1, the runtime is not well optimized.
+Java-to-C ratio is 12:1, but can be much less for larger tests.
 Python is _slow_, a typical ratio to compiled C is 25:1.
 Perl is even slower, this backend is not well optimized.
 Because the `-r` option is not used, there are no reporting overheads.
