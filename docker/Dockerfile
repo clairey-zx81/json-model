@@ -103,5 +103,5 @@ WORKDIR /app/workspace
 ENV TMPDIR=/tmp
 ENV JSON_MODEL_CACHEDIR=/tmp
 ENV PERLLIB=/app/json-model/json_model/runtime/pl
-ENV PATH=.:$PATH
+ENV PATH=$PATH:.
 ENTRYPOINT ["/app/venv/bin/jmc"]
