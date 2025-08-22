@@ -4190,33 +4190,33 @@ sub json_model_64($$$)
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#Model'
-    $res = json_model_94($val, $path, $rep);
+    $res = json_model_96($val, $path, $rep);
     return $res;
 }
 
 # check $openapi#model#Model (.'$openapi#model#Model')
-sub json_model_94($$$)
+sub json_model_96($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#Model'
     # .'$openapi#model#Model'.'|'.0
-    $res = json_model_93($val, $path, $rep);
+    $res = json_model_95($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#Model'.'|'.1
-        $res = json_model_81($val, $path, $rep);
+        $res = json_model_82($val, $path, $rep);
         if (! $res)
         {
             # .'$openapi#model#Model'.'|'.2
-            $res = json_model_90($val, $path, $rep);
+            $res = json_model_92($val, $path, $rep);
         }
     }
     return $res;
 }
 
 # check $openapi#model#Array (.'$openapi#model#Array')
-sub json_model_81($$$)
+sub json_model_82($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4229,11 +4229,11 @@ sub json_model_81($$$)
             my $arr_11_item = $$val[$arr_11_idx];
             # .'$openapi#model#Array'.0
             # .'$openapi#model#Array'.0.'|'.0
-            $res = json_model_94($arr_11_item, undef, $rep);
+            $res = json_model_96($arr_11_item, undef, $rep);
             if (! $res)
             {
                 # .'$openapi#model#Array'.0.'|'.1
-                $res = json_model_68($arr_11_item, undef, $rep);
+                $res = json_model_69($arr_11_item, undef, $rep);
             }
             if (! $res)
             {
@@ -4244,12 +4244,12 @@ sub json_model_81($$$)
     return $res;
 }
 
-# check $openapi#model#Comment (.'$openapi#model#Comment')
-sub json_model_68($$$)
+# check $openapi#model#ArrayComment (.'$openapi#model#ArrayComment')
+sub json_model_69($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$openapi#model#Comment'
+    # .'$openapi#model#ArrayComment'
     # "/^#/"
     $res = jm_is_string($val) && jm_starts_with($val, '#');
     return $res;
@@ -4267,21 +4267,31 @@ sub _jm_obj_63($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (json_model_68($prop, undef, $rep))
+        if ($prop eq '#')
         {
-            # handle 2 key props
-            # .'$openapi#model#Element'.'|'.5.'$Comment'
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.5.'#'
             $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (json_model_87($prop, undef, $rep))
+        elsif (json_model_89($prop, undef, $rep))
         {
-            # handle 2 key props
+            # handle 1 key props
             # .'$openapi#model#Element'.'|'.5.'$Prop'
-            $res = json_model_94($pval, undef, $rep);
+            $res = json_model_96($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, '#'))
+        {
+            # handle 1 re props
+            # .'$openapi#model#Element'.'|'.5.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4320,7 +4330,7 @@ sub _jm_obj_64($$$)
                 {
                     my $arr_12_item = $$pval[$arr_12_idx];
                     # .'$openapi#model#Element'.'|'.4.'+'.0
-                    $res = json_model_94($arr_12_item, undef, $rep);
+                    $res = json_model_96($arr_12_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4332,11 +4342,21 @@ sub _jm_obj_64($$$)
                 return 0;
             }
         }
-        elsif (json_model_68($prop, undef, $rep))
+        elsif ($prop eq '#')
         {
-            # handle 1 key props
-            # .'$openapi#model#Element'.'|'.4.'$Comment'
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.4.'#'
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, '#'))
+        {
+            # handle 1 re props
+            # .'$openapi#model#Element'.'|'.4.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4379,7 +4399,7 @@ sub _jm_obj_65($$$)
                 {
                     my $arr_13_item = $$pval[$arr_13_idx];
                     # .'$openapi#model#Element'.'|'.3.'^'.0
-                    $res = json_model_94($arr_13_item, undef, $rep);
+                    $res = json_model_96($arr_13_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4391,11 +4411,21 @@ sub _jm_obj_65($$$)
                 return 0;
             }
         }
-        elsif (json_model_68($prop, undef, $rep))
+        elsif ($prop eq '#')
         {
-            # handle 1 key props
-            # .'$openapi#model#Element'.'|'.3.'$Comment'
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.3.'#'
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, '#'))
+        {
+            # handle 1 re props
+            # .'$openapi#model#Element'.'|'.3.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4438,7 +4468,7 @@ sub _jm_obj_66($$$)
                 {
                     my $arr_14_item = $$pval[$arr_14_idx];
                     # .'$openapi#model#Element'.'|'.2.'&'.0
-                    $res = json_model_94($arr_14_item, undef, $rep);
+                    $res = json_model_96($arr_14_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4450,11 +4480,21 @@ sub _jm_obj_66($$$)
                 return 0;
             }
         }
-        elsif (json_model_68($prop, undef, $rep))
+        elsif ($prop eq '#')
         {
-            # handle 1 key props
-            # .'$openapi#model#Element'.'|'.2.'$Comment'
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.2.'#'
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, '#'))
+        {
+            # handle 1 re props
+            # .'$openapi#model#Element'.'|'.2.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4497,7 +4537,7 @@ sub _jm_obj_67($$$)
                 {
                     my $arr_15_item = $$pval[$arr_15_idx];
                     # .'$openapi#model#Element'.'|'.1.'|'.0
-                    $res = json_model_94($arr_15_item, undef, $rep);
+                    $res = json_model_96($arr_15_item, undef, $rep);
                     if (! $res)
                     {
                         last;
@@ -4509,11 +4549,21 @@ sub _jm_obj_67($$$)
                 return 0;
             }
         }
-        elsif (json_model_68($prop, undef, $rep))
+        elsif ($prop eq '#')
         {
-            # handle 1 key props
-            # .'$openapi#model#Element'.'|'.1.'$Comment'
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.1.'#'
             $res = jm_is_string($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (jm_starts_with($prop, '#'))
+        {
+            # handle 1 re props
+            # .'$openapi#model#Element'.'|'.1.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4563,7 +4613,17 @@ sub _jm_obj_68($$$)
             # handle must @ property
             $must_count++;
             # .'$openapi#model#Element'.'|'.0.'@'
-            $res = json_model_94($pval, undef, $rep);
+            $res = json_model_96($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif ($prop eq '#')
+        {
+            # handle may # property
+            # .'$openapi#model#Element'.'|'.0.'#'
+            $res = jm_is_string($pval);
             if (! $res)
             {
                 return 0;
@@ -4579,11 +4639,11 @@ sub _jm_obj_68($$$)
                 return 0;
             }
         }
-        elsif (json_model_68($prop, undef, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
-            # handle 1 key props
-            # .'$openapi#model#Element'.'|'.0.'$Comment'
-            $res = jm_is_string($pval);
+            # handle 3 re props
+            # .'$openapi#model#Element'.'|'.0.'/^#/'
+            $res = 1;
             if (! $res)
             {
                 return 0;
@@ -4591,9 +4651,9 @@ sub _jm_obj_68($$$)
         }
         elsif (_jm_re_4($prop, $path, $rep))
         {
-            # handle 2 re props
+            # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
-            $res = json_model_74($pval, undef, $rep);
+            $res = json_model_76($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4601,9 +4661,9 @@ sub _jm_obj_68($$$)
         }
         elsif (_jm_re_5($prop, $path, $rep))
         {
-            # handle 2 re props
+            # handle 3 re props
             # .'$openapi#model#Element'.'|'.0.'/^(=|!=)$/'
-            $res = json_model_75($pval, undef, $rep);
+            $res = json_model_77($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -4622,7 +4682,7 @@ sub _jm_obj_68($$$)
 }
 
 # check $openapi#model#Element (.'$openapi#model#Element')
-sub json_model_90($$$)
+sub json_model_92($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4662,7 +4722,7 @@ sub json_model_90($$$)
 }
 
 # check $openapi#model#CmpValue (.'$openapi#model#CmpValue')
-sub json_model_74($$$)
+sub json_model_76($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4683,7 +4743,7 @@ sub json_model_74($$$)
 }
 
 # check $openapi#model#EqValue (.'$openapi#model#EqValue')
-sub json_model_75($$$)
+sub json_model_77($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4697,7 +4757,7 @@ sub json_model_75($$$)
         if (! $res)
         {
             # .'$openapi#model#EqValue'.'|'.2
-            $res = json_model_74($val, $path, $rep);
+            $res = json_model_76($val, $path, $rep);
         }
     }
     return $res;
@@ -4711,7 +4771,7 @@ sub _jm_re_6($$$)
 }
 
 # check $openapi#model#Prop (.'$openapi#model#Prop')
-sub json_model_87($$$)
+sub json_model_89($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4722,19 +4782,19 @@ sub json_model_87($$$)
     if (! $res)
     {
         # .'$openapi#model#Prop'.'|'.1
-        $res = json_model_71($val, $path, $rep);
+        $res = json_model_73($val, $path, $rep);
         if (! $res)
         {
             # .'$openapi#model#Prop'.'|'.2
-            $res = json_model_72($val, $path, $rep);
+            $res = json_model_74($val, $path, $rep);
             if (! $res)
             {
                 # .'$openapi#model#Prop'.'|'.3
-                $res = json_model_69($val, $path, $rep);
+                $res = json_model_71($val, $path, $rep);
                 if (! $res)
                 {
                     # .'$openapi#model#Prop'.'|'.4
-                    $res = json_model_73($val, $path, $rep);
+                    $res = json_model_75($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$openapi#model#Prop'.'|'.5
@@ -4750,17 +4810,17 @@ sub json_model_87($$$)
 sub _jm_re_7($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^\$/;
+    my $res = $val =~ /^\$./;
     return $res;
 }
 
 # check $openapi#model#Ref (.'$openapi#model#Ref')
-sub json_model_69($$$)
+sub json_model_71($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#Ref'
-    # "/^\\$/"
+    # "/^\\$./"
     $res = jm_is_string($val) && _jm_re_7($val, $path, $rep);
     return $res;
 }
@@ -4768,17 +4828,17 @@ sub json_model_69($$$)
 sub _jm_re_8($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^[_a-zA-Z0-9]/;
+    my $res = $val =~ /^[A-Za-z0-9_]/;
     return $res;
 }
 
 # check $openapi#model#StrConst (.'$openapi#model#StrConst')
-sub json_model_71($$$)
+sub json_model_73($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#StrConst'
-    # "/^[_a-zA-Z0-9]/"
+    # "/^[A-Za-z0-9_]/"
     $res = jm_is_string($val) && _jm_re_8($val, $path, $rep);
     return $res;
 }
@@ -4832,7 +4892,7 @@ sub _jm_xre_1($$$)
 }
 
 # check $openapi#model#Regex (.'$openapi#model#Regex')
-sub json_model_72($$$)
+sub json_model_74($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4861,7 +4921,7 @@ sub _jm_re_9($$$)
 }
 
 # check $openapi#model#Name (.'$openapi#model#Name')
-sub json_model_73($$$)
+sub json_model_75($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4872,23 +4932,23 @@ sub json_model_73($$$)
 }
 
 # check $openapi#model#ScalarModel (.'$openapi#model#ScalarModel')
-sub json_model_93($$$)
+sub json_model_95($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#ScalarModel'
     # .'$openapi#model#ScalarModel'.'|'.0
-    $res = json_model_76($val, $path, $rep);
+    $res = json_model_78($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#ScalarModel'.'|'.1
-        $res = json_model_77($val, $path, $rep);
+        $res = json_model_79($val, $path, $rep);
     }
     return $res;
 }
 
 # check $openapi#model#ValModel (.'$openapi#model#ValModel')
-sub json_model_76($$$)
+sub json_model_78($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
@@ -4934,21 +4994,21 @@ sub json_model_76($$$)
 }
 
 # check $openapi#model#StrModel (.'$openapi#model#StrModel')
-sub json_model_77($$$)
+sub json_model_79($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#StrModel'
     # .'$openapi#model#StrModel'.'|'.0
-    $res = json_model_71($val, $path, $rep);
+    $res = json_model_73($val, $path, $rep);
     if (! $res)
     {
         # .'$openapi#model#StrModel'.'|'.1
-        $res = json_model_70($val, $path, $rep);
+        $res = json_model_72($val, $path, $rep);
         if (! $res)
         {
             # .'$openapi#model#StrModel'.'|'.2
-            $res = json_model_72($val, $path, $rep);
+            $res = json_model_74($val, $path, $rep);
             if (! $res)
             {
                 # .'$openapi#model#StrModel'.'|'.3
@@ -4956,7 +5016,7 @@ sub json_model_77($$$)
                 if (! $res)
                 {
                     # .'$openapi#model#StrModel'.'|'.4
-                    $res = json_model_69($val, $path, $rep);
+                    $res = json_model_71($val, $path, $rep);
                     if (! $res)
                     {
                         # .'$openapi#model#StrModel'.'|'.5
@@ -4983,17 +5043,17 @@ sub json_model_67($$$)
 sub _jm_re_10($$$)
 {
     my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^=(null|true|false|-?\d+(\.\d+)?([Ee]-?\d+)?)$/;
+    my $res = $val =~ /^=(null|true|false|[-+]?\d+(\.\d+)?([Ee][-+]?\d+)?)$/;
     return $res;
 }
 
 # check $openapi#model#ValConst (.'$openapi#model#ValConst')
-sub json_model_70($$$)
+sub json_model_72($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$openapi#model#ValConst'
-    # "/^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$/"
+    # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
     $res = jm_is_string($val) && _jm_re_10($val, $path, $rep);
     return $res;
 }
@@ -5122,13 +5182,18 @@ sub check_model_init()
             '$NULL' => 1,
             '$BOOL' => 1,
             '$FLOAT' => 1,
+            '$F16' => 1,
             '$F32' => 1,
             '$F64' => 1,
             '$NUMBER' => 1,
             '$INT' => 1,
             '$INTEGER' => 1,
+            '$I8' => 1,
+            '$I16' => 1,
             '$I32' => 1,
             '$I64' => 1,
+            '$U8' => 1,
+            '$U16' => 1,
             '$U32' => 1,
             '$U64' => 1,
             '$STRING' => 1,
