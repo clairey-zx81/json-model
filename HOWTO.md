@@ -122,7 +122,62 @@ Assuming that the `jmc` command is available:
 
 ## … use JSON Model in my _Java_ code?
 
-:warning: :construction_worker: :construction:
+If you load a JSON file using specific Java classes (aka binding), your _do not_ really need
+a model for checking your JSON: the JSON parser will checks type constraints while creating
+the class instances.
+
+However, if you want to load a generic JSON file without having corresponding Java classes,
+you can use JSON model for validating its contents.
+
+1. add the [JSON Model Java runtime](https://central.sonatype.com/artifact/org.json-model/json-model),
+   as a dependency to your project, for instance for Apache Maven:
+
+   ```xml
+   <dependency>
+     <groupId>org.json-model</groupId>
+     <artifactId>json-model</artifactId>
+     <version>2.0b5</version>
+   </dependency>
+   ```
+
+2. choose a Java JSON library! Currently 3 libraries are supported:
+
+   - [GSON](https://central.sonatype.com/artifact/com.google.code.gson/gson)
+   - [Jackson](https://central.sonatype.com/artifact/com.fasterxml.jackson.core/jackson-core)
+   - [JSONP](https://central.sonatype.com/artifact/jakarta.json/jakarta.json-api)
+     with an implementation such as
+     [Johnzon](https://central.sonatype.com/artifact/org.apache.johnzon/johnzon) or
+     [Joy](https://central.sonatype.com/artifact/org.leadpony.joy/joy).
+
+3. generate the Java JSON validation class for your model, and put it somewhere in your project:
+
+   ```sh
+   jmc -o StuffChecker.java Stuff
+   ```
+
+4. initialize the runtime:
+
+   ```java
+   import json_model.GSON;  // or Jackson or JSONP
+   import json_model.ModelChecker;
+   import json_model.Report;
+
+   // where and when you need it
+   ModelChecker checker = new StuffChecker();
+   checker.init(new GSON())
+   ```
+
+
+5. call the checker on a `value` loaded by the library from some source, to check whether
+   it conforms to `model` (the name of the model, empty string for the root model).
+
+   ```java
+   Report rep = new Report();
+   boolean ok = checker.check(value, model, rep);
+   // consult report for some hint on rejections
+   ```
+
+6. Sip some coffee!
 
 ## … get an Answer?
 
