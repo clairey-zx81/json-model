@@ -173,9 +173,9 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 
 ```json
 {
-  "name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
+  "name": "/^\\w+([-' ]\\w+)/",
   "birth": "$DATE",
-  "?friends": [ "/^\\p{L}+([-' ]\\p{L}+)*$/" ]
+  "?friends": [ "/\\w+([-' ]\\w+)/" ]
 }
 ```
 
@@ -185,6 +185,8 @@ The model is strict enough to invalidate this value:
 jmc Person-0 elysee.json  # PASS
 jmc Person-1 elysee.json  # FAIL
 ```
+
+Note: the regex enthousiast may consider replacing `\w` with `\p{L}\p{M}*` (letters with marks).
 
 ## Using Definitions
 
@@ -196,7 +198,7 @@ with file `Person-2.model.json`:
 {
   "#": "Model for a Person",
   "$": {
-    "Name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
+    "Name": "/^\\w+([-' ]\\w+)*$/",
     "Person": {
       "name": "$Name",
       "birth": "$DATE",
@@ -284,7 +286,7 @@ Hence, with file `Loose.model.json`:
 
 ```json
 {
-  "$": { "Name": "/^\\p{L}+([-' ]\\p{L}+)*$/" },
+  "$": { "Name": "/^\\w+([-' ]\\w+)*$/" },
   "name": "$Name",
   "birth": "$DATE",
   "?friends": [ "$Name" ],
@@ -366,7 +368,7 @@ Let us consider the model in file `Town.model.json`, which defines a town object
 
 ```json
 {
-  "name": "/^\\p{L}+([-' ]\\p{L}+)*$/",
+  "name": "/^\\w+([-' ]\\w+)*$/",
   "pop": 1,
   "coord": { "lat": -1.0, "lon": -1.0 }
 }
