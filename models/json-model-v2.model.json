@@ -16,12 +16,12 @@
         "_$NONE", "_$ANY"
       ]
     },
-    "Identifier": { "&": [ "/^(\\p{L}|\\w)+$/", "/[^A-Z0-9]/" ] },
+    "Identifier": { "&": [ "/^\\w+$/", "/[^A-Z0-9]/" ] },
     "ArrayComment": "/^#/",
     "ObjectComment": { "?#": "", "/^#./s": "$ANY" },
     "Ref": "/^\\$./",
     "ValConst": "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
-    "StrConst": "/^(\\p{L}|[0-9_])/",
+    "StrConst": "/^[A-Za-z0-9_]/",
     "Regex": { "|": [ "/^/($EXREG)/[a-z]*X[a-z]*$/X", "/^/($REGEX)/[a-z]*$/X" ] },
     "Name": "/^\\..+$/",
     "CmpValue": { "|": [ -1, -1.0, "" ] },
