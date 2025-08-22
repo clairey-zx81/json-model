@@ -1,7 +1,7 @@
 # JSON Model Specification v2
 
 JSON Model aims at describing JSON data structures:
-it is a cross-language JSON-specific type declaration written in JSON. 
+it is a cross-language JSON-specific type declaration written in JSON.
 
 Some features go beyond the traditional _structural_ typing of programming language type
 declarations, for instance by using constants and regular expressions.
@@ -33,17 +33,20 @@ It must be noted that:
 
 By default, JSON Model assumes a 64 bit size for integers and floats.
 
-As JSON Model represents set of JSON values by providing a type declaration which 
-constraint the allowed value. A model contains both JSON parts which must conform
-to the model syntax (the type declarations) and JSON parts which may be values
-(think of part of a model which gives examples of values which are allowed, as
-documentation illustrations).
+JSON Model represents set of JSON values by providing a type declaration which
+constraint the allowed value.
+A model contains both JSON parts which must conform to the model syntax (the type declarations)
+and JSON parts which may be values (eg examples of allowed values, as documentation illustrations
+included in the model definition).
 
-## Static Type Inference
+JSON model relies on type inference for typing, so that the simplest value typically stands
+for all possible values for that type.
 
-In a JSON model, the simplest value typically stands for all possible values for that type.
+## Scalar Models
 
-### Scalar Models
+### Scalar Type Inference
+
+Relying on type inference, the following scalar models allow to declare scalar types:
 
 - `null`: JSON value _null_.
 - `true`: JSON values _true_ or _false_, a boolean.
@@ -55,12 +58,82 @@ In a JSON model, the simplest value typically stands for all possible values for
 - `-1.0`: any float, eg _-42.5_.
 - `""`: any string.
 
-Moreover, strings can also be specified with a regex:
+### Scalar Constant Models
 
-- `"/regex/options"`: a string matching the regex with some options,
-  eg `"/^susie$/i"` for an ignore-case _Susie_ string.
+Non-string scalar constants are expressed with strings using sentinel `=`:
 
-### Array and Tuple Models
+- `"=null"`: the _null_ value.
+- `"=true"`: the _true_ boolean value.
+- `"=false"`: the _false_ boolean value.
+- `"=-5432"`: the _-5432_ integer value.
+- `"=3.1415927E0`: the approximated pi float value.
+
+Any other model strings starting with `=` must be treated as errors and rejected.
+
+String scalar constant are expressed with string using sentinel `_`:
+
+- `"_XXX"`: the _XXX_ string constant, where _XXX_ can be anything.
+  `"_"` is the empty string, `"_&"` is the ampersand character, `"_#"` is the sharp character.
+- `"XXX"`: the _XXX_ string constant **if** the first character
+  is an identifier character (letter).
+
+Model strings which do not start with `_` (constant), `/` (regex), `$` (reference),
+`=` (non-string scalar constants) or _identifier_ characters
+must be treated as errors and rejected.
+
+Note that the symbol renaming feature may allow property names starting with a `.`,
+which must be translated into the regular symbol before processing.
+
+### Predefined Models
+
+String models with a `$` reference with a capitalized ASCII name are special **predefined** models:
+
+- `"$ANY"`: any JSON value (scalar or array or object).
+- `"$NONE"`: no JSON value.
+
+Simple scalar types:
+
+- `"$NULL"`: _null_ value.
+- `"$BOOL"` or `"$BOOLEAN"`: boolean values _true_ or _false_.
+- `"$INT"` or `"$INTEGER"`: JSON (unbounded) integer values.
+- `"$I8"`, `"$U8"`, `"$I16"`, `"$U16"`, `"$I32"`, `"$U32"`, `"$I64"`, `"$U64$"`:
+  signed/unsigned 8/16/32/64-bit integers.
+- `"$FLOAT"` or `"$NUMBER"`: JSON (unbounded) float values.
+- `"$F16"`, `"$F32"`, `"$F64"`: 16/32/64 bit precision
+  [IEEE 754](https://standards.ieee.org/ieee/754/6210/) floats.
+- "`$STRING"`: a string.
+
+In addition, the following string predefs are defined:
+
+- `"$URL"` `"$URI"`: a URL or URI
+  ([RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)), eg _https://json-model.org/_.
+- `"$UUID"`: a UUID (Universally Unique IDentifier -
+  [RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)).
+- `"$DATE"`, `"$TIME"` or `"$DATETIME"`:
+  a date, time or timestamp ([RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+- `"$EMAIL"`: an email address, eg _susie@json-model.org_.
+- `"$JSON"`: a valid JSON value, eg _123_ or _{"Susie": "Derkins"}_.
+- `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
+- `"$EXREG"`: an extended regular expression, see below.
+
+Any other all-capital ASCII character (and digit) definition names must be rejected
+as they are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
+
+### Regular Expression Models
+
+Regular expression are specified in string with the `/` sentinel: `"/regex/options"`
+are the strings which match the _regex_ under the provided _options_.
+For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
+
+- Regular expressions should be restricted to efficient regex such as `re2`.
+  However, depending on the availibility of such regular expression engine on the target
+  environment, other variant may be used which should support at least the re2 subset.
+
+- Model regular expressions are extended with option `X` (capital letter x) to allow references
+  to string models with the following syntax: `($name:regex)`, where the regular expression
+  after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
+
+## Array and Tuple Models
 
 The model for an array or tuple is a JSON array.
 
@@ -80,7 +153,7 @@ For example:
 
 Is the same as JSON model `[ 0 ]`.
 
-### Simple Object Model
+## Simple Object Model
 
 - `{}`: empty object (no properties).
 - `{"…": …, "…": …}`: an object with property specifications.
@@ -119,7 +192,7 @@ However, a model **should nots** rely on the fact that the specification order i
 for its expected semantics.
 This allows to hint optimization by putting more likely properties ahead of the check.
 
-### Model Comment Properties
+## Model Comment Properties
 
 In a model, property names starting with `#` are comments and **must** be ignored,
 together with their arbitrary values.
@@ -157,85 +230,6 @@ Comments may be interpreted by tools to generate documentations,
 and these tools may add further restrictions to their value.
 For instance, `"#.md"` may be required to be a valid markdown document,
 or `"#.eg"` may be required to be an array of JSON values which _do_ match the model.
-
-## Scalar Constant Models
-
-Scalar constants are expressed as special strings with a `=` or `_` sentinel character:
-
-### Non-String Scalar Constant Models
-
-Non-string scalar constants are expressed within strings starting with a `=`:
-
-- `"=null"`: the _null_ value.
-- `"=true"`: the _true_ boolean value.
-- `"=false"`: the _false_ boolean value.
-- `"=-5432"`: the _-5432_ integer value.
-- `"=3.1415927E0`: the approximated pi float value.
-
-Any other model strings starting with `=` must be treated as errors and rejected.
-
-### String Scalar Constant Models
-
-- `"_XXX"`: the _XXX_ string constant, where _XXX_ can be anything.
-  `"_"` is the empty string, `"_&"` is the ampersand character, `"_#"` is the sharp character.
-- `"XXX"`: the _XXX_ string constant **if** the first character
-  is an identifier character (letter).
-
-Model strings which do not start with `_` (constant), `/` (regex), `$` (reference),
-`=` (non-string scalar constants) or _identifier_ characters
-must be treated as errors and rejected.
-
-Note that the symbol renaming feature may allow property names starting with a `.`,
-which must be translated into the regular symbol before processing.
-
-## Predefined Models
-
-String models with a `$` reference with a capitalized ASCII name are special **predefined** models:
-
-- `"$ANY"`: any JSON value.
-- `"$NONE"`: no JSON value.
-
-Simple scalar types:
-
-- `"$NULL"`: _null_ value.
-- `"$BOOL"` or `"$BOOLEAN"`: boolean values _true_ or _false_.
-- `"$INT"` or `"$INTEGER"`: JSON (unbounded) integer values.
-- `"$I8"`, `"$U8"`, `"$I16"`, `"$U16"`, `"$I32"`, `"$U32"`, `"$I64"`, `"$U64$"`:
-  signed/unsigned 8/16/32/64-bit integers.
-- `"$FLOAT"` or `"$NUMBER"`: JSON (unbounded) float values.
-- `"$F16"`, `"$F32"`, `"$F64"`: 16/32/64 bit precision
-  [IEEE 754](https://standards.ieee.org/ieee/754/6210/) floats.
-- "`$STRING"`: a string.
-
-In addition, the following string predefs are defined:
-
-- `"$URL"` `"$URI"`: a URL or URI
-  ([RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986)), eg _https://json-model.org/_.
-- `"$UUID"`: a UUID (Universally Unique IDentifier -
-  [RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)).
-- `"$DATE"`, `"$TIME"` or `"$DATETIME"`:
-  a date, time or timestamp ([RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339)).
-- `"$EMAIL"`: an email address, eg _susie@json-model.org_.
-- `"$JSON"`: a valid JSON value, eg _123_ or _{"Susie": "Derkins"}_.
-- `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
-- `"$EXREG"`: an extended regular expression, see below.
-
-Any other all-capital ASCII character (and digit) definition names must be rejected
-as they are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
-
-## Regular Expression Models
-
-### RE2
-
-Regular expressions should be restricted to efficient regex such as `re2`.
-However, depending on the availibility of such regular expression engine on the target
-language, other variant may be used which should support at least the re2 subset.
-
-### Extended Regular Expressions
-
-Regular expressions are extended with option `X` (capital letter x) to allow references
-to string models with the following syntax: `($name:regex)`, where the regular expression
-after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
 
 ## Composition Models
 
