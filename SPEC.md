@@ -254,7 +254,7 @@ Any other property is an error and the model must be rejected.
 
 Property `|` value must be an array of models.
 A value matches this model if it matches _any_ model in the list.
-If the list is empty, no value matches, thus it is equivalent to `"$NONE"`
+If the list is empty, no value matches, thus it is equivalent to `"$NONE"`.
 
 ### Xor Operator Model
 
@@ -266,7 +266,7 @@ If the list is empty, no value matches.
 
 Property `&` value must be an array of models.
 A value matches this model if it matches _all_ models in the list.
-If the list is empty, any value matches, this it is equivalent to `"$ANY"`
+If the list is empty, any value matches, thus it is equivalent to `"$ANY"`.
 
 ### Merge Operator Model
 
