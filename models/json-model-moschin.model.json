@@ -1,0 +1,19 @@
+{
+  "#": "Minor JSON Model extensions",
+  "~": "https://json-model.org/models/json-model",
+  "$": {
+    "": "https://json-model.org/models/json-model-moschin",
+    "Model": "$https://json-model.org/models/json-model"
+  },
+  "%": {
+    "$Model#ObjectComment": {
+      "#": "common property to add json schema keywords when converting",
+      "*": {"?.schema": {"": "$Any"}}
+    },
+    "$Model#Constraint": {
+      "#": "new constraints: multiple-of an integer, contains…",
+      "*": {"?.mo": 1, "?.in": "$Model"}
+    }
+  },
+  "@": "$Model"
+}
