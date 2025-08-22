@@ -201,9 +201,12 @@ def split_object(model: JsonObject, path: ModelPath) -> \
         elif c == "$":
             refs[name] = val
         elif c == "/":
-            # FIXME /i support on keys
-            assert key.endswith("/"), f"bad key: {key}"
-            regs[name[:-1]] = val
+            if key.endswith("/"):
+                regex = name[:-1]
+            else:
+                regex, options = name.rsplit("/", 1)
+                regex = f"(?{options}){regex}"
+            regs[regex] = val
         else:
             if key in must or key in may:
                 raise ModelError(f"multiply defined property: {name} {path + [key]}")
