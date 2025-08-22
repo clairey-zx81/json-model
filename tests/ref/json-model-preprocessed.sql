@@ -342,14 +342,6 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- regex=^#. opts=n
-CREATE OR REPLACE FUNCTION _jm_re_3(val TEXT, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-BEGIN
-  RETURN regexp_like(val, '^#.', 'n');
-END;
-$$ LANGUAGE plpgsql;
-
 -- object .'$Model#Element'.'|'.4
 CREATE OR REPLACE FUNCTION _jm_obj_0(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -376,9 +368,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Element'.'|'.4.'/^#./'
+      -- .'$Model#Element'.'|'.4.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -432,9 +424,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Element'.'|'.3.'/^#./'
+      -- .'$Model#Element'.'|'.3.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -491,9 +483,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Element'.'|'.2.'/^#./'
+      -- .'$Model#Element'.'|'.2.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -550,9 +542,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Element'.'|'.1.'/^#./'
+      -- .'$Model#Element'.'|'.1.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -569,7 +561,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^(<=|>=|<|>)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_4(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_3(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^(<=|>=|<|>)$', 'n');
@@ -577,7 +569,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- regex=^(=|!=)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_5(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_4(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^(=|!=)$', 'n');
@@ -620,21 +612,21 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
-      -- .'$Model#Element'.'|'.0.'/^#./'
+      -- .'$Model#Element'.'|'.0.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_4(prop, path, rep) THEN
+    ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
       res := json_model_14(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Element'.'|'.0.'/^(=|!=)$/'
       res := json_model_15(pval, NULL, rep);
@@ -727,7 +719,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^[?!] opts=n
-CREATE OR REPLACE FUNCTION _jm_re_6(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_5(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^[?!]', 'n');
@@ -743,7 +735,7 @@ BEGIN
   -- .'$Model#Prop'
   -- .'$Model#Prop'.'|'.0
   -- "/^[?!]/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_5(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   IF NOT res THEN
     -- .'$Model#Prop'.'|'.1
     res := json_model_11(val, path, rep);
@@ -769,7 +761,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^\..+$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_7(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_6(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^\..+$', 'n');
@@ -784,7 +776,7 @@ DECLARE
 BEGIN
   -- .'$Model#Name'
   -- "/^\\..+$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_7(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_6(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -822,9 +814,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.4.'$'.'/^#./'
+      -- .'$Model#Root'.'|'.4.'$'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -838,7 +830,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^([#|&^+/*@~=$%]|[<>!]=?)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_8(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_7(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^([#|&^+/*@~=$%]|[<>!]=?)$', 'n');
@@ -892,13 +884,13 @@ BEGIN
       -- handle 1 key props
       -- .'$Model#Root'.'|'.4.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_8(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_7(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.4.'%'.'/^#./'
+      -- .'$Model#Root'.'|'.4.'%'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -958,9 +950,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.4.'/^#./'
+      -- .'$Model#Root'.'|'.4.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1006,9 +998,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.3.'$'.'/^#./'
+      -- .'$Model#Root'.'|'.3.'$'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1068,13 +1060,13 @@ BEGIN
       -- handle 1 key props
       -- .'$Model#Root'.'|'.3.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_8(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_7(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.3.'%'.'/^#./'
+      -- .'$Model#Root'.'|'.3.'%'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1149,9 +1141,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.3.'/^#./'
+      -- .'$Model#Root'.'|'.3.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1200,9 +1192,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.2.'$'.'/^#./'
+      -- .'$Model#Root'.'|'.2.'$'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1262,13 +1254,13 @@ BEGIN
       -- handle 1 key props
       -- .'$Model#Root'.'|'.2.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_8(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_7(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.2.'%'.'/^#./'
+      -- .'$Model#Root'.'|'.2.'%'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1343,9 +1335,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.2.'/^#./'
+      -- .'$Model#Root'.'|'.2.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1394,9 +1386,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.1.'$'.'/^#./'
+      -- .'$Model#Root'.'|'.1.'$'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1456,13 +1448,13 @@ BEGIN
       -- handle 1 key props
       -- .'$Model#Root'.'|'.1.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_8(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_7(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.1.'%'.'/^#./'
+      -- .'$Model#Root'.'|'.1.'%'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1537,9 +1529,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.1.'/^#./'
+      -- .'$Model#Root'.'|'.1.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1588,9 +1580,9 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.0.'$'.'/^#./'
+      -- .'$Model#Root'.'|'.0.'$'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1650,13 +1642,13 @@ BEGIN
       -- handle 1 key props
       -- .'$Model#Root'.'|'.0.'%'.'$Name'
       -- "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_8(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'string' AND _jm_re_7(JSON_VALUE(pval, '$' RETURNING TEXT), NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 1 re props
-      -- .'$Model#Root'.'|'.0.'%'.'/^#./'
+      -- .'$Model#Root'.'|'.0.'%'.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
@@ -1726,21 +1718,21 @@ BEGIN
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_3(prop, path, rep) THEN
+    ELSEIF STARTS_WITH(prop, '#') THEN
       -- handle 3 re props
-      -- .'$Model#Root'.'|'.0.'/^#./'
+      -- .'$Model#Root'.'|'.0.'/^#/'
       res := TRUE;
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_4(prop, path, rep) THEN
+    ELSEIF _jm_re_3(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/'
       res := json_model_14(pval, NULL, rep);
       IF NOT res THEN
         RETURN FALSE;
       END IF;
-    ELSEIF _jm_re_5(prop, path, rep) THEN
+    ELSEIF _jm_re_4(prop, path, rep) THEN
       -- handle 3 re props
       -- .'$Model#Root'.'|'.0.'/^(=|!=)$/'
       res := json_model_15(pval, NULL, rep);
@@ -1791,7 +1783,7 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=^((file|https?)://.+|\./.*|\.\./.*)$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_9(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_8(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^((file|https?)://.+|\./.*|\.\./.*)$', 'n');
@@ -1806,13 +1798,13 @@ DECLARE
 BEGIN
   -- .'$Model#Url'
   -- "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+  res := JSONB_TYPEOF(val) = 'string' AND _jm_re_8(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
 
 -- regex=[^A-Z0-9] opts=n
-CREATE OR REPLACE FUNCTION _jm_re_10(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_9(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '[^A-Z0-9]', 'n');
@@ -1820,7 +1812,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- regex=^\w+$ opts=n
-CREATE OR REPLACE FUNCTION _jm_re_11(val TEXT, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_re_10(val TEXT, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   RETURN regexp_like(val, '^\w+$', 'n');
@@ -1838,11 +1830,11 @@ BEGIN
   IF res THEN
     -- .'$Model#Identifier'.'&'.0
     -- "/^\\w+$/"
-    res := _jm_re_11(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+    res := _jm_re_10(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     IF res THEN
       -- .'$Model#Identifier'.'&'.1
       -- "/[^A-Z0-9]/"
-      res := _jm_re_10(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
+      res := _jm_re_9(JSON_VALUE(val, '$' RETURNING TEXT), path, rep);
     END IF;
   END IF;
   RETURN res;

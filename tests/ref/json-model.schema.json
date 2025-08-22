@@ -58,7 +58,7 @@
     "ObjectComment": {
       "type": "object",
       "patternProperties": {
-        "^#.": true
+        "^#": true
       },
       "properties": {
         "#": {
@@ -315,7 +315,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
@@ -342,7 +342,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "|": {
@@ -363,7 +363,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "&": {
@@ -384,7 +384,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "^": {
@@ -405,7 +405,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "+": {
@@ -426,7 +426,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
@@ -473,7 +473,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "#": {
@@ -587,7 +587,7 @@
         "$": {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "(?s)^.*$": {
               "$ref": "#/$defs/Model"
             }
@@ -605,7 +605,7 @@
         "%": {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "^\\$.*$": {
               "$ref": "#/$defs/Transformation"
             },
@@ -642,7 +642,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
@@ -660,7 +660,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -678,7 +678,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -722,7 +722,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "|": {
@@ -737,7 +737,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -755,7 +755,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -796,7 +796,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "&": {
@@ -811,7 +811,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -829,7 +829,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -870,7 +870,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "^": {
@@ -885,7 +885,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -903,7 +903,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -944,7 +944,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true
+            "^#": true
           },
           "properties": {
             "+": {
@@ -959,7 +959,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -977,7 +977,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },
@@ -1018,7 +1018,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#.": true,
+            "^#": true,
             "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
@@ -1030,7 +1030,7 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
                 }
@@ -1048,7 +1048,7 @@
             "%": {
               "type": "object",
               "patternProperties": {
-                "^#.": true,
+                "^#": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
                 },

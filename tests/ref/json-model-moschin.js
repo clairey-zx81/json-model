@@ -16,17 +16,16 @@ const _jm_re_1_re = new runtime.RX("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][
 const _jm_re_2_re = new runtime.RX("^[A-Za-z0-9_]", "")
 const _jm_xre_0_re_re = new runtime.RX("^/(?<s1>.*)/[a-z]*$", "")
 const _jm_xre_1_re_re = new runtime.RX("^/(?<s1>.*)/[a-z]*X[a-z]*$", "")
-const _jm_re_3_re = new runtime.RX("^#.", "")
-const _jm_re_4_re = new runtime.RX("^(<=|>=|<|>)$", "")
-const _jm_re_5_re = new runtime.RX("^(=|!=)$", "")
-const _jm_re_6_re = new runtime.RX("^[?!]", "")
-const _jm_re_7_re = new runtime.RX("^\\..+$", "")
-const _jm_re_8_re = new runtime.RX("^([#|&^+/*@~=$%]|[<>!]=?)$", "")
-const _jm_re_9_re = new runtime.RX("^\\$.*$", "")
+const _jm_re_3_re = new runtime.RX("^(<=|>=|<|>)$", "")
+const _jm_re_4_re = new runtime.RX("^(=|!=)$", "")
+const _jm_re_5_re = new runtime.RX("^[?!]", "")
+const _jm_re_6_re = new runtime.RX("^\\..+$", "")
+const _jm_re_7_re = new runtime.RX("^([#|&^+/*@~=$%]|[<>!]=?)$", "")
+const _jm_re_8_re = new runtime.RX("^\\$.*$", "")
 var _jm_obj_42_map = new Map()
-const _jm_re_10_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
-const _jm_re_11_re = new runtime.RX("[^A-Z0-9]", "")
-const _jm_re_12_re = new runtime.RX("^\\w+$", "")
+const _jm_re_9_re = new runtime.RX("^((file|https?)://.+|\\./.*|\\.\\./.*)$", "")
+const _jm_re_10_re = new runtime.RX("[^A-Z0-9]", "")
+const _jm_re_11_re = new runtime.RX("^\\w+$", "")
 var check_model_map = new Map()
 
 // check $Model (.'$Model')
@@ -461,8 +460,6 @@ function _jm_obj_1(val, path, rep)
     return true;
 }
 
-const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
-
 // object .'$Model#Element'.'|'.5
 function _jm_obj_0(val, path, rep)
 {
@@ -519,14 +516,14 @@ function _jm_obj_0(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Element'.'|'.5.'/^#./'
+            // .'$Model#Element'.'|'.5.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.5.'/^#./']", (path ? lpath_0 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.5.'/^#/']", (path ? lpath_0 : null)])
             }
             if (! res)
             {
@@ -631,14 +628,14 @@ function _jm_obj_2(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Element'.'|'.4.'/^#./'
+            // .'$Model#Element'.'|'.4.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.4.'/^#./']", (path ? lpath_1 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.4.'/^#/']", (path ? lpath_1 : null)])
             }
             if (! res)
             {
@@ -754,14 +751,14 @@ function _jm_obj_4(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Element'.'|'.3.'/^#./'
+            // .'$Model#Element'.'|'.3.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.3.'/^#./']", (path ? lpath_2 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.3.'/^#/']", (path ? lpath_2 : null)])
             }
             if (! res)
             {
@@ -877,14 +874,14 @@ function _jm_obj_6(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Element'.'|'.2.'/^#./'
+            // .'$Model#Element'.'|'.2.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.2.'/^#./']", (path ? lpath_3 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.2.'/^#/']", (path ? lpath_3 : null)])
             }
             if (! res)
             {
@@ -1000,14 +997,14 @@ function _jm_obj_8(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Element'.'|'.1.'/^#./'
+            // .'$Model#Element'.'|'.1.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.1.'/^#./']", (path ? lpath_4 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.1.'/^#/']", (path ? lpath_4 : null)])
             }
             if (! res)
             {
@@ -1046,9 +1043,9 @@ function _jm_obj_11(val, path, rep)
     return true;
 }
 
-const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
+const _jm_re_3 = (s) => _jm_re_3_re.exec(s) !== null
 
-const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
+const _jm_re_4 = (s) => _jm_re_4_re.exec(s) !== null
 
 // object .'$Model#Element'.'|'.0
 function _jm_obj_10(val, path, rep)
@@ -1154,21 +1151,21 @@ function _jm_obj_10(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 3 re props
-            // .'$Model#Element'.'|'.0.'/^#./'
+            // .'$Model#Element'.'|'.0.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.0.'/^#./']", (path ? lpath_5 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Element'.'|'.0.'/^#/']", (path ? lpath_5 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_4(prop, path, rep))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 3 re props
             // .'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -1182,7 +1179,7 @@ function _jm_obj_10(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop, path, rep))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 3 re props
             // .'$Model#Element'.'|'.0.'/^(=|!=)$/'
@@ -1371,7 +1368,7 @@ function json_model_15(val, path, rep)
     return res;
 }
 
-const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
+const _jm_re_5 = (s) => _jm_re_5_re.exec(s) !== null
 
 // check $Model#Prop (.'$Model#Prop')
 function json_model_27(val, path, rep)
@@ -1380,7 +1377,7 @@ function json_model_27(val, path, rep)
     // .'$Model#Prop'
     // .'$Model#Prop'.'|'.0
     // "/^[?!]/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_5(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^[?!]/ [.'$Model#Prop'.'|'.0]", path])
@@ -1441,7 +1438,7 @@ function json_model_27(val, path, rep)
     return res;
 }
 
-const _jm_re_7 = (s) => _jm_re_7_re.exec(s) !== null
+const _jm_re_6 = (s) => _jm_re_6_re.exec(s) !== null
 
 // check $Model#Name (.'$Model#Name')
 function json_model_13(val, path, rep)
@@ -1449,7 +1446,7 @@ function json_model_13(val, path, rep)
     let res;
     // .'$Model#Name'
     // "/^\\..+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_7(val, path, rep);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_6(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^\\..+$/ [.'$Model#Name']", path])
@@ -1540,14 +1537,14 @@ function _jm_obj_13(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.5.'$'.'/^#./'
+            // .'$Model#Root'.'|'.5.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'$'.'/^#./']", (path ? lpath_7 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'$'.'/^#/']", (path ? lpath_7 : null)])
             }
             if (! res)
             {
@@ -1575,9 +1572,9 @@ function _jm_obj_16(val, path, rep)
     return true;
 }
 
-const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
+const _jm_re_7 = (s) => _jm_re_7_re.exec(s) !== null
 
-const _jm_re_9 = (s) => _jm_re_9_re.exec(s) !== null
+const _jm_re_8 = (s) => _jm_re_8_re.exec(s) !== null
 
 // object .'$Model#Root'.'|'.5.'%'
 function _jm_obj_15(val, path, rep)
@@ -1677,7 +1674,7 @@ function _jm_obj_15(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.5.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_8 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_8 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.5.'%'.'$Name']", (path ? lpath_8 : null)])
@@ -1687,21 +1684,21 @@ function _jm_obj_15(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.5.'%'.'/^#./'
+            // .'$Model#Root'.'|'.5.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'%'.'/^#./']", (path ? lpath_8 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'%'.'/^#/']", (path ? lpath_8 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.5.'%'.'/^\\$.*$/'
@@ -1837,14 +1834,14 @@ function _jm_obj_12(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.5.'/^#./'
+            // .'$Model#Root'.'|'.5.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'/^#./']", (path ? lpath_6 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.5.'/^#/']", (path ? lpath_6 : null)])
             }
             if (! res)
             {
@@ -1943,14 +1940,14 @@ function _jm_obj_19(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.4.'$'.'/^#./'
+            // .'$Model#Root'.'|'.4.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'$'.'/^#./']", (path ? lpath_10 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'$'.'/^#/']", (path ? lpath_10 : null)])
             }
             if (! res)
             {
@@ -2076,7 +2073,7 @@ function _jm_obj_21(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.4.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_11 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_11 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.4.'%'.'$Name']", (path ? lpath_11 : null)])
@@ -2086,21 +2083,21 @@ function _jm_obj_21(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.4.'%'.'/^#./'
+            // .'$Model#Root'.'|'.4.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'%'.'/^#./']", (path ? lpath_11 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'%'.'/^#/']", (path ? lpath_11 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
@@ -2257,14 +2254,14 @@ function _jm_obj_18(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.4.'/^#./'
+            // .'$Model#Root'.'|'.4.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'/^#./']", (path ? lpath_9 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.4.'/^#/']", (path ? lpath_9 : null)])
             }
             if (! res)
             {
@@ -2374,14 +2371,14 @@ function _jm_obj_25(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.3.'$'.'/^#./'
+            // .'$Model#Root'.'|'.3.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'$'.'/^#./']", (path ? lpath_13 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'$'.'/^#/']", (path ? lpath_13 : null)])
             }
             if (! res)
             {
@@ -2507,7 +2504,7 @@ function _jm_obj_27(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.3.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_14 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_14 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.3.'%'.'$Name']", (path ? lpath_14 : null)])
@@ -2517,21 +2514,21 @@ function _jm_obj_27(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.3.'%'.'/^#./'
+            // .'$Model#Root'.'|'.3.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'%'.'/^#./']", (path ? lpath_14 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'%'.'/^#/']", (path ? lpath_14 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
@@ -2688,14 +2685,14 @@ function _jm_obj_24(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.3.'/^#./'
+            // .'$Model#Root'.'|'.3.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'/^#./']", (path ? lpath_12 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.3.'/^#/']", (path ? lpath_12 : null)])
             }
             if (! res)
             {
@@ -2805,14 +2802,14 @@ function _jm_obj_31(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.2.'$'.'/^#./'
+            // .'$Model#Root'.'|'.2.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'$'.'/^#./']", (path ? lpath_16 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'$'.'/^#/']", (path ? lpath_16 : null)])
             }
             if (! res)
             {
@@ -2938,7 +2935,7 @@ function _jm_obj_33(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.2.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_17 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_17 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.2.'%'.'$Name']", (path ? lpath_17 : null)])
@@ -2948,21 +2945,21 @@ function _jm_obj_33(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.2.'%'.'/^#./'
+            // .'$Model#Root'.'|'.2.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'%'.'/^#./']", (path ? lpath_17 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'%'.'/^#/']", (path ? lpath_17 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
@@ -3119,14 +3116,14 @@ function _jm_obj_30(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.2.'/^#./'
+            // .'$Model#Root'.'|'.2.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'/^#./']", (path ? lpath_15 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.2.'/^#/']", (path ? lpath_15 : null)])
             }
             if (! res)
             {
@@ -3236,14 +3233,14 @@ function _jm_obj_37(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.1.'$'.'/^#./'
+            // .'$Model#Root'.'|'.1.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'$'.'/^#./']", (path ? lpath_19 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'$'.'/^#/']", (path ? lpath_19 : null)])
             }
             if (! res)
             {
@@ -3369,7 +3366,7 @@ function _jm_obj_39(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.1.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_20 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_20 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.1.'%'.'$Name']", (path ? lpath_20 : null)])
@@ -3379,21 +3376,21 @@ function _jm_obj_39(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.1.'%'.'/^#./'
+            // .'$Model#Root'.'|'.1.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'%'.'/^#./']", (path ? lpath_20 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'%'.'/^#/']", (path ? lpath_20 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
@@ -3550,14 +3547,14 @@ function _jm_obj_36(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.1.'/^#./'
+            // .'$Model#Root'.'|'.1.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'/^#./']", (path ? lpath_18 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.1.'/^#/']", (path ? lpath_18 : null)])
             }
             if (! res)
             {
@@ -3693,14 +3690,14 @@ function _jm_obj_43(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Root'.'|'.0.'$'.'/^#./'
+            // .'$Model#Root'.'|'.0.'$'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'$'.'/^#./']", (path ? lpath_22 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'$'.'/^#/']", (path ? lpath_22 : null)])
             }
             if (! res)
             {
@@ -3839,7 +3836,7 @@ function _jm_obj_45(val, path, rep)
             // handle 1 key props
             // .'$Model#Root'.'|'.0.'%'.'$Name'
             // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_8(pval, (path ? lpath_23 : null), rep);
+            res = ((typeof pval === 'string' || pval instanceof String)) && _jm_re_7(pval, (path ? lpath_23 : null), rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.0.'%'.'$Name']", (path ? lpath_23 : null)])
@@ -3849,21 +3846,21 @@ function _jm_obj_45(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 2 re props
-            // .'$Model#Root'.'|'.0.'%'.'/^#./'
+            // .'$Model#Root'.'|'.0.'%'.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'%'.'/^#./']", (path ? lpath_23 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'%'.'/^#/']", (path ? lpath_23 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_9(prop, path, rep))
+        else if (_jm_re_8(prop, path, rep))
         {
             // handle 2 re props
             // .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
@@ -4003,21 +4000,21 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 3 re props
-            // .'$Model#Root'.'|'.0.'/^#./'
+            // .'$Model#Root'.'|'.0.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'/^#./']", (path ? lpath_21 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Root'.'|'.0.'/^#/']", (path ? lpath_21 : null)])
             }
             if (! res)
             {
                 return false;
             }
         }
-        else if (_jm_re_4(prop, path, rep))
+        else if (_jm_re_3(prop, path, rep))
         {
             // handle 3 re props
             // .'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -4031,7 +4028,7 @@ function _jm_obj_42(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_5(prop, path, rep))
+        else if (_jm_re_4(prop, path, rep))
         {
             // handle 3 re props
             // .'$Model#Root'.'|'.0.'/^(=|!=)$/'
@@ -4140,7 +4137,7 @@ function json_model_40(val, path, rep)
     return res;
 }
 
-const _jm_re_10 = (s) => _jm_re_10_re.exec(s) !== null
+const _jm_re_9 = (s) => _jm_re_9_re.exec(s) !== null
 
 // check $Model#Url (.'$Model#Url')
 function json_model_4(val, path, rep)
@@ -4148,7 +4145,7 @@ function json_model_4(val, path, rep)
     let res;
     // .'$Model#Url'
     // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_10(val, path, rep);
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_9(val, path, rep);
     if (! res)
     {
         rep !== null && rep.push(["unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path])
@@ -4156,9 +4153,9 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-const _jm_re_11 = (s) => _jm_re_11_re.exec(s) !== null
+const _jm_re_10 = (s) => _jm_re_10_re.exec(s) !== null
 
-const _jm_re_12 = (s) => _jm_re_12_re.exec(s) !== null
+const _jm_re_11 = (s) => _jm_re_11_re.exec(s) !== null
 
 // check $Model#Identifier (.'$Model#Identifier')
 function json_model_6(val, path, rep)
@@ -4170,7 +4167,7 @@ function json_model_6(val, path, rep)
     {
         // .'$Model#Identifier'.'&'.0
         // "/^\\w+$/"
-        res = _jm_re_12(val, path, rep);
+        res = _jm_re_11(val, path, rep);
         if (! res)
         {
             rep !== null && rep.push(["unexpected /^\\w+$/ [.'$Model#Identifier'.'&'.0]", path])
@@ -4179,7 +4176,7 @@ function json_model_6(val, path, rep)
         {
             // .'$Model#Identifier'.'&'.1
             // "/[^A-Z0-9]/"
-            res = _jm_re_11(val, path, rep);
+            res = _jm_re_10(val, path, rep);
             if (! res)
             {
                 rep !== null && rep.push(["unexpected /[^A-Z0-9]/ [.'$Model#Identifier'.'&'.1]", path])
@@ -4345,14 +4342,14 @@ function _jm_obj_48(val, path, rep)
                 return false;
             }
         }
-        else if (_jm_re_3(prop, path, rep))
+        else if (prop.startsWith("#"))
         {
             // handle 1 re props
-            // .'$Model#Transformation'.'|'.1.'/^#./'
+            // .'$Model#Transformation'.'|'.1.'/^#/'
             res = true;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $ANY [.'$Model#Transformation'.'|'.1.'/^#./']", (path ? lpath_24 : null)])
+                rep !== null && rep.push(["unexpected $ANY [.'$Model#Transformation'.'|'.1.'/^#/']", (path ? lpath_24 : null)])
             }
             if (! res)
             {

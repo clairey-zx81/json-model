@@ -30,11 +30,10 @@ public class json_model_moschin extends ModelChecker
     public Pattern _jm_re_6_pat = null;
     public Pattern _jm_re_7_pat = null;
     public Pattern _jm_re_8_pat = null;
-    public Pattern _jm_re_9_pat = null;
     Map<String, Checker> _jm_obj_42_map_pmap;
+    public Pattern _jm_re_9_pat = null;
     public Pattern _jm_re_10_pat = null;
     public Pattern _jm_re_11_pat = null;
-    public Pattern _jm_re_12_pat = null;
     public Map<String, Checker> json_model_moschin_map_pmap;
 
     // check $Model (.'$Model')
@@ -487,11 +486,6 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
     
-    public boolean _jm_re_3(String val, Path path, Report rep)
-    {
-        return _jm_re_3_pat.matcher(val).find();
-    }
-    
     // object .'$Model#Element'.'|'.5
     public boolean _jm_obj_0(Object val, Path path, Report rep)
     {
@@ -551,14 +545,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Element'.'|'.5.'/^#./'
+                // .'$Model#Element'.'|'.5.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.5.'/^#./']", (path != null ? lpath_0 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.5.'/^#/']", (path != null ? lpath_0 : null));
                 }
                 if (! res)
                 {
@@ -669,14 +663,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Element'.'|'.4.'/^#./'
+                // .'$Model#Element'.'|'.4.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.4.'/^#./']", (path != null ? lpath_1 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.4.'/^#/']", (path != null ? lpath_1 : null));
                 }
                 if (! res)
                 {
@@ -798,14 +792,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Element'.'|'.3.'/^#./'
+                // .'$Model#Element'.'|'.3.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.3.'/^#./']", (path != null ? lpath_2 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.3.'/^#/']", (path != null ? lpath_2 : null));
                 }
                 if (! res)
                 {
@@ -927,14 +921,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Element'.'|'.2.'/^#./'
+                // .'$Model#Element'.'|'.2.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.2.'/^#./']", (path != null ? lpath_3 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.2.'/^#/']", (path != null ? lpath_3 : null));
                 }
                 if (! res)
                 {
@@ -1056,14 +1050,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Element'.'|'.1.'/^#./'
+                // .'$Model#Element'.'|'.1.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.1.'/^#./']", (path != null ? lpath_4 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.1.'/^#/']", (path != null ? lpath_4 : null));
                 }
                 if (! res)
                 {
@@ -1102,14 +1096,14 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
     
+    public boolean _jm_re_3(String val, Path path, Report rep)
+    {
+        return _jm_re_3_pat.matcher(val).find();
+    }
+    
     public boolean _jm_re_4(String val, Path path, Report rep)
     {
         return _jm_re_4_pat.matcher(val).find();
-    }
-    
-    public boolean _jm_re_5(String val, Path path, Report rep)
-    {
-        return _jm_re_5_pat.matcher(val).find();
     }
     
     // object .'$Model#Element'.'|'.0
@@ -1219,21 +1213,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 3 re props
-                // .'$Model#Element'.'|'.0.'/^#./'
+                // .'$Model#Element'.'|'.0.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.0.'/^#./']", (path != null ? lpath_5 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Element'.'|'.0.'/^#/']", (path != null ? lpath_5 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_4(prop, path, rep))
+            else if (_jm_re_3(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -1247,7 +1241,7 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_5(prop, path, rep))
+            else if (_jm_re_4(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Element'.'|'.0.'/^(=|!=)$/'
@@ -1436,9 +1430,9 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
     
-    public boolean _jm_re_6(String val, Path path, Report rep)
+    public boolean _jm_re_5(String val, Path path, Report rep)
     {
-        return _jm_re_6_pat.matcher(val).find();
+        return _jm_re_5_pat.matcher(val).find();
     }
     
     // check $Model#Prop (.'$Model#Prop')
@@ -1448,7 +1442,7 @@ public class json_model_moschin extends ModelChecker
         // .'$Model#Prop'
         // .'$Model#Prop'.'|'.0
         // "/^[?!]/"
-        res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
+        res = json.isString(val) && _jm_re_5(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^[?!]/ [.'$Model#Prop'.'|'.0]", path);
@@ -1509,9 +1503,9 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
     
-    public boolean _jm_re_7(String val, Path path, Report rep)
+    public boolean _jm_re_6(String val, Path path, Report rep)
     {
-        return _jm_re_7_pat.matcher(val).find();
+        return _jm_re_6_pat.matcher(val).find();
     }
     
     // check $Model#Name (.'$Model#Name')
@@ -1520,7 +1514,7 @@ public class json_model_moschin extends ModelChecker
         boolean res;
         // .'$Model#Name'
         // "/^\\..+$/"
-        res = json.isString(val) && _jm_re_7(json.asString(val), path, rep);
+        res = json.isString(val) && _jm_re_6(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^\\..+$/ [.'$Model#Name']", path);
@@ -1614,14 +1608,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.5.'$'.'/^#./'
+                // .'$Model#Root'.'|'.5.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'$'.'/^#./']", (path != null ? lpath_7 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'$'.'/^#/']", (path != null ? lpath_7 : null));
                 }
                 if (! res)
                 {
@@ -1649,14 +1643,14 @@ public class json_model_moschin extends ModelChecker
         return true;
     }
     
+    public boolean _jm_re_7(String val, Path path, Report rep)
+    {
+        return _jm_re_7_pat.matcher(val).find();
+    }
+    
     public boolean _jm_re_8(String val, Path path, Report rep)
     {
         return _jm_re_8_pat.matcher(val).find();
-    }
-    
-    public boolean _jm_re_9(String val, Path path, Report rep)
-    {
-        return _jm_re_9_pat.matcher(val).find();
     }
     
     // object .'$Model#Root'.'|'.5.'%'
@@ -1763,7 +1757,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.5.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_8 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_8 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.5.'%'.'$Name']", (path != null ? lpath_8 : null));
@@ -1773,21 +1767,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.5.'%'.'/^#./'
+                // .'$Model#Root'.'|'.5.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'%'.'/^#./']", (path != null ? lpath_8 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'%'.'/^#/']", (path != null ? lpath_8 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.5.'%'.'/^\\$.*$/'
@@ -1926,14 +1920,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.5.'/^#./'
+                // .'$Model#Root'.'|'.5.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'/^#./']", (path != null ? lpath_6 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.5.'/^#/']", (path != null ? lpath_6 : null));
                 }
                 if (! res)
                 {
@@ -2035,14 +2029,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.4.'$'.'/^#./'
+                // .'$Model#Root'.'|'.4.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'$'.'/^#./']", (path != null ? lpath_10 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'$'.'/^#/']", (path != null ? lpath_10 : null));
                 }
                 if (! res)
                 {
@@ -2174,7 +2168,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.4.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_11 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_11 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.4.'%'.'$Name']", (path != null ? lpath_11 : null));
@@ -2184,21 +2178,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.4.'%'.'/^#./'
+                // .'$Model#Root'.'|'.4.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'%'.'/^#./']", (path != null ? lpath_11 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'%'.'/^#/']", (path != null ? lpath_11 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.4.'%'.'/^\\$.*$/'
@@ -2361,14 +2355,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.4.'/^#./'
+                // .'$Model#Root'.'|'.4.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'/^#./']", (path != null ? lpath_9 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.4.'/^#/']", (path != null ? lpath_9 : null));
                 }
                 if (! res)
                 {
@@ -2481,14 +2475,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.3.'$'.'/^#./'
+                // .'$Model#Root'.'|'.3.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'$'.'/^#./']", (path != null ? lpath_13 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'$'.'/^#/']", (path != null ? lpath_13 : null));
                 }
                 if (! res)
                 {
@@ -2620,7 +2614,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.3.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_14 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_14 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.3.'%'.'$Name']", (path != null ? lpath_14 : null));
@@ -2630,21 +2624,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.3.'%'.'/^#./'
+                // .'$Model#Root'.'|'.3.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'%'.'/^#./']", (path != null ? lpath_14 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'%'.'/^#/']", (path != null ? lpath_14 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.3.'%'.'/^\\$.*$/'
@@ -2807,14 +2801,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.3.'/^#./'
+                // .'$Model#Root'.'|'.3.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'/^#./']", (path != null ? lpath_12 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.3.'/^#/']", (path != null ? lpath_12 : null));
                 }
                 if (! res)
                 {
@@ -2927,14 +2921,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.2.'$'.'/^#./'
+                // .'$Model#Root'.'|'.2.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'$'.'/^#./']", (path != null ? lpath_16 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'$'.'/^#/']", (path != null ? lpath_16 : null));
                 }
                 if (! res)
                 {
@@ -3066,7 +3060,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.2.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_17 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_17 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.2.'%'.'$Name']", (path != null ? lpath_17 : null));
@@ -3076,21 +3070,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.2.'%'.'/^#./'
+                // .'$Model#Root'.'|'.2.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'%'.'/^#./']", (path != null ? lpath_17 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'%'.'/^#/']", (path != null ? lpath_17 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.2.'%'.'/^\\$.*$/'
@@ -3253,14 +3247,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.2.'/^#./'
+                // .'$Model#Root'.'|'.2.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'/^#./']", (path != null ? lpath_15 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.2.'/^#/']", (path != null ? lpath_15 : null));
                 }
                 if (! res)
                 {
@@ -3373,14 +3367,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.1.'$'.'/^#./'
+                // .'$Model#Root'.'|'.1.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'$'.'/^#./']", (path != null ? lpath_19 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'$'.'/^#/']", (path != null ? lpath_19 : null));
                 }
                 if (! res)
                 {
@@ -3512,7 +3506,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.1.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_20 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_20 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.1.'%'.'$Name']", (path != null ? lpath_20 : null));
@@ -3522,21 +3516,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.1.'%'.'/^#./'
+                // .'$Model#Root'.'|'.1.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'%'.'/^#./']", (path != null ? lpath_20 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'%'.'/^#/']", (path != null ? lpath_20 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.1.'%'.'/^\\$.*$/'
@@ -3699,14 +3693,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.1.'/^#./'
+                // .'$Model#Root'.'|'.1.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'/^#./']", (path != null ? lpath_18 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.1.'/^#/']", (path != null ? lpath_18 : null));
                 }
                 if (! res)
                 {
@@ -3845,14 +3839,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Root'.'|'.0.'$'.'/^#./'
+                // .'$Model#Root'.'|'.0.'$'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'$'.'/^#./']", (path != null ? lpath_22 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'$'.'/^#/']", (path != null ? lpath_22 : null));
                 }
                 if (! res)
                 {
@@ -3997,7 +3991,7 @@ public class json_model_moschin extends ModelChecker
                 // handle 1 key props
                 // .'$Model#Root'.'|'.0.'%'.'$Name'
                 // "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-                res = json.isString(pval) && _jm_re_8(json.asString(pval), (path != null ? lpath_23 : null), rep);
+                res = json.isString(pval) && _jm_re_7(json.asString(pval), (path != null ? lpath_23 : null), rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /^([#|&^+/*@~=$%]|[<>!]=?)$/ [.'$Model#Root'.'|'.0.'%'.'$Name']", (path != null ? lpath_23 : null));
@@ -4007,21 +4001,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 2 re props
-                // .'$Model#Root'.'|'.0.'%'.'/^#./'
+                // .'$Model#Root'.'|'.0.'%'.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'%'.'/^#./']", (path != null ? lpath_23 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'%'.'/^#/']", (path != null ? lpath_23 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_9(prop, path, rep))
+            else if (_jm_re_8(prop, path, rep))
             {
                 // handle 2 re props
                 // .'$Model#Root'.'|'.0.'%'.'/^\\$.*$/'
@@ -4164,21 +4158,21 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 3 re props
-                // .'$Model#Root'.'|'.0.'/^#./'
+                // .'$Model#Root'.'|'.0.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'/^#./']", (path != null ? lpath_21 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Root'.'|'.0.'/^#/']", (path != null ? lpath_21 : null));
                 }
                 if (! res)
                 {
                     return false;
                 }
             }
-            else if (_jm_re_4(prop, path, rep))
+            else if (_jm_re_3(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -4192,7 +4186,7 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_5(prop, path, rep))
+            else if (_jm_re_4(prop, path, rep))
             {
                 // handle 3 re props
                 // .'$Model#Root'.'|'.0.'/^(=|!=)$/'
@@ -4301,9 +4295,9 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
     
-    public boolean _jm_re_10(String val, Path path, Report rep)
+    public boolean _jm_re_9(String val, Path path, Report rep)
     {
-        return _jm_re_10_pat.matcher(val).find();
+        return _jm_re_9_pat.matcher(val).find();
     }
     
     // check $Model#Url (.'$Model#Url')
@@ -4312,7 +4306,7 @@ public class json_model_moschin extends ModelChecker
         boolean res;
         // .'$Model#Url'
         // "/^((file|https?)://.+|\\./.*|\\.\\./.*)$/"
-        res = json.isString(val) && _jm_re_10(json.asString(val), path, rep);
+        res = json.isString(val) && _jm_re_9(json.asString(val), path, rep);
         if (! res)
         {
             if (rep != null) rep.addEntry("unexpected /^((file|https?)://.+|\\./.*|\\.\\./.*)$/ [.'$Model#Url']", path);
@@ -4320,14 +4314,14 @@ public class json_model_moschin extends ModelChecker
         return res;
     }
     
+    public boolean _jm_re_10(String val, Path path, Report rep)
+    {
+        return _jm_re_10_pat.matcher(val).find();
+    }
+    
     public boolean _jm_re_11(String val, Path path, Report rep)
     {
         return _jm_re_11_pat.matcher(val).find();
-    }
-    
-    public boolean _jm_re_12(String val, Path path, Report rep)
-    {
-        return _jm_re_12_pat.matcher(val).find();
     }
     
     // check $Model#Identifier (.'$Model#Identifier')
@@ -4340,7 +4334,7 @@ public class json_model_moschin extends ModelChecker
         {
             // .'$Model#Identifier'.'&'.0
             // "/^\\w+$/"
-            res = _jm_re_12(json.asString(val), path, rep);
+            res = _jm_re_11(json.asString(val), path, rep);
             if (! res)
             {
                 if (rep != null) rep.addEntry("unexpected /^\\w+$/ [.'$Model#Identifier'.'&'.0]", path);
@@ -4349,7 +4343,7 @@ public class json_model_moschin extends ModelChecker
             {
                 // .'$Model#Identifier'.'&'.1
                 // "/[^A-Z0-9]/"
-                res = _jm_re_11(json.asString(val), path, rep);
+                res = _jm_re_10(json.asString(val), path, rep);
                 if (! res)
                 {
                     if (rep != null) rep.addEntry("unexpected /[^A-Z0-9]/ [.'$Model#Identifier'.'&'.1]", path);
@@ -4521,14 +4515,14 @@ public class json_model_moschin extends ModelChecker
                     return false;
                 }
             }
-            else if (_jm_re_3(prop, path, rep))
+            else if (prop.startsWith("#"))
             {
                 // handle 1 re props
-                // .'$Model#Transformation'.'|'.1.'/^#./'
+                // .'$Model#Transformation'.'|'.1.'/^#/'
                 res = true;
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Transformation'.'|'.1.'/^#./']", (path != null ? lpath_24 : null));
+                    if (rep != null) rep.addEntry("unexpected $ANY [.'$Model#Transformation'.'|'.1.'/^#/']", (path != null ? lpath_24 : null));
                 }
                 if (! res)
                 {
@@ -4625,13 +4619,12 @@ public class json_model_moschin extends ModelChecker
             _jm_re_2_pat = Pattern.compile("^[A-Za-z0-9_]");
             _jm_xre_0_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*$");
             _jm_xre_1_re_pat = Pattern.compile("^/(?<s1>.*)/[a-z]*X[a-z]*$");
-            _jm_re_3_pat = Pattern.compile("^#.");
-            _jm_re_4_pat = Pattern.compile("^(<=|>=|<|>)$");
-            _jm_re_5_pat = Pattern.compile("^(=|!=)$");
-            _jm_re_6_pat = Pattern.compile("^[?!]");
-            _jm_re_7_pat = Pattern.compile("^\\..+$");
-            _jm_re_8_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
-            _jm_re_9_pat = Pattern.compile("^\\$.*$");
+            _jm_re_3_pat = Pattern.compile("^(<=|>=|<|>)$");
+            _jm_re_4_pat = Pattern.compile("^(=|!=)$");
+            _jm_re_5_pat = Pattern.compile("^[?!]");
+            _jm_re_6_pat = Pattern.compile("^\\..+$");
+            _jm_re_7_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
+            _jm_re_8_pat = Pattern.compile("^\\$.*$");
             _jm_obj_42_map_pmap = new HashMap<String, Checker>();
             _jm_obj_42_map_pmap.put("!", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_0(o, p, r);} });
             _jm_obj_42_map_pmap.put("#", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_1(o, p, r);} });
@@ -4641,9 +4634,9 @@ public class json_model_moschin extends ModelChecker
             _jm_obj_42_map_pmap.put(".mo", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_5(o, p, r);} });
             _jm_obj_42_map_pmap.put(".schema", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_6(o, p, r);} });
             _jm_obj_42_map_pmap.put("~", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_7(o, p, r);} });
-            _jm_re_10_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
-            _jm_re_11_pat = Pattern.compile("[^A-Z0-9]");
-            _jm_re_12_pat = Pattern.compile("^\\w+$");
+            _jm_re_9_pat = Pattern.compile("^((file|https?)://.+|\\./.*|\\.\\./.*)$");
+            _jm_re_10_pat = Pattern.compile("[^A-Z0-9]");
+            _jm_re_11_pat = Pattern.compile("^\\w+$");
             json_model_moschin_map_pmap = new HashMap<String, Checker>();
             json_model_moschin_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             json_model_moschin_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
@@ -4673,11 +4666,10 @@ public class json_model_moschin extends ModelChecker
             _jm_re_6_pat = null;
             _jm_re_7_pat = null;
             _jm_re_8_pat = null;
-            _jm_re_9_pat = null;
             _jm_obj_42_map_pmap = null;
+            _jm_re_9_pat = null;
             _jm_re_10_pat = null;
             _jm_re_11_pat = null;
-            _jm_re_12_pat = null;
             json_model_moschin_map_pmap = null;
         }
     }

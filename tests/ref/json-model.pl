@@ -89,13 +89,6 @@ sub json_model_5($$$)
     return $res;
 }
 
-sub _jm_re_3($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res = $val =~ /^#./;
-    return $res;
-}
-
 # object .'$ObjectComment'
 sub _jm_obj_0($$$)
 {
@@ -118,10 +111,10 @@ sub _jm_obj_0($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$ObjectComment'.'/^#./'
+            # .'$ObjectComment'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -146,7 +139,7 @@ sub json_model_6($$$)
     return $res;
 }
 
-sub _jm_re_4($$$)
+sub _jm_re_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^\$./;
@@ -160,11 +153,11 @@ sub json_model_7($$$)
     my $res;
     # .'$Ref'
     # "/^\\$./"
-    $res = jm_is_string($val) && _jm_re_4($val, $path, $rep);
+    $res = jm_is_string($val) && _jm_re_3($val, $path, $rep);
     return $res;
 }
 
-sub _jm_re_5($$$)
+sub _jm_re_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^=(null|true|false|[-+]?\d+(\.\d+)?([Ee][-+]?\d+)?)$/;
@@ -178,11 +171,11 @@ sub json_model_8($$$)
     my $res;
     # .'$ValConst'
     # "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/"
-    $res = jm_is_string($val) && _jm_re_5($val, $path, $rep);
+    $res = jm_is_string($val) && _jm_re_4($val, $path, $rep);
     return $res;
 }
 
-sub _jm_re_6($$$)
+sub _jm_re_5($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^[A-Za-z0-9_]/;
@@ -196,7 +189,7 @@ sub json_model_9($$$)
     my $res;
     # .'$StrConst'
     # "/^[A-Za-z0-9_]/"
-    $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
+    $res = jm_is_string($val) && _jm_re_5($val, $path, $rep);
     return $res;
 }
 
@@ -270,7 +263,7 @@ sub json_model_10($$$)
     return $res;
 }
 
-sub _jm_re_7($$$)
+sub _jm_re_6($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^\..+$/;
@@ -284,7 +277,7 @@ sub json_model_11($$$)
     my $res;
     # .'$Name'
     # "/^\\..+$/"
-    $res = jm_is_string($val) && _jm_re_7($val, $path, $rep);
+    $res = jm_is_string($val) && _jm_re_6($val, $path, $rep);
     return $res;
 }
 
@@ -471,14 +464,14 @@ sub json_model_19($$$)
     return $res;
 }
 
-sub _jm_re_8($$$)
+sub _jm_re_7($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^(<=|>=|<|>)$/;
     return $res;
 }
 
-sub _jm_re_9($$$)
+sub _jm_re_8($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^(=|!=)$/;
@@ -519,7 +512,7 @@ sub _jm_obj_1($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_8($prop, $path, $rep))
+        elsif (_jm_re_7($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Constraint'.'/^(<=|>=|<|>)$/'
@@ -529,7 +522,7 @@ sub _jm_obj_1($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_9($prop, $path, $rep))
+        elsif (_jm_re_8($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Constraint'.'/^(=|!=)$/'
@@ -797,7 +790,7 @@ sub json_model_24($$$)
     return $res;
 }
 
-sub _jm_re_10($$$)
+sub _jm_re_9($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^[?!]/;
@@ -812,7 +805,7 @@ sub json_model_25($$$)
     # .'$Prop'
     # .'$Prop'.'|'.0
     # "/^[?!]/"
-    $res = jm_is_string($val) && _jm_re_10($val, $path, $rep);
+    $res = jm_is_string($val) && _jm_re_9($val, $path, $rep);
     if (! $res)
     {
         # .'$Prop'.'|'.1
@@ -949,10 +942,10 @@ sub _jm_obj_7($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Element'.'|'.5.'/^#./'
+            # .'$Element'.'|'.5.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1014,10 +1007,10 @@ sub _jm_obj_8($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Element'.'|'.4.'/^#./'
+            # .'$Element'.'|'.4.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1083,10 +1076,10 @@ sub _jm_obj_9($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Element'.'|'.3.'/^#./'
+            # .'$Element'.'|'.3.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1152,10 +1145,10 @@ sub _jm_obj_10($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Element'.'|'.2.'/^#./'
+            # .'$Element'.'|'.2.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1221,10 +1214,10 @@ sub _jm_obj_11($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Element'.'|'.1.'/^#./'
+            # .'$Element'.'|'.1.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1287,17 +1280,17 @@ sub _jm_obj_12($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 3 re props
-            # .'$Element'.'|'.0.'/^#./'
+            # .'$Element'.'|'.0.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_8($prop, $path, $rep))
+        elsif (_jm_re_7($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$Element'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -1307,7 +1300,7 @@ sub _jm_obj_12($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_9($prop, $path, $rep))
+        elsif (_jm_re_8($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$Element'.'|'.0.'/^(=|!=)$/'
@@ -1550,10 +1543,10 @@ sub _jm_obj_15($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Transformation'.'|'.1.'/^#./'
+            # .'$Transformation'.'|'.1.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1671,7 +1664,7 @@ sub json_model_33($$$)
     return $res;
 }
 
-sub _jm_re_11($$$)
+sub _jm_re_10($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^([#|&^+\/*@~=\$%]|[<>!]=?)$/;
@@ -1695,7 +1688,7 @@ sub _jm_obj_18($$$)
             # handle 1 key props
             # .'$Rename'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
@@ -1719,7 +1712,7 @@ sub json_model_34($$$)
     return $res;
 }
 
-sub _jm_re_12($$$)
+sub _jm_re_11($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res = $val =~ /^\$.*$/;
@@ -1738,7 +1731,7 @@ sub _jm_obj_19($$$)
     scalar keys %$val;
     while (my ($prop, $pval) = each %$val)
     {
-        if (_jm_re_12($prop, $path, $rep))
+        if (_jm_re_11($prop, $path, $rep))
         {
             # handle 1 re props
             # .'$Rewrite'.'/^\\$.*$/'
@@ -1867,10 +1860,10 @@ sub _jm_obj_22($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$RootOnly'.'$'.'/^#./'
+            # .'$RootOnly'.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -1941,23 +1934,23 @@ sub _jm_obj_23($$$)
             # handle 1 key props
             # .'$RootOnly'.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$RootOnly'.'%'.'/^#./'
+            # .'$RootOnly'.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$RootOnly'.'%'.'/^\\$.*$/'
@@ -2078,10 +2071,10 @@ sub _jm_obj_25($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.5.'$'.'/^#./'
+            # .'$Root'.'|'.5.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2152,23 +2145,23 @@ sub _jm_obj_26($$$)
             # handle 1 key props
             # .'$Root'.'|'.5.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.5.'%'.'/^#./'
+            # .'$Root'.'|'.5.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.5.'%'.'/^\\$.*$/'
@@ -2248,10 +2241,10 @@ sub _jm_obj_24($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.5.'/^#./'
+            # .'$Root'.'|'.5.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2308,10 +2301,10 @@ sub _jm_obj_28($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.4.'$'.'/^#./'
+            # .'$Root'.'|'.4.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2382,23 +2375,23 @@ sub _jm_obj_29($$$)
             # handle 1 key props
             # .'$Root'.'|'.4.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.4.'%'.'/^#./'
+            # .'$Root'.'|'.4.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.4.'%'.'/^\\$.*$/'
@@ -2493,10 +2486,10 @@ sub _jm_obj_27($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.4.'/^#./'
+            # .'$Root'.'|'.4.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2557,10 +2550,10 @@ sub _jm_obj_31($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.3.'$'.'/^#./'
+            # .'$Root'.'|'.3.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2631,23 +2624,23 @@ sub _jm_obj_32($$$)
             # handle 1 key props
             # .'$Root'.'|'.3.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.3.'%'.'/^#./'
+            # .'$Root'.'|'.3.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.3.'%'.'/^\\$.*$/'
@@ -2742,10 +2735,10 @@ sub _jm_obj_30($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.3.'/^#./'
+            # .'$Root'.'|'.3.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2806,10 +2799,10 @@ sub _jm_obj_34($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.2.'$'.'/^#./'
+            # .'$Root'.'|'.2.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -2880,23 +2873,23 @@ sub _jm_obj_35($$$)
             # handle 1 key props
             # .'$Root'.'|'.2.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.2.'%'.'/^#./'
+            # .'$Root'.'|'.2.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.2.'%'.'/^\\$.*$/'
@@ -2991,10 +2984,10 @@ sub _jm_obj_33($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.2.'/^#./'
+            # .'$Root'.'|'.2.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -3055,10 +3048,10 @@ sub _jm_obj_37($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.1.'$'.'/^#./'
+            # .'$Root'.'|'.1.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -3129,23 +3122,23 @@ sub _jm_obj_38($$$)
             # handle 1 key props
             # .'$Root'.'|'.1.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.1.'%'.'/^#./'
+            # .'$Root'.'|'.1.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.1.'%'.'/^\\$.*$/'
@@ -3240,10 +3233,10 @@ sub _jm_obj_36($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.1.'/^#./'
+            # .'$Root'.'|'.1.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -3304,10 +3297,10 @@ sub _jm_obj_40($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 1 re props
-            # .'$Root'.'|'.0.'$'.'/^#./'
+            # .'$Root'.'|'.0.'$'.'/^#/'
             $res = 1;
             if (! $res)
             {
@@ -3378,23 +3371,23 @@ sub _jm_obj_41($$$)
             # handle 1 key props
             # .'$Root'.'|'.0.'%'.'$Name'
             # "/^([#|&^+/*@~=$%]|[<>!]=?)$/"
-            $res = jm_is_string($pval) && _jm_re_11($pval, undef, $rep);
+            $res = jm_is_string($pval) && _jm_re_10($pval, undef, $rep);
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 2 re props
-            # .'$Root'.'|'.0.'%'.'/^#./'
+            # .'$Root'.'|'.0.'%'.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_12($prop, $path, $rep))
+        elsif (_jm_re_11($prop, $path, $rep))
         {
             # handle 2 re props
             # .'$Root'.'|'.0.'%'.'/^\\$.*$/'
@@ -3486,17 +3479,17 @@ sub _jm_obj_39($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_3($prop, $path, $rep))
+        elsif (jm_starts_with($prop, '#'))
         {
             # handle 3 re props
-            # .'$Root'.'|'.0.'/^#./'
+            # .'$Root'.'|'.0.'/^#/'
             $res = 1;
             if (! $res)
             {
                 return 0;
             }
         }
-        elsif (_jm_re_8($prop, $path, $rep))
+        elsif (_jm_re_7($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$Root'.'|'.0.'/^(<=|>=|<|>)$/'
@@ -3506,7 +3499,7 @@ sub _jm_obj_39($$$)
                 return 0;
             }
         }
-        elsif (_jm_re_9($prop, $path, $rep))
+        elsif (_jm_re_8($prop, $path, $rep))
         {
             # handle 3 re props
             # .'$Root'.'|'.0.'/^(=|!=)$/'
