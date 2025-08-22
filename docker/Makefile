@@ -53,4 +53,5 @@ docker.tag: .build
 docker.push: docker.tag
 	# if needed: docker login
 	docker push zx80/jmc:latest
-	docker push zx80/jmc:$$gitvers
+	version=$$(./jmc --version| tr -d '\012\015')
+	docker push zx80/jmc:$$version

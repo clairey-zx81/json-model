@@ -104,7 +104,7 @@ publish.py: dev
 
 .PHONY: publish.docker
 publish.docker:
-	# $(MAKE) -C docker docker.push
+	$(MAKE) -C docker docker.push
 
 RT.dir  = ./json_model/runtime
 
