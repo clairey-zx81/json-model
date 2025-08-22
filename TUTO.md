@@ -50,6 +50,9 @@ jmc --version
 
 Type `exit` when you want to stop playing with the application.
 
+Note that the docker image is quite large, because it embeds the necessary runtime environments
+for C, Python, JavaScript, Java and Perl.
+
 ### Python Venv Installation
 
 For the advanced user, create a Python virtual environment with the JSON Model Compiler
