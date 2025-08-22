@@ -4,8 +4,8 @@
   "~": "https://json-model.org/models/json-model",
   "$": {
     "#": "a few definitions",
-    "A": "_A",
-    "B": "$A",
+    "a": "_A",
+    "b": "$a",
     "ab": { "a": 0, "b": 0 },
     "cd": { "c": 0, "d": 0 }
   },
