@@ -28,7 +28,8 @@ To simplify handling these dependencies, we provide an Ubuntu-based **Docker ima
 **Python venv** (following subsection) and possibly additional system packages when needed.
 
 Both environments work for most of the tutorial sections below, so feel free to choose whichever
-seems more familiar. The docker image allows to also run directly the C and JS generated codes.
+seems more familiar. The docker image include the necessary environment run directly generated
+C, Python, JS, Perl and Java codes, which explains its size.
 Running the PL/pgSQL code requires a working Postgres server, which is _not_ discussed here.
 
 ### Docker Image Installation
@@ -49,9 +50,6 @@ jmc --version
 ```
 
 Type `exit` when you want to stop playing with the application.
-
-Note that the docker image is quite large, because it embeds the necessary runtime environments
-for C, Python, JavaScript, Java and Perl.
 
 ### Python Venv Installation
 
