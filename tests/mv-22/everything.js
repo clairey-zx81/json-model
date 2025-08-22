@@ -24,28 +24,28 @@ const _jm_re_0_re = new runtime.RX("^(Calvin|Susie)$", "")
 var _jm_obj_2_map = new Map()
 var check_model_map = new Map()
 
-// check $A (.'$A')
+// check $a (.'$a')
 function json_model_2(val, path, rep)
 {
     let res;
-    // .'$A'
+    // .'$a'
     res = ((typeof val === 'string' || val instanceof String)) && val == "A";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _A [.'$A']", path])
+        rep !== null && rep.push(["unexpected _A [.'$a']", path])
     }
     return res;
 }
 
-// check $B (.'$B')
+// check $b (.'$b')
 function json_model_3(val, path, rep)
 {
     let res;
-    // .'$B'
+    // .'$b'
     res = ((typeof val === 'string' || val instanceof String)) && val == "A";
     if (! res)
     {
-        rep !== null && rep.push(["unexpected _A [.'$B']", path])
+        rep !== null && rep.push(["unexpected _A [.'$b']", path])
     }
     return res;
 }
@@ -4373,8 +4373,8 @@ export function check_model_init()
         _jm_obj_2_map.set("tuple", _jm_f_97)
         _jm_obj_2_map.set("xor", _jm_f_98)
         check_model_map.set("", json_model_1)
-        check_model_map.set("A", json_model_2)
-        check_model_map.set("B", json_model_3)
+        check_model_map.set("a", json_model_2)
+        check_model_map.set("b", json_model_3)
         check_model_map.set("ab", json_model_4)
         check_model_map.set("cd", json_model_5)
     }

@@ -33,22 +33,22 @@ _jm_re_0: RegexFun
 _jm_obj_2_map: PropMap
 check_model_map: PropMap
 
-# check $A (.'$A')
+# check $a (.'$a')
 def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$A'
+    # .'$a'
     res = isinstance(val, str) and val == "A"
     if not res:
-        rep is None or rep.append(("unexpected _A [.'$A']", path))
+        rep is None or rep.append(("unexpected _A [.'$a']", path))
     return res
 
-# check $B (.'$B')
+# check $b (.'$b')
 def json_model_3(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
-    # .'$B'
+    # .'$b'
     res = isinstance(val, str) and val == "A"
     if not res:
-        rep is None or rep.append(("unexpected _A [.'$B']", path))
+        rep is None or rep.append(("unexpected _A [.'$b']", path))
     return res
 
 # object .'$ab'
@@ -2921,8 +2921,8 @@ def check_model_init():
         global check_model_map
         check_model_map = {
             "": json_model_1,
-            "A": json_model_2,
-            "B": json_model_3,
+            "a": json_model_2,
+            "b": json_model_3,
             "ab": json_model_4,
             "cd": json_model_5,
         }

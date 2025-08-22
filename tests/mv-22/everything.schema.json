@@ -3,10 +3,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "A model to illustrate most design features",
   "$defs": {
-    "A": {
+    "a": {
       "const": "A"
     },
-    "B": {
+    "b": {
       "const": "A"
     },
     "ab": {

@@ -6,8 +6,14 @@
     "Model": "$https://json-model.org/models/json-model"
   },
   "%": {
-    "$Model#Common": { "*": {"?.schema": {"": "$Any"}} },
-    "$Model#Constraint": { "*": {"?.mo": 1, "?.in": "$Model"} }
+    "$Model#ObjectComment": {
+      "#": "common property to add json schema keywords when converting",
+      "*": {"?.schema": {"": "$Any"}}
+    },
+    "$Model#Constraint": {
+      "#": "new constraints: multiple-of an integer, contains…",
+      "*": {"?.mo": 1, "?.in": "$Model"}
+    }
   },
   "@": "$Model"
 }

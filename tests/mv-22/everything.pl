@@ -21,22 +21,22 @@ my %_jm_obj_35_map;
 my %_jm_obj_2_map;
 my %check_model_map;
 
-# check $A (.'$A')
+# check $a (.'$a')
 sub json_model_2($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$A'
+    # .'$a'
     $res = jm_is_string($val) && $val eq 'A';
     return $res;
 }
 
-# check $B (.'$B')
+# check $b (.'$b')
 sub json_model_3($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$B'
+    # .'$b'
     $res = jm_is_string($val) && $val eq 'A';
     return $res;
 }
@@ -3266,8 +3266,8 @@ sub check_model_init()
         );
         %check_model_map = (
             '' => \&json_model_1,
-            'A' => \&json_model_2,
-            'B' => \&json_model_3,
+            'a' => \&json_model_2,
+            'b' => \&json_model_3,
             'ab' => \&json_model_4,
             'cd' => \&json_model_5,
         );

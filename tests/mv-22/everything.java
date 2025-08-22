@@ -32,28 +32,28 @@ public class everything extends ModelChecker
     Map<String, Checker> _jm_obj_2_map_pmap;
     public Map<String, Checker> everything_map_pmap;
 
-    // check $A (.'$A')
+    // check $a (.'$a')
     public boolean json_model_2(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$A'
+        // .'$a'
         res = json.isString(val) && json.asString(val).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _A [.'$A']", path);
+            if (rep != null) rep.addEntry("unexpected _A [.'$a']", path);
         }
         return res;
     }
     
-    // check $B (.'$B')
+    // check $b (.'$b')
     public boolean json_model_3(Object val, Path path, Report rep)
     {
         boolean res;
-        // .'$B'
+        // .'$b'
         res = json.isString(val) && json.asString(val).compareTo("A") == 0;
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected _A [.'$B']", path);
+            if (rep != null) rep.addEntry("unexpected _A [.'$b']", path);
         }
         return res;
     }
@@ -4517,8 +4517,8 @@ public class everything extends ModelChecker
             _jm_obj_2_map_pmap.put("xor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_98(o, p, r);} });
             everything_map_pmap = new HashMap<String, Checker>();
             everything_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
-            everything_map_pmap.put("A", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            everything_map_pmap.put("B", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            everything_map_pmap.put("a", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
+            everything_map_pmap.put("b", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             everything_map_pmap.put("ab", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             everything_map_pmap.put("cd", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
                 super.init(json);

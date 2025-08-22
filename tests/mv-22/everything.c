@@ -133,28 +133,28 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[5];
 const size_t check_model_map_size = 5;
 
-// check $A (.'$A')
+// check $a (.'$a')
 static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$A'
+    // .'$a'
     res = json_is_string(val) && strcmp(json_string_value(val), "A") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _A [.'$A']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _A [.'$a']", path);
     }
     return res;
 }
 
-// check $B (.'$B')
+// check $b (.'$b')
 static bool json_model_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
-    // .'$B'
+    // .'$b'
     res = json_is_string(val) && strcmp(json_string_value(val), "A") == 0;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected _A [.'$B']", path);
+        if (rep) jm_report_add_entry(rep, "unexpected _A [.'$b']", path);
     }
     return res;
 }
@@ -4618,8 +4618,8 @@ const char *check_model_init(void)
         _jm_obj_2_map_tab[14] = (jm_propmap_t) { "xor", _jm_f_98 };
         jm_sort_propmap(_jm_obj_2_map_tab, 15);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
-        check_model_map_tab[1] = (jm_propmap_t) { "A", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "B", json_model_3 };
+        check_model_map_tab[1] = (jm_propmap_t) { "a", json_model_2 };
+        check_model_map_tab[2] = (jm_propmap_t) { "b", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "ab", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "cd", json_model_5 };
         jm_sort_propmap(check_model_map_tab, 5);

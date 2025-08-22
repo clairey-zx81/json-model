@@ -20,13 +20,18 @@
         "$NULL",
         "$BOOL",
         "$FLOAT",
+        "$F16",
         "$F32",
         "$F64",
         "$NUMBER",
         "$INT",
         "$INTEGER",
+        "$I8",
+        "$I16",
         "$I32",
         "$I64",
+        "$U8",
+        "$U16",
         "$U32",
         "$U64",
         "$STRING",
@@ -34,21 +39,45 @@
         "$ANY"
       ]
     },
-    "Comment": {
+    "Identifier": {
+      "allOf": [
+        {
+          "type": "string",
+          "pattern": "^\\w+$"
+        },
+        {
+          "type": "string",
+          "pattern": "[^A-Z0-9]"
+        }
+      ]
+    },
+    "ArrayComment": {
       "type": "string",
       "pattern": "^#"
     },
+    "ObjectComment": {
+      "type": "object",
+      "patternProperties": {
+        "^#.": true
+      },
+      "properties": {
+        "#": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "Ref": {
       "type": "string",
-      "pattern": "^\\$"
+      "pattern": "^\\$."
     },
     "ValConst": {
       "type": "string",
-      "pattern": "^=(null|true|false|-?\\d+(\\.\\d+)?([Ee]-?\\d+)?)$"
+      "pattern": "^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$"
     },
     "StrConst": {
       "type": "string",
-      "pattern": "^[_a-zA-Z0-9]"
+      "pattern": "^[A-Za-z0-9_]"
     },
     "Regex": {
       "anyOf": [
@@ -128,15 +157,6 @@
     },
     "Any": true,
     "None": false,
-    "Common": {
-      "type": "object",
-      "patternProperties": {
-        "^#": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
     "Array": {
       "type": "array",
       "items": {
@@ -145,10 +165,13 @@
             "$ref": "#/$defs/Model"
           },
           {
-            "$ref": "#/$defs/Comment"
+            "$ref": "#/$defs/ArrayComment"
           }
         ]
       }
+    },
+    "Common": {
+      "$ref": "#/$defs/ObjectComment"
     },
     "Constraint": {
       "type": "object",
@@ -259,7 +282,7 @@
     "Obj": {
       "type": "object",
       "patternProperties": {
-        "(^[?!]|^[_a-zA-Z0-9]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$|^\\..+$|^$)": {
+        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
           "$ref": "#/$defs/Model"
         }
       },
@@ -292,19 +315,20 @@
         {
           "type": "object",
           "patternProperties": {
+            "^#.": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
             "^(=|!=)$": {
               "$ref": "#/$defs/EqValue"
-            },
-            "^#": {
-              "type": "string"
             }
           },
           "properties": {
             "@": {
               "$ref": "#/$defs/Model"
+            },
+            "#": {
+              "type": "string"
             },
             "!": {
               "type": "boolean"
@@ -318,9 +342,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "|": {
@@ -328,6 +350,9 @@
               "items": {
                 "$ref": "#/$defs/Model"
               }
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -338,9 +363,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "&": {
@@ -348,6 +371,9 @@
               "items": {
                 "$ref": "#/$defs/Model"
               }
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -358,9 +384,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "^": {
@@ -368,6 +392,9 @@
               "items": {
                 "$ref": "#/$defs/Model"
               }
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -378,9 +405,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "+": {
@@ -388,6 +413,9 @@
               "items": {
                 "$ref": "#/$defs/Model"
               }
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -398,11 +426,14 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            },
-            "(^[?!]|^[_a-zA-Z0-9]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$|^\\..+$|^$)": {
+            "^#.": true,
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
+            }
+          },
+          "properties": {
+            "#": {
+              "type": "string"
             }
           },
           "additionalProperties": false
@@ -410,7 +441,7 @@
       ]
     },
     "Trafo": {
-      "description": "remove and/or add stuff",
+      "description": "remove, rename or add stuff",
       "type": "object",
       "properties": {
         "/": {
@@ -424,20 +455,13 @@
             }
           ]
         },
-        "*": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": true
-            },
-            {
-              "type": "object",
-              "additionalProperties": {
-                "$ref": "#/$defs/Model"
-              }
-            }
-          ]
-        }
+        "~": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "*": true
       },
       "additionalProperties": false
     },
@@ -449,11 +473,12 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
+            "#": {
+              "type": "string"
+            },
             "/": {
               "anyOf": [
                 {
@@ -465,20 +490,13 @@
                 }
               ]
             },
-            "*": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": true
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": {
-                    "$ref": "#/$defs/Model"
-                  }
-                }
-              ]
-            }
+            "~": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "*": true
           },
           "additionalProperties": false
         }
@@ -510,7 +528,7 @@
     "Defs": {
       "type": "object",
       "patternProperties": {
-        ".": {
+        "(?s)^.*$": {
           "$ref": "#/$defs/Model"
         }
       },
@@ -569,14 +587,15 @@
         "$": {
           "type": "object",
           "patternProperties": {
-            ".": {
+            "^#.": true,
+            "(?s)^.*$": {
               "$ref": "#/$defs/Model"
-            },
-            "^#": {
-              "type": "string"
             }
           },
           "properties": {
+            "#": {
+              "type": "string"
+            },
             "": {
               "$ref": "#/$defs/Url"
             }
@@ -586,11 +605,9 @@
         "%": {
           "type": "object",
           "patternProperties": {
+            "^#.": true,
             "^\\$.*$": {
               "$ref": "#/$defs/Transformation"
-            },
-            "^#": {
-              "type": "string"
             },
             "^\\..+$": {
               "type": "string",
@@ -598,6 +615,9 @@
             }
           },
           "properties": {
+            "#": {
+              "type": "string"
+            },
             "<": {
               "anyOf": [
                 {
@@ -622,14 +642,12 @@
         {
           "type": "object",
           "patternProperties": {
+            "^#.": true,
             "^(<=|>=|<|>)$": {
               "$ref": "#/$defs/CmpValue"
             },
             "^(=|!=)$": {
               "$ref": "#/$defs/EqValue"
-            },
-            "^#": {
-              "type": "string"
             }
           },
           "properties": {
@@ -642,14 +660,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -659,11 +678,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -671,6 +688,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -687,6 +707,9 @@
               },
               "additionalProperties": false
             },
+            "#": {
+              "type": "string"
+            },
             "!": {
               "type": "boolean"
             }
@@ -699,9 +722,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "|": {
@@ -716,14 +737,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -733,11 +755,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -745,6 +765,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -760,6 +783,9 @@
                 }
               },
               "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -770,9 +796,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "&": {
@@ -787,14 +811,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -804,11 +829,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -816,6 +839,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -831,6 +857,9 @@
                 }
               },
               "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -841,9 +870,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "^": {
@@ -858,14 +885,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -875,11 +903,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -887,6 +913,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -902,6 +931,9 @@
                 }
               },
               "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -912,9 +944,7 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            }
+            "^#.": true
           },
           "properties": {
             "+": {
@@ -929,14 +959,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -946,11 +977,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -958,6 +987,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -973,6 +1005,9 @@
                 }
               },
               "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
             }
           },
           "required": [
@@ -983,10 +1018,8 @@
         {
           "type": "object",
           "patternProperties": {
-            "^#": {
-              "type": "string"
-            },
-            "(^[?!]|^[_a-zA-Z0-9]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$|^\\..+$|^$)": {
+            "^#.": true,
+            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -997,14 +1030,15 @@
             "$": {
               "type": "object",
               "patternProperties": {
-                ".": {
+                "^#.": true,
+                "(?s)^.*$": {
                   "$ref": "#/$defs/Model"
-                },
-                "^#": {
-                  "type": "string"
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "": {
                   "$ref": "#/$defs/Url"
                 }
@@ -1014,11 +1048,9 @@
             "%": {
               "type": "object",
               "patternProperties": {
+                "^#.": true,
                 "^\\$.*$": {
                   "$ref": "#/$defs/Transformation"
-                },
-                "^#": {
-                  "type": "string"
                 },
                 "^\\..+$": {
                   "type": "string",
@@ -1026,6 +1058,9 @@
                 }
               },
               "properties": {
+                "#": {
+                  "type": "string"
+                },
                 "<": {
                   "anyOf": [
                     {
@@ -1041,6 +1076,9 @@
                 }
               },
               "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
             }
           },
           "additionalProperties": false

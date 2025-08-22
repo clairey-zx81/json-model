@@ -18,7 +18,7 @@
     },
     "Identifier": { "&": [ "/^\\w+$/", "/[^A-Z0-9]/" ] },
     "ArrayComment": "/^#/",
-    "ObjectComment": { "?#": "", "/^#./": "$ANY" },
+    "ObjectComment": { "?#": "", "/^#/": "$ANY" },
     "Ref": "/^\\$./",
     "ValConst": "/^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$/",
     "StrConst": "/^[A-Za-z0-9_]/",
