@@ -2,21 +2,8 @@
 
 ## Current Tasks
 
-- [x] dev: complete publish task in root makefile
-- [x] pr: review readme, what is the introductory story?
-- [x] java-backend: fix `mv-0a/base-18` unique
-- [x] qa: rerun all pytest checks
-- [x] qa: rerun all source checks
-- [x] qa: ensure that full validation runs in docker zx80/jmc
-- [x] src: restructure runtime per language
-- [x] pr: write `everything.model.json` for illustration and test
-- [x] command: add cache management options, eg cleaning, ignore…
-- [x] java-backend: jsonp tested with joy
-- [x] java-backend: jsonp with johnzon, same issues compared to joy…
-- [x] design: check `$BOOL` vs `$BOOLEAN` support
-- [x] pr: complete spec
+- [x] design: force static information on `@` constraints for optimizations
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
-- [ ] design: force static information on `@` constraints for optimizations
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
@@ -540,3 +527,16 @@
 - [x] command: add `--jsonl` support
 - [x] pr: java-backend maven packaging and publication
 - [x] pr: update example re in tuto
+- [x] dev: complete publish task in root makefile
+- [x] pr: review readme, what is the introductory story?
+- [x] java-backend: fix `mv-0a/base-18` unique
+- [x] qa: rerun all pytest checks
+- [x] qa: rerun all source checks
+- [x] qa: ensure that full validation runs in docker zx80/jmc
+- [x] src: restructure runtime per language
+- [x] pr: write `everything.model.json` for illustration and test
+- [x] command: add cache management options, eg cleaning, ignore…
+- [x] java-backend: jsonp tested with joy
+- [x] java-backend: jsonp with johnzon, same issues compared to joy…
+- [x] design: check `$BOOL` vs `$BOOLEAN` support
+- [x] pr: complete spec
