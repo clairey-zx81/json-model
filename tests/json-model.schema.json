@@ -6,8 +6,11 @@
     "common": {
       "title": "Common Object Stuff",
       "type": "object",
+      "properties": {
+        "#": { "type": "string" }
+      },
       "patternProperties": {
-        "^#": { "type": "string" }
+        "^#.": {}
       }
     },
     "simpleModel": {
