@@ -63,7 +63,12 @@ echo "## Java run"
 jmc --loose -o Person.java Person-2  # Java
 if [ "$CLASSPATH" ] ; then
   javac Person.java
-  java Person -T 100000 hobbes.json
+  echo "### java with GSON lib"
+  java Person -j GSON -T 100000 hobbes.json
+  echo "### java with Jackson lib"
+  java Person -j Jackson -T 100000 hobbes.json
+  echo "### java with Johnzon (JSONP) lib"
+  java Person -j JSONP -T 100000 hobbes.json
 fi
 
 # using from C, JS, Python, Perl or PL/pgSQL
