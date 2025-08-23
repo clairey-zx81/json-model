@@ -351,7 +351,7 @@ jmc Geom marseille.json seoul-tokyo.json  # PASS, PASS
 ```
 
 When defining such unions, it is much better to include a discriminant property (here `type`)
-with distinct scalar constant values (here strings introduced with `_`):
+with distinct scalar constant values (here strings):
 The JSON Model compiler uses this to generate efficient code which only checks
 for the relevant object based on the discriminant.
 
