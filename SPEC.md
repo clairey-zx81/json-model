@@ -2,15 +2,8 @@
 
 JSON Model aims at describing JSON data structures:
 it is a cross-language JSON-specific type declaration written in JSON.
-
 Some features go beyond the traditional _structural_ typing of programming language type
 declarations, for instance by using constants and regular expressions.
-
-This is a semi-formal specification of JSON Model.
-
-The JSON Model syntax primarily relies on type inference to express types, and
-uses symbolic properties (`| ^ & + @ = != < <= > >= ! $ % ~`) and
-string sentinel characters (`! ? = _ . $ /`) for advanced features.
 
 ## JSON Summary
 
@@ -19,12 +12,12 @@ text serialization format linked to the JavaScript ecosystem.
 JSON values are built recursively from:
 
 - symbols: `null`, `true`, `false`.
-- numbers, mixing integers and floats: _-42_, _31.415927E-1_
+- numbers, mixing integers and floats: `-42`, `31.415927E-1`
 - unicode text within `"`: `"Hello Susie!"`, with backslash escaping and special character such as `\n`.
 - arrays of JSON values: `[ …, … ]`
 - objects mapping string properties to JSON values: `{ "foo": …, "bla": … }`
 
-For instance the following JSON object describe a comic character, his birth date and
+For instance the following JSON object describe a comics character, his birth date and
 list its friends:
 
 ```json
@@ -42,8 +35,17 @@ It must be noted that:
 - there is no limit set on integer or float precisions.
 - there is no way to represent _NaN_ and _Infinity_ floats.
 
+## JSON Model Syntax
+
+This is a semi-formal specification of JSON Model.
+
+The JSON Model syntax uses JSON to describe JSON.
+It primilarily relies on type inference to express types, and
+uses symbolic properties (`| ^ & + @ = != < <= > >= ! $ % ~`) and
+string sentinel characters (`! ? = _ . $ /`) for advanced features.
+
 JSON Model represents set of JSON values by providing a type declaration which
-constraint the allowed value.
+constraint the allowed values.
 A model contains both JSON parts which must conform to the model syntax (the type declarations)
 and JSON parts which may be values (eg examples of allowed values, as documentation illustrations
 included in the model definition).
@@ -85,26 +87,30 @@ String scalar constant are expressed with strings using sentinel `_`:
 
 - `"_XXX"`: the _XXX_ string constant, where _XXX_ can be anything.
   `"_"` is the empty string, `"_&"` is the ampersand character, `"_#"` is the sharp character.
-- `"XXX"`: the _XXX_ string constant **if** the first character
-  is an identifier character (letter).
+- as a convenience, `"XXX"`: the _XXX_ string constant **if** the first character
+  is an identifier character, i.e. a letter of some sort.
 
-### Regular Expression Models
+### Regular Expression String Models
 
 Regular expression are specified in string with the `/` sentinel: `"/regex/options"`
 are the strings which match the _regex_ under the provided _options_.
 For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
 
-- regular expressions should be restricted to efficient regex such as `re2`.
+- regular expressions should be restricted to efficient regex such as
+  [RE2](https://github.com/google/re2).
   However, depending on the availibility of such regular expression engine on the target
-  environment, other variant may be used which should support at least the re2 subset.
+  environment, other variant may be used which should support at least the RE2 subset.
+  For portability, models should only rely on regex features available in the RE2 subset.
 
-- JSON Model regular expressions are extended with option `X` (capital letter x) to allow references
-  to string models with the following syntax: `($name:regex)`, where the regular expression
-  after the `:` must match the named string model. `($name)` is a shortcut for `($name:.\*).
+- JSON Model regular expressions are extended with option `X` (capital letter x) to allow
+  _references_ to string models with the following syntax: `($name:regex)`, where the regular
+  expression after the `:` must match the named string model.
+  Syntax `($name)` is a shortcut for `($name:.\*)`.
 
 ### Predefined Models
 
-String models with a `$` reference with a capitalized ASCII name are special **predefined** models:
+String models with a `$` reference with a capitalized ASCII name are special **predefined** models,
+which may have any type:
 
 - `"$ANY"`: any JSON value (scalar or array or object).
 - `"$NONE"`: no JSON value.
@@ -114,7 +120,7 @@ Simple scalar types:
 - `"$NULL"`: _null_ value.
 - `"$BOOL"` or `"$BOOLEAN"`: boolean values _true_ or _false_.
 - `"$INT"` or `"$INTEGER"`: JSON (unbounded) integer values.
-- `"$I8"`, `"$U8"`, `"$I16"`, `"$U16"`, `"$I32"`, `"$U32"`, `"$I64"`, `"$U64$"`:
+- `"$I8"`, `"$U8"`, `"$I16"`, `"$U16"`, `"$I32"`, `"$U32"`, `"$I64"`, `"$U64"`:
   signed/unsigned 8/16/32/64-bit integers.
 - `"$FLOAT"` or `"$NUMBER"`: JSON (unbounded) float values.
 - `"$F16"`, `"$F32"`, `"$F64"`: 16/32/64 bit precision
@@ -179,7 +185,7 @@ Property names are matched as follow:
 - `"?XXX"`: optional properties directly provided after the `?`.
 - `"/.../"`: optional property names matching a regular expression:
   eg `{"/^a/": ""}` means property names starting with _a_ must have string values.
-- `"$XXX"`: optional property reference to a **string** definition, see below.
+- `"$XXX"`: optional property reference to a **string** [definition](#definitions-and-scope).
 - `""` catch all property: any property name matches.
   This is consistent with `""` standing for any string.
 - property names starting with other characters are reserved for future uses and must be rejected.
@@ -276,19 +282,19 @@ of the list of models.
 
 Property combinations are preprocessed as follow:
 
-1. definitions are followed to substitute the corresponding objects and or/xor compositions of
-   object models. If one definition is _not_ an object model, this is an error and the model
-   is rejected.
+1. definitions are followed to substitute the corresponding simple objects and or/xor compositions
+   of object models (recursively).
+   If one definition is _not_ an object model, this is an error and must be rejected.
 2. the `+` operator is distributed over `|` and `^` lists, so that the resulting merge
-   involves only or/xor of simple object models.
+   involves only or/xor of **simple** object models.
 3. object properties are merged with the following rules:
    - mandatory named properties take priority over optional named properties.
    - regular expression properties, left to right.
    - reference properties, left to right.
    - catch all property.
 4. the model values can be merge if and only if they are compatible:
-   - they are strictly _equal_ (ignoring comments).
-   - or one is the special `"$ANY"` model, in which case the most restrictive is kept.
+   - they are _equal_ (ignoring comments and property ordering), or
+   - one is the special `"$ANY"` model, in which case the other model is kept.
 
 Incompatible property value models must be treated as errors and rejected.
 
@@ -319,9 +325,12 @@ Which is merged as:
 { "|": [ {"a": 0} , {"a": 0, "b": true} ] }
 ```
 
+Note that merge proprocessing conditions are stricter than the
+[typing lattice](#static-typing-lattice).
+
 ## Constraint Models
 
-Constraint models are represented as an object with special propertie names:
+Constraint models are represented as an object with special property names:
 
 - mandatory target model: `@`
 - optional comparison constraints: `=`, `!=`, `<`, `<=`, `>`, `>=`
@@ -336,8 +345,8 @@ Unconstrained models are unrestricted, the `@` model indirection can just be see
 syntactic commodity for allowing comments, or definitions at the model root.
 
 However, when a constrained object is used (i.e. with both `@` and any of the
-special constraint properties), the target model **must** be statically type
-(see [Static Typing Lattice](#static-typing-lattice) below).
+special constraint properties), the target model **must** be
+[statically type](#static-typing-lattice).
 The interpretation of the constraint depend on the target type:
 
 ### Null or Boolean Target
@@ -423,7 +432,7 @@ Definitions allow recursivity.
 Names are restricted to simple identifiers (letters, numbers, underline, dash…).
 Beware that all-capital ASCII identifiers are reserved for predefs.
 
-The special empty string `""` proprety allows to declare the URL-identifier of the
+The special empty string `""` property allows to declare the URL-identifier of the
 model itself.
 
 ### References and Imports
@@ -434,13 +443,15 @@ A reference is a string which begins with the `$` character.
 - `"$some-url"` refers to the root of the external model retrieved at this url, which can be
   a local path.
   For instance, `"$https://json-model.org/models/json-model"` is JSON Model self-validating
-  meta model.
+  latest meta model.
 - by extension, `"$#name"` refers to the local definition `name` within the current scope
   (empty name).
-- `"$some-url#name` refers to the model named `name` inside the url-reference model.
+- `"$some-url#name` refers to the model named `name` inside the url-referenced model.
 - `"$some-url#n1#n2" allows to follow external definitions: inside the first target
   url, retrieve name `n1` model which is itself defined as another external definitions,
   then retrieve name `n2` into this secondary model.
+
+Implementation should detect external reference cycles which are errors and should be rejected.
 
 ## Model Transformations
 
@@ -449,9 +460,8 @@ may include symbol renamings, model importations and model editions.
 
 ### Symbol Names
 
-Within the `%` object at the root,
-properties begining with a `.` introduce new symbol names.
-The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / *`.
+Within the `%` object at the root, properties beginning with a `.` introduce new symbol names.
+The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / \*`.
 For instance:
 
 ```json
@@ -473,16 +483,17 @@ Into:
 ```
 
 These substitutions can be carried out by a separate preprocessor which generates
-the resulting standard model without any `".xxx"` renamed symbol.
+the resulting standard model without any renamed symbol.
 
-When declaring the model meta-model with `"~"` at the root, any renaming specified
+When declaring the model meta-model with `"~"` at the root, any renaming section specified
 in the meta-model **must** be applied to the current model before further processing.
+This feature allow the localization of the model syntax.
 
 ### Importation
 
-Special property "<" inside a transformation object expects an external reference string value,
-or a list of such references, and imports all definitions of the targets into the local
-scope.
+Special property "<" inside a transformation object expects a reference to an external
+model, or a list of such references, and imports all definitions of the targets into the
+local scope.
 
 While importing, homonymous definitions are invalid and must be rejected.
 
@@ -490,7 +501,7 @@ While importing, homonymous definitions are invalid and must be rejected.
 
 Model editions are specified with properties which are references possibly followed
 by a JSON path, allowing to point to a JSON element in the model, and either a value
-with special properties `/ *` to remove or add sub elements, or anything else
+with special properties `/ \*` to remove or add sub elements, or anything else
 taken as-is, but which must not be an object with any of the special properties.
 
 - Addition/replacement on a `"$External#name"` reference to a definition:
@@ -502,21 +513,21 @@ taken as-is, but which must not be an object with any of the special properties.
 
 The following edition rules apply, in order, depending on the type of the target element:
 
-- if the transformation value is an edition object (ie include at least one `/ *` property):
+- if the transformation value is an edition object (ie include at least one `/ \*` property):
   - if the target is a JSON object (not necessarily a model for an object):
     - `/` value may be a string or a list of strings.
       All properties of these names are removed.
       If a property does not exist, this is an error and must be rejected.
-    - `*` value must be a object, which is merged into the target object.
+    - `\*` value must be a object, which is merged into the target object.
       If a property already exists, this is an error and must be rejected.
   - if the target is a JSON array (not necessarily a model for an array):
     - `/`: may be value or a list of values.
       Array items equal to these values are removed.
       If a value is not found, this is an error and must be rejected.
-    - `*`: if the value is an array, append its items to the target array.
+    - `\*`: if the value is an array, append its items to the target array.
       if the value is something else, appends this to the array.
   - if the target is a JSON scalar: this is an error and must be rejected.
-- if the transformation value is a model (i.e. an object without any `/ ~ *` property),
+- if the transformation value is a model (i.e. an object without any `/ \*` property),
   the target value is _replaced_ by this value, in place.
 
 These additions and editions are performed _after_ property renamings and imports,
@@ -532,10 +543,18 @@ for a model:
 - merge (`+`) operands are simple objects or or/xor-op of objects (recursively).
 - constrained model targets to allow interpreting the constraint.
 
+```json
+{
+  "events": [ "/^($DATE:[-0-9]+): /" ],
+  "$tagname": { "+": [ "$common", "$tagprops" ] },
+  "authors": { "@": [ "" ], ">=": 1 }
+}
+```
+
 The typing lattice is based on the following 3-level latice:
 
 - $\top$ (top) is `"$ANY"`, i.e. any JSON is allowed, the type is unknown.
-- 6 known types: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
+- 6 JSON types: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
 - $\perp$ (bottom) is `"$NONE"`, i.e. no JSON value.
 
 All _model_ elements are typed with the following rules:
@@ -551,21 +570,24 @@ They are then propagated along definitions and composition objects:
 
 - references are typed as the corresponding definition
 - or (`|`), xor (`^`) operators:
-  - if all listed models have the **same** type, the composition has this type.
-  - if composed models have different types, the type is $\top$
-  - if the list of models is empty, the type is $\perp$.
+  - if the list of models is empty or only contains $\perp$, the type is $\perp$.
+  - if all non-$\perp$ listed models have the same JSON type, the composition has this type,
+  - otherwise the type is $\top$
 - and (`&`) operator:
-  - if all models have the **same** type, the composition has this type.
-  - if composed models have different types, the type is $\perp$.
-  - if the list is empty, the type is $\top$.
-- merge (`+`) operator has type `object`, their operands must be checked.
-- constraint objects (`@`) are types as the target.
+  - if the list of models is empty or only contains $\top$, the type is $\top$.
+  - if all non-$\top$ models have the **same** type, the composition has this type.
+  - otherwise the type is $\perp$
+- merge (`+`) operators have type `object`, if merging succeeds.
+- constraint objects (`@`) have the same type as their target.
 
 Fixed point: in case of unresolved recursion, do not bother and assume $\top$,
 i.e. the type is unknown.
 
 :warning: Note that for a simplistic recursive descending implementation, care must be taken
 to detect infinite reference loops.
+
+:warning: Merge operands are managed in a preprocessing phase with specific rules.
+Having them typed as `object` is not a sufficient to assume that the merge would succeed.
 
 ## Comments
 

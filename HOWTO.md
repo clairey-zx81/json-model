@@ -123,8 +123,8 @@ Assuming that the `jmc` command is available:
 ## … use JSON Model in my _Java_ code?
 
 If you load a JSON file using specific Java classes (aka binding), your _do not_ really need
-a model for checking your JSON: the JSON parser will checks type constraints while creating
-the class instances.
+a model for checking your JSON: the JSON parser should check type constraints while creating
+your class instances.
 
 However, if you want to load a generic JSON file without having corresponding Java classes,
 you can use JSON model for validating its contents.
@@ -149,18 +149,20 @@ you can use JSON model for validating its contents.
      [Johnzon](https://central.sonatype.com/artifact/org.apache.johnzon/johnzon) or
      [Joy](https://central.sonatype.com/artifact/org.leadpony.joy/joy).
 
-3. generate the Java JSON validation class for your model, and put it somewhere in your project:
+3. generate the Java JSON validation class for your model, and put it somewhere in your project
+   so that it is built with your source code:
 
    ```sh
    jmc -o StuffChecker.java Stuff
    ```
+
+   Option `--package PACKAGE` allow to generate the checker for a particular package.
 
 4. initialize the runtime:
 
    ```java
    import json_model.GSON;  // or Jackson or JSONP
    import json_model.ModelChecker;
-   import json_model.Report;
 
    // where and when you need it
    ModelChecker checker = new StuffChecker();
@@ -172,7 +174,9 @@ you can use JSON model for validating its contents.
    it conforms to `model` (the name of the model, empty string for the root model).
 
    ```java
-   Report rep = new Report();
+   import json_model.Report;
+
+   Report rep = new Report();  // or null if not needed
    boolean ok = checker.check(value, model, rep);
    // consult report for some hint on rejections
    ```
