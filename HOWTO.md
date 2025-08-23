@@ -68,7 +68,12 @@ runtime are in your Python environment.
 
 Assuming that the `jmc` command is available:
 
-1. Add `JSON::JsonModel.pm` file to you Perl path (eg `PERLLIB` environment variable).
+1. Add the JSON Model Perl runtime `JSON::JsonModel.pm` to your Perl environment,
+   for instance by adjusting your `PERLLIB` path or with `cpan`:
+
+   ```sh
+   cpan JSON::JSonModel
+   ```
 
 2. Generate a Perl script or module:
 
