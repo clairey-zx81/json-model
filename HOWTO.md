@@ -70,28 +70,35 @@ and the generated validation function can be used from there:
    #! /usr/bin/env python
    import json_model as jm
 
-   hobbes = { "name": "Hobbes", "born": "2020-07-29" }
+   # model and value
    person = { "name": "/^\\w+$/", "born": "$DATE" }
+   hobbes = { "name": "Hobbes", "born": "2020-07-29" }
 
-   # compile and run from JSON
+   # direct model
    is_person = jm.model_checker_from_json(person)
-   print("hobbes is a person:", is_person(hobbes))
 
-   # load, compile and run from a URL
+   # from a URL
    is_model = jm.model_checker_from_url("https://json-model.org/models/json-model", resolver=jm.resolver.Resolver())
+
+   # use model checkers on JSON values
+   print("hobbes is a person:", is_person(hobbes))
+   print("hobbes is a model:", is_model(hobbes))
+   print("person is a person:", is_person(person))
    print("person is a model:", is_model(person))
    ```
 
 3. Enjoy!
 
    ```sh
-   time ./howto_python_dyn.py
+   time ./howto_dyn_java.py
    ```
    ```
    hobbes is a person: True
+   hobbes is a model: True    # indeed, as a model it only matches itself
+   person is a person: False
    person is a model: True
 
-   real    0m0,148s
+   real    0m0,134s
    ```
 
    The reported time include compiling the _person_ model and
