@@ -61,7 +61,7 @@ runtime are in your Python environment.
 As the compiler is written in Python, in can be invoked directly from Python code
 and the generated validation function can be used from there:
 
-1. [Install](install-the-json-model-compiler) the
+1. [Install](#install-the-json-model-compiler) the
    [JSON Model Compiler](https://pypi.org/project/json-model-compiler/) Python package.
 
 2. Generate and use model checker functions:
