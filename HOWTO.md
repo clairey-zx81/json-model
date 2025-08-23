@@ -147,7 +147,7 @@ Assuming that the `jmc` command is available:
    from [pgxn](https://pgxn.org/dist/json_model/):
 
    ```sh
-   sudo make -C json_model/runtime install
+   sudo make -C json_model/runtime/sql install
    sudo pgxn install json_model
    ```
 
