@@ -58,7 +58,45 @@ runtime are in your Python environment.
 
 ## … use JSON Model in my _Python_ code (dynamic)?
 
-:warning: :construction_worker: :construction:
+As the compiler is written in Python, in can be invoked directly from Python code
+and the generated validation function can be used from there:
+
+1. [Install](install-the-json-model-compiler) the
+   [JSON Model Compiler](https://pypi.org/project/json-model-compiler/) Python package.
+
+2. Generate and use model checker functions:
+
+   ```python
+   #! /usr/bin/env python
+   import json_model as jm
+
+   hobbes = { "name": "Hobbes", "born": "2020-07-29" }
+   person = { "name": "/^\\w+$/", "born": "$DATE" }
+
+   # compile and run from JSON
+   is_person = jm.model_checker_from_json(person)
+   print("hobbes is a person:", is_person(hobbes))
+
+   # load, compile and run from a URL
+   is_model = jm.model_checker_from_url("https://json-model.org/models/json-model",
+                                        resolver=jm.resolver.Resolver())
+   print("person is a model:", is_model(person))
+   ```
+
+3. Enjoy!
+
+   ```sh
+   time ./howto_python_dyn.py
+   ```
+   ```
+   hobbes is a person: True
+   person is a model: True
+
+   real    0m0,148s
+   ```
+
+   The reported time include compiling the _person_ model and
+   JSON Model [meta model](https://json-model.org/models/json-model).
 
 ## … use JSON Model in my _JavaScript_ code?
 
@@ -68,7 +106,7 @@ runtime are in your Python environment.
 
 Assuming that the `jmc` command is available:
 
-1. Add the JSON Model Perl runtime `JSON::JsonModel.pm` to your Perl environment,
+1. Add the JSON Model Perl runtime `JSON::JsonModel` to your Perl environment,
    for instance by adjusting your `PERLLIB` path or with `cpan`:
 
    ```sh

@@ -3,6 +3,7 @@
 ## Current Tasks
 
 - [x] design: force static information on `@` constraints for optimizations
+- [x] pr: howto entry about python dyn code
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
@@ -17,7 +18,6 @@
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
-- [ ] pr: howto entry about python dyn code
 - [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects/code
 - [ ] pr: howto entry about C executable/code
