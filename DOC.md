@@ -4,7 +4,7 @@ Following the [diátaxis](https://diataxis.fr/) approach, this project provides:
 
 ## Explanations and discussions
 
-See [introduction](README.md) and [research papers](PUB#research-papers).
+See [introduction](README.md) and [research papers](PUBS#research-papers).
 
 ## Tutorial
 
@@ -20,4 +20,4 @@ See [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a 
 JSON Model [specification](SPEC.md),
 `jmc` [command](JMC.md),
 language [APIs](API.md),
-distribution [packages](PUB.md#packages).
+distribution [packages](PUBS#packages).

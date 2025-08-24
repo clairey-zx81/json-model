@@ -4,7 +4,7 @@
 #
 
 cat <<EOF
-# About JSON Model Compiler
+# About JSON Model
 
 JSON Model is an on-going [research project](PUBS.md).
 
