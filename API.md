@@ -92,7 +92,8 @@ Currently, two functions are available:
 
 The following named parameters are available to both functions:
 
-- `auto`: boolean, whether to automatically map url to local path, default is _False_.
+- `auto`: boolean, whether to automatically map url to local path, default is _False_;
+  this feature is mostly for testing.
 - `debug`: integer, debug level, default is _0_ for no debug.
 - `resolver`: instance of Resolver class to load models from URLs.
 - `loose_int`: boolean, whether integers a loose, eg `1.0` can be considered an int.
