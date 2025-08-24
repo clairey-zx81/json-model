@@ -309,8 +309,8 @@ The generated class i0mplements interface `ModelChecker`, which provides 4 usefu
 - `void init(JSON)`: initialize internal model checking data structures, in particular
    it provides the wrapper instance around the expected JSON library, see below.
 - `Checker get(model)`: returns a checker instance which can be called:
-  The signature is `call(Object json, Path path, Report report);`
-  - create an empty Path and Report for reporting, or use `null` for no reporting.
+  The signature is `call(Object json, Path path, Report report);` for reporting or
+  `call(Object o)` (no reporting).
 - `void free()`: cleanup internal model checking data structures.
 - `Set<String> models()`: return all available names.
 
@@ -341,7 +341,7 @@ public class api_java {
     ModelChecker person = new Person();
     person.init(json);
     Object hobbes = json.fromJSON("{\"name\": \"Hobbes\", \"birth\": \"2020-07-29\"}");
-    System.out.println("hobbes is a person: " + person.get("").call(hobbes, null, null));
+    System.out.println("hobbes is a person: " + person.get("").call(hobbes));
   }
 }
 ```

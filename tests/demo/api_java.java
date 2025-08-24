@@ -6,6 +6,6 @@ public class api_java {
     ModelChecker person = new Person();
     person.init(json);
     Object hobbes = json.fromJSON("{\"name\": \"Hobbes\", \"birth\": \"2020-07-29\"}");
-    System.out.println("hobbes is a person: " + person.get("").call(hobbes, null, null));
+    System.out.println("hobbes is a person: " + person.get("").call(hobbes));
   }
 }
