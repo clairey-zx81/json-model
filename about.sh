@@ -6,7 +6,7 @@
 cat <<EOF
 # About JSON Model Compiler
 
-JSON Model is a on-going [research project](./PAPERS.md).
+JSON Model is an on-going [research project](PUBS.md).
 
 The following statistics show that the compiler, code generator and runtimes
 are quite small, but still heavily tested:
