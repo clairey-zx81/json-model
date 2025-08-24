@@ -99,12 +99,14 @@ The following named parameters are available to both functions:
 - `loose_int`: boolean, whether integers a loose, eg `1.0` can be considered an int.
 - `loose_float`: boolean, whether floats are loose, eg `42` can be considered a float.
 
-To create a `Resolver` instance, use `json_model.resolver.Resolver` with the following arguments:
+To create a custom `Resolver` instance, use `json_model.resolver.Resolver` with the following arguments:
 
 - `cache_dir`: string, where to store downloaded models, default is `$HOME/cache/json-model`.
 - `maps`: dict, mapping urls to local directories, where to retrieve models, default is empty.
 - `allow_duplicates`: boolean, whether to allow duplicated property names in an object.
 - `cache_ignore`: boolean, whether not use a cache.
+
+If not provided, a resolver is created based on defaults.
 
 ### Example
 

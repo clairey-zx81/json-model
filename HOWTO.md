@@ -84,7 +84,7 @@ and the generated validation function can be used from there:
    is_person = jm.model_checker_from_json(person)
 
    # from a URL
-   is_model = jm.model_checker_from_url("https://json-model.org/models/json-model", resolver=jm.resolver.Resolver())
+   is_model = jm.model_checker_from_url("https://json-model.org/models/json-model")
 
    # use model checkers on JSON values
    print("hobbes is a person:", is_person(hobbes))
