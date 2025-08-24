@@ -121,7 +121,52 @@ print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}
 
 ## JS API
 
-:warning: :construction_worker: :construction:
+Model compilation to JavaScript generates either a module (`.mjs`) or a node script (`.js`),
+which is the same as the module plus an added `main`.
+
+### Functions
+
+This generated module exposes 3 useful functions:
+
+- `check_model_init()`: initialize internal model checking data structures,
+  must be called **before** invoking `check_model`.
+- `check_model(value, model, report) -> bool`:
+  - check JSON _value_ (eg loaded with the `json` module) against model named _model_.
+  - append rejection information to _report_, use _null_ for skipping reporting.
+- `check_model_fun(model) -> CheckFun`:
+  - return the lower level function to check the model named _model_.
+- `check_model_free()`: cleanup internal model checking data structures.
+
+The module also contains a `check_model_map` map of model names to check functions:
+
+- its signature is `fun(value, path, report) -> bool`:
+  the second argument is used for keeping track of the JSON path when walking through _value_;
+  use _null_ for both path and report to skip reporting;
+  use _[]_ for path and `report = []` for gathering the report.
+- the report is a list of tuples with the explanation for each rejections, and an associated path.
+
+The generated functions depend on
+the [`json_model_runtime`](https://www.npmjs.com/package/json_model_runtime) npm package
+which must be available in your js environment.
+
+### Example
+
+Generate a JavaScript module:
+
+```sh
+jmc --loose -o person.mjs Person
+```
+
+Then use it from your code, for instance with `node`:
+
+```js
+#! /bin/env node
+import { check_model_init, check_model, check_model_free } from "./person.mjs"
+                                                                                                    
+check_model_init()                                                                                  
+console.log(`hobbes is a person: ${check_model({"name": "Hobbes", "birth": "2020-07-29"}, '', null)}`)
+check_model_free()                                                                                  
+```
 
 ## C API
 

@@ -2,4 +2,5 @@ person.c
 person.out
 person.py
 person.js
+person.mjs
 person.schema.json
