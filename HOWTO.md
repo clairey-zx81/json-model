@@ -148,8 +148,8 @@ Assuming that the `jmc` command is available:
    from [pgxn](https://pgxn.org/dist/json_model/):
 
    ```sh
-   sudo make -C json_model/runtime/sql install
-   sudo pgxn install json_model
+   sudo pgxn install json_model                 # from pgxn
+   sudo make -C json_model/runtime/sql install  # manually from sources
    ```
 
 2. Compile a model to PL/pgSQL:
