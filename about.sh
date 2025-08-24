@@ -13,8 +13,9 @@ are quite small, but still heavily tested:
 
 ## Compiler Source Code
 
-These counts include model parsing and optimizations, compiler, exporter,
-importer, \`jmc\` command script, but excludes language-specific code generators.
+This count includes model parsing and optimizations, compiler, exporter,
+importer, \`jmc\` command script and miscellaneous utilities,
+but excludes language-specific code generators.
 EOF
 
 cloc --md \
