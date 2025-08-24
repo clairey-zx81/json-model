@@ -34,6 +34,8 @@ file containing this model:
 Model compilation to Python generates either a module or a python script,
 which is the same as the module plus an added `main`.
 
+### Functions
+
 This generated module exposes 4 useful functions:
 
 - `check_model_init()`: initialize internal model checking data structures,
@@ -53,27 +55,66 @@ This generated module exposes 4 useful functions:
 The generated functions depend on `json_model.runtime` which is part of the
 [`json-model-compiler` Python package](https://pypi.org/project/json-model-compiler/).
 
-Example:
+### Example
 
-- generate a Python module:
+Generate a Python module:
 
-  ```sh
-  jmc -o person.py --module Person
-  ```
+```sh
+jmc -o person.py --module Person
+```
 
-- then use it from your code:
+Then use it from your code:
 
-  ```python
-  import person  # adjust depending on where the generated module is stored
+```python
+import person  # adjust depending on where the generated module is stored
 
-  person.check_model_init()
-  print("hobbes is a person:", person.check_model({"name": "Hobbes", "birth": "2020-07-29"}))
-  person.check_model_free()
-  ```
+person.check_model_init()
+print("hobbes is a person:", person.check_model({"name": "Hobbes", "birth": "2020-07-29"}))
+person.check_model_free()
+```
 
 ## Python Dynamic API
 
-:warning: :construction_worker: :construction:
+As the JSON Model compiler is written in Python, it can be invoked directly for generating
+a validation function.
+
+### Functions
+
+Currently, two functions are available:
+
+- `model_checker_from_json`: generate a model from a JSON value which must be a valid model.
+
+  This function expects a Python JSON value, eg loaded with `json` module, as a first parameter.
+- `model_checker_from_url`: generate a model from a JSON value loaded from a URL.
+
+  This function expects a URL as a first parameter, which should dowload a JSON model possibly
+  as JSON or YAML.
+
+The following named parameters are available to both functions:
+
+- `auto`: boolean, whether to automatically map url to local path, default is _False_.
+- `debug`: integer, debug level, default is _0_ for no debug.
+- `resolver`: instance of Resolver class to load models from URLs.
+- `loose_int`: boolean, whether integers a loose, eg `1.0` can be considered an int.
+- `loose_float`: boolean, whether floats are loose, eg `42` can be considered a float.
+
+To create a `Resolver` instance, use `json_model.resolver.Resolver` with the following arguments:
+
+- `cache_dir`: string, where to store downloaded models, default is `$HOME/cache/json-model`.
+- `maps`: dict, mapping urls to local directories, where to retrieve models, default is empty.
+- `allow_duplicates`: boolean, whether to allow duplicated property names in an object.
+- `cache_ignore`: boolean, whether not use a cache.
+
+### Example
+
+With the `json-model-compiler` Python package installed:
+
+```python
+import json_model as jm
+
+is_person = jm.model_checker_from_url("./Person.model.json")
+print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}))
+```
 
 ## JS API
 

@@ -7,6 +7,7 @@
 - [x] pr: howto entry about python projects
 - [x] pr: restructure web site, avoid some duplication
 - [x] pr: python static api
+- [x] pr: python dynamic api
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] pr: remove wip cover page from web site

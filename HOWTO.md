@@ -110,6 +110,8 @@ and the generated validation function can be used from there:
    The reported time include compiling the _person_ model and
    JSON Model [meta model](https://json-model.org/models/json-model).
 
+See [Python Dynamic API](API#python-dynamic-api) for further details.
+
 ## … use JSON Model in my _JavaScript_ code?
 
 :warning: :construction_worker: :construction:
