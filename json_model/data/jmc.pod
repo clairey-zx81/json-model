@@ -294,6 +294,37 @@ Report bugs to L<JSON Model Issues|https://github.com/clairey-zx81/json-model/is
 
 This software is dedicated to the public domain.
 
+=head1 PACKAGING
+
+=over 4
+
+=item L<JSON Model Compiler Python Package|https://pypi.org/project/json-model-compiler/>
+
+Ready to use JSON Model compiler for a Python environment, from _PyPI_.
+
+=item L<JSON Model Compiler Docker Image|https://hub.docker.com/r/zx80/jmc>
+
+Ready to use JSON Model compiler and runtimes (Python, C, JavaScript, Perl, Java)
+as a Docker image.
+
+=item L<JSON Model JavaScript Runtime|https://www.npmjs.com/package/json_model_runtime>
+
+JS runtime for the generated code, from _NPM_.
+
+=item L<JSON Model PL/pgSQL Runtime|https://pgxn.org/dist/json_model/>
+
+PL/pgSQL runtime for generated code, from _pgxn_.
+
+=item L<JSON Model Perl Runtime|https://metacpan.org/pod/JSON::JsonModel>
+
+Perl runtime for generated code, from _CPAN.
+
+=item L<JSON Model Java Runtime|https://central.sonatype.com/artifact/org.json-model/json-model>
+
+Java runtime for generated code, from _Maven Central_.
+
+=cut
+
 =head1 SEE ALSO
 
 =over 4
