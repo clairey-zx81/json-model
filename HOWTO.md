@@ -59,6 +59,8 @@ runtime are in your Python environment.
    Model.check_model_free()
    ```
 
+See [Python Static API](API#python-static-api) for further details.
+
 ## … use JSON Model in my _Python_ code (dynamic)?
 
 As the compiler is written in Python, in can be invoked directly from Python code

@@ -140,31 +140,10 @@ and both Java and JavaScript model validation are faster than the C++ schema val
 
 ## More Information
 
-See the [JSON Model Tutorial](./TUTO.md) for a hands-on overview of JSON Model.
-
-JSON Model design is presented in research papers and reports:
-
-- JSON Model: a Lightweight Featureful DSL for JSON.
-  Fabien Coelho and Claire Yannou-Medrala.  
-  Technical Report [A/817/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf),
-  Mines Paris - PSL, April 2024
-
-  JSON Model version 1.
-
-- An Analysis of Defects in Public JSON Schemas.
-  Claire Yannou-Medrala and Fabien Coelho.  
-  In BDA 2023, 39ème conférence sur la gestion de données - Principes, technologies et applications.
-  Also TR [A/794/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf),
-  Mines Paris - PSL, October 2023
-
-  Brief introduction to version 0 at the end of the paper.
-
-- JSON Model: a Lightweight Featureful Description Language for JSON Data Structures.
-  Fabien Coelho and Claire Yannou-Medrala.  
-  Technical Report [A/795/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf),
-  Mines Paris - PSL, May 2023
-
-  JSON Model version 0.
+See the [JSON Model website](https://json-model.org),
+which among many resources,
+includes a [tutorial](TUTO.md) for a hands-on overview of JSON Model,
+and links to [research papers](PAPERS.md) for explanations about the design.
 
 ## JSON Model Distribution
 

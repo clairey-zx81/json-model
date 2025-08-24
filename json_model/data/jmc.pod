@@ -341,18 +341,6 @@ L<JSON Model illustrative models|https://json-model.org/#/MODELS>.
 
 Source code, issues.
 
-=item L<ADBIS 2024 Paper|https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf>
-
-Research paper describing JSON Model v1 design.
-
-=item L<DBA 2023 Paper|https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf>
-
-Research paper describing issues found with JSON Schema and JSON Model v0.
-
-=item L<Initial Design 2023 Technical Report|https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf>
-
-Technical report describing JSON Model v0.
-
 =back
 
 =cut

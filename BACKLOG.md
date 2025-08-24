@@ -2,11 +2,15 @@
 
 ## Current Tasks
 
-- [x] design: force static information on `@` constraints for optimizations
 - [x] pr: howto entry about python dyn code
 - [x] pr: add about project page which include some stats
+- [x] pr: howto entry about python projects
+- [x] pr: restructure web site, avoid some duplication
+- [x] pr: python static api
+- [ ] pr: complete doc
+- [ ] pr: complete api
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
-- [ ] tests: test generated JSON schema in test vectors.
+- [ ] tests: test generated JSON schema with test vectors.
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
@@ -20,13 +24,25 @@
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
-- [ ] pr: howto entry about python projects
 - [ ] pr: howto entry about javascript projects/code
 - [ ] pr: howto entry about C executable/code
-- [ ] pr: complete doc
-- [ ] pr: complete api
 - [ ] api: web interface with caching and security
 - [ ] c-backend: header file for generated code?
+
+## Re Do
+
+- [ ] pr: publish web page
+- [ ] pr: publish python jmc package
+- [ ] pr: publish js runtime package
+- [ ] pr: publish pgxn package
+- [ ] pr: publish docker image
+- [ ] pr: publish perl package
+- [ ] pr: publish java package
+- [ ] pr: check jsonschema-benchmark integration
+- [ ] pr: renew domain
+
+## To Do
+
 - [ ] pr: add docker compose for postgres testing?
 - [ ] schema: inline external reference to generate valid schemas
 - [ ] xstatic: use threshold limit for cset as well
@@ -89,21 +105,6 @@
 - [ ] jsu-model: generate `"#.title"` and others to keep all schema docs
 - [ ] py-backend: package independent runtime?
 - [ ] command: improve cache to keep track of urls?
-
-## Re Do
-
-- [ ] pr: publish web page
-- [ ] pr: publish python jmc package
-- [ ] pr: publish js runtime package
-- [ ] pr: publish pgxn package
-- [ ] pr: publish docker image
-- [ ] pr: publish perl package
-- [ ] pr: publish java package
-- [ ] pr: check jsonschema-benchmark integration
-- [ ] pr: renew domain
-
-## To Do
-
 - [ ] project: establish priority
 - [ ] frontend: accept raw sequence of values? list of values?
 - [ ] project: improve backlog management with thematic sections
@@ -542,3 +543,4 @@
 - [x] java-backend: jsonp with johnzon, same issues compared to joy…
 - [x] design: check `$BOOL` vs `$BOOLEAN` support
 - [x] pr: complete spec
+- [x] design: force static information on `@` constraints for optimizations

@@ -1,20 +1,22 @@
 # JSON Model Documentation
 
-## Online Resources
-
 Following the [diátaxis](https://diataxis.fr/) approach, this project provides:
 
-- a [tutorial](TUTO.md) about JSON Model and the `jmc` command,
-  using [docker](https://hub.docker.com/r/zx80/jmc) for easy deployment.
-- a [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a project.
-- explanations and discussions: ([introduction](README.md), …).
-- references: [JSON Model](SPEC.md), [`jmc` command](jmc.md), [docker image](DOCKER.md).
+## Explanations and discussions
 
-## Research Papers
+See [introduction](README.md) and [research papers](PAPERS.md).
 
-To understand the motivation and design principles behind [JSON Model](https://json-model.org/),
-you can read these papers and reports:
+## Tutorial with Docker
 
-- [ADBIS 2024 Paper](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf)
-- [DBA 2023 Paper](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf)
-- [Initial Design 2023 Report](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf)
+See [tutorial](TUTO.md) about JSON Model and the `jmc` command,
+using [docker](DOCKER.md) [image](https://hub.docker.com/r/zx80/jmc) for easy deployment.
+
+## How To
+
+See [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a project.
+
+## References
+
+JSON Model [specification](SPEC.md),
+`jmc` [command](jmc.md),
+language [APIs](API.md).

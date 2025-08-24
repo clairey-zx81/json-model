@@ -6,14 +6,10 @@
 cat <<EOF
 # About JSON Model Compiler
 
-JSON Model is a research project developed by Fabien Coelho
-([Computer Science Research Center](https://www.cri.minesparis.psl.eu/),
-[Mines Paris](https://www.minesparis.psl.eu/) –
-[PSL](https://www.psl.eu/))
-and Claire Yannou-Medrala (now at [MESR](https://www.enseignementsup-recherche.gouv.fr/)).
+JSON Model is a on-going [research project](./PAPERS.md).
 
 The following statistics show that the compiler, code generator and runtimes
-are quite small, but are also heavily tested:
+are quite small, but still heavily tested:
 
 ## Compiler Source Code
 
