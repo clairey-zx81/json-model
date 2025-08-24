@@ -114,7 +114,37 @@ See [Python Dynamic API](API#python-dynamic-api) for further details.
 
 ## … use JSON Model in my _JavaScript_ code?
 
-:warning: :construction_worker: :construction:
+Assuming that the `jmc` command is available:
+
+1. Add the JSON Model JavaScript runtime `json_model_runtime` to your js environment,
+   for instance:
+
+   ```sh
+   npm install json_model_runtime
+   ```
+
+2. Generate a JS script or module:
+
+   ```sh
+   jmc --loose -o model.mjs model.json
+   jmc --loose -o model.js model.json
+   ```
+
+3. Exemple usage for a JS module:
+
+   ```js
+   import { check_model_init, check_model, check_model_free } from "./model.mjs"
+
+   function foo() {
+     check_model_init()
+     hobbes = { name: "Hobbes", birth: "2020-07-29" }
+     console.log(`hobbes: ${check_model(hobbes, "", null)}`)
+   }
+   ```
+
+For a web frontend, it makes sense to add model checks when extracting JSON
+data from a `fetch` or `axios` request, and before it is used or stored by
+`SWR` or `Redux`.
 
 See [JavaScript API](API#javascript-api) for further details.
 
