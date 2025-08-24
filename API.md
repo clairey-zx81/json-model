@@ -119,7 +119,7 @@ is_person = jm.model_checker_from_url("./Person.model.json")
 print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}))
 ```
 
-## JS API
+## JavaScript API
 
 Model compilation to JavaScript generates either a module (`.mjs`) or a node script (`.js`),
 which is the same as the module plus an added `main`.
