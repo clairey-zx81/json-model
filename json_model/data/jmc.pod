@@ -286,44 +286,10 @@ generate classes and types with C<-E -o Models.py>).
 
 Fabien Coelho (Mines Paris - PSL) and Claire Yannou-Medrala (MESR).
 
-=head1 REPORTING BUGS
-
-Report bugs to L<JSON Model Issues|https://github.com/clairey-zx81/json-model/issues>.
 
 =head1 COPYRIGHT
 
 This software is dedicated to the public domain.
-
-=head1 PACKAGING
-
-=over 4
-
-=item L<JSON Model Compiler Python Package|https://pypi.org/project/json-model-compiler/>
-
-Ready to use JSON Model compiler for a Python environment, from I<PyPI>.
-
-=item L<JSON Model Compiler Docker Image|https://hub.docker.com/r/zx80/jmc>
-
-Ready to use JSON Model compiler and runtimes (Python, C, JavaScript, Perl, Java)
-as a Docker image, from I<Docker Hub>.
-
-=item L<JSON Model JavaScript Runtime|https://www.npmjs.com/package/json_model_runtime>
-
-JS runtime for generated code, from I<npm Registry>.
-
-=item L<JSON Model PL/pgSQL Runtime|https://pgxn.org/dist/json_model/>
-
-PL/pgSQL runtime for generated code, from I<PGXN>.
-
-=item L<JSON Model Perl Runtime|https://metacpan.org/pod/JSON::JsonModel>
-
-Perl runtime for generated code, from I<CPAN>.
-
-=item L<JSON Model Java Runtime|https://central.sonatype.com/artifact/org.json-model/json-model>
-
-Java runtime for generated code, from I<Maven Central>.
-
-=back
 
 =head1 SEE ALSO
 
@@ -337,9 +303,13 @@ L<JSON Model HOWTO|https://json-model.org/#/HOWTO>,
 L<JSON Model Specification|https://json-model.org/#/SPEC>, and
 L<JSON Model illustrative models|https://json-model.org/#/MODELS>.
 
-=item L<JSON Model on GitHub|https://github.com/clairey-zx81/json-model>
+=item L<JSON Model Sources|https://github.com/clairey-zx81/json-model>
 
-Source code, issues.
+Source code on GitHub.
+
+=item L<JSON Model Issues|https://github.com/clairey-zx81/json-model/issues>
+
+Report bugs on GitHub.
 
 =back
 
