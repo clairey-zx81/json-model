@@ -9,6 +9,7 @@
 - [x] pr: python static api
 - [ ] pr: complete doc
 - [ ] pr: complete api
+- [ ] pr: remove wip cover page from web site
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] tests: test generated JSON schema with test vectors.
 - [ ] pr: write `optimizations.model.json` for illustration
