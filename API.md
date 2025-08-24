@@ -3,9 +3,9 @@
 Each JSON Model compiler language target presents a similar API to check whether
 a JSON value validates against a model.
 
-## APIs General Behavior
+## APIs Common Behavior
 
-All generated functions, whatever the target language, are prefixed with `check_model`.
+Most generated functions are prefixed with `check_model`.
 The prefix may be changed with compiler option `--entry`.
 When appropriate, compiler option `--package` allows to generate a module inside
 a particular namespace for the language.
@@ -304,7 +304,7 @@ The generate class includes a `main` for testing.
 
 ### Functions
 
-The generated class i0mplements interface `ModelChecker`, which provides 4 useful methods:
+The generated class implements `ModelChecker`, which provides 4 useful methods:
 
 - `void init(JSON)`: initialize internal model checking data structures, in particular
    it provides the wrapper instance around the expected JSON library, see below.
@@ -312,7 +312,7 @@ The generated class i0mplements interface `ModelChecker`, which provides 4 usefu
   The signature is `call(Object json, Path path, Report report);` for reporting or
   `call(Object o)` (no reporting).
 - `void free()`: cleanup internal model checking data structures.
-- `Set<String> models()`: return all available names.
+- `Set<String> models()`: return all available model names.
 
 The generated class depends in the `json_model` Java runtime, and must be initialized with
 a `JSON` object to abstract the underlying JSON library.
