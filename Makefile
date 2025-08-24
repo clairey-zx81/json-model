@@ -17,12 +17,16 @@ venv:
 dev: venv
 
 .PHONY: clean
-clean:
-	$(RM) $~ jmc.1 site/MODELS.md site/JMC.md
+clean: clean.site
+	$(RM) $~ jmc.1
 	$(RM) -r .pytest_cache/ .ruff_cache/ dist/
 	find . -type d -name __pycache__ | xargs $(RM) -r
 	$(MAKE) -C tests clean
 	$(MAKE) -C json_model/runtime clean
+
+.PHONY: clean.site
+clean.site:
+	$(RM) site/MODELS.md site/JMC.md site/ABOUT.md
 
 .PHONY: clean.dev
 clean.dev: clean
@@ -75,6 +79,9 @@ site/MODELS.md: Makefile models/
 site/JMC.md: json_model/data/jmc.pod
 	pod2markdown $< > $@
 
+site/ABOUT.md: ./about.sh
+	$< > $@
+
 jmc.1: json_model/data/jmc.pod dev
 	source venv/bin/activate
 	version=$$(jmc --version)
@@ -84,16 +91,17 @@ jmc.1: json_model/data/jmc.pod dev
 #
 # PUBLICATION
 #
+# SITE, SITEPATH:
 -include local.mk
 
 .PHONY: build.site
-build.site: site/MODELS.md site/JMC.md
+build.site: site/MODELS.md site/JMC.md site/ABOUT.md
 
 .PHONY: publish.site
 publish.site: build.site
-	rsync -avL --progress ./site/. $(SITE):public_html/sw/json-model/.
-	ssh $(SITE) chmod a+rx public_html/sw/json-model public_html/sw/json-model/models
-	ssh $(SITE) chmod a+r public_html/sw/json-model/* public_html/sw/json-model/models/*
+	rsync -avL --progress ./site/. $(SITE):$(SITEPATH)/.
+	ssh $(SITE) chmod a+rx $(SITEPATH) $(SITEPATH)/models
+	ssh $(SITE) chmod a+r $(SITEPATH)/* $(SITEPATH)/models/*
 
 .PHONY: publish.py
 publish.py: dev

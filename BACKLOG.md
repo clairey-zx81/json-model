@@ -4,6 +4,7 @@
 
 - [x] design: force static information on `@` constraints for optimizations
 - [x] pr: howto entry about python dyn code
+- [x] pr: add about project page which include some stats
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
