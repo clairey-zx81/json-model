@@ -6,6 +6,7 @@
 - [x] pr: howto entry about python dyn code
 - [x] pr: add about project page which include some stats
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
+- [ ] tests: test generated JSON schema in test vectors.
 - [ ] pr: write `optimizations.model.json` for illustration
 - [ ] pr: write `transformation.model.json` for illustration
 - [ ] pr: sync version number for **all** published parts for _2.0_ release
@@ -15,7 +16,7 @@
 - [ ] predefs: implement `$I32 $I64 $U32 $U64`
 - [ ] pr: tuto add perl and java environment directives? dependencies?
 - [ ] export: improve pydantic, do not generate bad fields (dash and other chars)
-- [ ] test: some pydantic exports
+- [ ] test: some pydantic exports? imports?
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
