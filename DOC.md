@@ -9,7 +9,7 @@ See [introduction](README.md) and [research papers](PAPERS.md).
 ## Tutorial with Docker
 
 See [tutorial](TUTO.md) about JSON Model and the `jmc` command,
-using [docker](DOCKER.md) [image](https://hub.docker.com/r/zx80/jmc) for easy deployment.
+using a [docker](DOCKER.md) [image](https://hub.docker.com/r/zx80/jmc) for easy deployment.
 
 ## How To
 
