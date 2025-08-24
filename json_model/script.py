@@ -267,6 +267,7 @@ def jmc_script():
     # documentation
     arg("--doc", choices=["pod", "syn", "help", "man"], default=None,
         help="show documentation and exit")
+    arg("--man", dest="doc", action="store_const", const="man", help="show man page")
 
     # verbosity and checks
     arg("--version", action="store_true", help="show current version and exit")

@@ -43,10 +43,11 @@ docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --en
 ```
 
 This should give your a shell prompt open in the current directory with your permissions.
-Check that the `jmc` command works:
+Check that the `jmc` command is available and works:
 
 ```sh
-jmc --version
+jmc --version  # show version
+jmc --man      # show manual page
 ```
 
 Type `exit` when you want to stop playing with the application.
@@ -67,10 +68,11 @@ pip install json-model-compiler json-schema-utils
 # pip install git+https://github.com/zx80/json-schema-utils.git
 ```
 
-Check that the `jmc` command is indeed available by asking for its version:
+Check that the `jmc` command is available and works:
 
 ```sh
-jmc --version
+jmc --version  # show version
+jmc --man      # show manual page
 ```
 
 Add the example values and models discussed below in this directory for testing,

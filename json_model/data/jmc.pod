@@ -8,7 +8,7 @@ B<jmc> - JSON Model Compiler
 
 =head1 SYNOPSIS
 
- jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}]
+ jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}] [--man]
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
      [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
      [--strict-float] [--loose-number] [--strict-number] [--check]
@@ -31,7 +31,7 @@ JSON Schema or pydantic type declarations.
 
 =head1 ARGUMENTS
 
-=over
+=over 4
 
 =item B<model>
 
@@ -49,7 +49,7 @@ Here are the most useful options:
 
 =head2 Metadata
 
-=over
+=over 4
 
 =item B<--help>/B<-h>
 
@@ -63,11 +63,15 @@ show command version and exit.
 
 show help in some format and exit.
 
+=item B<--man>
+
+show man page and exit.
+
 =back
 
 =head2 Verbosity
 
-=over
+=over 4
 
 =item B<--verbose>/B<-v>
 
@@ -85,7 +89,7 @@ set debug mode, which is very verbose.
 
 =head2 Input
 
-=over
+=over 4
 
 =item B<--maps "URL PATH">/B<-m …>
 
@@ -105,7 +109,7 @@ whether to check the model for errors at various stages.
 
 =head2 Processing
 
-=over
+=over 4
 
 =item B<--op {P,E,C,U,J,N}>
 
@@ -131,7 +135,7 @@ dead code elimination, xor to or conversion…).
 
 =head2 Output
 
-=over
+=over 4
 
 =item B<--output FILE>/B<-o FILE>
 
@@ -166,7 +170,7 @@ whether to share common maps, may result in smaller generated code.
 
 =head2 C Compilation
 
-=over
+=over 4
 
 =item B<--cc COMPILER>
 
@@ -192,7 +196,7 @@ generate a statically linked executable.
 
 =head2 Java Compilation
 
-=over
+=over 4
 
 =item B<--javac JAVAC>
 
@@ -208,7 +212,7 @@ Java compiler flags.
 
 When testing values:
 
-=over
+=over 4
 
 =item B<--name NAME>/B<-n NAME>
 
@@ -240,16 +244,25 @@ The optimized proprocessed JSON Model is shown with C<-P -o preprocessed.json>.
 
 The compiler can generate code to actualy validate JSON data as:
 
-=over
+=over 4
 
-=item B<native> C source (C<-o model.c>), object file (C<-o model.o>) or
-compiled executable (C<-o model.out>).
+=item B<native>
 
-=item B<scripts> with Python (C<-o model.py>), JavaScript (C<-o model.js>) or Perl (C<-o model.pl>).
+C source (C<-o model.c>), object file (C<-o model.o>) or compiled executable (C<-o model.out>);
 
-=item B<modules> with Python (C<-o model.py --module>), JavaScript
-(C<-o model.mjs>), Perl (C<-o model.pm>) or PL/pgSQL (C<-o model.sql>),
-ready to be imported and used in the corresponding language.
+=item B<byte-code>
+
+Java source (C<-o model.java>) or compiled class (C<-o model.class>);
+
+=item B<scripts>
+
+Python (C<-o model.py>), JavaScript (C<-o model.js>) or Perl (C<-o model.pl>);
+
+=item B<modules>
+
+Python (C<-o model.py --module>), JavaScript (C<-o model.mjs>), Perl (C<-o model.pm>),
+PL/pgSQL (C<-o model.sql>), Java (C<-o model.java>) ready to be imported and used
+in the corresponding language.
 
 =back
 
@@ -257,11 +270,15 @@ ready to be imported and used in the corresponding language.
 
 The compiler can export models to other data type declaration formats:
 
-=over
+=over 4
 
-=item B<JSON Schema> in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
+=item B<JSON Schema>
 
-=item B<Python Pydantic> classes C<-E -o Models.py>).
+formatted in JSON (C<-E -o schema.json>) or yaml (C<-E -o schema.yaml>).
+
+=item B<Python Pydantic>
+
+generate classes and types with C<-E -o Models.py>).
 
 =back
 
@@ -279,7 +296,7 @@ This software is dedicated to the public domain.
 
 =head1 SEE ALSO
 
-=over
+=over 4
 
 =item L<JSON Model Web Site|https://json-model.org/>
 
