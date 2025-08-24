@@ -309,8 +309,8 @@ The generated class i0mplements interface `ModelChecker`, which provides 4 usefu
 - `void init(JSON)`: initialize internal model checking data structures, in particular
    it provides the wrapper instance around the expected JSON library, see below.
 - `Checker get(model)`: returns a checker instance which can be called:
-  The signature is `call(Object json, json_model.Path path, json_model.Report report);`
-  - create an empty path and report for reporting, or use `null` for no reporting.
+  The signature is `call(Object json, Path path, Report report);`
+  - create an empty Path and Report for reporting, or use `null` for no reporting.
 - `void free()`: cleanup internal model checking data structures.
 - `Set<String> models()`: return all available names.
 
