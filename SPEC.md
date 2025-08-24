@@ -473,13 +473,13 @@ For instance:
 Declares property substitutions, which translate this model:
 
 ```json
-{ ".merge" [ ".or": [ {"a": 0}, {"b": 0} ] }
+{ ".merge": [ {"a": 0}, {".or": [ {"b": 0}, {"c": 0} ] } ] }
 ```
 
 Into:
 
 ```json
-{ "+" [ "|": [ {"a": 0}, {"b": 0} ] }
+{ "+": [ {"a": 0}, {"|": [ {"b": 0}, {"c": 0} ] } ] }
 ```
 
 These substitutions can be carried out by a separate preprocessor which generates
