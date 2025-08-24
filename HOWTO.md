@@ -149,6 +149,8 @@ Assuming that the `jmc` command is available:
    check_model_free();
    ```
 
+See [Perl API](API#perl-api) for further details.
+
 ## … use JSON Model in my _Postgres_ database?
 
 Assuming that the `jmc` command is available:

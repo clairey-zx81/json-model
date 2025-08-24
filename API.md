@@ -251,7 +251,48 @@ INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');  -- 
 
 ## Perl API
 
-:warning: :construction_worker: :construction:
+Model compilation to Perl generates a module (`.pm`) or a script (`.pl`),
+which is the same but with a `main` function.
+Perl does not support for strict numbers.
+
+### Functions
+
+This generated code exports 4 useful functions:
+
+- `check_model_init`: initialize internal model checking data structures,
+  must be called **before** invoking `check_model`.
+- `check_model($value, $model, undef)`:
+  check JSON _value_ against model named _model_.
+- `check_model_free`: cleanup internal model checking data structures.
+- `check_model_map`: a hash from model names to the lower-level function to check a value,
+  plus two parameters which must be `undef` for now.
+
+The generated functions and runtime depends in `JSON::JsonModel`, `re::engine::RE2`,
+`JSON::MaybeXS` for JSON.
+
+### Example
+
+Generate a Perl module:
+
+```sh
+jmc --loose -o Person.pm Person
+```
+
+Then use it from your Perl code:
+
+```perl
+#! /bin/env perl
+
+use strict;
+use warnings;
+use Person;
+use JSON::MaybeXS;
+
+check_model_init();
+my $hobbes = decode_json('{"name": "Hobbes", "birth": "2020-07-29"}');
+print "hobbes is a person: ", check_model($hobbes, "", undef), "\n";
+check_model_free();
+```
 
 ## Java API
 

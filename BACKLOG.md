@@ -12,6 +12,7 @@
 - [x] pr: c api
 - [x] tests: fix generated json model schema test by switching to jschon
 - [x] pr: plpgsql api
+- [x] pr: perl api
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] pr: remove wip cover page from web site

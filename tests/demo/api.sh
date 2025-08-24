@@ -32,3 +32,7 @@ INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');
 EOF
 
 dropdb jm_test
+
+echo "# Perl API"
+jmc --loose -o Person.pm Person
+./api_perl.pl
