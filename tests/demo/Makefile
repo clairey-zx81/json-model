@@ -2,6 +2,7 @@
 clean:
 	$(RM) person.out person.c person.py person.js person.mjs person.sql \
 	    person.pl Person.pm Person.java person.schema.json *.class
+	$(RM) -r __pycache__
 
 person.out: person.model.json
 	jmc -o $@ $<

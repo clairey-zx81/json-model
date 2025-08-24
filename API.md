@@ -315,22 +315,19 @@ The generated class i0mplements interface `ModelChecker`, which provides 4 usefu
 - `Set<String> models()`: return all available names.
 
 The generated class depends in the `json_model` Java runtime, and must be initialized with
-a `JSON` object to abstract the underlying JSON library. Currently, three JSON libraries
-are supported:
-
-- **GSON**.
-- **Jackson**.
-- **JSONP** tested with **Johnzon** and **Joy**.
+a `JSON` object to abstract the underlying JSON library.
+Currently, three JSON libraries are supported: **GSON**, **Jackson**
+and **JSONP** (tested with implementations **Johnzon** and **Joy**).
 
 ### Example
 
-Generate a Java class:
+Generate a Java source class:
 
 ```sh
 jmc -o Person.java Person
 ```
 
-Then use it from your Java code, eg from the same directory:
+Then use it from your Java code, eg in the same directory:
 
 ```java
 import json_model.*;
