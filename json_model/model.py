@@ -162,7 +162,7 @@ class JsonModel:
 
     def __init__(self,
                  model: ModelType,
-                 resolver: Resolver,
+                 resolver: Resolver|None,
                  *,
                  url: str = "",
                  head: JsonModel|None = None,
@@ -209,7 +209,7 @@ class JsonModel:
 
         # unmodified parameters
         self._init_md = model
-        self._resolver = resolver
+        self._resolver = resolver or Resolver()
         self._url = url
         self._debug = debug
 
