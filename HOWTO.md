@@ -116,6 +116,8 @@ See [Python Dynamic API](API#python-dynamic-api) for further details.
 
 :warning: :construction_worker: :construction:
 
+See [JavaScript API](API#javascript-api) for further details.
+
 ## … use JSON Model in my _Perl_ code?
 
 Assuming that the `jmc` command is available:
@@ -239,6 +241,22 @@ you can use JSON model for validating its contents.
    ```
 
 6. Sip some coffee!
+
+## … use JSON Model in my _C_ code?
+
+First, you need to install dependencies, in particular:
+
+- JSON library: Jansson. 
+- Regex engine: cre2 (C wrapper for re2) and re2 or pcre2.
+
+You must link the generated object file with your own program and call the generated functions
+to check values.
+
+See [C API](API#c-api) for further details about the API.
+
+See
+[main source code](https://github.com/clairey-zx81/json-model/blob/main/json_model/runtime/c/main.c)
+for a working example involving parameter handling, reading JSON files, and so on.
 
 ## … get an Answer?
 

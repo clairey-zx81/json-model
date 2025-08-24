@@ -133,8 +133,6 @@ This generated module exposes 3 useful functions:
 - `check_model(value, model, report) -> bool`:
   - check JSON _value_ (eg loaded with the `json` module) against model named _model_.
   - append rejection information to _report_, use _null_ for skipping reporting.
-- `check_model_fun(model) -> CheckFun`:
-  - return the lower level function to check the model named _model_.
 - `check_model_free()`: cleanup internal model checking data structures.
 
 The module also contains a `check_model_map` map of model names to check functions:
@@ -162,15 +160,58 @@ Then use it from your code, for instance with `node`:
 ```js
 #! /bin/env node
 import { check_model_init, check_model, check_model_free } from "./person.mjs"
-                                                                                                    
-check_model_init()                                                                                  
+
+check_model_init()
 console.log(`hobbes is a person: ${check_model({"name": "Hobbes", "birth": "2020-07-29"}, '', null)}`)
-check_model_free()                                                                                  
+check_model_free()
 ```
 
 ## C API
 
-:warning: :construction_worker: :construction:
+Model compilation to C generates source code (`.c`), an object file (`.o`) or
+an executable (`.out`).
+
+### Functions
+
+This generated code exposes 4 useful functions:
+
+```c
+#include <json-model.h>
+extern const char *check_model_init(void);
+extern bool check_model(const json_t *, const char *, bool *, char **);
+extern void check_model_free(void);
+extern jm_check_fun_t check_model_map(const char *);
+```
+
+- `check_model_init`: initialize internal model checking data structures,
+  must be called **before** invoking `check_model`.
+  It returns an error string if the initialization failed (eg a bad regex).
+- `check_model(value, model, error, msg)`:
+  - check JSON _value_ against model named _model_.
+  - tells whether there was some error (eg non existing name), and return a string for reporting.
+  - if `msg` is _NULL_, there is no reporting.
+- `check_model_free`: cleanup internal model checking data structures.
+- `check_model_map`: returns the lower-level function to check a `json_t *` value for a model,
+   with a `jm_path_t *` and `jm_report_t *` as additional parameters.
+   This function returns `NULL` if the model name is unknown.
+
+The generated functions depend on a specific C runtime library,
+plus either `cre2` (re2 wrapper for C) or `pcre2` as a regex engine, and
+Jansson for managing JSON values, which must be compiled and installed.
+
+### Example
+
+Generate a C object module:
+
+```sh
+jmc -o person.o Person
+```
+
+Then use it from your code:
+
+```c
+// see "json_model/runtime/c/main.c"
+```
 
 ## PL/pgSQL API
 

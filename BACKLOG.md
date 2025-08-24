@@ -8,6 +8,8 @@
 - [x] pr: restructure web site, avoid some duplication
 - [x] pr: python static api
 - [x] pr: python dynamic api
+- [x] pr: js api
+- [x] pr: c api
 - [x] tests: fix generated json model schema test by switching to jschon
 - [ ] pr: complete doc
 - [ ] pr: complete api
