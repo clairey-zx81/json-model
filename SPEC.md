@@ -553,9 +553,9 @@ for a model:
 
 The typing lattice is based on the following 3-level latice:
 
-- $\top$ (top) is `"$ANY"`, i.e. any JSON is allowed, the type is unknown.
+- ⊤ (top) is `"$ANY"`, i.e. any JSON is allowed, the type is unknown.
 - 6 JSON types: `null`, `bool`, `number` (int or float), `string`, `array`, `object`.
-- $\perp$ (bottom) is `"$NONE"`, i.e. no JSON value.
+- ⊥ (bottom) is `"$NONE"`, i.e. no JSON value.
 
 All _model_ elements are typed with the following rules:
 
@@ -570,17 +570,17 @@ They are then propagated along definitions and composition objects:
 
 - references are typed as the corresponding definition
 - or (`|`), xor (`^`) operators:
-  - if the list of models is empty or only contains $\perp$, the type is $\perp$.
-  - if all non-$\perp$ listed models have the same JSON type, the composition has this type,
-  - otherwise the type is $\top$
+  - if the list of models is empty or only contains ⊥, the type is ⊥.
+  - if all non-⊥ listed models have the same JSON type, the composition has this type,
+  - otherwise the type is ⊤.
 - and (`&`) operator:
-  - if the list of models is empty or only contains $\top$, the type is $\top$.
-  - if all non-$\top$ models have the **same** type, the composition has this type.
-  - otherwise the type is $\perp$
+  - if the list of models is empty or only contains ⊤, the type is ⊤.
+  - if all non-⊤ models have the **same** type, the composition has this type,
+  - otherwise the type is ⊥.
 - merge (`+`) operators have type `object`, if merging succeeds.
 - constraint objects (`@`) have the same type as their target.
 
-Fixed point: in case of unresolved recursion, do not bother and assume $\top$,
+Fixed point: in case of unresolved recursion, do not bother and assume ⊤,
 i.e. the type is unknown.
 
 :warning: Note that for a simplistic recursive descending implementation, care must be taken
