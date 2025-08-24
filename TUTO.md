@@ -52,7 +52,7 @@ jmc --man      # show manual page
 
 Type `exit` when you want to stop playing with the application.
 
-### Python Venv Installation
+### Python Virtual Environment Installation
 
 For the advanced user, create a Python virtual environment with the JSON Model Compiler
 and JSON Schema Utils (for JSON Schema importations).
