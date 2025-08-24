@@ -232,7 +232,6 @@ you can use JSON model for validating its contents.
    checker.init(new GSON())
    ```
 
-
 5. call the checker on a `value` loaded by the library from some source, to check whether
    it conforms to `model` (the name of the model, empty string for the root model).
 
@@ -245,6 +244,8 @@ you can use JSON model for validating its contents.
    ```
 
 6. Sip some coffee!
+
+See [Java API](API#java-api) for further details about the API.
 
 ## … use JSON Model in my _C_ code?
 

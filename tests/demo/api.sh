@@ -29,6 +29,10 @@ CREATE UNIQUE INDEX SomeOne_Name ON SomeOne ((data->>'name'));
 
 INSERT INTO SomeOne(data) VALUES ('{"name": "Hobbes", "birth": "2020-07-29"}');
 INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');
+
+SELECT 'hobbes is a person' AS test, check_model(data, '', NULL)
+FROM SomeOne
+WHERE data->>'name' = 'Hobbes';
 EOF
 
 dropdb jm_test
@@ -36,3 +40,8 @@ dropdb jm_test
 echo "# Perl API"
 jmc --loose -o Person.pm Person
 ./api_perl.pl
+
+echo "# Java API"
+jmc -o Person.java Person
+javac api_java.java
+java api_java

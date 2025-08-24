@@ -245,8 +245,11 @@ CREATE TABLE SomeOne(
 );
 CREATE UNIQUE INDEX SomeOne_Name ON SomeOne ((data->>'name'));
 
-INSERT INTO SomeOne(data) VALUES ('{"name": "Hobbes", "birth": "2020-07-29"}');     -- pass
-INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');  -- fail
+INSERT INTO SomeOne(data) VALUES ('{"name": "Hobbes", "birth": "2020-07-29"}');  -- pass
+INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');      -- fail
+
+SELECT 'hobbes is a person' AS test, check_model(data, '', NULL)
+FROM SomeOne WHERE data->>'name' = 'Hobbes';
 ```
 
 ## Perl API
@@ -296,7 +299,57 @@ check_model_free();
 
 ## Java API
 
-:warning: :construction_worker: :construction:
+Model compilation to Java generates a class source (`.java`) or a compile class (`.class`).
+The generate class includes a `main` for testing.
+
+### Functions
+
+The generated class i0mplements interface `ModelChecker`, which provides 4 useful methods:
+
+- `void init(JSON)`: initialize internal model checking data structures, in particular
+   it provides the wrapper instance around the expected JSON library, see below.
+- `Checker get(model)`: returns a checker instance which can be called:
+  The signature is `call(Object json, json_model.Path path, json_model.Report report);
+  - create an empty path and report for reporting, or use `null` for no reporting.
+- `void free()`: cleanup internal model checking data structures.
+- `Set<String> models()`: return all available names.
+
+The generated class depends in the `json_model` Java runtime, and must be initialized with
+a `JSON` object to abstract the underlying JSON library. Currently, three JSON libraries
+are supported:
+
+- **GSON**.
+- **Jackson**.
+- **JSONP** tested with **Johnzon** and **Joy**.
+
+### Example
+
+Generate a Java class:
+
+```sh
+jmc -o Person.java Person
+```
+
+Then use it from your Java code, eg from the same directory:
+
+```java
+import json_model.*;
+
+public class api_java {
+  static public void main(String[] args) throws JSON.Exception {
+    JSON json = new GSON();
+    ModelChecker person = new Person();
+    person.init(json);
+    Object hobbes = json.fromJSON("{\"name\": \"Hobbes\", \"birth\": \"2020-07-29\"}");
+    System.out.println("hobbes is a person: " + person.get("").call(hobbes, null, null));
+  }
+}
+```
+
+```sh
+javac api_java.java
+java api_java  # yes!
+```
 
 ## Web API
 

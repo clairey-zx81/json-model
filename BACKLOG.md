@@ -13,8 +13,9 @@
 - [x] tests: fix generated json model schema test by switching to jschon
 - [x] pr: plpgsql api
 - [x] pr: perl api
-- [ ] pr: complete doc
+- [x] pr: java api
 - [ ] pr: complete api
+- [ ] pr: complete doc
 - [ ] pr: remove wip cover page from web site
 - [ ] tests: fix test with generated json model meta schema
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
