@@ -13,6 +13,7 @@ The `jmc` command can be install in a Python virtual environment from
    source venv/bin/activate
    pip install json-model-compiler
    jmc --version
+   jmc --man
    ```
 
 2. Source venv:
@@ -22,6 +23,7 @@ The `jmc` command can be install in a Python virtual environment from
    source venv/bin/activate
    pip install git+https://github.com/clairey-zx81/json-model.git
    jmc --version
+   jmc --man
    ```
 
 3. Docker install the [image](https://hub.docker.com/r/zx80/jmc) and its
@@ -32,6 +34,7 @@ The `jmc` command can be install in a Python virtual environment from
    curl -o ./jmc https://raw.githubusercontent.com/clairey-zx81/json-model/refs/heads/main/docker/jmc
    chmod a+rx ./jmc
    ./jmc --version
+   ./jmc --man
    ```
 
 ## … use JSON Model in my _Python_ code (static)?
