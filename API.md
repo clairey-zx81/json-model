@@ -73,14 +73,28 @@ Example:
 
 ## Python Dynamic API
 
+:warning: :construction_worker: :construction:
+
 ## JS API
+
+:warning: :construction_worker: :construction:
 
 ## C API
 
+:warning: :construction_worker: :construction:
+
 ## PL/pgSQL API
+
+:warning: :construction_worker: :construction:
 
 ## Perl API
 
+:warning: :construction_worker: :construction:
+
 ## Java API
 
+:warning: :construction_worker: :construction:
+
 ## Web API
+
+:warning: :construction_worker: :construction:
