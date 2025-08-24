@@ -130,17 +130,17 @@ This generated module exposes 3 useful functions:
 
 - `check_model_init()`: initialize internal model checking data structures,
   must be called **before** invoking `check_model`.
-- `check_model(value, model, report) -> bool`:
+- `check_model(value, model, report)`:
   - check JSON _value_ (eg loaded with the `json` module) against model named _model_.
   - append rejection information to _report_, use _null_ for skipping reporting.
 - `check_model_free()`: cleanup internal model checking data structures.
 
 The module also contains a `check_model_map` map of model names to check functions:
 
-- its signature is `fun(value, path, report) -> bool`:
+- its signature is `fun(value, path, report)`, and it returns a boolean:
   the second argument is used for keeping track of the JSON path when walking through _value_;
   use _null_ for both path and report to skip reporting;
-  use _[]_ for path and `report = []` for gathering the report.
+  use _[]_ for path and `report = []` for actually gathering a rejection report.
 - the report is a list of tuples with the explanation for each rejections, and an associated path.
 
 The generated functions depend on
@@ -162,7 +162,7 @@ Then use it from your code, for instance with `node`:
 import { check_model_init, check_model, check_model_free } from "./person.mjs"
 
 check_model_init()
-console.log(`hobbes is a person: ${check_model({"name": "Hobbes", "birth": "2020-07-29"}, '', null)}`)
+console.log(`hobbes is a person: ${check_model({name: "Hobbes", birth: "2020-07-29"}, '', null)}`)
 check_model_free()
 ```
 
