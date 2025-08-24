@@ -447,7 +447,7 @@ A reference is a string which begins with the `$` character.
 - by extension, `"$#name"` refers to the local definition `name` within the current scope
   (empty name).
 - `"$some-url#name` refers to the model named `name` inside the url-referenced model.
-- `"$some-url#n1#n2" allows to follow external definitions: inside the first target
+- `"$some-url#n1#n2"` allows to follow external definitions: inside the first target
   url, retrieve name `n1` model which is itself defined as another external definitions,
   then retrieve name `n2` into this secondary model.
 
