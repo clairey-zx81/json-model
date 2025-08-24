@@ -4,9 +4,9 @@ Following the [diátaxis](https://diataxis.fr/) approach, this project provides:
 
 ## Explanations and discussions
 
-See [introduction](README.md) and [research papers](PAPERS.md).
+See [introduction](README.md) and [research papers](PUB#research-papers).
 
-## Tutorial with Docker
+## Tutorial
 
 See [tutorial](TUTO.md) about JSON Model and the `jmc` command,
 using a [docker](DOCKER.md) [image](https://hub.docker.com/r/zx80/jmc) for easy deployment.
@@ -18,5 +18,6 @@ See [how-to](HOWTO.md) for common tasks to integrate JSON Model seamlessly in a 
 ## References
 
 JSON Model [specification](SPEC.md),
-`jmc` [command](jmc.md),
-language [APIs](API.md).
+`jmc` [command](JMC.md),
+language [APIs](API.md),
+distribution [packages](PUB.md#packages).
