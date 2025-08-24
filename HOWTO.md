@@ -64,7 +64,8 @@ and the generated validation function can be used from there:
 1. [Install](#install-the-json-model-compiler) the
    [JSON Model Compiler](https://pypi.org/project/json-model-compiler/) Python package.
 
-2. Generate and use model checker functions:
+2. Generate and use model checker functions in
+   [`howto_python_dyn.py`](https://github.com/clairey-zx81/json-model/blob/main/tests/tuto/howto_python_dyn.py):
 
    ```python
    #! /usr/bin/env python
@@ -90,7 +91,7 @@ and the generated validation function can be used from there:
 3. Enjoy!
 
    ```sh
-   time ./howto_dyn_java.py
+   time ./howto_python_dyn.py
    ```
    ```
    hobbes is a person: True
