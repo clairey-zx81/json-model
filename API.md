@@ -34,8 +34,6 @@ file containing this model:
 Model compilation to Python generates either a module or a python script,
 which is the same as the module plus an added `main`.
 
-### Functions
-
 This generated module exposes 4 useful functions:
 
 - `check_model_init()`: initialize internal model checking data structures,
@@ -55,9 +53,7 @@ This generated module exposes 4 useful functions:
 The generated functions depend on `json_model.runtime` which is part of the
 [`json-model-compiler` Python package](https://pypi.org/project/json-model-compiler/).
 
-### Example
-
-Generate a Python module:
+For instance, generate a Python module:
 
 ```sh
 jmc -o person.py --module Person
@@ -77,8 +73,6 @@ person.check_model_free()
 
 As the JSON Model compiler is written in Python, it can be invoked directly for generating
 a validation function.
-
-### Functions
 
 Currently, two functions are available:
 
@@ -108,9 +102,7 @@ To create a custom `Resolver` instance, use `json_model.resolver.Resolver` with 
 
 If not provided, a resolver is created based on defaults.
 
-### Example
-
-With the `json-model-compiler` Python package installed:
+For instance, with the `json-model-compiler` Python package installed:
 
 ```python
 import json_model as jm
@@ -123,8 +115,6 @@ print("hobbes is a person:", is_person({"name": "Hobbes", "birth": "2020-07-29"}
 
 Model compilation to JavaScript generates either a module (`.mjs`) or a node script (`.js`),
 which is the same as the module plus an added `main`.
-
-### Functions
 
 This generated module exposes 3 useful functions:
 
@@ -147,9 +137,7 @@ The generated functions depend on
 the [`json_model_runtime`](https://www.npmjs.com/package/json_model_runtime) npm package
 which must be available in your js environment.
 
-### Example
-
-Generate a JavaScript module:
+For instance, generate a JavaScript module:
 
 ```sh
 jmc --loose -o person.mjs Person
@@ -170,8 +158,6 @@ check_model_free()
 
 Model compilation to C generates source code (`.c`), an object file (`.o`) or
 an executable (`.out`).
-
-### Functions
 
 This generated code exposes 4 useful functions:
 
@@ -199,9 +185,7 @@ The generated functions depend on a specific C runtime library,
 plus either `cre2` (re2 wrapper for C) or `pcre2` as a regex engine, and
 Jansson for managing JSON values, which must be compiled and installed.
 
-### Example
-
-Generate a C object module:
+For instance, generate a C object module:
 
 ```sh
 jmc -o person.o Person
@@ -218,17 +202,13 @@ Then use it from your code:
 Model compilation to PL/pgSQL generates source code (`.sql`) to be loaded into a
 Postgres database.
 
-### Functions
-
 This generated code exposes one useful function `check_model(value, model, NULL)`,
 to check JSONB _value_ against model named _model_.
 
 The generated function depends on Postgres extension `json_model`, which must be
 installed from sources or pgxn (see [HowTo](HOWTO#-use-json-model-in-my-postgres-database)).
 
-### Example
-
-Generate the PL/pgSQL script and load it:
+For instance, generate the PL/pgSQL script and load it:
 
 ```sh
 jmc --loose -o person.sql Person
@@ -258,8 +238,6 @@ Model compilation to Perl generates a module (`.pm`) or a script (`.pl`),
 which is the same but with a `main` function.
 Perl does not support for strict numbers.
 
-### Functions
-
 This generated code exports 4 useful functions:
 
 - `check_model_init`: initialize internal model checking data structures,
@@ -273,9 +251,7 @@ This generated code exports 4 useful functions:
 The generated functions and runtime depends in `JSON::JsonModel`, `re::engine::RE2`,
 `JSON::MaybeXS` for JSON.
 
-### Example
-
-Generate a Perl module:
+For instance, generate a Perl module:
 
 ```sh
 jmc --loose -o Person.pm Person
@@ -302,8 +278,6 @@ check_model_free();
 Model compilation to Java generates a class source (`.java`) or a compile class (`.class`).
 The generate class includes a `main` for testing.
 
-### Functions
-
 The generated class implements `ModelChecker`, which provides 4 useful methods:
 
 - `void init(JSON)`: initialize internal model checking data structures, in particular
@@ -319,9 +293,7 @@ a `JSON` object to abstract the underlying JSON library.
 Currently, three JSON libraries are supported: **GSON**, **Jackson**
 and **JSONP** (tested with implementations **Johnzon** and **Joy**).
 
-### Example
-
-Generate a Java source class:
+For instance, generate a Java source class:
 
 ```sh
 jmc -o Person.java Person
