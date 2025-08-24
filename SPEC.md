@@ -491,7 +491,7 @@ This feature allow the localization of the model syntax.
 
 ### Importation
 
-Special property "<" inside a transformation object expects a reference to an external
+Special property `"<"` inside a transformation object expects a reference to an external
 model, or a list of such references, and imports all definitions of the targets into the
 local scope.
 
@@ -501,7 +501,7 @@ While importing, homonymous definitions are invalid and must be rejected.
 
 Model editions are specified with properties which are references possibly followed
 by a JSON path, allowing to point to a JSON element in the model, and either a value
-with special properties `/ \*` to remove or add sub elements, or anything else
+with special properties `/ *` to remove or add sub elements, or anything else
 taken as-is, but which must not be an object with any of the special properties.
 
 - Addition/replacement on a `"$External#name"` reference to a definition:
@@ -513,21 +513,21 @@ taken as-is, but which must not be an object with any of the special properties.
 
 The following edition rules apply, in order, depending on the type of the target element:
 
-- if the transformation value is an edition object (ie include at least one `/ \*` property):
+- if the transformation value is an edition object (ie include at least one `/ *` property):
   - if the target is a JSON object (not necessarily a model for an object):
     - `/` value may be a string or a list of strings.
       All properties of these names are removed.
       If a property does not exist, this is an error and must be rejected.
-    - `\*` value must be a object, which is merged into the target object.
+    - `*` value must be a object, which is merged into the target object.
       If a property already exists, this is an error and must be rejected.
   - if the target is a JSON array (not necessarily a model for an array):
     - `/`: may be value or a list of values.
       Array items equal to these values are removed.
       If a value is not found, this is an error and must be rejected.
-    - `\*`: if the value is an array, append its items to the target array.
+    - `*`: if the value is an array, append its items to the target array.
       if the value is something else, appends this to the array.
   - if the target is a JSON scalar: this is an error and must be rejected.
-- if the transformation value is a model (i.e. an object without any `/ \*` property),
+- if the transformation value is a model (i.e. an object without any `/ *` property),
   the target value is _replaced_ by this value, in place.
 
 These additions and editions are performed _after_ property renamings and imports,
