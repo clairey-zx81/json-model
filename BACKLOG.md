@@ -8,9 +8,11 @@
 - [x] pr: restructure web site, avoid some duplication
 - [x] pr: python static api
 - [x] pr: python dynamic api
+- [x] tests: fix generated json model schema test by switching to jschon
 - [ ] pr: complete doc
 - [ ] pr: complete api
 - [ ] pr: remove wip cover page from web site
+- [ ] tests: fix test with generated json model meta schema
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] tests: test generated JSON schema with test vectors.
 - [ ] pr: write `optimizations.model.json` for illustration

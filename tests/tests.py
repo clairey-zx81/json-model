@@ -736,7 +736,7 @@ def test_models_jsm(directory):
     check_models(directory, "jsu-check --quiet json-model.schema.json")
 
 def test_models_jsg(directory):
-    check_models(directory, "jsu-check --quiet ./ref/json-model.schema.json")
+    check_models(directory, "jsu-check -e jschon --quiet ./ref/json-model.schema.json")
 
 def test_models_dpy(directory):
     """Check test model conformity to JSON Model meta model."""
@@ -801,7 +801,7 @@ def test_bads_jsm():
     check_bads("jsu-check --quiet ./json-model.schema.json")
 
 def test_bads_jsg():
-    check_bads("jsu-check --quiet ./ref/json-model.schema.json")
+    check_bads("jsu-check -e jschon --quiet ./ref/json-model.schema.json")
 
 #
 # JSON SCHEMA DRAFT TESTS
