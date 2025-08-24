@@ -12,24 +12,24 @@ JSON Model is a research project developed at
 
 JSON Model design and implementation are discussed in research papers and reports:
 
-- JSON Model: a Lightweight Featureful DSL for JSON.  
-  Fabien Coelho and Claire Yannou-Medrala.  
+- **JSON Model: a Lightweight Featureful DSL for JSON.**  
+  _Fabien Coelho_ and _Claire Yannou-Medrala_.  
   In [ADBIS 2024](https://conferences.sigappfr.org/adbis2024/), Bayonne, France, August 2024.  
   Also TR [A/817/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-817.pdf),
   Mines Paris - PSL, April 2024.
 
   JSON Model version 1.
 
-- An Analysis of Defects in Public JSON Schemas.  
-  Claire Yannou-Medrala and Fabien Coelho.  
+- **An Analysis of Defects in Public JSON Schemas.**  
+  _Claire Yannou-Medrala_ and _Fabien Coelho_.  
   In BDA 2023, 39ème conférence sur la gestion de données - Principes, technologies et applications.  
   Also TR [A/794/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-794.pdf),
   Mines Paris - PSL, October 2023.
 
   Brief introduction to version 0 at the end of the paper.
 
-- JSON Model: a Lightweight Featureful Description Language for JSON Data Structures.  
-  Fabien Coelho and Claire Yannou-Medrala.  
+- **JSON Model: a Lightweight Featureful Description Language for JSON Data Structures.**  
+  _Fabien Coelho_ and _Claire Yannou-Medrala_.  
   Technical Report [A/795/CRI](https://www.cri.minesparis.psl.eu/classement/doc/A-795.pdf),
   Mines Paris - PSL, May 2023
 
