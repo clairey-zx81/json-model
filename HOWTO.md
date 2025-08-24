@@ -179,6 +179,8 @@ Assuming that the `jmc` command is available:
    SELECT check_model(JSONB '3.14', '', NULL);  # TRUE or FALSE…
    ```
 
+See [PL/pgSQL API](API#plpgsql-api) for further details about the API.
+
 ## … use JSON Model in my _Java_ code?
 
 If you load a JSON file using specific Java classes (aka binding), your _do not_ really need

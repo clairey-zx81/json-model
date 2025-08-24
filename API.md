@@ -215,7 +215,39 @@ Then use it from your code:
 
 ## PL/pgSQL API
 
-:warning: :construction_worker: :construction:
+Model compilation to PL/pgSQL generates source code (`.sql`) to be loaded into a
+Postgres database.
+
+### Functions
+
+This generated code exposes one useful function `check_model(value, model, NULL)`,
+to check JSONB _value_ against model named _model_.
+
+The generated function depends on Postgres extension `json_model`, which must be
+installed from sources or pgxn (see [HowTo](HOWTO#-use-json-model-in-my-postgres-database)).
+
+### Example
+
+Generate the PL/pgSQL script and load it:
+
+```sh
+jmc --loose -o person.sql Person
+createdb jm_test
+psql -f person.sql jm_test
+```
+
+Use it, for instance for checking a JSON value integrity:
+
+```sql
+CREATE TABLE SomeOne(
+  sid SERIAL8 PRIMARY KEY,
+  data JSONB NOT NULL CHECK (check_model(data, '', NULL))
+);
+CREATE UNIQUE INDEX SomeOne_Name ON SomeOne ((data->>'name'));
+
+INSERT INTO SomeOne(data) VALUES ('{"name": "Hobbes", "birth": "2020-07-29"}');     -- pass
+INSERT INTO SomeOne(data) VALUES ('{"name": "Pi", "birth": "1592-04-31"}');  -- fail
+```
 
 ## Perl API
 
