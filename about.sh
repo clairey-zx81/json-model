@@ -92,9 +92,9 @@ cloc --md \
     json_model/runtime \
     | sed -n -e 's/SUM:/**SUM**/;/^$/,$p' | grep -v '^-[-|]*$'
 
-Note that the generated code may also depend on third-party libraries.
-
 cat <<EOF
+
+Note that the generated code may also depend on third-party libraries.
 
 ## Test Models
 
