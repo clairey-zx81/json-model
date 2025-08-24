@@ -323,7 +323,7 @@ Perl runtime for generated code, from I<CPAN>.
 
 Java runtime for generated code, from I<Maven Central>.
 
-=cut
+=back
 
 =head1 SEE ALSO
 
