@@ -4,6 +4,4 @@
 
 # A compact and intuitive JSON syntax to describe JSON data structures
 
-# :warning: :construction_worker: :construction:
-
-[Overview](README.md)
+[Welcome](README.md)
