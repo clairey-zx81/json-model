@@ -109,8 +109,8 @@ For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
 
 ### Predefined Models
 
-String models with a `$` reference with a capitalized ASCII name are special **predefined** models,
-which may have any type:
+String models starting with a `$` reference using capitalized ASCII names are
+special **predefined** models, which may have any type:
 
 - `"$ANY"`: any JSON value (scalar or array or object).
 - `"$NONE"`: no JSON value.
@@ -140,8 +140,8 @@ In addition, the following string predefs are defined:
 - `"$REGEX"`: a valid regular expression, eg _^[a-z]+$_.
 - `"$EXREG"`: an extended regular expression.
 
-Any other all-capital ASCII character (and digit) definition names must be rejected
-as they are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
+Any other all-capital ASCII character and digit names must be rejected as they
+are reserved for possible future predefs (eg URN, Luhn, ISBN, ISSN, EAN, DOI…).
 
 Model strings which do not start with `_` (constant), `/` (regex), `$` (reference),
 `=` (non-string scalar constants) or _identifier_ characters
@@ -149,6 +149,8 @@ must be treated as errors and rejected.
 
 Note that the [symbol renaming feature](#symbol-names) may allow property names starting
 with a `.`, which must be translated into the regular symbol before proceeding.
+Extension to JSON Model which require new symbols should use a `.…` syntax for these,
+as other symbols are reserved for future standard uses.
 
 ## Array and Tuple Models
 
