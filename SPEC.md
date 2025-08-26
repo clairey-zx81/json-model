@@ -105,7 +105,7 @@ For instance, `"/^susie$/i"` matches ignore-case _Susie_ strings.
 - JSON Model regular expressions are extended with option `X` (capital letter x) to allow
   _references_ to string models with the following syntax: `($name:regex)`, where the regular
   expression after the `:` must match the named string model.
-  Syntax `($name)` is a shortcut for `($name:.\*)`.
+  Syntax `($name)` is a shortcut for `($name:.*)`.
 
 ### Predefined Models
 
@@ -461,7 +461,7 @@ may include symbol renamings, model importations and model editions.
 ### Symbol Names
 
 Within the `%` object at the root, properties beginning with a `.` introduce new symbol names.
-The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / \*`.
+The value is the symbol string which is replaced, in `# ~ $ % @ = != <= < >= > ! | ^ & + / *`.
 For instance:
 
 ```json
