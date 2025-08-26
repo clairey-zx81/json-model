@@ -76,6 +76,21 @@ cloc --md \
     json_model/data/*.java \
     | tail -1 | sed "s/SUM:/Java/"
 
+cloc --md \
+    json_model/python.py \
+    json_model/data/*.py \
+    json_model/clang.py \
+    json_model/data/*.c \
+    json_model/javascript.py \
+    json_model/data/*.js \
+    json_model/plpgsql.py \
+    json_model/data/*.sql \
+    json_model/perl.py \
+    json_model/data/*.pl \
+    json_model/java.py \
+    json_model/data/*.java \
+    | tail -1 | sed "s/SUM:/**Total**/;s/\([0-9][0-9]*\)/**\1**/g"
+
 cat <<EOF
 
 ## Per-Language Runtimes
@@ -87,7 +102,7 @@ cloc --md \
 	--include-ext=c,h,sql,pm,pl,java,js,mjs,py \
     --force-lang=C,h \
     json_model/runtime \
-    | sed -n -e 's/SUM:/**SUM**/;/^$/,$p' | grep -v '^-[-|]*$'
+    | sed -n -e '/SUM/s/\([0-9][0-9]*\)/**\1**/g;s/SUM:/**Total**/;/^$/,$p' | grep -v '^-[-|]*$'
 
 cat <<EOF
 
