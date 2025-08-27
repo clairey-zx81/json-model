@@ -183,8 +183,8 @@ Property values are the models of the expected values associated to the property
 Property names are matched as follow:
 
 - `"!XXX"`: mandatory properties directly provided after the `!`.
-  String constants (eg `_XXX` or `Zzz` with the first character a letter) are also
-  valid mandatory properties.
+- as a convenience, string constants (eg `_XXX` or `Zzz` with the first character a letter)
+  are also valid mandatory properties.
 - `"?XXX"`: optional properties directly provided after the `?`.
 - `"/.../"`: optional property names matching a regular expression:
   eg `{"/^a/": ""}` means property names starting with _a_ must have string values.
