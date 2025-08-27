@@ -125,13 +125,13 @@ print("reasons:", reasons)
 
 Preliminary performance tests below compare validation times for a _large_ 500 KB JSON OpenAPI
 description using JSON Model compiled to C, Java, JS, Python, Perl and
-JSON Schema Blaze 9.6.1 implementation, with an average collected on 1000 runs,
+JSON Schema Blaze 11.5.0 implementation, with an average collected on 1000 runs,
 in _fast_ (no reporting) mode, including format validations, on a laptop:
 
 - JSON Model C: _197_ µs/check (about ⅕ ms)
 - JSON Model Java (with GSON): _304_ µs/check (under ⅓ ms)
 - JSON Model JS: _747_ µs/check (under ¾ ms)
-- JSON Schema C++ Blaze: _1729_ µs/check (under 2 ms)
+- JSON Schema C++ Blaze: _1677_ µs/check (under 2 ms, 30 seconds compilation time)
 - JSON Model Python: _3,944_ µs/check (under 4 ms)
 - JSON Model Perl: _32,024_ µs/check (about 32 ms)
 
