@@ -43,6 +43,7 @@ The JSON Model syntax uses JSON to describe JSON.
 It primilarily relies on type inference to express types, and
 uses symbolic properties (`| ^ & + @ = != < <= > >= ! $ % ~`) and
 string sentinel characters (`! ? = _ . $ /`) for advanced features.
+Some symbols can _only_ appear at the root of a JSON model `~ $ %`.
 
 JSON Model represents set of JSON values by providing a type declaration which
 constraint the allowed values.
@@ -405,14 +406,6 @@ The interpretation of the constraint depend on the target type:
 
   Comparison constraints are allowed with number values, which apply to
   the number of properties (size) of the object.
-
-## Root Keywords
-
-Additional one-letter symbols can _only_ appear at the root of a JSON model:
-
-- `~`: introduces a URL to the meta-model of this model.
-- `$`: introduces new definitions in the file scope, as an object.
-- `%`: introduces an object with model transformations.
 
 ## Definitions and References
 
