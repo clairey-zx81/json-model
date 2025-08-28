@@ -129,7 +129,7 @@ public class Main
             ssdv =  String.format("%.03f", stddev),
             sempty = String.format("%.03f", empty);
 
-        System.out.println(display + ": " + savg + " ± " + ssdv + " µs [" + sempty + "]");
+        System.err.println(display + ": " + result + " " + savg + " ± " + ssdv + " µs [" + sempty + "]");
 
         // return if error
         return expect != null && expect != valid;
@@ -213,6 +213,7 @@ public class Main
                     jsonl = true;
                     break;
                 case 1002:  // --jsonschema-benchmark
+                    jsbench = true;
                     break;
                 case 1003:  // --no-report
                     report = false;
@@ -281,7 +282,16 @@ public class Main
                     values[i] = json.fromJSON(contents[i]);
 
                 // process
-                errors += jsonschema_benchmark(values, checker, fname, time);
+                if (jsbench)
+                    errors += jsonschema_benchmark(values, checker, fname, time);
+                else {
+                    for (int i = 0; i < values.length; i++)
+                    {
+                        String display = fname + "[" + (i+1) + "]";
+                        if (process(values[i], display, "", checker, null, time, report))
+                            errors += 1;
+                    }
+                }
             }
             else
             {
