@@ -22,7 +22,18 @@ function reporting(rep)
 // process one value
 function processing(fname, index, value, checker, name, expected, report, times, empty)
 {
-    let error = 0
+    // to display validation result
+    const source = index === null ? fname : `${fname}[${index}]`
+
+    // do it once for the result
+    let rep = report ? [] : null
+    const valid = checker(value, name, rep)
+    const error = (expected === null || valid === expected) ? 0 : 1
+
+    if (error)
+        console.log(`${source}: ERROR unexpected ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)
+    else
+        console.log(`${source}: ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)
 
     // show performance
     // NOTE: jit, calls may take a lot of time at the beginning
@@ -33,9 +44,9 @@ function processing(fname, index, value, checker, name, expected, report, times,
         let sum2 = 0.0
         let n = times
         while (n--) {
-            const start = performance.now()
             let rep = report ? [] : null
-            const valid = checker(value, '', rep)
+            const start = performance.now()
+            checker(value, '', rep)
             rep && (rep.length = 0)
             let delay = (1000.0 * (performance.now() - start)) - empty  // µs
             sum += delay
@@ -43,21 +54,9 @@ function processing(fname, index, value, checker, name, expected, report, times,
         }
         const avg = sum / times
         const stdev = Math.sqrt(sum2 / times - avg * avg)
-        console.log(`${fname}: ${report ? 'rep' : 'nop'}`,
-                    `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs (${empty.toFixed(3)})`)
+        console.warn(`${source}: ${report ? 'rep' : 'nop'} ${valid ? 'PASS' : 'FAIL'}`,
+                     `${avg.toFixed(3)} ± ${stdev.toFixed(3)} µs (${empty.toFixed(3)})`)
     }
-
-    // do it anyway for the result
-    let rep = report ? [] : null
-    const valid = checker(value, name, rep)
-
-    // display validation result
-    let source = index === null ? fname : `${fname}[${index}]`
-
-    if (expected === null || valid === expected)
-        console.log(`${source}: ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)
-    else
-        console.log(`${source}: ERROR unexpected ${valid ? 'PASS' : 'FAIL'}${reporting(rep)}`)
 
     return error
 }
