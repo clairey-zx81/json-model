@@ -73,8 +73,9 @@ process_value(const char *name, const json_t * value,
         double avg = sum / loop;
         double stdev = sqrt(sum2 / loop - avg * avg);
 
-        fprintf(stderr, "%s.%s[%zu] nop %s %.03f ± %.03f µs/check (%.03f)\n",
-                fname, name, index, valid ? "PASS": "FAIL", avg, stdev, empty);
+        fprintf(stderr, "%s%s%s[%zu] nop %s %.03f ± %.03f µs/check (%.03f)\n",
+                fname, strlen(name)? ".": "", name, index, valid ? "PASS": "FAIL",
+                avg, stdev, empty);
     }
 
     // get result
