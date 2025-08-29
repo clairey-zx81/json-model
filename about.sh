@@ -11,7 +11,7 @@ cat <<EOF
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following statistics for version $version ($githash) show that the compiler,
+The following statistics for version **$version** ($githash) show that the compiler,
 code generator and runtimes are quite small, but still heavily tested:
 
 ## Compiler Source Code
