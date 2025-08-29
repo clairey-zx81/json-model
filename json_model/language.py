@@ -581,8 +581,8 @@ class Language:
         """Define a function."""
         return []
 
-    def sub_fun(self, name: str, body: Block) -> Block:
-        """Generate a check function."""
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
+        """Generate a check function, with an inline request."""
         raise NotImplementedError("see derived classes")
 
     def def_strfun(self, name: str) -> Block:
@@ -707,11 +707,11 @@ class Code:
         self._dels += b
 
     # TODO rename!
-    def sub(self, name: str, body: Block, *, comment: str = ""):
+    def sub(self, name: str, body: Block, *, comment: str = "", inline: bool = False):
         """Add a function definition with a comment."""
         self.defs(self._lang.def_fun(name))
         fun = self._lang.lcom(comment) if comment else []
-        fun += self._lang.sub_fun(name, body)
+        fun += self._lang.sub_fun(name, body, inline=inline)
         self.subs(fun)
 
     def pmap(self, name: str, mapping: PropMap, public: bool = False):

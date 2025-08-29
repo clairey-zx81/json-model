@@ -338,6 +338,8 @@ def jmc_script():
     arg("--include", "-I", nargs="*", default=[], help="add include directory")
     arg("--library", "-L", nargs="*", default=[], help="add library directory")
     arg("--define", "-D", nargs="*", default=[], help="add cpp definitions")
+    arg("--inline", default=True, action="store_true", help="enable function inlining")
+    arg("--no-inline", dest="inline", action="store_false", help="disable function inlining")
 
     # TODO java-specific options
     arg("--javac", type=str, help="override default Java language compiler")
@@ -612,7 +614,8 @@ def jmc_script():
         code = xstatic_compile(model, args.entry, lang=args.format, execute=with_main,
                                map_threshold=args.map_threshold, map_share=args.map_share,
                                debug=args.debug, report=args.reporting, relib=args.regex_engine,
-                               short_version=args.short_version, package=args.package)
+                               short_version=args.short_version, package=args.package,
+                               inline=args.inline)
         source = str(code)
 
         # source to executable for C and java

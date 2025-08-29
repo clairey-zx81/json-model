@@ -15,7 +15,7 @@ jm_propmap_t check_model_map_tab[1];
 const size_t check_model_map_size = 1;
 
 // object .
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {

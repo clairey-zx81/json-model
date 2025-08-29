@@ -412,7 +412,7 @@ class Java(Language):
             code.append(f"{name}_set.add({self.json_cst(cst)});")
         return code
 
-    def sub_fun(self, name: str, body: Block) -> Block:
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
         return [ f"public boolean {name}(Object val, Path path, Report rep)" ] + self.indent(body)
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:

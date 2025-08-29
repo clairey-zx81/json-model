@@ -15,6 +15,9 @@
 - [x] pr: perl api
 - [x] pr: java api
 - [x] pr: js howto
+- [x] c-backend: add inlining and branch hints
+- [x] c-frontend: fix --version display
+- [x] py-frontend: fix line display for jsonl and test vectors
 - [ ] pr: web api
 - [ ] pr: remove wip cover page from web site
 - [ ] tests: fix test with generated json model meta schema

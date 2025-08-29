@@ -15,7 +15,7 @@ class CLangJansson(Language):
     def __init__(self, *,
                  debug: bool = False,
                  with_path: bool = True, with_report: bool = True, with_comment: bool = True,
-                 relib: str = "pcre2", int_t: str = "int64_t"):
+                 inline: bool = True, relib: str = "pcre2", int_t: str = "int64_t"):
 
         super().__init__(
             "C",
@@ -32,6 +32,7 @@ class CLangJansson(Language):
         # we keep 2 ints: "int64_t" and "int"
         self._int: str = int_t
         self._json_esc_table = str.maketrans(_ESC_TABLE)
+        self._inline = "INLINE " if inline else ""
 
     #
     # file
@@ -428,17 +429,18 @@ class CLangJansson(Language):
             ]
 
     def def_strfun(self, name: str) -> Block:
-        return [ f"static bool {name}(const char *, jm_path_t *, jm_report_t *);" ]
+        return [ f"static {self._inline}bool {name}(const char *, jm_path_t *, jm_report_t *);" ]
 
     def sub_strfun(self, name: str, body: Block) -> Block:
-        return [ f"static bool {name}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
+        return [ f"static {self._inline}bool {name}(const char *val, jm_path_t *path, jm_report_t *rep)" ] + \
                     self.indent(body)
 
     #
     # Property Map
     #
     def def_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
-        code = [ f"{'' if public else 'static '}jm_propmap_t {name}_tab[{len(pmap)}];" ]
+        declare = "" if public else f"static "
+        code = [ f"{declare}jm_propmap_t {name}_tab[{len(pmap)}];" ]
         if public:
             # add size accessor to public maps
             code += [ f"const size_t {name}_size = {len(pmap)};" ]
@@ -452,8 +454,9 @@ class CLangJansson(Language):
         return init
 
     def sub_pmap(self, name: str, pmap: PropMap, public: bool) -> Block:
+        declare = "" if public else f"static {self._inline}"
         return [
-            f"{'' if public else 'static '}jm_check_fun_t {name}(const char *pname)",
+            f"{declare}jm_check_fun_t {name}(const char *pname)",
             r"{",
             f"    return jm_search_propmap(pname, {name}_tab, {len(pmap)});",
             r"}",
@@ -471,7 +474,7 @@ class CLangJansson(Language):
         code = []
         if len(types) > 1:
             code += [
-                f"static bool {name}_test(const json_t *val)",
+                f"static {self._inline}bool {name}_test(const json_t *val)",
                 r"{",
                 r"  jm_constant_t cst;",
                 r"  jm_set_cst(&cst, val);",
@@ -526,21 +529,22 @@ class CLangJansson(Language):
         code.append(f"jm_sort_cst({name}, {len(constants)});")
         return code
 
-    def _fun(self, name: str) -> str:
-        return  f"static bool {name}(const json_t *val, jm_path_t *path, jm_report_t *rep)"
+    def _fun(self, name: str, inline: bool = False) -> str:
+        declare = f"static {self._inline}" if inline else "static "
+        return  f"{declare}bool {name}(const json_t *val, jm_path_t *path, jm_report_t *rep)"
 
     def def_fun(self, name: str) -> Block:
-        return [ self._fun(name) + ";" ]
+        return [ self._fun(name, False) + ";" ]
 
-    def sub_fun(self, name: str, body: Block) -> Block:
-        return [ self._fun(name) ] + self.indent(body)
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
+        return [ self._fun(name, inline) ] + self.indent(body)
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [ f"static jm_constmap_t {name}_tab[{len(mapping)}];" ]
 
     def sub_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:
         return [
-            f"static jm_check_fun_t {name}(json_t *val)",
+            f"static {self._inline}jm_check_fun_t {name}(json_t *val)",
             r"{",
             r"    jm_constant_t cst;",
             r"    jm_set_cst(&cst, val);",

@@ -319,7 +319,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#RootSchema'.'&'.0
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     // check must only props
     if (! json_is_object(val))
@@ -602,7 +602,7 @@ static bool _jm_f_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#metas'.'$defs'
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -683,7 +683,7 @@ static bool _jm_f_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#metas'.definitions
-static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -780,13 +780,13 @@ static bool _jm_f_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_1_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_1_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_1_map_tab, 10);
 }
 
 // object .'$tight#metas'
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -845,7 +845,7 @@ static bool _jm_f_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#String'.'$defs'
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -926,7 +926,7 @@ static bool _jm_f_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#String'.definitions
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1076,13 +1076,13 @@ static bool _jm_f_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_4_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_4_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_4_map_tab, 14);
 }
 
 // object .'$tight#String'
-static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1169,7 +1169,7 @@ static bool _jm_f_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Array'.'$defs'
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1263,7 +1263,7 @@ static bool _jm_f_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Array'.definitions
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1443,13 +1443,13 @@ static bool _jm_f_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_7_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_7_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_7_map_tab, 16);
 }
 
 // object .'$tight#Array'
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1568,7 +1568,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Object'.'$defs'
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1662,7 +1662,7 @@ static bool _jm_f_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Object'.definitions
-static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1747,7 +1747,7 @@ static bool _jm_f_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Object'.patternProperties
-static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1797,7 +1797,7 @@ static bool _jm_f_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Object'.properties
-static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1883,13 +1883,13 @@ static bool _jm_f_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_10_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_10_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_10_map_tab, 14);
 }
 
 // object .'$tight#Object'
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1976,7 +1976,7 @@ static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Integer'.'$defs'
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2057,7 +2057,7 @@ static bool _jm_f_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Integer'.definitions
-static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2180,13 +2180,13 @@ static bool _jm_f_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_15_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_15_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_15_map_tab, 12);
 }
 
 // object .'$tight#Integer'
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2273,7 +2273,7 @@ static bool _jm_f_66(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Number'.'$defs'
-static bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_19(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2354,7 +2354,7 @@ static bool _jm_f_70(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Number'.definitions
-static bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_20(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2477,13 +2477,13 @@ static bool _jm_f_77(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_18_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_18_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_18_map_tab, 12);
 }
 
 // object .'$tight#Number'
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2570,7 +2570,7 @@ static bool _jm_f_78(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Bool'.'$defs'
-static bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_22(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2651,7 +2651,7 @@ static bool _jm_f_82(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Bool'.definitions
-static bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_23(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2748,13 +2748,13 @@ static bool _jm_f_87(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_21_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_21_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_21_map_tab, 10);
 }
 
 // object .'$tight#Bool'
-static bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2841,7 +2841,7 @@ static bool _jm_f_88(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Null'.'$defs'
-static bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2922,7 +2922,7 @@ static bool _jm_f_92(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Null'.definitions
-static bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_26(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3019,13 +3019,13 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_24_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_24_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_24_map_tab, 10);
 }
 
 // object .'$tight#Null'
-static bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3112,7 +3112,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#AllOf'.'$defs'
-static bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_28(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3193,7 +3193,7 @@ static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#AllOf'.definitions
-static bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_29(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3290,13 +3290,13 @@ static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_27_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_27_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_27_map_tab, 10);
 }
 
 // object .'$tight#AllOf'
-static bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_27(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3383,7 +3383,7 @@ static bool _jm_f_108(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#AnyOf'.'$defs'
-static bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_31(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3464,7 +3464,7 @@ static bool _jm_f_112(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#AnyOf'.definitions
-static bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_32(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3561,13 +3561,13 @@ static bool _jm_f_117(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_30_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_30_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_30_map_tab, 10);
 }
 
 // object .'$tight#AnyOf'
-static bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_30(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3654,7 +3654,7 @@ static bool _jm_f_118(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#OneOf'.'$defs'
-static bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3735,7 +3735,7 @@ static bool _jm_f_122(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#OneOf'.definitions
-static bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3832,13 +3832,13 @@ static bool _jm_f_127(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_33_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_33_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_33_map_tab, 10);
 }
 
 // object .'$tight#OneOf'
-static bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -3925,7 +3925,7 @@ static bool _jm_f_128(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Enum'.'$defs'
-static bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_37(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4006,7 +4006,7 @@ static bool _jm_f_132(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Enum'.definitions
-static bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_38(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4103,13 +4103,13 @@ static bool _jm_f_137(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_36_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_36_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_36_map_tab, 10);
 }
 
 // object .'$tight#Enum'
-static bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_36(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4289,7 +4289,7 @@ static bool _jm_f_138(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Const'.'$defs'
-static bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4370,7 +4370,7 @@ static bool _jm_f_142(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Const'.definitions
-static bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_41(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4467,13 +4467,13 @@ static bool _jm_f_147(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_39_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_39_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_39_map_tab, 10);
 }
 
 // object .'$tight#Const'
-static bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_39(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4618,7 +4618,7 @@ static bool _jm_f_148(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Ref'.'$defs'
-static bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_43(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4699,7 +4699,7 @@ static bool _jm_f_152(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#Ref'.definitions
-static bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_44(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4796,13 +4796,13 @@ static bool _jm_f_157(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_42_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_42_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_42_map_tab, 10);
 }
 
 // object .'$tight#Ref'
-static bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_42(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -4920,7 +4920,7 @@ static bool _jm_f_158(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumString'.'$defs'
-static bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5001,7 +5001,7 @@ static bool _jm_f_162(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumString'.definitions
-static bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5098,13 +5098,13 @@ static bool _jm_f_167(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_45_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_45_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_45_map_tab, 10);
 }
 
 // object .'$tight#EnumString'
-static bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_45(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5230,7 +5230,7 @@ static bool _jm_f_168(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumNum'.'$defs'
-static bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_49(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5311,7 +5311,7 @@ static bool _jm_f_172(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumNum'.definitions
-static bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_50(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5408,13 +5408,13 @@ static bool _jm_f_177(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_48_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_48_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_48_map_tab, 10);
 }
 
 // object .'$tight#EnumNum'
-static bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_48(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5540,7 +5540,7 @@ static bool _jm_f_178(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumInt'.'$defs'
-static bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5621,7 +5621,7 @@ static bool _jm_f_182(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#EnumInt'.definitions
-static bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_53(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5718,13 +5718,13 @@ static bool _jm_f_187(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_51_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_51_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_51_map_tab, 10);
 }
 
 // object .'$tight#EnumInt'
-static bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_51(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5850,7 +5850,7 @@ static bool _jm_f_188(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstString'.'$defs'
-static bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_55(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -5931,7 +5931,7 @@ static bool _jm_f_192(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstString'.definitions
-static bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_56(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6028,13 +6028,13 @@ static bool _jm_f_197(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_54_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_54_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_54_map_tab, 10);
 }
 
 // object .'$tight#ConstString'
-static bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6141,7 +6141,7 @@ static bool _jm_f_198(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstNum'.'$defs'
-static bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_58(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6222,7 +6222,7 @@ static bool _jm_f_202(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstNum'.definitions
-static bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_59(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6319,13 +6319,13 @@ static bool _jm_f_207(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_57_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_57_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_57_map_tab, 10);
 }
 
 // object .'$tight#ConstNum'
-static bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_57(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6432,7 +6432,7 @@ static bool _jm_f_208(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstInt'.'$defs'
-static bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_61(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6513,7 +6513,7 @@ static bool _jm_f_212(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstInt'.definitions
-static bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_62(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6610,13 +6610,13 @@ static bool _jm_f_217(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_60_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_60_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_60_map_tab, 10);
 }
 
 // object .'$tight#ConstInt'
-static bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6723,7 +6723,7 @@ static bool _jm_f_218(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstBool'.'$defs'
-static bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_64(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6804,7 +6804,7 @@ static bool _jm_f_222(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$tight#ConstBool'.definitions
-static bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_65(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -6901,13 +6901,13 @@ static bool _jm_f_227(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_63_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_63_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_63_map_tab, 10);
 }
 
 // object .'$tight#ConstBool'
-static bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_63(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {

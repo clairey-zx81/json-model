@@ -408,7 +408,7 @@ class PLpgSQL(Language):
     # def def_fun(self, name: str) -> Block:
     #     return []
 
-    def sub_fun(self, name: str, body: Block) -> Block:
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
         return [
             f"CREATE OR REPLACE FUNCTION {name}(val JSONB, path TEXT[], rep jm_report_entry[])",
             "RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$",

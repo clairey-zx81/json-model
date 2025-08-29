@@ -199,7 +199,7 @@ class Python(Language):
     def in_cset(self, name: str, var: Var, constants: ConstList) -> BoolExpr:
         return f"{var} in {name}"
 
-    def sub_fun(self, name: str, body: Block) -> Block:
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
         return [
             f"def {name}(val: Jsonable, path: Path, rep: Report) -> bool:"
         ] + self.indent(body)

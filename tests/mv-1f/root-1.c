@@ -57,7 +57,7 @@ static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$root#Root'
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {

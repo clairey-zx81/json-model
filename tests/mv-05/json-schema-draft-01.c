@@ -486,7 +486,7 @@ static bool _jm_f_21(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .properties
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -639,13 +639,13 @@ static bool _jm_f_25(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_0_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_0_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_0_map_tab, 26);
 }
 
 // object .
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {

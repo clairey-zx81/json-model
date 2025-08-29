@@ -198,7 +198,7 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$core'.'$defs'
-static bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -305,7 +305,7 @@ static bool _jm_f_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$core'.'$vocabulary'
-static bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_2(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -354,13 +354,13 @@ static bool _jm_f_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_0_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_0_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_0_map_tab, 9);
 }
 
 // object .'$core'
-static bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_0(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -499,13 +499,13 @@ static bool _jm_f_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_3_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_3_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_3_map_tab, 7);
 }
 
 // object .'$meta'
-static bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_3(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -550,7 +550,7 @@ static bool json_model_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$content'
-static bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -631,7 +631,7 @@ static bool json_model_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$format'
-static bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_5(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -805,7 +805,7 @@ static bool _jm_f_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$validation'.dependentRequired
-static bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_7(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1102,13 +1102,13 @@ static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_6_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_6_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_6_map_tab, 20);
 }
 
 // object .'$validation'
-static bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_6(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1260,7 +1260,7 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$applicator'.dependentSchemas
-static bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_9(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1385,7 +1385,7 @@ static bool _jm_f_46(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$applicator'.patternProperties
-static bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_10(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1435,7 +1435,7 @@ static bool _jm_f_47(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$applicator'.properties
-static bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1528,13 +1528,13 @@ static bool _jm_f_52(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_8_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_8_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_8_map_tab, 17);
 }
 
 // object .'$applicator'
-static bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_8(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1605,7 +1605,7 @@ static bool _jm_f_54(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.'$defs'
-static bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_13(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1712,7 +1712,7 @@ static bool _jm_f_60(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.'$vocabulary'
-static bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_14(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1892,7 +1892,7 @@ static bool _jm_f_71(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.dependentRequired
-static bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_15(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -1934,7 +1934,7 @@ static bool _jm_f_72(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.dependentSchemas
-static bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_16(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2314,7 +2314,7 @@ static bool _jm_f_97(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.patternProperties
-static bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_17(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2364,7 +2364,7 @@ static bool _jm_f_98(const json_t *val, jm_path_t *path, jm_report_t *rep)
 }
 
 // object .'$ObjectSchema'.properties
-static bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_18(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {
@@ -2553,13 +2553,13 @@ static bool _jm_f_109(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
-static jm_check_fun_t _jm_obj_12_map(const char *pname)
+static INLINE jm_check_fun_t _jm_obj_12_map(const char *pname)
 {
     return jm_search_propmap(pname, _jm_obj_12_map_tab, 57);
 }
 
 // object .'$ObjectSchema'
-static bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_obj_12(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     if (! json_is_object(val))
     {

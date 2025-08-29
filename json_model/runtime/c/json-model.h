@@ -18,6 +18,24 @@
 #define CHECK_FUNCTION_NAME check_model
 #endif  // !CHECK_FUNCTION_NAME
 
+// branch hints
+#define likely(x)       __builtin_expect(!!(x), 1)
+#define unlikely(x)     __builtin_expect(!!(x), 0)
+
+// inlining hints
+#if defined(NO_INLINE_HINT)
+#define INLINE
+#else
+#if defined(__clang__)
+#define INLINE __attribute__((always_inline))
+#elif defined(__GNUC__)
+#define INLINE inline
+// #elif defined(_MSC_VER)
+#else
+#define INLINE
+#endif  // clang/gcc/...
+#endif  // NO_INLINE_HINT
+
 #define concat(prefix, suffix) prefix ## suffix
 #define newname(prefix, suffix) concat(prefix, suffix)
 

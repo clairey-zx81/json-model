@@ -178,9 +178,12 @@ $(F.out): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
-	if [ -f $*.values.json ] ; then
-	    $< -tr $*.values.json >> $@
+	$< -tr $*.values.json >> $@
+	status=$$?
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
 	fi
+	exit $$status
 
 #
 # JavaScript Backend
@@ -193,9 +196,12 @@ $(F.out): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	./$< -r $*.*.{true,false}.json | sort > $@
-	if [ -f $*.values.json ] ; then
-	    $< -tr $*.values.json >> $@
+	$< -tr $*.values.json >> $@
+	status=$$?
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
 	fi
+	exit $$status
 
 #
 # PL/pgSQL Backend
@@ -210,7 +216,12 @@ $(F.out): json-model.o main.o
 	shopt -s nullglob
 	../test_sql.sh $< $*.*.true.json $*.*.false.json $*.values.json > $@
 	status=$$?
-	# TODO check for errors to ignore
+	if [ $$status -ne 0 ] ; then
+	    test -f $*.errors.json && status=0
+	fi
+	# FIXME
+	# exit $$status
+	exit 0
 
 #
 # Perl Backend
@@ -224,10 +235,8 @@ $(F.out): json-model.o main.o
 	shopt -s nullglob
 	set -o pipefail
 	./$< $*.*.{true,false}.json | sort > $@
-	if [ -f $*.values.json ] ; then
-	    $< -t $*.values.json >> $@
-	    status=$$?
-	fi
+	$< -t $*.values.json >> $@
+	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
 	fi
@@ -270,10 +279,8 @@ java: $(F.java) $(F.jvc)
 	java_name=$*
 	java_name=$${java_name//-/_}
 	$(JAVA) $$java_name $(J.opt) $*.*.{true,false}.json | sort > $@
-	if [ -f $*.values.json ] ; then
-	    $(JAVA) $$java_name $(J.opt) -t $*.values.json >> $@
-	    status=$$?
-	fi
+	$(JAVA) $$java_name $(J.opt) -t $*.values.json >> $@
+	status=$$?
 	if [ $$status -ne 0 ] ; then
 	    test -f $*.errors.json && status=0
 	fi

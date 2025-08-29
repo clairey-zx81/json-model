@@ -191,7 +191,7 @@ bool
 jm_array_is_unique(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool unique = jm_json_array_unique(val);
-    if (!unique && rep)
+    if (unlikely(!unique && rep))
         jm_report_add_entry(rep, "non unique array", path);
     return unique;
 }
@@ -425,7 +425,7 @@ jm_is_valid_date_slow(const char *date, jm_path_t *path, jm_report_t *rep)
     return t != -1 && ti.tm_year == year - 1900 && ti.tm_mon == month - 1 && ti.tm_mday == day;
 }
 
-static bool
+static INLINE bool
 is_valid_date(const char *date, jm_path_t *path, jm_report_t *rep, bool full)
 {
     if (date == NULL)
@@ -435,32 +435,33 @@ is_valid_date(const char *date, jm_path_t *path, jm_report_t *rep, bool full)
     int year = 0, month = 0, day = 0, idx = 0;
 
     // manual parsing for DDDD-DD-DD and value validation
-    while (isdigit(date[idx]) && idx < 4)
+    while (idx < 4 && likely(isdigit(date[idx])))
         year = year * 10 + date[idx++] - '0';
 
-    if (idx++ != 4 || date[4] != '-' || year <= 0) {
+    if (unlikely(idx++ != 4 || date[4] != '-' || year <= 0)) {
         if (rep) jm_report_add_entry(rep, "unexpected date year", path);
         return false;
     }
 
-    while (isdigit(date[idx]) && idx < 7)
+    while (idx < 7 && likely(isdigit(date[idx])))
         month = month * 10 + date[idx++] - '0';
 
-    if (idx++ != 7 || date[7] != '-' || month < 1 || month > 12) {
+    if (unlikely((idx++ != 7 || date[7] != '-' || month < 1 || month > 12))) {
         if (rep) jm_report_add_entry(rep, "unexpected date month", path);
         return false;
     }
 
-    while (isdigit(date[idx]) && idx < 10)
+    while (idx < 10 && likely(isdigit(date[idx])))
         day = day * 10 + date[idx++] - '0';
 
-    if (idx != 10 || (full && date[10] != '\0') || day < 1 || day > MONTH_DAYS[month - 1]) {
+    if (unlikely(idx != 10 || (full && date[10] != '\0') || day < 1 || day > MONTH_DAYS[month - 1]))
+    {
         if (rep) jm_report_add_entry(rep, "unexpected date day", path);
         return false;
     }
 
     // allow February 29th only on leap years
-    if (day == 29 && month == 2) {
+    if (unlikely(day == 29 && month == 2)) {
         bool leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
         if (rep && !leap) jm_report_add_entry(rep, "unexpected date, not a leap year", path);
         return leap;
@@ -480,7 +481,7 @@ jm_is_valid_date_fast(const char *date, jm_path_t *path, jm_report_t *rep)
 bool (*jm_is_valid_date)(const char *, jm_path_t *, jm_report_t *) = jm_is_valid_date_fast;
 
 // time parsing
-static bool
+static INLINE bool
 is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
 {
     bool with_colon;
@@ -495,14 +496,14 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
         idx++;
 
     // 00..23 hour
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     hour = 10 * (time[idx++] - '0');
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     hour += time[idx++] - '0';
 
-    if (hour >= 24) {
+    if (unlikely(hour >= 24)) {
         if (rep) jm_report_add_entry(rep, "unexpected time hour", path);
         return false;
     }
@@ -511,14 +512,14 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
         idx++;
 
     // 00..60 minute
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     minute = 10 * (time[idx++] - '0');
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     minute += time[idx++] - '0';
 
-    if (minute >= 60) {
+    if (unlikely(minute >= 60)) {
         if (rep) jm_report_add_entry(rep, "unexpected time minute", path);
         return false;
     }
@@ -526,13 +527,14 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
         return false;
 
     // 00..60 second
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     second = 10 * (time[idx++] - '0');
-    if (!isdigit(time[idx]))
+    if (unlikely(!isdigit(time[idx])))
         return false;
     second += time[idx++] - '0';
-    if (second >= 60) {
+    if (unlikely(second >= 60)) {
+        // FIXME when to accept leap seconds?
         if (rep) jm_report_add_entry(rep, "unexpected time second", path);
         return false;
     }
@@ -540,7 +542,7 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
     // optional millis (3, sometimes more, let us be nice)
     if (time[idx] == '.') {
         idx++;
-        if (!isdigit(time[idx++]))
+        if (unlikely(!isdigit(time[idx++])))
             return false;
         while (isdigit(time[idx]))
             idx++;
@@ -553,24 +555,24 @@ is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep, bool sep)
     {
         idx++;
         // hours
-        if (!isdigit(time[idx++]))
+        if (unlikely(!isdigit(time[idx++])))
             return false;
-        if (!isdigit(time[idx++]))
+        if (unlikely(!isdigit(time[idx++])))
             return false;
         // optional minutes
         if (time[idx] == ':')
         {
             idx++;
-            if (time[idx] < '0' || time[idx] > '5')
+            if (unlikely(time[idx] < '0' || time[idx] > '5'))
                 return false;
             idx++;
-            if (!isdigit(time[idx++]))
+            if (unlikely(!isdigit(time[idx++])))
                 return false;
         }
         else if (isdigit(time[idx]))
         {
             idx++;
-            if (!isdigit(time[idx++]))
+            if (unlikely(!isdigit(time[idx++])))
                 return false;
         }
     }
@@ -589,7 +591,7 @@ jm_is_valid_time(const char *time, jm_path_t *path, jm_report_t *rep)
 bool
 jm_is_valid_datetime(const char *datetime, jm_path_t *path, jm_report_t *rep)
 {
-    if (!is_valid_date(datetime, path, rep, false))
+    if (unlikely(!is_valid_date(datetime, path, rep, false)))
         return false;
     return is_valid_time(datetime + 10, path, rep, true);
 }
@@ -802,7 +804,7 @@ jm_is_valid_url(const char *url, jm_path_t *path, jm_report_t *rep)
     return true;
 }
 
-static bool is_email_char(int c)
+static INLINE bool is_email_char(int c)
 {
     return isalnum(c) || c == '_' || c == '.' || c == '-';
 }
@@ -833,7 +835,7 @@ static const char * valid_json_string(const char *);
 
 #define skip_blanks(s) while (isspace(*s)) s++
 
-static const char * valid_json_object(const char *s)
+static INLINE const char * valid_json_object(const char *s)
 {
     // skip leading {
     s++;
@@ -863,7 +865,7 @@ static const char * valid_json_object(const char *s)
     return *s == '}' ? s + 1 : NULL;
 }
 
-static const char * valid_json_array(const char *s)
+static INLINE const char * valid_json_array(const char *s)
 {
     // skip leading [
     s++;
@@ -887,7 +889,7 @@ static const char * valid_json_array(const char *s)
     return *s == ']' ? s + 1 : NULL;
 }
 
-static const char * valid_json_string(const char *s)
+static INLINE const char * valid_json_string(const char *s)
 {
     if (*s != '"')
         return NULL;
@@ -917,7 +919,7 @@ static const char * valid_json_string(const char *s)
     return NULL;
 }
 
-static const char * valid_json_number(const char *s)
+static INLINE const char * valid_json_number(const char *s)
 {
     // skip optional sign
     if (*s == '-' || *s == '+')

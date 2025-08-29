@@ -17,10 +17,10 @@ typedef enum {
 } process_mode_t;
 
 // return cputime µs
-static double now(void)
+static INLINE double now(void)
 {
     struct timespec ts;
-    if (clock_gettime(CLOCK_REALTIME, &ts))
+    if (unlikely(clock_gettime(CLOCK_REALTIME, &ts)))
     {
         fprintf(stderr, "cannot get time (%d): %s\n", errno, strerror(errno));
         exit(2);
@@ -250,6 +250,7 @@ int main(int argc, char* argv[])
     bool test = false;
     bool jsonl = false;
     bool list = false;
+    bool version = false;
     bool jsonschema_benchmark = false;
     int loop = 1;
 
@@ -284,8 +285,8 @@ int main(int argc, char* argv[])
                 list = true;
                 break;
             case 'v':
-                fprintf(stdout, "C from JSON Model compiler version %s\n", jm_version_string);
-                return 0;
+                version = true;
+                break;
             case 'n':
                 name = optarg;
                 break;
@@ -339,6 +340,11 @@ int main(int argc, char* argv[])
     }
 
     // delayed after the initialization
+    if (version)
+    {
+        fprintf(stdout, "C from JSON Model compiler version %s\n", jm_version_string);
+        return 0;
+    }
     if (list)
     {
         fprintf(stdout, "JSON Model names (empty for default):");

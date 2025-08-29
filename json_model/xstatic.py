@@ -1252,7 +1252,8 @@ class CodeGenerator:
                     ocode: Block = (
                         gen.lcom(f"object {json_path(mpath)}") +
                         gen.sub_fun(objid,
-                            self._compileObject(jm, model, mpath, objid, "res", "val", "path"))
+                            self._compileObject(jm, model, mpath, objid, "res", "val", "path"),
+                            inline=True)
                     )
                     self._code.subs(ocode)
 
@@ -1405,6 +1406,7 @@ def xstatic_compile(
         report: bool = True,
         short_version: bool = False,
         package: str|None = None,
+        inline: bool = True,
     ) -> Code:
     """Generate the check source code for a model.
 
@@ -1418,6 +1420,7 @@ def xstatic_compile(
     - debug: debugging mode generates more traces.
     - short_version: in generated code.
     - package: namespace to use (Perl module, Pg schema name, Java package).
+    - inline: enable function inlining (for C)
     """
     # target language
     if lang == "py":
@@ -1427,7 +1430,7 @@ def xstatic_compile(
     elif lang == "c":
         from .clang import CLangJansson
         language = CLangJansson(debug=debug, with_report=report, with_path=report,
-                                relib=relib or "re2")
+                                relib=relib or "re2", inline=inline)
     elif lang == "js":
         from .javascript import JavaScript
         language = JavaScript(debug=debug, with_report=report, with_path=report,

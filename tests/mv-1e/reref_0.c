@@ -15,7 +15,7 @@ static bool json_model_2(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static cre2_regexp_t *_jm_xre_0_re_re2 = NULL;
 static int _jm_xre_0_re_nn = 0;
 static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep);
-static bool _jm_xre_0(const char *, jm_path_t *, jm_report_t *);
+static INLINE bool _jm_xre_0(const char *, jm_path_t *, jm_report_t *);
 static bool json_model_1(const json_t *val, jm_path_t *path, jm_report_t *rep);
 jm_propmap_t check_model_map_tab[2];
 const size_t check_model_map_size = 2;
@@ -39,7 +39,7 @@ static bool _jm_xre_0_re(const char *s, jm_path_t *path, jm_report_t *rep)
     return cre2_match(_jm_xre_0_re_re2, s, slen, 0, slen, CRE2_UNANCHORED, NULL, 0);
 }
 
-static bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
+static INLINE bool _jm_xre_0(const char *val, jm_path_t *path, jm_report_t *rep)
 {
     size_t extract_size = strlen(val) + 1;
     char extract[extract_size];

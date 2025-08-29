@@ -283,7 +283,7 @@ class JavaScript(Language):
     def def_fun(self, name: str) -> Block:
         return []
 
-    def sub_fun(self, name: str, body: Block) -> Block:
+    def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
         return [ f"function {name}(val, path, rep)" ] + self.indent(body)
 
     def def_cmap(self, name: str, mapping: dict[JsonScalar, str]) -> Block:

@@ -422,7 +422,7 @@ def main(jm_fun, jm_map, jmc_version):
                 else:
                     expect, name, val = tvect
 
-                info = "" if len(values) == 1 else f"[{index}]"
+                info = f"[{index}]" if args.jsonl or args.test else ""
 
                 try:
                     checker: CheckFun = jm_fun(name)
