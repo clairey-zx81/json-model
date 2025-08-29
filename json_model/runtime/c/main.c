@@ -93,8 +93,8 @@ process_value(const char *name, const json_t * value,
     // maybe second pass with report collection
     if ((loop > 1 || !valid) && report)
     {
-        jm_path_t path = (jm_path_t) { "", 0, NULL, NULL };
-        jm_report_t report = (jm_report_t) { NULL };
+        jm_path_t path;
+        jm_report_t report;
 
         bool valid2 = true;
 
@@ -120,9 +120,9 @@ process_value(const char *name, const json_t * value,
             double avg = sum / loop;
             double stdev = sqrt(sum2 / loop - avg * avg);
 
-            // FIXME could drop name and index in some cases
-            fprintf(stderr, "%s.%s[%zu] rep %s %.03f ± %.03f µs/check (%.03f)\n",
-                    fname, name, index, valid ? "PASS": "FAIL", avg, stdev, empty);
+            fprintf(stderr, "%s%s%s[%zu] rep %s %.03f ± %.03f µs/check (%.03f)\n",
+                    fname, strlen(name)? ".": "", name, index, valid ? "PASS": "FAIL",
+                    avg, stdev, empty);
         }
 
         // get the result for display
