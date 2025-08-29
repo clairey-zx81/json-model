@@ -3,13 +3,16 @@
 # Generate a markdown report about the compiler
 #
 
+version=$(jmc --version)
+githash=$(git show --pretty=format:"%h" --no-patch)
+
 cat <<EOF
 # About JSON Model
 
 JSON Model is an on-going [research project](PUBS.md).
 
-The following statistics show that the compiler, code generator and runtimes
-are quite small, but still heavily tested:
+The following statistics for version $version ($githash) show that the compiler,
+code generator and runtimes are quite small, but still heavily tested:
 
 ## Compiler Source Code
 
