@@ -129,7 +129,8 @@ public class Main
             ssdv =  String.format("%.03f", stddev),
             sempty = String.format("%.03f", empty);
 
-        System.err.println(display + ": " + result + " " + savg + " ± " + ssdv + " µs [" + sempty + "]");
+        System.err.println(display + ": " + result + " " +
+                           savg + " ± " + ssdv + " µs (" + sempty + ")");
 
         // return if error
         return expect != null && expect != valid;
