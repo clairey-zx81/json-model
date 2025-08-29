@@ -226,6 +226,8 @@ def clang_compile(c_code: str, args):
             command = f"{cc} {cppflags} {cflags} -o {output} {lib} {tmp.name} {main} {ldflags}"
         else:
             command = f"{cc} {cppflags} {cflags} -o {output} -c {tmp.name}"
+        if args.verbose:
+            log.info(f"C compilation: {command}")
         status = os.system(command)
         assert status == 0, f"C compilation succeeded: {command}"
 
@@ -243,6 +245,8 @@ def java_compile(java_code: str, args):
     javac = args.javac or "javac"
     jflags = args.jflags or ""
     command = f"{javac} -d {out_dir} {jflags} {java_file}"
+    if args.verbose:
+        log.info(f"Java compilation: {command}")
     status = os.system(command)
 
     # cleanup and check
