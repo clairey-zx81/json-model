@@ -435,6 +435,7 @@ def main(jm_fun, jm_map, jmc_version):
 
                 valid: bool
                 empty, sum1, sum2 = 0.0, 0.0, 0.0
+                mode = "rep" if args.report else "nop"
 
                 if args.time > 1:
 
@@ -469,7 +470,9 @@ def main(jm_fun, jm_map, jmc_version):
                     avg = sum1 / args.time
                     stdev = math.sqrt(sum2 / args.time - avg * avg)
 
-                    print(f"{fn}{info}{' rep ' if args.report else ' nop '}"
+                    result = "PASS" if valid else "FAIL"
+
+                    print(f"{fn}{info} {mode} {result} "
                           f"{avg:.03f} ± {stdev:.03f} µs/call ({empty:.03f})",
                           file=sys.stderr)
 
@@ -481,8 +484,10 @@ def main(jm_fun, jm_map, jmc_version):
                     reasons, path = None, None
                     valid = checker(val, None, None)
 
+                result = "PASS" if valid else "FAIL"
+
                 if expect is not None and valid != expect:
-                    print(f"{fn}{info}: ERROR unexpected {'PASS' if valid else 'FAIL'}")
+                    print(f"{fn}{info}: ERROR unexpected {result}")
                     errors += 1
                 elif valid:
                     print(f"{fn}{info}: PASS")
