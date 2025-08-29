@@ -422,7 +422,7 @@ def main(jm_fun, jm_map, jmc_version):
                 else:
                     expect, name, val = tvect
 
-                info = "" if expect is None else f"[{index}]"
+                info = "" if len(values) == 1 else f"[{index}]"
 
                 try:
                     checker: CheckFun = jm_fun(name)
@@ -468,6 +468,7 @@ def main(jm_fun, jm_map, jmc_version):
 
                     avg = sum1 / args.time
                     stdev = math.sqrt(sum2 / args.time - avg * avg)
+
                     print(f"{fn}{info}{' rep ' if args.report else ' nop '}"
                           f"{avg:.03f} ± {stdev:.03f} µs/call ({empty:.03f})",
                           file=sys.stderr)
