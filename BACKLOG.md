@@ -21,6 +21,7 @@
 - [x] java-frontend: improve check interface and calls
 - [x] js-frontend: fix line numbering for jsonl
 - [x] py-frontend: fix line numbering for jsonl
+- [x] js-frontend: do several iterations to measure the loop overhead
 - [ ] tests: fix sql test errors from `Makefile`
 - [ ] pr: web api
 - [ ] pr: remove wip cover page from web site

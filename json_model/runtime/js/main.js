@@ -103,6 +103,23 @@ function jsonschema_benchmark(values, checker, times)
     process.exit(errors ? 1 : 0)
 }
 
+// evaluate measure overhead
+function eval_empty(times)
+{
+    let empty = 0.0
+    if (times >= 1)
+    {
+        let n = times
+        while (n--)
+        {
+            const start = performance.now()
+            empty += 1000.0 * (performance.now() - start)
+        }
+        empty /= times
+    }
+    return empty
+}
+
 export default async function main(checker_init, checker, checker_free)
 {
     checker_init()
@@ -145,18 +162,11 @@ export default async function main(checker_init, checker, checker_free)
     if (args.values.re2)
         jm_set_rx(require('re2'))
 
-    // overhead estimation
-    let empty = 0.0
-    if (times > 1)
-    {
-        let n = times
-        while (n--)
-        {
-            const start = performance.now()
-            empty += 1000.0 * (performance.now() - start)
-        }
-        empty /= times
-    }
+    // overhead estimation… we need the jit to kick in
+    const empty = Math.min(
+        eval_empty(times), eval_empty(times), eval_empty(times),
+        eval_empty(times), eval_empty(times), eval_empty(times)
+    )
 
     for (const fname of args.positionals)
     {
