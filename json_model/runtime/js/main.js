@@ -20,11 +20,8 @@ function reporting(rep)
 }
 
 // process one value
-function processing(fname, index, value, checker, name, expected, report, times, empty)
+function processing(source, value, checker, name, expected, report, times, empty)
 {
-    // to display validation result
-    const source = index === null ? fname : `${fname}[${index}]`
-
     // do it once for the result
     let rep = report ? [] : null
     const valid = checker(value, name, rep)
@@ -185,11 +182,13 @@ export default async function main(checker_init, checker, checker_free)
                 let index = 0
                 for (const item of value)
                 {
+                    const display = `${fname}[${args.values.jsonl ? index+1 : index}]`
+
                     if (typeof item === 'string' || item instanceof String)  // skip comments
                         continue
                     if (!Array.isArray(item) || (item.length < 2 || item.length > 3)) {
                         errors++
-                        console.log(`${fname}[${index}]: ERROR expecting a 2-tuple or 3-tuple`)
+                        console.log(`${display}: ERROR expecting a 2-tuple or 3-tuple`)
                         continue
                     }
 
@@ -201,23 +200,23 @@ export default async function main(checker_init, checker, checker_free)
 
                     if (typeof expect !== 'boolean' && ! expect instanceof Boolean) {
                         errors++
-                        console.log(`${fname}[${index}]: ERROR expecting a boolean first item`)
+                        console.log(`${display}: ERROR expecting a boolean first item`)
                         continue
                     }
                     if (typeof name !== 'string' && ! name instanceof String) {
                         errors++
-                        console.log(`${fname}[${index}]: ERROR expecting a string for name`)
+                        console.log(`${display}: ERROR expecting a string for name`)
                         continue
                     }
 
-                    errors += processing(fname, index, val, checker, name,
+                    errors += processing(display, val, checker, name,
                                          expect, args.values.report, times, empty)
 
                     index += 1
                 }
             }
             else
-                errors += processing(fname, null, value, checker, '',
+                errors += processing(fname, value, checker, '',
                                      null, args.values.report, times, empty)
         }
         catch (e) {

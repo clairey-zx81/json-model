@@ -43,4 +43,12 @@ public class Path
             array[index--] = p.property != null ? p.property : (Integer) p.index;
         return array;
     }
+
+    /** Cleanup for reuse */
+    public void reset()
+    {
+        this.previous = null;
+        this.property = null;
+        this.index = -1;
+    }
 }

@@ -41,10 +41,13 @@ public class Main
     {
         int errors = 0;
 
+        // checker for root model
+        Checker check = checker.get("");
+
         // cold run
         long cold_start = System.nanoTime();
         for (Object value: values)
-            if (checker.check(value, "", null))
+            if (check.call(value))
                 errors++;
         double cold_run = 0.001 * (System.nanoTime() - cold_start);
 
@@ -53,7 +56,7 @@ public class Main
         if (niters > time) niters = time;
         while (niters-- > 0)
             for (Object value: values)
-                checker.check(value, "", null);
+                check.call(value);
 
         // measure
         double sum = 0.0, sum2 = 0.0;
@@ -61,7 +64,7 @@ public class Main
         {
             long start = System.nanoTime();
             for (Object value: values)
-                checker.check(value, "", null);
+                check.call(value);
             double delay = 0.001 * (System.nanoTime() - start);
             sum += delay;
             sum2 += delay * delay;
@@ -87,9 +90,10 @@ public class Main
         Boolean expect, int time, boolean report)
             throws JSON.Exception
     {
+        Checker check = checker.get(name);
         // get and report the result
         Report rep = report ? new Report() : null;
-        boolean valid = checker.check(value, name, rep);
+        boolean valid = check.call(value, rep);
         String result = (valid ? "PASS" : "FAIL") + ((!valid && report) ? (" (" + rep + ")") : "");
 
         if (expect == null || expect == valid)
@@ -114,7 +118,7 @@ public class Main
         for (int i = time; i > 0; i--) {
             long start = System.nanoTime();
             if (report) rep.clearEntries();
-            checker.check(value, name, rep);
+            check.call(value, rep);
             double delay = 0.001 * (System.nanoTime() - start) - empty;
             sum += delay;
             sum2 += delay * delay;
