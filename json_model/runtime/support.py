@@ -404,15 +404,16 @@ def main(jm_fun, jm_map, jmc_version):
             if args.jsonl:
                 values = [[None, j] for j in values]
 
-            index = 0
+            index, item = 0, -1
             for tvect in values:
+                item += 1
 
                 if isinstance(tvect, str):  # ignore strings as comments
                     continue
 
                 if not isinstance(tvect, list) or len(tvect) not in (2, 3):
                     log.error(f"unexpected test vector: {tvect}")
-                    print("{fn}[{i}]: ERROR bad test vector")
+                    print("{fn}[{item}]: ERROR bad test vector")
                     errors += 1
                     continue
 
@@ -422,7 +423,7 @@ def main(jm_fun, jm_map, jmc_version):
                 else:
                     expect, name, val = tvect
 
-                info = f"[{index}]" if args.jsonl or args.test else ""
+                info = f"[{index+1}]" if args.jsonl else f"[{index}]" if args.test else ""
 
                 try:
                     checker: CheckFun = jm_fun(name)

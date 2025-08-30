@@ -20,6 +20,7 @@
 - [x] py-frontend: fix line display for jsonl and test vectors
 - [x] java-frontend: improve check interface and calls
 - [x] js-frontend: fix line numbering for jsonl
+- [x] py-frontend: fix line numbering for jsonl
 - [ ] tests: fix sql test errors from `Makefile`
 - [ ] pr: web api
 - [ ] pr: remove wip cover page from web site
