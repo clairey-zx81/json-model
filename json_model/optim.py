@@ -504,7 +504,7 @@ def simplify(jm: JsonModel):
                     del model["<="]
                 if ge is not None:
                     model[">="] = ge
-                elif ">=" in model and isinstance(model["<="], (int, float)):
+                elif ">=" in model and isinstance(model[">="], (int, float)):
                     del model[">="]
         return model
 
