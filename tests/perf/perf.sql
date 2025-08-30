@@ -22,12 +22,17 @@ CREATE TABLE Compile(
 .print # overall cumulative perfs
 SELECT name, tool,
   SUM(runavg) AS run,
-  ROUND(AVG(empty), 3) AS empty,
   ROUND(AVG(runstd/runavg), 3) AS spread,
+  ROUND(AVG(empty), 3) AS empty,
   COUNT(*) AS nb
 FROM Run
 GROUP BY 1, 2
 ORDER BY 1, 2;
+
+.print # overall compilation perfs
+SELECT name, tool, run
+FROM Compile
+ORDER BY 1, 2, 3;
 
 /*
 .print # blaze vs jmc-c
