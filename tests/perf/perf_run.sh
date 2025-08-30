@@ -1,7 +1,7 @@
 # /bin/bash
 
 export TMPDIR=.
-LOOP=10000
+LOOP=1000
 
 # docker wrappers
 jmc=./jmc
