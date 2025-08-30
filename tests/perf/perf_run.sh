@@ -7,6 +7,7 @@ LOOP=1000
 jmc=./jmc
 js_cli=./js-cli
 jsu_model="$jmc exec jsu-model"
+jsu_simpler="$jmc exec jsu-simpler"
 etime="/usr/bin/time -f %e"
 
 function keeptime()
@@ -38,8 +39,11 @@ for dir ; do
     # JMC
     #
     echo "## jsu-model"
+    echo -n "$dir,jsu-simpler," >> ${dir}_compile.csv
+    $etime $jsu_simpler $dir/schema.json 2>&1 > $dir/schema-simpler.json |
+        keeptime >> ${dir}_compile.csv
     echo -n "$dir,jsu-model," >> ${dir}_compile.csv
-    $etime $jsu_model --quiet --id --loose --no-fix $dir/schema.json 2>&1 > $dir/model.json |
+    $etime $jsu_model --quiet --id --loose --no-fix $dir/schema-simpler.json 2>&1 > $dir/model.json |
         keeptime >> ${dir}_compile.csv
     echo "## jmc-c"
     echo -n "$dir,jmc-c-src," >> ${dir}_compile.csv
