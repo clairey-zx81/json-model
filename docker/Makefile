@@ -19,6 +19,10 @@ docker.clean: clean
 	docker image rm -f $$(docker image ls | grep '^<none>' | tr -s " " " " | cut -d' ' -f 3) jmc
 	docker buildx prune -f
 
+.PHONY: docker.cleaner
+docker.cleaner:
+	docker image rm -f $$(docker image ls | grep ^zx80/jmc | tr -s " " " " | cut -d' ' -f 3)
+
 #
 # DOCKER
 #
