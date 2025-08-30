@@ -1,0 +1,50 @@
+# /bin/bash
+
+export TMPDIR=.
+LOOP=10000
+
+# docker wrappers
+jmc=./jmc
+js_cli=./js-cli
+jsu_model="$jmc exec jsu-model"
+etime="/usr/bin/time -f %e"
+
+for dir ; do
+    [ -d "$dir" ] || continue
+    name=${dir//-/_}
+    echo "# considering $dir"
+    #
+    # Blaze
+    #
+    echo "## blaze"
+    echo -n "$dir,blaze," >> compile.csv
+    $etime $js_cli compile -f $dir/schema.json > $dir/blaze.json 2>> compile.csv
+    $js_cli validate -m $dir/blaze.json -b -l $LOOP $dir/schema.json $dir/instances.jsonl > ${dir}_blaze.out
+    #
+    # JMC
+    #
+    echo "## jsu-model"
+    echo -n "$dir,jsu-model," >> compile.csv
+    $etime $jsu_model --quiet --id --loose --no-fix $dir/schema.json 2>&1 > $dir/model.json |
+        grep -v "^WARNING:" >> compile.csv
+    echo "## jmc-c"
+    echo -n "$dir,jmc-c-src," >> compile.csv
+    $etime $jmc --no-reporting -o $dir/model.c $dir/model.json 2>> compile.csv
+    echo -n "$dir,jmc-c-out," >> compile.csv
+    $etime $jmc --no-reporting -o $dir/model.out $dir/model.json 2>> compile.csv
+    $jmc exec $dir/model.out -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-c.out
+    echo "## jmc-js"
+    echo -n "$dir,jmc-js," >> compile.csv
+    $etime $jmc --no-reporting --loose -o $dir/model.js $dir/model.json 2>> compile.csv
+    $jmc exec $dir/model.js -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-js.out
+    echo "## jmc-py"
+    echo -n "$dir,jmc-py," >> compile.csv
+    $etime $jmc --no-reporting -o $dir/model.py $dir/model.json 2>> compile.csv
+    $jmc exec $dir/model.py -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-py.out
+    echo "## jmc-java-gson"
+    echo -n "$dir,jmc-java-src," >> compile.csv
+    $etime $jmc --no-reporting -o $dir/model.java $dir/model.json 2>> compile.csv
+    echo -n "$dir,jmc-java-class," >> compile.csv
+    $etime $jmc --no-reporting -o $dir/model.class $dir/model.json 2>> compile.csv
+    $jmc exec java $dir/model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-java-gson.out
+done

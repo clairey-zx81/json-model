@@ -1,26 +1,27 @@
 #! /bin/bash
 #
-# run jmc command in docker
+# run jsonschema command in docker
 #
 
-docker_root="docker run --name awesome_jmc_$$ -v .:/app/workspace --rm"
+# -it
+docker_root="docker run --name blaze_cli_$$ -v .:/workspace --rm"
 docker_user="$docker_root --user $UID:$GID"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
-  exec $docker_user -it --entrypoint /bin/bash zx80/jmc "$@"
+  exec $docker_user -it --entrypoint /bin/bash zx80/js-cli "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
-  exec $docker_root -it --entrypoint /bin/bash zx80/jmc "$@"
+  exec $docker_root -it --entrypoint /bin/bash zx80/js-cli "$@"
 elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
   exe=$2
   shift 2
-  exec $docker_user --entrypoint "$exe" zx80/jmc "$@"
+  exec $docker_user --entrypoint "$exe" zx80/js-cli "$@"
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
-  exec $docker_user zx80/jmc "$@"
+  exec $docker_user zx80/js-cli "$@"
 else
-  exec $docker_user zx80/jmc "$@"
+  exec $docker_user zx80/js-cli "$@"
 fi
