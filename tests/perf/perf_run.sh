@@ -56,4 +56,6 @@ for dir ; do
     echo -n "$dir,jmc-java-class," >> compile.csv
     $etime $jmc $jmc_x_opt -o $dir/model.class $dir/model.json 2>> compile.csv
     $jmc exec java $dir/model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-java-gson.out
+    $jmc exec java $dir/model.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-java-jackson.out
+    $jmc exec java $dir/model.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-java-jsonp.out
 done
