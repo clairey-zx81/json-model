@@ -14,6 +14,15 @@ for dir ; do
     name=${dir//-/_}
     echo "# considering $dir"
     #
+    # Fixes
+    #
+    jmc_c_opt="--loose --no-reporting"
+    jmc_x_opt=$jmc_c_opt
+    if [ $dir = "cspell" -o $dir = "ui5-manifest" ] ; then
+      jmc_c_opt+="-re pcre2"
+      jmc_x_opti+="-re re"
+    fi
+    #
     # Blaze
     #
     echo "## blaze"
@@ -29,22 +38,22 @@ for dir ; do
         grep -v "^WARNING:" >> compile.csv
     echo "## jmc-c"
     echo -n "$dir,jmc-c-src," >> compile.csv
-    $etime $jmc --no-reporting -o $dir/model.c $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_c_opt -o $dir/model.c $dir/model.json 2>> compile.csv
     echo -n "$dir,jmc-c-out," >> compile.csv
-    $etime $jmc --no-reporting -o $dir/model.out $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_c_opt -o $dir/model.out $dir/model.json 2>> compile.csv
     $jmc exec $dir/model.out -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-c.out
     echo "## jmc-js"
     echo -n "$dir,jmc-js," >> compile.csv
-    $etime $jmc --no-reporting --loose -o $dir/model.js $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_x_opt -o $dir/model.js $dir/model.json 2>> compile.csv
     $jmc exec $dir/model.js -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-js.out
     echo "## jmc-py"
     echo -n "$dir,jmc-py," >> compile.csv
-    $etime $jmc --no-reporting -o $dir/model.py $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_x_opt -o $dir/model.py $dir/model.json 2>> compile.csv
     $jmc exec $dir/model.py -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-py.out
     echo "## jmc-java-gson"
     echo -n "$dir,jmc-java-src," >> compile.csv
-    $etime $jmc --no-reporting -o $dir/model.java $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_x_opt -o $dir/model.java $dir/model.json 2>> compile.csv
     echo -n "$dir,jmc-java-class," >> compile.csv
-    $etime $jmc --no-reporting -o $dir/model.class $dir/model.json 2>> compile.csv
+    $etime $jmc $jmc_x_opt -o $dir/model.class $dir/model.json 2>> compile.csv
     $jmc exec java $dir/model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl 2> ${dir}_jmc-java-gson.out
 done
