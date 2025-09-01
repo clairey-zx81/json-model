@@ -46,6 +46,7 @@ This should give your a shell prompt open in the current directory with your per
 Check that the `jmc` command is available and works:
 
 ```sh
+# inside the docker shell
 jmc --version  # show version
 jmc --man      # show manual page
 ```
@@ -109,6 +110,7 @@ in file `Person-0.model.json`, is:
 
 ```json
 {
+  "#": "Initial basic model for a person",
   "name": "",
   "birth": "",
   "?friends": [ "" ]
@@ -119,6 +121,7 @@ Object property names are directly mapped to simple values: `""` stands for any 
 and `[ "" ]` an array of any number of strings, thanks to type inference.
 The `?` sentinel character in the `"?friends"` property name indicates an _optional_ property,
 whereas other properties are _mandatory_ by default.
+Property `"#"` introduces a comment.
 
 Let us check that our initial value matches the model by invoking the `jmc` command:
 
@@ -176,6 +179,7 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 
 ```json
 {
+  "#": "Improved model for a person, with regex and predefs",
   "name": "/^\\w+([-' ]\\w+)/",
   "birth": "$DATE",
   "?friends": [ "/\\w+([-' ]\\w+)/" ]
@@ -199,7 +203,7 @@ with file `Person-2.model.json`:
 
 ```json
 {
-  "#": "Model for a Person",
+  "#": "Model for a Person, with definitions and references",
   "$": {
     "Name": "/^\\w+([-' ]\\w+)*$/",
     "Person": {
@@ -245,11 +249,12 @@ related settings, much like one would _import_ a module or _include_ a header fi
 JSON Model allows definitions to be local or remote URLs so as to fetch and reuse
 external models easily.
 
-Let us write file `Class.model.json` which reuses `Person-2.model.json`
-contents for defining the class name and array of students:
+Let us write file `Class.model.json` which reuses `Person-2.model.json` by loading
+it as a file (`$./Person-2`) for defining the class name and array of students:
 
 ```json
 {
+  "#": "Import Person to define a model for a class",
   "$": { "pv2": "$./Person-2" },
   "name": "$pv2#Name",
   "students": [ "$pv2#Person" ]
@@ -289,6 +294,7 @@ Hence, with file `Loose.model.json`:
 
 ```json
 {
+  "#": "Loosened model for a person",
   "$": { "Name": "/^\\w+([-' ]\\w+)*$/" },
   "name": "$Name",
   "birth": "$DATE",
@@ -309,7 +315,8 @@ jmc Loose moe.json  # PASS
 
 ## Having Alternatives
 
-A common pattern is to allow several kind of object as some point in the data structure.
+A common pattern is to allow several kind of object as some point in the data structure,
+aka a _union_.
 This can be expressed with a model involving either the special `^` (xor, one-of) or `|`
 (or, any-of) property with an array of possible models.
 
@@ -318,6 +325,7 @@ a pair of numbers, and use it for point and segment objects:
 
 ```json
 {
+  "#": "Geometrical Model",
   "$": { "coord": [ -1.0, -1.0 ] },
   "^": [
     {
@@ -332,6 +340,8 @@ a pair of numbers, and use it for point and segment objects:
 }
 ```
 
+In this model, the xor (`^`) alternative could be simplified to a or (`|`)
+because the `type` discriminant ensure that there is no ambiguity.
 The model matches both files `marseille.json` and `seoul-tokyo.json`:
 
 ```json
@@ -371,13 +381,14 @@ Let us consider the model in file `Town.model.json`, which defines a town object
 
 ```json
 {
+  "#": "Town Model",
   "name": "/^\\w+([-' ]\\w+)*$/",
   "pop": 1,
   "coord": { "lat": -1.0, "lon": -1.0 }
 }
 ```
 
-The population _must_ be a positive integer, whereas `lat` and `lon` coordinates _must_
+Attribute `pop` _must_ be a positive integer, whereas `lat` and `lon` coordinates _must_
 be floating point numbers, thus for files `beijing.json` and `shanghai.json`:
 
 ```json
@@ -390,7 +401,7 @@ be floating point numbers, thus for files `beijing.json` and `shanghai.json`:
 The first one is valid but the second is rejected:
 
 ```sh
-jmc Town beijing.json shanghai.json
+jmc -r Town beijing.json shanghai.json
 # beijing.json: PASS
 # shanghai.json: FAIL (.: unexpected object [.]; .pop: invalid mandatory prop value [.pop]; .pop: not a 1 strict int [.pop])
 ```
@@ -454,12 +465,13 @@ so that object models can be reused anywhere.
 
 ## Adding Constraints
 
-A infrequent but convenient use case is to add constaints about types such as the
-length of a string the number of items of an array or the number of properties of an object.
+A convenient use case is to add constaints about types such as the length of a string
+the number of items of an array or the number of properties of an object.
 Let us consider file `Tournament.model.json` where 4 distinct players must be listed:
 
 ```json
 {
+  "#": "Tournament Model to list participants",
   "@": [ "" ],
   "!": true,
   "=": 4
@@ -541,27 +553,29 @@ _JavaScript_ files, which drop some overheads such as double quotes, braces and 
 add comments:
 
 ```yaml
-# a yaml representation of a person in Person-0.model.yaml
+# a yaml representation of a person
 name: ""
-birth: $DATE
-?friends: [ "" ]
+birth: ""
+?friends:
+  - ""
 ```
 
 ```js
-// a javascript representation of a person in Person-0.model.js
+// a javascript representation of a person
 {
   name: "",
-  birth: "$DATE",
+  birth: "",
   "?friends": [ "" ]
 }
 ```
 
-Both these formats are converted to JSON and can be used as JSON Model:
+Both these formats are converted to JSON and can be used as JSON Model and
+would provide the same result:
 
 ```sh
-jmc -r Person-0.model.json hobbes.json moe.json
-jmc -r Person-0.model.yaml hobbes.json moe.json
-jmc -r Person-0.model.js hobbes.json moe.json
+jmc -r Person-0.model.json hobbes.json moe.json  # PASS, FAIL
+jmc -r Person-0.model.yaml hobbes.json moe.json  # PASS, FAIL
+jmc -r Person-0.model.js   hobbes.json moe.json  # PASS, FAIL
 ```
 
 ## Running with C, JS, Python, Perl or Java
@@ -570,8 +584,8 @@ The JSON Model compiler allows to create actual test executables or scripts for
 direct validation or performance testing, including option `-T` to loop over
 a value so as to compute the average and standard deviation times in µs.
 
-- C executable (assuming that [cre2](https://github.com/marcomaggi/cre2) is available in
-  `/usr/local`):
+- generate and execute a C executable (assuming that [cre2](https://github.com/marcomaggi/cre2)
+  is available in `/usr/local`, which is the case with the Docker image):
 
   ```sh
   jmc -o person.out Person-2
@@ -580,10 +594,11 @@ a value so as to compute the average and standard deviation times in µs.
   # hobbes.json: PASS
   ```
 
-- NodeJS script:
+- generate and execute a NodeJS script:
 
   First, let us install the needed in the current node environment
-  [JS runtime](https://www.npmjs.com/package/json_model_runtime) with `npm`:
+  [JS runtime](https://www.npmjs.com/package/json_model_runtime) with `npm`
+  (this is not needed for the Docker image):
 
   ```
   npm install json_model_runtime
@@ -592,13 +607,13 @@ a value so as to compute the average and standard deviation times in µs.
   Then we can compile and run the generated validation node executable:
 
   ```sh
-  jmc -o person.js Person-2
+  jmc --loose -o person.js Person-2
   ./person.js -T 1000000 hobbes.json
   # hobbes.json: 0.536 ± 0.962 µs (0.032)
   # hobbes.json: PASS
   ```
 
-- Python script:
+- generate and execute a Python script:
 
   ```sh
   jmc -o person.py Person-2
@@ -607,9 +622,10 @@ a value so as to compute the average and standard deviation times in µs.
   # hobbes.json: PASS
   ```
 
-- Perl script:
+- generate and execute a Perl script:
 
-  Assuming that the `JSON::JsonModel` module is available in your `PERLLIB`:
+  Assuming that the `JSON::JsonModel` Perl module is available in your `PERLLIB`,
+  which is the case with the Docker image:
 
   ```sh
   jmc -o person.pl Person-2
@@ -620,7 +636,8 @@ a value so as to compute the average and standard deviation times in µs.
 
 - Java VM code:
 
-  Assuming that the required classes are available in your `CLASSPATH`:
+  Assuming that the required classes are available in your `CLASSPATH`,
+  which is the case with the Docker image:
 
   ```sh
   jmc -o Person.java Person-2

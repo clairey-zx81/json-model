@@ -156,7 +156,7 @@ Assuming that the `jmc` command is available:
    for instance by adjusting your `PERLLIB` path or with `cpan`:
 
    ```sh
-   cpan JSON::JSonModel
+   cpan JSON::JsonModel
    ```
 
 2. Generate a Perl script or module:
