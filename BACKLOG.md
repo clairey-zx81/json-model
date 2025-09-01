@@ -22,6 +22,7 @@
 - [x] js-frontend: fix line numbering for jsonl
 - [x] py-frontend: fix line numbering for jsonl
 - [x] js-frontend: do several iterations to measure the loop overhead
+- [ ] python: fix venv installation issue with `pl/JSON` directory?
 - [ ] tests: fix sql test errors from `Makefile`
 - [ ] pr: web api
 - [ ] pr: remove wip cover page from web site
