@@ -11,7 +11,7 @@ B<jmc> - JSON Model Compiler
  jmc [-h] [--version] [--debug] [--verbose] [--quiet] [--doc {pod,syn,help,man}] [--man]
      [--maps MAPS] [--auto] [--entry ENTRY] [--regex-engine {re,re2,pcre2}]
      [--allow-duplicates] [--loose-int] [--strict-int] [--loose-float]
-     [--strict-float] [--loose-number] [--strict-number] [--check]
+     [--strict-float] [--loose-number] [--strict-number] [--loose] [--check]
      [-[-no]-optimize] [-[-no]-reporting] [-[-no]-inline]
      [--format {json,yaml,py,c,js,plpgsql,pl,java}] [-[-no]-sort] [--indent INDENT]
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
@@ -115,11 +115,11 @@ whether to check the model for errors at various stages.
 
 operation to run (preprocessing, export, compile, dump, jdump, none).
 
-=item B<--{loose,strict}-{int,float,number}>
+=item B<--{loose,strict}-{int,float,number}> B<--loose>
 
 whether to assume loose JSON numbers, i.e. accept I<42.0> as an integer or I<42> as a float.
-Default is strict, but JS and PL/pgSQL backends are always loose due to the language and
-type capabilities.
+Default is strict, but JS, PL/pgSQL and Perl backends are always loose due to the language
+and type capabilities.
 
 =item B<--re RELIB>
 

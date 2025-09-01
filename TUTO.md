@@ -406,11 +406,11 @@ jmc -r Town beijing.json shanghai.json
 # shanghai.json: FAIL (.: unexpected object [.]; .pop: invalid mandatory prop value [.pop]; .pop: not a 1 strict int [.pop])
 ```
 
-This behavior can be loosen with option `--loose-number`, or by adding a special
+This behavior can be loosen with option `--loose`, or by adding a special
 `JSON_MODEL_LOOSE_NUMBER` at the root comment.
 
 ```sh
-jmc --loose-number Town beijing.json shanghai.json  # PASS, PASS
+jmc --loose Town beijing.json shanghai.json  # PASS, PASS
 ```
 
 ## Composing Objects
@@ -604,7 +604,8 @@ a value so as to compute the average and standard deviation times in µs.
   npm install json_model_runtime
   ```
 
-  Then we can compile and run the generated validation node executable:
+  Then we can compile and run the generated validation node executable
+  (`--loose` avoids a warning):
 
   ```sh
   jmc --loose -o person.js Person-2
@@ -628,7 +629,7 @@ a value so as to compute the average and standard deviation times in µs.
   which is the case with the Docker image:
 
   ```sh
-  jmc -o person.pl Person-2
+  jmc --loose -o person.pl Person-2
   ./person.pl -T 100000 hobbes.json
   # hobbes.json: 23.484 ± 2.648 µs/call (0.033)
   # hobbes.json: PASS
