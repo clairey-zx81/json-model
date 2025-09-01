@@ -180,9 +180,9 @@ and predefined types (`$...`), in file `Person-1.model.json`:
 ```json
 {
   "#": "Improved model for a person, with regex and predefs",
-  "name": "/^\\w+([-' ]\\w+)/",
+  "name": "/^\\w+([-' ]\\w+)*$/",
   "birth": "$DATE",
-  "?friends": [ "/\\w+([-' ]\\w+)/" ]
+  "?friends": [ "/\\w+([-' ]\\w+)*$/" ]
 }
 ```
 
@@ -762,7 +762,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 $defs:
   Name:
     type: string
-    pattern: ^\w+( \w+)*$
+    pattern: ^\w+([-' ]\w+)*$
   Person:
     type: object
     properties:
