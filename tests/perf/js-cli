@@ -2,25 +2,23 @@
 #
 # run jsonschema command in docker
 #
+# 2025-09-01: latest=v11.6.0
 
+docker_image="ghcr.io/sourcemeta/jsonschema:latest"
 docker_root="docker run --name blaze_cli_$$ -v .:/workspace --rm"
 docker_user="$docker_root --user $(id -u):$(id -g)"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
-  echo "$0 [ help | run | exec | shell | root ] …"
+  echo "$0 [ help | run | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
-  exec $docker_user -it --entrypoint /bin/bash zx80/js-cli "$@"
+  exec $docker_user -it --entrypoint /bin/bash $docker_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
-  exec $docker_root -it --entrypoint /bin/bash zx80/js-cli "$@"
-elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
-  exe=$2
-  shift 2
-  exec $docker_user --entrypoint "$exe" zx80/js-cli "$@"
+  exec $docker_root -it --entrypoint /bin/bash $docker_image "$@"
 elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
   shift 1
-  exec $docker_user zx80/js-cli "$@"
+  exec $docker_user $docker_image "$@"
 else
-  exec $docker_user zx80/js-cli "$@"
+  exec $docker_user $docker_image "$@"
 fi
