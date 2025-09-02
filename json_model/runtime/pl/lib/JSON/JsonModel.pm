@@ -10,7 +10,7 @@ use warnings;
 
 # no Carp, this modules runs with automatically generated code, all issues are ours?
 
-our $VERSION = 1.999004;  # aka 2.0b4
+our $VERSION = 1.999012;  # aka 2.0b12
 
 use re::engine::RE2;   # replace regex engine
 use List::Util qw( min );
