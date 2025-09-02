@@ -4,7 +4,7 @@
 #
 
 docker_root="docker run --name awesome_jmc_$$ -v .:/app/workspace --rm"
-docker_user="$docker_root --user $UID:$GID"
+docker_user="$docker_root --user $(id -u):$(id -g)"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root ] …"

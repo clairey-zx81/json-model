@@ -3,9 +3,8 @@
 # run jsonschema command in docker
 #
 
-# -it
 docker_root="docker run --name blaze_cli_$$ -v .:/workspace --rm"
-docker_user="$docker_root --user $UID:$GID"
+docker_user="$docker_root --user $(id -u):$(id -g)"
 
 if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root ] …"

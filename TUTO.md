@@ -39,10 +39,11 @@ desktop client or from a terminal:
 
 ```sh
 docker pull zx80/jmc:latest
-docker run --name awesome_jmc --user $UID:$GID -v .:/app/workspace --rm -it --entrypoint /bin/bash zx80/jmc
+# for linux, consider adding: --user $(id -u):$(id -g)
+docker run --name awesome_jmc -v .:/app/workspace --rm -it --entrypoint /bin/bash zx80/jmc
 ```
 
-This should give your a shell prompt open in the current directory with your permissions.
+This should give your a shell prompt open in the current directory with your own permissions.
 Check that the `jmc` command is available and works:
 
 ```sh
