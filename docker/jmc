@@ -10,10 +10,10 @@ if [ "$#" -ge 1 -a "$1" = "help" ] ; then
   echo "$0 [ help | run | exec | shell | root ] …"
 elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
   shift 1
-  exec $docker_user -it --entrypoint /bin/bash zx80/jmc "$@"
+  exec $docker_user -i --entrypoint /bin/bash zx80/jmc "$@"
 elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
   shift 1
-  exec $docker_root -it --entrypoint /bin/bash zx80/jmc "$@"
+  exec $docker_root -i --entrypoint /bin/bash zx80/jmc "$@"
 elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
   exe=$2
   shift 2
