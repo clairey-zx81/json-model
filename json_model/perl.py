@@ -316,8 +316,17 @@ class Perl(Language):
         # NOTE sets (hash) keys must be strings
         return f"jm_is_string(${var}) && exists ${name}{{${var}}}"
 
+    def _fun(self, name: str) -> str:
+        return f"sub {name}($$$)"
+
+    def def_fun(self, name: str) -> Block:
+        return [ self._fun(name) + ";" ]
+
     def sub_fun(self, name: str, body: Block, inline: bool = False) -> Block:
-        return [ f"sub {name}($$$)" ] + self.indent([ "my ($val, $path, $rep) = @_;" ] + body)
+        return [ self._fun(name) ] + self.indent([ "my ($val, $path, $rep) = @_;" ] + body)
+
+    def def_strfun(self, name: str) -> Block:
+        return self.def_fun(name)
 
     def sub_strfun(self, name: str, body: Block) -> Block:
         return self.sub_fun(name, body)

@@ -11,6 +11,7 @@ use constant JMC_VERSION => '2';
 
 
 my %_jm_map_0;
+sub json_model_1($$$);
 my %check_model_map;
 
 # object .movie.'|'.0

@@ -11,7 +11,37 @@ use constant JMC_VERSION => '2';
 
 
 my %_jm_cst_0;
+sub json_model_2($$$);
+sub json_model_3($$$);
+sub _jm_f_0($$$);
+sub _jm_f_1($$$);
+sub _jm_f_2($$$);
+sub _jm_f_3($$$);
+sub _jm_f_4($$$);
+sub _jm_f_5($$$);
+sub _jm_f_6($$$);
+sub _jm_f_7($$$);
+sub _jm_f_8($$$);
+sub _jm_f_9($$$);
+sub _jm_f_10($$$);
+sub _jm_f_11($$$);
+sub _jm_f_12($$$);
+sub _jm_f_13($$$);
+sub _jm_f_14($$$);
+sub _jm_f_15($$$);
+sub _jm_f_16($$$);
+sub _jm_f_17($$$);
+sub _jm_f_18($$$);
+sub _jm_f_19($$$);
+sub _jm_f_20($$$);
+sub _jm_f_21($$$);
+sub _jm_f_22($$$);
+sub _jm_f_23($$$);
+sub _jm_f_24($$$);
+sub _jm_f_25($$$);
+sub _jm_f_26($$$);
 my %_jm_obj_0_map;
+sub json_model_1($$$);
 my %check_model_map;
 
 # check $allTypes (.'$allTypes')

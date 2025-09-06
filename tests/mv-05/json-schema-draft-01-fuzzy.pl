@@ -10,7 +10,10 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_3($$$);
+sub json_model_1($$$);
 my %_jm_cst_0;
+sub json_model_4($$$);
 my %check_model_map;
 
 # object .'$schema'.properties

@@ -10,7 +10,48 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_2($$$);
 my %_jm_cst_0;
+sub json_model_3($$$);
+sub json_model_4($$$);
+sub json_model_5($$$);
+sub json_model_6($$$);
+sub json_model_7($$$);
+sub json_model_8($$$);
+sub json_model_9($$$);
+sub _jm_xre_0($$$);
+sub _jm_xre_1($$$);
+sub json_model_10($$$);
+sub json_model_11($$$);
+sub json_model_12($$$);
+sub json_model_13($$$);
+sub json_model_14($$$);
+sub json_model_15($$$);
+sub json_model_16($$$);
+sub json_model_17($$$);
+sub json_model_18($$$);
+sub json_model_19($$$);
+sub json_model_20($$$);
+sub json_model_21($$$);
+sub json_model_22($$$);
+sub json_model_23($$$);
+sub json_model_24($$$);
+sub json_model_25($$$);
+sub json_model_26($$$);
+sub json_model_27($$$);
+sub json_model_28($$$);
+sub json_model_29($$$);
+sub json_model_30($$$);
+sub json_model_31($$$);
+sub json_model_32($$$);
+sub json_model_33($$$);
+sub json_model_34($$$);
+sub json_model_35($$$);
+sub json_model_36($$$);
+sub json_model_37($$$);
+sub json_model_38($$$);
+sub json_model_39($$$);
+sub json_model_1($$$);
 my %check_model_map;
 
 sub _jm_re_0($$$)

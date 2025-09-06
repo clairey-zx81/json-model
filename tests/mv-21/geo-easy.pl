@@ -10,7 +10,21 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_2($$$);
+sub json_model_3($$$);
+sub json_model_4($$$);
+sub json_model_5($$$);
+sub json_model_6($$$);
+sub json_model_7($$$);
+sub json_model_8($$$);
+sub json_model_9($$$);
+sub json_model_10($$$);
 my %_jm_map_0;
+sub json_model_11($$$);
+sub json_model_12($$$);
+sub json_model_13($$$);
+sub json_model_14($$$);
+sub json_model_1($$$);
 my %check_model_map;
 
 # check $position (.'$position')

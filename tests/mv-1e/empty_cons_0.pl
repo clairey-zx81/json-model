@@ -10,6 +10,10 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+sub json_model_2($$$);
+sub json_model_3($$$);
+sub json_model_4($$$);
+sub json_model_1($$$);
 my %check_model_map;
 
 # check $n0 (.'$n0')

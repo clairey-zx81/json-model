@@ -24,6 +24,7 @@
 - [x] js-frontend: do several iterations to measure the loop overhead
 - [x] python: fix venv installation issue with `pl/JSON` directory
 - [x] pr: improve tuto docker launch
+- [x] pl-backend: add function declarations, needed for some recursions
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: fix sql test errors from `Makefile`
 - [ ] web-frontend: dev as a use case for jm
