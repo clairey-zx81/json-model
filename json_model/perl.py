@@ -238,8 +238,11 @@ class Perl(Language):
 
     def arr_loop(self, arr: Var, idx: Var, val: Var, body: Block) -> Block:
         # NOTE "each" does not work properly if the list contains 'undef'
-        return [ f"for my ${idx} (0 .. $#${arr})" ] + \
-            self.indent([f"my ${val} = $${arr}[${idx}];"] + body)
+        isref = "$" in arr
+        alen = f"(scalar @{{{arr}}} - 1)" if isref else f"$#${arr}"
+        aref = f"{arr}" if isref else f"$${arr}"
+        return [ f"for my ${idx} (0 .. {alen})" ] + \
+            self.indent([f"my ${val} = {aref}[${idx}];"] + body)
 
     def obj_loop(self, obj: Var, key: Var, val: Var, body: Block) -> Block:
         return [ f"scalar keys %${obj};", f"while (my (${key}, ${val}) = each %${obj})" ] + \
