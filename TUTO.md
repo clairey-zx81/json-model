@@ -32,7 +32,7 @@ seems more familiar. The docker image include the necessary environment run dire
 C, Python, JS, Perl and Java codes, which explains its size.
 Running the PL/pgSQL code requires a working Postgres server, which is _not_ discussed here.
 
-### Docker Image Installation
+### First Installation Option: Docker Image
 
 For the wary user, download and start the `zx80/jmc` docker image, from your docker
 desktop client or from a terminal:
@@ -54,7 +54,7 @@ jmc --man      # show manual page
 
 Type `exit` when you want to stop playing with the application.
 
-### Python Virtual Environment Installation
+### Second Installation Option: Python Virtual Environment
 
 For the advanced user, create a Python virtual environment with the JSON Model Compiler
 and JSON Schema Utils (for JSON Schema importations).
