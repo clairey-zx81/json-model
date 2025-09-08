@@ -33,7 +33,7 @@ for dir ; do
     #
     echo "## blaze"
     echo -n "$dir,blaze," >> ${dir}_compile.csv
-    $etime $js_cli compile -f $dir/schema.json > $dir/blaze.json 2>> ${dir}_compile.csv
+    $etime $js_cli compile -m -f $dir/schema.json > $dir/blaze.json 2>> ${dir}_compile.csv
     $js_cli validate -m $dir/blaze.json -b -l $LOOP $dir/schema.json $dir/instances.jsonl > ${dir}_blaze.out
     #
     # JMC
