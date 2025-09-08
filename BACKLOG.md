@@ -53,6 +53,7 @@
 - [ ] api: web interface with caching and security
 - [ ] c-backend: header file for generated code?
 - [ ] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
+- [ ] service: json to lang conversion API
 
 ## Re Do
 
@@ -98,7 +99,6 @@
 - [ ] static: fix double reports, eg constraint type and constraints or object props and object
 - [ ] py-backend: fix failure verbosity `ref/json-model.py.check` vs others
 - [ ] static: keep deeper names?
-- [ ] ts-backend: js sharing?
 - [ ] optim: allow more substitutions _after_ transformations? when/where to trigger optims?
 - [ ] py-backend: heterogeneous enum (`enum_05`) improved implementation with `ConstSet`
 - [ ] py-backend: heterogeneous disjunction with `ConstMap`?
@@ -120,8 +120,6 @@
 - [ ] tests: put generated exe in `/dev/shm` instead of locally from `Makefile`?
 - [ ] static: improve constraint failing message (length, unique…)
 - [ ] schema: inline external references to generate working schemas in more cases? (openapi-311)
-- [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
-- [ ] php-backend: should it stoop so low?
 - [ ] perf: geo, ansible meta, openapi
 - [ ] c-backend: multithreading? one one value??
 - [ ] pr: deb and rpm packaging? github package distribution?
@@ -224,18 +222,26 @@
 - [ ] perf: two phase check, without collection and with collection if needed.
 - [ ] perf: no reasons/path collection and run with collection only when bad.
 - [ ] schema: handle includes? inline?!
-- [ ] js/ts-backend: look at JSON Schema implementations?
-- [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
+- [ ] go-backend: encoding/json vs various faster replacements…
+- [ ] ruby-backend: for rails people?
 - [ ] rust-backend: see [json crate](https://docs.rs/json/latest/json/).
 - [ ] cpp-backend: see [json](https://github.com/nlohmann/json) and `re2`. json lib popularity?
 - [ ] cpp-backend: also see [simdjson](https://github.com/simdjson/simdjson)?
 - [ ] kotlin-backend: see [serialization](https://kotlinlang.org/docs/serialization.html).
-- [ ] go-backend: encoding/json vs various faster replacements…
-- [ ] ruby-backend: for rails people?
-- [ ] pl-backend: for CGI people?
+- [ ] mongodb-backend: generate bson stuff, as an option to schema generation?
+- [ ] ts-backend: js sharing ?
+- [ ] swift-backend: …
+- [ ] php-backend: …
+- [ ] c#-backend: …
+- [ ] haskell-backend: …
+- [ ] ocaml-backend: …
+- [ ] scala-backend: …
+- [ ] vb-backend: ?
+- [ ] julia-backend: ?
+- [ ] lua-backend: ?
+- [ ] dyn-backend: is dynamic mergeable in xstatic, beyond using `eval`?
 - [ ] feature: add model predef for URI, URI-REF and the like
 - [ ] design: URI vs URL?
-- [ ] service: json to lang conversion API :-)
 - [ ] design: documentation use case, with added _markdown description_
 - [ ] pr: validation must be optimized for the valid case, as it is the most likely.
 - [ ] case: use trafo in geo to have either 2 or 3 vectors, no mix.
