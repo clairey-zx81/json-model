@@ -2,7 +2,7 @@
 #
 # run jsonschema command in docker
 #
-# 2025-09-01: latest=v11.6.0
+# 2025-09-08: latest=v11.8.0
 
 docker_image="ghcr.io/sourcemeta/jsonschema:latest"
 docker_root="docker run --name blaze_cli_$$ -v .:/workspace --rm"
