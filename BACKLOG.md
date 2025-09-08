@@ -2,37 +2,11 @@
 
 ## Current Tasks
 
-- [x] pr: howto entry about python dyn code
-- [x] pr: add about project page which include some stats
-- [x] pr: howto entry about python projects
-- [x] pr: restructure web site, avoid some duplication
-- [x] pr: python static api
-- [x] pr: python dynamic api
-- [x] pr: js api
-- [x] pr: c api
-- [x] tests: fix generated json model schema test by switching to jschon
-- [x] pr: plpgsql api
-- [x] pr: perl api
-- [x] pr: java api
-- [x] pr: js howto
-- [x] c-backend: add inlining and branch hints
-- [x] c-frontend: fix --version display
-- [x] py-frontend: fix line display for jsonl and test vectors
-- [x] java-frontend: improve check interface and calls
-- [x] js-frontend: fix line numbering for jsonl
-- [x] py-frontend: fix line numbering for jsonl
-- [x] js-frontend: do several iterations to measure the loop overhead
-- [x] python: fix venv installation issue with `pl/JSON` directory
-- [x] pr: improve tuto docker launch
-- [x] pl-backend: add function declarations, needed for some recursions
-- [x] pl-backend: work around reference issues
-- [x] command: add `--schema-version` to force schema version output
-- [ ] tests: add non regression tests to docker build
 - [ ] pr: update tuto scripts to match current status
+- [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
-- [ ] web-frontend: dev as a use case for jm
 - [ ] pr: web api
-- [ ] pr: remove wip cover page from web site
+- [ ] web-frontend: dev as a use case for jm
 - [ ] tests: fix test with generated json model meta schema
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] tests: test generated JSON schema with test vectors.
@@ -577,3 +551,29 @@
 - [x] design: check `$BOOL` vs `$BOOLEAN` support
 - [x] pr: complete spec
 - [x] design: force static information on `@` constraints for optimizations
+- [x] pr: howto entry about python dyn code
+- [x] pr: add about project page which include some stats
+- [x] pr: howto entry about python projects
+- [x] pr: restructure web site, avoid some duplication
+- [x] pr: python static api
+- [x] pr: python dynamic api
+- [x] pr: js api
+- [x] pr: c api
+- [x] tests: fix generated json model schema test by switching to jschon
+- [x] pr: plpgsql api
+- [x] pr: perl api
+- [x] pr: java api
+- [x] pr: js howto
+- [x] c-backend: add inlining and branch hints
+- [x] c-frontend: fix --version display
+- [x] py-frontend: fix line display for jsonl and test vectors
+- [x] java-frontend: improve check interface and calls
+- [x] js-frontend: fix line numbering for jsonl
+- [x] py-frontend: fix line numbering for jsonl
+- [x] js-frontend: do several iterations to measure the loop overhead
+- [x] python: fix venv installation issue with `pl/JSON` directory
+- [x] pr: improve tuto docker launch
+- [x] pl-backend: add function declarations, needed for some recursions
+- [x] pl-backend: work around reference issues
+- [x] command: add `--schema-version` to force schema version output
+- [x] pr: remove wip cover page from web site
