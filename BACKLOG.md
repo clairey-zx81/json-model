@@ -5,8 +5,10 @@
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
-- [ ] pr: web api
+- [ ] service: json to lang conversion API
+- [ ] api: web interface with caching and security
 - [ ] web-frontend: dev as a use case for jm
+- [ ] service: minimal website with editor
 - [ ] tests: fix test with generated json model meta schema
 - [ ] java: joy/johnzon bugs `mv-16/or_0b` JSONP, 100E99 <> 10E100; other JSONP issues, maybe int/float
 - [ ] tests: test generated JSON schema with test vectors.
@@ -23,12 +25,8 @@
 - [ ] pr: submit jsonschema-benchmark java PR
 - [ ] pr: submit jsonschema-benchmark PL/pgSQL PR
 - [ ] frontends: reject json with duplicated props
-- [ ] pr: howto entry about javascript projects/code
-- [ ] pr: howto entry about C executable/code
-- [ ] api: web interface with caching and security
 - [ ] c-backend: header file for generated code?
 - [ ] tests: perl _uninitialized value $tag_0 in hash element at `./mv-18/dis_01.pl:171._
-- [ ] service: json to lang conversion API
 
 ## Re Do
 
