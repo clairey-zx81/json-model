@@ -385,6 +385,12 @@ def jmc_script():
     ope("--compile", "-C", dest="op", action="store_const", const="C",
         help="code generation")
 
+    # export control
+    arg("--schema-version", "--sv", action="store_true",
+        help="force include JSON Schema version on export")
+    arg("--no-schema-version", "--nsv", action="store_false",
+        help="do not include JSON Schema version on export")
+
     # url cache management
     arg("--cache-dir", default=None, help="set cache directory")
     arg("--cache-ignore", default=False, action="store_true", help="ignore cache contents")
@@ -643,7 +649,7 @@ def jmc_script():
                 log.warning(f"{args.model}: JSON Schema does not support strict integer/float")
             schema: JsonSchema
             try:
-                schema = model.toSchema()
+                schema = model.toSchema(version=args.schema_version)
             except Exception as e:
                 log.error(e, exc_info=args.debug)
                 schema = {"ERROR": str(e)}

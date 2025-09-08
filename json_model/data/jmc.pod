@@ -17,7 +17,7 @@ B<jmc> - JSON Model Compiler
      [--gen {exec,module,code,none} | --executable | --module | --code | --no-gen]
      [--cc CC] [--cflags CFLAGS] [--cppflags CPPFLAGS] [--ldflags LDFLAGS]
      [--include [INCLUDE ...]] [--library [LIBRARY ...]] [--define [DEFINE ...]]
-     [--javac JAVAC] [--jflags JFLAGS]
+     [--javac JAVAC] [--jflags JFLAGS] [-[-no]-schema-version]
      [--name NAME] [-[-no]-report] [--none] [--true] [--false] [--test-vector]
      [--map-threshold MAP_THRESHOLD] [--map-share]
      [--op {P,U,J,N,E,C} | --preproc | --dump | --jdump | --nope | --export | --compile]
@@ -209,6 +209,16 @@ Java compiler.
 =item B<--jflags JFLAGS>
 
 Java compiler flags.
+
+=back
+
+=head2 JSON Schema Export
+
+=over 4
+
+=item B<-[-no]-schema-version>
+
+Whether to force include/not include JSON Schema version.
 
 =back
 
