@@ -16,7 +16,7 @@ typedef enum {
     expect_pass
 } process_mode_t;
 
-// return cputime µs
+// return realtime µs
 static INLINE double now(void)
 {
     struct timespec ts;
@@ -26,6 +26,19 @@ static INLINE double now(void)
         exit(2);
     }
     return 1000000.0 * ts.tv_sec + 0.001 * ts.tv_nsec;
+}
+
+// overhead estimation µs
+static double empty_run(int loop)
+{
+    double empty = 0.0;
+    for (int i = loop; i; i--)
+    {
+        double start = now();
+        empty += now() - start;
+    }
+    empty /= loop;
+    return empty;
 }
 
 // check value and report if there was some error wrt expectations
@@ -48,13 +61,14 @@ process_value(const char *name, const json_t * value,
     // performance loop in µs
     if (loop > 1)
     {
-        // overhead estimation
-        for (int i = loop; i; i--)
+        // minimize overhead estimation over 10 runs
+        empty = empty_run(loop);
+        for (int i = 1; i < 10; i++)
         {
-            double start = now();
-            empty += now() - start;
+            double e = empty_run(loop);
+            if (e < empty)
+                empty = e;
         }
-        empty /= loop;
 
         // validation estimation
         double sum = 0.0, sum2 = 0.0;
