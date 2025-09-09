@@ -26,7 +26,7 @@ for dir ; do
     jmc_x_opt=$jmc_c_opt
     if [ $dir = "cspell" -o $dir = "ui5-manifest" ] ; then
       jmc_c_opt+="-re pcre2"
-      jmc_x_opti+="-re re"
+      jmc_x_opt+="-re re"
     fi
     #
     # Blaze
