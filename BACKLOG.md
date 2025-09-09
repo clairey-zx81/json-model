@@ -2,6 +2,8 @@
 
 ## Current Tasks
 
+- [x] model: filter out all comments from transformations
+- [x] c-backend: improve overhead estimation accuracy
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
