@@ -302,7 +302,8 @@ class JsonModel:
                     for name, rw in model_pc.items()
                         if isinstance(name, str) and
                             not name.startswith(".") and
-                            name not in ("#", "<")
+                            name not in ("#", "<") and
+                            not name.startswith("#")
             }
 
             # log.warning(f"rewrite={self._rewrite}")
