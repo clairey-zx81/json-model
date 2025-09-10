@@ -4,7 +4,8 @@ export TMPDIR=.
 LOOP=$1
 shift 1
 
-export PATH=.:$PATH
+# just in case
+export PATH=$PATH:.
 
 # docker wrappers
 jmc=jmc
@@ -22,8 +23,7 @@ function keeptime()
 
 for dir ; do
     [ -d "$dir" ] || continue
-    name=${dir//-/_}
-    name=${dir//*\//}
+    name=$(basename ${dir//-/_})
     echo "# considering $dir ($name)"
     #
     # Fixes
