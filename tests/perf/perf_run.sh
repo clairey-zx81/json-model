@@ -14,7 +14,7 @@ jsu_model="$jmc exec jsu-model"
 jsu_simpler="$jmc exec jsu-simpler"
 etime="/usr/bin/time -f %e"
 
-now=$(date -Ins -u)
+now=$(date -Ins -u | tr ',' '.')
 
 function keeptime()
 {
