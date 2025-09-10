@@ -19,9 +19,10 @@ started=0 processes=""
 
 function do_start()
 {
-    echo "starting: $@"
+    echo "# starting: $@"
     "$@" &
     processes="$processes $! "
+    echo "# started: $!"
     let started+=1
 }
 
@@ -29,6 +30,7 @@ function do_wait()
 {
     if [ $started -ge $PARALLEL ] ; then
       wait -n -p stopped $processes
+      echo "# stopped: $stopped"
       processes=${processes/ $stopped /}
       let started-=1
     fi
