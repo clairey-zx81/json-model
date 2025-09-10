@@ -1,4 +1,7 @@
 #! /bin/bash
+#
+# extract performance figures from run outputs
+#
 
 for file ; do
     name=$(basename $file .out | tr '_' ',')

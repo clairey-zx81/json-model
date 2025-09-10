@@ -1,4 +1,7 @@
 #! /bin/bash
+#
+# keep well-formed line from compilation performance output
+#
 
 # test,tool,ts,perf
 cat "$@" |
