@@ -31,9 +31,9 @@ function do_wait()
     local loaded=${1:-0}
     if [ $running -ge $loaded ] ; then
       echo "# waiting on $processes"
-      wait -n -p stopped_ps
-      echo "# stopped: $stopped"
-      processes=${processes/ $stopped_ps /}
+      wait -n -p stopped_pid
+      echo "# stopped: $stopped_pid"
+      processes=${processes/ $stopped_pid /}
       let running-=1 stopped+=1
     fi
 }
