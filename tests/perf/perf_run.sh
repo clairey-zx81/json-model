@@ -4,9 +4,11 @@ export TMPDIR=.
 LOOP=$1
 shift 1
 
+export PATH=.:$PATH
+
 # docker wrappers
-jmc=./jmc
-js_cli=./js-cli
+jmc=jmc
+js_cli=js-cli
 jsu_model="$jmc exec jsu-model"
 jsu_simpler="$jmc exec jsu-simpler"
 etime="/usr/bin/time -f %e"
