@@ -23,11 +23,11 @@ function keeptime()
 
 for dir ; do
     [ -d "$dir" ] || continue
+    name=$(basename ${dir//-/_})
     echo "# considering $dir ($name)"
     #
     # Output
     #
-    name=$(basename ${dir//-/_})
     prefix="$PREFIX${name}"
     compile_csv="${prefix}_compile.csv"
     #
