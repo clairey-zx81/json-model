@@ -447,7 +447,7 @@ A reference is a string which begins with the `$` character.
 
 Implementation should detect external reference cycles which are errors and should be rejected.
 
-## Model Transformations
+## (Experimental) Model Transformations
 
 Symbol `%` at the root of the model defines a model transformation object, which
 may include symbol renamings, model importations and model editions.
@@ -526,6 +526,10 @@ may include symbol renamings, model importations and model editions.
 
   These additions and editions are performed _after_ property renamings and imports,
   and _before_ merge pre-processing.
+
+What is the _right_ balance between features, syntax and ease-of-use for a type transformation
+language is an on-going investigation: should it allow renaming, moving or copying attributes?
+Should it allow to remove definitions?
 
 ## Static Typing Lattice
 
