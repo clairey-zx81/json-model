@@ -9,7 +9,7 @@ function err()
 }
 
 echo "# sanity check"
-for cmd in git docker sqlite3 ; do
+for cmd in git docker sqlite3 /usr/bin/time ; do
   type $cmd || err 1 "command $cmd not found"
 done
 
