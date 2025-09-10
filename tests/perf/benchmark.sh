@@ -76,8 +76,12 @@ compile-to-csv.sh tmp/*_compile.csv > compile.csv
 run-to-csv.sh tmp/*.out > perf.csv
 res-to-csv.sh tmp/*.out > result.csv
 
+echo "# versions"
+echo "## jmc: $(jmc --version)"
+echo "## js-cli: $(js-cli --version)"
+
 echo "# statistics"
-echo "## number of schemas: $(echo jsb/schemas/* | wc -l)"
+echo "## number of schemas: $(echo jsb/schemas/* | wc -w)"
 echo "## number of values: $(cat jsb/schemas/*/instances.jsonl | wc -l)"
 # TODO more stats
 
