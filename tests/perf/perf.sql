@@ -211,15 +211,6 @@ SELECT
   MAX(py),
   MAX(jv)
 FROM CompilePerfCompare;
-/*
-UNION
-SELECT
-  'std compile time (s)' AS data,
-  ROUND(STDEV(blaze), 1) AS blaze,
-  ROUND(STDEV(c), 1) AS c,
-  ROUND(STDEV(js), 1) AS js,
-  ROUND(STDEV(py), 1) AS py,
-  ROUND(STDEV(jv), 1) AS jv
-FROM CompilePerfCompare
-*/
-;
+
+.print # results
+SELECT * FROM Result WHERE fail <> 0;
