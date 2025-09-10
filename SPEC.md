@@ -529,7 +529,7 @@ may include symbol renamings, model importations and model editions.
 
 What is the _right_ balance between features, syntax and ease-of-use for a type transformation
 language is an on-going investigation: should it allow renaming, moving or copying attributes?
-Should it allow to remove definitions?
+Should it allow to remove definitions? Should imports allow to define a namespace?
 
 ## Static Typing Lattice
 
