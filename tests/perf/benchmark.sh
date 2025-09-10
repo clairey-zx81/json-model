@@ -63,6 +63,10 @@ for dir in jsb/schemas/* ; do
   do_wait
 done
 
+while [ $started -ge 0 ] ; do
+  do_wait
+done
+
 echo "# extract"
 compile-to-csv.sh tmp/*_compile.csv > compile.csv
 run-to-csv.sh tmp/*.out > perf.csv
