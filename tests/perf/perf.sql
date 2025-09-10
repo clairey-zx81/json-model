@@ -16,16 +16,27 @@ CREATE TABLE Compile(
   PRIMARY KEY(name, tool, ran)
 );
 
+CREATE TABLE Result(
+  name TEXT NOT NULL,
+  tool TEXT NOT NULL,
+  pass INT NOT NULL,
+  fail INT NOT NULL,
+  PRIMARY KEY(name, tool)
+);
+
 -- load raw data
 .mode csv
 .import perf.csv Run
 .import compile.csv Compile
+.import result.csv Result
 
--- simplify some names
+-- shorten some names
 UPDATE Run SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Compile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE Result SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Run SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE Compile SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+UPDATE Result SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 
 CREATE TABLE Cases(name TEXT PRIMARY KEY);
 INSERT INTO Cases(name)

@@ -69,9 +69,10 @@ while [ $started -ge 0 ] ; do
   do_wait
 done
 
-echo "# extract"
+echo "# extracts"
 compile-to-csv.sh tmp/*_compile.csv > compile.csv
 run-to-csv.sh tmp/*.out > perf.csv
+res-to-csv.sh tmp/*.out > result.csv
 
 echo "# statistics"
 echo "## number of schemas: $(echo jsb/schemas/* | wc -l)"
