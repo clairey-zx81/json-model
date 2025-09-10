@@ -15,7 +15,7 @@ function err()
 }
 
 # parallelism management
-started=0 processes=""
+started=0 running=0 stopped=0 processes=""
 
 function do_start()
 {
@@ -23,16 +23,18 @@ function do_start()
     "$@" &
     processes="$processes $! "
     echo "# started: $!"
-    let started+=1
+    let started+=1 running+=1
 }
 
 function do_wait()
 {
-    if [ $started -ge $PARALLEL ] ; then
-      wait -n -p stopped $processes
+    local loaded=${1:-0}
+    if [ $running -ge $loaded ] ; then
+      echo "# waiting on $processes"
+      wait -n -p stopped_ps
       echo "# stopped: $stopped"
-      processes=${processes/ $stopped /}
-      let started-=1
+      processes=${processes/ $stopped_ps /}
+      let running-=1 stopped+=1
     fi
 }
 
@@ -56,17 +58,17 @@ export PATH=$script_dir:$PATH
 echo "# compilation runs"
 for i in 1 2 3 4 ; do
   do_start perf_run.sh 0 tmp/${i}_ jsb/schemas/*
-  do_wait
+  do_wait $PARALLEL
 done
 
 echo "# validation runs"
 for dir in jsb/schemas/* ; do
   do_start perf_run.sh $LOOP tmp/ $dir
-  do_wait
+  do_wait $PARALLEL
 done
 
-while [ $started -ge 0 ] ; do
-  do_wait
+while [ $running -gt 0 ] ; do
+  do_wait 0
 done
 
 echo "# extracts"
