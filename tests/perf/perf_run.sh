@@ -23,12 +23,14 @@ function keeptime()
 
 for dir ; do
     [ -d "$dir" ] || continue
-    name=$(basename ${dir//-/_})
+    name=$(basename $dir)
     echo "# considering $dir ($name)"
     #
     # Output
     #
+    safe=${name//-/_}         # for java class names
     prefix="$PREFIX${name}"
+    sprefix="$PREFIX${safe}"
     compile_csv="${prefix}_compile.csv"
     #
     # Fixes
@@ -76,11 +78,11 @@ for dir ; do
     jmc_py_ko=$?
     echo "## $dir jmc-java compile"
     echo -n "$name,jmc-java-src,$now," >> $compile_csv
-    $etime $jmc $jmc_x_opt -o ${prefix}_model.java ${prefix}_model.json 2>&1 |
+    $etime $jmc $jmc_x_opt -o ${sprefix}_model.java ${prefix}_model.json 2>&1 |
         keeptime >> $compile_csv
     jmc_java_ko=$?
     echo -n "$name,jmc-java-class,$now," >> $compile_csv
-    $etime $jmc $jmc_x_opt -o ${prefix}_model.class ${prefix}_model.json 2>&1 |
+    $etime $jmc $jmc_x_opt -o ${sprefix}_model.class ${prefix}_model.json 2>&1 |
         keeptime >> $compile_csv
     jmc_class_ko=$?
     # echo "## $dir jmc-pl compile"
@@ -110,11 +112,11 @@ for dir ; do
             2> ${prefix}_jmc-py.out
     echo "## $dir jmc-java run"
     [ "$jmc_class_ko" -eq 0 ] && {
-        $jmc exec java ${prefix}_model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
+        $jmc exec java ${sprefix}_model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
             2> ${prefix}_jmc-java-gson.out
-        $jmc exec java ${prefix}_model.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
+        $jmc exec java ${sprefix}_model.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
             2> ${prefix}_jmc-java-jackson.out
-        $jmc exec java ${prefix}_model.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
+        $jmc exec java ${sprefix}_model.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
             2> ${prefix}_jmc-java-jsonp.out
     }
     # echo "## $dir jmc-pl run"
