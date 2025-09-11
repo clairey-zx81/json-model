@@ -43,6 +43,7 @@ function do_wait()
     if [ $running -ge $loaded ] ; then
       echo "# waiting on $processes"
       wait -n -p stopped_pid
+      # NOTE ps counting does not seem very reliable
       echo "# stopped: $stopped_pid"
       processes=${processes/ $stopped_pid /}
       let running-=1 stopped+=1
