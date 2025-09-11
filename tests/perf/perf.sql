@@ -251,5 +251,5 @@ CREATE TABLE ShowCompileSummary AS
 CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison
-  WHERE blaze <> 100 OR c <> 100 OR js <> 100 OR jv1 <> 100
-     OR jv2 <> 100 OR jv3 <> 100 OR py <> 100;
+  WHERE blaze <> '100' OR c <> '100' OR js <> '100' OR jv1 <> '100'
+     OR jv2 <> '100' OR jv3 <> '100' OR py <> '100';
