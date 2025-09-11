@@ -118,7 +118,7 @@ done > cases.csv
 # ANALYSIS
 #
 echo "# create performance tables"
-sqlite3 -init $script_dir/perf.sql perf.db
+sqlite3 perf.db < $script_dir/perf.sql
 
 #
 # OUTPUT
@@ -127,4 +127,4 @@ echo "# versions"
 echo "## jmc: $(jmc --version)"
 echo "## js-cli: $(js-cli --version)"
 echo "## statistics"
-sqlite3 -box -init $script_dir/show.sql perf.db
+sqlite3 -box perf.db < $script_dir/show.sql
