@@ -111,8 +111,8 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_1,
-            "root": json_model_4,
+            "": json_model_3,
+            "root": json_model_3,
             "Root": json_model_3,
         }
 

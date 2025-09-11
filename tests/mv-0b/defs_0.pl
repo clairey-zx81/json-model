@@ -45,7 +45,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_2,
             'an_int' => \&json_model_2,
         );
     }

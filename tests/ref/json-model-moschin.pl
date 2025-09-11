@@ -3324,7 +3324,7 @@ sub check_model_init()
             '~' => \&_jm_f_7,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_3,
             'Model' => \&json_model_3,
         );
     }

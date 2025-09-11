@@ -174,7 +174,7 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_3,
             "A": json_model_2,
             "B": json_model_3,
         }

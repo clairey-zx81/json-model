@@ -7607,7 +7607,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_10_re2))
             return cre2_error_string(_jm_re_10_re2);
         _jm_re_10_nn = cre2_num_capturing_groups(_jm_re_10_re2) + 1;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
         check_model_map_tab[1] = (jm_propmap_t) { "openapi", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

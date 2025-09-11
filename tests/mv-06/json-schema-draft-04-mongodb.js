@@ -884,7 +884,7 @@ export function check_model_init()
         _jm_cst_1.add("timestamp")
         _jm_cst_1.add("minKey")
         _jm_cst_1.add("maxKey")
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", json_model_3)
         check_model_map.set("schema", json_model_3)
     }
 }

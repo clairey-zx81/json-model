@@ -2666,7 +2666,7 @@ public class json_schema_draft_2019_09 extends ModelChecker
             json_schema_draft_2019_09_map_pmap = new HashMap<String, Checker>();
             json_schema_draft_2019_09_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("URI-REFERENCE", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
-            json_schema_draft_2019_09_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
+            json_schema_draft_2019_09_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("core", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("meta", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             json_schema_draft_2019_09_map_pmap.put("content", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });

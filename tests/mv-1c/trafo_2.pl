@@ -138,7 +138,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_4,
             'Z' => \&json_model_5,
             'z' => \&json_model_3,
             'l' => \&json_model_4,

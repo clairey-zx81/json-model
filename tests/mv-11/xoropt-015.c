@@ -415,7 +415,7 @@ const char *check_model_init(void)
     {
         initialized = true;
         jm_version_string = JSON_MODEL_VERSION;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_6 };
         check_model_map_tab[1] = (jm_propmap_t) { "V", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "X", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Y", json_model_4 };

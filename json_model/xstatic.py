@@ -1386,6 +1386,23 @@ class CodeGenerator:
             jm, gref = self._to_compile[min(todo)]
             self.compileOneJsonModel(jm, gref, [gref], True)
 
+        # optimize mapping by skipping intermediate functions on direct references
+        for name in list(entries.keys()):
+            key, fun0 = name, entries[name]
+            fun, seen = None, set()
+            while key in entries and (key == "" or key in model._defs) and key not in seen:
+                seen.add(key)
+                jm = model._defs[key] if key != "" else model
+                if isinstance(jm._model, str) and jm._model.startswith("$"):
+                    key = jm._model[1:]
+                    if key in entries:
+                        fun = entries[key]
+                    # else we are going to exit next
+                else:
+                    break
+            if fun is not None and fun != fun0:
+                entries[name] = fun
+
         # generate mapping, name must be consistent with data/clang_*.c
         self._code.pmap(f"{self._code._entry}_map", entries, True)
 

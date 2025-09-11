@@ -1892,7 +1892,7 @@ def check_model_init():
         _jm_re_10 = lambda s, p, r: _jm_re_10_reco.search(s) is not None
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_3,
             "Model": json_model_3,
         }
 

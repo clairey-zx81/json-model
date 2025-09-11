@@ -3,10 +3,10 @@ xoropt-003.values.json[1]: PASS
 xoropt-003.values.json[2]: PASS
 xoropt-003.values.json[3]: PASS
 xoropt-003.values.json[4]: PASS
-xoropt-003.values.json[5]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[6]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[7]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[8]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[9]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[10]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
-xoropt-003.values.json[11]: FAIL (.: unexpected $A [.]; .: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[5]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[6]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[7]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[8]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[9]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[10]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])
+xoropt-003.values.json[11]: FAIL (.: no model matched [.'$A'.'|']; .: unexpected /[a-z]/ [.'$A'.'|'.3]; .: not a 1.0 strict float [.'$A'.'|'.2]; .: not a 1 strict int [.'$A'.'|'.1]; .: not a bool [.'$A'.'|'.0])

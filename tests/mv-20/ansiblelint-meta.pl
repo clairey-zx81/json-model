@@ -8176,7 +8176,7 @@ sub check_model_init()
             'git' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_60,
             'AIXPlatformModel' => \&json_model_2,
             'AlpinePlatformModel' => \&json_model_3,
             'AmazonLinuxPlatformModel' => \&json_model_4,

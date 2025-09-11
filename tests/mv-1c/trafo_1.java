@@ -124,7 +124,7 @@ public class trafo_1 extends ModelChecker
         {
             try {
             trafo_1_map_pmap = new HashMap<String, Checker>();
-            trafo_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            trafo_1_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             trafo_1_map_pmap.put("un", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

@@ -720,7 +720,7 @@ public class json_schema_draft_01_fuzzy extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"object\""));
             _jm_cst_0_set.add(json.safeJSON("\"any\""));
             json_schema_draft_01_fuzzy_map_pmap = new HashMap<String, Checker>();
-            json_schema_draft_01_fuzzy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            json_schema_draft_01_fuzzy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_schema_draft_01_fuzzy_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

@@ -173,7 +173,7 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_4,
             "loose": json_model_5,
             "strict": json_model_6,
             "combined": json_model_4,

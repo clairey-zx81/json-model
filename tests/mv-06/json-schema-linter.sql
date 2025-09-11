@@ -4236,7 +4236,7 @@ $$ LANGUAGE PLpgSQL;
 CREATE OR REPLACE FUNCTION check_model_map(name TEXT)
 RETURNS TEXT STRICT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
-  map JSONB := JSONB '{"":"json_model_1","const":"json_model_2","enum":"json_model_3","schemaArray":"json_model_4","stringKeywords":"json_model_5","arrayKeywords":"json_model_6","objectKeywords":"json_model_7","numberKeywords":"json_model_8","metas":"json_model_9","String":"json_model_10","Array":"json_model_11","Object":"json_model_12","Integer":"json_model_13","Number":"json_model_14","Bool":"json_model_15","Null":"json_model_16","AllOf":"json_model_17","AnyOf":"json_model_18","OneOf":"json_model_19","Enum":"json_model_20","Const":"json_model_21","Ref":"json_model_22","ObjectSchema":"json_model_23","Schema":"json_model_24","RootSchema":"json_model_25"}';
+  map JSONB := JSONB '{"":"json_model_25","const":"json_model_2","enum":"json_model_3","schemaArray":"json_model_4","stringKeywords":"json_model_5","arrayKeywords":"json_model_6","objectKeywords":"json_model_7","numberKeywords":"json_model_8","metas":"json_model_9","String":"json_model_10","Array":"json_model_11","Object":"json_model_12","Integer":"json_model_13","Number":"json_model_14","Bool":"json_model_15","Null":"json_model_16","AllOf":"json_model_17","AnyOf":"json_model_18","OneOf":"json_model_19","Enum":"json_model_20","Const":"json_model_21","Ref":"json_model_22","ObjectSchema":"json_model_23","Schema":"json_model_24","RootSchema":"json_model_25"}';
 BEGIN
   RETURN map->>name;
 END;

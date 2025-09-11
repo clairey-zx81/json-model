@@ -7468,7 +7468,7 @@ public class openapi_311_models extends ModelChecker
             _jm_cst_5_set.add(json.safeJSON("\"$ANY\""));
             _jm_re_10_pat = Pattern.compile("^=(null|true|false|[-+]?\\d+(\\.\\d+)?([Ee][-+]?\\d+)?)$");
             openapi_311_models_map_pmap = new HashMap<String, Checker>();
-            openapi_311_models_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            openapi_311_models_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             openapi_311_models_map_pmap.put("openapi", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

@@ -912,7 +912,7 @@ export function check_model_init()
         _jm_cst_1.add("array")
         _jm_cst_1.add("object")
         _jm_cst_1.add("any")
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", json_model_3)
         check_model_map.set("schema", json_model_3)
     }
 }

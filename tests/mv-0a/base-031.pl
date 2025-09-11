@@ -94,7 +94,7 @@ sub check_model_init()
     {
         $initialized = 1;
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_2,
             'bibi' => \&json_model_2,
         );
     }

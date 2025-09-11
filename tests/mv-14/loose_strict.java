@@ -256,7 +256,7 @@ public class loose_strict extends ModelChecker
         {
             try {
             loose_strict_map_pmap = new HashMap<String, Checker>();
-            loose_strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            loose_strict_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             loose_strict_map_pmap.put("loose", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             loose_strict_map_pmap.put("strict", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             loose_strict_map_pmap.put("combined", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

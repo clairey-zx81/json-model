@@ -789,7 +789,7 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_2,
             "Schema": json_model_2,
             "Type": json_model_3,
             "atomic-types": json_model_4,

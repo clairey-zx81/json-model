@@ -386,7 +386,7 @@ def jmc_script():
         help="code generation")
 
     # export control
-    arg("--schema-version", "--sv", action="store_true",
+    arg("--schema-version", "--sv", action="store_true", default=None,
         help="force include JSON Schema version on export")
     arg("--no-schema-version", "--nsv", action="store_false",
         help="do not include JSON Schema version on export")

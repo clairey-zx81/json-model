@@ -5256,7 +5256,7 @@ public class json_model extends ModelChecker
             _jm_re_10_pat = Pattern.compile("^([#|&^+/*@~=$%]|[<>!]=?)$");
             _jm_re_11_pat = Pattern.compile("^\\$.*$");
             json_model_map_pmap = new HashMap<String, Checker>();
-            json_model_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            json_model_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_39(o, p, r);} });
             json_model_map_pmap.put("Url", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             json_model_map_pmap.put("PreDef", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_model_map_pmap.put("Identifier", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
@@ -5274,7 +5274,7 @@ public class json_model extends ModelChecker
             json_model_map_pmap.put("Any", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_16(o, p, r);} });
             json_model_map_pmap.put("None", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_17(o, p, r);} });
             json_model_map_pmap.put("Array", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_18(o, p, r);} });
-            json_model_map_pmap.put("Common", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_19(o, p, r);} });
+            json_model_map_pmap.put("Common", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             json_model_map_pmap.put("Constraint", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_20(o, p, r);} });
             json_model_map_pmap.put("Or", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_21(o, p, r);} });
             json_model_map_pmap.put("And", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_22(o, p, r);} });

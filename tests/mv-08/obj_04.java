@@ -52,7 +52,7 @@ public class obj_04 extends ModelChecker
         {
             try {
             obj_04_map_pmap = new HashMap<String, Checker>();
-            obj_04_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            obj_04_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             obj_04_map_pmap.put("bla", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

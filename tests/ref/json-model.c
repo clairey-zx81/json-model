@@ -5316,7 +5316,7 @@ const char *check_model_init(void)
         if (cre2_error_code(_jm_re_11_re2))
             return cre2_error_string(_jm_re_11_re2);
         _jm_re_11_nn = cre2_num_capturing_groups(_jm_re_11_re2) + 1;
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_39 };
         check_model_map_tab[1] = (jm_propmap_t) { "Url", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "PreDef", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Identifier", json_model_4 };
@@ -5334,7 +5334,7 @@ const char *check_model_init(void)
         check_model_map_tab[15] = (jm_propmap_t) { "Any", json_model_16 };
         check_model_map_tab[16] = (jm_propmap_t) { "None", json_model_17 };
         check_model_map_tab[17] = (jm_propmap_t) { "Array", json_model_18 };
-        check_model_map_tab[18] = (jm_propmap_t) { "Common", json_model_19 };
+        check_model_map_tab[18] = (jm_propmap_t) { "Common", json_model_6 };
         check_model_map_tab[19] = (jm_propmap_t) { "Constraint", json_model_20 };
         check_model_map_tab[20] = (jm_propmap_t) { "Or", json_model_21 };
         check_model_map_tab[21] = (jm_propmap_t) { "And", json_model_22 };

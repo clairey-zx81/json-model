@@ -1431,7 +1431,7 @@ export function check_model_init()
         _jm_cst_0.add("number")
         _jm_cst_0.add("object")
         _jm_cst_0.add("string")
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", json_model_3)
         check_model_map.set("schema", json_model_3)
     }
 }

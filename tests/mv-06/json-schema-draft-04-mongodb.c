@@ -946,7 +946,7 @@ const char *check_model_init(void)
         _jm_cst_1[15] = (jm_constant_t) { cst_is_string, { .s = "minKey" } };
         _jm_cst_1[16] = (jm_constant_t) { cst_is_string, { .s = "maxKey" } };
         jm_sort_cst(_jm_cst_1, 17);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
         check_model_map_tab[1] = (jm_propmap_t) { "schema", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

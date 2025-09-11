@@ -4236,7 +4236,7 @@ sub check_model_init()
             'title' => \&_jm_f_163,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_25,
             'const' => \&json_model_2,
             'enum' => \&json_model_3,
             'schemaArray' => \&json_model_4,

@@ -2788,7 +2788,7 @@ const char *check_model_init(void)
         jm_sort_propmap(_jm_obj_12_map_tab, 57);
         check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
         check_model_map_tab[1] = (jm_propmap_t) { "URI-REFERENCE", json_model_2 };
-        check_model_map_tab[2] = (jm_propmap_t) { "id", json_model_3 };
+        check_model_map_tab[2] = (jm_propmap_t) { "id", json_model_2 };
         check_model_map_tab[3] = (jm_propmap_t) { "core", json_model_4 };
         check_model_map_tab[4] = (jm_propmap_t) { "meta", json_model_5 };
         check_model_map_tab[5] = (jm_propmap_t) { "content", json_model_6 };

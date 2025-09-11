@@ -6142,7 +6142,7 @@ sub check_model_init()
             'writeOnly' => \&_jm_f_277,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_26,
             'const' => \&json_model_2,
             'enum' => \&json_model_3,
             'schemaArray' => \&json_model_4,

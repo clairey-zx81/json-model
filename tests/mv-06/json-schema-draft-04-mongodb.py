@@ -597,7 +597,7 @@ def check_model_init():
         _jm_cst_1 = {'array', 'binData', 'bool', 'date', 'decimal', 'double', 'int', 'javascript', 'long', 'maxKey', 'minKey', 'null', 'object', 'objectId', 'regex', 'string', 'timestamp'}
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_3,
             "schema": json_model_3,
         }
 

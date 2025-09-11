@@ -3862,7 +3862,7 @@ def check_model_init():
         }
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_16,
             "URI-REFERENCE": json_model_2,
             "core": json_model_3,
             "meta": json_model_4,

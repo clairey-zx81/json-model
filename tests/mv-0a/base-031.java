@@ -125,7 +125,7 @@ public class base_031 extends ModelChecker
         {
             try {
             base_031_map_pmap = new HashMap<String, Checker>();
-            base_031_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            base_031_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             base_031_map_pmap.put("bibi", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

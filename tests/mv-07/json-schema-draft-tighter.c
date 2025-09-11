@@ -5500,7 +5500,7 @@ const char *check_model_init(void)
         _jm_obj_47_map_tab[8] = (jm_propmap_t) { "id", _jm_f_162 };
         _jm_obj_47_map_tab[9] = (jm_propmap_t) { "title", _jm_f_163 };
         jm_sort_propmap(_jm_obj_47_map_tab, 10);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_25 };
         check_model_map_tab[1] = (jm_propmap_t) { "const", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "enum", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "schemaArray", json_model_4 };

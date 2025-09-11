@@ -693,7 +693,7 @@ sub check_model_init()
             'any' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_3,
             'schema' => \&json_model_3,
         );
     }

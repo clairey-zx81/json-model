@@ -173,7 +173,7 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
-        check_model_map.set("", json_model_1)
+        check_model_map.set("", json_model_4)
         check_model_map.set("Z", json_model_5)
         check_model_map.set("z", json_model_3)
         check_model_map.set("l", json_model_4)

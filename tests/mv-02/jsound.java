@@ -1273,7 +1273,7 @@ public class jsound extends ModelChecker
             _jm_obj_2_map_pmap.put("pattern", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_11(o, p, r);} });
             _jm_obj_2_map_pmap.put("totalDigits", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_12(o, p, r);} });
             jsound_map_pmap = new HashMap<String, Checker>();
-            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            jsound_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             jsound_map_pmap.put("Schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             jsound_map_pmap.put("Type", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             jsound_map_pmap.put("atomic-types", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

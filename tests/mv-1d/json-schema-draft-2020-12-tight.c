@@ -6022,7 +6022,7 @@ const char *check_model_init(void)
         _jm_obj_41_map_tab[14] = (jm_propmap_t) { "title", _jm_f_222 };
         _jm_obj_41_map_tab[15] = (jm_propmap_t) { "writeOnly", _jm_f_223 };
         jm_sort_propmap(_jm_obj_41_map_tab, 16);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_16 };
         check_model_map_tab[1] = (jm_propmap_t) { "URI-REFERENCE", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "core", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "meta", json_model_4 };

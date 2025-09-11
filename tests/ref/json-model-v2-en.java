@@ -3898,7 +3898,7 @@ public class json_model_v2_en extends ModelChecker
             _jm_re_10_pat = Pattern.compile("[^A-Z0-9]");
             _jm_re_11_pat = Pattern.compile("^\\w+$");
             json_model_v2_en_map_pmap = new HashMap<String, Checker>();
-            json_model_v2_en_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            json_model_v2_en_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_model_v2_en_map_pmap.put("Model", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
                 super.init(json);
             }

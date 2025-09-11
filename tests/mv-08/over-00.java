@@ -91,7 +91,7 @@ public class over_00 extends ModelChecker
         {
             try {
             over_00_map_pmap = new HashMap<String, Checker>();
-            over_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            over_00_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             over_00_map_pmap.put("Foo", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

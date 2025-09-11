@@ -9,20 +9,2800 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
+var _jm_obj_0_map = new Map()
+var _jm_obj_3_map = new Map()
 let _jm_cst_0 = new Set()
+var _jm_obj_7_map = new Map()
+var _jm_obj_9_map = new Map()
 var check_model_map = new Map()
 
-// check $schema (.'$schema')
+// check $URI-REFERENCE (.'$URI-REFERENCE')
 function json_model_3(val, path, rep)
 {
     let res;
-    // JSON Model for JSON Schema 2020-12 [JSON_MODEL_LOOSE_NUMBER]
-    // .'$schema'
-    // .'$schema'.'@'
-    res = json_model_18(val, path, rep);
+    // .'$URI-REFERENCE'
+    res = (typeof val === 'string' || val instanceof String);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.'$schema'.'@']", path])
+        rep !== null && rep.push(["unexpected string [.'$URI-REFERENCE']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$anchor (.'$core'.'$anchor')
+function _jm_f_0(val, path, rep)
+{
+    let res;
+    // .'$core'.'$anchor'
+    res = json_model_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$anchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$comment (.'$core'.'$comment')
+function _jm_f_1(val, path, rep)
+{
+    let res;
+    // .'$core'.'$comment'
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$core'.'$comment']", path])
+    }
+    return res;
+}
+
+// object .'$core'.'$defs'
+function _jm_obj_1(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$core'.'$defs']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_1 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$core'.'$defs'.''
+        res = json_model_17(pval, (path ? lpath_1 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$core'.'$defs'.'']", (path ? lpath_1 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_0_map_$defs (.'$core'.'$defs')
+function _jm_f_2(val, path, rep)
+{
+    let res;
+    // .'$core'.'$defs'
+    res = _jm_obj_1(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$core'.'$defs']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$dynamicAnchor (.'$core'.'$dynamicAnchor')
+function _jm_f_3(val, path, rep)
+{
+    let res;
+    // .'$core'.'$dynamicAnchor'
+    res = json_model_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$dynamicAnchor']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$dynamicRef (.'$core'.'$dynamicRef')
+function _jm_f_4(val, path, rep)
+{
+    let res;
+    // .'$core'.'$dynamicRef'
+    res = json_model_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$dynamicRef']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$id (.'$core'.'$id')
+function _jm_f_5(val, path, rep)
+{
+    let res;
+    // .'$core'.'$id'
+    res = json_model_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$id']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$ref (.'$core'.'$ref')
+function _jm_f_6(val, path, rep)
+{
+    let res;
+    // .'$core'.'$ref'
+    res = json_model_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$core'.'$ref']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_0_map_$schema (.'$core'.'$schema')
+function _jm_f_7(val, path, rep)
+{
+    let res;
+    // .'$core'.'$schema'
+    res = runtime.jm_is_valid_url(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $URL [.'$core'.'$schema']", path])
+    }
+    return res;
+}
+
+// object .'$core'.'$vocabulary'
+function _jm_obj_2(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$core'.'$vocabulary']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_2 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_url(prop))
+        {
+            // handle 1 key props
+            // .'$core'.'$vocabulary'.'$URI'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$core'.'$vocabulary'.'$URI']", (path ? lpath_2 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$core'.'$vocabulary']", (path ? lpath_2 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_0_map_$vocabulary (.'$core'.'$vocabulary')
+function _jm_f_8(val, path, rep)
+{
+    let res;
+    // .'$core'.'$vocabulary'
+    res = _jm_obj_2(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$core'.'$vocabulary']", path])
+    }
+    return res;
+}
+
+
+// object .'$core'
+function _jm_obj_0(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$core']", path])
+        return false;
+    }
+    let pfun;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_0 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_0_map.get(prop)))
+        {
+            // handle 9 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_0 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$core']", (path ? lpath_0 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$core']", (path ? lpath_0 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $core (.'$core')
+function json_model_4(val, path, rep)
+{
+    let res;
+    // .'$core'
+    res = _jm_obj_0(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$core']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_default (.'$meta'.default)
+function _jm_f_9(val, path, rep)
+{
+    let res;
+    // .'$meta'.default
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$meta'.default]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_deprecated (.'$meta'.deprecated)
+function _jm_f_10(val, path, rep)
+{
+    let res;
+    // .'$meta'.deprecated
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$meta'.deprecated]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_description (.'$meta'.description)
+function _jm_f_11(val, path, rep)
+{
+    let res;
+    // .'$meta'.description
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$meta'.description]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_examples (.'$meta'.examples)
+function _jm_f_12(val, path, rep)
+{
+    let res;
+    // .'$meta'.examples
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$meta'.examples]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_readOnly (.'$meta'.readOnly)
+function _jm_f_13(val, path, rep)
+{
+    let res;
+    // .'$meta'.readOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$meta'.readOnly]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_title (.'$meta'.title)
+function _jm_f_14(val, path, rep)
+{
+    let res;
+    // .'$meta'.title
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$meta'.title]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_3_map_writeOnly (.'$meta'.writeOnly)
+function _jm_f_15(val, path, rep)
+{
+    let res;
+    // .'$meta'.writeOnly
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$meta'.writeOnly]", path])
+    }
+    return res;
+}
+
+
+// object .'$meta'
+function _jm_obj_3(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$meta']", path])
+        return false;
+    }
+    let pfun;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_3 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_3_map.get(prop)))
+        {
+            // handle 7 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_3 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$meta']", (path ? lpath_3 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$meta']", (path ? lpath_3 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $meta (.'$meta')
+function json_model_5(val, path, rep)
+{
+    let res;
+    // .'$meta'
+    res = _jm_obj_3(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$meta']", path])
+    }
+    return res;
+}
+
+// object .'$content'
+function _jm_obj_4(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$content']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_4 = path ? path.concat([prop]) : null;
+        if (prop == "contentEncoding")
+        {
+            // handle may contentEncoding property
+            // .'$content'.contentEncoding
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$content'.contentEncoding]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$content'.contentEncoding]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "contentMediaType")
+        {
+            // handle may contentMediaType property
+            // .'$content'.contentMediaType
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$content'.contentMediaType]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$content'.contentMediaType]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else if (prop == "contentSchema")
+        {
+            // handle may contentSchema property
+            // .'$content'.contentSchema
+            res = json_model_17(pval, (path ? lpath_4 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$content'.contentSchema]", (path ? lpath_4 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$content'.contentSchema]", (path ? lpath_4 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$content']", (path ? lpath_4 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $content (.'$content')
+function json_model_6(val, path, rep)
+{
+    let res;
+    // .'$content'
+    res = _jm_obj_4(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$content']", path])
+    }
+    return res;
+}
+
+// object .'$unevaluated'
+function _jm_obj_5(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$unevaluated']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_5 = path ? path.concat([prop]) : null;
+        if (prop == "unevaluatedItems")
+        {
+            // handle may unevaluatedItems property
+            // .'$unevaluated'.unevaluatedItems
+            res = json_model_17(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$unevaluated'.unevaluatedItems]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$unevaluated'.unevaluatedItems]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else if (prop == "unevaluatedProperties")
+        {
+            // handle may unevaluatedProperties property
+            // .'$unevaluated'.unevaluatedProperties
+            res = json_model_17(pval, (path ? lpath_5 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$unevaluated'.unevaluatedProperties]", (path ? lpath_5 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$unevaluated'.unevaluatedProperties]", (path ? lpath_5 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$unevaluated']", (path ? lpath_5 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $unevaluated (.'$unevaluated')
+function json_model_7(val, path, rep)
+{
+    let res;
+    // .'$unevaluated'
+    res = _jm_obj_5(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$unevaluated']", path])
+    }
+    return res;
+}
+
+// object .'$format'
+function _jm_obj_6(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$format']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_6 = path ? path.concat([prop]) : null;
+        if (prop == "format")
+        {
+            // handle may format property
+            // .'$format'.format
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$format'.format]", (path ? lpath_6 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$format'.format]", (path ? lpath_6 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$format']", (path ? lpath_6 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $format (.'$format')
+function json_model_8(val, path, rep)
+{
+    let res;
+    // .'$format'
+    res = _jm_obj_6(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$format']", path])
+    }
+    return res;
+}
+
+
+// check $simpleTypes (.'$simpleTypes')
+function json_model_9(val, path, rep)
+{
+    let res;
+    // .'$simpleTypes'
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["value not in enum [.'$simpleTypes'.'|']", path])
+    }
+    return res;
+}
+
+// check $simpleTypesArray (.'$simpleTypesArray')
+function json_model_10(val, path, rep)
+{
+    let res;
+    // .'$simpleTypesArray'
+    // .'$simpleTypesArray'.'@'
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
+        {
+            let arr_0_item = val[arr_0_idx]
+            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
+            // .'$simpleTypesArray'.'@'.0
+            res = json_model_9(arr_0_item, (path ? arr_0_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $simpleTypes [.'$simpleTypesArray'.'@'.0]", (path ? arr_0_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$simpleTypesArray'.'@']", path])
+    }
+    if (res)
+    {
+        let ival_0 = val.length;
+        res = runtime.jm_array_is_unique(val, path, rep) && ival_0 >= 1;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$simpleTypesArray']", path])
+        }
+    }
+    return res;
+}
+
+// check $stringArray (.'$stringArray')
+function json_model_11(val, path, rep)
+{
+    let res;
+    // .'$stringArray'
+    // .'$stringArray'.'@'
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
+        {
+            let arr_1_item = val[arr_1_idx]
+            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
+            // .'$stringArray'.'@'.0
+            res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$stringArray'.'@']", path])
+    }
+    if (res)
+    {
+        res = runtime.jm_array_is_unique(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$stringArray']", path])
+        }
+    }
+    return res;
+}
+
+// check $nonNegativeInteger (.'$nonNegativeInteger')
+function json_model_12(val, path, rep)
+{
+    let res;
+    // .'$nonNegativeInteger'
+    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 0 loose int [.'$nonNegativeInteger']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_const (.'$validation'.const)
+function _jm_f_16(val, path, rep)
+{
+    let res;
+    // .'$validation'.const
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$validation'.const]", path])
+    }
+    return res;
+}
+
+// object .'$validation'.dependentRequired
+function _jm_obj_8(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$validation'.dependentRequired]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_8 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$validation'.dependentRequired.''
+        res = json_model_11(pval, (path ? lpath_8 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $stringArray [.'$validation'.dependentRequired.'']", (path ? lpath_8 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_7_map_dependentRequired (.'$validation'.dependentRequired)
+function _jm_f_17(val, path, rep)
+{
+    let res;
+    // .'$validation'.dependentRequired
+    res = _jm_obj_8(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$validation'.dependentRequired]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_enum (.'$validation'.enum)
+function _jm_f_18(val, path, rep)
+{
+    let res;
+    // .'$validation'.enum
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$validation'.enum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_exclusiveMaximum (.'$validation'.exclusiveMaximum)
+function _jm_f_19(val, path, rep)
+{
+    let res;
+    // .'$validation'.exclusiveMaximum
+    res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.exclusiveMaximum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_exclusiveMinimum (.'$validation'.exclusiveMinimum)
+function _jm_f_20(val, path, rep)
+{
+    let res;
+    // .'$validation'.exclusiveMinimum
+    res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.exclusiveMinimum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_maxContains (.'$validation'.maxContains)
+function _jm_f_21(val, path, rep)
+{
+    let res;
+    // .'$validation'.maxContains
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.maxContains]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_maxItems (.'$validation'.maxItems)
+function _jm_f_22(val, path, rep)
+{
+    let res;
+    // .'$validation'.maxItems
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.maxItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_maxLength (.'$validation'.maxLength)
+function _jm_f_23(val, path, rep)
+{
+    let res;
+    // .'$validation'.maxLength
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.maxLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_maxProperties (.'$validation'.maxProperties)
+function _jm_f_24(val, path, rep)
+{
+    let res;
+    // .'$validation'.maxProperties
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.maxProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_maximum (.'$validation'.maximum)
+function _jm_f_25(val, path, rep)
+{
+    let res;
+    // .'$validation'.maximum
+    res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.maximum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_minContains (.'$validation'.minContains)
+function _jm_f_26(val, path, rep)
+{
+    let res;
+    // .'$validation'.minContains
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.minContains]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_minItems (.'$validation'.minItems)
+function _jm_f_27(val, path, rep)
+{
+    let res;
+    // .'$validation'.minItems
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.minItems]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_minLength (.'$validation'.minLength)
+function _jm_f_28(val, path, rep)
+{
+    let res;
+    // .'$validation'.minLength
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.minLength]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_minProperties (.'$validation'.minProperties)
+function _jm_f_29(val, path, rep)
+{
+    let res;
+    // .'$validation'.minProperties
+    res = json_model_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$validation'.minProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_minimum (.'$validation'.minimum)
+function _jm_f_30(val, path, rep)
+{
+    let res;
+    // .'$validation'.minimum
+    res = (typeof val === 'number' || val instanceof Number);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a -1.0 loose float [.'$validation'.minimum]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_multipleOf (.'$validation'.multipleOf)
+function _jm_f_31(val, path, rep)
+{
+    let res;
+    // .'$validation'.multipleOf
+    res = ((typeof val === 'number' || val instanceof Number)) && val > 0.0;
+    if (! res)
+    {
+        rep !== null && rep.push(["not a 1.0 loose float [.'$validation'.multipleOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_pattern (.'$validation'.pattern)
+function _jm_f_32(val, path, rep)
+{
+    let res;
+    // .'$validation'.pattern
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$validation'.pattern]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_required (.'$validation'.required)
+function _jm_f_33(val, path, rep)
+{
+    let res;
+    // .'$validation'.required
+    res = json_model_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $stringArray [.'$validation'.required]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_type (.'$validation'.type)
+function _jm_f_34(val, path, rep)
+{
+    let res;
+    // .'$validation'.type
+    // .'$validation'.type.'|'.0
+    res = json_model_9(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $simpleTypes [.'$validation'.type.'|'.0]", path])
+    }
+    if (! res)
+    {
+        // .'$validation'.type.'|'.1
+        res = json_model_10(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $simpleTypesArray [.'$validation'.type.'|'.1]", path])
+        }
+    }
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'$validation'.type.'|']", path])
+    }
+    return res;
+}
+
+// check _jm_obj_7_map_uniqueItems (.'$validation'.uniqueItems)
+function _jm_f_35(val, path, rep)
+{
+    let res;
+    // .'$validation'.uniqueItems
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$validation'.uniqueItems]", path])
+    }
+    return res;
+}
+
+
+// object .'$validation'
+function _jm_obj_7(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$validation']", path])
+        return false;
+    }
+    let pfun;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_7 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_7_map.get(prop)))
+        {
+            // handle 20 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_7 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$validation']", (path ? lpath_7 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$validation']", (path ? lpath_7 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $validation (.'$validation')
+function json_model_13(val, path, rep)
+{
+    let res;
+    // .'$validation'
+    res = _jm_obj_7(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$validation']", path])
+    }
+    return res;
+}
+
+// check $schemaArray (.'$schemaArray')
+function json_model_14(val, path, rep)
+{
+    let res;
+    // .'$schemaArray'
+    // .'$schemaArray'.'@'
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
+        {
+            let arr_2_item = val[arr_2_idx]
+            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
+            // .'$schemaArray'.'@'.0
+            res = json_model_17(arr_2_item, (path ? arr_2_lpath : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Schema [.'$schemaArray'.'@'.0]", (path ? arr_2_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$schemaArray'.'@']", path])
+    }
+    if (res)
+    {
+        let ival_1 = val.length;
+        res = ival_1 >= 1;
+        if (! res)
+        {
+            rep !== null && rep.push(["constraints failed [.'$schemaArray']", path])
+        }
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_additionalProperties (.'$applicator'.additionalProperties)
+function _jm_f_36(val, path, rep)
+{
+    let res;
+    // .'$applicator'.additionalProperties
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.additionalProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_allOf (.'$applicator'.allOf)
+function _jm_f_37(val, path, rep)
+{
+    let res;
+    // .'$applicator'.allOf
+    res = json_model_14(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$applicator'.allOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_anyOf (.'$applicator'.anyOf)
+function _jm_f_38(val, path, rep)
+{
+    let res;
+    // .'$applicator'.anyOf
+    res = json_model_14(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$applicator'.anyOf]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_contains (.'$applicator'.contains)
+function _jm_f_39(val, path, rep)
+{
+    let res;
+    // .'$applicator'.contains
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.contains]", path])
+    }
+    return res;
+}
+
+// object .'$applicator'.dependentSchemas
+function _jm_obj_10(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$applicator'.dependentSchemas]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_10 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$applicator'.dependentSchemas.''
+        res = json_model_17(pval, (path ? lpath_10 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$applicator'.dependentSchemas.'']", (path ? lpath_10 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_9_map_dependentSchemas (.'$applicator'.dependentSchemas)
+function _jm_f_40(val, path, rep)
+{
+    let res;
+    // .'$applicator'.dependentSchemas
+    res = _jm_obj_10(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$applicator'.dependentSchemas]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_else (.'$applicator'.else)
+function _jm_f_41(val, path, rep)
+{
+    let res;
+    // .'$applicator'.else
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.else]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_if (.'$applicator'.if)
+function _jm_f_42(val, path, rep)
+{
+    let res;
+    // .'$applicator'.if
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.if]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_items (.'$applicator'.items)
+function _jm_f_43(val, path, rep)
+{
+    let res;
+    // .'$applicator'.items
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.items]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_not (.'$applicator'.not)
+function _jm_f_44(val, path, rep)
+{
+    let res;
+    // .'$applicator'.not
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.not]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_oneOf (.'$applicator'.oneOf)
+function _jm_f_45(val, path, rep)
+{
+    let res;
+    // .'$applicator'.oneOf
+    res = json_model_14(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$applicator'.oneOf]", path])
+    }
+    return res;
+}
+
+// object .'$applicator'.patternProperties
+function _jm_obj_11(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$applicator'.patternProperties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_11 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$applicator'.patternProperties.''
+        res = json_model_17(pval, (path ? lpath_11 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$applicator'.patternProperties.'']", (path ? lpath_11 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_9_map_patternProperties (.'$applicator'.patternProperties)
+function _jm_f_46(val, path, rep)
+{
+    let res;
+    // .'$applicator'.patternProperties
+    res = _jm_obj_11(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$applicator'.patternProperties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_prefixItems (.'$applicator'.prefixItems)
+function _jm_f_47(val, path, rep)
+{
+    let res;
+    // .'$applicator'.prefixItems
+    res = json_model_14(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $schemaArray [.'$applicator'.prefixItems]", path])
+    }
+    return res;
+}
+
+// object .'$applicator'.properties
+function _jm_obj_12(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$applicator'.properties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_12 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$applicator'.properties.''
+        res = json_model_17(pval, (path ? lpath_12 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$applicator'.properties.'']", (path ? lpath_12 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// check _jm_obj_9_map_properties (.'$applicator'.properties)
+function _jm_f_48(val, path, rep)
+{
+    let res;
+    // .'$applicator'.properties
+    res = _jm_obj_12(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$applicator'.properties]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_propertyNames (.'$applicator'.propertyNames)
+function _jm_f_49(val, path, rep)
+{
+    let res;
+    // .'$applicator'.propertyNames
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.propertyNames]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_9_map_then (.'$applicator'.then)
+function _jm_f_50(val, path, rep)
+{
+    let res;
+    // .'$applicator'.then
+    res = json_model_17(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $Schema [.'$applicator'.then]", path])
+    }
+    return res;
+}
+
+
+// object .'$applicator'
+function _jm_obj_9(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$applicator']", path])
+        return false;
+    }
+    let pfun;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_9 = path ? path.concat([prop]) : null;
+        if ((pfun = _jm_obj_9_map.get(prop)))
+        {
+            // handle 15 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_9 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$applicator']", (path ? lpath_9 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$applicator']", (path ? lpath_9 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $applicator (.'$applicator')
+function json_model_15(val, path, rep)
+{
+    let res;
+    // .'$applicator'
+    res = _jm_obj_9(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$applicator']", path])
+    }
+    return res;
+}
+
+// object .'$ObjectSchema'.'$vocabulary'
+function _jm_obj_14(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.'$vocabulary']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_13 = path ? path.concat([prop]) : null;
+        if (runtime.jm_is_valid_url(prop))
+        {
+            // handle 1 key props
+            // .'$ObjectSchema'.'$vocabulary'.'$URI'
+            res = (typeof pval === 'boolean' || pval instanceof Boolean);
+            if (! res)
+            {
+                rep !== null && rep.push(["not a bool [.'$ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_13 : null)])
+            }
+            if (! res)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$ObjectSchema'.'$vocabulary']", (path ? lpath_13 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.'$defs'
+function _jm_obj_15(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.'$defs']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_14 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.'$defs'.''
+        res = json_model_17(pval, (path ? lpath_14 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.'$defs'.'']", (path ? lpath_14 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.properties
+function _jm_obj_16(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.properties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_15 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.properties.''
+        res = json_model_17(pval, (path ? lpath_15 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.properties.'']", (path ? lpath_15 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.patternProperties
+function _jm_obj_17(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.patternProperties]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_16 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.patternProperties.''
+        res = json_model_17(pval, (path ? lpath_16 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.patternProperties.'']", (path ? lpath_16 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.dependentSchemas
+function _jm_obj_18(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.dependentSchemas]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_17 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.dependentSchemas.''
+        res = json_model_17(pval, (path ? lpath_17 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.dependentSchemas.'']", (path ? lpath_17 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.dependentRequired
+function _jm_obj_19(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.dependentRequired]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_18 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.dependentRequired.''
+        res = json_model_11(pval, (path ? lpath_18 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $stringArray [.'$ObjectSchema'.dependentRequired.'']", (path ? lpath_18 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.definitions
+function _jm_obj_20(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.definitions]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_19 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.definitions.''
+        res = json_model_17(pval, (path ? lpath_19 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.definitions.'']", (path ? lpath_19 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'.dependencies
+function _jm_obj_21(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema'.dependencies]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_20 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$ObjectSchema'.dependencies.''
+        // .'$ObjectSchema'.dependencies.''.'|'.0
+        res = json_model_17(pval, (path ? lpath_20 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? lpath_20 : null)])
+        }
+        if (! res)
+        {
+            // .'$ObjectSchema'.dependencies.''.'|'.1
+            res = json_model_11(pval, (path ? lpath_20 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $stringArray [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? lpath_20 : null)])
+            }
+        }
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$ObjectSchema'.dependencies.''.'|']", (path ? lpath_20 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$ObjectSchema'
+function _jm_obj_13(val, path, rep)
+{
+    // check must only props
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$ObjectSchema']", path])
+        return false;
+    }
+    let pval;
+    let res;
+    if (val.hasOwnProperty("$id"))
+    {
+        pval = val["$id"];
+        // .'$ObjectSchema'.'$id'
+        res = json_model_3(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$id']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$id> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$schema"))
+    {
+        pval = val["$schema"];
+        // .'$ObjectSchema'.'$schema'
+        res = runtime.jm_is_valid_url(pval);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URL [.'$ObjectSchema'.'$schema']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$schema> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$ref"))
+    {
+        pval = val["$ref"];
+        // .'$ObjectSchema'.'$ref'
+        res = json_model_3(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$ref']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$ref> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$anchor"))
+    {
+        pval = val["$anchor"];
+        // .'$ObjectSchema'.'$anchor'
+        res = json_model_3(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$anchor']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$anchor> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$dynamicRef"))
+    {
+        pval = val["$dynamicRef"];
+        // .'$ObjectSchema'.'$dynamicRef'
+        res = json_model_3(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$dynamicRef']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$dynamicRef> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$dynamicAnchor"))
+    {
+        pval = val["$dynamicAnchor"];
+        // .'$ObjectSchema'.'$dynamicAnchor'
+        res = json_model_3(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$ObjectSchema'.'$dynamicAnchor']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$dynamicAnchor> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$vocabulary"))
+    {
+        pval = val["$vocabulary"];
+        // .'$ObjectSchema'.'$vocabulary'
+        res = _jm_obj_14(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.'$vocabulary']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$vocabulary> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$comment"))
+    {
+        pval = val["$comment"];
+        // .'$ObjectSchema'.'$comment'
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$comment']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$comment> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$defs"))
+    {
+        pval = val["$defs"];
+        // .'$ObjectSchema'.'$defs'
+        res = _jm_obj_15(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.'$defs']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$defs> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("prefixItems"))
+    {
+        pval = val["prefixItems"];
+        // .'$ObjectSchema'.prefixItems
+        res = json_model_14(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.prefixItems]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <prefixItems> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("items"))
+    {
+        pval = val["items"];
+        // .'$ObjectSchema'.items
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.items]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <items> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("contains"))
+    {
+        pval = val["contains"];
+        // .'$ObjectSchema'.contains
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.contains]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <contains> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("additionalProperties"))
+    {
+        pval = val["additionalProperties"];
+        // .'$ObjectSchema'.additionalProperties
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.additionalProperties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <additionalProperties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("properties"))
+    {
+        pval = val["properties"];
+        // .'$ObjectSchema'.properties
+        res = _jm_obj_16(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.properties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <properties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("patternProperties"))
+    {
+        pval = val["patternProperties"];
+        // .'$ObjectSchema'.patternProperties
+        res = _jm_obj_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.patternProperties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <patternProperties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("dependentSchemas"))
+    {
+        pval = val["dependentSchemas"];
+        // .'$ObjectSchema'.dependentSchemas
+        res = _jm_obj_18(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependentSchemas]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <dependentSchemas> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("propertyNames"))
+    {
+        pval = val["propertyNames"];
+        // .'$ObjectSchema'.propertyNames
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.propertyNames]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <propertyNames> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("if"))
+    {
+        pval = val["if"];
+        // .'$ObjectSchema'.if
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.if]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <if> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("then"))
+    {
+        pval = val["then"];
+        // .'$ObjectSchema'.then
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.then]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <then> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("else"))
+    {
+        pval = val["else"];
+        // .'$ObjectSchema'.else
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.else]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <else> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("not"))
+    {
+        pval = val["not"];
+        // .'$ObjectSchema'.not
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.not]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <not> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("allOf"))
+    {
+        pval = val["allOf"];
+        // .'$ObjectSchema'.allOf
+        res = json_model_14(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.allOf]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <allOf> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("anyOf"))
+    {
+        pval = val["anyOf"];
+        // .'$ObjectSchema'.anyOf
+        res = json_model_14(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.anyOf]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <anyOf> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("oneOf"))
+    {
+        pval = val["oneOf"];
+        // .'$ObjectSchema'.oneOf
+        res = json_model_14(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.oneOf]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <oneOf> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("unevaluatedItems"))
+    {
+        pval = val["unevaluatedItems"];
+        // .'$ObjectSchema'.unevaluatedItems
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.unevaluatedItems]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <unevaluatedItems> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("unevaluatedProperties"))
+    {
+        pval = val["unevaluatedProperties"];
+        // .'$ObjectSchema'.unevaluatedProperties
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.unevaluatedProperties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <unevaluatedProperties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("type"))
+    {
+        pval = val["type"];
+        // .'$ObjectSchema'.type
+        // .'$ObjectSchema'.type.'|'.0
+        res = json_model_9(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path])
+        }
+        if (! res)
+        {
+            // .'$ObjectSchema'.type.'|'.1
+            res = json_model_10(pval, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $simpleTypesArray [.'$ObjectSchema'.type.'|'.1]", path])
+            }
+        }
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$ObjectSchema'.type.'|']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <type> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("enum"))
+    {
+        pval = val["enum"];
+        // .'$ObjectSchema'.enum
+        res = Array.isArray(pval);
+        if (res)
+        {
+            // accept any array
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.enum]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <enum> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("multipleOf"))
+    {
+        pval = val["multipleOf"];
+        // .'$ObjectSchema'.multipleOf
+        res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
+        if (! res)
+        {
+            rep !== null && rep.push(["not a 1.0 loose float [.'$ObjectSchema'.multipleOf]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <multipleOf> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("maximum"))
+    {
+        pval = val["maximum"];
+        // .'$ObjectSchema'.maximum
+        res = (typeof pval === 'number' || pval instanceof Number);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.maximum]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <maximum> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("exclusiveMaximum"))
+    {
+        pval = val["exclusiveMaximum"];
+        // .'$ObjectSchema'.exclusiveMaximum
+        res = (typeof pval === 'number' || pval instanceof Number);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMaximum]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <exclusiveMaximum> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("minimum"))
+    {
+        pval = val["minimum"];
+        // .'$ObjectSchema'.minimum
+        res = (typeof pval === 'number' || pval instanceof Number);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.minimum]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <minimum> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("exclusiveMinimum"))
+    {
+        pval = val["exclusiveMinimum"];
+        // .'$ObjectSchema'.exclusiveMinimum
+        res = (typeof pval === 'number' || pval instanceof Number);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a -1.0 loose float [.'$ObjectSchema'.exclusiveMinimum]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <exclusiveMinimum> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("maxLength"))
+    {
+        pval = val["maxLength"];
+        // .'$ObjectSchema'.maxLength
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxLength]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <maxLength> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("minLength"))
+    {
+        pval = val["minLength"];
+        // .'$ObjectSchema'.minLength
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minLength]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <minLength> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("pattern"))
+    {
+        pval = val["pattern"];
+        // .'$ObjectSchema'.pattern
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.pattern]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <pattern> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("maxItems"))
+    {
+        pval = val["maxItems"];
+        // .'$ObjectSchema'.maxItems
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxItems]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <maxItems> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("minItems"))
+    {
+        pval = val["minItems"];
+        // .'$ObjectSchema'.minItems
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minItems]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <minItems> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("uniqueItems"))
+    {
+        pval = val["uniqueItems"];
+        // .'$ObjectSchema'.uniqueItems
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a bool [.'$ObjectSchema'.uniqueItems]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <uniqueItems> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("maxContains"))
+    {
+        pval = val["maxContains"];
+        // .'$ObjectSchema'.maxContains
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxContains]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <maxContains> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("minContains"))
+    {
+        pval = val["minContains"];
+        // .'$ObjectSchema'.minContains
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minContains]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <minContains> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("maxProperties"))
+    {
+        pval = val["maxProperties"];
+        // .'$ObjectSchema'.maxProperties
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.maxProperties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <maxProperties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("minProperties"))
+    {
+        pval = val["minProperties"];
+        // .'$ObjectSchema'.minProperties
+        res = json_model_12(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$ObjectSchema'.minProperties]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <minProperties> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("required"))
+    {
+        pval = val["required"];
+        // .'$ObjectSchema'.required
+        res = json_model_11(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $stringArray [.'$ObjectSchema'.required]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <required> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("dependentRequired"))
+    {
+        pval = val["dependentRequired"];
+        // .'$ObjectSchema'.dependentRequired
+        res = _jm_obj_19(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependentRequired]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <dependentRequired> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("title"))
+    {
+        pval = val["title"];
+        // .'$ObjectSchema'.title
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.title]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <title> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("description"))
+    {
+        pval = val["description"];
+        // .'$ObjectSchema'.description
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.description]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <description> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("deprecated"))
+    {
+        pval = val["deprecated"];
+        // .'$ObjectSchema'.deprecated
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a bool [.'$ObjectSchema'.deprecated]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <deprecated> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("readOnly"))
+    {
+        pval = val["readOnly"];
+        // .'$ObjectSchema'.readOnly
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a bool [.'$ObjectSchema'.readOnly]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <readOnly> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("writeOnly"))
+    {
+        pval = val["writeOnly"];
+        // .'$ObjectSchema'.writeOnly
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
+        if (! res)
+        {
+            rep !== null && rep.push(["not a bool [.'$ObjectSchema'.writeOnly]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <writeOnly> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("examples"))
+    {
+        pval = val["examples"];
+        // .'$ObjectSchema'.examples
+        res = Array.isArray(pval);
+        if (res)
+        {
+            // accept any array
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.examples]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <examples> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("format"))
+    {
+        pval = val["format"];
+        // .'$ObjectSchema'.format
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.format]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <format> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("contentEncoding"))
+    {
+        pval = val["contentEncoding"];
+        // .'$ObjectSchema'.contentEncoding
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentEncoding]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <contentEncoding> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("contentMediaType"))
+    {
+        pval = val["contentMediaType"];
+        // .'$ObjectSchema'.contentMediaType
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.contentMediaType]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <contentMediaType> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("contentSchema"))
+    {
+        pval = val["contentSchema"];
+        // .'$ObjectSchema'.contentSchema
+        res = json_model_17(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.contentSchema]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <contentSchema> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("definitions"))
+    {
+        pval = val["definitions"];
+        // .'$ObjectSchema'.definitions
+        res = _jm_obj_20(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.definitions]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <definitions> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("dependencies"))
+    {
+        pval = val["dependencies"];
+        // .'$ObjectSchema'.dependencies
+        res = _jm_obj_21(pval, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$ObjectSchema'.dependencies]", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <dependencies> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$recursiveAnchor"))
+    {
+        pval = val["$recursiveAnchor"];
+        // .'$ObjectSchema'.'$recursiveAnchor'
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$recursiveAnchor']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$recursiveAnchor> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    if (val.hasOwnProperty("$recursiveRef"))
+    {
+        pval = val["$recursiveRef"];
+        // .'$ObjectSchema'.'$recursiveRef'
+        res = (typeof pval === 'string' || pval instanceof String);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.'$recursiveRef']", path])
+        }
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected value for optional prop <$recursiveRef> [.'$ObjectSchema']", path])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $ObjectSchema (.'$ObjectSchema')
+function json_model_16(val, path, rep)
+{
+    let res;
+    // .'$ObjectSchema'
+    res = _jm_obj_13(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$ObjectSchema']", path])
+    }
+    return res;
+}
+
+// check $Schema (.'$Schema')
+function json_model_17(val, path, rep)
+{
+    let res;
+    // .'$Schema'
+    // .'$Schema'.'|'.0
+    res = (typeof val === 'boolean' || val instanceof Boolean);
+    if (! res)
+    {
+        rep !== null && rep.push(["not a bool [.'$Schema'.'|'.0]", path])
+    }
+    if (! res)
+    {
+        // .'$Schema'.'|'.1
+        res = json_model_16(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $ObjectSchema [.'$Schema'.'|'.1]", path])
+        }
+    }
+    if (res)
+    {
+        if (rep !== null) rep.length = 0
+    }
+    else
+    {
+        rep !== null && rep.push(["no model matched [.'$Schema'.'|']", path])
+    }
+    return res;
+}
+
+// object .'$deprecated'.definitions
+function _jm_obj_23(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$deprecated'.definitions]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_22 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$deprecated'.definitions.''
+        res = json_model_17(pval, (path ? lpath_22 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$deprecated'.definitions.'']", (path ? lpath_22 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$deprecated'.dependencies
+function _jm_obj_24(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$deprecated'.dependencies]", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_23 = path ? path.concat([prop]) : null;
+        // handle other props
+        // .'$deprecated'.dependencies.''
+        // .'$deprecated'.dependencies.''.'|'.0
+        res = json_model_17(pval, (path ? lpath_23 : null), rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $Schema [.'$deprecated'.dependencies.''.'|'.0]", (path ? lpath_23 : null)])
+        }
+        if (! res)
+        {
+            // .'$deprecated'.dependencies.''.'|'.1
+            res = json_model_11(pval, (path ? lpath_23 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $stringArray [.'$deprecated'.dependencies.''.'|'.1]", (path ? lpath_23 : null)])
+            }
+        }
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$deprecated'.dependencies.''.'|']", (path ? lpath_23 : null)])
+        }
+        if (! res)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// object .'$deprecated'
+function _jm_obj_22(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$deprecated']", path])
+        return false;
+    }
+    let res;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_21 = path ? path.concat([prop]) : null;
+        if (prop == "definitions")
+        {
+            // handle may definitions property
+            // .'$deprecated'.definitions
+            res = _jm_obj_23(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$deprecated'.definitions]", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.definitions]", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "dependencies")
+        {
+            // handle may dependencies property
+            // .'$deprecated'.dependencies
+            res = _jm_obj_24(pval, (path ? lpath_21 : null), rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$deprecated'.dependencies]", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.dependencies]", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$recursiveAnchor")
+        {
+            // handle may $recursiveAnchor property
+            // .'$deprecated'.'$recursiveAnchor'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$deprecated'.'$recursiveAnchor']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.'$recursiveAnchor']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else if (prop == "$recursiveRef")
+        {
+            // handle may $recursiveRef property
+            // .'$deprecated'.'$recursiveRef'
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$deprecated'.'$recursiveRef']", (path ? lpath_21 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$deprecated'.'$recursiveRef']", (path ? lpath_21 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$deprecated']", (path ? lpath_21 : null)])
+            return false;
+        }
+    }
+    return true;
+}
+
+// check $deprecated (.'$deprecated')
+function json_model_18(val, path, rep)
+{
+    let res;
+    // .'$deprecated'
+    res = _jm_obj_22(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$deprecated']", path])
+    }
+    return res;
+}
+
+// object .'$fuzzy'
+function _jm_obj_25(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$fuzzy']", path])
+        return false;
+    }
+    // accept any object
+    return true;
+}
+
+// check $fuzzy (.'$fuzzy')
+function json_model_19(val, path, rep)
+{
+    let res;
+    // .'$fuzzy'
+    res = _jm_obj_25(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected element [.'$fuzzy']", path])
     }
     return res;
 }
@@ -32,1383 +2812,10 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    res = json_model_3(val, path, rep);
+    res = json_model_17(val, path, rep);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $schema [.]", path])
-    }
-    return res;
-}
-
-// check $schema#Schema (.'$schema#Schema')
-function json_model_18(val, path, rep)
-{
-    let res;
-    // .'$schema#Schema'
-    // .'$schema#Schema'.'|'.0
-    res = (typeof val === 'boolean' || val instanceof Boolean);
-    if (! res)
-    {
-        rep !== null && rep.push(["not a bool [.'$schema#Schema'.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$schema#Schema'.'|'.1
-        res = json_model_17(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $ObjectSchema [.'$schema#Schema'.'|'.1]", path])
-        }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$schema#Schema'.'|']", path])
-    }
-    return res;
-}
-
-// object .'$schema#ObjectSchema'.'$vocabulary'
-function _jm_obj_1(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.'$vocabulary']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_0 = path ? path.concat([prop]) : null;
-        if (runtime.jm_is_valid_url(prop))
-        {
-            // handle 1 key props
-            // .'$schema#ObjectSchema'.'$vocabulary'.'$URI'
-            res = (typeof pval === 'boolean' || pval instanceof Boolean);
-            if (! res)
-            {
-                rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.'$vocabulary'.'$URI']", (path ? lpath_0 : null)])
-            }
-            if (! res)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$schema#ObjectSchema'.'$vocabulary']", (path ? lpath_0 : null)])
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.'$defs'
-function _jm_obj_2(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.'$defs']", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_1 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.'$defs'.''
-        res = json_model_18(pval, (path ? lpath_1 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.'$defs'.'']", (path ? lpath_1 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.properties
-function _jm_obj_3(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.properties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_2 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.properties.''
-        res = json_model_18(pval, (path ? lpath_2 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.properties.'']", (path ? lpath_2 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.patternProperties
-function _jm_obj_4(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.patternProperties]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_3 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.patternProperties.''
-        res = json_model_18(pval, (path ? lpath_3 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.patternProperties.'']", (path ? lpath_3 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.dependentSchemas
-function _jm_obj_5(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.dependentSchemas]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_4 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.dependentSchemas.''
-        res = json_model_18(pval, (path ? lpath_4 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.dependentSchemas.'']", (path ? lpath_4 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.dependentRequired
-function _jm_obj_6(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.dependentRequired]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_5 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.dependentRequired.''
-        res = json_model_12(pval, (path ? lpath_5 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.dependentRequired.'']", (path ? lpath_5 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.definitions
-function _jm_obj_7(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.definitions]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_6 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.definitions.''
-        res = json_model_18(pval, (path ? lpath_6 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.definitions.'']", (path ? lpath_6 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'.dependencies
-function _jm_obj_8(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema'.dependencies]", path])
-        return false;
-    }
-    let res;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_7 = path ? path.concat([prop]) : null;
-        // handle other props
-        // .'$schema#ObjectSchema'.dependencies.''
-        // .'$schema#ObjectSchema'.dependencies.''.'|'.0
-        res = json_model_18(pval, (path ? lpath_7 : null), rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.dependencies.''.'|'.0]", (path ? lpath_7 : null)])
-        }
-        if (! res)
-        {
-            // .'$schema#ObjectSchema'.dependencies.''.'|'.1
-            res = json_model_12(pval, (path ? lpath_7 : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.dependencies.''.'|'.1]", (path ? lpath_7 : null)])
-            }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$schema#ObjectSchema'.dependencies.''.'|']", (path ? lpath_7 : null)])
-        }
-        if (! res)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-// object .'$schema#ObjectSchema'
-function _jm_obj_0(val, path, rep)
-{
-    // check must only props
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$schema#ObjectSchema']", path])
-        return false;
-    }
-    let pval;
-    let res;
-    if (val.hasOwnProperty("$id"))
-    {
-        pval = val["$id"];
-        // .'$schema#ObjectSchema'.'$id'
-        res = json_model_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$schema#ObjectSchema'.'$id']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$id> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$schema"))
-    {
-        pval = val["$schema"];
-        // .'$schema#ObjectSchema'.'$schema'
-        res = runtime.jm_is_valid_url(pval);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URL [.'$schema#ObjectSchema'.'$schema']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$schema> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$ref"))
-    {
-        pval = val["$ref"];
-        // .'$schema#ObjectSchema'.'$ref'
-        res = json_model_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$schema#ObjectSchema'.'$ref']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$ref> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$anchor"))
-    {
-        pval = val["$anchor"];
-        // .'$schema#ObjectSchema'.'$anchor'
-        res = json_model_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$schema#ObjectSchema'.'$anchor']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$anchor> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$dynamicRef"))
-    {
-        pval = val["$dynamicRef"];
-        // .'$schema#ObjectSchema'.'$dynamicRef'
-        res = json_model_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$schema#ObjectSchema'.'$dynamicRef']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$dynamicRef> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$dynamicAnchor"))
-    {
-        pval = val["$dynamicAnchor"];
-        // .'$schema#ObjectSchema'.'$dynamicAnchor'
-        res = json_model_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $URI-REFERENCE [.'$schema#ObjectSchema'.'$dynamicAnchor']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$dynamicAnchor> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$vocabulary"))
-    {
-        pval = val["$vocabulary"];
-        // .'$schema#ObjectSchema'.'$vocabulary'
-        res = _jm_obj_1(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.'$vocabulary']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$vocabulary> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$comment"))
-    {
-        pval = val["$comment"];
-        // .'$schema#ObjectSchema'.'$comment'
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.'$comment']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$comment> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$defs"))
-    {
-        pval = val["$defs"];
-        // .'$schema#ObjectSchema'.'$defs'
-        res = _jm_obj_2(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.'$defs']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$defs> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("prefixItems"))
-    {
-        pval = val["prefixItems"];
-        // .'$schema#ObjectSchema'.prefixItems
-        res = json_model_15(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$schema#ObjectSchema'.prefixItems]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <prefixItems> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("items"))
-    {
-        pval = val["items"];
-        // .'$schema#ObjectSchema'.items
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.items]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <items> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("contains"))
-    {
-        pval = val["contains"];
-        // .'$schema#ObjectSchema'.contains
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.contains]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <contains> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("additionalProperties"))
-    {
-        pval = val["additionalProperties"];
-        // .'$schema#ObjectSchema'.additionalProperties
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.additionalProperties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <additionalProperties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("properties"))
-    {
-        pval = val["properties"];
-        // .'$schema#ObjectSchema'.properties
-        res = _jm_obj_3(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.properties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <properties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("patternProperties"))
-    {
-        pval = val["patternProperties"];
-        // .'$schema#ObjectSchema'.patternProperties
-        res = _jm_obj_4(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.patternProperties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <patternProperties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("dependentSchemas"))
-    {
-        pval = val["dependentSchemas"];
-        // .'$schema#ObjectSchema'.dependentSchemas
-        res = _jm_obj_5(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.dependentSchemas]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <dependentSchemas> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("propertyNames"))
-    {
-        pval = val["propertyNames"];
-        // .'$schema#ObjectSchema'.propertyNames
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.propertyNames]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <propertyNames> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("if"))
-    {
-        pval = val["if"];
-        // .'$schema#ObjectSchema'.if
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.if]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <if> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("then"))
-    {
-        pval = val["then"];
-        // .'$schema#ObjectSchema'.then
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.then]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <then> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("else"))
-    {
-        pval = val["else"];
-        // .'$schema#ObjectSchema'.else
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.else]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <else> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("not"))
-    {
-        pval = val["not"];
-        // .'$schema#ObjectSchema'.not
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.not]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <not> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("allOf"))
-    {
-        pval = val["allOf"];
-        // .'$schema#ObjectSchema'.allOf
-        res = json_model_15(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$schema#ObjectSchema'.allOf]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <allOf> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("anyOf"))
-    {
-        pval = val["anyOf"];
-        // .'$schema#ObjectSchema'.anyOf
-        res = json_model_15(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$schema#ObjectSchema'.anyOf]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <anyOf> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("oneOf"))
-    {
-        pval = val["oneOf"];
-        // .'$schema#ObjectSchema'.oneOf
-        res = json_model_15(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$schema#ObjectSchema'.oneOf]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <oneOf> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("unevaluatedItems"))
-    {
-        pval = val["unevaluatedItems"];
-        // .'$schema#ObjectSchema'.unevaluatedItems
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.unevaluatedItems]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <unevaluatedItems> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("unevaluatedProperties"))
-    {
-        pval = val["unevaluatedProperties"];
-        // .'$schema#ObjectSchema'.unevaluatedProperties
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.unevaluatedProperties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <unevaluatedProperties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("type"))
-    {
-        pval = val["type"];
-        // .'$schema#ObjectSchema'.type
-        // .'$schema#ObjectSchema'.type.'|'.0
-        res = json_model_10(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $simpleTypes [.'$schema#ObjectSchema'.type.'|'.0]", path])
-        }
-        if (! res)
-        {
-            // .'$schema#ObjectSchema'.type.'|'.1
-            res = json_model_11(pval, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $simpleTypesArray [.'$schema#ObjectSchema'.type.'|'.1]", path])
-            }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$schema#ObjectSchema'.type.'|']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <type> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("enum"))
-    {
-        pval = val["enum"];
-        // .'$schema#ObjectSchema'.enum
-        res = Array.isArray(pval);
-        if (res)
-        {
-            // accept any array
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.enum]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <enum> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("multipleOf"))
-    {
-        pval = val["multipleOf"];
-        // .'$schema#ObjectSchema'.multipleOf
-        res = ((typeof pval === 'number' || pval instanceof Number)) && pval > 0.0;
-        if (! res)
-        {
-            rep !== null && rep.push(["not a 1.0 loose float [.'$schema#ObjectSchema'.multipleOf]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <multipleOf> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("maximum"))
-    {
-        pval = val["maximum"];
-        // .'$schema#ObjectSchema'.maximum
-        res = (typeof pval === 'number' || pval instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.maximum]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <maximum> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("exclusiveMaximum"))
-    {
-        pval = val["exclusiveMaximum"];
-        // .'$schema#ObjectSchema'.exclusiveMaximum
-        res = (typeof pval === 'number' || pval instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMaximum]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <exclusiveMaximum> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("minimum"))
-    {
-        pval = val["minimum"];
-        // .'$schema#ObjectSchema'.minimum
-        res = (typeof pval === 'number' || pval instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.minimum]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <minimum> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("exclusiveMinimum"))
-    {
-        pval = val["exclusiveMinimum"];
-        // .'$schema#ObjectSchema'.exclusiveMinimum
-        res = (typeof pval === 'number' || pval instanceof Number);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a -1.0 loose float [.'$schema#ObjectSchema'.exclusiveMinimum]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <exclusiveMinimum> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("maxLength"))
-    {
-        pval = val["maxLength"];
-        // .'$schema#ObjectSchema'.maxLength
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.maxLength]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <maxLength> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("minLength"))
-    {
-        pval = val["minLength"];
-        // .'$schema#ObjectSchema'.minLength
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.minLength]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <minLength> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("pattern"))
-    {
-        pval = val["pattern"];
-        // .'$schema#ObjectSchema'.pattern
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.pattern]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <pattern> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("maxItems"))
-    {
-        pval = val["maxItems"];
-        // .'$schema#ObjectSchema'.maxItems
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.maxItems]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <maxItems> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("minItems"))
-    {
-        pval = val["minItems"];
-        // .'$schema#ObjectSchema'.minItems
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.minItems]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <minItems> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("uniqueItems"))
-    {
-        pval = val["uniqueItems"];
-        // .'$schema#ObjectSchema'.uniqueItems
-        res = (typeof pval === 'boolean' || pval instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.uniqueItems]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <uniqueItems> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("maxContains"))
-    {
-        pval = val["maxContains"];
-        // .'$schema#ObjectSchema'.maxContains
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.maxContains]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <maxContains> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("minContains"))
-    {
-        pval = val["minContains"];
-        // .'$schema#ObjectSchema'.minContains
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.minContains]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <minContains> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("maxProperties"))
-    {
-        pval = val["maxProperties"];
-        // .'$schema#ObjectSchema'.maxProperties
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.maxProperties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <maxProperties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("minProperties"))
-    {
-        pval = val["minProperties"];
-        // .'$schema#ObjectSchema'.minProperties
-        res = json_model_13(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $nonNegativeInteger [.'$schema#ObjectSchema'.minProperties]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <minProperties> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("required"))
-    {
-        pval = val["required"];
-        // .'$schema#ObjectSchema'.required
-        res = json_model_12(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $stringArray [.'$schema#ObjectSchema'.required]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <required> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("dependentRequired"))
-    {
-        pval = val["dependentRequired"];
-        // .'$schema#ObjectSchema'.dependentRequired
-        res = _jm_obj_6(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.dependentRequired]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <dependentRequired> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("title"))
-    {
-        pval = val["title"];
-        // .'$schema#ObjectSchema'.title
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.title]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <title> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("description"))
-    {
-        pval = val["description"];
-        // .'$schema#ObjectSchema'.description
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.description]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <description> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("deprecated"))
-    {
-        pval = val["deprecated"];
-        // .'$schema#ObjectSchema'.deprecated
-        res = (typeof pval === 'boolean' || pval instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.deprecated]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <deprecated> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("readOnly"))
-    {
-        pval = val["readOnly"];
-        // .'$schema#ObjectSchema'.readOnly
-        res = (typeof pval === 'boolean' || pval instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.readOnly]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <readOnly> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("writeOnly"))
-    {
-        pval = val["writeOnly"];
-        // .'$schema#ObjectSchema'.writeOnly
-        res = (typeof pval === 'boolean' || pval instanceof Boolean);
-        if (! res)
-        {
-            rep !== null && rep.push(["not a bool [.'$schema#ObjectSchema'.writeOnly]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <writeOnly> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("examples"))
-    {
-        pval = val["examples"];
-        // .'$schema#ObjectSchema'.examples
-        res = Array.isArray(pval);
-        if (res)
-        {
-            // accept any array
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["not array or unexpected array [.'$schema#ObjectSchema'.examples]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <examples> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("format"))
-    {
-        pval = val["format"];
-        // .'$schema#ObjectSchema'.format
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.format]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <format> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("contentEncoding"))
-    {
-        pval = val["contentEncoding"];
-        // .'$schema#ObjectSchema'.contentEncoding
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.contentEncoding]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <contentEncoding> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("contentMediaType"))
-    {
-        pval = val["contentMediaType"];
-        // .'$schema#ObjectSchema'.contentMediaType
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.contentMediaType]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <contentMediaType> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("contentSchema"))
-    {
-        pval = val["contentSchema"];
-        // .'$schema#ObjectSchema'.contentSchema
-        res = json_model_18(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected $Schema [.'$schema#ObjectSchema'.contentSchema]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <contentSchema> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("definitions"))
-    {
-        pval = val["definitions"];
-        // .'$schema#ObjectSchema'.definitions
-        res = _jm_obj_7(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.definitions]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <definitions> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("dependencies"))
-    {
-        pval = val["dependencies"];
-        // .'$schema#ObjectSchema'.dependencies
-        res = _jm_obj_8(pval, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema'.dependencies]", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <dependencies> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$recursiveAnchor"))
-    {
-        pval = val["$recursiveAnchor"];
-        // .'$schema#ObjectSchema'.'$recursiveAnchor'
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.'$recursiveAnchor']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$recursiveAnchor> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    if (val.hasOwnProperty("$recursiveRef"))
-    {
-        pval = val["$recursiveRef"];
-        // .'$schema#ObjectSchema'.'$recursiveRef'
-        res = (typeof pval === 'string' || pval instanceof String);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected string [.'$schema#ObjectSchema'.'$recursiveRef']", path])
-        }
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected value for optional prop <$recursiveRef> [.'$schema#ObjectSchema']", path])
-            return false;
-        }
-    }
-    return true;
-}
-
-// check $schema#ObjectSchema (.'$schema#ObjectSchema')
-function json_model_17(val, path, rep)
-{
-    let res;
-    // .'$schema#ObjectSchema'
-    res = _jm_obj_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected element [.'$schema#ObjectSchema']", path])
-    }
-    return res;
-}
-
-// check $schema#URI-REFERENCE (.'$schema#URI-REFERENCE')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$schema#URI-REFERENCE'
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$schema#URI-REFERENCE']", path])
-    }
-    return res;
-}
-
-
-// check $schema#simpleTypes (.'$schema#simpleTypes')
-function json_model_10(val, path, rep)
-{
-    let res;
-    // .'$schema#simpleTypes'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$schema#simpleTypes'.'|']", path])
-    }
-    return res;
-}
-
-// check $schema#simpleTypesArray (.'$schema#simpleTypesArray')
-function json_model_11(val, path, rep)
-{
-    let res;
-    // .'$schema#simpleTypesArray'
-    // .'$schema#simpleTypesArray'.'@'
-    res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_0_idx = 0; arr_0_idx < val.length; arr_0_idx++)
-        {
-            let arr_0_item = val[arr_0_idx]
-            let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-            // .'$schema#simpleTypesArray'.'@'.0
-            res = json_model_10(arr_0_item, (path ? arr_0_lpath : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $simpleTypes [.'$schema#simpleTypesArray'.'@'.0]", (path ? arr_0_lpath : null)])
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$schema#simpleTypesArray'.'@']", path])
-    }
-    if (res)
-    {
-        let ival_0 = val.length;
-        res = runtime.jm_array_is_unique(val, path, rep) && ival_0 >= 1;
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.'$schema#simpleTypesArray']", path])
-        }
-    }
-    return res;
-}
-
-// check $schema#stringArray (.'$schema#stringArray')
-function json_model_12(val, path, rep)
-{
-    let res;
-    // .'$schema#stringArray'
-    // .'$schema#stringArray'.'@'
-    res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_1_idx = 0; arr_1_idx < val.length; arr_1_idx++)
-        {
-            let arr_1_item = val[arr_1_idx]
-            let arr_1_lpath = path ? path.concat([arr_1_idx]) : null;
-            // .'$schema#stringArray'.'@'.0
-            res = (typeof arr_1_item === 'string' || arr_1_item instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$schema#stringArray'.'@'.0]", (path ? arr_1_lpath : null)])
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$schema#stringArray'.'@']", path])
-    }
-    if (res)
-    {
-        res = runtime.jm_array_is_unique(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.'$schema#stringArray']", path])
-        }
-    }
-    return res;
-}
-
-// check $schema#nonNegativeInteger (.'$schema#nonNegativeInteger')
-function json_model_13(val, path, rep)
-{
-    let res;
-    // .'$schema#nonNegativeInteger'
-    res = ((typeof val === 'number' || val instanceof Number) && Number.isInteger(val)) && val >= 0;
-    if (! res)
-    {
-        rep !== null && rep.push(["not a 0 loose int [.'$schema#nonNegativeInteger']", path])
-    }
-    return res;
-}
-
-// check $schema#schemaArray (.'$schema#schemaArray')
-function json_model_15(val, path, rep)
-{
-    let res;
-    // .'$schema#schemaArray'
-    // .'$schema#schemaArray'.'@'
-    res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_2_idx = 0; arr_2_idx < val.length; arr_2_idx++)
-        {
-            let arr_2_item = val[arr_2_idx]
-            let arr_2_lpath = path ? path.concat([arr_2_idx]) : null;
-            // .'$schema#schemaArray'.'@'.0
-            res = json_model_18(arr_2_item, (path ? arr_2_lpath : null), rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected $Schema [.'$schema#schemaArray'.'@'.0]", (path ? arr_2_lpath : null)])
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$schema#schemaArray'.'@']", path])
-    }
-    if (res)
-    {
-        let ival_1 = val.length;
-        res = ival_1 >= 1;
-        if (! res)
-        {
-            rep !== null && rep.push(["constraints failed [.'$schema#schemaArray']", path])
-        }
+        rep !== null && rep.push(["unexpected $Schema [.]", path])
     }
     return res;
 }
@@ -1423,6 +2830,22 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_obj_0_map.set("$anchor", _jm_f_0)
+        _jm_obj_0_map.set("$comment", _jm_f_1)
+        _jm_obj_0_map.set("$defs", _jm_f_2)
+        _jm_obj_0_map.set("$dynamicAnchor", _jm_f_3)
+        _jm_obj_0_map.set("$dynamicRef", _jm_f_4)
+        _jm_obj_0_map.set("$id", _jm_f_5)
+        _jm_obj_0_map.set("$ref", _jm_f_6)
+        _jm_obj_0_map.set("$schema", _jm_f_7)
+        _jm_obj_0_map.set("$vocabulary", _jm_f_8)
+        _jm_obj_3_map.set("default", _jm_f_9)
+        _jm_obj_3_map.set("deprecated", _jm_f_10)
+        _jm_obj_3_map.set("description", _jm_f_11)
+        _jm_obj_3_map.set("examples", _jm_f_12)
+        _jm_obj_3_map.set("readOnly", _jm_f_13)
+        _jm_obj_3_map.set("title", _jm_f_14)
+        _jm_obj_3_map.set("writeOnly", _jm_f_15)
         _jm_cst_0.add("array")
         _jm_cst_0.add("boolean")
         _jm_cst_0.add("integer")
@@ -1430,8 +2853,59 @@ export function check_model_init()
         _jm_cst_0.add("number")
         _jm_cst_0.add("object")
         _jm_cst_0.add("string")
-        check_model_map.set("", json_model_1)
-        check_model_map.set("schema", json_model_3)
+        _jm_obj_7_map.set("const", _jm_f_16)
+        _jm_obj_7_map.set("dependentRequired", _jm_f_17)
+        _jm_obj_7_map.set("enum", _jm_f_18)
+        _jm_obj_7_map.set("exclusiveMaximum", _jm_f_19)
+        _jm_obj_7_map.set("exclusiveMinimum", _jm_f_20)
+        _jm_obj_7_map.set("maxContains", _jm_f_21)
+        _jm_obj_7_map.set("maxItems", _jm_f_22)
+        _jm_obj_7_map.set("maxLength", _jm_f_23)
+        _jm_obj_7_map.set("maxProperties", _jm_f_24)
+        _jm_obj_7_map.set("maximum", _jm_f_25)
+        _jm_obj_7_map.set("minContains", _jm_f_26)
+        _jm_obj_7_map.set("minItems", _jm_f_27)
+        _jm_obj_7_map.set("minLength", _jm_f_28)
+        _jm_obj_7_map.set("minProperties", _jm_f_29)
+        _jm_obj_7_map.set("minimum", _jm_f_30)
+        _jm_obj_7_map.set("multipleOf", _jm_f_31)
+        _jm_obj_7_map.set("pattern", _jm_f_32)
+        _jm_obj_7_map.set("required", _jm_f_33)
+        _jm_obj_7_map.set("type", _jm_f_34)
+        _jm_obj_7_map.set("uniqueItems", _jm_f_35)
+        _jm_obj_9_map.set("additionalProperties", _jm_f_36)
+        _jm_obj_9_map.set("allOf", _jm_f_37)
+        _jm_obj_9_map.set("anyOf", _jm_f_38)
+        _jm_obj_9_map.set("contains", _jm_f_39)
+        _jm_obj_9_map.set("dependentSchemas", _jm_f_40)
+        _jm_obj_9_map.set("else", _jm_f_41)
+        _jm_obj_9_map.set("if", _jm_f_42)
+        _jm_obj_9_map.set("items", _jm_f_43)
+        _jm_obj_9_map.set("not", _jm_f_44)
+        _jm_obj_9_map.set("oneOf", _jm_f_45)
+        _jm_obj_9_map.set("patternProperties", _jm_f_46)
+        _jm_obj_9_map.set("prefixItems", _jm_f_47)
+        _jm_obj_9_map.set("properties", _jm_f_48)
+        _jm_obj_9_map.set("propertyNames", _jm_f_49)
+        _jm_obj_9_map.set("then", _jm_f_50)
+        check_model_map.set("", json_model_17)
+        check_model_map.set("URI-REFERENCE", json_model_3)
+        check_model_map.set("core", json_model_4)
+        check_model_map.set("meta", json_model_5)
+        check_model_map.set("content", json_model_6)
+        check_model_map.set("unevaluated", json_model_7)
+        check_model_map.set("format", json_model_8)
+        check_model_map.set("simpleTypes", json_model_9)
+        check_model_map.set("simpleTypesArray", json_model_10)
+        check_model_map.set("stringArray", json_model_11)
+        check_model_map.set("nonNegativeInteger", json_model_12)
+        check_model_map.set("validation", json_model_13)
+        check_model_map.set("schemaArray", json_model_14)
+        check_model_map.set("applicator", json_model_15)
+        check_model_map.set("ObjectSchema", json_model_16)
+        check_model_map.set("Schema", json_model_17)
+        check_model_map.set("deprecated", json_model_18)
+        check_model_map.set("fuzzy", json_model_19)
     }
 }
 

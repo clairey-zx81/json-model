@@ -6141,7 +6141,7 @@ def check_model_init():
         _jm_cst_64 = {'git', 'hg'}
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_60,
             "AIXPlatformModel": json_model_2,
             "AlpinePlatformModel": json_model_3,
             "AmazonLinuxPlatformModel": json_model_4,

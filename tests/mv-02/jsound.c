@@ -1292,7 +1292,7 @@ const char *check_model_init(void)
         _jm_obj_2_map_tab[11] = (jm_propmap_t) { "pattern", _jm_f_11 };
         _jm_obj_2_map_tab[12] = (jm_propmap_t) { "totalDigits", _jm_f_12 };
         jm_sort_propmap(_jm_obj_2_map_tab, 13);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "Schema", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Type", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "atomic-types", json_model_4 };

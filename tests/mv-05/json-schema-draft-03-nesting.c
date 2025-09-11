@@ -972,7 +972,7 @@ const char *check_model_init(void)
         _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "object" } };
         _jm_cst_1[7] = (jm_constant_t) { cst_is_string, { .s = "any" } };
         jm_sort_cst(_jm_cst_1, 8);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_3 };
         check_model_map_tab[1] = (jm_propmap_t) { "schema", json_model_3 };
         jm_sort_propmap(check_model_map_tab, 2);
     }

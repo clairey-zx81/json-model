@@ -7325,7 +7325,7 @@ sub check_model_init()
             'writeOnly' => \&_jm_f_186,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_2,
             'OpenAPI' => \&json_model_2,
             'Info' => \&json_model_3,
             'Contact' => \&json_model_4,

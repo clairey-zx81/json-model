@@ -96,7 +96,7 @@ public class xoropt_003 extends ModelChecker
             try {
             _jm_re_0_pat = Pattern.compile("[a-z]");
             xoropt_003_map_pmap = new HashMap<String, Checker>();
-            xoropt_003_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            xoropt_003_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             xoropt_003_map_pmap.put("A", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

@@ -9883,7 +9883,7 @@ public class openapi_311 extends ModelChecker
             _jm_obj_85_map_pmap.put("uniqueItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_185(o, p, r);} });
             _jm_obj_85_map_pmap.put("writeOnly", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_186(o, p, r);} });
             openapi_311_map_pmap = new HashMap<String, Checker>();
-            openapi_311_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            openapi_311_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             openapi_311_map_pmap.put("OpenAPI", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             openapi_311_map_pmap.put("Info", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             openapi_311_map_pmap.put("Contact", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

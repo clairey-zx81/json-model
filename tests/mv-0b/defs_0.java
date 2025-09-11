@@ -52,7 +52,7 @@ public class defs_0 extends ModelChecker
         {
             try {
             defs_0_map_pmap = new HashMap<String, Checker>();
-            defs_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            defs_0_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             defs_0_map_pmap.put("an_int", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
                 super.init(json);
             }

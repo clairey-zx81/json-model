@@ -88,7 +88,7 @@ def check_model_init():
         initialized = True
         global check_model_map
         check_model_map = {
-            "": json_model_1,
+            "": json_model_3,
             "obj": json_model_2,
             "rec": json_model_3,
         }

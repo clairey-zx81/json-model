@@ -2,165 +2,6 @@
   {
     "#": "JsonModel 1 with defs",
     "$": {
-      "schema": {
-        "@": "$Schema",
-        "#": "JsonModel 3 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
-        "$": {
-          "": "https://json-model.org/models/json-schema-draft-2020-12",
-          "URI-REFERENCE": "",
-          "core": {
-            "?$id": "$URI-REFERENCE",
-            "?$schema": "_https://json-schema.org/draft/2020-12/schema",
-            "?$ref": "$URI-REFERENCE",
-            "?$anchor": "$URI-REFERENCE",
-            "?$dynamicRef": "$URI-REFERENCE",
-            "?$dynamicAnchor": "$URI-REFERENCE",
-            "?$vocabulary": {
-              "$URI": true
-            },
-            "?$comment": "",
-            "?$defs": {
-              "": "$Schema"
-            }
-          },
-          "meta": {
-            "?title": "",
-            "?description": "",
-            "?default": "$ANY",
-            "?deprecated": true,
-            "?readOnly": true,
-            "?writeOnly": true,
-            "?examples": [
-              "$ANY"
-            ]
-          },
-          "content": {
-            "?contentEncoding": "",
-            "?contentMediaType": "",
-            "?contentSchema": "$Schema"
-          },
-          "unevaluated": {
-            "?unevaluatedItems": "$Schema",
-            "?unevaluatedProperties": "$Schema"
-          },
-          "format": {
-            "?format": ""
-          },
-          "simpleTypes": {
-            "|": [
-              "array",
-              "boolean",
-              "integer",
-              "null",
-              "number",
-              "object",
-              "string"
-            ]
-          },
-          "simpleTypesArray": {
-            "@": [
-              "$simpleTypes"
-            ],
-            ">=": 1,
-            "!": true
-          },
-          "stringArray": {
-            "@": [
-              ""
-            ],
-            "!": true
-          },
-          "nonNegativeInteger": 0,
-          "validation": {
-            "?type": {
-              "|": [
-                "$simpleTypes",
-                "$simpleTypesArray"
-              ]
-            },
-            "?const": "$ANY",
-            "?enum": [
-              "$ANY"
-            ],
-            "?multipleOf": 1.0,
-            "?maximum": -1.0,
-            "?exclusiveMaximum": -1.0,
-            "?minimum": -1.0,
-            "?exclusiveMinimum": -1.0,
-            "?maxLength": "$nonNegativeInteger",
-            "?minLength": "$nonNegativeInteger",
-            "?pattern": "$REGEX",
-            "?maxItems": "$nonNegativeInteger",
-            "?minItems": "$nonNegativeInteger",
-            "?uniqueItems": true,
-            "?maxContains": "$nonNegativeInteger",
-            "?minContains": "$nonNegativeInteger",
-            "?maxProperties": "$nonNegativeInteger",
-            "?minProperties": "$nonNegativeInteger",
-            "?required": "$stringArray",
-            "?dependentRequired": {
-              "": "$stringArray"
-            }
-          },
-          "schemaArray": {
-            "@": [
-              "$Schema"
-            ],
-            ">=": 1
-          },
-          "applicator": {
-            "?prefixItems": "$schemaArray",
-            "?items": "$Schema",
-            "?contains": "$Schema",
-            "?additionalProperties": "$Schema",
-            "?properties": {
-              "": "$Schema"
-            },
-            "?patternProperties": {
-              "$REGEX": "$Schema"
-            },
-            "?dependentSchemas": {
-              "": "$Schema"
-            },
-            "?propertyNames": "$Schema",
-            "?if": "$Schema",
-            "?then": "$Schema",
-            "?else": "$Schema",
-            "?not": "$Schema",
-            "?allOf": "$schemaArray",
-            "?anyOf": "$schemaArray",
-            "?oneOf": "$schemaArray"
-          },
-          "ObjectSchema": {
-            "+": [
-              "$core",
-              "$applicator",
-              "$unevaluated",
-              "$validation",
-              "$meta",
-              "$format",
-              "$content"
-            ]
-          },
-          "Schema": {
-            "|": [
-              true,
-              "$ObjectSchema"
-            ]
-          }
-        },
-        "~": "https://json-model.org/models/json-model"
-      },
-      "#": "Symbol 1",
-      "": "https://json-model.org/models/json-schema-draft-2020-12-fuzzy"
-    },
-    "@": "$schema",
-    "~": "https://json-model.org/models/json-model"
-  },
-  {
-    "@": "$Schema",
-    "#": "JsonModel 3 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)",
-    "$": {
       "URI-REFERENCE": "",
       "core": {
         "?$id": "$URI-REFERENCE",
@@ -176,7 +17,7 @@
         "?$defs": {
           "": "$Schema"
         },
-        "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "meta": {
         "?title": "",
@@ -188,22 +29,22 @@
         "?examples": [
           "$ANY"
         ],
-        "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "content": {
         "?contentEncoding": "",
         "?contentMediaType": "",
         "?contentSchema": "$Schema",
-        "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "unevaluated": {
         "?unevaluatedItems": "$Schema",
         "?unevaluatedProperties": "$Schema",
-        "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "format": {
         "?format": "",
-        "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypes": {
         "|": [
@@ -215,7 +56,7 @@
           "object",
           "string"
         ],
-        "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "simpleTypesArray": {
         "@": [
@@ -223,14 +64,14 @@
         ],
         ">=": 1,
         "!": true,
-        "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "stringArray": {
         "@": [
           ""
         ],
         "!": true,
-        "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "nonNegativeInteger": 0,
       "validation": {
@@ -263,14 +104,14 @@
         "?dependentRequired": {
           "": "$stringArray"
         },
-        "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "schemaArray": {
         "@": [
           "$Schema"
         ],
         ">=": 1,
-        "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "applicator": {
         "?prefixItems": "$schemaArray",
@@ -294,7 +135,7 @@
         "?allOf": "$schemaArray",
         "?anyOf": "$schemaArray",
         "?oneOf": "$schemaArray",
-        "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "ObjectSchema": {
         "?$id": "$URI-REFERENCE",
@@ -389,14 +230,14 @@
         "?$recursiveAnchor": "",
         "?$recursiveRef": "",
         "": "$ANY",
-        "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "Schema": {
         "|": [
           true,
           "$ObjectSchema"
         ],
-        "#": "JsonModel 18 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
       },
       "deprecated": {
         "?definitions": {
@@ -412,15 +253,16 @@
         },
         "?$recursiveAnchor": "",
         "?$recursiveRef": "",
-        "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 18"
       },
       "fuzzy": {
         "": "$ANY",
-        "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+        "#": "JsonModel 19"
       },
-      "#": "Symbol 3",
-      "": "https://json-model.org/models/json-schema-draft-2020-12"
+      "#": "Symbol 1",
+      "": "https://json-model.org/models/json-schema-draft-2020-12-fuzzy"
     },
+    "@": "$Schema",
     "~": "https://json-model.org/models/json-model"
   },
   "",
@@ -438,7 +280,7 @@
     "?$defs": {
       "": "$Schema"
     },
-    "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 4 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?title": "",
@@ -450,22 +292,22 @@
     "?examples": [
       "$ANY"
     ],
-    "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 5 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?contentEncoding": "",
     "?contentMediaType": "",
     "?contentSchema": "$Schema",
-    "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 6 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?unevaluatedItems": "$Schema",
     "?unevaluatedProperties": "$Schema",
-    "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 7 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?format": "",
-    "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 8 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
@@ -477,7 +319,7 @@
       "object",
       "string"
     ],
-    "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 9 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
@@ -485,14 +327,14 @@
     ],
     ">=": 1,
     "!": true,
-    "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 10 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       ""
     ],
     "!": true,
-    "#": "JsonModel 12 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 11 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   0,
   {
@@ -525,14 +367,14 @@
     "?dependentRequired": {
       "": "$stringArray"
     },
-    "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 13 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "@": [
       "$Schema"
     ],
     ">=": 1,
-    "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 14 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?prefixItems": "$schemaArray",
@@ -556,7 +398,7 @@
     "?allOf": "$schemaArray",
     "?anyOf": "$schemaArray",
     "?oneOf": "$schemaArray",
-    "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 15 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?$id": "$URI-REFERENCE",
@@ -651,14 +493,14 @@
     "?$recursiveAnchor": "",
     "?$recursiveRef": "",
     "": "$ANY",
-    "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 16 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "|": [
       true,
       "$ObjectSchema"
     ],
-    "#": "JsonModel 18 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 17 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
   },
   {
     "?definitions": {
@@ -674,10 +516,10 @@
     },
     "?$recursiveAnchor": "",
     "?$recursiveRef": "",
-    "#": "JsonModel 19 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 18"
   },
   {
     "": "$ANY",
-    "#": "JsonModel 20 (JSON_MODEL_LOOSE_INT JSON_MODEL_LOOSE_FLOAT)"
+    "#": "JsonModel 19"
   }
 ]

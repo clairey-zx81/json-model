@@ -5311,7 +5311,7 @@ public class json_schema_draft_tighter extends ModelChecker
             _jm_obj_47_map_pmap.put("id", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_162(o, p, r);} });
             _jm_obj_47_map_pmap.put("title", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_163(o, p, r);} });
             json_schema_draft_tighter_map_pmap = new HashMap<String, Checker>();
-            json_schema_draft_tighter_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            json_schema_draft_tighter_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_25(o, p, r);} });
             json_schema_draft_tighter_map_pmap.put("const", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             json_schema_draft_tighter_map_pmap.put("enum", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_schema_draft_tighter_map_pmap.put("schemaArray", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

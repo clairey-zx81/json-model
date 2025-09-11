@@ -1807,7 +1807,7 @@ def check_model_init():
         check_model_map = {
             "": json_model_1,
             "URI-REFERENCE": json_model_2,
-            "id": json_model_3,
+            "id": json_model_2,
             "core": json_model_4,
             "meta": json_model_5,
             "content": json_model_6,

@@ -184,7 +184,7 @@ public class trafo_2 extends ModelChecker
         {
             try {
             trafo_2_map_pmap = new HashMap<String, Checker>();
-            trafo_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            trafo_2_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
             trafo_2_map_pmap.put("Z", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             trafo_2_map_pmap.put("z", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             trafo_2_map_pmap.put("l", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

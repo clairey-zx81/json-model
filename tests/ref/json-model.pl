@@ -3675,7 +3675,7 @@ sub check_model_init()
             '$ANY' => 1,
         );
         %check_model_map = (
-            '' => \&json_model_1,
+            '' => \&json_model_39,
             'Url' => \&json_model_2,
             'PreDef' => \&json_model_3,
             'Identifier' => \&json_model_4,
@@ -3693,7 +3693,7 @@ sub check_model_init()
             'Any' => \&json_model_16,
             'None' => \&json_model_17,
             'Array' => \&json_model_18,
-            'Common' => \&json_model_19,
+            'Common' => \&json_model_6,
             'Constraint' => \&json_model_20,
             'Or' => \&json_model_21,
             'And' => \&json_model_22,

@@ -10968,7 +10968,7 @@ public class ansiblelint_meta extends ModelChecker
             _jm_cst_64_set.add(json.safeJSON("\"hg\""));
             _jm_cst_64_set.add(json.safeJSON("\"git\""));
             ansiblelint_meta_map_pmap = new HashMap<String, Checker>();
-            ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            ansiblelint_meta_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_60(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AIXPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AlpinePlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             ansiblelint_meta_map_pmap.put("AmazonLinuxPlatformModel", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

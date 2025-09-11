@@ -413,7 +413,7 @@ public class xoropt_015 extends ModelChecker
         {
             try {
             xoropt_015_map_pmap = new HashMap<String, Checker>();
-            xoropt_015_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            xoropt_015_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
             xoropt_015_map_pmap.put("V", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             xoropt_015_map_pmap.put("X", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             xoropt_015_map_pmap.put("Y", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });

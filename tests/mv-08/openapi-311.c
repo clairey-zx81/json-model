@@ -10071,7 +10071,7 @@ const char *check_model_init(void)
         _jm_obj_85_map_tab[55] = (jm_propmap_t) { "uniqueItems", _jm_f_185 };
         _jm_obj_85_map_tab[56] = (jm_propmap_t) { "writeOnly", _jm_f_186 };
         jm_sort_propmap(_jm_obj_85_map_tab, 57);
-        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_1 };
+        check_model_map_tab[0] = (jm_propmap_t) { "", json_model_2 };
         check_model_map_tab[1] = (jm_propmap_t) { "OpenAPI", json_model_2 };
         check_model_map_tab[2] = (jm_propmap_t) { "Info", json_model_3 };
         check_model_map_tab[3] = (jm_propmap_t) { "Contact", json_model_4 };

@@ -156,7 +156,7 @@ public class ex_08 extends ModelChecker
         {
             try {
             ex_08_map_pmap = new HashMap<String, Checker>();
-            ex_08_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
+            ex_08_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
             ex_08_map_pmap.put("VAL", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
             ex_08_map_pmap.put("KEY", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             ex_08_map_pmap.put("map", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_4(o, p, r);} });
