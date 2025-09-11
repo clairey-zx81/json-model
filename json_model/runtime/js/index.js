@@ -57,7 +57,7 @@ export function jm_is_valid_date(date, path, rep)
 export function jm_is_valid_time(time, path, rep)
 {
     return ((typeof time === 'string' || time instanceof String) &&
-            /^[T ]?([01][0-9]|2[0-3]):?[0-5][0-9]:?[0-5][0-9](\.[0-9]{3})?(Z|[-+][0-9]{2}(:?[0-5][0-9])?)?$/.exec(time) != null)
+            /^[T ]?([01][0-9]|2[0-3]):?[0-5][0-9]:?[0-5][0-9](\.[0-9]{1,9})?(Z|[-+][0-9]{2}(:?[0-5][0-9])?)?$/.exec(time) != null)
 }
 
 export function jm_is_valid_datetime(datetime, path, rep)
