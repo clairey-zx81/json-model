@@ -133,3 +133,4 @@ echo "## jmc: $(jmc --version)"
 echo "## js-cli: $(js-cli --version)"
 echo "## statistics"
 sqlite3 -box perf.db < $script_dir/show.sql
+sqlite3 -csv perf.db < $script_dir/show.sql > perf.out
