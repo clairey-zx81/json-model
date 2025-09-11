@@ -162,7 +162,7 @@ CREATE TABLE CompilePerfCompare AS
 -- result summary
 CREATE TABLE ResultComparison AS
   SELECT
-    c.name AS "name",
+    c.name AS name,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
