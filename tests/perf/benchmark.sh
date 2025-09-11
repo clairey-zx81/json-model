@@ -78,6 +78,11 @@ mkdir tmp || err 3 "mkdir tmp failed"
 script_dir=$PWD/jmc/tests/perf
 export PATH=$script_dir:$PATH
 
+# check for scripts
+for cmd in perf_run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
+  type $cmd || err 4 "script $cmd not found"
+done
+
 #
 # RUN
 #
