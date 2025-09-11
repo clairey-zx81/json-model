@@ -177,6 +177,7 @@ CREATE TABLE ResultComparison AS
 CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
+    name,
     ROUND(blaze, 1) AS blaze,
     ROUND(c, 1) AS c,
     ROUND(js, 1) AS js,
