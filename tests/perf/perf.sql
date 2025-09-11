@@ -231,7 +231,7 @@ CREATE TABLE ShowCompilePerCase AS
     ROUND(blaze, 1) AS blaze,
     ROUND(c, 1) AS c,
     ROUND(js, 1) AS js,
-    ROUND(java, 1) AS java,
+    ROUND(jv, 1) AS jv,
     ROUND(py, 1) AS py
   FROM CompilePerfCompare
   ORDER BY 1;
@@ -243,8 +243,8 @@ CREATE TABLE ShowCompileSummary AS
     ROUND(MIN(blaze), 1) AS blaze,
     ROUND(MIN(c), 1) AS c,
     ROUND(MIN(js), 1) AS js,
-    ROUND(MIN(py), 1) AS py,
-    ROUND(MIN(jv), 1) AS jv
+    ROUND(MIN(jv), 1) AS jv,
+    ROUND(MIN(py), 1) AS py
   FROM CompilePerfCompare
   UNION
   SELECT
@@ -252,8 +252,8 @@ CREATE TABLE ShowCompileSummary AS
     ROUND(AVG(blaze), 1),
     ROUND(AVG(c), 1),
     ROUND(AVG(js), 1),
-    ROUND(AVG(py), 1),
-    ROUND(AVG(jv), 1)
+    ROUND(AVG(jv), 1),
+    ROUND(AVG(py), 1)
   FROM CompilePerfCompare
   UNION
   SELECT
@@ -261,8 +261,8 @@ CREATE TABLE ShowCompileSummary AS
     ROUND(MAX(blaze), 1),
     ROUND(MAX(c), 1),
     ROUND(MAX(js), 1),
-    ROUND(MAX(py), 1),
-    ROUND(MAX(jv), 1)
+    ROUND(MAX(jv), 1),
+    ROUND(MAX(py), 1)
   FROM CompilePerfCompare;
 
 -- only bad results

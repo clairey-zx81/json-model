@@ -2,21 +2,21 @@
   "#": "JSON Model for JSON Schema Draft 2020-12 (fuzzy version)",
   "~": "https://json-model.org/models/json-model",
   "$": {
-    "": "https://json-model.org/models/json-schema-draft-2020-12-fuzzy",
-    "schema": "$https://json-model.org/models/json-schema-draft-2020-12"
+    "": "https://json-model.org/models/json-schema-draft-2020-12-fuzzy"
   },
   "%": {
-    "$schema#core.?$schema": "$URL",
-    "$schema#validation.?pattern": "",
-    "$schema#applicator.?patternProperties": {"": "$Schema"},
-    "$schema#deprecated": {
+    "<": "$https://json-model.org/models/json-schema-draft-2020-12",
+    "$core.?$schema": "$URL",
+    "$validation.?pattern": "",
+    "$applicator.?patternProperties": {"": "$Schema"},
+    "$deprecated": {
       "?definitions": { "": "$Schema" },
       "?dependencies": { "": {"|": [ "$Schema", "$stringArray" ] }},
       "?$recursiveAnchor": "",
       "?$recursiveRef": ""
     },
-    "$schema#fuzzy": { "": "$ANY" },
-    "$schema#ObjectSchema.+": { "*": ["$deprecated", "$fuzzy"] }
+    "$fuzzy": { "": "$ANY" },
+    "$ObjectSchema.+": { "*": ["$deprecated", "$fuzzy"] }
   },
-  "@": "$schema"
+  "@": "$Schema"
 }
