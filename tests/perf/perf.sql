@@ -53,6 +53,22 @@ CREATE TABLE Tools(tool TEXT PRIMARY KEY);
 INSERT INTO Tools(tool)
   SELECT DISTINCT tool FROM Run ORDER BY 1;
 
+-- all results
+CREATE TABLE ResultRate AS
+  SELECT
+    c.name,
+    t.tool,
+    1.0 * COALESCE(r.pass + r.fail, 0.0) / c.tests AS executed,
+    100.0 * COALESCE(r.pass, 0) / c.tests AS rate,
+    NULL AS pc
+  FROM Cases AS c
+  CROSS JOIN Tools AS t
+  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
+
+-- show simple pc
+UPDATE ResultRate
+  SET pc = REPLACE(TRUNC(rate), '.0', '');
+
 -- cumulated perf per case/tool
 CREATE TABLE CumulatedPerf AS
   SELECT name, tool,
@@ -63,6 +79,12 @@ CREATE TABLE CumulatedPerf AS
   FROM Run
   GROUP BY 1, 2
   ORDER BY 1, 2;
+
+-- scratch measure if not all cases were executed
+UPDATE CumulatedPerf AS cp
+  SET run = NULL, spread = NULL, empty = NULL
+  FROM ResultRate AS rr
+  WHERE cp.name = rr.name AND cp.tool = rr.tool AND rr.executed <> 1.0;
 
 -- but do not allow zero
 UPDATE CumulatedPerf SET run = NULL WHERE run = 0.0;
@@ -136,21 +158,6 @@ CREATE TABLE CompilePerfCompare AS
     jsu_s + jsu_m + jmc_py AS py,
     jsu_s + jsu_m + jmc_class AS jv
   FROM CompilePerfCase;
-
--- all results
-CREATE TABLE ResultRate AS
-  SELECT
-    c.name,
-    t.tool,
-    100.0 * COALESCE(r.pass, 0) / c.tests AS rate,
-    NULL AS pc
-  FROM Cases AS c
-  CROSS JOIN Tools AS t
-  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
-
--- show simple pc
-UPDATE ResultRate
-  SET pc = REPLACE(TRUNC(rate), '.0', '');
 
 -- result summary
 CREATE TABLE ResultComparison AS
