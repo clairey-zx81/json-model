@@ -59,7 +59,7 @@ for cmd in git docker sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time
 done
 
 for f in jmc jsb tmp perf.db ; do
-  test -e $d && err 2 "unexpected $f"
+  test -e $f && err 2 "unexpected $f"
 done
 
 #
