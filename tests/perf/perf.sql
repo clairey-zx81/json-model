@@ -149,8 +149,8 @@ CREATE TABLE ResultRate AS
   LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
 
 UPDATE ResultRate
-  SET pc = REPLACE(TRUNC(rate), '.0', '')
-  WHERE rate <> 100.0;
+  SET pc = REPLACE(TRUNC(rate), '.0', '');
+--   WHERE rate <> 100.0;
 
 -- result summary
 CREATE TABLE ResultComparison AS
