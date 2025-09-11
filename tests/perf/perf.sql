@@ -137,13 +137,34 @@ CREATE TABLE CompilePerfCompare AS
     ROUND(jsu_s + jsu_m + jmc_class, 2) AS jv
   FROM CompilePerfCase;
 
--- bad results
-CREATE TABLE BadResults AS
-  SELECT c.name, t.tool, ROUND(100.0 * COALESCE(r.pass, 0) / c.tests) AS pc
+-- all results
+CREATE TABLE ResultRate AS
+  SELECT
+    c.name,
+    t.tool,
+    100.0 * COALESCE(r.pass, 0) / c.tests AS rate,
+    NULL AS pc
   FROM Cases AS c
   CROSS JOIN Tools AS t
-  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool)
-  WHERE r.pass IS NULL OR (r.pass + r.fail) <> c.tests OR r.fail <> 0;
+  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
+
+UPDATE ResultRate
+  SET pc = REPLACE(TRUNC(rate), '.0', '')
+  WHERE rate <> 100.0;
+
+-- result summary
+CREATE TABLE ResultComparison AS
+  SELECT
+    c.name AS "name",
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-js') AS js,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-gson') AS jv1,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jackson') AS jv2,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-java-jsonp') AS jv3,
+    (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-py') AS py
+  FROM Cases AS c
+  ORDER BY 1;
 
 -- relative execution time comparison per cases
 CREATE TABLE ShowPerfPerCase AS
@@ -227,16 +248,8 @@ CREATE TABLE ShowCompileSummary AS
     MAX(jv)
   FROM CompilePerfCompare;
 
--- result summary
 CREATE TABLE ShowBadResults AS
-  SELECT
-    name AS "name",
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'blaze') AS blaze,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-c') AS c,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-js') AS js,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-gson') AS jv1,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-jackson') AS jv2,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-jsonp') AS jv3,
-    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-py') AS py
-  FROM (SELECT DISTINCT name FROM BadResults) AS name
-  ORDER BY 1;
+  SELECT *
+  FROM ResultComparison
+  WHERE blaze <> 100 OR c <> 100 OR js <> 100 OR jv1 <> 100
+     OR jv2 <> 100 OR jv3 <> 100 OR py <> 100;
