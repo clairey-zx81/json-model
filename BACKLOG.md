@@ -5,6 +5,7 @@
 - [x] model: filter out all comments from transformations
 - [x] c-backend: improve overhead estimation accuracy
 - [x] static: optimize function mapping by skipping intermediate functions if possible
+- [ ] tests: check how clang compares to gcc
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
 - [ ] tests: fix sql test errors from `Makefile`
