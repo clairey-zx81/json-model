@@ -230,7 +230,7 @@ CREATE TABLE ShowCompileSummary AS
 -- result summary
 CREATE TABLE ShowBadResults AS
   SELECT
-    name AS "name"
+    name AS "name",
     (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'blaze') AS blaze,
     (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-c') AS c,
     (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-js') AS js,
