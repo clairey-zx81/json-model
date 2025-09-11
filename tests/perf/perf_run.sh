@@ -38,8 +38,8 @@ for dir ; do
     jmc_c_opt="--loose --no-reporting"
     jmc_x_opt=$jmc_c_opt
     if [ $name = "cspell" -o $name = "ui5-manifest" ] ; then
-      jmc_c_opt+="-re pcre2"
-      jmc_x_opt+="-re re"
+      jmc_c_opt+=" -re pcre2"
+      jmc_x_opt+=" -re re"
     fi
     #
     # COMPILE
