@@ -24,31 +24,36 @@ CREATE TABLE Result(
   PRIMARY KEY(name, tool)
 );
 
+CREATE TABLE Cases(
+  name TEXT PRIMARY KEY,
+  ssize INT NOT NULL,
+  msize INT NOT NULL,
+  tests INT NOT NULL
+);
+
 -- load raw data
 .mode csv
 .import perf.csv Run
 .import compile.csv Compile
 .import result.csv Result
+.import cases.csv Cases
 
 -- shorten some names
 UPDATE Run SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Compile SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Result SET name = 'gitpod' WHERE name = 'gitpod-configuration';
+UPDATE Cases SET name = 'gitpod' WHERE name = 'gitpod-configuration';
 UPDATE Run SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE Compile SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 UPDATE Result SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
+UPDATE Cases SET name = 'unreal-engine' WHERE name = 'unreal-engine-uproject';
 
-CREATE TABLE Cases(name TEXT PRIMARY KEY);
-INSERT INTO Cases(name)
-  SELECT DISTINCT name FROM Run ORDER BY 1;
+-- tools
+CREATE TABLE Tools(tool TEXT PRIMARY KEY);
+INSERT INTO Tools(tool)
+  SELECT DISTINCT tool FROM Run ORDER BY 1;
 
-.print # cases
-SELECT COUNT(*) FROM Cases;
-
-CREATE TABLE Tools(name TEXT PRIMARY KEY);
-  INSERT INTO Tools(name)
-    SELECT DISTINCT tool FROM Run ORDER BY 1;
-
+-- cumulated perf per case/tool
 CREATE TABLE CumulatedPerf AS
   SELECT name, tool,
     SUM(runavg) AS run,
@@ -59,7 +64,7 @@ CREATE TABLE CumulatedPerf AS
   GROUP BY 1, 2
   ORDER BY 1, 2;
 
--- do not allow zero
+-- but do not allow zero
 UPDATE CumulatedPerf SET run = NULL WHERE run = 0.0;
 
 -- per case time
@@ -132,85 +137,106 @@ CREATE TABLE CompilePerfCompare AS
     ROUND(jsu_s + jsu_m + jmc_class, 2) AS jv
   FROM CompilePerfCase;
 
--- SHOW
-.mode box
-.print # relative execution time comparison per cases
-SELECT
-  RANK() OVER (ORDER BY name) AS "#",
-  *
-FROM RelativeComparison
-ORDER BY 1 ASC;
+-- bad results
+CREATE TABLE BadResults AS
+  SELECT c.name, t.tool, ROUND(100.0 * COALESCE(r.pass, 0) / c.tests) AS pc
+  FROM Cases AS c
+  CROSS JOIN Tools AS t
+  LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool)
+  WHERE r.pass IS NULL OR (r.pass + r.fail) <> c.tests OR r.fail <> 0;
 
-.print # relative execution time summary
-SELECT 'Best' AS summary,
-  COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
-  COUNT(*) FILTER (WHERE c = 1.0) AS c,
-  COUNT(*) FILTER (WHERE js = 1.0) AS js,
-  COUNT(*) FILTER (WHERE jv1 = 1.0) AS jv1,
-  COUNT(*) FILTER (WHERE jv2 = 1.0) AS jv2,
-  COUNT(*) FILTER (WHERE jv3 = 1.0) AS jv3,
-  COUNT(*) FILTER (WHERE py = 1.0) AS py
-FROM RelativeComparison
-UNION
-SELECT 'KO',
-  COUNT(*) FILTER (WHERE blaze IS NULL),
-  COUNT(*) FILTER (WHERE c IS NULL),
-  COUNT(*) FILTER (WHERE js IS NULL),
-  COUNT(*) FILTER (WHERE jv1 IS NULL),
-  COUNT(*) FILTER (WHERE jv2 IS NULL),
-  COUNT(*) FILTER (WHERE jv3 IS NULL),
-  COUNT(*) FILTER (WHERE py IS NULL)
-FROM RelativeComparison
-UNION
-SELECT 'min',
-  MIN(blaze),
-  MIN(c),
-  MIN(js),
-  MIN(jv1),
-  MIN(jv2),
-  MIN(jv3),
-  MIN(py)
-FROM RelativeComparison
-UNION
-SELECT 'max',
-  MAX(blaze), MAX(c), MAX(js), MAX(jv1), MAX(jv2), MAX(jv3), MAX(py)
-FROM RelativeComparison
-ORDER BY 1 ASC;
+-- relative execution time comparison per cases
+CREATE TABLE ShowPerfPerCase AS
+  SELECT
+    RANK() OVER (ORDER BY name) AS "#",
+    *
+  FROM RelativeComparison
+  ORDER BY 1 ASC;
+
+-- relative execution time summary
+CREATE TABLE ShowPerfSummary AS
+  SELECT 'Best' AS summary,
+    COUNT(*) FILTER (WHERE blaze = 1.0) AS blaze,
+    COUNT(*) FILTER (WHERE c = 1.0) AS c,
+    COUNT(*) FILTER (WHERE js = 1.0) AS js,
+    COUNT(*) FILTER (WHERE jv1 = 1.0) AS jv1,
+    COUNT(*) FILTER (WHERE jv2 = 1.0) AS jv2,
+    COUNT(*) FILTER (WHERE jv3 = 1.0) AS jv3,
+    COUNT(*) FILTER (WHERE py = 1.0) AS py
+  FROM RelativeComparison
+  UNION
+  SELECT 'KO',
+    COUNT(*) FILTER (WHERE blaze IS NULL),
+    COUNT(*) FILTER (WHERE c IS NULL),
+    COUNT(*) FILTER (WHERE js IS NULL),
+    COUNT(*) FILTER (WHERE jv1 IS NULL),
+    COUNT(*) FILTER (WHERE jv2 IS NULL),
+    COUNT(*) FILTER (WHERE jv3 IS NULL),
+    COUNT(*) FILTER (WHERE py IS NULL)
+  FROM RelativeComparison
+  UNION
+  SELECT 'min',
+    MIN(blaze),
+    MIN(c),
+    MIN(js),
+    MIN(jv1),
+    MIN(jv2),
+    MIN(jv3),
+    MIN(py)
+  FROM RelativeComparison
+  UNION
+  SELECT 'max',
+    MAX(blaze), MAX(c), MAX(js), MAX(jv1), MAX(jv2), MAX(jv3), MAX(py)
+  FROM RelativeComparison
+  ORDER BY 1 ASC;
  
-.print # compile time per case
-SELECT
-  RANK() OVER (ORDER BY name) AS "#",
-  *
-FROM CompilePerfCompare
-ORDER BY 1;
+-- compile time per case
+CREATE TABLE ShowCompilePerCase AS
+  SELECT
+    RANK() OVER (ORDER BY name) AS "#",
+    *
+  FROM CompilePerfCompare
+  ORDER BY 1;
 
-.print # compile time summary for all cases
-SELECT
-  'min compile time (s)' AS data,
-  MIN(blaze) AS blaze,
-  MIN(c) AS c,
-  MIN(js) AS js,
-  MIN(py) AS py,
-  MIN(jv) AS jv
-FROM CompilePerfCompare
-UNION
-SELECT
-  'avg compile time (s)',
-  ROUND(AVG(blaze), 2),
-  ROUND(AVG(c), 2),
-  ROUND(AVG(js), 2),
-  ROUND(AVG(py), 2),
-  ROUND(AVG(jv), 2)
-FROM CompilePerfCompare
-UNION
-SELECT
-  'max compile time (s)',
-  MAX(blaze),
-  MAX(c),
-  MAX(js),
-  MAX(py),
-  MAX(jv)
-FROM CompilePerfCompare;
+-- compile time summary for all cases
+CREATE TABLE ShowCompileSummary AS
+  SELECT
+    'min compile time (s)' AS data,
+    MIN(blaze) AS blaze,
+    MIN(c) AS c,
+    MIN(js) AS js,
+    MIN(py) AS py,
+    MIN(jv) AS jv
+  FROM CompilePerfCompare
+  UNION
+  SELECT
+    'avg compile time (s)',
+    ROUND(AVG(blaze), 2),
+    ROUND(AVG(c), 2),
+    ROUND(AVG(js), 2),
+    ROUND(AVG(py), 2),
+    ROUND(AVG(jv), 2)
+  FROM CompilePerfCompare
+  UNION
+  SELECT
+    'max compile time (s)',
+    MAX(blaze),
+    MAX(c),
+    MAX(js),
+    MAX(py),
+    MAX(jv)
+  FROM CompilePerfCompare;
 
-.print # results
-SELECT * FROM Result WHERE fail <> 0;
+-- result summary
+CREATE TABLE ShowBadResults AS
+  SELECT
+    name AS "name"
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'blaze') AS blaze,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-c') AS c,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-js') AS js,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-gson') AS jv1,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-jackson') AS jv2,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-java-jsonp') AS jv3,
+    (SELECT pc FROM BadResults AS br WHERE br.name = name AND tool = 'jmc-py') AS py
+  FROM (SELECT DISTINCT name FROM BadResults) AS name
+  ORDER BY 1;
