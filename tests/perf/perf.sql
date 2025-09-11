@@ -136,7 +136,8 @@ CREATE TABLE CompilePerf AS
 
 -- compilation time per cases
 CREATE TABLE CompilePerfCase AS
-  SELECT c.name,
+  SELECT
+    c.name,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'blaze') AS blaze,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jsu-simpler') AS jsu_s,
     (SELECT run FROM CompilePerf AS cp WHERE cp.name = c.name AND cp.tool = 'jsu-model') AS jsu_m,
@@ -162,6 +163,7 @@ CREATE TABLE CompilePerfCompare AS
 -- result summary
 CREATE TABLE ResultComparison AS
   SELECT
+    RANK() OVER (ORDER BY name) AS nb,
     c.name AS name,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'blaze') AS blaze,
     (SELECT pc FROM ResultRate AS r WHERE r.name = c.name AND r.tool = 'jmc-c') AS c,
