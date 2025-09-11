@@ -97,13 +97,13 @@ UPDATE Comparison
 CREATE TABLE RelativeComparison AS
   SELECT
     name,
-    ROUND(blaze / best, 2) AS "blaze",
-    ROUND(c / best, 2) AS "c",
-    ROUND(js / best, 2) AS "js",
-    ROUND(jv1 / best, 2) AS "jv1",
-    ROUND(jv2 / best, 2) AS "jv2",
-    ROUND(jv3 / best, 2) AS "jv3",
-    ROUND(py / best, 2) AS "py"
+    blaze / best AS blaze,
+    c / best AS c,
+    js / best AS js,
+    jv1 / best AS jv1,
+    jv2 / best AS jv2,
+    jv3 / best AS jv3,
+    py / best AS py
   FROM Comparison;
 
 -- compilation aggregation
@@ -130,11 +130,11 @@ CREATE TABLE CompilePerfCase AS
 CREATE TABLE CompilePerfCompare AS
   SELECT
     name,
-    ROUND(blaze, 2) AS blaze,
-    ROUND(jsu_s + jsu_m + jmc_out, 2) AS c,
-    ROUND(jsu_s + jsu_m + jmc_js, 2) AS js,
-    ROUND(jsu_s + jsu_m + jmc_py, 2) AS py,
-    ROUND(jsu_s + jsu_m + jmc_class, 2) AS jv
+    blaze,
+    jsu_s + jsu_m + jmc_out AS c,
+    jsu_s + jsu_m + jmc_js AS js,
+    jsu_s + jsu_m + jmc_py AS py,
+    jsu_s + jsu_m + jmc_class AS jv
   FROM CompilePerfCase;
 
 -- all results
@@ -148,9 +148,9 @@ CREATE TABLE ResultRate AS
   CROSS JOIN Tools AS t
   LEFT JOIN Result AS r ON (c.name = r.name AND t.tool = r.tool);
 
+-- show simple pc
 UPDATE ResultRate
   SET pc = REPLACE(TRUNC(rate), '.0', '');
---   WHERE rate <> 100.0;
 
 -- result summary
 CREATE TABLE ResultComparison AS
@@ -170,7 +170,13 @@ CREATE TABLE ResultComparison AS
 CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
-    *
+    ROUND(blaze, 1) AS blaze,
+    ROUND(c, 1) AS c,
+    ROUND(js, 1) AS js,
+    ROUND(jv1, 1) AS jv1,
+    ROUND(jv2, 1) AS jv2,
+    ROUND(jv3, 1) AS jv3,
+    ROUND(py, 1) AS py
   FROM RelativeComparison
   ORDER BY 1 ASC;
 
@@ -197,17 +203,23 @@ CREATE TABLE ShowPerfSummary AS
   FROM RelativeComparison
   UNION
   SELECT 'min',
-    MIN(blaze),
-    MIN(c),
-    MIN(js),
-    MIN(jv1),
-    MIN(jv2),
-    MIN(jv3),
-    MIN(py)
+    ROUND(MIN(blaze), 1),
+    ROUND(MIN(c), 1),
+    ROUND(MIN(js), 1),
+    ROUND(MIN(jv1), 1),
+    ROUND(MIN(jv2), 1),
+    ROUND(MIN(jv3), 1),
+    ROUND(MIN(py), 1)
   FROM RelativeComparison
   UNION
   SELECT 'max',
-    MAX(blaze), MAX(c), MAX(js), MAX(jv1), MAX(jv2), MAX(jv3), MAX(py)
+    ROUND(MAX(blaze), 1),
+    ROUND(MAX(c), 1),
+    ROUND(MAX(js), 1),
+    ROUND(MAX(jv1), 1),
+    ROUND(MAX(jv2), 1),
+    ROUND(MAX(jv3), 1),
+    ROUND(MAX(py), 1)
   FROM RelativeComparison
   ORDER BY 1 ASC;
  
@@ -215,7 +227,12 @@ CREATE TABLE ShowPerfSummary AS
 CREATE TABLE ShowCompilePerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
-    *
+    name,
+    ROUND(blaze, 1) AS blaze,
+    ROUND(c, 1) AS c,
+    ROUND(js, 1) AS js,
+    ROUND(java, 1) AS java,
+    ROUND(py, 1) AS py
   FROM CompilePerfCompare
   ORDER BY 1;
 
@@ -223,31 +240,32 @@ CREATE TABLE ShowCompilePerCase AS
 CREATE TABLE ShowCompileSummary AS
   SELECT
     'min compile time (s)' AS data,
-    MIN(blaze) AS blaze,
-    MIN(c) AS c,
-    MIN(js) AS js,
-    MIN(py) AS py,
-    MIN(jv) AS jv
+    ROUND(MIN(blaze), 1) AS blaze,
+    ROUND(MIN(c), 1) AS c,
+    ROUND(MIN(js), 1) AS js,
+    ROUND(MIN(py), 1) AS py,
+    ROUND(MIN(jv), 1) AS jv
   FROM CompilePerfCompare
   UNION
   SELECT
     'avg compile time (s)',
-    ROUND(AVG(blaze), 2),
-    ROUND(AVG(c), 2),
-    ROUND(AVG(js), 2),
-    ROUND(AVG(py), 2),
-    ROUND(AVG(jv), 2)
+    ROUND(AVG(blaze), 1),
+    ROUND(AVG(c), 1),
+    ROUND(AVG(js), 1),
+    ROUND(AVG(py), 1),
+    ROUND(AVG(jv), 1)
   FROM CompilePerfCompare
   UNION
   SELECT
     'max compile time (s)',
-    MAX(blaze),
-    MAX(c),
-    MAX(js),
-    MAX(py),
-    MAX(jv)
+    ROUND(MAX(blaze), 1),
+    ROUND(MAX(c), 1),
+    ROUND(MAX(js), 1),
+    ROUND(MAX(py), 1),
+    ROUND(MAX(jv), 1)
   FROM CompilePerfCompare;
 
+-- only bad results
 CREATE TABLE ShowBadResults AS
   SELECT *
   FROM ResultComparison
