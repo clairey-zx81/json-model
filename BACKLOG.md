@@ -5,6 +5,8 @@
 - [x] model: filter out all comments from transformations
 - [x] c-backend: improve overhead estimation accuracy
 - [x] static: optimize function mapping by skipping intermediate functions if possible
+- [ ] artifact: reduce task granularity
+- [ ] artifact: add boostrap docker image base on docker-cli?
 - [ ] tests: check how clang compares to gcc
 - [ ] pr: update tuto scripts to match current status
 - [ ] tests: add non regression tests to docker build
