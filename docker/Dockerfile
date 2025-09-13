@@ -86,7 +86,7 @@ RUN for artifact in \
     do \
         mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
     done
-ENV CLASSPATH=.:/app/workspace:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar:$java/jakarta.json-api-2.0.2.jar:$java/johnzon-core-2.0.2.jar
+ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar:$java/jakarta.json-api-2.0.2.jar:$java/johnzon-core-2.0.2.jar
 RUN make -C $java jar
 
 # convenient shell and vi environment
