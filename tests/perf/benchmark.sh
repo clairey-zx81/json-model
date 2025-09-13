@@ -18,7 +18,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARALLEL=8 LOOP=1000 JMC=latest JSC=latest
+PARALLEL=8 LOOP=1000 COMP=5 JMC=latest JSC=latest
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -30,7 +30,8 @@ while [[ "$1" == -* ]] ; do
             echo " --help|-h: this help"
             echo " --version|-v: show version"
             echo " --parallel|-p N: benchmark parallelism, use half available cores"
-            echo " --loop|-l L: number of iterations to collect performance figures"
+            echo " --compile|-c C: number of compilation iterations for performance"
+            echo " --loop|-l L: number of run iterations for performance figures"
             echo " --jmc=TAG: docker tag for JSON Model docker image"
             echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image"
             exit 0
@@ -43,6 +44,8 @@ while [[ "$1" == -* ]] ; do
         --par=*|--parallel=*) PARALLEL=${opt#*} ;;
         -l|--loop) LOOP=$1 ; shift ;;
         --loop=*) LOOP=${opt#*=} ;;
+        -c|--compile) COMP=$1 ; shift ;;
+        --comp=*|--compile=*) COMP=${opt#*=} ;;
         --jmc) JMC=$1 ; shift ;;
         --jmc=*) JMC=${opt#*=} ;;
         --jsc) JSC=$1 ; shift ;;
@@ -123,12 +126,13 @@ done
 tasks="jmc-py jmc-java jmc-js jmc-c blaze"
 
 echo "# compilation runs"
-for i in A B C D ; do
-  do_start run.sh 0 tmp/${i}_ cmp all jsb/schemas/*
+let nc=$(( $COMP - 1 ))
+while let nc-- ; do
+  do_start run.sh 0 tmp/C${nc}_ cmp all jsb/schemas/*
   do_wait $PARALLEL
 done
 
-echo "# validation runs"
+echo "# validation runs (include one compilation)"
 for trg in $tasks ; do
   for dir in jsb/schemas/* ; do
     do_start run.sh $LOOP tmp/ all $trg $dir
