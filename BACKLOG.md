@@ -183,7 +183,7 @@
 - [ ] extend: accepting any extension?! eg opened objects?
 - [ ] extend: variants, see `models/json-schema-*`
 - [ ] extend: pg storage, extension
-- [ ] extend: mongodb storage ?
+- [ ] extend: json schema for mongodb storage
 - [ ] perf: schema validation on yac data
 - [ ] perf: open data, eg RNCP and FRESQ
 - [ ] frontend: loop load/valid for perf
