@@ -1,1 +1,27 @@
-../../docker/jmc
+#! /bin/bash
+#
+# run jmc command in docker
+#
+
+docker_image="zx80/jmc"
+docker_root="docker run --name awesome_jmc_$$ -v ${WORKDIR:-.}:/app/workspace --rm"
+docker_user="$docker_root --user $(id -u):$(id -g)"
+
+if [ "$#" -ge 1 -a "$1" = "help" ] ; then
+  echo "$0 [ help | run | exec | shell | root ] …"
+elif [ "$#" -ge 1 -a "$1" = "shell" ] ; then
+  shift 1
+  exec $docker_user -i --entrypoint /bin/bash $docker_image "$@"
+elif [ "$#" -ge 1 -a "$1" = "root" ] ; then
+  shift 1
+  exec $docker_root -i --entrypoint /bin/bash $docker_image "$@"
+elif [ "$#" -ge 1 -a "$1" = "exec" ] ; then
+  exe=$2
+  shift 2
+  exec $docker_user --entrypoint "$exe" $docker_image "$@"
+elif [ "$#" -ge 1 -a "$1" = "run" ] ; then
+  shift 1
+  exec $docker_user $docker_image "$@"
+else
+  exec $docker_user $docker_image "$@"
+fi

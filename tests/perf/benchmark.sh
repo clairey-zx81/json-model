@@ -2,19 +2,10 @@
 #
 # run jmc benchmark
 #
+# usage: $0 --par 4 --loop 1000 --jmc latest --jsc latest
+#
 
-# performance run in parallel
-PARALLEL=${1:-4}
-
-# performance loop count
-LOOP=${2:-1000}
-
-# json model compiler
-JMC=${3:-latest}
-
-# jsonschema cli
-JSC=${4:-latest}
-
+# error handling
 function err()
 {
     local status=$1
@@ -22,6 +13,34 @@ function err()
     echo "$@" >&2
     exit $status
 }
+
+# script directory
+script_dir=$(dirname $0)
+
+# defaults
+PARALLEL=8 LOOP=1000 JMC=latest JSC=latest
+
+# get options
+while [[ "$1" == -* ]] ; do
+    opt=$1
+    shift
+    case $opt in
+        -p|--par|--parallel) PARALLEL=$1 ; shift ;;
+        --par=*|--parallel=*) PARALLEL=${opt#*} ;;
+        -l|--loop) LOOP=$1 ; shift ;;
+        --loop=*) LOOP=${opt#*=} ;;
+        --jmc) JMC=$1 ; shift ;;
+        --jmc=*) JMC=${opt#*=} ;;
+        --jsc) JSC=$1 ; shift ;;
+        --jsc=*) JSC=${opt#*=} ;;
+        --) break ;;
+        *) err 1 "unexpected option: $opt" ;;
+    esac
+done
+
+[ $# -ne 0 ] && err 1 "$0 - unexpected arguments: $@"
+
+echo "# benchmarking parallel=$PARALLEL loop=$LOOP jmc=$JMC jsc=$JSC"
 
 #
 # PARALLEL RUNS
@@ -53,14 +72,13 @@ function do_wait()
 #
 # SANITY
 #
-
 echo "# sanity check"
 for cmd in git docker sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
-  type $cmd || err 1 "command $cmd not found"
+  type $cmd || err 2 "command $cmd not found"
 done
 
-for f in jmc jsb tmp perf.db ; do
-  test -e $f && err 2 "unexpected $f"
+for f in jsb tmp perf.db ; do
+  test -e $f && err 3 "unexpected $f"
 done
 
 #
@@ -71,32 +89,37 @@ docker pull zx80/jmc:$JMC
 docker pull ghcr.io/sourcemeta/jsonschema:$JSC
 
 echo "# cloning repos"
-git clone https://github.com/clairey-zx81/json-model.git jmc || err 3 "jmc clone failed"
 git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 3 "jsb clone failed"
 
 echo "# misc setup"
-mkdir tmp || err 3 "mkdir tmp failed"
-script_dir=$PWD/jmc/tests/perf
+mkdir tmp || err 4 "mkdir tmp failed"
+
 export PATH=$script_dir:$PATH
+export CLASSPATH=tmp:$CLASSPATH
 
 # check for scripts
-for cmd in perf_run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
-  type $cmd || err 4 "script $cmd not found"
+for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
+  type $cmd || err 5 "script $cmd not found"
 done
 
 #
 # RUN
 #
+# slowest first
+tasks="jmc-py jmc-java jmc-js jmc-c blaze"
+
 echo "# compilation runs"
-for i in 1 2 3 4 ; do
-  do_start perf_run.sh 0 tmp/${i}_ jsb/schemas/*
+for i in A B C D ; do
+  do_start run.sh 0 tmp/${i}_ cmp all jsb/schemas/*
   do_wait $PARALLEL
 done
 
 echo "# validation runs"
-for dir in jsb/schemas/* ; do
-  do_start perf_run.sh $LOOP tmp/ $dir
-  do_wait $PARALLEL
+for trg in $tasks ; do
+  for dir in jsb/schemas/* ; do
+    do_start run.sh $LOOP tmp/ all $trg $dir
+    do_wait $PARALLEL
+  done
 done
 
 while [ $running -gt 0 ] ; do
@@ -114,7 +137,7 @@ res-to-csv.sh tmp/*.out > result.csv
 for dir in jsb/schemas/* ; do
   [ -d "$dir" ] || continue
   name=$(basename $dir)
-  ssize=$(jq < $dir | wc -l)
+  ssize=$(jq < $dir/schema.json | wc -l)
   msize=$(jq < tmp/${name}_model.json | wc -l)
   tests=$(wc -l < $dir/instances.jsonl)
   echo "$name,$ssize,$msize,$tests"
@@ -129,9 +152,12 @@ sqlite3 perf.db < $script_dir/perf.sql
 #
 # OUTPUT
 #
-echo "# versions"
-echo "## jmc: $(jmc --version)"
-echo "## js-cli: $(js-cli --version)"
-echo "## statistics"
-sqlite3 -box perf.db < $script_dir/show.sql
-sqlite3 -csv perf.db < $script_dir/show.sql > perf.out
+{
+  echo "# versions"
+  echo "## jmc: $(jmc --version)"
+  echo "## js-cli: $(js-cli --version)"
+  echo "# statistics"
+  sqlite3 -box perf.db < $script_dir/show.sql
+} > benchmark.output
+
+sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv
