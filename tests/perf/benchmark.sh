@@ -26,7 +26,13 @@ while [[ "$1" == -* ]] ; do
     shift
     case $opt in
         -h|--help)
-            echo "$0 [-p 8] [-l 1000] --jmc=latest --jsc=latest"
+            echo "$0 [-h] [-v] [-p 8] [-l 1000] [--jmc=latest] [--jsc=latest]"
+            echo " --help|-h: this help"
+            echo " --version|-v: show version"
+            echo " --parallel|-p N: benchmark parallelism, use half available cores"
+            echo " --loop|-l L: number of iterations to collect performance figures"
+            echo " --jmc=TAG: docker tag for JSON Model docker image"
+            echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image"
             exit 0
             ;;
         -v|--version)
@@ -164,6 +170,7 @@ sqlite3 perf.db < $script_dir/perf.sql
   echo "# versions"
   echo "## jmc: $(jmc --version)"
   echo "## js-cli: $(js-cli --version)"
+  echo "## jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
   echo "# statistics"
   sqlite3 -box perf.db < $script_dir/show.sql
 } > benchmark.output
