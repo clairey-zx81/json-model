@@ -2,7 +2,7 @@
 #
 # run jmc benchmark
 #
-# usage: $0 --par 4 --loop 1000 --jmc latest --jsc latest
+# usage: $0 --par 8 --comp 5 --loop 1000 --jmc latest --jsc latest
 #
 
 # error handling
@@ -29,7 +29,7 @@ while [[ "$1" == -* ]] ; do
             echo "$0 [-h] [-v] [-p 8] [-l 1000] [--jmc=latest] [--jsc=latest]"
             echo " --help|-h: this help"
             echo " --version|-v: show version"
-            echo " --parallel|-p N: benchmark parallelism, use half available cores"
+            echo " --parallel|-p N: benchmark parallelism, eg half available cores"
             echo " --compile|-c C: number of compilation iterations for performance"
             echo " --loop|-l L: number of run iterations for performance figures"
             echo " --jmc=TAG: docker tag for JSON Model docker image"
@@ -120,7 +120,7 @@ for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
 done
 
 #
-# RUN
+# RUN (189 parallel tasks with default settings)
 #
 # slowest first
 tasks="jmc-py jmc-java jmc-js jmc-c blaze"
