@@ -48,7 +48,7 @@ case $TARGET in
     *) err 1 "unexpected target: $TARGET" ;;
 esac
 
-echo "$0[$$]: cmp=$do_cmp run=$do_run targets=$targets dirs=$@"
+echo "# $0[$$]: cmp=$do_cmp run=$do_run targets=$targets dirs=$@"
 
 #
 # proceed
@@ -180,3 +180,5 @@ for dir ; do
         }
     done
 done
+
+echo "# $0[$$]: cmp=$do_cmp run=$do_run targets=$targets dirs=$@ - $SECONDS"
