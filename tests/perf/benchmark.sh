@@ -25,6 +25,10 @@ while [[ "$1" == -* ]] ; do
     opt=$1
     shift
     case $opt in
+        -h|--help)
+            echo "$0 [-p 8] [-l 1000] --jmc=latest --jsc=latest"
+            exit 0
+            ;;
         -p|--par|--parallel) PARALLEL=$1 ; shift ;;
         --par=*|--parallel=*) PARALLEL=${opt#*} ;;
         -l|--loop) LOOP=$1 ; shift ;;
