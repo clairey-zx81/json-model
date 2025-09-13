@@ -166,11 +166,11 @@ for dir ; do
         [ "$trg" = "jmc-java" -a "$jmc_class_ko" -eq 0 ] && {
             # FIXME java .java to work around classpath subdir
             echo "## $dir jmc-java run"
-            $jmc exec java ${sprefix}_model.java -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
+            $jmc exec java ${safe}_model -j GSON -T $LOOP --jsonl $dir/instances.jsonl \
                 2> ${prefix}_jmc-java-gson.out
-            $jmc exec java ${sprefix}_model.java -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
+            $jmc exec java ${safe}_model -j Jackson -T $LOOP --jsonl $dir/instances.jsonl \
                 2> ${prefix}_jmc-java-jackson.out
-            $jmc exec java ${sprefix}_model.java -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
+            $jmc exec java ${safe}_model -j JSONP -T $LOOP --jsonl $dir/instances.jsonl \
                 2> ${prefix}_jmc-java-jsonp.out
         }
         [ "$trg" = "jmc-pl" -a "$jmc_pl_ko" -eq 0 ] && {

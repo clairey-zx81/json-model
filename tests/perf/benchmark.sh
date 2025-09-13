@@ -92,10 +92,10 @@ echo "# cloning repos"
 git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 3 "jsb clone failed"
 
 echo "# misc setup"
+# NOTE check that jmc CLASSPATH is consistent
 mkdir tmp || err 4 "mkdir tmp failed"
 
 export PATH=$script_dir:$PATH
-export CLASSPATH=tmp:$CLASSPATH
 
 # check for scripts
 for cmd in run.sh jmc js-cli run-to-csv.sh compile-to-csv.sh res-to-csv.sh ; do
