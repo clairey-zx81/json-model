@@ -56,6 +56,4 @@ docker.tag: .build
 .PHONY: docker.push
 docker.push: docker.tag
 	# if needed: docker login
-	docker push zx80/jmc:latest
-	version=$$(./jmc --version| tr -d '\012\015')
-	docker push zx80/jmc:$$version
+	docker push -a zx80/jmc
