@@ -18,7 +18,7 @@ function err()
 script_dir=$(dirname $0)
 
 # defaults
-PARALLEL=8 LOOP=1000 COMP=5 JMC=latest JSC=latest
+PARA=8 LOOP=1000 COMP=5 JMC=latest JSC=latest
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -30,7 +30,7 @@ while [[ "$1" == -* ]] ; do
             echo "Options and defaults:"
             echo " --help|-h: this help"
             echo " --version|-v: show jmc version"
-            echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARALLEL)"
+            echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARA)"
             echo " --compile|-c C: number of compilation iterations for performance ($COMP)"
             echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
             echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
@@ -42,8 +42,8 @@ while [[ "$1" == -* ]] ; do
             jmc --version
             exit 0
             ;;
-        -p|--par|--parallel) PARALLEL=$1 ; shift ;;
-        --par=*|--parallel=*) PARALLEL=${opt#*} ;;
+        -p|--para|--par|--parallel) PARA=$1 ; shift ;;
+        --par=*|--para=*|--parallel=*) PARA=${opt#*=} ;;
         -l|--loop) LOOP=$1 ; shift ;;
         --loop=*) LOOP=${opt#*=} ;;
         -c|--compile) COMP=$1 ; shift ;;
@@ -60,14 +60,14 @@ done
 [ $# -ne 0 ] && err 1 "$0 - unexpected arguments: $@"
 
 # check option integer values
-[ $PARALLEL -ge 1 ] || err 1 "unexpected parallel value, must be >= 1: $PARALLEL"
+[ $PARA -ge 1 ] || err 1 "unexpected parallel value, must be >= 1: $PARA"
 [ $LOOP -ge 0 ] || err 1 "unexpected loop value, must be >= 0: $LOOP"
 [ $COMP -ge 1 ] || err 1 "unexpected comp value, must be >= 1: $COMP"
 
-echo "# $$ benchmarking parallel=$PARALLEL loop=$LOOP comp=$COMP jmc=$JMC jsc=$JSC"
+echo "# $$ benchmarking parallel=$PARA loop=$LOOP comp=$COMP jmc=$JMC jsc=$JSC"
 
 #
-# PARALLEL RUNS
+# PARA RUNS
 #
 started=0 running=0 stopped=0 processes=""
 
@@ -137,14 +137,14 @@ echo "# compilation runs"
 let nc=$(( $COMP - 1 ))
 while let nc-- ; do
   do_start run.sh 0 tmp/C${nc}_ cmp all jsb/schemas/*
-  do_wait $PARALLEL
+  do_wait $PARA
 done
 
 echo "# validation runs (include one compilation)"
 for trg in $tasks ; do
   for dir in jsb/schemas/* ; do
     do_start run.sh $LOOP tmp/ all $trg $dir
-    do_wait $PARALLEL
+    do_wait $PARA
   done
 done
 
@@ -179,12 +179,19 @@ sqlite3 perf.db < $script_dir/perf.sql
 # OUTPUT
 #
 {
-  echo "# versions"
+  echo "# benchmark parameters"
+  echo "## para: $PARA"
+  echo "## comp: $COMP"
+  echo "## loop: $LOOP"
+  echo "## jmc: $JMC"
+  echo "## jsc: $JSC"
+  echo "# benchmark versions"
   echo "## jmc: $(jmc --version)"
   echo "## js-cli: $(js-cli --version)"
-  echo "## jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
   echo "# statistics"
+  echo "## jsb uniq tests: $(cat jsb/schemas/*/instances.jsonl | sort -u | wc -l)"
   sqlite3 -box perf.db < $script_dir/show.sql
+  echo "## benchmark duration: $SECONDS"
 } > benchmark.output
 
 sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv
