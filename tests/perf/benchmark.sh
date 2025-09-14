@@ -19,6 +19,7 @@ script_dir=$(dirname $0)
 
 # defaults
 PARA=8 LOOP=1000 COMP=5 JMC=latest JSC=latest
+cap_py=
 
 # get options
 while [[ "$1" == -* ]] ; do
@@ -35,6 +36,7 @@ while [[ "$1" == -* ]] ; do
             echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
             echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
             echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
+            echo " --cap-py: reduce loop iterations for python"
             exit 0
             ;;
         -v|--version)
@@ -52,6 +54,7 @@ while [[ "$1" == -* ]] ; do
         --jmc=*) JMC=${opt#*=} ;;
         --jsc) JSC=$1 ; shift ;;
         --jsc=*) JSC=${opt#*=} ;;
+        --cap-py) cap_py=1 ;;
         --) break ;;
         *) err 1 "unexpected option: $opt" ;;
     esac
@@ -143,7 +146,13 @@ done
 echo "# validation runs (include one compilation)"
 for trg in $tasks ; do
   for dir in jsb/schemas/* ; do
-    do_start run.sh $LOOP tmp/ all $trg $dir
+    # time adjustment for slow runs
+    if [ "$cap_py" -a $trg = "jmc-py" ] ; then
+      loop=$(( $LOOP / 10 ))
+    else
+      loop=$LOOP
+    fi
+    do_start run.sh $loop tmp/ all $trg $dir
     do_wait $PARA
   done
 done
@@ -185,6 +194,7 @@ sqlite3 perf.db < $script_dir/perf.sql
   echo "## loop: $LOOP"
   echo "## jmc: $JMC"
   echo "## jsc: $JSC"
+  echo "## cap_py: $cap_py"
   echo "# benchmark versions"
   echo "## jmc: $(jmc --version)"
   echo "## js-cli: $(js-cli --version)"
