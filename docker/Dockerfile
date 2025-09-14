@@ -67,26 +67,31 @@ RUN git clone https://github.com/clairey-zx81/json-model.git
 RUN /app/venv/bin/pip install -e ./json-model
 RUN npm install file:./json-model/json_model/runtime/js
 RUN ls -la node_modules
-# RUN rm -rf ./json-model  # not if editable (-e above)
+# RUN rm -rf ./json-model  # no, editable
 
 RUN git clone https://github.com/zx80/json-schema-utils.git
 RUN /app/venv/bin/pip install -e ./json-schema-utils
-# RUN rm -rf ./json-schema-utils
+# RUN rm -rf ./json-schema-utils  # no, editable
 
 # java runtime, direct download with hardcoded version
 ENV java=/app/json-model/json_model/runtime/java
+ENV gson=2.13.2
+ENV jackson=2.20.0
+ENV jackson_ann=2.20
+ENV jakarta=2.1.3
+ENV johnzon=2.0.2
 RUN for artifact in \
-        com.google.code.gson:gson:2.13.1 \
-        com.fasterxml.jackson.core:jackson-core:2.19.2 \
-        com.fasterxml.jackson.core:jackson-databind:2.19.2 \
-        com.fasterxml.jackson.core:jackson-annotations:2.19.2 \
-        jakarta.json:jakarta.json-api:2.0.2 \
-        org.apache.johnzon:johnzon-core:2.0.2 \
+        com.google.code.gson:gson:$gson \
+        com.fasterxml.jackson.core:jackson-core:$jackson \
+        com.fasterxml.jackson.core:jackson-databind:$jackson \
+        com.fasterxml.jackson.core:jackson-annotations:$jackson_ann \
+        jakarta.json:jakarta.json-api:$jakarta \
+        org.apache.johnzon:johnzon-core:$johnzon \
         ; \
     do \
         mvn dependency:copy -Dartifact=$artifact -DoutputDirectory=$java ; \
     done
-ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-2.13.1.jar:$java/jackson-core-2.19.2.jar:$java/jackson-databind-2.19.2.jar:$java/jackson-annotations-2.19.2.jar:$java/jakarta.json-api-2.0.2.jar:$java/johnzon-core-2.0.2.jar
+ENV CLASSPATH=.:/app/workspace:/app/workspace/java:/app/workspace/tmp:/usr/share/java/gnu-getopt.jar:$java/json-model.jar:$java/gson-$gson.jar:$java/jackson-core-$jackson.jar:$java/jackson-databind-$jackson.jar:$java/jackson-annotations-$jackson_ann.jar:$java/jakarta.json-api-$jakarta.jar:$java/johnzon-core-$johnzon.jar
 RUN make -C $java jar
 
 # convenient shell and vi environment
