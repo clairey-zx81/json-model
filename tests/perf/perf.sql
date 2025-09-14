@@ -183,8 +183,8 @@ CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
     name,
-    cases AS "# cases",
-    best AS "best µs",
+    cases AS "cases",
+    ROUND(best, 1) AS "best µs",
     ROUND(blaze, 1) AS blaze,
     ROUND(c, 1) AS c,
     ROUND(js, 1) AS js,
