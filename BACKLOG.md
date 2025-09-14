@@ -9,6 +9,7 @@
 - [x] artifact: reduce task granularity
 - [x] artifact: add bench docker image base on docker-cli
 - [x] java-backend: update dependency versions
+- [ ] static: detect partial discriminator on or/xor
 - [ ] artifact: make work with dind
 - [ ] tests: check how clang compares to gcc
 - [ ] pr: update tuto scripts to match current status
