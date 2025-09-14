@@ -369,6 +369,7 @@ def _follow_local_def(jm: JsonModel, model: ModelType) -> ModelType:
     return model
 
 # TODO consider or in xor or xor in or in some cases
+# FIXME prevent infinite recursion
 def inline_or(jm: JsonModel):
     """Inline local definitions in or/xor model lists to help flattening."""
 
@@ -567,6 +568,6 @@ def optimize(jm: JsonModel):
         changed |= const_prop(jm)
         changed |= simplify(jm)
         changed |= partial_eval(jm)
-        changed |= inline_or(jm)
+        # changed |= inline_or(jm)
         changed |= flatten(jm)
         changed |= xor_to_or(jm)
