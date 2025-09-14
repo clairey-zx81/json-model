@@ -27,7 +27,7 @@ while [[ "$1" == -* ]] ; do
     shift
     case $opt in
         -h|--help)
-            echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [--jmc=latest] [--jsc=latest]"
+            echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [--jmc=latest] [--jsc=latest] [--cap-py]"
             echo "Options and defaults:"
             echo " --help|-h: this help"
             echo " --version|-v: show jmc version"
