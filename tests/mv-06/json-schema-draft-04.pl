@@ -47,6 +47,7 @@ sub _jm_f_28($$$);
 sub _jm_f_29($$$);
 sub _jm_f_30($$$);
 sub _jm_f_31($$$);
+my %_jm_cst_1;
 sub _jm_f_32($$$);
 sub _jm_f_33($$$);
 my %_jm_obj_0_map;
@@ -598,17 +599,17 @@ sub _jm_f_31($$$)
     return $res;
 }
 
+
 # check _jm_obj_0_map_type (.type)
 sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .type
-    # .type.'|'.0
-    $res = json_model_3($val, $path, $rep);
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
     if (! $res)
     {
-        # .type.'|'.1
+        # .type.'|'.0
         $res = json_model_5($val, $path, $rep);
     }
     return $res;
@@ -683,6 +684,15 @@ sub check_model_init()
             'array' => 1,
             'object' => 1,
         );
+        %_jm_cst_1 = (
+            'null' => 1,
+            'boolean' => 1,
+            'integer' => 1,
+            'number' => 1,
+            'string' => 1,
+            'array' => 1,
+            'object' => 1,
+        );
         %_jm_obj_0_map = (
             '$ref' => \&_jm_f_0,
             '$schema' => \&_jm_f_1,
@@ -736,6 +746,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
+        %_jm_cst_1 = ();
         %_jm_obj_0_map = ();
         %check_model_map = ();
     }

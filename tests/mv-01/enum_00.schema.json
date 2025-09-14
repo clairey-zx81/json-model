@@ -24,7 +24,19 @@
   },
   "oneOf": [
     {
-      "$ref": "#/$defs/p1"
+      "const": "Susie"
+    },
+    {
+      "const": "Calvin"
+    },
+    {
+      "const": "Hobbes"
+    },
+    {
+      "const": "Moe"
+    },
+    {
+      "const": "Bad"
     },
     {
       "$ref": "#/$defs/p2"

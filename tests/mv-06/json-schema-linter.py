@@ -216,14 +216,84 @@ def _jm_f_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$arrayKeywords'.items
     # .'$arrayKeywords'.items.'|'.0
-    res = json_model_24(val, path, rep)
+    res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$arrayKeywords'.items.'|'.0]", path))
     if not res:
         # .'$arrayKeywords'.items.'|'.1
-        res = json_model_4(val, path, rep)
+        res = json_model_16(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $schemaArray [.'$arrayKeywords'.items.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Null [.'$arrayKeywords'.items.'|'.1]", path))
+        if not res:
+            # .'$arrayKeywords'.items.'|'.2
+            res = json_model_15(val, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Bool [.'$arrayKeywords'.items.'|'.2]", path))
+            if not res:
+                # .'$arrayKeywords'.items.'|'.3
+                res = json_model_21(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $Const [.'$arrayKeywords'.items.'|'.3]", path))
+                if not res:
+                    # .'$arrayKeywords'.items.'|'.4
+                    res = json_model_20(val, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $Enum [.'$arrayKeywords'.items.'|'.4]", path))
+                    if not res:
+                        # .'$arrayKeywords'.items.'|'.5
+                        res = json_model_13(val, path, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected $Integer [.'$arrayKeywords'.items.'|'.5]", path))
+                        if not res:
+                            # .'$arrayKeywords'.items.'|'.6
+                            res = json_model_14(val, path, rep)
+                            if not res:
+                                rep is None or rep.append(("unexpected $Number [.'$arrayKeywords'.items.'|'.6]", path))
+                            if not res:
+                                # .'$arrayKeywords'.items.'|'.7
+                                res = json_model_10(val, path, rep)
+                                if not res:
+                                    rep is None or rep.append(("unexpected $String [.'$arrayKeywords'.items.'|'.7]", path))
+                                if not res:
+                                    # .'$arrayKeywords'.items.'|'.8
+                                    res = json_model_11(val, path, rep)
+                                    if not res:
+                                        rep is None or rep.append(("unexpected $Array [.'$arrayKeywords'.items.'|'.8]", path))
+                                    if not res:
+                                        # .'$arrayKeywords'.items.'|'.9
+                                        res = json_model_12(val, path, rep)
+                                        if not res:
+                                            rep is None or rep.append(("unexpected $Object [.'$arrayKeywords'.items.'|'.9]", path))
+                                        if not res:
+                                            # .'$arrayKeywords'.items.'|'.10
+                                            res = json_model_17(val, path, rep)
+                                            if not res:
+                                                rep is None or rep.append(("unexpected $AllOf [.'$arrayKeywords'.items.'|'.10]", path))
+                                            if not res:
+                                                # .'$arrayKeywords'.items.'|'.11
+                                                res = json_model_18(val, path, rep)
+                                                if not res:
+                                                    rep is None or rep.append(("unexpected $AnyOf [.'$arrayKeywords'.items.'|'.11]", path))
+                                                if not res:
+                                                    # .'$arrayKeywords'.items.'|'.12
+                                                    res = json_model_19(val, path, rep)
+                                                    if not res:
+                                                        rep is None or rep.append(("unexpected $OneOf [.'$arrayKeywords'.items.'|'.12]", path))
+                                                    if not res:
+                                                        # .'$arrayKeywords'.items.'|'.13
+                                                        res = json_model_22(val, path, rep)
+                                                        if not res:
+                                                            rep is None or rep.append(("unexpected $Ref [.'$arrayKeywords'.items.'|'.13]", path))
+                                                        if not res:
+                                                            # .'$arrayKeywords'.items.'|'.14
+                                                            res = json_model_9(val, path, rep)
+                                                            if not res:
+                                                                rep is None or rep.append(("unexpected $metas [.'$arrayKeywords'.items.'|'.14]", path))
+                                                            if not res:
+                                                                # .'$arrayKeywords'.items.'|'.15
+                                                                res = json_model_4(val, path, rep)
+                                                                if not res:
+                                                                    rep is None or rep.append(("unexpected $schemaArray [.'$arrayKeywords'.items.'|'.15]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -970,14 +1040,84 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$Array'.items
     # .'$Array'.items.'|'.0
-    res = json_model_24(val, path, rep)
+    res = isinstance(val, bool)
     if not res:
-        rep is None or rep.append(("unexpected $Schema [.'$Array'.items.'|'.0]", path))
+        rep is None or rep.append(("not a bool [.'$Array'.items.'|'.0]", path))
     if not res:
         # .'$Array'.items.'|'.1
-        res = json_model_4(val, path, rep)
+        res = json_model_16(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $schemaArray [.'$Array'.items.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Null [.'$Array'.items.'|'.1]", path))
+        if not res:
+            # .'$Array'.items.'|'.2
+            res = json_model_15(val, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Bool [.'$Array'.items.'|'.2]", path))
+            if not res:
+                # .'$Array'.items.'|'.3
+                res = json_model_21(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $Const [.'$Array'.items.'|'.3]", path))
+                if not res:
+                    # .'$Array'.items.'|'.4
+                    res = json_model_20(val, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $Enum [.'$Array'.items.'|'.4]", path))
+                    if not res:
+                        # .'$Array'.items.'|'.5
+                        res = json_model_13(val, path, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected $Integer [.'$Array'.items.'|'.5]", path))
+                        if not res:
+                            # .'$Array'.items.'|'.6
+                            res = json_model_14(val, path, rep)
+                            if not res:
+                                rep is None or rep.append(("unexpected $Number [.'$Array'.items.'|'.6]", path))
+                            if not res:
+                                # .'$Array'.items.'|'.7
+                                res = json_model_10(val, path, rep)
+                                if not res:
+                                    rep is None or rep.append(("unexpected $String [.'$Array'.items.'|'.7]", path))
+                                if not res:
+                                    # .'$Array'.items.'|'.8
+                                    res = json_model_11(val, path, rep)
+                                    if not res:
+                                        rep is None or rep.append(("unexpected $Array [.'$Array'.items.'|'.8]", path))
+                                    if not res:
+                                        # .'$Array'.items.'|'.9
+                                        res = json_model_12(val, path, rep)
+                                        if not res:
+                                            rep is None or rep.append(("unexpected $Object [.'$Array'.items.'|'.9]", path))
+                                        if not res:
+                                            # .'$Array'.items.'|'.10
+                                            res = json_model_17(val, path, rep)
+                                            if not res:
+                                                rep is None or rep.append(("unexpected $AllOf [.'$Array'.items.'|'.10]", path))
+                                            if not res:
+                                                # .'$Array'.items.'|'.11
+                                                res = json_model_18(val, path, rep)
+                                                if not res:
+                                                    rep is None or rep.append(("unexpected $AnyOf [.'$Array'.items.'|'.11]", path))
+                                                if not res:
+                                                    # .'$Array'.items.'|'.12
+                                                    res = json_model_19(val, path, rep)
+                                                    if not res:
+                                                        rep is None or rep.append(("unexpected $OneOf [.'$Array'.items.'|'.12]", path))
+                                                    if not res:
+                                                        # .'$Array'.items.'|'.13
+                                                        res = json_model_22(val, path, rep)
+                                                        if not res:
+                                                            rep is None or rep.append(("unexpected $Ref [.'$Array'.items.'|'.13]", path))
+                                                        if not res:
+                                                            # .'$Array'.items.'|'.14
+                                                            res = json_model_9(val, path, rep)
+                                                            if not res:
+                                                                rep is None or rep.append(("unexpected $metas [.'$Array'.items.'|'.14]", path))
+                                                            if not res:
+                                                                # .'$Array'.items.'|'.15
+                                                                res = json_model_4(val, path, rep)
+                                                                if not res:
+                                                                    rep is None or rep.append(("unexpected $schemaArray [.'$Array'.items.'|'.15]", path))
     if res:
         rep is None or rep.clear()
     else:
@@ -3307,9 +3447,74 @@ def json_model_24(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not a bool [.'$Schema'.'|'.0]", path))
     if not res:
         # .'$Schema'.'|'.1
-        res = json_model_23(val, path, rep)
+        res = json_model_16(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $ObjectSchema [.'$Schema'.'|'.1]", path))
+            rep is None or rep.append(("unexpected $Null [.'$Schema'.'|'.1]", path))
+        if not res:
+            # .'$Schema'.'|'.2
+            res = json_model_15(val, path, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $Bool [.'$Schema'.'|'.2]", path))
+            if not res:
+                # .'$Schema'.'|'.3
+                res = json_model_21(val, path, rep)
+                if not res:
+                    rep is None or rep.append(("unexpected $Const [.'$Schema'.'|'.3]", path))
+                if not res:
+                    # .'$Schema'.'|'.4
+                    res = json_model_20(val, path, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $Enum [.'$Schema'.'|'.4]", path))
+                    if not res:
+                        # .'$Schema'.'|'.5
+                        res = json_model_13(val, path, rep)
+                        if not res:
+                            rep is None or rep.append(("unexpected $Integer [.'$Schema'.'|'.5]", path))
+                        if not res:
+                            # .'$Schema'.'|'.6
+                            res = json_model_14(val, path, rep)
+                            if not res:
+                                rep is None or rep.append(("unexpected $Number [.'$Schema'.'|'.6]", path))
+                            if not res:
+                                # .'$Schema'.'|'.7
+                                res = json_model_10(val, path, rep)
+                                if not res:
+                                    rep is None or rep.append(("unexpected $String [.'$Schema'.'|'.7]", path))
+                                if not res:
+                                    # .'$Schema'.'|'.8
+                                    res = json_model_11(val, path, rep)
+                                    if not res:
+                                        rep is None or rep.append(("unexpected $Array [.'$Schema'.'|'.8]", path))
+                                    if not res:
+                                        # .'$Schema'.'|'.9
+                                        res = json_model_12(val, path, rep)
+                                        if not res:
+                                            rep is None or rep.append(("unexpected $Object [.'$Schema'.'|'.9]", path))
+                                        if not res:
+                                            # .'$Schema'.'|'.10
+                                            res = json_model_17(val, path, rep)
+                                            if not res:
+                                                rep is None or rep.append(("unexpected $AllOf [.'$Schema'.'|'.10]", path))
+                                            if not res:
+                                                # .'$Schema'.'|'.11
+                                                res = json_model_18(val, path, rep)
+                                                if not res:
+                                                    rep is None or rep.append(("unexpected $AnyOf [.'$Schema'.'|'.11]", path))
+                                                if not res:
+                                                    # .'$Schema'.'|'.12
+                                                    res = json_model_19(val, path, rep)
+                                                    if not res:
+                                                        rep is None or rep.append(("unexpected $OneOf [.'$Schema'.'|'.12]", path))
+                                                    if not res:
+                                                        # .'$Schema'.'|'.13
+                                                        res = json_model_22(val, path, rep)
+                                                        if not res:
+                                                            rep is None or rep.append(("unexpected $Ref [.'$Schema'.'|'.13]", path))
+                                                        if not res:
+                                                            # .'$Schema'.'|'.14
+                                                            res = json_model_9(val, path, rep)
+                                                            if not res:
+                                                                rep is None or rep.append(("unexpected $metas [.'$Schema'.'|'.14]", path))
     if res:
         rep is None or rep.clear()
     else:

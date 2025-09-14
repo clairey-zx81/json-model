@@ -442,7 +442,285 @@
     "Schema": {
       "|": [
         true,
-        "$TightSchema"
+        {
+          "type": "_null",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ]
+        },
+        {
+          "type": "_boolean",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ]
+        },
+        {
+          "type": "_number",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?multipleOf": {
+            "|": [
+              1,
+              1.0
+            ]
+          },
+          "?maximum": {
+            "|": [
+              -1,
+              -1.0
+            ]
+          },
+          "?exclusiveMaximum": {
+            "|": [
+              -1,
+              -1.0
+            ]
+          },
+          "?minimum": {
+            "|": [
+              -1,
+              -1.0
+            ]
+          },
+          "?exclusiveMinimum": {
+            "|": [
+              -1,
+              -1.0
+            ]
+          }
+        },
+        {
+          "type": "_integer",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?multipleOf": 1,
+          "?maximum": -1,
+          "?exclusiveMaximum": -1,
+          "?minimum": -1,
+          "?exclusiveMinimum": -1
+        },
+        {
+          "type": "_string",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?contentEncoding": "",
+          "?contentMediaType": "",
+          "?contentSchema": "$Schema",
+          "?format": "",
+          "?maxLength": 0,
+          "?minLength": 0,
+          "?pattern": "$REGEX"
+        },
+        {
+          "type": "_array",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?maxItems": 0,
+          "?minItems": 0,
+          "?uniqueItems": true,
+          "?contains": "$Schema",
+          "?maxContains": 0,
+          "?minContains": 0,
+          "?prefixItems": "$schemaArray",
+          "?items": "$Schema",
+          "?unevaluatedItems": "$Schema"
+        },
+        {
+          "type": "_object",
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?properties": {
+            "": "$Schema"
+          },
+          "?required": "$stringArray",
+          "?additionalProperties": "$Schema",
+          "?maxProperties": 0,
+          "?minProperties": 0,
+          "?dependentRequired": {
+            "": "$stringArray"
+          },
+          "?unevaluatedProperties": "$Schema",
+          "?patternProperties": {
+            "$REGEX": "$Schema"
+          },
+          "?propertyNames": "$Schema",
+          "?dependentSchemas": {
+            "": "$Schema"
+          }
+        },
+        {
+          "?$id": "$URI-REFERENCE",
+          "?$schema": "$URI",
+          "?$ref": "$URI-REFERENCE",
+          "?$anchor": "$URI-REFERENCE",
+          "?$dynamicRef": "$URI-REFERENCE",
+          "?$dynamicAnchor": "$URI-REFERENCE",
+          "?$vocabulary": {
+            "$URI": true
+          },
+          "?$comment": "",
+          "?$defs": {
+            "": "$Schema"
+          },
+          "?title": "",
+          "?description": "",
+          "?default": "$ANY",
+          "?deprecated": true,
+          "?readOnly": true,
+          "?writeOnly": true,
+          "?examples": [
+            "$ANY"
+          ],
+          "?const": "$ANY",
+          "?enum": [
+            "$ANY"
+          ],
+          "?if": "$Schema",
+          "?then": "$Schema",
+          "?else": "$Schema",
+          "?not": "$Schema",
+          "?allOf": "$schemaArray",
+          "?anyOf": "$schemaArray",
+          "?oneOf": "$schemaArray"
+        }
       ],
       "#": "JsonModel 16"
     },

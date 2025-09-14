@@ -102,7 +102,54 @@
         "?parameters": {
           "": {
             "|": [
-              "$Parameter",
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -126,7 +173,36 @@
         "?headers": {
           "": {
             "|": [
-              "$Header",
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -134,7 +210,43 @@
         "?securitySchemes": {
           "": {
             "|": [
-              "$SecurityScheme",
+              {
+                "type": "_apiKey",
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "cookie"
+                  ]
+                },
+                "?description": ""
+              },
+              {
+                "type": "_http",
+                "scheme": "/bearer/i",
+                "?bearerFormat": "",
+                "?description": ""
+              },
+              {
+                "type": "_http",
+                "scheme": "",
+                "?description": ""
+              },
+              {
+                "type": "_oauth2",
+                "flows": "$OAuthFlows",
+                "?description": ""
+              },
+              {
+                "type": "_openIdConnect",
+                "openIdConnectUrl": "$URL",
+                "?description": ""
+              },
+              {
+                "?description": "",
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -142,7 +254,26 @@
         "?links": {
           "": {
             "|": [
-              "$Link",
+              {
+                "operationRef": "",
+                "?parameters": {
+                  "": "$ANY"
+                },
+                "?requestBody": "$ANY",
+                "?description": "",
+                "?server": "$Server",
+                "/^x-/": "$ANY"
+              },
+              {
+                "operationId": "",
+                "?parameters": {
+                  "": "$ANY"
+                },
+                "?requestBody": "$ANY",
+                "?description": "",
+                "?server": "$Server",
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -192,7 +323,54 @@
         "?parameters": [
           {
             "|": [
-              "$Parameter",
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -211,7 +389,54 @@
         "?parameters": [
           {
             "|": [
-              "$Parameter",
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "name": "",
+                "in": {
+                  "|": [
+                    "query",
+                    "header",
+                    "path",
+                    "cookie"
+                  ]
+                },
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -390,7 +615,36 @@
         "?headers": {
           "": {
             "|": [
-              "$Header",
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -422,7 +676,36 @@
         "?headers": {
           "": {
             "|": [
-              "$Header",
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?style": "$Style",
+                "?explode": true,
+                "?allowReserved": true,
+                "?example": "$ANY",
+                "?examples": {
+                  "": {
+                    "|": [
+                      "$Example",
+                      "$Reference"
+                    ]
+                  }
+                },
+                "?model": "$Model",
+                "/^x-/": "$ANY"
+              },
+              {
+                "?description": "",
+                "?required": true,
+                "?deprecated": true,
+                "?allowEmptyValue": true,
+                "?content": {
+                  "": "$MediaType"
+                },
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -433,7 +716,26 @@
         "?links": {
           "": {
             "|": [
-              "$Link",
+              {
+                "operationRef": "",
+                "?parameters": {
+                  "": "$ANY"
+                },
+                "?requestBody": "$ANY",
+                "?description": "",
+                "?server": "$Server",
+                "/^x-/": "$ANY"
+              },
+              {
+                "operationId": "",
+                "?parameters": {
+                  "": "$ANY"
+                },
+                "?requestBody": "$ANY",
+                "?description": "",
+                "?server": "$Server",
+                "/^x-/": "$ANY"
+              },
               "$Reference"
             ]
           }
@@ -758,7 +1060,54 @@
     "?parameters": {
       "": {
         "|": [
-          "$Parameter",
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -782,7 +1131,36 @@
     "?headers": {
       "": {
         "|": [
-          "$Header",
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -790,7 +1168,43 @@
     "?securitySchemes": {
       "": {
         "|": [
-          "$SecurityScheme",
+          {
+            "type": "_apiKey",
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "cookie"
+              ]
+            },
+            "?description": ""
+          },
+          {
+            "type": "_http",
+            "scheme": "/bearer/i",
+            "?bearerFormat": "",
+            "?description": ""
+          },
+          {
+            "type": "_http",
+            "scheme": "",
+            "?description": ""
+          },
+          {
+            "type": "_oauth2",
+            "flows": "$OAuthFlows",
+            "?description": ""
+          },
+          {
+            "type": "_openIdConnect",
+            "openIdConnectUrl": "$URL",
+            "?description": ""
+          },
+          {
+            "?description": "",
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -798,7 +1212,26 @@
     "?links": {
       "": {
         "|": [
-          "$Link",
+          {
+            "operationRef": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?description": "",
+            "?server": "$Server",
+            "/^x-/": "$ANY"
+          },
+          {
+            "operationId": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?description": "",
+            "?server": "$Server",
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -848,7 +1281,54 @@
     "?parameters": [
       {
         "|": [
-          "$Parameter",
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -867,7 +1347,54 @@
     "?parameters": [
       {
         "|": [
-          "$Parameter",
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "name": "",
+            "in": {
+              "|": [
+                "query",
+                "header",
+                "path",
+                "cookie"
+              ]
+            },
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -1046,7 +1573,36 @@
     "?headers": {
       "": {
         "|": [
-          "$Header",
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -1078,7 +1634,36 @@
     "?headers": {
       "": {
         "|": [
-          "$Header",
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?style": "$Style",
+            "?explode": true,
+            "?allowReserved": true,
+            "?example": "$ANY",
+            "?examples": {
+              "": {
+                "|": [
+                  "$Example",
+                  "$Reference"
+                ]
+              }
+            },
+            "?model": "$Model",
+            "/^x-/": "$ANY"
+          },
+          {
+            "?description": "",
+            "?required": true,
+            "?deprecated": true,
+            "?allowEmptyValue": true,
+            "?content": {
+              "": "$MediaType"
+            },
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -1089,7 +1674,26 @@
     "?links": {
       "": {
         "|": [
-          "$Link",
+          {
+            "operationRef": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?description": "",
+            "?server": "$Server",
+            "/^x-/": "$ANY"
+          },
+          {
+            "operationId": "",
+            "?parameters": {
+              "": "$ANY"
+            },
+            "?requestBody": "$ANY",
+            "?description": "",
+            "?server": "$Server",
+            "/^x-/": "$ANY"
+          },
           "$Reference"
         ]
       }
@@ -1388,7 +1992,13 @@
       "validation": {
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -1487,7 +2097,13 @@
         "?unevaluatedProperties": "$Schema",
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -1617,7 +2233,13 @@
   {
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },
@@ -1716,7 +2338,13 @@
     "?unevaluatedProperties": "$Schema",
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },
@@ -1840,7 +2468,9 @@
         "|": [
           null,
           true,
-          "$CmpValue"
+          -1,
+          -1.0,
+          ""
         ],
         "#": "JsonModel 77"
       },
@@ -1861,8 +2491,37 @@
         "|": [
           "$StrConst",
           "$ValConst",
-          "$Regex",
-          "$PreDef",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
+          "_$DATE",
+          "_$TIME",
+          "_$DATETIME",
+          "_$URL",
+          "_$URI",
+          "_$UUID",
+          "_$EMAIL",
+          "_$REGEX",
+          "_$EXREG",
+          "_$NULL",
+          "_$BOOL",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$STRING",
+          "_$NONE",
+          "_$ANY",
           "$Ref",
           "_"
         ],
@@ -1873,7 +2532,91 @@
       "Array": [
         {
           "|": [
-            "$Model",
+            null,
+            "=true",
+            "=0",
+            "=1",
+            "=-1",
+            "=0.0",
+            "=1.0",
+            "=-1.0",
+            "$StrConst",
+            "$ValConst",
+            "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+            "/^/($REGEX)/[a-z]*$/X",
+            "_$DATE",
+            "_$TIME",
+            "_$DATETIME",
+            "_$URL",
+            "_$URI",
+            "_$UUID",
+            "_$EMAIL",
+            "_$REGEX",
+            "_$EXREG",
+            "_$NULL",
+            "_$BOOL",
+            "_$FLOAT",
+            "_$F16",
+            "_$F32",
+            "_$F64",
+            "_$NUMBER",
+            "_$INT",
+            "_$INTEGER",
+            "_$I8",
+            "_$I16",
+            "_$I32",
+            "_$I64",
+            "_$U8",
+            "_$U16",
+            "_$U32",
+            "_$U64",
+            "_$STRING",
+            "_$NONE",
+            "_$ANY",
+            "$Ref",
+            "_",
+            "$Array",
+            {
+              "!@": "$Model",
+              "?#": "",
+              "?!": true,
+              "/^#/": "$ANY",
+              "/^(<=|>=|<|>)$/": "$CmpValue",
+              "/^(=|!=)$/": "$EqValue"
+            },
+            {
+              "!|": [
+                "$Model"
+              ],
+              "?#": "",
+              "/^#/": "$ANY"
+            },
+            {
+              "!&": [
+                "$Model"
+              ],
+              "?#": "",
+              "/^#/": "$ANY"
+            },
+            {
+              "!^": [
+                "$Model"
+              ],
+              "?#": "",
+              "/^#/": "$ANY"
+            },
+            {
+              "!+": [
+                "$Model"
+              ],
+              "?#": "",
+              "/^#/": "$ANY"
+            },
+            {
+              "?#": "",
+              "$Prop": "$Model",
+              "/^#/": "$ANY"
+            },
             "$ArrayComment"
           ]
         }
@@ -1914,7 +2657,8 @@
         "|": [
           "/^[?!]/",
           "$StrConst",
-          "$Regex",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
           "$Ref",
           "$Name",
           "_"
@@ -1985,7 +2729,11 @@
       "Trafo": {
         "?/": {
           "|": [
-            "$EqValue",
+            null,
+            true,
+            -1,
+            -1.0,
+            "",
             [
               "$ANY"
             ]
@@ -1999,12 +2747,100 @@
       },
       "Transformation": {
         "|": [
-          "$Model",
+          null,
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          "$StrConst",
+          "$ValConst",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
+          "_$DATE",
+          "_$TIME",
+          "_$DATETIME",
+          "_$URL",
+          "_$URI",
+          "_$UUID",
+          "_$EMAIL",
+          "_$REGEX",
+          "_$EXREG",
+          "_$NULL",
+          "_$BOOL",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$STRING",
+          "_$NONE",
+          "_$ANY",
+          "$Ref",
+          "_",
+          "$Array",
+          {
+            "!@": "$Model",
+            "?#": "",
+            "?!": true,
+            "/^#/": "$ANY",
+            "/^(<=|>=|<|>)$/": "$CmpValue",
+            "/^(=|!=)$/": "$EqValue"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "?#": "",
+            "$Prop": "$Model",
+            "/^#/": "$ANY"
+          },
           {
             "?#": "",
             "?/": {
               "|": [
-                "$EqValue",
+                null,
+                true,
+                -1,
+                -1.0,
+                "",
                 [
                   "$ANY"
                 ]
@@ -2021,16 +2857,139 @@
       },
       "ScalarModel": {
         "|": [
-          "$ValModel",
-          "$StrModel"
+          null,
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          "$StrConst",
+          "$ValConst",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
+          "_$DATE",
+          "_$TIME",
+          "_$DATETIME",
+          "_$URL",
+          "_$URI",
+          "_$UUID",
+          "_$EMAIL",
+          "_$REGEX",
+          "_$EXREG",
+          "_$NULL",
+          "_$BOOL",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$STRING",
+          "_$NONE",
+          "_$ANY",
+          "$Ref",
+          "_"
         ],
         "#": "JsonModel 95"
       },
       "Model": {
         "|": [
-          "$ScalarModel",
+          null,
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          "$StrConst",
+          "$ValConst",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
+          "_$DATE",
+          "_$TIME",
+          "_$DATETIME",
+          "_$URL",
+          "_$URI",
+          "_$UUID",
+          "_$EMAIL",
+          "_$REGEX",
+          "_$EXREG",
+          "_$NULL",
+          "_$BOOL",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$STRING",
+          "_$NONE",
+          "_$ANY",
+          "$Ref",
+          "_",
           "$Array",
-          "$Element"
+          {
+            "!@": "$Model",
+            "?#": "",
+            "?!": true,
+            "/^#/": "$ANY",
+            "/^(<=|>=|<|>)$/": "$CmpValue",
+            "/^(=|!=)$/": "$EqValue"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "?#": "",
+            "$Prop": "$Model",
+            "/^#/": "$ANY"
+          }
         ],
         "#": "JsonModel 96"
       },
@@ -2256,9 +3215,217 @@
       },
       "RootModel": {
         "|": [
-          "$ScalarModel",
+          null,
+          "=true",
+          "=0",
+          "=1",
+          "=-1",
+          "=0.0",
+          "=1.0",
+          "=-1.0",
+          "$StrConst",
+          "$ValConst",
+          "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+          "/^/($REGEX)/[a-z]*$/X",
+          "_$DATE",
+          "_$TIME",
+          "_$DATETIME",
+          "_$URL",
+          "_$URI",
+          "_$UUID",
+          "_$EMAIL",
+          "_$REGEX",
+          "_$EXREG",
+          "_$NULL",
+          "_$BOOL",
+          "_$FLOAT",
+          "_$F16",
+          "_$F32",
+          "_$F64",
+          "_$NUMBER",
+          "_$INT",
+          "_$INTEGER",
+          "_$I8",
+          "_$I16",
+          "_$I32",
+          "_$I64",
+          "_$U8",
+          "_$U16",
+          "_$U32",
+          "_$U64",
+          "_$STRING",
+          "_$NONE",
+          "_$ANY",
+          "$Ref",
+          "_",
           "$Array",
-          "$Root"
+          {
+            "!@": "$Model",
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "?!": true,
+            "/^#/": "$ANY",
+            "/^(<=|>=|<|>)$/": "$CmpValue",
+            "/^(=|!=)$/": "$EqValue"
+          },
+          {
+            "!|": [
+              "$Model"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!&": [
+              "$Model"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!^": [
+              "$Model"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "!+": [
+              "$Model"
+            ],
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "/^#/": "$ANY"
+          },
+          {
+            "?~": "$Url",
+            "?$": {
+              "?#": "",
+              "?": "$Url",
+              "$Identifier": "$Model",
+              "/^#/": "$ANY"
+            },
+            "?%": {
+              "?#": "",
+              "?<": {
+                "|": [
+                  "$Ref",
+                  [
+                    "$Ref"
+                  ]
+                ]
+              },
+              "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+              "/^#/": "$ANY",
+              "/^\\$.*$/": "$Transformation"
+            },
+            "?#": "",
+            "$Prop": "$Model",
+            "/^#/": "$ANY"
+          }
         ],
         "#": "JsonModel 103"
       },
@@ -2339,7 +3506,9 @@
     "|": [
       null,
       true,
-      "$CmpValue"
+      -1,
+      -1.0,
+      ""
     ],
     "#": "JsonModel 77"
   },
@@ -2360,8 +3529,37 @@
     "|": [
       "$StrConst",
       "$ValConst",
-      "$Regex",
-      "$PreDef",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
+      "_$DATE",
+      "_$TIME",
+      "_$DATETIME",
+      "_$URL",
+      "_$URI",
+      "_$UUID",
+      "_$EMAIL",
+      "_$REGEX",
+      "_$EXREG",
+      "_$NULL",
+      "_$BOOL",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$STRING",
+      "_$NONE",
+      "_$ANY",
       "$Ref",
       "_"
     ],
@@ -2372,7 +3570,91 @@
   [
     {
       "|": [
-        "$Model",
+        null,
+        "=true",
+        "=0",
+        "=1",
+        "=-1",
+        "=0.0",
+        "=1.0",
+        "=-1.0",
+        "$StrConst",
+        "$ValConst",
+        "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+        "/^/($REGEX)/[a-z]*$/X",
+        "_$DATE",
+        "_$TIME",
+        "_$DATETIME",
+        "_$URL",
+        "_$URI",
+        "_$UUID",
+        "_$EMAIL",
+        "_$REGEX",
+        "_$EXREG",
+        "_$NULL",
+        "_$BOOL",
+        "_$FLOAT",
+        "_$F16",
+        "_$F32",
+        "_$F64",
+        "_$NUMBER",
+        "_$INT",
+        "_$INTEGER",
+        "_$I8",
+        "_$I16",
+        "_$I32",
+        "_$I64",
+        "_$U8",
+        "_$U16",
+        "_$U32",
+        "_$U64",
+        "_$STRING",
+        "_$NONE",
+        "_$ANY",
+        "$Ref",
+        "_",
+        "$Array",
+        {
+          "!@": "$Model",
+          "?#": "",
+          "?!": true,
+          "/^#/": "$ANY",
+          "/^(<=|>=|<|>)$/": "$CmpValue",
+          "/^(=|!=)$/": "$EqValue"
+        },
+        {
+          "!|": [
+            "$Model"
+          ],
+          "?#": "",
+          "/^#/": "$ANY"
+        },
+        {
+          "!&": [
+            "$Model"
+          ],
+          "?#": "",
+          "/^#/": "$ANY"
+        },
+        {
+          "!^": [
+            "$Model"
+          ],
+          "?#": "",
+          "/^#/": "$ANY"
+        },
+        {
+          "!+": [
+            "$Model"
+          ],
+          "?#": "",
+          "/^#/": "$ANY"
+        },
+        {
+          "?#": "",
+          "$Prop": "$Model",
+          "/^#/": "$ANY"
+        },
         "$ArrayComment"
       ]
     }
@@ -2413,7 +3695,8 @@
     "|": [
       "/^[?!]/",
       "$StrConst",
-      "$Regex",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
       "$Ref",
       "$Name",
       "_"
@@ -2484,7 +3767,11 @@
   {
     "?/": {
       "|": [
-        "$EqValue",
+        null,
+        true,
+        -1,
+        -1.0,
+        "",
         [
           "$ANY"
         ]
@@ -2498,12 +3785,100 @@
   },
   {
     "|": [
-      "$Model",
+      null,
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      "$StrConst",
+      "$ValConst",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
+      "_$DATE",
+      "_$TIME",
+      "_$DATETIME",
+      "_$URL",
+      "_$URI",
+      "_$UUID",
+      "_$EMAIL",
+      "_$REGEX",
+      "_$EXREG",
+      "_$NULL",
+      "_$BOOL",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$STRING",
+      "_$NONE",
+      "_$ANY",
+      "$Ref",
+      "_",
+      "$Array",
+      {
+        "!@": "$Model",
+        "?#": "",
+        "?!": true,
+        "/^#/": "$ANY",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "?#": "",
+        "$Prop": "$Model",
+        "/^#/": "$ANY"
+      },
       {
         "?#": "",
         "?/": {
           "|": [
-            "$EqValue",
+            null,
+            true,
+            -1,
+            -1.0,
+            "",
             [
               "$ANY"
             ]
@@ -2520,16 +3895,139 @@
   },
   {
     "|": [
-      "$ValModel",
-      "$StrModel"
+      null,
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      "$StrConst",
+      "$ValConst",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
+      "_$DATE",
+      "_$TIME",
+      "_$DATETIME",
+      "_$URL",
+      "_$URI",
+      "_$UUID",
+      "_$EMAIL",
+      "_$REGEX",
+      "_$EXREG",
+      "_$NULL",
+      "_$BOOL",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$STRING",
+      "_$NONE",
+      "_$ANY",
+      "$Ref",
+      "_"
     ],
     "#": "JsonModel 95"
   },
   {
     "|": [
-      "$ScalarModel",
+      null,
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      "$StrConst",
+      "$ValConst",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
+      "_$DATE",
+      "_$TIME",
+      "_$DATETIME",
+      "_$URL",
+      "_$URI",
+      "_$UUID",
+      "_$EMAIL",
+      "_$REGEX",
+      "_$EXREG",
+      "_$NULL",
+      "_$BOOL",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$STRING",
+      "_$NONE",
+      "_$ANY",
+      "$Ref",
+      "_",
       "$Array",
-      "$Element"
+      {
+        "!@": "$Model",
+        "?#": "",
+        "?!": true,
+        "/^#/": "$ANY",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "?#": "",
+        "$Prop": "$Model",
+        "/^#/": "$ANY"
+      }
     ],
     "#": "JsonModel 96"
   },
@@ -2755,9 +4253,217 @@
   },
   {
     "|": [
-      "$ScalarModel",
+      null,
+      "=true",
+      "=0",
+      "=1",
+      "=-1",
+      "=0.0",
+      "=1.0",
+      "=-1.0",
+      "$StrConst",
+      "$ValConst",
+      "/^/($EXREG)/[a-z]*X[a-z]*$/X",
+      "/^/($REGEX)/[a-z]*$/X",
+      "_$DATE",
+      "_$TIME",
+      "_$DATETIME",
+      "_$URL",
+      "_$URI",
+      "_$UUID",
+      "_$EMAIL",
+      "_$REGEX",
+      "_$EXREG",
+      "_$NULL",
+      "_$BOOL",
+      "_$FLOAT",
+      "_$F16",
+      "_$F32",
+      "_$F64",
+      "_$NUMBER",
+      "_$INT",
+      "_$INTEGER",
+      "_$I8",
+      "_$I16",
+      "_$I32",
+      "_$I64",
+      "_$U8",
+      "_$U16",
+      "_$U32",
+      "_$U64",
+      "_$STRING",
+      "_$NONE",
+      "_$ANY",
+      "$Ref",
+      "_",
       "$Array",
-      "$Root"
+      {
+        "!@": "$Model",
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "?!": true,
+        "/^#/": "$ANY",
+        "/^(<=|>=|<|>)$/": "$CmpValue",
+        "/^(=|!=)$/": "$EqValue"
+      },
+      {
+        "!|": [
+          "$Model"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!&": [
+          "$Model"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!^": [
+          "$Model"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "!+": [
+          "$Model"
+        ],
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "/^#/": "$ANY"
+      },
+      {
+        "?~": "$Url",
+        "?$": {
+          "?#": "",
+          "?": "$Url",
+          "$Identifier": "$Model",
+          "/^#/": "$ANY"
+        },
+        "?%": {
+          "?#": "",
+          "?<": {
+            "|": [
+              "$Ref",
+              [
+                "$Ref"
+              ]
+            ]
+          },
+          "$Name": "/^([#|&^+/*@~=$%]|[<>!]=?)$/",
+          "/^#/": "$ANY",
+          "/^\\$.*$/": "$Transformation"
+        },
+        "?#": "",
+        "$Prop": "$Model",
+        "/^#/": "$ANY"
+      }
     ],
     "#": "JsonModel 103"
   }

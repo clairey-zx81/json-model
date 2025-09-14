@@ -1154,10 +1154,37 @@ function json_model_11(val, path, rep)
     if (! res)
     {
         // .'$type-or-ref'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Type [.'$type-or-ref'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Atomic [.'$type-or-ref'.'|'.1]", path])
+        }
+        if (! res)
+        {
+            // .'$type-or-ref'.'|'.2
+            res = json_model_7(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Object [.'$type-or-ref'.'|'.2]", path])
+            }
+            if (! res)
+            {
+                // .'$type-or-ref'.'|'.3
+                res = json_model_9(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $Array [.'$type-or-ref'.'|'.3]", path])
+                }
+                if (! res)
+                {
+                    // .'$type-or-ref'.'|'.4
+                    res = json_model_10(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Union [.'$type-or-ref'.'|'.4]", path])
+                    }
+                }
+            }
         }
     }
     if (res)

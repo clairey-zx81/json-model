@@ -18,6 +18,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
     static public final String VERSION = "2";
 
     Set<Object> _jm_cst_0_set;
+    Set<Object> _jm_cst_1_set;
     public Map<String, Checker> json_schema_draft_04_fuzzy_map_pmap;
 
     // object .'$schema'.definitions
@@ -157,6 +158,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         }
         return true;
     }
+    
     
     // object .'$schema'
     public boolean _jm_obj_0(Object val, Path path, Report rep)
@@ -616,28 +618,27 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         {
             pval = json.objectValue(val, "type");
             // .'$schema'.type
-            // .'$schema'.type.'|'.0
-            res = json_model_5(pval, path, rep);
+            res = json.isScalar(pval) && _jm_cst_0_set.contains(pval);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$schema'.type.'|'.0]", path);
+                if (rep != null) rep.addEntry("value not in enum [.'$schema'.type.'|']", path);
             }
             if (! res)
             {
-                // .'$schema'.type.'|'.1
+                // .'$schema'.type.'|'.0
                 res = json_model_7(pval, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $typeArray [.'$schema'.type.'|'.1]", path);
+                    if (rep != null) rep.addEntry("unexpected $typeArray [.'$schema'.type.'|'.0]", path);
                 }
-            }
-            if (res)
-            {
-                if (rep != null) rep.clearEntries();
-            }
-            else
-            {
-                if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
+                if (res)
+                {
+                    if (rep != null) rep.clearEntries();
+                }
+                else
+                {
+                    if (rep != null) rep.addEntry("no model matched [.'$schema'.type.'|']", path);
+                }
             }
             if (! res)
             {
@@ -824,20 +825,6 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         return res;
     }
     
-    
-    // check $schema#simpleTypes (.'$schema#simpleTypes')
-    public boolean json_model_5(Object val, Path path, Report rep)
-    {
-        boolean res;
-        // .'$schema#simpleTypes'
-        res = json.isScalar(val) && _jm_cst_0_set.contains(val);
-        if (! res)
-        {
-            if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
-        }
-        return res;
-    }
-    
     // check $schema#stringArray (.'$schema#stringArray')
     public boolean json_model_6(Object val, Path path, Report rep)
     {
@@ -926,6 +913,20 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         return res;
     }
     
+    
+    // check $schema#simpleTypes (.'$schema#simpleTypes')
+    public boolean json_model_5(Object val, Path path, Report rep)
+    {
+        boolean res;
+        // .'$schema#simpleTypes'
+        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
+        if (! res)
+        {
+            if (rep != null) rep.addEntry("value not in enum [.'$schema#simpleTypes'.'|']", path);
+        }
+        return res;
+    }
+    
 
     public void init(JSON json)
     {
@@ -940,6 +941,14 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"string\""));
             _jm_cst_0_set.add(json.safeJSON("\"array\""));
             _jm_cst_0_set.add(json.safeJSON("\"object\""));
+            _jm_cst_1_set = new HashSet<Object>();
+            _jm_cst_1_set.add(json.safeJSON("\"null\""));
+            _jm_cst_1_set.add(json.safeJSON("\"boolean\""));
+            _jm_cst_1_set.add(json.safeJSON("\"integer\""));
+            _jm_cst_1_set.add(json.safeJSON("\"number\""));
+            _jm_cst_1_set.add(json.safeJSON("\"string\""));
+            _jm_cst_1_set.add(json.safeJSON("\"array\""));
+            _jm_cst_1_set.add(json.safeJSON("\"object\""));
             json_schema_draft_04_fuzzy_map_pmap = new HashMap<String, Checker>();
             json_schema_draft_04_fuzzy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
             json_schema_draft_04_fuzzy_map_pmap.put("schema", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_3(o, p, r);} });
@@ -957,6 +966,7 @@ public class json_schema_draft_04_fuzzy extends ModelChecker
         {
             super.free();
             _jm_cst_0_set = null;
+            _jm_cst_1_set = null;
             json_schema_draft_04_fuzzy_map_pmap = null;
         }
     }

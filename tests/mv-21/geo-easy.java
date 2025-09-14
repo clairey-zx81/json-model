@@ -18,6 +18,7 @@ public class geo_easy extends ModelChecker
     static public final String VERSION = "2";
 
     Map<Object, Checker> _jm_map_0_cmap;
+    Map<Object, Checker> _jm_map_1_cmap;
     public Map<String, Checker> geo_easy_map_pmap;
 
     // check $position (.'$position')
@@ -1049,18 +1050,63 @@ public class geo_easy extends ModelChecker
         if (! res)
         {
             // .'$Feature'.geometry.'|'.1
-            res = json_model_11(pval, path, rep);
+            res = json_model_5(pval, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $geometry [.'$Feature'.geometry.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $Point [.'$Feature'.geometry.'|'.1]", path);
             }
             if (! res)
             {
                 // .'$Feature'.geometry.'|'.2
-                res = json_model_12(pval, path, rep);
+                res = json_model_6(pval, path, rep);
                 if (! res)
                 {
-                    if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path);
+                    if (rep != null) rep.addEntry("unexpected $MultiPoint [.'$Feature'.geometry.'|'.2]", path);
+                }
+                if (! res)
+                {
+                    // .'$Feature'.geometry.'|'.3
+                    res = json_model_7(pval, path, rep);
+                    if (! res)
+                    {
+                        if (rep != null) rep.addEntry("unexpected $LineString [.'$Feature'.geometry.'|'.3]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$Feature'.geometry.'|'.4
+                        res = json_model_8(pval, path, rep);
+                        if (! res)
+                        {
+                            if (rep != null) rep.addEntry("unexpected $MultiLineString [.'$Feature'.geometry.'|'.4]", path);
+                        }
+                        if (! res)
+                        {
+                            // .'$Feature'.geometry.'|'.5
+                            res = json_model_9(pval, path, rep);
+                            if (! res)
+                            {
+                                if (rep != null) rep.addEntry("unexpected $Polygon [.'$Feature'.geometry.'|'.5]", path);
+                            }
+                            if (! res)
+                            {
+                                // .'$Feature'.geometry.'|'.6
+                                res = json_model_10(pval, path, rep);
+                                if (! res)
+                                {
+                                    if (rep != null) rep.addEntry("unexpected $MultiPolygon [.'$Feature'.geometry.'|'.6]", path);
+                                }
+                                if (! res)
+                                {
+                                    // .'$Feature'.geometry.'|'.7
+                                    res = json_model_12(pval, path, rep);
+                                    if (! res)
+                                    {
+                                        if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.7]", path);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1315,69 +1361,39 @@ public class geo_easy extends ModelChecker
         return res;
     }
     
+    
     // check $ (.)
     public boolean json_model_1(Object val, Path path, Report rep)
     {
         boolean res;
         // Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT
         // .
-        // generic xor list
-        long xc_0 = 0;
-        boolean xr_0;
-        // .'^'.0
-        xr_0 = json_model_11(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $geometry [.'^'.0]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        // .'^'.1
-        xr_0 = json_model_12(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $GeometryCollection [.'^'.1]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        if (xc_0 <= 1)
-        {
-            // .'^'.2
-            xr_0 = json_model_13(val, path, rep);
-            if (! xr_0)
-            {
-                if (rep != null) rep.addEntry("unexpected $Feature [.'^'.2]", path);
-            }
-            if (xr_0)
-            {
-                xc_0 += 1;
-            }
-        }
-        if (xc_0 <= 1)
-        {
-            // .'^'.3
-            xr_0 = json_model_14(val, path, rep);
-            if (! xr_0)
-            {
-                if (rep != null) rep.addEntry("unexpected $FeatureCollection [.'^'.3]", path);
-            }
-            if (xr_0)
-            {
-                xc_0 += 1;
-            }
-        }
-        res = xc_0 == 1;
+        res = json.isObject(val);
         if (res)
         {
-            if (rep != null) rep.clearEntries();
+            if (json.objectHasProp(val, "type"))
+            {
+                Object tag_1 = json.objectValue(val, "type");
+                Checker fun_1 = _jm_map_1_cmap.get(tag_1);
+                if (fun_1 != null)
+                {
+                    res = fun_1.call(val, path, rep);
+                }
+                else
+                {
+                    res = false;
+                    if (rep != null) rep.addEntry("tag <type> value not found [.'|']", path);
+                }
+            }
+            else
+            {
+                res = false;
+                if (rep != null) rep.addEntry("tag prop <type> is missing [.'|']", path);
+            }
         }
         else
         {
-            if (rep != null) rep.addEntry("not one model match [.'^']", path);
+            if (rep != null) rep.addEntry("value is not an object [.'|']", path);
         }
         return res;
     }
@@ -1395,6 +1411,16 @@ public class geo_easy extends ModelChecker
             _jm_map_0_cmap.put(json.safeJSON("\"MultiLineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"Polygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
             _jm_map_0_cmap.put(json.safeJSON("\"MultiPolygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            _jm_map_1_cmap = new HashMap<Object, Checker>();
+            _jm_map_1_cmap.put(json.safeJSON("\"Point\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_5(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"MultiPoint\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_6(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"LineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_7(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"MultiLineString\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_8(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"Polygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_9(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"MultiPolygon\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_10(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"GeometryCollection\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_12(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"Feature\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_13(o, p, r);} });
+            _jm_map_1_cmap.put(json.safeJSON("\"FeatureCollection\""), new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_14(o, p, r);} });
             geo_easy_map_pmap = new HashMap<String, Checker>();
             geo_easy_map_pmap.put("", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_1(o, p, r);} });
             geo_easy_map_pmap.put("position", new Checker() { public boolean call(Object o, Path p, Report r) { return json_model_2(o, p, r);} });
@@ -1424,6 +1450,7 @@ public class geo_easy extends ModelChecker
         {
             super.free();
             _jm_map_0_cmap = null;
+            _jm_map_1_cmap = null;
             geo_easy_map_pmap = null;
         }
     }

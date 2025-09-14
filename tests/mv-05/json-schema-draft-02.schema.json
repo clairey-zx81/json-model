@@ -31,7 +31,28 @@
     "type": {
       "anyOf": [
         {
-          "$ref": "#/$defs/allTypes"
+          "const": "null"
+        },
+        {
+          "const": "boolean"
+        },
+        {
+          "const": "integer"
+        },
+        {
+          "const": "number"
+        },
+        {
+          "const": "string"
+        },
+        {
+          "const": "array"
+        },
+        {
+          "const": "object"
+        },
+        {
+          "const": "any"
         },
         {
           "type": "array",

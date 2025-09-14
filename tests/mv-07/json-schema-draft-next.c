@@ -57,6 +57,7 @@ static bool _jm_f_30(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_31(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_32(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constant_t _jm_cst_1[7];
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_35(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static jm_propmap_t _jm_obj_7_map_tab[20];
@@ -133,6 +134,7 @@ static bool _jm_f_101(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_102(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_103(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep);
+static jm_constant_t _jm_cst_2[7];
 static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_106(const json_t *val, jm_path_t *path, jm_report_t *rep);
 static bool _jm_f_107(const json_t *val, jm_path_t *path, jm_report_t *rep);
@@ -1111,33 +1113,33 @@ static bool _jm_f_33(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+
 // check _jm_obj_7_map_type (.'$validation'.type)
 static bool _jm_f_34(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$validation'.type
-    // .'$validation'.type.'|'.0
-    res = json_model_8(val, path, rep);
+    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_1, 7);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.'$validation'.type.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$validation'.type.'|']", path);
     }
     if (! res)
     {
-        // .'$validation'.type.'|'.1
+        // .'$validation'.type.'|'.0
         res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $simpleTypesArray [.'$validation'.type.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $simpleTypesArray [.'$validation'.type.'|'.0]", path);
         }
-    }
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$validation'.type.'|']", path);
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no model matched [.'$validation'.type.'|']", path);
+        }
     }
     return res;
 }
@@ -2603,33 +2605,33 @@ static bool _jm_f_104(const json_t *val, jm_path_t *path, jm_report_t *rep)
     return res;
 }
 
+
 // check _jm_obj_15_map_type (.'$ObjectSchema'.type)
 static bool _jm_f_105(const json_t *val, jm_path_t *path, jm_report_t *rep)
 {
     bool res;
     // .'$ObjectSchema'.type
-    // .'$ObjectSchema'.type.'|'.0
-    res = json_model_8(val, path, rep);
+    res = jm_json_is_scalar(val) && json_is_string(val) && jm_search_cst(&(jm_constant_t) { cst_is_string, { .s = json_string_value(val) } }, _jm_cst_2, 7);;
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "value not in enum [.'$ObjectSchema'.type.'|']", path);
     }
     if (! res)
     {
-        // .'$ObjectSchema'.type.'|'.1
+        // .'$ObjectSchema'.type.'|'.0
         res = json_model_9(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $simpleTypesArray [.'$ObjectSchema'.type.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $simpleTypesArray [.'$ObjectSchema'.type.'|'.0]", path);
         }
-    }
-    if (res)
-    {
-        if (rep) jm_report_free_entries(rep);
-    }
-    else
-    {
-        if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.type.'|']", path);
+        if (res)
+        {
+            if (rep) jm_report_free_entries(rep);
+        }
+        else
+        {
+            if (rep) jm_report_add_entry(rep, "no model matched [.'$ObjectSchema'.type.'|']", path);
+        }
     }
     return res;
 }
@@ -2822,6 +2824,15 @@ const char *check_model_init(void)
         _jm_cst_0[5] = (jm_constant_t) { cst_is_string, { .s = "object" } };
         _jm_cst_0[6] = (jm_constant_t) { cst_is_string, { .s = "string" } };
         jm_sort_cst(_jm_cst_0, 7);
+        // initialize sorted set _jm_cst_1
+        _jm_cst_1[0] = (jm_constant_t) { cst_is_string, { .s = "array" } };
+        _jm_cst_1[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
+        _jm_cst_1[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
+        _jm_cst_1[3] = (jm_constant_t) { cst_is_string, { .s = "null" } };
+        _jm_cst_1[4] = (jm_constant_t) { cst_is_string, { .s = "number" } };
+        _jm_cst_1[5] = (jm_constant_t) { cst_is_string, { .s = "object" } };
+        _jm_cst_1[6] = (jm_constant_t) { cst_is_string, { .s = "string" } };
+        jm_sort_cst(_jm_cst_1, 7);
         _jm_obj_7_map_tab[0] = (jm_propmap_t) { "const", _jm_f_16 };
         _jm_obj_7_map_tab[1] = (jm_propmap_t) { "dependentRequired", _jm_f_17 };
         _jm_obj_7_map_tab[2] = (jm_propmap_t) { "enum", _jm_f_18 };
@@ -2860,6 +2871,15 @@ const char *check_model_init(void)
         _jm_obj_9_map_tab[14] = (jm_propmap_t) { "propertyNames", _jm_f_50 };
         _jm_obj_9_map_tab[15] = (jm_propmap_t) { "then", _jm_f_51 };
         jm_sort_propmap(_jm_obj_9_map_tab, 16);
+        // initialize sorted set _jm_cst_2
+        _jm_cst_2[0] = (jm_constant_t) { cst_is_string, { .s = "array" } };
+        _jm_cst_2[1] = (jm_constant_t) { cst_is_string, { .s = "boolean" } };
+        _jm_cst_2[2] = (jm_constant_t) { cst_is_string, { .s = "integer" } };
+        _jm_cst_2[3] = (jm_constant_t) { cst_is_string, { .s = "null" } };
+        _jm_cst_2[4] = (jm_constant_t) { cst_is_string, { .s = "number" } };
+        _jm_cst_2[5] = (jm_constant_t) { cst_is_string, { .s = "object" } };
+        _jm_cst_2[6] = (jm_constant_t) { cst_is_string, { .s = "string" } };
+        jm_sort_cst(_jm_cst_2, 7);
         _jm_obj_15_map_tab[0] = (jm_propmap_t) { "$anchor", _jm_f_52 };
         _jm_obj_15_map_tab[1] = (jm_propmap_t) { "$comment", _jm_f_53 };
         _jm_obj_15_map_tab[2] = (jm_propmap_t) { "$defs", _jm_f_54 };

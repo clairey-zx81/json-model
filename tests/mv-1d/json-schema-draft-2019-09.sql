@@ -795,6 +795,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+CREATE OR REPLACE FUNCTION _jm_cst_1(value JSONB)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["array","boolean","integer","null","number","object","string"]';
+BEGIN
+  RETURN constants @> value;
+END;
+$$ LANGUAGE plpgsql;
+
 -- check _jm_obj_6_map_type (.'$validation'.type)
 CREATE OR REPLACE FUNCTION _jm_f_34(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -802,10 +811,9 @@ DECLARE
   res bool;
 BEGIN
   -- .'$validation'.type
-  -- .'$validation'.type.'|'.0
-  res := json_model_8(val, path, rep);
+  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_1(val);
   IF NOT res THEN
-    -- .'$validation'.type.'|'.1
+    -- .'$validation'.type.'|'.0
     res := json_model_9(val, path, rep);
   END IF;
   RETURN res;
@@ -1028,10 +1036,14 @@ DECLARE
 BEGIN
   -- .'$applicator'.items
   -- .'$applicator'.items.'|'.0
-  res := json_model_16(val, path, rep);
+  res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$applicator'.items.'|'.1
-    res := json_model_13(val, path, rep);
+    res := json_model_15(val, path, rep);
+    IF NOT res THEN
+      -- .'$applicator'.items.'|'.2
+      res := json_model_13(val, path, rep);
+    END IF;
   END IF;
   RETURN res;
 END;
@@ -1702,10 +1714,14 @@ DECLARE
 BEGIN
   -- .'$ObjectSchema'.items
   -- .'$ObjectSchema'.items.'|'.0
-  res := json_model_16(val, path, rep);
+  res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$ObjectSchema'.items.'|'.1
-    res := json_model_13(val, path, rep);
+    res := json_model_15(val, path, rep);
+    IF NOT res THEN
+      -- .'$ObjectSchema'.items.'|'.2
+      res := json_model_13(val, path, rep);
+    END IF;
   END IF;
   RETURN res;
 END;
@@ -2013,6 +2029,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+CREATE OR REPLACE FUNCTION _jm_cst_2(value JSONB)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["array","boolean","integer","null","number","object","string"]';
+BEGIN
+  RETURN constants @> value;
+END;
+$$ LANGUAGE plpgsql;
+
 -- check _jm_obj_12_map_type (.'$ObjectSchema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_105(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -2020,10 +2045,9 @@ DECLARE
   res bool;
 BEGIN
   -- .'$ObjectSchema'.type
-  -- .'$ObjectSchema'.type.'|'.0
-  res := json_model_8(val, path, rep);
+  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_2(val);
   IF NOT res THEN
-    -- .'$ObjectSchema'.type.'|'.1
+    -- .'$ObjectSchema'.type.'|'.0
     res := json_model_9(val, path, rep);
   END IF;
   RETURN res;

@@ -1,0 +1,18 @@
+[
+  [ true,  true ],
+  [ true,  false ],
+  [ true,  {"t": "s", "sus": 42} ],
+  [ true,  {"t": "c", "cal": 18} ],
+  [ true,  {"t": "h", "hob": 24} ],
+  [ true,  {"t": "m", "moe": 314} ],
+  [ false, null ],
+  [ false, 42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "hello world" ],
+  [ false, [] ],
+  [ false, ["un", "expected"] ],
+  [ false, {} ],
+  [ false, {"t": "r", "ros": 42} ],
+  [ false, {"x": 1} ]
+]

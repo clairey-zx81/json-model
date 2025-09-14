@@ -89,7 +89,54 @@
       "?parameters": {
         "": {
           "|": [
-            "$Parameter",
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -113,7 +160,36 @@
       "?headers": {
         "": {
           "|": [
-            "$Header",
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -121,7 +197,43 @@
       "?securitySchemes": {
         "": {
           "|": [
-            "$SecurityScheme",
+            {
+              "type": "_apiKey",
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "cookie"
+                ]
+              },
+              "?description": ""
+            },
+            {
+              "type": "_http",
+              "scheme": "/bearer/i",
+              "?bearerFormat": "",
+              "?description": ""
+            },
+            {
+              "type": "_http",
+              "scheme": "",
+              "?description": ""
+            },
+            {
+              "type": "_oauth2",
+              "flows": "$OAuthFlows",
+              "?description": ""
+            },
+            {
+              "type": "_openIdConnect",
+              "openIdConnectUrl": "$URL",
+              "?description": ""
+            },
+            {
+              "?description": "",
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -129,7 +241,26 @@
       "?links": {
         "": {
           "|": [
-            "$Link",
+            {
+              "operationRef": "",
+              "?parameters": {
+                "": "$ANY"
+              },
+              "?requestBody": "$ANY",
+              "?description": "",
+              "?server": "$Server",
+              "/^x-/": "$ANY"
+            },
+            {
+              "operationId": "",
+              "?parameters": {
+                "": "$ANY"
+              },
+              "?requestBody": "$ANY",
+              "?description": "",
+              "?server": "$Server",
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -176,7 +307,54 @@
       "?parameters": [
         {
           "|": [
-            "$Parameter",
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -195,7 +373,54 @@
       "?parameters": [
         {
           "|": [
-            "$Parameter",
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "name": "",
+              "in": {
+                "|": [
+                  "query",
+                  "header",
+                  "path",
+                  "cookie"
+                ]
+              },
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -374,7 +599,36 @@
       "?headers": {
         "": {
           "|": [
-            "$Header",
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -406,7 +660,36 @@
       "?headers": {
         "": {
           "|": [
-            "$Header",
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?style": "$Style",
+              "?explode": true,
+              "?allowReserved": true,
+              "?schema": "$Schema",
+              "?example": "$ANY",
+              "?examples": {
+                "": {
+                  "|": [
+                    "$Example",
+                    "$Reference"
+                  ]
+                }
+              },
+              "/^x-/": "$ANY"
+            },
+            {
+              "?description": "",
+              "?required": true,
+              "?deprecated": true,
+              "?allowEmptyValue": true,
+              "?content": {
+                "": "$MediaType"
+              },
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -417,7 +700,26 @@
       "?links": {
         "": {
           "|": [
-            "$Link",
+            {
+              "operationRef": "",
+              "?parameters": {
+                "": "$ANY"
+              },
+              "?requestBody": "$ANY",
+              "?description": "",
+              "?server": "$Server",
+              "/^x-/": "$ANY"
+            },
+            {
+              "operationId": "",
+              "?parameters": {
+                "": "$ANY"
+              },
+              "?requestBody": "$ANY",
+              "?description": "",
+              "?server": "$Server",
+              "/^x-/": "$ANY"
+            },
             "$Reference"
           ]
         }
@@ -705,7 +1007,13 @@
       "?unevaluatedProperties": "$schema#Schema",
       "?type": {
         "|": [
-          "$schema#simpleTypes",
+          "array",
+          "boolean",
+          "integer",
+          "null",
+          "number",
+          "object",
+          "string",
           "$schema#simpleTypesArray"
         ]
       },

@@ -10,6 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
+let _jm_cst_1 = new Set()
 var _jm_obj_0_map = new Map()
 var check_model_map = new Map()
 
@@ -346,36 +347,45 @@ function _jm_obj_2(val, path, rep)
         // handle other props
         // .'$ObjectSchema'.dependencies.''
         // .'$ObjectSchema'.dependencies.''.'|'.0
-        res = json_model_7(pval, (path ? lpath_2 : null), rep);
+        res = (typeof pval === 'boolean' || pval instanceof Boolean);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? lpath_2 : null)])
+            rep !== null && rep.push(["not a bool [.'$ObjectSchema'.dependencies.''.'|'.0]", (path ? lpath_2 : null)])
         }
         if (! res)
         {
             // .'$ObjectSchema'.dependencies.''.'|'.1
-            res = Array.isArray(pval);
-            if (res)
+            res = json_model_6(pval, (path ? lpath_2 : null), rep);
+            if (! res)
             {
-                for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
-                {
-                    let arr_2_item = pval[arr_2_idx]
-                    let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null;
-                    // .'$ObjectSchema'.dependencies.''.'|'.1.0
-                    res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
-                    if (! res)
-                    {
-                        rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.dependencies.''.'|'.1.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
-                    }
-                    if (! res)
-                    {
-                        break;
-                    }
-                }
+                rep !== null && rep.push(["unexpected $ObjectSchema [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? lpath_2 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.dependencies.''.'|'.1]", (path ? lpath_2 : null)])
+                // .'$ObjectSchema'.dependencies.''.'|'.2
+                res = Array.isArray(pval);
+                if (res)
+                {
+                    for (let arr_2_idx = 0; arr_2_idx < pval.length; arr_2_idx++)
+                    {
+                        let arr_2_item = pval[arr_2_idx]
+                        let arr_2_lpath = (path ? lpath_2 : null) ? (path ? lpath_2 : null).concat([arr_2_idx]) : null;
+                        // .'$ObjectSchema'.dependencies.''.'|'.2.0
+                        res = (typeof arr_2_item === 'string' || arr_2_item instanceof String);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected string [.'$ObjectSchema'.dependencies.''.'|'.2.0]", ((path ? lpath_2 : null) ? arr_2_lpath : null)])
+                        }
+                        if (! res)
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (! res)
+                {
+                    rep !== null && rep.push(["not array or unexpected array [.'$ObjectSchema'.dependencies.''.'|'.2]", (path ? lpath_2 : null)])
+                }
             }
         }
         if (res)
@@ -535,18 +545,27 @@ function _jm_f_23(val, path, rep)
     let res;
     // .'$ObjectSchema'.items
     // .'$ObjectSchema'.items.'|'.0
-    res = json_model_7(val, path, rep);
+    res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path])
+        rep !== null && rep.push(["not a bool [.'$ObjectSchema'.items.'|'.0]", path])
     }
     if (! res)
     {
         // .'$ObjectSchema'.items.'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.items.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $ObjectSchema [.'$ObjectSchema'.items.'|'.1]", path])
+        }
+        if (! res)
+        {
+            // .'$ObjectSchema'.items.'|'.2
+            res = json_model_3(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $schemaArray [.'$ObjectSchema'.items.'|'.2]", path])
+            }
         }
     }
     if (res)
@@ -887,33 +906,33 @@ function _jm_f_42(val, path, rep)
     return res;
 }
 
+
 // check _jm_obj_0_map_type (.'$ObjectSchema'.type)
 function _jm_f_43(val, path, rep)
 {
     let res;
     // .'$ObjectSchema'.type
-    // .'$ObjectSchema'.type.'|'.0
-    res = json_model_4(val, path, rep);
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path])
+        rep !== null && rep.push(["value not in enum [.'$ObjectSchema'.type.'|']", path])
     }
     if (! res)
     {
-        // .'$ObjectSchema'.type.'|'.1
+        // .'$ObjectSchema'.type.'|'.0
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $arrayTypes [.'$ObjectSchema'.type.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $arrayTypes [.'$ObjectSchema'.type.'|'.0]", path])
         }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$ObjectSchema'.type.'|']", path])
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$ObjectSchema'.type.'|']", path])
+        }
     }
     return res;
 }
@@ -1051,6 +1070,13 @@ export function check_model_init()
         _jm_cst_0.add("string")
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
+        _jm_cst_1.add("null")
+        _jm_cst_1.add("boolean")
+        _jm_cst_1.add("integer")
+        _jm_cst_1.add("number")
+        _jm_cst_1.add("string")
+        _jm_cst_1.add("array")
+        _jm_cst_1.add("object")
         _jm_obj_0_map.set("$comment", _jm_f_0)
         _jm_obj_0_map.set("$id", _jm_f_1)
         _jm_obj_0_map.set("$ref", _jm_f_2)

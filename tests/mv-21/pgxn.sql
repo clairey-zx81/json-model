@@ -483,10 +483,14 @@ BEGIN
     -- handle other props
     -- .'$Prereq'.''
     -- .'$Prereq'.''.'|'.0
-    res := json_model_10(pval, NULL, rep);
+    res := json_model_9(pval, NULL, rep);
     IF NOT res THEN
       -- .'$Prereq'.''.'|'.1
-      res := json_model_12(pval, NULL, rep);
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 = 0;
+      IF NOT res THEN
+        -- .'$Prereq'.''.'|'.2
+        res := json_model_12(pval, NULL, rep);
+      END IF;
     END IF;
     IF NOT res THEN
       RETURN FALSE;

@@ -684,18 +684,27 @@ static INLINE bool _jm_obj_4(const json_t *val, jm_path_t *path, jm_report_t *re
         // handle other props
         // .'$Prereq'.''
         // .'$Prereq'.''.'|'.0
-        res = json_model_10(pval, (path ? &lpath_4 : NULL), rep);
+        res = json_model_9(pval, (path ? &lpath_4 : NULL), rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Version [.'$Prereq'.''.'|'.0]", (path ? &lpath_4 : NULL));
+            if (rep) jm_report_add_entry(rep, "unexpected $SemVer [.'$Prereq'.''.'|'.0]", (path ? &lpath_4 : NULL));
         }
         if (! res)
         {
             // .'$Prereq'.''.'|'.1
-            res = json_model_12(pval, (path ? &lpath_4 : NULL), rep);
+            res = json_is_integer(pval) && json_integer_value(pval) == 0;
             if (! res)
             {
-                if (rep) jm_report_add_entry(rep, "unexpected $VersionRange [.'$Prereq'.''.'|'.1]", (path ? &lpath_4 : NULL));
+                if (rep) jm_report_add_entry(rep, "unexpected =0 [.'$Prereq'.''.'|'.1]", (path ? &lpath_4 : NULL));
+            }
+            if (! res)
+            {
+                // .'$Prereq'.''.'|'.2
+                res = json_model_12(pval, (path ? &lpath_4 : NULL), rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $VersionRange [.'$Prereq'.''.'|'.2]", (path ? &lpath_4 : NULL));
+                }
             }
         }
         if (res)

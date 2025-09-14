@@ -14,6 +14,7 @@ sub _jm_f_0($$$);
 sub _jm_f_1($$$);
 sub _jm_f_2($$$);
 sub _jm_f_3($$$);
+my %_jm_cst_0;
 sub _jm_f_4($$$);
 sub _jm_f_5($$$);
 sub _jm_f_6($$$);
@@ -37,17 +38,18 @@ sub _jm_f_23($$$);
 sub _jm_f_24($$$);
 sub _jm_f_25($$$);
 sub _jm_f_26($$$);
+my %_jm_cst_1;
 sub _jm_f_27($$$);
 sub _jm_f_28($$$);
 my %_jm_obj_0_map;
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_4($$$);
-my %_jm_cst_0;
-sub json_model_5($$$);
 sub json_model_6($$$);
 sub json_model_7($$$);
-my %_jm_cst_1;
+my %_jm_cst_2;
+sub json_model_5($$$);
+my %_jm_cst_3;
 sub json_model_9($$$);
 my %check_model_map;
 
@@ -103,24 +105,24 @@ sub _jm_f_3($$$)
     return $res;
 }
 
+
 # check _jm_obj_0_map_bsonType (.'$schema'.bsonType)
 sub _jm_f_4($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$schema'.bsonType
-    # .'$schema'.bsonType.'|'.0
-    $res = json_model_9($val, $path, $rep);
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
     if (! $res)
     {
-        # .'$schema'.bsonType.'|'.1
         $res = jm_is_array($val);
         if ($res)
         {
+            # .'$schema'.bsonType.'|'.0
             for my $arr_0_idx (0 .. $#$val)
             {
                 my $arr_0_item = $$val[$arr_0_idx];
-                # .'$schema'.bsonType.'|'.1.0
+                # .'$schema'.bsonType.'|'.0.0
                 $res = json_model_9($arr_0_item, undef, $rep);
                 if (! $res)
                 {
@@ -444,17 +446,17 @@ sub _jm_f_26($$$)
     return $res;
 }
 
+
 # check _jm_obj_0_map_type (.'$schema'.type)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$schema'.type
-    # .'$schema'.type.'|'.0
-    $res = json_model_5($val, $path, $rep);
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
     if (! $res)
     {
-        # .'$schema'.type.'|'.1
+        # .'$schema'.type.'|'.0
         $res = json_model_7($val, $path, $rep);
     }
     return $res;
@@ -549,17 +551,6 @@ sub json_model_4($$$)
     return $res;
 }
 
-
-# check $schema#simpleTypes (.'$schema#simpleTypes')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$schema#simpleTypes'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
-}
-
 # check $schema#stringArray (.'$schema#stringArray')
 sub json_model_6($$$)
 {
@@ -619,6 +610,17 @@ sub json_model_7($$$)
 }
 
 
+# check $schema#simpleTypes (.'$schema#simpleTypes')
+sub json_model_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$schema#simpleTypes'
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_2{$val};
+    return $res;
+}
+
+
 # check $schema#bsonType (.'$schema#bsonType')
 sub json_model_9($$$)
 {
@@ -626,7 +628,7 @@ sub json_model_9($$$)
     my $res;
     # add a definition for BSON types
     # .'$schema#bsonType'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_3{$val};
     return $res;
 }
 
@@ -640,6 +642,33 @@ sub check_model_init()
     if (!$initialized)
     {
         $initialized = 1;
+        %_jm_cst_0 = (
+            'null' => 1,
+            'bool' => 1,
+            'string' => 1,
+            'object' => 1,
+            'array' => 1,
+            'double' => 1,
+            'int' => 1,
+            'long' => 1,
+            'decimal' => 1,
+            'binData' => 1,
+            'objectId' => 1,
+            'date' => 1,
+            'regex' => 1,
+            'javascript' => 1,
+            'timestamp' => 1,
+            'minKey' => 1,
+            'maxKey' => 1,
+        );
+        %_jm_cst_1 = (
+            'null' => 1,
+            'boolean' => 1,
+            'number' => 1,
+            'string' => 1,
+            'array' => 1,
+            'object' => 1,
+        );
         %_jm_obj_0_map = (
             'additionalItems' => \&_jm_f_0,
             'additionalProperties' => \&_jm_f_1,
@@ -671,7 +700,7 @@ sub check_model_init()
             'type' => \&_jm_f_27,
             'uniqueItems' => \&_jm_f_28,
         );
-        %_jm_cst_0 = (
+        %_jm_cst_2 = (
             'null' => 1,
             'boolean' => 1,
             'number' => 1,
@@ -679,7 +708,7 @@ sub check_model_init()
             'array' => 1,
             'object' => 1,
         );
-        %_jm_cst_1 = (
+        %_jm_cst_3 = (
             'null' => 1,
             'bool' => 1,
             'string' => 1,
@@ -710,9 +739,11 @@ sub check_model_free()
     if ($initialized)
     {
         $initialized = 0;
-        %_jm_obj_0_map = ();
         %_jm_cst_0 = ();
         %_jm_cst_1 = ();
+        %_jm_obj_0_map = ();
+        %_jm_cst_2 = ();
+        %_jm_cst_3 = ();
         %check_model_map = ();
     }
 }

@@ -853,7 +853,22 @@ sub json_model_11($$$)
     if (! $res)
     {
         # .'$type-or-ref'.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = json_model_6($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$type-or-ref'.'|'.2
+            $res = json_model_7($val, $path, $rep);
+            if (! $res)
+            {
+                # .'$type-or-ref'.'|'.3
+                $res = json_model_9($val, $path, $rep);
+                if (! $res)
+                {
+                    # .'$type-or-ref'.'|'.4
+                    $res = json_model_10($val, $path, $rep);
+                }
+            }
+        }
     }
     return $res;
 }

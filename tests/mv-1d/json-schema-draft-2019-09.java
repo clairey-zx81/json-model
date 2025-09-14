@@ -20,8 +20,10 @@ public class json_schema_draft_2019_09 extends ModelChecker
     Map<String, Checker> _jm_obj_0_map_pmap;
     Map<String, Checker> _jm_obj_3_map_pmap;
     Set<Object> _jm_cst_0_set;
+    Set<Object> _jm_cst_1_set;
     Map<String, Checker> _jm_obj_6_map_pmap;
     Map<String, Checker> _jm_obj_8_map_pmap;
+    Set<Object> _jm_cst_2_set;
     Map<String, Checker> _jm_obj_12_map_pmap;
     public Map<String, Checker> json_schema_draft_2019_09_map_pmap;
 
@@ -941,33 +943,33 @@ public class json_schema_draft_2019_09 extends ModelChecker
         return res;
     }
     
+    
     // check _jm_obj_6_map_type (.'$validation'.type)
     public boolean _jm_f_34(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$validation'.type
-        // .'$validation'.type.'|'.0
-        res = json_model_8(val, path, rep);
+        res = json.isScalar(val) && _jm_cst_1_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$validation'.type.'|'.0]", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$validation'.type.'|']", path);
         }
         if (! res)
         {
-            // .'$validation'.type.'|'.1
+            // .'$validation'.type.'|'.0
             res = json_model_9(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $simpleTypesArray [.'$validation'.type.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $simpleTypesArray [.'$validation'.type.'|'.0]", path);
             }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$validation'.type.'|']", path);
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$validation'.type.'|']", path);
+            }
         }
         return res;
     }
@@ -1216,18 +1218,27 @@ public class json_schema_draft_2019_09 extends ModelChecker
         boolean res;
         // .'$applicator'.items
         // .'$applicator'.items.'|'.0
-        res = json_model_16(val, path, rep);
+        res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Schema [.'$applicator'.items.'|'.0]", path);
+            if (rep != null) rep.addEntry("not a bool [.'$applicator'.items.'|'.0]", path);
         }
         if (! res)
         {
             // .'$applicator'.items.'|'.1
-            res = json_model_13(val, path, rep);
+            res = json_model_15(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $schemaArray [.'$applicator'.items.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$applicator'.items.'|'.1]", path);
+            }
+            if (! res)
+            {
+                // .'$applicator'.items.'|'.2
+                res = json_model_13(val, path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$applicator'.items.'|'.2]", path);
+                }
             }
         }
         if (res)
@@ -1992,18 +2003,27 @@ public class json_schema_draft_2019_09 extends ModelChecker
         boolean res;
         // .'$ObjectSchema'.items
         // .'$ObjectSchema'.items.'|'.0
-        res = json_model_16(val, path, rep);
+        res = json.isBoolean(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $Schema [.'$ObjectSchema'.items.'|'.0]", path);
+            if (rep != null) rep.addEntry("not a bool [.'$ObjectSchema'.items.'|'.0]", path);
         }
         if (! res)
         {
             // .'$ObjectSchema'.items.'|'.1
-            res = json_model_13(val, path, rep);
+            res = json_model_15(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $schemaArray [.'$ObjectSchema'.items.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $ObjectSchema [.'$ObjectSchema'.items.'|'.1]", path);
+            }
+            if (! res)
+            {
+                // .'$ObjectSchema'.items.'|'.2
+                res = json_model_13(val, path, rep);
+                if (! res)
+                {
+                    if (rep != null) rep.addEntry("unexpected $schemaArray [.'$ObjectSchema'.items.'|'.2]", path);
+                }
             }
         }
         if (res)
@@ -2358,33 +2378,33 @@ public class json_schema_draft_2019_09 extends ModelChecker
         return res;
     }
     
+    
     // check _jm_obj_12_map_type (.'$ObjectSchema'.type)
     public boolean _jm_f_105(Object val, Path path, Report rep)
     {
         boolean res;
         // .'$ObjectSchema'.type
-        // .'$ObjectSchema'.type.'|'.0
-        res = json_model_8(val, path, rep);
+        res = json.isScalar(val) && _jm_cst_2_set.contains(val);
         if (! res)
         {
-            if (rep != null) rep.addEntry("unexpected $simpleTypes [.'$ObjectSchema'.type.'|'.0]", path);
+            if (rep != null) rep.addEntry("value not in enum [.'$ObjectSchema'.type.'|']", path);
         }
         if (! res)
         {
-            // .'$ObjectSchema'.type.'|'.1
+            // .'$ObjectSchema'.type.'|'.0
             res = json_model_9(val, path, rep);
             if (! res)
             {
-                if (rep != null) rep.addEntry("unexpected $simpleTypesArray [.'$ObjectSchema'.type.'|'.1]", path);
+                if (rep != null) rep.addEntry("unexpected $simpleTypesArray [.'$ObjectSchema'.type.'|'.0]", path);
             }
-        }
-        if (res)
-        {
-            if (rep != null) rep.clearEntries();
-        }
-        else
-        {
-            if (rep != null) rep.addEntry("no model matched [.'$ObjectSchema'.type.'|']", path);
+            if (res)
+            {
+                if (rep != null) rep.clearEntries();
+            }
+            else
+            {
+                if (rep != null) rep.addEntry("no model matched [.'$ObjectSchema'.type.'|']", path);
+            }
         }
         return res;
     }
@@ -2566,6 +2586,14 @@ public class json_schema_draft_2019_09 extends ModelChecker
             _jm_cst_0_set.add(json.safeJSON("\"number\""));
             _jm_cst_0_set.add(json.safeJSON("\"object\""));
             _jm_cst_0_set.add(json.safeJSON("\"string\""));
+            _jm_cst_1_set = new HashSet<Object>();
+            _jm_cst_1_set.add(json.safeJSON("\"array\""));
+            _jm_cst_1_set.add(json.safeJSON("\"boolean\""));
+            _jm_cst_1_set.add(json.safeJSON("\"integer\""));
+            _jm_cst_1_set.add(json.safeJSON("\"null\""));
+            _jm_cst_1_set.add(json.safeJSON("\"number\""));
+            _jm_cst_1_set.add(json.safeJSON("\"object\""));
+            _jm_cst_1_set.add(json.safeJSON("\"string\""));
             _jm_obj_6_map_pmap = new HashMap<String, Checker>();
             _jm_obj_6_map_pmap.put("const", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_16(o, p, r);} });
             _jm_obj_6_map_pmap.put("dependentRequired", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_17(o, p, r);} });
@@ -2605,6 +2633,14 @@ public class json_schema_draft_2019_09 extends ModelChecker
             _jm_obj_8_map_pmap.put("then", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_50(o, p, r);} });
             _jm_obj_8_map_pmap.put("unevaluatedItems", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_51(o, p, r);} });
             _jm_obj_8_map_pmap.put("unevaluatedProperties", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_52(o, p, r);} });
+            _jm_cst_2_set = new HashSet<Object>();
+            _jm_cst_2_set.add(json.safeJSON("\"array\""));
+            _jm_cst_2_set.add(json.safeJSON("\"boolean\""));
+            _jm_cst_2_set.add(json.safeJSON("\"integer\""));
+            _jm_cst_2_set.add(json.safeJSON("\"null\""));
+            _jm_cst_2_set.add(json.safeJSON("\"number\""));
+            _jm_cst_2_set.add(json.safeJSON("\"object\""));
+            _jm_cst_2_set.add(json.safeJSON("\"string\""));
             _jm_obj_12_map_pmap = new HashMap<String, Checker>();
             _jm_obj_12_map_pmap.put("$anchor", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_53(o, p, r);} });
             _jm_obj_12_map_pmap.put("$comment", new Checker() { public boolean call(Object o, Path p, Report r) { return _jm_f_54(o, p, r);} });
@@ -2696,8 +2732,10 @@ public class json_schema_draft_2019_09 extends ModelChecker
             _jm_obj_0_map_pmap = null;
             _jm_obj_3_map_pmap = null;
             _jm_cst_0_set = null;
+            _jm_cst_1_set = null;
             _jm_obj_6_map_pmap = null;
             _jm_obj_8_map_pmap = null;
+            _jm_cst_2_set = null;
             _jm_obj_12_map_pmap = null;
             json_schema_draft_2019_09_map_pmap = null;
         }

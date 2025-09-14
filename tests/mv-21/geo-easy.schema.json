@@ -231,7 +231,22 @@
               "type": "null"
             },
             {
-              "$ref": "#/$defs/geometry"
+              "$ref": "#/$defs/Point"
+            },
+            {
+              "$ref": "#/$defs/MultiPoint"
+            },
+            {
+              "$ref": "#/$defs/LineString"
+            },
+            {
+              "$ref": "#/$defs/MultiLineString"
+            },
+            {
+              "$ref": "#/$defs/Polygon"
+            },
+            {
+              "$ref": "#/$defs/MultiPolygon"
             },
             {
               "$ref": "#/$defs/GeometryCollection"
@@ -299,9 +314,24 @@
       "additionalProperties": true
     }
   },
-  "oneOf": [
+  "anyOf": [
     {
-      "$ref": "#/$defs/geometry"
+      "$ref": "#/$defs/Point"
+    },
+    {
+      "$ref": "#/$defs/MultiPoint"
+    },
+    {
+      "$ref": "#/$defs/LineString"
+    },
+    {
+      "$ref": "#/$defs/MultiLineString"
+    },
+    {
+      "$ref": "#/$defs/Polygon"
+    },
+    {
+      "$ref": "#/$defs/MultiPolygon"
     },
     {
       "$ref": "#/$defs/GeometryCollection"

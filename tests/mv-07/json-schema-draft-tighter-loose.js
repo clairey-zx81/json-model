@@ -1070,18 +1070,207 @@ function _jm_f_34(val, path, rep)
     let res;
     // .'$tight#Array'.items
     // .'$tight#Array'.items.'|'.0
-    res = json_model_26(val, path, rep);
+    res = (typeof val === 'boolean' || val instanceof Boolean);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $Schema [.'$tight#Array'.items.'|'.0]", path])
+        rep !== null && rep.push(["not a bool [.'$tight#Array'.items.'|'.0]", path])
     }
     if (! res)
     {
         // .'$tight#Array'.items.'|'.1
-        res = json_model_6(val, path, rep);
+        res = json_model_18(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $schemaArray [.'$tight#Array'.items.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Null [.'$tight#Array'.items.'|'.1]", path])
+        }
+        if (! res)
+        {
+            // .'$tight#Array'.items.'|'.2
+            res = json_model_17(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Bool [.'$tight#Array'.items.'|'.2]", path])
+            }
+            if (! res)
+            {
+                // .'$tight#Array'.items.'|'.3
+                res = json_model_23(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $Const [.'$tight#Array'.items.'|'.3]", path])
+                }
+                if (! res)
+                {
+                    // .'$tight#Array'.items.'|'.4
+                    res = json_model_22(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Enum [.'$tight#Array'.items.'|'.4]", path])
+                    }
+                    if (! res)
+                    {
+                        // .'$tight#Array'.items.'|'.5
+                        res = json_model_15(val, path, rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected $Integer [.'$tight#Array'.items.'|'.5]", path])
+                        }
+                        if (! res)
+                        {
+                            // .'$tight#Array'.items.'|'.6
+                            res = json_model_16(val, path, rep);
+                            if (! res)
+                            {
+                                rep !== null && rep.push(["unexpected $Number [.'$tight#Array'.items.'|'.6]", path])
+                            }
+                            if (! res)
+                            {
+                                // .'$tight#Array'.items.'|'.7
+                                res = json_model_12(val, path, rep);
+                                if (! res)
+                                {
+                                    rep !== null && rep.push(["unexpected $String [.'$tight#Array'.items.'|'.7]", path])
+                                }
+                                if (! res)
+                                {
+                                    // .'$tight#Array'.items.'|'.8
+                                    res = json_model_13(val, path, rep);
+                                    if (! res)
+                                    {
+                                        rep !== null && rep.push(["unexpected $Array [.'$tight#Array'.items.'|'.8]", path])
+                                    }
+                                    if (! res)
+                                    {
+                                        // .'$tight#Array'.items.'|'.9
+                                        res = json_model_14(val, path, rep);
+                                        if (! res)
+                                        {
+                                            rep !== null && rep.push(["unexpected $Object [.'$tight#Array'.items.'|'.9]", path])
+                                        }
+                                        if (! res)
+                                        {
+                                            // .'$tight#Array'.items.'|'.10
+                                            res = json_model_19(val, path, rep);
+                                            if (! res)
+                                            {
+                                                rep !== null && rep.push(["unexpected $AllOf [.'$tight#Array'.items.'|'.10]", path])
+                                            }
+                                            if (! res)
+                                            {
+                                                // .'$tight#Array'.items.'|'.11
+                                                res = json_model_20(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    rep !== null && rep.push(["unexpected $AnyOf [.'$tight#Array'.items.'|'.11]", path])
+                                                }
+                                                if (! res)
+                                                {
+                                                    // .'$tight#Array'.items.'|'.12
+                                                    res = json_model_21(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        rep !== null && rep.push(["unexpected $OneOf [.'$tight#Array'.items.'|'.12]", path])
+                                                    }
+                                                    if (! res)
+                                                    {
+                                                        // .'$tight#Array'.items.'|'.13
+                                                        res = json_model_24(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            rep !== null && rep.push(["unexpected $Ref [.'$tight#Array'.items.'|'.13]", path])
+                                                        }
+                                                        if (! res)
+                                                        {
+                                                            // .'$tight#Array'.items.'|'.14
+                                                            res = json_model_11(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                rep !== null && rep.push(["unexpected $metas [.'$tight#Array'.items.'|'.14]", path])
+                                                            }
+                                                            if (! res)
+                                                            {
+                                                                // .'$tight#Array'.items.'|'.15
+                                                                res = json_model_28(val, path, rep);
+                                                                if (! res)
+                                                                {
+                                                                    rep !== null && rep.push(["unexpected $EnumString [.'$tight#Array'.items.'|'.15]", path])
+                                                                }
+                                                                if (! res)
+                                                                {
+                                                                    // .'$tight#Array'.items.'|'.16
+                                                                    res = json_model_29(val, path, rep);
+                                                                    if (! res)
+                                                                    {
+                                                                        rep !== null && rep.push(["unexpected $EnumNum [.'$tight#Array'.items.'|'.16]", path])
+                                                                    }
+                                                                    if (! res)
+                                                                    {
+                                                                        // .'$tight#Array'.items.'|'.17
+                                                                        res = json_model_30(val, path, rep);
+                                                                        if (! res)
+                                                                        {
+                                                                            rep !== null && rep.push(["unexpected $EnumInt [.'$tight#Array'.items.'|'.17]", path])
+                                                                        }
+                                                                        if (! res)
+                                                                        {
+                                                                            // .'$tight#Array'.items.'|'.18
+                                                                            res = json_model_31(val, path, rep);
+                                                                            if (! res)
+                                                                            {
+                                                                                rep !== null && rep.push(["unexpected $ConstString [.'$tight#Array'.items.'|'.18]", path])
+                                                                            }
+                                                                            if (! res)
+                                                                            {
+                                                                                // .'$tight#Array'.items.'|'.19
+                                                                                res = json_model_32(val, path, rep);
+                                                                                if (! res)
+                                                                                {
+                                                                                    rep !== null && rep.push(["unexpected $ConstNum [.'$tight#Array'.items.'|'.19]", path])
+                                                                                }
+                                                                                if (! res)
+                                                                                {
+                                                                                    // .'$tight#Array'.items.'|'.20
+                                                                                    res = json_model_33(val, path, rep);
+                                                                                    if (! res)
+                                                                                    {
+                                                                                        rep !== null && rep.push(["unexpected $ConstInt [.'$tight#Array'.items.'|'.20]", path])
+                                                                                    }
+                                                                                    if (! res)
+                                                                                    {
+                                                                                        // .'$tight#Array'.items.'|'.21
+                                                                                        res = json_model_34(val, path, rep);
+                                                                                        if (! res)
+                                                                                        {
+                                                                                            rep !== null && rep.push(["unexpected $ConstBool [.'$tight#Array'.items.'|'.21]", path])
+                                                                                        }
+                                                                                        if (! res)
+                                                                                        {
+                                                                                            // .'$tight#Array'.items.'|'.22
+                                                                                            res = json_model_6(val, path, rep);
+                                                                                            if (! res)
+                                                                                            {
+                                                                                                rep !== null && rep.push(["unexpected $schemaArray [.'$tight#Array'.items.'|'.22]", path])
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (res)
@@ -4481,10 +4670,190 @@ function json_model_26(val, path, rep)
     if (! res)
     {
         // .'$tight#Schema'.'|'.1
-        res = json_model_25(val, path, rep);
+        res = json_model_18(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $ObjectSchema [.'$tight#Schema'.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Null [.'$tight#Schema'.'|'.1]", path])
+        }
+        if (! res)
+        {
+            // .'$tight#Schema'.'|'.2
+            res = json_model_17(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected $Bool [.'$tight#Schema'.'|'.2]", path])
+            }
+            if (! res)
+            {
+                // .'$tight#Schema'.'|'.3
+                res = json_model_23(val, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $Const [.'$tight#Schema'.'|'.3]", path])
+                }
+                if (! res)
+                {
+                    // .'$tight#Schema'.'|'.4
+                    res = json_model_22(val, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $Enum [.'$tight#Schema'.'|'.4]", path])
+                    }
+                    if (! res)
+                    {
+                        // .'$tight#Schema'.'|'.5
+                        res = json_model_15(val, path, rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected $Integer [.'$tight#Schema'.'|'.5]", path])
+                        }
+                        if (! res)
+                        {
+                            // .'$tight#Schema'.'|'.6
+                            res = json_model_16(val, path, rep);
+                            if (! res)
+                            {
+                                rep !== null && rep.push(["unexpected $Number [.'$tight#Schema'.'|'.6]", path])
+                            }
+                            if (! res)
+                            {
+                                // .'$tight#Schema'.'|'.7
+                                res = json_model_12(val, path, rep);
+                                if (! res)
+                                {
+                                    rep !== null && rep.push(["unexpected $String [.'$tight#Schema'.'|'.7]", path])
+                                }
+                                if (! res)
+                                {
+                                    // .'$tight#Schema'.'|'.8
+                                    res = json_model_13(val, path, rep);
+                                    if (! res)
+                                    {
+                                        rep !== null && rep.push(["unexpected $Array [.'$tight#Schema'.'|'.8]", path])
+                                    }
+                                    if (! res)
+                                    {
+                                        // .'$tight#Schema'.'|'.9
+                                        res = json_model_14(val, path, rep);
+                                        if (! res)
+                                        {
+                                            rep !== null && rep.push(["unexpected $Object [.'$tight#Schema'.'|'.9]", path])
+                                        }
+                                        if (! res)
+                                        {
+                                            // .'$tight#Schema'.'|'.10
+                                            res = json_model_19(val, path, rep);
+                                            if (! res)
+                                            {
+                                                rep !== null && rep.push(["unexpected $AllOf [.'$tight#Schema'.'|'.10]", path])
+                                            }
+                                            if (! res)
+                                            {
+                                                // .'$tight#Schema'.'|'.11
+                                                res = json_model_20(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    rep !== null && rep.push(["unexpected $AnyOf [.'$tight#Schema'.'|'.11]", path])
+                                                }
+                                                if (! res)
+                                                {
+                                                    // .'$tight#Schema'.'|'.12
+                                                    res = json_model_21(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        rep !== null && rep.push(["unexpected $OneOf [.'$tight#Schema'.'|'.12]", path])
+                                                    }
+                                                    if (! res)
+                                                    {
+                                                        // .'$tight#Schema'.'|'.13
+                                                        res = json_model_24(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            rep !== null && rep.push(["unexpected $Ref [.'$tight#Schema'.'|'.13]", path])
+                                                        }
+                                                        if (! res)
+                                                        {
+                                                            // .'$tight#Schema'.'|'.14
+                                                            res = json_model_11(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                rep !== null && rep.push(["unexpected $metas [.'$tight#Schema'.'|'.14]", path])
+                                                            }
+                                                            if (! res)
+                                                            {
+                                                                // .'$tight#Schema'.'|'.15
+                                                                res = json_model_28(val, path, rep);
+                                                                if (! res)
+                                                                {
+                                                                    rep !== null && rep.push(["unexpected $EnumString [.'$tight#Schema'.'|'.15]", path])
+                                                                }
+                                                                if (! res)
+                                                                {
+                                                                    // .'$tight#Schema'.'|'.16
+                                                                    res = json_model_29(val, path, rep);
+                                                                    if (! res)
+                                                                    {
+                                                                        rep !== null && rep.push(["unexpected $EnumNum [.'$tight#Schema'.'|'.16]", path])
+                                                                    }
+                                                                    if (! res)
+                                                                    {
+                                                                        // .'$tight#Schema'.'|'.17
+                                                                        res = json_model_30(val, path, rep);
+                                                                        if (! res)
+                                                                        {
+                                                                            rep !== null && rep.push(["unexpected $EnumInt [.'$tight#Schema'.'|'.17]", path])
+                                                                        }
+                                                                        if (! res)
+                                                                        {
+                                                                            // .'$tight#Schema'.'|'.18
+                                                                            res = json_model_31(val, path, rep);
+                                                                            if (! res)
+                                                                            {
+                                                                                rep !== null && rep.push(["unexpected $ConstString [.'$tight#Schema'.'|'.18]", path])
+                                                                            }
+                                                                            if (! res)
+                                                                            {
+                                                                                // .'$tight#Schema'.'|'.19
+                                                                                res = json_model_32(val, path, rep);
+                                                                                if (! res)
+                                                                                {
+                                                                                    rep !== null && rep.push(["unexpected $ConstNum [.'$tight#Schema'.'|'.19]", path])
+                                                                                }
+                                                                                if (! res)
+                                                                                {
+                                                                                    // .'$tight#Schema'.'|'.20
+                                                                                    res = json_model_33(val, path, rep);
+                                                                                    if (! res)
+                                                                                    {
+                                                                                        rep !== null && rep.push(["unexpected $ConstInt [.'$tight#Schema'.'|'.20]", path])
+                                                                                    }
+                                                                                    if (! res)
+                                                                                    {
+                                                                                        // .'$tight#Schema'.'|'.21
+                                                                                        res = json_model_34(val, path, rep);
+                                                                                        if (! res)
+                                                                                        {
+                                                                                            rep !== null && rep.push(["unexpected $ConstBool [.'$tight#Schema'.'|'.21]", path])
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (res)

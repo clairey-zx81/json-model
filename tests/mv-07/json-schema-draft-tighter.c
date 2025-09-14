@@ -518,18 +518,144 @@ static bool _jm_f_1(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$arrayKeywords'.items
     // .'$arrayKeywords'.items.'|'.0
-    res = json_model_24(val, path, rep);
+    res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$arrayKeywords'.items.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$arrayKeywords'.items.'|'.0]", path);
     }
     if (! res)
     {
         // .'$arrayKeywords'.items.'|'.1
-        res = json_model_4(val, path, rep);
+        res = json_model_16(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$arrayKeywords'.items.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $Null [.'$arrayKeywords'.items.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$arrayKeywords'.items.'|'.2
+            res = json_model_15(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Bool [.'$arrayKeywords'.items.'|'.2]", path);
+            }
+            if (! res)
+            {
+                // .'$arrayKeywords'.items.'|'.3
+                res = json_model_21(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Const [.'$arrayKeywords'.items.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // .'$arrayKeywords'.items.'|'.4
+                    res = json_model_20(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Enum [.'$arrayKeywords'.items.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$arrayKeywords'.items.'|'.5
+                        res = json_model_13(val, path, rep);
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $Integer [.'$arrayKeywords'.items.'|'.5]", path);
+                        }
+                        if (! res)
+                        {
+                            // .'$arrayKeywords'.items.'|'.6
+                            res = json_model_14(val, path, rep);
+                            if (! res)
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected $Number [.'$arrayKeywords'.items.'|'.6]", path);
+                            }
+                            if (! res)
+                            {
+                                // .'$arrayKeywords'.items.'|'.7
+                                res = json_model_10(val, path, rep);
+                                if (! res)
+                                {
+                                    if (rep) jm_report_add_entry(rep, "unexpected $String [.'$arrayKeywords'.items.'|'.7]", path);
+                                }
+                                if (! res)
+                                {
+                                    // .'$arrayKeywords'.items.'|'.8
+                                    res = json_model_11(val, path, rep);
+                                    if (! res)
+                                    {
+                                        if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$arrayKeywords'.items.'|'.8]", path);
+                                    }
+                                    if (! res)
+                                    {
+                                        // .'$arrayKeywords'.items.'|'.9
+                                        res = json_model_12(val, path, rep);
+                                        if (! res)
+                                        {
+                                            if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$arrayKeywords'.items.'|'.9]", path);
+                                        }
+                                        if (! res)
+                                        {
+                                            // .'$arrayKeywords'.items.'|'.10
+                                            res = json_model_17(val, path, rep);
+                                            if (! res)
+                                            {
+                                                if (rep) jm_report_add_entry(rep, "unexpected $AllOf [.'$arrayKeywords'.items.'|'.10]", path);
+                                            }
+                                            if (! res)
+                                            {
+                                                // .'$arrayKeywords'.items.'|'.11
+                                                res = json_model_18(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    if (rep) jm_report_add_entry(rep, "unexpected $AnyOf [.'$arrayKeywords'.items.'|'.11]", path);
+                                                }
+                                                if (! res)
+                                                {
+                                                    // .'$arrayKeywords'.items.'|'.12
+                                                    res = json_model_19(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        if (rep) jm_report_add_entry(rep, "unexpected $OneOf [.'$arrayKeywords'.items.'|'.12]", path);
+                                                    }
+                                                    if (! res)
+                                                    {
+                                                        // .'$arrayKeywords'.items.'|'.13
+                                                        res = json_model_22(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$arrayKeywords'.items.'|'.13]", path);
+                                                        }
+                                                        if (! res)
+                                                        {
+                                                            // .'$arrayKeywords'.items.'|'.14
+                                                            res = json_model_9(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                if (rep) jm_report_add_entry(rep, "unexpected $metas [.'$arrayKeywords'.items.'|'.14]", path);
+                                                            }
+                                                            if (! res)
+                                                            {
+                                                                // .'$arrayKeywords'.items.'|'.15
+                                                                res = json_model_4(val, path, rep);
+                                                                if (! res)
+                                                                {
+                                                                    if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$arrayKeywords'.items.'|'.15]", path);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (res)
@@ -1660,18 +1786,144 @@ static bool _jm_f_40(const json_t *val, jm_path_t *path, jm_report_t *rep)
     bool res;
     // .'$Array'.items
     // .'$Array'.items.'|'.0
-    res = json_model_24(val, path, rep);
+    res = json_is_boolean(val);
     if (! res)
     {
-        if (rep) jm_report_add_entry(rep, "unexpected $Schema [.'$Array'.items.'|'.0]", path);
+        if (rep) jm_report_add_entry(rep, "not a bool [.'$Array'.items.'|'.0]", path);
     }
     if (! res)
     {
         // .'$Array'.items.'|'.1
-        res = json_model_4(val, path, rep);
+        res = json_model_16(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.items.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $Null [.'$Array'.items.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$Array'.items.'|'.2
+            res = json_model_15(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Bool [.'$Array'.items.'|'.2]", path);
+            }
+            if (! res)
+            {
+                // .'$Array'.items.'|'.3
+                res = json_model_21(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Const [.'$Array'.items.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // .'$Array'.items.'|'.4
+                    res = json_model_20(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Enum [.'$Array'.items.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$Array'.items.'|'.5
+                        res = json_model_13(val, path, rep);
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $Integer [.'$Array'.items.'|'.5]", path);
+                        }
+                        if (! res)
+                        {
+                            // .'$Array'.items.'|'.6
+                            res = json_model_14(val, path, rep);
+                            if (! res)
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected $Number [.'$Array'.items.'|'.6]", path);
+                            }
+                            if (! res)
+                            {
+                                // .'$Array'.items.'|'.7
+                                res = json_model_10(val, path, rep);
+                                if (! res)
+                                {
+                                    if (rep) jm_report_add_entry(rep, "unexpected $String [.'$Array'.items.'|'.7]", path);
+                                }
+                                if (! res)
+                                {
+                                    // .'$Array'.items.'|'.8
+                                    res = json_model_11(val, path, rep);
+                                    if (! res)
+                                    {
+                                        if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$Array'.items.'|'.8]", path);
+                                    }
+                                    if (! res)
+                                    {
+                                        // .'$Array'.items.'|'.9
+                                        res = json_model_12(val, path, rep);
+                                        if (! res)
+                                        {
+                                            if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$Array'.items.'|'.9]", path);
+                                        }
+                                        if (! res)
+                                        {
+                                            // .'$Array'.items.'|'.10
+                                            res = json_model_17(val, path, rep);
+                                            if (! res)
+                                            {
+                                                if (rep) jm_report_add_entry(rep, "unexpected $AllOf [.'$Array'.items.'|'.10]", path);
+                                            }
+                                            if (! res)
+                                            {
+                                                // .'$Array'.items.'|'.11
+                                                res = json_model_18(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    if (rep) jm_report_add_entry(rep, "unexpected $AnyOf [.'$Array'.items.'|'.11]", path);
+                                                }
+                                                if (! res)
+                                                {
+                                                    // .'$Array'.items.'|'.12
+                                                    res = json_model_19(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        if (rep) jm_report_add_entry(rep, "unexpected $OneOf [.'$Array'.items.'|'.12]", path);
+                                                    }
+                                                    if (! res)
+                                                    {
+                                                        // .'$Array'.items.'|'.13
+                                                        res = json_model_22(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$Array'.items.'|'.13]", path);
+                                                        }
+                                                        if (! res)
+                                                        {
+                                                            // .'$Array'.items.'|'.14
+                                                            res = json_model_9(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                if (rep) jm_report_add_entry(rep, "unexpected $metas [.'$Array'.items.'|'.14]", path);
+                                                            }
+                                                            if (! res)
+                                                            {
+                                                                // .'$Array'.items.'|'.15
+                                                                res = json_model_4(val, path, rep);
+                                                                if (! res)
+                                                                {
+                                                                    if (rep) jm_report_add_entry(rep, "unexpected $schemaArray [.'$Array'.items.'|'.15]", path);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (res)
@@ -5153,10 +5405,127 @@ static bool json_model_24(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$Schema'.'|'.1
-        res = json_model_23(val, path, rep);
+        res = json_model_16(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $ObjectSchema [.'$Schema'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $Null [.'$Schema'.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$Schema'.'|'.2
+            res = json_model_15(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Bool [.'$Schema'.'|'.2]", path);
+            }
+            if (! res)
+            {
+                // .'$Schema'.'|'.3
+                res = json_model_21(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Const [.'$Schema'.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // .'$Schema'.'|'.4
+                    res = json_model_20(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Enum [.'$Schema'.'|'.4]", path);
+                    }
+                    if (! res)
+                    {
+                        // .'$Schema'.'|'.5
+                        res = json_model_13(val, path, rep);
+                        if (! res)
+                        {
+                            if (rep) jm_report_add_entry(rep, "unexpected $Integer [.'$Schema'.'|'.5]", path);
+                        }
+                        if (! res)
+                        {
+                            // .'$Schema'.'|'.6
+                            res = json_model_14(val, path, rep);
+                            if (! res)
+                            {
+                                if (rep) jm_report_add_entry(rep, "unexpected $Number [.'$Schema'.'|'.6]", path);
+                            }
+                            if (! res)
+                            {
+                                // .'$Schema'.'|'.7
+                                res = json_model_10(val, path, rep);
+                                if (! res)
+                                {
+                                    if (rep) jm_report_add_entry(rep, "unexpected $String [.'$Schema'.'|'.7]", path);
+                                }
+                                if (! res)
+                                {
+                                    // .'$Schema'.'|'.8
+                                    res = json_model_11(val, path, rep);
+                                    if (! res)
+                                    {
+                                        if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$Schema'.'|'.8]", path);
+                                    }
+                                    if (! res)
+                                    {
+                                        // .'$Schema'.'|'.9
+                                        res = json_model_12(val, path, rep);
+                                        if (! res)
+                                        {
+                                            if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$Schema'.'|'.9]", path);
+                                        }
+                                        if (! res)
+                                        {
+                                            // .'$Schema'.'|'.10
+                                            res = json_model_17(val, path, rep);
+                                            if (! res)
+                                            {
+                                                if (rep) jm_report_add_entry(rep, "unexpected $AllOf [.'$Schema'.'|'.10]", path);
+                                            }
+                                            if (! res)
+                                            {
+                                                // .'$Schema'.'|'.11
+                                                res = json_model_18(val, path, rep);
+                                                if (! res)
+                                                {
+                                                    if (rep) jm_report_add_entry(rep, "unexpected $AnyOf [.'$Schema'.'|'.11]", path);
+                                                }
+                                                if (! res)
+                                                {
+                                                    // .'$Schema'.'|'.12
+                                                    res = json_model_19(val, path, rep);
+                                                    if (! res)
+                                                    {
+                                                        if (rep) jm_report_add_entry(rep, "unexpected $OneOf [.'$Schema'.'|'.12]", path);
+                                                    }
+                                                    if (! res)
+                                                    {
+                                                        // .'$Schema'.'|'.13
+                                                        res = json_model_22(val, path, rep);
+                                                        if (! res)
+                                                        {
+                                                            if (rep) jm_report_add_entry(rep, "unexpected $Ref [.'$Schema'.'|'.13]", path);
+                                                        }
+                                                        if (! res)
+                                                        {
+                                                            // .'$Schema'.'|'.14
+                                                            res = json_model_9(val, path, rep);
+                                                            if (! res)
+                                                            {
+                                                                if (rep) jm_report_add_entry(rep, "unexpected $metas [.'$Schema'.'|'.14]", path);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (res)

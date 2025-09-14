@@ -108,7 +108,49 @@
         "items": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Schema"
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/Null"
+            },
+            {
+              "$ref": "#/$defs/Bool"
+            },
+            {
+              "$ref": "#/$defs/Const"
+            },
+            {
+              "$ref": "#/$defs/Enum"
+            },
+            {
+              "$ref": "#/$defs/Integer"
+            },
+            {
+              "$ref": "#/$defs/Number"
+            },
+            {
+              "$ref": "#/$defs/String"
+            },
+            {
+              "$ref": "#/$defs/Array"
+            },
+            {
+              "$ref": "#/$defs/Object"
+            },
+            {
+              "$ref": "#/$defs/AllOf"
+            },
+            {
+              "$ref": "#/$defs/AnyOf"
+            },
+            {
+              "$ref": "#/$defs/OneOf"
+            },
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "$ref": "#/$defs/metas"
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -364,7 +406,49 @@
         "items": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Schema"
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/Null"
+            },
+            {
+              "$ref": "#/$defs/Bool"
+            },
+            {
+              "$ref": "#/$defs/Const"
+            },
+            {
+              "$ref": "#/$defs/Enum"
+            },
+            {
+              "$ref": "#/$defs/Integer"
+            },
+            {
+              "$ref": "#/$defs/Number"
+            },
+            {
+              "$ref": "#/$defs/String"
+            },
+            {
+              "$ref": "#/$defs/Array"
+            },
+            {
+              "$ref": "#/$defs/Object"
+            },
+            {
+              "$ref": "#/$defs/AllOf"
+            },
+            {
+              "$ref": "#/$defs/AnyOf"
+            },
+            {
+              "$ref": "#/$defs/OneOf"
+            },
+            {
+              "$ref": "#/$defs/Ref"
+            },
+            {
+              "$ref": "#/$defs/metas"
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -1031,7 +1115,46 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/ObjectSchema"
+          "$ref": "#/$defs/Null"
+        },
+        {
+          "$ref": "#/$defs/Bool"
+        },
+        {
+          "$ref": "#/$defs/Const"
+        },
+        {
+          "$ref": "#/$defs/Enum"
+        },
+        {
+          "$ref": "#/$defs/Integer"
+        },
+        {
+          "$ref": "#/$defs/Number"
+        },
+        {
+          "$ref": "#/$defs/String"
+        },
+        {
+          "$ref": "#/$defs/Array"
+        },
+        {
+          "$ref": "#/$defs/Object"
+        },
+        {
+          "$ref": "#/$defs/AllOf"
+        },
+        {
+          "$ref": "#/$defs/AnyOf"
+        },
+        {
+          "$ref": "#/$defs/OneOf"
+        },
+        {
+          "$ref": "#/$defs/Ref"
+        },
+        {
+          "$ref": "#/$defs/metas"
         }
       ]
     },

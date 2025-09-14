@@ -1,7 +1,14 @@
 {
   "?type": {
     "|": [
-      "$allTypes",
+      "null",
+      "boolean",
+      "integer",
+      "number",
+      "string",
+      "array",
+      "object",
+      "any",
       [
         {
           "|": [

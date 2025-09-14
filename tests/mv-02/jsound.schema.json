@@ -272,7 +272,16 @@
           "type": "string"
         },
         {
-          "$ref": "#/$defs/Type"
+          "$ref": "#/$defs/Atomic"
+        },
+        {
+          "$ref": "#/$defs/Object"
+        },
+        {
+          "$ref": "#/$defs/Array"
+        },
+        {
+          "$ref": "#/$defs/Union"
         }
       ]
     }

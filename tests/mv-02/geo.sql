@@ -1070,8 +1070,387 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$Feature'.properties.'|'.1
+-- object .'$Feature'.geometry.'|'.0
 CREATE OR REPLACE FUNCTION _jm_obj_14(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_27_idx INT8;
+  arr_27_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.0.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Point';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.0.coordinates
+  res := json_model_2(pval, path, rep);
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.0.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_27_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_27_item := pval -> arr_27_idx;
+        -- .'$Feature'.geometry.'|'.0.bbox.0
+        res := JSONB_TYPEOF(arr_27_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Feature'.geometry.'|'.1
+CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_28_idx INT8;
+  arr_28_item JSONB;
+  arr_29_idx INT8;
+  arr_29_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.1.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPoint';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.1.coordinates
+  res := JSONB_TYPEOF(pval) = 'array';
+  IF res THEN
+    FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_28_item := pval -> arr_28_idx;
+      -- .'$Feature'.geometry.'|'.1.coordinates.0
+      res := json_model_2(arr_28_item, NULL, rep);
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.1.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_29_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_29_item := pval -> arr_29_idx;
+        -- .'$Feature'.geometry.'|'.1.bbox.0
+        res := JSONB_TYPEOF(arr_29_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Feature'.geometry.'|'.2
+CREATE OR REPLACE FUNCTION _jm_obj_16(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_30_idx INT8;
+  arr_30_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.2.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'LineString';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.2.coordinates
+  res := json_model_3(pval, path, rep);
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.2.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_30_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_30_item := pval -> arr_30_idx;
+        -- .'$Feature'.geometry.'|'.2.bbox.0
+        res := JSONB_TYPEOF(arr_30_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Feature'.geometry.'|'.3
+CREATE OR REPLACE FUNCTION _jm_obj_17(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_31_idx INT8;
+  arr_31_item JSONB;
+  arr_32_idx INT8;
+  arr_32_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.3.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiLineString';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.3.coordinates
+  res := JSONB_TYPEOF(pval) = 'array';
+  IF res THEN
+    FOR arr_31_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_31_item := pval -> arr_31_idx;
+      -- .'$Feature'.geometry.'|'.3.coordinates.0
+      res := json_model_3(arr_31_item, NULL, rep);
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.3.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_32_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_32_item := pval -> arr_32_idx;
+        -- .'$Feature'.geometry.'|'.3.bbox.0
+        res := JSONB_TYPEOF(arr_32_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Feature'.geometry.'|'.4
+CREATE OR REPLACE FUNCTION _jm_obj_18(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_33_idx INT8;
+  arr_33_item JSONB;
+  arr_34_idx INT8;
+  arr_34_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.4.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'Polygon';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.4.coordinates
+  res := JSONB_TYPEOF(pval) = 'array';
+  IF res THEN
+    FOR arr_33_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_33_item := pval -> arr_33_idx;
+      -- .'$Feature'.geometry.'|'.4.coordinates.0
+      res := json_model_4(arr_33_item, NULL, rep);
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.4.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_34_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_34_item := pval -> arr_34_idx;
+        -- .'$Feature'.geometry.'|'.4.bbox.0
+        res := JSONB_TYPEOF(arr_34_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$Feature'.geometry.'|'.5
+CREATE OR REPLACE FUNCTION _jm_obj_19(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  pval JSONB;
+  res bool;
+  arr_35_idx INT8;
+  arr_35_item JSONB;
+  arr_36_idx INT8;
+  arr_36_item JSONB;
+  arr_37_idx INT8;
+  arr_37_item JSONB;
+BEGIN
+  -- check must only props
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'type' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'type';
+  -- .'$Feature'.geometry.'|'.5.type
+  res := JSONB_TYPEOF(pval) = 'string' AND JSON_VALUE(pval, '$' RETURNING TEXT) = 'MultiPolygon';
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF NOT val ? 'coordinates' THEN
+    RETURN FALSE;
+  END IF;
+  pval := val -> 'coordinates';
+  -- .'$Feature'.geometry.'|'.5.coordinates
+  res := JSONB_TYPEOF(pval) = 'array';
+  IF res THEN
+    FOR arr_35_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_35_item := pval -> arr_35_idx;
+      -- .'$Feature'.geometry.'|'.5.coordinates.0
+      res := JSONB_TYPEOF(arr_35_item) = 'array';
+      IF res THEN
+        FOR arr_36_idx IN 0 .. JSONB_ARRAY_LENGTH(arr_35_item) - 1 LOOP
+          arr_36_item := arr_35_item -> arr_36_idx;
+          -- .'$Feature'.geometry.'|'.5.coordinates.0.0
+          res := json_model_4(arr_36_item, NULL, rep);
+          IF NOT res THEN
+            EXIT;
+          END IF;
+        END LOOP;
+      END IF;
+      IF NOT res THEN
+        EXIT;
+      END IF;
+    END LOOP;
+  END IF;
+  IF NOT res THEN
+    RETURN FALSE;
+  END IF;
+  IF val ? 'bbox' THEN
+    pval := val -> 'bbox';
+    -- .'$Feature'.geometry.'|'.5.bbox
+    res := JSONB_TYPEOF(pval) = 'array';
+    IF res THEN
+      FOR arr_37_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_37_item := pval -> arr_37_idx;
+        -- .'$Feature'.geometry.'|'.5.bbox.0
+        res := JSONB_TYPEOF(arr_37_item) = 'number';
+        IF NOT res THEN
+          EXIT;
+        END IF;
+      END LOOP;
+    END IF;
+    IF NOT res THEN
+      RETURN FALSE;
+    END IF;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+
+-- object .'$Feature'.properties.'|'.1
+CREATE OR REPLACE FUNCTION _jm_obj_20(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 BEGIN
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1088,8 +1467,10 @@ RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_27_idx INT8;
-  arr_27_item JSONB;
+  tag_1 JSONB;
+  fun_1 TEXT;
+  arr_38_idx INT8;
+  arr_38_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1109,13 +1490,25 @@ BEGIN
   END IF;
   pval := val -> 'geometry';
   -- .'$Feature'.geometry
-  -- .'$Feature'.geometry.'|'.0
-  res := JSONB_TYPEOF(pval) = 'null';
+  res := JSONB_TYPEOF(pval) = 'object';
+  IF res THEN
+    IF pval ? 'type' THEN
+      tag_1 := pval -> 'type';
+      fun_1 := jm_cmap_get('_jm_map_1', tag_1);
+      IF fun_1 IS NOT NULL THEN
+        res := jm_call(fun_1, pval, path, rep);
+      ELSE
+        res := FALSE;
+      END IF;
+    ELSE
+      res := FALSE;
+    END IF;
+  END IF;
   IF NOT res THEN
-    -- .'$Feature'.geometry.'|'.1
-    res := json_model_11(pval, path, rep);
+    -- .'$Feature'.geometry.'|'.0
+    res := JSONB_TYPEOF(pval) = 'null';
     IF NOT res THEN
-      -- .'$Feature'.geometry.'|'.2
+      -- .'$Feature'.geometry.'|'.1
       res := json_model_12(pval, path, rep);
     END IF;
   END IF;
@@ -1131,7 +1524,7 @@ BEGIN
   res := JSONB_TYPEOF(pval) = 'null';
   IF NOT res THEN
     -- .'$Feature'.properties.'|'.1
-    res := _jm_obj_14(pval, path, rep);
+    res := _jm_obj_20(pval, path, rep);
   END IF;
   IF NOT res THEN
     RETURN FALSE;
@@ -1154,10 +1547,10 @@ BEGIN
     -- .'$Feature'.bbox
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_27_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_27_item := pval -> arr_27_idx;
+      FOR arr_38_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_38_item := pval -> arr_38_idx;
         -- .'$Feature'.bbox.0
-        res := JSONB_TYPEOF(arr_27_item) = 'number';
+        res := JSONB_TYPEOF(arr_38_item) = 'number';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -1184,15 +1577,15 @@ END;
 $$ LANGUAGE PLpgSQL;
 
 -- object .'$FeatureCollection'
-CREATE OR REPLACE FUNCTION _jm_obj_15(val JSONB, path TEXT[], rep jm_report_entry[])
+CREATE OR REPLACE FUNCTION _jm_obj_21(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   pval JSONB;
   res bool;
-  arr_28_idx INT8;
-  arr_28_item JSONB;
-  arr_29_idx INT8;
-  arr_29_item JSONB;
+  arr_39_idx INT8;
+  arr_39_item JSONB;
+  arr_40_idx INT8;
+  arr_40_item JSONB;
 BEGIN
   -- check must only props
   IF NOT (JSONB_TYPEOF(val) = 'object') THEN
@@ -1214,10 +1607,10 @@ BEGIN
   -- .'$FeatureCollection'.features
   res := JSONB_TYPEOF(pval) = 'array';
   IF res THEN
-    FOR arr_28_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-      arr_28_item := pval -> arr_28_idx;
+    FOR arr_39_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+      arr_39_item := pval -> arr_39_idx;
       -- .'$FeatureCollection'.features.0
-      res := json_model_13(arr_28_item, NULL, rep);
+      res := json_model_13(arr_39_item, NULL, rep);
       IF NOT res THEN
         EXIT;
       END IF;
@@ -1231,10 +1624,10 @@ BEGIN
     -- .'$FeatureCollection'.bbox
     res := JSONB_TYPEOF(pval) = 'array';
     IF res THEN
-      FOR arr_29_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
-        arr_29_item := pval -> arr_29_idx;
+      FOR arr_40_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
+        arr_40_item := pval -> arr_40_idx;
         -- .'$FeatureCollection'.bbox.0
-        res := JSONB_TYPEOF(arr_29_item) = 'number';
+        res := JSONB_TYPEOF(arr_40_item) = 'number';
         IF NOT res THEN
           EXIT;
         END IF;
@@ -1255,7 +1648,7 @@ DECLARE
   res bool;
 BEGIN
   -- .'$FeatureCollection'
-  res := _jm_obj_15(val, path, rep);
+  res := _jm_obj_21(val, path, rep);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;
@@ -1321,6 +1714,14 @@ INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
   ('_jm_map_0', JSONB '"MultiLineString"', '_jm_obj_9'),
   ('_jm_map_0', JSONB '"Polygon"', '_jm_obj_10'),
   ('_jm_map_0', JSONB '"MultiPolygon"', '_jm_obj_11')
+;
+INSERT INTO jm_constant_maps(mapname, tagval, value) VALUES
+  ('_jm_map_1', JSONB '"Point"', '_jm_obj_14'),
+  ('_jm_map_1', JSONB '"MultiPoint"', '_jm_obj_15'),
+  ('_jm_map_1', JSONB '"LineString"', '_jm_obj_16'),
+  ('_jm_map_1', JSONB '"MultiLineString"', '_jm_obj_17'),
+  ('_jm_map_1', JSONB '"Polygon"', '_jm_obj_18'),
+  ('_jm_map_1', JSONB '"MultiPolygon"', '_jm_obj_19')
 ;
 
 --

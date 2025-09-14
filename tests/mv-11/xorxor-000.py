@@ -55,35 +55,43 @@ def json_model_2(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .
-    # generic xor list
-    xc_0: int = 0
-    xr_0: bool
-    # .'^'.0
-    xr_0 = json_model_2(val, path, rep)
-    if not xr_0:
-        rep is None or rep.append(("unexpected $X [.'^'.0]", path))
-    if xr_0:
-        xc_0 += 1
-    # .'^'.1
-    xr_0 = isinstance(val, list)
-    if xr_0:
-        for arr_0_idx, arr_0_item in enumerate(val):
-            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-            # .'^'.1.0
-            xr_0 = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
-            if not xr_0:
-                rep is None or rep.append(("unexpected $X [.'^'.1.0]", arr_0_lpath if path is not None else None))
-            if not xr_0:
-                break
-    if not xr_0:
-        rep is None or rep.append(("not array or unexpected array [.'^'.1]", path))
-    if xr_0:
-        xc_0 += 1
-    res = xc_0 == 1
+    # .'|'.0
+    res = val is None
+    if not res:
+        rep is None or rep.append(("not null [.'|'.0]", path))
+    if not res:
+        # .'|'.1
+        res = isinstance(val, bool)
+        if not res:
+            rep is None or rep.append(("not a bool [.'|'.1]", path))
+        if not res:
+            # .'|'.2
+            res = isinstance(val, int) and not isinstance(val, bool) and val >= 1
+            if not res:
+                rep is None or rep.append(("not a 1 strict int [.'|'.2]", path))
+            if not res:
+                # .'|'.3
+                res = isinstance(val, float) and val > 0.0
+                if not res:
+                    rep is None or rep.append(("not a 1.0 strict float [.'|'.3]", path))
+                if not res:
+                    # .'|'.4
+                    res = isinstance(val, list)
+                    if res:
+                        for arr_0_idx, arr_0_item in enumerate(val):
+                            arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
+                            # .'|'.4.0
+                            res = json_model_2(arr_0_item, arr_0_lpath if path is not None else None, rep)
+                            if not res:
+                                rep is None or rep.append(("unexpected $X [.'|'.4.0]", arr_0_lpath if path is not None else None))
+                            if not res:
+                                break
+                    if not res:
+                        rep is None or rep.append(("not array or unexpected array [.'|'.4]", path))
     if res:
         rep is None or rep.clear()
     else:
-        rep is None or rep.append(("not one model match [.'^']", path))
+        rep is None or rep.append(("no model matched [.'|']", path))
     return res
 
 

@@ -198,10 +198,66 @@ DECLARE
 BEGIN
   -- .'$arrayKeywords'.items
   -- .'$arrayKeywords'.items.'|'.0
-  res := json_model_24(val, path, rep);
+  res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$arrayKeywords'.items.'|'.1
-    res := json_model_4(val, path, rep);
+    res := json_model_16(val, path, rep);
+    IF NOT res THEN
+      -- .'$arrayKeywords'.items.'|'.2
+      res := json_model_15(val, path, rep);
+      IF NOT res THEN
+        -- .'$arrayKeywords'.items.'|'.3
+        res := json_model_21(val, path, rep);
+        IF NOT res THEN
+          -- .'$arrayKeywords'.items.'|'.4
+          res := json_model_20(val, path, rep);
+          IF NOT res THEN
+            -- .'$arrayKeywords'.items.'|'.5
+            res := json_model_13(val, path, rep);
+            IF NOT res THEN
+              -- .'$arrayKeywords'.items.'|'.6
+              res := json_model_14(val, path, rep);
+              IF NOT res THEN
+                -- .'$arrayKeywords'.items.'|'.7
+                res := json_model_10(val, path, rep);
+                IF NOT res THEN
+                  -- .'$arrayKeywords'.items.'|'.8
+                  res := json_model_11(val, path, rep);
+                  IF NOT res THEN
+                    -- .'$arrayKeywords'.items.'|'.9
+                    res := json_model_12(val, path, rep);
+                    IF NOT res THEN
+                      -- .'$arrayKeywords'.items.'|'.10
+                      res := json_model_17(val, path, rep);
+                      IF NOT res THEN
+                        -- .'$arrayKeywords'.items.'|'.11
+                        res := json_model_18(val, path, rep);
+                        IF NOT res THEN
+                          -- .'$arrayKeywords'.items.'|'.12
+                          res := json_model_19(val, path, rep);
+                          IF NOT res THEN
+                            -- .'$arrayKeywords'.items.'|'.13
+                            res := json_model_22(val, path, rep);
+                            IF NOT res THEN
+                              -- .'$arrayKeywords'.items.'|'.14
+                              res := json_model_9(val, path, rep);
+                              IF NOT res THEN
+                                -- .'$arrayKeywords'.items.'|'.15
+                                res := json_model_4(val, path, rep);
+                              END IF;
+                            END IF;
+                          END IF;
+                        END IF;
+                      END IF;
+                    END IF;
+                  END IF;
+                END IF;
+              END IF;
+            END IF;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
   END IF;
   RETURN res;
 END;
@@ -1180,10 +1236,66 @@ DECLARE
 BEGIN
   -- .'$Array'.items
   -- .'$Array'.items.'|'.0
-  res := json_model_24(val, path, rep);
+  res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$Array'.items.'|'.1
-    res := json_model_4(val, path, rep);
+    res := json_model_16(val, path, rep);
+    IF NOT res THEN
+      -- .'$Array'.items.'|'.2
+      res := json_model_15(val, path, rep);
+      IF NOT res THEN
+        -- .'$Array'.items.'|'.3
+        res := json_model_21(val, path, rep);
+        IF NOT res THEN
+          -- .'$Array'.items.'|'.4
+          res := json_model_20(val, path, rep);
+          IF NOT res THEN
+            -- .'$Array'.items.'|'.5
+            res := json_model_13(val, path, rep);
+            IF NOT res THEN
+              -- .'$Array'.items.'|'.6
+              res := json_model_14(val, path, rep);
+              IF NOT res THEN
+                -- .'$Array'.items.'|'.7
+                res := json_model_10(val, path, rep);
+                IF NOT res THEN
+                  -- .'$Array'.items.'|'.8
+                  res := json_model_11(val, path, rep);
+                  IF NOT res THEN
+                    -- .'$Array'.items.'|'.9
+                    res := json_model_12(val, path, rep);
+                    IF NOT res THEN
+                      -- .'$Array'.items.'|'.10
+                      res := json_model_17(val, path, rep);
+                      IF NOT res THEN
+                        -- .'$Array'.items.'|'.11
+                        res := json_model_18(val, path, rep);
+                        IF NOT res THEN
+                          -- .'$Array'.items.'|'.12
+                          res := json_model_19(val, path, rep);
+                          IF NOT res THEN
+                            -- .'$Array'.items.'|'.13
+                            res := json_model_22(val, path, rep);
+                            IF NOT res THEN
+                              -- .'$Array'.items.'|'.14
+                              res := json_model_9(val, path, rep);
+                              IF NOT res THEN
+                                -- .'$Array'.items.'|'.15
+                                res := json_model_4(val, path, rep);
+                              END IF;
+                            END IF;
+                          END IF;
+                        END IF;
+                      END IF;
+                    END IF;
+                  END IF;
+                END IF;
+              END IF;
+            END IF;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
   END IF;
   RETURN res;
 END;
@@ -4170,7 +4282,59 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'boolean';
   IF NOT res THEN
     -- .'$Schema'.'|'.1
-    res := json_model_23(val, path, rep);
+    res := json_model_16(val, path, rep);
+    IF NOT res THEN
+      -- .'$Schema'.'|'.2
+      res := json_model_15(val, path, rep);
+      IF NOT res THEN
+        -- .'$Schema'.'|'.3
+        res := json_model_21(val, path, rep);
+        IF NOT res THEN
+          -- .'$Schema'.'|'.4
+          res := json_model_20(val, path, rep);
+          IF NOT res THEN
+            -- .'$Schema'.'|'.5
+            res := json_model_13(val, path, rep);
+            IF NOT res THEN
+              -- .'$Schema'.'|'.6
+              res := json_model_14(val, path, rep);
+              IF NOT res THEN
+                -- .'$Schema'.'|'.7
+                res := json_model_10(val, path, rep);
+                IF NOT res THEN
+                  -- .'$Schema'.'|'.8
+                  res := json_model_11(val, path, rep);
+                  IF NOT res THEN
+                    -- .'$Schema'.'|'.9
+                    res := json_model_12(val, path, rep);
+                    IF NOT res THEN
+                      -- .'$Schema'.'|'.10
+                      res := json_model_17(val, path, rep);
+                      IF NOT res THEN
+                        -- .'$Schema'.'|'.11
+                        res := json_model_18(val, path, rep);
+                        IF NOT res THEN
+                          -- .'$Schema'.'|'.12
+                          res := json_model_19(val, path, rep);
+                          IF NOT res THEN
+                            -- .'$Schema'.'|'.13
+                            res := json_model_22(val, path, rep);
+                            IF NOT res THEN
+                              -- .'$Schema'.'|'.14
+                              res := json_model_9(val, path, rep);
+                            END IF;
+                          END IF;
+                        END IF;
+                      END IF;
+                    END IF;
+                  END IF;
+                END IF;
+              END IF;
+            END IF;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
   END IF;
   RETURN res;
 END;

@@ -54,36 +54,39 @@ function _jm_obj_0(val, path, rep)
     {
         pval = val["type"];
         // .'$schema'.type
-        // .'$schema'.type.'|'.0
-        res = json_model_4(pval, path, rep);
+        res = ((pval === null || (typeof pval === 'number' || pval instanceof Number) || (typeof pval === 'boolean' || pval instanceof Boolean) || (typeof pval === 'string' || pval instanceof String))) && _jm_cst_0.has(pval);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $allTypes [.'$schema'.type.'|'.0]", path])
+            rep !== null && rep.push(["value not in enum [.'$schema'.type.'|']", path])
         }
         if (! res)
         {
-            // .'$schema'.type.'|'.1
             res = Array.isArray(pval);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected type [.'$schema'.type.'|']", path])
+            }
             if (res)
             {
+                // .'$schema'.type.'|'.0
                 for (let arr_0_idx = 0; arr_0_idx < pval.length; arr_0_idx++)
                 {
                     let arr_0_item = pval[arr_0_idx]
                     let arr_0_lpath = path ? path.concat([arr_0_idx]) : null;
-                    // .'$schema'.type.'|'.1.0
-                    // .'$schema'.type.'|'.1.0.'|'.0
+                    // .'$schema'.type.'|'.0.0
+                    // .'$schema'.type.'|'.0.0.'|'.0
                     res = (typeof arr_0_item === 'string' || arr_0_item instanceof String);
                     if (! res)
                     {
-                        rep !== null && rep.push(["unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", (path ? arr_0_lpath : null)])
+                        rep !== null && rep.push(["unexpected string [.'$schema'.type.'|'.0.0.'|'.0]", (path ? arr_0_lpath : null)])
                     }
                     if (! res)
                     {
-                        // .'$schema'.type.'|'.1.0.'|'.1
+                        // .'$schema'.type.'|'.0.0.'|'.1
                         res = json_model_3(arr_0_item, (path ? arr_0_lpath : null), rep);
                         if (! res)
                         {
-                            rep !== null && rep.push(["unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", (path ? arr_0_lpath : null)])
+                            rep !== null && rep.push(["unexpected $Schema [.'$schema'.type.'|'.0.0.'|'.1]", (path ? arr_0_lpath : null)])
                         }
                     }
                     if (res)
@@ -92,26 +95,26 @@ function _jm_obj_0(val, path, rep)
                     }
                     else
                     {
-                        rep !== null && rep.push(["no model matched [.'$schema'.type.'|'.1.0.'|']", (path ? arr_0_lpath : null)])
+                        rep !== null && rep.push(["no model matched [.'$schema'.type.'|'.0.0.'|']", (path ? arr_0_lpath : null)])
                     }
                     if (! res)
                     {
                         break;
                     }
                 }
+                if (! res)
+                {
+                    rep !== null && rep.push(["not array or unexpected array [.'$schema'.type.'|'.0]", path])
+                }
+                if (res)
+                {
+                    if (rep !== null) rep.length = 0
+                }
+                else
+                {
+                    rep !== null && rep.push(["no model matched [.'$schema'.type.'|']", path])
+                }
             }
-            if (! res)
-            {
-                rep !== null && rep.push(["not array or unexpected array [.'$schema'.type.'|'.1]", path])
-            }
-        }
-        if (res)
-        {
-            if (rep !== null) rep.length = 0
-        }
-        else
-        {
-            rep !== null && rep.push(["no model matched [.'$schema'.type.'|']", path])
         }
         if (! res)
         {
@@ -660,20 +663,6 @@ function json_model_1(val, path, rep)
     if (! res)
     {
         rep !== null && rep.push(["unexpected $schema [.]", path])
-    }
-    return res;
-}
-
-
-// check $schema#allTypes (.'$schema#allTypes')
-function json_model_4(val, path, rep)
-{
-    let res;
-    // .'$schema#allTypes'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$schema#allTypes'.'|']", path])
     }
     return res;
 }

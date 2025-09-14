@@ -1,9 +1,11 @@
 #
 # Model Optimizations
 #
+import copy
+
 from .mtypes import ModelPath, ModelType
 from .utils import log, is_cst, _structurally_distinct_models, constant_value, same_model
-from .recurse import recModel, allFlt, builtFlt
+from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
 from .runtime import ConstSet
@@ -351,6 +353,52 @@ def partial_eval(jm: JsonModel):
 
     return changes > 0
 
+# NOTE could also follow empty @
+# TODO think about handling externals?
+
+def _or_op(model: ModelType) -> bool:
+    return isinstance(model, dict) and ("^" in model or "|" in model)
+
+def _follow_local_def(jm: JsonModel, model: ModelType) -> ModelType:
+    while isinstance(model, str) and model.startswith("$"):
+        name = model[1:]
+        if name in jm._defs:
+            model = jm._defs[name]._model
+        else:
+            break
+    return model
+
+# TODO consider or in xor or xor in or in some cases
+def inline_or(jm: JsonModel):
+    """Inline local definitions in or/xor model lists to help flattening."""
+
+    changes: int = 0
+
+    def inFlt(model: ModelType, path: ModelPath) -> ModelType:
+        nonlocal changes
+        changed = False
+        if _or_op(model):
+            op = "|" if "|" in model else "^"
+            models = []
+            for m in model[op]:
+                if isinstance(m, str):
+                    md = _follow_local_def(jm, m)
+                    if isinstance(md, dict) and op in md:
+                        changed = True
+                        changes += 1
+                        models.extend(copy.deepcopy(md[op]))
+                    else:
+                        models.append(m)
+                else:
+                    models.append(m)
+            if changed:
+                model[op] = models
+        return True
+
+    jm._model = recModel(jm._model, inFlt, noRwt)
+
+    return changes > 0
+
 # FIXME probably some corner case issues
 def simplify(jm: JsonModel):
     """Simplify properties and constraints in some cases."""
@@ -519,5 +567,6 @@ def optimize(jm: JsonModel):
         changed |= const_prop(jm)
         changed |= simplify(jm)
         changed |= partial_eval(jm)
+        changed |= inline_or(jm)
         changed |= flatten(jm)
         changed |= xor_to_or(jm)

@@ -1,5 +1,6 @@
 # experimental static (ecstatic?) compiler
 
+import copy
 import re
 import json
 
@@ -345,7 +346,7 @@ class CodeGenerator:
         return code
 
     def _disjunction(self, jm: JsonModel, model: ModelType, mpath: ModelPath,
-                     res: str, val: str, vpath: str) -> Block|None:
+                     res: str, val: str, vpath: str, known: set[str]|None) -> Block|None:
         """Generate optimized disjunction check, return None if failed."""
 
         assert isinstance(model, dict) and "|" in model and isinstance(model["|"], list)
@@ -396,7 +397,9 @@ class CodeGenerator:
 
         self._code.cmap(cmap, TAG_CHECKS)
 
-        code += gen.bool_var(res, gen.is_a(val, dict))
+        isobj = gen.is_a(val, dict)
+        isobj_needed = not known or isobj not in known
+        code += gen.bool_var(res, gen.is_a(val, dict) if isobj_needed else True)
 
         tag = self._lang.ident("tag")
         itag = gen.json_var(tag, gen.obj_prop_val(val, tag_name, False), declare=True)
@@ -404,21 +407,22 @@ class CodeGenerator:
         fun = self._lang.ident("fun")
         ifun = gen.fun_var(fun, gen.get_cmap(cmap, tag, tag_type), True)
         icall = gen.bool_var(res, gen.check_call(fun, val, vpath, is_ptr=True))
+        tagt = gen.if_stmt(
+            gen.has_prop(val, tag_name),
+            itag + ifun +
+            gen.if_stmt(gen.is_def(fun),
+                icall,
+                gen.bool_var(res, gen.false()) +
+                gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
+            gen.bool_var(res, gen.false()) +
+            gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)
+        )
 
         # FIXME has_prop gets the tag value in C, so this means 2 get. alternate strategy?
-        code += (
-            gen.if_stmt(res,
-                gen.if_stmt(gen.has_prop(val, tag_name),
-                    itag +
-                    ifun +
-                    gen.if_stmt(gen.is_def(fun),
-                        icall,
-                        gen.bool_var(res, gen.false()) +
-                        gen.report(f"tag <{tag_name}> value not found [{smpath}]", vpath)),
-                    gen.bool_var(res, gen.false()) +
-                    gen.report(f"tag prop <{tag_name}> is missing [{smpath}]", vpath)),
-                gen.report(f"value is not an object [{smpath}]", vpath))
-        )
+        if isobj_needed:
+            code += gen.if_stmt(res, tagt, gen.report(f"value is not an object [{smpath}]", vpath))
+        else:
+            code += tagt
 
         return code
 
@@ -731,9 +735,48 @@ class CodeGenerator:
 
         return code
 
+    def _compileOrSplit(
+            self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
+            res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
+        """Compile an heterogeneous or-list of models."""
+
+        gen = self._lang
+
+        def _is_object(model: ModelType) -> bool:
+            # follow local references
+            while isinstance(model, str) and model.startswith("$"):
+                name = model[1:]
+                if name in jm._defs:
+                    model = jm._defs[name]
+                else:
+                    break
+            # direct object
+            return isinstance(model, dict) and not \
+                ("@" in model or "&" in model or "^" in model or "|" in model or "+" in model)
+
+        # separate objects from others
+        objs, others = [], []
+        for m in models:
+            if _is_object(m):
+                objs.append(m)
+            else:
+                others.append(m)
+        assert len(objs) + len(others) == len(models)
+
+        # is it worth trying?
+        if len(objs) <= 1 or len(others) == 0:
+            return self._compileOr(jm, models, mpath, res, val, vpath, known)
+        else:
+            obj_code = self._compileOr(jm, objs, mpath, res, val, vpath, known)
+            if len(others) > 1:
+                oth_code = self._compileOr(jm, others, mpath, res, val, vpath, known)
+            else:
+                oth_code = self._compileModel(jm, others[0], mpath, res, val, vpath, known)
+            return obj_code + gen.if_stmt(gen.not_op(res), oth_code)
+
     def _compileOr(self, jm: JsonModel, models: ModelArray, mpath: ModelPath,
                    res: str, val: str, vpath: str, known: set[BoolExpr]|None = None) -> Block:
-        """Compile a or-list of models."""
+        """Compile a general or-list of models."""
 
         code = []
         gen = self._lang
@@ -783,7 +826,7 @@ class CodeGenerator:
 
         # discriminant optimization for list of objects, None if fails
         tmp: ModelType = {"|": models}
-        if dcode := self._disjunction(jm, tmp, mpath, res, val, vpath):
+        if dcode := self._disjunction(jm, tmp, mpath, res, val, vpath, known):
             if need_if:
                 return code + gen.if_stmt(gen.not_op(res), dcode)
             else:
@@ -1237,7 +1280,7 @@ class CodeGenerator:
                 elif "|" in model:
                     models = model["|"]
                     assert isinstance(models, list)  # pyright hint
-                    code += self._compileOr(jm, models, mpath + ["|"], res, val, vpath, known)
+                    code += self._compileOrSplit(jm, models, mpath + ["|"], res, val, vpath, known)
                 elif "&" in model:
                     models = model["&"]
                     assert isinstance(models, list)  # pyright hint

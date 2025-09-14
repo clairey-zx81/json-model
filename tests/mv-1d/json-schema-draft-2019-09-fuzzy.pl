@@ -13,12 +13,13 @@ use constant JMC_VERSION => '2';
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_18($$$);
+my %_jm_cst_0;
 sub json_model_17($$$);
 sub json_model_4($$$);
 sub json_model_5($$$);
-my %_jm_cst_0;
-sub json_model_10($$$);
 sub json_model_11($$$);
+my %_jm_cst_1;
+sub json_model_10($$$);
 sub json_model_12($$$);
 sub json_model_13($$$);
 sub json_model_15($$$);
@@ -184,6 +185,7 @@ sub _jm_obj_5($$$)
     return 1;
 }
 
+
 # object .'$schema#ObjectSchema'.dependentRequired
 sub _jm_obj_6($$$)
 {
@@ -245,11 +247,16 @@ sub _jm_obj_8($$$)
         # handle other props
         # .'$schema#ObjectSchema'.dependencies.''
         # .'$schema#ObjectSchema'.dependencies.''.'|'.0
-        $res = json_model_18($pval, undef, $rep);
+        $res = jm_is_boolean($pval);
         if (! $res)
         {
             # .'$schema#ObjectSchema'.dependencies.''.'|'.1
-            $res = json_model_12($pval, undef, $rep);
+            $res = json_model_17($pval, undef, $rep);
+            if (! $res)
+            {
+                # .'$schema#ObjectSchema'.dependencies.''.'|'.2
+                $res = json_model_12($pval, undef, $rep);
+            }
         }
         if (! $res)
         {
@@ -365,11 +372,16 @@ sub _jm_obj_0($$$)
         $pval = $$val{'items'};
         # .'$schema#ObjectSchema'.items
         # .'$schema#ObjectSchema'.items.'|'.0
-        $res = json_model_18($pval, $path, $rep);
+        $res = jm_is_boolean($pval);
         if (! $res)
         {
             # .'$schema#ObjectSchema'.items.'|'.1
-            $res = json_model_15($pval, $path, $rep);
+            $res = json_model_17($pval, $path, $rep);
+            if (! $res)
+            {
+                # .'$schema#ObjectSchema'.items.'|'.2
+                $res = json_model_15($pval, $path, $rep);
+            }
         }
         if (! $res)
         {
@@ -540,11 +552,10 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'type'};
         # .'$schema#ObjectSchema'.type
-        # .'$schema#ObjectSchema'.type.'|'.0
-        $res = json_model_10($pval, $path, $rep);
+        $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
         if (! $res)
         {
-            # .'$schema#ObjectSchema'.type.'|'.1
+            # .'$schema#ObjectSchema'.type.'|'.0
             $res = json_model_11($pval, $path, $rep);
         }
         if (! $res)
@@ -895,17 +906,6 @@ sub json_model_5($$$)
     return $res;
 }
 
-
-# check $schema#simpleTypes (.'$schema#simpleTypes')
-sub json_model_10($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$schema#simpleTypes'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
-}
-
 # check $schema#simpleTypesArray (.'$schema#simpleTypesArray')
 sub json_model_11($$$)
 {
@@ -932,6 +932,17 @@ sub json_model_11($$$)
         my $ival_0 = scalar @$val;
         $res = jm_is_unique_array($val, $path, $rep) && $ival_0 >= 1;
     }
+    return $res;
+}
+
+
+# check $schema#simpleTypes (.'$schema#simpleTypes')
+sub json_model_10($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$schema#simpleTypes'
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
     return $res;
 }
 
@@ -1021,6 +1032,15 @@ sub check_model_init()
             'object' => 1,
             'string' => 1,
         );
+        %_jm_cst_1 = (
+            'array' => 1,
+            'boolean' => 1,
+            'integer' => 1,
+            'null' => 1,
+            'number' => 1,
+            'object' => 1,
+            'string' => 1,
+        );
         %check_model_map = (
             '' => \&json_model_3,
             'schema' => \&json_model_3,
@@ -1034,6 +1054,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
+        %_jm_cst_1 = ();
         %check_model_map = ();
     }
 }

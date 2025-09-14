@@ -91,8 +91,74 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
--- object .'$B'.'|'.0
+-- object .'$B'.'|'.2
 CREATE OR REPLACE FUNCTION _jm_obj_2(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'b' THEN
+      -- handle must b property
+      must_count := must_count + 1;
+      -- .'$B'.'|'.2.b
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 1;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  IF must_count <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$B'.'|'.1
+CREATE OR REPLACE FUNCTION _jm_obj_3(val JSONB, path TEXT[], rep jm_report_entry[])
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  res bool;
+  must_count int;
+  prop TEXT;
+  pval JSONB;
+BEGIN
+  IF NOT (JSONB_TYPEOF(val) = 'object') THEN
+    RETURN FALSE;
+  END IF;
+  must_count := 0;
+  FOR prop, pval IN SELECT * FROM JSONB_EACH(val) LOOP
+    IF prop = 'a' THEN
+      -- handle must a property
+      must_count := must_count + 1;
+      -- .'$B'.'|'.1.a
+      res := JSONB_TYPEOF(pval) = 'number' AND (pval)::INT8 = (pval)::FLOAT8 AND (pval)::INT8 >= 0;
+      IF NOT res THEN
+        RETURN FALSE;
+      END IF;
+    ELSE
+      RETURN FALSE;
+    END IF;
+  END LOOP;
+  IF must_count <> 1 THEN
+    RETURN FALSE;
+  END IF;
+  RETURN TRUE;
+END;
+$$ LANGUAGE PLpgSQL;
+
+-- object .'$B'.'|'.0
+CREATE OR REPLACE FUNCTION _jm_obj_4(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
@@ -131,11 +197,18 @@ DECLARE
   res bool;
 BEGIN
   -- .'$B'
-  -- .'$B'.'|'.0
-  res := _jm_obj_2(val, path, rep);
-  IF NOT res THEN
-    -- .'$B'.'|'.1
-    res := json_model_2(val, path, rep);
+  res := JSONB_TYPEOF(val) = 'object';
+  IF res THEN
+    -- .'$B'.'|'.0
+    res := _jm_obj_4(val, path, rep);
+    IF NOT res THEN
+      -- .'$B'.'|'.1
+      res := _jm_obj_3(val, path, rep);
+      IF NOT res THEN
+        -- .'$B'.'|'.2
+        res := _jm_obj_2(val, path, rep);
+      END IF;
+    END IF;
   END IF;
   RETURN res;
 END;

@@ -1066,11 +1066,116 @@ sub _jm_f_34($$$)
     my $res;
     # .'$tight#Array'.items
     # .'$tight#Array'.items.'|'.0
-    $res = json_model_26($val, $path, $rep);
+    $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$tight#Array'.items.'|'.1
-        $res = json_model_6($val, $path, $rep);
+        $res = json_model_18($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$tight#Array'.items.'|'.2
+            $res = json_model_17($val, $path, $rep);
+            if (! $res)
+            {
+                # .'$tight#Array'.items.'|'.3
+                $res = json_model_23($val, $path, $rep);
+                if (! $res)
+                {
+                    # .'$tight#Array'.items.'|'.4
+                    $res = json_model_22($val, $path, $rep);
+                    if (! $res)
+                    {
+                        # .'$tight#Array'.items.'|'.5
+                        $res = json_model_15($val, $path, $rep);
+                        if (! $res)
+                        {
+                            # .'$tight#Array'.items.'|'.6
+                            $res = json_model_16($val, $path, $rep);
+                            if (! $res)
+                            {
+                                # .'$tight#Array'.items.'|'.7
+                                $res = json_model_12($val, $path, $rep);
+                                if (! $res)
+                                {
+                                    # .'$tight#Array'.items.'|'.8
+                                    $res = json_model_13($val, $path, $rep);
+                                    if (! $res)
+                                    {
+                                        # .'$tight#Array'.items.'|'.9
+                                        $res = json_model_14($val, $path, $rep);
+                                        if (! $res)
+                                        {
+                                            # .'$tight#Array'.items.'|'.10
+                                            $res = json_model_19($val, $path, $rep);
+                                            if (! $res)
+                                            {
+                                                # .'$tight#Array'.items.'|'.11
+                                                $res = json_model_20($val, $path, $rep);
+                                                if (! $res)
+                                                {
+                                                    # .'$tight#Array'.items.'|'.12
+                                                    $res = json_model_21($val, $path, $rep);
+                                                    if (! $res)
+                                                    {
+                                                        # .'$tight#Array'.items.'|'.13
+                                                        $res = json_model_24($val, $path, $rep);
+                                                        if (! $res)
+                                                        {
+                                                            # .'$tight#Array'.items.'|'.14
+                                                            $res = json_model_11($val, $path, $rep);
+                                                            if (! $res)
+                                                            {
+                                                                # .'$tight#Array'.items.'|'.15
+                                                                $res = json_model_28($val, $path, $rep);
+                                                                if (! $res)
+                                                                {
+                                                                    # .'$tight#Array'.items.'|'.16
+                                                                    $res = json_model_29($val, $path, $rep);
+                                                                    if (! $res)
+                                                                    {
+                                                                        # .'$tight#Array'.items.'|'.17
+                                                                        $res = json_model_30($val, $path, $rep);
+                                                                        if (! $res)
+                                                                        {
+                                                                            # .'$tight#Array'.items.'|'.18
+                                                                            $res = json_model_31($val, $path, $rep);
+                                                                            if (! $res)
+                                                                            {
+                                                                                # .'$tight#Array'.items.'|'.19
+                                                                                $res = json_model_32($val, $path, $rep);
+                                                                                if (! $res)
+                                                                                {
+                                                                                    # .'$tight#Array'.items.'|'.20
+                                                                                    $res = json_model_33($val, $path, $rep);
+                                                                                    if (! $res)
+                                                                                    {
+                                                                                        # .'$tight#Array'.items.'|'.21
+                                                                                        $res = json_model_34($val, $path, $rep);
+                                                                                        if (! $res)
+                                                                                        {
+                                                                                            # .'$tight#Array'.items.'|'.22
+                                                                                            $res = json_model_6($val, $path, $rep);
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     return $res;
 }
@@ -3721,7 +3826,107 @@ sub json_model_26($$$)
     if (! $res)
     {
         # .'$tight#Schema'.'|'.1
-        $res = json_model_25($val, $path, $rep);
+        $res = json_model_18($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$tight#Schema'.'|'.2
+            $res = json_model_17($val, $path, $rep);
+            if (! $res)
+            {
+                # .'$tight#Schema'.'|'.3
+                $res = json_model_23($val, $path, $rep);
+                if (! $res)
+                {
+                    # .'$tight#Schema'.'|'.4
+                    $res = json_model_22($val, $path, $rep);
+                    if (! $res)
+                    {
+                        # .'$tight#Schema'.'|'.5
+                        $res = json_model_15($val, $path, $rep);
+                        if (! $res)
+                        {
+                            # .'$tight#Schema'.'|'.6
+                            $res = json_model_16($val, $path, $rep);
+                            if (! $res)
+                            {
+                                # .'$tight#Schema'.'|'.7
+                                $res = json_model_12($val, $path, $rep);
+                                if (! $res)
+                                {
+                                    # .'$tight#Schema'.'|'.8
+                                    $res = json_model_13($val, $path, $rep);
+                                    if (! $res)
+                                    {
+                                        # .'$tight#Schema'.'|'.9
+                                        $res = json_model_14($val, $path, $rep);
+                                        if (! $res)
+                                        {
+                                            # .'$tight#Schema'.'|'.10
+                                            $res = json_model_19($val, $path, $rep);
+                                            if (! $res)
+                                            {
+                                                # .'$tight#Schema'.'|'.11
+                                                $res = json_model_20($val, $path, $rep);
+                                                if (! $res)
+                                                {
+                                                    # .'$tight#Schema'.'|'.12
+                                                    $res = json_model_21($val, $path, $rep);
+                                                    if (! $res)
+                                                    {
+                                                        # .'$tight#Schema'.'|'.13
+                                                        $res = json_model_24($val, $path, $rep);
+                                                        if (! $res)
+                                                        {
+                                                            # .'$tight#Schema'.'|'.14
+                                                            $res = json_model_11($val, $path, $rep);
+                                                            if (! $res)
+                                                            {
+                                                                # .'$tight#Schema'.'|'.15
+                                                                $res = json_model_28($val, $path, $rep);
+                                                                if (! $res)
+                                                                {
+                                                                    # .'$tight#Schema'.'|'.16
+                                                                    $res = json_model_29($val, $path, $rep);
+                                                                    if (! $res)
+                                                                    {
+                                                                        # .'$tight#Schema'.'|'.17
+                                                                        $res = json_model_30($val, $path, $rep);
+                                                                        if (! $res)
+                                                                        {
+                                                                            # .'$tight#Schema'.'|'.18
+                                                                            $res = json_model_31($val, $path, $rep);
+                                                                            if (! $res)
+                                                                            {
+                                                                                # .'$tight#Schema'.'|'.19
+                                                                                $res = json_model_32($val, $path, $rep);
+                                                                                if (! $res)
+                                                                                {
+                                                                                    # .'$tight#Schema'.'|'.20
+                                                                                    $res = json_model_33($val, $path, $rep);
+                                                                                    if (! $res)
+                                                                                    {
+                                                                                        # .'$tight#Schema'.'|'.21
+                                                                                        $res = json_model_34($val, $path, $rep);
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     return $res;
 }

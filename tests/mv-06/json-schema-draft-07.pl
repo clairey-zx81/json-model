@@ -58,6 +58,7 @@ sub _jm_f_39($$$);
 sub _jm_f_40($$$);
 sub _jm_f_41($$$);
 sub _jm_f_42($$$);
+my %_jm_cst_1;
 sub _jm_f_43($$$);
 sub _jm_f_44($$$);
 sub _jm_f_45($$$);
@@ -324,21 +325,26 @@ sub _jm_obj_2($$$)
         # handle other props
         # .'$ObjectSchema'.dependencies.''
         # .'$ObjectSchema'.dependencies.''.'|'.0
-        $res = json_model_7($pval, undef, $rep);
+        $res = jm_is_boolean($pval);
         if (! $res)
         {
             # .'$ObjectSchema'.dependencies.''.'|'.1
-            $res = jm_is_array($pval);
-            if ($res)
+            $res = json_model_6($pval, undef, $rep);
+            if (! $res)
             {
-                for my $arr_2_idx (0 .. $#$pval)
+                # .'$ObjectSchema'.dependencies.''.'|'.2
+                $res = jm_is_array($pval);
+                if ($res)
                 {
-                    my $arr_2_item = $$pval[$arr_2_idx];
-                    # .'$ObjectSchema'.dependencies.''.'|'.1.0
-                    $res = jm_is_string($arr_2_item);
-                    if (! $res)
+                    for my $arr_2_idx (0 .. $#$pval)
                     {
-                        last;
+                        my $arr_2_item = $$pval[$arr_2_idx];
+                        # .'$ObjectSchema'.dependencies.''.'|'.2.0
+                        $res = jm_is_string($arr_2_item);
+                        if (! $res)
+                        {
+                            last;
+                        }
                     }
                 }
             }
@@ -464,11 +470,16 @@ sub _jm_f_23($$$)
     my $res;
     # .'$ObjectSchema'.items
     # .'$ObjectSchema'.items.'|'.0
-    $res = json_model_7($val, $path, $rep);
+    $res = jm_is_boolean($val);
     if (! $res)
     {
         # .'$ObjectSchema'.items.'|'.1
-        $res = json_model_3($val, $path, $rep);
+        $res = json_model_6($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$ObjectSchema'.items.'|'.2
+            $res = json_model_3($val, $path, $rep);
+        }
     }
     return $res;
 }
@@ -729,17 +740,17 @@ sub _jm_f_42($$$)
     return $res;
 }
 
+
 # check _jm_obj_0_map_type (.'$ObjectSchema'.type)
 sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$ObjectSchema'.type
-    # .'$ObjectSchema'.type.'|'.0
-    $res = json_model_4($val, $path, $rep);
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
     if (! $res)
     {
-        # .'$ObjectSchema'.type.'|'.1
+        # .'$ObjectSchema'.type.'|'.0
         $res = json_model_5($val, $path, $rep);
     }
     return $res;
@@ -851,6 +862,15 @@ sub check_model_init()
             'array' => 1,
             'object' => 1,
         );
+        %_jm_cst_1 = (
+            'null' => 1,
+            'boolean' => 1,
+            'integer' => 1,
+            'number' => 1,
+            'string' => 1,
+            'array' => 1,
+            'object' => 1,
+        );
         %_jm_obj_0_map = (
             '$comment' => \&_jm_f_0,
             '$id' => \&_jm_f_1,
@@ -917,6 +937,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
+        %_jm_cst_1 = ();
         %_jm_obj_0_map = ();
         %check_model_map = ();
     }

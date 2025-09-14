@@ -5,6 +5,15 @@
 -- JSON_MODEL_VERSION is 2
 CREATE EXTENSION IF NOT EXISTS json_model;
 
+CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object","any"]';
+BEGIN
+  RETURN constants @> value;
+END;
+$$ LANGUAGE plpgsql;
+
 -- object .'$schema'.properties
 CREATE OR REPLACE FUNCTION _jm_obj_1(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -51,19 +60,18 @@ BEGIN
   IF val ? 'type' THEN
     pval := val -> 'type';
     -- .'$schema'.type
-    -- .'$schema'.type.'|'.0
-    res := json_model_4(pval, path, rep);
+    res := JSONB_TYPEOF(pval) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(pval);
     IF NOT res THEN
-      -- .'$schema'.type.'|'.1
       res := JSONB_TYPEOF(pval) = 'array';
       IF res THEN
+        -- .'$schema'.type.'|'.0
         FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(pval) - 1 LOOP
           arr_0_item := pval -> arr_0_idx;
-          -- .'$schema'.type.'|'.1.0
-          -- .'$schema'.type.'|'.1.0.'|'.0
+          -- .'$schema'.type.'|'.0.0
+          -- .'$schema'.type.'|'.0.0.'|'.0
           res := JSONB_TYPEOF(arr_0_item) = 'string';
           IF NOT res THEN
-            -- .'$schema'.type.'|'.1.0.'|'.1
+            -- .'$schema'.type.'|'.0.0.'|'.1
             res := json_model_3(arr_0_item, NULL, rep);
           END IF;
           IF NOT res THEN
@@ -357,27 +365,6 @@ DECLARE
 BEGIN
   -- .
   res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object","any"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- check $schema#allTypes (.'$schema#allTypes')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$schema#allTypes'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

@@ -35,35 +35,38 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
-  xc_0 int;
-  xr_0 bool;
   arr_0_idx INT8;
   arr_0_item JSONB;
 BEGIN
   -- .
-  -- generic xor list
-  xc_0 := 0;
-  -- .'^'.0
-  xr_0 := json_model_2(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  -- .'^'.1
-  xr_0 := JSONB_TYPEOF(val) = 'array';
-  IF xr_0 THEN
-    FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
-      arr_0_item := val -> arr_0_idx;
-      -- .'^'.1.0
-      xr_0 := json_model_2(arr_0_item, NULL, rep);
-      IF NOT xr_0 THEN
-        EXIT;
+  -- .'|'.0
+  res := JSONB_TYPEOF(val) = 'null';
+  IF NOT res THEN
+    -- .'|'.1
+    res := JSONB_TYPEOF(val) = 'boolean';
+    IF NOT res THEN
+      -- .'|'.2
+      res := JSONB_TYPEOF(val) = 'number' AND (val)::INT8 = (val)::FLOAT8 AND (val)::INT8 >= 1;
+      IF NOT res THEN
+        -- .'|'.3
+        res := JSONB_TYPEOF(val) = 'number' AND (val)::FLOAT8 > 0.0;
+        IF NOT res THEN
+          -- .'|'.4
+          res := JSONB_TYPEOF(val) = 'array';
+          IF res THEN
+            FOR arr_0_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
+              arr_0_item := val -> arr_0_idx;
+              -- .'|'.4.0
+              res := json_model_2(arr_0_item, NULL, rep);
+              IF NOT res THEN
+                EXIT;
+              END IF;
+            END LOOP;
+          END IF;
+        END IF;
       END IF;
-    END LOOP;
+    END IF;
   END IF;
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  res := xc_0 = 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

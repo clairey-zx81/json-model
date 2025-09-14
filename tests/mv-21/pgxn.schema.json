@@ -175,7 +175,10 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/$defs/Version"
+            "$ref": "#/$defs/SemVer"
+          },
+          {
+            "const": 0
           },
           {
             "$ref": "#/$defs/VersionRange"

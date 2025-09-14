@@ -5159,176 +5159,8 @@ def json_model_53(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$GalaxyInfoModelStandalone']", path))
     return res
 
-# check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+# check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 def _jm_f_23(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.author
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path))
-    return res
-
-# check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    res = True
-    if not res:
-        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path))
-    return res
-
-# check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.company
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path))
-    return res
-
-# check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-    res = isinstance(val, list)
-    if res:
-        for arr_97_idx, arr_97_item in enumerate(val):
-            arr_97_lpath: Path = (path + [ arr_97_idx ]) if path is not None else None
-            # .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
-            res = isinstance(arr_97_item, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", arr_97_lpath if path is not None else None))
-            if not res:
-                break
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path))
-    return res
-
-# check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.github_branch
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path))
-    return res
-
-# check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path))
-    return res
-
-# check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.license
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path))
-    return res
-
-# check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path))
-    return res
-
-# check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-    res = isinstance(val, str)
-    if not res:
-        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path))
-    return res
-
-# check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.namespace
-    # "/^[a-z][-a-z0-9_]+$/"
-    res = isinstance(val, str) and _jm_re_0(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path))
-    return res
-
-# check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.platforms
-    res = json_model_50(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path))
-    return res
-
-# check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.role_name
-    # "/^[a-z][a-z0-9_]+$/"
-    res = isinstance(val, str) and _jm_re_1(val, path, rep)
-    if not res:
-        rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path))
-    return res
-
-# check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$GalaxyInfoModel'.'|'.2.video_links
-    res = isinstance(val, list)
-    if res:
-        # accept any array
-        pass
-    if not res:
-        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path))
-    return res
-
-
-# object .'$GalaxyInfoModel'.'|'.2
-def _jm_obj_97(val: Jsonable, path: Path, rep: Report) -> bool:
-    if not isinstance(val, dict):
-        rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.2]", path))
-        return False
-    res: bool
-    pfun: CheckFun
-    must_count: int = 0
-    for prop, pval in val.items():
-        assert isinstance(prop, str)
-        lpath_50: Path = (path + [ prop ]) if path is not None else None
-        if prop == "description":
-            # handle must description property
-            must_count += 1
-            # .'$GalaxyInfoModel'.'|'.2.description
-            res = isinstance(pval, str)
-            if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", lpath_50 if path is not None else None))
-            if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", lpath_50 if path is not None else None))
-                return False
-        elif pfun := _jm_obj_97_map.get(prop):
-            # handle 13 may props
-            if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", lpath_50 if path is not None else None))
-                return False
-        else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.2]", lpath_50 if path is not None else None))
-            return False
-    if must_count != 1:
-        if rep is not None:
-            if not "description" in val:
-                rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path))
-        return False
-    return True
-
-# check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.author
     res = isinstance(val, str)
@@ -5336,8 +5168,8 @@ def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.author]", path))
     return res
 
-# check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+def _jm_f_24(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     res = True
@@ -5345,8 +5177,8 @@ def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.1.cloud_platforms]", path))
     return res
 
-# check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+def _jm_f_25(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.company
     res = isinstance(val, str)
@@ -5354,26 +5186,26 @@ def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.company]", path))
     return res
 
-# check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
     res = isinstance(val, list)
     if res:
-        for arr_98_idx, arr_98_item in enumerate(val):
-            arr_98_lpath: Path = (path + [ arr_98_idx ]) if path is not None else None
+        for arr_97_idx, arr_97_item in enumerate(val):
+            arr_97_lpath: Path = (path + [ arr_97_idx ]) if path is not None else None
             # .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-            res = isinstance(arr_98_item, str)
+            res = isinstance(arr_97_item, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", arr_98_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", arr_97_lpath if path is not None else None))
             if not res:
                 break
     if not res:
         rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.1.galaxy_tags]", path))
     return res
 
-# check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.github_branch
     res = isinstance(val, str)
@@ -5381,8 +5213,8 @@ def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.github_branch]", path))
     return res
 
-# check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+def _jm_f_28(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
     res = isinstance(val, str)
@@ -5390,8 +5222,8 @@ def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.issue_tracker_url]", path))
     return res
 
-# check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+def _jm_f_29(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.license
     res = isinstance(val, str)
@@ -5399,8 +5231,8 @@ def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.license]", path))
     return res
 
-# check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+def _jm_f_30(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
     res = isinstance(val, str)
@@ -5408,8 +5240,8 @@ def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version]", path))
     return res
 
-# check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.min_ansible_version
     res = isinstance(val, str)
@@ -5417,8 +5249,8 @@ def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.min_ansible_version]", path))
     return res
 
-# check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
@@ -5427,8 +5259,8 @@ def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.namespace]", path))
     return res
 
-# check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+def _jm_f_33(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.platforms
     res = json_model_50(val, path, rep)
@@ -5436,8 +5268,8 @@ def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.1.platforms]", path))
     return res
 
-# check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+def _jm_f_34(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
@@ -5446,8 +5278,8 @@ def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.1.role_name]", path))
     return res
 
-# check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+# check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+def _jm_f_35(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$GalaxyInfoModel'.'|'.1.video_links
     res = isinstance(val, list)
@@ -5460,9 +5292,177 @@ def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
 
 
 # object .'$GalaxyInfoModel'.'|'.1
-def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_97(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.1]", path))
+        return False
+    res: bool
+    pfun: CheckFun
+    must_count: int = 0
+    for prop, pval in val.items():
+        assert isinstance(prop, str)
+        lpath_50: Path = (path + [ prop ]) if path is not None else None
+        if prop == "description":
+            # handle must description property
+            must_count += 1
+            # .'$GalaxyInfoModel'.'|'.1.description
+            res = isinstance(pval, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
+            if not res:
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", lpath_50 if path is not None else None))
+                return False
+        elif pfun := _jm_obj_97_map.get(prop):
+            # handle 13 may props
+            if pfun != UNDEFINED and not pfun(pval, lpath_50 if path is not None else None, rep):
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
+                return False
+        else:
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_50 if path is not None else None))
+            return False
+    if must_count != 1:
+        if rep is not None:
+            if not "description" in val:
+                rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path))
+        return False
+    return True
+
+# check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
+def _jm_f_36(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.author
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path))
+    return res
+
+# check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+def _jm_f_37(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.cloud_platforms
+    res = True
+    if not res:
+        rep is None or rep.append(("unexpected $ANY [.'$GalaxyInfoModel'.'|'.0.cloud_platforms]", path))
+    return res
+
+# check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+def _jm_f_38(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.company
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.company]", path))
+    return res
+
+# check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+def _jm_f_39(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.galaxy_tags
+    res = isinstance(val, list)
+    if res:
+        for arr_98_idx, arr_98_item in enumerate(val):
+            arr_98_lpath: Path = (path + [ arr_98_idx ]) if path is not None else None
+            # .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
+            res = isinstance(arr_98_item, str)
+            if not res:
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", arr_98_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.galaxy_tags]", path))
+    return res
+
+# check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+def _jm_f_40(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.github_branch
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.github_branch]", path))
+    return res
+
+# check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+def _jm_f_41(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.issue_tracker_url]", path))
+    return res
+
+# check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+def _jm_f_42(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.license
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path))
+    return res
+
+# check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+def _jm_f_43(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version]", path))
+    return res
+
+# check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+def _jm_f_44(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+    res = isinstance(val, str)
+    if not res:
+        rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path))
+    return res
+
+# check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+def _jm_f_45(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.namespace
+    # "/^[a-z][-a-z0-9_]+$/"
+    res = isinstance(val, str) and _jm_re_0(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.namespace]", path))
+    return res
+
+# check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+def _jm_f_46(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.platforms
+    res = json_model_50(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $platforms [.'$GalaxyInfoModel'.'|'.0.platforms]", path))
+    return res
+
+# check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+def _jm_f_47(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.role_name
+    # "/^[a-z][a-z0-9_]+$/"
+    res = isinstance(val, str) and _jm_re_1(val, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.role_name]", path))
+    return res
+
+# check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+def _jm_f_48(val: Jsonable, path: Path, rep: Report) -> bool:
+    res: bool
+    # .'$GalaxyInfoModel'.'|'.0.video_links
+    res = isinstance(val, list)
+    if res:
+        # accept any array
+        pass
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.video_links]", path))
+    return res
+
+
+# object .'$GalaxyInfoModel'.'|'.0
+def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$GalaxyInfoModel'.'|'.0]", path))
         return False
     res: bool
     pfun: CheckFun
@@ -5473,37 +5473,37 @@ def _jm_obj_98(val: Jsonable, path: Path, rep: Report) -> bool:
         if prop == "standalone":
             # handle must standalone property
             must_count += 1
-            # .'$GalaxyInfoModel'.'|'.1.standalone
+            # .'$GalaxyInfoModel'.'|'.0.standalone
             res = isinstance(pval, bool) and pval == False
             if not res:
-                rep is None or rep.append(("unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_51 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", lpath_51 if path is not None else None))
                 return False
         elif prop == "description":
             # handle must description property
             must_count += 1
-            # .'$GalaxyInfoModel'.'|'.1.description
+            # .'$GalaxyInfoModel'.'|'.0.description
             res = isinstance(pval, str)
             if not res:
-                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", lpath_51 if path is not None else None))
             if not res:
-                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", lpath_51 if path is not None else None))
                 return False
         elif pfun := _jm_obj_98_map.get(prop):
             # handle 13 may props
             if pfun != UNDEFINED and not pfun(pval, lpath_51 if path is not None else None, rep):
-                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", lpath_51 if path is not None else None))
+                rep is None or rep.append(("invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", lpath_51 if path is not None else None))
                 return False
         else:
-            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.1]", lpath_51 if path is not None else None))
+            rep is None or rep.append(("unexpected prop [.'$GalaxyInfoModel'.'|'.0]", lpath_51 if path is not None else None))
             return False
     if must_count != 2:
         if rep is not None:
             if not "description" in val:
-                rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path))
+                rep is None or rep.append(("missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path))
             if not ("standalone" in val):
-                rep is None or rep.append(("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path))
+                rep is None or rep.append(("missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.0]", path))
         return False
     return True
 
@@ -5512,24 +5512,28 @@ def json_model_54(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # hmmmm, property standalone should probably be required…
     # .'$GalaxyInfoModel'
-    # .'$GalaxyInfoModel'.'|'.0
-    res = json_model_53(val, path, rep)
+    res = isinstance(val, dict)
     if not res:
-        rep is None or rep.append(("unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|'.0]", path))
-    if not res:
-        # .'$GalaxyInfoModel'.'|'.1
+        rep is None or rep.append(("unexpected type [.'$GalaxyInfoModel'.'|']", path))
+    if res:
+        # .'$GalaxyInfoModel'.'|'.0
         res = _jm_obj_98(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.1]", path))
+            rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.0]", path))
         if not res:
-            # .'$GalaxyInfoModel'.'|'.2
+            # .'$GalaxyInfoModel'.'|'.1
             res = _jm_obj_97(val, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.2]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$GalaxyInfoModel'.'|']", path))
+                rep is None or rep.append(("unexpected element [.'$GalaxyInfoModel'.'|'.1]", path))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$GalaxyInfoModel'.'|']", path))
+    if not res:
+        # .'$GalaxyInfoModel'.'|'
+        res = json_model_53(val, path, rep)
+        if not res:
+            rep is None or rep.append(("unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path))
     return res
 
 

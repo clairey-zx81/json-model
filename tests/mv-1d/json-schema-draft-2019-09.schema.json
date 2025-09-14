@@ -137,7 +137,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/simpleTypes"
+              "const": "array"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "null"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "object"
+            },
+            {
+              "const": "string"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"
@@ -221,7 +239,10 @@
         "items": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Schema"
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/ObjectSchema"
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -333,7 +354,10 @@
         "items": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Schema"
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/ObjectSchema"
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -403,7 +427,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/simpleTypes"
+              "const": "array"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "null"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "object"
+            },
+            {
+              "const": "string"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"

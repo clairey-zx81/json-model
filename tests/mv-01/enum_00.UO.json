@@ -1,7 +1,11 @@
 [
   {
     "^": [
-      "$p1",
+      "Susie",
+      "Calvin",
+      "Hobbes",
+      "Moe",
+      "Bad",
       "$p2"
     ],
     "#": "JsonModel 1",

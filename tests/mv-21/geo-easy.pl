@@ -24,6 +24,7 @@ sub json_model_11($$$);
 sub json_model_12($$$);
 sub json_model_13($$$);
 sub json_model_14($$$);
+my %_jm_map_1;
 sub json_model_1($$$);
 my %check_model_map;
 
@@ -751,11 +752,36 @@ sub _jm_obj_7($$$)
     if (! $res)
     {
         # .'$Feature'.geometry.'|'.1
-        $res = json_model_11($pval, $path, $rep);
+        $res = json_model_5($pval, $path, $rep);
         if (! $res)
         {
             # .'$Feature'.geometry.'|'.2
-            $res = json_model_12($pval, $path, $rep);
+            $res = json_model_6($pval, $path, $rep);
+            if (! $res)
+            {
+                # .'$Feature'.geometry.'|'.3
+                $res = json_model_7($pval, $path, $rep);
+                if (! $res)
+                {
+                    # .'$Feature'.geometry.'|'.4
+                    $res = json_model_8($pval, $path, $rep);
+                    if (! $res)
+                    {
+                        # .'$Feature'.geometry.'|'.5
+                        $res = json_model_9($pval, $path, $rep);
+                        if (! $res)
+                        {
+                            # .'$Feature'.geometry.'|'.6
+                            $res = json_model_10($pval, $path, $rep);
+                            if (! $res)
+                            {
+                                # .'$Feature'.geometry.'|'.7
+                                $res = json_model_12($pval, $path, $rep);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     if (! $res)
@@ -913,6 +939,7 @@ sub json_model_14($$$)
     return $res;
 }
 
+
 # check $ (.)
 sub json_model_1($$$)
 {
@@ -920,40 +947,27 @@ sub json_model_1($$$)
     my $res;
     # Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     # .
-    # generic xor list
-    my $xc_0 = 0;
-    my $xr_0;
-    # .'^'.0
-    $xr_0 = json_model_11($val, $path, $rep);
-    if ($xr_0)
+    $res = jm_is_object($val);
+    if ($res)
     {
-        $xc_0++;
-    }
-    # .'^'.1
-    $xr_0 = json_model_12($val, $path, $rep);
-    if ($xr_0)
-    {
-        $xc_0++;
-    }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.2
-        $xr_0 = json_model_13($val, $path, $rep);
-        if ($xr_0)
+        if (exists $$val{'type'})
         {
-            $xc_0++;
+            my $tag_1 = $$val{'type'};
+            my $fun_1 = $_jm_map_1{$tag_1};
+            if (defined($fun_1))
+            {
+                $res = &$fun_1($val, $path, $rep);
+            }
+            else
+            {
+                $res = 0;
+            }
+        }
+        else
+        {
+            $res = 0;
         }
     }
-    if ($xc_0 <= 1)
-    {
-        # .'^'.3
-        $xr_0 = json_model_14($val, $path, $rep);
-        if ($xr_0)
-        {
-            $xc_0++;
-        }
-    }
-    $res = $xc_0 == 1;
     return $res;
 }
 
@@ -974,6 +988,17 @@ sub check_model_init()
             'MultiLineString' => \&json_model_8,
             'Polygon' => \&json_model_9,
             'MultiPolygon' => \&json_model_10,
+        );
+        %_jm_map_1 = (
+            'Point' => \&json_model_5,
+            'MultiPoint' => \&json_model_6,
+            'LineString' => \&json_model_7,
+            'MultiLineString' => \&json_model_8,
+            'Polygon' => \&json_model_9,
+            'MultiPolygon' => \&json_model_10,
+            'GeometryCollection' => \&json_model_12,
+            'Feature' => \&json_model_13,
+            'FeatureCollection' => \&json_model_14,
         );
         %check_model_map = (
             '' => \&json_model_1,
@@ -1000,6 +1025,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_map_0 = ();
+        %_jm_map_1 = ();
         %check_model_map = ();
     }
 }

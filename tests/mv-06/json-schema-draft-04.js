@@ -10,6 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_cst_0 = new Set()
+let _jm_cst_1 = new Set()
 var _jm_obj_0_map = new Map()
 var check_model_map = new Map()
 
@@ -760,33 +761,33 @@ function _jm_f_31(val, path, rep)
     return res;
 }
 
+
 // check _jm_obj_0_map_type (.type)
 function _jm_f_32(val, path, rep)
 {
     let res;
     // .type
-    // .type.'|'.0
-    res = json_model_3(val, path, rep);
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $simpleTypes [.type.'|'.0]", path])
+        rep !== null && rep.push(["value not in enum [.type.'|']", path])
     }
     if (! res)
     {
-        // .type.'|'.1
+        // .type.'|'.0
         res = json_model_5(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $typeArray [.type.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $typeArray [.type.'|'.0]", path])
         }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.type.'|']", path])
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.type.'|']", path])
+        }
     }
     return res;
 }
@@ -866,6 +867,13 @@ export function check_model_init()
         _jm_cst_0.add("string")
         _jm_cst_0.add("array")
         _jm_cst_0.add("object")
+        _jm_cst_1.add("null")
+        _jm_cst_1.add("boolean")
+        _jm_cst_1.add("integer")
+        _jm_cst_1.add("number")
+        _jm_cst_1.add("string")
+        _jm_cst_1.add("array")
+        _jm_cst_1.add("object")
         _jm_obj_0_map.set("$ref", _jm_f_0)
         _jm_obj_0_map.set("$schema", _jm_f_1)
         _jm_obj_0_map.set("additionalItems", _jm_f_2)

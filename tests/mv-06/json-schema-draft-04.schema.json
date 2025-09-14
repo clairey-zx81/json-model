@@ -176,7 +176,25 @@
     "type": {
       "anyOf": [
         {
-          "$ref": "#/$defs/simpleTypes"
+          "const": "null"
+        },
+        {
+          "const": "boolean"
+        },
+        {
+          "const": "integer"
+        },
+        {
+          "const": "number"
+        },
+        {
+          "const": "string"
+        },
+        {
+          "const": "array"
+        },
+        {
+          "const": "object"
         },
         {
           "$ref": "#/$defs/typeArray"

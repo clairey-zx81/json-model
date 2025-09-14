@@ -96,7 +96,10 @@
         "items": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Schema"
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/ObjectSchema"
             },
             {
               "$ref": "#/$defs/schemaArray"
@@ -163,7 +166,10 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Schema"
+                "type": "boolean"
+              },
+              {
+                "$ref": "#/$defs/ObjectSchema"
               },
               {
                 "type": "array",
@@ -184,7 +190,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/simpleTypes"
+              "const": "null"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "string"
+            },
+            {
+              "const": "array"
+            },
+            {
+              "const": "object"
             },
             {
               "$ref": "#/$defs/arrayTypes"

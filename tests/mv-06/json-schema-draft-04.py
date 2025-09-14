@@ -21,6 +21,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_cst_0: set[str]
+_jm_cst_1: set[str]
 _jm_obj_0_map: PropMap
 check_model_map: PropMap
 
@@ -515,23 +516,23 @@ def _jm_f_31(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.title]", path))
     return res
 
+
 # check _jm_obj_0_map_type (.type)
 def _jm_f_32(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .type
-    # .type.'|'.0
-    res = json_model_3(val, path, rep)
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_1
     if not res:
-        rep is None or rep.append(("unexpected $simpleTypes [.type.'|'.0]", path))
+        rep is None or rep.append(("value not in enum [.type.'|']", path))
     if not res:
-        # .type.'|'.1
+        # .type.'|'.0
         res = json_model_5(val, path, rep)
         if not res:
-            rep is None or rep.append(("unexpected $typeArray [.type.'|'.1]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.type.'|']", path))
+            rep is None or rep.append(("unexpected $typeArray [.type.'|'.0]", path))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.type.'|']", path))
     return res
 
 # check _jm_obj_0_map_uniqueItems (.uniqueItems)
@@ -584,6 +585,8 @@ def check_model_init():
         initialized = True
         global _jm_cst_0
         _jm_cst_0 = {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
+        global _jm_cst_1
+        _jm_cst_1 = {'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_obj_0_map
         _jm_obj_0_map = {
             "$ref": _jm_f_0,

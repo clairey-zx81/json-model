@@ -45,30 +45,121 @@ function json_model_1(val, path, rep)
 {
     let res;
     // .
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .'^'.0
-    xr_0 = json_model_2(val, path, rep);
-    if (! xr_0)
+    // remove duplicate xor list
+    let is_0;
+    res = true;
+    // .'^'.9
+    is_0 = ((typeof val === 'string' || val instanceof String)) && val == "Bad";
+    if (! is_0)
     {
-        rep !== null && rep.push(["unexpected $p1 [.'^'.0]", path])
+        rep !== null && rep.push(["unexpected Bad [.'^'.9]", path])
     }
-    if (xr_0)
+    res = ! is_0;
+    if (res)
     {
-        xc_0 += 1;
+        // generic xor list
+        let xc_0 = 0;
+        let xr_0;
+        // .'^'.0
+        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Susie";
+        if (! xr_0)
+        {
+            rep !== null && rep.push(["unexpected Susie [.'^'.0]", path])
+        }
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        // .'^'.1
+        xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Calvin";
+        if (! xr_0)
+        {
+            rep !== null && rep.push(["unexpected Calvin [.'^'.1]", path])
+        }
+        if (xr_0)
+        {
+            xc_0 += 1;
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.2
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Hobbes";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Hobbes [.'^'.2]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.3
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Moe";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Moe [.'^'.3]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.5
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Castafiore";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Castafiore [.'^'.5]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.6
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Haddock";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Haddock [.'^'.6]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.7
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Milou";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Milou [.'^'.7]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        if (xc_0 <= 1)
+        {
+            // .'^'.8
+            xr_0 = ((typeof val === 'string' || val instanceof String)) && val == "Tintin";
+            if (! xr_0)
+            {
+                rep !== null && rep.push(["unexpected Tintin [.'^'.8]", path])
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+        }
+        res = xc_0 == 1;
     }
-    // .'^'.1
-    xr_0 = json_model_3(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $p2 [.'^'.1]", path])
-    }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    res = xc_0 == 1;
     if (res)
     {
         if (rep !== null) rep.length = 0

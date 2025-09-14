@@ -184,7 +184,8 @@
         "?additionalItems": "$Schema",
         "?items": {
           "|": [
-            "$Schema",
+            true,
+            "$ObjectSchema",
             "$schemaArray"
           ]
         },
@@ -208,7 +209,8 @@
         "?dependencies": {
           "": {
             "|": [
-              "$Schema",
+              true,
+              "$ObjectSchema",
               [
                 ""
               ]
@@ -225,7 +227,13 @@
         "?const": "$ANY",
         "?type": {
           "|": [
-            "$simpleTypes",
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object",
             "$arrayTypes"
           ]
         },
@@ -309,7 +317,8 @@
     "?additionalItems": "$Schema",
     "?items": {
       "|": [
-        "$Schema",
+        true,
+        "$ObjectSchema",
         "$schemaArray"
       ]
     },
@@ -333,7 +342,8 @@
     "?dependencies": {
       "": {
         "|": [
-          "$Schema",
+          true,
+          "$ObjectSchema",
           [
             ""
           ]
@@ -350,7 +360,13 @@
     "?const": "$ANY",
     "?type": {
       "|": [
-        "$simpleTypes",
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
         "$arrayTypes"
       ]
     },

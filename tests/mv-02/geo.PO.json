@@ -166,7 +166,64 @@
       "geometry": {
         "|": [
           null,
-          "$geometry",
+          {
+            "type": "Point",
+            "coordinates": "$position",
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
+          {
+            "type": "MultiPoint",
+            "coordinates": [
+              "$position"
+            ],
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
+          {
+            "type": "LineString",
+            "coordinates": "$coord_array",
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
+          {
+            "type": "MultiLineString",
+            "coordinates": [
+              "$coord_array"
+            ],
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
+          {
+            "type": "Polygon",
+            "coordinates": [
+              "$linear_ring"
+            ],
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
+          {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                "$linear_ring"
+              ]
+            ],
+            "?bbox": [
+              -1.0
+            ],
+            "": "$ANY"
+          },
           "$GeometryCollection"
         ]
       },

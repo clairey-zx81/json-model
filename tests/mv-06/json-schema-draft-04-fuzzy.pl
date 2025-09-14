@@ -10,13 +10,14 @@ use JSON::JsonModel;
 use constant JMC_VERSION => '2';
 
 
+my %_jm_cst_0;
 sub json_model_3($$$);
 sub json_model_1($$$);
 sub json_model_4($$$);
-my %_jm_cst_0;
-sub json_model_5($$$);
 sub json_model_6($$$);
 sub json_model_7($$$);
+my %_jm_cst_1;
+sub json_model_5($$$);
 my %check_model_map;
 
 # object .'$schema'.definitions
@@ -116,6 +117,7 @@ sub _jm_obj_4($$$)
     }
     return 1;
 }
+
 
 # object .'$schema'
 sub _jm_obj_0($$$)
@@ -411,11 +413,10 @@ sub _jm_obj_0($$$)
     {
         $pval = $$val{'type'};
         # .'$schema'.type
-        # .'$schema'.type.'|'.0
-        $res = json_model_5($pval, $path, $rep);
+        $res = jm_is_scalar($pval) && jm_is_string($pval) && exists $_jm_cst_0{$pval};
         if (! $res)
         {
-            # .'$schema'.type.'|'.1
+            # .'$schema'.type.'|'.0
             $res = json_model_7($pval, $path, $rep);
         }
         if (! $res)
@@ -546,17 +547,6 @@ sub json_model_4($$$)
     return $res;
 }
 
-
-# check $schema#simpleTypes (.'$schema#simpleTypes')
-sub json_model_5($$$)
-{
-    my ($val, $path, $rep) = @_;
-    my $res;
-    # .'$schema#simpleTypes'
-    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_0{$val};
-    return $res;
-}
-
 # check $schema#stringArray (.'$schema#stringArray')
 sub json_model_6($$$)
 {
@@ -616,6 +606,17 @@ sub json_model_7($$$)
 }
 
 
+# check $schema#simpleTypes (.'$schema#simpleTypes')
+sub json_model_5($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$schema#simpleTypes'
+    $res = jm_is_scalar($val) && jm_is_string($val) && exists $_jm_cst_1{$val};
+    return $res;
+}
+
+
 # initialization of global variables
 
 our $initialized = 0;
@@ -626,6 +627,15 @@ sub check_model_init()
     {
         $initialized = 1;
         %_jm_cst_0 = (
+            'null' => 1,
+            'boolean' => 1,
+            'integer' => 1,
+            'number' => 1,
+            'string' => 1,
+            'array' => 1,
+            'object' => 1,
+        );
+        %_jm_cst_1 = (
             'null' => 1,
             'boolean' => 1,
             'integer' => 1,
@@ -647,6 +657,7 @@ sub check_model_free()
     {
         $initialized = 0;
         %_jm_cst_0 = ();
+        %_jm_cst_1 = ();
         %check_model_map = ();
     }
 }

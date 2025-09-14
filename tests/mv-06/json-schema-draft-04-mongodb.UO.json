@@ -60,7 +60,12 @@
         },
         "?type": {
           "|": [
-            "$simpleTypes",
+            "null",
+            "boolean",
+            "number",
+            "string",
+            "array",
+            "object",
             "$typeArray"
           ]
         },
@@ -70,7 +75,23 @@
         "?not": "$Schema",
         "?bsonType": {
           "|": [
-            "$bsonType",
+            "null",
+            "bool",
+            "string",
+            "object",
+            "array",
+            "double",
+            "int",
+            "long",
+            "decimal",
+            "binData",
+            "objectId",
+            "date",
+            "regex",
+            "javascript",
+            "timestamp",
+            "minKey",
+            "maxKey",
             [
               "$bsonType"
             ]
@@ -178,7 +199,12 @@
     },
     "?type": {
       "|": [
-        "$simpleTypes",
+        "null",
+        "boolean",
+        "number",
+        "string",
+        "array",
+        "object",
         "$typeArray"
       ]
     },
@@ -188,7 +214,23 @@
     "?not": "$Schema",
     "?bsonType": {
       "|": [
-        "$bsonType",
+        "null",
+        "bool",
+        "string",
+        "object",
+        "array",
+        "double",
+        "int",
+        "long",
+        "decimal",
+        "binData",
+        "objectId",
+        "date",
+        "regex",
+        "javascript",
+        "timestamp",
+        "minKey",
+        "maxKey",
         [
           "$bsonType"
         ]

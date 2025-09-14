@@ -9,8 +9,9 @@ const require = createRequire(import.meta.url);
 import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
-var _jm_obj_0_map = new Map()
 let _jm_cst_0 = new Set()
+var _jm_obj_0_map = new Map()
+let _jm_cst_1 = new Set()
 var check_model_map = new Map()
 
 // check _jm_obj_0_map_$ref (.'$schema'.'$ref')
@@ -623,33 +624,33 @@ function _jm_f_31(val, path, rep)
     return res;
 }
 
+
 // check _jm_obj_0_map_type (.'$schema'.type)
 function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$schema'.type
-    // .'$schema'.type.'|'.0
-    res = json_model_5(val, path, rep);
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $simpleTypes [.'$schema'.type.'|'.0]", path])
+        rep !== null && rep.push(["value not in enum [.'$schema'.type.'|']", path])
     }
     if (! res)
     {
-        // .'$schema'.type.'|'.1
+        // .'$schema'.type.'|'.0
         res = json_model_7(val, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $typeArray [.'$schema'.type.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $typeArray [.'$schema'.type.'|'.0]", path])
         }
-    }
-    if (res)
-    {
-        if (rep !== null) rep.length = 0
-    }
-    else
-    {
-        rep !== null && rep.push(["no model matched [.'$schema'.type.'|']", path])
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$schema'.type.'|']", path])
+        }
     }
     return res;
 }
@@ -776,20 +777,6 @@ function json_model_4(val, path, rep)
     return res;
 }
 
-
-// check $schema#simpleTypes (.'$schema#simpleTypes')
-function json_model_5(val, path, rep)
-{
-    let res;
-    // .'$schema#simpleTypes'
-    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_0.has(val);
-    if (! res)
-    {
-        rep !== null && rep.push(["value not in enum [.'$schema#simpleTypes'.'|']", path])
-    }
-    return res;
-}
-
 // check $schema#stringArray (.'$schema#stringArray')
 function json_model_6(val, path, rep)
 {
@@ -873,6 +860,20 @@ function json_model_7(val, path, rep)
 }
 
 
+// check $schema#simpleTypes (.'$schema#simpleTypes')
+function json_model_5(val, path, rep)
+{
+    let res;
+    // .'$schema#simpleTypes'
+    res = ((val === null || (typeof val === 'number' || val instanceof Number) || (typeof val === 'boolean' || val instanceof Boolean) || (typeof val === 'string' || val instanceof String))) && _jm_cst_1.has(val);
+    if (! res)
+    {
+        rep !== null && rep.push(["value not in enum [.'$schema#simpleTypes'.'|']", path])
+    }
+    return res;
+}
+
+
 var initialized = false
 
 // differed module initializations
@@ -882,6 +883,13 @@ export function check_model_init()
     {
         initialized = true;
         runtime.jm_set_rx(RegExp)
+        _jm_cst_0.add("null")
+        _jm_cst_0.add("boolean")
+        _jm_cst_0.add("integer")
+        _jm_cst_0.add("number")
+        _jm_cst_0.add("string")
+        _jm_cst_0.add("array")
+        _jm_cst_0.add("object")
         _jm_obj_0_map.set("$ref", _jm_f_0)
         _jm_obj_0_map.set("$schema", _jm_f_1)
         _jm_obj_0_map.set("additionalItems", _jm_f_2)
@@ -916,13 +924,13 @@ export function check_model_init()
         _jm_obj_0_map.set("title", _jm_f_31)
         _jm_obj_0_map.set("type", _jm_f_32)
         _jm_obj_0_map.set("uniqueItems", _jm_f_33)
-        _jm_cst_0.add("null")
-        _jm_cst_0.add("boolean")
-        _jm_cst_0.add("integer")
-        _jm_cst_0.add("number")
-        _jm_cst_0.add("string")
-        _jm_cst_0.add("array")
-        _jm_cst_0.add("object")
+        _jm_cst_1.add("null")
+        _jm_cst_1.add("boolean")
+        _jm_cst_1.add("integer")
+        _jm_cst_1.add("number")
+        _jm_cst_1.add("string")
+        _jm_cst_1.add("array")
+        _jm_cst_1.add("object")
         check_model_map.set("", json_model_3)
         check_model_map.set("schema", json_model_3)
     }

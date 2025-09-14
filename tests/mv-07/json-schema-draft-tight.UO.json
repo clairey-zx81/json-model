@@ -70,7 +70,22 @@
         "?prefixItems": "$schemaArray",
         "?items": {
           "|": [
-            "$Schema",
+            true,
+            "$Null",
+            "$Bool",
+            "$Const",
+            "$Enum",
+            "$Integer",
+            "$Number",
+            "$String",
+            "$Array",
+            "$Object",
+            "$AllOf",
+            "$AnyOf",
+            "$OneOf",
+            "$Ref",
+            "$DynRef",
+            "$metas",
             "$schemaArray"
           ]
         },
@@ -221,7 +236,22 @@
         "?prefixItems": "$schemaArray",
         "?items": {
           "|": [
-            "$Schema",
+            true,
+            "$Null",
+            "$Bool",
+            "$Const",
+            "$Enum",
+            "$Integer",
+            "$Number",
+            "$String",
+            "$Array",
+            "$Object",
+            "$AllOf",
+            "$AnyOf",
+            "$OneOf",
+            "$Ref",
+            "$DynRef",
+            "$metas",
             "$schemaArray"
           ]
         },
@@ -609,7 +639,21 @@
       "Schema": {
         "|": [
           true,
-          "$ObjectSchema"
+          "$Null",
+          "$Bool",
+          "$Const",
+          "$Enum",
+          "$Integer",
+          "$Number",
+          "$String",
+          "$Array",
+          "$Object",
+          "$AllOf",
+          "$AnyOf",
+          "$OneOf",
+          "$Ref",
+          "$DynRef",
+          "$metas"
         ],
         "#": "JsonModel 25"
       },
@@ -697,7 +741,22 @@
     "?prefixItems": "$schemaArray",
     "?items": {
       "|": [
-        "$Schema",
+        true,
+        "$Null",
+        "$Bool",
+        "$Const",
+        "$Enum",
+        "$Integer",
+        "$Number",
+        "$String",
+        "$Array",
+        "$Object",
+        "$AllOf",
+        "$AnyOf",
+        "$OneOf",
+        "$Ref",
+        "$DynRef",
+        "$metas",
         "$schemaArray"
       ]
     },
@@ -848,7 +907,22 @@
     "?prefixItems": "$schemaArray",
     "?items": {
       "|": [
-        "$Schema",
+        true,
+        "$Null",
+        "$Bool",
+        "$Const",
+        "$Enum",
+        "$Integer",
+        "$Number",
+        "$String",
+        "$Array",
+        "$Object",
+        "$AllOf",
+        "$AnyOf",
+        "$OneOf",
+        "$Ref",
+        "$DynRef",
+        "$metas",
         "$schemaArray"
       ]
     },
@@ -1236,7 +1310,21 @@
   {
     "|": [
       true,
-      "$ObjectSchema"
+      "$Null",
+      "$Bool",
+      "$Const",
+      "$Enum",
+      "$Integer",
+      "$Number",
+      "$String",
+      "$Array",
+      "$Object",
+      "$AllOf",
+      "$AnyOf",
+      "$OneOf",
+      "$Ref",
+      "$DynRef",
+      "$metas"
     ],
     "#": "JsonModel 25"
   },

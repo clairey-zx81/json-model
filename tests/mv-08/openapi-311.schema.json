@@ -234,7 +234,108 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Parameter"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -273,7 +374,78 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Header"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -286,7 +458,124 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/SecurityScheme"
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "apiKey"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "http"
+                  },
+                  "scheme": {
+                    "type": "string",
+                    "pattern": "(?i)bearer"
+                  },
+                  "bearerFormat": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "scheme"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "http"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "scheme"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "oauth2"
+                  },
+                  "flows": {
+                    "$ref": "#/$defs/OAuthFlows"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "flows"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "const": "openIdConnect"
+                  },
+                  "openIdConnectUrl": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "openIdConnectUrl"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -299,7 +588,56 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Link"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "operationRef": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "requestBody": true,
+                  "description": {
+                    "type": "string"
+                  },
+                  "server": {
+                    "$ref": "#/$defs/Server"
+                  }
+                },
+                "required": [
+                  "operationRef"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "operationId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "requestBody": true,
+                  "description": {
+                    "type": "string"
+                  },
+                  "server": {
+                    "$ref": "#/$defs/Server"
+                  }
+                },
+                "required": [
+                  "operationId"
+                ],
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -397,7 +735,108 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Parameter"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -437,7 +876,108 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Parameter"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "in": {
+                    "enum": [
+                      "query",
+                      "header",
+                      "path",
+                      "cookie"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "in"
+                ],
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -796,7 +1336,78 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Header"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -859,7 +1470,78 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Header"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "style": {
+                    "$ref": "#/$defs/Style"
+                  },
+                  "explode": {
+                    "type": "boolean"
+                  },
+                  "allowReserved": {
+                    "type": "boolean"
+                  },
+                  "schema": {
+                    "$ref": "#/$defs/Schema"
+                  },
+                  "example": true,
+                  "examples": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/Example"
+                        },
+                        {
+                          "$ref": "#/$defs/Reference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "deprecated": {
+                    "type": "boolean"
+                  },
+                  "allowEmptyValue": {
+                    "type": "boolean"
+                  },
+                  "content": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/$defs/MediaType"
+                    }
+                  }
+                },
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -878,7 +1560,56 @@
           "additionalProperties": {
             "anyOf": [
               {
-                "$ref": "#/$defs/Link"
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "operationRef": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "requestBody": true,
+                  "description": {
+                    "type": "string"
+                  },
+                  "server": {
+                    "$ref": "#/$defs/Server"
+                  }
+                },
+                "required": [
+                  "operationRef"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "patternProperties": {
+                  "^x-": true
+                },
+                "properties": {
+                  "operationId": {
+                    "type": "string"
+                  },
+                  "parameters": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "requestBody": true,
+                  "description": {
+                    "type": "string"
+                  },
+                  "server": {
+                    "$ref": "#/$defs/Server"
+                  }
+                },
+                "required": [
+                  "operationId"
+                ],
+                "additionalProperties": false
               },
               {
                 "$ref": "#/$defs/Reference"
@@ -1210,7 +1941,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/schema#simpleTypes"
+              "const": "array"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "null"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "object"
+            },
+            {
+              "const": "string"
             },
             {
               "$ref": "#/$defs/schema#simpleTypesArray"

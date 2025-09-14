@@ -21,6 +21,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
     return checker(val, [], rep)
 
 _jm_map_0: dict[str, str]
+_jm_map_1: dict[str, str]
 check_model_map: PropMap
 
 # check $position (.'$position')
@@ -989,8 +990,354 @@ def json_model_12(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected element [.'$GeometryCollection']", path))
     return res
 
-# object .'$Feature'.properties.'|'.1
+# object .'$Feature'.geometry.'|'.0
 def _jm_obj_14(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.0]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.0]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.0.type
+    res = isinstance(pval, str) and pval == "Point"
+    if not res:
+        rep is None or rep.append(("unexpected Point [.'$Feature'.geometry.'|'.0.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.0]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.0]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.0.coordinates
+    res = json_model_2(pval, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $position [.'$Feature'.geometry.'|'.0.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.0]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.0.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_27_idx, arr_27_item in enumerate(pval):
+                arr_27_lpath: Path = (path + [ arr_27_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.0.bbox.0
+                res = isinstance(arr_27_item, (int, float)) and not isinstance(arr_27_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.0.bbox.0]", arr_27_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.0.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.0]", path))
+            return False
+    return True
+
+# object .'$Feature'.geometry.'|'.1
+def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.1]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.1]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.1.type
+    res = isinstance(pval, str) and pval == "MultiPoint"
+    if not res:
+        rep is None or rep.append(("unexpected MultiPoint [.'$Feature'.geometry.'|'.1.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.1]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.1]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.1.coordinates
+    res = isinstance(pval, list)
+    if res:
+        for arr_28_idx, arr_28_item in enumerate(pval):
+            arr_28_lpath: Path = (path + [ arr_28_idx ]) if path is not None else None
+            # .'$Feature'.geometry.'|'.1.coordinates.0
+            res = json_model_2(arr_28_item, arr_28_lpath if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $position [.'$Feature'.geometry.'|'.1.coordinates.0]", arr_28_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.1.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.1]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.1.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_29_idx, arr_29_item in enumerate(pval):
+                arr_29_lpath: Path = (path + [ arr_29_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.1.bbox.0
+                res = isinstance(arr_29_item, (int, float)) and not isinstance(arr_29_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.1.bbox.0]", arr_29_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.1.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.1]", path))
+            return False
+    return True
+
+# object .'$Feature'.geometry.'|'.2
+def _jm_obj_16(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.2]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.2]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.2.type
+    res = isinstance(pval, str) and pval == "LineString"
+    if not res:
+        rep is None or rep.append(("unexpected LineString [.'$Feature'.geometry.'|'.2.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.2]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.2]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.2.coordinates
+    res = json_model_3(pval, path, rep)
+    if not res:
+        rep is None or rep.append(("unexpected $coord_array [.'$Feature'.geometry.'|'.2.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.2]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.2.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_30_idx, arr_30_item in enumerate(pval):
+                arr_30_lpath: Path = (path + [ arr_30_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.2.bbox.0
+                res = isinstance(arr_30_item, (int, float)) and not isinstance(arr_30_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.2.bbox.0]", arr_30_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.2.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.2]", path))
+            return False
+    return True
+
+# object .'$Feature'.geometry.'|'.3
+def _jm_obj_17(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.3]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.3]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.3.type
+    res = isinstance(pval, str) and pval == "MultiLineString"
+    if not res:
+        rep is None or rep.append(("unexpected MultiLineString [.'$Feature'.geometry.'|'.3.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.3]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.3]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.3.coordinates
+    res = isinstance(pval, list)
+    if res:
+        for arr_31_idx, arr_31_item in enumerate(pval):
+            arr_31_lpath: Path = (path + [ arr_31_idx ]) if path is not None else None
+            # .'$Feature'.geometry.'|'.3.coordinates.0
+            res = json_model_3(arr_31_item, arr_31_lpath if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $coord_array [.'$Feature'.geometry.'|'.3.coordinates.0]", arr_31_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.3.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.3]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.3.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_32_idx, arr_32_item in enumerate(pval):
+                arr_32_lpath: Path = (path + [ arr_32_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.3.bbox.0
+                res = isinstance(arr_32_item, (int, float)) and not isinstance(arr_32_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.3.bbox.0]", arr_32_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.3.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.3]", path))
+            return False
+    return True
+
+# object .'$Feature'.geometry.'|'.4
+def _jm_obj_18(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.4]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.4]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.4.type
+    res = isinstance(pval, str) and pval == "Polygon"
+    if not res:
+        rep is None or rep.append(("unexpected Polygon [.'$Feature'.geometry.'|'.4.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.4]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.4]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.4.coordinates
+    res = isinstance(pval, list)
+    if res:
+        for arr_33_idx, arr_33_item in enumerate(pval):
+            arr_33_lpath: Path = (path + [ arr_33_idx ]) if path is not None else None
+            # .'$Feature'.geometry.'|'.4.coordinates.0
+            res = json_model_4(arr_33_item, arr_33_lpath if path is not None else None, rep)
+            if not res:
+                rep is None or rep.append(("unexpected $linear_ring [.'$Feature'.geometry.'|'.4.coordinates.0]", arr_33_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.4.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.4]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.4.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_34_idx, arr_34_item in enumerate(pval):
+                arr_34_lpath: Path = (path + [ arr_34_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.4.bbox.0
+                res = isinstance(arr_34_item, (int, float)) and not isinstance(arr_34_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.4.bbox.0]", arr_34_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.4.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.4]", path))
+            return False
+    return True
+
+# object .'$Feature'.geometry.'|'.5
+def _jm_obj_19(val: Jsonable, path: Path, rep: Report) -> bool:
+    # check must only props
+    if not isinstance(val, dict):
+        rep is None or rep.append(("not an object [.'$Feature'.geometry.'|'.5]", path))
+        return False
+    pval: Jsonable
+    res: bool
+    if not "type" in val:
+        rep is None or rep.append(("missing mandatory prop <type> [.'$Feature'.geometry.'|'.5]", path))
+        return False
+    pval = val.get("type", UNDEFINED)
+    # .'$Feature'.geometry.'|'.5.type
+    res = isinstance(pval, str) and pval == "MultiPolygon"
+    if not res:
+        rep is None or rep.append(("unexpected MultiPolygon [.'$Feature'.geometry.'|'.5.type]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <type> [.'$Feature'.geometry.'|'.5]", path))
+        return False
+    if not ("coordinates" in val):
+        rep is None or rep.append(("missing mandatory prop <coordinates> [.'$Feature'.geometry.'|'.5]", path))
+        return False
+    pval = val.get("coordinates", UNDEFINED)
+    # .'$Feature'.geometry.'|'.5.coordinates
+    res = isinstance(pval, list)
+    if res:
+        for arr_35_idx, arr_35_item in enumerate(pval):
+            arr_35_lpath: Path = (path + [ arr_35_idx ]) if path is not None else None
+            # .'$Feature'.geometry.'|'.5.coordinates.0
+            res = isinstance(arr_35_item, list)
+            if res:
+                for arr_36_idx, arr_36_item in enumerate(arr_35_item):
+                    arr_36_lpath: Path = ((arr_35_lpath if path is not None else None) + [ arr_36_idx ]) if (arr_35_lpath if path is not None else None) is not None else None
+                    # .'$Feature'.geometry.'|'.5.coordinates.0.0
+                    res = json_model_4(arr_36_item, arr_36_lpath if (arr_35_lpath if path is not None else None) is not None else None, rep)
+                    if not res:
+                        rep is None or rep.append(("unexpected $linear_ring [.'$Feature'.geometry.'|'.5.coordinates.0.0]", arr_36_lpath if (arr_35_lpath if path is not None else None) is not None else None))
+                    if not res:
+                        break
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.5.coordinates.0]", arr_35_lpath if path is not None else None))
+            if not res:
+                break
+    if not res:
+        rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.5.coordinates]", path))
+    if not res:
+        rep is None or rep.append(("unexpected value for mandatory prop <coordinates> [.'$Feature'.geometry.'|'.5]", path))
+        return False
+    if "bbox" in val:
+        pval = val.get("bbox", UNDEFINED)
+        # .'$Feature'.geometry.'|'.5.bbox
+        res = isinstance(pval, list)
+        if res:
+            for arr_37_idx, arr_37_item in enumerate(pval):
+                arr_37_lpath: Path = (path + [ arr_37_idx ]) if path is not None else None
+                # .'$Feature'.geometry.'|'.5.bbox.0
+                res = isinstance(arr_37_item, (int, float)) and not isinstance(arr_37_item, bool)
+                if not res:
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.geometry.'|'.5.bbox.0]", arr_37_lpath if path is not None else None))
+                if not res:
+                    break
+        if not res:
+            rep is None or rep.append(("not array or unexpected array [.'$Feature'.geometry.'|'.5.bbox]", path))
+        if not res:
+            rep is None or rep.append(("unexpected value for optional prop <bbox> [.'$Feature'.geometry.'|'.5]", path))
+            return False
+    return True
+
+
+# object .'$Feature'.properties.'|'.1
+def _jm_obj_20(val: Jsonable, path: Path, rep: Report) -> bool:
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$Feature'.properties.'|'.1]", path))
         return False
@@ -1021,24 +1368,35 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         return False
     pval = val.get("geometry", UNDEFINED)
     # .'$Feature'.geometry
-    # .'$Feature'.geometry.'|'.0
-    res = pval is None
+    res = isinstance(pval, dict)
+    if res:
+        if "type" in pval:
+            tag_1: Jsonable = pval.get("type", UNDEFINED)
+            fun_1: CheckFun = _jm_map_1.get(tag_1, UNDEFINED)
+            if fun_1 != UNDEFINED:
+                res = fun_1(pval, path, rep)
+            else:
+                res = False
+                rep is None or rep.append(("tag <type> value not found [.'$Feature'.geometry.'|']", path))
+        else:
+            res = False
+            rep is None or rep.append(("tag prop <type> is missing [.'$Feature'.geometry.'|']", path))
+    else:
+        rep is None or rep.append(("value is not an object [.'$Feature'.geometry.'|']", path))
     if not res:
-        rep is None or rep.append(("not null [.'$Feature'.geometry.'|'.0]", path))
-    if not res:
-        # .'$Feature'.geometry.'|'.1
-        res = json_model_11(pval, path, rep)
+        # .'$Feature'.geometry.'|'.0
+        res = pval is None
         if not res:
-            rep is None or rep.append(("unexpected $geometry [.'$Feature'.geometry.'|'.1]", path))
+            rep is None or rep.append(("not null [.'$Feature'.geometry.'|'.0]", path))
         if not res:
-            # .'$Feature'.geometry.'|'.2
+            # .'$Feature'.geometry.'|'.1
             res = json_model_12(pval, path, rep)
             if not res:
-                rep is None or rep.append(("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.'$Feature'.geometry.'|']", path))
+                rep is None or rep.append(("unexpected $GeometryCollection [.'$Feature'.geometry.'|'.1]", path))
+        if res:
+            rep is None or rep.clear()
+        else:
+            rep is None or rep.append(("no model matched [.'$Feature'.geometry.'|']", path))
     if not res:
         rep is None or rep.append(("unexpected value for mandatory prop <geometry> [.'$Feature']", path))
         return False
@@ -1053,7 +1411,7 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("not null [.'$Feature'.properties.'|'.0]", path))
     if not res:
         # .'$Feature'.properties.'|'.1
-        res = _jm_obj_14(pval, path, rep)
+        res = _jm_obj_20(pval, path, rep)
         if not res:
             rep is None or rep.append(("unexpected element [.'$Feature'.properties.'|'.1]", path))
     if res:
@@ -1087,12 +1445,12 @@ def _jm_obj_13(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$Feature'.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_27_idx, arr_27_item in enumerate(pval):
-                arr_27_lpath: Path = (path + [ arr_27_idx ]) if path is not None else None
+            for arr_38_idx, arr_38_item in enumerate(pval):
+                arr_38_lpath: Path = (path + [ arr_38_idx ]) if path is not None else None
                 # .'$Feature'.bbox.0
-                res = isinstance(arr_27_item, (int, float)) and not isinstance(arr_27_item, bool)
+                res = isinstance(arr_38_item, (int, float)) and not isinstance(arr_38_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.bbox.0]", arr_27_lpath if path is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$Feature'.bbox.0]", arr_38_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -1112,7 +1470,7 @@ def json_model_13(val: Jsonable, path: Path, rep: Report) -> bool:
     return res
 
 # object .'$FeatureCollection'
-def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
+def _jm_obj_21(val: Jsonable, path: Path, rep: Report) -> bool:
     # check must only props
     if not isinstance(val, dict):
         rep is None or rep.append(("not an object [.'$FeatureCollection']", path))
@@ -1137,12 +1495,12 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
     # .'$FeatureCollection'.features
     res = isinstance(pval, list)
     if res:
-        for arr_28_idx, arr_28_item in enumerate(pval):
-            arr_28_lpath: Path = (path + [ arr_28_idx ]) if path is not None else None
+        for arr_39_idx, arr_39_item in enumerate(pval):
+            arr_39_lpath: Path = (path + [ arr_39_idx ]) if path is not None else None
             # .'$FeatureCollection'.features.0
-            res = json_model_13(arr_28_item, arr_28_lpath if path is not None else None, rep)
+            res = json_model_13(arr_39_item, arr_39_lpath if path is not None else None, rep)
             if not res:
-                rep is None or rep.append(("unexpected $Feature [.'$FeatureCollection'.features.0]", arr_28_lpath if path is not None else None))
+                rep is None or rep.append(("unexpected $Feature [.'$FeatureCollection'.features.0]", arr_39_lpath if path is not None else None))
             if not res:
                 break
     if not res:
@@ -1155,12 +1513,12 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
         # .'$FeatureCollection'.bbox
         res = isinstance(pval, list)
         if res:
-            for arr_29_idx, arr_29_item in enumerate(pval):
-                arr_29_lpath: Path = (path + [ arr_29_idx ]) if path is not None else None
+            for arr_40_idx, arr_40_item in enumerate(pval):
+                arr_40_lpath: Path = (path + [ arr_40_idx ]) if path is not None else None
                 # .'$FeatureCollection'.bbox.0
-                res = isinstance(arr_29_item, (int, float)) and not isinstance(arr_29_item, bool)
+                res = isinstance(arr_40_item, (int, float)) and not isinstance(arr_40_item, bool)
                 if not res:
-                    rep is None or rep.append(("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", arr_29_lpath if path is not None else None))
+                    rep is None or rep.append(("not a -1.0 loose float [.'$FeatureCollection'.bbox.0]", arr_40_lpath if path is not None else None))
                 if not res:
                     break
         if not res:
@@ -1174,7 +1532,7 @@ def _jm_obj_15(val: Jsonable, path: Path, rep: Report) -> bool:
 def json_model_14(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .'$FeatureCollection'
-    res = _jm_obj_15(val, path, rep)
+    res = _jm_obj_21(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected element [.'$FeatureCollection']", path))
     return res
@@ -1237,6 +1595,15 @@ def check_model_init():
             "MultiLineString": _jm_obj_9,
             "Polygon": _jm_obj_10,
             "MultiPolygon": _jm_obj_11,
+        }
+        global _jm_map_1
+        _jm_map_1 = {
+            "Point": _jm_obj_14,
+            "MultiPoint": _jm_obj_15,
+            "LineString": _jm_obj_16,
+            "MultiLineString": _jm_obj_17,
+            "Polygon": _jm_obj_18,
+            "MultiPolygon": _jm_obj_19,
         }
         global check_model_map
         check_model_map = {

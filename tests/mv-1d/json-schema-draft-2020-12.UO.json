@@ -78,7 +78,13 @@
       "validation": {
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -177,7 +183,13 @@
         "?unevaluatedProperties": "$Schema",
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -306,7 +318,13 @@
   {
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },
@@ -405,7 +423,13 @@
     "?unevaluatedProperties": "$Schema",
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },

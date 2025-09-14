@@ -1209,10 +1209,37 @@ static bool json_model_11(const json_t *val, jm_path_t *path, jm_report_t *rep)
     if (! res)
     {
         // .'$type-or-ref'.'|'.1
-        res = json_model_3(val, path, rep);
+        res = json_model_6(val, path, rep);
         if (! res)
         {
-            if (rep) jm_report_add_entry(rep, "unexpected $Type [.'$type-or-ref'.'|'.1]", path);
+            if (rep) jm_report_add_entry(rep, "unexpected $Atomic [.'$type-or-ref'.'|'.1]", path);
+        }
+        if (! res)
+        {
+            // .'$type-or-ref'.'|'.2
+            res = json_model_7(val, path, rep);
+            if (! res)
+            {
+                if (rep) jm_report_add_entry(rep, "unexpected $Object [.'$type-or-ref'.'|'.2]", path);
+            }
+            if (! res)
+            {
+                // .'$type-or-ref'.'|'.3
+                res = json_model_9(val, path, rep);
+                if (! res)
+                {
+                    if (rep) jm_report_add_entry(rep, "unexpected $Array [.'$type-or-ref'.'|'.3]", path);
+                }
+                if (! res)
+                {
+                    // .'$type-or-ref'.'|'.4
+                    res = json_model_10(val, path, rep);
+                    if (! res)
+                    {
+                        if (rep) jm_report_add_entry(rep, "unexpected $Union [.'$type-or-ref'.'|'.4]", path);
+                    }
+                }
+            }
         }
     }
     if (res)

@@ -69,7 +69,21 @@
       "?prefixItems": "$schemaArray",
       "?items": {
         "|": [
-          "$Schema",
+          true,
+          "$Null",
+          "$Bool",
+          "$Const",
+          "$Enum",
+          "$Integer",
+          "$Number",
+          "$String",
+          "$Array",
+          "$Object",
+          "$AllOf",
+          "$AnyOf",
+          "$OneOf",
+          "$Ref",
+          "$metas",
           "$schemaArray"
         ]
       },
@@ -193,7 +207,21 @@
       "?prefixItems": "$schemaArray",
       "?items": {
         "|": [
-          "$Schema",
+          true,
+          "$Null",
+          "$Bool",
+          "$Const",
+          "$Enum",
+          "$Integer",
+          "$Number",
+          "$String",
+          "$Array",
+          "$Object",
+          "$AllOf",
+          "$AnyOf",
+          "$OneOf",
+          "$Ref",
+          "$metas",
           "$schemaArray"
         ]
       },
@@ -471,7 +499,20 @@
     "Schema": {
       "|": [
         true,
-        "$ObjectSchema"
+        "$Null",
+        "$Bool",
+        "$Const",
+        "$Enum",
+        "$Integer",
+        "$Number",
+        "$String",
+        "$Array",
+        "$Object",
+        "$AllOf",
+        "$AnyOf",
+        "$OneOf",
+        "$Ref",
+        "$metas"
       ],
       "#": "JsonModel 24"
     },

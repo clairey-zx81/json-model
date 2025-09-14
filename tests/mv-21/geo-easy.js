@@ -10,6 +10,7 @@ import * as runtime from "json_model_runtime"
 const JSON_MODEL_VERSION = "2";
 
 let _jm_map_0 = new Map()
+let _jm_map_1 = new Map()
 var check_model_map = new Map()
 
 // check $position (.'$position')
@@ -993,18 +994,63 @@ function _jm_obj_7(val, path, rep)
     if (! res)
     {
         // .'$Feature'.geometry.'|'.1
-        res = json_model_11(pval, path, rep);
+        res = json_model_5(pval, path, rep);
         if (! res)
         {
-            rep !== null && rep.push(["unexpected $geometry [.'$Feature'.geometry.'|'.1]", path])
+            rep !== null && rep.push(["unexpected $Point [.'$Feature'.geometry.'|'.1]", path])
         }
         if (! res)
         {
             // .'$Feature'.geometry.'|'.2
-            res = json_model_12(pval, path, rep);
+            res = json_model_6(pval, path, rep);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.2]", path])
+                rep !== null && rep.push(["unexpected $MultiPoint [.'$Feature'.geometry.'|'.2]", path])
+            }
+            if (! res)
+            {
+                // .'$Feature'.geometry.'|'.3
+                res = json_model_7(pval, path, rep);
+                if (! res)
+                {
+                    rep !== null && rep.push(["unexpected $LineString [.'$Feature'.geometry.'|'.3]", path])
+                }
+                if (! res)
+                {
+                    // .'$Feature'.geometry.'|'.4
+                    res = json_model_8(pval, path, rep);
+                    if (! res)
+                    {
+                        rep !== null && rep.push(["unexpected $MultiLineString [.'$Feature'.geometry.'|'.4]", path])
+                    }
+                    if (! res)
+                    {
+                        // .'$Feature'.geometry.'|'.5
+                        res = json_model_9(pval, path, rep);
+                        if (! res)
+                        {
+                            rep !== null && rep.push(["unexpected $Polygon [.'$Feature'.geometry.'|'.5]", path])
+                        }
+                        if (! res)
+                        {
+                            // .'$Feature'.geometry.'|'.6
+                            res = json_model_10(pval, path, rep);
+                            if (! res)
+                            {
+                                rep !== null && rep.push(["unexpected $MultiPolygon [.'$Feature'.geometry.'|'.6]", path])
+                            }
+                            if (! res)
+                            {
+                                // .'$Feature'.geometry.'|'.7
+                                res = json_model_12(pval, path, rep);
+                                if (! res)
+                                {
+                                    rep !== null && rep.push(["unexpected $GeometryCollection [.'$Feature'.geometry.'|'.7]", path])
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -1250,69 +1296,39 @@ function json_model_14(val, path, rep)
     return res;
 }
 
+
 // check $ (.)
 function json_model_1(val, path, rep)
 {
     let res;
     // Easy Geo JSON Model JSON_MODEL_LOOSE_FLOAT
     // .
-    // generic xor list
-    let xc_0 = 0;
-    let xr_0;
-    // .'^'.0
-    xr_0 = json_model_11(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $geometry [.'^'.0]", path])
-    }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    // .'^'.1
-    xr_0 = json_model_12(val, path, rep);
-    if (! xr_0)
-    {
-        rep !== null && rep.push(["unexpected $GeometryCollection [.'^'.1]", path])
-    }
-    if (xr_0)
-    {
-        xc_0 += 1;
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.2
-        xr_0 = json_model_13(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected $Feature [.'^'.2]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    if (xc_0 <= 1)
-    {
-        // .'^'.3
-        xr_0 = json_model_14(val, path, rep);
-        if (! xr_0)
-        {
-            rep !== null && rep.push(["unexpected $FeatureCollection [.'^'.3]", path])
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-    }
-    res = xc_0 == 1;
+    res = Object.prototype.toString.call(val) === '[object Object]';
     if (res)
     {
-        if (rep !== null) rep.length = 0
+        if (val.hasOwnProperty("type"))
+        {
+            let tag_1 = val["type"];
+            let fun_1 = _jm_map_1.get(tag_1);
+            if (fun_1 !== undefined)
+            {
+                res = fun_1(val, path, rep);
+            }
+            else
+            {
+                res = false;
+                rep !== null && rep.push(["tag <type> value not found [.'|']", path])
+            }
+        }
+        else
+        {
+            res = false;
+            rep !== null && rep.push(["tag prop <type> is missing [.'|']", path])
+        }
     }
     else
     {
-        rep !== null && rep.push(["not one model match [.'^']", path])
+        rep !== null && rep.push(["value is not an object [.'|']", path])
     }
     return res;
 }
@@ -1333,6 +1349,15 @@ export function check_model_init()
         _jm_map_0.set("MultiLineString", json_model_8)
         _jm_map_0.set("Polygon", json_model_9)
         _jm_map_0.set("MultiPolygon", json_model_10)
+        _jm_map_1.set("Point", json_model_5)
+        _jm_map_1.set("MultiPoint", json_model_6)
+        _jm_map_1.set("LineString", json_model_7)
+        _jm_map_1.set("MultiLineString", json_model_8)
+        _jm_map_1.set("Polygon", json_model_9)
+        _jm_map_1.set("MultiPolygon", json_model_10)
+        _jm_map_1.set("GeometryCollection", json_model_12)
+        _jm_map_1.set("Feature", json_model_13)
+        _jm_map_1.set("FeatureCollection", json_model_14)
         check_model_map.set("", json_model_1)
         check_model_map.set("position", json_model_2)
         check_model_map.set("coord_array", json_model_3)

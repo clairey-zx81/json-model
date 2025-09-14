@@ -8436,261 +8436,8 @@ function json_model_53(val, path, rep)
     return res;
 }
 
-// check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+// check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 function _jm_f_23(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.author
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.author]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
-function _jm_f_24(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.cloud_platforms
-    res = true;
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModel'.'|'.2.cloud_platforms]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.2.company)
-function _jm_f_25(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.company
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.company]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
-function _jm_f_26(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.galaxy_tags
-    res = Array.isArray(val);
-    if (res)
-    {
-        for (let arr_97_idx = 0; arr_97_idx < val.length; arr_97_idx++)
-        {
-            let arr_97_item = val[arr_97_idx]
-            let arr_97_lpath = path ? path.concat([arr_97_idx]) : null;
-            // .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
-            res = (typeof arr_97_item === 'string' || arr_97_item instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.galaxy_tags.0]", (path ? arr_97_lpath : null)])
-            }
-            if (! res)
-            {
-                break;
-            }
-        }
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.galaxy_tags]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
-function _jm_f_27(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.github_branch
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.github_branch]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
-function _jm_f_28(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.issue_tracker_url]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.2.license)
-function _jm_f_29(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.license
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.license]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
-function _jm_f_30(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
-function _jm_f_31(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.min_ansible_version
-    res = (typeof val === 'string' || val instanceof String);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.min_ansible_version]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
-function _jm_f_32(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.namespace
-    // "/^[a-z][-a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.namespace]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
-function _jm_f_33(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.platforms
-    res = json_model_50(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.2.platforms]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
-function _jm_f_34(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.role_name
-    // "/^[a-z][a-z0-9_]+$/"
-    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
-    if (! res)
-    {
-        rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.2.role_name]", path])
-    }
-    return res;
-}
-
-// check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
-function _jm_f_35(val, path, rep)
-{
-    let res;
-    // .'$GalaxyInfoModel'.'|'.2.video_links
-    res = Array.isArray(val);
-    if (res)
-    {
-        // accept any array
-    }
-    if (! res)
-    {
-        rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.2.video_links]", path])
-    }
-    return res;
-}
-
-
-// object .'$GalaxyInfoModel'.'|'.2
-function _jm_obj_97(val, path, rep)
-{
-    if (! (Object.prototype.toString.call(val) === '[object Object]'))
-    {
-        rep !== null && rep.push(["not an object [.'$GalaxyInfoModel'.'|'.2]", path])
-        return false;
-    }
-    let res;
-    let pfun;
-    let must_count = 0;
-    for (const [prop, pval] of Object.entries(val))
-    {
-        let lpath_50 = path ? path.concat([prop]) : null;
-        if (prop == "description")
-        {
-            // handle must description property
-            must_count += 1;
-            // .'$GalaxyInfoModel'.'|'.2.description
-            res = (typeof pval === 'string' || pval instanceof String);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_50 : null)])
-            }
-            if (! res)
-            {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.2.description]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else if ((pfun = _jm_obj_97_map.get(prop)))
-        {
-            // handle 13 may props
-            if (pfun !== undefined && ! pfun(pval, (path ? lpath_50 : null), rep))
-            {
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.2]", (path ? lpath_50 : null)])
-                return false;
-            }
-        }
-        else
-        {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.2]", (path ? lpath_50 : null)])
-            return false;
-        }
-    }
-    if (must_count != 1)
-    {
-        if (rep !== null)
-        {
-            if (! val.hasOwnProperty("description"))
-            {
-                rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.2]", path])
-            }
-        }
-        return false;
-    }
-    return true;
-}
-
-// check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.1.author)
-function _jm_f_36(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.author
@@ -8702,8 +8449,8 @@ function _jm_f_36(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
-function _jm_f_37(val, path, rep)
+// check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+function _jm_f_24(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.cloud_platforms
@@ -8715,8 +8462,8 @@ function _jm_f_37(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.1.company)
-function _jm_f_38(val, path, rep)
+// check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+function _jm_f_25(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.company
@@ -8728,23 +8475,23 @@ function _jm_f_38(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
-function _jm_f_39(val, path, rep)
+// check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+function _jm_f_26(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.galaxy_tags
     res = Array.isArray(val);
     if (res)
     {
-        for (let arr_98_idx = 0; arr_98_idx < val.length; arr_98_idx++)
+        for (let arr_97_idx = 0; arr_97_idx < val.length; arr_97_idx++)
         {
-            let arr_98_item = val[arr_98_idx]
-            let arr_98_lpath = path ? path.concat([arr_98_idx]) : null;
+            let arr_97_item = val[arr_97_idx]
+            let arr_97_lpath = path ? path.concat([arr_97_idx]) : null;
             // .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
-            res = (typeof arr_98_item === 'string' || arr_98_item instanceof String);
+            res = (typeof arr_97_item === 'string' || arr_97_item instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path ? arr_98_lpath : null)])
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.galaxy_tags.0]", (path ? arr_97_lpath : null)])
             }
             if (! res)
             {
@@ -8759,8 +8506,8 @@ function _jm_f_39(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
-function _jm_f_40(val, path, rep)
+// check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+function _jm_f_27(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.github_branch
@@ -8772,8 +8519,8 @@ function _jm_f_40(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
-function _jm_f_41(val, path, rep)
+// check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+function _jm_f_28(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
@@ -8785,8 +8532,8 @@ function _jm_f_41(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.1.license)
-function _jm_f_42(val, path, rep)
+// check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+function _jm_f_29(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.license
@@ -8798,8 +8545,8 @@ function _jm_f_42(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
-function _jm_f_43(val, path, rep)
+// check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+function _jm_f_30(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
@@ -8811,8 +8558,8 @@ function _jm_f_43(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
-function _jm_f_44(val, path, rep)
+// check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+function _jm_f_31(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.min_ansible_version
@@ -8824,8 +8571,8 @@ function _jm_f_44(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
-function _jm_f_45(val, path, rep)
+// check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+function _jm_f_32(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.namespace
@@ -8838,8 +8585,8 @@ function _jm_f_45(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
-function _jm_f_46(val, path, rep)
+// check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+function _jm_f_33(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.platforms
@@ -8851,8 +8598,8 @@ function _jm_f_46(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
-function _jm_f_47(val, path, rep)
+// check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+function _jm_f_34(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.role_name
@@ -8865,8 +8612,8 @@ function _jm_f_47(val, path, rep)
     return res;
 }
 
-// check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
-function _jm_f_48(val, path, rep)
+// check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+function _jm_f_35(val, path, rep)
 {
     let res;
     // .'$GalaxyInfoModel'.'|'.1.video_links
@@ -8884,11 +8631,264 @@ function _jm_f_48(val, path, rep)
 
 
 // object .'$GalaxyInfoModel'.'|'.1
-function _jm_obj_98(val, path, rep)
+function _jm_obj_97(val, path, rep)
 {
     if (! (Object.prototype.toString.call(val) === '[object Object]'))
     {
         rep !== null && rep.push(["not an object [.'$GalaxyInfoModel'.'|'.1]", path])
+        return false;
+    }
+    let res;
+    let pfun;
+    let must_count = 0;
+    for (const [prop, pval] of Object.entries(val))
+    {
+        let lpath_50 = path ? path.concat([prop]) : null;
+        if (prop == "description")
+        {
+            // handle must description property
+            must_count += 1;
+            // .'$GalaxyInfoModel'.'|'.1.description
+            res = (typeof pval === 'string' || pval instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
+            }
+            if (! res)
+            {
+                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else if ((pfun = _jm_obj_97_map.get(prop)))
+        {
+            // handle 13 may props
+            if (pfun !== undefined && ! pfun(pval, (path ? lpath_50 : null), rep))
+            {
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_50 : null)])
+                return false;
+            }
+        }
+        else
+        {
+            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_50 : null)])
+            return false;
+        }
+    }
+    if (must_count != 1)
+    {
+        if (rep !== null)
+        {
+            if (! val.hasOwnProperty("description"))
+            {
+                rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path])
+            }
+        }
+        return false;
+    }
+    return true;
+}
+
+// check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
+function _jm_f_36(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.author
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.author]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
+function _jm_f_37(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.cloud_platforms
+    res = true;
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $ANY [.'$GalaxyInfoModel'.'|'.0.cloud_platforms]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
+function _jm_f_38(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.company
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.company]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
+function _jm_f_39(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.galaxy_tags
+    res = Array.isArray(val);
+    if (res)
+    {
+        for (let arr_98_idx = 0; arr_98_idx < val.length; arr_98_idx++)
+        {
+            let arr_98_item = val[arr_98_idx]
+            let arr_98_lpath = path ? path.concat([arr_98_idx]) : null;
+            // .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
+            res = (typeof arr_98_item === 'string' || arr_98_item instanceof String);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.galaxy_tags.0]", (path ? arr_98_lpath : null)])
+            }
+            if (! res)
+            {
+                break;
+            }
+        }
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.galaxy_tags]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
+function _jm_f_40(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.github_branch
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.github_branch]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
+function _jm_f_41(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.issue_tracker_url]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
+function _jm_f_42(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.license
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.license]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
+function _jm_f_43(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
+function _jm_f_44(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.min_ansible_version
+    res = (typeof val === 'string' || val instanceof String);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.min_ansible_version]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
+function _jm_f_45(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.namespace
+    // "/^[a-z][-a-z0-9_]+$/"
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_0(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected /^[a-z][-a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.namespace]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
+function _jm_f_46(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.platforms
+    res = json_model_50(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected $platforms [.'$GalaxyInfoModel'.'|'.0.platforms]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
+function _jm_f_47(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.role_name
+    // "/^[a-z][a-z0-9_]+$/"
+    res = ((typeof val === 'string' || val instanceof String)) && _jm_re_1(val, path, rep);
+    if (! res)
+    {
+        rep !== null && rep.push(["unexpected /^[a-z][a-z0-9_]+$/ [.'$GalaxyInfoModel'.'|'.0.role_name]", path])
+    }
+    return res;
+}
+
+// check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
+function _jm_f_48(val, path, rep)
+{
+    let res;
+    // .'$GalaxyInfoModel'.'|'.0.video_links
+    res = Array.isArray(val);
+    if (res)
+    {
+        // accept any array
+    }
+    if (! res)
+    {
+        rep !== null && rep.push(["not array or unexpected array [.'$GalaxyInfoModel'.'|'.0.video_links]", path])
+    }
+    return res;
+}
+
+
+// object .'$GalaxyInfoModel'.'|'.0
+function _jm_obj_98(val, path, rep)
+{
+    if (! (Object.prototype.toString.call(val) === '[object Object]'))
+    {
+        rep !== null && rep.push(["not an object [.'$GalaxyInfoModel'.'|'.0]", path])
         return false;
     }
     let res;
@@ -8901,15 +8901,15 @@ function _jm_obj_98(val, path, rep)
         {
             // handle must standalone property
             must_count += 1;
-            // .'$GalaxyInfoModel'.'|'.1.standalone
+            // .'$GalaxyInfoModel'.'|'.0.standalone
             res = ((typeof pval === 'boolean' || pval instanceof Boolean)) && pval == false;
             if (! res)
             {
-                rep !== null && rep.push(["unexpected =false [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected =false [.'$GalaxyInfoModel'.'|'.0.standalone]", (path ? lpath_51 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.standalone]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.standalone]", (path ? lpath_51 : null)])
                 return false;
             }
         }
@@ -8917,15 +8917,15 @@ function _jm_obj_98(val, path, rep)
         {
             // handle must description property
             must_count += 1;
-            // .'$GalaxyInfoModel'.'|'.1.description
+            // .'$GalaxyInfoModel'.'|'.0.description
             res = (typeof pval === 'string' || pval instanceof String);
             if (! res)
             {
-                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["unexpected string [.'$GalaxyInfoModel'.'|'.0.description]", (path ? lpath_51 : null)])
             }
             if (! res)
             {
-                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.1.description]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid mandatory prop value [.'$GalaxyInfoModel'.'|'.0.description]", (path ? lpath_51 : null)])
                 return false;
             }
         }
@@ -8934,13 +8934,13 @@ function _jm_obj_98(val, path, rep)
             // handle 13 may props
             if (pfun !== undefined && ! pfun(pval, (path ? lpath_51 : null), rep))
             {
-                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_51 : null)])
+                rep !== null && rep.push(["invalid optional prop value [.'$GalaxyInfoModel'.'|'.0]", (path ? lpath_51 : null)])
                 return false;
             }
         }
         else
         {
-            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.1]", (path ? lpath_51 : null)])
+            rep !== null && rep.push(["unexpected prop [.'$GalaxyInfoModel'.'|'.0]", (path ? lpath_51 : null)])
             return false;
         }
     }
@@ -8950,11 +8950,11 @@ function _jm_obj_98(val, path, rep)
         {
             if (! val.hasOwnProperty("description"))
             {
-                rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.1]", path])
+                rep !== null && rep.push(["missing mandatory prop <description> [.'$GalaxyInfoModel'.'|'.0]", path])
             }
             if (! val.hasOwnProperty("standalone"))
             {
-                rep !== null && rep.push(["missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.1]", path])
+                rep !== null && rep.push(["missing mandatory prop <standalone> [.'$GalaxyInfoModel'.'|'.0]", path])
             }
         }
         return false;
@@ -8968,37 +8968,45 @@ function json_model_54(val, path, rep)
     let res;
     // hmmmm, property standalone should probably be required…
     // .'$GalaxyInfoModel'
-    // .'$GalaxyInfoModel'.'|'.0
-    res = json_model_53(val, path, rep);
+    res = Object.prototype.toString.call(val) === '[object Object]';
     if (! res)
     {
-        rep !== null && rep.push(["unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|'.0]", path])
-    }
-    if (! res)
-    {
-        // .'$GalaxyInfoModel'.'|'.1
-        res = _jm_obj_98(val, path, rep);
-        if (! res)
-        {
-            rep !== null && rep.push(["unexpected element [.'$GalaxyInfoModel'.'|'.1]", path])
-        }
-        if (! res)
-        {
-            // .'$GalaxyInfoModel'.'|'.2
-            res = _jm_obj_97(val, path, rep);
-            if (! res)
-            {
-                rep !== null && rep.push(["unexpected element [.'$GalaxyInfoModel'.'|'.2]", path])
-            }
-        }
+        rep !== null && rep.push(["unexpected type [.'$GalaxyInfoModel'.'|']", path])
     }
     if (res)
     {
-        if (rep !== null) rep.length = 0
+        // .'$GalaxyInfoModel'.'|'.0
+        res = _jm_obj_98(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected element [.'$GalaxyInfoModel'.'|'.0]", path])
+        }
+        if (! res)
+        {
+            // .'$GalaxyInfoModel'.'|'.1
+            res = _jm_obj_97(val, path, rep);
+            if (! res)
+            {
+                rep !== null && rep.push(["unexpected element [.'$GalaxyInfoModel'.'|'.1]", path])
+            }
+        }
+        if (res)
+        {
+            if (rep !== null) rep.length = 0
+        }
+        else
+        {
+            rep !== null && rep.push(["no model matched [.'$GalaxyInfoModel'.'|']", path])
+        }
     }
-    else
+    if (! res)
     {
-        rep !== null && rep.push(["no model matched [.'$GalaxyInfoModel'.'|']", path])
+        // .'$GalaxyInfoModel'.'|'
+        res = json_model_53(val, path, rep);
+        if (! res)
+        {
+            rep !== null && rep.push(["unexpected $GalaxyInfoModelStandalone [.'$GalaxyInfoModel'.'|']", path])
+        }
     }
     return res;
 }

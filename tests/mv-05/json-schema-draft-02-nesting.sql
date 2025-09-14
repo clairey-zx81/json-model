@@ -387,6 +387,15 @@ BEGIN
 END;
 $$ LANGUAGE PLpgSQL;
 
+CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
+RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
+DECLARE
+  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object","any"]';
+BEGIN
+  RETURN constants @> value;
+END;
+$$ LANGUAGE plpgsql;
+
 -- check _jm_obj_0_map_type (.'$schema'.type)
 CREATE OR REPLACE FUNCTION _jm_f_25(val JSONB, path TEXT[], rep jm_report_entry[])
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
@@ -396,19 +405,18 @@ DECLARE
   arr_2_item JSONB;
 BEGIN
   -- .'$schema'.type
-  -- .'$schema'.type.'|'.0
-  res := json_model_4(val, path, rep);
+  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
   IF NOT res THEN
-    -- .'$schema'.type.'|'.1
     res := JSONB_TYPEOF(val) = 'array';
     IF res THEN
+      -- .'$schema'.type.'|'.0
       FOR arr_2_idx IN 0 .. JSONB_ARRAY_LENGTH(val) - 1 LOOP
         arr_2_item := val -> arr_2_idx;
-        -- .'$schema'.type.'|'.1.0
-        -- .'$schema'.type.'|'.1.0.'|'.0
+        -- .'$schema'.type.'|'.0.0
+        -- .'$schema'.type.'|'.0.0.'|'.0
         res := JSONB_TYPEOF(arr_2_item) = 'string';
         IF NOT res THEN
-          -- .'$schema'.type.'|'.1.0.'|'.1
+          -- .'$schema'.type.'|'.0.0.'|'.1
           res := json_model_3(arr_2_item, NULL, rep);
         END IF;
         IF NOT res THEN
@@ -495,27 +503,6 @@ DECLARE
 BEGIN
   -- .
   res := json_model_3(val, path, rep);
-  RETURN res;
-END;
-$$ LANGUAGE PLpgSQL;
-
-CREATE OR REPLACE FUNCTION _jm_cst_0(value JSONB)
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  constants JSONB = JSONB '["null","boolean","integer","number","string","array","object","any"]';
-BEGIN
-  RETURN constants @> value;
-END;
-$$ LANGUAGE plpgsql;
-
--- check $schema#allTypes (.'$schema#allTypes')
-CREATE OR REPLACE FUNCTION json_model_4(val JSONB, path TEXT[], rep jm_report_entry[])
-RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
-DECLARE
-  res bool;
-BEGIN
-  -- .'$schema#allTypes'
-  res := JSONB_TYPEOF(val) IN ('null', 'boolean', 'number', 'string') AND _jm_cst_0(val);
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

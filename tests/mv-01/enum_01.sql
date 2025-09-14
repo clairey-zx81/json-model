@@ -52,23 +52,73 @@ CREATE OR REPLACE FUNCTION json_model_1(val JSONB, path TEXT[], rep jm_report_en
 RETURNS BOOLEAN CALLED ON NULL INPUT IMMUTABLE PARALLEL SAFE AS $$
 DECLARE
   res bool;
+  is_0 bool;
   xc_0 int;
   xr_0 bool;
 BEGIN
   -- .
-  -- generic xor list
-  xc_0 := 0;
-  -- .'^'.0
-  xr_0 := json_model_2(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
+  -- remove duplicate xor list
+  res := TRUE;
+  -- .'^'.9
+  is_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Bad';
+  res := NOT is_0;
+  IF res THEN
+    -- generic xor list
+    xc_0 := 0;
+    -- .'^'.0
+    xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Susie';
+    IF xr_0 THEN
+      xc_0 := xc_0 + 1;
+    END IF;
+    -- .'^'.1
+    xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Calvin';
+    IF xr_0 THEN
+      xc_0 := xc_0 + 1;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.2
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Hobbes';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.3
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Moe';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.5
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Castafiore';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.6
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Haddock';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.7
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Milou';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    IF xc_0 <= 1 THEN
+      -- .'^'.8
+      xr_0 := JSONB_TYPEOF(val) = 'string' AND JSON_VALUE(val, '$' RETURNING TEXT) = 'Tintin';
+      IF xr_0 THEN
+        xc_0 := xc_0 + 1;
+      END IF;
+    END IF;
+    res := xc_0 = 1;
   END IF;
-  -- .'^'.1
-  xr_0 := json_model_3(val, path, rep);
-  IF xr_0 THEN
-    xc_0 := xc_0 + 1;
-  END IF;
-  res := xc_0 = 1;
   RETURN res;
 END;
 $$ LANGUAGE PLpgSQL;

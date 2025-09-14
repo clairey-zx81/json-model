@@ -53,30 +53,121 @@ public class enum_01 extends ModelChecker
     {
         boolean res;
         // .
-        // generic xor list
-        long xc_0 = 0;
-        boolean xr_0;
-        // .'^'.0
-        xr_0 = json_model_2(val, path, rep);
-        if (! xr_0)
+        // remove duplicate xor list
+        boolean is_0;
+        res = true;
+        // .'^'.9
+        is_0 = json.isString(val) && json.asString(val).compareTo("Bad") == 0;
+        if (! is_0)
         {
-            if (rep != null) rep.addEntry("unexpected $p1 [.'^'.0]", path);
+            if (rep != null) rep.addEntry("unexpected Bad [.'^'.9]", path);
         }
-        if (xr_0)
+        res = ! is_0;
+        if (res)
         {
-            xc_0 += 1;
+            // generic xor list
+            long xc_0 = 0;
+            boolean xr_0;
+            // .'^'.0
+            xr_0 = json.isString(val) && json.asString(val).compareTo("Susie") == 0;
+            if (! xr_0)
+            {
+                if (rep != null) rep.addEntry("unexpected Susie [.'^'.0]", path);
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+            // .'^'.1
+            xr_0 = json.isString(val) && json.asString(val).compareTo("Calvin") == 0;
+            if (! xr_0)
+            {
+                if (rep != null) rep.addEntry("unexpected Calvin [.'^'.1]", path);
+            }
+            if (xr_0)
+            {
+                xc_0 += 1;
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.2
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Hobbes") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Hobbes [.'^'.2]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.3
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Moe") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Moe [.'^'.3]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.5
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Castafiore") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Castafiore [.'^'.5]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.6
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Haddock") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Haddock [.'^'.6]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.7
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Milou") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Milou [.'^'.7]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            if (xc_0 <= 1)
+            {
+                // .'^'.8
+                xr_0 = json.isString(val) && json.asString(val).compareTo("Tintin") == 0;
+                if (! xr_0)
+                {
+                    if (rep != null) rep.addEntry("unexpected Tintin [.'^'.8]", path);
+                }
+                if (xr_0)
+                {
+                    xc_0 += 1;
+                }
+            }
+            res = xc_0 == 1;
         }
-        // .'^'.1
-        xr_0 = json_model_3(val, path, rep);
-        if (! xr_0)
-        {
-            if (rep != null) rep.addEntry("unexpected $p2 [.'^'.1]", path);
-        }
-        if (xr_0)
-        {
-            xc_0 += 1;
-        }
-        res = xc_0 == 1;
         if (res)
         {
             if (rep != null) rep.clearEntries();

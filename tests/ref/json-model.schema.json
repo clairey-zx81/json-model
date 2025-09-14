@@ -117,7 +117,13 @@
           "type": "boolean"
         },
         {
-          "$ref": "#/$defs/CmpValue"
+          "type": "integer"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
         }
       ]
     },
@@ -142,10 +148,99 @@
           "$ref": "#/$defs/ValConst"
         },
         {
-          "$ref": "#/$defs/Regex"
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
         },
         {
-          "$ref": "#/$defs/PreDef"
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
+        },
+        {
+          "const": "$DATE"
+        },
+        {
+          "const": "$TIME"
+        },
+        {
+          "const": "$DATETIME"
+        },
+        {
+          "const": "$URL"
+        },
+        {
+          "const": "$URI"
+        },
+        {
+          "const": "$UUID"
+        },
+        {
+          "const": "$EMAIL"
+        },
+        {
+          "const": "$REGEX"
+        },
+        {
+          "const": "$EXREG"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$STRING"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
         },
         {
           "$ref": "#/$defs/Ref"
@@ -162,7 +257,264 @@
       "items": {
         "anyOf": [
           {
-            "$ref": "#/$defs/Model"
+            "type": "null"
+          },
+          {
+            "const": true
+          },
+          {
+            "const": 0
+          },
+          {
+            "const": 1
+          },
+          {
+            "const": -1
+          },
+          {
+            "const": 0.0
+          },
+          {
+            "const": 1.0
+          },
+          {
+            "const": -1.0
+          },
+          {
+            "$ref": "#/$defs/StrConst"
+          },
+          {
+            "$ref": "#/$defs/ValConst"
+          },
+          {
+            "type": "string",
+            "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+          },
+          {
+            "type": "string",
+            "pattern": "^/(.*)/[a-z]*$"
+          },
+          {
+            "const": "$DATE"
+          },
+          {
+            "const": "$TIME"
+          },
+          {
+            "const": "$DATETIME"
+          },
+          {
+            "const": "$URL"
+          },
+          {
+            "const": "$URI"
+          },
+          {
+            "const": "$UUID"
+          },
+          {
+            "const": "$EMAIL"
+          },
+          {
+            "const": "$REGEX"
+          },
+          {
+            "const": "$EXREG"
+          },
+          {
+            "const": "$NULL"
+          },
+          {
+            "const": "$BOOL"
+          },
+          {
+            "const": "$FLOAT"
+          },
+          {
+            "const": "$F16"
+          },
+          {
+            "const": "$F32"
+          },
+          {
+            "const": "$F64"
+          },
+          {
+            "const": "$NUMBER"
+          },
+          {
+            "const": "$INT"
+          },
+          {
+            "const": "$INTEGER"
+          },
+          {
+            "const": "$I8"
+          },
+          {
+            "const": "$I16"
+          },
+          {
+            "const": "$I32"
+          },
+          {
+            "const": "$I64"
+          },
+          {
+            "const": "$U8"
+          },
+          {
+            "const": "$U16"
+          },
+          {
+            "const": "$U32"
+          },
+          {
+            "const": "$U64"
+          },
+          {
+            "const": "$STRING"
+          },
+          {
+            "const": "$NONE"
+          },
+          {
+            "const": "$ANY"
+          },
+          {
+            "$ref": "#/$defs/Ref"
+          },
+          {
+            "const": ""
+          },
+          {
+            "$ref": "#/$defs/Array"
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true,
+              "^(<=|>=|<|>)$": {
+                "$ref": "#/$defs/CmpValue"
+              },
+              "^(=|!=)$": {
+                "$ref": "#/$defs/EqValue"
+              }
+            },
+            "properties": {
+              "@": {
+                "$ref": "#/$defs/Model"
+              },
+              "#": {
+                "type": "string"
+              },
+              "!": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "@"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true
+            },
+            "properties": {
+              "|": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "#": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "|"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true
+            },
+            "properties": {
+              "&": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "#": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "&"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true
+            },
+            "properties": {
+              "^": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "#": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "^"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true
+            },
+            "properties": {
+              "+": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "#": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "+"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "patternProperties": {
+              "^#": true,
+              "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "properties": {
+              "#": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           },
           {
             "$ref": "#/$defs/ArrayComment"
@@ -266,7 +618,12 @@
           "$ref": "#/$defs/StrConst"
         },
         {
-          "$ref": "#/$defs/Regex"
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
         },
         {
           "$ref": "#/$defs/Ref"
@@ -282,7 +639,7 @@
     "Obj": {
       "type": "object",
       "patternProperties": {
-        "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+        "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
           "$ref": "#/$defs/Model"
         }
       },
@@ -427,7 +784,7 @@
           "type": "object",
           "patternProperties": {
             "^#": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -447,7 +804,19 @@
         "/": {
           "anyOf": [
             {
-              "$ref": "#/$defs/EqValue"
+              "type": "null"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
             },
             {
               "type": "array",
@@ -468,7 +837,264 @@
     "Transformation": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Model"
+          "type": "null"
+        },
+        {
+          "const": true
+        },
+        {
+          "const": 0
+        },
+        {
+          "const": 1
+        },
+        {
+          "const": -1
+        },
+        {
+          "const": 0.0
+        },
+        {
+          "const": 1.0
+        },
+        {
+          "const": -1.0
+        },
+        {
+          "$ref": "#/$defs/StrConst"
+        },
+        {
+          "$ref": "#/$defs/ValConst"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
+        },
+        {
+          "const": "$DATE"
+        },
+        {
+          "const": "$TIME"
+        },
+        {
+          "const": "$DATETIME"
+        },
+        {
+          "const": "$URL"
+        },
+        {
+          "const": "$URI"
+        },
+        {
+          "const": "$UUID"
+        },
+        {
+          "const": "$EMAIL"
+        },
+        {
+          "const": "$REGEX"
+        },
+        {
+          "const": "$EXREG"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$STRING"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
+        },
+        {
+          "$ref": "#/$defs/Ref"
+        },
+        {
+          "const": ""
+        },
+        {
+          "$ref": "#/$defs/Array"
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "^(<=|>=|<|>)$": {
+              "$ref": "#/$defs/CmpValue"
+            },
+            "^(=|!=)$": {
+              "$ref": "#/$defs/EqValue"
+            }
+          },
+          "properties": {
+            "@": {
+              "$ref": "#/$defs/Model"
+            },
+            "#": {
+              "type": "string"
+            },
+            "!": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "@"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "|": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "|"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "&": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "&"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "^": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "^"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "+": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "+"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
+              "$ref": "#/$defs/Model"
+            }
+          },
+          "properties": {
+            "#": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         {
           "type": "object",
@@ -482,7 +1108,19 @@
             "/": {
               "anyOf": [
                 {
-                  "$ref": "#/$defs/EqValue"
+                  "type": "null"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
                 },
                 {
                   "type": "array",
@@ -505,23 +1143,399 @@
     "ScalarModel": {
       "anyOf": [
         {
-          "$ref": "#/$defs/ValModel"
+          "type": "null"
         },
         {
-          "$ref": "#/$defs/StrModel"
+          "const": true
+        },
+        {
+          "const": 0
+        },
+        {
+          "const": 1
+        },
+        {
+          "const": -1
+        },
+        {
+          "const": 0.0
+        },
+        {
+          "const": 1.0
+        },
+        {
+          "const": -1.0
+        },
+        {
+          "$ref": "#/$defs/StrConst"
+        },
+        {
+          "$ref": "#/$defs/ValConst"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
+        },
+        {
+          "const": "$DATE"
+        },
+        {
+          "const": "$TIME"
+        },
+        {
+          "const": "$DATETIME"
+        },
+        {
+          "const": "$URL"
+        },
+        {
+          "const": "$URI"
+        },
+        {
+          "const": "$UUID"
+        },
+        {
+          "const": "$EMAIL"
+        },
+        {
+          "const": "$REGEX"
+        },
+        {
+          "const": "$EXREG"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$STRING"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
+        },
+        {
+          "$ref": "#/$defs/Ref"
+        },
+        {
+          "const": ""
         }
       ]
     },
     "Model": {
       "anyOf": [
         {
-          "$ref": "#/$defs/ScalarModel"
+          "type": "null"
+        },
+        {
+          "const": true
+        },
+        {
+          "const": 0
+        },
+        {
+          "const": 1
+        },
+        {
+          "const": -1
+        },
+        {
+          "const": 0.0
+        },
+        {
+          "const": 1.0
+        },
+        {
+          "const": -1.0
+        },
+        {
+          "$ref": "#/$defs/StrConst"
+        },
+        {
+          "$ref": "#/$defs/ValConst"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
+        },
+        {
+          "const": "$DATE"
+        },
+        {
+          "const": "$TIME"
+        },
+        {
+          "const": "$DATETIME"
+        },
+        {
+          "const": "$URL"
+        },
+        {
+          "const": "$URI"
+        },
+        {
+          "const": "$UUID"
+        },
+        {
+          "const": "$EMAIL"
+        },
+        {
+          "const": "$REGEX"
+        },
+        {
+          "const": "$EXREG"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$STRING"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
+        },
+        {
+          "$ref": "#/$defs/Ref"
+        },
+        {
+          "const": ""
         },
         {
           "$ref": "#/$defs/Array"
         },
         {
-          "$ref": "#/$defs/Element"
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "^(<=|>=|<|>)$": {
+              "$ref": "#/$defs/CmpValue"
+            },
+            "^(=|!=)$": {
+              "$ref": "#/$defs/EqValue"
+            }
+          },
+          "properties": {
+            "@": {
+              "$ref": "#/$defs/Model"
+            },
+            "#": {
+              "type": "string"
+            },
+            "!": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "@"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "|": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "|"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "&": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "&"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "^": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "^"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "+": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "+"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
+              "$ref": "#/$defs/Model"
+            }
+          },
+          "properties": {
+            "#": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     },
@@ -1019,7 +2033,7 @@
           "type": "object",
           "patternProperties": {
             "^#": true,
-            "(^[?!]|^[A-Za-z0-9_]|(^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$)|^\\$.|^\\..+$|^$)": {
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
               "$ref": "#/$defs/Model"
             }
           },
@@ -1088,13 +2102,582 @@
     "RootModel": {
       "anyOf": [
         {
-          "$ref": "#/$defs/ScalarModel"
+          "type": "null"
+        },
+        {
+          "const": true
+        },
+        {
+          "const": 0
+        },
+        {
+          "const": 1
+        },
+        {
+          "const": -1
+        },
+        {
+          "const": 0.0
+        },
+        {
+          "const": 1.0
+        },
+        {
+          "const": -1.0
+        },
+        {
+          "$ref": "#/$defs/StrConst"
+        },
+        {
+          "$ref": "#/$defs/ValConst"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*X[a-z]*$"
+        },
+        {
+          "type": "string",
+          "pattern": "^/(.*)/[a-z]*$"
+        },
+        {
+          "const": "$DATE"
+        },
+        {
+          "const": "$TIME"
+        },
+        {
+          "const": "$DATETIME"
+        },
+        {
+          "const": "$URL"
+        },
+        {
+          "const": "$URI"
+        },
+        {
+          "const": "$UUID"
+        },
+        {
+          "const": "$EMAIL"
+        },
+        {
+          "const": "$REGEX"
+        },
+        {
+          "const": "$EXREG"
+        },
+        {
+          "const": "$NULL"
+        },
+        {
+          "const": "$BOOL"
+        },
+        {
+          "const": "$FLOAT"
+        },
+        {
+          "const": "$F16"
+        },
+        {
+          "const": "$F32"
+        },
+        {
+          "const": "$F64"
+        },
+        {
+          "const": "$NUMBER"
+        },
+        {
+          "const": "$INT"
+        },
+        {
+          "const": "$INTEGER"
+        },
+        {
+          "const": "$I8"
+        },
+        {
+          "const": "$I16"
+        },
+        {
+          "const": "$I32"
+        },
+        {
+          "const": "$I64"
+        },
+        {
+          "const": "$U8"
+        },
+        {
+          "const": "$U16"
+        },
+        {
+          "const": "$U32"
+        },
+        {
+          "const": "$U64"
+        },
+        {
+          "const": "$STRING"
+        },
+        {
+          "const": "$NONE"
+        },
+        {
+          "const": "$ANY"
+        },
+        {
+          "$ref": "#/$defs/Ref"
+        },
+        {
+          "const": ""
         },
         {
           "$ref": "#/$defs/Array"
         },
         {
-          "$ref": "#/$defs/Root"
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "^(<=|>=|<|>)$": {
+              "$ref": "#/$defs/CmpValue"
+            },
+            "^(=|!=)$": {
+              "$ref": "#/$defs/EqValue"
+            }
+          },
+          "properties": {
+            "@": {
+              "$ref": "#/$defs/Model"
+            },
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            },
+            "!": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "@"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "|": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "|"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "&": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "&"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "^": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "^"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true
+          },
+          "properties": {
+            "+": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Model"
+              }
+            },
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "+"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^#": true,
+            "(^[?!]|^[A-Za-z0-9_]|^/(.*)/[a-z]*X[a-z]*$|^/(.*)/[a-z]*$|^\\$.|^\\..+$|^$)": {
+              "$ref": "#/$defs/Model"
+            }
+          },
+          "properties": {
+            "~": {
+              "$ref": "#/$defs/Url"
+            },
+            "$": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "(?s)^.*$": {
+                  "$ref": "#/$defs/Model"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "": {
+                  "$ref": "#/$defs/Url"
+                }
+              },
+              "additionalProperties": false
+            },
+            "%": {
+              "type": "object",
+              "patternProperties": {
+                "^#": true,
+                "^\\$.*$": {
+                  "$ref": "#/$defs/Transformation"
+                },
+                "^\\..+$": {
+                  "type": "string",
+                  "pattern": "^([#|&^+/*@~=$%]|[<>!]=?)$"
+                }
+              },
+              "properties": {
+                "#": {
+                  "type": "string"
+                },
+                "<": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/Ref"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/Ref"
+                      }
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "#": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         }
       ]
     }

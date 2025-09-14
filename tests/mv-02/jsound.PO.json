@@ -118,7 +118,10 @@
     "type-or-ref": {
       "|": [
         "",
-        "$Type"
+        "$Atomic",
+        "$Object",
+        "$Array",
+        "$Union"
       ],
       "#": "JsonModel 11"
     },

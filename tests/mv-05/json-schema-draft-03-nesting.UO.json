@@ -5,7 +5,14 @@
       "schema": {
         "?type": {
           "|": [
-            "$allTypes",
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object",
+            "any",
             [
               {
                 "|": [
@@ -149,7 +156,14 @@
   {
     "?type": {
       "|": [
-        "$allTypes",
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
+        "any",
         [
           {
             "|": [

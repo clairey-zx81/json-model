@@ -9,7 +9,9 @@
 - [x] artifact: reduce task granularity
 - [x] artifact: add bench docker image base on docker-cli
 - [x] java-backend: update dependency versions
-- [ ] static: detect partial discriminator on or/xor
+- [x] static: detect discriminator on object part of or/xor
+- [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
+- [ ] static: detect discriminators on objects sublists
 - [ ] artifact: make work with dind
 - [ ] tests: check how clang compares to gcc
 - [ ] pr: update tuto scripts to match current status

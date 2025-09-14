@@ -65,7 +65,13 @@
         },
         "?type": {
           "|": [
-            "$simpleTypes",
+            "null",
+            "boolean",
+            "integer",
+            "number",
+            "string",
+            "array",
+            "object",
             "$typeArray"
           ]
         },
@@ -184,7 +190,13 @@
     },
     "?type": {
       "|": [
-        "$simpleTypes",
+        "null",
+        "boolean",
+        "integer",
+        "number",
+        "string",
+        "array",
+        "object",
         "$typeArray"
       ]
     },

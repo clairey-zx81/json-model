@@ -74,7 +74,13 @@
       "validation": {
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -113,7 +119,8 @@
       "applicator": {
         "?items": {
           "|": [
-            "$Schema",
+            true,
+            "$ObjectSchema",
             "$schemaArray"
           ]
         },
@@ -157,7 +164,8 @@
         },
         "?items": {
           "|": [
-            "$Schema",
+            true,
+            "$ObjectSchema",
             "$schemaArray"
           ]
         },
@@ -185,7 +193,13 @@
         "?oneOf": "$schemaArray",
         "?type": {
           "|": [
-            "$simpleTypes",
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string",
             "$simpleTypesArray"
           ]
         },
@@ -310,7 +324,13 @@
   {
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },
@@ -349,7 +369,8 @@
   {
     "?items": {
       "|": [
-        "$Schema",
+        true,
+        "$ObjectSchema",
         "$schemaArray"
       ]
     },
@@ -393,7 +414,8 @@
     },
     "?items": {
       "|": [
-        "$Schema",
+        true,
+        "$ObjectSchema",
         "$schemaArray"
       ]
     },
@@ -421,7 +443,13 @@
     "?oneOf": "$schemaArray",
     "?type": {
       "|": [
-        "$simpleTypes",
+        "array",
+        "boolean",
+        "integer",
+        "null",
+        "number",
+        "object",
+        "string",
         "$simpleTypesArray"
       ]
     },

@@ -22,6 +22,7 @@ def check_model(val: Jsonable, name: str = "", rep: Report = None) -> bool:
 
 _jm_cst_0: set[str]
 _jm_cst_1: set[str]
+_jm_cst_2: set[str]
 _jm_obj_0_map: PropMap
 check_model_map: PropMap
 
@@ -466,42 +467,44 @@ def _jm_f_26(val: Jsonable, path: Path, rep: Report) -> bool:
         rep is None or rep.append(("unexpected string [.title]", path))
     return res
 
+
 # check _jm_obj_0_map_type (.type)
 def _jm_f_27(val: Jsonable, path: Path, rep: Report) -> bool:
     res: bool
     # .type
-    # .type.'|'.0
-    res = json_model_2(val, path, rep)
+    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_2
     if not res:
-        rep is None or rep.append(("unexpected $allTypes [.type.'|'.0]", path))
+        rep is None or rep.append(("value not in enum [.type.'|']", path))
     if not res:
-        # .type.'|'.1
         res = isinstance(val, list)
+        if not res:
+            rep is None or rep.append(("unexpected type [.type.'|']", path))
         if res:
+            # .type.'|'.0
             for arr_4_idx, arr_4_item in enumerate(val):
                 arr_4_lpath: Path = (path + [ arr_4_idx ]) if path is not None else None
-                # .type.'|'.1.0
-                # .type.'|'.1.0.'|'.0
+                # .type.'|'.0.0
+                # .type.'|'.0.0.'|'.0
                 res = isinstance(arr_4_item, str)
                 if not res:
-                    rep is None or rep.append(("unexpected string [.type.'|'.1.0.'|'.0]", arr_4_lpath if path is not None else None))
+                    rep is None or rep.append(("unexpected string [.type.'|'.0.0.'|'.0]", arr_4_lpath if path is not None else None))
                 if not res:
-                    # .type.'|'.1.0.'|'.1
+                    # .type.'|'.0.0.'|'.1
                     res = json_model_1(arr_4_item, arr_4_lpath if path is not None else None, rep)
                     if not res:
-                        rep is None or rep.append(("unexpected $Schema [.type.'|'.1.0.'|'.1]", arr_4_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected $Schema [.type.'|'.0.0.'|'.1]", arr_4_lpath if path is not None else None))
                 if res:
                     rep is None or rep.clear()
                 else:
-                    rep is None or rep.append(("no model matched [.type.'|'.1.0.'|']", arr_4_lpath if path is not None else None))
+                    rep is None or rep.append(("no model matched [.type.'|'.0.0.'|']", arr_4_lpath if path is not None else None))
                 if not res:
                     break
-        if not res:
-            rep is None or rep.append(("not array or unexpected array [.type.'|'.1]", path))
-    if res:
-        rep is None or rep.clear()
-    else:
-        rep is None or rep.append(("no model matched [.type.'|']", path))
+            if not res:
+                rep is None or rep.append(("not array or unexpected array [.type.'|'.0]", path))
+            if res:
+                rep is None or rep.clear()
+            else:
+                rep is None or rep.append(("no model matched [.type.'|']", path))
     return res
 
 # check _jm_obj_0_map_uniqueItems (.uniqueItems)
@@ -556,6 +559,8 @@ def check_model_init():
         _jm_cst_0 = {'any', 'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_cst_1
         _jm_cst_1 = {'color', 'date', 'date-time', 'email', 'host-name', 'ip-address', 'ipv6', 'phone', 'regex', 'style', 'time', 'uri', 'utc-millisec'}
+        global _jm_cst_2
+        _jm_cst_2 = {'any', 'array', 'boolean', 'integer', 'null', 'number', 'object', 'string'}
         global _jm_obj_0_map
         _jm_obj_0_map = {
             "$ref": _jm_f_0,

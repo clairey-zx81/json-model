@@ -262,6 +262,187 @@ sub _jm_f_222($$$);
 sub _jm_f_223($$$);
 my %_jm_obj_41_map;
 sub json_model_15($$$);
+sub _jm_f_224($$$);
+sub _jm_f_225($$$);
+sub _jm_f_226($$$);
+sub _jm_f_227($$$);
+sub _jm_f_228($$$);
+sub _jm_f_229($$$);
+sub _jm_f_230($$$);
+sub _jm_f_231($$$);
+sub _jm_f_232($$$);
+sub _jm_f_233($$$);
+sub _jm_f_234($$$);
+sub _jm_f_235($$$);
+sub _jm_f_236($$$);
+sub _jm_f_237($$$);
+sub _jm_f_238($$$);
+sub _jm_f_239($$$);
+sub _jm_f_240($$$);
+sub _jm_f_241($$$);
+sub _jm_f_242($$$);
+sub _jm_f_243($$$);
+sub _jm_f_244($$$);
+sub _jm_f_245($$$);
+sub _jm_f_246($$$);
+sub _jm_f_247($$$);
+sub _jm_f_248($$$);
+my %_jm_obj_44_map;
+sub _jm_f_249($$$);
+sub _jm_f_250($$$);
+sub _jm_f_251($$$);
+sub _jm_f_252($$$);
+sub _jm_f_253($$$);
+sub _jm_f_254($$$);
+sub _jm_f_255($$$);
+sub _jm_f_256($$$);
+sub _jm_f_257($$$);
+sub _jm_f_258($$$);
+sub _jm_f_259($$$);
+sub _jm_f_260($$$);
+sub _jm_f_261($$$);
+sub _jm_f_262($$$);
+sub _jm_f_263($$$);
+sub _jm_f_264($$$);
+sub _jm_f_265($$$);
+sub _jm_f_266($$$);
+sub _jm_f_267($$$);
+sub _jm_f_268($$$);
+sub _jm_f_269($$$);
+sub _jm_f_270($$$);
+sub _jm_f_271($$$);
+sub _jm_f_272($$$);
+sub _jm_f_273($$$);
+sub _jm_f_274($$$);
+my %_jm_obj_47_map;
+sub _jm_f_275($$$);
+sub _jm_f_276($$$);
+sub _jm_f_277($$$);
+sub _jm_f_278($$$);
+sub _jm_f_279($$$);
+sub _jm_f_280($$$);
+sub _jm_f_281($$$);
+sub _jm_f_282($$$);
+sub _jm_f_283($$$);
+sub _jm_f_284($$$);
+sub _jm_f_285($$$);
+sub _jm_f_286($$$);
+sub _jm_f_287($$$);
+sub _jm_f_288($$$);
+sub _jm_f_289($$$);
+sub _jm_f_290($$$);
+sub _jm_f_291($$$);
+sub _jm_f_292($$$);
+sub _jm_f_293($$$);
+sub _jm_f_294($$$);
+sub _jm_f_295($$$);
+sub _jm_f_296($$$);
+sub _jm_f_297($$$);
+sub _jm_f_298($$$);
+sub _jm_f_299($$$);
+my %_jm_obj_54_map;
+sub _jm_f_300($$$);
+sub _jm_f_301($$$);
+sub _jm_f_302($$$);
+sub _jm_f_303($$$);
+sub _jm_f_304($$$);
+sub _jm_f_305($$$);
+sub _jm_f_306($$$);
+sub _jm_f_307($$$);
+sub _jm_f_308($$$);
+sub _jm_f_309($$$);
+sub _jm_f_310($$$);
+sub _jm_f_311($$$);
+sub _jm_f_312($$$);
+sub _jm_f_313($$$);
+sub _jm_f_314($$$);
+sub _jm_f_315($$$);
+sub _jm_f_316($$$);
+sub _jm_f_317($$$);
+sub _jm_f_318($$$);
+sub _jm_f_319($$$);
+sub _jm_f_320($$$);
+sub _jm_f_321($$$);
+sub _jm_f_322($$$);
+my %_jm_obj_57_map;
+sub _jm_f_323($$$);
+sub _jm_f_324($$$);
+sub _jm_f_325($$$);
+sub _jm_f_326($$$);
+sub _jm_f_327($$$);
+sub _jm_f_328($$$);
+sub _jm_f_329($$$);
+sub _jm_f_330($$$);
+sub _jm_f_331($$$);
+sub _jm_f_332($$$);
+sub _jm_f_333($$$);
+sub _jm_f_334($$$);
+sub _jm_f_335($$$);
+sub _jm_f_336($$$);
+sub _jm_f_337($$$);
+sub _jm_f_338($$$);
+sub _jm_f_339($$$);
+sub _jm_f_340($$$);
+sub _jm_f_341($$$);
+sub _jm_f_342($$$);
+sub _jm_f_343($$$);
+my %_jm_obj_60_map;
+sub _jm_f_344($$$);
+sub _jm_f_345($$$);
+sub _jm_f_346($$$);
+sub _jm_f_347($$$);
+sub _jm_f_348($$$);
+sub _jm_f_349($$$);
+sub _jm_f_350($$$);
+sub _jm_f_351($$$);
+sub _jm_f_352($$$);
+sub _jm_f_353($$$);
+sub _jm_f_354($$$);
+sub _jm_f_355($$$);
+sub _jm_f_356($$$);
+sub _jm_f_357($$$);
+sub _jm_f_358($$$);
+sub _jm_f_359($$$);
+sub _jm_f_360($$$);
+sub _jm_f_361($$$);
+sub _jm_f_362($$$);
+sub _jm_f_363($$$);
+sub _jm_f_364($$$);
+my %_jm_obj_63_map;
+sub _jm_f_365($$$);
+sub _jm_f_366($$$);
+sub _jm_f_367($$$);
+sub _jm_f_368($$$);
+sub _jm_f_369($$$);
+sub _jm_f_370($$$);
+sub _jm_f_371($$$);
+sub _jm_f_372($$$);
+sub _jm_f_373($$$);
+sub _jm_f_374($$$);
+sub _jm_f_375($$$);
+sub _jm_f_376($$$);
+sub _jm_f_377($$$);
+sub _jm_f_378($$$);
+sub _jm_f_379($$$);
+sub _jm_f_380($$$);
+my %_jm_obj_66_map;
+sub _jm_f_381($$$);
+sub _jm_f_382($$$);
+sub _jm_f_383($$$);
+sub _jm_f_384($$$);
+sub _jm_f_385($$$);
+sub _jm_f_386($$$);
+sub _jm_f_387($$$);
+sub _jm_f_388($$$);
+sub _jm_f_389($$$);
+sub _jm_f_390($$$);
+sub _jm_f_391($$$);
+sub _jm_f_392($$$);
+sub _jm_f_393($$$);
+sub _jm_f_394($$$);
+sub _jm_f_395($$$);
+sub _jm_f_396($$$);
+my %_jm_obj_69_map;
 sub json_model_16($$$);
 sub json_model_1($$$);
 my %check_model_map;
@@ -4334,18 +4515,2736 @@ sub json_model_15($$$)
     return $res;
 }
 
+# check _jm_obj_44_map_$anchor (.'$Schema'.'|'.7.'$anchor')
+sub _jm_f_224($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$comment (.'$Schema'.'|'.7.'$comment')
+sub _jm_f_225($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.7.'$defs'
+sub _jm_obj_45($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.7.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_44_map_$defs (.'$Schema'.'|'.7.'$defs')
+sub _jm_f_226($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$defs'
+    $res = _jm_obj_45($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$dynamicAnchor (.'$Schema'.'|'.7.'$dynamicAnchor')
+sub _jm_f_227($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$dynamicRef (.'$Schema'.'|'.7.'$dynamicRef')
+sub _jm_f_228($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$id (.'$Schema'.'|'.7.'$id')
+sub _jm_f_229($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$ref (.'$Schema'.'|'.7.'$ref')
+sub _jm_f_230($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_$schema (.'$Schema'.'|'.7.'$schema')
+sub _jm_f_231($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.7.'$vocabulary'
+sub _jm_obj_46($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.7.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_44_map_$vocabulary (.'$Schema'.'|'.7.'$vocabulary')
+sub _jm_f_232($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.'$vocabulary'
+    $res = _jm_obj_46($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_allOf (.'$Schema'.'|'.7.allOf)
+sub _jm_f_233($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.allOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_anyOf (.'$Schema'.'|'.7.anyOf)
+sub _jm_f_234($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.anyOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_const (.'$Schema'.'|'.7.const)
+sub _jm_f_235($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.const
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_44_map_default (.'$Schema'.'|'.7.default)
+sub _jm_f_236($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_44_map_deprecated (.'$Schema'.'|'.7.deprecated)
+sub _jm_f_237($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_44_map_description (.'$Schema'.'|'.7.description)
+sub _jm_f_238($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_44_map_else (.'$Schema'.'|'.7.else)
+sub _jm_f_239($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.else
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_enum (.'$Schema'.'|'.7.enum)
+sub _jm_f_240($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.enum
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_44_map_examples (.'$Schema'.'|'.7.examples)
+sub _jm_f_241($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_44_map_if (.'$Schema'.'|'.7.if)
+sub _jm_f_242($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.if
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_not (.'$Schema'.'|'.7.not)
+sub _jm_f_243($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.not
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_oneOf (.'$Schema'.'|'.7.oneOf)
+sub _jm_f_244($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.oneOf
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_readOnly (.'$Schema'.'|'.7.readOnly)
+sub _jm_f_245($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_44_map_then (.'$Schema'.'|'.7.then)
+sub _jm_f_246($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.then
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_44_map_title (.'$Schema'.'|'.7.title)
+sub _jm_f_247($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_44_map_writeOnly (.'$Schema'.'|'.7.writeOnly)
+sub _jm_f_248($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.7.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.7
+sub _jm_obj_44($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $pfun;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (($pfun = $_jm_obj_44_map{$prop}))
+        {
+            # handle 25 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_$anchor (.'$Schema'.'|'.6.'$anchor')
+sub _jm_f_249($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$comment (.'$Schema'.'|'.6.'$comment')
+sub _jm_f_250($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.'$defs'
+sub _jm_obj_48($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.6.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_$defs (.'$Schema'.'|'.6.'$defs')
+sub _jm_f_251($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$defs'
+    $res = _jm_obj_48($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$dynamicAnchor (.'$Schema'.'|'.6.'$dynamicAnchor')
+sub _jm_f_252($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$dynamicRef (.'$Schema'.'|'.6.'$dynamicRef')
+sub _jm_f_253($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$id (.'$Schema'.'|'.6.'$id')
+sub _jm_f_254($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$ref (.'$Schema'.'|'.6.'$ref')
+sub _jm_f_255($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_$schema (.'$Schema'.'|'.6.'$schema')
+sub _jm_f_256($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.'$vocabulary'
+sub _jm_obj_49($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.6.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_$vocabulary (.'$Schema'.'|'.6.'$vocabulary')
+sub _jm_f_257($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.'$vocabulary'
+    $res = _jm_obj_49($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_additionalProperties (.'$Schema'.'|'.6.additionalProperties)
+sub _jm_f_258($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.additionalProperties
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_default (.'$Schema'.'|'.6.default)
+sub _jm_f_259($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.default
+    $res = 1;
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.dependentRequired
+sub _jm_obj_50($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.6.dependentRequired.''
+        $res = json_model_10($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_dependentRequired (.'$Schema'.'|'.6.dependentRequired)
+sub _jm_f_260($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.dependentRequired
+    $res = _jm_obj_50($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.dependentSchemas
+sub _jm_obj_51($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.6.dependentSchemas.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_dependentSchemas (.'$Schema'.'|'.6.dependentSchemas)
+sub _jm_f_261($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.dependentSchemas
+    $res = _jm_obj_51($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_deprecated (.'$Schema'.'|'.6.deprecated)
+sub _jm_f_262($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_47_map_description (.'$Schema'.'|'.6.description)
+sub _jm_f_263($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_47_map_examples (.'$Schema'.'|'.6.examples)
+sub _jm_f_264($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_47_map_maxProperties (.'$Schema'.'|'.6.maxProperties)
+sub _jm_f_265($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.maxProperties
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_47_map_minProperties (.'$Schema'.'|'.6.minProperties)
+sub _jm_f_266($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.minProperties
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.patternProperties
+sub _jm_obj_52($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_regex($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.6.patternProperties.'$REGEX'
+            $res = json_model_16($pval, undef, $rep);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_patternProperties (.'$Schema'.'|'.6.patternProperties)
+sub _jm_f_267($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.patternProperties
+    $res = _jm_obj_52($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.6.properties
+sub _jm_obj_53($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.6.properties.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_47_map_properties (.'$Schema'.'|'.6.properties)
+sub _jm_f_268($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.properties
+    $res = _jm_obj_53($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_propertyNames (.'$Schema'.'|'.6.propertyNames)
+sub _jm_f_269($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.propertyNames
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_readOnly (.'$Schema'.'|'.6.readOnly)
+sub _jm_f_270($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_47_map_required (.'$Schema'.'|'.6.required)
+sub _jm_f_271($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.required
+    $res = json_model_10($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_title (.'$Schema'.'|'.6.title)
+sub _jm_f_272($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_47_map_unevaluatedProperties (.'$Schema'.'|'.6.unevaluatedProperties)
+sub _jm_f_273($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.unevaluatedProperties
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_47_map_writeOnly (.'$Schema'.'|'.6.writeOnly)
+sub _jm_f_274($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.6.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.6
+sub _jm_obj_47($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.6.type
+            $res = jm_is_string($pval) && $pval eq 'object';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_47_map{$prop}))
+        {
+            # handle 26 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_54_map_$anchor (.'$Schema'.'|'.5.'$anchor')
+sub _jm_f_275($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$comment (.'$Schema'.'|'.5.'$comment')
+sub _jm_f_276($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.5.'$defs'
+sub _jm_obj_55($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.5.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_54_map_$defs (.'$Schema'.'|'.5.'$defs')
+sub _jm_f_277($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$defs'
+    $res = _jm_obj_55($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$dynamicAnchor (.'$Schema'.'|'.5.'$dynamicAnchor')
+sub _jm_f_278($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$dynamicRef (.'$Schema'.'|'.5.'$dynamicRef')
+sub _jm_f_279($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$id (.'$Schema'.'|'.5.'$id')
+sub _jm_f_280($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$ref (.'$Schema'.'|'.5.'$ref')
+sub _jm_f_281($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_$schema (.'$Schema'.'|'.5.'$schema')
+sub _jm_f_282($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.5.'$vocabulary'
+sub _jm_obj_56($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.5.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_54_map_$vocabulary (.'$Schema'.'|'.5.'$vocabulary')
+sub _jm_f_283($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.'$vocabulary'
+    $res = _jm_obj_56($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_contains (.'$Schema'.'|'.5.contains)
+sub _jm_f_284($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.contains
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_default (.'$Schema'.'|'.5.default)
+sub _jm_f_285($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_54_map_deprecated (.'$Schema'.'|'.5.deprecated)
+sub _jm_f_286($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_54_map_description (.'$Schema'.'|'.5.description)
+sub _jm_f_287($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_54_map_examples (.'$Schema'.'|'.5.examples)
+sub _jm_f_288($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_54_map_items (.'$Schema'.'|'.5.items)
+sub _jm_f_289($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.items
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_maxContains (.'$Schema'.'|'.5.maxContains)
+sub _jm_f_290($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.maxContains
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_54_map_maxItems (.'$Schema'.'|'.5.maxItems)
+sub _jm_f_291($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.maxItems
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_54_map_minContains (.'$Schema'.'|'.5.minContains)
+sub _jm_f_292($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.minContains
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_54_map_minItems (.'$Schema'.'|'.5.minItems)
+sub _jm_f_293($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.minItems
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_54_map_prefixItems (.'$Schema'.'|'.5.prefixItems)
+sub _jm_f_294($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.prefixItems
+    $res = json_model_11($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_readOnly (.'$Schema'.'|'.5.readOnly)
+sub _jm_f_295($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_54_map_title (.'$Schema'.'|'.5.title)
+sub _jm_f_296($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_54_map_unevaluatedItems (.'$Schema'.'|'.5.unevaluatedItems)
+sub _jm_f_297($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.unevaluatedItems
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_54_map_uniqueItems (.'$Schema'.'|'.5.uniqueItems)
+sub _jm_f_298($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.uniqueItems
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_54_map_writeOnly (.'$Schema'.'|'.5.writeOnly)
+sub _jm_f_299($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.5.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.5
+sub _jm_obj_54($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.5.type
+            $res = jm_is_string($pval) && $pval eq 'array';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_54_map{$prop}))
+        {
+            # handle 25 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_57_map_$anchor (.'$Schema'.'|'.4.'$anchor')
+sub _jm_f_300($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$comment (.'$Schema'.'|'.4.'$comment')
+sub _jm_f_301($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.4.'$defs'
+sub _jm_obj_58($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.4.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_57_map_$defs (.'$Schema'.'|'.4.'$defs')
+sub _jm_f_302($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$defs'
+    $res = _jm_obj_58($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$dynamicAnchor (.'$Schema'.'|'.4.'$dynamicAnchor')
+sub _jm_f_303($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$dynamicRef (.'$Schema'.'|'.4.'$dynamicRef')
+sub _jm_f_304($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$id (.'$Schema'.'|'.4.'$id')
+sub _jm_f_305($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$ref (.'$Schema'.'|'.4.'$ref')
+sub _jm_f_306($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_$schema (.'$Schema'.'|'.4.'$schema')
+sub _jm_f_307($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.4.'$vocabulary'
+sub _jm_obj_59($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.4.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_57_map_$vocabulary (.'$Schema'.'|'.4.'$vocabulary')
+sub _jm_f_308($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.'$vocabulary'
+    $res = _jm_obj_59($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_contentEncoding (.'$Schema'.'|'.4.contentEncoding)
+sub _jm_f_309($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.contentEncoding
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_contentMediaType (.'$Schema'.'|'.4.contentMediaType)
+sub _jm_f_310($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.contentMediaType
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_contentSchema (.'$Schema'.'|'.4.contentSchema)
+sub _jm_f_311($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.contentSchema
+    $res = json_model_16($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_default (.'$Schema'.'|'.4.default)
+sub _jm_f_312($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_57_map_deprecated (.'$Schema'.'|'.4.deprecated)
+sub _jm_f_313($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_description (.'$Schema'.'|'.4.description)
+sub _jm_f_314($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_examples (.'$Schema'.'|'.4.examples)
+sub _jm_f_315($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_57_map_format (.'$Schema'.'|'.4.format)
+sub _jm_f_316($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.format
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_maxLength (.'$Schema'.'|'.4.maxLength)
+sub _jm_f_317($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.maxLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_57_map_minLength (.'$Schema'.'|'.4.minLength)
+sub _jm_f_318($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.minLength
+    $res = jm_is_integer($val) && $val >= 0;
+    return $res;
+}
+
+# check _jm_obj_57_map_pattern (.'$Schema'.'|'.4.pattern)
+sub _jm_f_319($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.pattern
+    $res = jm_is_string($val) && jm_is_valid_regex($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_57_map_readOnly (.'$Schema'.'|'.4.readOnly)
+sub _jm_f_320($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_title (.'$Schema'.'|'.4.title)
+sub _jm_f_321($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_57_map_writeOnly (.'$Schema'.'|'.4.writeOnly)
+sub _jm_f_322($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.4.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.4
+sub _jm_obj_57($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.4.type
+            $res = jm_is_string($pval) && $pval eq 'string';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_57_map{$prop}))
+        {
+            # handle 23 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_60_map_$anchor (.'$Schema'.'|'.3.'$anchor')
+sub _jm_f_323($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$comment (.'$Schema'.'|'.3.'$comment')
+sub _jm_f_324($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.3.'$defs'
+sub _jm_obj_61($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.3.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_60_map_$defs (.'$Schema'.'|'.3.'$defs')
+sub _jm_f_325($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$defs'
+    $res = _jm_obj_61($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$dynamicAnchor (.'$Schema'.'|'.3.'$dynamicAnchor')
+sub _jm_f_326($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$dynamicRef (.'$Schema'.'|'.3.'$dynamicRef')
+sub _jm_f_327($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$id (.'$Schema'.'|'.3.'$id')
+sub _jm_f_328($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$ref (.'$Schema'.'|'.3.'$ref')
+sub _jm_f_329($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_$schema (.'$Schema'.'|'.3.'$schema')
+sub _jm_f_330($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.3.'$vocabulary'
+sub _jm_obj_62($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.3.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_60_map_$vocabulary (.'$Schema'.'|'.3.'$vocabulary')
+sub _jm_f_331($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.'$vocabulary'
+    $res = _jm_obj_62($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_60_map_default (.'$Schema'.'|'.3.default)
+sub _jm_f_332($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_60_map_deprecated (.'$Schema'.'|'.3.deprecated)
+sub _jm_f_333($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_description (.'$Schema'.'|'.3.description)
+sub _jm_f_334($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_examples (.'$Schema'.'|'.3.examples)
+sub _jm_f_335($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_60_map_exclusiveMaximum (.'$Schema'.'|'.3.exclusiveMaximum)
+sub _jm_f_336($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.exclusiveMaximum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_exclusiveMinimum (.'$Schema'.'|'.3.exclusiveMinimum)
+sub _jm_f_337($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.exclusiveMinimum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_maximum (.'$Schema'.'|'.3.maximum)
+sub _jm_f_338($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.maximum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_minimum (.'$Schema'.'|'.3.minimum)
+sub _jm_f_339($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.minimum
+    $res = jm_is_integer($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_multipleOf (.'$Schema'.'|'.3.multipleOf)
+sub _jm_f_340($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.multipleOf
+    $res = jm_is_integer($val) && $val >= 1;
+    return $res;
+}
+
+# check _jm_obj_60_map_readOnly (.'$Schema'.'|'.3.readOnly)
+sub _jm_f_341($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_title (.'$Schema'.'|'.3.title)
+sub _jm_f_342($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_60_map_writeOnly (.'$Schema'.'|'.3.writeOnly)
+sub _jm_f_343($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.3.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.3
+sub _jm_obj_60($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.3.type
+            $res = jm_is_string($pval) && $pval eq 'integer';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_60_map{$prop}))
+        {
+            # handle 21 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_63_map_$anchor (.'$Schema'.'|'.2.'$anchor')
+sub _jm_f_344($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$comment (.'$Schema'.'|'.2.'$comment')
+sub _jm_f_345($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.2.'$defs'
+sub _jm_obj_64($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.2.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_63_map_$defs (.'$Schema'.'|'.2.'$defs')
+sub _jm_f_346($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$defs'
+    $res = _jm_obj_64($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$dynamicAnchor (.'$Schema'.'|'.2.'$dynamicAnchor')
+sub _jm_f_347($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$dynamicRef (.'$Schema'.'|'.2.'$dynamicRef')
+sub _jm_f_348($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$id (.'$Schema'.'|'.2.'$id')
+sub _jm_f_349($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$ref (.'$Schema'.'|'.2.'$ref')
+sub _jm_f_350($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_$schema (.'$Schema'.'|'.2.'$schema')
+sub _jm_f_351($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.2.'$vocabulary'
+sub _jm_obj_65($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.2.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_63_map_$vocabulary (.'$Schema'.'|'.2.'$vocabulary')
+sub _jm_f_352($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.'$vocabulary'
+    $res = _jm_obj_65($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_63_map_default (.'$Schema'.'|'.2.default)
+sub _jm_f_353($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_63_map_deprecated (.'$Schema'.'|'.2.deprecated)
+sub _jm_f_354($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_63_map_description (.'$Schema'.'|'.2.description)
+sub _jm_f_355($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_63_map_examples (.'$Schema'.'|'.2.examples)
+sub _jm_f_356($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_exclusiveMaximum (.'$Schema'.'|'.2.exclusiveMaximum)
+sub _jm_f_357($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.exclusiveMaximum
+    # .'$Schema'.'|'.2.exclusiveMaximum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$Schema'.'|'.2.exclusiveMaximum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_exclusiveMinimum (.'$Schema'.'|'.2.exclusiveMinimum)
+sub _jm_f_358($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.exclusiveMinimum
+    # .'$Schema'.'|'.2.exclusiveMinimum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$Schema'.'|'.2.exclusiveMinimum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_maximum (.'$Schema'.'|'.2.maximum)
+sub _jm_f_359($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.maximum
+    # .'$Schema'.'|'.2.maximum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$Schema'.'|'.2.maximum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_minimum (.'$Schema'.'|'.2.minimum)
+sub _jm_f_360($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.minimum
+    # .'$Schema'.'|'.2.minimum.'|'.0
+    $res = jm_is_integer($val);
+    if (! $res)
+    {
+        # .'$Schema'.'|'.2.minimum.'|'.1
+        $res = jm_is_numeric($val);
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_multipleOf (.'$Schema'.'|'.2.multipleOf)
+sub _jm_f_361($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.multipleOf
+    # .'$Schema'.'|'.2.multipleOf.'|'.0
+    $res = jm_is_integer($val) && $val >= 1;
+    if (! $res)
+    {
+        # .'$Schema'.'|'.2.multipleOf.'|'.1
+        $res = jm_is_numeric($val) && $val > 0.0;
+    }
+    return $res;
+}
+
+# check _jm_obj_63_map_readOnly (.'$Schema'.'|'.2.readOnly)
+sub _jm_f_362($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_63_map_title (.'$Schema'.'|'.2.title)
+sub _jm_f_363($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_63_map_writeOnly (.'$Schema'.'|'.2.writeOnly)
+sub _jm_f_364($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.2.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.2
+sub _jm_obj_63($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.2.type
+            $res = jm_is_string($pval) && $pval eq 'number';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_63_map{$prop}))
+        {
+            # handle 21 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_66_map_$anchor (.'$Schema'.'|'.1.'$anchor')
+sub _jm_f_365($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$comment (.'$Schema'.'|'.1.'$comment')
+sub _jm_f_366($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.1.'$defs'
+sub _jm_obj_67($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.1.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_66_map_$defs (.'$Schema'.'|'.1.'$defs')
+sub _jm_f_367($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$defs'
+    $res = _jm_obj_67($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$dynamicAnchor (.'$Schema'.'|'.1.'$dynamicAnchor')
+sub _jm_f_368($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$dynamicRef (.'$Schema'.'|'.1.'$dynamicRef')
+sub _jm_f_369($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$id (.'$Schema'.'|'.1.'$id')
+sub _jm_f_370($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$ref (.'$Schema'.'|'.1.'$ref')
+sub _jm_f_371($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_$schema (.'$Schema'.'|'.1.'$schema')
+sub _jm_f_372($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.1.'$vocabulary'
+sub _jm_obj_68($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.1.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_66_map_$vocabulary (.'$Schema'.'|'.1.'$vocabulary')
+sub _jm_f_373($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.'$vocabulary'
+    $res = _jm_obj_68($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_66_map_default (.'$Schema'.'|'.1.default)
+sub _jm_f_374($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_66_map_deprecated (.'$Schema'.'|'.1.deprecated)
+sub _jm_f_375($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_66_map_description (.'$Schema'.'|'.1.description)
+sub _jm_f_376($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_66_map_examples (.'$Schema'.'|'.1.examples)
+sub _jm_f_377($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_66_map_readOnly (.'$Schema'.'|'.1.readOnly)
+sub _jm_f_378($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_66_map_title (.'$Schema'.'|'.1.title)
+sub _jm_f_379($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_66_map_writeOnly (.'$Schema'.'|'.1.writeOnly)
+sub _jm_f_380($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.1.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.1
+sub _jm_obj_66($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.1.type
+            $res = jm_is_string($pval) && $pval eq 'boolean';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_66_map{$prop}))
+        {
+            # handle 16 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+# check _jm_obj_69_map_$anchor (.'$Schema'.'|'.0.'$anchor')
+sub _jm_f_381($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$anchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$comment (.'$Schema'.'|'.0.'$comment')
+sub _jm_f_382($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$comment'
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# object .'$Schema'.'|'.0.'$defs'
+sub _jm_obj_70($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        # handle other props
+        # .'$Schema'.'|'.0.'$defs'.''
+        $res = json_model_16($pval, undef, $rep);
+        if (! $res)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_69_map_$defs (.'$Schema'.'|'.0.'$defs')
+sub _jm_f_383($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$defs'
+    $res = _jm_obj_70($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$dynamicAnchor (.'$Schema'.'|'.0.'$dynamicAnchor')
+sub _jm_f_384($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$dynamicAnchor'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$dynamicRef (.'$Schema'.'|'.0.'$dynamicRef')
+sub _jm_f_385($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$dynamicRef'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$id (.'$Schema'.'|'.0.'$id')
+sub _jm_f_386($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$id'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$ref (.'$Schema'.'|'.0.'$ref')
+sub _jm_f_387($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$ref'
+    $res = json_model_2($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_$schema (.'$Schema'.'|'.0.'$schema')
+sub _jm_f_388($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$schema'
+    $res = jm_is_string($val) && jm_is_valid_url($val, $path, $rep);
+    return $res;
+}
+
+# object .'$Schema'.'|'.0.'$vocabulary'
+sub _jm_obj_71($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if (jm_is_string($prop) && jm_is_valid_url($prop, undef, $rep))
+        {
+            # handle 1 key props
+            # .'$Schema'.'|'.0.'$vocabulary'.'$URI'
+            $res = jm_is_boolean($pval);
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+# check _jm_obj_69_map_$vocabulary (.'$Schema'.'|'.0.'$vocabulary')
+sub _jm_f_389($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.'$vocabulary'
+    $res = _jm_obj_71($val, $path, $rep);
+    return $res;
+}
+
+# check _jm_obj_69_map_default (.'$Schema'.'|'.0.default)
+sub _jm_f_390($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.default
+    $res = 1;
+    return $res;
+}
+
+# check _jm_obj_69_map_deprecated (.'$Schema'.'|'.0.deprecated)
+sub _jm_f_391($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.deprecated
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_69_map_description (.'$Schema'.'|'.0.description)
+sub _jm_f_392($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.description
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_69_map_examples (.'$Schema'.'|'.0.examples)
+sub _jm_f_393($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.examples
+    $res = jm_is_array($val);
+    if ($res)
+    {
+        # accept any array
+        ;
+    }
+    return $res;
+}
+
+# check _jm_obj_69_map_readOnly (.'$Schema'.'|'.0.readOnly)
+sub _jm_f_394($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.readOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+# check _jm_obj_69_map_title (.'$Schema'.'|'.0.title)
+sub _jm_f_395($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.title
+    $res = jm_is_string($val);
+    return $res;
+}
+
+# check _jm_obj_69_map_writeOnly (.'$Schema'.'|'.0.writeOnly)
+sub _jm_f_396($$$)
+{
+    my ($val, $path, $rep) = @_;
+    my $res;
+    # .'$Schema'.'|'.0.writeOnly
+    $res = jm_is_boolean($val);
+    return $res;
+}
+
+
+# object .'$Schema'.'|'.0
+sub _jm_obj_69($$$)
+{
+    my ($val, $path, $rep) = @_;
+    if (! jm_is_object($val))
+    {
+        return 0;
+    }
+    my $res;
+    my $pfun;
+    my $must_count = 0;
+    scalar keys %$val;
+    while (my ($prop, $pval) = each %$val)
+    {
+        if ($prop eq 'type')
+        {
+            # handle must type property
+            $must_count++;
+            # .'$Schema'.'|'.0.type
+            $res = jm_is_string($pval) && $pval eq 'null';
+            if (! $res)
+            {
+                return 0;
+            }
+        }
+        elsif (($pfun = $_jm_obj_69_map{$prop}))
+        {
+            # handle 16 may props
+            if (defined($pfun) && ! &$pfun($pval, undef, $rep))
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    if ($must_count != 1)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 # check $Schema (.'$Schema')
 sub json_model_16($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
     # .'$Schema'
-    # .'$Schema'.'|'.0
-    $res = jm_is_boolean($val);
+    $res = jm_is_object($val);
+    if ($res)
+    {
+        # .'$Schema'.'|'.0
+        $res = _jm_obj_69($val, $path, $rep);
+        if (! $res)
+        {
+            # .'$Schema'.'|'.1
+            $res = _jm_obj_66($val, $path, $rep);
+            if (! $res)
+            {
+                # .'$Schema'.'|'.2
+                $res = _jm_obj_63($val, $path, $rep);
+                if (! $res)
+                {
+                    # .'$Schema'.'|'.3
+                    $res = _jm_obj_60($val, $path, $rep);
+                    if (! $res)
+                    {
+                        # .'$Schema'.'|'.4
+                        $res = _jm_obj_57($val, $path, $rep);
+                        if (! $res)
+                        {
+                            # .'$Schema'.'|'.5
+                            $res = _jm_obj_54($val, $path, $rep);
+                            if (! $res)
+                            {
+                                # .'$Schema'.'|'.6
+                                $res = _jm_obj_47($val, $path, $rep);
+                                if (! $res)
+                                {
+                                    # .'$Schema'.'|'.7
+                                    $res = _jm_obj_44($val, $path, $rep);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     if (! $res)
     {
-        # .'$Schema'.'|'.1
-        $res = json_model_15($val, $path, $rep);
+        # .'$Schema'.'|'
+        $res = jm_is_boolean($val);
     }
     return $res;
 }
@@ -4622,6 +7521,195 @@ sub check_model_init()
             'title' => \&_jm_f_222,
             'writeOnly' => \&_jm_f_223,
         );
+        %_jm_obj_44_map = (
+            '$anchor' => \&_jm_f_224,
+            '$comment' => \&_jm_f_225,
+            '$defs' => \&_jm_f_226,
+            '$dynamicAnchor' => \&_jm_f_227,
+            '$dynamicRef' => \&_jm_f_228,
+            '$id' => \&_jm_f_229,
+            '$ref' => \&_jm_f_230,
+            '$schema' => \&_jm_f_231,
+            '$vocabulary' => \&_jm_f_232,
+            'allOf' => \&_jm_f_233,
+            'anyOf' => \&_jm_f_234,
+            'const' => \&_jm_f_235,
+            'default' => \&_jm_f_236,
+            'deprecated' => \&_jm_f_237,
+            'description' => \&_jm_f_238,
+            'else' => \&_jm_f_239,
+            'enum' => \&_jm_f_240,
+            'examples' => \&_jm_f_241,
+            'if' => \&_jm_f_242,
+            'not' => \&_jm_f_243,
+            'oneOf' => \&_jm_f_244,
+            'readOnly' => \&_jm_f_245,
+            'then' => \&_jm_f_246,
+            'title' => \&_jm_f_247,
+            'writeOnly' => \&_jm_f_248,
+        );
+        %_jm_obj_47_map = (
+            '$anchor' => \&_jm_f_249,
+            '$comment' => \&_jm_f_250,
+            '$defs' => \&_jm_f_251,
+            '$dynamicAnchor' => \&_jm_f_252,
+            '$dynamicRef' => \&_jm_f_253,
+            '$id' => \&_jm_f_254,
+            '$ref' => \&_jm_f_255,
+            '$schema' => \&_jm_f_256,
+            '$vocabulary' => \&_jm_f_257,
+            'additionalProperties' => \&_jm_f_258,
+            'default' => \&_jm_f_259,
+            'dependentRequired' => \&_jm_f_260,
+            'dependentSchemas' => \&_jm_f_261,
+            'deprecated' => \&_jm_f_262,
+            'description' => \&_jm_f_263,
+            'examples' => \&_jm_f_264,
+            'maxProperties' => \&_jm_f_265,
+            'minProperties' => \&_jm_f_266,
+            'patternProperties' => \&_jm_f_267,
+            'properties' => \&_jm_f_268,
+            'propertyNames' => \&_jm_f_269,
+            'readOnly' => \&_jm_f_270,
+            'required' => \&_jm_f_271,
+            'title' => \&_jm_f_272,
+            'unevaluatedProperties' => \&_jm_f_273,
+            'writeOnly' => \&_jm_f_274,
+        );
+        %_jm_obj_54_map = (
+            '$anchor' => \&_jm_f_275,
+            '$comment' => \&_jm_f_276,
+            '$defs' => \&_jm_f_277,
+            '$dynamicAnchor' => \&_jm_f_278,
+            '$dynamicRef' => \&_jm_f_279,
+            '$id' => \&_jm_f_280,
+            '$ref' => \&_jm_f_281,
+            '$schema' => \&_jm_f_282,
+            '$vocabulary' => \&_jm_f_283,
+            'contains' => \&_jm_f_284,
+            'default' => \&_jm_f_285,
+            'deprecated' => \&_jm_f_286,
+            'description' => \&_jm_f_287,
+            'examples' => \&_jm_f_288,
+            'items' => \&_jm_f_289,
+            'maxContains' => \&_jm_f_290,
+            'maxItems' => \&_jm_f_291,
+            'minContains' => \&_jm_f_292,
+            'minItems' => \&_jm_f_293,
+            'prefixItems' => \&_jm_f_294,
+            'readOnly' => \&_jm_f_295,
+            'title' => \&_jm_f_296,
+            'unevaluatedItems' => \&_jm_f_297,
+            'uniqueItems' => \&_jm_f_298,
+            'writeOnly' => \&_jm_f_299,
+        );
+        %_jm_obj_57_map = (
+            '$anchor' => \&_jm_f_300,
+            '$comment' => \&_jm_f_301,
+            '$defs' => \&_jm_f_302,
+            '$dynamicAnchor' => \&_jm_f_303,
+            '$dynamicRef' => \&_jm_f_304,
+            '$id' => \&_jm_f_305,
+            '$ref' => \&_jm_f_306,
+            '$schema' => \&_jm_f_307,
+            '$vocabulary' => \&_jm_f_308,
+            'contentEncoding' => \&_jm_f_309,
+            'contentMediaType' => \&_jm_f_310,
+            'contentSchema' => \&_jm_f_311,
+            'default' => \&_jm_f_312,
+            'deprecated' => \&_jm_f_313,
+            'description' => \&_jm_f_314,
+            'examples' => \&_jm_f_315,
+            'format' => \&_jm_f_316,
+            'maxLength' => \&_jm_f_317,
+            'minLength' => \&_jm_f_318,
+            'pattern' => \&_jm_f_319,
+            'readOnly' => \&_jm_f_320,
+            'title' => \&_jm_f_321,
+            'writeOnly' => \&_jm_f_322,
+        );
+        %_jm_obj_60_map = (
+            '$anchor' => \&_jm_f_323,
+            '$comment' => \&_jm_f_324,
+            '$defs' => \&_jm_f_325,
+            '$dynamicAnchor' => \&_jm_f_326,
+            '$dynamicRef' => \&_jm_f_327,
+            '$id' => \&_jm_f_328,
+            '$ref' => \&_jm_f_329,
+            '$schema' => \&_jm_f_330,
+            '$vocabulary' => \&_jm_f_331,
+            'default' => \&_jm_f_332,
+            'deprecated' => \&_jm_f_333,
+            'description' => \&_jm_f_334,
+            'examples' => \&_jm_f_335,
+            'exclusiveMaximum' => \&_jm_f_336,
+            'exclusiveMinimum' => \&_jm_f_337,
+            'maximum' => \&_jm_f_338,
+            'minimum' => \&_jm_f_339,
+            'multipleOf' => \&_jm_f_340,
+            'readOnly' => \&_jm_f_341,
+            'title' => \&_jm_f_342,
+            'writeOnly' => \&_jm_f_343,
+        );
+        %_jm_obj_63_map = (
+            '$anchor' => \&_jm_f_344,
+            '$comment' => \&_jm_f_345,
+            '$defs' => \&_jm_f_346,
+            '$dynamicAnchor' => \&_jm_f_347,
+            '$dynamicRef' => \&_jm_f_348,
+            '$id' => \&_jm_f_349,
+            '$ref' => \&_jm_f_350,
+            '$schema' => \&_jm_f_351,
+            '$vocabulary' => \&_jm_f_352,
+            'default' => \&_jm_f_353,
+            'deprecated' => \&_jm_f_354,
+            'description' => \&_jm_f_355,
+            'examples' => \&_jm_f_356,
+            'exclusiveMaximum' => \&_jm_f_357,
+            'exclusiveMinimum' => \&_jm_f_358,
+            'maximum' => \&_jm_f_359,
+            'minimum' => \&_jm_f_360,
+            'multipleOf' => \&_jm_f_361,
+            'readOnly' => \&_jm_f_362,
+            'title' => \&_jm_f_363,
+            'writeOnly' => \&_jm_f_364,
+        );
+        %_jm_obj_66_map = (
+            '$anchor' => \&_jm_f_365,
+            '$comment' => \&_jm_f_366,
+            '$defs' => \&_jm_f_367,
+            '$dynamicAnchor' => \&_jm_f_368,
+            '$dynamicRef' => \&_jm_f_369,
+            '$id' => \&_jm_f_370,
+            '$ref' => \&_jm_f_371,
+            '$schema' => \&_jm_f_372,
+            '$vocabulary' => \&_jm_f_373,
+            'default' => \&_jm_f_374,
+            'deprecated' => \&_jm_f_375,
+            'description' => \&_jm_f_376,
+            'examples' => \&_jm_f_377,
+            'readOnly' => \&_jm_f_378,
+            'title' => \&_jm_f_379,
+            'writeOnly' => \&_jm_f_380,
+        );
+        %_jm_obj_69_map = (
+            '$anchor' => \&_jm_f_381,
+            '$comment' => \&_jm_f_382,
+            '$defs' => \&_jm_f_383,
+            '$dynamicAnchor' => \&_jm_f_384,
+            '$dynamicRef' => \&_jm_f_385,
+            '$id' => \&_jm_f_386,
+            '$ref' => \&_jm_f_387,
+            '$schema' => \&_jm_f_388,
+            '$vocabulary' => \&_jm_f_389,
+            'default' => \&_jm_f_390,
+            'deprecated' => \&_jm_f_391,
+            'description' => \&_jm_f_392,
+            'examples' => \&_jm_f_393,
+            'readOnly' => \&_jm_f_394,
+            'title' => \&_jm_f_395,
+            'writeOnly' => \&_jm_f_396,
+        );
         %check_model_map = (
             '' => \&json_model_16,
             'URI-REFERENCE' => \&json_model_2,
@@ -4662,6 +7750,14 @@ sub check_model_free()
         %_jm_obj_35_map = ();
         %_jm_obj_38_map = ();
         %_jm_obj_41_map = ();
+        %_jm_obj_44_map = ();
+        %_jm_obj_47_map = ();
+        %_jm_obj_54_map = ();
+        %_jm_obj_57_map = ();
+        %_jm_obj_60_map = ();
+        %_jm_obj_63_map = ();
+        %_jm_obj_66_map = ();
+        %_jm_obj_69_map = ();
         %check_model_map = ();
     }
 }

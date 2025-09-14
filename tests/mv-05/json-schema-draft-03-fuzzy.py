@@ -112,38 +112,39 @@ def _jm_obj_0(val: Jsonable, path: Path, rep: Report) -> bool:
     if "type" in val:
         pval = val.get("type", UNDEFINED)
         # .'$schema'.type
-        # .'$schema'.type.'|'.0
-        res = json_model_4(pval, path, rep)
+        res = ((pval is None or isinstance(pval, (bool, int, float, str)))) and pval in _jm_cst_0
         if not res:
-            rep is None or rep.append(("unexpected $allTypes [.'$schema'.type.'|'.0]", path))
+            rep is None or rep.append(("value not in enum [.'$schema'.type.'|']", path))
         if not res:
-            # .'$schema'.type.'|'.1
             res = isinstance(pval, list)
+            if not res:
+                rep is None or rep.append(("unexpected type [.'$schema'.type.'|']", path))
             if res:
+                # .'$schema'.type.'|'.0
                 for arr_0_idx, arr_0_item in enumerate(pval):
                     arr_0_lpath: Path = (path + [ arr_0_idx ]) if path is not None else None
-                    # .'$schema'.type.'|'.1.0
-                    # .'$schema'.type.'|'.1.0.'|'.0
+                    # .'$schema'.type.'|'.0.0
+                    # .'$schema'.type.'|'.0.0.'|'.0
                     res = isinstance(arr_0_item, str)
                     if not res:
-                        rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.1.0.'|'.0]", arr_0_lpath if path is not None else None))
+                        rep is None or rep.append(("unexpected string [.'$schema'.type.'|'.0.0.'|'.0]", arr_0_lpath if path is not None else None))
                     if not res:
-                        # .'$schema'.type.'|'.1.0.'|'.1
+                        # .'$schema'.type.'|'.0.0.'|'.1
                         res = json_model_3(arr_0_item, arr_0_lpath if path is not None else None, rep)
                         if not res:
-                            rep is None or rep.append(("unexpected $Schema [.'$schema'.type.'|'.1.0.'|'.1]", arr_0_lpath if path is not None else None))
+                            rep is None or rep.append(("unexpected $Schema [.'$schema'.type.'|'.0.0.'|'.1]", arr_0_lpath if path is not None else None))
                     if res:
                         rep is None or rep.clear()
                     else:
-                        rep is None or rep.append(("no model matched [.'$schema'.type.'|'.1.0.'|']", arr_0_lpath if path is not None else None))
+                        rep is None or rep.append(("no model matched [.'$schema'.type.'|'.0.0.'|']", arr_0_lpath if path is not None else None))
                     if not res:
                         break
-            if not res:
-                rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.1]", path))
-        if res:
-            rep is None or rep.clear()
-        else:
-            rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
+                if not res:
+                    rep is None or rep.append(("not array or unexpected array [.'$schema'.type.'|'.0]", path))
+                if res:
+                    rep is None or rep.clear()
+                else:
+                    rep is None or rep.append(("no model matched [.'$schema'.type.'|']", path))
         if not res:
             rep is None or rep.append(("unexpected value for optional prop <type> [.'$schema']", path))
             return False
@@ -486,16 +487,6 @@ def json_model_1(val: Jsonable, path: Path, rep: Report) -> bool:
     res = json_model_3(val, path, rep)
     if not res:
         rep is None or rep.append(("unexpected $schema [.]", path))
-    return res
-
-
-# check $schema#allTypes (.'$schema#allTypes')
-def json_model_4(val: Jsonable, path: Path, rep: Report) -> bool:
-    res: bool
-    # .'$schema#allTypes'
-    res = ((val is None or isinstance(val, (bool, int, float, str)))) and val in _jm_cst_0
-    if not res:
-        rep is None or rep.append(("value not in enum [.'$schema#allTypes'.'|']", path))
     return res
 
 # check $schema#distinctSchemaArray (.'$schema#distinctSchemaArray')

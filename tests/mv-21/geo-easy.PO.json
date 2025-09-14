@@ -1,6 +1,11 @@
 {
-  "^": [
-    "$geometry",
+  "|": [
+    "$Point",
+    "$MultiPoint",
+    "$LineString",
+    "$MultiLineString",
+    "$Polygon",
+    "$MultiPolygon",
     "$GeometryCollection",
     "$Feature",
     "$FeatureCollection"
@@ -120,7 +125,12 @@
       "geometry": {
         "|": [
           null,
-          "$geometry",
+          "$Point",
+          "$MultiPoint",
+          "$LineString",
+          "$MultiLineString",
+          "$Polygon",
+          "$MultiPolygon",
           "$GeometryCollection"
         ]
       },

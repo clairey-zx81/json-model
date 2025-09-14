@@ -786,7 +786,19 @@ BEGIN
   res := JSONB_TYPEOF(val) = 'string';
   IF NOT res THEN
     -- .'$type-or-ref'.'|'.1
-    res := json_model_3(val, path, rep);
+    res := json_model_6(val, path, rep);
+    IF NOT res THEN
+      -- .'$type-or-ref'.'|'.2
+      res := json_model_7(val, path, rep);
+      IF NOT res THEN
+        -- .'$type-or-ref'.'|'.3
+        res := json_model_9(val, path, rep);
+        IF NOT res THEN
+          -- .'$type-or-ref'.'|'.4
+          res := json_model_10(val, path, rep);
+        END IF;
+      END IF;
+    END IF;
   END IF;
   RETURN res;
 END;

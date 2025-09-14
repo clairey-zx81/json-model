@@ -147,7 +147,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/simpleTypes"
+              "const": "array"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "null"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "object"
+            },
+            {
+              "const": "string"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"
@@ -412,7 +430,25 @@
         "type": {
           "anyOf": [
             {
-              "$ref": "#/$defs/simpleTypes"
+              "const": "array"
+            },
+            {
+              "const": "boolean"
+            },
+            {
+              "const": "integer"
+            },
+            {
+              "const": "null"
+            },
+            {
+              "const": "number"
+            },
+            {
+              "const": "object"
+            },
+            {
+              "const": "string"
             },
             {
               "$ref": "#/$defs/simpleTypesArray"

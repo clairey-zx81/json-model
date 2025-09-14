@@ -6404,49 +6404,49 @@ sub json_model_53($$$)
     return $res;
 }
 
-# check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.2.author)
+# check _jm_obj_97_map_author (.'$GalaxyInfoModel'.'|'.1.author)
 sub _jm_f_23($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.author
+    # .'$GalaxyInfoModel'.'|'.1.author
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.2.cloud_platforms)
+# check _jm_obj_97_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
 sub _jm_f_24($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.cloud_platforms
+    # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
     $res = 1;
     return $res;
 }
 
-# check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.2.company)
+# check _jm_obj_97_map_company (.'$GalaxyInfoModel'.'|'.1.company)
 sub _jm_f_25($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.company
+    # .'$GalaxyInfoModel'.'|'.1.company
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.2.galaxy_tags)
+# check _jm_obj_97_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
 sub _jm_f_26($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.galaxy_tags
+    # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
     $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_97_idx (0 .. $#$val)
         {
             my $arr_97_item = $$val[$arr_97_idx];
-            # .'$GalaxyInfoModel'.'|'.2.galaxy_tags.0
+            # .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
             $res = jm_is_string($arr_97_item);
             if (! $res)
             {
@@ -6457,94 +6457,94 @@ sub _jm_f_26($$$)
     return $res;
 }
 
-# check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.2.github_branch)
+# check _jm_obj_97_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
 sub _jm_f_27($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.github_branch
+    # .'$GalaxyInfoModel'.'|'.1.github_branch
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.2.issue_tracker_url)
+# check _jm_obj_97_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
 sub _jm_f_28($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.issue_tracker_url
+    # .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.2.license)
+# check _jm_obj_97_map_license (.'$GalaxyInfoModel'.'|'.1.license)
 sub _jm_f_29($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.license
+    # .'$GalaxyInfoModel'.'|'.1.license
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_container_version)
+# check _jm_obj_97_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
 sub _jm_f_30($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.min_ansible_container_version
+    # .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.2.min_ansible_version)
+# check _jm_obj_97_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
 sub _jm_f_31($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.min_ansible_version
+    # .'$GalaxyInfoModel'.'|'.1.min_ansible_version
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.2.namespace)
+# check _jm_obj_97_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
 sub _jm_f_32($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.namespace
+    # .'$GalaxyInfoModel'.'|'.1.namespace
     # "/^[a-z][-a-z0-9_]+$/"
     $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.2.platforms)
+# check _jm_obj_97_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
 sub _jm_f_33($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.platforms
+    # .'$GalaxyInfoModel'.'|'.1.platforms
     $res = json_model_50($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.2.role_name)
+# check _jm_obj_97_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
 sub _jm_f_34($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.role_name
+    # .'$GalaxyInfoModel'.'|'.1.role_name
     # "/^[a-z][a-z0-9_]+$/"
     $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.2.video_links)
+# check _jm_obj_97_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
 sub _jm_f_35($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.2.video_links
+    # .'$GalaxyInfoModel'.'|'.1.video_links
     $res = jm_is_array($val);
     if ($res)
     {
@@ -6555,7 +6555,7 @@ sub _jm_f_35($$$)
 }
 
 
-# object .'$GalaxyInfoModel'.'|'.2
+# object .'$GalaxyInfoModel'.'|'.1
 sub _jm_obj_97($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -6573,7 +6573,7 @@ sub _jm_obj_97($$$)
         {
             # handle must description property
             $must_count++;
-            # .'$GalaxyInfoModel'.'|'.2.description
+            # .'$GalaxyInfoModel'.'|'.1.description
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -6600,49 +6600,49 @@ sub _jm_obj_97($$$)
     return 1;
 }
 
-# check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.1.author)
+# check _jm_obj_98_map_author (.'$GalaxyInfoModel'.'|'.0.author)
 sub _jm_f_36($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.author
+    # .'$GalaxyInfoModel'.'|'.0.author
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.1.cloud_platforms)
+# check _jm_obj_98_map_cloud_platforms (.'$GalaxyInfoModel'.'|'.0.cloud_platforms)
 sub _jm_f_37($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.cloud_platforms
+    # .'$GalaxyInfoModel'.'|'.0.cloud_platforms
     $res = 1;
     return $res;
 }
 
-# check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.1.company)
+# check _jm_obj_98_map_company (.'$GalaxyInfoModel'.'|'.0.company)
 sub _jm_f_38($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.company
+    # .'$GalaxyInfoModel'.'|'.0.company
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.1.galaxy_tags)
+# check _jm_obj_98_map_galaxy_tags (.'$GalaxyInfoModel'.'|'.0.galaxy_tags)
 sub _jm_f_39($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.galaxy_tags
+    # .'$GalaxyInfoModel'.'|'.0.galaxy_tags
     $res = jm_is_array($val);
     if ($res)
     {
         for my $arr_98_idx (0 .. $#$val)
         {
             my $arr_98_item = $$val[$arr_98_idx];
-            # .'$GalaxyInfoModel'.'|'.1.galaxy_tags.0
+            # .'$GalaxyInfoModel'.'|'.0.galaxy_tags.0
             $res = jm_is_string($arr_98_item);
             if (! $res)
             {
@@ -6653,94 +6653,94 @@ sub _jm_f_39($$$)
     return $res;
 }
 
-# check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.1.github_branch)
+# check _jm_obj_98_map_github_branch (.'$GalaxyInfoModel'.'|'.0.github_branch)
 sub _jm_f_40($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.github_branch
+    # .'$GalaxyInfoModel'.'|'.0.github_branch
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.1.issue_tracker_url)
+# check _jm_obj_98_map_issue_tracker_url (.'$GalaxyInfoModel'.'|'.0.issue_tracker_url)
 sub _jm_f_41($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.issue_tracker_url
+    # .'$GalaxyInfoModel'.'|'.0.issue_tracker_url
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.1.license)
+# check _jm_obj_98_map_license (.'$GalaxyInfoModel'.'|'.0.license)
 sub _jm_f_42($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.license
+    # .'$GalaxyInfoModel'.'|'.0.license
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_container_version)
+# check _jm_obj_98_map_min_ansible_container_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_container_version)
 sub _jm_f_43($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.min_ansible_container_version
+    # .'$GalaxyInfoModel'.'|'.0.min_ansible_container_version
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.1.min_ansible_version)
+# check _jm_obj_98_map_min_ansible_version (.'$GalaxyInfoModel'.'|'.0.min_ansible_version)
 sub _jm_f_44($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.min_ansible_version
+    # .'$GalaxyInfoModel'.'|'.0.min_ansible_version
     $res = jm_is_string($val);
     return $res;
 }
 
-# check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.1.namespace)
+# check _jm_obj_98_map_namespace (.'$GalaxyInfoModel'.'|'.0.namespace)
 sub _jm_f_45($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.namespace
+    # .'$GalaxyInfoModel'.'|'.0.namespace
     # "/^[a-z][-a-z0-9_]+$/"
     $res = jm_is_string($val) && _jm_re_0($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.1.platforms)
+# check _jm_obj_98_map_platforms (.'$GalaxyInfoModel'.'|'.0.platforms)
 sub _jm_f_46($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.platforms
+    # .'$GalaxyInfoModel'.'|'.0.platforms
     $res = json_model_50($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.1.role_name)
+# check _jm_obj_98_map_role_name (.'$GalaxyInfoModel'.'|'.0.role_name)
 sub _jm_f_47($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.role_name
+    # .'$GalaxyInfoModel'.'|'.0.role_name
     # "/^[a-z][a-z0-9_]+$/"
     $res = jm_is_string($val) && _jm_re_1($val, $path, $rep);
     return $res;
 }
 
-# check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.1.video_links)
+# check _jm_obj_98_map_video_links (.'$GalaxyInfoModel'.'|'.0.video_links)
 sub _jm_f_48($$$)
 {
     my ($val, $path, $rep) = @_;
     my $res;
-    # .'$GalaxyInfoModel'.'|'.1.video_links
+    # .'$GalaxyInfoModel'.'|'.0.video_links
     $res = jm_is_array($val);
     if ($res)
     {
@@ -6751,7 +6751,7 @@ sub _jm_f_48($$$)
 }
 
 
-# object .'$GalaxyInfoModel'.'|'.1
+# object .'$GalaxyInfoModel'.'|'.0
 sub _jm_obj_98($$$)
 {
     my ($val, $path, $rep) = @_;
@@ -6769,7 +6769,7 @@ sub _jm_obj_98($$$)
         {
             # handle must standalone property
             $must_count++;
-            # .'$GalaxyInfoModel'.'|'.1.standalone
+            # .'$GalaxyInfoModel'.'|'.0.standalone
             $res = jm_is_boolean($pval) && $pval == 0;
             if (! $res)
             {
@@ -6780,7 +6780,7 @@ sub _jm_obj_98($$$)
         {
             # handle must description property
             $must_count++;
-            # .'$GalaxyInfoModel'.'|'.1.description
+            # .'$GalaxyInfoModel'.'|'.0.description
             $res = jm_is_string($pval);
             if (! $res)
             {
@@ -6814,17 +6814,21 @@ sub json_model_54($$$)
     my $res;
     # hmmmm, property standalone should probably be required…
     # .'$GalaxyInfoModel'
-    # .'$GalaxyInfoModel'.'|'.0
-    $res = json_model_53($val, $path, $rep);
-    if (! $res)
+    $res = jm_is_object($val);
+    if ($res)
     {
-        # .'$GalaxyInfoModel'.'|'.1
+        # .'$GalaxyInfoModel'.'|'.0
         $res = _jm_obj_98($val, $path, $rep);
         if (! $res)
         {
-            # .'$GalaxyInfoModel'.'|'.2
+            # .'$GalaxyInfoModel'.'|'.1
             $res = _jm_obj_97($val, $path, $rep);
         }
+    }
+    if (! $res)
+    {
+        # .'$GalaxyInfoModel'.'|'
+        $res = json_model_53($val, $path, $rep);
     }
     return $res;
 }
