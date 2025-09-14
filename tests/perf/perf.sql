@@ -119,6 +119,7 @@ UPDATE Comparison
 CREATE TABLE RelativeComparison AS
   SELECT
     name,
+    best,
     blaze / best AS blaze,
     c / best AS c,
     js / best AS js,
@@ -180,6 +181,7 @@ CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
     name,
+    best AS "best µs",
     ROUND(blaze, 1) AS blaze,
     ROUND(c, 1) AS c,
     ROUND(js, 1) AS js,
