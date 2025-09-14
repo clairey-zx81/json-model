@@ -93,6 +93,7 @@ UPDATE CumulatedPerf SET run = NULL WHERE run = 0.0;
 CREATE TABLE Comparison AS
   SELECT
     c.name AS name,
+    tests AS cases,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'blaze' and cp.name = c.name) AS blaze,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-c' and cp.name = c.name) AS c,
     (SELECT cp.run FROM CumulatedPerf AS cp WHERE cp.tool = 'jmc-js' and cp.name = c.name) AS js,
@@ -119,6 +120,7 @@ UPDATE Comparison
 CREATE TABLE RelativeComparison AS
   SELECT
     name,
+    cases,
     best,
     blaze / best AS blaze,
     c / best AS c,
@@ -181,6 +183,7 @@ CREATE TABLE ShowPerfPerCase AS
   SELECT
     RANK() OVER (ORDER BY name) AS "#",
     name,
+    cases AS "# cases",
     best AS "best µs",
     ROUND(blaze, 1) AS blaze,
     ROUND(c, 1) AS c,
