@@ -26,17 +26,19 @@ while [[ "$1" == -* ]] ; do
     shift
     case $opt in
         -h|--help)
-            echo "$0 [-h] [-v] [-p 8] [-l 1000] [--jmc=latest] [--jsc=latest]"
+            echo "$0 [-h] [-v] [-p 8] [-c 5] [-l 1000] [--jmc=latest] [--jsc=latest]"
+            echo "Options and defaults:"
             echo " --help|-h: this help"
-            echo " --version|-v: show version"
-            echo " --parallel|-p N: benchmark parallelism, eg half available cores"
-            echo " --compile|-c C: number of compilation iterations for performance"
-            echo " --loop|-l L: number of run iterations for performance figures"
-            echo " --jmc=TAG: docker tag for JSON Model docker image"
-            echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image"
+            echo " --version|-v: show jmc version"
+            echo " --parallel|-p N: benchmark parallelism, eg half available cores ($PARALLEL)"
+            echo " --compile|-c C: number of compilation iterations for performance ($COMP)"
+            echo " --loop|-l L: number of run iterations for performance figures ($LOOP)"
+            echo " --jmc=TAG: docker tag for JSON Model Compiler docker image ($JMC)"
+            echo " --jsc=TAG: docker tag for JSON Schema CLI (Blaze) docker image ($JSC)"
             exit 0
             ;;
         -v|--version)
+            # NOTE depends on zx80/jmc docker image
             jmc --version
             exit 0
             ;;
@@ -57,7 +59,12 @@ done
 
 [ $# -ne 0 ] && err 1 "$0 - unexpected arguments: $@"
 
-echo "# benchmarking parallel=$PARALLEL loop=$LOOP jmc=$JMC jsc=$JSC"
+# check option integer values
+[ $PARALLEL -ge 1 ] || err 1 "unexpected parallel value, must be >= 1: $PARALLEL"
+[ $LOOP -ge 0 ] || err 1 "unexpected loop value, must be >= 0: $LOOP"
+[ $COMP -ge 1 ] || err 1 "unexpected comp value, must be >= 1: $COMP"
+
+echo "# $$ benchmarking parallel=$PARALLEL loop=$LOOP comp=$COMP jmc=$JMC jsc=$JSC"
 
 #
 # PARALLEL RUNS
@@ -87,26 +94,27 @@ function do_wait()
 }
 
 #
-# SANITY
+# SANITY COMMANDS END FILES
 #
 echo "# sanity check"
 for cmd in git docker sqlite3 jq id basename grep sed wc /bin/bash /usr/bin/time ; do
-  type $cmd || err 2 "command $cmd not found"
+  type $cmd || err 2 "command not found: $cmd"
 done
 
 for f in jsb tmp perf.db ; do
-  test -e $f && err 3 "unexpected $f"
+  test -e $f && err 3 "unexpected dir/file: $f"
 done
 
 #
 # SETUP
 #
 echo "# docker images"
-docker pull zx80/jmc:$JMC
-docker pull ghcr.io/sourcemeta/jsonschema:$JSC
+for img in zx80/jmc:$JMC ghcr.io/sourcemeta/jsonschema:$JSC ; do
+  docker pull $img || err 4 "cannot docker pull $img"
+done
 
 echo "# cloning repos"
-git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 3 "jsb clone failed"
+git clone https://github.com/sourcemeta-research/jsonschema-benchmark.git jsb || err 4 "git clone failed (jsb)"
 
 echo "# misc setup"
 # NOTE check that jmc CLASSPATH is consistent
@@ -180,3 +188,8 @@ sqlite3 perf.db < $script_dir/perf.sql
 } > benchmark.output
 
 sqlite3 -csv perf.db < $script_dir/show.sql > benchmark.csv
+
+#
+# DONE
+#
+echo "# $$ benchmarking done after $SECONDS"
