@@ -350,7 +350,8 @@ class CodeGenerator:
         """Generate optimized disjunction check, return None if failed."""
 
         assert isinstance(model, dict) and "|" in model and isinstance(model["|"], list)
-        dis = disjunct_analyse(jm, model, mpath)  # type: ignore
+
+        dis = disjunct_analyse(jm, model, mpath, True)  # type: ignore
         log.debug(f"disjunct at {mpath}: dis={dis}")
         if dis is None:
             return None
@@ -393,7 +394,11 @@ class CodeGenerator:
         TAG_CHECKS: dict[JsonScalar, str] = {}
         for i in range(len(models)):
             consts = all_const_props[i]
-            TAG_CHECKS[consts[tag_name]] = self._paths[tuple(mpath + [i])]
+            tags = consts[tag_name]
+            if not isinstance(tags, list):
+                tags = [ tags ]
+            for t in tags:
+                TAG_CHECKS[t] = self._paths[tuple(mpath + [i])]
 
         self._code.cmap(cmap, TAG_CHECKS)
 

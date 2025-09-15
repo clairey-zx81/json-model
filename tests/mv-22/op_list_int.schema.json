@@ -1,0 +1,83 @@
+{
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 0
+        },
+        "z": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "t",
+        "z"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "enum": [
+            2,
+            4,
+            6,
+            8
+          ]
+        },
+        "p": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "t",
+        "p"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "enum": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ]
+        },
+        "i": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "t",
+        "i"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "t": {
+          "const": 10
+        },
+        "d": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "t",
+        "d"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+op_list_str.values.json[0]: PASS
+op_list_str.values.json[1]: PASS
+op_list_str.values.json[2]: PASS
+op_list_str.values.json[3]: FAIL (.: tag prop <t> is missing [.'|'])
+op_list_str.values.json[4]: FAIL (.: tag <t> value not found [.'|'])
+op_list_str.values.json[5]: FAIL (.bla: unexpected prop [.'|'.0])
+op_list_str.values.json[6]: FAIL (.: tag prop <t> is missing [.'|'])
+op_list_str.values.json[7]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[8]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[9]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[10]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[11]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[12]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[13]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[14]: FAIL (.: value is not an object [.'|'])
+op_list_str.values.json[15]: FAIL (.: value is not an object [.'|'])

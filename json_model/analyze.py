@@ -8,7 +8,7 @@ from .recurse import recModel, allFlt, noRwt
 from .model import JsonModel
 
 # JsonModel = typing.NewType("JsonModel", None)
-type Constants = bool|int|float|str
+type Constants = bool|int|float|str|list[int|float|str]
 type ModelRef = list[str]
 
 def references(jm: JsonModel) -> dict[str, set[int]]:
@@ -296,6 +296,7 @@ def ultimate_model(jm: JsonModel, model: ModelType, constrained=True, strict=Fal
         case dict():
             if "@" in model:
                 if strict:
+                    # FIXME generic comments!
                     if set(model.keys()).issubset(["@", "#", "~", "%", "$"]):
                         return ultimate_model(jm, model["@"])
                     else:
@@ -304,17 +305,16 @@ def ultimate_model(jm: JsonModel, model: ModelType, constrained=True, strict=Fal
                     return ultimate_model(jm, model["@"])
                 else:
                     return UnknownModel  # type: ignore
-            elif "|" in model:
-                return UnknownModel  # type: ignore
-            else:
+            else:  # include | ^ &
                 return model
         case _:
             return model
 
-def evalModel(jm: JsonModel, model: ModelType):
+def evalModel(jm: JsonModel, model: ModelType, lists: bool = False):
     """Tell if an ultimate model value has a constant."""
     # FIXME should it detect @ eq?
     v = ultimate_model(jm, model)
+    log.debug(f"model={model} v={v}")
     if v == UnknownModel:
         # FIXME ?!
         return None
@@ -335,10 +335,15 @@ def evalModel(jm: JsonModel, model: ModelType):
             return v[1:]
         else:
             return v
+    elif lists and tv is dict and ("|" in v or "^" in v):
+        op = "|" if "|" in v else "^"
+        orcst = [ evalModel(jm, m, False) for m in v[op] ]
+        log.debug(f"orcst = {orcst}")
+        return None if any(map(lambda c: c is None, orcst)) else orcst
     else:
         return None
 
-def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
+def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath, lists: bool = False) -> \
         tuple[str, type, list, list]|None:
     """Return the optimized check function if possible."""
     # FIXME if there is a ^, the preprocessor will have detected the discriminant
@@ -363,7 +368,7 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
     # only objects: collect their direct mandatory properties
     all_props: list[set[str]] = [
         set(k for k in m.keys() if k and k[0] not in ("$", "?", "/"))
-        for m in models if isinstance(m, dict)
+            for m in models if isinstance(m, dict)
     ]
     # get cleaned props and their constant values
     all_const_props: list[dict[str, Constants]] = []
@@ -371,23 +376,33 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
         consts: dict[str, Constants] = {}
         assert isinstance(model, dict)
         for prop in props:
-            val = evalModel(jm, model[prop])
+            val = evalModel(jm, model[prop], lists)
             if val is not None:
                 key = prop[1:] if prop[0] in ("_", "!") else prop
                 consts[key] = val
         all_const_props.append(consts)
+    log.debug(f"all_const_props = {all_const_props}")
     # tag candidates must:
     # - appear in all alternate models
+    #   TODO look for subsets?
     candidates: set[str] = set(all_const_props[0].keys())
     for props in all_const_props[1:]:
         candidates.intersection_update(props.keys())
     if not candidates:
         log.debug("no property with constant values")
         return None
-    # - have the same type
+    # - have the same type (???)
     candidates_typed: set[str] = set()
     for prop in candidates:
-        if len(set(type(consts[prop]) for consts in all_const_props)) == 1:
+        types = set()
+        values = set()
+        nvalues = 0
+        for consts in all_const_props:
+            if isinstance(consts[prop], list):
+                types |= { type(t) for t in consts[prop] }
+            else:
+                types.add(type(consts[prop]))
+        if len(types) == 1:
             candidates_typed.add(prop)
     if not candidates_typed:
         log.debug("no proprety with same type constants")
@@ -395,7 +410,16 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
     # - have distinct constant values
     candidates_distinct: set[str] = set()
     for prop in candidates_typed:
-        if len(set(consts[prop] for consts in all_const_props)) == len(all_const_props):
+        values = set()
+        nvalues = 0
+        for consts in all_const_props:
+            if isinstance(consts[prop], list):
+                values |= set(consts[prop])
+                nvalues += len(consts[prop])
+            else:
+                values.add(consts[prop])
+                nvalues += 1
+        if len(values) == nvalues:
             candidates_distinct.add(prop)
     if not candidates_distinct:
         log.debug("no property with distinct values")
@@ -403,6 +427,7 @@ def disjunct_analyse(jm: JsonModel, model: ModelType, mpath: ModelPath) -> \
     if len(candidates_distinct) > 1:
         log.warning(f"several disjunctive properties: {candidates_distinct}")
     # one tag with one type and only constants found!
+    # FIXME determinism?
     tag_name = candidates_distinct.pop()
     tag_type = ultimate_type(jm, all_const_props[0][tag_name])
     assert tag_type in (bool, int, float, str)
