@@ -27,9 +27,11 @@ docker.cleaner:
 # DOCKER
 #
 NOCACHE = --no-cache
+
 .PHONY: docker.build
 docker.build: .build
-.build: Dockerfile
+
+.build: Dockerfile jmc
 	docker build $(NOCACHE) -t jmc -f Dockerfile . && touch $@
 
 .PHONY: docker.run
@@ -43,9 +45,12 @@ docker.status:
 	docker container ps -a
 	docker image ls -a
 
+TAG = latest
+
+.PHONY: docker.tag
 docker.tag: .build
 	# tag latest
-	docker tag jmc zx80/jmc:latest
+	docker tag jmc zx80/jmc:$(TAG)
 	# tag package version
 	gitvers=$$(git rev-parse --short=8 HEAD)
 	docker tag jmc zx80/jmc:$$gitvers
