@@ -170,6 +170,7 @@ class JsonModel:
                  debug: int = 0,
                  loose_int: bool|None = None,
                  loose_float: bool|None = None,
+                 dname: str|None = None,
             ):
 
         # the root model cannot share a scope
@@ -211,6 +212,7 @@ class JsonModel:
         self._init_md = model
         self._resolver = resolver or Resolver()
         self._url = url
+        self._dname = dname
         self._debug = debug
 
         # copy parameter which may be modified
@@ -331,7 +333,7 @@ class JsonModel:
             self._defs.update({
                 n: JsonModel(m, resolver, url=self._url + "#" + n,
                              head=self._head, scope=self._defs, debug=self._debug,
-                             loose_int=self._loose_int, loose_float=self._loose_float)
+                             loose_int=self._loose_int, loose_float=self._loose_float, dname=n)
                     for n, m in dollar.items()
                         if isinstance(n, str) and n not in ("#", "")
             })

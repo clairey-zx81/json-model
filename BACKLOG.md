@@ -11,7 +11,7 @@
 - [x] java-backend: update dependency versions
 - [x] static: detect discriminator on object part of or/xor
 - [x] static: accept discriminator with a list of constants
-- [ ] optim: fix infinite recursion in `inline_or`
+- [x] optim: fix infinite recursion in `inline_or`
 - [ ] static: recognize already compile objects and reuse function esp under no no-reporting?
 - [ ] static: detect discriminators on objects sublists
 - [ ] artifact: make work with dind

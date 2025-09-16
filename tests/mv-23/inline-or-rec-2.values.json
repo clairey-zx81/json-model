@@ -1,0 +1,20 @@
+[
+  [ true,  {"t": "a", "a": 42} ],
+  [ true,  {"t": "b", "b": 18} ],
+  [ true,  {"t": "c", "c": 42} ],
+  [ true,  {"t": "d", "d": 18} ],
+  [ false, {"t": "c"} ],
+  [ false, {"a": 42} ],
+  [ false, {"z": "z"} ],
+  [ false, {"t": "c", "a": 42, "b": 18} ],
+  [ false, {} ],
+  [ false, null ],
+  [ false, true ],
+  [ false, false ],
+  [ false, -42 ],
+  [ false, 3.1415927 ],
+  [ false, "" ],
+  [ false, "unexpected" ],
+  [ false, [] ],
+  [ false, [1, "expected"] ]
+]

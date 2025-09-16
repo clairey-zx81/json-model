@@ -196,16 +196,7 @@ _UTYPE = {
     "$UUID": str, "$JSON": str,
 }
 
-
-# TODO return a set of types?
-def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
-    """Get the utimate type by following definitions.
-
-    Return _None_ if unknown, eg several are possible.
-    Note: this is also return of the type system is not feasible, eg "&(int, str)"
-
-    FIXME recursion
-    """
+def _ultimate_type(jm: JsonModel, model: ModelType, names: set[str]) -> type|None:
     match model:
         case str():
             if model == "" or model[0] not in ("$", "="):
@@ -217,29 +208,32 @@ def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
                         int)
             elif model in _UTYPE:
                 return _UTYPE[model]
-            else:
+            else:  # "$..."
+                # stop detected recursion
+                if model in names:
+                    return None
                 m = jm.resolveRef(model, ["<?>"])  # type: ignore
-                return ultimate_type(m, m._model)
+                return _ultimate_type(m, m._model, names | {model})
         case dict():
             if "@" in model:
-                return ultimate_type(jm, model["@"])
+                return _ultimate_type(jm, model["@"], names)
             elif "|" in model:
                 assert isinstance(models := model["|"], list)
-                types = set(ultimate_type(jm, m) for m in models)
+                types = set(_ultimate_type(jm, m, names) for m in models)
                 if len(types) == 1:
                     return types.pop()
                 else:
                     return None
             elif "^" in model:
                 assert isinstance(models := model["^"], list)
-                types = set(ultimate_type(jm, m) for m in models)
+                types = set(_ultimate_type(jm, m, names) for m in models)
                 if len(types) == 1:
                     return types.pop()
                 else:
                     return None
             elif "&" in model:
                 assert isinstance(models := model["&"], list)
-                types = set(ultimate_type(jm, m) for m in models)
+                types = set(_ultimate_type(jm, m, names) for m in models)
                 if len(types) == 1:
                     return types.pop()
                 else:
@@ -249,6 +243,14 @@ def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
                 return type(model)  # dict
         case _:  # None, bool, int, float, list
             return type(model)
+
+def ultimate_type(jm: JsonModel, model: ModelType) -> type|None:
+    """Get the utimate type by following definitions.
+
+    Return _None_ if unknown, eg several are possible.
+    Note: this is also return of the type system is not feasible, eg "&(int, str)"
+    """
+    return _ultimate_type(jm, model, set())
 
 
 # model predef to standard model

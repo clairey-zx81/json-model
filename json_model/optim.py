@@ -4,7 +4,8 @@
 import copy
 
 from .mtypes import ModelPath, ModelType
-from .utils import log, is_cst, _structurally_distinct_models, constant_value, same_model
+from .utils import log, is_cst, _structurally_distinct_models
+from .utils import constant_value, same_model, model_in_models
 from .recurse import recModel, allFlt, builtFlt, noRwt
 from .model import JsonModel
 from .analyze import ultimate_type
@@ -356,12 +357,11 @@ def partial_eval(jm: JsonModel):
 # NOTE could also follow empty @
 # TODO think about handling externals?
 
-def _or_op(model: ModelType) -> bool:
-    return isinstance(model, dict) and ("^" in model or "|" in model)
-
-def _follow_local_def(jm: JsonModel, model: ModelType) -> ModelType:
+def _follow_local_def(jm: JsonModel, model: ModelType, skip: str|None) -> ModelType:
     while isinstance(model, str) and model.startswith("$"):
         name = model[1:]
+        if name == skip:
+            return model
         if name in jm._defs:
             model = jm._defs[name]._model
         else:
@@ -369,25 +369,55 @@ def _follow_local_def(jm: JsonModel, model: ModelType) -> ModelType:
     return model
 
 # TODO consider or in xor or xor in or in some cases
-# FIXME prevent infinite recursion
-def inline_or(jm: JsonModel):
+# NOTE infinite recursion prevention is unproven
+# NOTE correction under ^ is unclear
+def inline_or(jm: JsonModel) -> bool:
     """Inline local definitions in or/xor model lists to help flattening."""
 
     changes: int = 0
+    dones: set[ModelPath] = set()
 
     def inFlt(model: ModelType, path: ModelPath) -> ModelType:
         nonlocal changes
         changed = False
-        if _or_op(model):
+        direct = len(path) == 0
+        if isinstance(model, dict) and ("|" in model or "^" in model):
             op = "|" if "|" in model else "^"
+            path = path + [op]
             models = []
             for m in model[op]:
                 if isinstance(m, str):
-                    md = _follow_local_def(jm, m)
-                    if isinstance(md, dict) and op in md:
+                    # try to prevent adding the same stuff twice for |
+                    if op == "|":
+                        pm = tuple(path + [m])
+                        if pm in dones:
+                            break
+                        else:
+                            dones.add(pm)
+                    # stupid direct self recursion can lead to infinite execution
+                    if direct and jm._dname is not None and m == "$" + jm._dname:
+                        log.warning(f"skipping self recursion on {m} at {path}")
                         changed = True
                         changes += 1
-                        models.extend(copy.deepcopy(md[op]))
+                        continue
+                    md = _follow_local_def(jm, m, jm._dname)
+                    if isinstance(md, dict) and op in md:
+                        for n in md[op]:
+                            if direct and jm._dname is not None and n == "$" + jm._dname:
+                                log.warning(f"skipping self recursion on {m} at {path}")
+                                changed = True
+                                changes += 1
+                            elif op == "|" and not model_in_models(n, models):
+                                if not same_model(n, m):
+                                    models.append(copy.deepcopy(n))
+                                    changed = True
+                                    changes += 1
+                                else:
+                                    models.append(m)
+                            elif op == "^":
+                                models.append(copy.deepcopy(n))
+                                changed = True
+                                changes += 1
                     else:
                         models.append(m)
                 else:
@@ -561,13 +591,14 @@ def simplify(jm: JsonModel):
 
     return changes > 0
 
-def optimize(jm: JsonModel):
+def optimize(jm: JsonModel, inline: bool = True):
     changed = True
     while changed:
         changed = False
         changed |= const_prop(jm)
         changed |= simplify(jm)
         changed |= partial_eval(jm)
-        # changed |= inline_or(jm)
+        if inline:
+            changed |= inline_or(jm)
         changed |= flatten(jm)
         changed |= xor_to_or(jm)

@@ -1,0 +1,21 @@
+{
+  "#": "JsonModel 1 with defs",
+  "$": {
+    "ab": {
+      "|": [
+        {
+          "t": "a",
+          "a": 1
+        },
+        {
+          "t": "b",
+          "b": 1
+        }
+      ],
+      "#": "JsonModel 2"
+    },
+    "#": "Symbol 1",
+    "": "./inline-or-rec"
+  },
+  "@": "$ab"
+}
